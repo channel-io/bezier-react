@@ -1,0 +1,49 @@
+{
+  "name": "ch-design-system",
+  "version": "0.1.0",
+  "description": "Design System by Channel",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "storybook": "start-storybook -p 4101",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "rollup -c",
+    "build:storybook": "build-storybook"
+  },
+  "keywords": [
+    "designsystem"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "@storybook/react": "^5.3.18",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.8.2",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "sass-loader": "^8.0.2",
+    "ts-jest": "^25.5.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
