@@ -4,6 +4,7 @@
   "description": "Design System by Channel",
   "main": "build/index.js",
   "module": "build/index.es.js",
+  "types": "build/index.d.ts",
   "files": [
     "build"
   ],
@@ -36,14 +37,14 @@
     "react-dom": "^16.13.1",
     "rollup": "^2.8.2",
     "rollup-plugin-peer-deps-external": "^2.2.2",
-    "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.27.0",
-    "sass-loader": "^8.0.2",
+    "styled-components": "^5.1.0",
     "ts-jest": "^25.5.0",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "styled-components": ">=5"
   }
 }

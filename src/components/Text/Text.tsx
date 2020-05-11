@@ -3,18 +3,18 @@ import React from 'react'
 
 /* Internal dependencies */
 import { TextProps } from './Text.types'
-import './Text.scss'
+import { TextComponent } from './Text.styled'
 
 function Text({
   title,
 }: TextProps) {
   return (
-    <div
+    <TextComponent
       data-testid="text"
       className="text"
     >
       {title}
-    </div>
+    </TextComponent>
   )
 }
 
