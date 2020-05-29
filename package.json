@@ -1,5 +1,5 @@
 {
-  "name": "ch-design-system",
+  "name": "@channel.io/design-system",
   "version": "0.1.0",
   "description": "Design System by Channel",
   "main": "build/index.js",
@@ -16,7 +16,10 @@
     "build:storybook": "build-storybook"
   },
   "keywords": [
-    "designsystem"
+    "design",
+    "react",
+    "zoyi",
+    "channel"
   ],
   "author": "",
   "license": "ISC",
