@@ -10,8 +10,9 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 4101",
-    "lint": "npm run eslint-all",
+    "lint": "npm run eslint-all && npm run stylelint-all",
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
+    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "rollup -c",
@@ -60,6 +61,10 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.27.0",
     "styled-components": "^5.1.0",
+    "stylelint": "^13.6.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^25.5.0",
     "typescript": "^3.8.3"
   },
