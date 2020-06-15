@@ -13,7 +13,7 @@ function Text({
       data-testid="text"
       className="text"
     >
-      {title}
+      { title }
     </TextComponent>
   )
 }

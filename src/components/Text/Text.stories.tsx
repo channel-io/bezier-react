@@ -5,7 +5,7 @@ import React from 'react'
 import Text from './Text'
 
 export default {
-  title: "Text",
+  title: 'Text',
 }
 
 export const Primary = () => <Text title="hello, world!" />

@@ -9,11 +9,34 @@
     "build"
   ],
   "scripts": {
+    "verify": "node scripts/check-npm-version.js",
     "storybook": "start-storybook -p 4101",
+    "lint-staged": "lint-staged",
+    "lint": "npm run eslint-all && npm run stylelint-all",
+    "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
+    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
+    "typecheck": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "rollup -c",
     "build:storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run verify && npm run lint-staged && npm run typecheck && npm run test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.styled.{js,ts}": [
+      "stylelint"
+    ],
+    "src/**/*.(js|ts)?(x)": [
+      "eslint"
+    ]
+  },
+  "engines": {
+    "node": "12.18.0",
+    "npm": "6.14.2"
   },
   "keywords": [
     "design",
@@ -25,6 +48,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@channel.io/eslint-config-channel": "^1.0.4",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@storybook/react": "^5.3.18",
@@ -32,12 +56,26 @@
     "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.34",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-eslint": "^8.2.6",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-react-app": "^9.1.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^4.0.1",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
+    "lint-staged": "^10.2.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.5",
@@ -45,6 +83,10 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.27.0",
     "styled-components": "^5.1.0",
+    "stylelint": "^13.6.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^25.5.0",
     "typescript": "^3.8.3"
   },

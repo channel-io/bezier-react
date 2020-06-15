@@ -6,18 +6,18 @@ import { render } from '@testing-library/react'
 import Text from './Text'
 import { TextProps } from './Text.types'
 
-describe("Text", () => {
+describe('Text', () => {
   let props: TextProps
 
   beforeEach(() => {
     props = {
-      title: "hello, world",
+      title: 'hello, world',
     }
   })
 
   const renderComponent = () => render(<Text {...props} />)
 
-  it("should have primary className with default props", () => {
+  it('should have primary className with default props', () => {
     const { getByTestId } = renderComponent()
 
     const testComponent = getByTestId('text')
