@@ -27,11 +27,15 @@
     }
   },
   "lint-staged": {
-    "src/**/*.styled.{js,ts}": ["stylelint"],
-    "src/**/*.(js|ts)?(x)": ["eslint"]
+    "src/**/*.styled.{js,ts}": [
+      "stylelint"
+    ],
+    "src/**/*.(js|ts)?(x)": [
+      "eslint"
+    ]
   },
   "engines": {
-    "node": "12.16.1",
+    "node": "12.18.0",
     "npm": "6.14.2"
   },
   "keywords": [
