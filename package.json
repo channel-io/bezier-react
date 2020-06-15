@@ -10,13 +10,24 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 4101",
+    "lint-staged": "lint-staged",
     "lint": "npm run eslint-all && npm run stylelint-all",
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
+    "typecheck": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "rollup -c",
     "build:storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged && npm run typecheck && npm run test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.styled.{js,ts}": ["stylelint"],
+    "src/**/*.(js|ts)?(x)": ["eslint"]
   },
   "keywords": [
     "design",
@@ -52,8 +63,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
+    "lint-staged": "^10.2.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.5",
