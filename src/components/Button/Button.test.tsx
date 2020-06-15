@@ -11,13 +11,14 @@ describe('Button', () => {
 
   beforeEach(() => {
     props = {
+      // eslint-disable-next-line no-console
       onClick: () => console.log('button'),
     }
   })
 
   const renderComponent = () => render(<Button {...props} />)
 
-  it("Button 테스트", () => {
+  it('Button 테스트', () => {
     const { getByTestId } = renderComponent()
 
     const testComponent = getByTestId('button')
