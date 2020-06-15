@@ -9,6 +9,7 @@
     "build"
   ],
   "scripts": {
+    "verify": "node scripts/check-npm-version.js",
     "storybook": "start-storybook -p 4101",
     "lint-staged": "lint-staged",
     "lint": "npm run eslint-all && npm run stylelint-all",
@@ -22,12 +23,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-staged && npm run typecheck && npm run test"
+      "pre-commit": "npm run verify && npm run lint-staged && npm run typecheck && npm run test"
     }
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": ["stylelint"],
     "src/**/*.(js|ts)?(x)": ["eslint"]
+  },
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.14.2"
   },
   "keywords": [
     "design",
