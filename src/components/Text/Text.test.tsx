@@ -17,7 +17,7 @@ describe('Text', () => {
 
   const renderComponent = () => render(<Text {...props} />)
 
-  it('should have primary className with default props', () => {
+  it.skip('should have primary className with default props', () => {
     const { getByTestId } = renderComponent()
 
     const testComponent = getByTestId('text')
