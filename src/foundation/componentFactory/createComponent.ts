@@ -14,7 +14,7 @@ export type CreateComponentReturnType<T> = React.FunctionComponent<T> & {
 }
 
 // Component Factory
-const createComponent = <T extends { [key: string]: any }>({
+const createComponent = <T extends UIComponentProps>({
   render,
   displayName = 'ChannelReactComponent',
 }: CreateComponentConfig<T>): CreateComponentReturnType<T> => {
