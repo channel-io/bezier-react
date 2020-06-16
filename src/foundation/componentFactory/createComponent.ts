@@ -2,11 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ObjectOf } from './utilTypes'
-import renderComponent, { RendererProps } from './renderComponent'
+import { StylableComponentProps } from './ComponentProps'
 
-export interface CreateComponentConfig<T> {
-  render: (props: RendererProps<T>) => React.ReactNode
+export interface CreateComponentConfig<T extends StylableComponentProps> {
+  render: (props: T) => React.ReactElement<T>
   displayName?: string
 }
 
@@ -15,16 +14,13 @@ export type CreateComponentReturnType<T> = React.FunctionComponent<T> & {
 }
 
 // Component Factory
-const createComponent = <T extends ObjectOf<any> = any>({
+const createComponent = <T extends StylableComponentProps>({
   render,
   displayName = 'ChannelReactComponent',
 }: CreateComponentConfig<T>): CreateComponentReturnType<T> => {
   // Generate Function Component
   const ChannelComponent: CreateComponentReturnType<T> = (props): React.ReactElement<T> => (
-    renderComponent<T>({
-      props,
-      render,
-    })
+    render(props)
   )
 
   ChannelComponent.displayName = displayName

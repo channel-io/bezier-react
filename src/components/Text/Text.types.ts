@@ -1,7 +1,4 @@
 /* Internal dependencies */
-import { ContentComponentProps } from '../../foundation/ComponentProps'
-import { RendererProps } from '../../foundation/renderComponent'
+import { ContentComponentProps } from '../../foundation/componentFactory/ComponentProps'
 
 export interface TextProps extends ContentComponentProps<string> {}
-
-export type TextRendererProps = RendererProps<TextProps>

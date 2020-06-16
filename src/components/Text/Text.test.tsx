@@ -11,13 +11,13 @@ describe('Text', () => {
 
   beforeEach(() => {
     props = {
-      title: 'hello, world',
+      content: 'hello, world',
     }
   })
 
   const renderComponent = () => render(<Text {...props} />)
 
-  it.skip('should have primary className with default props', () => {
+  it('should have primary className with default props', () => {
     const { getByTestId } = renderComponent()
 
     const testComponent = getByTestId('text')

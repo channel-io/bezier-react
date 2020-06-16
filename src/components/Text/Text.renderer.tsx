@@ -2,20 +2,18 @@
 import React from 'react'
 
 /* Internal depdencies */
-import { TextRendererProps } from './Text.types'
+import { TextProps } from './Text.types'
 import TextView from './Text.styled'
 
 function TextRenderer({
+  as,
   content,
   styles,
   className,
-  config,
-}: TextRendererProps) {
-  const { ElementType } = config
-
+}: TextProps) {
   return (
     <TextView
-      as={ElementType}
+      as={as}
       style={styles}
       className={className}
       data-testid="text"
