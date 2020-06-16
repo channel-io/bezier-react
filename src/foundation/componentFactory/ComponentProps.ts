@@ -8,7 +8,7 @@ import Theme from '../../styling/Theme'
 export type ReactChildren = React.ReactNodeArray | React.ReactNode
 
 export interface RenderConfigProps {
-  as?: any
+  as?: React.ElementType
   theme?: Theme
 }
 
