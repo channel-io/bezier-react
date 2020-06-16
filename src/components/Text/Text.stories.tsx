@@ -8,4 +8,4 @@ export default {
   title: 'Text',
 }
 
-export const Primary = () => <Text content="hello, world!" as="span" />
+export const Primary = () => <Text content="hello" />

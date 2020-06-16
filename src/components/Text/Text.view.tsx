@@ -2,14 +2,14 @@
 import React from 'react'
 
 /* Internal depdencies */
-import { TextProps } from './Text.types'
+import { TextViewProps } from './Text.types'
 
-function TextView(
-  {
-    content,
-  }: TextProps,
-  ElementType: React.ElementType<TextProps>,
-): React.ReactNode {
+function TextView({
+  props,
+  ElementType = 'span',
+}: TextViewProps) {
+  const { content } = props
+
   return (
     <ElementType
       data-testid="text"

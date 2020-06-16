@@ -5,14 +5,14 @@ import React from 'react'
 import getElementType from './getElementType'
 import { ComponentProps } from './types'
 
-export interface RenderResultConfig<T extends ComponentProps> {
+export interface FinalProps<T extends ComponentProps> {
   props: T
   ElementType: React.ElementType<T>
 }
 
-export type RenderCallBack<T> = (config: RenderResultConfig<T>) => any
+export type RenderCallBack<T> = (config: FinalProps<T>) => any
 
-export interface RenderConfig<T extends ComponentProps> {
+export interface RenderComponentConfig<T extends ComponentProps> {
   props: T
   render: RenderCallBack<T>
 }
@@ -20,9 +20,9 @@ export interface RenderConfig<T extends ComponentProps> {
 const renderComponent = <T extends ComponentProps>({
   props,
   render,
-}: RenderConfig<T>): React.ReactElement => {
+}: RenderComponentConfig<T>): React.ReactElement => {
   const ElementType = getElementType<T>(props) as React.ReactType<T>
-  const resolvedConfig: RenderResultConfig<T> = {
+  const resolvedConfig: FinalProps<T> = {
     props,
     ElementType,
   }

@@ -3,30 +3,35 @@ import React from 'react'
 
 /* Internal dependencies */
 import { ObjectOf } from './utilTypes'
-import renderComponent from './renderComponent'
+import renderComponent, { FinalProps } from './renderComponent'
 
 export interface CreateComponentConfig<T> {
-  render: (props: T, ElementType: React.ElementType<T>) => React.ReactNode
+  render: (props: FinalProps<T>) => React.ReactNode
   displayName?: string
+}
+
+export type CreateComponentReturnType<T> = React.FunctionComponent<T> & {
+  create: any
 }
 
 // Component Factory
 const createComponent = <T extends ObjectOf<any> = any>({
   render,
   displayName = 'ChannelReactComponent',
-}: CreateComponentConfig<T>): React.FunctionComponent<T> => {
+}: CreateComponentConfig<T>): CreateComponentReturnType<T> => {
   // Generate Function Component
-  const ChannelComponent: React.FunctionComponent<T> = (props): React.ReactElement<T> => (
+  const ChannelComponent: CreateComponentReturnType<T> = (props): React.ReactElement<T> => (
     renderComponent<T>({
       props,
-      render: config => {
-        const { ElementType } = config
-        return render(props, ElementType)
-      },
+      render,
     })
   )
 
   ChannelComponent.displayName = displayName
+
+  // TODO: (@leo) create method 정의할 것 (shortHand)
+  // eslint-disable-next-line no-console
+  ChannelComponent.create = () => console.log(`create ${displayName}`)
 
   return ChannelComponent
 }
