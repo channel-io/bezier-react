@@ -12,15 +12,17 @@ export interface RenderConfigProps {
   theme?: Theme
 }
 
-export type StylableComponentProps = RenderConfigProps & Extendable<{
+export type StylableComponentProps = Extendable<{
   styles?: CSSInJsStyle
   className?: string
 }>
 
-export interface ContentComponentProps<Content = React.ReactNode> extends StylableComponentProps {
+export type UIComponentProps = RenderConfigProps & StylableComponentProps
+
+export interface ContentComponentProps<Content = React.ReactNode> extends UIComponentProps {
   content?: Content
 }
 
-export interface ChildrenComponentProps<Children = ReactChildren> extends StylableComponentProps {
+export interface ChildrenComponentProps<Children = ReactChildren> extends UIComponentProps {
   children?: Children
 }

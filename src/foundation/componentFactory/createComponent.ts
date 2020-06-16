@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { StylableComponentProps } from './ComponentProps'
+import { UIComponentProps } from './ComponentProps'
 
-export interface CreateComponentConfig<T extends StylableComponentProps> {
+export interface CreateComponentConfig<T extends UIComponentProps> {
   render: (props: T) => React.ReactElement<T>
   displayName?: string
 }
@@ -14,7 +14,7 @@ export type CreateComponentReturnType<T> = React.FunctionComponent<T> & {
 }
 
 // Component Factory
-const createComponent = <T extends StylableComponentProps>({
+const createComponent = <T extends { [key: string]: any }>({
   render,
   displayName = 'ChannelReactComponent',
 }: CreateComponentConfig<T>): CreateComponentReturnType<T> => {

@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal depdencies */
-import { TextProps } from './Text.types'
+import TextProps from './Text.types'
 import TextView from './Text.styled'
 
 function TextRenderer({
