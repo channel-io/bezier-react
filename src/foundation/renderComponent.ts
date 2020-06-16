@@ -2,15 +2,17 @@
 import React from 'react'
 
 /* Internal dependencies */
-import getElementType from './getElementType'
 import { ComponentProps } from './ComponentProps'
 
-export interface FinalProps<T extends ComponentProps> {
-  props: T
-  ElementType: React.ElementType<T>
+export interface RenderConfig {
+  ElementType: any
 }
 
-export type RenderCallBack<T> = (props: FinalProps<T>) => any
+export type RendererProps<T extends ComponentProps> = T & {
+  config: RenderConfig
+}
+
+export type RenderCallBack<T> = (props: RendererProps<T>) => any
 
 export interface RenderComponentConfig<T extends ComponentProps> {
   props: T
@@ -21,10 +23,15 @@ const renderComponent = <T extends ComponentProps>({
   props,
   render,
 }: RenderComponentConfig<T>): React.ReactElement => {
-  const ElementType = getElementType<T>(props) as React.ReactType<T>
-  const finalProps: FinalProps<T> = {
-    props,
+  const ElementType = props.as
+
+  const config = {
     ElementType,
+  }
+
+  const finalProps: RendererProps<T> = {
+    ...props,
+    config,
   }
 
   const element = render(finalProps)

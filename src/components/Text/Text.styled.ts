@@ -1,10 +1,7 @@
 /* External dependencies */
 import styled from 'styled-components'
 
-/* Ineternal dependencies */
-import TextView from './Text.view'
-
-const Text = styled(TextView)`
+const Text = styled.span`
   font-size: 13px;
 `
 

@@ -3,10 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import { ObjectOf } from './utilTypes'
-import renderComponent, { FinalProps } from './renderComponent'
+import renderComponent, { RendererProps } from './renderComponent'
 
 export interface CreateComponentConfig<T> {
-  render: (props: FinalProps<T>) => React.ReactNode
+  render: (props: RendererProps<T>) => React.ReactNode
   displayName?: string
 }
 
