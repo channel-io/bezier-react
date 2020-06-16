@@ -8,10 +8,11 @@ function TextView({
   props,
   ElementType = 'span',
 }: TextViewProps) {
-  const { content } = props
+  const { content, styles } = props
 
   return (
     <ElementType
+      style={styles}
       data-testid="text"
     >
       { content }

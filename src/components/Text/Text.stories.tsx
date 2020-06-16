@@ -9,3 +9,5 @@ export default {
 }
 
 export const Primary = () => <Text content="hello" />
+
+export const WithStyle = () => <Text content="hello" styles={{ color: 'green' }}/>

@@ -10,8 +10,10 @@
     "noEmit": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
   },
+  "types": ["react", "jest"],
   "include": [
     "src/**/*"
   ],
