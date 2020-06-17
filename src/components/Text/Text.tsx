@@ -2,20 +2,28 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { TextProps } from './Text.types'
-import { TextComponent } from './Text.styled'
+import TextProps from './Text.types'
+import TextView from './Text.styled'
 
 function Text({
-  title,
+  as,
+  testId = 'text',
+  content,
+  styles,
+  className,
 }: TextProps) {
   return (
-    <TextComponent
-      data-testid="text"
-      className="text"
+    <TextView
+      as={as}
+      style={styles}
+      className={className}
+      data-testid={testId}
     >
-      { title }
-    </TextComponent>
+      { content }
+    </TextView>
   )
 }
+
+Text.displayName = 'Text'
 
 export default Text

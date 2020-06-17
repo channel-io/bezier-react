@@ -1,5 +1,9 @@
+/* External dependencies */
 import styled from 'styled-components'
 
-export const TextComponent = styled.div`
-  font-size: 13px;
+const Text = styled.span`
+  font-size: ${props => props.theme?.typo?.normal ?? 13}px;
+  color: ${props => props.theme?.palette?.black70};
 `
+
+export default Text

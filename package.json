@@ -16,14 +16,15 @@
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
     "typecheck": "tsc",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "npm run lint && npm run typecheck && npm run jest",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
     "build": "rollup -c",
     "build:storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run verify && npm run lint-staged && npm run typecheck && npm run test"
+      "pre-commit": "npm run verify && npm run lint-staged && npm run typecheck && npm run jest"
     }
   },
   "lint-staged": {
@@ -55,7 +56,9 @@
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",
+    "@types/lodash": "^4.14.155",
     "@types/react": "^16.9.34",
+    "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "babel-eslint": "^8.2.6",
@@ -76,6 +79,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.10",
+    "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.5",

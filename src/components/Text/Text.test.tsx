@@ -4,14 +4,14 @@ import { render } from '@testing-library/react'
 
 /* Internal dependencies */
 import Text from './Text'
-import { TextProps } from './Text.types'
+import TextProps from './Text.types'
 
 describe('Text', () => {
   let props: TextProps
 
   beforeEach(() => {
     props = {
-      title: 'hello, world',
+      content: 'hello, world',
     }
   })
 
