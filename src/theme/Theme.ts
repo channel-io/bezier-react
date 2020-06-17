@@ -2,22 +2,22 @@
 import * as StyledComponents from 'styled-components'
 
 /* Internal dependencies */
-import { DefaultPalette, DarkPalette } from './Palette'
-import { DefaultTypo } from './Typography'
+import Palette from './Palette'
+import Typography from './Typography'
 
 export default interface Theme {
   palette: any
-  typography: any
+  typo: any
 }
 
 export const DefaultTheme: Theme = {
-  palette: DefaultPalette,
-  typography: DefaultTypo,
+  palette: Palette.Default,
+  typo: Typography.Default,
 }
 
 export const DarkTheme: Theme = {
-  palette: DarkPalette,
-  typography: DefaultTypo,
+  palette: Palette.Dark,
+  typo: Typography.Default,
 }
 
 export const {

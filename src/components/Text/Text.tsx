@@ -1,12 +1,13 @@
 /* External dependencies */
 import React from 'react'
 
-/* Internal depdencies */
+/* Internal dependencies */
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
 function Text({
   as,
+  testId = 'text',
   content,
   styles,
   className,
@@ -16,7 +17,7 @@ function Text({
       as={as}
       style={styles}
       className={className}
-      data-testid="text"
+      data-testid={testId}
     >
       { content }
     </TextView>

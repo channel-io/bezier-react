@@ -3,13 +3,12 @@ import React from 'react'
 
 /* Internal dependencies */
 import { Extendable, CSSInJsStyle } from './utilTypes'
-import Theme from '../theme/Theme'
 
 export type ReactChildren = React.ReactNodeArray | React.ReactNode
 
 export interface RenderConfigProps {
   as?: React.ElementType
-  theme?: Theme
+  testId?: string
 }
 
 export type StylableComponentProps = Extendable<{

@@ -1,4 +1,4 @@
-export enum DefaultPalette {
+enum Default {
   // Black
   black70 = 'rgba(0, 0, 0, .7)',
   black50 = 'rgba(0, 0, 0, .5)',
@@ -112,7 +112,7 @@ export enum DefaultPalette {
 }
 
 // TODO: Dark Mode 색상 팔레트 정하기
-export enum DarkPalette {
+enum Dark {
   // Black
   black70 = 'rgba(0, 0, 0, .7)',
   black50 = 'rgba(0, 0, 0, .5)',
@@ -223,4 +223,9 @@ export enum DarkPalette {
 
   // Absolute White
   white = '#FFF',
+}
+
+export default {
+  Default,
+  Dark,
 }
