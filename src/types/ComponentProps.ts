@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Extendable, CSSInJsStyle } from '../utils/utilTypes'
-import Theme from '../../styling/Theme'
+import { Extendable, CSSInJsStyle } from './utilTypes'
+import Theme from '../theme/Theme'
 
 export type ReactChildren = React.ReactNodeArray | React.ReactNode
 

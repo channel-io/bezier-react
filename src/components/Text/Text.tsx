@@ -5,7 +5,7 @@ import React from 'react'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
-function TextRenderer({
+function Text({
   as,
   content,
   styles,
@@ -23,4 +23,6 @@ function TextRenderer({
   )
 }
 
-export default TextRenderer
+Text.displayName = 'Text'
+
+export default Text

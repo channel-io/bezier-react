@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import Text from './Text'
-import { DarkTheme, ChThemeProvider } from '../../styling/Theme'
+import { DarkTheme, ChThemeProvider } from '../../theme/Theme'
 
 export default {
   title: 'Text',

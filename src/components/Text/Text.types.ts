@@ -1,4 +1,4 @@
 /* Internal dependencies */
-import { ContentComponentProps } from '../../foundation/componentFactory/ComponentProps'
+import { ContentComponentProps } from '../../types/ComponentProps'
 
 export default interface TextProps extends ContentComponentProps<string> {}
