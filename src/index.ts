@@ -1,12 +1,5 @@
 /* Components */
-import Text from './components/Text'
-import Button from './components/Button'
+export * from './components/Button'
+export * from './components/Text'
 
-/* Styles */
-import { DefaultTheme } from './theme/Theme'
-
-export {
-  Text,
-  Button,
-  DefaultTheme,
-}
+export * from './theme/Theme'

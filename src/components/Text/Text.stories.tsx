@@ -4,7 +4,7 @@ import { withKnobs, text, select, object } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
 import Text from './Text'
-import { DarkTheme, ChThemeProvider } from '../../theme/Theme'
+import { DarkTheme, ThemeProvider } from '../../theme/Theme'
 
 export default {
   title: 'Text',
@@ -28,7 +28,7 @@ export const AlternativeTag = () => (
 )
 
 export const WithTheme = () => (
-  <ChThemeProvider theme={DarkTheme}>
+  <ThemeProvider theme={DarkTheme}>
     <Text content={text('content', 'hiiii')} />
-  </ChThemeProvider>
+  </ThemeProvider>
 )

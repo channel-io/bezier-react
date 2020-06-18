@@ -24,6 +24,4 @@ function Button({
   )
 }
 
-Button.ButtonTheme = ButtonTheme
-
 export default Button
