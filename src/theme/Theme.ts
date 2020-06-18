@@ -21,5 +21,5 @@ export const DarkTheme: Theme = {
 }
 
 export const {
-  ThemeProvider: ChThemeProvider,
+  ThemeProvider,
 } = StyledComponents as StyledComponents.ThemedStyledComponentsModule<Theme>

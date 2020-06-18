@@ -1,3 +1,8 @@
 import Button from './Button'
+import { ButtonProps, ButtonTheme } from './Button.types'
 
-export default Button
+export {
+  Button,
+  ButtonProps,
+  ButtonTheme,
+}
