@@ -9,13 +9,13 @@ function Text({
   as,
   testId = 'text',
   content,
-  styles,
+  style,
   className,
 }: TextProps) {
   return (
     <TextView
       as={as}
-      style={styles}
+      style={style}
       className={className}
       data-testid={testId}
     >
