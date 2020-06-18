@@ -12,7 +12,7 @@ export interface RenderConfigProps {
 }
 
 export type StylableComponentProps = Extendable<{
-  styles?: CSSInJsStyle
+  style?: CSSInJsStyle
   className?: string
 }>
 
