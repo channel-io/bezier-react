@@ -9,7 +9,7 @@
     "build"
   ],
   "scripts": {
-    "verify": "node scripts/check-npm-version.js",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
     "storybook": "start-storybook -p 4101",
     "lint-staged": "lint-staged",
     "lint": "npm run eslint-all && npm run stylelint-all",
@@ -93,6 +93,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^25.5.0",
+    "ts-node": "^8.10.2",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
