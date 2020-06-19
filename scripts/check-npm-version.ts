@@ -1,5 +1,5 @@
-const { exec } = require('child_process')
-const packages = require('../package.json')
+import { exec } from 'child_process'
+import packages from '../package.json'
 
 const npmVersion = packages.engines.npm
 
