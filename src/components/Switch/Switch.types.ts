@@ -1,9 +1,10 @@
 /* External dependencies */
-import { CSSProperties, MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 
-export interface SwitchProps {
-  className?: string
-  style?: CSSProperties
+/* Internal dependencies */
+import { UIComponentProps } from '../../types/ComponentProps'
+
+export interface SwitchProps extends UIComponentProps {
   size?: number
   checked?: boolean
   disabled?: boolean

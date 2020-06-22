@@ -6,6 +6,8 @@ import { SwitchProps } from './Switch.types'
 import { Wrapper, Content } from './Switch.styled'
 
 function Switch({
+  as,
+  testId,
   className,
   style,
   checked = false,
@@ -21,12 +23,14 @@ function Switch({
 
   return (
     <Wrapper
+      as={as}
       className={className}
       size={size}
       checked={checked}
       disabled={disabled}
       style={style}
       onClick={handleClick}
+      data-test-id={testId}
     >
       <Content
         size={size}
