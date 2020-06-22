@@ -6,7 +6,7 @@ import { render } from '@testing-library/react'
 import Text from './Text'
 import TextProps from './Text.types'
 
-describe('Text', () => {
+describe('Text 컴포넌트 테스트 >', () => {
   let props: TextProps
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('Text', () => {
 
   const renderComponent = () => render(<Text {...props} />)
 
-  it('should have primary className with default props', () => {
+  it('props 가 제공되지 않을 경우 기본 style 을 가지고 있다', () => {
     const { getByTestId } = renderComponent()
 
     const testComponent = getByTestId('text')

@@ -2,18 +2,18 @@
 import * as StyledComponents from 'styled-components'
 
 /* Internal dependencies */
-import Palette from './Palette'
+import BaseColors, { Colors } from './Colors'
 
 export default interface Theme {
-  palette: any
+  colors: Colors
 }
 
 export const DefaultTheme: Theme = {
-  palette: Palette.Default,
+  colors: BaseColors.LightColors,
 }
 
 export const DarkTheme: Theme = {
-  palette: Palette.Dark,
+  colors: BaseColors.DarkColors,
 }
 
 export const {

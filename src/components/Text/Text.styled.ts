@@ -6,7 +6,7 @@ import TextProps from './Text.types'
 
 const Text = styled.span<TextProps>`
   ${props => props.typo};
-  color: ${props => props.theme?.palette?.black70};
+  color: ${props => props.theme?.colors?.textBase ?? 'black'};
 `
 
 export default Text

@@ -49,7 +49,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.6",
-    "@channel.io/eslint-config-channel": "^1.0.5",
+    "@channel.io/eslint-config": "^1.0.5",
     "@channel.io/stylelint-config": "^1.1.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
