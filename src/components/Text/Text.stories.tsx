@@ -3,8 +3,8 @@ import React from 'react'
 import { withKnobs, text, select, object } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
+import { DarkTheme, ThemeProvider } from '../../styling/Theme'
 import Text from './Text'
-import { DarkTheme, ThemeProvider } from '../../theme/Theme'
 
 export default {
   title: 'Text',

@@ -22,6 +22,6 @@ describe('Text', () => {
 
     const testComponent = getByTestId('text')
 
-    expect(testComponent).toHaveStyle('font-size: 13px')
+    expect(testComponent).toHaveStyle('font-size: 15px')
   })
 })
