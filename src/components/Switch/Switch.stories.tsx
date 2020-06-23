@@ -4,8 +4,8 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
+import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Switch from './Switch'
-import { ThemeProvider, DefaultTheme } from '../../theme/Theme'
 
 export default {
   title: 'Switch',
@@ -13,7 +13,7 @@ export default {
 }
 
 export const Primary = () => (
-  <ThemeProvider theme={DefaultTheme}>
+  <ThemeProvider theme={LightTheme}>
     <Switch
       size={number('size', 16)}
       checked={boolean('checked', true)}
@@ -26,7 +26,7 @@ export const Primary = () => (
 export const Controlled = () => {
   const [checked, setChecked] = useState(true)
   return (
-    <ThemeProvider theme={DefaultTheme}>
+    <ThemeProvider theme={LightTheme}>
       <Switch
         size={number('size', 16)}
         checked={checked}

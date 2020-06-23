@@ -2,17 +2,37 @@
 import Palette from './Palette'
 
 export interface Colors {
-  textBase?: string
+  textBase: string
 
   // Backgrounds
   background2?: string
   background1?: string
+
+  // Success
+  success1?: string
+  success1Hover?: string
+
+  // Default
+  default1?: string
+  defualt1Hover?: string
+
+  // Handle
+  handle1?: string
+
+  // Shadow
+  shadow1?: string
 }
 
 export const Light: Colors = {
   textBase: Palette.grey900,
   background2: Palette.grey200,
   background1: Palette.grey100,
+  success1: Palette.green400,
+  success1Hover: Palette.green500,
+  default1: Palette.grey300,
+  defualt1Hover: Palette.grey500,
+  handle1: Palette.white,
+  shadow1: Palette.black15,
 }
 
 export const Dark: Colors = {
