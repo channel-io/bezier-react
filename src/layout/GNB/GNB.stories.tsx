@@ -3,6 +3,7 @@ import React from 'react'
 import { withKnobs } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
+import { LightTheme, ThemeProvider } from '../../styling/Theme'
 import GNB from './GNB'
 
 export default {
@@ -10,4 +11,10 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Primary = () => (<GNB />)
+export const WithoutTheme = () => (<GNB />)
+
+export const WithTheme = () => (
+  <ThemeProvider theme={LightTheme}>
+    <GNB />
+  </ThemeProvider>
+)

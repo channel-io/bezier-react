@@ -8,7 +8,7 @@ export default interface Theme {
   colors: Colors
 }
 
-export const DefaultTheme: Theme = {
+export const LightTheme: Theme = {
   colors: BaseColors.LightColors,
 }
 

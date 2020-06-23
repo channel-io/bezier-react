@@ -15,7 +15,7 @@ const GNB = styled.div<GNBProps>`
   flex-direction: column;
   width: 68px;
   height: 100%;
-  background-color: ${props => props.theme?.palette?.grey200 ?? '#F0F0F1'};
+  background-color: ${props => props.theme?.colors?.background2};
 `
 
 export default GNB
