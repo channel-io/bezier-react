@@ -2,22 +2,18 @@
 import * as StyledComponents from 'styled-components'
 
 /* Internal dependencies */
-import Palette from './Palette'
-import Typography from './Typography'
+import BaseColors, { Colors } from './Colors'
 
 export default interface Theme {
-  palette: any
-  typo: any
+  colors: Colors
 }
 
-export const DefaultTheme: Theme = {
-  palette: Palette.Default,
-  typo: Typography.Default,
+export const LightTheme: Theme = {
+  colors: BaseColors.Light,
 }
 
 export const DarkTheme: Theme = {
-  palette: Palette.Dark,
-  typo: Typography.Default,
+  colors: BaseColors.Dark,
 }
 
 export const {

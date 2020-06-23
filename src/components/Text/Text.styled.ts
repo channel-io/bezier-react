@@ -1,9 +1,12 @@
 /* External dependencies */
 import styled from 'styled-components'
 
-const Text = styled.span`
-  font-size: ${props => props.theme?.typo?.normal ?? 13}px;
-  color: ${props => props.theme?.palette?.black70};
+/* Internal dependencies */
+import TextProps from './Text.types'
+
+const Text = styled.span<TextProps>`
+  ${props => props.typo};
+  color: ${props => props.theme?.colors?.textBase ?? 'black'};
 `
 
 export default Text
