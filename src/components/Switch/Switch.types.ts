@@ -4,7 +4,7 @@ import { MouseEvent } from 'react'
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
 
-export interface SwitchProps extends UIComponentProps {
+export default interface SwitchProps extends UIComponentProps {
   size?: number
   checked?: boolean
   disabled?: boolean

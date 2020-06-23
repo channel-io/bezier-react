@@ -1,5 +1,5 @@
 import Switch from './Switch'
-import { SwitchProps } from './Switch.types'
+import SwitchProps from './Switch.types'
 
 export {
   Switch,
