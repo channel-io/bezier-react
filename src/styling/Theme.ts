@@ -9,11 +9,11 @@ export default interface Theme {
 }
 
 export const LightTheme: Theme = {
-  colors: BaseColors.LightColors,
+  colors: BaseColors.Light,
 }
 
 export const DarkTheme: Theme = {
-  colors: BaseColors.DarkColors,
+  colors: BaseColors.Dark,
 }
 
 export const {

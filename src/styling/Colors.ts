@@ -9,13 +9,13 @@ export interface Colors {
   background1?: string
 }
 
-export const LightColors: Colors = {
+export const Light: Colors = {
   textBase: Palette.grey900,
   background2: Palette.grey200,
   background1: Palette.grey100,
 }
 
-export const DarkColors: Colors = {
+export const Dark: Colors = {
   textBase: Palette.grey100,
   background2: Palette.grey900,
   background1: Palette.grey700,
@@ -32,10 +32,10 @@ interface createColorsConfig {
 function getColorsFromKeyword(keyword: string) {
   switch (keyword) {
     case DARK_KEYWORD:
-      return DarkColors
+      return Dark
     case LIGHT_KEYWORD:
     default:
-      return LightColors
+      return Light
   }
 }
 
@@ -50,6 +50,6 @@ export function createColors({
 }
 
 export default {
-  LightColors,
-  DarkColors,
+  Light,
+  Dark,
 }
