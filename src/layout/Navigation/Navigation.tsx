@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { useRef } from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import useDragResizer from '../../hooks/useDragResizer'
@@ -15,14 +16,15 @@ function Navigation({
   minWidth = 240,
   maxWidth = 540,
   disableResize = false,
+  onChangeWidth = _.noop,
   children,
 }: NavigationProps) {
   const navigationRef = useRef<HTMLElement>(null)
 
-  const Wrapper = useDragResizer(minWidth, maxWidth)
+  const Resizer = useDragResizer(minWidth, maxWidth, onChangeWidth)
 
   return (
-    <Wrapper>
+    <Resizer disable={disableResize}>
       <StyledNavigation
         ref={navigationRef}
         as={as}
@@ -32,7 +34,7 @@ function Navigation({
       >
         { children }
       </StyledNavigation>
-    </Wrapper>
+    </Resizer>
   )
 }
 

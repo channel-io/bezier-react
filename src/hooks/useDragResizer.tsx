@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useRef, useState, useCallback } from 'react'
+import React, { useRef, useState, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import _ from 'lodash'
 
@@ -16,7 +16,11 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
   width: ${props => props.width}px;
 `
 
-const StyledHandle = styled.div`
+interface StyledHandleProps {
+  disable: boolean
+}
+
+const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -24,7 +28,7 @@ const StyledHandle = styled.div`
   width: 16px;
   height: 100%;
   margin: 0 auto;
-  cursor: col-resize;
+  cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
 
   &::before {
     content: '';
@@ -40,17 +44,35 @@ const StyledHandle = styled.div`
   }
 
   &:hover::before {
-    opacity: 1;
+    opacity: ${props => (props.disable ? 0 : 1)};
   }
 `
 
-export default function useDragResizer(minWidth, maxWidth) {
-  return function Wrapper({ children }) {
+interface WrapperProps {
+  disable?: boolean
+  children?: React.ReactChildren
+}
+
+export default function useDragResizer(
+  minWidth: number,
+  maxWidth: number,
+  onChangeWidth: (width: number) => void = _.noop,
+) {
+  return function Wrapper({
+    disable = false,
+    children,
+  }) {
     const wrapperRef = useRef(null)
     const [width, setWidth] = useState<number>(minWidth)
     const [isDragging, setIsDragging] = useState(false)
 
+    useEffect(() => {
+      onChangeWidth(width)
+    }, [width])
+
     const handleMouseMove = useCallback((e: MouseEvent) => {
+      if (disable) { return }
+
       window.requestAnimationFrame(() => setWidth(
         _.clamp(
           e.pageX - wrapperRef.current?.offsetLeft,
@@ -58,7 +80,7 @@ export default function useDragResizer(minWidth, maxWidth) {
           maxWidth,
         ),
       ))
-    }, [wrapperRef])
+    }, [wrapperRef, disable])
 
     const handleMouseDown = useCallback(() => {
       setIsDragging(true)
@@ -79,7 +101,10 @@ export default function useDragResizer(minWidth, maxWidth) {
         isDragging={isDragging}
       >
         { children }
-        <StyledHandle onMouseDown={handleMouseDown}/>
+        <StyledHandle
+          disable={disable}
+          onMouseDown={handleMouseDown}
+        />
       </StyledWrapper>
     )
   }

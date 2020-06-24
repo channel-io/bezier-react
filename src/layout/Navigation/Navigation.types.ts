@@ -5,4 +5,5 @@ export default interface NavigationProps extends ChildrenComponentProps {
   minWidth?: number
   maxWidth?: number
   disableResize?: boolean
+  onChangeWidth?: (width: number) => void
 }
