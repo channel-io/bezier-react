@@ -52,14 +52,30 @@ export const WithGNB = () => {
           minWidth={number('min width', 240)}
         >
           This is Navigation
+          {
+            Array.from(Array(100).keys()).map((item, index) => (
+              <div style={{ margin: 1, backgroundColor: 'grey', width: '100%' }}>
+                { index }
+              </div>
+            ))
+          }
         </Navigation>
         <div
           style={{
             width: '100%',
             height: '100%',
+            overflowX: 'hidden',
+            overflowY: 'scroll',
           }}
         >
           This is Content
+          {
+            Array.from(Array(100).keys()).map((item, index) => (
+              <div style={{ margin: 1, backgroundColor: 'grey', width: '100%' }}>
+                { index }
+              </div>
+            ))
+          }
         </div>
       </ThemeProvider>
     </div>

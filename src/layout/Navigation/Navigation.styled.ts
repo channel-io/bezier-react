@@ -12,6 +12,8 @@ export const StyledNavigation = styled.div<NavigationProps>`
   width: ${props => props.width}px;
   background-color: ${props => props.theme?.colors?.background1};
   transition: background-color 200ms ease-in-out;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `
 
 interface StyledHandleProps {
