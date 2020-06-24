@@ -11,7 +11,6 @@ export const StyledNavigation = styled.div<NavigationProps>`
   user-select: ${props => (props.isDragging ? 'none' : 'auto')};
   width: ${props => props.width}px;
   background-color: ${props => props.theme?.colors?.background1};
-
   transition: background-color 200ms ease-in-out;
 `
 
