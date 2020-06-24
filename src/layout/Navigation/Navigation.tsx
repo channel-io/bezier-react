@@ -1,7 +1,8 @@
 /* External dependencies */
-import React from 'react'
+import React, { useRef } from 'react'
 
 /* Internal dependencies */
+import useDragResizer from '../../hooks/useDragResizer'
 import { StyledNavigation } from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
@@ -13,17 +14,25 @@ function Navigation({
   className,
   minWidth = 240,
   maxWidth = 540,
+  disableResize = false,
   children,
 }: NavigationProps) {
+  const navigationRef = useRef<HTMLElement>(null)
+
+  const Wrapper = useDragResizer(minWidth, maxWidth)
+
   return (
-    <StyledNavigation
-      as={as}
-      data-testid={testId}
-      style={style}
-      className={className}
-    >
-      { children }
-    </StyledNavigation>
+    <Wrapper>
+      <StyledNavigation
+        ref={navigationRef}
+        as={as}
+        data-testid={testId}
+        style={style}
+        className={className}
+      >
+        { children }
+      </StyledNavigation>
+    </Wrapper>
   )
 }
 

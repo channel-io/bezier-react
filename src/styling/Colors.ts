@@ -5,6 +5,7 @@ export interface Colors {
   textBase: string
 
   // Backgrounds
+  background3?: string
   background2?: string
   background1?: string
 
@@ -14,7 +15,7 @@ export interface Colors {
 
   // Default
   default1?: string
-  defualt1Hover?: string
+  default1Hover?: string
 
   // Handle
   handle1?: string
@@ -25,12 +26,13 @@ export interface Colors {
 
 export const Light: Colors = {
   textBase: Palette.grey900,
+  background3: Palette.grey300,
   background2: Palette.grey200,
   background1: Palette.grey100,
   success1: Palette.green400,
   success1Hover: Palette.green500,
   default1: Palette.grey300,
-  defualt1Hover: Palette.grey500,
+  default1Hover: Palette.grey500,
   handle1: Palette.white,
   shadow1: Palette.black15,
 }
