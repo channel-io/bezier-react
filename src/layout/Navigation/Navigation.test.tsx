@@ -37,4 +37,18 @@ describe('Navigation Test >', () => {
 
     expect(renderedNav).toHaveStyle('height: 100%')
   })
+
+  it('Navigation can be scrolled in y-axis', () => {
+    const { getByTestId } = renderNavigation()
+    const renderedNav = getByTestId(NAV_TEST_ID)
+
+    expect(renderedNav).toHaveStyle('overflow-y: scroll')
+  })
+
+  it('Navigation hide overflowed contents on x-axis', () => {
+    const { getByTestId } = renderNavigation()
+    const renderedNav = getByTestId(NAV_TEST_ID)
+
+    expect(renderedNav).toHaveStyle('overflow-x: hidden')
+  })
 })
