@@ -1,16 +1,14 @@
 /* External dependencies */
-import React, { useRef } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import useDragResizer from '../../hooks/useDragResizer'
-import { StyledNavigation } from './Navigation.styled'
+import { StyledNavigation, StyledHandle } from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function Navigation({
-  as,
-  testId,
+  testId = 'nav',
   style,
   className,
   minWidth = 240,
@@ -19,22 +17,58 @@ function Navigation({
   onChangeWidth = _.noop,
   children,
 }: NavigationProps) {
-  const navigationRef = useRef<HTMLElement>(null)
+  const navigationRef = useRef(null)
+  const [width, setWidth] = useState<number>(minWidth)
+  const [isDragging, setIsDragging] = useState(false)
 
-  const Resizer = useDragResizer(minWidth, maxWidth, onChangeWidth)
+  useEffect(() => {
+    onChangeWidth(width)
+  }, [width, onChangeWidth])
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (disableResize) { return }
+
+    window.requestAnimationFrame(() => setWidth(
+      _.clamp(
+        e.pageX - navigationRef.current?.offsetLeft,
+        minWidth,
+        maxWidth,
+      ),
+    ))
+  }, [
+    navigationRef,
+    disableResize,
+    minWidth,
+    maxWidth,
+  ])
+
+  const handleMouseDown = useCallback(() => {
+    setIsDragging(true)
+    document.addEventListener('mousemove', handleMouseMove, false)
+  }, [handleMouseMove])
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false)
+    document.removeEventListener('mousemove', handleMouseMove, false)
+  }, [handleMouseMove])
+
+  document.addEventListener('mouseup', handleMouseUp, false)
 
   return (
-    <Resizer disable={disableResize}>
-      <StyledNavigation
-        ref={navigationRef}
-        as={as}
-        data-testid={testId}
-        style={style}
-        className={className}
-      >
-        { children }
-      </StyledNavigation>
-    </Resizer>
+    <StyledNavigation
+      ref={navigationRef}
+      style={style}
+      className={className}
+      width={width}
+      data-testid={testId}
+      isDragging={isDragging}
+    >
+      { children }
+      <StyledHandle
+        disable={disableResize}
+        onMouseDown={handleMouseDown}
+      />
+    </StyledNavigation>
   )
 }
 
