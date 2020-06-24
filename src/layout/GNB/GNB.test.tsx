@@ -18,24 +18,10 @@ describe('GNB Test >', () => {
     expect(renderedGNB).toHaveStyle('width: 68px')
   })
 
-  it('GNB has absolute position', () => {
-    const { getByTestId } = renderGNB()
-    const renderedGNB = getByTestId('gnb')
-
-    expect(renderedGNB).toHaveStyle('position: absolute')
-  })
-
   it('GNB has 100% height', () => {
     const { getByTestId } = renderGNB()
     const renderedGNB = getByTestId('gnb')
 
     expect(renderedGNB).toHaveStyle('height: 100%')
-  })
-
-  it('GNB has 0 left offset', () => {
-    const { getByTestId } = renderGNB()
-    const renderedGNB = getByTestId('gnb')
-
-    expect(renderedGNB).toHaveStyle('left: 0')
   })
 })
