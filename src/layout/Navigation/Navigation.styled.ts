@@ -23,8 +23,6 @@ export const StyledContentWrapper = styled.div`
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 `
 
 export const StyledHandle = styled.div<StyledHandleProps>`
