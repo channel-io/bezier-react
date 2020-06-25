@@ -8,7 +8,7 @@ import NavigationProps from './Navigation.types'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function Navigation({
-  testId = 'nav',
+  testId,
   style,
   className,
   minWidth = 240,
@@ -20,10 +20,6 @@ function Navigation({
   const navigationRef = useRef(null)
   const [width, setWidth] = useState<number>(minWidth)
   const [isDragging, setIsDragging] = useState(false)
-
-  useEffect(() => {
-    onChangeWidth(width)
-  }, [width, onChangeWidth])
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
@@ -44,13 +40,23 @@ function Navigation({
 
   const handleMouseDown = useCallback(() => {
     setIsDragging(true)
-    document.addEventListener('mousemove', handleMouseMove, false)
-  }, [handleMouseMove])
+  }, [])
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
-    document.removeEventListener('mousemove', handleMouseMove, false)
-  }, [handleMouseMove])
+  }, [])
+
+  useEffect(() => {
+    onChangeWidth(width)
+  }, [width, onChangeWidth])
+
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove, false)
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove, false)
+    }
+  }, [isDragging, handleMouseMove])
 
   document.addEventListener('mouseup', handleMouseUp, false)
 

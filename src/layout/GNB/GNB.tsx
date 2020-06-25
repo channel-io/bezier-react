@@ -6,7 +6,7 @@ import GNBView from './GNB.styled'
 import GNBProps from './GNB.types'
 
 function GNB({
-  testId = 'gnb',
+  testId,
   children,
   style,
   className,
