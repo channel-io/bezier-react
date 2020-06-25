@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import NavigationProps from './Navigation.types'
 
 export const StyledNavigation = styled.div<NavigationProps>`
-  position: relative;
   flex: none;
   height: 100%;
   user-select: ${props => (props.isDragging ? 'none' : 'auto')};
@@ -20,12 +19,19 @@ interface StyledHandleProps {
   disable: boolean
 }
 
+export const StyledContentWrapper = styled.div`
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+`
+
 export const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;
   top: 0;
   bottom: 0;
-  right: -8px;
-  width: 16px;
+  right: 0;
+  z-index: 10000;
+  width: 8px;
   height: 100%;
   margin: 0 auto;
   cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
@@ -35,7 +41,7 @@ export const StyledHandle = styled.div<StyledHandleProps>`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 7px;
+    left: 6px;
     width: 2px;
     height: 100%;
     opacity: 0;

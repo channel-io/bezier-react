@@ -31,7 +31,7 @@ function Switch({
       disabled={disabled}
       style={style}
       onClick={handleClick}
-      data-test-id={testId}
+      data-testid={testId}
     >
       <Content
         size={size}

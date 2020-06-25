@@ -54,7 +54,7 @@ export const WithGNB = () => {
           This is Navigation
           {
             Array.from(Array(100).keys()).map((item, index) => (
-              <div style={{ margin: 1, backgroundColor: 'grey', width: '100%' }}>
+              <div style={{ marginTop: 1, backgroundColor: 'grey', width: '100%' }}>
                 { index }
               </div>
             ))
@@ -71,7 +71,7 @@ export const WithGNB = () => {
           This is Content
           {
             Array.from(Array(100).keys()).map((item, index) => (
-              <div style={{ margin: 1, backgroundColor: 'grey', width: '100%' }}>
+              <div style={{ marginTop: 1, backgroundColor: 'lightgrey', width: '100%' }}>
                 { index }
               </div>
             ))

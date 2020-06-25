@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { StyledNavigation, StyledHandle } from './Navigation.styled'
+import { StyledNavigation, StyledContentWrapper, StyledHandle } from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -69,11 +69,13 @@ function Navigation({
       data-testid={testId}
       isDragging={isDragging}
     >
-      { children }
-      <StyledHandle
-        disable={disableResize}
-        onMouseDown={handleMouseDown}
-      />
+      <StyledContentWrapper>
+        { children }
+        <StyledHandle
+          disable={disableResize}
+          onMouseDown={handleMouseDown}
+        />
+      </StyledContentWrapper>
     </StyledNavigation>
   )
 }
