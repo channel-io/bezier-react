@@ -2,9 +2,10 @@
 import React, { ReactElement, useCallback, MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { SwitchProps } from './Switch.types'
+import SwitchProps from './Switch.types'
 import { Wrapper, Content } from './Switch.styled'
 
+// TODO: 테스트 코드 작성 필요
 function Switch({
   as,
   testId,
@@ -30,7 +31,7 @@ function Switch({
       disabled={disabled}
       style={style}
       onClick={handleClick}
-      data-test-id={testId}
+      data-testid={testId}
     >
       <Content
         size={size}

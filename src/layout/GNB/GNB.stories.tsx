@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { addDecorator } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
@@ -10,6 +11,14 @@ export default {
   title: 'GNB',
   decorators: [withKnobs],
 }
+
+const decorator = storyfn => (
+  <div style={{ height: '100vh' }}>
+    { storyfn() }
+  </div>
+)
+
+addDecorator(decorator)
 
 export const WithoutTheme = () => (<GNB />)
 
