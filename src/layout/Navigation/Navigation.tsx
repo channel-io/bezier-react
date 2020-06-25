@@ -6,7 +6,8 @@ import _ from 'lodash'
 import { StyledNavigation, StyledContentWrapper, StyledHandle } from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
+
 function Navigation({
   testId,
   style,
@@ -69,13 +70,15 @@ function Navigation({
       data-testid={testId}
       isDragging={isDragging}
     >
-      <StyledContentWrapper>
+      <StyledContentWrapper
+        data-testid={NAV_SCROLL_TEST_ID}
+      >
         { children }
-        <StyledHandle
-          disable={disableResize}
-          onMouseDown={handleMouseDown}
-        />
       </StyledContentWrapper>
+      <StyledHandle
+        disable={disableResize}
+        onMouseDown={handleMouseDown}
+      />
     </StyledNavigation>
   )
 }

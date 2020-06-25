@@ -5,14 +5,13 @@ import styled from 'styled-components'
 import NavigationProps from './Navigation.types'
 
 export const StyledNavigation = styled.div<NavigationProps>`
+  position: relative;
   flex: none;
   height: 100%;
   user-select: ${props => (props.isDragging ? 'none' : 'auto')};
   width: ${props => props.width}px;
   background-color: ${props => props.theme?.colors?.background1};
-  transition: background-color 200ms ease-in-out;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  transition: background-color 200ms ease-in-out, width 200ms;
 `
 
 interface StyledHandleProps {
@@ -21,8 +20,11 @@ interface StyledHandleProps {
 
 export const StyledContentWrapper = styled.div`
   width: 100%;
-  min-height: 100%;
-  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 `
 
 export const StyledHandle = styled.div<StyledHandleProps>`

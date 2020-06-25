@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import Navigation from './Navigation'
+import Navigation, { NAV_SCROLL_TEST_ID } from './Navigation'
 import NavigationProps from './Navigation.types'
 
 const MIN_WIDTH = 240
@@ -40,14 +40,14 @@ describe('Navigation Test >', () => {
 
   it('Navigation can be scrolled in y-axis', () => {
     const { getByTestId } = renderNavigation()
-    const renderedNav = getByTestId(NAV_TEST_ID)
+    const renderedNav = getByTestId(NAV_SCROLL_TEST_ID)
 
     expect(renderedNav).toHaveStyle('overflow-y: scroll')
   })
 
   it('Navigation hide overflowed contents on x-axis', () => {
     const { getByTestId } = renderNavigation()
-    const renderedNav = getByTestId(NAV_TEST_ID)
+    const renderedNav = getByTestId(NAV_SCROLL_TEST_ID)
 
     expect(renderedNav).toHaveStyle('overflow-x: hidden')
   })
