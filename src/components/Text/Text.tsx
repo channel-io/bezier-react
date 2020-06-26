@@ -2,20 +2,31 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { TextProps } from './Text.types'
-import { TextComponent } from './Text.styled'
+import Typography from '../../styling/Typography'
+import TextProps from './Text.types'
+import TextView from './Text.styled'
 
 function Text({
-  title,
+  as,
+  testId = 'text',
+  content,
+  typo = Typography.Size15,
+  style,
+  className,
 }: TextProps) {
   return (
-    <TextComponent
-      data-testid="text"
-      className="text"
+    <TextView
+      as={as}
+      style={style}
+      className={className}
+      typo={typo}
+      data-testid={testId}
     >
-      {title}
-    </TextComponent>
+      { content }
+    </TextView>
   )
 }
+
+Text.displayName = 'Text'
 
 export default Text

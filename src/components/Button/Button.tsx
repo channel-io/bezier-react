@@ -9,6 +9,8 @@ import {
 import { ButtonComponent } from './Button.styled'
 
 function Button({
+  // TODO: (@leo) Foundation 정의 후 Button 컴포넌트 작성
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   theme = ButtonTheme.Normal,
   onClick,
 }: ButtonProps) {
@@ -21,7 +23,5 @@ function Button({
     </ButtonComponent>
   )
 }
-
-Button.ButtonTheme = ButtonTheme
 
 export default Button
