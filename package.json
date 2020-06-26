@@ -2,8 +2,7 @@
   "name": "@channel-io/design-system",
   "version": "0.1.0",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
-    "repository": "git://github.com/channel-io/design-system"
+    "registry": "https://npm.pkg.github.com/"
   },
   "description": "Design System by Channel",
   "main": "build/index.js",
