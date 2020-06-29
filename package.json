@@ -1,6 +1,6 @@
 {
-  "name": "@channel-io/design-system",
-  "version": "0.1.0",
+  "name": "@channel.io/design-system",
+  "version": "0.1.1",
   "description": "Design System by Channel",
   "main": "build/index.js",
   "module": "build/index.es.js",
