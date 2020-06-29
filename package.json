@@ -1,9 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.1.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "version": "0.1.1",
   "description": "Design System by Channel",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -23,7 +20,8 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "build": "rollup -c",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook",
+    "deploy:storybook": "storybook-to-ghpages --remote=upstream"
   },
   "husky": {
     "hooks": {
@@ -59,6 +57,7 @@
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/react": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",
