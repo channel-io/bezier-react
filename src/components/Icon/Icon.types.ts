@@ -1,7 +1,5 @@
-/* External dependencies */
-import { CSSProperties } from 'react'
-
 /* Internal dependencies */
+import { StylableComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
@@ -20,10 +18,8 @@ export interface IconStyledProps {
   marginLeft: number
 }
 
-export default interface IconProps {
-  className?: string
-  style?: CSSProperties
-  icon: IconName
+export default interface IconProps extends StylableComponentProps {
+  name: IconName
   color?: string
   size?: IconSize
   marginTop?: number

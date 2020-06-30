@@ -9,7 +9,7 @@ import Styled from './Icon.styled'
 function Icon({
   className,
   style,
-  icon,
+  name,
   color,
   size = IconSize.Normal,
   marginTop = 0,
@@ -21,7 +21,7 @@ function Icon({
     <Styled
       className={className}
       color={color}
-      as={icons[icon]}
+      as={icons[name]}
       width={size}
       height={size}
       style={style}
