@@ -24,7 +24,7 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "build": "rollup -c",
-    "publish": "npm run build && npm publish",
+    "prepublishOnly": "npm run build",
     "build:storybook": "build-storybook",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream"
   },
