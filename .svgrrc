@@ -1,0 +1,15 @@
+{
+  "icon": true,
+  "typescript": true,
+  "singleQuote": true,
+  "replaceAttrValues": {
+    "#65676A": "currentColor"
+  },
+  "prettier": true,
+  "prettierConfig": {
+    "dimensions": false,
+    "semi": false,
+    "endOfLine": "lf",
+    "singleQuote": true
+  }
+}
