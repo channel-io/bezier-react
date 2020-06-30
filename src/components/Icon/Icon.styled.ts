@@ -1,5 +1,7 @@
+/* External dependencies */
 import styled from 'styled-components'
 
+/* Internal dependencies */
 import { IconStyledProps } from './Icon.types'
 
 function getMargin({

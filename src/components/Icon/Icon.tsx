@@ -1,5 +1,7 @@
+/* External dependencies */
 import React, { memo } from 'react'
 
+/* Internal dependencies */
 import IconProps, { IconSize } from './Icon.types'
 import icons from './generated'
 import Styled from './Icon.styled'

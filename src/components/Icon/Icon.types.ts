@@ -1,5 +1,7 @@
+/* External dependencies */
 import { CSSProperties } from 'react'
 
+/* Internal dependencies */
 import { IconName } from './generated'
 
 export enum IconSize {
