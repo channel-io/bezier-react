@@ -42,14 +42,14 @@ export const AllIcons = () => {
 
   return (
     <>
-      { iconList.map((icon) => (
-        <IconInfo key={icon}>
+      { iconList.map((iconName) => (
+        <IconInfo key={iconName}>
           <Icon
-            icon={icon}
+            name={iconName}
             color={selectedColor}
             size={size}
           />
-          <Name>{ icon }</Name>
+          <Name>{ iconName }</Name>
         </IconInfo>
       )) }
     </>
@@ -58,7 +58,7 @@ export const AllIcons = () => {
 
 export const Primary = () => (
   <Icon
-    icon={select('icon', iconList, 'zoyi') as IconName}
+    name={select('name', iconList, 'zoyi') as IconName}
     color={color('color', Pallette.grey700)}
     size={select('size', IconSize, IconSize.Normal)}
     marginTop={number('marginTop', 0)}
@@ -71,7 +71,7 @@ export const Primary = () => (
 export const WithText = () => (
   <h1>
     <Icon
-      icon={select('icon', iconList, 'zoyi') as IconName}
+      name={select('name', iconList, 'zoyi') as IconName}
       color={color('color', Pallette.grey700)}
       size={select('size', IconSize, IconSize.Normal)}
       marginTop={number('marginTop', 0)}
