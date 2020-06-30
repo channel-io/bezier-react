@@ -2,6 +2,10 @@
   "name": "@channel.io/design-system",
   "version": "0.1.2",
   "description": "Design System by Channel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/design-system"
+  },
   "main": "build/index.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
@@ -20,6 +24,7 @@
     "jest": "jest",
     "jest:watch": "jest --watch",
     "build": "rollup -c",
+    "prepublishOnly": "npm run build",
     "build:storybook": "build-storybook",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream"
   },
