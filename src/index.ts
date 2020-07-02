@@ -9,5 +9,6 @@ export * from './layout/GNB'
 export * from './layout/Navigation'
 
 /* Styling */
+export * from './styling/Typography'
 export * from './styling/Colors'
 export * from './styling/Theme'

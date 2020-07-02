@@ -44,7 +44,7 @@ const Size24 = css`
   line-height: 32px;
 `
 
-export default {
+export {
   Size11,
   Size12,
   Size13,
