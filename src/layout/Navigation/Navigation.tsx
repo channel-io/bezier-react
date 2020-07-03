@@ -3,7 +3,14 @@ import React, { useState, useRef, useEffect, useCallback } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { StyledNavigation, StyledContentWrapper, StyledHandle } from './Navigation.styled'
+import { Text } from '../../components/Text'
+import Typography from '../../styling/Typography'
+import {
+  StyledNavigation,
+  StyledTitleWrapper,
+  StyledContentWrapper,
+  StyledHandle,
+} from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
 export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
@@ -12,6 +19,8 @@ function Navigation({
   testId,
   style,
   className,
+  title,
+  fixedTitle = false,
   minWidth = 240,
   maxWidth = 540,
   disableResize = false,
@@ -73,6 +82,15 @@ function Navigation({
       <StyledContentWrapper
         data-testid={NAV_SCROLL_TEST_ID}
       >
+        { title && (
+          <StyledTitleWrapper sticky={fixedTitle}>
+            <Text
+              bold
+              typo={Typography.Size24}
+              content={title}
+            />
+          </StyledTitleWrapper>
+        ) }
         { children }
       </StyledContentWrapper>
       <StyledHandle
