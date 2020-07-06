@@ -1,8 +1,8 @@
 /* External dependencies */
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import { Extendable, CSSInJsStyle } from './utilTypes'
+import { Extendable } from './utilTypes'
 
 export type ReactChildren = React.ReactNodeArray | React.ReactNode
 
@@ -12,7 +12,7 @@ export interface RenderConfigProps {
 }
 
 export type StylableComponentProps = Extendable<{
-  style?: CSSInJsStyle
+  style?: CSSProperties
   className?: string
 }>
 

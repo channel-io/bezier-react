@@ -1,7 +1,7 @@
 /* External dependencies */
-import React from 'react'
+import React, { useRef, useCallback } from 'react'
 import { addDecorator } from '@storybook/react'
-import { withKnobs, select, number } from '@storybook/addon-knobs'
+import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
 import { GNB } from '../GNB'
@@ -33,6 +33,30 @@ export const ResizeDisabled = () => (
   </ThemeProvider>
 )
 
+export const WithRef = () => {
+  const navigationRef = useRef<HTMLDivElement | null>(null)
+
+  const handleClick = useCallback(() => {
+    alert(navigationRef.current?.offsetWidth)
+  }, [navigationRef])
+
+  return (
+    <ThemeProvider theme={LightTheme}>
+      <div
+        style={{
+          display: 'flex',
+          height: '100%',
+        }}
+      >
+        <Navigation ref={navigationRef}>
+          Guess my width!
+        </Navigation>
+        <button type="button" onClick={handleClick}>click me</button>
+      </div>
+    </ThemeProvider>
+  )
+}
+
 export const WithGNB = () => {
   const getTheme = (theme: string) => (theme === 'dark' ? DarkTheme : LightTheme)
 
@@ -48,14 +72,21 @@ export const WithGNB = () => {
           This is GNB
         </GNB>
         <Navigation
+          title={text('navigation title', '고객 연락처')}
+          fixedTitle={boolean('fixed title', false)}
           maxWidth={number('max width', 540)}
           minWidth={number('min width', 240)}
         >
-          This is Navigation
           {
             Array.from(Array(100).keys()).map((item, index) => (
-              <div style={{ marginTop: 1, backgroundColor: 'grey', width: '100%' }}>
-                { index }
+              <div
+                style={{
+                  width: '100%',
+                  paddingLeft: 15,
+                  marginBottom: 15,
+                }}
+              >
+                { `${index}-팀챗` }
               </div>
             ))
           }
@@ -68,11 +99,16 @@ export const WithGNB = () => {
             overflowY: 'scroll',
           }}
         >
-          This is Content
           {
             Array.from(Array(100).keys()).map((item, index) => (
-              <div style={{ marginTop: 1, backgroundColor: 'lightgrey', width: '100%' }}>
-                { index }
+              <div
+                style={{
+                  width: '100%',
+                  marginTop: 1,
+                  padding: 15,
+                }}
+              >
+                { `${index}-메시지` }
               </div>
             ))
           }

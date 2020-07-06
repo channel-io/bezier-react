@@ -26,6 +26,20 @@ export const StyledContentWrapper = styled.div`
   overflow-y: scroll;
 `
 
+interface StyledTitleWrapperProps {
+  sticky: boolean
+}
+
+export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
+  position: ${props => (props.sticky ? 'sticky' : 'initial')};
+  top: 0;
+  width: 100%;
+  height: 75px;
+  padding: 18px 18px 21px;
+  box-sizing: border-box;
+  background-color: ${props => props.theme?.colors?.background1};
+`
+
 export const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;
   top: 0;

@@ -1,24 +1,44 @@
 /* External dependencies */
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, {
+  forwardRef,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { StyledNavigation, StyledContentWrapper, StyledHandle } from './Navigation.styled'
+import useMergeRefs from '../../hooks/useMergeRefs'
+import { Text } from '../../components/Text'
+import Typography from '../../styling/Typography'
+import {
+  StyledNavigation,
+  StyledTitleWrapper,
+  StyledContentWrapper,
+  StyledHandle,
+} from './Navigation.styled'
 import NavigationProps from './Navigation.types'
 
 export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
 
-function Navigation({
-  testId,
-  style,
-  className,
-  minWidth = 240,
-  maxWidth = 540,
-  disableResize = false,
-  onChangeWidth = _.noop,
-  children,
-}: NavigationProps) {
-  const navigationRef = useRef(null)
+function Navigation(
+  {
+    testId,
+    style,
+    className,
+    title,
+    fixedTitle = false,
+    minWidth = 240,
+    maxWidth = 540,
+    disableResize = false,
+    onChangeWidth = _.noop,
+    children,
+  }: NavigationProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
+  const navigationRef = useRef<HTMLDivElement | null>(null)
+  const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
   const [width, setWidth] = useState<number>(minWidth)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -63,7 +83,7 @@ function Navigation({
 
   return (
     <StyledNavigation
-      ref={navigationRef}
+      ref={mergedRef}
       style={style}
       className={className}
       width={width}
@@ -73,7 +93,25 @@ function Navigation({
       <StyledContentWrapper
         data-testid={NAV_SCROLL_TEST_ID}
       >
-        { children }
+        <div>
+          { /**
+           * FIXME: Safari 에서 sticky 가 제대로 동작하지 않는 버그가 있어서,
+           * 이를 해결하기 위해 추가한 임시 div 입니다.
+           * 추후 제거 요망.
+           *
+           * 참고: https://stackoverflow.com/questions/57934803/workaround-for-a-safari-position-sticky-webkit-sticky-bug
+           *  */ }
+          { title && (
+            <StyledTitleWrapper sticky={fixedTitle}>
+              <Text
+                bold
+                typo={Typography.Size24}
+                content={title}
+              />
+            </StyledTitleWrapper>
+          ) }
+          { children }
+        </div>
       </StyledContentWrapper>
       <StyledHandle
         disable={disableResize}
@@ -83,4 +121,4 @@ function Navigation({
   )
 }
 
-export default Navigation
+export default forwardRef(Navigation)

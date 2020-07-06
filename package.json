@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Design System by Channel",
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "build:storybook": "build-storybook",
+    "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream"
   },
   "husky": {
@@ -63,6 +64,7 @@
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/react": "^5.3.18",
     "@storybook/storybook-deployer": "^2.8.6",
+    "@svgr/cli": "^5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",

@@ -10,6 +10,8 @@ function Text({
   as,
   testId = 'text',
   content,
+  bold = false,
+  italic = false,
   typo = Typography.Size15,
   style,
   className,
@@ -19,6 +21,8 @@ function Text({
       as={as}
       style={style}
       className={className}
+      bold={bold}
+      italic={italic}
       typo={typo}
       data-testid={testId}
     >
