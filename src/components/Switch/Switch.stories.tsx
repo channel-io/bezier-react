@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 
@@ -33,6 +33,34 @@ export const Controlled = () => {
         onClick={setChecked}
         disabled={boolean('disabled', false)}
       />
+    </ThemeProvider>
+  )
+}
+
+export const WithRef = () => {
+  const switchRef = useRef<HTMLDivElement | null>(null)
+
+  const [checked, setChecked] = useState(true)
+
+  const handleClick = useCallback(() => {
+    alert(`Switch class name: ${switchRef.current?.classList}`)
+  }, [switchRef])
+
+  return (
+    <ThemeProvider theme={LightTheme}>
+      <Switch
+        ref={switchRef}
+        size={number('size', 16)}
+        checked={checked}
+        onClick={setChecked}
+        disabled={boolean('disabled', false)}
+      />
+      <button
+        type="button"
+        onClick={handleClick}
+      >
+        click me
+      </button>
     </ThemeProvider>
   )
 }
