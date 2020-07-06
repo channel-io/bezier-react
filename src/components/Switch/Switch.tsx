@@ -1,21 +1,29 @@
 /* External dependencies */
-import React, { ReactElement, useCallback, MouseEvent } from 'react'
+import React, {
+  forwardRef,
+  ReactElement,
+  useCallback,
+  MouseEvent,
+} from 'react'
 
 /* Internal dependencies */
 import SwitchProps from './Switch.types'
 import { Wrapper, Content } from './Switch.styled'
 
 // TODO: 테스트 코드 작성 필요
-function Switch({
-  as,
-  testId,
-  className,
-  style,
-  checked = false,
-  disabled = false,
-  size = 16,
-  onClick,
-}: SwitchProps): ReactElement {
+function Switch(
+  {
+    as,
+    testId,
+    className,
+    style,
+    checked = false,
+    disabled = false,
+    size = 16,
+    onClick,
+  }: SwitchProps,
+  forwardedRef: React.Ref<any>,
+): ReactElement {
   const handleClick = useCallback((event: MouseEvent) => {
     if (!disabled && onClick) {
       onClick(!checked, event)
@@ -24,6 +32,7 @@ function Switch({
 
   return (
     <Wrapper
+      ref={forwardedRef}
       as={as}
       className={className}
       size={size}
@@ -41,4 +50,4 @@ function Switch({
   )
 }
 
-export default Switch
+export default forwardRef(Switch)
