@@ -13,7 +13,7 @@ function GlobalHeader(
     children,
     isWindows = false,
   }: GlobalHeaderProps,
-  forwardedRef: React.Ref<any>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   return (
     <StyledGlobalHeader
