@@ -1,18 +1,22 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import GNBView from './GNB.styled'
 import GNBProps from './GNB.types'
 
-function GNB({
-  testId,
-  children,
-  style,
-  className,
-}: GNBProps) {
+function GNB(
+  {
+    testId,
+    children,
+    style,
+    className,
+  }: GNBProps,
+  forwardedRef: React.Ref<any>,
+) {
   return (
     <GNBView
+      ref={forwardedRef}
       style={style}
       className={className}
       data-testid={testId}
@@ -22,4 +26,4 @@ function GNB({
   )
 }
 
-export default GNB
+export default forwardRef(GNB)
