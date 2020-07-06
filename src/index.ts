@@ -7,6 +7,7 @@ export * from './components/Text'
 /* Layout */
 export * from './layout/GNB'
 export * from './layout/Navigation'
+export * from './layout/GlobalHeader'
 
 /* Styling */
 export { default as Typography } from './styling/Typography'
