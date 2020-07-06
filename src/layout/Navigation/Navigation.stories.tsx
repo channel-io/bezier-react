@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { useRef, useCallback } from 'react'
 import { addDecorator } from '@storybook/react'
 import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs'
 
@@ -32,6 +32,30 @@ export const ResizeDisabled = () => (
     <Navigation disableResize/>
   </ThemeProvider>
 )
+
+export const WithRef = () => {
+  const navigationRef = useRef<HTMLDivElement | null>(null)
+
+  const handleClick = useCallback(() => {
+    alert(navigationRef.current?.offsetWidth)
+  }, [navigationRef])
+
+  return (
+    <ThemeProvider theme={LightTheme}>
+      <div
+        style={{
+          display: 'flex',
+          height: '100%',
+        }}
+      >
+        <Navigation ref={navigationRef}>
+          Guess my width!
+        </Navigation>
+        <button type="button" onClick={handleClick}>click me</button>
+      </div>
+    </ThemeProvider>
+  )
+}
 
 export const WithGNB = () => {
   const getTheme = (theme: string) => (theme === 'dark' ? DarkTheme : LightTheme)

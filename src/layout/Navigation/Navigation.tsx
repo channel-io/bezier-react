@@ -1,8 +1,15 @@
 /* External dependencies */
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, {
+  forwardRef,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
+import mergeRefs from '../../utils/mergeRefs'
 import { Text } from '../../components/Text'
 import Typography from '../../styling/Typography'
 import {
@@ -15,18 +22,21 @@ import NavigationProps from './Navigation.types'
 
 export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
 
-function Navigation({
-  testId,
-  style,
-  className,
-  title,
-  fixedTitle = false,
-  minWidth = 240,
-  maxWidth = 540,
-  disableResize = false,
-  onChangeWidth = _.noop,
-  children,
-}: NavigationProps) {
+function Navigation(
+  {
+    testId,
+    style,
+    className,
+    title,
+    fixedTitle = false,
+    minWidth = 240,
+    maxWidth = 540,
+    disableResize = false,
+    onChangeWidth = _.noop,
+    children,
+  }: NavigationProps,
+  forwardedRef: React.Ref<any>,
+) {
   const navigationRef = useRef(null)
   const [width, setWidth] = useState<number>(minWidth)
   const [isDragging, setIsDragging] = useState(false)
@@ -72,7 +82,7 @@ function Navigation({
 
   return (
     <StyledNavigation
-      ref={navigationRef}
+      ref={mergeRefs(navigationRef, forwardedRef)}
       style={style}
       className={className}
       width={width}
@@ -110,4 +120,4 @@ function Navigation({
   )
 }
 
-export default Navigation
+export default forwardRef(Navigation)
