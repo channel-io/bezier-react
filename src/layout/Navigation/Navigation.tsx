@@ -9,7 +9,7 @@ import React, {
 import _ from 'lodash'
 
 /* Internal dependencies */
-import mergeRefs from '../../utils/mergeRefs'
+import useMergeRefs from '../../hooks/useMergeRefs'
 import { Text } from '../../components/Text'
 import Typography from '../../styling/Typography'
 import {
@@ -35,9 +35,10 @@ function Navigation(
     onChangeWidth = _.noop,
     children,
   }: NavigationProps,
-  forwardedRef: React.Ref<any>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const navigationRef = useRef(null)
+  const navigationRef = useRef<HTMLDivElement | null>(null)
+  const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
   const [width, setWidth] = useState<number>(minWidth)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -82,7 +83,7 @@ function Navigation(
 
   return (
     <StyledNavigation
-      ref={mergeRefs(navigationRef, forwardedRef)}
+      ref={mergedRef}
       style={style}
       className={className}
       width={width}

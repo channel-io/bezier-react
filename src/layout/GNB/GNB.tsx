@@ -12,7 +12,7 @@ function GNB(
     style,
     className,
   }: GNBProps,
-  forwardedRef: React.Ref<any>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   return (
     <GNBView
