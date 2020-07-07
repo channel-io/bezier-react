@@ -15,8 +15,4 @@ export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
   transition: background-color 200ms ease-in-out;
   -webkit-app-region: drag;
   -webkit-user-select: none; /* stylelint-disable-line property-no-vendor-prefix */
-
-  * {
-    -webkit-app-region: no-drag;
-  }
 `
