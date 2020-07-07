@@ -2,6 +2,7 @@
 import React, { useRef, useCallback } from 'react'
 import { addDecorator } from '@storybook/react'
 import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs'
+import { action } from '@storybook/addon-actions'
 
 /* Internal dependencies */
 import { GNB } from '../GNB'
@@ -23,7 +24,14 @@ addDecorator(decorator)
 
 export const Default = () => (
   <ThemeProvider theme={LightTheme}>
-    <Navigation />
+    <Navigation
+      title={text('title', 'Title')}
+      fixedTitle={boolean('fixed title', false)}
+      width={number('width', 240)}
+      minWidth={number('minWidth', 240)}
+      maxWidth={number('maxWidth', 540)}
+      onChangeWidth={action('onChangeWidth')}
+    />
   </ThemeProvider>
 )
 
@@ -48,7 +56,7 @@ export const WithRef = () => {
           height: '100%',
         }}
       >
-        <Navigation ref={navigationRef}>
+        <Navigation ref={navigationRef} width={number('width', 300)}>
           Guess my width!
         </Navigation>
         <button type="button" onClick={handleClick}>click me</button>
