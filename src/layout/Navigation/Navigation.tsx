@@ -29,6 +29,7 @@ function Navigation(
     className,
     title,
     fixedTitle = false,
+    width = 240,
     minWidth = 240,
     maxWidth = 540,
     disableResize = false,
@@ -39,13 +40,13 @@ function Navigation(
 ) {
   const navigationRef = useRef<HTMLDivElement | null>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
-  const [width, setWidth] = useState<number>(minWidth)
+  const [currentWidth, setCurrentWidth] = useState<number>(_.clamp(width, minWidth, maxWidth))
   const [isDragging, setIsDragging] = useState(false)
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
 
-    window.requestAnimationFrame(() => setWidth(
+    window.requestAnimationFrame(() => setCurrentWidth(
       _.clamp(
         e.pageX - navigationRef.current?.offsetLeft,
         minWidth,
@@ -68,8 +69,12 @@ function Navigation(
   }, [])
 
   useEffect(() => {
-    onChangeWidth(width)
-  }, [width, onChangeWidth])
+    onChangeWidth(currentWidth)
+  }, [currentWidth, onChangeWidth])
+
+  useEffect(() => {
+    setCurrentWidth(_.clamp(width, minWidth, maxWidth))
+  }, [width, minWidth, maxWidth])
 
   useEffect(() => {
     if (isDragging) {
@@ -86,7 +91,7 @@ function Navigation(
       ref={mergedRef}
       style={style}
       className={className}
-      width={width}
+      width={currentWidth}
       data-testid={testId}
       isDragging={isDragging}
     >
