@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import GlobalHeaderProps from './GlobalHeader.types'
 
 export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
-  display: flex;
-  align-items: center;
+  position: relative;
   flex: none;
   width: 100%;
   height: ${props => (props.isWindows ? 32 : 40)}px;
