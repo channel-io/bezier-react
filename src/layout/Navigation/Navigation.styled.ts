@@ -13,6 +13,7 @@ export const StyledNavigation = styled.div<NavigationProps>`
   background-color: ${props => props.theme?.colors?.background1};
   box-shadow: inset -1px 0 0 0 ${props => props.theme?.colors?.background2};
   transition: background-color 200ms ease-in-out, width 200ms;
+  overflow: hidden;
 `
 
 interface StyledHandleProps {

@@ -5,6 +5,7 @@ import React, {
   useRef,
   useEffect,
   useCallback,
+  useMemo,
 } from 'react'
 import { clamp } from 'lodash-es'
 
@@ -29,6 +30,7 @@ function Navigation(
     className,
     title,
     fixedTitle = false,
+    withScroll = false,
     width = 240,
     minWidth = 240,
     maxWidth = 540,
@@ -42,6 +44,13 @@ function Navigation(
   const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
   const [currentWidth, setCurrentWidth] = useState<number>(clamp(width, minWidth, maxWidth))
   const [isDragging, setIsDragging] = useState(false)
+
+  const ContentWrapper = useMemo(() => {
+    if (!withScroll) {
+      return (props) => props.children
+    }
+    return StyledContentWrapper
+  }, [withScroll])
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
@@ -97,33 +106,24 @@ function Navigation(
       data-testid={testId}
       isDragging={isDragging}
     >
-      <StyledContentWrapper
-        data-testid={NAV_SCROLL_TEST_ID}
-      >
-        <div>
-          { /**
-           * FIXME: Safari 에서 sticky 가 제대로 동작하지 않는 버그가 있어서,
-           * 이를 해결하기 위해 추가한 임시 div 입니다.
-           * 추후 제거 요망.
-           *
-           * 참고: https://stackoverflow.com/questions/57934803/workaround-for-a-safari-position-sticky-webkit-sticky-bug
-           *  */ }
-          { title && (
-            <StyledTitleWrapper sticky={fixedTitle}>
-              <Text
-                bold
-                typo={Typography.Size24}
-                content={title}
-              />
-            </StyledTitleWrapper>
-          ) }
-          { children }
-        </div>
-      </StyledContentWrapper>
       <StyledHandle
         disable={disableResize}
         onMouseDown={handleMouseDown}
       />
+      <ContentWrapper
+        data-testid={NAV_SCROLL_TEST_ID}
+      >
+        { title && (
+          <StyledTitleWrapper sticky={fixedTitle}>
+            <Text
+              bold
+              typo={Typography.Size24}
+              content={title}
+            />
+          </StyledTitleWrapper>
+        ) }
+        { children }
+      </ContentWrapper>
     </StyledNavigation>
   )
 }

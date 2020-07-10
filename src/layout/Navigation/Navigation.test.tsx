@@ -22,7 +22,8 @@ describe('Navigation Test >', () => {
     }
   })
 
-  const renderNavigation = () => render(<Navigation {...props} />)
+  const renderNavigation = (optionalProps?: NavigationProps) =>
+    render(<Navigation {...props} {...optionalProps}/>)
 
   it('Navigation should be initialized with mininal width', () => {
     const { getByTestId } = renderNavigation()
@@ -39,14 +40,14 @@ describe('Navigation Test >', () => {
   })
 
   it('Navigation can be scrolled in y-axis', () => {
-    const { getByTestId } = renderNavigation()
+    const { getByTestId } = renderNavigation({ withScroll: true })
     const renderedNav = getByTestId(NAV_SCROLL_TEST_ID)
 
     expect(renderedNav).toHaveStyle('overflow-y: scroll')
   })
 
   it('Navigation hide overflowed contents on x-axis', () => {
-    const { getByTestId } = renderNavigation()
+    const { getByTestId } = renderNavigation({ withScroll: true })
     const renderedNav = getByTestId(NAV_SCROLL_TEST_ID)
 
     expect(renderedNav).toHaveStyle('overflow-x: hidden')
