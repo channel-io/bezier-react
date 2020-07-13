@@ -144,7 +144,7 @@ export const ProgrammaticScroll = () => {
       style={{ display: 'flex', height: '100%' }}
     >
       <ThemeProvider theme={LightTheme}>
-        <Navigation>
+        <Navigation withScroll>
           <div
             ref={scrollAreaRef}
             style={{

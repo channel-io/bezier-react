@@ -5,7 +5,6 @@ import React, {
   useRef,
   useEffect,
   useCallback,
-  useMemo,
 } from 'react'
 import { clamp } from 'lodash-es'
 
@@ -44,13 +43,6 @@ function Navigation(
   const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
   const [currentWidth, setCurrentWidth] = useState<number>(clamp(width, minWidth, maxWidth))
   const [isDragging, setIsDragging] = useState(false)
-
-  const ContentWrapper = useMemo(() => {
-    if (!withScroll) {
-      return (props) => props.children
-    }
-    return StyledContentWrapper
-  }, [withScroll])
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
@@ -106,15 +98,21 @@ function Navigation(
       data-testid={testId}
       isDragging={isDragging}
     >
-      <StyledHandle
-        disable={disableResize}
-        onMouseDown={handleMouseDown}
-      />
-      <ContentWrapper
+      { (title && fixedTitle) && (
+        <StyledTitleWrapper fixed>
+          <Text
+            bold
+            typo={Typography.Size24}
+            content={title}
+          />
+        </StyledTitleWrapper>
+      ) }
+      <StyledContentWrapper
+        scroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
       >
-        { title && (
-          <StyledTitleWrapper sticky={fixedTitle}>
+        { (title && !fixedTitle) && (
+          <StyledTitleWrapper>
             <Text
               bold
               typo={Typography.Size24}
@@ -123,7 +121,11 @@ function Navigation(
           </StyledTitleWrapper>
         ) }
         { children }
-      </ContentWrapper>
+      </StyledContentWrapper>
+      <StyledHandle
+        disable={disableResize}
+        onMouseDown={handleMouseDown}
+      />
     </StyledNavigation>
   )
 }

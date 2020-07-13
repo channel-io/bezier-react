@@ -6,6 +6,8 @@ import NavigationProps from './Navigation.types'
 
 export const StyledNavigation = styled.div<NavigationProps>`
   position: relative;
+  display: flex;
+  flex-direction: column;
   flex: none;
   height: 100%;
   user-select: ${props => (props.isDragging ? 'none' : 'auto')};
@@ -16,30 +18,32 @@ export const StyledNavigation = styled.div<NavigationProps>`
   overflow: hidden;
 `
 
-interface StyledHandleProps {
-  disable: boolean
+interface StyledContentWrapperProps {
+  scroll?: boolean
 }
 
-export const StyledContentWrapper = styled.div`
+export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: ${props => (props.scroll ? 'auto' : 'hidden')};
 `
 
 interface StyledTitleWrapperProps {
-  sticky: boolean
+  fixed?: boolean
 }
 
 export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
-  position: ${props => (props.sticky ? 'sticky' : 'initial')};
-  top: 0;
   width: 100%;
   height: 75px;
   padding: 18px 18px 21px;
   box-sizing: border-box;
   background-color: ${props => props.theme?.colors?.background1};
 `
+
+interface StyledHandleProps {
+  disable: boolean
+}
 
 export const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;

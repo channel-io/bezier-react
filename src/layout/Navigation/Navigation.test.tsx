@@ -43,7 +43,7 @@ describe('Navigation Test >', () => {
     const { getByTestId } = renderNavigation({ withScroll: true })
     const renderedNav = getByTestId(NAV_SCROLL_TEST_ID)
 
-    expect(renderedNav).toHaveStyle('overflow-y: scroll')
+    expect(renderedNav).toHaveStyle('overflow-y: auto')
   })
 
   it('Navigation hide overflowed contents on x-axis', () => {
