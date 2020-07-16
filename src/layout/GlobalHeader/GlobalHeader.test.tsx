@@ -28,6 +28,13 @@ describe('GlobalHeader Test >', () => {
     expect(renderedGH).toHaveStyle('width: 100%;')
   })
 
+  it('GlobalHeader should have 100vw max width', () => {
+    const { getByTestId } = renderGlobalHeader()
+    const renderedGH = getByTestId(GLOBAL_HEADER_TEST_ID)
+
+    expect(renderedGH).toHaveStyle('max-width: 100vw;')
+  })
+
   it('GlobalHeader should have 40px height in macOS', () => {
     const { getByTestId } = renderGlobalHeader()
     const renderedGH = getByTestId(GLOBAL_HEADER_TEST_ID)
