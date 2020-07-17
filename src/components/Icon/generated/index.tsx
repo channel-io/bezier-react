@@ -197,6 +197,7 @@ import MinusCircle from './MinusCircle'
 import Mobile from './Mobile'
 import MoonFilled from './MoonFilled'
 import MoreVertical from './MoreVertical'
+import MoreWin from './MoreWin'
 import More from './More'
 import Mouse from './Mouse'
 import Music from './Music'
@@ -522,6 +523,7 @@ const icons = {
   'mobile': Mobile,
   'moon-filled': MoonFilled,
   'more-vertical': MoreVertical,
+  'more-win': MoreWin,
   'more': More,
   'mouse': Mouse,
   'music': Music,
