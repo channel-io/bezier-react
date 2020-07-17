@@ -90,6 +90,7 @@ import ChevronUpDouble from './ChevronUpDouble'
 import ChevronUp from './ChevronUp'
 import Clip from './Clip'
 import Clock from './Clock'
+import CloseWin from './CloseWin'
 import CloudDownload from './CloudDownload'
 import CloudUpload from './CloudUpload'
 import Code from './Code'
@@ -109,6 +110,7 @@ import Edit from './Edit'
 import EmailUnread from './EmailUnread'
 import EmailUnsubscribed from './EmailUnsubscribed'
 import Email from './Email'
+import EnlargeWin from './EnlargeWin'
 import ErrorFilled from './ErrorFilled'
 import ErrorTriangleFilled from './ErrorTriangleFilled'
 import Error from './Error'
@@ -189,11 +191,13 @@ import MarkerPen from './MarkerPen'
 import Me from './Me'
 import Megaphone from './Megaphone'
 import Menu from './Menu'
+import MinimizeWin from './MinimizeWin'
 import MinusCircleFilled from './MinusCircleFilled'
 import MinusCircle from './MinusCircle'
 import Mobile from './Mobile'
 import MoonFilled from './MoonFilled'
 import MoreVertical from './MoreVertical'
+import MoreWin from './MoreWin'
 import More from './More'
 import Mouse from './Mouse'
 import Music from './Music'
@@ -412,6 +416,7 @@ const icons = {
   'chevron-up': ChevronUp,
   'clip': Clip,
   'clock': Clock,
+  'close-win': CloseWin,
   'cloud-download': CloudDownload,
   'cloud-upload': CloudUpload,
   'code': Code,
@@ -431,6 +436,7 @@ const icons = {
   'email-unread': EmailUnread,
   'email-unsubscribed': EmailUnsubscribed,
   'email': Email,
+  'enlarge-win': EnlargeWin,
   'error-filled': ErrorFilled,
   'error-triangle-filled': ErrorTriangleFilled,
   'error': Error,
@@ -511,11 +517,13 @@ const icons = {
   'me': Me,
   'megaphone': Megaphone,
   'menu': Menu,
+  'minimize-win': MinimizeWin,
   'minus-circle-filled': MinusCircleFilled,
   'minus-circle': MinusCircle,
   'mobile': Mobile,
   'moon-filled': MoonFilled,
   'more-vertical': MoreVertical,
+  'more-win': MoreWin,
   'more': More,
   'mouse': Mouse,
   'music': Music,

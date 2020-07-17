@@ -44,9 +44,9 @@ export const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: -8px;
   z-index: 10000;
-  width: 8px;
+  width: 16px;
   height: 100%;
   margin: 0 auto;
   cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
@@ -56,7 +56,7 @@ export const StyledHandle = styled.div<StyledHandleProps>`
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 6px;
+    left: 7px;
     width: 2px;
     height: 100%;
     opacity: 0;

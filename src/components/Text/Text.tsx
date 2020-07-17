@@ -6,15 +6,17 @@ import Typography from '../../styling/Typography'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
+export const TEXT_TEST_ID = 'ch-design-system-text'
+
 function Text({
   as,
-  testId = 'text',
-  content,
+  testId = TEXT_TEST_ID,
   bold = false,
   italic = false,
   typo = Typography.Size15,
   style,
   className,
+  children,
 }: TextProps) {
   return (
     <TextView
@@ -26,7 +28,7 @@ function Text({
       typo={typo}
       data-testid={testId}
     >
-      { content }
+      { children }
     </TextView>
   )
 }

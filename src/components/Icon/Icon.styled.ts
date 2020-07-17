@@ -14,7 +14,7 @@ function getMargin({
 }
 
 const Icon = styled.svg<IconStyledProps>`
-  fill: ${props => props.color || props.theme?.colors?.iconBase};
+  color: ${props => props.color || 'inherit'};
   margin: ${getMargin};
 `
 
