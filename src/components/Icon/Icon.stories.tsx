@@ -4,6 +4,7 @@ import { withKnobs, select, color, number } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 
 /* Internal dependencies */
+import { Text } from '../Text'
 import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
 import icons, { IconName } from './generated'
@@ -70,10 +71,13 @@ export const Primary = () => (
 )
 
 export const WithText = () => (
-  <h1>
+  <Text
+    style={{
+      color: color('color', Palette.grey700),
+    }}
+  >
     <Icon
       name={select('name', iconList, 'zoyi') as IconName}
-      color={color('color', Palette.grey700)}
       size={select('size', IconSize, IconSize.Normal)}
       marginTop={number('marginTop', 0)}
       marginRight={number('marginRight', 0)}
@@ -81,5 +85,5 @@ export const WithText = () => (
       marginLeft={number('marginLeft', 0)}
     />
     Hello World!
-  </h1>
+  </Text>
 )
