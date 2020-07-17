@@ -4,7 +4,8 @@ import { withKnobs, select, color, number } from '@storybook/addon-knobs'
 import styled from 'styled-components'
 
 /* Internal dependencies */
-import Pallette from '../../styling/Palette'
+import { ThemeProvider, LightTheme } from '../../styling/Theme'
+import Palette from '../../styling/Palette'
 import icons, { IconName } from './generated'
 import Icon from './Icon'
 
@@ -38,10 +39,10 @@ const Name = styled.p`
 
 export const AllIcons = () => {
   const size = select('size', IconSize, IconSize.Normal)
-  const selectedColor = color('color', Pallette.grey700)
+  const selectedColor = color('color', Palette.grey700)
 
   return (
-    <>
+    <ThemeProvider theme={LightTheme}>
       { iconList.map((iconName) => (
         <IconInfo key={iconName}>
           <Icon
@@ -52,14 +53,14 @@ export const AllIcons = () => {
           <Name>{ iconName }</Name>
         </IconInfo>
       )) }
-    </>
+    </ThemeProvider>
   )
 }
 
 export const Primary = () => (
   <Icon
     name={select('name', iconList, 'zoyi') as IconName}
-    color={color('color', Pallette.grey700)}
+    color={color('color', Palette.grey700)}
     size={select('size', IconSize, IconSize.Normal)}
     marginTop={number('marginTop', 0)}
     marginRight={number('marginRight', 0)}
@@ -72,7 +73,7 @@ export const WithText = () => (
   <h1>
     <Icon
       name={select('name', iconList, 'zoyi') as IconName}
-      color={color('color', Pallette.grey700)}
+      color={color('color', Palette.grey700)}
       size={select('size', IconSize, IconSize.Normal)}
       marginTop={number('marginTop', 0)}
       marginRight={number('marginRight', 0)}
