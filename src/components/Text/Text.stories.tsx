@@ -12,25 +12,31 @@ export default {
   decorators: [withKnobs],
 }
 
-export const Primary = () => (<Text content={text('content', 'hello')} />)
+export const Primary = () => (<Text>{ text('content', 'hello') }</Text>)
 
 export const WithStyle = () => (
   <Text
-    content={text('content', 'hello')}
     style={object('style', { color: 'green' })}
-  />
+  >
+    Text
+  </Text>
 )
 
 export const AlternativeTag = () => (
   <Text
-    content={text('content', 'bye')}
     as={select('as', ['h1', 'h2', 'button'], 'button') as React.ElementType}
-  />
+  >
+    { text('content', 'bye') }
+  </Text>
 )
 
 export const WithTheme = () => (
   <ThemeProvider theme={DarkTheme}>
-    <Text content={text('content', 'hiiii')} />
+    <div style={{ backgroundColor: 'black' }}>
+      <Text>
+        { text('content', 'hiiii') }
+      </Text>
+    </div>
   </ThemeProvider>
 )
 
@@ -46,7 +52,9 @@ export const WithCustomTheme = () => {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <Text content={text('content', 'hello, world')} />
+      <Text>
+        { text('content', 'hello, world') }
+      </Text>
     </ThemeProvider>
   )
 }
