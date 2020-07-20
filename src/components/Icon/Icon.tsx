@@ -6,11 +6,14 @@ import IconProps, { IconSize } from './Icon.types'
 import icons from './generated'
 import Styled from './Icon.styled'
 
+export const ICON_TEST_ID = 'ch-design-system-icon'
+
 function Icon({
   className,
   style,
   name,
   color,
+  testId = ICON_TEST_ID,
   size = IconSize.Normal,
   marginTop = 0,
   marginRight = 0,
@@ -19,6 +22,7 @@ function Icon({
 }: IconProps) {
   return (
     <Styled
+      data-testid={testId}
       className={className}
       color={color}
       as={icons[name]}
