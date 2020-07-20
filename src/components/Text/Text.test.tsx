@@ -29,7 +29,7 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('color: black;')
   })
 
-  it('Text recieves bold style', () => {
+  it('Text receives bold style', () => {
     const { getByTestId } = renderComponent({ bold: true })
 
     const renderedText = getByTestId(TEXT_TEST_ID)
@@ -37,7 +37,7 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('font-weight: bold;')
   })
 
-  it('Text recieves bold style', () => {
+  it('Text receives bold style', () => {
     const { getByTestId } = renderComponent({ italic: true })
 
     const renderedText = getByTestId(TEXT_TEST_ID)
@@ -45,7 +45,7 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('font-style: italic;')
   })
 
-  it('Text recieves style object', () => {
+  it('Text receives style object', () => {
     const { getByTestId } = renderComponent({ style: { color: 'skyblue' } })
 
     const renderedText = getByTestId(TEXT_TEST_ID)
@@ -53,7 +53,7 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('color: skyblue;')
   })
 
-  it('Text recieves typo from styled component css', () => {
+  it('Text receives typo from styled component css', () => {
     const { getByTestId } = renderComponent({ typo: Typography.Size24 })
 
     const renderedText = getByTestId(TEXT_TEST_ID)
