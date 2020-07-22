@@ -1,0 +1,71 @@
+references:
+  workspace_root: &workspace_root
+    /home/circleci/design-system
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+defaults: &defaults
+  resource_class: large
+  working_directory: *workspace_root
+
+  docker:
+    - image: zoyi/ci-node:12.16.1
+
+version: 1
+jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - design-system-dependencies-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: design-system-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - .
+
+  lint:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run lint
+
+  typecheck:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run typecheck
+
+  test:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run jest
+
+workflows:
+  version: 1
+  build_n_test:
+    jobs:
+      - install:
+          filters:
+            branches:
+              ignore:
+                - master
+                - exp
+      - lint:
+          requires:
+            - install
+      - typecheck:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
