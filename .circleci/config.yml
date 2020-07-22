@@ -13,7 +13,7 @@ defaults: &defaults
   docker:
     - image: zoyi/ci-node:12.16.1
 
-version: 1
+version: 2
 jobs:
   install:
     <<: *defaults
@@ -51,7 +51,7 @@ jobs:
       - run: npm run jest
 
 workflows:
-  version: 1
+  version: 2
   build_n_test:
     jobs:
       - install:
