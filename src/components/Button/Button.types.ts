@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { TextProps } from '../Text'
 import { StylableComponentProps } from '../../types/ComponentProps'
 
 export enum ButtonTheme {
@@ -6,6 +7,8 @@ export enum ButtonTheme {
 }
 
 interface ButtonProps extends StylableComponentProps {
+  text?: string
+  typo?: TextProps['typo']
   theme?: ButtonTheme
   onClick?: (event: MouseEvent) => void
 }

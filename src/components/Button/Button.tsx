@@ -3,6 +3,8 @@ import React, { useCallback, forwardRef } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
+import Typography from '../../styling/Typography'
+import { Text } from '../Text'
 import { ButtonProps } from './Button.types'
 import { StyledBaseButton } from './Button.styled'
 
@@ -14,6 +16,8 @@ function Button(
     testId = BUTTON_TEST_ID,
     className,
     style,
+    text,
+    typo = Typography.Size14,
     onClick = _.noop,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
@@ -31,7 +35,12 @@ function Button(
       data-testid={testId}
       onClick={handleClick}
     >
-      button
+      <Text
+        inheritColor
+        typo={typo}
+      >
+        { text }
+      </Text>
     </StyledBaseButton>
   )
 }
