@@ -29,7 +29,7 @@ export const Content = styled.div<ContentProps>`
   height: ${props => props.size}px;
   background-color: ${props => props.theme?.colors?.handle1};
   border-radius: 50%;
-  box-shadow: 0 2px 4px 0 ${props => props.theme?.colors?.shadow1};
+  box-shadow: 0 2px 4px 0 ${props => props.theme?.colors?.shadow2};
   transition: transform 100ms ease-out;
   transform: ${props => (props.checked ? `translateX(${props.size - PADDING}px)` : 'initial')};
 `
