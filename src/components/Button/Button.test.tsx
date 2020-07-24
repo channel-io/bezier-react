@@ -3,10 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from '../../utils/testUtils'
-import Button from './Button'
+import Button, { BUTTON_TEST_ID } from './Button'
 import type ButtonProps from './Button.types'
 
-describe('Button', () => {
+describe('Button Test >', () => {
   let props: ButtonProps
 
   beforeEach(() => {
@@ -16,13 +16,13 @@ describe('Button', () => {
     }
   })
 
-  const renderComponent = () => render(<Button {...props} />)
+  const renderButton = (optionProps?: ButtonProps) => render(<Button {...props} {...optionProps}/>)
 
-  it('Button 테스트', () => {
-    const { getByTestId } = renderComponent()
+  it('Button has 34px height', () => {
+    const { getByTestId } = renderButton()
 
-    const testComponent = getByTestId('button')
+    const renderedButton = getByTestId(BUTTON_TEST_ID)
 
-    expect(testComponent).toHaveStyle('border: none;')
+    expect(renderedButton).toHaveStyle('border: none;')
   })
 })
