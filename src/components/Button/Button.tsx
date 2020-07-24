@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { Text } from '../Text'
-import type ButtonProps from './Button.types'
+import type { ButtonProps } from './Button.types'
 import { StyledBaseButton } from './Button.styled'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
@@ -14,6 +14,7 @@ function Button(
     text,
     width = 100,
     height = 100,
+    testId = BUTTON_TEST_ID,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -23,7 +24,7 @@ function Button(
       ref={forwardedRef}
       width={`${width}px`}
       height={`${height}px`}
-      data-testid="button"
+      data-testid={testId}
     >
       <Text>
         { text }
