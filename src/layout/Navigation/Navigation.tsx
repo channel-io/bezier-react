@@ -103,8 +103,9 @@ function Navigation(
           <Text
             bold
             typo={Typography.Size24}
-            content={title}
-          />
+          >
+            { title }
+          </Text>
         </StyledTitleWrapper>
       ) }
       <StyledContentWrapper
@@ -116,8 +117,9 @@ function Navigation(
             <Text
               bold
               typo={Typography.Size24}
-              content={title}
-            />
+            >
+              { title }
+            </Text>
           </StyledTitleWrapper>
         ) }
         { children }
