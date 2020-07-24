@@ -26,6 +26,7 @@ export const StyledBaseButton = styled.button<ButtonProps>`
   ${props => getButtonStyle(props.theme)}
 
   height: 34px;
+  min-width: 70px;
   padding: 8px 22px;
   border: none;
   border-radius: 5px;
