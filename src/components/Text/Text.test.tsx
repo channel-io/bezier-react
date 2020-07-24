@@ -24,9 +24,8 @@ describe('Text test >', () => {
     const renderedText = getByTestId(TEXT_TEST_ID)
 
     expect(renderedText).toHaveStyle('font-size: 15px;')
-    expect(renderedText).toHaveStyle('font-weight: normal;')
-    expect(renderedText).toHaveStyle('font-style: normal;')
-    expect(renderedText).toHaveStyle('color: black;')
+    expect(renderedText).toHaveStyle('font-weight: inherit;')
+    expect(renderedText).toHaveStyle('font-style: inherit;')
   })
 
   it('Text receives bold style', () => {
@@ -60,5 +59,13 @@ describe('Text test >', () => {
 
     expect(renderedText).toHaveStyle('font-size: 24px;')
     expect(renderedText).toHaveStyle('line-height: 32px;')
+  })
+
+  it('Text inherits parent color if recieves option', () => {
+    const { getByTestId } = renderComponent({ inheritColor: true })
+
+    const renderedText = getByTestId(TEXT_TEST_ID)
+
+    expect(renderedText).toHaveStyle('color: inherit;')
   })
 })

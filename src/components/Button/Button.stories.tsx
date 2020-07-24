@@ -13,6 +13,6 @@ export default {
 
 export const Primary = () => (
   <ThemeProvider theme={LightTheme}>
-    <Button />
+    <Button text="저장" />
   </ThemeProvider>
 )
