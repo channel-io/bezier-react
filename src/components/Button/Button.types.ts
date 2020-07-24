@@ -7,7 +7,7 @@ export enum ButtonTheme {
   Normal = 'normal',
 }
 
-export default interface ButtonProps extends StylableComponentProps {
+export interface ButtonProps extends StylableComponentProps {
   text?: string
   typo?: TextProps['typo']
   theme?: ButtonTheme

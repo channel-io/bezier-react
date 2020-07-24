@@ -60,4 +60,12 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('font-size: 24px;')
     expect(renderedText).toHaveStyle('line-height: 32px;')
   })
+
+  it('Text inherits parent color if recieves option', () => {
+    const { getByTestId } = renderComponent({ inheritColor: true })
+
+    const renderedText = getByTestId(TEXT_TEST_ID)
+
+    expect(renderedText).toHaveStyle('color: inherit;')
+  })
 })
