@@ -1,10 +1,13 @@
+/* Internal dependencies */
+import { StylableComponentProps } from '../../types/ComponentProps'
+
 export enum ButtonTheme {
   Normal = 'normal'
 }
 
-interface ButtonProps {
+interface ButtonProps extends StylableComponentProps {
   theme?: ButtonTheme
-  onClick?: () => void
+  onClick?: (event: MouseEvent) => void
 }
 
 export type {

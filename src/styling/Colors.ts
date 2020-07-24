@@ -33,6 +33,7 @@ export interface Colors {
 
   // Shadow
   shadow1?: string
+  shadow2?: string
 
   // Icon
   iconBase?: string
@@ -55,7 +56,8 @@ export const Light: Colors = {
   handle5: Palette.grey500,
   handle2: Palette.grey200,
   handle1: Palette.white,
-  shadow1: Palette.black15,
+  shadow1: Palette.black10,
+  shadow2: Palette.black15,
   iconBase: Palette.grey700,
 }
 

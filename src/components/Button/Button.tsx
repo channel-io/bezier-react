@@ -1,27 +1,39 @@
 /* External dependencies */
-import React from 'react'
+import React, { useCallback, forwardRef } from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
-import {
-  ButtonProps,
-  ButtonTheme,
-} from './Button.types'
-import { ButtonComponent } from './Button.styled'
+import { ButtonProps } from './Button.types'
+import { StyledBaseButton } from './Button.styled'
 
-function Button({
-  // TODO: (@leo) Foundation 정의 후 Button 컴포넌트 작성
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  theme = ButtonTheme.Normal,
-  onClick,
-}: ButtonProps) {
+export const BUTTON_TEST_ID = 'ch-design-system-button'
+
+function Button(
+  {
+    as,
+    testId = BUTTON_TEST_ID,
+    className,
+    style,
+    onClick = _.noop,
+  }: ButtonProps,
+  forwardedRef: React.Ref<HTMLElement>,
+) {
+  const handleClick = useCallback((e: MouseEvent) => {
+    onClick(e)
+  }, [onClick])
+
   return (
-    <ButtonComponent
-      data-testid="button"
-      onClick={onClick}
+    <StyledBaseButton
+      ref={forwardedRef}
+      as={as}
+      className={className}
+      style={style}
+      data-testid={testId}
+      onClick={handleClick}
     >
       button
-    </ButtonComponent>
+    </StyledBaseButton>
   )
 }
 
-export default Button
+export default forwardRef(Button)
