@@ -18,11 +18,13 @@ describe('Button Test >', () => {
 
   const renderButton = (optionProps?: ButtonProps) => render(<Button {...props} {...optionProps}/>)
 
-  it('Button has 34px height', () => {
+  it('Button has default style', () => {
     const { getByTestId } = renderButton()
 
     const renderedButton = getByTestId(BUTTON_TEST_ID)
 
     expect(renderedButton).toHaveStyle('height: 34px;')
+    expect(renderedButton).toHaveStyle('min-width: 70px;')
+    expect(renderedButton).toHaveStyle('padding: 8px 22px;')
   })
 })
