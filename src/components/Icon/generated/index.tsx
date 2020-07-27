@@ -2,6 +2,7 @@
 import All from './All'
 import Android from './Android'
 import AppCheck from './AppCheck'
+import AppPlus from './AppPlus'
 import AppPush from './AppPush'
 import Apple from './Apple'
 import AppsAdd from './AppsAdd'
@@ -328,6 +329,7 @@ const icons = {
   'all': All,
   'android': Android,
   'app-check': AppCheck,
+  'app-plus': AppPlus,
   'app-push': AppPush,
   'apple': Apple,
   'apps-add': AppsAdd,
