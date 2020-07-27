@@ -1,6 +1,11 @@
+/* External dependencies */
+import React from 'react'
+
 /* Internal dependencies */
 import { StylableComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
+
+type SVGProps = React.SVGProps<SVGSVGElement>
 
 export enum IconSize {
   L = 34,
@@ -18,7 +23,7 @@ export interface IconStyledProps {
   marginLeft: number
 }
 
-export default interface IconProps extends StylableComponentProps {
+export default interface IconProps extends StylableComponentProps, Omit<SVGProps, 'ref'> {
   name: IconName
   color?: string
   size?: IconSize
