@@ -33,6 +33,4 @@ function Text({
   )
 }
 
-Text.displayName = 'Text'
-
 export default Text

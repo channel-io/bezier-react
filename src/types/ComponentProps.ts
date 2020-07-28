@@ -20,6 +20,6 @@ export interface ContentComponentProps<Content = React.ReactNode> extends UIComp
   content?: Content
 }
 
-export interface ChildrenComponentProps<Children = React.ReactChildren> extends UIComponentProps {
+export interface ChildrenComponentProps<Children = React.ReactNode> extends UIComponentProps {
   children?: Children
 }

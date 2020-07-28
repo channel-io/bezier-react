@@ -8,6 +8,12 @@ export interface Colors {
   background3?: string
   background2?: string
   background1?: string
+  background0?: string
+
+  // Borders
+  border3?: string
+  border2?: string
+  border1?: string
 
   // Success
   success1?: string
@@ -18,6 +24,8 @@ export interface Colors {
   default1Hover?: string
 
   // Handle
+  handle5?: string
+  handle2?: string
   handle1?: string
 
   // Shadow
@@ -32,10 +40,16 @@ export const Light: Colors = {
   background3: Palette.grey300,
   background2: Palette.grey200,
   background1: Palette.grey100,
+  background0: Palette.white,
+  border3: Palette.grey300,
+  border2: Palette.grey200,
+  border1: Palette.grey100,
   success1: Palette.green400,
   success1Hover: Palette.green500,
   default1: Palette.grey300,
   default1Hover: Palette.grey500,
+  handle5: Palette.grey500,
+  handle2: Palette.grey200,
   handle1: Palette.white,
   shadow1: Palette.black15,
   iconBase: Palette.grey700,
