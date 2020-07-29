@@ -1,14 +1,20 @@
+/* eslint-disable @typescript-eslint/indent, consistent-return */
 /* External dependencies */
 import styled, { css } from 'styled-components'
 
 /* Internal dependencies */
 import RadioProps from './Radio.types'
 
-export const StyledRadioWrapper = styled.div`
+export const StyledRadioWrapper = styled.div<RadioProps>`
   display: flex;
+  align-items: center;
+  cursor:
+    ${props => {
+      if (props.disabled) { return 'auto' }
+      return 'pointer'
+    }};
 `
 
-/* eslint-disable @typescript-eslint/indent, consistent-return */
 const StyledRadioInputDot = css<RadioProps>`
   position: absolute;
   top: 50%;
@@ -31,6 +37,7 @@ export const StyledRadioInput = styled.div<RadioProps>`
   position: relative;
   width: 18px;
   height: 18px;
+  margin-right: 9px;
   border-radius: 50%;
   border:
     ${props => {
@@ -43,11 +50,6 @@ export const StyledRadioInput = styled.div<RadioProps>`
       if (props.checked) { return props.theme?.colors?.success1 }
       return props.theme?.colors?.background0
     }};
-  cursor:
-    ${props => {
-      if (props.disabled) { return 'auto' }
-      return 'pointer'
-    }};
 
   &::after {
     ${StyledRadioInputDot};
@@ -59,9 +61,5 @@ export const StyledRadioInput = styled.div<RadioProps>`
         if (!props.disabled && !props.checked) { return props.theme?.colors?.handle2 }
       }};
   }
-`
-
-export const StyledRadioContent = styled.div`
-  width: inherit;
 `
 /* eslint-enable @typescript-eslint/indent, consistent-return */

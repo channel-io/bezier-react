@@ -2,11 +2,9 @@
 import React, { useCallback, MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { Text } from '../Text'
 import {
   StyledRadioWrapper,
   StyledRadioInput,
-  StyledRadioContent,
 } from './Radio.styled'
 import RadioProps from './Radio.types'
 
@@ -14,8 +12,8 @@ function Radio({
   as,
   className,
   style,
-  label,
-  checked = false,
+  dotClassName,
+  watchingValue,
   value,
   onClick,
   disabled = false,
@@ -31,22 +29,17 @@ function Radio({
     <StyledRadioWrapper
       className={className}
       style={style}
+      disabled={disabled}
       onClick={handleClick}
     >
       <StyledRadioInput
         as={as}
+        className={dotClassName}
         type="radio"
-        checked={checked}
+        checked={watchingValue === value}
         disabled={disabled}
       />
-      <StyledRadioContent>
-        { label && (
-          <Text>
-            { label }
-          </Text>
-        ) }
-        { children }
-      </StyledRadioContent>
+      { children }
     </StyledRadioWrapper>
   )
 }
