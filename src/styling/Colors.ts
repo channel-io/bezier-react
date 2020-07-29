@@ -9,6 +9,13 @@ export interface Colors {
   background2?: string
   background1?: string
 
+  // Disabled
+  disabled3?: string
+
+  // Borders
+  border3?: string
+  border2?: string
+
   // Success
   success1?: string
   success1Hover?: string
@@ -32,6 +39,9 @@ export const Light: Colors = {
   background3: Palette.grey300,
   background2: Palette.grey200,
   background1: Palette.grey100,
+  disabled3: Palette.grey300,
+  border3: Palette.grey300,
+  border2: Palette.grey200,
   success1: Palette.green400,
   success1Hover: Palette.green500,
   default1: Palette.grey300,
