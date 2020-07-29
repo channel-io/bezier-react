@@ -1,5 +1,11 @@
 /* External dependencies */
-import React, { useCallback, MouseEvent } from 'react'
+import React, {
+  useCallback,
+  useState,
+  useMemo,
+  MouseEvent,
+} from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import {
@@ -19,11 +25,22 @@ function Radio({
   disabled = false,
   children,
 }: RadioProps) {
+  const [hovered, setHovered] = useState(false)
+
   const handleClick = useCallback((e: MouseEvent) => {
     if (!disabled && onClick) {
       onClick(value, e)
     }
   }, [onClick, disabled, value])
+
+  const handleMouseOver = useCallback(() => setHovered(true), [])
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [])
+
+  const checked = useMemo(() => {
+    if (_.isNil(watchingValue) || _.isNil(value)) { return false }
+    return watchingValue === value
+  }, [watchingValue, value])
 
   return (
     <StyledRadioWrapper
@@ -31,13 +48,16 @@ function Radio({
       style={style}
       disabled={disabled}
       onClick={handleClick}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
     >
       <StyledRadioInput
         as={as}
         className={dotClassName}
         type="radio"
-        checked={watchingValue === value}
+        checked={checked}
         disabled={disabled}
+        hovered={hovered}
       />
       { children }
     </StyledRadioWrapper>

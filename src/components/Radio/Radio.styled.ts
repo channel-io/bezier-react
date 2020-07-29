@@ -15,7 +15,13 @@ export const StyledRadioWrapper = styled.div<RadioProps>`
     }};
 `
 
-const StyledRadioInputDot = css<RadioProps>`
+interface RadioInputProps {
+  checked: boolean
+  disabled: boolean
+  hovered: boolean
+}
+
+const StyledRadioInputDot = css<RadioInputProps>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -25,6 +31,7 @@ const StyledRadioInputDot = css<RadioProps>`
   content: '';
   background-color:
     ${props => {
+      if (!props.disabled && !props.checked && props.hovered) { return props.theme?.colors?.handle2 }
       if (props.checked && props.disabled) { return props.theme?.colors?.handle5 }
       if (props.checked) { return props.theme?.colors?.handle1 }
       return 'transparent'
@@ -53,13 +60,6 @@ export const StyledRadioInput = styled.div<RadioProps>`
 
   &::after {
     ${StyledRadioInputDot};
-  }
-
-  &:hover::after {
-    background-color:
-      ${props => {
-        if (!props.disabled && !props.checked) { return props.theme?.colors?.handle2 }
-      }};
   }
 `
 /* eslint-enable @typescript-eslint/indent, consistent-return */

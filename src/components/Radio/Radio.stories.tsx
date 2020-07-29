@@ -14,16 +14,14 @@ export default {
 }
 
 export const Primary = () => {
-  const [checked, setChecked] = useState(false)
-
-  const onClick = () => setChecked(prev => !prev)
+  const value = 1
 
   return (
     <ThemeProvider theme={LightTheme}>
       <div style={{ margin: 10 }}>
         <Radio
-          checked={checked}
-          onClick={onClick}
+          watchingValue={value}
+          value={value}
         >
           <Text>
             { text('label', 'hello!') }
@@ -44,15 +42,23 @@ export const Disabled = () => (
   </ThemeProvider>
 )
 
-export const CheckedDisabled = () => (
-  <ThemeProvider theme={LightTheme}>
-    <Radio disabled checked>
-      <Text>
-        { text('label', 'hello, world!') }
-      </Text>
-    </Radio>
-  </ThemeProvider>
-)
+export const CheckedDisabled = () => {
+  const value = 1
+
+  return (
+    <ThemeProvider theme={LightTheme}>
+      <Radio
+        value={value}
+        watchingValue={value}
+        disabled
+      >
+        <Text>
+          { text('label', 'hello, world!') }
+        </Text>
+      </Radio>
+    </ThemeProvider>
+  )
+}
 
 export const MultiRadio = () => {
   const [selected, setSelected] = useState(1)
