@@ -14,8 +14,11 @@ import {
 } from './Radio.styled'
 import RadioProps from './Radio.types'
 
+export const RADIO_TEST_ID = 'ch-design-system-radio'
+
 function Radio({
   as,
+  testId = RADIO_TEST_ID,
   className,
   style,
   dotClassName,
@@ -53,6 +56,7 @@ function Radio({
     >
       <StyledRadioInput
         as={as}
+        data-testid={testId}
         className={dotClassName}
         type="radio"
         checked={checked}
