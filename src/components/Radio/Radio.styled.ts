@@ -3,7 +3,7 @@
 import styled, { css } from 'styled-components'
 
 /* Internal dependencies */
-import RadioProps from './Radio.types'
+import RadioProps, { StyledRadioInputProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`
   display: flex;
@@ -15,13 +15,7 @@ export const StyledRadioWrapper = styled.div<RadioProps>`
     }};
 `
 
-interface RadioInputProps {
-  checked: boolean
-  disabled: boolean
-  hovered: boolean
-}
-
-const StyledRadioInputDot = css<RadioInputProps>`
+const StyledRadioInputDot = css<StyledRadioInputProps>`
   position: absolute;
   top: 50%;
   left: 50%;
