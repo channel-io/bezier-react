@@ -4,7 +4,7 @@ import styled from 'styled-components'
 /* Internal dependencies */
 import { absoluteCenter } from '../../styling/Mixins'
 import Palette from '../../styling/Palette'
-import { WrapperProps, CheckerProps, ContentProps } from './Checkbox.types'
+import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 
 const CHECKER_BOX_SIZE = 18
 const CHECKER_ICON_THICKNESS = 2
@@ -13,7 +13,7 @@ const CHECKER_BORDER_THICKNESS = 2
 const TRANSITION_DURATION = '.15s'
 const TRANSITION_FUNCTION = 'ease-in-out'
 
-export const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.div<StyledWrapperProps>`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div<WrapperProps>`
   )}
 `
 
-export const Checker = styled.div<CheckerProps>`
+export const Checker = styled.div<StyledCheckerProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -98,7 +98,7 @@ export const Checker = styled.div<CheckerProps>`
   }
 `
 
-export const Content = styled.div<ContentProps>`
+export const Content = styled.div<StyledContentProps>`
   box-sizing: border-box;
   padding: ${CHECKER_BORDER_THICKNESS}px 0;
   margin-left: 2px;

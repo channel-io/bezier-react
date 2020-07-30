@@ -13,16 +13,16 @@ export default interface CheckboxProps extends UIComponentProps {
   checked?: boolean | CheckType
 }
 
-export interface WrapperProps {
+export interface StyledWrapperProps {
   disabled?: boolean
 }
 
-export interface CheckerProps {
+export interface StyledCheckerProps {
   disabled?: boolean
   checked?: boolean
   partialChecked?: boolean
 }
 
-export interface ContentProps {
+export interface StyledContentProps {
   className?: string
 }
