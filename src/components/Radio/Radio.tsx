@@ -4,6 +4,7 @@ import React, {
   useState,
   useMemo,
   MouseEvent,
+  forwardRef,
 } from 'react'
 import _ from 'lodash'
 
@@ -16,18 +17,21 @@ import RadioProps from './Radio.types'
 
 export const RADIO_TEST_ID = 'ch-design-system-radio'
 
-function Radio({
-  as,
-  testId = RADIO_TEST_ID,
-  className,
-  style,
-  dotClassName,
-  watchingValue,
-  value,
-  onClick,
-  disabled = false,
-  children,
-}: RadioProps) {
+function Radio(
+  {
+    as,
+    testId = RADIO_TEST_ID,
+    className,
+    style,
+    dotClassName,
+    watchingValue,
+    value,
+    onClick,
+    disabled = false,
+    children,
+  }: RadioProps,
+  forwardedRef: React.Ref<HTMLElement>,
+) {
   const [hovered, setHovered] = useState(false)
 
   const handleClick = useCallback((e: MouseEvent) => {
@@ -47,6 +51,7 @@ function Radio({
 
   return (
     <StyledRadioWrapper
+      ref={forwardedRef}
       className={className}
       style={style}
       disabled={disabled}
@@ -68,4 +73,4 @@ function Radio({
   )
 }
 
-export default Radio
+export default forwardRef(Radio)
