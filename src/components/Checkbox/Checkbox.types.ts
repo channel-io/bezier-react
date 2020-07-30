@@ -19,8 +19,7 @@ export interface StyledWrapperProps {
 
 export interface StyledCheckerProps {
   disabled?: boolean
-  checked?: boolean
-  partialChecked?: boolean
+  checkStatus?: CheckType
 }
 
 export interface StyledContentProps {

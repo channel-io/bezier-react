@@ -4,7 +4,7 @@ import styled from 'styled-components'
 /* Internal dependencies */
 import { absoluteCenter } from '../../styling/Mixins'
 import Palette from '../../styling/Palette'
-import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
+import { StyledWrapperProps, StyledCheckerProps, StyledContentProps, CheckType } from './Checkbox.types'
 
 const CHECKER_BOX_SIZE = 18
 const CHECKER_ICON_THICKNESS = 2
@@ -23,6 +23,53 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     : ''
   )}
 `
+
+const checkerBase = (props) => `
+  &::after {
+    ${absoluteCenter`translateY(-13%) rotate(42deg)`}
+    width: 4px;
+    height: 9px;
+    border-right: solid ${CHECKER_ICON_THICKNESS}px transparent;
+    border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
+    border-color: ${Palette.white};
+    content: '';
+    transition: border-color ${TRANSITION_DURATION} ${TRANSITION_FUNCTION};
+  }
+
+  ${(props.checkStatus === CheckType.True || props.checkStatus === CheckType.Partial) ? `
+    background-color: ${Palette.green400};
+    border-color: transparent;
+
+    ${!props.disabled ? `
+      &:hover {
+        background-color: ${Palette.green500};
+      }
+    ` : ''}
+  ` : ''}
+`
+
+const partialChecked = (props) => ((props.checkStatus === CheckType.Partial) ? `
+  &::after {
+    ${absoluteCenter`translateY(-36%) rotate(0)`}
+    width: 10px;
+    border-right: none;
+    border-bottom: solid 2px ${Palette.white};
+  }
+` : '')
+
+const disabled = (props) => ((props.disabled) ? `
+  background-color: ${props.theme?.colors?.disabled3};
+
+  ${(props.checkStatus === CheckType.False) ? `
+    &::after {
+      border-color: transparent;
+    }
+  ` : `
+    &::after {
+      border-color: ${Palette.grey500};
+    }
+  `}
+` : '')
 
 export const Checker = styled.div<StyledCheckerProps>`
   position: relative;
@@ -43,59 +90,19 @@ export const Checker = styled.div<StyledCheckerProps>`
     ${`color ${TRANSITION_DURATION} ${TRANSITION_FUNCTION}`},
     ${`background ${TRANSITION_DURATION} ${TRANSITION_FUNCTION}`};
 
-  &::after {
-    ${absoluteCenter`translateY(-13%) rotate(42deg)`}
-    width: 4px;
-    height: 9px;
-    border-right: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    content: '';
-    transition: ${`border-color ${TRANSITION_DURATION} ${TRANSITION_FUNCTION}`};
-  }
-
-  &:not(.disabled) {
+  ${props => (!props.disabled ? `
     &:hover {
       &::after {
         border-color: ${Palette.grey200};
       }
     }
-  }
+  ` : '')}
 
-  &.partialChecked {
-    &::after {
-      ${absoluteCenter`translateY(-36%) rotate(0)`}
-      width: 10px;
-      border-right: none;
-      border-bottom: solid 2px ${Palette.white};
-    }
-  }
+  ${checkerBase}
 
-  &.checked,
-  &.partialChecked {
-    background-color: ${Palette.green400};
-    border-color: transparent;
+  ${partialChecked}
 
-    &::after {
-      border-color: ${Palette.white};
-    }
-
-    &:not(.disabled) {
-      &:hover {
-        background-color: ${Palette.green500};
-      }
-    }
-  }
-
-  &.disabled {
-    background-color: ${props => props.theme?.colors?.disabled3};
-
-    &.checked,
-    &.partialChecked {
-      &::after {
-        border-color: ${Palette.grey500};
-      }
-    }
-  }
+  ${disabled}
 `
 
 export const Content = styled.div<StyledContentProps>`

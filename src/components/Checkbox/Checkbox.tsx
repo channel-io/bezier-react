@@ -4,7 +4,6 @@ import React, {
   forwardRef,
   useMemo,
 } from 'react'
-import classNames from 'classnames'
 import _ from 'lodash'
 
 /* Internal dependencies */
@@ -44,14 +43,8 @@ function Checkbox(
       data-testid={testId}
     >
       <Checker
-        className={classNames(className, {
-          disabled,
-          checked: checkStatus === CheckType.True,
-          partialChecked: checkStatus === CheckType.Partial,
-        })}
         disabled={disabled}
-        checked={checkStatus === CheckType.True}
-        partialChecked={checkStatus === CheckType.Partial}
+        checkStatus={checkStatus}
       />
 
       { !_.isEmpty(children) ? (
