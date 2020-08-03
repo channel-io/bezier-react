@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { memo } from 'react'
-import _ from 'lodash'
 
 /* Internal dependencies */
 import IconProps, { IconSize } from './Icon.types'
@@ -20,7 +19,7 @@ function Icon({
   marginLeft = 0,
   ...props
 }: IconProps) {
-  if (_.isNil(icons[name])) { return null }
+  if (!icons[name]) { return null }
 
   return (
     <Styled

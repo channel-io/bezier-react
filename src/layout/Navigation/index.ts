@@ -1,7 +1,10 @@
 import Navigation from './Navigation'
-import NavigationProps from './Navigation.types'
+import type NavigationProps from './Navigation.types'
+
+export type {
+  NavigationProps,
+}
 
 export {
   Navigation,
-  NavigationProps,
 }
