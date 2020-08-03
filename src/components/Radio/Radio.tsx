@@ -6,7 +6,7 @@ import React, {
   MouseEvent,
   forwardRef,
 } from 'react'
-import _ from 'lodash'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -46,7 +46,7 @@ function Radio(
   const handleMouseLeave = useCallback(() => setHovered(false), [])
 
   const checked = useMemo(() => {
-    if (_.isNil(watchingValue) || _.isNil(value)) { return false }
+    if (isNil(watchingValue) || isNil(value)) { return false }
     return watchingValue === value
   }, [watchingValue, value])
 
