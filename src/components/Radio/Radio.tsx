@@ -11,7 +11,7 @@ import _ from 'lodash'
 /* Internal dependencies */
 import {
   StyledRadioWrapper,
-  StyledRadioInput,
+  StyledRadioHandle,
 } from './Radio.styled'
 import RadioProps from './Radio.types'
 
@@ -29,6 +29,7 @@ function Radio(
     onClick,
     disabled = false,
     children,
+    ...otherProps
   }: RadioProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -58,12 +59,12 @@ function Radio(
       onClick={handleClick}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}
+      {...otherProps}
     >
-      <StyledRadioInput
+      <StyledRadioHandle
         as={as}
         data-testid={testId}
         className={dotClassName}
-        type="radio"
         checked={checked}
         disabled={disabled}
         hovered={hovered}

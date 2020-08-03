@@ -12,7 +12,7 @@ export default interface RadioProps extends ChildrenComponentProps {
   onClick?: (value: any, e: MouseEvent) => void
 }
 
-export interface StyledRadioInputProps {
+export interface StyledRadioHandleProps {
   checked: boolean
   disabled: boolean
   hovered: boolean

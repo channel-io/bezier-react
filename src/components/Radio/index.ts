@@ -1,7 +1,10 @@
 import Radio from './Radio'
-import RadioProps from './Radio.types'
+import type RadioProps from './Radio.types'
+
+export type {
+  RadioProps,
+}
 
 export {
   Radio,
-  RadioProps,
 }

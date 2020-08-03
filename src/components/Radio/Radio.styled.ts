@@ -3,7 +3,7 @@
 import styled, { css } from 'styled-components'
 
 /* Internal dependencies */
-import RadioProps, { StyledRadioInputProps } from './Radio.types'
+import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`
   display: flex;
@@ -15,7 +15,7 @@ export const StyledRadioWrapper = styled.div<RadioProps>`
     }};
 `
 
-const StyledRadioInputDot = css<StyledRadioInputProps>`
+const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,7 +33,7 @@ const StyledRadioInputDot = css<StyledRadioInputProps>`
   border-radius: 50%;
 `
 
-export const StyledRadioInput = styled.div<RadioProps>`
+export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
   box-sizing: border-box;
   position: relative;
   width: 18px;
@@ -53,7 +53,7 @@ export const StyledRadioInput = styled.div<RadioProps>`
     }};
 
   &::after {
-    ${StyledRadioInputDot};
+    ${StyledRadioHandleDot};
   }
 `
 /* eslint-enable @typescript-eslint/indent, consistent-return */
