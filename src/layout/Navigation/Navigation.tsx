@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react'
-import _ from 'lodash'
+import { clamp } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -33,22 +33,22 @@ function Navigation(
     minWidth = 240,
     maxWidth = 540,
     disableResize = false,
-    onChangeWidth = _.noop,
+    onChangeWidth,
     children,
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const navigationRef = useRef<HTMLDivElement | null>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
-  const [currentWidth, setCurrentWidth] = useState<number>(_.clamp(width, minWidth, maxWidth))
+  const [currentWidth, setCurrentWidth] = useState<number>(clamp(width, minWidth, maxWidth))
   const [isDragging, setIsDragging] = useState(false)
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
 
     window.requestAnimationFrame(() => setCurrentWidth(
-      _.clamp(
-        e.pageX - navigationRef.current?.offsetLeft,
+      clamp(
+        e.pageX - (navigationRef.current?.offsetLeft || 0),
         minWidth,
         maxWidth,
       ),
@@ -69,11 +69,13 @@ function Navigation(
   }, [])
 
   useEffect(() => {
-    onChangeWidth(currentWidth)
+    if (onChangeWidth) {
+      onChangeWidth(currentWidth)
+    }
   }, [currentWidth, onChangeWidth])
 
   useEffect(() => {
-    setCurrentWidth(_.clamp(width, minWidth, maxWidth))
+    setCurrentWidth(clamp(width, minWidth, maxWidth))
   }, [width, minWidth, maxWidth])
 
   useEffect(() => {

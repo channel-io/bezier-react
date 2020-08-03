@@ -2,7 +2,11 @@ export enum ButtonTheme {
   Normal = 'normal'
 }
 
-export interface ButtonProps {
+interface ButtonProps {
   theme?: ButtonTheme
   onClick?: () => void
+}
+
+export type {
+  ButtonProps,
 }
