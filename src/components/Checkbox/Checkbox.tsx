@@ -10,12 +10,16 @@ import _ from 'lodash'
 import CheckboxProps, { CheckType } from './Checkbox.types'
 import { Wrapper, Checker, Content } from './Checkbox.styled'
 
+export const CHECKBOX_TEST_ID = 'ch-design-system-checkbox'
+export const CHECKBOX_CHECKER_TEST_ID = 'ch-design-system-checkbox-checker'
+
 const checkTypeValues = _.values(CheckType)
 
 function Checkbox(
   {
     as,
-    testId,
+    testId = CHECKBOX_TEST_ID,
+    checkerTestId = CHECKBOX_CHECKER_TEST_ID,
     className,
     contentClassName,
     disabled = false,
@@ -45,6 +49,7 @@ function Checkbox(
       <Checker
         disabled={disabled}
         checkStatus={checkStatus}
+        data-testid={checkerTestId}
       />
 
       { !_.isEmpty(children) ? (
