@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react'
-import _ from 'lodash'
+import { clamp } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -24,31 +24,33 @@ export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
 
 function Navigation(
   {
+    scrollRef,
     testId,
     style,
     className,
     title,
     fixedTitle = false,
+    withScroll = false,
     width = 240,
     minWidth = 240,
     maxWidth = 540,
     disableResize = false,
-    onChangeWidth = _.noop,
+    onChangeWidth,
     children,
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const navigationRef = useRef<HTMLDivElement | null>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(navigationRef, forwardedRef)
-  const [currentWidth, setCurrentWidth] = useState<number>(_.clamp(width, minWidth, maxWidth))
+  const [currentWidth, setCurrentWidth] = useState<number>(clamp(width, minWidth, maxWidth))
   const [isDragging, setIsDragging] = useState(false)
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
 
     window.requestAnimationFrame(() => setCurrentWidth(
-      _.clamp(
-        e.pageX - navigationRef.current?.offsetLeft,
+      clamp(
+        e.pageX - (navigationRef.current?.offsetLeft || 0),
         minWidth,
         maxWidth,
       ),
@@ -69,11 +71,13 @@ function Navigation(
   }, [])
 
   useEffect(() => {
-    onChangeWidth(currentWidth)
+    if (onChangeWidth) {
+      onChangeWidth(currentWidth)
+    }
   }, [currentWidth, onChangeWidth])
 
   useEffect(() => {
-    setCurrentWidth(_.clamp(width, minWidth, maxWidth))
+    setCurrentWidth(clamp(width, minWidth, maxWidth))
   }, [width, minWidth, maxWidth])
 
   useEffect(() => {
@@ -95,28 +99,32 @@ function Navigation(
       data-testid={testId}
       isDragging={isDragging}
     >
+      { (title && fixedTitle) && (
+        <StyledTitleWrapper fixed>
+          <Text
+            bold
+            typo={Typography.Size24}
+          >
+            { title }
+          </Text>
+        </StyledTitleWrapper>
+      ) }
       <StyledContentWrapper
+        ref={scrollRef}
+        withScroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
       >
-        <div>
-          { /**
-           * FIXME: Safari 에서 sticky 가 제대로 동작하지 않는 버그가 있어서,
-           * 이를 해결하기 위해 추가한 임시 div 입니다.
-           * 추후 제거 요망.
-           *
-           * 참고: https://stackoverflow.com/questions/57934803/workaround-for-a-safari-position-sticky-webkit-sticky-bug
-           *  */ }
-          { title && (
-            <StyledTitleWrapper sticky={fixedTitle}>
-              <Text
-                bold
-                typo={Typography.Size24}
-                content={title}
-              />
-            </StyledTitleWrapper>
-          ) }
-          { children }
-        </div>
+        { (title && !fixedTitle) && (
+          <StyledTitleWrapper>
+            <Text
+              bold
+              typo={Typography.Size24}
+            >
+              { title }
+            </Text>
+          </StyledTitleWrapper>
+        ) }
+        { children }
       </StyledContentWrapper>
       <StyledHandle
         disable={disableResize}

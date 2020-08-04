@@ -1,7 +1,10 @@
 import GlobalHeader from './GlobalHeader'
-import GlobalHeaderProps from './GlobalHeader.types'
+import type GlobalHeaderProps from './GlobalHeader.types'
+
+export type {
+  GlobalHeaderProps,
+}
 
 export {
   GlobalHeader,
-  GlobalHeaderProps,
 }

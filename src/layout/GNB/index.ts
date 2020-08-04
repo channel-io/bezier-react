@@ -1,7 +1,10 @@
 import GNB from './GNB'
-import GNBProps from './GNB.types'
+import type GNBProps from './GNB.types'
+
+export type {
+  GNBProps,
+}
 
 export {
   GNB,
-  GNBProps,
 }
