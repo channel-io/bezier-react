@@ -24,11 +24,13 @@ export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
 
 function Navigation(
   {
+    scrollRef,
     testId,
     style,
     className,
     title,
     fixedTitle = false,
+    withScroll = false,
     width = 240,
     minWidth = 240,
     maxWidth = 540,
@@ -97,28 +99,32 @@ function Navigation(
       data-testid={testId}
       isDragging={isDragging}
     >
+      { (title && fixedTitle) && (
+        <StyledTitleWrapper fixed>
+          <Text
+            bold
+            typo={Typography.Size24}
+          >
+            { title }
+          </Text>
+        </StyledTitleWrapper>
+      ) }
       <StyledContentWrapper
+        ref={scrollRef}
+        scroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
       >
-        <div>
-          { /**
-           * FIXME: Safari 에서 sticky 가 제대로 동작하지 않는 버그가 있어서,
-           * 이를 해결하기 위해 추가한 임시 div 입니다.
-           * 추후 제거 요망.
-           *
-           * 참고: https://stackoverflow.com/questions/57934803/workaround-for-a-safari-position-sticky-webkit-sticky-bug
-           *  */ }
-          { title && (
-            <StyledTitleWrapper sticky={fixedTitle}>
-              <Text
-                bold
-                typo={Typography.Size24}
-                content={title}
-              />
-            </StyledTitleWrapper>
-          ) }
-          { children }
-        </div>
+        { (title && !fixedTitle) && (
+          <StyledTitleWrapper>
+            <Text
+              bold
+              typo={Typography.Size24}
+            >
+              { title }
+            </Text>
+          </StyledTitleWrapper>
+        ) }
+        { children }
       </StyledContentWrapper>
       <StyledHandle
         disable={disableResize}
