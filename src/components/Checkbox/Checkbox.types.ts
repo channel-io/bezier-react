@@ -1,11 +1,6 @@
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
-
-export enum CheckType {
-  False,
-  True,
-  Partial,
-}
+import CheckType from './CheckType'
 
 export default interface CheckboxProps extends UIComponentProps {
   contentClassName?: string
@@ -13,15 +8,15 @@ export default interface CheckboxProps extends UIComponentProps {
   checked?: boolean | CheckType
 }
 
-export interface StyledWrapperProps {
+export interface StyledWrapperProps extends UIComponentProps {
   disabled?: boolean
 }
 
-export interface StyledCheckerProps {
+export interface StyledCheckerProps extends UIComponentProps {
   disabled?: boolean
   checkStatus?: CheckType
 }
 
-export interface StyledContentProps {
+export interface StyledContentProps extends UIComponentProps {
   className?: string
 }

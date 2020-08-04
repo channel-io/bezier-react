@@ -1,5 +1,6 @@
 import Checkbox from './Checkbox'
-import CheckboxProps, { CheckType } from './Checkbox.types'
+import type CheckboxProps from './Checkbox.types'
+import CheckType from './CheckType'
 
 export type {
   CheckboxProps,

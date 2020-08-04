@@ -4,7 +4,8 @@ import styled from 'styled-components'
 /* Internal dependencies */
 import { absoluteCenter } from '../../styling/Mixins'
 import Palette from '../../styling/Palette'
-import { StyledWrapperProps, StyledCheckerProps, StyledContentProps, CheckType } from './Checkbox.types'
+import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
+import CheckType from './CheckType'
 
 const CHECKER_BOX_SIZE = 18
 const CHECKER_ICON_THICKNESS = 2
@@ -24,7 +25,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   )}
 `
 
-const checkerBase = (props) => `
+const checkerBase = (props: StyledCheckerProps) => `
   &::after {
     ${absoluteCenter`translateY(-13%) rotate(42deg)`}
     width: 4px;
@@ -48,7 +49,7 @@ const checkerBase = (props) => `
   ` : ''}
 `
 
-const partialChecked = (props) => ((props.checkStatus === CheckType.Partial) ? `
+const partialChecked = (props: StyledCheckerProps) => ((props.checkStatus === CheckType.Partial) ? `
   &::after {
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
@@ -57,7 +58,7 @@ const partialChecked = (props) => ((props.checkStatus === CheckType.Partial) ? `
   }
 ` : '')
 
-const disabled = (props) => ((props.disabled) ? `
+const disabled = (props: StyledCheckerProps) => ((props.disabled) ? `
   background-color: ${props.theme?.colors?.disabled3};
 
   ${(props.checkStatus === CheckType.False) ? `

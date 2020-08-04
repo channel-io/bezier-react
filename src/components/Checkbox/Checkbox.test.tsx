@@ -7,7 +7,8 @@ import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
 import { Light as LightColors } from '../../styling/Colors'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
-import CheckboxProps, { CheckType } from './Checkbox.types'
+import CheckboxProps from './Checkbox.types'
+import CheckType from './CheckType'
 
 describe('Checkbox test >', () => {
   let props: CheckboxProps

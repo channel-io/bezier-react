@@ -1,4 +1,4 @@
-export const absoluteCenter = (otherTransforms) => `
+export const absoluteCenter = (otherTransforms: any) => `
   position: absolute;
   top: 50%;
   left: 50%;

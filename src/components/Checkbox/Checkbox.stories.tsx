@@ -8,7 +8,7 @@ import _ from 'lodash'
 /* Internal dependencies */
 import { LightTheme, ThemeProvider } from '../../styling/Theme'
 import Checkbox from './Checkbox'
-import { CheckType } from './Checkbox.types'
+import CheckType from './CheckType'
 
 const checkOptions = {
   False: CheckType.False,

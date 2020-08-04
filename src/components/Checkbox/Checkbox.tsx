@@ -4,16 +4,17 @@ import React, {
   forwardRef,
   useMemo,
 } from 'react'
-import _ from 'lodash'
+import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import CheckboxProps, { CheckType } from './Checkbox.types'
+import type CheckboxProps from './Checkbox.types'
 import { Wrapper, Checker, Content } from './Checkbox.styled'
+import CheckType from './CheckType'
 
 export const CHECKBOX_TEST_ID = 'ch-design-system-checkbox'
 export const CHECKBOX_CHECKER_TEST_ID = 'ch-design-system-checkbox-checker'
 
-const checkTypeValues = _.values(CheckType)
+const checkTypeValues = values(CheckType)
 
 function Checkbox(
   {
@@ -30,8 +31,8 @@ function Checkbox(
   forwardedRef: Ref<any>,
 ) {
   const checkStatus = useMemo(() => {
-    if (_.isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
-    if (_.includes(checkTypeValues, checked)) { return checked }
+    if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
+    if (includes(checkTypeValues, checked)) { return checked }
     return CheckType.False
   }, [
     checked,
@@ -43,7 +44,7 @@ function Checkbox(
       as={as}
       className={className}
       disabled={disabled}
-      onClick={disabled ? _.noop : onClick}
+      onClick={disabled ? noop : onClick}
       data-testid={testId}
     >
       <Checker
@@ -52,7 +53,7 @@ function Checkbox(
         data-testid={checkerTestId}
       />
 
-      { !_.isEmpty(children) ? (
+      { !isEmpty(children) ? (
         <Content className={contentClassName}>
           { children }
         </Content>
