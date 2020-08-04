@@ -3,7 +3,7 @@ import React, { useRef, useState, useCallback } from 'react'
 import { action } from '@storybook/addon-actions'
 import { boolean, select, withKnobs } from '@storybook/addon-knobs'
 import styled from 'styled-components'
-import _ from 'lodash'
+import { random } from 'lodash-es'
 
 /* Internal dependencies */
 import { LightTheme, ThemeProvider } from '../../styling/Theme'
@@ -17,7 +17,7 @@ const checkOptions = {
 }
 
 function randomRGB() {
-  return `rgb(${_.random(255)}, ${_.random(255)}, ${_.random(255)})`
+  return `rgb(${random(255)}, ${random(255)}, ${random(255)})`
 }
 
 const Wrapper = styled.div`
