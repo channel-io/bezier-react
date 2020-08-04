@@ -27,6 +27,10 @@ export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
   height: 100%;
   overflow-x: hidden;
   overflow-y: ${props => (props.scroll ? 'auto' : 'hidden')};
+
+  & > *:last-child {
+    margin-bottom: 40px !important;
+  }
 `
 
 interface StyledTitleWrapperProps {
