@@ -24,6 +24,7 @@ export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
 
 function Navigation(
   {
+    scrollRef,
     testId,
     style,
     className,
@@ -109,6 +110,7 @@ function Navigation(
         </StyledTitleWrapper>
       ) }
       <StyledContentWrapper
+        ref={scrollRef}
         scroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
       >

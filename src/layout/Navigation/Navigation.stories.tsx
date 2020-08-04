@@ -144,42 +144,36 @@ export const ProgrammaticScroll = () => {
       style={{ display: 'flex', height: '100%' }}
     >
       <ThemeProvider theme={LightTheme}>
-        <Navigation withScroll>
+        <Navigation
+          scrollRef={scrollAreaRef}
+          withScroll
+        >
           <div
-            ref={scrollAreaRef}
             style={{
-              height: '100%',
-              overflowX: 'hidden',
-              overflowY: 'auto',
+              position: 'relative',
+              height: 15000,
             }}
           >
+            <div style={{ position: 'absolute', top: 0 }}>
+              Hi, This is TOP!
+            </div>
+
             <div
-              style={{
-                position: 'relative',
-                height: 15000,
-              }}
+              ref={firstMilestone}
+              style={{ position: 'absolute', top: 3000 }}
             >
-              <div style={{ position: 'absolute', top: 0 }}>
-                Hi, This is TOP!
-              </div>
+              1st Milestone
+            </div>
 
-              <div
-                ref={firstMilestone}
-                style={{ position: 'absolute', top: 3000 }}
-              >
-                1st Milestone
-              </div>
+            <div
+              ref={secondMilestone}
+              style={{ position: 'absolute', top: 8000 }}
+            >
+              2nd Milestone
+            </div>
 
-              <div
-                ref={secondMilestone}
-                style={{ position: 'absolute', top: 8000 }}
-              >
-                2nd Milestone
-              </div>
-
-              <div style={{ position: 'absolute', bottom: 0 }}>
-                Oh hello, This is BOTTOM!
-              </div>
+            <div style={{ position: 'absolute', bottom: 0 }}>
+              Oh hello, This is BOTTOM!
             </div>
           </div>
         </Navigation>
