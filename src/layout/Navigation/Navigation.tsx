@@ -111,7 +111,7 @@ function Navigation(
       ) }
       <StyledContentWrapper
         ref={scrollRef}
-        scroll={withScroll}
+        withScroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
       >
         { (title && !fixedTitle) && (
