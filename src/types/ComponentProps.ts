@@ -4,8 +4,6 @@ import React, { CSSProperties } from 'react'
 /* Internal dependencies */
 import { Extendable } from './utilTypes'
 
-export type ReactChildren = React.ReactNodeArray | React.ReactNode
-
 export interface RenderConfigProps {
   as?: React.ElementType
   testId?: string
@@ -22,6 +20,6 @@ export interface ContentComponentProps<Content = React.ReactNode> extends UIComp
   content?: Content
 }
 
-export interface ChildrenComponentProps<Children = ReactChildren> extends UIComponentProps {
+export interface ChildrenComponentProps<Children = React.ReactNode> extends UIComponentProps {
   children?: Children
 }
