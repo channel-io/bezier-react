@@ -19,14 +19,14 @@ export const StyledNavigation = styled.div<NavigationProps>`
 `
 
 interface StyledContentWrapperProps {
-  scroll?: boolean
+  withScroll?: boolean
 }
 
 export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: ${props => (props.scroll ? 'auto' : 'hidden')};
+  overflow-y: ${props => (props.withScroll ? 'auto' : 'hidden')};
 
   & > *:last-child {
     margin-bottom: 40px !important;
