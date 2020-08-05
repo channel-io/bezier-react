@@ -28,6 +28,7 @@ function Navigation(
     testId,
     style,
     className,
+    scrollClassName,
     title,
     fixedTitle = false,
     withScroll = false,
@@ -114,6 +115,7 @@ function Navigation(
       ) }
       <StyledContentWrapper
         ref={scrollRef}
+        className={scrollClassName}
         withScroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
         onScroll={onScroll}

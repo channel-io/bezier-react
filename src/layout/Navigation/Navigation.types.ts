@@ -5,6 +5,7 @@ import { Ref, UIEvent } from 'react'
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 
 export default interface NavigationProps extends Omit<ChildrenComponentProps, 'as'> {
+  scrollClassName?: string
   scrollRef?: Ref<HTMLDivElement>
   title?: string
   fixedTitle?: boolean
