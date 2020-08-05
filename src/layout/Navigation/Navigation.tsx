@@ -36,7 +36,9 @@ function Navigation(
     maxWidth = 540,
     disableResize = false,
     onChangeWidth,
+    onScroll,
     children,
+    ...otherProps
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -98,6 +100,7 @@ function Navigation(
       width={currentWidth}
       data-testid={testId}
       isDragging={isDragging}
+      {...otherProps}
     >
       { (title && fixedTitle) && (
         <StyledTitleWrapper fixed>
@@ -113,6 +116,7 @@ function Navigation(
         ref={scrollRef}
         withScroll={withScroll}
         data-testid={NAV_SCROLL_TEST_ID}
+        onScroll={onScroll}
       >
         { (title && !fixedTitle) && (
           <StyledTitleWrapper>
