@@ -85,6 +85,7 @@ export const WithGNB = () => {
           fixedTitle={boolean('fixed title', false)}
           maxWidth={number('max width', 540)}
           minWidth={number('min width', 240)}
+          onScroll={action('onScroll')}
         >
           {
             Array.from(Array(100).keys()).map((item, index) => (
@@ -147,6 +148,7 @@ export const ProgrammaticScroll = () => {
         <Navigation
           scrollRef={scrollAreaRef}
           withScroll
+          onScroll={action('onScroll')}
         >
           <div
             style={{
