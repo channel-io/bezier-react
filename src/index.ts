@@ -4,6 +4,7 @@ export * from './components/Icon'
 export * from './components/Switch'
 export * from './components/Text'
 export * from './components/Radio'
+export * from './components/Checkbox'
 
 /* Layout */
 export * from './layout/GNB'
