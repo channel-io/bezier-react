@@ -1,0 +1,101 @@
+workspace_root: &workspace_root
+  /home/circleci/design-system
+
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: *workspace_root
+
+defaults: &defaults
+  resource_class: large
+  working_directory: *workspace_root
+
+  docker:
+    - image: zoyi/ci-node:12.16.1
+
+filter_only_tagged: &filter_only_tagged
+  filters:
+    tags:
+      only: /^v.*/
+    branches:
+      ignore: /.*/
+
+version: 2
+jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - design-system-dependencies-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: design-system-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - .
+
+  lint:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run lint
+
+  typecheck:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run typecheck
+
+  test:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: npm run jest
+
+  publish:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run:
+          name: build icon...
+          command: npm run build:icon
+      - run:
+          name: publish to npm registry...
+          command: npm publish
+
+workflows:
+  version: 2
+  build_n_test:
+    jobs:
+      - install:
+          filters:
+            branches:
+              ignore:
+                - master
+                - exp
+      - lint:
+          requires:
+            - install
+      - typecheck:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
+
+  deploy_tagged:
+    jobs:
+      - install:
+          <<: *filter_only_tagged
+      - test:
+          <<: *filter_only_tagged
+          requires:
+            - install
+      - publish:
+          <<: *filter_only_tagged
+          requires:
+            - test
