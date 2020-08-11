@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Design System by Channel",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
     "build": "cross-env BABEL_ENV=build rollup -c",
     "prebuild": "npm run typecheck",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build:icon && npm run build",
     "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream"
