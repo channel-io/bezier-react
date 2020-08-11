@@ -1,10 +1,9 @@
-references:
-  workspace_root: &workspace_root
-    /home/circleci/design-system
+workspace_root: &workspace_root
+  /home/circleci/design-system
 
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: *workspace_root
 
 defaults: &defaults
   resource_class: large
