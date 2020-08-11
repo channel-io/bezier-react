@@ -1,4 +1,4 @@
-const _ = require('lodash-es')
+const _ = require('lodash')
 const path = require('path')
 
 function defaultIndexTemplate(filePaths) {
