@@ -1,9 +1,10 @@
-workspace_root: &workspace_root
-  /home/circleci/design-system
+references:
+  workspace_root: &workspace_root
+    /home/circleci/design-system
 
-attach_workspace: &attach_workspace
-  attach_workspace:
-    at: *workspace_root
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
 
 defaults: &defaults
   resource_class: large
@@ -61,11 +62,9 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: build icon...
-          command: npm run build:icon
-      - run:
-          name: publish to npm registry...
-          command: npm publish
+          name: Authenticate to npm registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > .npmrc
+      - run: npm publish
 
 workflows:
   version: 2
