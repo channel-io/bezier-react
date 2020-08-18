@@ -29,6 +29,7 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
       return 'transparent'
     }};
   border-radius: 50%;
+  transition: ${props => props.theme?.transition?.BackgroundTransition};
 `
 
 export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
