@@ -109,6 +109,6 @@ export const Checker = styled.div<StyledCheckerProps>`
 export const Content = styled.div<StyledContentProps>`
   box-sizing: border-box;
   padding: ${CHECKER_BORDER_THICKNESS}px 0;
-  margin-left: 2px;
+  margin-left: 9px;
   user-select: none;
 `
