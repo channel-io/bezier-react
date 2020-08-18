@@ -1,7 +1,5 @@
-/* External dependencies */
-import styled from 'styled-components'
-
 /* Internal dependencies */
+import { styled } from '../../styling/Theme'
 import { WrapperProps, ContentProps } from './Switch.types'
 
 const PADDING = 4

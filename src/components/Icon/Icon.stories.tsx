@@ -1,11 +1,10 @@
 /* External dependencies */
 import React from 'react'
 import { withKnobs, select, color, number } from '@storybook/addon-knobs'
-import styled from 'styled-components'
 
 /* Internal dependencies */
 import { Text } from '../Text'
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
+import { styled, ThemeProvider, LightTheme } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
 import icons, { IconName } from './generated'
 import Icon from './Icon'

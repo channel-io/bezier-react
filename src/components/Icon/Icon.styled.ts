@@ -1,7 +1,5 @@
-/* External dependencies */
-import styled from 'styled-components'
-
 /* Internal dependencies */
+import { styled } from '../../styling/Theme'
 import { IconStyledProps } from './Icon.types'
 
 function getMargin({
@@ -16,6 +14,7 @@ function getMargin({
 const Icon = styled.svg<IconStyledProps>`
   color: ${props => props.color || 'inherit'};
   margin: ${getMargin};
+  transition: ${props => props.theme?.transition?.ColorTransition};
 `
 
 export default Icon

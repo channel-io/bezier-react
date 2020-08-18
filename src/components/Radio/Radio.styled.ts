@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/indent, consistent-return */
-/* External dependencies */
-import styled, { css } from 'styled-components'
-
 /* Internal dependencies */
+import { styled, css } from '../../styling/Theme'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`
@@ -51,6 +49,7 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
       if (props.checked) { return props.theme?.colors?.success1 }
       return props.theme?.colors?.background0
     }};
+  transition: ${props => props.theme?.transition?.BackgroundTransition};
 
   &::after {
     ${StyledRadioHandleDot};

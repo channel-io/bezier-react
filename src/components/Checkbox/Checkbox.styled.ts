@@ -1,7 +1,5 @@
-/* External dependencies */
-import styled from 'styled-components'
-
 /* Internal dependencies */
+import { styled } from '../../styling/Theme'
 import { absoluteCenter } from '../../styling/Mixins'
 import Palette from '../../styling/Palette'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
@@ -10,9 +8,6 @@ import CheckType from './CheckType'
 const CHECKER_BOX_SIZE = 18
 const CHECKER_ICON_THICKNESS = 2
 const CHECKER_BORDER_THICKNESS = 2
-
-const TRANSITION_DURATION = '.15s'
-const TRANSITION_FUNCTION = 'ease-in-out'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: inline-flex;
@@ -34,7 +29,7 @@ const checkerBase = (props: StyledCheckerProps) => `
     border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
     border-color: ${Palette.white};
     content: '';
-    transition: border-color ${TRANSITION_DURATION} ${TRANSITION_FUNCTION};
+    transition: ${props.theme?.transition?.BorderTransition};
   }
 
   ${(props.checkStatus === CheckType.True || props.checkStatus === CheckType.Partial) ? `
@@ -87,9 +82,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   background-color: ${Palette.white};
   border: ${CHECKER_BORDER_THICKNESS}px solid ${props => props.theme?.colors?.border3};
   border-radius: 4px;
-  transition:
-    ${`color ${TRANSITION_DURATION} ${TRANSITION_FUNCTION}`},
-    ${`background ${TRANSITION_DURATION} ${TRANSITION_FUNCTION}`};
+  transition: ${props => props.theme?.transition?.BackgroundTransition}, ${props => props.theme?.transition?.ColorTransition};
 
   ${props => (!props.disabled ? `
     &:hover {
