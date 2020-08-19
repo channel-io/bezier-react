@@ -1,7 +1,5 @@
-/* External dependencies */
-import styled from 'styled-components'
-
 /* Internal dependencies */
+import { styled } from '../../styling/Theme'
 import GNBProps from './GNB.types'
 
 const GNB = styled.div<GNBProps>`

@@ -1,7 +1,5 @@
-/* External dependencies */
-import styled from 'styled-components'
-
 /* Internal dependencies */
+import { styled } from '../../styling/Theme'
 import NavigationProps from './Navigation.types'
 
 export const StyledNavigation = styled.div<NavigationProps>`

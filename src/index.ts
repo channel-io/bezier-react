@@ -12,7 +12,8 @@ export * from './layout/Navigation'
 export * from './layout/GlobalHeader'
 
 /* Styling */
+export { default as Transition } from './styling/Transition'
 export { default as Typography } from './styling/Typography'
+export { default as Palette } from './styling/Palette'
 export * from './styling/Colors'
 export * from './styling/Theme'
-export { default as Palette } from './styling/Palette'

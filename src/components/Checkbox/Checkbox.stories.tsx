@@ -2,11 +2,10 @@
 import React, { useRef, useState, useCallback } from 'react'
 import { action } from '@storybook/addon-actions'
 import { boolean, select, withKnobs } from '@storybook/addon-knobs'
-import styled from 'styled-components'
 import { random } from 'lodash-es'
 
 /* Internal dependencies */
-import { LightTheme, ThemeProvider } from '../../styling/Theme'
+import { styled, LightTheme, ThemeProvider } from '../../styling/Theme'
 import Checkbox from './Checkbox'
 import CheckType from './CheckType'
 
