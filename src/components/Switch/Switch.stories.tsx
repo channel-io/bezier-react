@@ -5,6 +5,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import Switch from './Switch'
+import SwitchProps from './Switch.types'
 
 export default {
   title: getTitle(base),
