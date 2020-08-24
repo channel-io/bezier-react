@@ -6,19 +6,27 @@ import { withKnobs, boolean, number } from '@storybook/addon-knobs'
 /* Internal dependencies */
 import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Switch from './Switch'
+import SwitchProps from './Switch.types'
 
 export default {
   title: 'Switch',
   decorators: [withKnobs],
 }
 
-export const Primary = () => (
+export const Primary = ({
+  size = number('size', 16),
+  checked = boolean('checked', true),
+  disabled = boolean('disabled', false),
+  onClick = action('onClick'),
+  ...otherProps
+}: SwitchProps) => (
   <ThemeProvider theme={LightTheme}>
     <Switch
-      size={number('size', 16)}
-      checked={boolean('checked', true)}
-      disabled={boolean('disabled', false)}
-      onClick={action('onClick')}
+      size={size}
+      checked={checked}
+      disabled={disabled}
+      onClick={onClick}
+      {...otherProps}
     />
   </ThemeProvider>
 )
