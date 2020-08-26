@@ -1,54 +1,36 @@
 /* External dependencies */
-import React, { useState, useRef, useCallback } from 'react'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, boolean, number } from '@storybook/addon-knobs'
+import React, { useRef, useCallback } from 'react'
 
 /* Internal dependencies */
 import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Switch from './Switch'
-import SwitchProps from './Switch.types'
 
 export default {
   title: 'Switch',
-  decorators: [withKnobs],
+  argTypes: {
+    onClick: { action: 'onClick' },
+  },
 }
 
-export const Primary = ({
-  size = number('size', 16),
-  checked = boolean('checked', true),
-  disabled = boolean('disabled', false),
-  onClick = action('onClick'),
-  ...otherProps
-}: SwitchProps) => (
+const Template = ({ ...otherSwitchProps }) => (
   <ThemeProvider theme={LightTheme}>
-    <Switch
-      size={size}
-      checked={checked}
-      disabled={disabled}
-      onClick={onClick}
-      {...otherProps}
-    />
+    <Switch {...otherSwitchProps} />
   </ThemeProvider>
 )
 
-export const Controlled = () => {
-  const [checked, setChecked] = useState(true)
-  return (
-    <ThemeProvider theme={LightTheme}>
-      <Switch
-        size={number('size', 16)}
-        checked={checked}
-        onClick={setChecked}
-        disabled={boolean('disabled', false)}
-      />
-    </ThemeProvider>
-  )
+export const Primary = Template.bind({})
+Primary.args = {
+  size: 16,
+  checked: true,
+  disabled: false,
 }
 
-export const WithRef = () => {
+export const WithRef = ({
+  size,
+  disabled,
+  checked,
+}) => {
   const switchRef = useRef<HTMLDivElement | null>(null)
-
-  const [checked, setChecked] = useState(true)
 
   const handleClick = useCallback(() => {
     alert(`Switch class name: ${switchRef.current?.classList}`)
@@ -58,10 +40,10 @@ export const WithRef = () => {
     <ThemeProvider theme={LightTheme}>
       <Switch
         ref={switchRef}
-        size={number('size', 16)}
+        size={size}
         checked={checked}
-        onClick={setChecked}
-        disabled={boolean('disabled', false)}
+        onClick={handleClick}
+        disabled={disabled}
       />
       <button
         type="button"
@@ -71,4 +53,9 @@ export const WithRef = () => {
       </button>
     </ThemeProvider>
   )
+}
+WithRef.args = {
+  size: 16,
+  checked: true,
+  disabled: false,
 }

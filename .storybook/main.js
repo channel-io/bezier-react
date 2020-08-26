@@ -5,8 +5,10 @@ module.exports = {
     '../src/**/*.stories.tsx',
   ],
   addons: [
-    '@storybook/addon-actions/register',
-    '@storybook/addon-knobs/register',
+    '@storybook/addon-actions',
+    '@storybook/addon-knobs',
+    '@storybook/addon-docs',
+    '@storybook/addon-controls',
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({
