@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react'
 /* Internal dependencies */
 import { Text } from '../Text'
 import Typography from '../../styling/Typography'
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
 import Radio from './Radio'
 
 export default {
@@ -19,13 +18,11 @@ const Template = ({
   text,
   ...otherRadioProps
 }) => (
-  <ThemeProvider theme={LightTheme}>
-    <Radio {...otherRadioProps}>
-      <Text>
-        { text }
-      </Text>
-    </Radio>
-  </ThemeProvider>
+  <Radio {...otherRadioProps}>
+    <Text>
+      { text }
+    </Text>
+  </Radio>
 )
 
 export const Primary = Template.bind({})
@@ -45,7 +42,7 @@ export const MultiRadio = ({
   const options = useMemo(() => [...Array(optionsRange).keys()], [optionsRange])
 
   return (
-    <ThemeProvider theme={LightTheme}>
+    <>
       <Text typo={Typography.Size24}>
         selected Option: { selected }
       </Text>
@@ -65,7 +62,7 @@ export const MultiRadio = ({
           </Radio>
         ))
       }
-    </ThemeProvider>
+    </>
   )
 }
 

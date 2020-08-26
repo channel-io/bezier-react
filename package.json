@@ -75,7 +75,7 @@
     "@storybook/addon-actions": "^6.0.18",
     "@storybook/addon-controls": "^6.0.18",
     "@storybook/addon-docs": "^6.0.18",
-    "@storybook/addon-knobs": "^6.0.18",
+    "@storybook/addon-toolbars": "^6.0.18",
     "@storybook/react": "^6.0.18",
     "@storybook/storybook-deployer": "^2.8.6",
     "@svgr/babel-plugin-add-jsx-attribute": "^5.4.0",
