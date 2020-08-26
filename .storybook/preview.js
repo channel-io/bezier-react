@@ -9,6 +9,10 @@ const ThemeKeyword = {
   Dark: 'dark',
 }
 
+export const parameters = {
+  layout: 'fullscreen'
+}
+
 export const globalTypes = {
   theme: {
     name: 'Theme',
