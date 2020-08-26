@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useRef, useCallback } from 'react'
-import { addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 /* Internal dependencies */
@@ -10,6 +9,14 @@ import Navigation from './Navigation'
 export default {
   title: 'Navigation',
   component: Navigation,
+  decorators: [Story => (
+    <div style={{ height: '100vh' }}>
+      <Story />
+    </div>
+  )],
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     onChangeWidth: {
       control: {
@@ -23,14 +30,6 @@ export default {
     },
   },
 }
-
-const decorator = Story => (
-  <div style={{ height: '100vh' }}>
-    <Story />
-  </div>
-)
-
-addDecorator(decorator)
 
 const Template = (args) => <Navigation {...args} />
 

@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import { addDecorator } from '@storybook/react'
 
 /* Internal dependencies */
 import GNB from './GNB'
@@ -8,15 +7,15 @@ import GNB from './GNB'
 export default {
   title: 'GNB',
   component: GNB,
+  decorators: [Story => (
+    <div style={{ height: '100vh' }}>
+      <Story />
+    </div>
+  )],
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
-
-const decorator = Story => (
-  <div style={{ height: '100vh' }}>
-    <Story />
-  </div>
-)
-
-addDecorator(decorator)
 
 const Template = (args) => (
   <GNB {...args}>

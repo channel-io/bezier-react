@@ -10,7 +10,7 @@ const ThemeKeyword = {
 }
 
 export const parameters = {
-  layout: 'fullscreen'
+  layout: 'centered',
 }
 
 export const globalTypes = {
