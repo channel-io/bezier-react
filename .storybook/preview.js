@@ -32,11 +32,14 @@ function getTheme(keyword) {
 
 function withThemeProvider(Story, context) {
   const theme = getTheme(context.globals.theme)
+  const backgroundColor = context.globals.theme === 'dark' ? 'black' : 'white'
 
   return (
-    <ThemeProvider theme={theme}>
-      <Story {...context}/>
-    </ThemeProvider>
+    <div style={{ backgroundColor }}>
+      <ThemeProvider theme={theme}>
+        <Story {...context}/>
+      </ThemeProvider>
+    </div>
   )
 }
 
