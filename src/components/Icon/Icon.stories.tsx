@@ -66,7 +66,7 @@ const Template = (args) => <Icon {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  name: 'zoyi',
+  name: 'channel',
   color: Palette.grey700,
   size: IconSize.Normal,
   marginTop: 0,
