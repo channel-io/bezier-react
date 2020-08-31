@@ -1,13 +1,14 @@
 /* External dependencies */
 import React from 'react'
-import { withKnobs } from '@storybook/addon-knobs'
 
 /* Internal dependencies */
 import Button from './Button'
 
 export default {
   title: 'Button',
-  decorators: [withKnobs],
+  comopnent: Button,
 }
 
-export const Primary = () => <Button />
+const Template = (args) => <Button {...args}/>
+
+export const Primary = Template.bind({})

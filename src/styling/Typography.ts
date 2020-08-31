@@ -27,7 +27,7 @@ const Size15 = css`
 `
 
 /**
- * @willDeprecate
+ * @deprecated
  */
 const Size16 = css`
   font-size: 16px;

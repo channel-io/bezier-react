@@ -1,12 +1,16 @@
+/* Internal dependencies */
+import { TextProps } from '../Text'
+import { StylableComponentProps } from '../../types/ComponentProps'
+import type { IconName } from '../Icon/generated'
+
 export enum ButtonTheme {
   Normal = 'normal'
 }
 
-interface ButtonProps {
+export default interface ButtonProps extends StylableComponentProps {
+  text?: string
+  typo?: TextProps['typo']
   theme?: ButtonTheme
-  onClick?: () => void
-}
-
-export type {
-  ButtonProps,
+  icon?: IconName
+  onClick?: (event: MouseEvent) => void
 }
