@@ -2,14 +2,19 @@
 import { styled } from '../../styling/Theme'
 import { smoothCorners } from '../../styling/Mixins'
 
-export const StyledBaseButton = styled.div`
+interface BaseButtonProps {
+  width: number
+  height: number
+}
+
+export const StyledBaseButton = styled.div<BaseButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  box-shadow: 0 0 0 1px grey;
   outline: none;
-  width: 100px;
-  height: 100px;
+  width: ${props => props.width};
+  height: ${props => props.height};
   border-radius: 15px;
   background: linear-gradient(deeppink, orangered);
 
