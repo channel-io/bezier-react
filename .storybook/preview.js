@@ -2,7 +2,11 @@
 import React from 'react'
 
 /* Internel dependencies */
+import EnableCSSHoudini from '../src/worklets/EnableCSSHoudini'
 import { ThemeProvider, LightTheme, DarkTheme } from '../src/styling/Theme'
+
+// CSS Houdini
+EnableCSSHoudini({ smoothCorners: true })
 
 const ThemeKeyword = {
   Light: 'light',

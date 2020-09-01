@@ -23,6 +23,6 @@ describe('Button', () => {
 
     const testComponent = getByTestId('button')
 
-    expect(testComponent).toHaveStyle('color: red')
+    expect(testComponent).toHaveStyle('border: none;')
   })
 })
