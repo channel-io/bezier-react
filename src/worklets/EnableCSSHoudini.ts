@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import smoothCornersScript from './smoothCorners'
+import { SmoothCornersScript } from './smoothCorners'
 
 interface EnableCSSHoudiniOptions {
   smoothCorners: boolean
@@ -10,7 +10,7 @@ export default function EnalbeCSSHoudini({
 }: EnableCSSHoudiniOptions) {
   if ('paintWorklet' in CSS) {
     if (smoothCorners) {
-      const workletURL = URL.createObjectURL(new Blob([smoothCornersScript], { type: 'application/javascript' }))
+      const workletURL = URL.createObjectURL(new Blob([SmoothCornersScript], { type: 'application/javascript' }))
       // @ts-ignore
       CSS.paintWorklet.addModule(workletURL)
     }

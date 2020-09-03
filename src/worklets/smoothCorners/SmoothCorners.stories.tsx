@@ -2,11 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import Button from './Button'
+import { Div, Img } from './smoothCorners.styled'
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'SmoothCorners',
   argTypes: {
     width: {
       control: {
@@ -29,13 +28,22 @@ export default {
 
 const Template = (args) => (
   <>
-    <Button {...args}/>
+    <Div
+      {...args}
+    >
+      hello
+    </Div>
+    <Div
+      {...args}
+    >
+      hello
+    </Div>
+    <Img src="https://source.unsplash.com/random/100x100"/>
   </>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  text: 'hello, world!',
-  width: 50,
-  height: 50,
+  width: 100,
+  height: 100,
 }
