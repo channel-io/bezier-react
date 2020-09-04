@@ -79,6 +79,7 @@
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-url": "^6.0.0",
     "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-backgrounds": "^6.0.21",
     "@storybook/addon-controls": "^6.1.11",
     "@storybook/addon-docs": "^6.1.11",
     "@storybook/addon-toolbars": "^6.1.11",

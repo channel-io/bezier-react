@@ -4,26 +4,20 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
+import { ButtonIconPosition } from './Button.types'
 import Button from './Button'
 
 export default {
   title: getTitle(base),
   component: Button,
   argTypes: {
-    width: {
+    iconPosition: {
       control: {
-        type: 'range',
-        min: 10,
-        max: 100,
-        step: 1,
-      },
-    },
-    height: {
-      control: {
-        type: 'range',
-        min: 10,
-        max: 100,
-        step: 1,
+        type: 'select',
+        options: [
+          ButtonIconPosition.Left,
+          ButtonIconPosition.Right,
+        ],
       },
     },
   },
@@ -37,7 +31,8 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  text: 'hello, world!',
-  width: 50,
-  height: 50,
+  text: 'New Message',
+  icon: 'send-filled',
+  bold: true,
+  iconPosition: ButtonIconPosition.Left,
 }
