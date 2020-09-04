@@ -21,8 +21,28 @@ export const Div = styled.div<DivProps>`
 
   /* stylelint-disable-next-line declaration-colon-newline-after */
   ${smoothCorners({
-    shadow: '0 0 0 5px rgba(0, 0, 0, 0.1), 0 5px 10px 0 rgba(0, 0, 0, 0.5)',
+    shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5)',
     backgroundColor: 'white',
+    backgroundImage: 'https://picsum.photos/200/300.jpg',
+  })};
+`
+
+export const Div2 = styled.div<DivProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 1px 10px black, 0 10px 10px black;
+  outline: none;
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
+  border-radius: 15px;
+  background-color: white;
+  box-sizing: content-box;
+
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  ${smoothCorners({
+    shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'orange',
   })};
 `
 

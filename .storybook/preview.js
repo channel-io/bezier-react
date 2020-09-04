@@ -41,7 +41,7 @@ function withThemeProvider(Story, context) {
   return (
     <div style={{ backgroundColor }}>
       <ThemeProvider theme={theme}>
-        <Story {...context}/>
+        { Story(context) }
       </ThemeProvider>
     </div>
   )

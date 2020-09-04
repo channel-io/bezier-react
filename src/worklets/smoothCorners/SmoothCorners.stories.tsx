@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Div, Img } from './smoothCorners.styled'
+import { Div, Div2 } from './smoothCorners.styled'
 
 export default {
   title: 'SmoothCorners',
@@ -30,15 +30,12 @@ const Template = (args) => (
   <>
     <Div
       {...args}
-    >
-      hello
-    </Div>
-    <Div
+    />
+    <Div2
       {...args}
     >
       hello
-    </Div>
-    <Img src="https://source.unsplash.com/random/100x100"/>
+    </Div2>
   </>
 )
 

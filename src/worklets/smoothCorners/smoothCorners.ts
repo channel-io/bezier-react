@@ -1,6 +1,8 @@
-const smoothCornersScript = `class SmoothCorners {
+const smoothCornersScript = `
+class SmoothCorners {
   static get inputProperties() {
     return [
+      'border-image-source',
       '--smooth-corners',
       '--smooth-corners-shadow',
       '--smooth-corners-bg-color',
@@ -38,6 +40,9 @@ const smoothCornersScript = `class SmoothCorners {
       .get('--smooth-corners-bg-color')
       .toString()
 
+    const backgroundImage = properties
+      .get('border-image-source')
+
     const boxShadow = properties
       .get('--smooth-corners-shadow')
       .toString()
@@ -52,15 +57,16 @@ const smoothCornersScript = `class SmoothCorners {
       .get('--smooth-corners')
       .toString()
 
-    const width = geom.width / 2
-    const height = geom.height / 2
+    const halfWidth = geom.width / 2
+    const halfHeight = geom.height / 2
 
-    let ratio
-    if (!width || !height) {
-      ratio = 1
-    } else {
-      ratio = height / width
-    }
+    const ratio = (() => {
+      if (!halfWidth || !halfHeight) {
+        return 1
+      } else {
+        return halfHeight / halfWidth
+      }
+    })()
 
     const ratioForTargetNX = ratio >= 1
       ? ratio
@@ -70,18 +76,14 @@ const smoothCornersScript = `class SmoothCorners {
     const targetNY = targetNX * ratio
 
     const smooth = this.superellipse(
-      width - 10,
-      height - 10,
+      halfWidth - 10,
+      halfHeight - 10,
       parseFloat(targetNX, 10),
       parseFloat(targetNY, 10)
     )
 
-    ctx.fillStyle = backgroundColor
-    ctx.setTransform(1, 0, 0, 1, width, height)
+    ctx.setTransform(1, 0, 0, 1, halfWidth, halfHeight)
     ctx.beginPath()
-
-    ctx.strokeStyle = backgroundColor
-    ctx.lineWidth = 1
 
     boxShadow.forEach(([
       offsetX,
@@ -102,7 +104,7 @@ const smoothCornersScript = `class SmoothCorners {
 
       if (trimedBlur === 0) {
         ctx.strokeStyle = color
-        ctx.lineWidth = trimedSpread
+        ctx.lineWidth = trimedSpread * 2
       } else {
         ctx.shadowColor = color
         ctx.shadowOffsetX = trimedX
@@ -117,15 +119,36 @@ const smoothCornersScript = `class SmoothCorners {
           ctx.lineTo(x, y)
         }
       })
+
       if (trimedBlur === 0) {
         ctx.stroke()
       }
     })
 
+    if (backgroundColor) {
+      ctx.fillStyle = backgroundColor
+      ctx.fill()
+    }
+
+    if (backgroundImage) {
+      smooth.forEach(({ x, y }, index) => {
+        if (index === 0) {
+          ctx.moveTo(x, y)
+        } else {
+          ctx.lineTo(x, y)
+        }
+      })
+
+      ctx.closePath()
+      ctx.clip()
+
+      ctx.drawImage(backgroundImage, -halfWidth, -halfHeight, geom.width, geom.height)
+    }
+
     ctx.closePath()
-    ctx.fill()
   }
 }
-registerPaint('smooth-corners', SmoothCorners)`
+registerPaint('smooth-corners', SmoothCorners)
+`
 
 export default smoothCornersScript
