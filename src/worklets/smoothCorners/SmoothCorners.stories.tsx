@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Div, Div2 } from './smoothCorners.styled'
+import { Div, Div2, Div3 } from './smoothCorners.styled'
 
 export default {
   title: 'SmoothCorners',
@@ -11,7 +11,7 @@ export default {
       control: {
         type: 'range',
         min: 10,
-        max: 100,
+        max: 500,
         step: 1,
       },
     },
@@ -19,7 +19,7 @@ export default {
       control: {
         type: 'range',
         min: 10,
-        max: 100,
+        max: 500,
         step: 1,
       },
     },
@@ -36,6 +36,7 @@ const Template = (args) => (
     >
       hello
     </Div2>
+    <Div3 {...args} />
   </>
 )
 

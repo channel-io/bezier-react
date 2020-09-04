@@ -6,6 +6,7 @@ class SmoothCorners {
       '--smooth-corners',
       '--smooth-corners-shadow',
       '--smooth-corners-bg-color',
+      '--smooth-corners-padding',
     ]
   }
 
@@ -14,7 +15,6 @@ class SmoothCorners {
   }
 
   superellipse(a, b, nX, nY) {
-    // Origin from: https://github.com/wopian/smooth-corners
     if (nX > 100) nX = 100
     if (nY > 100) nY = 100
     if (nX < 0.00000000001) nX = 0.00000000001
@@ -36,12 +36,16 @@ class SmoothCorners {
   }
 
   paint(ctx, geom, properties) {
+    const backgroundImage = properties
+      .get('border-image-source')
+
     const backgroundColor = properties
       .get('--smooth-corners-bg-color')
       .toString()
 
-    const backgroundImage = properties
-      .get('border-image-source')
+    const padding = properties
+      .get('--smooth-corners-padding')
+      .toString()
 
     const boxShadow = properties
       .get('--smooth-corners-shadow')
@@ -76,8 +80,8 @@ class SmoothCorners {
     const targetNY = targetNX * ratio
 
     const smooth = this.superellipse(
-      halfWidth - 10,
-      halfHeight - 10,
+      halfWidth - this.trimPX(padding),
+      halfHeight - this.trimPX(padding),
       parseFloat(targetNX, 10),
       parseFloat(targetNY, 10)
     )
@@ -109,7 +113,7 @@ class SmoothCorners {
         ctx.shadowColor = color
         ctx.shadowOffsetX = trimedX
         ctx.shadowOffsetY = trimedY
-        ctx.shadowBlur = trimedBlur
+        ctx.shadowBlur = trimedBlur * 2
       }
 
       smooth.forEach(({ x, y }, index) => {

@@ -12,16 +12,19 @@ interface SmoothCornersOptions {
   shadow?: string
   backgroundColor?: string
   backgroundImage?: string
+  shadowBlur?: number
 }
 
 export const smoothCorners = ({
-  n = 4,
+  n = 3.5,
   shadow = 'none',
   backgroundColor = 'white',
   backgroundImage = '',
+  shadowBlur = 0,
 }: SmoothCornersOptions) => css`
   @supports (background: paint(smooth-corners)) {
-    padding: 10px;
+    padding: ${shadowBlur * 2}px;
+    margin: -${shadowBlur * 4}px;
     border-radius: 0;
     box-shadow: none;
     background: paint(smooth-corners);
@@ -32,5 +35,6 @@ export const smoothCorners = ({
     --smooth-corners: ${n};
     --smooth-corners-shadow: ${shadow};
     --smooth-corners-bg-color: ${backgroundColor};
+    --smooth-corners-padding: ${shadowBlur * 2};
   }
 `
