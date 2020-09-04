@@ -33,7 +33,7 @@ export const Div2 = styled.div<DivProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 15px 35px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 15px 35px 0 rgba(255, 125, 0, 0.65);
   outline: none;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
@@ -44,7 +44,7 @@ export const Div2 = styled.div<DivProps>`
 
   /* stylelint-disable-next-line declaration-colon-newline-after */
   ${smoothCorners({
-    shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 15px 35px 0 rgba(0, 0, 0, 0.5)',
+    shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 15px 35px 0 rgba(255, 125, 0, 0.65)',
     backgroundColor: 'orange',
     shadowBlur: 25,
     margin: 35,
