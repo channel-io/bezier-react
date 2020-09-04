@@ -2,17 +2,16 @@
 import React from 'react'
 
 /* Internal dependencies */
-import Button from './Button'
+import { Div, Div2, Div3 } from './smoothCorners.styled'
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'SmoothCorners',
   argTypes: {
     width: {
       control: {
         type: 'range',
         min: 10,
-        max: 100,
+        max: 500,
         step: 1,
       },
     },
@@ -20,22 +19,36 @@ export default {
       control: {
         type: 'range',
         min: 10,
-        max: 100,
+        max: 500,
         step: 1,
       },
     },
   },
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        { Story() }
+      </div>
+    ),
+  ],
 }
 
 const Template = (args) => (
   <>
-    <Button {...args}/>
+    <Div
+      {...args}
+    />
+    <Div2
+      {...args}
+    >
+      hello
+    </Div2>
+    <Div3 {...args} />
   </>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  text: 'hello, world!',
-  width: 50,
-  height: 50,
+  width: 100,
+  height: 100,
 }

@@ -12,6 +12,8 @@ function Button(
   {
     as,
     text,
+    width = 100,
+    height = 100,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -19,6 +21,8 @@ function Button(
     <StyledBaseButton
       as={as}
       ref={forwardedRef}
+      width={`${width}px`}
+      height={`${height}px`}
       data-testid="button"
     >
       <Text>
