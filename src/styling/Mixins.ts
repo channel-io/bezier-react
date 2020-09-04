@@ -13,6 +13,7 @@ interface SmoothCornersOptions {
   backgroundColor?: string
   backgroundImage?: string
   shadowBlur?: number
+  margin?: number
 }
 
 export const smoothCorners = ({
@@ -21,10 +22,11 @@ export const smoothCorners = ({
   backgroundColor = 'white',
   backgroundImage = '',
   shadowBlur = 0,
+  margin = 0,
 }: SmoothCornersOptions) => css`
   @supports (background: paint(smooth-corners)) {
     padding: ${shadowBlur * 2}px;
-    margin: -${shadowBlur * 4}px;
+    margin: ${-(shadowBlur * 2) + margin}px;
     border-radius: 0;
     box-shadow: none;
     background: paint(smooth-corners);

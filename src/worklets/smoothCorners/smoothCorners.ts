@@ -101,8 +101,8 @@ class SmoothCorners {
       ctx.shadowOffsetY = 0
       ctx.shadowBlur = 0
 
-      const trimedX = this.trimPX(offsetX)
-      const trimedY = this.trimPX(offsetY)
+      const trimedX = this.trimPX(offsetX) * 2
+      const trimedY = this.trimPX(offsetY) * 2
       const trimedBlur = this.trimPX(blur)
       const trimedSpread = this.trimPX(spread)
 

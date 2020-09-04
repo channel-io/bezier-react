@@ -24,6 +24,13 @@ export default {
       },
     },
   },
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        { Story() }
+      </div>
+    ),
+  ],
 }
 
 const Template = (args) => (
