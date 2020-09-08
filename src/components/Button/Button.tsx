@@ -32,7 +32,7 @@ function Button(
     typo,
     bold,
     italic,
-    theme = ButtonTheme.Primary,
+    buttonTheme = ButtonTheme.Primary,
     icon,
     iconPosition = ButtonIconPosition.Left,
     onClick,
@@ -52,7 +52,7 @@ function Button(
     <StyledButton
       as={as}
       ref={forwardedRef}
-      buttonTheme={theme}
+      buttonTheme={buttonTheme}
       text={text}
       data-testid={testId}
       onClick={onClick}
