@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import Text from './Text'
 
 export default {
-  title: 'Text',
+  title: getTitle(base),
   component: Text,
   argTypes: {
     /**

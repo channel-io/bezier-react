@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import GlobalHeader from './GlobalHeader'
 
 export default {
-  title: 'GlobalHeader',
+  title: getTitle(base),
   component: GlobalHeader,
   parameters: {
     layout: 'fullscreen',
