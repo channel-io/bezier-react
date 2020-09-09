@@ -1,0 +1,13 @@
+/* Internal dependencies */
+import { UIComponentProps } from '../../types/ComponentProps'
+import OptionItemHost from '../../types/OptionItemHost'
+
+export default interface TabsProps extends UIComponentProps, OptionItemHost {
+  optionsWrapperClassName?: string
+  useIndicator?: boolean
+  indicatorThickness?: number
+}
+
+export interface StyledWrapperProps extends UIComponentProps {}
+
+export interface StyledTabItemWrapperProps extends UIComponentProps {}
