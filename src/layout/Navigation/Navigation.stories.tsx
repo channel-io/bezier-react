@@ -13,7 +13,7 @@ export default {
   component: Navigation,
   decorators: [Story => (
     <div style={{ height: '100vh' }}>
-      <Story />
+      { Story() }
     </div>
   )],
   parameters: {

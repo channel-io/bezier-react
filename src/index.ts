@@ -1,3 +1,7 @@
+import EnableCSSHoudini from './worklets/EnableCSSHoudini'
+
+EnableCSSHoudini({ smoothCorners: true })
+
 /* Components */
 export * from './components/Button'
 export * from './components/Icon'

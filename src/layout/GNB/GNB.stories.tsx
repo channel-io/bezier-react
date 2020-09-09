@@ -11,7 +11,7 @@ export default {
   component: GNB,
   decorators: [Story => (
     <div style={{ height: '100vh' }}>
-      <Story />
+      { Story() }
     </div>
   )],
   parameters: {
