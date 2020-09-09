@@ -1,13 +1,15 @@
 /* External dependencies */
 import React, { useState, useMemo } from 'react'
+import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import { Text } from '../Text'
 import Typography from '../../styling/Typography'
 import Radio from './Radio'
 
 export default {
-  title: 'Radio',
+  title: getTitle(base),
   component: Radio,
   argTypes: {
     onClick: { action: 'onClick' },

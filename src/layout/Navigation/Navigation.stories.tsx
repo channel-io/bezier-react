@@ -1,13 +1,15 @@
 /* External dependencies */
 import React, { useRef, useCallback } from 'react'
 import { action } from '@storybook/addon-actions'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import { GNB } from '../GNB'
 import Navigation from './Navigation'
 
 export default {
-  title: 'Navigation',
+  title: getTitle(base),
   component: Navigation,
   decorators: [Story => (
     <div style={{ height: '100vh' }}>

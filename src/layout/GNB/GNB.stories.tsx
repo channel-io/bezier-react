@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import GNB from './GNB'
 
 export default {
-  title: 'GNB',
+  title: getTitle(base),
   component: GNB,
   decorators: [Story => (
     <div style={{ height: '100vh' }}>

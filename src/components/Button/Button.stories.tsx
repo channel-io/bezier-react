@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import Button from './Button'
 
 export default {
-  title: 'Button',
+  title: getTitle(base),
   comopnent: Button,
 }
 

@@ -1,12 +1,14 @@
 /* External dependencies */
 import React from 'react'
+import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import Checkbox from './Checkbox'
 import CheckType from './CheckType'
 
 export default {
-  title: 'Checkbox',
+  title: getTitle(base),
   component: Checkbox,
   argTypes: {
     onClick: { control: { action: 'onClick' } },

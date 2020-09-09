@@ -1,7 +1,9 @@
 /* External dependencies */
 import React from 'react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import { Text } from '../Text'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
@@ -10,7 +12,7 @@ import Icon from './Icon'
 import { IconSize } from './Icon.types'
 
 export default {
-  title: 'Icon',
+  title: getTitle(base),
   component: Icon,
   argTypes: {
     color: { control: 'color' },
