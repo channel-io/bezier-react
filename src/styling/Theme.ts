@@ -23,5 +23,6 @@ export const DarkTheme: Theme = {
 export const {
   default: styled,
   css,
+  keyframes,
   ThemeProvider,
 } = StyledComponents as StyledComponents.ThemedStyledComponentsModule<Theme>
