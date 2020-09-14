@@ -3,7 +3,7 @@ import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { mergeClassNames } from '../../utils'
+import { mergeClassNames } from '../../utils/stringUtils'
 import TabItemProps from './TabItem.types'
 import { Wrapper } from './TabItem.styled'
 
@@ -19,7 +19,7 @@ function TabItemComponent({
   as,
   testId = TAB_ITEM_TEST_ID,
   disabled = false,
-  useIndicator = true,
+  withIndicator = true,
   /* ActivatableElement props */
   activeClassName,
   active,
@@ -52,7 +52,7 @@ function TabItemComponent({
       className={_className}
       active={active}
       disabled={disabled}
-      useIndicator={useIndicator}
+      withIndicator={withIndicator}
       data-option-key={optionKey}
       data-testid={testId}
       data-disabled={disabled}

@@ -31,6 +31,6 @@ export const Primary = Template.bind({})
 Primary.args = {
   active: true,
   disabled: false,
-  useIndicator: true,
+  withIndicator: true,
   indicatorThickness: 3,
 }

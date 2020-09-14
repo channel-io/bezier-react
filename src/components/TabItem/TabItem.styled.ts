@@ -18,7 +18,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   font-weight: bold;
   color: ${Palette.grey500};
   cursor: pointer;
-  transition: color ${Transition.TransitionDuration.Slow} ${Transition.TransitionEffect.DefaultCubic};
+  transition: ${props => props.theme?.transition?.ColorTransitionCubicSlow};
   user-select: none;
 
   &:not(:first-child) {
@@ -34,7 +34,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   }
 
   &::after {
-    ${props => (!props.useIndicator ? `
+    ${props => (!props.withIndicator ? `
       visibility: hidden;
     ` : '')}
     position: absolute;

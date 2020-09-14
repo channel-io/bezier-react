@@ -4,11 +4,11 @@ import OptionItem from '../../types/OptionItem'
 import ActivatableElement from '../../types/ActivatableElement'
 
 export default interface TabItemProps extends UIComponentProps, OptionItem, ActivatableElement {
-  useIndicator?: boolean
+  withIndicator?: boolean
   indicatorThickness?: number
 }
 
 export interface StyledWrapperProps extends UIComponentProps, OptionItem, ActivatableElement {
-  useIndicator?: boolean
+  withIndicator?: boolean
   indicatorThickness?: number
 }

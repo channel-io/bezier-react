@@ -15,7 +15,7 @@ function Tabs({
   testId = TABS_TEST_ID,
   disabled = false,
   optionsWrapperClassName,
-  useIndicator,
+  withIndicator,
   indicatorThickness,
   /* OptionItemHost props */
   selectedOptionIndex = 0,
@@ -47,7 +47,7 @@ function Tabs({
         return React.cloneElement(element, {
           active: _.get(element.props, 'allowActive', true) && (currentTabIndex === index),
           disabled,
-          useIndicator,
+          withIndicator,
           indicatorThickness,
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
             handleClickTab(index, element.props.optionKey, _.get(element.props, 'allowActive', true))
@@ -60,7 +60,7 @@ function Tabs({
     })
   ), [
     disabled,
-    useIndicator,
+    withIndicator,
     indicatorThickness,
     children,
     currentTabIndex,

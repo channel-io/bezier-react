@@ -1,4 +1,4 @@
-import { mergeClassNames } from './index'
+import { mergeClassNames } from './stringUtils'
 
 describe('mergeClassNames()', () => {
   test('mergeClassNames() function should returns className string when 1st argument given', () => {

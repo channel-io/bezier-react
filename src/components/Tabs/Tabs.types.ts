@@ -4,7 +4,7 @@ import OptionItemHost from '../../types/OptionItemHost'
 
 export default interface TabsProps extends UIComponentProps, OptionItemHost {
   optionsWrapperClassName?: string
-  useIndicator?: boolean
+  withIndicator?: boolean
   indicatorThickness?: number
 }
 

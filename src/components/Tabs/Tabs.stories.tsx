@@ -42,7 +42,7 @@ export const Primary = Template.bind({})
 // @ts-ignore
 Primary.args = {
   disabled: false,
-  useIndicator: true,
+  withIndicator: true,
   indicatorThickness: 3,
 }
 
@@ -70,6 +70,6 @@ export const WithActions = ({ ...otherProps }) => (
 )
 WithActions.args = {
   disabled: false,
-  useIndicator: true,
+  withIndicator: true,
   indicatorThickness: 3,
 }
