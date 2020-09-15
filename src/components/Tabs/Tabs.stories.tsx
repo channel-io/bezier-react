@@ -39,7 +39,6 @@ const Template = ({ ...otherProps }) => (
 
 export const Primary = Template.bind({})
 
-// @ts-ignore
 Primary.args = {
   disabled: false,
   withIndicator: true,

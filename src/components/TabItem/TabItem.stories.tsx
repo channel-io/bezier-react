@@ -27,7 +27,6 @@ const Template = ({ ...otherProps }) => (
 
 export const Primary = Template.bind({})
 
-// @ts-ignore
 Primary.args = {
   active: true,
   disabled: false,
