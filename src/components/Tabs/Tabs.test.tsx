@@ -3,7 +3,6 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import Palette from '../../styling/Palette'
 import Tabs, { TABS_TEST_ID } from './Tabs'
 import TabsProps from './Tabs.types'
 
@@ -29,7 +28,6 @@ describe('Tabs', () => {
     expect(rendered).toHaveStyle('flex-direction: row;')
     expect(rendered).toHaveStyle('flex-shrink: 0;')
     expect(rendered).toHaveStyle('justify-content: space-between;')
-    expect(rendered).toHaveStyle(`box-shadow: 0 -1px 0 0 ${Palette.grey300} inset;`)
   })
 
   it('should have "false" value on "data-disabled" attribute when "disabled" prop is "false"', () => {
