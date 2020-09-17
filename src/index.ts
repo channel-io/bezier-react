@@ -9,6 +9,7 @@ export * from './components/Switch'
 export * from './components/Text'
 export * from './components/Radio'
 export * from './components/Checkbox'
+export * from './components/Overlay'
 
 /* Layout */
 export * from './layout/GNB'
