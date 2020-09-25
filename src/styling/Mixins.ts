@@ -7,6 +7,14 @@ export const absoluteCenter = (otherTransforms: any) => `
   transform: translate(-50%, -50%) ${otherTransforms};
 `
 
+export const hideScrollbars = () => css`
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
 interface SmoothCornersOptions {
   n?: number
   shadow?: string

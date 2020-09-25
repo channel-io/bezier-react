@@ -1,0 +1,18 @@
+@import '~Styles/colors';
+@import '~Styles/mixins';
+
+.tabsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: space-between;
+  box-shadow: 0 -1px 0 0 $grey300 inset;
+
+  .tabItemsWrapper {
+    @include hide-scrollbar();
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+  }
+}
