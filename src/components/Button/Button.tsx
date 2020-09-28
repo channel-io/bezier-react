@@ -1,27 +1,35 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import {
-  ButtonProps,
-  ButtonTheme,
-} from './Button.types'
-import { ButtonComponent } from './Button.styled'
+import { Text } from '../Text'
+import type ButtonProps from './Button.types'
+import { StyledBaseButton } from './Button.styled'
 
-function Button({
-  // TODO: (@leo) Foundation 정의 후 Button 컴포넌트 작성
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  theme = ButtonTheme.Normal,
-  onClick,
-}: ButtonProps) {
+export const BUTTON_TEST_ID = 'ch-design-system-button'
+
+function Button(
+  {
+    as,
+    text,
+    width = 100,
+    height = 100,
+  }: ButtonProps,
+  forwardedRef: React.Ref<HTMLElement>,
+) {
   return (
-    <ButtonComponent
+    <StyledBaseButton
+      as={as}
+      ref={forwardedRef}
+      width={`${width}px`}
+      height={`${height}px`}
       data-testid="button"
-      onClick={onClick}
     >
-      button
-    </ButtonComponent>
+      <Text>
+        { text }
+      </Text>
+    </StyledBaseButton>
   )
 }
 
-export default Button
+export default forwardRef(Button)

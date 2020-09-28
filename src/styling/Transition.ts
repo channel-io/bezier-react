@@ -16,6 +16,8 @@ const BorderTransition = `border-color ${TransitionEffect.EaseInOut} ${Transitio
 
 const ColorTransition = `color ${TransitionEffect.EaseInOut} ${TransitionDuration.Default}`
 
+const ColorTransitionCubicSlow = `color ${TransitionEffect.DefaultCubic} ${TransitionDuration.Slow}`
+
 const OpacityTransition = `opacity ${TransitionEffect.EaseInOut} ${TransitionDuration.Default}`
 
 const OpacitySlowTransition = `opacity ${TransitionEffect.EaseInOut} ${TransitionDuration.Slow}`
@@ -28,6 +30,7 @@ export default {
   BackgroundTransition,
   BorderTransition,
   ColorTransition,
+  ColorTransitionCubicSlow,
   OpacityTransition,
   OpacitySlowTransition,
   BoxShadowTransition,

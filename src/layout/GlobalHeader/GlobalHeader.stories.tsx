@@ -1,38 +1,26 @@
 /* External dependencies */
 import React from 'react'
-import { addDecorator } from '@storybook/react'
-import { withKnobs, boolean, select } from '@storybook/addon-knobs'
+import base from 'paths.macro'
 
 /* Internal dependencies */
-import { LightTheme, DarkTheme, ThemeProvider } from '../../styling/Theme'
+import { getTitle } from '../../utils/utils'
 import GlobalHeader from './GlobalHeader'
 
 export default {
-  title: 'GlobalHeader',
-  decorators: [withKnobs],
+  title: getTitle(base),
+  component: GlobalHeader,
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
-const decorator = storyfn => (
-  <div style={{ width: '100vw' }}>
-    { storyfn() }
-  </div>
+const Template = (args) => (
+  <GlobalHeader {...args}>
+    GlobalHeader
+  </GlobalHeader>
 )
 
-addDecorator(decorator)
-
-export const WithoutTheme = () => (<GlobalHeader />)
-
-export const WithTheme = () => {
-  const isWindows = boolean('Windows', false)
-  const getTheme = (theme: string) => (theme === 'dark' ? DarkTheme : LightTheme)
-
-  return (
-    <ThemeProvider theme={getTheme(select('theme', ['light', 'dark'], 'light'))}>
-      <GlobalHeader
-        isWindows={isWindows}
-      >
-        { isWindows ? 'Windows' : 'macOS' }
-      </GlobalHeader>
-    </ThemeProvider>
-  )
+export const Primary = Template.bind({})
+Primary.args = {
+  isWindows: false,
 }

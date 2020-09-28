@@ -1,7 +1,7 @@
 enum CheckType {
-  False,
-  True,
-  Partial,
+  False = 'false',
+  True = 'true',
+  Partial = 'partial',
 }
 
 export default CheckType

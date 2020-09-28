@@ -1,60 +1,52 @@
 /* External dependencies */
 import React from 'react'
-import { withKnobs, text, select, object } from '@storybook/addon-knobs'
+import base from 'paths.macro'
 
 /* Internal dependencies */
-import { createColors } from '../../styling/Colors'
-import { DarkTheme, ThemeProvider } from '../../styling/Theme'
+import { getTitle } from '../../utils/utils'
 import Text from './Text'
 
 export default {
-  title: 'Text',
-  decorators: [withKnobs],
+  title: getTitle(base),
+  component: Text,
+  argTypes: {
+    /**
+     * FIXME:
+     * storybook controls 에서 styled-components 의 css ReturnType 를
+     * select options 의 entity 로 지원하지 않는 듯 함.
+     * 임시로 typo 를 controls 에서 제거하였음.
+     */
+    typo: { table: { disable: true } },
+    as: {
+      control: {
+        type: 'select',
+        options: [
+          null,
+          'h1',
+          'h2',
+          'button',
+        ],
+      },
+    },
+
+    style: { control: 'object' },
+  },
 }
 
-export const Primary = () => (<Text>{ text('content', 'hello') }</Text>)
-
-export const WithStyle = () => (
-  <Text
-    style={object('style', { color: 'green' })}
-  >
-    Text
+const Template = ({
+  text,
+  ...otherTextProps
+}) => (
+  <Text {...otherTextProps}>
+    { text }
   </Text>
 )
 
-export const AlternativeTag = () => (
-  <Text
-    as={select('as', ['h1', 'h2', 'button'], 'button') as React.ElementType}
-  >
-    { text('content', 'bye') }
-  </Text>
-)
-
-export const WithTheme = () => (
-  <ThemeProvider theme={DarkTheme}>
-    <div style={{ backgroundColor: 'black' }}>
-      <Text>
-        { text('content', 'hiiii') }
-      </Text>
-    </div>
-  </ThemeProvider>
-)
-
-export const WithCustomTheme = () => {
-  const customColors = createColors({
-    base: 'light',
-    colors: {
-      textBase: text('textBase', 'pink'),
-    },
-  })
-
-  const customTheme = { colors: customColors }
-
-  return (
-    <ThemeProvider theme={customTheme}>
-      <Text>
-        { text('content', 'hello, world') }
-      </Text>
-    </ThemeProvider>
-  )
+export const Primary = Template.bind({})
+Primary.args = {
+  as: null,
+  bold: false,
+  italic: false,
+  style: { color: 'gray' },
+  text: 'hello',
 }

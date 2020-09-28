@@ -1,28 +1,37 @@
 /* External dependencies */
 import React from 'react'
-import { withKnobs, select, color, number } from '@storybook/addon-knobs'
+import base from 'paths.macro'
 
 /* Internal dependencies */
+import { getTitle } from '../../utils/utils'
 import { Text } from '../Text'
-import { styled, ThemeProvider, LightTheme } from '../../styling/Theme'
+import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
 import icons, { IconName } from './generated'
 import Icon from './Icon'
+import { IconSize } from './Icon.types'
 
 export default {
-  title: 'Icon',
-  decorators: [withKnobs],
+  title: getTitle(base),
+  component: Icon,
+  argTypes: {
+    color: { control: 'color' },
+    size: {
+      control: {
+        type: 'radio',
+        options: [
+          IconSize.L,
+          IconSize.Normal,
+          IconSize.S,
+          IconSize.XS,
+          IconSize.XXS,
+        ],
+      },
+    },
+  },
 }
 
 const iconList: IconName[] = Object.keys(icons) as IconName[]
-
-const IconSize = {
-  L: 34,
-  Normal: 24,
-  S: 20,
-  XS: 16,
-  XXS: 12,
-}
 
 const IconInfo = styled.div`
   width: 120px;
@@ -37,52 +46,53 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const AllIcons = () => {
-  const size = select('size', IconSize, IconSize.Normal)
-  const selectedColor = color('color', Palette.grey700)
-
-  return (
-    <ThemeProvider theme={LightTheme}>
-      { iconList.map((iconName) => (
-        <IconInfo key={iconName}>
-          <Icon
-            name={iconName}
-            color={selectedColor}
-            size={size}
-          />
-          <Name>{ iconName }</Name>
-        </IconInfo>
-      )) }
-    </ThemeProvider>
-  )
+export const AllIcons = (args) => (
+  <>
+    { iconList.map((iconName) => (
+      <IconInfo key={iconName}>
+        <Icon
+          name={iconName}
+          {...args}
+        />
+        <Name>{ iconName }</Name>
+      </IconInfo>
+    )) }
+  </>
+)
+AllIcons.args = {
+  size: IconSize.Normal,
+  color: Palette.grey700,
 }
 
-export const Primary = () => (
-  <Icon
-    name={select('name', iconList, 'zoyi') as IconName}
-    color={color('color', Palette.grey700)}
-    size={select('size', IconSize, IconSize.Normal)}
-    marginTop={number('marginTop', 0)}
-    marginRight={number('marginRight', 0)}
-    marginBottom={number('marginBottom', 0)}
-    marginLeft={number('marginLeft', 0)}
-  />
-)
+const Template = (args) => <Icon {...args} />
 
-export const WithText = () => (
-  <Text
-    style={{
-      color: color('color', Palette.grey700),
-    }}
-  >
+export const Primary = Template.bind({})
+Primary.args = {
+  name: 'channel',
+  color: Palette.grey700,
+  size: IconSize.Normal,
+  marginTop: 0,
+  marginRight: 0,
+  marginBotton: 0,
+  marginLeft: 0,
+}
+
+export const WithText = ({
+  color,
+  text,
+  name,
+  ...otherIconProps
+}) => (
+  <Text style={{ color }}>
     <Icon
-      name={select('name', iconList, 'zoyi') as IconName}
-      size={select('size', IconSize, IconSize.Normal)}
-      marginTop={number('marginTop', 0)}
-      marginRight={number('marginRight', 0)}
-      marginBottom={number('marginBottom', 0)}
-      marginLeft={number('marginLeft', 0)}
+      name={name}
+      {...otherIconProps}
     />
     Hello World!
   </Text>
 )
+WithText.args = {
+  name: 'zoyi',
+  color: Palette.grey700,
+  size: IconSize.Normal,
+}
