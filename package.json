@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Design System by Channel",
   "repository": {
     "type": "git",
@@ -51,10 +51,9 @@
   "keywords": [
     "design",
     "react",
-    "zoyi",
     "channel"
   ],
-  "author": "",
+  "author": "Channel Corp.",
   "license": "ISC",
   "browserslist": [
     "ie >= 11",
