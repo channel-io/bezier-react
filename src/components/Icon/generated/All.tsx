@@ -1,5 +1,9 @@
 import React from 'react'
 
+interface AllINterface {
+  marginTop: number
+}
+
 function SvgAll(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
