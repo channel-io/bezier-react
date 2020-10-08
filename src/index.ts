@@ -9,6 +9,9 @@ export * from './components/Switch'
 export * from './components/Text'
 export * from './components/Radio'
 export * from './components/Checkbox'
+export * from './components/Tabs'
+export * from './components/TabItem'
+export * from './components/TabActions'
 
 /* Layout */
 export * from './layout/GNB'
