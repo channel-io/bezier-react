@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
+import { v4 as uuid } from 'uuid'
 import _ from 'lodash'
 
 /* Internal dependencies */
@@ -68,12 +69,12 @@ function Tabs({
   ])
 
   const Actions = useMemo(() => (
-    React.Children.map(children, (element) => {
-      if (isTabActions(element)) {
-        return React.cloneElement(element, { disabled })
+    _.map(children, (child) => {
+      if (isTabActions(child)) {
+        return React.cloneElement(child, { key: child.key || uuid(), disabled })
       }
       return null
-    })
+    }).filter(_.identity)
   ), [disabled, children])
 
   return (

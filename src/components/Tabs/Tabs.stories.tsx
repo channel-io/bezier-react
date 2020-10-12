@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { v4 as uuid } from 'uuid'
 import _ from 'lodash'
 
 /* Internal dependencies */
@@ -49,7 +50,10 @@ Primary.args = {
 export const WithActions = ({ ...otherProps }) => (
   <Tabs {...otherProps}>
     { _.range(0, 8).map((n) => (
-      <TabItem optionKey={`tab-item-${n}`}>
+      <TabItem
+        key={uuid()}
+        optionKey={`tab-item-${n}`}
+      >
         Tab { n }
       </TabItem>
     )) }
