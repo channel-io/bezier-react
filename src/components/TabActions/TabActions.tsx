@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
+import { v4 as uuid } from 'uuid'
 import _ from 'lodash'
 
 /* Internal dependencies */
@@ -21,18 +22,25 @@ function TabActionsComponent({
   children,
   ...otherProps
 }: TabActionsProps, forwardedRef: Ref<any>) {
-  const Content = useMemo(() => (
-    _.map(children, (child) => {
-      if (React.isValidElement(child)) {
-        // @ts-ignore
-        return React.cloneElement(child, { disabled })
-      }
-      if (_.isFunction(child)) {
-        return child({ disabled })
-      }
-      return undefined
-    })
-  ), [disabled, children])
+  const Content = useMemo(() => {
+    if (_.isArray(children)) {
+      return _.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { key: child.key || uuid(), disabled })
+        }
+        if (_.isFunction(child)) {
+          const functionChild = child as Function
+          return React.cloneElement(functionChild({}), { key: uuid(), disabled })
+        }
+        return undefined
+      }).filter(_.identity)
+    }
+    if (_.isFunction(children)) {
+      const functionChild = children as Function
+      return functionChild({ disabled })
+    }
+    return children
+  }, [disabled, children])
 
   return (
     <Wrapper
