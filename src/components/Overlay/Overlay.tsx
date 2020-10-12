@@ -181,6 +181,27 @@ function Overlay(
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
+  const handleBlockMouseWheel = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation()
+  }, [])
+
+  const handleHideOverlay = useCallback((event: any) => {
+    if (!event.target?.closest(StyledOverlay)) {
+      onHide()
+    }
+  }, [onHide])
+
+  const handleClickTarget = useCallback((event: HTMLElementEventMap['click']) => {
+    onHide()
+    event.stopPropagation()
+  }, [onHide])
+
+  const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
+    if (event.key === ESCAPE_KEY) {
+      onHide()
+    }
+  }, [onHide])
+
   const overlay = useMemo(() => {
     if (container) {
       return (
@@ -197,7 +218,7 @@ function Overlay(
       )
     }
     return (
-      <Container style={style} data-testid={containerTestId}>
+      <Container style={style} data-testid={containerTestId} onWheel={handleBlockMouseWheel}>
         <Wrapper data-testid={wrapperTestId}>
           <StyledOverlay
             as={as}
@@ -223,24 +244,8 @@ function Overlay(
     wrapperTestId,
     testId,
     mergedRef,
+    handleBlockMouseWheel,
   ])
-
-  const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(StyledOverlay)) {
-      onHide()
-    }
-  }, [onHide])
-
-  const handleClickTarget = useCallback((event: HTMLElementEventMap['click']) => {
-    onHide()
-    event.stopPropagation()
-  }, [onHide])
-
-  const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
-    if (event.key === ESCAPE_KEY) {
-      onHide()
-    }
-  }, [onHide])
 
   useEffect(() => {
     if (show) {
