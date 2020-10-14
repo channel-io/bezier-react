@@ -29,10 +29,10 @@ function Icon({
       as={icons[name]}
       width={size}
       height={size}
-      marginTop={marginTop}
-      marginRight={marginRight}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
+      margintop={marginTop}
+      marginright={marginRight}
+      marginbottom={marginBottom}
+      marginleft={marginLeft}
     />
   )
 }

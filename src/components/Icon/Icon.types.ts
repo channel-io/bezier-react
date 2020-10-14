@@ -17,18 +17,18 @@ export enum IconSize {
 
 export interface IconStyledProps {
   color?: string
-  marginTop: number
-  marginRight: number
-  marginBottom: number
-  marginLeft: number
+  margintop: number
+  marginright: number
+  marginbottom: number
+  marginleft: number
 }
 
 export default interface IconProps extends StylableComponentProps, Omit<SVGProps, 'ref'> {
   name: IconName
   color?: string
   size?: IconSize
-  marginTop?: number
-  marginRight?: number
-  marginBottom?: number
-  marginLeft?: number
+  margintop?: number
+  marginright?: number
+  marginbottom?: number
+  marginleft?: number
 }
