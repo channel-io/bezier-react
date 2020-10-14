@@ -27,8 +27,8 @@ export default interface IconProps extends StylableComponentProps, Omit<SVGProps
   name: IconName
   color?: string
   size?: IconSize
-  margintop?: number
-  marginright?: number
-  marginbottom?: number
-  marginleft?: number
+  marginTop?: number
+  marginRight?: number
+  marginBottom?: number
+  marginLeft?: number
 }
