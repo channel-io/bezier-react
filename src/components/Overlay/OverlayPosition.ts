@@ -1,16 +1,16 @@
 enum OverlayPosition {
-  TOP = 'top',
-  TOP_LEFT = 'topLeft',
-  TOP_RIGHT = 'topRight',
-  RIGHT = 'right',
-  RIGHT_TOP = 'rightTop',
-  RIGHT_BOTTOM = 'rightBottom',
-  BOTTOM = 'bottom',
-  BOTTOM_LEFT = 'bottomLeft',
-  BOTTOM_RIGHT = 'bottomRight',
-  LEFT = 'left',
-  LEFT_TOP = 'leftTop',
-  LEFT_BOTTOM = 'leftBottom',
+  TopCenter = 'topCenter',
+  TopLeft = 'topLeft',
+  TopRight = 'topRight',
+  RightCenter = 'rightCenter',
+  RightTop = 'rightTop',
+  RightBottom = 'rightBottom',
+  BottomCenter = 'bottomCenter',
+  BottomLeft = 'bottomLeft',
+  BottomRight = 'bottomRight',
+  LeftCenter = 'leftCenter',
+  LeftTop = 'leftTop',
+  LeftBottom = 'leftBottom',
 }
 
 export default OverlayPosition

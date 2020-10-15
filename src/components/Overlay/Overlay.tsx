@@ -68,47 +68,47 @@ function getOverlayTranslate({
 
   // pre position
   switch (placement) {
-    case OverlayPosition.TOP:
-    case OverlayPosition.TOP_LEFT:
-    case OverlayPosition.TOP_RIGHT:
+    case OverlayPosition.TopCenter:
+    case OverlayPosition.TopLeft:
+    case OverlayPosition.TopRight:
       translateY -= (overlayHeight + marginY)
       translateX += marginX
       break
-    case OverlayPosition.RIGHT:
-    case OverlayPosition.RIGHT_TOP:
-    case OverlayPosition.RIGHT_BOTTOM:
+    case OverlayPosition.RightCenter:
+    case OverlayPosition.RightTop:
+    case OverlayPosition.RightBottom:
       translateX += (targetWidth + marginX)
       translateY += marginY
       break
-    case OverlayPosition.BOTTOM:
-    case OverlayPosition.BOTTOM_LEFT:
-    case OverlayPosition.BOTTOM_RIGHT:
+    case OverlayPosition.BottomCenter:
+    case OverlayPosition.BottomLeft:
+    case OverlayPosition.BottomRight:
       translateY += (targetHeight + marginY)
       translateX += marginX
       break
-    case OverlayPosition.LEFT:
-    case OverlayPosition.LEFT_TOP:
-    case OverlayPosition.LEFT_BOTTOM:
+    case OverlayPosition.LeftCenter:
+    case OverlayPosition.LeftTop:
+    case OverlayPosition.LeftBottom:
       translateX -= (overlayWidth + marginX)
       translateY += marginY
       break
   }
   // post position
   switch (placement) {
-    case OverlayPosition.TOP:
-    case OverlayPosition.BOTTOM:
+    case OverlayPosition.TopCenter:
+    case OverlayPosition.BottomCenter:
       translateX -= ((overlayWidth / 2) - (targetWidth / 2))
       break
-    case OverlayPosition.TOP_RIGHT:
-    case OverlayPosition.BOTTOM_RIGHT:
+    case OverlayPosition.TopRight:
+    case OverlayPosition.BottomRight:
       translateX -= (overlayWidth - targetWidth)
       break
-    case OverlayPosition.RIGHT:
-    case OverlayPosition.LEFT:
+    case OverlayPosition.RightCenter:
+    case OverlayPosition.LeftCenter:
       translateY -= ((overlayHeight / 2) - (targetHeight / 2))
       break
-    case OverlayPosition.RIGHT_BOTTOM:
-    case OverlayPosition.LEFT_BOTTOM:
+    case OverlayPosition.RightBottom:
+    case OverlayPosition.LeftBottom:
       translateY -= (overlayHeight - targetHeight)
       break
   }
@@ -161,7 +161,7 @@ function Overlay(
     className = '',
     style,
     target,
-    placement = OverlayPosition.LEFT,
+    placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
     children,
