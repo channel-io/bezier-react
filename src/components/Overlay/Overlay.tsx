@@ -27,7 +27,7 @@ export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById('root') as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop
@@ -38,34 +38,28 @@ function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K,
   }
 }
 
-function getOverlayPosition({ container, target }: getOverlayPositionProps) {
+function getOverlayPosition({ target }: getOverlayPositionProps) {
   const { top: targetTop, left: targetLeft } = target.getBoundingClientRect()
 
-  const top = container ?
-    targetTop - target.clientTop - container.getBoundingClientRect().top + container.scrollTop :
-    targetTop - target.clientTop
-  const left = container ?
-    targetLeft - target.clientLeft - container.getBoundingClientRect().left + container.scrollLeft :
-    targetLeft - target.clientLeft
+  const top = targetTop - target.clientTop
+  const left = targetLeft - target.clientLeft
 
   return { top, left }
 }
 
 function getOverlayTranslate({
-  container,
   target,
   overlay,
   placement,
   marginX,
   marginY,
 }: getOverlayTranslateProps) {
-  const containerElement = container || rootElement as HTMLElement
   const {
     width: containerWidth,
     height: containerHeight,
     top: containerTop,
     left: containerLeft,
-  } = containerElement.getBoundingClientRect()
+  } = rootElement.getBoundingClientRect()
   const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
   const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
 
@@ -136,7 +130,6 @@ function getOverlayTranslate({
 }
 
 function getOverlayStyle({
-  container,
   target,
   overlay,
   placement,
@@ -144,8 +137,8 @@ function getOverlayStyle({
   marginY,
 }: getOverlayStyleProps) {
   if (target) {
-    const overlayPositionStyle = getOverlayPosition({ container, target })
-    const overlayTranslateStyle = getOverlayTranslate({ container, target, overlay, placement, marginX, marginY })
+    const overlayPositionStyle = getOverlayPosition({ target })
+    const overlayTranslateStyle = getOverlayTranslate({ target, overlay, placement, marginX, marginY })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -167,7 +160,6 @@ function Overlay(
     show = false,
     className = '',
     style,
-    container,
     target,
     placement = OverlayPosition.LEFT,
     marginX = 0,
@@ -202,40 +194,23 @@ function Overlay(
     }
   }, [onHide])
 
-  const overlay = useMemo(() => {
-    if (container) {
-      return (
+  const overlay = useMemo(() => (
+    <Container style={style} data-testid={containerTestId} onWheel={handleBlockMouseWheel}>
+      <Wrapper data-testid={wrapperTestId}>
         <StyledOverlay
           as={as}
           className={className}
           isHidden={!overlayStyle}
-          style={{ ...style, ...overlayStyle }}
+          style={overlayStyle}
           ref={mergedRef}
           data-testid={testId}
         >
           { children }
         </StyledOverlay>
-      )
-    }
-    return (
-      <Container style={style} data-testid={containerTestId} onWheel={handleBlockMouseWheel}>
-        <Wrapper data-testid={wrapperTestId}>
-          <StyledOverlay
-            as={as}
-            className={className}
-            isHidden={!overlayStyle}
-            style={overlayStyle}
-            ref={mergedRef}
-            data-testid={testId}
-          >
-            { children }
-          </StyledOverlay>
-        </Wrapper>
-      </Container>
-    )
-  }, [
+      </Wrapper>
+    </Container>
+  ), [
     as,
-    container,
     className,
     style,
     overlayStyle,
@@ -265,7 +240,6 @@ function Overlay(
   useEffect(() => {
     if (show) {
       const tempOverlayStyle = getOverlayStyle({
-        container,
         target,
         overlay: overlayRef.current as HTMLElement,
         placement,
@@ -279,11 +253,11 @@ function Overlay(
       }
     }
     return noop
-  }, [show, container, marginX, marginY, placement, target])
+  }, [show, marginX, marginY, placement, target])
 
   if (!show) return null
 
-  return ReactDOM.createPortal(overlay, container || rootElement as HTMLElement)
+  return ReactDOM.createPortal(overlay, rootElement as HTMLElement)
 }
 
 export default forwardRef(Overlay)
