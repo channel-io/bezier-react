@@ -8,6 +8,9 @@ interface EnableCSSHoudiniOptions {
 export default function EnalbeCSSHoudini({
   smoothCorners = false,
 }: EnableCSSHoudiniOptions) {
+  // NOTE: CSS namespace 에 접근 가능할 경우에만 사용
+  if (typeof CSS === 'undefined') { return }
+
   if ('paintWorklet' in CSS) {
     if (smoothCorners) {
       const workletURL = URL.createObjectURL(new Blob([SmoothCornersScript], { type: 'application/javascript' }))

@@ -3,12 +3,12 @@ import { styled } from '../../styling/Theme'
 import { IconStyledProps } from './Icon.types'
 
 function getMargin({
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
+  margintop,
+  marginright,
+  marginbottom,
+  marginleft,
 }: IconStyledProps): string {
-  return `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
+  return `${margintop}px ${marginright}px ${marginbottom}px ${marginleft}px`
 }
 
 const Icon = styled.svg<IconStyledProps>`

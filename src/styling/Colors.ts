@@ -12,6 +12,7 @@ export interface Colors {
 
   // Disabled
   disabled3?: string
+  disabled5?: string
 
   // Borders
   border3?: string
@@ -48,6 +49,7 @@ export const Light: Colors = {
   border2: Palette.grey200,
   border1: Palette.grey100,
   disabled3: Palette.grey300,
+  disabled5: Palette.grey500,
   success1: Palette.green400,
   success1Hover: Palette.green500,
   default1: Palette.grey300,
