@@ -27,7 +27,10 @@ export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
-const rootElement = document.getElementById('root') as HTMLElement
+const rootElement =
+  document.getElementById('main') ||
+  document.getElementById('root') ||
+  document.getElementsByTagName('body')[0] as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop
@@ -59,10 +62,10 @@ function getOverlayTranslate({
 }: getOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
-      width: containerWidth,
-      height: containerHeight,
-      top: containerTop,
-      left: containerLeft,
+      width: rootWidth,
+      height: rootHeight,
+      top: rootTop,
+      left: rootLeft,
     } = rootElement.getBoundingClientRect()
     const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
     const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
@@ -117,10 +120,10 @@ function getOverlayTranslate({
         break
     }
 
-    const isOverTop = targetTop + translateY < containerTop
-    const isOverBottom = targetTop + translateY + overlayHeight > containerTop + containerHeight
-    const isOverLeft = targetLeft + translateX < containerLeft
-    const isOverRight = targetLeft + translateX + overlayWidth > containerLeft + containerWidth
+    const isOverTop = targetTop + translateY < rootTop
+    const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
+    const isOverLeft = targetLeft + translateX < rootLeft
+    const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
 
     if (isOverTop || isOverBottom) {
       translateY = targetHeight - translateY - overlayHeight
