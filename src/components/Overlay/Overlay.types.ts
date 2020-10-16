@@ -1,16 +1,13 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
 import OverlayPosition from './OverlayPosition'
 
-export default interface OverlayProps extends UIComponentProps {
+export default interface OverlayProps extends UIComponentProps, ChildrenComponentProps {
   show?: boolean
-  className?: string
-  style?: React.CSSProperties
   target: HTMLElement | null
   placement?: OverlayPosition
   marginX?: number
   marginY?: number
-  children: React.ReactNode
   onHide?: () => void
 }
 
@@ -26,7 +23,7 @@ export interface getOverlayPositionProps {
   target: HTMLElement
 }
 
-export interface getOverlayTranslateProps {
+export interface getOverlayTranslatationProps {
   target: HTMLElement
   overlay: HTMLElement
   placement: OverlayPosition
