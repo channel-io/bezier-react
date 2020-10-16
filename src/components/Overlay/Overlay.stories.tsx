@@ -52,12 +52,18 @@ export default {
 }
 
 const Container = styled.div`
+  width: 600px;
+  height: 500px;
+  overflow: scroll;
+  border: 1px solid ${Palette.grey700};
+`
+
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 600px;
-  height: 500px;
-  border: 1px solid ${Palette.grey700};
+  width: 900px;
+  height: 800px;
 `
 
 const Target = styled.div`
@@ -85,15 +91,17 @@ const Template = (props) => {
 
   return (
     <Container>
-      <Target ref={targetRef}>
-        target
-      </Target>
-      <Overlay
-        {...props}
-        target={targetRef.current}
-      >
-        <Children>overlay</Children>
-      </Overlay>
+      <Wrapper>
+        <Target ref={targetRef}>
+          target
+        </Target>
+        <Overlay
+          {...props}
+          target={targetRef.current}
+        >
+          <Children>overlay</Children>
+        </Overlay>
+      </Wrapper>
     </Container>
   )
 }
