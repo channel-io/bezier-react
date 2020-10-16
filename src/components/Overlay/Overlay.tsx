@@ -38,7 +38,7 @@ function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K,
   }
 }
 
-function getOverlayPosition({ target }: getOverlayPositionProps) {
+function getOverlayPosition({ target }: getOverlayPositionProps): React.CSSProperties {
   if (target) {
     const { top: targetTop, left: targetLeft } = target.getBoundingClientRect()
 
@@ -56,7 +56,7 @@ function getOverlayTranslate({
   placement,
   marginX,
   marginY,
-}: getOverlayTranslatationProps) {
+}: getOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
       width: containerWidth,
@@ -141,7 +141,7 @@ function getOverlayStyle({
   placement,
   marginX,
   marginY,
-}: getOverlayStyleProps) {
+}: getOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
     const overlayTranslateStyle = getOverlayTranslate({ target, overlay, placement, marginX, marginY })
@@ -176,6 +176,7 @@ function Overlay(
   forwardedRef: Ref<any>,
 ) {
   const [overlayStyle, setOverlayStyle] = useState<React.CSSProperties>()
+  const [isHidden, setIsHidden] = useState<boolean>(true)
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
@@ -206,7 +207,7 @@ function Overlay(
         <StyledOverlay
           as={as}
           className={className}
-          isHidden={!overlayStyle}
+          isHidden={isHidden}
           style={overlayStyle}
           ref={mergedRef}
           data-testid={testId}
@@ -219,6 +220,7 @@ function Overlay(
     as,
     className,
     style,
+    isHidden,
     overlayStyle,
     children,
     containerTestId,
@@ -253,9 +255,11 @@ function Overlay(
         marginY,
       })
       setOverlayStyle(tempOverlayStyle)
+      setIsHidden(false)
 
       return () => {
         setOverlayStyle(undefined)
+        setIsHidden(true)
       }
     }
     return noop
