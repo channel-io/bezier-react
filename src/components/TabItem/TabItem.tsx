@@ -31,7 +31,7 @@ function TabItemComponent({
   onClick = _.noop,
   ...otherProps
 }: TabItemProps, forwardedRef: Ref<any>) {
-  const _className = useMemo(() => (
+  const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
     className,
@@ -49,7 +49,7 @@ function TabItemComponent({
     <Wrapper
       ref={forwardedRef}
       as={as}
-      className={_className}
+      className={clazzName}
       active={active}
       disabled={disabled}
       withIndicator={withIndicator}
