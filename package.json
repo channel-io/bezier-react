@@ -27,6 +27,8 @@
     "build": "cross-env BABEL_ENV=build rollup -c",
     "prebuild": "npm run typecheck",
     "prepublishOnly": "npm run build:icon && npm run build",
+    "antlr:lexer": "antlr4ts src/components/Editor/utils/Parsers/Antlr/TextBlockLexer.g4",
+    "antlr:parser": "antlr4ts src/components/Editor/utils/Parsers/Antlr/TextBlockParser.g4",
     "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream"
@@ -82,8 +84,13 @@
     "@svgr/cli": "^5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
+    "@types/antlr4": "^4.7.2",
     "@types/jest": "^25.2.1",
     "@types/lodash-es": "^4.17.3",
+    "@types/prosemirror-inputrules": "^1.0.3",
+    "@types/prosemirror-model": "^1.11.0",
+    "@types/prosemirror-state": "^1.2.5",
+    "@types/prosemirror-view": "^1.16.1",
     "@types/react": "^16.9.34",
     "@types/styled-components": "^5.1.0",
     "@types/uuid": "^8.3.0",
@@ -125,7 +132,13 @@
     "styled-components": ">=5"
   },
   "dependencies": {
+    "antlr4": "^4.8.0",
+    "core-decorators": "^0.20.0",
     "lodash-es": "^4.17.15",
+    "prosemirror-inputrules": "^1.1.3",
+    "prosemirror-model": "^1.12.0",
+    "prosemirror-state": "^1.3.3",
+    "prosemirror-view": "^1.16.0",
     "uuid": "^8.3.1"
   }
 }
