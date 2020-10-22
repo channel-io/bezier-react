@@ -3,7 +3,7 @@ import { styled } from '../../styling/Theme'
 import GNBProps from './GNB.types'
 
 const GNB = styled.div<GNBProps>`
-  z-index: 10000;
+  z-index: 10001;
   display: flex;
   flex: none;
   align-items: center;
