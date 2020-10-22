@@ -5,33 +5,71 @@ import React, {
   useMemo,
   useEffect,
   useRef,
+  useCallback,
+  useImperativeHandle,
 } from 'react'
 import { DOMParser, ResolvedPos } from 'prosemirror-model'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, noop } from 'lodash-es'
 import 'prosemirror-view/style/prosemirror.css'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
 import EditorBuilder from './utils/EditorBuilder'
-import { blocksToPMNodes } from './utils/Parsers'
+import { blocksToPMNodes, pmNodesToBlocks } from './utils/Parsers'
 import { ReactNodeViewProvider } from './utils/ReactNodeView'
-import { EditorProps } from './Editor.types'
+import isFill from './utils/isFill'
+import { EditorProps, EditorRef } from './Editor.types'
 import { StyledEditorInput } from './Editor.styled'
 
 const BuilderContext = createContext(new EditorBuilder())
 
+const emptyBlocks = []
+
 function Editor(
   {
-    initialBlocks,
+    initialBlocks = emptyBlocks,
+    noStringEscape = false,
+    onChange = noop,
+    onClear = noop,
     children,
   }: EditorProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
+  forwardedRef: React.Ref<EditorRef>,
 ) {
   const reactNodeViewProvider = useMemo(() => new ReactNodeViewProvider(), [])
   const editorBuilder: EditorBuilder = useMemo(() => new EditorBuilder(), [])
 
   const editorRef = useRef<HTMLDivElement | null>(null)
-  const mergedRef = useMergeRefs<HTMLDivElement>(editorRef, forwardedRef)
+  const mergedRef = useMergeRefs<HTMLDivElement | EditorRef>(editorRef, forwardedRef)
+
+  const getContents = useCallback(() => {
+    const editorState = editorBuilder.editor?.state
+    if (!editorState || !editorState.doc) {
+      return undefined
+    }
+
+    const blocks = isFill(editorState) ? pmNodesToBlocks(editorState.doc, noStringEscape) : []
+
+    return blocks
+  }, [
+    editorBuilder,
+    noStringEscape,
+  ])
+
+  const clearContents = useCallback(() => {
+    editorBuilder.reset()
+    onClear()
+  }, [
+    editorBuilder,
+    onClear,
+  ])
+
+  useImperativeHandle(forwardedRef, () => ({
+    getContents,
+    clearContents,
+  }), [
+    getContents,
+    clearContents,
+  ])
 
   useEffect(() => {
     const schema = editorBuilder.createSchema()
@@ -48,15 +86,15 @@ function Editor(
 
     editorBuilder.build(editorRef.current!, reactNodeViewProvider, schema, {
       dispatchTransaction: (transaction) => {
-        // const prevState = editorBuilder.editor!.state
+        const prevState = editorBuilder.editor!.state
         const newState = editorBuilder.editor!.state.apply(transaction)
         editorBuilder.updateState(newState)
 
         // selection 만 바뀌는 경우에도 transaction 이 발생하지만, 이 경우에는 onChange 는 불필요하므로
         // doc 이 분명하게 바꾼 경우에만 onChange 발생
-        // if (prevState.doc !== newState.doc) {
-        //   onChangeRef.current(newState)
-        // }
+        if (prevState.doc !== newState.doc) {
+          onChange(newState)
+        }
       },
       handleDOMEvents: {
         // blur: () => {
@@ -106,7 +144,7 @@ function Editor(
 
   return (
     <BuilderContext.Provider value={editorBuilder}>
-      <StyledEditorInput ref={mergedRef}/>
+      <StyledEditorInput ref={mergedRef as React.Ref<HTMLDivElement>}/>
       { children }
     </BuilderContext.Provider>
   )

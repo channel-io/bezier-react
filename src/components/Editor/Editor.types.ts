@@ -1,3 +1,6 @@
+/* External dependencies */
+import { EditorState } from 'prosemirror-state'
+
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 
@@ -43,5 +46,12 @@ export type Block = Text | Code | Bullets
 
 export interface EditorProps extends ChildrenComponentProps {
   initialBlocks?: Block[]
+  noStringEscape?: boolean
+  onChange?: (state: EditorState) => void
+  onClear?: () => void
 }
 
+export interface EditorRef {
+  getContents: () => Block[] | undefined
+  clearContents: () => void
+}
