@@ -5,6 +5,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import Editor from './Editor'
+import Bold from './plugins/Bold'
 import { EditorRef } from './Editor.types'
 
 export default {
@@ -39,3 +40,11 @@ export const Primary = Template.bind({})
 Primary.args = {
   initialBlocks: [{ type: 'text', value: 'hello, world!' }],
 }
+
+const TemplateWithBold = (args) => (
+  <Editor {...args}>
+    <Bold/>
+  </Editor>
+)
+
+export const PrimaryWithBold = TemplateWithBold.bind({})

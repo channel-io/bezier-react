@@ -21,7 +21,7 @@ import isFill from './utils/isFill'
 import { EditorProps, EditorRef } from './Editor.types'
 import { StyledEditorInput } from './Editor.styled'
 
-const BuilderContext = createContext(new EditorBuilder())
+export const BuilderContext = createContext(new EditorBuilder())
 
 const emptyBlocks = []
 

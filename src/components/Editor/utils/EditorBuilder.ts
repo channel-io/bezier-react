@@ -3,6 +3,7 @@ import { EditorView, DirectEditorProps } from 'prosemirror-view'
 import {
   EditorState,
   Plugin,
+  Transaction,
 } from 'prosemirror-state'
 import {
   Schema,
@@ -11,6 +12,13 @@ import {
   Node as ProsemirrorNode,
 } from 'prosemirror-model'
 import { InputRule } from 'prosemirror-inputrules'
+import { keymap } from 'prosemirror-keymap'
+import {
+  chainCommands,
+  createParagraphNear,
+  liftEmptyBlock,
+  splitBlock,
+} from 'prosemirror-commands'
 import { mapValues, last } from 'lodash-es'
 
 /* Internal dependencies */
@@ -18,7 +26,11 @@ import { NodeType } from '../Editor.types'
 import { ReactNodeView, ReactNodeViewProvider } from './ReactNodeView'
 import { getNodeFromSelection } from './SelectionUtils'
 
+type Dispatch = (tr: Transaction<any>) => void
+
 type TriggerCallback = (active: boolean, searchWord: string, state: EditorState) => void
+
+const newLineCommand = chainCommands(createParagraphNear, liftEmptyBlock, splitBlock)
 
 export default class EditorBuilder {
   schema: Schema | undefined
@@ -42,7 +54,7 @@ export default class EditorBuilder {
          * NOTE: 두 개 이상의 연속되는 br 은 온전히 하나의 줄을 차지할 수 있으므로,
          * p 태그로 변환해도 됩니다. 하지만 단일 br 은 단순 문단 분리의 동작을 수행해야 하는데,
          * 현재의 Prosemirror parseRule 에서는 해당 동작을 구현할 수 있는 방법이 없습니다.
-         * 그래서 임시로 br 태그를 직접 렌더링하고, ProseMirrorNodeVisitor 에서 처리하도록 수정합니다.
+         * 그래서 임시로 br 태그를 직접 렌더링하고, PMNodesToBlocksVisitor 에서 처리하도록 수정합니다.
          *
          * 이 방법의 문제는, br 로 연결된 모든 텍스트가 단일 paragraph로 인식되는 것으로,
          * 예기치 않은 동작을 할 수 있습니다.
@@ -61,7 +73,7 @@ export default class EditorBuilder {
 
   marks: { [key: string]: MarkSpec } = {}
 
-  keyMaps: { [key: string]: (state: EditorState, dispatch: EditorView['dispatch']) => void } = {}
+  keyMaps: { [key: string]: (state: EditorState, dispatch: Dispatch) => void } = {}
 
   nodeViews: { [key: string]: new(node: ProsemirrorNode, provider: ReactNodeViewProvider) => ReactNodeView } = {}
 
@@ -100,6 +112,11 @@ export default class EditorBuilder {
     doc?: ProsemirrorNode,
   ) {
     const { nodeViews } = this
+
+    this.plugins.push(keymap({
+      ...this.keyMaps,
+      Enter: newLineCommand,
+    }))
 
     this.editor = new EditorView(target, {
       ...props,
