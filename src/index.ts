@@ -12,6 +12,8 @@ export * from './components/Checkbox'
 export * from './components/Tabs'
 export * from './components/TabItem'
 export * from './components/TabActions'
+export * from './components/Sidebar/SidebarMenuTitle'
+export * from './components/Sidebar/SidebarMenuItem'
 
 /* Layout */
 export * from './layout/GNB'
