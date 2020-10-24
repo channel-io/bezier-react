@@ -5,7 +5,6 @@ export default interface SidebarMenuTitleProps extends ContentComponentProps {
   rightAction?: React.ReactNode
   onClick?: () => void
   onClickAction?: () => void
-  // TODO: (@mong) 기능 필요시 추가
   withLeftEmoji?: boolean
 }
 

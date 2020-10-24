@@ -16,8 +16,6 @@ function SidebarMenuTitle({
   onClickAction = _.noop,
   style,
   className,
-  // TODO: (@mong) 기능 필요시 추가
-  // withLeftEmoji = false,
 }: SidebarMenuTitleProps) {
   const handleClickAction = useCallback((ev: React.MouseEvent<HTMLDivElement>) => {
     ev.stopPropagation()
