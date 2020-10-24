@@ -18,6 +18,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   font-size: 14px;
   font-weight: normal;
   color: ${Palette.grey700};
+  text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
 
