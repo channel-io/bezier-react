@@ -40,6 +40,7 @@ function SidebarMenuItem({
   if (!_.isNil(href)) {
     return (
       <Wrapper
+        as="a"
         className={clazzName}
         draggable={false}
         href={href}
