@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useCallback, useMemo } from 'react'
+import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
@@ -7,9 +7,15 @@ import { mergeClassNames } from '../../../utils/stringUtils'
 import SidebarMenuItemProps from './SidebarMenuItem.types'
 import { Wrapper } from './SidebarMenuItem.styled'
 
+export const SIDEBAR_MENU_ITEM_COMPONENT_NAME = 'SidebarMenuItem'
 export const SIDEBAR_MENU_ITEM_TEST_ID = 'ch-design-system-sidebar-menu-item'
 
-function SidebarMenuItem({
+export function isSidebarMenuItem(element: any): element is React.ReactElement<SidebarMenuItemProps> {
+  return React.isValidElement(element) &&
+    _.get(element, 'type.displayName') === SIDEBAR_MENU_ITEM_COMPONENT_NAME
+}
+
+function SidebarMenuItemComponent({
   as,
   testId = SIDEBAR_MENU_ITEM_TEST_ID,
   content,
@@ -22,7 +28,7 @@ function SidebarMenuItem({
   onClick = _.noop,
   className,
   ...othreProps
-}: SidebarMenuItemProps) {
+}: SidebarMenuItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
@@ -40,6 +46,7 @@ function SidebarMenuItem({
   if (!_.isNil(href)) {
     return (
       <Wrapper
+        ref={forwardedRef}
         as="a"
         className={clazzName}
         draggable={false}
@@ -71,5 +78,8 @@ function SidebarMenuItem({
     </Wrapper>
   )
 }
+
+const SidebarMenuItem = forwardRef(SidebarMenuItemComponent)
+SidebarMenuItem.displayName = SIDEBAR_MENU_ITEM_COMPONENT_NAME
 
 export default SidebarMenuItem

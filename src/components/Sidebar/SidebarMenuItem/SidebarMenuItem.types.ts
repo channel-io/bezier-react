@@ -1,5 +1,4 @@
 /* Internal dependencies */
-
 import ActivableElement from '../../../types/ActivatableElement'
 import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
 import OptionItem from '../../../types/OptionItem'
