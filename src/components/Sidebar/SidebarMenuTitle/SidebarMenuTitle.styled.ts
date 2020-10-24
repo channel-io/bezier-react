@@ -1,0 +1,22 @@
+import Palette from '../../../styling/Palette'
+import { styled } from '../../../styling/Theme'
+import {
+  StyledWrapperProps,
+  StyledTitleWrapperProps,
+} from './SidebarMenuTitle.types'
+
+export const Wrapper = styled.div<StyledWrapperProps>`
+  display: flex;
+  flex-direction: row;
+  padding: 6px 12px 6px 16px;
+  height: ${({ height }) => height || 20}px;
+  line-height: 20px;
+`
+
+export const TitleWrapper = styled.div<StyledTitleWrapperProps>`
+  flex: 1;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  color: ${Palette.grey500};
+`
