@@ -35,7 +35,7 @@ describe('SidebarMenuItem', () => {
     expect(rendered).toHaveAttribute('data-active', 'true')
   })
 
-  it('should be a tag - related attributes  when "href" prop is string', () => {
+  it('should have "a tag" related attributes  when "href" prop is string', () => {
     const { getByTestId } = renderComponent({ href: 'https://naver.com' })
     const rendered = getByTestId(SIDEBAR_MENU_ITEM_TEST_ID)
     expect(rendered).toHaveAttribute('href', 'https://naver.com')

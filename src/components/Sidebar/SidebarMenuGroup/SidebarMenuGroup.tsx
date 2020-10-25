@@ -19,7 +19,7 @@ function SidebarMenuGroup({
   rightContent = null,
   onClickArrow = _.noop,
   arrowClassName,
-  /* OptionItemHost Props */
+  /* OptionMenuHost Props */
   selectedMenuItemIndex = null,
   onChangeOption = _.noop,
   /* HTMLAttribute props */
@@ -30,7 +30,7 @@ function SidebarMenuGroup({
 }: SidebarMenuGroupProps,
 forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number>(selectedMenuItemIndex)
+  const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
   useEffect(() => {
     if (_.isNumber(selectedMenuItemIndex)) {
@@ -112,7 +112,7 @@ forwardedRef: React.Ref<HTMLElement>,
         className={className}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={onClick}
-        data-testId={testId}
+        data-testid={testId}
         data-active-index={currentMenuItemIndex}
         {...otherProps}
       >

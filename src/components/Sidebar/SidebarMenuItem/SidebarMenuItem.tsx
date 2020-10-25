@@ -57,7 +57,7 @@ function SidebarMenuItemComponent({
         active={active}
         data-active={active}
         data-option-key={optionKey}
-        data-testId={testId}
+        data-testid={testId}
         {...othreProps}
       >
         { content }
@@ -73,7 +73,7 @@ function SidebarMenuItemComponent({
       active={active}
       data-active={active}
       data-option-key={optionKey}
-      data-testId={testId}
+      data-testid={testId}
       {...othreProps}
     >
       { content }
