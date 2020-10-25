@@ -7,8 +7,6 @@ export default interface SidebarMenuTitleProps extends ContentComponentProps {
   onClickAction?: () => void
 }
 
-export interface StyledWrapperProps extends UIComponentProps {
-  height: number
-}
+export interface StyledWrapperProps extends UIComponentProps {}
 
 export interface StyledTitleWrapperProps extends UIComponentProps {}

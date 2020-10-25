@@ -20,6 +20,7 @@ function SidebarMenuItemComponent({
   testId = SIDEBAR_MENU_ITEM_TEST_ID,
   content,
   href,
+  /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
   active = false,
