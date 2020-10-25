@@ -13,6 +13,7 @@ export * from './components/Tabs'
 export * from './components/TabItem'
 export * from './components/TabActions'
 export * from './components/Sidebar/SidebarMenuTitle'
+export * from './components/Sidebar/SidebarMenuGroup'
 export * from './components/Sidebar/SidebarMenuItem'
 
 /* Layout */

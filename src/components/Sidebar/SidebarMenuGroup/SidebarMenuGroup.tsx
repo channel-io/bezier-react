@@ -6,7 +6,7 @@ import _ from 'lodash'
 import { isSidebarMenuItem } from '../SidebarMenuItem/SidebarMenuItem'
 import { Icon, IconSize } from '../../Icon'
 import SidebarMenuGroupProps from './SidebarMenuGroup.types'
-import { Wrapper, GroupItemWrapper, ChildrenWrapper, GroupItemContentWrapper } from './SidebarMenuGroup.styled'
+import { GroupItemWrapper, ChildrenWrapper, GroupItemContentWrapper } from './SidebarMenuGroup.styled'
 
 export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
 
@@ -58,6 +58,7 @@ forwardedRef: React.Ref<HTMLElement>,
           <Icon
             name={leftIcon}
             size={IconSize.S}
+            marginRight={10}
           />
         ) }
         { content }
@@ -104,16 +105,16 @@ forwardedRef: React.Ref<HTMLElement>,
   ])
 
   return (
-    <Wrapper
-      as={as}
-      ref={forwardedRef}
-      className={className}
-      data-testId={testId}
-      data-active-index={currentMenuItemIndex}
-      {...otherProps}
-    >
+    <>
       <GroupItemWrapper
+        as={as}
+        ref={forwardedRef}
+        className={className}
+        currentMenuItemIndex={currentMenuItemIndex}
         onClick={onClick}
+        data-testId={testId}
+        data-active-index={currentMenuItemIndex}
+        {...otherProps}
       >
         { Content }
       </GroupItemWrapper>
@@ -122,7 +123,7 @@ forwardedRef: React.Ref<HTMLElement>,
           { Items }
         </ChildrenWrapper>
       ) }
-    </Wrapper>
+    </>
   )
 }
 

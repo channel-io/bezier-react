@@ -1,20 +1,10 @@
+/* External dependencies */
+import _ from 'lodash'
+
 /* Internal dependencies */
-import { css, styled } from '../../../styling/Theme'
+import { styled } from '../../../styling/Theme'
 import Palette from '../../../styling/Palette'
 import { StyledWrapperProps } from './SidebarMenuGroup.types'
-
-const ActiveGroupItemStyle = css`
-  color: ${Palette.blue500} !important;
-  background-color: ${Palette.grey200} !important;
-
-  & svg {
-    color: $blue500 !important;
-  }
-`
-
-export const Wrapper = styled.div`
-  background-color: black;
-`
 
 export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
@@ -30,7 +20,17 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   cursor: pointer;
   border-radius: 6px;
 
-  ${(props) => !!props.selectedOptionIndex && ActiveGroupItemStyle}
+  &:hover {
+    ${props => (props.active ? '' : `
+      color: ${Palette.grey700};
+      background-color: ${Palette.grey300};
+    `)}
+  }
+
+  ${props => !_.isNil(props.currentMenuItemIndex) && `
+      color: ${Palette.blue500};
+      background-color: ${Palette.grey200};
+  `}
 `
 
 export const GroupItemContentWrapper = styled.div`

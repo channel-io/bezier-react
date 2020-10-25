@@ -15,5 +15,6 @@ export interface StyledWrapperProps extends ContentComponentProps, OptionItemHos
   open?: boolean
   content?: React.ReactNode
   rightContent?: React.ReactNode
+  currentMenuItemIndex?: number | null
   arrowClassName?: string
 }

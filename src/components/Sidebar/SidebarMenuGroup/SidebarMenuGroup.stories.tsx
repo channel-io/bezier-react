@@ -19,11 +19,6 @@ export default {
         type: 'boolean',
       },
     },
-    selectedMenuItemIndex: {
-      control: {
-        type: 'number',
-      },
-    },
   },
 }
 
@@ -37,7 +32,6 @@ const Template = ({ ...otherSidebarMenuGroupProps }) => (
     minWidth={SIDEBAR_WIDTH}
   >
     <SidebarMenuGroup
-      optionKey="menu-item-0"
       {...otherSidebarMenuGroupProps}
     >
       { _.range(0, 4).map(n => (
@@ -56,4 +50,5 @@ export const Primary = Template.bind({})
 Primary.args = {
   content: '전체 상태',
   leftIcon: 'sent',
+  selectedOptionIndex: null,
 }
