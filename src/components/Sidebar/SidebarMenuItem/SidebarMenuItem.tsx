@@ -55,6 +55,7 @@ function SidebarMenuItemComponent({
         rel="noopener noreferer"
         onClick={handleClick}
         active={active}
+        data-active={active}
         data-option-key={optionKey}
         data-testId={testId}
         {...othreProps}
@@ -70,6 +71,7 @@ function SidebarMenuItemComponent({
       className={clazzName}
       onClick={handleClick}
       active={active}
+      data-active={active}
       data-option-key={optionKey}
       data-testId={testId}
       {...othreProps}

@@ -17,12 +17,12 @@ describe('SidebarMenuTitle Test >', () => {
 
   const renderSidebarMenuTitle = (optionPtops?: SidebarMenuTitleProps) =>
     render(<SidebarMenuTitle {...props} {...optionPtops} />)
-
   it('SidebarMenuTitle should have flex', () => {
     const { getByTestId } = renderSidebarMenuTitle()
 
     const rendered = getByTestId(SIDEBAR_MENU_TITLE_TEST_ID)
 
     expect(rendered).toHaveStyle('display: flex;')
+    expect(rendered).toHaveStyle('flex-direction: row')
   })
 })
