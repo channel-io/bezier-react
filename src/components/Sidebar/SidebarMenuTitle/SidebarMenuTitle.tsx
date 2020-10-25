@@ -27,7 +27,6 @@ function SidebarMenuTitle({
       data-testid={testId}
       as={as}
       style={style}
-      height={20}
       className={className}
       onClick={onClick}
     >
