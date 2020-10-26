@@ -15,6 +15,8 @@ export * from './components/TabActions'
 export * from './components/List/ListMenuTitle'
 export * from './components/List/ListMenuGroup'
 export * from './components/List/ListItem'
+export * from './components/Overlay'
+
 
 /* Layout */
 export * from './layout/GNB'
