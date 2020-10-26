@@ -2,7 +2,7 @@
 import React from 'react'
 import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-import _ from 'lodash'
+import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
@@ -30,7 +30,7 @@ export default {
 
 const Template = ({ ...otherProps }) => (
   <Tabs {...otherProps}>
-    { _.range(0, 8).map((n) => (
+    { range(0, 8).map((n) => (
       <TabItem optionKey={`tab-item-${n}`}>
         Tab { n }
       </TabItem>
@@ -49,7 +49,7 @@ Primary.args = {
 /* eslint-disable react/button-has-type */
 export const WithActions = ({ ...otherProps }) => (
   <Tabs {...otherProps}>
-    { _.range(0, 8).map((n) => (
+    { range(0, 8).map((n) => (
       <TabItem
         key={uuid()}
         optionKey={`tab-item-${n}`}
