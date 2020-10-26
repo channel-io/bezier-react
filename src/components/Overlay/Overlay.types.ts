@@ -4,7 +4,7 @@ import OverlayPosition from './OverlayPosition'
 
 export default interface OverlayProps extends UIComponentProps, ChildrenComponentProps {
   show?: boolean
-  target: HTMLElement | null
+  target: HTMLElement | null | undefined
   placement?: OverlayPosition
   marginX?: number
   marginY?: number
@@ -12,7 +12,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
 }
 
 export interface getOverlayStyleProps {
-  target: HTMLElement | null
+  target: HTMLElement | null | undefined
   overlay: HTMLElement
   placement: OverlayPosition
   marginX: number

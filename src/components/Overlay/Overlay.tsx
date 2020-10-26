@@ -53,7 +53,7 @@ function getOverlayPosition({ target }: getOverlayPositionProps): React.CSSPrope
   return {}
 }
 
-function getOverlayTranslate({
+function getOverlayTranslation({
   target,
   overlay,
   placement,
@@ -147,7 +147,7 @@ function getOverlayStyle({
 }: getOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
-    const overlayTranslateStyle = getOverlayTranslate({ target, overlay, placement, marginX, marginY })
+    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -181,10 +181,12 @@ function Overlay(
   const [overlayStyle, setOverlayStyle] = useState<React.CSSProperties>()
   const [isHidden, setIsHidden] = useState<boolean>(true)
   const overlayRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
-  const handleBlockMouseWheel = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation()
+  const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
+    event.stopPropagation()
+    event.preventDefault()
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
@@ -205,7 +207,7 @@ function Overlay(
   }, [onHide])
 
   const overlay = useMemo(() => (
-    <Container style={style} data-testid={containerTestId} onWheel={handleBlockMouseWheel}>
+    <Container ref={containerRef} style={style} data-testid={containerTestId}>
       <Wrapper data-testid={wrapperTestId}>
         <StyledOverlay
           as={as}
@@ -230,7 +232,6 @@ function Overlay(
     wrapperTestId,
     testId,
     mergedRef,
-    handleBlockMouseWheel,
   ])
 
   useEffect(() => {
@@ -238,15 +239,17 @@ function Overlay(
       const removeDocumentClickListener = listen(document, 'click', handleHideOverlay)
       const removeDocumentKeyupListener = listen(document, 'keyup', handleKeydown)
       const removeTargetClickListener = listen(target, 'click', handleClickTarget)
+      const remoteContainerWheelListener = listen(containerRef.current, 'wheel', handleBlockMouseWheel)
 
       return () => {
         removeDocumentClickListener()
         removeDocumentKeyupListener()
         removeTargetClickListener()
+        remoteContainerWheelListener()
       }
     }
     return noop
-  }, [show, target, handleHideOverlay, handleKeydown, handleClickTarget])
+  }, [show, target, handleHideOverlay, handleKeydown, handleClickTarget, handleBlockMouseWheel])
 
   useEffect(() => {
     if (show) {
