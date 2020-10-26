@@ -3,7 +3,7 @@ import { styled } from '../../../styling/Theme'
 import {
   StyledWrapperProps,
   StyledTitleWrapperProps,
-} from './SidebarMenuTitle.types'
+} from './ListMenuTitle.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;

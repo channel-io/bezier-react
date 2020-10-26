@@ -2,7 +2,7 @@
 import { ContentComponentProps } from '../../../types/ComponentProps'
 import { IconName } from '../../Icon'
 
-export default interface SidebarMenuGroupProps extends ContentComponentProps {
+export default interface ListMenuGroupProps extends ContentComponentProps {
   open?: boolean
   content?: React.ReactNode
   leftIcon?: IconName

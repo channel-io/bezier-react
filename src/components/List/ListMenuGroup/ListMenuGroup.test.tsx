@@ -5,12 +5,12 @@ import { v4 as uuid } from 'uuid'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { SidebarMenuItem } from '../SidebarMenuItem'
-import SidebarMenuGroup, { SIDEBAR_MENU_GROUP_TEST_ID } from './SidebarMenuGroup'
-import SidebarMenuGroupProps from './SidebarMenuGroup.types'
+import { ListItem } from '../ListItem'
+import ListMenuGroup, { SIDEBAR_MENU_GROUP_TEST_ID } from './ListMenuGroup'
+import ListMenuGroupProps from './ListMenuGroup.types'
 
-describe('SidebarMenuGroup', () => {
-  let props: SidebarMenuGroupProps
+describe('ListMenuGroup', () => {
+  let props: ListMenuGroupProps
 
   beforeEach(() => {
     props = {
@@ -20,16 +20,16 @@ describe('SidebarMenuGroup', () => {
     }
   })
 
-  const renderComponent = (optionProps?: Partial<SidebarMenuGroupProps>) => render(
-    <SidebarMenuGroup {...props} {...optionProps}>
+  const renderComponent = (optionProps?: Partial<ListMenuGroupProps>) => render(
+    <ListMenuGroup {...props} {...optionProps}>
       { _.range(0, 4).map(n => (
-        <SidebarMenuItem
+        <ListItem
           key={uuid()}
           optionKey={`menu-item-${n}`}
           content={`item ${n}`}
         />
       )) }
-    </SidebarMenuGroup>,
+    </ListMenuGroup>,
   )
 
   it('should have default styles', () => {

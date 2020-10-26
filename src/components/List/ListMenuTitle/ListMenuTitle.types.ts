@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
 
-export default interface SidebarMenuTitleProps extends ContentComponentProps {
+export default interface ListMenuTitleProps extends ContentComponentProps {
   rightAction?: React.ReactNode
   onClick?: () => void
   onClickAction?: () => void

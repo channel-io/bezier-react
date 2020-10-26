@@ -7,12 +7,12 @@ import _ from 'lodash'
 /* Internal dependencies */
 import { Navigation } from '../../../layout/Navigation'
 import { getTitle } from '../../../utils/utils'
-import { SidebarMenuItem } from '../SidebarMenuItem'
-import SidebarMenuGroup from './SidebarMenuGroup'
+import { ListItem } from '../ListItem'
+import ListMenuGroup from './ListMenuGroup'
 
 export default {
   title: getTitle(base),
-  component: SidebarMenuGroup,
+  component: ListMenuGroup,
   argTypes: {
     open: {
       control: {
@@ -24,24 +24,24 @@ export default {
 
 const SIDEBAR_WIDTH = 240
 
-const Template = ({ ...otherSidebarMenuGroupProps }) => (
+const Template = ({ ...otherListMenuGroupProps }) => (
   <Navigation
     withScroll
     disableResize
     title="사이드바"
     minWidth={SIDEBAR_WIDTH}
   >
-    <SidebarMenuGroup
-      {...otherSidebarMenuGroupProps}
+    <ListMenuGroup
+      {...otherListMenuGroupProps}
     >
       { _.range(0, 4).map(n => (
-        <SidebarMenuItem
+        <ListItem
           key={uuid()}
           optionKey={`menu-item-${n}`}
           content={`아이템 ${n}`}
         />
       )) }
-    </SidebarMenuGroup>
+    </ListMenuGroup>
   </Navigation>
 )
 

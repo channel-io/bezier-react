@@ -3,11 +3,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import SidebarMenuItem, { SIDEBAR_MENU_ITEM_TEST_ID } from './SidebarMenuItem'
-import SidebarMenuItemProps from './SidebarMenuItem.types'
+import ListItem, { SIDEBAR_MENU_ITEM_TEST_ID } from './ListItem'
+import ListItemProps from './ListItem.types'
 
-describe('SidebarMenuItem', () => {
-  let props: SidebarMenuItemProps
+describe('ListItem', () => {
+  let props: ListItemProps
 
   beforeEach(() => {
     props = {
@@ -17,8 +17,8 @@ describe('SidebarMenuItem', () => {
     }
   })
 
-  const renderComponent = (optionProps?: Partial<SidebarMenuItemProps>) => render(
-    <SidebarMenuItem {...props} {...optionProps} />,
+  const renderComponent = (optionProps?: Partial<ListItemProps>) => render(
+    <ListItem {...props} {...optionProps} />,
   )
 
   it('should have "optionKey" value on "data-option-key" ', () => {

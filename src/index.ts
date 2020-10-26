@@ -12,9 +12,9 @@ export * from './components/Checkbox'
 export * from './components/Tabs'
 export * from './components/TabItem'
 export * from './components/TabActions'
-export * from './components/Sidebar/SidebarMenuTitle'
-export * from './components/Sidebar/SidebarMenuGroup'
-export * from './components/Sidebar/SidebarMenuItem'
+export * from './components/List/ListMenuTitle'
+export * from './components/List/ListMenuGroup'
+export * from './components/List/ListItem'
 
 /* Layout */
 export * from './layout/GNB'

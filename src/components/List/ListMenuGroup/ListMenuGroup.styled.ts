@@ -3,7 +3,7 @@ import _ from 'lodash'
 
 /* Internal dependencies */
 import { styled } from '../../../styling/Theme'
-import { StyledWrapperProps } from './SidebarMenuGroup.types'
+import { StyledWrapperProps } from './ListMenuGroup.types'
 
 export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;

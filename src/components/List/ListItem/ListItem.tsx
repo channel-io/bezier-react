@@ -4,18 +4,18 @@ import _ from 'lodash'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../../utils/stringUtils'
-import SidebarMenuItemProps from './SidebarMenuItem.types'
-import { Wrapper } from './SidebarMenuItem.styled'
+import ListItemProps from './ListItem.types'
+import { Wrapper } from './ListItem.styled'
 
-export const SIDEBAR_MENU_ITEM_COMPONENT_NAME = 'SidebarMenuItem'
+export const SIDEBAR_MENU_ITEM_COMPONENT_NAME = 'ListItem'
 export const SIDEBAR_MENU_ITEM_TEST_ID = 'ch-design-system-sidebar-menu-item'
 
-export function isSidebarMenuItem(element: any): element is React.ReactElement<SidebarMenuItemProps> {
+export function isListItem(element: any): element is React.ReactElement<ListItemProps> {
   return React.isValidElement(element) &&
     _.get(element, 'type.displayName') === SIDEBAR_MENU_ITEM_COMPONENT_NAME
 }
 
-function SidebarMenuItemComponent({
+function ListItemComponent({
   as,
   testId = SIDEBAR_MENU_ITEM_TEST_ID,
   content,
@@ -29,7 +29,7 @@ function SidebarMenuItemComponent({
   onClick = _.noop,
   className,
   ...othreProps
-}: SidebarMenuItemProps, forwardedRef: Ref<any>) {
+}: ListItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
@@ -82,7 +82,7 @@ function SidebarMenuItemComponent({
   )
 }
 
-const SidebarMenuItem = forwardRef(SidebarMenuItemComponent)
-SidebarMenuItem.displayName = SIDEBAR_MENU_ITEM_COMPONENT_NAME
+const ListItem = forwardRef(ListItemComponent)
+ListItem.displayName = SIDEBAR_MENU_ITEM_COMPONENT_NAME
 
-export default SidebarMenuItem
+export default ListItem

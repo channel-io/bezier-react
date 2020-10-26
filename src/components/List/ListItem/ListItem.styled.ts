@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { css, styled } from '../../../styling/Theme'
 import Palette from '../../../styling/Palette'
-import { StyledWrapperProps } from './SidebarMenuItem.types'
+import { StyledWrapperProps } from './ListItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${Palette.blue500};

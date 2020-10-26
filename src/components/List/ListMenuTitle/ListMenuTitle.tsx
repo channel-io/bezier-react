@@ -2,12 +2,12 @@ import React, { useCallback } from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import SidebarMenuTitleProps from './SidebarMenuTitle.types'
-import { TitleWrapper, Wrapper } from './SidebarMenuTitle.styled'
+import ListMenuTitleProps from './ListMenuTitle.types'
+import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
 
 export const SIDEBAR_MENU_TITLE_TEST_ID = 'ch-design-system-sidebar-menu-title'
 
-function SidebarMenuTitle({
+function ListMenuTitle({
   as,
   testId = SIDEBAR_MENU_TITLE_TEST_ID,
   content,
@@ -16,7 +16,7 @@ function SidebarMenuTitle({
   onClickAction = _.noop,
   style,
   className,
-}: SidebarMenuTitleProps) {
+}: ListMenuTitleProps) {
   const handleClickAction = useCallback((ev: React.MouseEvent<HTMLDivElement>) => {
     ev.stopPropagation()
     onClickAction()
@@ -46,4 +46,4 @@ function SidebarMenuTitle({
   )
 }
 
-export default SidebarMenuTitle
+export default ListMenuTitle

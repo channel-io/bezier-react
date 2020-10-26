@@ -5,36 +5,36 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { Navigation } from '../../../layout/Navigation'
 import { getTitle } from '../../../utils/utils'
-import { Icon } from '../../Icon'
-import { IconSize } from '../../Icon/Icon.types'
-import SidebarMenuTitle from './SidebarMenuTitle'
+import ListItem from './ListItem'
 
 export default {
   title: getTitle(base),
+  component: ListItem,
+  argTypes: {
+    onClick: { control: { action: 'onClick' } },
+    active: { control: { type: 'boolean' } },
+  },
 }
 
 const SIDEBAR_WIDTH = 240
 
-const Template = ({
-  rightAction = (<div><Icon name="sent" size={IconSize.XS} /></div>),
-  ...otherSidebarMenuItemProps
-}) => (
+const Template = ({ ...otherListItemProps }) => (
   <Navigation
     withScroll
     disableResize
     title="사이드바"
     minWidth={SIDEBAR_WIDTH}
   >
-    <SidebarMenuTitle
-      rightAction={rightAction}
-      {...otherSidebarMenuItemProps}
+    <ListItem
+      optionKey="menu-item-0"
+      {...otherListItemProps}
     />
   </Navigation>
-
 )
 
 export const Primary = Template.bind({})
 
 Primary.args = {
-  content: 'this is title',
+  content: '전체 상태',
+  active: false,
 }

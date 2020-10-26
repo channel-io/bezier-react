@@ -3,14 +3,14 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { isSidebarMenuItem } from '../SidebarMenuItem/SidebarMenuItem'
+import { isListItem } from '../ListItem/ListItem'
 import { Icon, IconSize } from '../../Icon'
-import SidebarMenuGroupProps from './SidebarMenuGroup.types'
-import { GroupItemWrapper, ChildrenWrapper, GroupItemContentWrapper } from './SidebarMenuGroup.styled'
+import ListMenuGroupProps from './ListMenuGroup.types'
+import { GroupItemWrapper, ChildrenWrapper, GroupItemContentWrapper } from './ListMenuGroup.styled'
 
 export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
 
-function SidebarMenuGroup({
+function ListMenuGroup({
   as,
   testId = SIDEBAR_MENU_GROUP_TEST_ID,
   open = false,
@@ -27,7 +27,7 @@ function SidebarMenuGroup({
   children,
   className,
   ...otherProps
-}: SidebarMenuGroupProps,
+}: ListMenuGroupProps,
 forwardedRef: React.Ref<HTMLElement>,
 ) {
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
@@ -88,7 +88,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
-      if (isSidebarMenuItem(element)) {
+      if (isListItem(element)) {
         return React.cloneElement(element, {
           active: (currentMenuItemIndex === index),
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
@@ -129,4 +129,4 @@ forwardedRef: React.Ref<HTMLElement>,
   )
 }
 
-export default forwardRef(SidebarMenuGroup)
+export default forwardRef(ListMenuGroup)
