@@ -17,15 +17,14 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   margin-left: 6px;
   font-size: 14px;
   font-weight: normal;
-  color: ${Palette.grey700};
+  color: ${props => props.theme?.colors?.text7};
   text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
 
   &:hover {
     ${props => (props.active ? '' : `
-      color: ${Palette.grey700};
-      background-color: ${Palette.grey300}
+      background-color: ${props.theme?.colors?.background3};
     `)}
   }
 

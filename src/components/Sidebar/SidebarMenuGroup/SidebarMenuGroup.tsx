@@ -47,8 +47,10 @@ forwardedRef: React.Ref<HTMLElement>,
   }, [onChangeOption])
 
   const handleClickIcon = useCallback((ev: React.MouseEvent<SVGSVGElement>) => {
-    ev.stopPropagation()
-    onClickArrow()
+    if (onClickArrow) {
+      ev.stopPropagation()
+      onClickArrow()
+    }
   }, [onClickArrow])
 
   const Content = useMemo(() => (

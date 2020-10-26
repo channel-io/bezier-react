@@ -8,6 +8,7 @@ export default interface SidebarMenuGroupProps extends ContentComponentProps {
   leftIcon?: IconName
   rightContent?: React.ReactNode
   arrowClassName?: string
+  onClickArrow?: () => void
   /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
   selectedMenuItemIndex?: number | null
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void

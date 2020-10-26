@@ -3,7 +3,6 @@ import _ from 'lodash'
 
 /* Internal dependencies */
 import { styled } from '../../../styling/Theme'
-import Palette from '../../../styling/Palette'
 import { StyledWrapperProps } from './SidebarMenuGroup.types'
 
 export const GroupItemWrapper = styled.div<StyledWrapperProps>`
@@ -15,21 +14,18 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   margin-left: 6px;
   font-size: 14px;
   font-weight: normal;
-  color: ${Palette.grey700};
+  color: ${props => props.theme?.colors?.text7};
   text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
 
   &:hover {
-    ${props => (props.active ? '' : `
-      color: ${Palette.grey700};
-      background-color: ${Palette.grey300};
-    `)}
+    background-color: ${props => props.theme?.colors?.background3};
   }
 
   ${props => !_.isNil(props.currentMenuItemIndex) && `
-      color: ${Palette.blue500};
-      background-color: ${Palette.grey200};
+      color: ${props.theme?.colors?.focus5};
+      background-color: ${props.theme?.colors?.background2};
   `}
 `
 

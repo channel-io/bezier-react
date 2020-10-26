@@ -6,7 +6,6 @@ import _ from 'lodash'
 
 /* Internal dependencies */
 import { SidebarMenuItem } from '../SidebarMenuItem'
-import Palette from '../../../styling/Palette'
 import SidebarMenuGroup, { SIDEBAR_MENU_GROUP_TEST_ID } from './SidebarMenuGroup'
 import SidebarMenuGroupProps from './SidebarMenuGroup.types'
 
@@ -58,14 +57,5 @@ describe('SidebarMenuGroup', () => {
     expect(rendered).toHaveAttribute('data-active-index', '1')
     fireEvent.click(screen.getByText('item 3'))
     expect(rendered).toHaveAttribute('data-active-index', '3')
-  })
-
-  it('should change color when "currentMenuItemIndex" attr is give as number', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(SIDEBAR_MENU_GROUP_TEST_ID)
-
-    fireEvent.click(screen.getByText('item 3'))
-    expect(rendered).toHaveStyle(`color: ${Palette.blue500};`)
-    expect(rendered).toHaveStyle(`background-color: ${Palette.grey200};`)
   })
 })

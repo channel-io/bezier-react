@@ -1,4 +1,4 @@
-import Palette from '../../../styling/Palette'
+/* Internal dependencies */
 import { styled } from '../../../styling/Theme'
 import {
   StyledWrapperProps,
@@ -18,5 +18,5 @@ export const TitleWrapper = styled.div<StyledTitleWrapperProps>`
   font-size: 12px;
   font-weight: bold;
   line-height: 20px;
-  color: ${Palette.grey500};
+  color: ${props => props.theme?.colors?.text5};
 `
