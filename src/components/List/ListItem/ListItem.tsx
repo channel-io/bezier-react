@@ -20,6 +20,7 @@ function ListItemComponent({
   testId = SIDEBAR_MENU_ITEM_TEST_ID,
   content,
   href,
+  hide,
   /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
@@ -43,6 +44,8 @@ function ListItemComponent({
       onClick(e)
     }
   }, [active, onClick])
+
+  if (hide) return null
 
   if (!isNil(href)) {
     return (
