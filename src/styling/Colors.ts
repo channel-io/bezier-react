@@ -70,7 +70,7 @@ export const Dark: Colors = {
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
 
-interface createColorsConfig {
+interface CreateColorsConfig {
   colors: Partial<Colors>
   base?: string
 }
@@ -88,7 +88,7 @@ function getColorsFromKeyword(keyword: string) {
 export function createColors({
   colors,
   base = 'light',
-}: createColorsConfig): Colors {
+}: CreateColorsConfig): Colors {
   return {
     ...getColorsFromKeyword(base),
     ...colors,
