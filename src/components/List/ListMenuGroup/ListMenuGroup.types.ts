@@ -4,6 +4,7 @@ import { IconName } from '../../Icon'
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
   open?: boolean
+  onOpen?: () => void
   content?: React.ReactNode
   leftIcon?: IconName
   rightContent?: React.ReactNode

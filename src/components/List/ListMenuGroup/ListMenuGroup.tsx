@@ -13,6 +13,7 @@ export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
 function ListMenuGroup({
   as,
   testId = SIDEBAR_MENU_GROUP_TEST_ID,
+  onOpen = noop,
   open = false,
   leftIcon,
   content = null,
@@ -37,6 +38,13 @@ forwardedRef: React.Ref<HTMLElement>,
       setCurrentMenuItemIndex(selectedMenuItemIndex)
     }
   }, [selectedMenuItemIndex])
+
+  useEffect(() => {
+    if (open) {
+      onOpen()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open])
 
   const handleClickItem = useCallback((
     itemIndex: number,
