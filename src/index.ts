@@ -12,6 +12,7 @@ export * from './components/Checkbox'
 export * from './components/Tabs'
 export * from './components/TabItem'
 export * from './components/TabActions'
+export * from './components/Overlay'
 
 /* Layout */
 export * from './layout/GNB'
