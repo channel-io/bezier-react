@@ -11,7 +11,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   onHide?: () => void
 }
 
-export interface getOverlayStyleProps {
+export interface GetOverlayStyleProps {
   target?: HTMLElement | null
   overlay: HTMLElement
   placement: OverlayPosition
@@ -19,11 +19,11 @@ export interface getOverlayStyleProps {
   marginY: number
 }
 
-export interface getOverlayPositionProps {
+export interface GetOverlayPositionProps {
   target: HTMLElement
 }
 
-export interface getOverlayTranslatationProps {
+export interface GetOverlayTranslatationProps {
   target: HTMLElement
   overlay: HTMLElement
   placement: OverlayPosition
