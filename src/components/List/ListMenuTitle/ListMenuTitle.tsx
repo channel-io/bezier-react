@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import _ from 'lodash'
+import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import ListMenuTitleProps from './ListMenuTitle.types'
@@ -12,8 +12,8 @@ function ListMenuTitle({
   testId = SIDEBAR_MENU_TITLE_TEST_ID,
   content,
   rightAction = null,
-  onClick = _.noop,
-  onClickAction = _.noop,
+  onClick = noop,
+  onClickAction = noop,
   style,
   className,
 }: ListMenuTitleProps) {
@@ -34,7 +34,7 @@ function ListMenuTitle({
         { content }
       </TitleWrapper>
       {
-        !_.isNil(rightAction) && (
+        !isNil(rightAction) && (
           <div
             onClick={handleClickAction}
           >

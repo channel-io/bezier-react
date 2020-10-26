@@ -1,5 +1,5 @@
 /* External dependencies */
-import _ from 'lodash'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled } from '../../../styling/Theme'
@@ -23,7 +23,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
     background-color: ${props => props.theme?.colors?.background3};
   }
 
-  ${props => !_.isNil(props.currentMenuItemIndex) && `
+  ${props => !isNil(props.currentMenuItemIndex) && `
       color: ${props.theme?.colors?.focus5};
       background-color: ${props.theme?.colors?.background2};
   `}

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import _ from 'lodash'
+import { noop, isNumber, isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { isListItem } from '../ListItem/ListItem'
@@ -17,13 +17,13 @@ function ListMenuGroup({
   leftIcon,
   content = null,
   rightContent = null,
-  onClickArrow = _.noop,
+  onClickArrow = noop,
   arrowClassName,
   /* OptionMenuHost Props */
   selectedMenuItemIndex = null,
-  onChangeOption = _.noop,
+  onChangeOption = noop,
   /* HTMLAttribute props */
-  onClick = _.noop,
+  onClick = noop,
   children,
   className,
   ...otherProps
@@ -33,7 +33,7 @@ forwardedRef: React.Ref<HTMLElement>,
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
   useEffect(() => {
-    if (_.isNumber(selectedMenuItemIndex)) {
+    if (isNumber(selectedMenuItemIndex)) {
       setCurrentMenuItemIndex(selectedMenuItemIndex)
     }
   }, [selectedMenuItemIndex])
@@ -56,7 +56,7 @@ forwardedRef: React.Ref<HTMLElement>,
   const Content = useMemo(() => (
     <>
       <GroupItemContentWrapper>
-        { !_.isNil(leftIcon) && (
+        { !isNil(leftIcon) && (
           <Icon
             name={leftIcon}
             size={IconSize.S}
@@ -66,7 +66,7 @@ forwardedRef: React.Ref<HTMLElement>,
         { content }
       </GroupItemContentWrapper>
       {
-        !_.isEmpty(children) && !rightContent ? (
+        !isEmpty(children) && !rightContent ? (
           <Icon
             className={arrowClassName}
             name={open ? 'chevron-up' : 'chevron-down'}

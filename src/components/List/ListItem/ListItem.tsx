@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
-import _ from 'lodash'
+import { get, noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../../utils/stringUtils'
@@ -12,7 +12,7 @@ export const SIDEBAR_MENU_ITEM_TEST_ID = 'ch-design-system-sidebar-menu-item'
 
 export function isListItem(element: any): element is React.ReactElement<ListItemProps> {
   return React.isValidElement(element) &&
-    _.get(element, 'type.displayName') === SIDEBAR_MENU_ITEM_COMPONENT_NAME
+    get(element, 'type.displayName') === SIDEBAR_MENU_ITEM_COMPONENT_NAME
 }
 
 function ListItemComponent({
@@ -26,7 +26,7 @@ function ListItemComponent({
   active = false,
   activeClassName,
   /* HTMLAttribute Props */
-  onClick = _.noop,
+  onClick = noop,
   className,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
@@ -44,7 +44,7 @@ function ListItemComponent({
     }
   }, [active, onClick])
 
-  if (!_.isNil(href)) {
+  if (!isNil(href)) {
     return (
       <Wrapper
         ref={forwardedRef}

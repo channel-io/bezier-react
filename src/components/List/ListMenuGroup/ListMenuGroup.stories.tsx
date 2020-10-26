@@ -2,7 +2,7 @@
 import React from 'react'
 import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-import _ from 'lodash'
+import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { Navigation } from '../../../layout/Navigation'
@@ -34,7 +34,7 @@ const Template = ({ ...otherListMenuGroupProps }) => (
     <ListMenuGroup
       {...otherListMenuGroupProps}
     >
-      { _.range(0, 4).map(n => (
+      { range(0, 4).map(n => (
         <ListItem
           key={uuid()}
           optionKey={`menu-item-${n}`}
