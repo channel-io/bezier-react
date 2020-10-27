@@ -42,7 +42,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
   useEffect(() => {
     if (open) {
-      onOpen()
+      onOpen(name)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
