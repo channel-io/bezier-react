@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNumber, isNil, isEmpty } from 'lodash-es'
+import { noop, isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { isListItem } from '../ListItem/ListItem'
@@ -35,9 +35,7 @@ forwardedRef: React.Ref<HTMLElement>,
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
   useEffect(() => {
-    if (isNumber(selectedMenuItemIndex)) {
-      setCurrentMenuItemIndex(selectedMenuItemIndex)
-    }
+    setCurrentMenuItemIndex(selectedMenuItemIndex)
   }, [selectedMenuItemIndex])
 
   useEffect(() => {
