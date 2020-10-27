@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
-import _ from 'lodash'
+import { get, isArray, map, isFunction, identity } from 'lodash-es'
 
 /* Internal dependencies */
 import TabActionsProps from './TabActions.types'
@@ -12,7 +12,7 @@ export const TAB_ACTIONS_COMPONENT_NAME = 'TabActions'
 
 export function isTabActions(element: any): element is React.ReactElement<TabActionsProps> {
   return React.isValidElement(element) &&
-    _.get(element, 'type.displayName') === TAB_ACTIONS_COMPONENT_NAME
+    get(element, 'type.displayName') === TAB_ACTIONS_COMPONENT_NAME
 }
 
 function TabActionsComponent({
@@ -23,19 +23,19 @@ function TabActionsComponent({
   ...otherProps
 }: TabActionsProps, forwardedRef: Ref<any>) {
   const Content = useMemo(() => {
-    if (_.isArray(children)) {
-      return _.map(children, (child) => {
+    if (isArray(children)) {
+      return map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { key: child.key || uuid(), disabled })
         }
-        if (_.isFunction(child)) {
+        if (isFunction(child)) {
           const functionChild = child as Function
           return React.cloneElement(functionChild({}), { key: uuid(), disabled })
         }
         return undefined
-      }).filter(_.identity)
+      }).filter(identity)
     }
-    if (_.isFunction(children)) {
+    if (isFunction(children)) {
       const functionChild = children as Function
       return functionChild({ disabled })
     }

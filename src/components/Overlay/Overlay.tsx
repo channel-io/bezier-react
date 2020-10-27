@@ -15,9 +15,9 @@ import { noop } from 'lodash-es'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
   EventHandler,
-  getOverlayStyleProps,
-  getOverlayPositionProps,
-  getOverlayTranslatationProps,
+  GetOverlayStyleProps,
+  GetOverlayPositionProps,
+  GetOverlayTranslatationProps,
 } from './Overlay.types'
 import OverlayPosition from './OverlayPosition'
 import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
@@ -41,7 +41,7 @@ function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K,
   }
 }
 
-function getOverlayPosition({ target }: getOverlayPositionProps): React.CSSProperties {
+function getOverlayPosition({ target }: GetOverlayPositionProps): React.CSSProperties {
   if (target) {
     const { top: targetTop, left: targetLeft } = target.getBoundingClientRect()
 
@@ -59,7 +59,7 @@ function getOverlayTranslation({
   placement,
   marginX,
   marginY,
-}: getOverlayTranslatationProps): React.CSSProperties {
+}: GetOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
       width: rootWidth,
@@ -144,7 +144,7 @@ function getOverlayStyle({
   placement,
   marginX,
   marginY,
-}: getOverlayStyleProps): React.CSSProperties {
+}: GetOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
     const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY })
@@ -186,7 +186,6 @@ function Overlay(
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
-    event.preventDefault()
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
