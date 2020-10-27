@@ -7,12 +7,14 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   onOpen?: () => void
   content?: React.ReactNode
   leftIcon?: IconName
+  name?: string
   rightContent?: React.ReactNode
   arrowClassName?: string
-  onClickArrow?: () => void
+  onClick?: (name?: string) => void
+  onClickArrow?: (name?: string) => void
   /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
   selectedMenuItemIndex?: number | null
-  onChangeOption?: (optionKey?: string, optionIndex?: number) => void
+  onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
 }
 
 export interface StyledWrapperProps extends ContentComponentProps {
