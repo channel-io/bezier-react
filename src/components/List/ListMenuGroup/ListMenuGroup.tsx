@@ -16,6 +16,7 @@ function ListMenuGroup({
   onOpen = noop,
   open = false,
   leftIcon,
+  name,
   content = null,
   rightContent = null,
   onClickArrow = noop,
@@ -41,7 +42,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
   useEffect(() => {
     if (open) {
-      onOpen()
+      onOpen(name)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
@@ -51,15 +52,15 @@ forwardedRef: React.Ref<HTMLElement>,
     optionKey: string,
   ) => {
     setCurrentMenuItemIndex(itemIndex)
-    onChangeOption(optionKey, itemIndex)
-  }, [onChangeOption])
+    onChangeOption(name, optionKey, itemIndex)
+  }, [name, onChangeOption])
 
   const handleClickIcon = useCallback((ev: React.MouseEvent<SVGSVGElement>) => {
     if (onClickArrow) {
       ev.stopPropagation()
-      onClickArrow()
+      onClickArrow(name)
     }
-  }, [onClickArrow])
+  }, [name, onClickArrow])
 
   const Content = useMemo(() => (
     <>
@@ -119,6 +120,7 @@ forwardedRef: React.Ref<HTMLElement>,
       <GroupItemWrapper
         as={as}
         ref={forwardedRef}
+        name={name}
         className={className}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={onClick}
