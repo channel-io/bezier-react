@@ -186,7 +186,6 @@ function Overlay(
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
-    event.preventDefault()
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
