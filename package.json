@@ -65,6 +65,9 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/plugin-transform-classes": "^7.12.1",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
@@ -102,6 +105,7 @@
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-imports": "^2.0.0",
     "babel-preset-react-app": "^9.1.2",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",

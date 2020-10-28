@@ -10,7 +10,6 @@ import React, {
 } from 'react'
 import { DOMParser, ResolvedPos } from 'prosemirror-model'
 import { isEmpty, noop } from 'lodash-es'
-import 'prosemirror-view/style/prosemirror.css'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -23,7 +22,7 @@ import { StyledEditorInput } from './Editor.styled'
 
 export const BuilderContext = createContext(new EditorBuilder())
 
-const emptyBlocks = []
+const emptyBlocks: any[] = []
 
 function Editor(
   {
