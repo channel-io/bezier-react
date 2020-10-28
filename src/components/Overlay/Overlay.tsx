@@ -175,6 +175,7 @@ function Overlay(
     marginY = 0,
     children,
     onHide = noop,
+    ...otherProps
   }: OverlayProps,
   forwardedRef: Ref<any>,
 ) {
@@ -215,6 +216,7 @@ function Overlay(
           style={overlayStyle}
           ref={mergedRef}
           data-testid={testId}
+          {...otherProps}
         >
           { children }
         </StyledOverlay>
@@ -231,6 +233,7 @@ function Overlay(
     wrapperTestId,
     testId,
     mergedRef,
+    otherProps,
   ])
 
   useEffect(() => {
