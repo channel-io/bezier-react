@@ -1,6 +1,6 @@
 /* External dependencies */
 import React from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
@@ -49,13 +49,4 @@ describe('ListMenuGroup', () => {
 
       expect(rendered).toHaveAttribute('data-active-index', '2')
     })
-
-  it('should change "data-active-index"', () => {
-    const { getByTestId } = renderComponent({ selectedMenuItemIndex: 1 })
-    const rendered = getByTestId(SIDEBAR_MENU_GROUP_TEST_ID)
-
-    expect(rendered).toHaveAttribute('data-active-index', '1')
-    fireEvent.click(screen.getByText('item 3'))
-    expect(rendered).toHaveAttribute('data-active-index', '3')
-  })
 })
