@@ -63,7 +63,7 @@ function ListItemComponent({
         target="_blank"
         rel="noopener noreferer"
         onClick={handleClick}
-        active={active}
+        active={false}
         data-active={active}
         data-option-key={optionKey}
         data-testid={testId}
