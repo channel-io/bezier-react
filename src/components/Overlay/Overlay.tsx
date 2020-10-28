@@ -169,12 +169,15 @@ function Overlay(
     show = false,
     className = '',
     style,
+    containerClassName = '',
+    containerStyle,
     target,
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
     children,
     onHide = noop,
+    ...otherProps
   }: OverlayProps,
   forwardedRef: Ref<any>,
 ) {
@@ -206,15 +209,24 @@ function Overlay(
   }, [onHide])
 
   const overlay = useMemo(() => (
-    <Container ref={containerRef} style={style} data-testid={containerTestId}>
+    <Container
+      ref={containerRef}
+      className={containerClassName}
+      style={containerStyle}
+      data-testid={containerTestId}
+    >
       <Wrapper data-testid={wrapperTestId}>
         <StyledOverlay
           as={as}
           className={className}
           isHidden={isHidden}
-          style={overlayStyle}
+          style={{
+            ...(style || {}),
+            ...(overlayStyle || {}),
+          }}
           ref={mergedRef}
           data-testid={testId}
+          {...otherProps}
         >
           { children }
         </StyledOverlay>
@@ -224,6 +236,8 @@ function Overlay(
     as,
     className,
     style,
+    containerClassName,
+    containerStyle,
     isHidden,
     overlayStyle,
     children,
@@ -231,6 +245,7 @@ function Overlay(
     wrapperTestId,
     testId,
     mergedRef,
+    otherProps,
   ])
 
   useEffect(() => {
