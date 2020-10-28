@@ -1,1 +1,2 @@
 src/components/Icon/generated/*.tsx
+src/components/Editor/utils/Parsers/Antlr/*.js
