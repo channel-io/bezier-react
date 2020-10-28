@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import _ from 'lodash'
+import { noop, isNumber, get, map, identity } from 'lodash-es'
 
 /* Internal dependencies */
 import { isTabItem } from '../TabItem'
@@ -20,7 +20,7 @@ function Tabs({
   indicatorThickness,
   /* OptionItemHost props */
   selectedOptionIndex = 0,
-  onChangeOption = _.noop,
+  onChangeOption = noop,
   /* HTMLAttribute props */
   children,
   ...otherProps
@@ -28,7 +28,7 @@ function Tabs({
   const [currentTabIndex, setCurrentTabIndex] = useState<number>(selectedOptionIndex)
 
   useEffect(() => {
-    if (_.isNumber(selectedOptionIndex)) {
+    if (isNumber(selectedOptionIndex)) {
       setCurrentTabIndex(selectedOptionIndex)
     }
   }, [selectedOptionIndex])
@@ -46,12 +46,12 @@ function Tabs({
     React.Children.map(children, (element, index: number) => {
       if (isTabItem(element)) {
         return React.cloneElement(element, {
-          active: _.get(element.props, 'allowActive', true) && (currentTabIndex === index),
+          active: get(element.props, 'allowActive', true) && (currentTabIndex === index),
           disabled,
           withIndicator,
           indicatorThickness,
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
-            handleClickTab(index, element.props.optionKey, _.get(element.props, 'allowActive', true))
+            handleClickTab(index, element.props.optionKey, get(element.props, 'allowActive', true))
             if (element.props.onClick) { element.props.onClick(event) }
           },
         })
@@ -69,12 +69,12 @@ function Tabs({
   ])
 
   const Actions = useMemo(() => (
-    _.map(children, (child) => {
+    map(children, (child) => {
       if (isTabActions(child)) {
         return React.cloneElement(child, { key: child.key || uuid(), disabled })
       }
       return null
-    }).filter(_.identity)
+    }).filter(identity)
   ), [disabled, children])
 
   return (

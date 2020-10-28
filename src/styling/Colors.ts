@@ -3,6 +3,8 @@ import Palette from './Palette'
 
 export interface Colors {
   textBase: string
+  text7?: string
+  text5?: string
 
   // Backgrounds
   background3?: string
@@ -37,10 +39,15 @@ export interface Colors {
 
   // Icon
   iconBase?: string
+
+  // Sidebar
+  focus5?: string
 }
 
 export const Light: Colors = {
   textBase: Palette.grey900,
+  text7: Palette.grey700,
+  text5: Palette.grey500,
   background3: Palette.grey300,
   background2: Palette.grey200,
   background1: Palette.grey100,
@@ -59,6 +66,7 @@ export const Light: Colors = {
   handle1: Palette.white,
   shadow1: Palette.black15,
   iconBase: Palette.grey700,
+  focus5: Palette.blue500,
 }
 
 export const Dark: Colors = {

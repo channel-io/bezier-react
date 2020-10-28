@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
-import _ from 'lodash'
+import { get, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../utils/stringUtils'
@@ -12,7 +12,7 @@ export const TAB_ITEM_TEST_ID = 'ch-design-system-tab-item'
 
 export function isTabItem(element: any): element is React.ReactElement<TabItemProps> {
   return React.isValidElement(element) &&
-    _.get(element, 'type.displayName') === TAB_ITEM_COMPONENT_NAME
+    get(element, 'type.displayName') === TAB_ITEM_COMPONENT_NAME
 }
 
 function TabItemComponent({
@@ -28,7 +28,7 @@ function TabItemComponent({
   /* HTMLAttribute props */
   className,
   children,
-  onClick = _.noop,
+  onClick = noop,
   ...otherProps
 }: TabItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
