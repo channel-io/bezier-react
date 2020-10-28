@@ -4,9 +4,10 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
-import Editor from './Editor'
+import BlocksParserContextType from '../../types/BlocksParserContextType'
 import Bold from './plugins/Bold'
 import { EditorRef } from './Editor.types'
+import { Editor, Parser, BlocksParserContext } from './index'
 
 export default {
   title: getTitle(base),
@@ -48,3 +49,51 @@ const TemplateWithBold = (args) => (
 )
 
 export const PrimaryWithBold = TemplateWithBold.bind({})
+
+function NodeReplacer(context: BlocksParserContext) {
+  const mapChildReplace = (childContext: BlocksParserContext) =>
+    childContext.children.map(child => NodeReplacer(child))
+
+  const { type } = context
+
+  switch (type) {
+    case BlocksParserContextType.Root: {
+      return (
+        <>
+          { mapChildReplace(context) }
+        </>
+      )
+    }
+
+    case BlocksParserContextType.Text: {
+      return (
+        <span>
+          { context.value }
+        </span>
+      )
+    }
+
+    case BlocksParserContextType.Bold: {
+      return (
+        <b>
+          { mapChildReplace(context) }
+        </b>
+      )
+    }
+
+    default: {
+      return null
+    }
+  }
+}
+
+const NodeReplacerTemplate = (args) => (NodeReplacer(Parser.parseBlockDefault(args.blocks[0].value).context))
+export const PrimaryReplacer = NodeReplacerTemplate.bind({})
+PrimaryReplacer.args = {
+  blocks: [
+    {
+      type: 'text',
+      value: 'hello <b>helelelelo</b> hafl',
+    },
+  ],
+}

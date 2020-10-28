@@ -24,3 +24,9 @@ export { default as Typography } from './styling/Typography'
 export { default as Palette } from './styling/Palette'
 export * from './styling/Colors'
 export * from './styling/Theme'
+
+/* Types */
+export type { default as BlocksParserContextType } from './types/BlocksParserContextType'
+export type { UIComponentProps } from './types/ComponentProps'
+export type { ContentComponentProps } from './types/ComponentProps'
+export type { ChildrenComponentProps } from './types/ComponentProps'

@@ -8,12 +8,43 @@ import {
 import { identity } from 'lodash-es'
 
 /* Internal dependencies */
+import BlocksParserContextType from '../../../../types/BlocksParserContextType'
 import { BlockType, Block } from '../../Editor.types'
 import { TextBlockParser } from './Antlr/TextBlockParser'
 import { TextBlockLexer } from './Antlr/TextBlockLexer'
 import TextBlockToPMNodesListener from './TextBlockToPMNodeListener'
 import PMNodesToBlocksListener from './PMNodesToBlocksListener'
 import PMNodesToBlocksVisitor from './PMNodesToBlocksVisitor'
+import TextBlockListener, { BlocksParserContext } from './TextBlockListener'
+
+export interface ParseResult {
+  context: BlocksParserContext
+  managerIds: string[]
+}
+
+export function parseBlockDefault(input?: string, withVariable: boolean = false): ParseResult {
+  if (!input) {
+    return {
+      context: new BlocksParserContext(BlocksParserContextType.Root),
+      managerIds: [],
+    }
+  }
+
+  const listener = new TextBlockListener(!!withVariable)
+  const chars = new InputStream(input)
+  const lexer = new TextBlockLexer(chars)
+  const tokens = new CommonTokenStream(lexer as any)
+  const parser = new TextBlockParser(tokens) as any
+  parser.buildParseTrees = true
+  const tree = parser.text()
+
+  ParseTreeWalker.DEFAULT.walk(listener, tree)
+
+  const context = listener.getContext()
+  const managerIds = listener.getManagerIds()
+  const result = { context, managerIds }
+  return result
+}
 
 export function textBlockToPMNodes(
   input: string,
