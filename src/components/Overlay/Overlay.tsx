@@ -168,9 +168,9 @@ function Overlay(
     testId = OVERLAY_TEST_ID,
     show = false,
     className = '',
-    style = {},
+    style,
     containerClassName = '',
-    containerStyle = {},
+    containerStyle,
     target,
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
@@ -221,8 +221,8 @@ function Overlay(
           className={className}
           isHidden={isHidden}
           style={{
-            ...style,
-            ...overlayStyle,
+            ...(style || {}),
+            ...(overlayStyle || {}),
           }}
           ref={mergedRef}
           data-testid={testId}
