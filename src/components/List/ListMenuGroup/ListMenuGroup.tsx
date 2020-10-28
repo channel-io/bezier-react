@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNumber, isNil, isEmpty } from 'lodash-es'
+import { noop, isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { isListItem } from '../ListItem/ListItem'
@@ -16,6 +16,7 @@ function ListMenuGroup({
   onOpen = noop,
   open = false,
   leftIcon,
+  name,
   content = null,
   rightContent = null,
   onClickArrow = noop,
@@ -34,14 +35,12 @@ forwardedRef: React.Ref<HTMLElement>,
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
   useEffect(() => {
-    if (isNumber(selectedMenuItemIndex)) {
-      setCurrentMenuItemIndex(selectedMenuItemIndex)
-    }
+    setCurrentMenuItemIndex(selectedMenuItemIndex)
   }, [selectedMenuItemIndex])
 
   useEffect(() => {
     if (open) {
-      onOpen()
+      onOpen(name)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
@@ -51,15 +50,15 @@ forwardedRef: React.Ref<HTMLElement>,
     optionKey: string,
   ) => {
     setCurrentMenuItemIndex(itemIndex)
-    onChangeOption(optionKey, itemIndex)
-  }, [onChangeOption])
+    onChangeOption(name, optionKey, itemIndex)
+  }, [name, onChangeOption])
 
   const handleClickIcon = useCallback((ev: React.MouseEvent<SVGSVGElement>) => {
     if (onClickArrow) {
       ev.stopPropagation()
-      onClickArrow()
+      onClickArrow(name)
     }
-  }, [onClickArrow])
+  }, [name, onClickArrow])
 
   const Content = useMemo(() => (
     <>
@@ -119,6 +118,7 @@ forwardedRef: React.Ref<HTMLElement>,
       <GroupItemWrapper
         as={as}
         ref={forwardedRef}
+        name={name}
         className={className}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={onClick}

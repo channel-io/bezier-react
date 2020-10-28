@@ -19,6 +19,7 @@ function ListItemComponent({
   as,
   testId = SIDEBAR_MENU_ITEM_TEST_ID,
   content,
+  name,
   href,
   hide,
   /* OptionItem Props */
@@ -41,9 +42,13 @@ function ListItemComponent({
 
   const handleClick = useCallback((e) => {
     if (!active) {
-      onClick(e)
+      onClick(e, name)
     }
-  }, [active, onClick])
+  }, [
+    active,
+    name,
+    onClick,
+  ])
 
   if (hide) return null
 
@@ -58,7 +63,7 @@ function ListItemComponent({
         target="_blank"
         rel="noopener noreferer"
         onClick={handleClick}
-        active={active}
+        active={false}
         data-active={active}
         data-option-key={optionKey}
         data-testid={testId}
