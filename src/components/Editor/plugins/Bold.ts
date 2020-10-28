@@ -2,6 +2,8 @@
 import { useContext, useEffect } from 'react'
 import { MarkSpec } from 'prosemirror-model'
 import { toggleMark } from 'prosemirror-commands'
+import { EditorState } from 'prosemirror-state'
+import { EditorView } from 'prosemirror-view'
 
 /* Internal dependencies */
 import { BuilderContext } from '../Editor'
@@ -18,9 +20,12 @@ export default function Bold() {
   useEffect(() => {
     editorBuilder.marks.bold = boldMarkSpec
 
-    editorBuilder.keyMaps['Mod-b'] = (state, dispatch) => {
+    const toggleBold = (state: EditorState, dispatch: EditorView['dispatch']) => {
       toggleMark(editorBuilder.editor?.state.schema.marks.bold)(state, dispatch)
     }
+
+    editorBuilder.keyMaps['Mod-b'] = toggleBold
+    editorBuilder.keyMaps['Mod-B'] = toggleBold
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
