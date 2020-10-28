@@ -168,7 +168,9 @@ function Overlay(
     testId = OVERLAY_TEST_ID,
     show = false,
     className = '',
-    style,
+    style = {},
+    containerClassName = '',
+    containerStyle = {},
     target,
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
@@ -207,13 +209,21 @@ function Overlay(
   }, [onHide])
 
   const overlay = useMemo(() => (
-    <Container ref={containerRef} style={style} data-testid={containerTestId}>
+    <Container
+      ref={containerRef}
+      className={containerClassName}
+      style={containerStyle}
+      data-testid={containerTestId}
+    >
       <Wrapper data-testid={wrapperTestId}>
         <StyledOverlay
           as={as}
           className={className}
           isHidden={isHidden}
-          style={overlayStyle}
+          style={{
+            ...style,
+            ...overlayStyle,
+          }}
           ref={mergedRef}
           data-testid={testId}
           {...otherProps}
@@ -226,6 +236,8 @@ function Overlay(
     as,
     className,
     style,
+    containerClassName,
+    containerStyle,
     isHidden,
     overlayStyle,
     children,
