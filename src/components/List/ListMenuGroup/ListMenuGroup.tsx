@@ -35,7 +35,21 @@ forwardedRef: React.Ref<HTMLElement>,
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
   useEffect(() => {
-    setCurrentMenuItemIndex(selectedMenuItemIndex)
+    const childs = React.Children.toArray(children)
+    if (isNil(selectedMenuItemIndex)
+      || (selectedMenuItemIndex < childs.length && selectedMenuItemIndex < 0)) {
+      setCurrentMenuItemIndex(null)
+      return
+    }
+
+    const element = childs[selectedMenuItemIndex]
+
+    if (isListItem(element)) {
+      if (element.props.href) { return }
+
+      setCurrentMenuItemIndex(selectedMenuItemIndex)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMenuItemIndex])
 
   useEffect(() => {
@@ -45,11 +59,16 @@ forwardedRef: React.Ref<HTMLElement>,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
+  const handleClickGroup = useCallback(() => {
+    if (onClick) {
+      onClick(name)
+    }
+  }, [name, onClick])
+
   const handleClickItem = useCallback((
     itemIndex: number,
     optionKey: string,
   ) => {
-    setCurrentMenuItemIndex(itemIndex)
     onChangeOption(name, optionKey, itemIndex)
   }, [name, onChangeOption])
 
@@ -121,7 +140,7 @@ forwardedRef: React.Ref<HTMLElement>,
         name={name}
         className={className}
         currentMenuItemIndex={currentMenuItemIndex}
-        onClick={onClick}
+        onClick={handleClickGroup}
         data-testid={testId}
         data-active-index={currentMenuItemIndex}
         {...otherProps}
