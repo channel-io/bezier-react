@@ -7,7 +7,7 @@ import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
 import Overlay from './Overlay'
-import OverlayPosition from './OverlayPosition'
+import { OverlayPosition } from './Overlay.types'
 
 export default {
   title: getTitle(base),
