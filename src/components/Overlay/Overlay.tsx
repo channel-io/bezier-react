@@ -18,8 +18,8 @@ import OverlayProps, {
   GetOverlayStyleProps,
   GetOverlayPositionProps,
   GetOverlayTranslatationProps,
+  OverlayPosition,
 } from './Overlay.types'
-import OverlayPosition from './OverlayPosition'
 import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
 
 export const CONTAINER_TEST_ID = 'ch-design-system-container'
