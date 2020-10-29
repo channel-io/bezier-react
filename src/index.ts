@@ -16,7 +16,7 @@ export * from './components/List/ListMenuTitle'
 export * from './components/List/ListMenuGroup'
 export * from './components/List/ListItem'
 export * from './components/Overlay'
-export * from './components/Editor'
+// export * from './components/Editor'
 
 /* Layout */
 export * from './layout/GNB'
