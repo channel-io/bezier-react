@@ -3,7 +3,6 @@ import React from 'react'
 
 /* Internal dependencies */
 import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
-import OverlayPosition from './OverlayPosition'
 
 export default interface OverlayProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   show?: boolean
@@ -38,6 +37,21 @@ export interface GetOverlayTranslatationProps {
 
 export interface StyledOverlayProps {
   isHidden: boolean
+}
+
+export enum OverlayPosition {
+  TopCenter = 'topCenter',
+  TopLeft = 'topLeft',
+  TopRight = 'topRight',
+  RightCenter = 'rightCenter',
+  RightTop = 'rightTop',
+  RightBottom = 'rightBottom',
+  BottomCenter = 'bottomCenter',
+  BottomLeft = 'bottomLeft',
+  BottomRight = 'bottomRight',
+  LeftCenter = 'leftCenter',
+  LeftTop = 'leftTop',
+  LeftBottom = 'leftBottom',
 }
 
 export type EventHandler<K extends keyof HTMLElementEventMap> = (event: HTMLElementEventMap[K]) => any
