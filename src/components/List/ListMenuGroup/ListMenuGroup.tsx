@@ -139,6 +139,7 @@ forwardedRef: React.Ref<HTMLElement>,
         ref={forwardedRef}
         name={name}
         className={className}
+        open={open}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={handleClickGroup}
         data-testid={testId}
