@@ -1,11 +1,10 @@
 /* Internal dependencies */
 import { css, styled } from '../../../styling/Theme'
-import Palette from '../../../styling/Palette'
 import { StyledWrapperProps } from './ListItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${Palette.blue500};
-  background-color: ${Palette.blue100};
+  color: ${props => props.theme?.colors?.focus5};
+  background-color: ${props => props.theme?.colors?.focus1};
 `
 
 export const Wrapper = styled.div<StyledWrapperProps>`
