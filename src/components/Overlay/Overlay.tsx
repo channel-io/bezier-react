@@ -59,6 +59,7 @@ function getOverlayTranslation({
   placement,
   marginX,
   marginY,
+  enableAutoPosition,
 }: GetOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
@@ -120,16 +121,18 @@ function getOverlayTranslation({
         break
     }
 
-    const isOverTop = targetTop + translateY < rootTop
-    const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
-    const isOverLeft = targetLeft + translateX < rootLeft
-    const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
+    if (enableAutoPosition) {
+      const isOverTop = targetTop + translateY < rootTop
+      const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
+      const isOverLeft = targetLeft + translateX < rootLeft
+      const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
 
-    if (isOverTop || isOverBottom) {
-      translateY = targetHeight - translateY - overlayHeight
-    }
-    if (isOverLeft || isOverRight) {
-      translateX = targetWidth - translateX - overlayWidth
+      if (isOverTop || isOverBottom) {
+        translateY = targetHeight - translateY - overlayHeight
+      }
+      if (isOverLeft || isOverRight) {
+        translateX = targetWidth - translateX - overlayWidth
+      }
     }
 
     const transform = `translate(${translateX}px, ${translateY}px)`
@@ -144,10 +147,11 @@ function getOverlayStyle({
   placement,
   marginX,
   marginY,
+  enableAutoPosition,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
-    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY })
+    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY, enableAutoPosition })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -175,6 +179,7 @@ function Overlay(
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
+    enableAutoPosition = true,
     children,
     onHide = noop,
     ...otherProps
@@ -273,6 +278,7 @@ function Overlay(
         placement,
         marginX,
         marginY,
+        enableAutoPosition,
       })
       setOverlayStyle(tempOverlayStyle)
       setIsHidden(false)
@@ -283,7 +289,7 @@ function Overlay(
       }
     }
     return noop
-  }, [show, marginX, marginY, placement, target])
+  }, [show, marginX, marginY, placement, target, enableAutoPosition])
 
   if (!show) return null
 
