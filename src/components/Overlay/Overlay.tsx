@@ -179,7 +179,7 @@ function Overlay(
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
-    enableAutoPosition = true,
+    enableAutoPosition = false,
     children,
     onHide = noop,
     ...otherProps
