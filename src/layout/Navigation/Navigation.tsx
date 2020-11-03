@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from 'react'
 import { clamp } from 'lodash-es'
-import { document } from 'ssr-window'
+import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -22,6 +22,10 @@ import {
 import NavigationProps from './Navigation.types'
 
 export const NAV_SCROLL_TEST_ID = 'ch-design-system-nav-scroll'
+
+extend(document, {
+  requestAnimationFrame() {},
+})
 
 function Navigation(
   {
@@ -52,7 +56,7 @@ function Navigation(
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (disableResize) { return }
 
-    window.requestAnimationFrame(() => setCurrentWidth(
+    window.requestAnimationFrame!(() => setCurrentWidth(
       clamp(
         e.pageX - (navigationRef.current?.offsetLeft || 0),
         minWidth,
