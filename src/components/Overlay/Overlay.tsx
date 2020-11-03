@@ -27,13 +27,10 @@ export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
-let rootElement: HTMLElement | null
-
-if (typeof window !== undefined) {
-  rootElement = document.getElementById('main') ||
-    document.getElementById('root') ||
-    document.getElementsByTagName('body')[0] as HTMLElement
-}
+const rootElement =
+  document.getElementById('main') ||
+  document.getElementById('root') ||
+  document.getElementsByTagName('body')[0] as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop
@@ -69,7 +66,7 @@ function getOverlayTranslation({
       height: rootHeight,
       top: rootTop,
       left: rootLeft,
-    } = rootElement!.getBoundingClientRect()
+    } = rootElement.getBoundingClientRect()
     const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
     const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
 
