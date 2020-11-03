@@ -84,18 +84,14 @@ function Navigation(
   }, [width, minWidth, maxWidth])
 
   useEffect(() => {
-    if (typeof window !== undefined) {
-      if (isDragging) {
-        document.addEventListener('mousemove', handleMouseMove, false)
-      } else {
-        document.removeEventListener('mousemove', handleMouseMove, false)
-      }
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove, false)
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove, false)
     }
   }, [isDragging, handleMouseMove])
 
-  if (typeof window !== undefined) {
-    document.addEventListener('mouseup', handleMouseUp, false)
-  }
+  document.addEventListener('mouseup', handleMouseUp, false)
 
   return (
     <StyledNavigation
