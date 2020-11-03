@@ -10,6 +10,7 @@ import React, {
 } from 'react'
 import { DOMParser, ResolvedPos } from 'prosemirror-model'
 import { isEmpty, noop } from 'lodash-es'
+import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -112,16 +113,16 @@ function Editor(
          * 따라서 newline 을 지켜주는 parser 를 새로 구성함.
          * 참조: https://prosemirror.net/docs/ref/#view.EditorProps.clipboardTextParser
          */
-        const dom = window.document.createElement('div')
+        const dom = window.document!.createElement('div')
 
         pastedText
           .trim()
           .split('\n')
           .forEach(block => {
             if (isEmpty(block)) {
-              dom.appendChild(document.createElement('p'))
+              dom.appendChild(document.createElement!('p'))
             } else {
-              dom.appendChild(document.createElement('p')).textContent = block
+              dom.appendChild(document.createElement!('p')).textContent = block
             }
           })
 

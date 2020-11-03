@@ -10,6 +10,7 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
+import { document } from 'ssr-window'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -28,9 +29,9 @@ export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
 const rootElement =
-  document.getElementById('main') ||
-  document.getElementById('root') ||
-  document.getElementsByTagName('body')[0] as HTMLElement
+  document.getElementById!('main') ||
+  document.getElementById!('root') ||
+  document.querySelector!('body') as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop

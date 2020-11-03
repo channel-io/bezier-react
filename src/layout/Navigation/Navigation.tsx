@@ -7,6 +7,7 @@ import React, {
   useCallback,
 } from 'react'
 import { clamp } from 'lodash-es'
+import { document } from 'ssr-window'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -85,13 +86,13 @@ function Navigation(
 
   useEffect(() => {
     if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove, false)
+      document.addEventListener!('mousemove', handleMouseMove, false)
     } else {
-      document.removeEventListener('mousemove', handleMouseMove, false)
+      document.removeEventListener!('mousemove', handleMouseMove, false)
     }
   }, [isDragging, handleMouseMove])
 
-  document.addEventListener('mouseup', handleMouseUp, false)
+  document.addEventListener!('mouseup', handleMouseUp, false)
 
   return (
     <StyledNavigation
