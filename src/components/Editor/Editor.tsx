@@ -8,7 +8,7 @@ import React, {
   useCallback,
   useImperativeHandle,
 } from 'react'
-import { DOMParser, Fragment, ResolvedPos, Slice } from 'prosemirror-model'
+import { DOMParser, ResolvedPos } from 'prosemirror-model'
 import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -112,29 +112,25 @@ function Editor(
          * 따라서 newline 을 지켜주는 parser 를 새로 구성함.
          * 참조: https://prosemirror.net/docs/ref/#view.EditorProps.clipboardTextParser
          */
-        if (typeof window !== undefined) {
-          const dom = window.document.createElement('div')
+        const dom = window.document.createElement('div')
 
-          pastedText
-            .trim()
-            .split('\n')
-            .forEach(block => {
-              if (isEmpty(block)) {
-                dom.appendChild(document.createElement('p'))
-              } else {
-                dom.appendChild(document.createElement('p')).textContent = block
-              }
-            })
+        pastedText
+          .trim()
+          .split('\n')
+          .forEach(block => {
+            if (isEmpty(block)) {
+              dom.appendChild(document.createElement('p'))
+            } else {
+              dom.appendChild(document.createElement('p')).textContent = block
+            }
+          })
 
-          return DOMParser
-            .fromSchema(editorBuilder.editor!.state.schema)
-            .parseSlice(dom, {
-              preserveWhitespace: true,
-              context,
-            })
-        }
-
-        return new Slice(new Fragment(), 0, 0)
+        return DOMParser
+          .fromSchema(editorBuilder.editor!.state.schema)
+          .parseSlice(dom, {
+            preserveWhitespace: true,
+            context,
+          })
       },
       // clipboardTextSerializer: nodeToText,
     }, doc)
