@@ -31,7 +31,7 @@ const ESCAPE_KEY = 'Escape'
 const rootElement =
   document.getElementById!('main') ||
   document.getElementById!('root') ||
-  document.querySelector!('body') as HTMLElement
+  document.getElementById!('__next') as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop
