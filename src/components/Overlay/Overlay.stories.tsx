@@ -131,4 +131,5 @@ Primary.args = {
   placement: OverlayPosition.BottomCenter,
   marginX: 0,
   marginY: 0,
+  keepInContainer: false,
 }
