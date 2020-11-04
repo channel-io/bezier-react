@@ -42,6 +42,6 @@ export const GroupItemContentWrapper = styled.div`
 
 export const ChildrenWrapper = styled.div`
   & > * {
-    padding-left: 42px;
+    padding-left: 38px;
   }
 `
