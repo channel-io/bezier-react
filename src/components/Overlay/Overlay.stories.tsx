@@ -5,7 +5,6 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
-import Palette from '../../styling/Palette'
 import Overlay from './Overlay'
 import { OverlayPosition } from './Overlay.types'
 
@@ -55,7 +54,7 @@ const Container = styled.div`
   width: 600px;
   height: 500px;
   overflow: scroll;
-  border: 1px solid ${Palette.grey700};
+  border: 1px solid ${props => props.theme?.colors?.border7};
 `
 
 const Wrapper = styled.div`
@@ -72,7 +71,7 @@ const Target = styled.div`
   align-items: center;
   width: 70px;
   height: 40px;
-  background-color: ${Palette.grey300};
+  background-color: ${props => props.theme?.colors?.background3};
   border-radius: 4px;
 `
 
@@ -80,7 +79,7 @@ const Children = styled.div`
   width: 250px;
   height: 150px;
   overflow-y: scroll;
-  background-color: ${Palette.grey500};
+  background-color: ${props => props.theme?.colors?.background5};
   border-radius: 4px;
 `
 
@@ -132,4 +131,5 @@ Primary.args = {
   placement: OverlayPosition.BottomCenter,
   marginX: 0,
   marginY: 0,
+  keepInContainer: false,
 }

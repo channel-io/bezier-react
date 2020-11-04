@@ -10,6 +10,7 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
+import { document } from 'ssr-window'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -28,9 +29,9 @@ export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
 const rootElement =
-  document.getElementById('main') ||
-  document.getElementById('root') ||
-  document.getElementsByTagName('body')[0] as HTMLElement
+  document.getElementById!('main') ||
+  document.getElementById!('root') ||
+  document.getElementById!('__next') as HTMLElement
 
 function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
   if (!element) return noop
@@ -59,6 +60,7 @@ function getOverlayTranslation({
   placement,
   marginX,
   marginY,
+  keepInContainer,
 }: GetOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
@@ -120,16 +122,18 @@ function getOverlayTranslation({
         break
     }
 
-    const isOverTop = targetTop + translateY < rootTop
-    const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
-    const isOverLeft = targetLeft + translateX < rootLeft
-    const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
+    if (keepInContainer) {
+      const isOverTop = targetTop + translateY < rootTop
+      const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
+      const isOverLeft = targetLeft + translateX < rootLeft
+      const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
 
-    if (isOverTop || isOverBottom) {
-      translateY = targetHeight - translateY - overlayHeight
-    }
-    if (isOverLeft || isOverRight) {
-      translateX = targetWidth - translateX - overlayWidth
+      if (isOverTop || isOverBottom) {
+        translateY = targetHeight - translateY - overlayHeight
+      }
+      if (isOverLeft || isOverRight) {
+        translateX = targetWidth - translateX - overlayWidth
+      }
     }
 
     const transform = `translate(${translateX}px, ${translateY}px)`
@@ -144,10 +148,11 @@ function getOverlayStyle({
   placement,
   marginX,
   marginY,
+  keepInContainer,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
-    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY })
+    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY, keepInContainer })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -175,6 +180,7 @@ function Overlay(
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
+    keepInContainer = false,
     children,
     onHide = noop,
     ...otherProps
@@ -273,6 +279,7 @@ function Overlay(
         placement,
         marginX,
         marginY,
+        keepInContainer,
       })
       setOverlayStyle(tempOverlayStyle)
       setIsHidden(false)
@@ -283,7 +290,7 @@ function Overlay(
       }
     }
     return noop
-  }, [show, marginX, marginY, placement, target])
+  }, [show, marginX, marginY, placement, target, keepInContainer])
 
   if (!show) return null
 

@@ -1,7 +1,6 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
 import { absoluteCenter } from '../../styling/Mixins'
-import Palette from '../../styling/Palette'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 import CheckType from './CheckType'
 
@@ -27,18 +26,18 @@ const checkerBase = (props: StyledCheckerProps) => `
     height: 9px;
     border-right: solid ${CHECKER_ICON_THICKNESS}px transparent;
     border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    border-color: ${Palette.white};
+    border-color: ${props.theme?.colors?.border0};
     content: '';
     transition: ${props.theme?.transition?.BorderTransition};
   }
 
   ${(props.checkStatus === CheckType.True || props.checkStatus === CheckType.Partial) ? `
-    background-color: ${Palette.green400};
+    background-color: ${props.theme?.colors?.success1};
     border-color: transparent;
 
     ${!props.disabled ? `
       &:hover {
-        background-color: ${Palette.green500};
+        background-color: ${props.theme?.colors.success1Hover};
       }
     ` : ''}
   ` : ''}
@@ -49,7 +48,7 @@ const partialChecked = (props: StyledCheckerProps) => ((props.checkStatus === Ch
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
     border-right: none;
-    border-bottom: solid 2px ${Palette.white};
+    border-bottom: solid 2px ${props.theme?.colors?.border0};
   }
 ` : '')
 
@@ -62,7 +61,7 @@ const disabled = (props: StyledCheckerProps) => ((props.disabled) ? `
     }
   ` : `
     &::after {
-      border-color: ${Palette.grey500};
+      border-color: ${props.theme?.colors?.border5}
     }
   `}
 ` : '')
@@ -79,7 +78,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
-  background-color: ${Palette.white};
+  background-color: ${props => props.theme?.colors?.background0};
   border: ${CHECKER_BORDER_THICKNESS}px solid ${props => props.theme?.colors?.border3};
   border-radius: 4px;
   transition: ${props => props.theme?.transition?.BackgroundTransition}, ${props => props.theme?.transition?.ColorTransition};
@@ -87,7 +86,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   ${props => (!props.disabled ? `
     &:hover {
       &::after {
-        border-color: ${Palette.grey200};
+        border-color: ${props.theme?.colors?.border2};
       }
     }
   ` : '')}

@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
-import Palette from '../../styling/Palette'
 import Transition from '../../styling/Transition'
 import { StyledWrapperProps } from './TabItem.types'
 
@@ -16,7 +15,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   overflow: hidden;
   font-size: inherit;
   font-weight: bold;
-  color: ${Palette.grey500};
+  color: ${props => props.theme?.colors?.text5};
   cursor: pointer;
   transition: ${props => props.theme?.transition?.ColorTransitionCubicSlow};
   user-select: none;
@@ -28,7 +27,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   &:hover {
     ${props => (!props.disabled ? `
       ${props.active ? '' : `
-        color: ${Palette.grey700};
+        color: ${props.theme?.colors?.text7};
       `}
     ` : '')}
   }
@@ -42,7 +41,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     left: 0;
     width: 100%;
     height: ${props => props.indicatorThickness || 3}px;
-    background-color: ${Palette.blue400};
+    background-color: ${props => props.theme?.colors?.focus4};
     content: '';
     transform: translateY(100%);
     transition:
@@ -52,7 +51,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   }
 
   ${props => (props.active ? `
-    color: ${Palette.blue400};
+    color: ${props.theme?.colors?.focus4};
     pointer-events: none;
 
     &::after {
