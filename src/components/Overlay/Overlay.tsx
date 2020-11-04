@@ -59,7 +59,7 @@ function getOverlayTranslation({
   placement,
   marginX,
   marginY,
-  enableAutoPosition,
+  keepInContainer,
 }: GetOverlayTranslatationProps): React.CSSProperties {
   if (target) {
     const {
@@ -121,7 +121,7 @@ function getOverlayTranslation({
         break
     }
 
-    if (enableAutoPosition) {
+    if (keepInContainer) {
       const isOverTop = targetTop + translateY < rootTop
       const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
       const isOverLeft = targetLeft + translateX < rootLeft
@@ -147,11 +147,11 @@ function getOverlayStyle({
   placement,
   marginX,
   marginY,
-  enableAutoPosition,
+  keepInContainer,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (target) {
     const overlayPositionStyle = getOverlayPosition({ target })
-    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY, enableAutoPosition })
+    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY, keepInContainer })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -179,7 +179,7 @@ function Overlay(
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
-    enableAutoPosition = false,
+    keepInContainer = false,
     children,
     onHide = noop,
     ...otherProps
@@ -278,7 +278,7 @@ function Overlay(
         placement,
         marginX,
         marginY,
-        enableAutoPosition,
+        keepInContainer,
       })
       setOverlayStyle(tempOverlayStyle)
       setIsHidden(false)
@@ -289,7 +289,7 @@ function Overlay(
       }
     }
     return noop
-  }, [show, marginX, marginY, placement, target, enableAutoPosition])
+  }, [show, marginX, marginY, placement, target, keepInContainer])
 
   if (!show) return null
 

@@ -12,7 +12,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   placement?: OverlayPosition
   marginX?: number
   marginY?: number
-  enableAutoPosition?: boolean
+  keepInContainer?: boolean
   onHide?: () => void
 }
 
@@ -22,7 +22,7 @@ export interface GetOverlayStyleProps {
   placement: OverlayPosition
   marginX: number
   marginY: number
-  enableAutoPosition: boolean
+  keepInContainer: boolean
 }
 
 export interface GetOverlayPositionProps {
@@ -35,7 +35,7 @@ export interface GetOverlayTranslatationProps {
   placement: OverlayPosition
   marginX: number
   marginY: number
-  enableAutoPosition: boolean
+  keepInContainer: boolean
 }
 
 export interface StyledOverlayProps {
