@@ -21,9 +21,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   border-radius: 6px;
 
   &:hover {
-    ${props => (props.open ? '' : `
-      background-color: ${props.theme?.colors?.background3};
-    `)}
+    background-color: ${props => (props.open ? 'initial' : props.theme?.colors?.background3)};
   }
 
   ${props => !isNil(props.currentMenuItemIndex) && `
