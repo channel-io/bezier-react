@@ -4,9 +4,14 @@ import { noop, isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { isListItem } from '../ListItem/ListItem'
-import { Icon, IconSize } from '../../Icon'
+import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
-import { GroupItemWrapper, ChildrenWrapper, GroupItemContentWrapper } from './ListMenuGroup.styled'
+import {
+  GroupItemWrapper,
+  ChildrenWrapper,
+  GroupItemContentWrapper,
+  StyledIcon,
+} from './ListMenuGroup.styled'
 
 export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
 
@@ -83,7 +88,7 @@ forwardedRef: React.Ref<HTMLElement>,
     <>
       <GroupItemContentWrapper>
         { !isNil(leftIcon) && (
-          <Icon
+          <StyledIcon
             name={leftIcon}
             size={IconSize.S}
             marginRight={10}
@@ -93,7 +98,7 @@ forwardedRef: React.Ref<HTMLElement>,
       </GroupItemContentWrapper>
       {
         !isEmpty(children) && !rightContent ? (
-          <Icon
+          <StyledIcon
             className={arrowClassName}
             name={open ? 'chevron-up' : 'chevron-down'}
             size={IconSize.XS}
@@ -139,6 +144,7 @@ forwardedRef: React.Ref<HTMLElement>,
         ref={forwardedRef}
         name={name}
         className={className}
+        open={open}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={handleClickGroup}
         data-testid={testId}

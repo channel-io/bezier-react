@@ -7,6 +7,7 @@ export interface Colors {
   text5?: string
 
   // Backgrounds
+  background5?: string
   background3?: string
   background2?: string
   background1?: string
@@ -17,9 +18,12 @@ export interface Colors {
   disabled5?: string
 
   // Borders
+  border7?: string
+  border5?: string
   border3?: string
   border2?: string
   border1?: string
+  border0?: string
 
   // Success
   success1?: string
@@ -42,19 +46,25 @@ export interface Colors {
 
   // Sidebar
   focus5?: string
+  focus4?: string
+  focus1?: string
 }
 
 export const Light: Colors = {
   textBase: Palette.grey900,
   text7: Palette.grey700,
   text5: Palette.grey500,
+  background5: Palette.grey500,
   background3: Palette.grey300,
   background2: Palette.grey200,
   background1: Palette.grey100,
   background0: Palette.white,
+  border7: Palette.grey700,
+  border5: Palette.grey500,
   border3: Palette.grey300,
   border2: Palette.grey200,
   border1: Palette.grey100,
+  border0: Palette.white,
   disabled3: Palette.grey300,
   disabled5: Palette.grey500,
   success1: Palette.green400,
@@ -67,6 +77,8 @@ export const Light: Colors = {
   shadow1: Palette.black15,
   iconBase: Palette.grey700,
   focus5: Palette.blue500,
+  focus4: Palette.blue400,
+  focus1: Palette.blue100,
 }
 
 export const Dark: Colors = {
