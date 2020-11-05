@@ -86,7 +86,10 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const Content = useMemo(() => (
     <>
-      <GroupItemContentWrapper>
+      <GroupItemContentWrapper
+        currentMenuItemIndex={currentMenuItemIndex}
+        open={open}
+      >
         { !isNil(leftIcon) && (
           <StyledIcon
             name={leftIcon}
@@ -115,6 +118,7 @@ forwardedRef: React.Ref<HTMLElement>,
     rightContent,
     children,
     handleClickIcon,
+    currentMenuItemIndex,
   ])
 
   const Items = useMemo(() => (
