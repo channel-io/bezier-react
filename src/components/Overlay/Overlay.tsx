@@ -214,6 +214,10 @@ function Overlay(
     }
   }, [onHide])
 
+  const handleMouseDown = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+  }, [])
+
   const overlay = useMemo(() => (
     <Container
       ref={containerRef}
@@ -223,6 +227,7 @@ function Overlay(
     >
       <Wrapper data-testid={wrapperTestId}>
         <StyledOverlay
+          data-testid={testId}
           as={as}
           className={className}
           isHidden={isHidden}
@@ -231,7 +236,7 @@ function Overlay(
             ...(overlayStyle || {}),
           }}
           ref={mergedRef}
-          data-testid={testId}
+          onMouseDown={handleMouseDown}
           {...otherProps}
         >
           { children }
@@ -251,6 +256,7 @@ function Overlay(
     wrapperTestId,
     testId,
     mergedRef,
+    handleMouseDown,
     otherProps,
   ])
 
