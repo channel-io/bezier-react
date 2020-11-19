@@ -42,12 +42,16 @@ function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K,
   }
 }
 
-function getOverlayPosition({ target }: GetOverlayPositionProps): React.CSSProperties {
+function getOverlayPosition({ container, target }: GetOverlayPositionProps): React.CSSProperties {
   if (target) {
     const { top: targetTop, left: targetLeft } = target.getBoundingClientRect()
 
-    const top = targetTop - target.clientTop
-    const left = targetLeft - target.clientLeft
+    const top = container ?
+      targetTop - target.clientTop - container.getBoundingClientRect().top + container.scrollTop :
+      targetTop - target.clientTop
+    const left = container ?
+      targetLeft - target.clientLeft - container.getBoundingClientRect().left + container.scrollLeft :
+      targetLeft - target.clientLeft
 
     return { top, left }
   }
@@ -55,6 +59,7 @@ function getOverlayPosition({ target }: GetOverlayPositionProps): React.CSSPrope
 }
 
 function getOverlayTranslation({
+  container,
   target,
   overlay,
   placement,
@@ -63,12 +68,13 @@ function getOverlayTranslation({
   keepInContainer,
 }: GetOverlayTranslatationProps): React.CSSProperties {
   if (target) {
+    const containerElement = container || rootElement as HTMLElement
     const {
       width: rootWidth,
       height: rootHeight,
       top: rootTop,
       left: rootLeft,
-    } = rootElement.getBoundingClientRect()
+    } = containerElement.getBoundingClientRect()
     const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
     const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
 
@@ -143,6 +149,7 @@ function getOverlayTranslation({
 }
 
 function getOverlayStyle({
+  container,
   target,
   overlay,
   placement,
@@ -151,8 +158,16 @@ function getOverlayStyle({
   keepInContainer,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (target) {
-    const overlayPositionStyle = getOverlayPosition({ target })
-    const overlayTranslateStyle = getOverlayTranslation({ target, overlay, placement, marginX, marginY, keepInContainer })
+    const overlayPositionStyle = getOverlayPosition({ container, target })
+    const overlayTranslateStyle = getOverlayTranslation({
+      container,
+      target,
+      overlay,
+      placement,
+      marginX,
+      marginY,
+      keepInContainer,
+    })
 
     const combinedStyle = {
       ...overlayPositionStyle,
@@ -176,6 +191,7 @@ function Overlay(
     style,
     containerClassName = '',
     containerStyle,
+    container,
     target,
     placement = OverlayPosition.LeftCenter,
     marginX = 0,
@@ -214,14 +230,9 @@ function Overlay(
     }
   }, [onHide])
 
-  const overlay = useMemo(() => (
-    <Container
-      ref={containerRef}
-      className={containerClassName}
-      style={containerStyle}
-      data-testid={containerTestId}
-    >
-      <Wrapper data-testid={wrapperTestId}>
+  const overlay = useMemo(() => {
+    if (container) {
+      return (
         <StyledOverlay
           as={as}
           className={className}
@@ -236,14 +247,40 @@ function Overlay(
         >
           { children }
         </StyledOverlay>
-      </Wrapper>
-    </Container>
-  ), [
+      )
+    }
+    return (
+      <Container
+        ref={containerRef}
+        className={containerClassName}
+        style={containerStyle}
+        data-testid={containerTestId}
+      >
+        <Wrapper data-testid={wrapperTestId}>
+          <StyledOverlay
+            as={as}
+            className={className}
+            isHidden={isHidden}
+            style={{
+              ...(style || {}),
+              ...(overlayStyle || {}),
+            }}
+            ref={mergedRef}
+            data-testid={testId}
+            {...otherProps}
+          >
+            { children }
+          </StyledOverlay>
+        </Wrapper>
+      </Container>
+    )
+  }, [
     as,
     className,
     style,
     containerClassName,
     containerStyle,
+    container,
     isHidden,
     overlayStyle,
     children,
@@ -274,6 +311,7 @@ function Overlay(
   useEffect(() => {
     if (show) {
       const tempOverlayStyle = getOverlayStyle({
+        container,
         target,
         overlay: overlayRef.current as HTMLElement,
         placement,
@@ -290,11 +328,11 @@ function Overlay(
       }
     }
     return noop
-  }, [show, marginX, marginY, placement, target, keepInContainer])
+  }, [show, container, marginX, marginY, placement, target, keepInContainer])
 
   if (!show) return null
 
-  return ReactDOM.createPortal(overlay, rootElement as HTMLElement)
+  return ReactDOM.createPortal(overlay, container || rootElement as HTMLElement)
 }
 
 export default forwardRef(Overlay)
