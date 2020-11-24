@@ -63,7 +63,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.green400};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.green_30};`)
     expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
   })
 

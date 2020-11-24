@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import Palette from './Palette'
+import Palette from '../Palette'
 
 export interface Colors {
   textBase: string
@@ -67,8 +67,8 @@ export const Light: Colors = {
   border0: Palette.white,
   disabled3: Palette.grey300,
   disabled5: Palette.grey500,
-  success1: Palette.green400,
-  success1Hover: Palette.green500,
+  success1: Palette.green_30,
+  success1Hover: Palette.green,
   default1: Palette.grey300,
   default1Hover: Palette.grey500,
   handle5: Palette.grey500,
@@ -76,9 +76,9 @@ export const Light: Colors = {
   handle1: Palette.white,
   shadow1: Palette.black15,
   iconBase: Palette.grey700,
-  focus5: Palette.blue500,
-  focus4: Palette.blue400,
-  focus1: Palette.blue100,
+  focus5: Palette.blue,
+  focus4: Palette.blue_30,
+  focus1: Palette.blue_10,
 }
 
 export const Dark: Colors = {
