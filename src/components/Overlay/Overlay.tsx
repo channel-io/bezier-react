@@ -13,9 +13,9 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import { listen } from '../../utils/utils'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
-  EventHandler,
   GetOverlayStyleProps,
   GetOverlayPositionProps,
   GetOverlayTranslatationProps,
@@ -32,15 +32,6 @@ const rootElement =
   document.getElementById!('main') ||
   document.getElementById!('root') ||
   document.getElementById!('__next') as HTMLElement
-
-function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
-  if (!element) return noop
-
-  element.addEventListener(eventName, handler)
-  return function cleanup() {
-    element.removeEventListener(eventName, handler)
-  }
-}
 
 function getOverlayPosition({ target }: GetOverlayPositionProps): React.CSSProperties {
   if (target) {

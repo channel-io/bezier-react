@@ -1,69 +1,48 @@
 /* External dependencies */
 import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'react'
-import { noop, get } from 'lodash-es'
+import { noop } from 'lodash-es'
+import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
-import NavigationProps, { EventHandler } from './Navigation.types'
+import { listen } from '../../../utils/utils'
+import NavigationProps from './Navigation.types'
 import { NavigationWrapper, StyledNavigation, ResizeBar } from './Navigation.styled'
 
-function listen<K extends keyof HTMLElementEventMap>(
-  element: any,
-  eventName: K,
-  handler: EventHandler<K>,
-) {
-  if (!element) return noop
-
-  element.addEventListener(eventName, handler)
-  return function cleanup() {
-    element.removeEventListener(eventName, handler)
-  }
-}
+extend(document, {
+  requestAnimationFrame() {},
+})
 
 function Navigation({
   className = '',
-  _injected,
+  optionIndex = 0,
+  onMouseDown = noop,
+  onMouseUp = noop,
+  onMouseMove = noop,
   children,
 }: NavigationProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  const [isMouseDown, setIsMouseDown] = useState<boolean>(false)
-  const resizeBarRef = useRef<any>()
+  const [allowMouseMove, setAllowMouseMove] = useState(false)
+  const resizeBarRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseDown = useCallback(
-    (event: HTMLElementEventMap['mousedown']) => {
-      const mouseDownHandler = get(_injected, 'onMouseDown', noop)
-      const optionIndex = get(_injected, 'optionIndex', 0)
-      mouseDownHandler(event, optionIndex)
-      setIsMouseDown(true)
-    },
-    [_injected],
-  )
+  const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
+    onMouseDown(event, optionIndex)
+    setAllowMouseMove(true)
+  }, [optionIndex, onMouseDown])
 
   const handleMouseUp = useCallback(() => {
-    const mouseUpHandler = get(_injected, 'onMouseUp', noop)
-    mouseUpHandler()
-    setIsMouseDown(false)
-  }, [_injected])
+    setAllowMouseMove(false)
+    onMouseUp()
+  }, [onMouseUp])
 
-  const handleMouseMove = useCallback(
-    (event: HTMLElementEventMap['mousemove']) => {
-      if (!isMouseDown) return
-
-      const mouseMoveHandler = get(_injected, 'onMouseMove', noop)
-      mouseMoveHandler(event)
-    },
-    [isMouseDown, _injected],
-  )
+  const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
+    window.requestAnimationFrame!(() => {
+      if (!allowMouseMove) return
+      onMouseMove(event)
+    })
+  }, [allowMouseMove, onMouseMove])
 
   useEffect(() => {
-    const removeNavigationMouseDownListener = listen(
-      resizeBarRef.current,
-      'mousedown',
-      handleMouseDown,
-    )
-    const removeDocumentMouseUpListener = listen(
-      document,
-      'mouseup',
-      handleMouseUp,
-    )
+    const removeNavigationMouseDownListener = listen(resizeBarRef.current, 'mousedown', handleMouseDown)
+    const removeDocumentMouseUpListener = listen(document, 'mouseup', handleMouseUp)
 
     return function cleanup() {
       removeNavigationMouseDownListener()
@@ -72,12 +51,8 @@ function Navigation({
   }, [handleMouseDown, handleMouseUp])
 
   useEffect(() => {
-    if (isMouseDown) {
-      const removeDocumentMouseMoveListener = listen(
-        document,
-        'mousemove',
-        handleMouseMove,
-      )
+    if (allowMouseMove) {
+      const removeDocumentMouseMoveListener = listen(document, 'mousemove', handleMouseMove)
 
       return function cleanup() {
         removeDocumentMouseMoveListener()
@@ -85,7 +60,7 @@ function Navigation({
     }
 
     return noop
-  }, [isMouseDown, handleMouseMove])
+  }, [allowMouseMove, handleMouseMove])
 
   return (
     <NavigationWrapper>

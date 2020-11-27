@@ -5,6 +5,7 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
+import Palette from '../../styling/Palette'
 import Navigations from './Navigations'
 import Navigation from './Navigation'
 
@@ -17,42 +18,59 @@ const Container = styled.div`
   width: 700px;
   height: 400px;
   margin: 0 auto;
-  background-color:
+  padding: 2px;
+  border: 2px solid ${Palette.grey100};
+  border-radius: 10px;
+`
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  border-radius: 10px;
 `
 
 const NavigationElement1 = styled(Navigation)`
   width: 200px;
-  background-color: ${props => props.theme?.colors?.background3};
+  background-color: ${Palette.grey300};
 `
 
 const NavigationElement2 = styled(Navigation)`
-  width: 250px;
-  background-color: ${props => props.theme?.colors?.background5};
+  width: 200px;
+  background-color: ${Palette.grey500};
 `
 
 const NavItem = styled.div`
   width: 100%;
-  height: 30px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: ${Palette.white};
+
+  &:hover {
+    background-color:${Palette.grey700};
+  }
 `
 
 const Template = ({ minWidth1, minWidth2 }) => (
   <Container>
-    <Navigations>
-      <NavigationElement1 minWidth={minWidth1}>
-        <NavItem>NavItem1</NavItem>
-        <NavItem>NavItem2</NavItem>
-        <NavItem>NavItem3</NavItem>
-        <NavItem>NavItem4</NavItem>
-        <NavItem>NavItem5</NavItem>
-      </NavigationElement1>
-      <NavigationElement2 minWidth={minWidth2}>
-        <NavItem>NavItem1</NavItem>
-        <NavItem>NavItem2</NavItem>
-        <NavItem>NavItem3</NavItem>
-        <NavItem>NavItem4</NavItem>
-        <NavItem>NavItem5</NavItem>
-      </NavigationElement2>
-    </Navigations>
+    <Wrapper>
+      <Navigations>
+        <NavigationElement1 minWidth={minWidth1}>
+          <NavItem>NavItem1</NavItem>
+          <NavItem>NavItem2</NavItem>
+          <NavItem>NavItem3</NavItem>
+          <NavItem>NavItem4</NavItem>
+          <NavItem>NavItem5</NavItem>
+        </NavigationElement1>
+        <NavigationElement2 minWidth={minWidth2}>
+          <NavItem>NavItem1</NavItem>
+          <NavItem>NavItem2</NavItem>
+          <NavItem>NavItem3</NavItem>
+          <NavItem>NavItem4</NavItem>
+          <NavItem>NavItem5</NavItem>
+        </NavigationElement2>
+      </Navigations>
+    </Wrapper>
   </Container>
 )
 

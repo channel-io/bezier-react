@@ -3,11 +3,7 @@ import { UIComponentProps, ChildrenComponentProps } from '../../../types/Compone
 
 export default interface NavigationProps extends UIComponentProps, ChildrenComponentProps {
   minWidth: number
-  _injected?: NavigationInjectedProps
-}
-
-interface NavigationInjectedProps {
-  optionIndex: number
+  optionIndex?: number
   onMouseDown?: (
     event: HTMLElementEventMap['mousedown'],
     optionIndex: number,
@@ -15,7 +11,3 @@ interface NavigationInjectedProps {
   onMouseUp?: () => void
   onMouseMove?: (event: HTMLElementEventMap['mousemove']) => void
 }
-
-export type EventHandler<K extends keyof HTMLElementEventMap> = (
-  event: HTMLElementEventMap[K],
-) => any
