@@ -9,5 +9,6 @@ export interface NavigationRefsProps {
   target: HTMLDivElement
   initialWidth: number
   minWidth: number
+  maxWidth: number
 }
 

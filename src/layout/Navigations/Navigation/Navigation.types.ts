@@ -3,6 +3,7 @@ import { UIComponentProps, ChildrenComponentProps } from '../../../types/Compone
 
 export default interface NavigationProps extends UIComponentProps, ChildrenComponentProps {
   minWidth: number
+  maxWidth: number
   optionIndex?: number
   onMouseDown?: (
     event: HTMLElementEventMap['mousedown'],

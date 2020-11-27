@@ -51,18 +51,18 @@ const NavItem = styled.div`
   }
 `
 
-const Template = ({ minWidth1, minWidth2 }) => (
+const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => (
   <Container>
     <Wrapper>
       <Navigations>
-        <NavigationElement1 minWidth={minWidth1}>
+        <NavigationElement1 minWidth={minWidth1} maxWidth={maxWidth1}>
           <NavItem>NavItem1</NavItem>
           <NavItem>NavItem2</NavItem>
           <NavItem>NavItem3</NavItem>
           <NavItem>NavItem4</NavItem>
           <NavItem>NavItem5</NavItem>
         </NavigationElement1>
-        <NavigationElement2 minWidth={minWidth2}>
+        <NavigationElement2 minWidth={minWidth2} maxWidth={maxWidth2}>
           <NavItem>NavItem1</NavItem>
           <NavItem>NavItem2</NavItem>
           <NavItem>NavItem3</NavItem>
@@ -77,5 +77,7 @@ const Template = ({ minWidth1, minWidth2 }) => (
 export const Primary = Template.bind({})
 Primary.args = {
   minWidth1: 100,
+  maxWidth1: 300,
   minWidth2: 140,
+  maxWidth2: 350,
 }
