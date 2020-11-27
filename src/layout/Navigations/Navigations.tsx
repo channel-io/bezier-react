@@ -44,8 +44,8 @@ function Navigations({ children }: NavigationsProps) {
 
     if (movedPosition < 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
-
       const willChangeWidth = initialWidth - movedPosition
+
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
@@ -54,7 +54,6 @@ function Navigations({ children }: NavigationsProps) {
 
     while (currentIndex.current >= 0 && movedPosition > 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
-
       const willChangeWidth = Math.max(initialWidth - movedPosition, minWidth)
 
       if (initialWidth - movedPosition > minWidth) {
