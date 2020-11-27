@@ -3,7 +3,7 @@ import * as StyledComponents from 'styled-components'
 
 /* Internal dependencies */
 import Transition from './Transition'
-import BaseColors, { Colors } from './Colors/index'
+import BaseColors, { Colors } from './Colors'
 
 export default interface Theme {
   colors: Colors
@@ -25,3 +25,4 @@ export const {
   css,
   ThemeProvider,
 } = StyledComponents as StyledComponents.ThemedStyledComponentsModule<Theme>
+

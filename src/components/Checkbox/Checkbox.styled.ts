@@ -81,7 +81,8 @@ export const Checker = styled.div<StyledCheckerProps>`
   background-color: ${props => props.theme?.colors?.background0};
   border: ${CHECKER_BORDER_THICKNESS}px solid ${props => props.theme?.colors?.border3};
   border-radius: 4px;
-  transition: ${props => props.theme?.transition?.BackgroundTransition}, ${props => props.theme?.transition?.ColorTransition};
+
+  ${props => props.theme?.transition?.getTransitionCSS(['background-color'])};
 
   ${props => (!props.disabled ? `
     &:hover {

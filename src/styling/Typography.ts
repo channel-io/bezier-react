@@ -1,5 +1,5 @@
 /* External dependencies */
-import { css } from 'styled-components'
+import { css } from './Theme'
 
 const Size11 = css`
   font-size: 11px;
@@ -26,9 +26,6 @@ const Size15 = css`
   line-height: 22px;
 `
 
-/**
- * @deprecated
- */
 const Size16 = css`
   font-size: 16px;
   line-height: 22px;

@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
-import Transition from '../../styling/Transition'
 import { StyledWrapperProps } from './TabItem.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
@@ -17,8 +16,15 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   font-weight: bold;
   color: ${props => props.theme?.colors?.text5};
   cursor: pointer;
-  transition: ${props => props.theme?.transition?.ColorTransitionCubicSlow};
   user-select: none;
+
+  /* stylelint-disable-next-line */
+  ${props => (
+    props.theme?.transition?.getTransitionCSS(
+      'color',
+      props.theme?.transition?.TransitionDuration.L,
+    )
+  )};
 
   &:not(:first-child) {
     margin-left: 20px;
@@ -44,9 +50,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     background-color: ${props => props.theme?.colors?.focus4};
     content: '';
     transform: translateY(100%);
-    transition:
-      transform ${Transition.TransitionDuration.Slow} ${Transition.TransitionEffect.DefaultCubic} 0.1s,
-      background-color ${Transition.TransitionDuration.Slow} ${Transition.TransitionEffect.DefaultCubic};
+
+    ${props => (props.theme?.transition?.getTransitionCSS(['transform', 'background-color']))};
+
     will-change: transform;
   }
 
