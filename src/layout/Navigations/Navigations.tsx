@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useRef } from 'react'
-import { set } from 'lodash-es'
+import { set, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
@@ -73,6 +73,9 @@ function Navigations({ children }: NavigationsProps) {
     React.Children.map(navigations, (child, index) => (
       React.cloneElement(child, {
         ref: (nav: HTMLDivElement) => {
+          if (!isNil(child.ref)) {
+            set(child, 'ref.current', nav)
+          }
           set(navigationRefs.current, [index, 'target'], nav)
           set(navigationRefs.current, [index, 'minWidth'], child.props.minWidth)
           set(navigationRefs.current, [index, 'maxWidth'], child.props.maxWidth)
