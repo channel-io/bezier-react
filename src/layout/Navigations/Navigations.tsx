@@ -88,7 +88,11 @@ function Navigations({ children }: NavigationsProps) {
         onMouseMove: handleMouseMove,
       })),
     )
-  ), [handleMouseDown, handleMouseUp, handleMouseMove])
+  ), [
+    handleMouseDown,
+    handleMouseUp,
+    handleMouseMove,
+  ])
 
   return (
     <NavigationsWrapper>{ renderNavigationList(children) }</NavigationsWrapper>

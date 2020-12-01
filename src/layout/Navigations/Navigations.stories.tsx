@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { useState } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
@@ -32,11 +32,12 @@ const Wrapper = styled.div`
 
 const NavigationElement1 = styled(Navigation)`
   width: 200px;
-  background-color: ${Palette.grey300};
+  z-index: 500;
 `
 
 const NavigationElement2 = styled(Navigation)`
   width: 200px;
+  z-index: 400;
   background-color: ${Palette.grey500};
 `
 
@@ -44,35 +45,50 @@ const NavItem = styled.div`
   width: 100%;
   padding: 10px 20px;
   box-sizing: border-box;
-  color: ${Palette.white};
+  color: ${Palette.black};
 
   &:hover {
     background-color:${Palette.grey700};
   }
 `
 
-const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => (
-  <Container>
-    <Wrapper>
-      <Navigations>
-        <NavigationElement1 minWidth={minWidth1} maxWidth={maxWidth1}>
-          <NavItem>NavItem1</NavItem>
-          <NavItem>NavItem2</NavItem>
-          <NavItem>NavItem3</NavItem>
-          <NavItem>NavItem4</NavItem>
-          <NavItem>NavItem5</NavItem>
-        </NavigationElement1>
-        <NavigationElement2 minWidth={minWidth2} maxWidth={maxWidth2}>
-          <NavItem>NavItem1</NavItem>
-          <NavItem>NavItem2</NavItem>
-          <NavItem>NavItem3</NavItem>
-          <NavItem>NavItem4</NavItem>
-          <NavItem>NavItem5</NavItem>
-        </NavigationElement2>
-      </Navigations>
-    </Wrapper>
-  </Container>
-)
+const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
+  // will be provider
+  const [showSidebar, setShowSidebar] = useState(true)
+
+  return (
+    <Container>
+      <Wrapper>
+        <Navigations>
+          <NavigationElement1
+            title="Nav 1"
+            showSidebar={showSidebar}
+            setShowSidebar={setShowSidebar}
+            minWidth={minWidth1}
+            maxWidth={maxWidth1}
+          >
+            <NavItem>NavItem1</NavItem>
+            <NavItem>NavItem2</NavItem>
+            <NavItem>NavItem3</NavItem>
+            <NavItem>NavItem4</NavItem>
+            <NavItem>NavItem5</NavItem>
+          </NavigationElement1>
+          <NavigationElement2
+            title="Nav 2"
+            minWidth={minWidth2}
+            maxWidth={maxWidth2}
+          >
+            <NavItem>NavItem1</NavItem>
+            <NavItem>NavItem2</NavItem>
+            <NavItem>NavItem3</NavItem>
+            <NavItem>NavItem4</NavItem>
+            <NavItem>NavItem5</NavItem>
+          </NavigationElement2>
+        </Navigations>
+      </Wrapper>
+    </Container>
+  )
+}
 
 export const Primary = Template.bind({})
 Primary.args = {
