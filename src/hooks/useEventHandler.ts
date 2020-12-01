@@ -1,6 +1,6 @@
 /* External dependencies */
 import { useEffect } from 'react'
-import { noop, isNil } from 'lodash-es'
+import { noop, isNil, isFunction } from 'lodash-es'
 
 function useEventHandler<K extends keyof HTMLElementEventMap>(
   element: any,
@@ -9,7 +9,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
   condition: boolean = true,
 ) {
   useEffect(() => {
-    if (!isNil(element) && condition) {
+    if (!isNil(element) && isFunction(element.addEventListener) && condition) {
       element.addEventListener(eventName, handler)
 
       return function cleanup() {
