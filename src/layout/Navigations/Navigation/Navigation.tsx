@@ -1,10 +1,10 @@
 /* External dependencies */
-import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'react'
+import React, { forwardRef, useState, useCallback } from 'react'
 import { noop } from 'lodash-es'
 import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
-import { listen } from '../../../utils/utils'
+import useEventHandler from '../../../hooks/useEventHandler'
 import NavigationProps from './Navigation.types'
 import { NavigationWrapper, StyledNavigation, ResizeBar } from './Navigation.styled'
 
@@ -21,7 +21,7 @@ function Navigation({
   children,
 }: NavigationProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const [allowMouseMove, setAllowMouseMove] = useState(false)
-  const resizeBarRef = useRef<HTMLDivElement>(null)
+  const [resizeBarRef, serResizeBarRef] = useState<HTMLDivElement | null>(null)
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
     onMouseDown(event, optionIndex)
@@ -40,34 +40,16 @@ function Navigation({
     })
   }, [allowMouseMove, onMouseMove])
 
-  useEffect(() => {
-    const removeNavigationMouseDownListener = listen(resizeBarRef.current, 'mousedown', handleMouseDown)
-    const removeDocumentMouseUpListener = listen(document, 'mouseup', handleMouseUp)
-
-    return function cleanup() {
-      removeNavigationMouseDownListener()
-      removeDocumentMouseUpListener()
-    }
-  }, [handleMouseDown, handleMouseUp])
-
-  useEffect(() => {
-    if (allowMouseMove) {
-      const removeDocumentMouseMoveListener = listen(document, 'mousemove', handleMouseMove)
-
-      return function cleanup() {
-        removeDocumentMouseMoveListener()
-      }
-    }
-
-    return noop
-  }, [allowMouseMove, handleMouseMove])
+  useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)
+  useEventHandler(document, 'mouseup', handleMouseUp)
+  useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   return (
     <NavigationWrapper>
       <StyledNavigation className={className} ref={forwardedRef}>
         { children }
       </StyledNavigation>
-      <ResizeBar ref={resizeBarRef} />
+      <ResizeBar ref={serResizeBarRef} />
     </NavigationWrapper>
   )
 }

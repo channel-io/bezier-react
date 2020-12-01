@@ -13,7 +13,7 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
-import { listen } from '../../utils/utils'
+import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
   GetOverlayStyleProps,
@@ -181,7 +181,7 @@ function Overlay(
   const [overlayStyle, setOverlayStyle] = useState<React.CSSProperties>()
   const [isHidden, setIsHidden] = useState<boolean>(true)
   const overlayRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
@@ -207,7 +207,7 @@ function Overlay(
 
   const overlay = useMemo(() => (
     <Container
-      ref={containerRef}
+      ref={setContainerRef}
       className={containerClassName}
       style={containerStyle}
       data-testid={containerTestId}
@@ -245,22 +245,10 @@ function Overlay(
     otherProps,
   ])
 
-  useEffect(() => {
-    if (show) {
-      const removeDocumentClickListener = listen(document, 'click', handleHideOverlay)
-      const removeDocumentKeyupListener = listen(document, 'keyup', handleKeydown)
-      const removeTargetClickListener = listen(target, 'click', handleClickTarget)
-      const remoteContainerWheelListener = listen(containerRef.current, 'wheel', handleBlockMouseWheel)
-
-      return () => {
-        removeDocumentClickListener()
-        removeDocumentKeyupListener()
-        removeTargetClickListener()
-        remoteContainerWheelListener()
-      }
-    }
-    return noop
-  }, [show, target, handleHideOverlay, handleKeydown, handleClickTarget, handleBlockMouseWheel])
+  useEventHandler(document, 'click', handleHideOverlay, show)
+  useEventHandler(document, 'keyup', handleKeydown, show)
+  useEventHandler(target, 'click', handleClickTarget, show)
+  useEventHandler(containerRef, 'wheel', handleBlockMouseWheel, show)
 
   useEffect(() => {
     if (show) {
