@@ -48,7 +48,7 @@ export const NavigationPositioner = styled.div`
   height: 100%;
 `
 interface NavigationPresenterProps {
-  width: number | undefined
+  containerWidth: number | undefined
   showSidebar: boolean
   isHover: boolean
 }
@@ -57,7 +57,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: ${({ width }) => width}px;
+  width: ${({ containerWidth }) => containerWidth}px;
   position: relative;
   pointer-events: auto;
 

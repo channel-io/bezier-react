@@ -41,13 +41,14 @@ function Navigation({
   onMouseUp = noop,
   onMouseMove = noop,
   children,
+  ...props
 }: NavigationProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const mergedContainerRef = useMergeRefs<HTMLDivElement>(containerRef, forwardedRef)
   const presenterRef = useRef<HTMLDivElement | null>(null)
+  const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
 
   const [allowMouseMove, setAllowMouseMove] = useState(false)
-  const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
   const [showChevron, setShowChevron] = useState(false)
   const [hoverPresenter, setHoverPresenter] = useState(false)
   const [containerWidth, setContainerWidth] = useState<number | undefined>(0)
@@ -152,11 +153,12 @@ function Navigation({
     <NavigationContainer
       ref={mergedContainerRef}
       className={className}
+      {...props}
     >
       <NavigationPositioner>
         <NavigationPresenter
           ref={presenterRef}
-          width={containerWidth}
+          containerWidth={containerWidth}
           showSidebar={showSidebar}
           isHover={hoverPresenter}
           onMouseEnter={handlePresenterMouseEnter}

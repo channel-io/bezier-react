@@ -95,7 +95,11 @@ function Navigations({ children }: NavigationsProps) {
   ])
 
   return (
-    <NavigationsWrapper>{ renderNavigationList(children) }</NavigationsWrapper>
+    <>
+      <NavigationsWrapper>
+        { renderNavigationList(children) }
+      </NavigationsWrapper>
+    </>
   )
 }
 
