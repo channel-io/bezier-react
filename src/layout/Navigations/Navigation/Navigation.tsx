@@ -51,11 +51,7 @@ function Navigation({
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [showChevron, setShowChevron] = useState(false)
   const [hoverPresenter, setHoverPresenter] = useState(false)
-  const [containerWidth, setContainerWidth] = useState<number | undefined>(0)
-
-  useEffect(() => {
-    setContainerWidth(containerRef.current?.clientWidth)
-  }, [containerRef.current?.clientWidth])
+  const [presenterWidth, setPresenterWidth] = useState<number | undefined>()
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
     onMouseDown(event, optionIndex)
@@ -70,6 +66,7 @@ function Navigation({
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) return
+      setPresenterWidth(containerRef.current?.clientWidth)
       onMouseMove(event)
     })
   }, [allowMouseMove, onMouseMove])
@@ -78,19 +75,19 @@ function Navigation({
   useEventHandler(document, 'mouseup', handleMouseUp)
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
-  const handlePresenterMouseEnter = useCallback(() => {
+  const handlePresenterMouseEnter = throttle(useCallback(() => {
     if (isNil(showSidebar)) { return }
     if (showSidebar) {
       setShowChevron(true)
     }
   }, [
     showSidebar,
-  ])
+  ]), 100)
 
-  const handlePresenterMouseLeave = useCallback(() => {
+  const handlePresenterMouseLeave = throttle(useCallback(() => {
     setShowChevron(false)
   }, [
-  ])
+  ]), 100)
 
   const handleClickClose = useCallback(() => {
     setShowSidebar(false)
@@ -158,7 +155,7 @@ function Navigation({
       <NavigationPositioner>
         <NavigationPresenter
           ref={presenterRef}
-          containerWidth={containerWidth}
+          presenterWidth={presenterWidth}
           showSidebar={showSidebar}
           isHover={hoverPresenter}
           onMouseEnter={handlePresenterMouseEnter}
