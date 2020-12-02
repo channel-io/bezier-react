@@ -38,7 +38,7 @@ export const NavigationContainer = styled.div`
 export const NavigationPositioner = styled.div`
   display: flex;
   flex-direction: column;
-  width: 0;
+  width: 100%;
   overflow: visible;
   z-index: 9;
   position: relative;
@@ -67,7 +67,9 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
     transform 200ms ease-in,
     opacity 100ms ease-out;
 
-  opacity: ${({ showSidebar, isHover }) => (isNil(showSidebar) && !(isHover) ? '0' : '1')};
+  opacity:
+    ${({ showSidebar, isHover }) => (
+    isNil(showSidebar) || (isHover) || (showSidebar) ? '1' : '0')};
 
   transform:
     ${({ showSidebar, isHover }) => {
