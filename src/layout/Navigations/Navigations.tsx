@@ -76,11 +76,9 @@ function Navigations({ children }: NavigationsProps) {
           if (!isNil(child.ref)) {
             set(child, 'ref.current', nav)
           }
-          set(navigationRefs.current, index, {
-            target: nav,
-            minWidth: child.props.minWidth,
-            maxWidth: child.props.maxWidth,
-          })
+          set(navigationRefs.current, [index, 'target'], nav)
+          set(navigationRefs.current, [index, 'minWidth'], child.props.minWidth)
+          set(navigationRefs.current, [index, 'maxWidth'], child.props.maxWidth)
         },
         optionIndex: index,
         onMouseDown: handleMouseDown,
@@ -95,11 +93,9 @@ function Navigations({ children }: NavigationsProps) {
   ])
 
   return (
-    <>
-      <NavigationsWrapper>
-        { renderNavigationList(children) }
-      </NavigationsWrapper>
-    </>
+    <NavigationsWrapper>
+      { renderNavigationList(children) }
+    </NavigationsWrapper>
   )
 }
 
