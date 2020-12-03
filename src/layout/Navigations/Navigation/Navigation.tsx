@@ -100,14 +100,18 @@ function Navigation({
 
   const handleDecideHover = useCallback((ev) => {
     const mouseX = ev.clientX
-    const containerLeft = containerRef.current?.getBoundingClientRect().right || 0
+    const containerRight = containerRef.current?.getBoundingClientRect().right || 0
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
-    if (mouseX < presenterRight && mouseX > containerLeft) {
+    if (mouseX < presenterRight && mouseX > containerRight) {
       setHoverPresenter(true)
     } else {
       setHoverPresenter(false)
     }
+  }, [])
+
+  useEffect(() => {
+    setPresenterWidth(containerRef.current?.clientWidth)
   }, [])
 
   useEffect(() => {

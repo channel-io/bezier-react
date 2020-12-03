@@ -73,6 +73,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
 
   transform:
     ${({ showSidebar, isHover }) => {
+    if (isNil(showSidebar)) { return 'translate(0, 0)' }
     if (isHover) { return ('translate(0, 40px)') }
     return (showSidebar === false ? 'translate(calc(20px - 100%), 40px)' : 'translate(0, 0)')
   }};
