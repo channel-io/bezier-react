@@ -44,14 +44,13 @@ function Navigation({
   ...props
 }: NavigationProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const mergedContainerRef = useMergeRefs<HTMLDivElement>(containerRef, forwardedRef)
   const presenterRef = useRef<HTMLDivElement | null>(null)
+  const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
   const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
 
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [showChevron, setShowChevron] = useState(false)
   const [hoverPresenter, setHoverPresenter] = useState(false)
-  const [presenterWidth, setPresenterWidth] = useState<number | undefined>()
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
     onMouseDown(event, optionIndex)
@@ -66,7 +65,6 @@ function Navigation({
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) return
-      setPresenterWidth(containerRef.current?.clientWidth)
       onMouseMove(event)
     })
   }, [allowMouseMove, onMouseMove])
@@ -86,8 +84,7 @@ function Navigation({
 
   const handlePresenterMouseLeave = throttle(useCallback(() => {
     setShowChevron(false)
-  }, [
-  ]), 100)
+  }, []), 100)
 
   const handleClickClose = useCallback(() => {
     setShowSidebar(false)
@@ -100,18 +97,14 @@ function Navigation({
 
   const handleDecideHover = useCallback((ev) => {
     const mouseX = ev.clientX
-    const containerRight = containerRef.current?.getBoundingClientRect().right || 0
+    const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
-    if (mouseX < presenterRight && mouseX > containerRight) {
+    if (mouseX < presenterRight && mouseX > containerLeft) {
       setHoverPresenter(true)
     } else {
       setHoverPresenter(false)
     }
-  }, [])
-
-  useEffect(() => {
-    setPresenterWidth(containerRef.current?.clientWidth)
   }, [])
 
   useEffect(() => {
@@ -136,9 +129,7 @@ function Navigation({
         { title }
       </Text>
     </TitleItemWrapper>
-  ), [
-    title,
-  ])
+  ), [title])
 
   const SwitcherComponent = useMemo(() => (
     <Icon
@@ -152,14 +143,14 @@ function Navigation({
 
   return (
     <NavigationContainer
-      ref={mergedContainerRef}
-      className={className}
+      ref={containerRef}
       {...props}
     >
       <NavigationPositioner>
         <NavigationPresenter
-          ref={presenterRef}
-          presenterWidth={presenterWidth}
+          ref={mergedPresenterRef}
+          className={className}
+          // presenterWidth={presenterWidth}
           showSidebar={showSidebar}
           isHover={hoverPresenter}
           onMouseEnter={handlePresenterMouseEnter}
