@@ -17,7 +17,7 @@ export const ResizeBar = styled.div`
 `
 
 interface NavigationNavigationProps {
-  isHover: boolean
+  showSidebar: boolean
 }
 
 export const NavigationContainer = styled.div<NavigationNavigationProps>`
@@ -27,9 +27,7 @@ export const NavigationContainer = styled.div<NavigationNavigationProps>`
   height: 100%;
   background-color: ${({ theme }) => theme?.colors?.background1};
   user-select: none;
-
-  transition: width 100ms ease-out;
-  will-change: width;
+  width: ${({ showSidebar }) => (showSidebar === false ? '0px' : 'inherit')};
 `
 
 export const NavigationPositioner = styled.div`

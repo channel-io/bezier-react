@@ -78,9 +78,7 @@ function Navigation({
     if (showSidebar) {
       setShowChevron(true)
     }
-  }, [
-    showSidebar,
-  ]), 100)
+  }, [showSidebar]), 100)
 
   const handlePresenterMouseLeave = throttle(useCallback(() => {
     setShowChevron(false)
@@ -88,12 +86,9 @@ function Navigation({
 
   const handleClickClose = useCallback(() => {
     setShowSidebar(false)
-    containerRef.current!.style.width = '0'
     setShowChevron(false)
     setHoverPresenter(true)
-  }, [
-    setShowSidebar,
-  ])
+  }, [setShowSidebar])
 
   const handleDecideHover = useCallback((ev) => {
     const mouseX = ev.clientX
@@ -137,20 +132,18 @@ function Navigation({
       onClick={handleClickClose}
     />
   ),
-  [
-    handleClickClose,
-  ])
+  [handleClickClose])
 
   return (
     <NavigationContainer
       ref={containerRef}
+      showSidebar={showSidebar}
       {...props}
     >
       <NavigationPositioner>
         <NavigationPresenter
           ref={mergedPresenterRef}
           className={className}
-          // presenterWidth={presenterWidth}
           showSidebar={showSidebar}
           isHover={hoverPresenter}
           onMouseEnter={handlePresenterMouseEnter}
