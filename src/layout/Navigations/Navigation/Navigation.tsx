@@ -23,26 +23,45 @@ import {
   NavigationPositioner,
   NavigationPresenter,
   TitleItemWrapper,
-  TitleWrapper,
+  StyledTitleWrapper,
+  StyledContentWrapper,
+  StyledFooterWrapper,
 } from './Navigation.styled'
+
+export const NAV_TEST_ID = 'ch-design-system-nav'
 
 extend(document, {
   requestAnimationFrame() {},
 })
 
-function Navigation({
-  className = '',
-  title = undefined,
-  showSidebar = undefined,
-  setShowSidebar = noop,
-  /* cloneElement Props */
-  optionIndex = 0,
-  onMouseDown = noop,
-  onMouseUp = noop,
-  onMouseMove = noop,
-  children,
-  ...props
-}: NavigationProps, forwardedRef: React.Ref<HTMLDivElement>) {
+function Navigation(
+  {
+    style,
+    className,
+    testId = NAV_TEST_ID,
+    title, // text
+    rightIcon, // action where right side of title
+    onClickRightIcon,
+    stickyFooter,
+    showSidebar, // disable hiding function when undefined
+    setShowSidebar = noop,
+    /* original navigation props - comment will be deleted after replace original nav */
+    disableResize = false,
+    fixedTitle = false,
+    scrollRef,
+    scrollClassName,
+    withScroll = false,
+    onScroll,
+    /* cloneElement Props */
+    optionIndex = 0,
+    onMouseDown = noop,
+    onMouseUp = noop,
+    onMouseMove = noop,
+    children,
+    ...otherProps
+  }: NavigationProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
   const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
@@ -63,11 +82,17 @@ function Navigation({
   }, [onMouseUp])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
+    if (disableResize) { return }
+
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) return
       onMouseMove(event)
     })
-  }, [allowMouseMove, onMouseMove])
+  }, [
+    disableResize,
+    allowMouseMove,
+    onMouseMove,
+  ])
 
   useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)
   useEventHandler(document, 'mouseup', handleMouseUp)
@@ -104,7 +129,7 @@ function Navigation({
 
   useEffect(() => {
     const throttledMove = throttle(handleDecideHover, 100)
-    if (!showSidebar) {
+    if (showSidebar === false) {
       document.addEventListener!('mousemove', throttledMove, false)
     } else {
       document.removeEventListener!('mousemove', throttledMove, false)
@@ -137,8 +162,9 @@ function Navigation({
   return (
     <NavigationContainer
       ref={containerRef}
+      data-testid={testId}
       showSidebar={showSidebar}
-      {...props}
+      {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter
@@ -149,11 +175,31 @@ function Navigation({
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          <TitleWrapper>
-            { title && TitleComponent }
-            { showChevron && !allowMouseMove && SwitcherComponent }
-          </TitleWrapper>
-          { children }
+          { (title && fixedTitle) && (
+            <StyledTitleWrapper>
+              { title && TitleComponent }
+              { showChevron && !allowMouseMove && SwitcherComponent }
+            </StyledTitleWrapper>
+          ) }
+          <StyledContentWrapper
+            ref={scrollRef}
+            className={scrollClassName}
+            withScroll={withScroll}
+            data-testid
+          >
+            { (title && !fixedTitle) && (
+              <StyledTitleWrapper>
+                { title && TitleComponent }
+                { showChevron && !allowMouseMove && SwitcherComponent }
+              </StyledTitleWrapper>
+            ) }
+            { children }
+          </StyledContentWrapper>
+          { stickyFooter && (
+            <StyledFooterWrapper>
+              { stickyFooter }
+            </StyledFooterWrapper>
+          ) }
         </NavigationPresenter>
       </NavigationPositioner>
       <ResizeBar ref={setResizeBarRef} />

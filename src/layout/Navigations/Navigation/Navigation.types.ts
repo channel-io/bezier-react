@@ -1,9 +1,20 @@
 /* Internal dependencies */
-import { UIComponentProps, ChildrenComponentProps } from '../../../types/ComponentProps'
+import { Ref } from 'react'
+import { ChildrenComponentProps } from '../../../types/ComponentProps'
 
-export default interface NavigationProps extends UIComponentProps, ChildrenComponentProps {
-  minWidth: number
-  maxWidth: number
+export default interface NavigationProps extends Omit<ChildrenComponentProps, 'as'> {
+
+  title?: string
+  rightIcon?: React.ReactNode
+  onClickRightIcon: () => void
+  /* original navigation props - comment will be deleted after replace original nav */
+  fixedTitle?: boolean
+  scrollRef?: Ref<HTMLDivElement>
+  scrollClassName?: string
+  withScroll?: boolean
+  disableResize?: boolean
+
+  /* cloneElement Props */
   optionIndex?: number
   onMouseDown?: (
     event: HTMLElementEventMap['mousedown'],

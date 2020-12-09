@@ -28,6 +28,9 @@ export const NavigationContainer = styled.div<NavigationNavigationProps>`
   background-color: ${({ theme }) => theme?.colors?.background1};
   user-select: none;
   width: ${({ showSidebar }) => (showSidebar === false ? '0px' : 'inherit')};
+
+  transition: width 100ms ease-in-out;
+  will-change: width;
 `
 
 export const NavigationPositioner = styled.div`
@@ -70,10 +73,29 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   will-change: transform, opacity;
 `
 
-export const TitleWrapper = styled.div`
+export const StyledTitleWrapper = styled.div`
   display: flex;
 `
 
 export const TitleItemWrapper = styled.div`
   flex: 1 1 auto;
+`
+
+interface StyledContentWrapperProps {
+  withScroll?: boolean
+}
+
+export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: ${({ withScroll }) => (withScroll ? 'auto' : 'hidden')};
+
+  & > *:last-child {
+    margin-bottom: 40px !important;
+  }
+`
+
+export const StyledFooterWrapper = styled.div`
+  width: 100%;
 `
