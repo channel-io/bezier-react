@@ -1,12 +1,15 @@
-export * from './Theme'
-export * from './ThemedStyledComponent'
+// Preset
+export * from './BaseTheme'
 
+// Foundations
+export * from './Elevation'
 export * from './Palette'
 export * from './Colors'
-export * from './Elevation'
 export * from './Rounding'
 export * from './Transition'
-export * from './Mixins'
 export * from './Typography'
+export * from './Mixins'
 
-export * from './BaseTheme'
+// Themed Styled Component, Interface
+export * from './Theme'
+export * from './ThemedStyledComponent'

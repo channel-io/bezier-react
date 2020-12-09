@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from '../index'
+import { css } from '../ThemedStyledComponent'
 
 enum TransitionDuration {
   S = '150ms',

@@ -1,5 +1,5 @@
 /* External dependencies */
-import { css } from './index'
+import { css } from './ThemedStyledComponent'
 
 const Size11 = css`
   font-size: 11px;

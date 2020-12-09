@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from '../index'
+import { css } from '../ThemedStyledComponent'
 
 const DefaultRoundStyle = css`
   overflow: hidden;
