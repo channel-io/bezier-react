@@ -61,7 +61,6 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
       <Wrapper>
         <Navigations>
           <NavigationElement1
-            title="Nav 1"
             showSidebar={showSidebar}
             setShowSidebar={setShowSidebar}
             minWidth={minWidth1}
@@ -74,7 +73,6 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
             <NavItem>NavItem5</NavItem>
           </NavigationElement1>
           <NavigationElement2
-            title="Nav 2"
             minWidth={minWidth2}
             maxWidth={maxWidth2}
           >

@@ -1,5 +1,6 @@
 /* External depdendencies */
 import { isNil } from 'lodash-es'
+import { Icon } from '../../../components/Icon'
 
 /* Internal dependencies */
 import { styled } from '../../../styling/Theme'
@@ -79,6 +80,10 @@ export const StyledTitleWrapper = styled.div`
 
 export const TitleItemWrapper = styled.div`
   flex: 1 1 auto;
+`
+
+export const ChevronIcon = styled(Icon)`
+  color: #979797;
 `
 
 interface StyledContentWrapperProps {

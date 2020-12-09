@@ -13,19 +13,16 @@ import { window, document, extend } from 'ssr-window'
 /* Internal dependencies */
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import { Icon } from '../../../components/Icon'
-import { Text } from '../../../components/Text'
-import Typography from '../../../styling/Typography'
 import NavigationProps from './Navigation.types'
 import {
   ResizeBar,
   NavigationContainer,
   NavigationPositioner,
   NavigationPresenter,
-  TitleItemWrapper,
   StyledTitleWrapper,
   StyledContentWrapper,
   StyledFooterWrapper,
+  ChevronIcon,
 } from './Navigation.styled'
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
@@ -39,15 +36,13 @@ function Navigation(
     style,
     className,
     testId = NAV_TEST_ID,
-    title, // text
-    rightIcon, // action where right side of title
-    onClickRightIcon,
+    header, // text
     stickyFooter,
     showSidebar, // disable hiding function when undefined
     setShowSidebar = noop,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
-    fixedTitle = false,
+    fixedHeader = false,
     scrollRef,
     scrollClassName,
     withScroll = false,
@@ -140,24 +135,21 @@ function Navigation(
   ])
 
   const TitleComponent = useMemo(() => (
-    <TitleItemWrapper>
-      <Text
-        as="div"
-        bold
-        typo={Typography.Size24}
-      >
-        { title }
-      </Text>
-    </TitleItemWrapper>
-  ), [title])
-
-  const SwitcherComponent = useMemo(() => (
-    <Icon
-      name="chevron-left-double"
-      onClick={handleClickClose}
-    />
-  ),
-  [handleClickClose])
+    <StyledTitleWrapper>
+      { header }
+      { showChevron && !allowMouseMove && (
+        <ChevronIcon
+          name="chevron-left-double"
+          onClick={handleClickClose}
+        />
+      ) }
+    </StyledTitleWrapper>
+  ), [
+    allowMouseMove,
+    handleClickClose,
+    header,
+    showChevron,
+  ])
 
   return (
     <NavigationContainer
@@ -175,11 +167,8 @@ function Navigation(
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          { (title && fixedTitle) && (
-            <StyledTitleWrapper>
-              { title && TitleComponent }
-              { showChevron && !allowMouseMove && SwitcherComponent }
-            </StyledTitleWrapper>
+          { (header && fixedHeader) && (
+            { TitleComponent }
           ) }
           <StyledContentWrapper
             ref={scrollRef}
@@ -187,11 +176,8 @@ function Navigation(
             withScroll={withScroll}
             data-testid
           >
-            { (title && !fixedTitle) && (
-              <StyledTitleWrapper>
-                { title && TitleComponent }
-                { showChevron && !allowMouseMove && SwitcherComponent }
-              </StyledTitleWrapper>
+            { (header && !fixedHeader) && (
+              { TitleComponent }
             ) }
             { children }
           </StyledContentWrapper>
