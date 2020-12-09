@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/indent, consistent-return */
 /* Internal dependencies */
-import { styled, css } from '../../styling/Theme'
+import { styled, css } from '../../foundation'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`

@@ -2,7 +2,7 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps, StyledContentWrapperProps } from './ListMenuGroup.types'
 

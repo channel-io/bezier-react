@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internel dependencies */
 import EnableCSSHoudini from '../src/worklets/EnableCSSHoudini'
-import { ThemeProvider, LightTheme, DarkTheme } from '../src/styling/Theme'
+import { ThemeProvider, LightTheme, DarkTheme } from '../src/foundation'
 
 // CSS Houdini
 EnableCSSHoudini({ smoothCorners: true })

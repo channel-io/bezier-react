@@ -1,4 +1,4 @@
-enum Palette {
+export enum Palette {
   // Black
   black70 = 'rgba(0, 0, 0, .7)',
   black50 = 'rgba(0, 0, 0, .5)',
@@ -107,5 +107,3 @@ enum Palette {
   // Absolute White
   white = '#FFF',
 }
-
-export default Palette

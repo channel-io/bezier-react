@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import { IconStyledProps } from './Icon.types'
 
 function getMargin({

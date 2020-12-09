@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
-import { absoluteCenter } from '../../styling/Mixins'
+import { styled, absoluteCenter } from '../../foundation'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 import CheckType from './CheckType'
 

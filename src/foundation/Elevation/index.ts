@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from '../Theme'
+import { css } from '../index'
 
 const defaultBorderWidth = 1
 
@@ -43,7 +43,7 @@ const ev60 = css`
     0 6px 60px ${props => props.theme?.colors?.shadow1};
 `
 
-export default {
+export const Elevation = {
   ev0,
   ev10,
   ev20,

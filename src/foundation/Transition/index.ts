@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from '../Theme'
+import { css } from '../index'
 
 enum TransitionDuration {
   S = '150ms',
@@ -26,7 +26,7 @@ function getTransitionCSS(
   `
 }
 
-export default {
+export const Transition = {
   TransitionEasing,
   TransitionDuration,
   getTransitionCSS,

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, styled } from '../../../styling/Theme'
+import { css, styled } from '../../../foundation'
 import { StyledWrapperProps } from './ListItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`

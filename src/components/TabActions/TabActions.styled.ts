@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import { StyledWrapperProps } from './TabActions.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`

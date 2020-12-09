@@ -1,5 +1,5 @@
 /* External dependencies */
-import { css } from './Theme'
+import { css } from './index'
 
 const Size11 = css`
   font-size: 11px;
@@ -41,7 +41,7 @@ const Size24 = css`
   line-height: 32px;
 `
 
-export default {
+export const Typography = {
   Size11,
   Size12,
   Size13,

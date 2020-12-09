@@ -3,9 +3,8 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { styled } from '../Theme'
 import { getTitle } from '../../utils/utils'
-import Elevation from './index'
+import { styled } from '../index'
 
 export default {
   title: getTitle(base),
@@ -34,26 +33,7 @@ interface ElevationChipProps {
 const ElevationChip = styled.div<ElevationChipProps>`
   width: 100px;
   height: 100px;
-
-  ${({ ev }) => {
-    switch (ev) {
-      case 'ev60':
-        return Elevation.ev60
-      case 'ev50':
-        return Elevation.ev50
-      case 'ev40':
-        return Elevation.ev40
-      case 'ev30':
-        return Elevation.ev30
-      case 'ev20':
-        return Elevation.ev20
-      case 'ev10':
-        return Elevation.ev10
-      case 'ev0':
-      default:
-        return Elevation.ev0
-    }
-  }};
+  ${({ theme, ev }) => theme?.elevation?.[ev]};
 `
 
 const Template = (args) => (

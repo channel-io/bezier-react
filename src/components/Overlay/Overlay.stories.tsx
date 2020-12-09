@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import Overlay from './Overlay'
 import { OverlayPosition } from './Overlay.types'
 

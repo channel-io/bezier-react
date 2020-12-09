@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import Palette from '../Palette'
+import { Palette } from '../Palette'
 
-export interface Colors {
+export interface Color {
   textBase: string
   text7?: string
   text5?: string
@@ -50,7 +50,7 @@ export interface Colors {
   focus1?: string
 }
 
-export const Light: Colors = {
+export const Light: Color = {
   textBase: Palette.grey900,
   text7: Palette.grey700,
   text5: Palette.grey500,
@@ -81,7 +81,7 @@ export const Light: Colors = {
   focus1: Palette.blue_10,
 }
 
-export const Dark: Colors = {
+export const Dark: Color = {
   textBase: Palette.grey100,
   background2: Palette.grey900,
   background1: Palette.grey700,
@@ -91,7 +91,7 @@ const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
 
 interface CreateColorsConfig {
-  colors: Partial<Colors>
+  color: Partial<Color>
   base?: string
 }
 
@@ -106,16 +106,17 @@ function getColorsFromKeyword(keyword: string) {
 }
 
 export function createColors({
-  colors,
+  color,
   base = 'light',
-}: CreateColorsConfig): Colors {
+}: CreateColorsConfig): Color {
   return {
     ...getColorsFromKeyword(base),
-    ...colors,
+    ...color,
   }
 }
 
-export default {
+export const Colors = {
+  createColors,
   Light,
   Dark,
 }

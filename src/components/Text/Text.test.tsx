@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import Typography from '../../styling/Typography'
+import { Typography } from '../../foundation'
 import Text, { TEXT_TEST_ID } from './Text'
 import TextProps from './Text.types'
 

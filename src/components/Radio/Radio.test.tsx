@@ -3,8 +3,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import Colors from '../../styling/Colors'
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
+import {
+  ThemeProvider,
+  LightTheme,
+  Colors,
+} from '../../foundation'
 import Radio, { RADIO_TEST_ID } from './Radio'
 import RadioProps from './Radio.types'
 

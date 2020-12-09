@@ -1,4 +1,4 @@
-import { css } from './Theme'
+import { css } from './index'
 
 export const absoluteCenter = (otherTransforms: any) => `
   position: absolute;

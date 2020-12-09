@@ -3,9 +3,12 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
-import Palette from '../../styling/Palette'
-import { Light as LightColors } from '../../styling/Colors'
+import {
+  ThemeProvider,
+  LightTheme,
+  Light as LightColors,
+  Palette,
+} from '../../foundation'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'

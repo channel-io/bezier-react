@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import TextProps from './Text.types'
 
 const Text = styled.span<TextProps>`

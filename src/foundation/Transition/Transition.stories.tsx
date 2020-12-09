@@ -3,7 +3,7 @@ import React, { useCallback, useState, useMemo } from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { styled } from '../Theme'
+import { styled } from '../index'
 import { getTitle } from '../../utils/utils'
 
 export default {
@@ -56,9 +56,13 @@ const Element = styled.div.attrs<ElementProps>(({
   height: 100px;
   background-color: lightgray;
   border-radius: 4px;
-  transition-property: top, right, bottom, left;
+  ${props => props.theme?.transition?.getTransitionCSS(
+    ['top', 'right', 'bottom', 'left'],
+    props.theme.transition.TransitionDuration.M,
+  )};
+  /* transition-property: top, right, bottom, left;
   transition-duration: ${props => props.theme?.transition?.TransitionDuration.M};
-  transition-timing-function: ${props => props.theme?.transition?.TransitionEasing};
+  transition-timing-function: ${props => props.theme?.transition?.TransitionEasing}; */
 `
 
 const Template = (args) => {

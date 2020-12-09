@@ -3,9 +3,9 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { styled } from '../Theme'
 import { getTitle } from '../../utils/utils'
-import { Light, Dark } from './index'
+import { styled } from '../index'
+import { Colors } from './index'
 
 export default {
   title: getTitle(base),
@@ -62,10 +62,10 @@ const Template = ({ color }) => (
 
 export const LightColors = Template.bind({})
 LightColors.args = {
-  color: Light,
+  color: Colors.Light,
 }
 
 export const DarkColors = Template.bind({})
 DarkColors.args = {
-  color: Dark,
+  color: Colors.Dark,
 }
