@@ -6,10 +6,14 @@ import { base } from 'paths.macro'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
+import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { NavigationHeader } from '../NavigationHeader'
-import Navigations from './Navigations'
+import { Div } from '../../worklets/smoothCorners/smoothCorners.styled'
+import Text from '../../components/Text/Text.styled'
+import Typography from '../../styling/Typography'
 import Navigation from './Navigation'
+import Navigations from './Navigations'
 
 export default {
   title: getTitle(base),
@@ -38,18 +42,41 @@ const NavigationElement1 = styled(Navigation)`
 `
 
 const NavigationElement2 = styled(Navigation)`
-  width: 200px;
+  width: 300px;
   z-index: 400;
   background-color: ${Palette.grey500};
+`
+
+const ProfileWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   // will be provider
   const [showSidebar, setShowSidebar] = useState(true)
 
+  const DummyProfile = useMemo(() => (
+    <ProfileWrapper>
+      <Div width={40} height={40} />
+      <Text typo={Typography.Size16}>Betty</Text>
+    </ProfileWrapper>
+  ), [])
+
+  const DummyActions = useMemo(() => (
+    <>
+      <Icon name="home" />
+      <Icon name="email"/>
+    </>
+  ), [])
+
   const Element1Header = useMemo(() => (
     <NavigationHeader title="Title" />
   ), [])
+
+  const Element2Header = useMemo(() => (
+    <NavigationHeader title={DummyProfile} actions={DummyActions}/>
+  ), [DummyProfile, DummyActions])
 
   return (
     <Container>
@@ -71,6 +98,7 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
             <ListItem content="NavItem7" />
           </NavigationElement1>
           <NavigationElement2
+            header={Element2Header}
             minWidth={minWidth2}
             maxWidth={maxWidth2}
           >
@@ -92,6 +120,6 @@ export const Primary = Template.bind({})
 Primary.args = {
   minWidth1: 100,
   maxWidth1: 300,
-  minWidth2: 140,
-  maxWidth2: 350,
+  minWidth2: 200,
+  maxWidth2: 450,
 }
