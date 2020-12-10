@@ -94,7 +94,6 @@ function Navigation(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = throttle(useCallback(() => {
-    // if (isNil(showSidebar)) { return }
     if (showSidebar) {
       setShowChevron(true)
     }
