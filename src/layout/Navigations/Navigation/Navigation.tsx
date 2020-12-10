@@ -39,8 +39,8 @@ function Navigation(
     testId = NAV_TEST_ID,
     header,
     stickyFooter,
-    showSidebar, // disable hiding when undefined
-    setShowSidebar = noop,
+    show, // disable hiding when undefined
+    setShow = noop,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
     fixedHeader = false,
@@ -95,20 +95,20 @@ function Navigation(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
-    if (showSidebar) {
+    if (show) {
       setShowChevron(true)
     }
-  }, 100, undefined, [showSidebar])
+  }, 100, undefined, [show])
 
   const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)
   }, 100, undefined, [])
 
   const handleClickClose = useCallback(() => {
-    setShowSidebar(false)
+    setShow(false)
     setShowChevron(false)
     setIsHoveringOnPresenter(true)
-  }, [setShowSidebar])
+  }, [setShow])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
@@ -120,12 +120,12 @@ function Navigation(
   }, 100, undefined, [])
 
   useEffect(() => {
-    if (showSidebar === false) {
+    if (show === false) {
       document.addEventListener!('mousemove', handleDecideHover, false)
     } else {
       document.removeEventListener!('mousemove', handleDecideHover, false)
     }
-  }, [handleDecideHover, showSidebar])
+  }, [handleDecideHover, show])
 
   const HeaderComponent = useMemo(() => {
     if (!header) { return null }
@@ -156,14 +156,14 @@ function Navigation(
     <NavigationContainer
       ref={containerRef}
       data-testid={testId}
-      showSidebar={showSidebar}
+      showSidebar={show}
       {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter
           ref={mergedPresenterRef}
           className={className}
-          showSidebar={showSidebar}
+          showSidebar={show}
           isHover={isHoveringOnPresenter}
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}

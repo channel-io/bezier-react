@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { Navigation } from '../../../layout/Navigation'
+import { Navigation } from '../../../layout/Navigations'
 import { getTitle } from '../../../utils/utils'
 import { Icon } from '../../Icon'
 import { IconSize } from '../../Icon/Icon.types'

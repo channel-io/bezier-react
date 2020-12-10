@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { Navigation } from '../../../layout/Navigation'
+import { Navigation } from '../../../layout/Navigations'
 import { getTitle } from '../../../utils/utils'
 import { ListItem } from '../ListItem'
 import ListMenuGroup from './ListMenuGroup'

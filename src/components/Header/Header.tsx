@@ -1,10 +1,10 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
 import Typography from '../../styling/Typography'
 import { Text } from '../Text'
-import { ActionWrapper, Container, TitleWrapper } from './Header.styled'
+import { ActionWrapper, Container, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 
 export const NAV_HEADER_TEST_ID = 'ch-design-system-nav-header'
@@ -14,8 +14,11 @@ function Header(
     testId,
     style,
     className,
-    title, // Text or Text With Image
+    title,
     titleClassName,
+    titleSize = Typography.Size18,
+    titleImageUrl,
+    titleImageSize = 42,
     actions,
     onClickTitle,
     /* Navigation cloneElement Props */
@@ -23,28 +26,22 @@ function Header(
   }: HeaderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const renderTitle = useCallback(element => {
-    if (typeof element === 'string') {
-      return (
-        <TitleWrapper className={titleClassName}>
-          <Text
-            typo={Typography.Size24}
-            bold
-            onClick={onClickTitle}
-          >
-            { element }
-          </Text>
-        </TitleWrapper>
-      )
-    }
-    return (
-      <TitleWrapper onClick={onClickTitle}>
-        { element }
-      </TitleWrapper>
-    )
-  }, [titleClassName, onClickTitle])
+  const titleComponent = useMemo(() => (
+    <TitleWrapper className={titleClassName}>
+      { titleImageUrl && (
+        <TitleImage imageUrl={titleImageUrl} imageSize={titleImageSize} />
+      ) }
+      <Text
+        typo={titleSize}
+        bold
+        onClick={onClickTitle}
+      >
+        { title }
+      </Text>
+    </TitleWrapper>
+  ), [onClickTitle, title, titleClassName, titleImageSize, titleImageUrl, titleSize])
 
-  const actionComponents = useMemo(() => (
+  const actionsComponent = useMemo(() => (
     actions && (
       <ActionWrapper>
         { actions }
@@ -60,8 +57,8 @@ function Header(
       style={style}
       isHover={isHover}
     >
-      { renderTitle(title) }
-      { actionComponents }
+      { titleComponent }
+      { actionsComponent }
     </Container>
   )
 }

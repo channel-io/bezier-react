@@ -85,8 +85,8 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
         <Navigations>
           <NavigationElement1
             header={Element1Header}
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
+            show={showSidebar}
+            setShow={setShowSidebar}
             minWidth={minWidth1}
             maxWidth={maxWidth1}
           >
