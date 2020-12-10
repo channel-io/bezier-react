@@ -2,6 +2,10 @@
 import NavigationHeader from './NavigationHeader'
 import type NavigationHeaderProps from './NavigationHeader.types'
 
-export type { NavigationHeaderProps }
+export type {
+  NavigationHeaderProps,
+}
 
-export { NavigationHeader }
+export {
+  NavigationHeader,
+}

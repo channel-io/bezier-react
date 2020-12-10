@@ -74,16 +74,26 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   will-change: transform, opacity;
 `
 
-export const StyledTitleWrapper = styled.div`
-  display: flex;
-`
+interface StyledTitleWrapperProps {
+  fixed: boolean
+}
 
-export const TitleItemWrapper = styled.div`
-  flex: 1 1 auto;
+export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
+  display: flex;
+  align-items: center;
 `
 
 export const ChevronIcon = styled(Icon)`
+  flex-shrink: 0;
   color: #979797;
+  padding: 6px;
+  border-radius: 8px;
+  margin-right: 11px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.background3};
+  }
 `
 
 interface StyledContentWrapperProps {

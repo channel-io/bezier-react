@@ -7,7 +7,7 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { isNil, noop, throttle } from 'lodash-es'
+import { noop, throttle } from 'lodash-es'
 import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
@@ -94,7 +94,7 @@ function Navigation(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = throttle(useCallback(() => {
-    if (isNil(showSidebar)) { return }
+    // if (isNil(showSidebar)) { return }
     if (showSidebar) {
       setShowChevron(true)
     }
@@ -115,11 +115,7 @@ function Navigation(
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
-    if (mouseX < presenterRight && mouseX > containerLeft) {
-      setHoverPresenter(true)
-    } else {
-      setHoverPresenter(false)
-    }
+    setHoverPresenter(mouseX < presenterRight && mouseX > containerLeft)
   }, [])
 
   useEffect(() => {
@@ -134,8 +130,8 @@ function Navigation(
     showSidebar,
   ])
 
-  const TitleComponent = useMemo(() => (
-    <StyledTitleWrapper>
+  const HeaderComponent = useMemo(() => (
+    <StyledTitleWrapper fixed={fixedHeader}>
       { header }
       { showChevron && !allowMouseMove && (
         <ChevronIcon
@@ -146,9 +142,10 @@ function Navigation(
     </StyledTitleWrapper>
   ), [
     allowMouseMove,
-    handleClickClose,
     header,
+    fixedHeader,
     showChevron,
+    handleClickClose,
   ])
 
   return (
@@ -168,7 +165,7 @@ function Navigation(
           onMouseLeave={handlePresenterMouseLeave}
         >
           { (header && fixedHeader) && (
-            { TitleComponent }
+            HeaderComponent
           ) }
           <StyledContentWrapper
             ref={scrollRef}
@@ -177,7 +174,7 @@ function Navigation(
             data-testid
           >
             { (header && !fixedHeader) && (
-              { TitleComponent }
+              HeaderComponent
             ) }
             { children }
           </StyledContentWrapper>

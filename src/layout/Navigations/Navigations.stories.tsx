@@ -1,11 +1,13 @@
 /* External dependencies */
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
+import { ListItem } from '../../components/List/ListItem'
+import { NavigationHeader } from '../NavigationHeader'
 import Navigations from './Navigations'
 import Navigation from './Navigation'
 
@@ -41,46 +43,44 @@ const NavigationElement2 = styled(Navigation)`
   background-color: ${Palette.grey500};
 `
 
-const NavItem = styled.div`
-  width: 100%;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  color: ${Palette.black};
-
-  &:hover {
-    background-color:${Palette.grey700};
-  }
-`
-
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   // will be provider
   const [showSidebar, setShowSidebar] = useState(true)
+
+  const Element1Header = useMemo(() => (
+    <NavigationHeader title="Title" />
+  ), [])
 
   return (
     <Container>
       <Wrapper>
         <Navigations>
           <NavigationElement1
+            header={Element1Header}
             showSidebar={showSidebar}
             setShowSidebar={setShowSidebar}
             minWidth={minWidth1}
             maxWidth={maxWidth1}
           >
-            <NavItem>NavItem1</NavItem>
-            <NavItem>NavItem2</NavItem>
-            <NavItem>NavItem3</NavItem>
-            <NavItem>NavItem4</NavItem>
-            <NavItem>NavItem5</NavItem>
+            <ListItem content="NavItem1" />
+            <ListItem content="NavItem2" />
+            <ListItem content="NavItem3" />
+            <ListItem content="NavItem4" />
+            <ListItem content="NavItem5" />
+            <ListItem content="NavItem6" />
+            <ListItem content="NavItem7" />
           </NavigationElement1>
           <NavigationElement2
             minWidth={minWidth2}
             maxWidth={maxWidth2}
           >
-            <NavItem>NavItem1</NavItem>
-            <NavItem>NavItem2</NavItem>
-            <NavItem>NavItem3</NavItem>
-            <NavItem>NavItem4</NavItem>
-            <NavItem>NavItem5</NavItem>
+            <ListItem content="NavItem1" />
+            <ListItem content="NavItem2" />
+            <ListItem content="NavItem3" />
+            <ListItem content="NavItem4" />
+            <ListItem content="NavItem5" />
+            <ListItem content="NavItem6" />
+            <ListItem content="NavItem7" />
           </NavigationElement2>
         </Navigations>
       </Wrapper>

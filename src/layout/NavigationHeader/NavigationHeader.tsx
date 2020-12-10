@@ -56,7 +56,7 @@ function NavigationHeader(
       style={style}
     >
       { renderTitle(title) }
-      { renderActions(actions) }
+      { actions && renderActions(actions) }
     </Container>
   )
 }
