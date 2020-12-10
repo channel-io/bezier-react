@@ -11,7 +11,7 @@ export const Container = styled.div<ContainerProps>`
   min-height: 70px;
   padding: 22px 6px 18px 18px;
   box-sizing: border-box;
-  background-color: ${({ theme, isHover }) => (isHover === true ? 'initial' : theme.colors.background1)};
+  background-color: ${({ isHover }) => (isHover === true ? 'initial' : 'transparent')};
 `
 
 export const TitleWrapper = styled.div`
@@ -19,7 +19,7 @@ export const TitleWrapper = styled.div`
 `
 
 export const ActionWrapper = styled.div`
-  flex: 1 1 0;
+  flex-shrink: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
