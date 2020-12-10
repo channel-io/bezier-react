@@ -6,12 +6,12 @@ import { base } from 'paths.macro'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
+import Typography from '../../styling/Typography'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
-import { NavigationHeader } from '../NavigationHeader'
-import { Div } from '../../worklets/smoothCorners/smoothCorners.styled'
+import { Header } from '../../components/Header'
 import Text from '../../components/Text/Text.styled'
-import Typography from '../../styling/Typography'
+import { Div } from '../../worklets/smoothCorners/smoothCorners.styled'
 import Navigation from './Navigation'
 import Navigations from './Navigations'
 
@@ -71,11 +71,11 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   ), [])
 
   const Element1Header = useMemo(() => (
-    <NavigationHeader title="Title" />
+    <Header title="Title" />
   ), [])
 
   const Element2Header = useMemo(() => (
-    <NavigationHeader title={DummyProfile} actions={DummyActions}/>
+    <Header title={DummyProfile} actions={DummyActions}/>
   ), [DummyProfile, DummyActions])
 
   return (

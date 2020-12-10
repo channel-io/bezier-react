@@ -2,14 +2,14 @@
 import React, { forwardRef, useCallback, useMemo } from 'react'
 
 /* Internal dependencies */
-import Text from '../../components/Text/Text.styled'
 import Typography from '../../styling/Typography'
-import { ActionWrapper, Container, TitleWrapper } from './NavigationHeader.styled'
-import NavigationHeaderProps from './NavigationHeader.types'
+import { Text } from '../Text'
+import { ActionWrapper, Container, TitleWrapper } from './Header.styled'
+import HeaderProps from './Header.types'
 
 export const NAV_HEADER_TEST_ID = 'ch-design-system-nav-header'
 
-function NavigationHeader(
+function Header(
   {
     testId,
     style,
@@ -20,7 +20,7 @@ function NavigationHeader(
     onClickTitle,
     /* Navigation cloneElement Props */
     isHover,
-  }: NavigationHeaderProps,
+  }: HeaderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const renderTitle = useCallback(element => {
@@ -66,4 +66,4 @@ function NavigationHeader(
   )
 }
 
-export default forwardRef(NavigationHeader)
+export default forwardRef(Header)
