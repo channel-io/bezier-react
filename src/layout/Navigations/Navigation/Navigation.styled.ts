@@ -43,6 +43,7 @@ export const NavigationPositioner = styled.div`
   bottom: 0;
   height: 100%;
 `
+
 interface NavigationPresenterProps {
   showSidebar: boolean
   isHover: boolean

@@ -2,7 +2,7 @@
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 
 export default interface NavigationHeaderProps extends Omit<ChildrenComponentProps, 'as'> {
-  title?: string | React.ReactNode // Text or Text With Image
+  title?: React.ReactNode
   titleClassName?: string
   actions?: Array<React.ReactNode>
   onClickTitle?: () => void
