@@ -118,29 +118,26 @@ function Navigation(
   }, [])
 
   useEffect(() => {
-    const throttledMove = throttle(handleDecideHover, 100)
     if (showSidebar === false) {
-      document.addEventListener!('mousemove', throttledMove, false)
+      document.addEventListener!('mousemove', handleDecideHover, false)
     } else {
-      document.removeEventListener!('mousemove', throttledMove, false)
+      document.removeEventListener!('mousemove', handleDecideHover, false)
     }
-  }, [
-    handleDecideHover,
-    showSidebar,
-  ])
+  }, [handleDecideHover, showSidebar])
 
   const HeaderComponent = useMemo(() => {
     if (!header) { return null }
+
     return (
       <StyledTitleWrapper fixed={fixedHeader}>
         { /* Background 등 처리를 위해 */ }
         { React.cloneElement(header!, { isHover: hoverPresenter }) }
         { showChevron && !allowMouseMove && (
-        <ChevronIcon
-          name="chevron-left-double"
-          onClick={handleClickClose}
-          marginRight={10}
-        />
+          <ChevronIcon
+            name="chevron-left-double"
+            onClick={handleClickClose}
+            marginRight={10}
+          />
         ) }
       </StyledTitleWrapper>
     )
