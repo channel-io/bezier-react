@@ -18,6 +18,8 @@ function NavigationHeader(
     titleClassName,
     actions,
     onClickTitle,
+    /* Navigation cloneElement Props */
+    isHover,
   }: NavigationHeaderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -54,6 +56,7 @@ function NavigationHeader(
       data-testid={testId}
       className={className}
       style={style}
+      isHover={isHover}
     >
       { renderTitle(title) }
       { actions && renderActions(actions) }

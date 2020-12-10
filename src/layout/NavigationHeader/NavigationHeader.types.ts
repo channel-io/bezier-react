@@ -7,4 +7,6 @@ export default interface NavigationHeaderProps extends Omit<ChildrenComponentPro
   actions?: Array<React.ReactNode>
   onClickTitle?: () => void
   onClickActions?: Array<Function>
+  /* Navigation cloneElement Props */
+  isHover?: boolean
 }

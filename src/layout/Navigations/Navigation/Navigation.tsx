@@ -36,7 +36,7 @@ function Navigation(
     style,
     className,
     testId = NAV_TEST_ID,
-    header, // text
+    header,
     stickyFooter,
     showSidebar, // disable hiding function when undefined
     setShowSidebar = noop,
@@ -129,22 +129,28 @@ function Navigation(
     showSidebar,
   ])
 
-  const HeaderComponent = useMemo(() => (
-    <StyledTitleWrapper fixed={fixedHeader}>
-      { header }
-      { showChevron && !allowMouseMove && (
+  const HeaderComponent = useMemo(() => {
+    if (!header) { return null }
+    return (
+      <StyledTitleWrapper fixed={fixedHeader}>
+        { /* Background 등 처리를 위해 */ }
+        { React.cloneElement(header!, { isHover: hoverPresenter }) }
+        { showChevron && !allowMouseMove && (
         <ChevronIcon
           name="chevron-left-double"
           onClick={handleClickClose}
+          marginRight={10}
         />
-      ) }
-    </StyledTitleWrapper>
-  ), [
+        ) }
+      </StyledTitleWrapper>
+    )
+  }, [
     allowMouseMove,
     header,
     fixedHeader,
     showChevron,
     handleClickClose,
+    hoverPresenter,
   ])
 
   return (

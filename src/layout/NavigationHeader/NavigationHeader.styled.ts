@@ -1,13 +1,17 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
 
-export const Container = styled.div`
+interface ContainerProps {
+  isHover?: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   width: 100%;
   height: 70px;
-  padding: 21px 18px 18px;
+  padding: 22px 6px 18px 18px;
   box-sizing: border-box;
-  background-color: ${props => props.theme?.colors?.background1};
+  background-color: ${({ theme, isHover }) => (isHover === true ? 'initial' : theme.colors.background1)};
 `
 
 export const TitleWrapper = styled.div`

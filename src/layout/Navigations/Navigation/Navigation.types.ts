@@ -3,7 +3,7 @@ import { Ref } from 'react'
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 
 export default interface NavigationProps extends Omit<ChildrenComponentProps, 'as'> {
-  header?: React.ReactNode
+  header?: React.ReactElement
   /* original navigation props - comment will be deleted after replace original nav */
   fixedTitle?: boolean
   scrollRef?: Ref<HTMLDivElement>

@@ -85,10 +85,11 @@ export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
 
 export const ChevronIcon = styled(Icon)`
   flex-shrink: 0;
-  color: #979797;
+  width: 20px;
+  height: 20px;
   padding: 6px;
   border-radius: 8px;
-  margin-right: 11px;
+  color: #979797;
   cursor: pointer;
 
   &:hover {
