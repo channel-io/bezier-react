@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { forwardRef, useCallback } from 'react'
-import Text from '../../components/Text/Text.styled'
-import Typography from '../../styling/Typography'
 
 /* Internal dependencies */
+import Text from '../../components/Text/Text.styled'
+import Typography from '../../styling/Typography'
 import { ActionWrapper, Container, TitleWrapper } from './NavigationHeader.styled'
 import NavigationHeaderProps from './NavigationHeader.types'
 

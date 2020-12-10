@@ -39,7 +39,7 @@ function Navigation(
     testId = NAV_TEST_ID,
     header,
     stickyFooter,
-    showSidebar, // disable hidingåå when undefined
+    showSidebar, // disable hiding when undefined
     setShowSidebar = noop,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
