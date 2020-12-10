@@ -7,10 +7,11 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { noop, throttle } from 'lodash-es'
+import { noop } from 'lodash-es'
 import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
+import useThrottleCallback from '../../../hooks/useThrottleCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import NavigationProps from './Navigation.types'
@@ -38,7 +39,7 @@ function Navigation(
     testId = NAV_TEST_ID,
     header,
     stickyFooter,
-    showSidebar, // disable hiding function when undefined
+    showSidebar, // disable hidingåå when undefined
     setShowSidebar = noop,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
@@ -93,15 +94,15 @@ function Navigation(
   useEventHandler(document, 'mouseup', handleMouseUp)
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
-  const handlePresenterMouseEnter = throttle(useCallback(() => {
+  const handlePresenterMouseEnter = useThrottleCallback(() => {
     if (showSidebar) {
       setShowChevron(true)
     }
-  }, [showSidebar]), 100)
+  }, 100, undefined, [showSidebar])
 
-  const handlePresenterMouseLeave = throttle(useCallback(() => {
+  const handlePresenterMouseLeave = useThrottleCallback(() => {
     setShowChevron(false)
-  }, []), 100)
+  }, 100, undefined, [])
 
   const handleClickClose = useCallback(() => {
     setShowSidebar(false)
@@ -109,13 +110,14 @@ function Navigation(
     setHoverPresenter(true)
   }, [setShowSidebar])
 
-  const handleDecideHover = useCallback((ev) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleDecideHover = useThrottleCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
     setHoverPresenter(mouseX < presenterRight && mouseX > containerLeft)
-  }, [])
+  }, 100, undefined, [])
 
   useEffect(() => {
     if (showSidebar === false) {
