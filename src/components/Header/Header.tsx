@@ -4,7 +4,7 @@ import React, { forwardRef, useMemo } from 'react'
 /* Internal dependencies */
 import Typography from '../../styling/Typography'
 import { Text } from '../Text'
-import { ActionWrapper, Container, TitleImage, TitleWrapper } from './Header.styled'
+import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 
 export const NAV_HEADER_TEST_ID = 'ch-design-system-nav-header'
@@ -29,7 +29,9 @@ function Header(
   const titleComponent = useMemo(() => (
     <TitleWrapper className={titleClassName}>
       { titleImageUrl && (
-        <TitleImage imageUrl={titleImageUrl} imageSize={titleImageSize} />
+        <ImageWrapper>
+          <TitleImage imageUrl={titleImageUrl} imageSize={titleImageSize} />
+        </ImageWrapper>
       ) }
       <Text
         typo={titleSize}

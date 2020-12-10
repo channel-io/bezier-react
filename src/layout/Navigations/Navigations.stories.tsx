@@ -6,12 +6,9 @@ import { base } from 'paths.macro'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
-import Typography from '../../styling/Typography'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
-import Text from '../../components/Text/Text.styled'
-import { Div } from '../../worklets/smoothCorners/smoothCorners.styled'
 import Navigation from './Navigation'
 import Navigations from './Navigations'
 
@@ -44,29 +41,22 @@ const NavigationElement1 = styled(Navigation)`
 const NavigationElement2 = styled(Navigation)`
   width: 300px;
   z-index: 400;
-  background-color: ${Palette.grey500};
+  background-color: ${({ theme }) => theme.colors.background0};
+  border-right: 2px solid ${({ theme }) => theme.colors.border2};
 `
 
-const ProfileWrapper = styled.div`
-  display: flex;
-  align-items: center;
+const StyledIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.iconBase};
 `
 
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   // will be provider
   const [showSidebar, setShowSidebar] = useState(true)
 
-  const DummyProfile = useMemo(() => (
-    <ProfileWrapper>
-      <Div width={40} height={40} />
-      <Text typo={Typography.Size16}>Betty</Text>
-    </ProfileWrapper>
-  ), [])
-
   const DummyActions = useMemo(() => (
     <>
-      <Icon name="home" />
-      <Icon name="email"/>
+      <StyledIcon name="search" marginRight={10}/>
+      <StyledIcon name="triangle-updown"/>
     </>
   ), [])
 
@@ -75,54 +65,61 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   ), [])
 
   const Element2Header = useMemo(() => (
-    <Header title={DummyProfile} actions={DummyActions}/>
-  ), [DummyProfile, DummyActions])
+    <Header
+      title="Betty"
+      titleImageUrl="https://picsum.photos/200/300.jpg"
+      actions={DummyActions}
+    />
+  ), [DummyActions])
 
   return (
-    <Container>
+    <>
       <button type="button" onClick={() => setShowSidebar(true)}>사이드바 열기</button>
-      <Wrapper>
-        <Navigations>
-          <NavigationElement1
-            header={Element1Header}
-            show={showSidebar}
-            setShow={setShowSidebar}
-            minWidth={minWidth1}
-            maxWidth={maxWidth1}
-          >
-            <ListItem content="NavItem1" />
-            <ListItem content="NavItem2" />
-            <ListItem content="NavItem3" />
-            <ListItem content="NavItem4" />
-            <ListItem content="NavItem5" />
-            <ListItem content="NavItem6" />
-            <ListItem content="NavItem7" />
-          </NavigationElement1>
-          <NavigationElement2
-            header={Element2Header}
-            minWidth={minWidth2}
-            maxWidth={maxWidth2}
-            withScroll
-          >
-            <ListItem content="NavItem1" />
-            <ListItem content="NavItem2" />
-            <ListItem content="NavItem3" />
-            <ListItem content="NavItem4" />
-            <ListItem content="NavItem5" />
-            <ListItem content="NavItem6" />
-            <ListItem content="NavItem7" />
-            <ListItem content="NavItem4" />
-            <ListItem content="NavItem5" />
-            <ListItem content="NavItem6" />
-            <ListItem content="NavItem7" />
-            <ListItem content="NavItem4" />
-            <ListItem content="NavItem5" />
-            <ListItem content="NavItem6" />
-            <ListItem content="NavItem7" />
-          </NavigationElement2>
-        </Navigations>
-      </Wrapper>
-    </Container>
+      <Container>
+        <Wrapper>
+          <Navigations>
+            <NavigationElement1
+              header={Element1Header}
+              show={showSidebar}
+              setShow={setShowSidebar}
+              minWidth={minWidth1}
+              maxWidth={maxWidth1}
+            >
+              <ListItem content="NavItem1" />
+              <ListItem content="NavItem2" />
+              <ListItem content="NavItem3" />
+              <ListItem content="NavItem4" />
+              <ListItem content="NavItem5" />
+              <ListItem content="NavItem6" />
+              <ListItem content="NavItem7" />
+            </NavigationElement1>
+            <NavigationElement2
+              header={Element2Header}
+              minWidth={minWidth2}
+              maxWidth={maxWidth2}
+              withScroll
+              fixedHeader
+            >
+              <ListItem content="NavItem1" />
+              <ListItem content="NavItem2" />
+              <ListItem content="NavItem3" />
+              <ListItem content="NavItem4" />
+              <ListItem content="NavItem5" />
+              <ListItem content="NavItem6" />
+              <ListItem content="NavItem7" />
+              <ListItem content="NavItem4" />
+              <ListItem content="NavItem5" />
+              <ListItem content="NavItem6" />
+              <ListItem content="NavItem7" />
+              <ListItem content="NavItem4" />
+              <ListItem content="NavItem5" />
+              <ListItem content="NavItem6" />
+              <ListItem content="NavItem7" />
+            </NavigationElement2>
+          </Navigations>
+        </Wrapper>
+      </Container>
+    </>
   )
 }
 

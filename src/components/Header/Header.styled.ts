@@ -11,16 +11,19 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   width: 100%;
   min-height: 70px;
-  padding: 22px 6px 18px 18px;
+  padding: 14px 12px;
   box-sizing: border-box;
   background-color: ${({ isHover }) => (isHover === true ? 'initial' : 'transparent')};
-  border: 1px solid red;
 `
 
 export const TitleWrapper = styled.div`
   flex: 1 1 0;
   display: flex;
   align-items: center;
+`
+
+export const ImageWrapper = styled.div`
+  margin-right: 12px;
 `
 
 export const ActionWrapper = styled.div`

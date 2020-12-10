@@ -31,7 +31,7 @@ const Template = ({ ...otherProps }) => (
 export const Primary = Template.bind({})
 
 Primary.args = {
-  title: 'Hello Header',
+  title: 'Betty',
   titleSize: Typography.Size18,
   titleImageUrl: 'https://picsum.photos/200/300.jpg',
   titleImageSize: 42,
