@@ -80,6 +80,7 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
 
   return (
     <Container>
+      <button type="button" onClick={() => setShowSidebar(true)}>사이드바 열기</button>
       <Wrapper>
         <Navigations>
           <NavigationElement1
@@ -101,10 +102,19 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
             header={Element2Header}
             minWidth={minWidth2}
             maxWidth={maxWidth2}
+            withScroll
           >
             <ListItem content="NavItem1" />
             <ListItem content="NavItem2" />
             <ListItem content="NavItem3" />
+            <ListItem content="NavItem4" />
+            <ListItem content="NavItem5" />
+            <ListItem content="NavItem6" />
+            <ListItem content="NavItem7" />
+            <ListItem content="NavItem4" />
+            <ListItem content="NavItem5" />
+            <ListItem content="NavItem6" />
+            <ListItem content="NavItem7" />
             <ListItem content="NavItem4" />
             <ListItem content="NavItem5" />
             <ListItem content="NavItem6" />

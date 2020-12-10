@@ -176,7 +176,7 @@ function Navigation(
             ref={scrollRef}
             className={scrollClassName}
             withScroll={withScroll}
-            data-testid
+            onScroll={onScroll}
           >
             { (header && !fixedHeader) && (
               HeaderComponent
