@@ -11,7 +11,7 @@ import { noop } from 'lodash-es'
 import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
-import useThrottleCallback from '../../../hooks/useThrottleCallback'
+import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import NavigationProps from './Navigation.types'
@@ -65,7 +65,7 @@ function Navigation(
 
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [showChevron, setShowChevron] = useState(false)
-  const [hoverPresenter, setHoverPresenter] = useState(false)
+  const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
     onMouseDown(event, optionIndex)
@@ -94,29 +94,29 @@ function Navigation(
   useEventHandler(document, 'mouseup', handleMouseUp)
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
-  const handlePresenterMouseEnter = useThrottleCallback(() => {
+  const handlePresenterMouseEnter = useThrottledCallback(() => {
     if (showSidebar) {
       setShowChevron(true)
     }
   }, 100, undefined, [showSidebar])
 
-  const handlePresenterMouseLeave = useThrottleCallback(() => {
+  const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)
   }, 100, undefined, [])
 
   const handleClickClose = useCallback(() => {
     setShowSidebar(false)
     setShowChevron(false)
-    setHoverPresenter(true)
+    setIsHoveringOnPresenter(true)
   }, [setShowSidebar])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleDecideHover = useThrottleCallback((ev: MouseEvent) => {
+  const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
-    setHoverPresenter(mouseX < presenterRight && mouseX > containerLeft)
+    setIsHoveringOnPresenter(mouseX < presenterRight && mouseX > containerLeft)
   }, 100, undefined, [])
 
   useEffect(() => {
@@ -133,7 +133,7 @@ function Navigation(
     return (
       <StyledTitleWrapper fixed={fixedHeader}>
         { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header!, { isHover: hoverPresenter }) }
+        { React.cloneElement(header!, { isHover: isHoveringOnPresenter }) }
         { showChevron && !allowMouseMove && (
           <ChevronIcon
             name="chevron-left-double"
@@ -149,7 +149,7 @@ function Navigation(
     fixedHeader,
     showChevron,
     handleClickClose,
-    hoverPresenter,
+    isHoveringOnPresenter,
   ])
 
   return (
@@ -164,7 +164,7 @@ function Navigation(
           ref={mergedPresenterRef}
           className={className}
           showSidebar={showSidebar}
-          isHover={hoverPresenter}
+          isHover={isHoveringOnPresenter}
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >

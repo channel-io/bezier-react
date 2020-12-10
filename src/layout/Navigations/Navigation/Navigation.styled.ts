@@ -17,11 +17,11 @@ export const ResizeBar = styled.div`
   z-index: 9999999;
 `
 
-interface NavigationNavigationProps {
+interface NavigationContainerProps {
   showSidebar: boolean
 }
 
-export const NavigationContainer = styled.div<NavigationNavigationProps>`
+export const NavigationContainer = styled.div<NavigationContainerProps>`
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
@@ -29,7 +29,7 @@ export const NavigationContainer = styled.div<NavigationNavigationProps>`
   background-color: ${({ theme }) => theme?.colors?.background1};
   user-select: none;
   width: ${({ showSidebar }) => (showSidebar === false ? '0px' : 'inherit')};
-
+  /* TODO: Foundation Transition 으로 교체 */
   transition: width 100ms ease-in-out;
   will-change: width;
 `
@@ -56,7 +56,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   pointer-events: auto;
 
   background-color: ${({ showSidebar }) => (showSidebar === false && 'white')};
-
+  /* TODO: Foundation Transition 으로 교체 */
   transition:
     transform 200ms ease-in,
     opacity 100ms ease-out;

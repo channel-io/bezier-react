@@ -22,7 +22,6 @@ export * from './components/Overlay'
 
 /* Layout */
 export * from './layout/GNB'
-export * from './layout/Navigation'
 export * from './layout/GlobalHeader'
 
 /* Styling */

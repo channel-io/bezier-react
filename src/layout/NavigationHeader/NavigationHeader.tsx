@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useCallback } from 'react'
+import React, { forwardRef, useCallback, useMemo } from 'react'
 
 /* Internal dependencies */
 import Text from '../../components/Text/Text.styled'
@@ -44,11 +44,13 @@ function NavigationHeader(
     )
   }, [titleClassName, onClickTitle])
 
-  const renderActions = useCallback((elements) => (
-    <ActionWrapper>
-      { elements }
-    </ActionWrapper>
-  ), [])
+  const actionComponents = useMemo(() => (
+    actions && (
+      <ActionWrapper>
+        { actions }
+      </ActionWrapper>
+    )
+  ), [actions])
 
   return (
     <Container
@@ -59,7 +61,7 @@ function NavigationHeader(
       isHover={isHover}
     >
       { renderTitle(title) }
-      { actions && renderActions(actions) }
+      { actionComponents }
     </Container>
   )
 }
