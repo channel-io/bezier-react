@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { Navigation } from '../../../layout/Navigations'
+import { Navigation, Navigations } from '../../../layout/Navigations'
 import { getTitle } from '../../../utils/utils'
 import { ListItem } from '../ListItem'
 import ListMenuGroup from './ListMenuGroup'
@@ -47,35 +47,37 @@ const Template = ({ ...otherListMenuGroupProps }) => {
   }, [])
 
   return (
-    <Navigation
-      withScroll
-      disableResize
-      title="사이드바"
-      minWidth={SIDEBAR_WIDTH}
-    >
-      <ListMenuGroup
-        open={open}
-        selectedMenuItemIndex={idx}
-        onClick={handleClickGroup}
-        onClickArrow={handleToggle}
-        onChangeOption={handleClickItem}
-        {...otherListMenuGroupProps}
+    <Navigations>
+      <Navigation
+        withScroll
+        disableResize
+        title="사이드바"
+        minWidth={SIDEBAR_WIDTH}
       >
-        { range(0, 4).map(n => (
+        <ListMenuGroup
+          open={open}
+          selectedMenuItemIndex={idx}
+          onClick={handleClickGroup}
+          onClickArrow={handleToggle}
+          onChangeOption={handleClickItem}
+          {...otherListMenuGroupProps}
+        >
+          { range(0, 4).map(n => (
+            <ListItem
+              key={uuid()}
+              optionKey={`menu-item-${n}`}
+              content={`아이템 ${n}`}
+            />
+          )) }
           <ListItem
             key={uuid()}
-            optionKey={`menu-item-${n}`}
-            content={`아이템 ${n}`}
+            optionKey="item-with-a"
+            href="https://naver.com"
+            content="네이버 가기"
           />
-        )) }
-        <ListItem
-          key={uuid()}
-          optionKey="item-with-a"
-          href="https://naver.com"
-          content="네이버 가기"
-        />
-      </ListMenuGroup>
-    </Navigation>
+        </ListMenuGroup>
+      </Navigation>
+    </Navigations>
   )
 }
 
