@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { Navigation } from '../../../layout/Navigation'
+import { Navigation, Navigations } from '../../../layout/Navigations'
 import { getTitle } from '../../../utils/utils'
 import { Icon } from '../../Icon'
 import { IconSize } from '../../Icon/Icon.types'
@@ -19,17 +19,19 @@ const Template = ({
   rightAction = (<div><Icon name="sent" size={IconSize.XS} /></div>),
   ...otherListItemProps
 }) => (
-  <Navigation
-    withScroll
-    disableResize
-    title="사이드바"
-    minWidth={SIDEBAR_WIDTH}
-  >
-    <ListMenuTitle
-      rightAction={rightAction}
-      {...otherListItemProps}
-    />
-  </Navigation>
+  <Navigations>
+    <Navigation
+      withScroll
+      disableResize
+      title="사이드바"
+      minWidth={SIDEBAR_WIDTH}
+    >
+      <ListMenuTitle
+        rightAction={rightAction}
+        {...otherListItemProps}
+      />
+    </Navigation>
+  </Navigations>
 
 )
 
