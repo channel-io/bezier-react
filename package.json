@@ -26,7 +26,7 @@
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
     "build": "cross-env BABEL_ENV=build rollup -c",
     "prebuild": "npm run typecheck",
-    "prepublishOnly": "npm run build:icon && npm run build",
+    "prepublishOnly": "npm run build:icon && npm run build && npm run build:storybook && npm run deploy:storybook",
     "antlr:lexer": "antlr4ts src/components/Editor/utils/Parsers/Antlr/TextBlockLexer.g4",
     "antlr:parser": "antlr4ts src/components/Editor/utils/Parsers/Antlr/TextBlockParser.g4",
     "build:storybook": "build-storybook",
