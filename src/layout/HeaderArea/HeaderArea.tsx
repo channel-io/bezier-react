@@ -23,11 +23,14 @@ interface HeaderWrapperProps {
   sideWidth: number
 }
 
-const HeaderWrapper = styled(Div)<HeaderWrapperProps>`
+const HeaderWrapper = styled(Div).attrs(({ sideState, sideWidth }: HeaderWrapperProps) => ({
+  style: {
+    gridTemplateColumns: `1fr ${sideState === SideState.SplitView ? sideWidth : 250}px`,
+  },
+}))<HeaderWrapperProps>`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   display: grid;
-  grid-template-columns: 1fr 250px; // TODO: context 연동
   grid-template-rows: 1fr;
   z-index: ${({ sideState }) => (sideState === SideState.SidePanel ? 50 : 40)};
 `
