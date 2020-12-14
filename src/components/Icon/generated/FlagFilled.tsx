@@ -2,11 +2,12 @@ import React from 'react'
 
 function SvgFlagFilled(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M6 3v19H4V3h2zm15.191 0a.5.5 0 01.447.724L19 9l2.638 5.276a.5.5 0 01-.447.724H7V3h14.191z"
+        clipRule="evenodd"
+        d="M6 3H4v19h2V3zm15.191 0H7v12h14.191a.5.5 0 00.447-.724L19 9l2.638-5.276A.5.5 0 0021.191 3z"
       />
     </svg>
   )

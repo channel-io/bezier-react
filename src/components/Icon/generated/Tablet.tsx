@@ -2,12 +2,17 @@ import React from 'react'
 
 function SvgTablet(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        d="M17 2a2 2 0 012 2v1H7v14h10v-5h2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2h10zm.475 6.112l1.413 1.412L10.412 18H9v-1.413l8.475-8.475zm3.532-2.12a1 1 0 010 1.413l-1.413 1.413-1.412-1.413 1.412-1.413a1 1 0 011.413 0z"
-      />
+    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
+      <g fill="currentColor">
+        <path
+          fill="currentColor"
+          d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2v-8l-2 2v5H7V5h12V4a2 2 0 00-2-2H7z"
+        />
+        <path
+          fill="currentColor"
+          d="M10.412 17H9v-1.413l7.475-7.475 1.413 1.412L10.412 17zM17.182 7.405l1.412 1.413 1.414-1.413a1 1 0 00-1.414-1.413l-1.412 1.413z"
+        />
+      </g>
     </svg>
   )
 }

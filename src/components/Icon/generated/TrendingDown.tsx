@@ -2,11 +2,12 @@ import React from 'react'
 
 function SvgTrendingDown(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M12.366 17.849l5.165-5.166a.4.4 0 00-.283-.683h-3.25V6.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5V12H6.751a.4.4 0 00-.283.683l5.166 5.166c.202.202.53.202.732 0z"
+        clipRule="evenodd"
+        d="M11.634 17.849l-5.166-5.167A.4.4 0 016.751 12H10V6.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V12h3.25a.4.4 0 01.282.682l-5.165 5.167a.518.518 0 01-.732 0z"
       />
     </svg>
   )
