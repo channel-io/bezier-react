@@ -7,7 +7,7 @@ import { document } from 'ssr-window'
 import { styled } from '../../styling/Theme'
 
 const Div = styled.div`
-  border: 2px solid #f76707;
+  border: 1px solid #f76707;
   border-radius: 5px;
   background-color: #fff4e6;
   display: flex;

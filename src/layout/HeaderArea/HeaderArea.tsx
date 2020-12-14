@@ -1,11 +1,12 @@
 /* External dependencies */
-import React from 'react'
+import React, { useContext } from 'react'
 
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
+import { LayoutContext, SideState } from '../PlayGround/PlayGround'
 
 const Div = styled.div`
-  border: 2px solid #f76707;
+  border: 1px solid #f76707;
   border-radius: 5px;
   background-color: #fff4e6;
   display: flex;
@@ -17,12 +18,18 @@ const Div = styled.div`
   align-self: stretch;
 `
 
-const HeaderWrapper = styled(Div)`
+interface HeaderWrapperProps {
+  sideState: SideState
+  sideWidth: number
+}
+
+const HeaderWrapper = styled(Div)<HeaderWrapperProps>`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   display: grid;
   grid-template-columns: 1fr 250px; // TODO: context 연동
   grid-template-rows: 1fr;
+  z-index: ${({ sideState }) => (sideState === SideState.SidePanel ? 50 : 40)};
 `
 
 const LeftHeader = styled(Div)`
@@ -36,9 +43,12 @@ const RightHeader = styled(Div)`
 `
 
 function HeaderArea() {
+  const layoutContext = useContext(LayoutContext)
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper sideState={layoutContext!.sideState} sideWidth={layoutContext!.sideWidth}>
       <LeftHeader>Header - Left</LeftHeader>
+      { /* Split View의 Header는 Split View Area에 있다고 가정하고 작성하였으나, RightHeader을 갈아끼는 방식으로도 가능함. */ }
       <RightHeader>Header - Right</RightHeader>
     </HeaderWrapper>
   )

@@ -10,6 +10,9 @@ import { HeaderArea } from '../HeaderArea'
 import { SidePanelArea } from '../SidePanelArea'
 import { SplitViewArea } from '../SplitViewArea'
 
+const SIDE_MAX_WIDTH = 500
+const SIDE_MIN_WIDTH = 200
+
 export enum SideState {
   None = 'NONE',
   SidePanel = 'SidePanel',
@@ -32,11 +35,9 @@ const ContainerWrapper = styled.div.attrs(({ sideWidth }: ContentWrapperProps) =
   height: 100%;
 `
 
-const LayoutContext = React.createContext<{
+export const LayoutContext = React.createContext<{
   sideState: SideState
   sideWidth: number
-  sideMaxWidth: number
-  sideMinWidth: number
 } | undefined>(undefined)
 
 extend(document, {
@@ -48,14 +49,10 @@ function Container() {
 
   const [sideState, setSideState] = useState<SideState>(SideState.SidePanel)
   const [sideWidth, setSideWidth] = useState<number>(300)
-  const SIDE_MAX_WIDTH = 500
-  const SIDE_MIN_WIDTH = 200
 
   const contextValue = {
     sideState,
     sideWidth,
-    sideMaxWidth: SIDE_MAX_WIDTH,
-    sideMinWidth: SIDE_MIN_WIDTH,
   }
 
   const handleResizing = useCallback((e: MouseEvent) => {
@@ -72,13 +69,17 @@ function Container() {
     setSideState(SideState.SplitView)
   }, [])
 
+  const handleCloseSplitView = useCallback(() => {
+    setSideState(SideState.SidePanel)
+  }, [])
+
   return (
     <LayoutContext.Provider value={contextValue}>
       <ContainerWrapper sideWidth={sideWidth} sideState={sideState}>
         <HeaderArea />
         <ContentArea ref={contentRef} onResizing={handleResizing} onOpenSplitView={handleOpenSplitView}/>
         <SidePanelArea />
-        <SplitViewArea />
+        <SplitViewArea onCloseSplitView={handleCloseSplitView}/>
       </ContainerWrapper>
     </LayoutContext.Provider>
   )
