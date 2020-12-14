@@ -21,7 +21,6 @@ interface ContentWrapperProps {
   sideState: SideState
 }
 
-// FIXME: 이렇게 처리해도 over 200 classes ... 에러가 발생함.
 const ContainerWrapper = styled.div.attrs(({ sideWidth }: ContentWrapperProps) => ({
   style: {
     gridTemplateColumns: `1fr ${sideWidth}px`,
