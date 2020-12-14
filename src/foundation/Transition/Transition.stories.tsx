@@ -26,8 +26,8 @@ export default {
 const ElementWrapper = styled.div`
   position: relative;
   border: 1px solid red;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   overflow: hidden;
 `
 
@@ -79,24 +79,24 @@ const Template = (args) => {
     switch (args.property) {
       case 'top':
         return {
-          top: isEntered ? 200 : -100,
-          left: 200,
+          top: isEntered ? 100 : -100,
+          left: 100,
         }
       case 'right':
         return {
-          right: isEntered ? 200 : -100,
-          top: 200,
+          right: isEntered ? 100 : -100,
+          top: 100,
         }
       case 'bottom':
         return {
-          bottom: isEntered ? 200 : -100,
-          left: 200,
+          bottom: isEntered ? 100 : -100,
+          left: 100,
         }
       case 'left':
       default:
         return {
-          left: isEntered ? 200 : -100,
-          top: 200,
+          left: isEntered ? 100 : -100,
+          top: 100,
         }
     }
   }, [args, isEntered])

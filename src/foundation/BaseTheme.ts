@@ -4,18 +4,13 @@ import { Colors } from './Colors'
 import { Transition } from './Transition'
 import { Rounding } from './Rounding'
 import { Elevation } from './Elevation'
-// import {
-//   Theme,
-//   Colors,
-//   Transition,
-//   Rounding,
-//   Elevation,
-// } from './index'
+import { Border } from './Border'
 
 const BaseTheme = {
   transition: Transition,
   rounding: Rounding,
   elevation: Elevation,
+  border: Border,
 }
 
 export const LightTheme: Theme = {

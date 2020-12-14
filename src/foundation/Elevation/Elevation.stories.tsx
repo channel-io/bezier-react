@@ -13,13 +13,12 @@ export default {
       control: {
         type: 'radio',
         options: [
-          'ev0',
-          'ev10',
-          'ev20',
-          'ev30',
-          'ev40',
-          'ev50',
-          'ev60',
+          'ev1',
+          'ev2',
+          'ev3',
+          'ev4',
+          'ev5',
+          'ev6',
         ],
       },
     },
@@ -34,6 +33,7 @@ const ElevationChip = styled.div<ElevationChipProps>`
   width: 100px;
   height: 100px;
   ${({ theme, ev }) => theme?.elevation?.[ev]};
+  ${({ theme }) => theme?.rounding?.round30};
 `
 
 const Template = (args) => (
@@ -42,5 +42,5 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  ev: 'ev0',
+  ev: 'ev1',
 }

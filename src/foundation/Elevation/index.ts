@@ -1,54 +1,49 @@
 /* Internal dependencies */
 import { css } from '../ThemedStyledComponent'
 
-const defaultBorderWidth = 1
+const defaultBorderStyle = '0 0 2px 1px'
 
-const ev0 = css`
-  box-shadow: 0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1};
+const ev1 = css`
+  box-shadow:
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 1px 2px ${({ theme }) => theme?.colors?.shadow1};
 `
 
-const ev10 = css`
+const ev2 = css`
   box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 2px 6px ${props => props.theme?.colors?.shadow1};
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 2px 6px ${({ theme }) => theme?.colors?.shadow1};
 `
 
-const ev20 = css`
+const ev3 = css`
   box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 4px 16px ${props => props.theme?.colors?.shadow1};
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 4px 12px ${({ theme }) => theme?.colors?.shadow1};
 `
 
-const ev30 = css`
+const ev4 = css`
   box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 4px 16px ${props => props.theme?.colors?.shadow1};
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 4px 20px ${({ theme }) => theme?.colors?.shadow1};
 `
 
-const ev40 = css`
+const ev5 = css`
   box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 4px 20px ${props => props.theme?.colors?.shadow1};
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 6px 40px ${({ theme }) => theme?.colors?.shadow1};
 `
 
-const ev50 = css`
+const ev6 = css`
   box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 4px 20px ${props => props.theme?.colors?.shadow1};
-`
-
-const ev60 = css`
-  box-shadow:
-    0 0 0 ${defaultBorderWidth}px ${props => props.theme?.colors?.shadow1},
-    0 6px 60px ${props => props.theme?.colors?.shadow1};
+    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.shadow1},
+    0 12px 60px ${({ theme }) => theme?.colors?.shadow1};
 `
 
 export const Elevation = {
-  ev0,
-  ev10,
-  ev20,
-  ev30,
-  ev40,
-  ev50,
-  ev60,
+  ev1,
+  ev2,
+  ev3,
+  ev4,
+  ev5,
+  ev6,
 }

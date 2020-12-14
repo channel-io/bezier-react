@@ -7,6 +7,7 @@ export * from './Palette'
 export * from './Colors'
 export * from './Rounding'
 export * from './Transition'
+export * from './Border'
 export * from './Typography'
 export * from './Mixins'
 

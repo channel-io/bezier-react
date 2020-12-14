@@ -13,13 +13,13 @@ export default {
       control: {
         type: 'radio',
         options: [
-          'Round10',
-          'Round20',
-          'Round30',
-          'Round40',
-          'Round50',
-          'Round60',
-          'Round70',
+          'round10',
+          'round20',
+          'round30',
+          'round40',
+          'round50',
+          'round60',
+          'round70',
         ],
       },
     },
@@ -33,8 +33,8 @@ interface RoundingChipProps {
 const RoundingChip = styled.div<RoundingChipProps>`
   width: 100px;
   height: 100px;
-  ${props => props.theme?.elevation?.ev20};
   ${({ theme, round }) => theme?.rounding?.[round]};
+  ${({ theme }) => theme?.elevation?.ev3};
 `
 
 const Template = (args) => (
@@ -43,5 +43,5 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  round: 'Round10',
+  round: 'round10',
 }
