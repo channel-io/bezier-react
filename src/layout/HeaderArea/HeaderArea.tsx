@@ -13,15 +13,35 @@ const Div = styled.div`
   justify-content: center;
   font-weight: bold;
   font-size: 30px;
+  justify-self: stretch;
+  align-self: stretch;
 `
 
 const HeaderWrapper = styled(Div)`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr 250px; // TODO: context 연동
+  grid-template-rows: 1fr;
+`
+
+const LeftHeader = styled(Div)`
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+`
+
+const RightHeader = styled(Div)`
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 `
 
 function HeaderArea() {
-  return <HeaderWrapper>Header</HeaderWrapper>
+  return (
+    <HeaderWrapper>
+      <LeftHeader>Header - Left</LeftHeader>
+      <RightHeader>Header - Right</RightHeader>
+    </HeaderWrapper>
+  )
 }
 
 export default HeaderArea
