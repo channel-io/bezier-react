@@ -54,6 +54,7 @@ export const StyledHandle = styled.div`
 function ContentArea({
   onResizing = noop,
   onOpenSplitView = noop,
+  ...otherProps
 }, forwardedRef: React.Ref<HTMLDivElement>) {
   const [isDragging, setIsDragging] = useState(false)
 
@@ -80,7 +81,7 @@ function ContentArea({
   document.addEventListener!('mouseup', handleMouseUp, false)
 
   return (
-    <ContentWrapper ref={forwardedRef}>
+    <ContentWrapper ref={forwardedRef} {...otherProps}>
       Content
       <button type="button" onClick={onOpenSplitView}>스플릿 뷰 열기</button>
       <StyledHandle onMouseDown={handleMouseDown}/>
