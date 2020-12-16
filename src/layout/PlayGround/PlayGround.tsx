@@ -73,10 +73,13 @@ function Container() {
   const navigationRef = useRef<NavigationHandles | null>(null)
   const contentRef = useRef<HTMLDivElement | null>(null)
 
-  // will be provider
   const [showSidebar, setShowSidebar] = useState(true)
   const [sideState, setSideState] = useState<SideState>(SideState.SidePanel)
   const [sideWidth, setSideWidth] = useState<number>(322)
+
+  const initialPosition = useRef<number>(0)
+  const contentInitialWidth = useRef<number>(0)
+  const sideInitialWidth = useRef<number>(0)
 
   const contextValue = {
     sideState,
@@ -85,31 +88,29 @@ function Container() {
 
   const handleResizing = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
-      // NOTE: Resizer는 Content에 달려 있지만 Side WIDTH를 조정합니다.
-      const contentLeft = (contentRef.current?.offsetLeft || 0)
-      const contentWidth = (contentRef.current?.clientWidth || 0)
-      let deltaX = e.pageX - contentLeft - contentWidth
+      // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
+      const movedPosition = initialPosition.current - e.clientX
+      const afterContentWidth = contentInitialWidth.current - movedPosition
 
-      // 부들부들대는 버그가 있음... delta 값이 왔다갔다 하는 것이 원인인 듯 함. 정확히는 contentLeft가 흔들리게 된다.
-      if (contentWidth + deltaX < CONTENT_MIN_WIDTH) {
-        setSideWidth(v => v + contentWidth - CONTENT_MIN_WIDTH)
-        deltaX = e.pageX - contentLeft - CONTENT_MIN_WIDTH
-        navigationRef.current?.handleMouseMoveOutside(deltaX)
-        return
+      if (afterContentWidth < CONTENT_MIN_WIDTH) {
+        navigationRef.current?.handleMouseMoveOutside(-movedPosition + contentInitialWidth.current - CONTENT_MIN_WIDTH)
       }
 
-      setSideWidth(v => clamp(
-        v - deltaX,
+      // 여기서 변화하는 값이 imperativeHandle에서도 동일한 값이 변경되게끔 보장되어야 한다.
+      setSideWidth(clamp(
+        sideInitialWidth.current + movedPosition,
         SIDE_MIN_WIDTH,
         SIDE_MAX_WIDTH,
-      ),
-      )
+      ))
     })
   }, [])
 
-  const handleResizerMouseDown = useCallback(() => {
+  const handleResizerMouseDown = useCallback((e) => {
+    contentInitialWidth.current = contentRef.current!.clientWidth
+    initialPosition.current = e.clientX
+    sideInitialWidth.current = sideWidth
     navigationRef.current?.handleMouseDownOutside()
-  }, [])
+  }, [sideWidth])
 
   const handleResizerMouseUp = useCallback(() => {
     navigationRef.current?.handleMouseUpOutSide()
@@ -145,7 +146,10 @@ function Container() {
             <ListItem content="NavItem4" />
           </NavigationElement2>
         </Navigations>
-        <ContainerWrapper sideWidth={sideWidth} sideState={sideState}>
+        <ContainerWrapper
+          sideWidth={sideWidth}
+          sideState={sideState}
+        >
           <HeaderArea />
           <ContentArea
             ref={contentRef}

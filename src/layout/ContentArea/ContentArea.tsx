@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useCallback, useState, forwardRef, useEffect } from 'react'
+import React, { useCallback, useState, forwardRef, useEffect, MouseEvent } from 'react'
 import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
@@ -60,13 +60,13 @@ function ContentArea({
 }, forwardedRef: React.Ref<HTMLDivElement>) {
   const [isDragging, setIsDragging] = useState(false)
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
     onResizing(e)
   }, [onResizing])
 
-  const handleMouseDown = useCallback(() => {
+  const handleMouseDown = useCallback((e: MouseEvent) => {
     setIsDragging(true)
-    onResizerMouseDown()
+    onResizerMouseDown(e)
   }, [onResizerMouseDown])
 
   const handleMouseUp = useCallback(() => {
