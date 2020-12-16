@@ -30,20 +30,17 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
 
     currentIndex.current = lastIndex
     initialIndex.current = lastIndex
-    // 필요없는 값일 듯
-    // initialPosition.current = event.clientX
   }, [])
 
   const handleShrinkMouseUp = useCallback(() => {
 
   }, [])
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleShrinkLast = useCallback((deltaX: number) => {
     let movedPosition = deltaX
-    // console.log('deltaX is', deltaX)
-    //  To Be Implemented
-    // const optionIndex =
+    const lastIndex = size(navigationRefs.current) - 1
+
+    currentIndex.current = lastIndex
     for (const index in navigationRefs.current) {
       if (navigationRefs.current[index]) {
         const currentNode = navigationRefs.current[index]
@@ -51,16 +48,14 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
       }
     }
 
-    while (currentIndex.current >= 0 && movedPosition <= 0) {
+    while (currentIndex.current >= 0 && movedPosition < 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
       const willChangeWidth = Math.max(initialWidth + movedPosition, minWidth)
-      // console.log('im in while!', currentIndex.current, initialWidth, movedPosition)
-      // console.log(willChangeWidth)
 
       if (initialWidth + movedPosition > minWidth) {
         movedPosition = 0
       } else {
-        movedPosition = -movedPosition - initialWidth + minWidth
+        movedPosition = movedPosition + initialWidth - minWidth
       }
 
       if (willChangeWidth <= maxWidth) {
@@ -104,7 +99,7 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = initialPosition.current - event.clientX
-    // console.log(movedPosition)
+
     currentIndex.current = initialIndex.current
     if (movedPosition < 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
