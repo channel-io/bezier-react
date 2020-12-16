@@ -38,7 +38,7 @@ const LayoutWrapper = styled.div`
 
 const ContainerWrapper = styled.div.attrs(({ sideWidth }: ContentWrapperProps) => ({
   style: {
-    gridTemplateColumns: `minmax(330px, 1fr) ${sideWidth}px`,
+    gridTemplateColumns: `minmax(${CONTENT_MIN_WIDTH}, 1fr) ${sideWidth}px`,
   },
 }))<ContentWrapperProps>`
   display: grid;
@@ -72,14 +72,13 @@ extend(document, {
 function Container() {
   const navigationRef = useRef<NavigationHandles | null>(null)
   const contentRef = useRef<HTMLDivElement | null>(null)
+  const contentInitialWidth = useRef<number>(0)
+  const sideInitialWidth = useRef<number>(0)
+  const initialPosition = useRef<number>(0)
 
   const [showSidebar, setShowSidebar] = useState(true)
   const [sideState, setSideState] = useState<SideState>(SideState.SidePanel)
   const [sideWidth, setSideWidth] = useState<number>(322)
-
-  const initialPosition = useRef<number>(0)
-  const contentInitialWidth = useRef<number>(0)
-  const sideInitialWidth = useRef<number>(0)
 
   const contextValue = {
     sideState,
