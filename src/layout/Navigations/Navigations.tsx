@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react'
-import { set, isNil } from 'lodash-es'
+import { set, isNil, size } from 'lodash-es'
 
 /* Internal dependencies */
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
@@ -8,6 +8,8 @@ import { NavigationsWrapper } from './Navigations.styled'
 
 export interface NavigationHandles {
   shrinkLast: (deltaX: number) => void
+  handleMouseDown: () => void
+  handleMouseUp: () => void
 }
 
 function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<NavigationHandles>) {
@@ -16,14 +18,63 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
   const initialIndex = useRef(0)
   const initialPosition = useRef(0)
 
+  const handleShrinkMouseDown = useCallback(() => {
+    const lastIndex = size(navigationRefs.current) - 1
+
+    for (const index in navigationRefs.current) {
+      if (navigationRefs.current[index]) {
+        const currentNode = navigationRefs.current[index]
+        currentNode.initialWidth = currentNode.target.clientWidth
+      }
+    }
+
+    currentIndex.current = lastIndex
+    initialIndex.current = lastIndex
+    // 필요없는 값일 듯
+    // initialPosition.current = event.clientX
+  }, [])
+
+  const handleShrinkMouseUp = useCallback(() => {
+
+  }, [])
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleShrinkLast = useCallback((deltaX: number) => {
+    let movedPosition = deltaX
+    // console.log('deltaX is', deltaX)
     //  To Be Implemented
+    // const optionIndex =
+    for (const index in navigationRefs.current) {
+      if (navigationRefs.current[index]) {
+        const currentNode = navigationRefs.current[index]
+        currentNode.initialWidth = currentNode.target.clientWidth
+      }
+    }
+
+    while (currentIndex.current >= 0 && movedPosition <= 0) {
+      const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
+      const willChangeWidth = Math.max(initialWidth + movedPosition, minWidth)
+      // console.log('im in while!', currentIndex.current, initialWidth, movedPosition)
+      // console.log(willChangeWidth)
+
+      if (initialWidth + movedPosition > minWidth) {
+        movedPosition = 0
+      } else {
+        movedPosition = -movedPosition - initialWidth + minWidth
+      }
+
+      if (willChangeWidth <= maxWidth) {
+        navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
+      }
+      currentIndex.current -= 1
+    }
   }, [])
 
   useImperativeHandle(forwardedRef, () => ({
+    handleMouseDown: () => handleShrinkMouseDown(),
+    handleMouseUp: () => handleShrinkMouseUp(),
     shrinkLast: (deltaX) => handleShrinkLast(deltaX),
-  }), [handleShrinkLast])
+  }), [handleShrinkLast, handleShrinkMouseDown, handleShrinkMouseUp])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
     for (const index in navigationRefs.current) {
@@ -53,6 +104,7 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = initialPosition.current - event.clientX
+    // console.log(movedPosition)
     currentIndex.current = initialIndex.current
     if (movedPosition < 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]

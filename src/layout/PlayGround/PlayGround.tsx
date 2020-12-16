@@ -80,8 +80,11 @@ function Container() {
       const contentLeft = (contentRef.current?.offsetLeft || 0)
       const contentWidth = (contentRef.current?.clientWidth || 0)
       const deltaX = e.pageX - contentLeft - contentWidth
+      // sideWidth - deltaX // 변화할 양
 
+      // FIXME 가끔 MIN_WIDTH보다 작아직 때가 있음.
       if (contentWidth + deltaX < CONTENT_MIN_WIDTH) {
+        setSideWidth(v => v + contentWidth - CONTENT_MIN_WIDTH)
         navigationRef.current?.shrinkLast(deltaX)
         return
       }
@@ -95,9 +98,13 @@ function Container() {
     })
   }, [])
 
-  // const handleResizerMouseDown = useCallback((e) => {
-  //   console.log(contentInitialWidthRef.current)
-  // }, [])
+  const handleResizerMouseDown = useCallback(() => {
+    navigationRef.current?.handleMouseDown()
+  }, [])
+
+  const handleResizerMouseUp = useCallback(() => {
+    navigationRef.current?.handleMouseUp()
+  }, [])
 
   const handleOpenSplitView = useCallback(() => {
     setSideState(SideState.SplitView)
@@ -132,7 +139,8 @@ function Container() {
         <HeaderArea />
         <ContentArea
           ref={contentRef}
-          // onMouseDown={handleResizerMouseDown}
+          onResizerMouseDown={handleResizerMouseDown}
+          onResizerMouseUp={handleResizerMouseUp}
           onResizing={handleResizing}
           onOpenSplitView={handleOpenSplitView}
         />

@@ -54,6 +54,8 @@ export const StyledHandle = styled.div`
 function ContentArea({
   onResizing = noop,
   onOpenSplitView = noop,
+  onResizerMouseDown = noop,
+  onResizerMouseUp = noop,
   ...otherProps
 }, forwardedRef: React.Ref<HTMLDivElement>) {
   const [isDragging, setIsDragging] = useState(false)
@@ -64,11 +66,13 @@ function ContentArea({
 
   const handleMouseDown = useCallback(() => {
     setIsDragging(true)
-  }, [])
+    onResizerMouseDown()
+  }, [onResizerMouseDown])
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
-  }, [])
+    onResizerMouseUp()
+  }, [onResizerMouseUp])
 
   useEffect(() => {
     if (isDragging) {
