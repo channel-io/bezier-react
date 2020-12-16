@@ -89,16 +89,13 @@ function Container() {
   const handleResizing = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
       // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
-      const movedPosition = initialPosition.current - e.clientX
-      const afterContentWidth = contentInitialWidth.current - movedPosition
+      const movedPosition = e.clientX - initialPosition.current
 
-      if (afterContentWidth < CONTENT_MIN_WIDTH) {
-        navigationRef.current?.handleMouseMoveOutside(-movedPosition + contentInitialWidth.current - CONTENT_MIN_WIDTH)
-      }
+      const afterContentWidth = Math.max(contentInitialWidth.current + movedPosition, CONTENT_MIN_WIDTH)
+      navigationRef.current?.handleMouseMoveOutside(contentInitialWidth.current + movedPosition - afterContentWidth)
 
-      // 여기서 변화하는 값이 imperativeHandle에서도 동일한 값이 변경되게끔 보장되어야 한다.
       setSideWidth(clamp(
-        sideInitialWidth.current + movedPosition,
+        sideInitialWidth.current - movedPosition,
         SIDE_MIN_WIDTH,
         SIDE_MAX_WIDTH,
       ))
@@ -111,10 +108,6 @@ function Container() {
     sideInitialWidth.current = sideWidth
     navigationRef.current?.handleMouseDownOutside()
   }, [sideWidth])
-
-  const handleResizerMouseUp = useCallback(() => {
-    navigationRef.current?.handleMouseUpOutSide()
-  }, [])
 
   const handleOpenSplitView = useCallback(() => {
     setSideState(SideState.SplitView)
@@ -154,7 +147,6 @@ function Container() {
           <ContentArea
             ref={contentRef}
             onResizerMouseDown={handleResizerMouseDown}
-            onResizerMouseUp={handleResizerMouseUp}
             onResizing={handleResizing}
             onOpenSplitView={handleOpenSplitView}
           />

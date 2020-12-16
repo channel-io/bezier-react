@@ -8,14 +8,12 @@ import { NavigationsWrapper } from './Navigations.styled'
 
 export interface NavigationHandles {
   handleMouseDownOutside: () => void
-  handleMouseUpOutSide: () => void
   handleMouseMoveOutside: (deltaX: number) => void
 }
 
 function Navigations(
   {
     children,
-    // adjacent,
   }: NavigationsProps,
   forwardedRef: React.Ref<NavigationHandles>,
 ) {
@@ -45,16 +43,6 @@ function Navigations(
     const lastIndex = size(navigationRefs.current) - 1
 
     currentIndex.current = lastIndex
-
-    if (movedPosition > 0) {
-      const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
-      const willChangeWidth = initialWidth - movedPosition
-
-      if (willChangeWidth <= maxWidth) {
-        navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
-      }
-      return
-    }
 
     while (currentIndex.current >= 0 && movedPosition < 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
@@ -132,9 +120,8 @@ function Navigations(
 
   useImperativeHandle(forwardedRef, () => ({
     handleMouseDownOutside: () => handleMouseDownOutside(),
-    handleMouseUpOutSide: () => handleMouseUp(),
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
-  }), [handleMouseDownOutside, handleMouseMoveOutside, handleMouseUp])
+  }), [handleMouseDownOutside, handleMouseMoveOutside])
 
   const renderNavigationList = useCallback(navigations => (
     React.Children.map(navigations, (child, index) => (
