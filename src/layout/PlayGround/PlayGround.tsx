@@ -30,15 +30,22 @@ interface ContentWrapperProps {
   sideState: SideState
 }
 
+const LayoutWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`
+
 const ContainerWrapper = styled.div.attrs(({ sideWidth }: ContentWrapperProps) => ({
   style: {
-    gridTemplateColumns: `1fr ${sideWidth}px`,
+    gridTemplateColumns: `minmax(330px, 1fr) ${sideWidth}px`,
   },
 }))<ContentWrapperProps>`
   display: grid;
   grid-template-rows: 70px 1fr;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `
 
 const NavigationElement1 = styled(Navigation)`
@@ -81,10 +88,12 @@ function Container() {
       // NOTE: Resizer는 Content에 달려 있지만 Side WIDTH를 조정합니다.
       const contentLeft = (contentRef.current?.offsetLeft || 0)
       const contentWidth = (contentRef.current?.clientWidth || 0)
-      const deltaX = e.pageX - contentLeft - contentWidth
+      let deltaX = e.pageX - contentLeft - contentWidth
 
+      // 부들부들대는 버그가 있음... delta 값이 왔다갔다 하는 것이 원인인 듯 함. 정확히는 contentLeft가 흔들리게 된다.
       if (contentWidth + deltaX < CONTENT_MIN_WIDTH) {
         setSideWidth(v => v + contentWidth - CONTENT_MIN_WIDTH)
+        deltaX = e.pageX - contentLeft - CONTENT_MIN_WIDTH
         navigationRef.current?.handleMouseMoveOutside(deltaX)
         return
       }
@@ -116,37 +125,39 @@ function Container() {
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      <Navigations ref={navigationRef} adjacent={contentRef}>
-        <NavigationElement1
-          header={(<Header title="Title" />)}
-          show={showSidebar}
-          setShow={setShowSidebar}
-          minWidth={120}
-          maxWidth={600}
-        >
-          <ListItem content="NavItem1" />
-        </NavigationElement1>
-        <NavigationElement2
-          minWidth={120}
-          maxWidth={600}
-          withScroll
-          fixedHeader
-        >
-          <ListItem content="NavItem4" />
-        </NavigationElement2>
-      </Navigations>
-      <ContainerWrapper sideWidth={sideWidth} sideState={sideState}>
-        <HeaderArea />
-        <ContentArea
-          ref={contentRef}
-          onResizerMouseDown={handleResizerMouseDown}
-          onResizerMouseUp={handleResizerMouseUp}
-          onResizing={handleResizing}
-          onOpenSplitView={handleOpenSplitView}
-        />
-        <SidePanelArea />
-        <SplitViewArea onCloseSplitView={handleCloseSplitView}/>
-      </ContainerWrapper>
+      <LayoutWrapper>
+        <Navigations ref={navigationRef} adjacent={contentRef}>
+          <NavigationElement1
+            header={(<Header title="Title" />)}
+            show={showSidebar}
+            setShow={setShowSidebar}
+            minWidth={120}
+            maxWidth={600}
+          >
+            <ListItem content="NavItem1" />
+          </NavigationElement1>
+          <NavigationElement2
+            minWidth={120}
+            maxWidth={600}
+            withScroll
+            fixedHeader
+          >
+            <ListItem content="NavItem4" />
+          </NavigationElement2>
+        </Navigations>
+        <ContainerWrapper sideWidth={sideWidth} sideState={sideState}>
+          <HeaderArea />
+          <ContentArea
+            ref={contentRef}
+            onResizerMouseDown={handleResizerMouseDown}
+            onResizerMouseUp={handleResizerMouseUp}
+            onResizing={handleResizing}
+            onOpenSplitView={handleOpenSplitView}
+          />
+          <SidePanelArea />
+          <SplitViewArea onCloseSplitView={handleCloseSplitView}/>
+        </ContainerWrapper>
+      </LayoutWrapper>
     </LayoutContext.Provider>
   )
 }
