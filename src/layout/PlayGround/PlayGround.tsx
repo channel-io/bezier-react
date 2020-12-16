@@ -1,6 +1,6 @@
 /* External dependencies */
-import { clamp } from 'lodash-es'
 import React, { useCallback, useRef, useState } from 'react'
+import { clamp } from 'lodash-es'
 import { extend } from 'ssr-window'
 
 /* Internal dependencies */
@@ -15,8 +15,8 @@ import { SplitViewArea } from '../SplitViewArea'
 import { Navigations } from '../Navigations'
 import { NavigationHandles } from '../Navigations/Navigations'
 
-const SIDE_MAX_WIDTH = 500
-const SIDE_MIN_WIDTH = 200
+const SIDE_MAX_WIDTH = 1000
+const SIDE_MIN_WIDTH = 320
 const CONTENT_MIN_WIDTH = 330
 
 export enum SideState {
@@ -47,7 +47,7 @@ const NavigationElement1 = styled(Navigation)`
 `
 
 const NavigationElement2 = styled(Navigation)`
-  width: 300px;
+  width: 260px;
   z-index: 400;
   background-color: ${({ theme }) => theme.colors.background0};
   border-right: 2px solid ${({ theme }) => theme.colors.border2};
@@ -65,10 +65,11 @@ extend(document, {
 function Container() {
   const navigationRef = useRef<NavigationHandles | null>(null)
   const contentRef = useRef<HTMLDivElement | null>(null)
+
   // will be provider
   const [showSidebar, setShowSidebar] = useState(true)
   const [sideState, setSideState] = useState<SideState>(SideState.SidePanel)
-  const [sideWidth, setSideWidth] = useState<number>(300)
+  const [sideWidth, setSideWidth] = useState<number>(322)
 
   const contextValue = {
     sideState,
@@ -77,13 +78,14 @@ function Container() {
 
   const handleResizing = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
+      // NOTE: Resizer는 Content에 달려 있지만 Side WIDTH를 조정합니다.
       const contentLeft = (contentRef.current?.offsetLeft || 0)
       const contentWidth = (contentRef.current?.clientWidth || 0)
       const deltaX = e.pageX - contentLeft - contentWidth
 
       if (contentWidth + deltaX < CONTENT_MIN_WIDTH) {
         setSideWidth(v => v + contentWidth - CONTENT_MIN_WIDTH)
-        navigationRef.current?.shrinkLast(deltaX)
+        navigationRef.current?.handleMouseMoveOutside(deltaX)
         return
       }
 
@@ -97,11 +99,11 @@ function Container() {
   }, [])
 
   const handleResizerMouseDown = useCallback(() => {
-    navigationRef.current?.handleMouseDown()
+    navigationRef.current?.handleMouseDownOutside()
   }, [])
 
   const handleResizerMouseUp = useCallback(() => {
-    navigationRef.current?.handleMouseUp()
+    navigationRef.current?.handleMouseUpOutSide()
   }, [])
 
   const handleOpenSplitView = useCallback(() => {
@@ -114,19 +116,19 @@ function Container() {
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      <Navigations ref={navigationRef}>
+      <Navigations ref={navigationRef} adjacent={contentRef}>
         <NavigationElement1
           header={(<Header title="Title" />)}
           show={showSidebar}
           setShow={setShowSidebar}
-          minWidth={100}
-          maxWidth={300}
+          minWidth={120}
+          maxWidth={600}
         >
           <ListItem content="NavItem1" />
         </NavigationElement1>
         <NavigationElement2
-          minWidth={200}
-          maxWidth={450}
+          minWidth={120}
+          maxWidth={600}
           withScroll
           fixedHeader
         >

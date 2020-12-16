@@ -7,18 +7,26 @@ import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 
 export interface NavigationHandles {
-  shrinkLast: (deltaX: number) => void
-  handleMouseDown: () => void
-  handleMouseUp: () => void
+  handleMouseDownOutside: () => void
+  handleMouseUpOutSide: () => void
+  handleMouseMoveOutside: (deltaX: number) => void
 }
 
-function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<NavigationHandles>) {
+function Navigations(
+  {
+    children,
+    // adjacent,
+  }: NavigationsProps,
+  forwardedRef: React.Ref<NavigationHandles>,
+) {
   const navigationRefs = useRef<{ [i: number]: NavigationRefsProps }>({})
   const currentIndex = useRef(0)
   const initialIndex = useRef(0)
   const initialPosition = useRef(0)
 
-  const handleShrinkMouseDown = useCallback(() => {
+  // const adjacentInitialWidth = useRef(-1)
+
+  const handleMouseDownOutside = useCallback(() => {
     const lastIndex = size(navigationRefs.current) - 1
 
     for (const index in navigationRefs.current) {
@@ -32,21 +40,11 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
     initialIndex.current = lastIndex
   }, [])
 
-  const handleShrinkMouseUp = useCallback(() => {
-
-  }, [])
-
-  const handleShrinkLast = useCallback((deltaX: number) => {
+  const handleMouseMoveOutside = useCallback((deltaX: number) => {
     let movedPosition = deltaX
     const lastIndex = size(navigationRefs.current) - 1
 
     currentIndex.current = lastIndex
-    for (const index in navigationRefs.current) {
-      if (navigationRefs.current[index]) {
-        const currentNode = navigationRefs.current[index]
-        currentNode.initialWidth = currentNode.target.clientWidth
-      }
-    }
 
     while (currentIndex.current >= 0 && movedPosition < 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
@@ -64,12 +62,6 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
       currentIndex.current -= 1
     }
   }, [])
-
-  useImperativeHandle(forwardedRef, () => ({
-    handleMouseDown: () => handleShrinkMouseDown(),
-    handleMouseUp: () => handleShrinkMouseUp(),
-    shrinkLast: (deltaX) => handleShrinkLast(deltaX),
-  }), [handleShrinkLast, handleShrinkMouseDown, handleShrinkMouseUp])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
     for (const index in navigationRefs.current) {
@@ -127,6 +119,12 @@ function Navigations({ children }: NavigationsProps, forwardedRef: React.Ref<Nav
       currentIndex.current -= 1
     }
   }, [])
+
+  useImperativeHandle(forwardedRef, () => ({
+    handleMouseDownOutside: () => handleMouseDownOutside(),
+    handleMouseUpOutSide: () => handleMouseUp(),
+    handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
+  }), [handleMouseDownOutside, handleMouseMoveOutside, handleMouseUp])
 
   const renderNavigationList = useCallback(navigations => (
     React.Children.map(navigations, (child, index) => (

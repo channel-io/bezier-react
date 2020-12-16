@@ -15,7 +15,7 @@ export default {
 
 const Container = styled.div`
   display: flex;
-  width: 1200px;
+  width: 1400px;
   height: 800px;
   margin: 0 auto;
   padding: 2px;
