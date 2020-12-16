@@ -26,6 +26,7 @@ export enum SideState {
 }
 
 interface ContentWrapperProps {
+  contentMinWidth: number
   sideWidth: number
   sideState: SideState
 }
@@ -36,9 +37,9 @@ const LayoutWrapper = styled.div`
   display: flex;
 `
 
-const ContainerWrapper = styled.div.attrs(({ sideWidth }: ContentWrapperProps) => ({
+const ContainerWrapper = styled.div.attrs(({ contentMinWidth, sideWidth }: ContentWrapperProps) => ({
   style: {
-    gridTemplateColumns: `minmax(${CONTENT_MIN_WIDTH}, 1fr) ${sideWidth}px`,
+    gridTemplateColumns: `minmax(${contentMinWidth}px, 1fr) ${sideWidth}px`,
   },
 }))<ContentWrapperProps>`
   display: grid;
@@ -119,7 +120,7 @@ function Container() {
   return (
     <LayoutContext.Provider value={contextValue}>
       <LayoutWrapper>
-        <Navigations ref={navigationRef} adjacent={contentRef}>
+        <Navigations ref={navigationRef}>
           <NavigationElement1
             header={(<Header title="Title" />)}
             show={showSidebar}
@@ -139,6 +140,7 @@ function Container() {
           </NavigationElement2>
         </Navigations>
         <ContainerWrapper
+          contentMinWidth={CONTENT_MIN_WIDTH}
           sideWidth={sideWidth}
           sideState={sideState}
         >
