@@ -1,108 +1,103 @@
 /* Internal dependencies */
 import { Palette } from '../Palette'
+import Spectrum from '../Palette/Spectrum'
 
-export interface Color {
-  textBase: string
-  text7?: string
-  text5?: string
+type TextHoverColor = `text-hover-${Spectrum}`
+type BannerBackgroundColor = `bg-banner-${Spectrum}`
 
-  // Backgrounds
-  background5?: string
-  background3?: string
-  background2?: string
-  background1?: string
-  background0?: string
+export type Color =
+  Partial<
+  Record<TextHoverColor, string> &
+  Record<BannerBackgroundColor, string>
+  >
 
-  // Disabled
-  disabled3?: string
-  disabled5?: string
+type Opacity = 30 | 20 | 10
 
-  // Borders
-  border7?: string
-  border5?: string
-  border3?: string
-  border2?: string
-  border1?: string
-  border0?: string
+function getOpacityColor(HEX: string, opacity: Opacity) {
+  const opacityHEX = (() => {
+    switch (opacity) {
+      case 30:
+        return '4D'
+      case 20:
+        return '33'
+      case 10:
+      default:
+        return '1A'
+    }
+  })()
 
-  // Success
-  success1?: string
-  success1Hover?: string
-
-  // Default
-  default1?: string
-  default1Hover?: string
-
-  // Handle
-  handle5?: string
-  handle2?: string
-  handle1?: string
-
-  // Shadow
-  shadow1?: string
-
-  // Icon
-  iconBase?: string
-
-  // Sidebar
-  focus5?: string
-  focus4?: string
-  focus1?: string
+  return `${HEX}${opacityHEX}`
 }
 
-export const Light: Color = {
-  textBase: Palette.grey900,
-  text7: Palette.grey700,
-  text5: Palette.grey500,
-  background5: Palette.grey500,
-  background3: Palette.grey300,
-  background2: Palette.grey200,
-  background1: Palette.grey100,
-  background0: Palette.white,
-  border7: Palette.grey700,
-  border5: Palette.grey500,
-  border3: Palette.grey300,
-  border2: Palette.grey200,
-  border1: Palette.grey100,
-  border0: Palette.white,
-  disabled3: Palette.grey300,
-  disabled5: Palette.grey500,
-  success1: Palette.green_30,
-  success1Hover: Palette.green,
-  default1: Palette.grey300,
-  default1Hover: Palette.grey500,
-  handle5: Palette.grey500,
-  handle2: Palette.grey200,
-  handle1: Palette.white,
-  shadow1: Palette.black15,
-  iconBase: Palette.grey700,
-  focus5: Palette.blue,
-  focus4: Palette.blue_30,
-  focus1: Palette.blue_10,
+interface GetColorParams {
+  baseColor: {
+    [key in Exclude<Spectrum, Spectrum.grey>]: [string, string]
+  }
+  isDarkColor?: boolean
 }
 
-export const Dark: Color = {
-  textBase: Palette.grey100,
-  background2: Palette.grey900,
-  background1: Palette.grey700,
+function getColor({ baseColor }: GetColorParams): Color {
+  // TODO: 용법 별로 color 이름 정할 것
+  return {
+    // Text Hover
+    'text-hover-blue': baseColor.blue[0],
+    'text-hover-cobalt': baseColor.cobalt[0],
+
+    // Banner Background
+    'bg-banner-blue': getOpacityColor(baseColor.blue[0], 30),
+    'bg-banner-cobalt': getOpacityColor(baseColor.cobalt[0], 30),
+  }
 }
+
+export const LightColor: Color = getColor({
+  baseColor: {
+    blue: [Palette.blue400, Palette.blue500],
+    cobalt: [Palette.cobalt400, Palette.cobalt500],
+    teal: [Palette.teal400, Palette.teal500],
+    green: [Palette.green400, Palette.green500],
+    olive: [Palette.olive400, Palette.olive500],
+    yellow: [Palette.yellow400, Palette.yellow500],
+    orange: [Palette.orange400, Palette.orange500],
+    red: [Palette.red400, Palette.red500],
+    pink: [Palette.pink400, Palette.pink500],
+    purple: [Palette.purple400, Palette.purple500],
+    navy: [Palette.navy400, Palette.navy500],
+  },
+})
+
+export const DarkColor: Color = getColor({
+  baseColor: {
+    blue: [Palette.blue300, Palette.blue400],
+    cobalt: [Palette.cobalt300, Palette.cobalt400],
+    teal: [Palette.teal300, Palette.teal400],
+    green: [Palette.green300, Palette.green400],
+    olive: [Palette.olive300, Palette.olive400],
+    yellow: [Palette.yellow300, Palette.yellow400],
+    orange: [Palette.orange300, Palette.orange400],
+    red: [Palette.red300, Palette.red400],
+    pink: [Palette.pink300, Palette.pink400],
+    purple: [Palette.purple300, Palette.purple400],
+    navy: [Palette.navy300, Palette.navy400],
+  },
+  isDarkColor: true,
+})
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
 
-interface CreateColorsConfig {
-  color: Partial<Color>
-  base?: string
-}
-
 function getColorsFromKeyword(keyword: string) {
   switch (keyword) {
     case DARK_KEYWORD:
-      return Dark
+      return LightColor
     case LIGHT_KEYWORD:
     default:
-      return Light
+      return DarkColor
   }
+}
+
+interface CreateColorsConfig {
+  color: Partial<Color>
+  base?: string
 }
 
 export function createColors({
@@ -117,6 +112,6 @@ export function createColors({
 
 export const Colors = {
   createColors,
-  Light,
-  Dark,
+  LightColor,
+  DarkColor,
 }

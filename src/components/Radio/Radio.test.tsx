@@ -38,7 +38,7 @@ describe('Radio test >', () => {
     expect(renderedRadio).toHaveStyle('width: 18px;')
     expect(renderedRadio).toHaveStyle('height: 18px;')
     expect(renderedRadio).toHaveStyle('border-radius: 50%;')
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.background0};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.LightColor['text-hover-blue']};`)
   })
 
   it('RadioInput has success background, and no border when clicked', () => {
@@ -46,7 +46,7 @@ describe('Radio test >', () => {
 
     const renderedRadio = getByTestId(RADIO_TEST_ID)
 
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.success1};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.LightColor['text-hover-blue']};`)
     expect(renderedRadio).toHaveStyle('border: none;')
   })
 
@@ -55,6 +55,6 @@ describe('Radio test >', () => {
 
     const renderedRadio = getByTestId(RADIO_TEST_ID)
 
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.background3};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.LightColor['text-hover-blue']};`)
   })
 })

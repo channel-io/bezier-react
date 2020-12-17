@@ -5,7 +5,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../index'
-import { Colors } from './index'
+import { Palette } from './index'
 
 export default {
   title: getTitle(base),
@@ -14,17 +14,17 @@ export default {
   },
 }
 
-interface ColorProps {
+interface PaletteProps {
   color: string
 }
 
-const ColorChipArtBoard = styled.div`
+const PaletteChipArtBoard = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
 `
 
-const ColorChip = styled.div`
+const PaletteChip = styled.div`
   margin: 10px;
   width: 80px;
   min-height: 80px;
@@ -33,39 +33,33 @@ const ColorChip = styled.div`
   align-items: center;
 `
 
-const Color = styled.div<ColorProps>`
+const PaletteTile = styled.div<PaletteProps>`
   margin-bottom: 5px;
   width: 50px;
   height: 50px;
   background-color: ${({ color }) => color};
 `
 
-const ColorName = styled.span`
+const PaletteName = styled.span`
   width: 100%;
   word-break: break-all;
   color: rgba(131, 131, 131, 0.609);
   text-align: center;
 `
 
-const Template = ({ color }) => (
-  <ColorChipArtBoard>
+const Template = () => (
+  <PaletteChipArtBoard>
     {
-      Object.keys(color).map(colorKey => (
-        <ColorChip>
-          <Color color={color[colorKey]}/>
-          <ColorName>{ colorKey }</ColorName>
-        </ColorChip>
+      Object.keys(Palette).map(paletteKey => (
+        <PaletteChip>
+          <PaletteTile color={Palette[paletteKey]}/>
+          <PaletteName>
+            { paletteKey }
+          </PaletteName>
+        </PaletteChip>
       ))
     }
-  </ColorChipArtBoard>
+  </PaletteChipArtBoard>
 )
 
-export const LightColors = Template.bind({})
-LightColors.args = {
-  color: Colors.Light,
-}
-
-export const DarkColors = Template.bind({})
-DarkColors.args = {
-  color: Colors.Dark,
-}
+export const Primary = Template.bind({})

@@ -18,5 +18,5 @@ export const TitleWrapper = styled.div<StyledTitleWrapperProps>`
   font-size: 12px;
   font-weight: bold;
   line-height: 20px;
-  color: ${props => props.theme?.colors?.text5};
+  color: ${props => props.theme?.colors?.['text-hover-blue']};
 `

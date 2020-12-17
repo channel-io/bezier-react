@@ -6,8 +6,7 @@ import { render } from '@testing-library/react'
 import {
   ThemeProvider,
   LightTheme,
-  Light as LightColors,
-  Palette,
+  LightColor,
 } from '../../foundation'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
@@ -57,8 +56,8 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.white};`)
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightColors.border3};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']}`)
+    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightColor['text-hover-blue']};`)
   })
 
   it('Checker of Checkbox has green background when check status is truthy', () => {
@@ -66,7 +65,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.green_30};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']};`)
     expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
   })
 
@@ -75,6 +74,6 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColors.disabled3};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']};`)
   })
 })

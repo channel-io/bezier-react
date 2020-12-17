@@ -23,9 +23,9 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   content: '';
   background-color:
     ${props => {
-      if (!props.disabled && !props.checked && props.hovered) { return props.theme?.colors?.handle2 }
-      if (props.checked && props.disabled) { return props.theme?.colors?.handle5 }
-      if (props.checked) { return props.theme?.colors?.handle1 }
+      if (!props.disabled && !props.checked && props.hovered) { return props.theme?.colors?.['text-hover-blue'] }
+      if (props.checked && props.disabled) { return props.theme?.colors?.['text-hover-blue'] }
+      if (props.checked) { return props.theme?.colors?.['text-hover-blue'] }
       return 'transparent'
     }};
   border-radius: 50%;
@@ -42,13 +42,13 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
   border:
     ${props => {
       if (props.checked) { return 'none' }
-      return `2px solid ${props.theme?.colors?.border3}`
+      return `2px solid ${props.theme?.colors?.['text-hover-blue']}`
     }};
   background-color:
     ${props => {
-      if (props.disabled) { return props.theme?.colors?.background3 }
-      if (props.checked) { return props.theme?.colors?.success1 }
-      return props.theme?.colors?.background0
+      if (props.disabled) { return props.theme?.colors?.['text-hover-blue'] }
+      if (props.checked) { return props.theme?.colors?.['text-hover-blue'] }
+      return props.theme?.colors?.['text-hover-blue']
     }};
   transition: ${props => props.theme?.transition?.getTransitionCSS('background-color')};
 

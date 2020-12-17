@@ -14,7 +14,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   overflow: hidden;
   font-size: inherit;
   font-weight: bold;
-  color: ${props => props.theme?.colors?.text5};
+  color: ${props => props.theme?.colors?.['text-hover-blue']};
   cursor: pointer;
   user-select: none;
 
@@ -33,7 +33,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   &:hover {
     ${props => (!props.disabled ? `
       ${props.active ? '' : `
-        color: ${props.theme?.colors?.text7};
+        color: ${props.theme?.colors?.['text-hover-blue']};
       `}
     ` : '')}
   }
@@ -47,7 +47,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     left: 0;
     width: 100%;
     height: ${props => props.indicatorThickness || 3}px;
-    background-color: ${props => props.theme?.colors?.focus4};
+    background-color: ${props => props.theme?.colors?.['text-hover-blue']};
     content: '';
     transform: translateY(100%);
 
@@ -57,7 +57,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   }
 
   ${props => (props.active ? `
-    color: ${props.theme?.colors?.focus4};
+    color: ${props.theme?.colors?.['text-hover-blue']};
     pointer-events: none;
 
     &::after {
@@ -70,14 +70,14 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     pointer-events: all;
 
     ${props.active ? `
-      color: ${props.theme?.colors?.disabled5};
+      color: ${props.theme?.colors?.['text-hover-blue']};
       &::after {
-        background-color: ${props.theme?.colors?.disabled5};
+        background-color: ${props.theme?.colors?.['text-hover-blue']};
       }
     ` : `
-      color: ${props.theme?.colors?.disabled3};
+      color: ${props.theme?.colors?.['text-hover-blue']};
       &::after {
-        background-color: ${props.theme?.colors?.disabled3};
+        background-color: ${props.theme?.colors?.['text-hover-blue']};
       }
     `}
   ` : '')}

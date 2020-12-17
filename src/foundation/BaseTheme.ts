@@ -15,10 +15,10 @@ const BaseTheme = {
 
 export const LightTheme: Theme = {
   ...BaseTheme,
-  colors: Colors.Light,
+  colors: Colors.LightColor,
 }
 
 export const DarkTheme: Theme = {
   ...BaseTheme,
-  colors: Colors.Dark,
+  colors: Colors.DarkColor,
 }
