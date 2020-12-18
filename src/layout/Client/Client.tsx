@@ -1,7 +1,5 @@
 /* External dependencies */
 import React, {
-  createContext,
-  Dispatch,
   forwardRef,
   useContext,
   useReducer,
@@ -9,23 +7,8 @@ import React, {
 
 /* Internal dependencies */
 import { ClientWrapper } from './Client.styled'
-import ClientProps, { LayoutContextProps } from './Client.types'
-
-// FIXME - 임시 액션
-function layoutReducer(state, action): LayoutContextProps {
-  switch (action.type) {
-    case 'CHANGE_SIDE_WIDTH':
-      return {
-        ...state,
-        sideWidth: action.payload,
-      }
-    default:
-      throw new Error(`UnExpected action type: ${action.type}`)
-  }
-}
-
-export const LayoutContext = createContext<LayoutContextProps | null>(null)
-export const LayoutDispatchContext = createContext<Dispatch<any> | null>(null)
+import ClientProps from './Client.types'
+import LayoutReducer, { LayoutStateContext, LayoutDispatchContext } from './utils/LayoutReducer'
 
 function Client(
   {
@@ -34,10 +17,10 @@ function Client(
   }: ClientProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const [state, dispatch] = useReducer(layoutReducer, layoutInitialState)
+  const [state, dispatch] = useReducer(LayoutReducer, layoutInitialState)
 
   return (
-    <LayoutContext.Provider value={state}>
+    <LayoutStateContext.Provider value={state}>
       <LayoutDispatchContext.Provider value={dispatch}>
         <ClientWrapper
           ref={forwardedRef}
@@ -45,13 +28,13 @@ function Client(
           { children }
         </ClientWrapper>
       </LayoutDispatchContext.Provider>
-    </LayoutContext.Provider>
+    </LayoutStateContext.Provider>
 
   )
 }
 
 export function useLayoutState() {
-  const state = useContext(LayoutContext)
+  const state = useContext(LayoutStateContext)
   if (!state) {
     throw new Error('Cannot find LayoutState')
   }

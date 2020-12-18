@@ -11,7 +11,8 @@ import Navigations, { NavigationHandles } from '../Navigations/Navigations'
 import Client from '../Client/Client'
 import { Navigation } from '../Navigations'
 import { Main } from '../Main'
-import { SideState, LayoutContextProps } from '../Client/Client.types'
+import { SideState } from '../Client/Client.types'
+import { LayoutState } from '../Client/utils/LayoutReducer'
 
 export default {
   title: getTitle(base),
@@ -45,7 +46,7 @@ const StyledIcon = styled(Icon)`
 
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   const navigationRef = useRef<NavigationHandles | null>(null)
-  const layoutInitialState: LayoutContextProps = {
+  const layoutInitialState: LayoutState = {
     sideState: SideState.SidePanel,
     sideWidth: 332,
     sideMinWidth: 320,

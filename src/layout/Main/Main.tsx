@@ -8,6 +8,7 @@ import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
 import { SplitViewArea } from '../SplitViewArea'
+import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
@@ -53,7 +54,7 @@ function Main(
 
       // FIXME - 임시 액션
       dispatch({
-        type: 'CHANGE_SIDE_WIDTH',
+        type: LayoutActionType.SET_SIDE_WIDTH,
         payload: clamp(
           sideInitialWidth.current - movedPosition,
           sideMinWidth,
@@ -61,7 +62,13 @@ function Main(
         ),
       })
     })
-  }, [contentMinWidth, dispatch, navigationRef, sideMaxWidth, sideMinWidth])
+  }, [
+    contentMinWidth,
+    dispatch,
+    navigationRef,
+    sideMaxWidth,
+    sideMinWidth,
+  ])
 
   return (
     <MainWrapper
