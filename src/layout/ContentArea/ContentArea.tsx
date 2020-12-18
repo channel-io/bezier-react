@@ -15,8 +15,6 @@ import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
 function ContentArea(
   {
     children,
-    // FIXME: layoutDispatch로 이동
-    // onOpenSplitView = noop,
     onResizerMouseDown = noop,
     onResizerMouseMove = noop,
     ...otherProps

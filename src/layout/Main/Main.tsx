@@ -52,7 +52,6 @@ function Main(
 
       navigationRef?.current?.handleMouseMoveOutside(contentInitialWidth.current + movedPosition - afterContentWidth)
 
-      // FIXME - 임시 액션
       dispatch({
         type: LayoutActionType.SET_SIDE_WIDTH,
         payload: clamp(

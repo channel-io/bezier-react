@@ -4,7 +4,6 @@ import { styled } from '../../styling/Theme'
 interface MainWrapperProps {
   contentMinWidth: number
   sideWidth: number
-  // sideState: SideState FIXME -값 추가하고 대응
 }
 
 export const MainWrapper = styled.div.attrs(({ contentMinWidth, sideWidth }: MainWrapperProps) => ({

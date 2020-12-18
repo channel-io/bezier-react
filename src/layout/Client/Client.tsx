@@ -12,8 +12,11 @@ import LayoutReducer, { LayoutStateContext, LayoutDispatchContext } from './util
 
 function Client(
   {
+    className,
+    style,
     layoutInitialState,
     children,
+    ...otherProps
   }: ClientProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -24,6 +27,9 @@ function Client(
       <LayoutDispatchContext.Provider value={dispatch}>
         <ClientWrapper
           ref={forwardedRef}
+          style={style}
+          className={className}
+          {...otherProps}
         >
           { children }
         </ClientWrapper>
