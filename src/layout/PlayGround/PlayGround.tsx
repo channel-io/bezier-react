@@ -6,7 +6,6 @@ import { extend } from 'ssr-window'
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
 import { ContentArea } from '../ContentArea'
-import { HeaderArea } from '../HeaderArea'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
 import Navigation from '../Navigations/Navigation'
@@ -30,12 +29,6 @@ interface ContentWrapperProps {
   sideWidth: number
   sideState: SideState
 }
-
-const LayoutWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-`
 
 const ContainerWrapper = styled.div.attrs(({ contentMinWidth, sideWidth }: ContentWrapperProps) => ({
   style: {
@@ -119,42 +112,40 @@ function Container() {
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      <LayoutWrapper>
-        <Navigations ref={navigationRef}>
-          <NavigationElement1
-            header={(<Header title="Title" />)}
-            show={showSidebar}
-            setShow={setShowSidebar}
-            minWidth={120}
-            maxWidth={600}
-          >
-            <ListItem content="NavItem1" />
-          </NavigationElement1>
-          <NavigationElement2
-            minWidth={120}
-            maxWidth={600}
-            withScroll
-            fixedHeader
-          >
-            <ListItem content="NavItem4" />
-          </NavigationElement2>
-        </Navigations>
-        <ContainerWrapper
-          contentMinWidth={CONTENT_MIN_WIDTH}
-          sideWidth={sideWidth}
-          sideState={sideState}
+      <Navigations ref={navigationRef}>
+        <NavigationElement1
+          header={(<Header title="Title" />)}
+          show={showSidebar}
+          setShow={setShowSidebar}
+          minWidth={120}
+          maxWidth={600}
         >
-          <HeaderArea />
-          <ContentArea
-            ref={contentRef}
-            onResizerMouseDown={handleResizerMouseDown}
-            onResizing={handleResizing}
-            onOpenSplitView={handleOpenSplitView}
-          />
-          <SidePanelArea />
-          <SplitViewArea onCloseSplitView={handleCloseSplitView}/>
-        </ContainerWrapper>
-      </LayoutWrapper>
+          <ListItem content="NavItem1" />
+        </NavigationElement1>
+        <NavigationElement2
+          minWidth={120}
+          maxWidth={600}
+          withScroll
+          fixedHeader
+        >
+          <ListItem content="NavItem4" />
+        </NavigationElement2>
+      </Navigations>
+      <ContainerWrapper
+        contentMinWidth={CONTENT_MIN_WIDTH}
+        sideWidth={sideWidth}
+        sideState={sideState}
+      >
+        { /* <HeaderArea /> */ }
+        <ContentArea
+          ref={contentRef}
+          onResizerMouseDown={handleResizerMouseDown}
+          onResizing={handleResizing}
+          onOpenSplitView={handleOpenSplitView}
+        />
+        <SidePanelArea />
+        <SplitViewArea onCloseSplitView={handleCloseSplitView}/>
+      </ContainerWrapper>
     </LayoutContext.Provider>
   )
 }

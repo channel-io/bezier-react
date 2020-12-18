@@ -1,14 +1,9 @@
 /* External dependencies */
-import React, { Dispatch, forwardRef, useContext, useReducer } from 'react'
+import React, { createContext, Dispatch, forwardRef, useContext, useReducer } from 'react'
 
 /* Internal dependencies */
 import { ClientWrapper } from './Client.styled'
-import ClientProps, { SideState } from './Client.types'
-
-interface LayoutContextProps {
-  sideState: SideState
-  sideWidth: number
-}
+import ClientProps, { LayoutContextProps, SideState } from './Client.types'
 
 function layoutReducer(state, action): LayoutContextProps {
   switch (action.type) {
@@ -17,17 +12,24 @@ function layoutReducer(state, action): LayoutContextProps {
   }
 }
 
-const LayoutContext = React.createContext<LayoutContextProps | null>(null)
-const LayoutDispatchContext = React.createContext<Dispatch<any> | null>(null)
+export const LayoutContext = createContext<LayoutContextProps | null>(null)
+export const LayoutDispatchContext = createContext<Dispatch<any> | null>(null)
 
 function Client(
   {
-    layoutInitialState,
+    // layoutInitialState,
     children,
   }: ClientProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const [state, dispatch] = useReducer(layoutReducer, layoutInitialState)
+  const initialState: LayoutContextProps = {
+    sideState: SideState.SidePanel,
+    sideWidth: 250,
+    showNavigation: true,
+    contentMinWidth: 330,
+  }
+
+  const [state, dispatch] = useReducer(layoutReducer, initialState)
 
   return (
     <LayoutContext.Provider value={state}>
@@ -46,7 +48,7 @@ function Client(
 export function useLayoutState() {
   const state = useContext(LayoutContext)
   if (!state) {
-    throw new Error()
+    throw new Error('Cannot find LayoutState')
   }
   return state
 }
