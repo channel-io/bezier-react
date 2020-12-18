@@ -22,8 +22,6 @@ function Navigations(
   const initialIndex = useRef(0)
   const initialPosition = useRef(0)
 
-  // const adjacentInitialWidth = useRef(-1)
-
   const handleMouseDownOutside = useCallback(() => {
     const lastIndex = size(navigationRefs.current) - 1
 
@@ -72,19 +70,6 @@ function Navigations(
     currentIndex.current = optionIndex
     initialIndex.current = optionIndex
     initialPosition.current = event.clientX
-  }, [])
-
-  const handleMouseUp = useCallback(() => {
-    for (const index in navigationRefs.current) {
-      if (navigationRefs.current[index]) {
-        const currentNode = navigationRefs.current[index]
-        currentNode.initialWidth = currentNode.target.clientWidth
-      }
-    }
-
-    currentIndex.current = 0
-    initialIndex.current = 0
-    initialPosition.current = 0
   }, [])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
@@ -136,13 +121,11 @@ function Navigations(
         },
         optionIndex: index,
         onMouseDown: handleMouseDown,
-        onMouseUp: handleMouseUp,
         onMouseMove: handleMouseMove,
       })),
     )
   ), [
     handleMouseDown,
-    handleMouseUp,
     handleMouseMove,
   ])
 

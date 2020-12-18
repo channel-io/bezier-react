@@ -51,7 +51,6 @@ function Navigation(
     /* cloneElement Props */
     optionIndex = 0,
     onMouseDown = noop,
-    onMouseUp = noop,
     onMouseMove = noop,
     children,
     ...otherProps
@@ -74,8 +73,7 @@ function Navigation(
 
   const handleMouseUp = useCallback(() => {
     setAllowMouseMove(false)
-    onMouseUp()
-  }, [onMouseUp])
+  }, [])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     if (disableResize) { return }
