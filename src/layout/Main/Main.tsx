@@ -17,6 +17,7 @@ function Main(
     searchHeader,
     sidePanel,
     splitView,
+    ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -27,6 +28,7 @@ function Main(
       ref={forwardedRef}
       contentMinWidth={contentMinWidth}
       sideWidth={sideWidth}
+      {...otherProps}
     >
       <HeaderArea
         contentHeader={contentHeader}
@@ -41,7 +43,6 @@ function Main(
       <SplitViewArea>
         { splitView }
       </SplitViewArea>
-
     </MainWrapper>
   )
 }

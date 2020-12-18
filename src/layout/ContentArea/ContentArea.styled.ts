@@ -1,19 +1,7 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
 
-const Div = styled.div`
-  border: 1px solid #f76707;
-  border-radius: 5px;
-  background-color: #fff4e6;
-  display: flex;
-  flex-direction: colunmn;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 30px;
-`
-
-export const ContentAreaWrapper = styled(Div)`
+export const ContentAreaWrapper = styled.div`
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   position: relative;

@@ -42,12 +42,6 @@ const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.iconBase};
 `
 
-const Content = () => (<div>Content</div>)
-const Search = () => (<div>Search</div>)
-const ContentHeader = () => (<div>ContentHeader</div>)
-const SidePanel = () => (<div>SidePanel</div>)
-const SplitView = () => (<div>SplitView</div>)
-
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   const DummyActions = useMemo(() => (
     <>
@@ -67,6 +61,21 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
       actions={DummyActions}
     />
   ), [DummyActions])
+
+  const Div = styled.div`
+    width: 100%;
+    height: 100%;
+    border: 1px solid orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `
+
+  const Content = useMemo(() => (<Div>Content</Div>), [Div])
+  const Search = useMemo(() => (<Div>Search</Div>), [Div])
+  const ContentHeader = useMemo(() => (<Div>ContentHeader</Div>), [Div])
+  const SidePanel = useMemo(() => (<Div>SidePanel</Div>), [Div])
+  const SplitView = useMemo(() => (<Div>SplitView</Div>), [Div])
 
   return (
     <Container>
