@@ -15,11 +15,10 @@ import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
 function ContentArea(
   {
     children,
-    onResizing = noop,
     // FIXME: layoutDispatch로 이동
     // onOpenSplitView = noop,
     onResizerMouseDown = noop,
-    onResizerMouseUp = noop,
+    onResizerMouseMove = noop,
     ...otherProps
   }: ContentAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -27,8 +26,8 @@ function ContentArea(
   const [isDragging, setIsDragging] = useState(false)
 
   const handleMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
-    onResizing(e)
-  }, [onResizing])
+    onResizerMouseMove(e)
+  }, [onResizerMouseMove])
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     setIsDragging(true)
@@ -37,8 +36,7 @@ function ContentArea(
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
-    onResizerMouseUp()
-  }, [onResizerMouseUp])
+  }, [])
 
   useEffect(() => {
     if (isDragging) {

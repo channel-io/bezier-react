@@ -1,12 +1,24 @@
 /* External dependencies */
-import React, { createContext, Dispatch, forwardRef, useContext, useReducer } from 'react'
+import React, {
+  createContext,
+  Dispatch,
+  forwardRef,
+  useContext,
+  useReducer,
+} from 'react'
 
 /* Internal dependencies */
 import { ClientWrapper } from './Client.styled'
-import ClientProps, { LayoutContextProps, SideState } from './Client.types'
+import ClientProps, { LayoutContextProps } from './Client.types'
 
+// FIXME - 임시 액션
 function layoutReducer(state, action): LayoutContextProps {
   switch (action.type) {
+    case 'CHANGE_SIDE_WIDTH':
+      return {
+        ...state,
+        sideWidth: action.payload,
+      }
     default:
       throw new Error(`UnExpected action type: ${action.type}`)
   }
@@ -17,19 +29,12 @@ export const LayoutDispatchContext = createContext<Dispatch<any> | null>(null)
 
 function Client(
   {
-    // layoutInitialState,
+    layoutInitialState,
     children,
   }: ClientProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const initialState: LayoutContextProps = {
-    sideState: SideState.SidePanel,
-    sideWidth: 250,
-    showNavigation: true,
-    contentMinWidth: 330,
-  }
-
-  const [state, dispatch] = useReducer(layoutReducer, initialState)
+  const [state, dispatch] = useReducer(layoutReducer, layoutInitialState)
 
   return (
     <LayoutContext.Provider value={state}>

@@ -45,7 +45,6 @@ function Navigations(
     while (currentIndex.current >= 0 && movedPosition < 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
       const willChangeWidth = Math.max(initialWidth + movedPosition, minWidth)
-
       if (initialWidth + movedPosition > minWidth) {
         movedPosition = 0
       } else {

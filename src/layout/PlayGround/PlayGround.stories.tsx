@@ -1,15 +1,16 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
-import Navigations from '../Navigations/Navigations'
+import Navigations, { NavigationHandles } from '../Navigations/Navigations'
 import Client from '../Client/Client'
 import { Navigation } from '../Navigations'
 import { Main } from '../Main'
 import { Header } from '../../components/Header'
+import { SideState, LayoutContextProps } from '../Client/Client.types'
 import Icon from '../../components/Icon/Icon'
 
 export default {
@@ -43,6 +44,17 @@ const StyledIcon = styled(Icon)`
 `
 
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
+  const navigationRef = useRef<NavigationHandles | null>(null)
+  const layoutInitialState: LayoutContextProps = {
+    sideState: SideState.SidePanel,
+    sideWidth: 332,
+    sideMinWidth: 320,
+    sideMaxWidth: 1000,
+    showNavigation: true,
+    contentMinWidth: 330,
+    navigationRef,
+  }
+
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10}/>
@@ -79,8 +91,8 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
 
   return (
     <Container>
-      <Client>
-        <Navigations>
+      <Client layoutInitialState={layoutInitialState}>
+        <Navigations ref={navigationRef}>
           <NavigationMain
             header={Element1Header}
             minWidth={minWidth1}
