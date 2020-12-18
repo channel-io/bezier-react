@@ -5,13 +5,13 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
+import { Header } from '../../components/Header'
+import Icon from '../../components/Icon/Icon'
 import Navigations, { NavigationHandles } from '../Navigations/Navigations'
 import Client from '../Client/Client'
 import { Navigation } from '../Navigations'
 import { Main } from '../Main'
-import { Header } from '../../components/Header'
 import { SideState, LayoutContextProps } from '../Client/Client.types'
-import Icon from '../../components/Icon/Icon'
 
 export default {
   title: getTitle(base),
@@ -81,6 +81,7 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
   `
 
   const Content = useMemo(() => (<Div>Content</Div>), [Div])
@@ -90,31 +91,34 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   const SplitView = useMemo(() => (<Div>SplitView</Div>), [Div])
 
   return (
-    <Container>
-      <Client layoutInitialState={layoutInitialState}>
-        <Navigations ref={navigationRef}>
-          <NavigationMain
-            header={Element1Header}
-            minWidth={minWidth1}
-            maxWidth={maxWidth1}
+    <>
+
+      <Container>
+        <Client layoutInitialState={layoutInitialState}>
+          <Navigations ref={navigationRef}>
+            <NavigationMain
+              header={Element1Header}
+              minWidth={minWidth1}
+              maxWidth={maxWidth1}
+            />
+            <NavigationSub
+              header={Element2Header}
+              minWidth={minWidth2}
+              maxWidth={maxWidth2}
+              withScroll
+              fixedHeader
+            />
+          </Navigations>
+          <Main
+            content={Content}
+            contentHeader={ContentHeader}
+            searchHeader={Search}
+            sidePanel={SidePanel}
+            splitView={SplitView}
           />
-          <NavigationSub
-            header={Element2Header}
-            minWidth={minWidth2}
-            maxWidth={maxWidth2}
-            withScroll
-            fixedHeader
-          />
-        </Navigations>
-        <Main
-          content={Content}
-          contentHeader={ContentHeader}
-          searchHeader={Search}
-          sidePanel={SidePanel}
-          splitView={SplitView}
-        />
-      </Client>
-    </Container>
+        </Client>
+      </Container>
+    </>
   )
 }
 
