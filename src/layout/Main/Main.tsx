@@ -26,6 +26,7 @@ function Main(
   const dispatch = useLayoutDispatch()
   const {
     contentMinWidth,
+    sideState,
     sideWidth,
     sideMinWidth,
     sideMaxWidth,
@@ -79,6 +80,7 @@ function Main(
       ref={forwardedRef}
       contentMinWidth={contentMinWidth}
       sideWidth={sideWidth}
+      sideState={sideState}
       {...otherProps}
     >
       <HeaderArea

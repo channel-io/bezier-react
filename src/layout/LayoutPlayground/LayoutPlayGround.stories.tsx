@@ -13,6 +13,7 @@ import { Navigation } from '../Navigations'
 import { Main } from '../Main'
 import { SideState } from '../Client/Client.types'
 import { LayoutState } from '../Client/utils/LayoutReducer'
+import Content from './Content'
 
 export default {
   title: getTitle(base),
@@ -85,15 +86,14 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
     background-color: white;
   `
 
-  const Content = useMemo(() => (<Div>Content</Div>), [Div])
-  const Search = useMemo(() => (<Div>Search</Div>), [Div])
-  const ContentHeader = useMemo(() => (<Div>ContentHeader</Div>), [Div])
-  const SidePanel = useMemo(() => (<Div>SidePanel</Div>), [Div])
-  const SplitView = useMemo(() => (<Div>SplitView</Div>), [Div])
+  const ContentComponent = useMemo(() => (<Content />), [])
+  const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
+  const ContentHeaderComponent = useMemo(() => (<Div>ContentHeader</Div>), [Div])
+  const SidePanelComponent = useMemo(() => (<Div>SidePanel</Div>), [Div])
+  const SplitViewComponent = useMemo(() => (<Div>SplitView</Div>), [Div])
 
   return (
     <>
-
       <Container>
         <Client layoutInitialState={layoutInitialState}>
           <Navigations ref={navigationRef}>
@@ -111,11 +111,11 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
             />
           </Navigations>
           <Main
-            content={Content}
-            contentHeader={ContentHeader}
-            searchHeader={Search}
-            sidePanel={SidePanel}
-            splitView={SplitView}
+            content={ContentComponent}
+            contentHeader={ContentHeaderComponent}
+            searchHeader={SearchComponent}
+            sidePanel={SidePanelComponent}
+            splitView={SplitViewComponent}
           />
         </Client>
       </Container>

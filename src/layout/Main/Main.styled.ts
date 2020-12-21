@@ -1,14 +1,18 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
+import { SideState } from '../Client/Client.types'
 
 interface MainWrapperProps {
   contentMinWidth: number
   sideWidth: number
+  sideState: SideState
 }
 
-export const MainWrapper = styled.div.attrs(({ contentMinWidth, sideWidth }: MainWrapperProps) => ({
+export const MainWrapper = styled.div.attrs(({ contentMinWidth, sideState, sideWidth }: MainWrapperProps) => ({
   style: {
-    gridTemplateColumns: `minmax(${contentMinWidth}px, 1fr) ${sideWidth}px`,
+    gridTemplateColumns: sideState !== SideState.None ?
+      `minmax(${contentMinWidth}px, 1fr) ${sideWidth}px`
+      : `minmax(${contentMinWidth}px, 1fr)`,
   },
 }))<MainWrapperProps>`
   display: grid;
