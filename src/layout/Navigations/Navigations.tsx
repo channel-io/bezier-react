@@ -8,7 +8,7 @@ import { NavigationsWrapper } from './Navigations.styled'
 
 export interface NavigationHandles {
   handleMouseDownOutside: () => void
-  handleMouseMoveOutside: (deltaX: number) => void
+  handleMouseMoveOutside: (deltaX: number) => boolean
 }
 
 function Navigations(
@@ -56,6 +56,8 @@ function Navigations(
       }
       currentIndex.current -= 1
     }
+
+    return navigationRefs.current[0].minWidth === navigationRefs.current[0].target.clientWidth
   }, [])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
