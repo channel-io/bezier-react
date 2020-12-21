@@ -57,7 +57,11 @@ function Navigations(
       currentIndex.current -= 1
     }
 
-    return navigationRefs.current[0].minWidth === navigationRefs.current[0].target.clientWidth
+    for (const index in navigationRefs.current) {
+      if (navigationRefs.current[index].target.clientWidth !== navigationRefs.current[index].minWidth) { return false }
+    }
+
+    return true
   }, [])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {

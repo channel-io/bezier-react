@@ -49,8 +49,8 @@ function Main(
       // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
       const resizerDelta = e.clientX - initialPosition.current
       const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, contentMinWidth)
-
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
+
       if (navigationDelta < 0) {
         const isNavigationMinimum = navigationRef?.current?.handleMouseMoveOutside(navigationDelta)
 
