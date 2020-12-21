@@ -43,7 +43,7 @@ export type LayoutAction = (
   SetShowNavigationAction
 )
 
-export const initialState: LayoutState = {
+export const defaultState: LayoutState = {
   sideState: SideState.SidePanel,
   sideWidth: 332,
   sideMinWidth: 320,
@@ -53,7 +53,7 @@ export const initialState: LayoutState = {
   navigationRef: null,
 }
 
-export const LayoutStateContext = createContext<LayoutState>(initialState)
+export const LayoutStateContext = createContext<LayoutState>(defaultState)
 
 export const LayoutDispatchContext = createContext<Dispatch<LayoutAction>>(noop)
 

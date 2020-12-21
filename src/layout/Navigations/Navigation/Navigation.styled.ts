@@ -18,7 +18,7 @@ export const ResizeBar = styled.div`
 `
 
 interface NavigationContainerProps {
-  showSidebar: boolean
+  showNavigation: boolean | undefined
 }
 
 export const NavigationContainer = styled.div<NavigationContainerProps>`
@@ -28,7 +28,7 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   height: 100%;
   background-color: ${({ theme }) => theme?.colors?.background1};
   user-select: none;
-  width: ${({ showSidebar }) => (showSidebar === false ? '0px' : 'inherit')};
+  width: ${({ showNavigation }) => (showNavigation === false ? '0px' : 'inherit')};
   /* TODO: Foundation Transition 으로 교체 */
   transition: width 100ms ease-in-out;
   will-change: width;
@@ -45,7 +45,7 @@ export const NavigationPositioner = styled.div`
 `
 
 interface NavigationPresenterProps {
-  showSidebar: boolean
+  showNavigation: boolean | undefined
   isHover: boolean
 }
 
@@ -55,19 +55,19 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   height: 100%;
   pointer-events: auto;
 
-  background-color: ${({ showSidebar }) => (showSidebar === false && 'white')};
+  background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
   /* TODO: Foundation Transition 으로 교체 */
   transition:
     transform 200ms ease-in,
     opacity 100ms ease-out;
 
   opacity:
-    ${({ showSidebar, isHover }) => (
-    isNil(showSidebar) || (isHover) || (showSidebar) ? '1' : '0')};
+    ${({ showNavigation, isHover }) => (
+    isNil(showNavigation) || (isHover) || (showNavigation) ? '1' : '0')};
 
   transform:
-    ${({ showSidebar, isHover }) => {
-    if (!(showSidebar === false)) { return 'translate(0, 0)' }
+    ${({ showNavigation, isHover }) => {
+    if (!(showNavigation === false)) { return 'translate(0, 0)' }
     if (isHover) { return ('translate(0, 40px)') }
     return 'translate(calc(20px - 100%), 40px)'
   }};

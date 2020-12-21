@@ -14,6 +14,8 @@ import { window, document, extend } from 'ssr-window'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
+import { useLayoutDispatch, useLayoutState } from '../../Client'
+import { ActionType } from '../../Client/utils/LayoutReducer'
 import NavigationProps from './Navigation.types'
 import {
   ResizeBar,
@@ -38,16 +40,15 @@ function Navigation(
     className,
     testId = NAV_TEST_ID,
     header,
-    stickyFooter,
-    show, // disable hiding when undefined
-    setShow = noop,
+    stickyFooter = null,
+    hidable = false,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
     fixedHeader = false,
     scrollRef,
     scrollClassName,
     withScroll = false,
-    onScroll,
+    onScroll = noop,
     /* cloneElement Props */
     optionIndex = 0,
     onMouseDown = noop,
@@ -57,6 +58,11 @@ function Navigation(
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const dispatch = useLayoutDispatch()
+  const { showNavigation } = useLayoutState()
+
+  const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
+
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
   const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
@@ -93,6 +99,8 @@ function Navigation(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
+    if (!hidable) { return }
+
     if (show) {
       setShowChevron(true)
     }
@@ -103,10 +111,14 @@ function Navigation(
   }, 100, undefined, [])
 
   const handleClickClose = useCallback(() => {
-    setShow(false)
+    dispatch({
+      type: ActionType.SET_SHOW_NAVIGATION,
+      payload: false,
+    })
+
     setShowChevron(false)
     setIsHoveringOnPresenter(true)
-  }, [setShow])
+  }, [dispatch])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
@@ -154,14 +166,14 @@ function Navigation(
     <NavigationContainer
       ref={containerRef}
       data-testid={testId}
-      showSidebar={show}
+      showNavigation={show}
       {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter
           ref={mergedPresenterRef}
           className={className}
-          showSidebar={show}
+          showNavigation={show}
           isHover={isHoveringOnPresenter}
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}

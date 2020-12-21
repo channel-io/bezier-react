@@ -47,6 +47,7 @@ const StyledIcon = styled(Icon)`
 
 const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   const navigationRef = useRef<NavigationHandles | null>(null)
+
   const layoutInitialState: LayoutState = {
     sideState: SideState.SidePanel,
     sideWidth: 332,
@@ -101,6 +102,7 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
               header={Element1Header}
               minWidth={minWidth1}
               maxWidth={maxWidth1}
+              hidable
             />
             <NavigationSub
               header={Element2Header}

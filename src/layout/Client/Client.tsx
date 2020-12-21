@@ -41,7 +41,7 @@ function Client(
 
 export function useLayoutState() {
   const state = useContext(LayoutStateContext)
-  if (!state) {
+  if (state === undefined) {
     throw new Error('Cannot find LayoutState')
   }
   return state

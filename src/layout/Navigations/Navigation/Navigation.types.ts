@@ -4,12 +4,16 @@ import { ChildrenComponentProps } from '../../../types/ComponentProps'
 
 export default interface NavigationProps extends Omit<ChildrenComponentProps, 'as'> {
   header?: React.ReactElement
+  stickyFooter?: React.ReactElement | null
+  hidable?: boolean
+
   /* original navigation props - comment will be deleted after replace original nav */
-  fixedTitle?: boolean
+  disableResize?: boolean
+  fixedHeader?: boolean
   scrollRef?: Ref<HTMLDivElement>
   scrollClassName?: string
   withScroll?: boolean
-  disableResize?: boolean
+  onScroll?: () => void
 
   /* cloneElement Props */
   optionIndex?: number
