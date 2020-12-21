@@ -78,12 +78,12 @@ function Navigations(
   }, [])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
-    let movedPosition = initialPosition.current - event.clientX
+    let movedPosition = event.clientX - initialPosition.current
 
     currentIndex.current = initialIndex.current
-    if (movedPosition < 0) {
+    if (movedPosition > 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
-      const willChangeWidth = initialWidth - movedPosition
+      const willChangeWidth = initialWidth + movedPosition
 
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
@@ -91,14 +91,14 @@ function Navigations(
       return
     }
 
-    while (currentIndex.current >= 0 && movedPosition > 0) {
+    while (currentIndex.current >= 0 && movedPosition < 0) {
       const { initialWidth, minWidth, maxWidth } = navigationRefs.current[currentIndex.current]
-      const willChangeWidth = Math.max(initialWidth - movedPosition, minWidth)
+      const willChangeWidth = Math.max(initialWidth + movedPosition, minWidth)
 
-      if (initialWidth - movedPosition > minWidth) {
+      if (initialWidth + movedPosition > minWidth) {
         movedPosition = 0
       } else {
-        movedPosition = movedPosition - initialWidth + minWidth
+        movedPosition = movedPosition + initialWidth - minWidth
       }
 
       if (willChangeWidth <= maxWidth) {
