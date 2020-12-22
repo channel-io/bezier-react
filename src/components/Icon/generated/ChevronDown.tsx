@@ -2,11 +2,12 @@ import React from 'react'
 
 function SvgChevronDown(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M3.97 7.262L2.6 8.719l8.386 7.881a1.5 1.5 0 002.055 0l8.386-7.88-1.37-1.458-8.043 7.559L3.97 7.26z"
+        clipRule="evenodd"
+        d="M4.97 8.262L3.6 9.719l7.39 6.892a1.5 1.5 0 002.047 0l7.39-6.892-1.37-1.457-7.043 6.559L4.97 8.26z"
       />
     </svg>
   )

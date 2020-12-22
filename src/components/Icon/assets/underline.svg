@@ -1,4 +1,8 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="3" y="19" width="18" height="2" fill="#65676A"/>
-<path d="M6.5 3V11.5C6.5 14.5376 8.96243 17 12 17V17C15.0376 17 17.5 14.5376 17.5 11.5V3" stroke="#65676A" stroke-width="3"/>
+<g id="underline">
+<g id="Union">
+<path d="M5 3V11.5C5 15.366 8.13401 18.5 12 18.5C15.866 18.5 19 15.366 19 11.5V3H16V11.5C16 13.7091 14.2091 15.5 12 15.5C9.79086 15.5 8 13.7091 8 11.5V3H5Z" fill="#242428"/>
+<path d="M21 21V19H3V21H21Z" fill="#242428"/>
+</g>
+</g>
 </svg>
