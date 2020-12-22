@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-    <path fill="#65676A" d="M7 6h2v2H7V6zM13 6h-2v2h2V6zM7 10h2v2H7v-2zM13 10h-2v2h2v-2z"/>
-    <path fill="#65676A" fill-rule="evenodd" d="M16.222 2c.43 0 .778.448.778 1v7h3c.552 0 1 .448 1 1v9c0 .552-.448 1-1 1H3.778C3.348 21 3 20.552 3 20V3c0-.552.348-1 .778-1h12.444zM15 19V4H5v15h3v-5h4v5h3zm2 0h2v-7h-2v7z" clip-rule="evenodd"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="office">
+<g id="Combined Shape">
+<path d="M7 6H9V8H7V6Z" fill="#242428"/>
+<path d="M13 6H11V8H13V6Z" fill="#242428"/>
+<path d="M7 10H9V12H7V10Z" fill="#242428"/>
+<path d="M13 10H11V12H13V10Z" fill="#242428"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.2222 2C16.6518 2 17 2.44772 17 3V10H20C20.5523 10 21 10.4477 21 11V20C21 20.5523 20.5523 21 20 21H3.77778C3.34822 21 3 20.5523 3 20V3C3 2.44772 3.34822 2 3.77778 2H16.2222ZM15 19V4H5V19H8V14H12V19H15ZM17 19H19V12H17V19Z" fill="#242428"/>
+</g>
+</g>
 </svg>
