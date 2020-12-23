@@ -4,16 +4,23 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { NavigationHandles } from '../../Navigations/Navigations'
-import { SideState } from '../Client.types'
+import { NavigationState, SideState } from '../Client.types'
 
 export interface LayoutState {
-  showNavigation: boolean
-  navigationRef: React.MutableRefObject<NavigationHandles> | null
   contentMinWidth: number
   sideState: SideState
   sideWidth: number
   sideMinWidth: number
   sideMaxWidth: number
+  navigationState: NavigationState // 테스트 값
+  navigations: Array<{
+    initialWidth: number
+    maxWidth: number
+    minWidth: number
+  }>
+  showNavigation: boolean
+  navigationRef: React.MutableRefObject<NavigationHandles> | null
+  withoutSearch: boolean
 }
 
 export enum ActionType {
@@ -44,13 +51,27 @@ export type LayoutAction = (
 )
 
 export const defaultState: LayoutState = {
+  contentMinWidth: 330,
   sideState: SideState.SidePanel,
   sideWidth: 332,
   sideMinWidth: 320,
   sideMaxWidth: 1000,
+  navigationState: NavigationState.Either,
+  navigations: [
+    {
+      initialWidth: 200,
+      minWidth: 150,
+      maxWidth: 300,
+    },
+    {
+      initialWidth: 250,
+      minWidth: 150,
+      maxWidth: 300,
+    },
+  ],
   showNavigation: true,
-  contentMinWidth: 330,
   navigationRef: null,
+  withoutSearch: false,
 }
 
 export const LayoutStateContext = createContext<LayoutState>(defaultState)

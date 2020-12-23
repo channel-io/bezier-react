@@ -1,22 +1,28 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react'
-import { set, isNil, size } from 'lodash-es'
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
+import { set, size } from 'lodash-es'
 
 /* Internal dependencies */
+import { useLayoutState } from '../Client'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
+import { NavigationArea } from './NavigationArea'
 
 export interface NavigationHandles {
   handleMouseDownOutside: () => void
   handleMouseMoveOutside: (deltaX: number) => boolean
 }
 
-function Navigations(
-  {
-    children,
-  }: NavigationsProps,
-  forwardedRef: React.Ref<NavigationHandles>,
+function Navigations({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  navigation,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  navigationbSub,
+}: NavigationsProps,
+forwardedRef: React.Ref<NavigationHandles>,
 ) {
+  const { navigations } = useLayoutState()
+
   const navigationRefs = useRef<{ [i: number]: NavigationRefsProps }>({})
   const currentIndex = useRef(0)
   const initialIndex = useRef(0)
@@ -79,7 +85,6 @@ function Navigations(
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
-
     currentIndex.current = initialIndex.current
     if (movedPosition > 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
@@ -113,30 +118,36 @@ function Navigations(
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  const renderNavigationList = useCallback(navigations => (
-    React.Children.map(navigations, (child, index) => (
-      React.cloneElement(child, {
-        ref: (nav: HTMLDivElement) => {
-          if (!isNil(child.ref)) {
-            set(child, 'ref.current', nav)
-          }
-          set(navigationRefs.current, [index, 'target'], nav)
-          set(navigationRefs.current, [index, 'minWidth'], child.props.minWidth)
-          set(navigationRefs.current, [index, 'maxWidth'], child.props.maxWidth)
-        },
-        optionIndex: index,
-        onMouseDown: handleMouseDown,
-        onMouseMove: handleMouseMove,
-      })),
-    )
-  ), [
-    handleMouseDown,
-    handleMouseMove,
-  ])
+  const renderNavigationAreas = useCallback((navLayouts) => (
+    navLayouts.map((navLayout, index) => (
+      <NavigationArea
+        ref={(element: HTMLDivElement) => {
+          set(navigationRefs.current, [index, 'target'], element)
+          set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
+          set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
+        }}
+        optionIndex={index}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+      >
+        To Be Implemented
+      </NavigationArea>
+    ))
+  ), [handleMouseDown, handleMouseMove])
+
+  // define initial Width
+  useEffect(() => {
+    for (const index in navigationRefs.current) {
+      if (navigationRefs.current[index] && navigations[index]) {
+        navigationRefs.current[index].target.style.width = `${navigations[index].initialWidth}px`
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <NavigationsWrapper>
-      { renderNavigationList(children) }
+      { renderNavigationAreas(navigations) }
     </NavigationsWrapper>
   )
 }

@@ -26,7 +26,7 @@ import {
   StyledContentWrapper,
   StyledFooterWrapper,
   ChevronIcon,
-} from './Navigation.styled'
+} from './NavigationArea.styled'
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
 
@@ -34,7 +34,7 @@ extend(document, {
   requestAnimationFrame() {},
 })
 
-function Navigation(
+function NavigationArea(
   {
     style,
     className,
@@ -193,9 +193,9 @@ function Navigation(
             { children }
           </StyledContentWrapper>
           { stickyFooter && (
-            <StyledFooterWrapper>
-              { stickyFooter }
-            </StyledFooterWrapper>
+          <StyledFooterWrapper>
+            { stickyFooter }
+          </StyledFooterWrapper>
           ) }
         </NavigationPresenter>
       </NavigationPositioner>
@@ -204,4 +204,4 @@ function Navigation(
   )
 }
 
-export default forwardRef(Navigation)
+export default forwardRef(NavigationArea)

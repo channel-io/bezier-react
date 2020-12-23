@@ -9,7 +9,7 @@ import Palette from '../../styling/Palette'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
-import Navigation from './Navigation'
+import { NavigationArea } from './NavigationArea'
 import Navigations from './Navigations'
 
 export default {
@@ -33,12 +33,12 @@ const Wrapper = styled.div`
   border-radius: 10px;
 `
 
-const NavigationElement1 = styled(Navigation)`
+const NavigationElement1 = styled(NavigationArea)`
   width: 200px;
   z-index: 500;
 `
 
-const NavigationElement2 = styled(Navigation)`
+const NavigationElement2 = styled(NavigationArea)`
   width: 300px;
   z-index: 400;
   background-color: ${({ theme }) => theme.colors.background0};

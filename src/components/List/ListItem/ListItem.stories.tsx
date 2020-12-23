@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { Navigation, Navigations } from '../../../layout/Navigations'
+import { NavigationArea, Navigations } from '../../../layout/Navigations'
 import { getTitle } from '../../../utils/utils'
 import ListItem from './ListItem'
 
@@ -20,7 +20,7 @@ const SIDEBAR_WIDTH = 240
 
 const Template = ({ ...otherListItemProps }) => (
   <Navigations>
-    <Navigation
+    <NavigationArea
       withScroll
       disableResize
       title="사이드바"
@@ -30,7 +30,7 @@ const Template = ({ ...otherListItemProps }) => (
         optionKey="menu-item-0"
         {...otherListItemProps}
       />
-    </Navigation>
+    </NavigationArea>
   </Navigations>
 )
 
