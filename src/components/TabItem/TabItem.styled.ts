@@ -14,15 +14,15 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   overflow: hidden;
   font-size: inherit;
   font-weight: bold;
-  color: ${props => props.theme?.colors?.['text-hover-blue']};
+  color: ${props => props.foundation?.theme?.['text-hover-blue']};
   cursor: pointer;
   user-select: none;
 
   /* stylelint-disable-next-line */
   ${props => (
-    props.theme?.transition?.getTransitionCSS(
+    props.foundation?.transition?.getTransitionCSS(
       'color',
-      props.theme?.transition?.TransitionDuration.L,
+      props.foundation?.transition?.TransitionDuration.L,
     )
   )};
 
@@ -33,7 +33,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   &:hover {
     ${props => (!props.disabled ? `
       ${props.active ? '' : `
-        color: ${props.theme?.colors?.['text-hover-blue']};
+        color: ${props.foundation?.theme?.['text-hover-blue']};
       `}
     ` : '')}
   }
@@ -47,17 +47,17 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     left: 0;
     width: 100%;
     height: ${props => props.indicatorThickness || 3}px;
-    background-color: ${props => props.theme?.colors?.['text-hover-blue']};
+    background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
     content: '';
     transform: translateY(100%);
 
-    ${props => (props.theme?.transition?.getTransitionCSS(['transform', 'background-color']))};
+    ${props => (props.foundation?.transition?.getTransitionCSS(['transform', 'background-color']))};
 
     will-change: transform;
   }
 
   ${props => (props.active ? `
-    color: ${props.theme?.colors?.['text-hover-blue']};
+    color: ${props.foundation?.theme?.['text-hover-blue']};
     pointer-events: none;
 
     &::after {
@@ -70,14 +70,14 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     pointer-events: all;
 
     ${props.active ? `
-      color: ${props.theme?.colors?.['text-hover-blue']};
+      color: ${props.foundation?.theme?.['text-hover-blue']};
       &::after {
-        background-color: ${props.theme?.colors?.['text-hover-blue']};
+        background-color: ${props.foundation?.theme?.['text-hover-blue']};
       }
     ` : `
-      color: ${props.theme?.colors?.['text-hover-blue']};
+      color: ${props.foundation?.theme?.['text-hover-blue']};
       &::after {
-        background-color: ${props.theme?.colors?.['text-hover-blue']};
+        background-color: ${props.foundation?.theme?.['text-hover-blue']};
       }
     `}
   ` : '')}

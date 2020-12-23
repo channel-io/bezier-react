@@ -5,7 +5,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../index'
-import { Colors } from './index'
+import { Themes } from './index'
 
 export default {
   title: getTitle(base),
@@ -60,12 +60,12 @@ const Template = ({ color }) => (
   </ColorChipArtBoard>
 )
 
-export const LightColors = Template.bind({})
-LightColors.args = {
-  color: Colors.Light,
+export const LightTheme = Template.bind({})
+LightTheme.args = {
+  color: Themes.LightTheme,
 }
 
-export const DarkColors = Template.bind({})
-DarkColors.args = {
-  color: Colors.Dark,
+export const DarkTheme = Template.bind({})
+DarkTheme.args = {
+  color: Themes.DarkTheme,
 }

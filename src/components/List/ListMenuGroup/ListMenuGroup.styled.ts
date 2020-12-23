@@ -15,23 +15,23 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   margin-left: 6px;
   font-size: 14px;
   font-weight: normal;
-  color: ${props => props.theme?.colors?.['text-hover-blue']};
+  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
 
-  ${props => !isNil(props.currentMenuItemIndex) && `
-      color: ${props.theme?.colors?.['text-hover-blue']};
-      background-color: ${props.theme?.colors?.['text-hover-blue']};
+  ${({ foundation, currentMenuItemIndex }) => !isNil(currentMenuItemIndex) && `
+      color: ${foundation?.theme?.['text-hover-blue']};
+      background-color: ${foundation?.theme?.['text-hover-blue']};
   `}
 
   &:hover {
-    background-color: ${props => (isNil(props.currentMenuItemIndex) && props.theme?.colors?.['text-hover-blue'])};
+    background-color: ${props => (isNil(props.currentMenuItemIndex) && props.foundation?.theme?.['text-hover-blue'])};
   }
 `
 
 export const StyledIcon = styled(Icon)`
-  color: ${props => props.theme?.colors?.['text-hover-blue']};
+  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
@@ -41,7 +41,7 @@ export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
 
   ${props => !isNil(props.currentMenuItemIndex) && `
       svg {
-        color: ${props.theme?.colors?.['text-hover-blue']};
+        color: ${props.foundation?.theme?.['text-hover-blue']};
       }
   `}
 `

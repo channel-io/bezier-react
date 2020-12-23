@@ -12,9 +12,9 @@ function getMargin({
 }
 
 const Icon = styled.svg<IconStyledProps>`
-  color: ${props => props.color || 'inherit'};
+  color: ${({ color }) => color || 'inherit'};
   margin: ${getMargin};
-  transition: ${props => props.theme?.transition?.getTransitionCSS('color')};
+  transition: ${({ foundation }) => foundation?.transition?.getTransitionCSS('color')};
 `
 
 export default Icon

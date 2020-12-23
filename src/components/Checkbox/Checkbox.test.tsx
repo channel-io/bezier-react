@@ -4,9 +4,9 @@ import { render } from '@testing-library/react'
 
 /* Internal dependencies */
 import {
-  ThemeProvider,
+  FoundationProvider,
+  LightFoundation,
   LightTheme,
-  LightColor,
 } from '../../foundation'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
@@ -24,9 +24,9 @@ describe('Checkbox test >', () => {
   })
 
   const renderComponent = (optionProps?: CheckboxProps) => render(
-    <ThemeProvider theme={LightTheme}>
+    <FoundationProvider foundation={LightFoundation}>
       <Checkbox {...props} {...optionProps} />
-    </ThemeProvider>,
+    </FoundationProvider>,
   )
 
   it('Checkbox has default style', () => {
@@ -56,8 +56,8 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']}`)
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightColor['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']}`)
+    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightTheme['text-hover-blue']};`)
   })
 
   it('Checker of Checkbox has green background when check status is truthy', () => {
@@ -65,7 +65,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
     expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
   })
 
@@ -74,6 +74,6 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColor['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
   })
 })

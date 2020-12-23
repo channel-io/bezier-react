@@ -1,42 +1,42 @@
 /* Internal dependencies */
-import { css } from '../ThemedStyledComponent'
+import { css } from '../FoundationStyledComponent'
 
 const defaultBorderStyle = '0 0 2px 1px'
 
 const ev1 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 1px 2px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 1px 2px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const ev2 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 2px 6px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 2px 6px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const ev3 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 4px 12px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 4px 12px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const ev4 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 4px 20px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 4px 20px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const ev5 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 6px 40px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 6px 40px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const ev6 = css`
   box-shadow:
-    ${defaultBorderStyle} ${({ theme }) => theme?.colors?.['text-hover-blue']},
-    0 12px 60px ${({ theme }) => theme?.colors?.['text-hover-blue']};
+    ${defaultBorderStyle} ${({ foundation }) => foundation?.theme?.['text-hover-blue']},
+    0 12px 60px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 export const Elevation = {

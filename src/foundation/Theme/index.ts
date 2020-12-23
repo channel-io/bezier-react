@@ -1,56 +1,39 @@
 /* Internal dependencies */
-import { Palette } from '../Palette'
-import Spectrum from '../Palette/Spectrum'
+import { Palette } from './Palette'
+import Spectrum from './Palette/Spectrum'
+import { getOpacityTheme } from './utils'
 
 type TextHoverColor = `text-hover-${Spectrum}`
 type BannerBackgroundColor = `bg-banner-${Spectrum}`
 
-export type Color =
+export type Theme =
   Partial<
   Record<TextHoverColor, string> &
   Record<BannerBackgroundColor, string>
   >
 
-type Opacity = 30 | 20 | 10
-
-function getOpacityColor(HEX: string, opacity: Opacity) {
-  const opacityHEX = (() => {
-    switch (opacity) {
-      case 30:
-        return '4D'
-      case 20:
-        return '33'
-      case 10:
-      default:
-        return '1A'
-    }
-  })()
-
-  return `${HEX}${opacityHEX}`
-}
-
-interface GetColorParams {
-  baseColor: {
+interface GetThemeParams {
+  baseTheme: {
     [key in Exclude<Spectrum, Spectrum.grey>]: [string, string]
   }
-  isDarkColor?: boolean
+  isDarkTheme?: boolean
 }
 
-function getColor({ baseColor }: GetColorParams): Color {
-  // TODO: 용법 별로 color 이름 정할 것
+function getTheme({ baseTheme }: GetThemeParams): Theme {
+  // TODO: 용법 별로 Theme 이름 정할 것
   return {
     // Text Hover
-    'text-hover-blue': baseColor.blue[0],
-    'text-hover-cobalt': baseColor.cobalt[0],
+    'text-hover-blue': baseTheme.blue[0],
+    'text-hover-cobalt': baseTheme.cobalt[0],
 
     // Banner Background
-    'bg-banner-blue': getOpacityColor(baseColor.blue[0], 30),
-    'bg-banner-cobalt': getOpacityColor(baseColor.cobalt[0], 30),
+    'bg-banner-blue': getOpacityTheme(baseTheme.blue[0], 30),
+    'bg-banner-cobalt': getOpacityTheme(baseTheme.cobalt[0], 30),
   }
 }
 
-export const LightColor: Color = getColor({
-  baseColor: {
+export const LightTheme: Theme = getTheme({
+  baseTheme: {
     blue: [Palette.blue400, Palette.blue500],
     cobalt: [Palette.cobalt400, Palette.cobalt500],
     teal: [Palette.teal400, Palette.teal500],
@@ -65,8 +48,8 @@ export const LightColor: Color = getColor({
   },
 })
 
-export const DarkColor: Color = getColor({
-  baseColor: {
+export const DarkTheme: Theme = getTheme({
+  baseTheme: {
     blue: [Palette.blue300, Palette.blue400],
     cobalt: [Palette.cobalt300, Palette.cobalt400],
     teal: [Palette.teal300, Palette.teal400],
@@ -79,39 +62,39 @@ export const DarkColor: Color = getColor({
     purple: [Palette.purple300, Palette.purple400],
     navy: [Palette.navy300, Palette.navy400],
   },
-  isDarkColor: true,
+  isDarkTheme: true,
 })
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
 
-function getColorsFromKeyword(keyword: string) {
+function getThemesFromKeyword(keyword: string) {
   switch (keyword) {
     case DARK_KEYWORD:
-      return LightColor
+      return LightTheme
     case LIGHT_KEYWORD:
     default:
-      return DarkColor
+      return DarkTheme
   }
 }
 
-interface CreateColorsConfig {
-  color: Partial<Color>
+interface CreateThemesConfig {
+  Theme: Partial<Theme>
   base?: string
 }
 
-export function createColors({
-  color,
+export function createThemes({
+  Theme,
   base = 'light',
-}: CreateColorsConfig): Color {
+}: CreateThemesConfig): Theme {
   return {
-    ...getColorsFromKeyword(base),
-    ...color,
+    ...getThemesFromKeyword(base),
+    ...Theme,
   }
 }
 
-export const Colors = {
-  createColors,
-  LightColor,
-  DarkColor,
+export const Themes = {
+  createThemes,
+  LightTheme,
+  DarkTheme,
 }

@@ -38,7 +38,8 @@ const BorderChip = styled.div<BorderChipProps>`
   width: 100px;
   height: 100px;
   background-color: white;
-  ${({ theme, width, color, top, right, bottom, left }) => theme?.border?.getBorder(width, color, { top, right, bottom, left })};
+  ${({ foundation, width, color, top, right, bottom, left }) =>
+    foundation?.border?.getBorder(width, color, { top, right, bottom, left })};
   box-sizing: border-box;
 `
 

@@ -1,4 +1,4 @@
-import { css } from './ThemedStyledComponent'
+import { css } from './FoundationStyledComponent'
 
 export const absoluteCenter = (otherTransforms: any) => `
   position: absolute;

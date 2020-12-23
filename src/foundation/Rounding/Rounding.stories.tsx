@@ -33,8 +33,8 @@ interface RoundingChipProps {
 const RoundingChip = styled.div<RoundingChipProps>`
   width: 100px;
   height: 100px;
-  ${({ theme, round }) => theme?.rounding?.[round]};
-  ${({ theme }) => theme?.elevation?.ev3};
+  ${({ foundation, round }) => foundation?.rounding?.[round]};
+  ${({ foundation }) => foundation?.elevation?.ev3};
 `
 
 const Template = (args) => (

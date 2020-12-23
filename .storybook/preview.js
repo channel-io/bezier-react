@@ -3,12 +3,12 @@ import React from 'react'
 
 /* Internel dependencies */
 import EnableCSSHoudini from '../src/worklets/EnableCSSHoudini'
-import { ThemeProvider, LightTheme, DarkTheme } from '../src/foundation'
+import { FoundationProvider, LightFoundation, DarkFoundation } from '../src/foundation'
 
 // CSS Houdini
 EnableCSSHoudini({ smoothCorners: true })
 
-const ThemeKeyword = {
+const FoundationKeyword = {
   Light: 'light',
   Dark: 'dark',
 }
@@ -18,33 +18,33 @@ export const parameters = {
 }
 
 export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
+  Foundation: {
+    name: 'Foundation',
+    description: 'Global Foundation for components',
     defaultValue: 'light',
     toolbar: {
       icon: 'circlehollow',
-      items: [ThemeKeyword.Light, ThemeKeyword.Dark],
+      items: [FoundationKeyword.Light, FoundationKeyword.Dark],
     },
   },
 };
 
-function getTheme(keyword) {
-  if (keyword === ThemeKeyword.Light) return LightTheme
-  return DarkTheme
+function getFoundation(keyword) {
+  if (keyword === FoundationKeyword.Light) return LightFoundation
+  return DarkFoundation
 }
 
-function withThemeProvider(Story, context) {
-  const theme = getTheme(context.globals.theme)
-  const backgroundColor = context.globals.theme === 'dark' ? 'black' : 'white'
+function withFoundationProvider(Story, context) {
+  const Foundation = getFoundation(context.globals.Foundation)
+  const backgroundColor = context.globals.Foundation === 'dark' ? 'black' : 'white'
 
   return (
     <div style={{ backgroundColor }}>
-      <ThemeProvider theme={theme}>
+      <FoundationProvider foundation={Foundation}>
         { Story(context) }
-      </ThemeProvider>
+      </FoundationProvider>
     </div>
   )
 }
 
-export const decorators = [withThemeProvider]
+export const decorators = [withFoundationProvider]

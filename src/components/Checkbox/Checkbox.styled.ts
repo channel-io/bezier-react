@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, absoluteCenter } from '../../foundation'
+import { styled, css, absoluteCenter } from '../../foundation'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 import CheckType from './CheckType'
 
@@ -18,52 +18,52 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   )}
 `
 
-const checkerBase = (props: StyledCheckerProps) => `
+function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
+  return checkStatus === CheckType.True || checkStatus === CheckType.Partial
+}
+
+const checkerBase = css<StyledCheckerProps>`
   &::after {
     ${absoluteCenter`translateY(-13%) rotate(42deg)`}
     width: 4px;
     height: 9px;
     border-right: solid ${CHECKER_ICON_THICKNESS}px transparent;
     border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    border-color: ${props.theme?.colors?.['text-hover-blue']};
+    border-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
     content: '';
-    transition: ${props.theme?.transition?.BorderTransition};
+    transition: ${({ foundation }) => foundation?.transition?.getTransitionCSS('border')};
   }
 
-  ${(props.checkStatus === CheckType.True || props.checkStatus === CheckType.Partial) ? `
-    background-color: ${props.theme?.colors?.['text-hover-blue']};
-    border-color: transparent;
+  background-color:
+    ${({ foundation, checkStatus }) =>
+    (isTrueOrPartial(checkStatus) ? foundation?.theme?.['text-hover-blue'] : '')};
+  border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'transparent' : '')};
 
-    ${!props.disabled ? `
-      &:hover {
-        background-color: ${props.theme?.colors?.['text-hover-blue']};
-      }
-    ` : ''}
-  ` : ''}
+  &:hover {
+    background-color:
+      ${({ foundation, disabled, checkStatus }) =>
+    ((!disabled && isTrueOrPartial(checkStatus)) ? foundation?.theme?.['text-hover-blue'] : '')};
+  }
 `
 
-const partialChecked = (props: StyledCheckerProps) => ((props.checkStatus === CheckType.Partial) ? `
+const partialChecked = css<StyledCheckerProps>`
   &::after {
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
     border-right: none;
-    border-bottom: solid 2px ${props.theme?.colors?.['text-hover-blue']};
+    border-bottom: solid 2px ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   }
-` : '')
+`
 
-const disabled = (props: StyledCheckerProps) => ((props.disabled) ? `
-  background-color: ${props.theme?.colors?.['text-hover-blue']};
+const disabledStyle = css<StyledCheckerProps>`
+  background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 
-  ${(props.checkStatus === CheckType.False) ? `
-    &::after {
-      border-color: transparent;
-    }
-  ` : `
-    &::after {
-      border-color: ${props.theme?.colors?.['text-hover-blue']}
-    }
-  `}
-` : '')
+  &::after {
+    border-color:
+      ${({ foundation, checkStatus }) =>
+    (checkStatus === CheckType.False ? foundation?.theme?.['text-hover-blue'] : 'transparent')};
+  }
+`
 
 export const Checker = styled.div<StyledCheckerProps>`
   position: relative;
@@ -77,25 +77,25 @@ export const Checker = styled.div<StyledCheckerProps>`
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
-  background-color: ${props => props.theme?.colors?.['text-hover-blue']};
-  border: ${CHECKER_BORDER_THICKNESS}px solid ${props => props.theme?.colors?.['text-hover-blue']};
+  background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
+  border: ${CHECKER_BORDER_THICKNESS}px solid ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   border-radius: 4px;
 
-  ${props => props.theme?.transition?.getTransitionCSS(['background-color'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionCSS(['background-color'])};
 
-  ${props => (!props.disabled ? `
+  ${({ foundation, disabled }) => (!disabled ? `
     &:hover {
       &::after {
-        border-color: ${props.theme?.colors?.['text-hover-blue']};
+        border-color: ${foundation?.theme?.['text-hover-blue']};
       }
     }
   ` : '')}
 
   ${checkerBase}
 
-  ${partialChecked}
+  ${({ checkStatus }) => (checkStatus === CheckType.Partial ? partialChecked : '')}
 
-  ${disabled}
+  ${({ disabled }) => (disabled ? disabledStyle : '')}
 `
 
 export const Content = styled.div<StyledContentProps>`

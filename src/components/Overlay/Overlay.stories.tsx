@@ -54,7 +54,7 @@ const Container = styled.div`
   width: 600px;
   height: 500px;
   overflow: scroll;
-  border: 1px solid ${props => props.theme?.colors?.['text-hover-blue']};
+  border: 1px solid ${props => props.foundation?.theme?.['text-hover-blue']};
 `
 
 const Wrapper = styled.div`
@@ -71,7 +71,7 @@ const Target = styled.div`
   align-items: center;
   width: 70px;
   height: 40px;
-  background-color: ${props => props.theme?.colors?.['text-hover-blue']};
+  background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
   border-radius: 4px;
 `
 
@@ -79,7 +79,7 @@ const Children = styled.div`
   width: 250px;
   height: 150px;
   overflow-y: scroll;
-  background-color: ${props => props.theme?.colors?.['text-hover-blue']};
+  background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
   border-radius: 4px;
 `
 

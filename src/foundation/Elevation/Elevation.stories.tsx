@@ -32,8 +32,8 @@ interface ElevationChipProps {
 const ElevationChip = styled.div<ElevationChipProps>`
   width: 100px;
   height: 100px;
-  ${({ theme, ev }) => theme?.elevation?.[ev]};
-  ${({ theme }) => theme?.rounding?.round30};
+  ${({ foundation, ev }) => foundation?.elevation?.[ev]};
+  ${({ foundation }) => foundation?.rounding?.round30};
 `
 
 const Template = (args) => (

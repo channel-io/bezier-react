@@ -56,13 +56,10 @@ const Element = styled.div.attrs<ElementProps>(({
   height: 100px;
   background-color: lightgray;
   border-radius: 4px;
-  ${props => props.theme?.transition?.getTransitionCSS(
+  ${({ foundation }) => foundation?.transition?.getTransitionCSS(
     ['top', 'right', 'bottom', 'left'],
-    props.theme.transition.TransitionDuration.M,
+    foundation?.transition?.TransitionDuration.M,
   )};
-  /* transition-property: top, right, bottom, left;
-  transition-duration: ${props => props.theme?.transition?.TransitionDuration.M};
-  transition-timing-function: ${props => props.theme?.transition?.TransitionEasing}; */
 `
 
 const Template = (args) => {
