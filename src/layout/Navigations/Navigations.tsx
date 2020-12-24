@@ -14,10 +14,7 @@ export interface NavigationHandles {
 }
 
 function Navigations({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  navigation,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  navigationbSub,
+  children,
 }: NavigationsProps,
 forwardedRef: React.Ref<NavigationHandles>,
 ) {
@@ -118,22 +115,28 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  const renderNavigationAreas = useCallback((navLayouts) => (
-    navLayouts.map((navLayout, index) => (
-      <NavigationArea
-        ref={(element: HTMLDivElement) => {
-          set(navigationRefs.current, [index, 'target'], element)
-          set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
-          set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
-        }}
-        optionIndex={index}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-      >
-        To Be Implemented
-      </NavigationArea>
-    ))
-  ), [handleMouseDown, handleMouseMove])
+  const renderNavigationAreas = useCallback((navLayouts) => {
+    const childrens = React.Children.toArray(children)
+    return (
+      // eslint-disable-next-line arrow-body-style
+      navLayouts.map((navLayout, index) => {
+        return (
+          <NavigationArea
+            ref={(element: HTMLDivElement) => {
+              set(navigationRefs.current, [index, 'target'], element)
+              set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
+              set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
+            }}
+            optionIndex={index}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+          >
+            { childrens[index] }
+          </NavigationArea>
+        )
+      })
+    )
+  }, [children, handleMouseDown, handleMouseMove])
 
   // define initial Width
   useEffect(() => {

@@ -1,8 +1,8 @@
 /* External depdendencies */
 import { isNil } from 'lodash-es'
-import { Icon } from '../../../components/Icon'
 
 /* Internal dependencies */
+import { Icon } from '../../../components/Icon'
 import { styled } from '../../../styling/Theme'
 
 export const ResizeBar = styled.div`

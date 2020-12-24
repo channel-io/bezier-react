@@ -6,10 +6,13 @@ import { base } from 'paths.macro'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Navigations, { NavigationHandles } from '../Navigations/Navigations'
+import { NavigationContent } from '../Navigations/NavigationContent'
 import Client from '../Client/Client'
 import { Main } from '../Main'
 import GNB from '../GNB/GNB'
-import { NavigationState, SideState } from '../Client/Client.types'
+import { SideState } from '../Client/Client.types'
+import { Icon } from '../../components/Icon'
+import { Header } from '../../components/Header'
 import { LayoutState } from '../Client/utils/LayoutReducer'
 import Content from './Content'
 
@@ -27,21 +30,9 @@ const Container = styled.div`
   border-radius: 10px;
 `
 
-// const NavigationMain = styled(NavigationArea)`
-//   width: 200px;
-//   z-index: 500;
-// `
-
-// const NavigationSub = styled(NavigationArea)`
-//   width: 300px;
-//   z-index: 400;
-//   background-color: ${({ theme }) => theme.colors.background0};
-//   border-right: 2px solid ${({ theme }) => theme.colors.border2};
-// `
-
-// const StyledIcon = styled(Icon)`
-//   color: ${({ theme }) => theme.colors.iconBase};
-// `
+const StyledIcon = styled(Icon)`
+  color: ${({ theme }) => theme.colors.iconBase};
+`
 
 const Template = () => {
   const navigationRef = useRef<NavigationHandles | null>(null)
@@ -52,17 +43,18 @@ const Template = () => {
     sideWidth: 332,
     sideMinWidth: 320,
     sideMaxWidth: 1000,
-    navigationState: NavigationState.Either,
     navigations: [
       {
         initialWidth: 200,
         minWidth: 150,
         maxWidth: 300,
+        hidable: true,
       },
       {
         initialWidth: 250,
         minWidth: 150,
         maxWidth: 300,
+        hidable: false,
       },
     ],
     showNavigation: true,
@@ -70,24 +62,24 @@ const Template = () => {
     withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
   }
 
-  // const DummyActions = useMemo(() => (
-  //   <>
-  //     <StyledIcon name="search" marginRight={10}/>
-  //     <StyledIcon name="triangle-updown"/>
-  //   </>
-  // ), [])
+  const DummyActions = useMemo(() => (
+    <>
+      <StyledIcon name="search" marginRight={10}/>
+      <StyledIcon name="triangle-updown"/>
+    </>
+  ), [])
 
-  // const Element1Header = useMemo(() => (
-  //   <Header title="Title" />
-  // ), [])
+  const Element1Header = useMemo(() => (
+    <Header title="Title" />
+  ), [])
 
-  // const Element2Header = useMemo(() => (
-  //   <Header
-  //     title="Betty"
-  //     titleImageUrl="https://picsum.photos/200/300.jpg"
-  //     actions={DummyActions}
-  //   />
-  // ), [DummyActions])
+  const Element2Header = useMemo(() => (
+    <Header
+      title="Betty"
+      titleImageUrl="https://picsum.photos/200/300.jpg"
+      actions={DummyActions}
+    />
+  ), [DummyActions])
 
   const Div = styled.div`
     width: 100%;
@@ -100,11 +92,15 @@ const Template = () => {
   `
 
   const NavigationMainRoute = useMemo(() => (
-    <div>
+    <NavigationContent header={Element1Header}>
       hello!
-    </div>
-  ), [])
-  const NavigationSubRoute = useMemo(() => (<div>hello!</div>), [])
+    </NavigationContent>
+  ), [Element1Header])
+  const NavigationSubRoute = useMemo(() => (
+    <NavigationContent header={Element2Header} fixedHeader>
+      hello!
+    </NavigationContent>
+  ), [Element2Header])
   const ContentRoute = useMemo(() => (<Content />), [])
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
   const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
@@ -115,28 +111,9 @@ const Template = () => {
     <Container>
       <Client layoutInitialState={layoutInitialState}>
         <GNB />
-        <Navigations
-          ref={navigationRef}
-          navigation={NavigationMainRoute}
-          navigationSub={NavigationSubRoute}
-        >
-          { /* <NavigationMain
-            header={Element1Header}
-            minWidth={minWidth1}
-            maxWidth={maxWidth1}
-            hidable
-          >
-            { NavigationMainRoute }
-          </NavigationMain>
-          <NavigationSub
-            header={Element2Header}
-            minWidth={minWidth2}
-            maxWidth={maxWidth2}
-            withScroll
-            fixedHeader
-          >
-            { NavigationSubRoute }
-          </NavigationSub> */ }
+        <Navigations ref={navigationRef}>
+          { NavigationMainRoute }
+          { NavigationSubRoute }
         </Navigations>
         <Main
           content={ContentRoute}

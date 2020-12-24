@@ -22,10 +22,6 @@ import {
   NavigationContainer,
   NavigationPositioner,
   NavigationPresenter,
-  StyledTitleWrapper,
-  StyledContentWrapper,
-  StyledFooterWrapper,
-  ChevronIcon,
 } from './NavigationArea.styled'
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
@@ -40,15 +36,14 @@ function NavigationArea(
     className,
     testId = NAV_TEST_ID,
     header,
-    stickyFooter = null,
     hidable = false,
     /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
-    fixedHeader = false,
+    // fixedHeader = false,
     scrollRef,
     scrollClassName,
-    withScroll = false,
-    onScroll = noop,
+    // withScroll = false,
+    // onScroll = noop,
     /* cloneElement Props */
     optionIndex = 0,
     onMouseDown = noop,
@@ -137,30 +132,17 @@ function NavigationArea(
     }
   }, [handleDecideHover, show])
 
-  const HeaderComponent = useMemo(() => {
-    if (!header) { return null }
-
+  // eslint-disable-next-line arrow-body-style
+  const ContentComponent = useMemo(() => {
     return (
-      <StyledTitleWrapper fixed={fixedHeader}>
-        { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header!, { isHover: isHoveringOnPresenter }) }
-        { showChevron && !allowMouseMove && (
-          <ChevronIcon
-            name="chevron-left-double"
-            onClick={handleClickClose}
-            marginRight={10}
-          />
-        ) }
-      </StyledTitleWrapper>
+      React.cloneElement(children, {
+        showChevron,
+        allowMouseMove,
+        isHoveringOnPresenter,
+        onClickClose: handleClickClose,
+      })
     )
-  }, [
-    allowMouseMove,
-    header,
-    fixedHeader,
-    showChevron,
-    handleClickClose,
-    isHoveringOnPresenter,
-  ])
+  }, [allowMouseMove, children, handleClickClose, isHoveringOnPresenter, showChevron])
 
   return (
     <NavigationContainer
@@ -178,25 +160,7 @@ function NavigationArea(
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          { (header && fixedHeader) && (
-            HeaderComponent
-          ) }
-          <StyledContentWrapper
-            ref={scrollRef}
-            className={scrollClassName}
-            withScroll={withScroll}
-            onScroll={onScroll}
-          >
-            { (header && !fixedHeader) && (
-              HeaderComponent
-            ) }
-            { children }
-          </StyledContentWrapper>
-          { stickyFooter && (
-          <StyledFooterWrapper>
-            { stickyFooter }
-          </StyledFooterWrapper>
-          ) }
+          { ContentComponent }
         </NavigationPresenter>
       </NavigationPositioner>
       <ResizeBar ref={setResizeBarRef} />

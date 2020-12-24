@@ -4,7 +4,7 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { NavigationHandles } from '../../Navigations/Navigations'
-import { NavigationState, SideState } from '../Client.types'
+import { SideState } from '../Client.types'
 
 export interface LayoutState {
   contentMinWidth: number
@@ -12,11 +12,11 @@ export interface LayoutState {
   sideWidth: number
   sideMinWidth: number
   sideMaxWidth: number
-  navigationState: NavigationState // 테스트 값
   navigations: Array<{
     initialWidth: number
     maxWidth: number
     minWidth: number
+    hidable: boolean
   }>
   showNavigation: boolean
   navigationRef: React.MutableRefObject<NavigationHandles> | null
@@ -56,17 +56,18 @@ export const defaultState: LayoutState = {
   sideWidth: 332,
   sideMinWidth: 320,
   sideMaxWidth: 1000,
-  navigationState: NavigationState.Either,
   navigations: [
     {
       initialWidth: 200,
       minWidth: 150,
       maxWidth: 300,
+      hidable: true,
     },
     {
       initialWidth: 250,
       minWidth: 150,
       maxWidth: 300,
+      hidable: false,
     },
   ],
   showNavigation: true,
