@@ -16,7 +16,7 @@ import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import { useLayoutDispatch, useLayoutState } from '../../Client'
 import { ActionType } from '../../Client/utils/LayoutReducer'
-import NavigationProps from './Navigation.types'
+import NavigationProps from './NavigationArea.types'
 import {
   ResizeBar,
   NavigationContainer,
@@ -35,15 +35,9 @@ function NavigationArea(
     style,
     className,
     testId = NAV_TEST_ID,
-    header,
     hidable = false,
-    /* original navigation props - comment will be deleted after replace original nav */
     disableResize = false,
-    // fixedHeader = false,
-    scrollRef,
-    scrollClassName,
-    // withScroll = false,
-    // onScroll = noop,
+
     /* cloneElement Props */
     optionIndex = 0,
     onMouseDown = noop,

@@ -32,7 +32,6 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   /* TODO: Foundation Transition 으로 교체 */
   transition: width 100ms ease-in-out;
   will-change: width;
-  border: 1px solid red;
 `
 
 export const NavigationPositioner = styled.div`
@@ -55,7 +54,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   flex-direction: column;
   height: 100%;
   pointer-events: auto;
-
+  /* TODO: Hovering Color Prop 추가 */
   background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
   /* TODO: Foundation Transition 으로 교체 */
   transition:

@@ -1,12 +1,14 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
-import { set, size } from 'lodash-es'
+import { set, size, toNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import { useLayoutState } from '../Client'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
+
+const MAX_NAV_Z_INDEX = 100
 
 export interface NavigationHandles {
   handleMouseDownOutside: () => void
@@ -127,6 +129,7 @@ forwardedRef: React.Ref<NavigationHandles>,
               set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
               set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
             }}
+            hidable={navLayout.hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -138,11 +141,11 @@ forwardedRef: React.Ref<NavigationHandles>,
     )
   }, [children, handleMouseDown, handleMouseMove])
 
-  // define initial Width
   useEffect(() => {
     for (const index in navigationRefs.current) {
       if (navigationRefs.current[index] && navigations[index]) {
         navigationRefs.current[index].target.style.width = `${navigations[index].initialWidth}px`
+        navigationRefs.current[index].target.style.zIndex = `${MAX_NAV_Z_INDEX - toNumber(index)}`
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

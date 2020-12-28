@@ -9,20 +9,24 @@ import {
   StyledFooterWrapper,
   StyledTitleWrapper,
 } from './NavigationContent.styled'
+import NavigationContentProps from './NavigationContent.types'
 
 function NavigationContent({
   /* 사용처에서 관리해야 하는 prop */
   header = null,
   fixedHeader = false,
   stickyFooter = null,
+  scrollRef,
+  scrollClassName,
+  withScroll,
+  onScroll,
   children,
 
-  /* NavigationArea에서 inject된 prop */
   showChevron = false,
   allowMouseMove = false,
   isHoveringOnPresenter = false,
   onClickClose = noop,
-}) {
+}: NavigationContentProps) {
   const HeaderComponent = useMemo(() => {
     if (!header) { return null }
 
@@ -53,7 +57,12 @@ function NavigationContent({
       { (header && fixedHeader) && (
         HeaderComponent
       ) }
-      <StyledContentWrapper>
+      <StyledContentWrapper
+        ref={scrollRef}
+        className={scrollClassName}
+        withScroll={withScroll}
+        onScroll={onScroll}
+      >
         { (header && !fixedHeader) && (
           HeaderComponent
         ) }
@@ -69,8 +78,3 @@ function NavigationContent({
 }
 
 export default NavigationContent
-
-// ref={scrollRef}
-// className={scrollClassName}
-// withScroll={withScroll}
-// onScroll={onScroll}
