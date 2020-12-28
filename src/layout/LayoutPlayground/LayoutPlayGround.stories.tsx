@@ -1,19 +1,21 @@
 /* External dependencies */
 import React, { useMemo, useRef } from 'react'
+import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
-import Navigations, { NavigationHandles } from '../Navigations/Navigations'
-import { NavigationContent } from '../Navigations/NavigationContent'
+import { Icon } from '../../components/Icon'
+import { Header } from '../../components/Header'
+import { ListItem } from '../../components/List/ListItem'
+import { SideState } from '../Client/Client.types'
+import { LayoutState } from '../Client/utils/LayoutReducer'
 import Client from '../Client/Client'
 import { Main } from '../Main'
 import GNB from '../GNB/GNB'
-import { SideState } from '../Client/Client.types'
-import { Icon } from '../../components/Icon'
-import { Header } from '../../components/Header'
-import { LayoutState } from '../Client/utils/LayoutReducer'
+import Navigations, { NavigationHandles } from '../Navigations/Navigations'
+import { NavigationContent } from '../Navigations/NavigationContent'
 import Content from './Content'
 
 export default {
@@ -92,13 +94,17 @@ const Template = () => {
   `
 
   const NavigationMainRoute = useMemo(() => (
-    <NavigationContent header={Element1Header}>
-      hello!
+    <NavigationContent header={Element1Header} withScroll>
+      { range(0, 30).map((val) => (
+        <ListItem content={`NavItem - ${val}`} />
+      )) }
     </NavigationContent>
   ), [Element1Header])
   const NavigationSubRoute = useMemo(() => (
-    <NavigationContent header={Element2Header} fixedHeader>
-      hello!
+    <NavigationContent header={Element2Header} fixedHeader withScroll>
+      { range(0, 30).map((val) => (
+        <ListItem content={`NavItem - ${val}`} />
+      )) }
     </NavigationContent>
   ), [Element2Header])
   const ContentRoute = useMemo(() => (<Content />), [])

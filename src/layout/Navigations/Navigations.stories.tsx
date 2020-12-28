@@ -1,5 +1,6 @@
 /* External dependencies */
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
+import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
@@ -9,7 +10,7 @@ import Palette from '../../styling/Palette'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
-import { NavigationArea } from './NavigationArea'
+import { NavigationContent } from './NavigationContent'
 import Navigations from './Navigations'
 
 export default {
@@ -33,26 +34,11 @@ const Wrapper = styled.div`
   border-radius: 10px;
 `
 
-const NavigationElement1 = styled(NavigationArea)`
-  width: 200px;
-  z-index: 500;
-`
-
-const NavigationElement2 = styled(NavigationArea)`
-  width: 300px;
-  z-index: 400;
-  background-color: ${({ theme }) => theme.colors.background0};
-  border-right: 2px solid ${({ theme }) => theme.colors.border2};
-`
-
 const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.iconBase};
 `
 
-const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
-  // will be provider
-  const [showSidebar, setShowSidebar] = useState(true)
-
+const Template = () => {
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10}/>
@@ -73,60 +59,24 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   ), [DummyActions])
 
   return (
-    <>
-      <button type="button" onClick={() => setShowSidebar(true)}>사이드바 열기</button>
-      <Container>
-        <Wrapper>
-          <Navigations>
-            <NavigationElement1
-              header={Element1Header}
-              show={showSidebar}
-              setShow={setShowSidebar}
-              minWidth={minWidth1}
-              maxWidth={maxWidth1}
-            >
-              <ListItem content="NavItem1" />
-              <ListItem content="NavItem2" />
-              <ListItem content="NavItem3" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-            </NavigationElement1>
-            <NavigationElement2
-              header={Element2Header}
-              minWidth={minWidth2}
-              maxWidth={maxWidth2}
-              withScroll
-              fixedHeader
-            >
-              <ListItem content="NavItem1" />
-              <ListItem content="NavItem2" />
-              <ListItem content="NavItem3" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-            </NavigationElement2>
-          </Navigations>
-        </Wrapper>
-      </Container>
-    </>
+    <Container>
+      <Wrapper>
+        <Navigations>
+          <NavigationContent header={Element1Header} withScroll>
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+          <NavigationContent header={Element2Header} fixedHeader withScroll>
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+        </Navigations>
+      </Wrapper>
+    </Container>
   )
 }
 
 export const Primary = Template.bind({})
-Primary.args = {
-  minWidth1: 100,
-  maxWidth1: 300,
-  minWidth2: 200,
-  maxWidth2: 450,
-}
+Primary.args = {}

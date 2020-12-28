@@ -48,7 +48,6 @@ function ContentArea(
 
   return (
     <ContentAreaWrapper ref={forwardedRef} {...otherProps}>
-      { /* <button type="button" onClick={onOpenSplitView}>스플릿 뷰 열기</button> */ }
       { children }
       <StyledHandle onMouseDown={handleMouseDown}/>
     </ContentAreaWrapper>
