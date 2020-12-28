@@ -1,6 +1,6 @@
 
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { useLayoutState } from '../Client'
@@ -8,16 +8,34 @@ import { SideState } from '../Client/Client.types'
 import { SidePanelAreaWrapper } from './SidePanelArea.styled'
 import SidePanelAreaProps from './SidePanelArea.types'
 
-function SidePanelArea({ children }: SidePanelAreaProps) {
+export const SIDE_PANEL_AREA_TEST_ID = 'ch-design-system-side-panel-area'
+
+function SidePanelArea(
+  {
+    style,
+    className,
+    testId = SIDE_PANEL_AREA_TEST_ID,
+    children,
+    ...otherProps
+  }: SidePanelAreaProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const { sideState } = useLayoutState()
 
   if (sideState === SideState.None) { return null }
 
   return (
-    <SidePanelAreaWrapper sideState={sideState}>
+    <SidePanelAreaWrapper
+      style={style}
+      className={className}
+      data-testid={testId}
+      ref={forwardedRef}
+      sideState={sideState}
+      {...otherProps}
+    >
       { children }
     </SidePanelAreaWrapper>
   )
 }
 
-export default SidePanelArea
+export default forwardRef(SidePanelArea)

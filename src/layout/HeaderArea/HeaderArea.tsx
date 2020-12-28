@@ -1,23 +1,40 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { useLayoutState } from '../Client'
 import { HeaderWrapper, LeftHeader, RightHeader } from './HeaderArea.styled'
 import HeaderAreaProps from './HeaderArea.types'
 
-function HeaderArea({
-  contentHeader,
-  searchHeader,
-}: HeaderAreaProps) {
+export const HEADER_AREA_TEST_ID = 'ch-design-system-header-area'
+
+function HeaderArea(
+  {
+    style,
+    className,
+    testId = HEADER_AREA_TEST_ID,
+    contentHeader,
+    searchHeader,
+    ...otherProps
+  }: HeaderAreaProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const { sideState, sideWidth } = useLayoutState()
 
   return (
-    <HeaderWrapper sideState={sideState} sideWidth={sideWidth}>
+    <HeaderWrapper
+      style={style}
+      className={className}
+      data-testid={testId}
+      ref={forwardedRef}
+      sideState={sideState}
+      sideWidth={sideWidth}
+      {...otherProps}
+    >
       <LeftHeader>{ contentHeader }</LeftHeader>
       <RightHeader>{ searchHeader }</RightHeader>
     </HeaderWrapper>
   )
 }
 
-export default HeaderArea
+export default forwardRef(HeaderArea)

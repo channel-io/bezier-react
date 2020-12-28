@@ -12,8 +12,13 @@ import { document } from 'ssr-window'
 import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
 
+export const CONTENT_AREA_TEST_ID = 'ch-design-system-content-area'
+
 function ContentArea(
   {
+    style,
+    className,
+    testId = CONTENT_AREA_TEST_ID,
     children,
     onResizerMouseDown = noop,
     onResizerMouseMove = noop,
@@ -47,7 +52,13 @@ function ContentArea(
   document.addEventListener!('mouseup', handleMouseUp, false)
 
   return (
-    <ContentAreaWrapper ref={forwardedRef} {...otherProps}>
+    <ContentAreaWrapper
+      style={style}
+      className={className}
+      data-testid={testId}
+      ref={forwardedRef}
+      {...otherProps}
+    >
       { children }
       <StyledHandle onMouseDown={handleMouseDown}/>
     </ContentAreaWrapper>

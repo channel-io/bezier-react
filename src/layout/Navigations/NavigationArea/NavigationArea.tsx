@@ -109,7 +109,6 @@ function NavigationArea(
     setIsHoveringOnPresenter(true)
   }, [dispatch])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
@@ -126,17 +125,14 @@ function NavigationArea(
     }
   }, [handleDecideHover, show])
 
-  // eslint-disable-next-line arrow-body-style
-  const ContentComponent = useMemo(() => {
-    return (
-      React.cloneElement(children, {
-        showChevron,
-        allowMouseMove,
-        isHoveringOnPresenter,
-        onClickClose: handleClickClose,
-      })
-    )
-  }, [allowMouseMove, children, handleClickClose, isHoveringOnPresenter, showChevron])
+  const ContentComponent = useMemo(() => (
+    React.cloneElement(children, {
+      showChevron,
+      allowMouseMove,
+      isHoveringOnPresenter,
+      onClickClose: handleClickClose,
+    })
+  ), [allowMouseMove, children, handleClickClose, isHoveringOnPresenter, showChevron])
 
   return (
     <NavigationContainer
@@ -147,6 +143,7 @@ function NavigationArea(
     >
       <NavigationPositioner>
         <NavigationPresenter
+          style={style}
           ref={mergedPresenterRef}
           className={className}
           showNavigation={show}
