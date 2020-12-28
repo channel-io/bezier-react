@@ -10,10 +10,13 @@ import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
 import LayoutReducer, { LayoutStateContext, LayoutDispatchContext } from './utils/LayoutReducer'
 
+export const CLIENT_TEST_ID = 'ch-design-system-client'
+
 function Client(
   {
-    className,
     style,
+    className,
+    testId = CLIENT_TEST_ID,
     layoutInitialState,
     children,
     ...otherProps
@@ -29,6 +32,7 @@ function Client(
           ref={forwardedRef}
           style={style}
           className={className}
+          testId={testId}
           {...otherProps}
         >
           { children }
