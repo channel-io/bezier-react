@@ -1,6 +1,7 @@
 /* External dependencies */
 import { noop } from 'lodash-es'
 import React, { useMemo } from 'react'
+import { mergeClassNames } from '../../../utils/stringUtils'
 
 /* Internal dependencies */
 import {
@@ -11,7 +12,12 @@ import {
 } from './NavigationContent.styled'
 import NavigationContentProps from './NavigationContent.types'
 
+export const NAV_CONTENT_TEST_ID = 'ch-design-system-nav-content'
+
 function NavigationContent({
+  style,
+  className,
+  testId = NAV_CONTENT_TEST_ID,
   /* 사용처에서 관리해야 하는 prop */
   header = null,
   fixedHeader = false,
@@ -26,7 +32,12 @@ function NavigationContent({
   allowMouseMove = false,
   isHoveringOnPresenter = false,
   onClickClose = noop,
+  ...otherProps
 }: NavigationContentProps) {
+  const clazzName = useMemo(() => (
+    mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
+  ), [className, scrollClassName, withScroll])
+
   const HeaderComponent = useMemo(() => {
     if (!header) { return null }
 
@@ -58,10 +69,13 @@ function NavigationContent({
         HeaderComponent
       ) }
       <StyledContentWrapper
+        style={style}
         ref={scrollRef}
-        className={scrollClassName}
+        data-testid={testId}
+        className={clazzName}
         withScroll={withScroll}
         onScroll={onScroll}
+        {...otherProps}
       >
         { (header && !fixedHeader) && (
           HeaderComponent
