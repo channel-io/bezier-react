@@ -1,4 +1,4 @@
-enum Spectrum {
+enum PaletteKey {
   blue = 'blue',
   cobalt = 'cobalt',
   teal = 'teal',
@@ -11,6 +11,9 @@ enum Spectrum {
   purple = 'purple',
   navy = 'navy',
   grey = 'grey',
+
+  black = 'black',
+  white = 'white',
 }
 
-export default Spectrum
+export default PaletteKey
