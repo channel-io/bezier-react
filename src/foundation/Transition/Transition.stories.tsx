@@ -56,7 +56,7 @@ const Element = styled.div.attrs<ElementProps>(({
   height: 100px;
   background-color: lightgray;
   border-radius: 4px;
-  ${({ foundation }) => foundation?.transition?.getTransitionCSS(
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(
     ['top', 'right', 'bottom', 'left'],
     foundation?.transition?.TransitionDuration.M,
   )};

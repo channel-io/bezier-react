@@ -20,7 +20,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
   /* stylelint-disable-next-line */
   ${props => (
-    props.foundation?.transition?.getTransitionCSS(
+    props.foundation?.transition?.getTransitionsCSS(
       'color',
       props.foundation?.transition?.TransitionDuration.L,
     )
@@ -51,7 +51,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     content: '';
     transform: translateY(100%);
 
-    ${props => (props.foundation?.transition?.getTransitionCSS(['transform', 'background-color']))};
+    ${props => (props.foundation?.transition?.getTransitionsCSS(['transform', 'background-color']))};
 
     will-change: transform;
   }

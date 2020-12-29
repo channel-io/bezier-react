@@ -31,7 +31,7 @@ const checkerBase = css<StyledCheckerProps>`
     border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
     border-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
     content: '';
-    transition: ${({ foundation }) => foundation?.transition?.getTransitionCSS('border')};
+    transition: ${({ foundation }) => foundation?.transition?.getTransitionsCSS('border')};
   }
 
   background-color:
@@ -81,7 +81,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   border: ${CHECKER_BORDER_THICKNESS}px solid ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   border-radius: 4px;
 
-  ${({ foundation }) => foundation?.transition?.getTransitionCSS(['background-color'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color'])};
 
   ${({ foundation, disabled }) => (!disabled ? `
     &:hover {

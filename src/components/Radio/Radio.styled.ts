@@ -29,7 +29,7 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
       return 'transparent'
     }};
   border-radius: 50%;
-  transition: ${({ foundation }) => foundation?.transition?.getTransitionCSS('background-color')};
+  transition: ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
 export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
@@ -50,7 +50,7 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
       if (props.checked) { return props.foundation?.theme?.['text-hover-blue'] }
       return props.foundation?.theme?.['text-hover-blue']
     }};
-  transition: ${props => props.foundation?.transition?.getTransitionCSS('background-color')};
+  transition: ${props => props.foundation?.transition?.getTransitionsCSS('background-color')};
 
   &::after {
     ${StyledRadioHandleDot};
