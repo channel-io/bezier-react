@@ -1,4 +1,4 @@
-import Client, { useLayoutState, useLayoutDispatch } from './Client'
+import Client from './Client'
 import type ClientProps from './Client.types'
 
 export type {
@@ -7,6 +7,4 @@ export type {
 
 export {
   Client,
-  useLayoutState,
-  useLayoutDispatch,
 }

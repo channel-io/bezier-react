@@ -1,7 +1,3 @@
-/* External dependencies */
-import { Dispatch, createContext } from 'react'
-import { noop } from 'lodash-es'
-
 /* Internal dependencies */
 import { NavigationHandles } from '../../Navigations/Navigations'
 import { SideState } from '../Client.types'
@@ -74,10 +70,6 @@ export const defaultState: LayoutState = {
   navigationRef: null,
   withoutSearch: false,
 }
-
-export const LayoutStateContext = createContext<LayoutState>(defaultState)
-
-export const LayoutDispatchContext = createContext<Dispatch<LayoutAction>>(noop)
 
 function LayoutReducer(state: LayoutState, action: LayoutAction): LayoutState {
   switch (action.type) {

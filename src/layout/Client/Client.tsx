@@ -1,14 +1,14 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useContext,
   useReducer,
 } from 'react'
 
 /* Internal dependencies */
+import { LayoutDispatchContext, LayoutStateContext } from '../../contexts/LayoutContext'
 import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
-import LayoutReducer, { LayoutStateContext, LayoutDispatchContext } from './utils/LayoutReducer'
+import LayoutReducer from './utils/LayoutReducer'
 
 export const CLIENT_TEST_ID = 'ch-design-system-client'
 
@@ -41,22 +41,6 @@ function Client(
     </LayoutStateContext.Provider>
 
   )
-}
-
-export function useLayoutState() {
-  const state = useContext(LayoutStateContext)
-  if (state === undefined) {
-    throw new Error('Cannot find LayoutState')
-  }
-  return state
-}
-
-export function useLayoutDispatch() {
-  const dispatch = useContext(LayoutDispatchContext)
-  if (!dispatch) {
-    throw new Error('Cannot find LayoutDispatch')
-  }
-  return dispatch
 }
 
 export default forwardRef(Client)

@@ -2,8 +2,8 @@
 import { styled } from '../../styling/Theme'
 
 export const ContentAreaWrapper = styled.div`
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  grid-column: 1;
+  grid-row: 2;
   position: relative;
 `
 

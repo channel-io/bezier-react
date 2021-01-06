@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { useLayoutState } from '../Client'
+import useLayoutState from '../../hooks/useLayoutState'
 import { SideState } from '../Client/Client.types'
 import { SplitViewWrapper } from './SplitViewArea.styled'
 import SplitViewAreaProps from './SplitViewArea.types'

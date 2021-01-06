@@ -11,10 +11,11 @@ import { noop } from 'lodash-es'
 import { window, document, extend } from 'ssr-window'
 
 /* Internal dependencies */
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import { useLayoutDispatch, useLayoutState } from '../../Client'
 import { ActionType } from '../../Client/utils/LayoutReducer'
 import NavigationProps from './NavigationArea.types'
 import {

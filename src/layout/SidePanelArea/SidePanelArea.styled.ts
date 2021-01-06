@@ -9,5 +9,6 @@ interface SidePanelWrapperProps {
 export const SidePanelAreaWrapper = styled.div<SidePanelWrapperProps>`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  /* TODO-LAYOUT: z-index 명확화 하기 */
   z-index: ${({ sideState }) => (sideState === SideState.SidePanel ? 50 : 40)};
 `

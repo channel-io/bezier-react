@@ -3,11 +3,12 @@ import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef 
 import { set, size, toNumber } from 'lodash-es'
 
 /* Internal dependencies */
-import { useLayoutState } from '../Client'
+import useLayoutState from '../../hooks/useLayoutState'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
 
+// TODO-LAYOUT: z-index 명확화 하기
 const MAX_NAV_Z_INDEX = 100
 
 export interface NavigationHandles {
@@ -120,24 +121,21 @@ forwardedRef: React.Ref<NavigationHandles>,
   const renderNavigationAreas = useCallback((navLayouts) => {
     const childrens = React.Children.toArray(children)
     return (
-      // eslint-disable-next-line arrow-body-style
-      navLayouts.map((navLayout, index) => {
-        return (
-          <NavigationArea
-            ref={(element: HTMLDivElement) => {
-              set(navigationRefs.current, [index, 'target'], element)
-              set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
-              set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
-            }}
-            hidable={navLayout.hidable}
-            optionIndex={index}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-          >
-            { childrens[index] }
-          </NavigationArea>
-        )
-      })
+      navLayouts.map((navLayout, index) => (
+        <NavigationArea
+          ref={(element: HTMLDivElement) => {
+            set(navigationRefs.current, [index, 'target'], element)
+            set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
+            set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
+          }}
+          hidable={navLayout.hidable}
+          optionIndex={index}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+        >
+          { childrens[index] }
+        </NavigationArea>
+      ))
     )
   }, [children, handleMouseDown, handleMouseMove])
 

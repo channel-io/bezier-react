@@ -3,7 +3,7 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { useLayoutState } from '../Client'
+import useLayoutState from '../../hooks/useLayoutState'
 import { SideState } from '../Client/Client.types'
 import { SidePanelAreaWrapper } from './SidePanelArea.styled'
 import SidePanelAreaProps from './SidePanelArea.types'

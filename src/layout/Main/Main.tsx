@@ -3,7 +3,8 @@ import React, { forwardRef, useCallback, useRef } from 'react'
 import { clamp } from 'lodash-es'
 
 /* Internal dependencies */
-import { useLayoutDispatch, useLayoutState } from '../Client'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import useLayoutState from '../../hooks/useLayoutState'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'

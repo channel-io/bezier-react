@@ -68,6 +68,7 @@ function NavigationContent({
       { (header && fixedHeader) && (
         HeaderComponent
       ) }
+
       <StyledContentWrapper
         style={style}
         ref={scrollRef}
@@ -82,6 +83,7 @@ function NavigationContent({
         ) }
         { children }
       </StyledContentWrapper>
+
       { stickyFooter && (
       <StyledFooterWrapper>
         { stickyFooter }
