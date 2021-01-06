@@ -3,12 +3,12 @@ import React, {
   useCallback,
   useState,
   forwardRef,
-  useEffect,
 } from 'react'
 import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import useEventHandler from '../../hooks/useEventHandler'
 import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
 
@@ -41,15 +41,8 @@ function ContentArea(
     setIsDragging(false)
   }, [])
 
-  useEffect(() => {
-    if (isDragging) {
-      document.addEventListener!('mousemove', handleMouseMove, false)
-    } else {
-      document.removeEventListener!('mousemove', handleMouseMove, false)
-    }
-  }, [isDragging, handleMouseMove])
-
-  document.addEventListener!('mouseup', handleMouseUp, false)
+  useEventHandler(document, 'mousemove', handleMouseMove, isDragging)
+  useEventHandler(document, 'mouseup', handleMouseUp)
 
   return (
     <ContentAreaWrapper
