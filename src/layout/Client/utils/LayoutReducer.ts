@@ -46,31 +46,6 @@ export type LayoutAction = (
   SetShowNavigationAction
 )
 
-// export const defaultState: LayoutState = {
-//   contentMinWidth: 330,
-//   sideState: SideState.SidePanel,
-//   sideWidth: 332,
-//   sideMinWidth: 320,
-//   sideMaxWidth: 1000,
-//   navigations: [
-//     {
-//       initialWidth: 200,
-//       minWidth: 150,
-//       maxWidth: 300,
-//       hidable: true,
-//     },
-//     {
-//       initialWidth: 250,
-//       minWidth: 150,
-//       maxWidth: 300,
-//       hidable: false,
-//     },
-//   ],
-//   showNavigation: true,
-//   navigationRef: null,
-//   withoutSearch: false,
-// }
-
 function LayoutReducer(state: LayoutState, action: LayoutAction): LayoutState {
   switch (action.type) {
     case ActionType.SET_SIDE_STATE: {
