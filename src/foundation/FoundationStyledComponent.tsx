@@ -62,21 +62,33 @@ interface FoundationStyledInterface extends FoundationStyledComponentFactories {
 }
 
 /* eslint-disable-next-line func-names */ /* @ts-ignore */
-const FoundationStyled: FoundationStyledInterface = function <T extends object>(tag) {
-  return function wrappedTemplateFunction(...args: TemplateStringsArray) {
-    return function WrappedElement(props) {
-      const currentFoundation = useContext(FoundationContext)
-      const tagTemplate = styled(tag)
-      // @ts-ignore
-      const BaseComponent = tagTemplate<T>(...args)
-      return (
-        <BaseComponent
-          foundation={currentFoundation}
-          {...props}
-        />
-      )
+const FoundationStyled: FoundationStyledInterface = (tag) => {
+  const tagTemplate = styled(tag)
+
+  function templateFunctionGenerator(BaseComponentGenerator) {
+    return function customTemplateFunction(...args: TemplateStringsArray) {
+      const BaseComponent = BaseComponentGenerator(...args)
+
+      return function WrappedElement(props) {
+        const currentFoundation = useContext(FoundationContext)
+        return (
+          <BaseComponent
+            key={args.toString()}
+            foundation={currentFoundation}
+            {...props}
+          />
+        )
+      }
     }
   }
+
+  const wrappedTemplateFunction = templateFunctionGenerator(tagTemplate)
+  // @ts-ignore
+  wrappedTemplateFunction.attrs = attrs => templateFunctionGenerator(tagTemplate.attrs(attrs))
+  // @ts-ignore
+  wrappedTemplateFunction.withConfig = config => templateFunctionGenerator(tagTemplate.withConfig(config))
+
+  return wrappedTemplateFunction
 };
 
 (domElements as Array<AnyStyledComponent>).forEach(element => {
