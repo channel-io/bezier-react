@@ -54,7 +54,7 @@ const Template = () => {
       },
       {
         initialWidth: 250,
-        minWidth: 150,
+        minWidth: 200,
         maxWidth: 300,
         hidable: false,
       },

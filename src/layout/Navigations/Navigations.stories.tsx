@@ -1,9 +1,12 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import Client from '../Client/Client'
+import { SideState } from '../Client/Client.types'
+import { LayoutState } from '../Client/utils/LayoutReducer'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
@@ -11,7 +14,7 @@ import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
 import { NavigationContent } from './NavigationContent'
-import Navigations from './Navigations'
+import Navigations, { NavigationHandles } from './Navigations'
 
 export default {
   title: getTitle(base),
@@ -27,18 +30,38 @@ const Container = styled.div`
   border-radius: 10px;
 `
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  border-radius: 10px;
-`
-
 const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.iconBase};
 `
 
 const Template = () => {
+  const navigationRef = useRef<NavigationHandles | null>(null)
+
+  const layoutInitialState: LayoutState = {
+    contentMinWidth: 330,
+    sideState: SideState.SidePanel,
+    sideWidth: 332,
+    sideMinWidth: 320,
+    sideMaxWidth: 1000,
+    navigations: [
+      {
+        initialWidth: 200,
+        minWidth: 150,
+        maxWidth: 300,
+        hidable: true,
+      },
+      {
+        initialWidth: 250,
+        minWidth: 200,
+        maxWidth: 300,
+        hidable: false,
+      },
+    ],
+    showNavigation: true,
+    navigationRef,
+    withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
+  }
+
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10}/>
@@ -60,8 +83,8 @@ const Template = () => {
 
   return (
     <Container>
-      <Wrapper>
-        <Navigations>
+      <Client layoutInitialState={layoutInitialState} >
+        <Navigations ref={navigationRef}>
           <NavigationContent header={Element1Header} withScroll>
             { range(0, 30).map((val) => (
               <ListItem content={`NavItem - ${val}`} />
@@ -73,7 +96,7 @@ const Template = () => {
             )) }
           </NavigationContent>
         </Navigations>
-      </Wrapper>
+      </Client>
     </Container>
   )
 }
