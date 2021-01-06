@@ -43,6 +43,14 @@ function FoundationProvider({
   return <FoundationContext.Provider value={foundation}>{ children }</FoundationContext.Provider>
 }
 
+/**
+ * NOTE:
+ * styled component 는 theme Context 를 갖고 있습니다. 하지만 이 context 를 사용할때는 반드시 'theme' 이라는 이름으로밖에 접근할 수 없습니다.
+ * Theme 이라는 용어는 내부적으로 이미 사용하고 있거니와, styled 의 theme 에 해당하는 개념에 Mondrian 은 Foundation 이라는 이름을 붙여주었습니다.
+ * 이 괴리를 해소하기 위해 styled 함수를 wrapping 하고 커스텀 context 를 강제 주입합니다.
+ * 아래의 interface, type 들은 타입체크 에러를 해소하기 위해 작성되었습니다. 제거 가능한 방법을 찾을 경우 가급적 제거하는 것이 필요합니다.
+ */
+
 type FoundationStyledComponentFactories = {
   [TTag in keyof JSX.IntrinsicElements]: ThemedStyledFunction<TTag, Foundation, { foundation?: Foundation }>
 }
