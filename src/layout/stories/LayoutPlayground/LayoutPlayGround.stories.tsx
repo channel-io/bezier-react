@@ -129,8 +129,8 @@ const Template = () => {
   const ContentRoute = useMemo(() => (<Content />), [])
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
   const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
-  const SidePanelComponent = useMemo(() => (<Div>SidePanel</Div>), [Div])
-  const SplitViewComponent = useMemo(() => (<Div>SplitView</Div>), [Div])
+  const SidePanelRoute = useMemo(() => (<Div>SidePanel</Div>), [Div])
+  const SplitViewRoute = useMemo(() => (<Div>SplitView</Div>), [Div])
 
   return (
     <>
@@ -157,8 +157,8 @@ const Template = () => {
             content={ContentRoute}
             contentHeader={ContentHeaderRoute}
             searchHeader={SearchComponent}
-            sidePanel={SidePanelComponent}
-            splitView={SplitViewComponent}
+            sidePanel={SidePanelRoute}
+            splitView={SplitViewRoute}
           />
         </Client>
       </Container>

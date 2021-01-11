@@ -11,11 +11,8 @@ export interface NavigationState {
 }
 
 export interface LayoutState {
-  contentMinWidth: number | null
   sideState: SideState
   sideWidth: number | null
-  sideMinWidth: number | null
-  sideMaxWidth: number | null
   navigations: NavigationState[]
   showNavigation: boolean
   navigationRef: React.MutableRefObject<NavigationHandles> | null
@@ -23,11 +20,8 @@ export interface LayoutState {
 }
 
 export const defaultState = {
-  contentMinWidth: null,
   sideState: SideState.None,
   sideWidth: null,
-  sideMinWidth: null,
-  sideMaxWidth: null,
   navigations: [],
   showNavigation: true,
   navigationRef: null,

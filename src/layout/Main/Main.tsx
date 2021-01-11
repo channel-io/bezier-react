@@ -5,6 +5,7 @@ import { clamp } from 'lodash-es'
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useLayoutState from '../../hooks/useLayoutState'
+import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
@@ -26,11 +27,8 @@ function Main(
 ) {
   const dispatch = useLayoutDispatch()
   const {
-    contentMinWidth,
     sideState,
     sideWidth,
-    sideMinWidth,
-    sideMaxWidth,
     navigationRef,
   } = useLayoutState()
 
@@ -50,7 +48,7 @@ function Main(
     window.requestAnimationFrame!(() => {
       // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
       const resizerDelta = e.clientX - initialPosition.current
-      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, contentMinWidth!)
+      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
 
       if (navigationDelta < 0) {
@@ -63,23 +61,16 @@ function Main(
         type: LayoutActionType.SET_SIDE_WIDTH,
         payload: clamp(
           sideInitialWidth.current - resizerDelta,
-          sideMinWidth!,
-          sideMaxWidth!,
+          SIDE_MIN_WIDTH,
+          SIDE_MAX_WIDTH,
         ),
       })
     })
-  }, [
-    contentMinWidth,
-    dispatch,
-    navigationRef,
-    sideMaxWidth,
-    sideMinWidth,
-  ])
+  }, [dispatch, navigationRef])
 
   return (
     <MainWrapper
       ref={forwardedRef}
-      contentMinWidth={contentMinWidth}
       sideWidth={sideWidth}
       sideState={sideState}
       {...otherProps}

@@ -5,8 +5,6 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import Client from '../Client/Client'
-import { SideState } from '../Client/Client.types'
-import { LayoutState } from '../Client/utils/LayoutReducer'
 import { getTitle } from '../../utils/utils'
 import { styled } from '../../styling/Theme'
 import Palette from '../../styling/Palette'
@@ -37,31 +35,6 @@ const StyledIcon = styled(Icon)`
 const Template = () => {
   const navigationRef = useRef<NavigationHandles | null>(null)
 
-  const layoutInitialState: LayoutState = {
-    contentMinWidth: 330,
-    sideState: SideState.SidePanel,
-    sideWidth: 332,
-    sideMinWidth: 320,
-    sideMaxWidth: 1000,
-    navigations: [
-      {
-        initialWidth: 200,
-        minWidth: 150,
-        maxWidth: 300,
-        hidable: true,
-      },
-      {
-        initialWidth: 250,
-        minWidth: 200,
-        maxWidth: 300,
-        hidable: false,
-      },
-    ],
-    showNavigation: true,
-    navigationRef,
-    withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
-  }
-
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10}/>
@@ -83,14 +56,33 @@ const Template = () => {
 
   return (
     <Container>
-      <Client layoutInitialState={layoutInitialState} >
+      <Client>
         <Navigations ref={navigationRef}>
-          <NavigationContent header={Element1Header} withScroll>
+          <NavigationContent
+            header={Element1Header}
+            withScroll
+            layoutOption={{
+              initialWidth: 350,
+              maxWidth: 400,
+              minWidth: 250,
+              hidable: true,
+            }}
+          >
             { range(0, 30).map((val) => (
               <ListItem content={`NavItem - ${val}`} />
             )) }
           </NavigationContent>
-          <NavigationContent header={Element2Header} fixedHeader withScroll>
+          <NavigationContent
+            header={Element2Header}
+            fixedHeader
+            withScroll
+            layoutOption={{
+              initialWidth: 300,
+              maxWidth: 400,
+              minWidth: 250,
+              hidable: false,
+            }}
+          >
             { range(0, 30).map((val) => (
               <ListItem content={`NavItem - ${val}`} />
             )) }
