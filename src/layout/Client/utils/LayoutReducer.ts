@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { insertItem } from '../../../utils/utils'
 import { NavigationHandles } from '../../Navigations/Navigations'
 import { SideState } from '../Client.types'
 
@@ -38,6 +39,7 @@ export enum ActionType {
   SET_SIDE_STATE,
   SET_SHOW_NAVIGATION,
   ADD_NAVIGATION,
+  CLEAR_NAVIGATIONS,
 }
 
 interface SetSideWidthAction {
@@ -57,14 +59,19 @@ interface SetShowNavigationAction {
 
 interface AddNavigationPropsAction {
   type: ActionType.ADD_NAVIGATION
-  payload: NavigationState
+  payload: { index: number, options: NavigationState }
+}
+
+interface ClearNavigationsAction {
+  type: ActionType.CLEAR_NAVIGATIONS
 }
 
 export type LayoutAction = (
   SetSideWidthAction |
   SetSideStateAction |
   SetShowNavigationAction |
-  AddNavigationPropsAction
+  AddNavigationPropsAction |
+  ClearNavigationsAction
 )
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
@@ -93,10 +100,14 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.ADD_NAVIGATION: {
       return {
         ...state,
-        navigations: [
-          ...state.navigations,
-          action.payload,
-        ],
+        navigations: insertItem(state.navigations, action.payload.index, action.payload.options),
+      }
+    }
+
+    case ActionType.CLEAR_NAVIGATIONS: {
+      return {
+        ...state,
+        navigations: [],
       }
     }
 

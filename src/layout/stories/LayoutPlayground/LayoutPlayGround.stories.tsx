@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
@@ -36,31 +36,8 @@ const StyledIcon = styled(Icon)`
 
 const Template = () => {
   const navigationRef = useRef<NavigationHandles | null>(null)
-
-  // const layoutInitialState: LayoutState = {
-  //   contentMinWidth: 330,
-  //   sideState: SideState.SidePanel,
-  //   sideWidth: 332,
-  //   sideMinWidth: 320,
-  //   sideMaxWidth: 1000,
-  //   navigations: [
-  //     {
-  //       initialWidth: 200,
-  //       minWidth: 150,
-  //       maxWidth: 300,
-  //       hidable: true,
-  //     },
-  //     {
-  //       initialWidth: 250,
-  //       minWidth: 200,
-  //       maxWidth: 300,
-  //       hidable: false,
-  //     },
-  //   ],
-  //   showNavigation: true,
-  //   navigationRef,
-  //   withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
-  // }
+  const [navigationState, setNavigationState] = useState(false)
+  const [navigationSubState, setNavigationSubState] = useState(false)
 
   const DummyActions = useMemo(() => (
     <>
@@ -91,43 +68,63 @@ const Template = () => {
     background-color: white;
   `
 
-  const NavigationMainRoute = useMemo(() => (
-    <NavigationContent
-      header={Element1Header}
-      withScroll
-      /* LayoutState Prop */
-      layoutOption={{
-        initialWidth: 350,
-        maxWidth: 400,
-        minWidth: 250,
-        hidable: true,
-      }}
-    >
-      { range(0, 30).map((val) => (
-        <ListItem content={`NavItem - ${val}`} />
-      )) }
-    </NavigationContent>
-  ), [Element1Header])
+  const NavigationMainRoute = useMemo(() => (navigationState ?
+    (
+      <NavigationContent
+        header={Element1Header}
+        withScroll
+        /* LayoutState Prop */
+        layoutOption={{
+          initialWidth: 350,
+          maxWidth: 400,
+          minWidth: 250,
+          hidable: true,
+        }}
+      >
+        { range(0, 30).map((val) => (
+          <ListItem content={`NavItem - ${val}`} />
+        )) }
+      </NavigationContent>
+    ) : (
+      <NavigationContent
+        header={Element1Header}
+        withScroll
+        /* LayoutState Prop */
+        layoutOption={{
+          initialWidth: 300,
+          maxWidth: 400,
+          minWidth: 250,
+          hidable: false,
+        }}
+      >
+        { range(0, 2).map((val) => (
+          <ListItem content={` - ${val}`} />
+        )) }
+      </NavigationContent>
+    )
+  ), [Element1Header, navigationState])
 
   const NavigationSubRoute = useMemo(() => (
-    // null
-    <NavigationContent
-      header={Element2Header}
-      fixedHeader
-      withScroll
+    navigationSubState ?
+      null : (
+        <NavigationContent
+          header={Element2Header}
+          fixedHeader
+          withScroll
       /* LayoutState Prop */
-      layoutOption={{
-        initialWidth: 300,
-        maxWidth: 400,
-        minWidth: 200,
-        hidable: false,
-      }}
-    >
-      { range(0, 30).map((val) => (
-        <ListItem content={`NavItem - ${val}`} />
-      )) }
-    </NavigationContent>
-  ), [Element2Header])
+          layoutOption={{
+            initialWidth: 300,
+            maxWidth: 400,
+            minWidth: 200,
+            hidable: false,
+          }}
+        >
+          { range(0, 30).map((val) => (
+            <ListItem content={`NavItem - ${val}`} />
+          )) }
+        </NavigationContent>
+      )
+  ), [Element2Header, navigationSubState])
 
   const ContentRoute = useMemo(() => (<Content />), [])
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
@@ -136,22 +133,36 @@ const Template = () => {
   const SplitViewComponent = useMemo(() => (<Div>SplitView</Div>), [Div])
 
   return (
-    <Container>
-      <Client>
-        <GNB />
-        <Navigations ref={navigationRef}>
-          { NavigationMainRoute }
-          { NavigationSubRoute }
-        </Navigations>
-        <Main
-          content={ContentRoute}
-          contentHeader={ContentHeaderRoute}
-          searchHeader={SearchComponent}
-          sidePanel={SidePanelComponent}
-          splitView={SplitViewComponent}
-        />
-      </Client>
-    </Container>
+    <>
+      <button
+        type="button"
+        onClick={() => setNavigationState(v => !v)}
+      >
+        navigation 상태 변경
+      </button>
+      <button
+        type="button"
+        onClick={() => setNavigationSubState(v => !v)}
+      >
+        navigationSub 없애기
+      </button>
+      <Container>
+        <Client>
+          <GNB />
+          <Navigations ref={navigationRef}>
+            { NavigationMainRoute }
+            { NavigationSubRoute }
+          </Navigations>
+          <Main
+            content={ContentRoute}
+            contentHeader={ContentHeaderRoute}
+            searchHeader={SearchComponent}
+            sidePanel={SidePanelComponent}
+            splitView={SplitViewComponent}
+          />
+        </Client>
+      </Container>
+    </>
   )
 }
 

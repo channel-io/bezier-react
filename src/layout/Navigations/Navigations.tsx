@@ -1,11 +1,19 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef } from 'react'
-import { isArray, set, size, toNumber } from 'lodash-es'
+import React, {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+} from 'react'
+import { isArray, isNil, set, size, toNumber } from 'lodash-es'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
-import { ActionType, NavigationState } from '../Client/utils/LayoutReducer'
+import { ActionType } from '../Client/utils/LayoutReducer'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
@@ -122,23 +130,25 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  const renderNavigationAreas = useCallback((navLayouts: NavigationState[]) => {
+  const NavigationAreasComponent = useMemo(() => {
     const childrens = React.Children.toArray(children)
+
     return (
       childrens.map((navChildren, index) => {
-        if (!navLayouts[index]) { return null }
+        if (!navigations[index]) { return null }
         if (!React.isValidElement<NavigationContentProps>(navChildren)) {
           return navChildren
         }
 
         return (
           <NavigationArea
+            key={uuid()}
             ref={(element: HTMLDivElement) => {
               set(navigationRefs.current, [index, 'target'], element)
-              set(navigationRefs.current, [index, 'minWidth'], navLayouts[index].minWidth)
-              set(navigationRefs.current, [index, 'maxWidth'], navLayouts[index].maxWidth)
+              set(navigationRefs.current, [index, 'minWidth'], navigations[index].minWidth)
+              set(navigationRefs.current, [index, 'maxWidth'], navigations[index].maxWidth)
             }}
-            hidable={navLayouts[index].hidable}
+            hidable={navigations[index].hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -148,26 +158,28 @@ forwardedRef: React.Ref<NavigationHandles>,
         )
       })
     )
-  }, [children, handleMouseDown, handleMouseMove])
+  }, [children, handleMouseDown, handleMouseMove, navigations])
 
   useLayoutEffect(() => {
     const childrens = React.Children.toArray(children)
-    childrens.forEach((child) => {
+    childrens.forEach((child, index) => {
       if (!React.isValidElement<NavigationContentProps>(child)) { return }
 
       layoutDispatch({
         type: ActionType.ADD_NAVIGATION,
-        payload: child.props.layoutOption,
+        payload: {
+          index,
+          options: child.props.layoutOption,
+        },
       })
     })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [children, layoutDispatch])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isArray(navigations)) { return }
 
     for (const index in navigationRefs.current) {
-      if (navigationRefs.current[index] && navigations[index]) {
+      if (!isNil(navigationRefs.current[index].target) && navigations[index]) {
         navigationRefs.current[index].target.style.width = `${navigations[index].initialWidth}px`
         navigationRefs.current[index].target.style.zIndex = `${MAX_NAV_Z_INDEX - toNumber(index)}`
       }
@@ -176,7 +188,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
   return (
     <NavigationsWrapper>
-      { renderNavigationAreas(navigations) }
+      { NavigationAreasComponent }
     </NavigationsWrapper>
   )
 }
