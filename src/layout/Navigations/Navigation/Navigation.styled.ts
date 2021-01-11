@@ -3,7 +3,7 @@ import { isNil } from 'lodash-es'
 import { Icon } from '../../../components/Icon'
 
 /* Internal dependencies */
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 
 export const ResizeBar = styled.div`
   width: 10px;
@@ -26,7 +26,7 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   flex-shrink: 0;
   position: relative;
   height: 100%;
-  background-color: ${({ theme }) => theme?.colors?.background1};
+  background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   user-select: none;
   width: ${({ showSidebar }) => (showSidebar === false ? '0px' : 'inherit')};
   /* TODO: Foundation Transition 으로 교체 */
@@ -94,7 +94,7 @@ export const ChevronIcon = styled(Icon)`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background3};
+    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   }
 `
 

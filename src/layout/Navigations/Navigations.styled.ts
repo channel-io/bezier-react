@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 
 export const NavigationsWrapper = styled.div`
   display: flex;
