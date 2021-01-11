@@ -3,8 +3,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import Colors from '../../styling/Colors'
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
+import {
+  FoundationProvider,
+  LightFoundation,
+  LightTheme,
+} from '../../foundation'
 import Radio, { RADIO_TEST_ID } from './Radio'
 import RadioProps from './Radio.types'
 
@@ -22,9 +25,9 @@ describe('Radio test >', () => {
   })
 
   const renderRadio = (optionProps?: RadioProps) => render(
-    <ThemeProvider theme={LightTheme}>
+    <FoundationProvider foundation={LightFoundation}>
       <Radio {...props} {...optionProps}/>
-    </ThemeProvider>,
+    </FoundationProvider>,
   )
 
   it('RadioInput has default style', () => {
@@ -35,7 +38,7 @@ describe('Radio test >', () => {
     expect(renderedRadio).toHaveStyle('width: 18px;')
     expect(renderedRadio).toHaveStyle('height: 18px;')
     expect(renderedRadio).toHaveStyle('border-radius: 50%;')
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.background0};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
   })
 
   it('RadioInput has success background, and no border when clicked', () => {
@@ -43,7 +46,7 @@ describe('Radio test >', () => {
 
     const renderedRadio = getByTestId(RADIO_TEST_ID)
 
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.success1};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
     expect(renderedRadio).toHaveStyle('border: none;')
   })
 
@@ -52,6 +55,6 @@ describe('Radio test >', () => {
 
     const renderedRadio = getByTestId(RADIO_TEST_ID)
 
-    expect(renderedRadio).toHaveStyle(`background-color: ${Colors.Light.background3};`)
+    expect(renderedRadio).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
   })
 })

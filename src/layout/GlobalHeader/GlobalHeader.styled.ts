@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import GlobalHeaderProps from './GlobalHeader.types'
 
 export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
@@ -8,7 +8,7 @@ export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
   width: 100%;
   height: ${props => (props.isWindows ? 32 : 40)}px;
   max-width: 100vw;
-  background-color: ${props => props.theme?.colors?.background1};
-  box-shadow: inset 0 -1px 0 0 ${props => props.theme?.colors?.background3};
+  background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
+  box-shadow: inset 0 -1px 0 0 ${props => props.foundation?.theme?.['text-hover-blue']};
   transition: background-color 200ms ease-in-out;
 `

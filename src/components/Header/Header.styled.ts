@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
-import { smoothCorners } from '../../styling/Mixins'
+import { styled, smoothCorners } from '../../foundation'
 
 interface ContainerProps {
   isHover?: boolean

@@ -4,8 +4,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
-import { styled } from '../../styling/Theme'
-import Palette from '../../styling/Palette'
+import { styled, Palette } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'

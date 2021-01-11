@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 import {
   StyledWrapperProps,
   StyledTitleWrapperProps,
@@ -18,5 +18,5 @@ export const TitleWrapper = styled.div<StyledTitleWrapperProps>`
   font-size: 12px;
   font-weight: bold;
   line-height: 20px;
-  color: ${props => props.theme?.colors?.text5};
+  color: ${props => props.foundation?.theme?.['text-hover-blue']};
 `

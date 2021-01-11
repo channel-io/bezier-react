@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, css } from '../../styling/Theme'
+import { styled, css } from '../../foundation'
 import { StyledOverlayProps } from './Overlay.types'
 
 export const Container = styled.div`

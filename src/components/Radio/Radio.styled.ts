@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/indent, consistent-return */
 /* Internal dependencies */
-import { styled, css } from '../../styling/Theme'
+import { styled, css } from '../../foundation'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`
   display: flex;
   align-items: center;
   cursor:
-    ${props => {
-      if (props.disabled) { return 'auto' }
+    ${({ disabled }) => {
+      if (disabled) { return 'auto' }
       return 'pointer'
     }};
 `
@@ -23,13 +23,13 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   content: '';
   background-color:
     ${props => {
-      if (!props.disabled && !props.checked && props.hovered) { return props.theme?.colors?.handle2 }
-      if (props.checked && props.disabled) { return props.theme?.colors?.handle5 }
-      if (props.checked) { return props.theme?.colors?.handle1 }
+      if (!props.disabled && !props.checked && props.hovered) { return props.foundation?.theme?.['text-hover-blue'] }
+      if (props.checked && props.disabled) { return props.foundation?.theme?.['text-hover-blue'] }
+      if (props.checked) { return props.foundation?.theme?.['text-hover-blue'] }
       return 'transparent'
     }};
   border-radius: 50%;
-  transition: ${props => props.theme?.transition?.BackgroundTransition};
+  transition: ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
 export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
@@ -42,15 +42,15 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
   border:
     ${props => {
       if (props.checked) { return 'none' }
-      return `2px solid ${props.theme?.colors?.border3}`
+      return `2px solid ${props.foundation?.theme?.['text-hover-blue']}`
     }};
   background-color:
     ${props => {
-      if (props.disabled) { return props.theme?.colors?.background3 }
-      if (props.checked) { return props.theme?.colors?.success1 }
-      return props.theme?.colors?.background0
+      if (props.disabled) { return props.foundation?.theme?.['text-hover-blue'] }
+      if (props.checked) { return props.foundation?.theme?.['text-hover-blue'] }
+      return props.foundation?.theme?.['text-hover-blue']
     }};
-  transition: ${props => props.theme?.transition?.BackgroundTransition};
+  transition: ${props => props.foundation?.transition?.getTransitionsCSS('background-color')};
 
   &::after {
     ${StyledRadioHandleDot};
