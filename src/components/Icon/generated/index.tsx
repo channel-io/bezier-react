@@ -203,6 +203,7 @@ import LightningFilled from './LightningFilled'
 import Lightning from './Lightning'
 import LinkOff from './LinkOff'
 import Link from './Link'
+import Linkedin from './Linkedin'
 import List from './List'
 import LockOpen from './LockOpen'
 import Lock from './Lock'
@@ -565,6 +566,7 @@ const icons = {
   'lightning': Lightning,
   'link-off': LinkOff,
   'link': Link,
+  'linkedin': Linkedin,
   'list': List,
   'lock-open': LockOpen,
   'lock': Lock,
