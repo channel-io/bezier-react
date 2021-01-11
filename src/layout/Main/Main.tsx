@@ -42,7 +42,7 @@ function Main(
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     contentInitialWidth.current = contentRef.current!.clientWidth
     initialPosition.current = e.clientX
-    sideInitialWidth.current = sideWidth
+    sideInitialWidth.current = sideWidth!
     navigationRef?.current?.handleMouseDownOutside()
   }, [navigationRef, sideWidth])
 
@@ -50,7 +50,7 @@ function Main(
     window.requestAnimationFrame!(() => {
       // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
       const resizerDelta = e.clientX - initialPosition.current
-      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, contentMinWidth)
+      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, contentMinWidth!)
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
 
       if (navigationDelta < 0) {
@@ -63,8 +63,8 @@ function Main(
         type: LayoutActionType.SET_SIDE_WIDTH,
         payload: clamp(
           sideInitialWidth.current - resizerDelta,
-          sideMinWidth,
-          sideMaxWidth,
+          sideMinWidth!,
+          sideMaxWidth!,
         ),
       })
     })

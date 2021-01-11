@@ -1,12 +1,15 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
-import { set, size, toNumber } from 'lodash-es'
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef } from 'react'
+import { isArray, set, size, toNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import { ActionType, NavigationState } from '../Client/utils/LayoutReducer'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
+import NavigationContentProps from './NavigationContent/NavigationContent.types'
 
 // TODO-LAYOUT: z-index 명확화 하기
 const MAX_NAV_Z_INDEX = 100
@@ -21,6 +24,7 @@ function Navigations({
 }: NavigationsProps,
 forwardedRef: React.Ref<NavigationHandles>,
 ) {
+  const layoutDispatch = useLayoutDispatch()
   const { navigations } = useLayoutState()
 
   const navigationRefs = useRef<{ [i: number]: NavigationRefsProps }>({})
@@ -118,36 +122,57 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  const renderNavigationAreas = useCallback((navLayouts) => {
+  const renderNavigationAreas = useCallback((navLayouts: NavigationState[]) => {
     const childrens = React.Children.toArray(children)
     return (
-      navLayouts.map((navLayout, index) => (
-        <NavigationArea
-          ref={(element: HTMLDivElement) => {
-            set(navigationRefs.current, [index, 'target'], element)
-            set(navigationRefs.current, [index, 'minWidth'], navLayout.minWidth)
-            set(navigationRefs.current, [index, 'maxWidth'], navLayout.maxWidth)
-          }}
-          hidable={navLayout.hidable}
-          optionIndex={index}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-        >
-          { childrens[index] }
-        </NavigationArea>
-      ))
+      childrens.map((navChildren, index) => {
+        if (!navLayouts[index]) { return null }
+        if (!React.isValidElement<NavigationContentProps>(navChildren)) {
+          return navChildren
+        }
+
+        return (
+          <NavigationArea
+            ref={(element: HTMLDivElement) => {
+              set(navigationRefs.current, [index, 'target'], element)
+              set(navigationRefs.current, [index, 'minWidth'], navLayouts[index].minWidth)
+              set(navigationRefs.current, [index, 'maxWidth'], navLayouts[index].maxWidth)
+            }}
+            hidable={navLayouts[index].hidable}
+            optionIndex={index}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+          >
+            { navChildren }
+          </NavigationArea>
+        )
+      })
     )
   }, [children, handleMouseDown, handleMouseMove])
 
+  useLayoutEffect(() => {
+    const childrens = React.Children.toArray(children)
+    childrens.forEach((child) => {
+      if (!React.isValidElement<NavigationContentProps>(child)) { return }
+
+      layoutDispatch({
+        type: ActionType.ADD_NAVIGATION,
+        payload: child.props.layoutOption,
+      })
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   useEffect(() => {
+    if (!isArray(navigations)) { return }
+
     for (const index in navigationRefs.current) {
       if (navigationRefs.current[index] && navigations[index]) {
         navigationRefs.current[index].target.style.width = `${navigations[index].initialWidth}px`
         navigationRefs.current[index].target.style.zIndex = `${MAX_NAV_Z_INDEX - toNumber(index)}`
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [navigations])
 
   return (
     <NavigationsWrapper>

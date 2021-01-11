@@ -4,18 +4,16 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
-import { styled } from '../../styling/Theme'
-import { Icon } from '../../components/Icon'
-import { Header } from '../../components/Header'
-import { ListItem } from '../../components/List/ListItem'
-import { SideState } from '../Client/Client.types'
-import { LayoutState } from '../Client/utils/LayoutReducer'
-import Client from '../Client/Client'
-import { Main } from '../Main'
-import GNB from '../GNB/GNB'
-import Navigations, { NavigationHandles } from '../Navigations/Navigations'
-import { NavigationContent } from '../Navigations/NavigationContent'
+import { getTitle } from '../../../utils/utils'
+import { styled } from '../../../styling/Theme'
+import { Icon } from '../../../components/Icon'
+import { Header } from '../../../components/Header'
+import { ListItem } from '../../../components/List/ListItem'
+import Client from '../../Client/Client'
+import { Main } from '../../Main'
+import GNB from '../../GNB/GNB'
+import Navigations, { NavigationHandles } from '../../Navigations/Navigations'
+import { NavigationContent } from '../../Navigations/NavigationContent'
 import Content from './Content'
 
 export default {
@@ -39,30 +37,30 @@ const StyledIcon = styled(Icon)`
 const Template = () => {
   const navigationRef = useRef<NavigationHandles | null>(null)
 
-  const layoutInitialState: LayoutState = {
-    contentMinWidth: 330,
-    sideState: SideState.SidePanel,
-    sideWidth: 332,
-    sideMinWidth: 320,
-    sideMaxWidth: 1000,
-    navigations: [
-      {
-        initialWidth: 200,
-        minWidth: 150,
-        maxWidth: 300,
-        hidable: true,
-      },
-      {
-        initialWidth: 250,
-        minWidth: 200,
-        maxWidth: 300,
-        hidable: false,
-      },
-    ],
-    showNavigation: true,
-    navigationRef,
-    withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
-  }
+  // const layoutInitialState: LayoutState = {
+  //   contentMinWidth: 330,
+  //   sideState: SideState.SidePanel,
+  //   sideWidth: 332,
+  //   sideMinWidth: 320,
+  //   sideMaxWidth: 1000,
+  //   navigations: [
+  //     {
+  //       initialWidth: 200,
+  //       minWidth: 150,
+  //       maxWidth: 300,
+  //       hidable: true,
+  //     },
+  //     {
+  //       initialWidth: 250,
+  //       minWidth: 200,
+  //       maxWidth: 300,
+  //       hidable: false,
+  //     },
+  //   ],
+  //   showNavigation: true,
+  //   navigationRef,
+  //   withoutSearch: false, // TODO(@mong) 해당 필드 추가 적용
+  // }
 
   const DummyActions = useMemo(() => (
     <>
@@ -94,19 +92,43 @@ const Template = () => {
   `
 
   const NavigationMainRoute = useMemo(() => (
-    <NavigationContent header={Element1Header} withScroll>
+    <NavigationContent
+      header={Element1Header}
+      withScroll
+      /* LayoutState Prop */
+      layoutOption={{
+        initialWidth: 350,
+        maxWidth: 400,
+        minWidth: 250,
+        hidable: true,
+      }}
+    >
       { range(0, 30).map((val) => (
         <ListItem content={`NavItem - ${val}`} />
       )) }
     </NavigationContent>
   ), [Element1Header])
+
   const NavigationSubRoute = useMemo(() => (
-    <NavigationContent header={Element2Header} fixedHeader withScroll>
+    // null
+    <NavigationContent
+      header={Element2Header}
+      fixedHeader
+      withScroll
+      /* LayoutState Prop */
+      layoutOption={{
+        initialWidth: 300,
+        maxWidth: 400,
+        minWidth: 200,
+        hidable: false,
+      }}
+    >
       { range(0, 30).map((val) => (
         <ListItem content={`NavItem - ${val}`} />
       )) }
     </NavigationContent>
   ), [Element2Header])
+
   const ContentRoute = useMemo(() => (<Content />), [])
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
   const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
@@ -115,7 +137,7 @@ const Template = () => {
 
   return (
     <Container>
-      <Client layoutInitialState={layoutInitialState}>
+      <Client>
         <GNB />
         <Navigations ref={navigationRef}>
           { NavigationMainRoute }

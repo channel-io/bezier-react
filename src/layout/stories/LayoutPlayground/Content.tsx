@@ -2,11 +2,11 @@
 import React, { useCallback } from 'react'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../hooks/useLayoutDispatch'
-import useLayoutState from '../../hooks/useLayoutState'
-import { styled } from '../../styling/Theme'
-import { SideState } from '../Client/Client.types'
-import { ActionType } from '../Client/utils/LayoutReducer'
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import useLayoutState from '../../../hooks/useLayoutState'
+import { styled } from '../../../styling/Theme'
+import { SideState } from '../../Client/Client.types'
+import { ActionType } from '../../Client/utils/LayoutReducer'
 
 const Div = styled.div`
   width: 100%;

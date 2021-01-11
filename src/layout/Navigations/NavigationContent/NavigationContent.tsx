@@ -1,9 +1,9 @@
 /* External dependencies */
-import { noop } from 'lodash-es'
 import React, { useMemo } from 'react'
-import { mergeClassNames } from '../../../utils/stringUtils'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { mergeClassNames } from '../../../utils/stringUtils'
 import {
   ChevronIcon,
   StyledContentWrapper,
@@ -27,10 +27,13 @@ function NavigationContent({
   withScroll,
   onScroll,
   children,
-
+  /* LayoutReducer Props */
+  layoutOption,
+  /* Navigations Injected Props */
   showChevron = false,
   allowMouseMove = false,
   isHoveringOnPresenter = false,
+
   onClickClose = noop,
   ...otherProps
 }: NavigationContentProps) {

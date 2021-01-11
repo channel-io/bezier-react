@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { UIComponentProps } from '../../../types/ComponentProps'
+import { NavigationState } from '../../Client/utils/LayoutReducer'
 
 export default interface NavigationContentProps extends UIComponentProps {
   header?: React.ReactElement | null
@@ -10,6 +11,8 @@ export default interface NavigationContentProps extends UIComponentProps {
   scrollClassName?: string
   withScroll?: boolean
   onScroll?: () => void
+
+  layoutOption: NavigationState
 
   /* cloneElement Props */
   optionIndex?: number

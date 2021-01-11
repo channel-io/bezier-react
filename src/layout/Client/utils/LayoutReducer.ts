@@ -2,27 +2,42 @@
 import { NavigationHandles } from '../../Navigations/Navigations'
 import { SideState } from '../Client.types'
 
+export interface NavigationState {
+  initialWidth: number
+  maxWidth: number
+  minWidth: number
+  hidable: boolean
+}
+
 export interface LayoutState {
-  contentMinWidth: number
+  contentMinWidth: number | null
   sideState: SideState
-  sideWidth: number
-  sideMinWidth: number
-  sideMaxWidth: number
-  navigations: Array<{
-    initialWidth: number
-    maxWidth: number
-    minWidth: number
-    hidable: boolean
-  }>
+  sideWidth: number | null
+  sideMinWidth: number | null
+  sideMaxWidth: number | null
+  navigations: NavigationState[]
   showNavigation: boolean
   navigationRef: React.MutableRefObject<NavigationHandles> | null
-  withoutSearch: boolean
+  hasOveraidHeader: boolean
+}
+
+export const defaultState = {
+  contentMinWidth: null,
+  sideState: SideState.None,
+  sideWidth: null,
+  sideMinWidth: null,
+  sideMaxWidth: null,
+  navigations: [],
+  showNavigation: true,
+  navigationRef: null,
+  hasOveraidHeader: false,
 }
 
 export enum ActionType {
   SET_SIDE_WIDTH,
   SET_SIDE_STATE,
   SET_SHOW_NAVIGATION,
+  ADD_NAVIGATION,
 }
 
 interface SetSideWidthAction {
@@ -40,13 +55,19 @@ interface SetShowNavigationAction {
   payload: boolean
 }
 
+interface AddNavigationPropsAction {
+  type: ActionType.ADD_NAVIGATION
+  payload: NavigationState
+}
+
 export type LayoutAction = (
   SetSideWidthAction |
   SetSideStateAction |
-  SetShowNavigationAction
+  SetShowNavigationAction |
+  AddNavigationPropsAction
 )
 
-function LayoutReducer(state: LayoutState, action: LayoutAction): LayoutState {
+function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
   switch (action.type) {
     case ActionType.SET_SIDE_STATE: {
       return {
@@ -66,6 +87,16 @@ function LayoutReducer(state: LayoutState, action: LayoutAction): LayoutState {
       return {
         ...state,
         showNavigation: action.payload,
+      }
+    }
+
+    case ActionType.ADD_NAVIGATION: {
+      return {
+        ...state,
+        navigations: [
+          ...state.navigations,
+          action.payload,
+        ],
       }
     }
 
