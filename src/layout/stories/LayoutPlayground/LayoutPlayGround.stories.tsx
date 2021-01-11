@@ -74,6 +74,7 @@ const Template = () => {
         header={Element1Header}
         withScroll
         /* LayoutState Prop */
+        showNavigation
         layoutOption={{
           initialWidth: 350,
           maxWidth: 400,

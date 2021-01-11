@@ -23,7 +23,7 @@ export const defaultState = {
   sideState: SideState.None,
   sideWidth: null,
   navigations: [],
-  showNavigation: true,
+  showNavigation: false,
   navigationRef: null,
   hasOveraidHeader: false,
 }

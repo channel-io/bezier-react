@@ -12,7 +12,9 @@ export default interface NavigationContentProps extends UIComponentProps {
   withScroll?: boolean
   onScroll?: () => void
 
+  /* LayoutState Prop */
   layoutOption: NavigationState
+  showNavigation?: boolean
 
   /* cloneElement Props */
   optionIndex?: number

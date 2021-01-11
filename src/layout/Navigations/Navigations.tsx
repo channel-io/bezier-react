@@ -172,6 +172,12 @@ forwardedRef: React.Ref<NavigationHandles>,
           options: child.props.layoutOption,
         },
       })
+      if (child.props.showNavigation) {
+        layoutDispatch({
+          type: ActionType.SET_SHOW_NAVIGATION,
+          payload: child.props.showNavigation,
+        })
+      }
     })
   }, [children, layoutDispatch])
 
