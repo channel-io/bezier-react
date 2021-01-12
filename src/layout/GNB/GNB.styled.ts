@@ -13,7 +13,11 @@ const GNB = styled.div<GNBProps>`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-gnb']};
   /* stylelint-disable-next-line declaration-colon-newline-after */
   ${({ foundation }) =>
-    foundation?.border?.getBorder(1, foundation?.theme?.['bd-primary'], { top: false, right: true, bottom: false, left: false })};
+    foundation?.border?.getBorder(
+      1,
+      foundation?.theme?.['bd-black-light'],
+      { top: false, right: true, bottom: false, left: false },
+    )};
   ${({ foundation }) => foundation?.transition?.getSingleTransitionCSS('background-color')}
 `
 
