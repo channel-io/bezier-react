@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
@@ -35,14 +35,21 @@ const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.colors.iconBase};
 `
 
+enum RouteKeys {
+  TeamChat = 'teamChat',
+  UserChat = 'userChat',
+  Statistic = 'statistic',
+  Setting = 'setting',
+}
+
 const Template = () => {
-  // 화면 전화 테스트 값
-  // TODO: router처럼 바꾸기
-  const [navigationState, setNavigationState] = useState(false)
-  const [navigationSubState, setNavigationSubState] = useState(false)
-  const [changeSidePanel, setChangeSidePanel] = useState(false)
+  const [route, setRoute] = useState<RouteKeys>(RouteKeys.TeamChat)
 
   const navigationRef = useRef<NavigationHandles | null>(null)
+
+  const handleChangeRoute = useCallback((e: React.MouseEvent) => {
+    setRoute((e.target as HTMLButtonElement).value as RouteKeys)
+  }, [])
 
   const DummyActions = useMemo(() => (
     <>
@@ -73,90 +80,123 @@ const Template = () => {
     background-color: white;
   `
 
-  const NavigationMainRoute = useMemo(() => (navigationState ?
-    (
-      <NavigationContent
-        header={Element1Header}
-        withScroll
-        /* LayoutState Prop */
-        showNavigation
-        layoutOption={{
-          initialWidth: 350,
-          maxWidth: 400,
-          minWidth: 250,
-          hidable: true,
-        }}
-      >
-        { range(0, 30).map((val) => (
-          <ListItem content={`NavItem - ${val}`} />
-        )) }
-      </NavigationContent>
-    ) : (
-      <NavigationContent
-        header={Element1Header}
-        withScroll
-        /* LayoutState Prop */
-        layoutOption={{
-          initialWidth: 300,
-          maxWidth: 400,
-          minWidth: 200,
-          hidable: false,
-        }}
-      >
-        { range(0, 2).map((val) => (
-          <ListItem content={` - ${val}`} />
-        )) }
-      </NavigationContent>
-    )
-  ), [Element1Header, navigationState])
+  const NavigationMainRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.TeamChat:
+        return (
+          <NavigationContent
+            header={Element1Header}
+            withScroll
+            /* LayoutState Prop */
+            showNavigation
+            layoutOption={{
+              initialWidth: 350,
+              maxWidth: 400,
+              minWidth: 250,
+              hidable: true,
+            }}
+          >
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+        )
+      case RouteKeys.UserChat:
+        return (
+          <NavigationContent
+            header={Element1Header}
+            withScroll
+            /* LayoutState Prop */
+            layoutOption={{
+              initialWidth: 300,
+              maxWidth: 400,
+              minWidth: 200,
+              hidable: false,
+            }}
+          >
+            { range(0, 2).map((val) => (
+              <ListItem content={` - ${val}`} />
+            )) }
+          </NavigationContent>
+        )
+      case RouteKeys.Setting:
+        return (
+          <NavigationContent
+            header={Element1Header}
+            withScroll
+            /* LayoutState Prop */
+            layoutOption={{
+              initialWidth: 300,
+              maxWidth: 400,
+              minWidth: 200,
+              hidable: false,
+            }}
+          >
+            { range(0, 2).map((val) => (
+              <ListItem content={` - ${val}`} />
+            )) }
+          </NavigationContent>
+        )
+      case RouteKeys.Statistic:
+      default:
+        return null
+    }
+  }, [Element1Header, route])
 
-  const NavigationSubRoute = useMemo(() => (
-    navigationSubState ?
-      null : (
-        <NavigationContent
-          header={Element2Header}
-          fixedHeader
-          withScroll
-          /* LayoutState Prop */
-          layoutOption={{
-            initialWidth: 300,
-            maxWidth: 400,
-            minWidth: 200,
-            hidable: false,
-          }}
-        >
-          { range(0, 30).map((val) => (
-            <ListItem content={`NavItem - ${val}`} />
-          )) }
-        </NavigationContent>
-      )
-  ), [Element2Header, navigationSubState])
+  const NavigationSubRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.UserChat:
+        return (
+          <NavigationContent
+            header={Element2Header}
+            fixedHeader
+            withScroll
+            /* LayoutState Prop */
+            layoutOption={{
+              initialWidth: 300,
+              maxWidth: 400,
+              minWidth: 200,
+              hidable: false,
+            }}
+          >
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+        )
+      default:
+        return null
+    }
+  }, [Element2Header, route])
 
   const ContentRoute = useMemo(() => (<Content />), [])
 
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
 
-  const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
+  const CoverableHeaderRoute = useMemo(() => (<Div>Search</Div>), [Div])
 
-  const SidePanelRoute = useMemo(() => (changeSidePanel ?
-    (<Div initialWidth={400} fallbackWidth={332}>SidePanel</Div>)
-    : (<Div initialWidth={350} fallbackWidth={332}>Another SidePanel</Div>)
-  ), [Div, changeSidePanel])
+  const SidePanelRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.TeamChat:
+        return (<Div initialWidth={400} fallbackWidth={332}>SidePanel</Div>)
+      case RouteKeys.UserChat:
+        return (<Div initialWidth={350} fallbackWidth={332}>Another SidePanel</Div>)
+      case RouteKeys.Statistic:
+      case RouteKeys.Setting:
+      default:
+        return null
+    }
+  }, [Div, route])
 
   const SideViewRoute = useMemo(() => (<Div>SideView</Div>), [Div])
 
   return (
     <>
-      <button type="button" onClick={() => setNavigationState(v => !v)}>
-        navigation Route 변경
-      </button>
-      <button type="button" onClick={() => setNavigationSubState(v => !v)}>
-        navigationSub Route 없애기
-      </button>
-      <button type="button" onClick={() => setChangeSidePanel(v => !v)}>
-        SidePanel을 다른 걸로 바꾸기
-      </button>
-
+      <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
+      <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
+      <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
+      <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
+      Current is: { route }
       <Container>
         <Client>
           <GNB />
@@ -167,7 +207,7 @@ const Template = () => {
           <Main
             content={ContentRoute}
             contentHeader={ContentHeaderRoute}
-            searchHeader={SearchComponent}
+            searchHeader={CoverableHeaderRoute}
             sidePanel={SidePanelRoute}
             sideView={SideViewRoute}
           />
