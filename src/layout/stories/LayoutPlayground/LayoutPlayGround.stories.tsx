@@ -13,6 +13,7 @@ import Client from '../../Client/Client'
 import { Main } from '../../Main'
 import GNB from '../../GNB/GNB'
 import Navigations, { NavigationHandles } from '../../Navigations/Navigations'
+import { SidePanelChildProps } from '../../SidePanelArea/SidePanelArea.types'
 import { NavigationContent } from '../../Navigations/NavigationContent'
 import Content from './Content'
 
@@ -35,9 +36,13 @@ const StyledIcon = styled(Icon)`
 `
 
 const Template = () => {
-  const navigationRef = useRef<NavigationHandles | null>(null)
+  // 화면 전화 테스트 값
+  // TODO: router처럼 바꾸기
   const [navigationState, setNavigationState] = useState(false)
   const [navigationSubState, setNavigationSubState] = useState(false)
+  const [changeSidePanel, setChangeSidePanel] = useState(false)
+
+  const navigationRef = useRef<NavigationHandles | null>(null)
 
   const DummyActions = useMemo(() => (
     <>
@@ -58,7 +63,7 @@ const Template = () => {
     />
   ), [DummyActions])
 
-  const Div = styled.div`
+  const Div = styled.div<SidePanelChildProps>`
     width: 100%;
     height: 100%;
     border: 1px solid orange;
@@ -128,25 +133,30 @@ const Template = () => {
   ), [Element2Header, navigationSubState])
 
   const ContentRoute = useMemo(() => (<Content />), [])
+
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
+
   const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
-  const SidePanelRoute = useMemo(() => (<Div>SidePanel</Div>), [Div])
+
+  const SidePanelRoute = useMemo(() => (changeSidePanel ?
+    (<Div initialWidth={400} fallbackWidth={332}>SidePanel</Div>)
+    : (<Div initialWidth={350} fallbackWidth={332}>Another SidePanel</Div>)
+  ), [Div, changeSidePanel])
+
   const SideViewRoute = useMemo(() => (<Div>SideView</Div>), [Div])
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setNavigationState(v => !v)}
-      >
+      <button type="button" onClick={() => setNavigationState(v => !v)}>
         navigation Route 변경
       </button>
-      <button
-        type="button"
-        onClick={() => setNavigationSubState(v => !v)}
-      >
+      <button type="button" onClick={() => setNavigationSubState(v => !v)}>
         navigationSub Route 없애기
       </button>
+      <button type="button" onClick={() => setChangeSidePanel(v => !v)}>
+        SidePanel을 다른 걸로 바꾸기
+      </button>
+
       <Container>
         <Client>
           <GNB />

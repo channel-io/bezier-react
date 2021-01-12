@@ -1,4 +1,9 @@
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
 
-export default interface SidePanelAreaProps extends UIComponentProps{}
+export interface SidePanelChildProps {
+  initialWidth?: number
+  fallbackWidth?: number
+}
+
+export interface SidePanelAreaProps extends UIComponentProps{}
