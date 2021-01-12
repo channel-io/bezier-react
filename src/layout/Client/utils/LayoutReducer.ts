@@ -13,7 +13,6 @@ export interface LayoutState {
   showSideView: boolean
   showNavigation: boolean
   navigations: NavigationState[]
-  hasOveraidHeader: boolean
 }
 
 export const defaultState: LayoutState = {
@@ -21,7 +20,6 @@ export const defaultState: LayoutState = {
   showSideView: false,
   showNavigation: false,
   navigations: [],
-  hasOveraidHeader: false,
 }
 
 export enum ActionType {
