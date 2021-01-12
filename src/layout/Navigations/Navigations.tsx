@@ -130,36 +130,6 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  const NavigationAreasComponent = useMemo(() => {
-    const childrens = React.Children.toArray(children)
-
-    navigationRefs.current = {}
-
-    return (
-      childrens.map((navChildren, index) => {
-        if (!navigations[index]) { return null }
-        if (!React.isValidElement<NavigationContentProps>(navChildren)) { return null }
-
-        return (
-          <NavigationArea
-            key={uuid()}
-            ref={(element: HTMLDivElement) => {
-              set(navigationRefs.current, [index, 'target'], element)
-              set(navigationRefs.current, [index, 'minWidth'], navigations[index].minWidth)
-              set(navigationRefs.current, [index, 'maxWidth'], navigations[index].maxWidth)
-            }}
-            hidable={navigations[index].hidable}
-            optionIndex={index}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-          >
-            { navChildren }
-          </NavigationArea>
-        )
-      })
-    )
-  }, [children, handleMouseDown, handleMouseMove, navigations])
-
   useLayoutEffect(() => {
     const childrens = React.Children.toArray(children)
     childrens.forEach((child, index) => {
@@ -191,6 +161,36 @@ forwardedRef: React.Ref<NavigationHandles>,
       }
     }
   }, [navigations])
+
+  const NavigationAreasComponent = useMemo(() => {
+    const childrens = React.Children.toArray(children)
+
+    navigationRefs.current = {}
+
+    return (
+      childrens.map((navChildren, index) => {
+        if (!navigations[index]) { return null }
+        if (!React.isValidElement<NavigationContentProps>(navChildren)) { return null }
+
+        return (
+          <NavigationArea
+            key={uuid()}
+            ref={(element: HTMLDivElement) => {
+              set(navigationRefs.current, [index, 'target'], element)
+              set(navigationRefs.current, [index, 'minWidth'], navigations[index].minWidth)
+              set(navigationRefs.current, [index, 'maxWidth'], navigations[index].maxWidth)
+            }}
+            hidable={navigations[index].hidable}
+            optionIndex={index}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+          >
+            { navChildren }
+          </NavigationArea>
+        )
+      })
+    )
+  }, [children, handleMouseDown, handleMouseMove, navigations])
 
   return (
     <NavigationsWrapper>

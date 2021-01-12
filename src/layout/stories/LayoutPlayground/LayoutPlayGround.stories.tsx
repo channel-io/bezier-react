@@ -111,7 +111,7 @@ const Template = () => {
               initialWidth: 300,
               maxWidth: 400,
               minWidth: 200,
-              hidable: false,
+              hidable: true,
             }}
           >
             { range(0, 2).map((val) => (
