@@ -98,8 +98,8 @@ const LightTheme: ThemeType = {
   'txt-white': Palette.white,
 
   // Border
-  'bd-primary': Palette.black_8,
-  'bd-table': Palette.grey200,
+  'bd-black-light': Palette.black_8,
+  'bd-grey-light': Palette.grey200,
 
   // Shadow
   'shdw-xlarge': Palette.black_20,

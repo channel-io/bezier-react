@@ -99,8 +99,8 @@ const DarkTheme: ThemeType = {
   'txt-white': Palette.white,
 
   // Border
-  'bd-primary': Palette.white_12,
-  'bd-table': Palette.grey700,
+  'bd-black-light': Palette.white_12,
+  'bd-grey-light': Palette.grey700,
 
   // Shadow
   'shdw-xlarge': Palette.black_60,

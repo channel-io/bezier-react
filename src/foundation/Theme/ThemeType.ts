@@ -37,8 +37,8 @@ type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-lightest`
 
 type BorderColor =
-  | 'bd-primary'
-  | 'bd-table'
+  | 'bd-black-light'
+  | 'bd-grey-light'
 
 type ShadowColor =
   | 'shdw-xlarge'
