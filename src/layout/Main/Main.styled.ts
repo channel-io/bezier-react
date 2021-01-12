@@ -4,6 +4,7 @@ import { styled } from '../../styling/Theme'
 
 interface MainWrapperProps {
   hasSide: boolean
+  hasHeader: boolean
   sideWidth: number
 }
 
@@ -15,7 +16,7 @@ export const MainWrapper = styled.div.attrs(({ hasSide, sideWidth }: MainWrapper
   },
 }))<MainWrapperProps>`
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: ${({ hasHeader }) => (hasHeader ? '70px 1fr' : '0 1fr')};
   width: 100%;
   height: 100%;
   overflow: hidden;

@@ -13,6 +13,7 @@ function HeaderArea(
     style,
     className,
     testId = HEADER_AREA_TEST_ID,
+    hasHeader,
     contentHeader,
     coverableHeader,
     ...otherProps
@@ -20,6 +21,8 @@ function HeaderArea(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const { sideWidth, showSideView } = useLayoutState()
+
+  if (!hasHeader) { return null }
 
   return (
     <HeaderWrapper

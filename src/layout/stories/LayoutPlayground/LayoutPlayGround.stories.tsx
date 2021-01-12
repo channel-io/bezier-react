@@ -171,9 +171,31 @@ const Template = () => {
 
   const ContentRoute = useMemo(() => (<Content />), [])
 
-  const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
+  const ContentHeaderRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.TeamChat:
+      case RouteKeys.UserChat:
+      case RouteKeys.Statistic:
+        return (<Div>ContentHeader</Div>)
 
-  const CoverableHeaderRoute = useMemo(() => (<Div>Search</Div>), [Div])
+      case RouteKeys.Setting:
+      default:
+        return null
+    }
+  }, [Div, route])
+
+  const CoverableHeaderRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.TeamChat:
+      case RouteKeys.UserChat:
+        return (<Div>Search bar</Div>)
+
+      case RouteKeys.Statistic:
+      case RouteKeys.Setting:
+      default:
+        return null
+    }
+  }, [Div, route])
 
   const SidePanelRoute = useMemo(() => {
     switch (route) {
@@ -196,7 +218,7 @@ const Template = () => {
       <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
       <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
       <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
-      Current is: { route }
+      Current Route is - { route }
       <Container>
         <Client>
           <GNB />
@@ -208,7 +230,7 @@ const Template = () => {
             navigationRef={navigationRef}
             content={ContentRoute}
             contentHeader={ContentHeaderRoute}
-            searchHeader={CoverableHeaderRoute}
+            coverableHeader={CoverableHeaderRoute}
             sidePanel={SidePanelRoute}
             sideView={SideViewRoute}
           />

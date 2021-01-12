@@ -35,6 +35,7 @@ function Main(
   const initialPosition = useRef(0)
 
   const hasSide = sidePanel || showSideView
+  const hasHeader = contentHeader || coverableHeader
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     contentInitialWidth.current = contentRef.current!.clientWidth
@@ -68,11 +69,13 @@ function Main(
   return (
     <MainWrapper
       ref={forwardedRef}
+      hasHeader={hasHeader}
       hasSide={hasSide}
       sideWidth={sideWidth}
       {...otherProps}
     >
       <HeaderArea
+        hasHeader={hasHeader}
         contentHeader={contentHeader}
         coverableHeader={coverableHeader}
       />
