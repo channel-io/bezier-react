@@ -14,7 +14,7 @@ function HeaderArea(
     className,
     testId = HEADER_AREA_TEST_ID,
     contentHeader,
-    searchHeader,
+    coverableHeader,
     ...otherProps
   }: HeaderAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -32,7 +32,7 @@ function HeaderArea(
       {...otherProps}
     >
       <LeftHeader>{ contentHeader }</LeftHeader>
-      <RightHeader>{ searchHeader }</RightHeader>
+      <RightHeader>{ coverableHeader }</RightHeader>
     </HeaderWrapper>
   )
 }

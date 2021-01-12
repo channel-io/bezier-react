@@ -18,7 +18,7 @@ function Main(
   {
     content,
     contentHeader,
-    searchHeader,
+    coverableHeader,
     sidePanel,
     sideView,
     navigationRef,
@@ -74,7 +74,7 @@ function Main(
     >
       <HeaderArea
         contentHeader={contentHeader}
-        searchHeader={searchHeader}
+        coverableHeader={coverableHeader}
       />
       <ContentArea
         ref={contentRef}
