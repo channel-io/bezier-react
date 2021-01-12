@@ -43,7 +43,9 @@ function SidePanelArea(
       type: ActionType.SET_SIDE_WIDTH,
       payload: width || SIDE_FALLBACK_WIDTH,
     })
-  }, [children, layoutDispatch, sideState, sideWidth])
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [children, layoutDispatch, sideState])
 
   if (sideState === SideState.None) { return null }
 

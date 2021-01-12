@@ -21,6 +21,7 @@ function Main(
     searchHeader,
     sidePanel,
     sideView,
+    navigationRef,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -29,7 +30,6 @@ function Main(
   const {
     sideState,
     sideWidth,
-    navigationRef,
   } = useLayoutState()
 
   const contentRef = useRef<HTMLDivElement | null>(null)
@@ -46,11 +46,9 @@ function Main(
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
-      // NOTE: Resizer는 Content에 있지만 Side WIDTH를 조정합니다.
       const resizerDelta = e.clientX - initialPosition.current
       const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
-
       if (navigationDelta < 0) {
         const isNavigationMinimum = navigationRef?.current?.handleMouseMoveOutside(navigationDelta)
 

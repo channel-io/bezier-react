@@ -178,9 +178,9 @@ const Template = () => {
   const SidePanelRoute = useMemo(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<Div initialWidth={400} fallbackWidth={332}>SidePanel</Div>)
+        return (<Div fallbackWidth={332}>SidePanel</Div>)
       case RouteKeys.UserChat:
-        return (<Div initialWidth={350} fallbackWidth={332}>Another SidePanel</Div>)
+        return (<Div fallbackWidth={332}>Another SidePanel</Div>)
       case RouteKeys.Statistic:
       case RouteKeys.Setting:
       default:
@@ -205,6 +205,7 @@ const Template = () => {
             { NavigationSubRoute }
           </Navigations>
           <Main
+            navigationRef={navigationRef}
             content={ContentRoute}
             contentHeader={ContentHeaderRoute}
             searchHeader={CoverableHeaderRoute}
