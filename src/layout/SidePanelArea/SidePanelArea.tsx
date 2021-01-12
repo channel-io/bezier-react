@@ -32,19 +32,17 @@ function SidePanelArea(
     if (sideState === SideState.SideView) { return }
 
     // NOTE: children이 없으면 SideState.None으로 설정한다.
-    if (children) {
-      // NOTE: initialWidth가 있으면 해당 값을, 없다면 가존 sideWidth 값을 그대로 가져 온다.
-      // 만약 처음으로 접근한 화면이라 sideWidth값도 없다면 fallback 값으로 설정 한다.
-      const width = get(children, 'props.initialWidth', sideWidth)
-      layoutDispatch({
-        type: ActionType.SET_SIDE_STATE,
-        payload: isNil(children) ? SideState.None : SideState.SidePanel,
-      })
-      layoutDispatch({
-        type: ActionType.SET_SIDE_WIDTH,
-        payload: width || SIDE_FALLBACK_WIDTH,
-      })
-    }
+    // NOTE: initialWidth가 있으면 해당 값을, 없다면 가존 sideWidth 값을 그대로 가져 온다.
+    // 만약 처음으로 접근한 화면이라 sideWidth값도 없다면 fallback 값으로 설정 한다.
+    const width = get(children, 'props.initialWidth', sideWidth)
+    layoutDispatch({
+      type: ActionType.SET_SIDE_STATE,
+      payload: isNil(children) ? SideState.None : SideState.SidePanel,
+    })
+    layoutDispatch({
+      type: ActionType.SET_SIDE_WIDTH,
+      payload: width || SIDE_FALLBACK_WIDTH,
+    })
   }, [children, layoutDispatch, sideState, sideWidth])
 
   if (sideState === SideState.None) { return null }
