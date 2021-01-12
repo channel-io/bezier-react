@@ -33,7 +33,7 @@ const ElevationChip = styled.div<ElevationChipProps>`
   width: 100px;
   height: 100px;
   ${({ foundation, ev }) => foundation?.elevation?.[ev]};
-  ${({ foundation }) => foundation?.rounding?.round30};
+  ${({ foundation }) => foundation?.rounding?.round16};
 `
 
 const Template = (args) => (

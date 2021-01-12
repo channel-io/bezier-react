@@ -1,4 +1,4 @@
-enum PaletteKey {
+enum BasePaletteKey {
   blue = 'blue',
   cobalt = 'cobalt',
   teal = 'teal',
@@ -16,4 +16,22 @@ enum PaletteKey {
   white = 'white',
 }
 
-export default PaletteKey
+export type BaseMonoPaletteKey =
+  | BasePaletteKey.grey
+  | BasePaletteKey.black
+  | BasePaletteKey.white
+
+export type BaseColorfulPaletteKey =
+  | BasePaletteKey.blue
+  | BasePaletteKey.cobalt
+  | BasePaletteKey.teal
+  | BasePaletteKey.green
+  | BasePaletteKey.olive
+  | BasePaletteKey.yellow
+  | BasePaletteKey.orange
+  | BasePaletteKey.red
+  | BasePaletteKey.pink
+  | BasePaletteKey.purple
+  | BasePaletteKey.navy
+
+export default BasePaletteKey

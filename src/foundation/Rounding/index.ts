@@ -5,48 +5,48 @@ const DefaultRoundStyle = css`
   overflow: hidden;
 `
 
-const round10 = css`
+const round4 = css`
   ${DefaultRoundStyle};
   border-radius: 4px;
 `
 
-const round20 = css`
+const round6 = css`
   ${DefaultRoundStyle};
   border-radius: 6px;
 `
 
-const round30 = css`
+const round8 = css`
   ${DefaultRoundStyle};
   border-radius: 8px;
 `
 
-const round40 = css`
+const round12 = css`
   ${DefaultRoundStyle};
   border-radius: 12px;
 `
 
-const round50 = css`
+const round16 = css`
   ${DefaultRoundStyle};
   border-radius: 16px;
 `
 
-const round60 = css`
+const round20 = css`
   ${DefaultRoundStyle};
   border-radius: 20px;
 `
 
-const round70 = css`
+const round32 = css`
   ${DefaultRoundStyle};
   border-radius: 32px;
 `
 
 export const Rounding = {
   DefaultRoundStyle,
-  round10,
+  round4,
+  round6,
+  round8,
+  round12,
+  round16,
   round20,
-  round30,
-  round40,
-  round50,
-  round60,
-  round70,
+  round32,
 }

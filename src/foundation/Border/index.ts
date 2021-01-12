@@ -2,10 +2,10 @@
 import { css } from '../FoundationStyledComponent'
 
 interface GetBorderOption {
-  top: boolean
-  right: boolean
-  bottom: boolean
-  left: boolean
+  top?: boolean
+  right?: boolean
+  bottom?: boolean
+  left?: boolean
 }
 
 const defaultGetBorderOption = {
@@ -16,7 +16,10 @@ const defaultGetBorderOption = {
 }
 
 function getBorder(width: number, color: any, option: GetBorderOption = defaultGetBorderOption) {
-  const { top, right, bottom, left } = option
+  const { top, right, bottom, left } = {
+    ...defaultGetBorderOption,
+    ...option,
+  }
 
   function getBorderStyle(position: boolean) {
     return position ? 'solid' : 'none'
