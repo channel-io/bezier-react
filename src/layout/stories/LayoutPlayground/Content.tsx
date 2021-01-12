@@ -5,7 +5,6 @@ import React, { useCallback } from 'react'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import { styled } from '../../../styling/Theme'
-import { SideState } from '../../Client/Client.types'
 import { ActionType } from '../../Client/utils/LayoutReducer'
 
 const Div = styled.div`
@@ -24,24 +23,15 @@ function Content() {
 
   const { showNavigation } = useLayoutState()
 
-  const handleCloseSidebar = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SIDE_STATE,
-      payload: SideState.None,
-    })
-  }, [dispatch])
-
   const handleOpenSideView = useCallback(() => {
     dispatch({
-      type: ActionType.SET_SIDE_STATE,
-      payload: SideState.SideView,
+      type: ActionType.OPEN_SIDE_VIEW,
     })
   }, [dispatch])
 
-  const handleOpenSidePanel = useCallback(() => {
+  const handleCloseSideView = useCallback(() => {
     dispatch({
-      type: ActionType.SET_SIDE_STATE,
-      payload: SideState.SidePanel,
+      type: ActionType.CLOSE_SIDE_VIEW,
     })
   }, [dispatch])
 
@@ -54,9 +44,8 @@ function Content() {
 
   return (
     <Div>
-      <button type="button" onClick={handleCloseSidebar}>사이드바 닫기</button>
-      <button type="button" onClick={handleOpenSideView}>사이드뷰 뷰 열기</button>
-      <button type="button" onClick={handleOpenSidePanel}>사이드 패널 열기</button>
+      <button type="button" onClick={handleOpenSideView}>사이드뷰 열기</button>
+      <button type="button" onClick={handleCloseSideView}>사이드뷰 닫기</button>
       <button type="button" onClick={handleToggleNavigation}>네비게이션 토글</button>
     </Div>
   )

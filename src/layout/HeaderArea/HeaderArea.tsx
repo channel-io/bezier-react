@@ -19,7 +19,7 @@ function HeaderArea(
   }: HeaderAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { sideState, sideWidth } = useLayoutState()
+  const { sideWidth, showSideView } = useLayoutState()
 
   return (
     <HeaderWrapper
@@ -27,8 +27,8 @@ function HeaderArea(
       className={className}
       data-testid={testId}
       ref={forwardedRef}
-      sideState={sideState}
       sideWidth={sideWidth}
+      showSideView={showSideView}
       {...otherProps}
     >
       <LeftHeader>{ contentHeader }</LeftHeader>

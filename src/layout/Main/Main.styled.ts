@@ -1,16 +1,15 @@
 /* Internal dependencies */
 import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { styled } from '../../styling/Theme'
-import { SideState } from '../Client/Client.types'
 
 interface MainWrapperProps {
+  hasSide: boolean
   sideWidth: number
-  sideState: SideState
 }
 
-export const MainWrapper = styled.div.attrs(({ sideState, sideWidth }: MainWrapperProps) => ({
+export const MainWrapper = styled.div.attrs(({ hasSide, sideWidth }: MainWrapperProps) => ({
   style: {
-    gridTemplateColumns: sideState !== SideState.None ?
+    gridTemplateColumns: hasSide ?
       `minmax(${CONTENT_MIN_WIDTH}px, 1fr) ${sideWidth}px`
       : `minmax(${CONTENT_MIN_WIDTH}px, 1fr)`,
   },

@@ -1,7 +1,5 @@
 /* Internal dependencies */
 import { insertItem } from '../../../utils/utils'
-import { NavigationHandles } from '../../Navigations/Navigations'
-import { SideState } from '../Client.types'
 
 export interface NavigationState {
   initialWidth: number
@@ -11,26 +9,25 @@ export interface NavigationState {
 }
 
 export interface LayoutState {
-  sideState: SideState
   sideWidth: number | null
-  navigations: NavigationState[]
+  showSideView: boolean
   showNavigation: boolean
-  navigationRef: React.MutableRefObject<NavigationHandles> | null
+  navigations: NavigationState[]
   hasOveraidHeader: boolean
 }
 
-export const defaultState = {
-  sideState: SideState.None,
+export const defaultState: LayoutState = {
   sideWidth: null,
-  navigations: [],
+  showSideView: false,
   showNavigation: false,
-  navigationRef: null,
+  navigations: [],
   hasOveraidHeader: false,
 }
 
 export enum ActionType {
   SET_SIDE_WIDTH,
-  SET_SIDE_STATE,
+  OPEN_SIDE_VIEW,
+  CLOSE_SIDE_VIEW,
   SET_SHOW_NAVIGATION,
   ADD_NAVIGATION,
   CLEAR_NAVIGATIONS,
@@ -41,9 +38,12 @@ interface SetSideWidthAction {
   payload: number
 }
 
-interface SetSideStateAction {
-  type: ActionType.SET_SIDE_STATE
-  payload: SideState
+interface OpenSideViewAction {
+  type: ActionType.OPEN_SIDE_VIEW
+}
+
+interface CloseSideViewAction {
+  type: ActionType.CLOSE_SIDE_VIEW
 }
 
 interface SetShowNavigationAction {
@@ -62,7 +62,8 @@ interface ClearNavigationsAction {
 
 export type LayoutAction = (
   SetSideWidthAction |
-  SetSideStateAction |
+  OpenSideViewAction |
+  CloseSideViewAction |
   SetShowNavigationAction |
   AddNavigationPropsAction |
   ClearNavigationsAction
@@ -70,17 +71,24 @@ export type LayoutAction = (
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
   switch (action.type) {
-    case ActionType.SET_SIDE_STATE: {
-      return {
-        ...state,
-        sideState: action.payload,
-      }
-    }
-
     case ActionType.SET_SIDE_WIDTH: {
       return {
         ...state,
         sideWidth: action.payload,
+      }
+    }
+
+    case ActionType.OPEN_SIDE_VIEW: {
+      return {
+        ...state,
+        showSideView: true,
+      }
+    }
+
+    case ActionType.CLOSE_SIDE_VIEW: {
+      return {
+        ...state,
+        showSideView: false,
       }
     }
 

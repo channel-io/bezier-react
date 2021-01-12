@@ -1,9 +1,8 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
+import useLayoutState from '../../hooks/useLayoutState'
 
 /* Internal dependencies */
-import useLayoutState from '../../hooks/useLayoutState'
-import { SideState } from '../Client/Client.types'
 import { SideViewWrapper } from './SideViewArea.styled'
 import SideViewAreaProps from './SideViewArea.types'
 
@@ -19,9 +18,9 @@ function SideViewArea(
   }: SideViewAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { sideState } = useLayoutState()
+  const { showSideView } = useLayoutState()
 
-  if (sideState === SideState.None) { return null }
+  if (!showSideView) { return null }
 
   return (
     <SideViewWrapper
@@ -29,7 +28,6 @@ function SideViewArea(
       className={className}
       data-testid={testId}
       ref={forwardedRef}
-      sideState={sideState}
       {...otherProps}
     >
       { children }

@@ -27,15 +27,14 @@ function Main(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const {
-    sideState,
-    sideWidth,
-  } = useLayoutState()
+  const { sideWidth, showSideView } = useLayoutState()
 
   const contentRef = useRef<HTMLDivElement | null>(null)
   const contentInitialWidth = useRef(0)
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
+
+  const hasSide = sidePanel || showSideView
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     contentInitialWidth.current = contentRef.current!.clientWidth
@@ -69,8 +68,8 @@ function Main(
   return (
     <MainWrapper
       ref={forwardedRef}
+      hasSide={hasSide}
       sideWidth={sideWidth}
-      sideState={sideState}
       {...otherProps}
     >
       <HeaderArea

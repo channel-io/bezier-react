@@ -1,22 +1,21 @@
 /* Internal dependencies */
 import { styled } from '../../styling/Theme'
-import { SideState } from '../Client/Client.types'
 
 interface HeaderWrapperProps {
-  sideState: SideState
+  showSideView: boolean
   sideWidth: number
 }
 
-export const HeaderWrapper = styled.div.attrs(({ sideState, sideWidth }: HeaderWrapperProps) => ({
+export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: HeaderWrapperProps) => ({
   style: {
-    gridTemplateColumns: `1fr ${sideState === SideState.SideView ? `${sideWidth}px` : 'auto'}`,
+    gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   display: grid;
   grid-template-rows: 1fr;
-  z-index: ${({ sideState }) => (sideState === SideState.SidePanel ? 50 : 40)};
+  z-index: ${({ showSideView }) => (showSideView ? 40 : 50)};
 `
 
 export const LeftHeader = styled.div`
