@@ -9,7 +9,7 @@ import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constan
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
-import { SplitViewArea } from '../SplitViewArea'
+import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
@@ -20,7 +20,7 @@ function Main(
     contentHeader,
     searchHeader,
     sidePanel,
-    splitView,
+    sideView,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -89,9 +89,9 @@ function Main(
       <SidePanelArea>
         { sidePanel }
       </SidePanelArea>
-      <SplitViewArea>
-        { splitView }
-      </SplitViewArea>
+      <SideViewArea>
+        { sideView }
+      </SideViewArea>
     </MainWrapper>
   )
 }

@@ -4,19 +4,19 @@ import React, { forwardRef } from 'react'
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
 import { SideState } from '../Client/Client.types'
-import { SplitViewWrapper } from './SplitViewArea.styled'
-import SplitViewAreaProps from './SplitViewArea.types'
+import { SideViewWrapper } from './SideViewArea.styled'
+import SideViewAreaProps from './SideViewArea.types'
 
 export const SPLIT_VIEW_AREA_TEST_ID = 'ch-design-system-split-view-area'
 
-function SplitViewArea(
+function SideViewArea(
   {
     style,
     className,
     testId = SPLIT_VIEW_AREA_TEST_ID,
     children,
     ...otherProps
-  }: SplitViewAreaProps,
+  }: SideViewAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const { sideState } = useLayoutState()
@@ -24,7 +24,7 @@ function SplitViewArea(
   if (sideState === SideState.None) { return null }
 
   return (
-    <SplitViewWrapper
+    <SideViewWrapper
       style={style}
       className={className}
       data-testid={testId}
@@ -33,8 +33,8 @@ function SplitViewArea(
       {...otherProps}
     >
       { children }
-    </SplitViewWrapper>
+    </SideViewWrapper>
   )
 }
 
-export default forwardRef(SplitViewArea)
+export default forwardRef(SideViewArea)

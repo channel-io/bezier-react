@@ -6,5 +6,5 @@ export default interface MainProps extends UIComponentProps {
   contentHeader: React.ReactElement
   searchHeader: React.ReactElement
   sidePanel: React.ReactElement
-  splitView: React.ReactElement
+  sideView: React.ReactElement
 }

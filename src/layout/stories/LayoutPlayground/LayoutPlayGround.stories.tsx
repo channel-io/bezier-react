@@ -94,7 +94,7 @@ const Template = () => {
         layoutOption={{
           initialWidth: 300,
           maxWidth: 400,
-          minWidth: 250,
+          minWidth: 200,
           hidable: false,
         }}
       >
@@ -112,7 +112,7 @@ const Template = () => {
           header={Element2Header}
           fixedHeader
           withScroll
-      /* LayoutState Prop */
+          /* LayoutState Prop */
           layoutOption={{
             initialWidth: 300,
             maxWidth: 400,
@@ -131,7 +131,7 @@ const Template = () => {
   const ContentHeaderRoute = useMemo(() => (<Div>ContentHeader</Div>), [Div])
   const SearchComponent = useMemo(() => (<Div>Search</Div>), [Div])
   const SidePanelRoute = useMemo(() => (<Div>SidePanel</Div>), [Div])
-  const SplitViewRoute = useMemo(() => (<Div>SplitView</Div>), [Div])
+  const SideViewRoute = useMemo(() => (<Div>SideView</Div>), [Div])
 
   return (
     <>
@@ -139,13 +139,13 @@ const Template = () => {
         type="button"
         onClick={() => setNavigationState(v => !v)}
       >
-        navigation 상태 변경
+        navigation Route 변경
       </button>
       <button
         type="button"
         onClick={() => setNavigationSubState(v => !v)}
       >
-        navigationSub 없애기
+        navigationSub Route 없애기
       </button>
       <Container>
         <Client>
@@ -159,7 +159,7 @@ const Template = () => {
             contentHeader={ContentHeaderRoute}
             searchHeader={SearchComponent}
             sidePanel={SidePanelRoute}
-            splitView={SplitViewRoute}
+            sideView={SideViewRoute}
           />
         </Client>
       </Container>

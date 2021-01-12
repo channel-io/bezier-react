@@ -9,7 +9,7 @@ interface HeaderWrapperProps {
 
 export const HeaderWrapper = styled.div.attrs(({ sideState, sideWidth }: HeaderWrapperProps) => ({
   style: {
-    gridTemplateColumns: `1fr ${sideState === SideState.SplitView ? `${sideWidth}px` : 'auto'}`,
+    gridTemplateColumns: `1fr ${sideState === SideState.SideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
   grid-column: 1 / 3;

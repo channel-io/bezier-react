@@ -2,12 +2,12 @@
 import { styled } from '../../styling/Theme'
 import { SideState } from '../Client/Client.types'
 
-interface SplitViewWrapperProps {
+interface SideViewWrapperProps {
   sideState: SideState
 }
 
-export const SplitViewWrapper = styled.div<SplitViewWrapperProps>`
+export const SideViewWrapper = styled.div<SideViewWrapperProps>`
   grid-column: 2 / 3;
   grid-row: 1 / 3;
-  z-index: ${({ sideState }) => (sideState === SideState.SplitView ? 50 : 40)};
+  z-index: ${({ sideState }) => (sideState === SideState.SideView ? 50 : 40)};
 `

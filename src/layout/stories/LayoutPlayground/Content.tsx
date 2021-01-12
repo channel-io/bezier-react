@@ -31,10 +31,10 @@ function Content() {
     })
   }, [dispatch])
 
-  const handleOpenSplitView = useCallback(() => {
+  const handleOpenSideView = useCallback(() => {
     dispatch({
       type: ActionType.SET_SIDE_STATE,
-      payload: SideState.SplitView,
+      payload: SideState.SideView,
     })
   }, [dispatch])
 
@@ -55,7 +55,7 @@ function Content() {
   return (
     <Div>
       <button type="button" onClick={handleCloseSidebar}>사이드바 닫기</button>
-      <button type="button" onClick={handleOpenSplitView}>스플릭 뷰 열기</button>
+      <button type="button" onClick={handleOpenSideView}>스플릭 뷰 열기</button>
       <button type="button" onClick={handleOpenSidePanel}>사이드 패널 열기</button>
       <button type="button" onClick={handleToggleNavigation}>네비게이션 토글</button>
     </Div>

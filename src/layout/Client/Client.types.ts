@@ -5,7 +5,7 @@ import { LayoutState } from './utils/LayoutReducer'
 export enum SideState {
   None = 'None',
   SidePanel = 'SidePanel',
-  SplitView = 'SplitView',
+  SideView = 'SideView',
 }
 
 export default interface ClientProps extends UIComponentProps {
