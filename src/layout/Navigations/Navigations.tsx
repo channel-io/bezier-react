@@ -133,12 +133,12 @@ forwardedRef: React.Ref<NavigationHandles>,
   const NavigationAreasComponent = useMemo(() => {
     const childrens = React.Children.toArray(children)
 
+    navigationRefs.current = {}
+
     return (
       childrens.map((navChildren, index) => {
         if (!navigations[index]) { return null }
-        if (!React.isValidElement<NavigationContentProps>(navChildren)) {
-          return navChildren
-        }
+        if (!React.isValidElement<NavigationContentProps>(navChildren)) { return null }
 
         return (
           <NavigationArea
