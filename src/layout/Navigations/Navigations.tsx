@@ -72,7 +72,12 @@ forwardedRef: React.Ref<NavigationHandles>,
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
+
       currentIndex.current -= 1
+
+      if (navigations[currentIndex.current].disableResize) {
+        return true
+      }
     }
 
     for (const index in navigationRefs.current) {
@@ -80,7 +85,7 @@ forwardedRef: React.Ref<NavigationHandles>,
     }
 
     return true
-  }, [])
+  }, [navigations])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
     for (const index in navigationRefs.current) {
@@ -98,10 +103,10 @@ forwardedRef: React.Ref<NavigationHandles>,
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
     currentIndex.current = initialIndex.current
+
     if (movedPosition > 0) {
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
       const willChangeWidth = initialWidth + movedPosition
-
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
@@ -121,9 +126,14 @@ forwardedRef: React.Ref<NavigationHandles>,
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
+
       currentIndex.current -= 1
+
+      if (navigations[currentIndex.current].disableResize) {
+        return
+      }
     }
-  }, [])
+  }, [navigations])
 
   useImperativeHandle(forwardedRef, () => ({
     handleMouseDownOutside: () => handleMouseDownOutside(),
@@ -131,6 +141,10 @@ forwardedRef: React.Ref<NavigationHandles>,
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
   useLayoutEffect(() => {
+    layoutDispatch({
+      type: ActionType.CLEAR_NAVIGATIONS,
+    })
+
     const childrens = React.Children.toArray(children)
     childrens.forEach((child, index) => {
       if (!React.isValidElement<NavigationContentProps>(child)) { return }
@@ -169,8 +183,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
     return (
       childrens.map((navChildren, index) => {
-        if (!navigations[index]) { return null }
-        if (!React.isValidElement<NavigationContentProps>(navChildren)) { return null }
+        if (!navigations[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
 
         return (
           <NavigationArea
@@ -180,6 +193,7 @@ forwardedRef: React.Ref<NavigationHandles>,
               set(navigationRefs.current, [index, 'minWidth'], navigations[index].minWidth)
               set(navigationRefs.current, [index, 'maxWidth'], navigations[index].maxWidth)
             }}
+            disableResize={navigations[index].disableResize}
             hidable={navigations[index].hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}

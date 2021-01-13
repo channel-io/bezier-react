@@ -3,7 +3,7 @@ import { UIComponentProps } from '../../types/ComponentProps'
 
 export interface SidePanelChildProps {
   initialWidth?: number
-  fallbackWidth?: number
+  alwaysInitWidth?: boolean
 }
 
 export interface SidePanelAreaProps extends UIComponentProps{}

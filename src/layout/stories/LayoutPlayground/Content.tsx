@@ -10,7 +10,6 @@ import { ActionType } from '../../Client/utils/LayoutReducer'
 const Div = styled.div`
   width: 100%;
   height: 100%;
-  border: 1px solid orange;
   display: flex;
   align-items: center;
   justify-content: space-around;

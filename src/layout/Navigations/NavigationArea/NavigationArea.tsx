@@ -36,10 +36,9 @@ function NavigationArea(
     style,
     className,
     testId = NAV_TEST_ID,
+    /* cloneElement Props */
     hidable = false,
     disableResize = false,
-
-    /* cloneElement Props */
     optionIndex = 0,
     onMouseDown = noop,
     onMouseMove = noop,
@@ -155,7 +154,10 @@ function NavigationArea(
           { ContentComponent }
         </NavigationPresenter>
       </NavigationPositioner>
-      <ResizeBar ref={setResizeBarRef} />
+      <ResizeBar
+        ref={setResizeBarRef}
+        disable={disableResize}
+      />
     </NavigationContainer>
   )
 }

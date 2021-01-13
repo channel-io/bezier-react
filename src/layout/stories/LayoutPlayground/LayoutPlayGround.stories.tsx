@@ -19,7 +19,6 @@ import Content from './Content'
 
 export default {
   title: getTitle(base),
-  component: Navigations,
 }
 
 const Container = styled.div`
@@ -112,6 +111,7 @@ const Template = () => {
               maxWidth: 400,
               minWidth: 200,
               hidable: true,
+              disableResize: true,
             }}
           >
             { range(0, 2).map((val) => (
@@ -130,6 +130,7 @@ const Template = () => {
               maxWidth: 400,
               minWidth: 200,
               hidable: false,
+              disableResize: true,
             }}
           >
             { range(0, 2).map((val) => (
@@ -200,9 +201,9 @@ const Template = () => {
   const SidePanelRoute = useMemo(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<Div fallbackWidth={332}>SidePanel</Div>)
+        return (<Div initialWidth={332}>SidePanel</Div>)
       case RouteKeys.UserChat:
-        return (<Div fallbackWidth={332}>Another SidePanel</Div>)
+        return (<Div initialWidth={332}>Another SidePanel</Div>)
       case RouteKeys.Statistic:
       case RouteKeys.Setting:
       default:

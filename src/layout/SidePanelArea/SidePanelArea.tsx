@@ -27,14 +27,16 @@ function SidePanelArea(
   const { sideWidth } = useLayoutState()
 
   useLayoutEffect(() => {
-    // NOTE: children이 없으면 SideState.None으로 설정한다.
-    // NOTE: initialWidth가 있으면 해당 값을, 없다면 가존 sideWidth 값을 그대로 가져 온다.
-    // 만약 처음으로 접근한 화면이라 sideWidth값도 없다면 fallback 값으로 설정 한다.
-    const width = get(children, 'props.initialWidth', sideWidth)
+    // NOTE: alwaysInitWidth 라면 route 변경시마다 initialWidth로 초기화
+    // 그렇지 않다면 기존의 state값을 그대로 따른다
+    // 만약 처음으로 접근한 화면이라 sideWidth값이 없다면 initialWidth 값으로 설정 한다.
+    const alwaysInitWidth = get(children, 'props.alwaysInitWidth', false)
+    const initialWidth = get(children, 'props.initialWidth', SIDE_FALLBACK_WIDTH)
 
+    const payload = alwaysInitWidth ? initialWidth : (sideWidth || initialWidth)
     layoutDispatch({
       type: ActionType.SET_SIDE_WIDTH,
-      payload: width || SIDE_FALLBACK_WIDTH,
+      payload,
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children, layoutDispatch])

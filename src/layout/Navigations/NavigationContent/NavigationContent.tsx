@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { useLayoutEffect, useMemo } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -27,16 +27,19 @@ function NavigationContent({
   withScroll,
   onScroll,
   children,
-  /* LayoutReducer Props */
-  layoutOption,
+
   /* Navigations Injected Props */
   showChevron = false,
   allowMouseMove = false,
   isHoveringOnPresenter = false,
-
   onClickClose = noop,
+  optionIndex,
   ...otherProps
 }: NavigationContentProps) {
+  useLayoutEffect(() => {
+
+  }, [])
+
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
   ), [className, scrollClassName, withScroll])

@@ -5,7 +5,11 @@ import { isNil } from 'lodash-es'
 import { Icon } from '../../../components/Icon'
 import { styled } from '../../../styling/Theme'
 
-export const ResizeBar = styled.div`
+interface ResizeBarProps {
+  disable: boolean
+}
+
+export const ResizeBar = styled.div<ResizeBarProps>`
   width: 10px;
   height: 100%;
   position: absolute;
@@ -13,7 +17,7 @@ export const ResizeBar = styled.div`
   right: 0;
   transform: translateX(50%);
   background-color: transparent;
-  cursor: col-resize;
+  cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
   z-index: 9999999;
 `
 

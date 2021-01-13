@@ -5,7 +5,8 @@ export interface NavigationState {
   initialWidth: number
   maxWidth: number
   minWidth: number
-  hidable: boolean
+  hidable?: boolean
+  disableResize?: boolean
 }
 
 export interface LayoutState {
