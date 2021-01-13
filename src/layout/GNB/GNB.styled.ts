@@ -18,7 +18,7 @@ const GNB = styled.div<GNBProps>`
       foundation?.theme?.['bd-black-light'],
       { top: false, right: true, bottom: false, left: false },
     )};
-  ${({ foundation }) => foundation?.transition?.getSingleTransitionCSS('background-color')}
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
 `
 
 export default GNB

@@ -16,5 +16,5 @@ export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
       foundation?.theme?.['bd-black-light'],
       { top: false, right: false, left: false },
     )};
-  ${({ foundation }) => foundation?.transition?.getSingleTransitionCSS('background-color')};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `

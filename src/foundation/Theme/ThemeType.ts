@@ -11,16 +11,18 @@ type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-light`
   | `bg-${BaseMonoPaletteKey}-lighter`
   | `bg-${BaseMonoPaletteKey}-lightest`
+  | 'bg-white-absolute'
 
 type LayoutBackgroundColor =
   | 'bg-gnb'
   | 'bg-navi'
   | 'bg-header'
+  | 'bg-white-floating'
 
 type ElevationBackgroundColor =
-  | 'bg-ev-high'
-  | 'bg-default'
-  | 'bg-ev-low'
+  | 'bg-white-high'
+  | 'bg-white-default'
+  | 'bg-white-low'
 
 type TextColor =
   | `txt-${BasePaletteKey.black}-darkest`

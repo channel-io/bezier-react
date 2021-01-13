@@ -12,20 +12,20 @@ export const Wrapper = styled.div<WrapperProps>`
   background-color:
     ${props => (
       props.checked
-        ? props.foundation?.theme?.['text-hover-blue']
-        : props.foundation?.theme?.['text-hover-blue']
+        ? props.foundation?.theme?.['bgtxt-green-default']
+        : props.foundation?.theme?.['bg-black-light']
     )};
   border-radius: ${props => (props.size + PADDING) / 2}px;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  transition: background-color ease-in-out 0.15s;
   opacity: ${props => (props.disabled ? '.2' : 'initial')};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 
   &:hover {
     background-color:
       ${props => (
         props.checked
-          ? props.foundation?.theme?.['text-hover-blue']
-          : props.foundation?.theme?.['text-hover-blue']
+          ? props.foundation?.theme?.['bgtxt-green-dark']
+          : props.foundation?.theme?.['bg-black-default']
       )};
   }
 `
@@ -37,9 +37,9 @@ export const Content = styled.div<ContentProps>`
   left: ${PADDING / 2}px;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
   border-radius: 50%;
-  box-shadow: 0 2px 4px 0 ${props => props.foundation?.theme?.['text-hover-blue']};
-  transition: transform 100ms ease-out;
+  ${({ foundation }) => foundation?.elevation?.ev2};
+  background-color: ${props => props.foundation?.theme?.['bg-white-absolute']};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
   transform: ${props => (props.checked ? `translateX(${props.size - PADDING}px)` : 'initial')};
 `

@@ -4,14 +4,15 @@ import ThemeType from '../ThemeType'
 
 const DarkTheme: ThemeType = {
   // Elevation Background
-  'bg-ev-high': Palette.grey700,
-  'bg-default': Palette.grey900,
-  'bg-ev-low': Palette.grey800,
+  'bg-white-high': Palette.grey700,
+  'bg-white-default': Palette.grey900,
+  'bg-white-low': Palette.grey800,
 
   // Layout Background
   'bg-gnb': Palette.grey800_80,
   'bg-navi': Palette.grey700_80,
-  'bg-header': Palette.grey700_80,
+  'bg-header': Palette.grey800,
+  'bg-white-floating': Palette.grey800_80,
 
   // Mono Background
   'bg-black-dark': Palette.white_20,
@@ -23,6 +24,8 @@ const DarkTheme: ThemeType = {
   'bg-grey-light': Palette.grey700,
   'bg-grey-lighter': Palette.grey800,
   'bg-grey-lightest': Palette.grey850,
+
+  'bg-white-absolute': Palette.white,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue400,

@@ -3,14 +3,15 @@ import ThemeType from '../ThemeType'
 
 const LightTheme: ThemeType = {
   // Elevation Background
-  'bg-ev-high': Palette.white,
-  'bg-default': Palette.white,
-  'bg-ev-low': Palette.white,
+  'bg-white-high': Palette.white,
+  'bg-white-default': Palette.white,
+  'bg-white-low': Palette.white,
 
   // Layout Background
   'bg-gnb': Palette.grey200_80,
   'bg-navi': Palette.grey100_80,
-  'bg-header': Palette.white_90,
+  'bg-header': Palette.white,
+  'bg-white-floating': Palette.white_90,
 
   // Mono Background
   'bg-black-dark': Palette.black_15,
@@ -22,6 +23,8 @@ const LightTheme: ThemeType = {
   'bg-grey-light': Palette.grey200,
   'bg-grey-lighter': Palette.grey100,
   'bg-grey-lightest': Palette.grey50,
+
+  'bg-white-absolute': Palette.white,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue500,
