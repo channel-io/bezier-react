@@ -12,10 +12,10 @@ function HeaderArea(
   {
     style,
     className,
+    mainHeader,
+    coverableHeader,
     testId = HEADER_AREA_TEST_ID,
     hasHeader,
-    contentHeader,
-    coverableHeader,
     ...otherProps
   }: HeaderAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -34,7 +34,7 @@ function HeaderArea(
       showSideView={showSideView}
       {...otherProps}
     >
-      <LeftHeader>{ contentHeader }</LeftHeader>
+      <LeftHeader>{ mainHeader }</LeftHeader>
       <RightHeader>{ coverableHeader }</RightHeader>
     </HeaderWrapper>
   )

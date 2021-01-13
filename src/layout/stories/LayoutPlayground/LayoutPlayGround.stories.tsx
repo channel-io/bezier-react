@@ -11,6 +11,7 @@ import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
 import Client from '../../Client/Client'
 import { Main } from '../../Main'
+import { HeaderContent } from '../../HeaderContent'
 import GNB from '../../GNB/GNB'
 import Navigations, { NavigationHandles } from '../../Navigations/Navigations'
 import { SidePanelChildProps } from '../../SidePanelArea/SidePanelArea.types'
@@ -172,26 +173,24 @@ const Template = () => {
 
   const ContentRoute = useMemo(() => (<Content />), [])
 
-  const ContentHeaderRoute = useMemo(() => {
+  const HeaderRoute = useMemo(() => {
     switch (route) {
       case RouteKeys.TeamChat:
+        return (
+          <HeaderContent
+            mainHeader={<Div>TeamChat Header</Div>}
+            coverableHeader={<Div>Search</Div>}
+          />
+        )
       case RouteKeys.UserChat:
+        return (
+          <HeaderContent
+            mainHeader={<Div>UserChat Header</Div>}
+            coverableHeader={<Div>Search</Div>}
+          />
+        )
       case RouteKeys.Statistic:
-        return (<Div>ContentHeader</Div>)
-
-      case RouteKeys.Setting:
-      default:
-        return null
-    }
-  }, [Div, route])
-
-  const CoverableHeaderRoute = useMemo(() => {
-    switch (route) {
-      case RouteKeys.TeamChat:
-      case RouteKeys.UserChat:
-        return (<Div>Search bar</Div>)
-
-      case RouteKeys.Statistic:
+        return (<Div>Statistic Header</Div>)
       case RouteKeys.Setting:
       default:
         return null
@@ -211,7 +210,7 @@ const Template = () => {
     }
   }, [Div, route])
 
-  const SideViewRoute = useMemo(() => (<Div>SideView</Div>), [Div])
+  const SideViewComponent = useMemo(() => (<Div>SideView</Div>), [Div])
 
   return (
     <>
@@ -230,10 +229,9 @@ const Template = () => {
           <Main
             navigationRef={navigationRef}
             content={ContentRoute}
-            contentHeader={ContentHeaderRoute}
-            coverableHeader={CoverableHeaderRoute}
+            header={HeaderRoute}
             sidePanel={SidePanelRoute}
-            sideView={SideViewRoute}
+            sideView={SideViewComponent}
           />
         </Client>
       </Container>
