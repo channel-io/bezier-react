@@ -136,8 +136,8 @@ forwardedRef: React.Ref<NavigationHandles>,
   }, [navigations])
 
   useImperativeHandle(forwardedRef, () => ({
-    handleMouseDownOutside: () => handleMouseDownOutside(),
-    handleMouseMoveOutside: (deltaX) => handleMouseMoveOutside(deltaX),
+    handleMouseDownOutside,
+    handleMouseMoveOutside,
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
   useLayoutEffect(() => {

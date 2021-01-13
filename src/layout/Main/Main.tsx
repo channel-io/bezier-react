@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useRef } from 'react'
-import { clamp } from 'lodash-es'
+import { clamp, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
@@ -34,8 +34,8 @@ function Main(
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
 
-  const hasSide = sidePanel || showSideView
-  const hasHeader = contentHeader || coverableHeader
+  const hasSide = !isNil(sidePanel) || showSideView
+  const hasHeader = !isNil(contentHeader || coverableHeader)
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     contentInitialWidth.current = contentRef.current!.clientWidth
