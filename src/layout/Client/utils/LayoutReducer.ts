@@ -1,6 +1,3 @@
-/* Internal dependencies */
-import { insertItem } from '../../../utils/utils'
-
 export interface NavigationState {
   initialWidth: number
   maxWidth: number
@@ -13,14 +10,12 @@ export interface LayoutState {
   sideWidth: number | null
   showSideView: boolean
   showNavigation: boolean
-  navigations: NavigationState[]
 }
 
 export const defaultState: LayoutState = {
   sideWidth: null,
   showSideView: false,
   showNavigation: false,
-  navigations: [],
 }
 
 export enum ActionType {
@@ -50,22 +45,11 @@ interface SetShowNavigationAction {
   payload: boolean
 }
 
-interface AddNavigationPropsAction {
-  type: ActionType.ADD_NAVIGATION
-  payload: { index: number, options: NavigationState }
-}
-
-interface ClearNavigationsAction {
-  type: ActionType.CLEAR_NAVIGATIONS
-}
-
 export type LayoutAction = (
   SetSideWidthAction |
   OpenSideViewAction |
   CloseSideViewAction |
-  SetShowNavigationAction |
-  AddNavigationPropsAction |
-  ClearNavigationsAction
+  SetShowNavigationAction
 )
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
@@ -95,20 +79,6 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       return {
         ...state,
         showNavigation: action.payload,
-      }
-    }
-
-    case ActionType.ADD_NAVIGATION: {
-      return {
-        ...state,
-        navigations: insertItem(state.navigations, action.payload.index, action.payload.options),
-      }
-    }
-
-    case ActionType.CLEAR_NAVIGATIONS: {
-      return {
-        ...state,
-        navigations: [],
       }
     }
 

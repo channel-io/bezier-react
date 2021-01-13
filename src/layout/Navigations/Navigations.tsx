@@ -6,14 +6,15 @@ import React, {
   useLayoutEffect,
   useMemo,
   useRef,
+  useState,
 } from 'react'
 import { isArray, isNil, set, size, toNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import useLayoutState from '../../hooks/useLayoutState'
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
-import { ActionType } from '../Client/utils/LayoutReducer'
+import { insertItem } from '../../utils/utils'
+import { ActionType, NavigationState } from '../Client/utils/LayoutReducer'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
@@ -33,7 +34,8 @@ function Navigations({
 forwardedRef: React.Ref<NavigationHandles>,
 ) {
   const layoutDispatch = useLayoutDispatch()
-  const { navigations } = useLayoutState()
+
+  const [navOptions, setNavOptions] = useState<Array<NavigationState>>([])
 
   const navigationRefs = useRef<{ [i: number]: NavigationRefsProps }>({})
   const currentIndex = useRef(0)
@@ -75,7 +77,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       currentIndex.current -= 1
 
-      if (navigations[currentIndex.current].disableResize) {
+      if (navOptions[currentIndex.current].disableResize) {
         return true
       }
     }
@@ -85,7 +87,7 @@ forwardedRef: React.Ref<NavigationHandles>,
     }
 
     return true
-  }, [navigations])
+  }, [navOptions])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
     for (const index in navigationRefs.current) {
@@ -129,11 +131,11 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       currentIndex.current -= 1
 
-      if (navigations[currentIndex.current].disableResize) {
+      if (navOptions[currentIndex.current].disableResize) {
         return
       }
     }
-  }, [navigations])
+  }, [navOptions])
 
   useImperativeHandle(forwardedRef, () => ({
     handleMouseDownOutside,
@@ -141,21 +143,14 @@ forwardedRef: React.Ref<NavigationHandles>,
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
   useLayoutEffect(() => {
-    layoutDispatch({
-      type: ActionType.CLEAR_NAVIGATIONS,
-    })
+    setNavOptions([])
 
     const childrens = React.Children.toArray(children)
     childrens.forEach((child, index) => {
       if (!React.isValidElement<NavigationContentProps>(child)) { return }
 
-      layoutDispatch({
-        type: ActionType.ADD_NAVIGATION,
-        payload: {
-          index,
-          options: child.props.layoutOption,
-        },
-      })
+      setNavOptions(options => (insertItem(options, index, child.props.layoutOption)))
+
       if (child.props.showNavigation) {
         layoutDispatch({
           type: ActionType.SET_SHOW_NAVIGATION,
@@ -166,15 +161,15 @@ forwardedRef: React.Ref<NavigationHandles>,
   }, [children, layoutDispatch])
 
   useLayoutEffect(() => {
-    if (!isArray(navigations)) { return }
+    if (!isArray(navOptions)) { return }
 
     for (const index in navigationRefs.current) {
-      if (!isNil(navigationRefs.current[index].target) && navigations[index]) {
-        navigationRefs.current[index].target.style.width = `${navigations[index].initialWidth}px`
+      if (!isNil(navigationRefs.current[index].target) && navOptions[index]) {
+        navigationRefs.current[index].target.style.width = `${navOptions[index].initialWidth}px`
         navigationRefs.current[index].target.style.zIndex = `${MAX_NAV_Z_INDEX - toNumber(index)}`
       }
     }
-  }, [navigations])
+  }, [navOptions])
 
   const NavigationAreasComponent = useMemo(() => {
     const childrens = React.Children.toArray(children)
@@ -184,18 +179,18 @@ forwardedRef: React.Ref<NavigationHandles>,
     return (
       childrens.map((navChildren, index) => {
         // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
-        if (!navigations[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
+        if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
 
         return (
           <NavigationArea
             key={uuid()}
             ref={(element: HTMLDivElement) => {
               set(navigationRefs.current, [index, 'target'], element)
-              set(navigationRefs.current, [index, 'minWidth'], navigations[index].minWidth)
-              set(navigationRefs.current, [index, 'maxWidth'], navigations[index].maxWidth)
+              set(navigationRefs.current, [index, 'minWidth'], navOptions[index].minWidth)
+              set(navigationRefs.current, [index, 'maxWidth'], navOptions[index].maxWidth)
             }}
-            disableResize={navigations[index].disableResize}
-            hidable={navigations[index].hidable}
+            disableResize={navOptions[index].disableResize}
+            hidable={navOptions[index].hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -205,7 +200,7 @@ forwardedRef: React.Ref<NavigationHandles>,
         )
       })
     )
-  }, [children, handleMouseDown, handleMouseMove, navigations])
+  }, [children, handleMouseDown, handleMouseMove, navOptions])
 
   return (
     <NavigationsWrapper>
