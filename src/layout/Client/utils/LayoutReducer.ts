@@ -15,7 +15,7 @@ export interface LayoutState {
 export const defaultState: LayoutState = {
   sideWidth: null,
   showSideView: false,
-  showNavigation: false,
+  showNavigation: true,
 }
 
 export enum ActionType {

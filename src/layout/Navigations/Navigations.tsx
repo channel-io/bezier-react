@@ -77,7 +77,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       currentIndex.current -= 1
 
-      if (navOptions[currentIndex.current].disableResize) {
+      if (navOptions[currentIndex.current]?.disableResize) {
         return true
       }
     }
@@ -131,7 +131,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       currentIndex.current -= 1
 
-      if (navOptions[currentIndex.current].disableResize) {
+      if (navOptions[currentIndex.current]?.disableResize) {
         return
       }
     }

@@ -23,7 +23,7 @@ export default {
 }
 
 const Container = styled.div`
-  width: 1500px;
+  width: 1200px;
   height: 800px;
   margin: 0 auto;
   padding: 2px;
@@ -43,7 +43,7 @@ enum RouteKeys {
 }
 
 const Template = () => {
-  const [route, setRoute] = useState<RouteKeys>(RouteKeys.TeamChat)
+  const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
 
   const navigationRef = useRef<NavigationHandles | null>(null)
 
@@ -112,7 +112,7 @@ const Template = () => {
               maxWidth: 400,
               minWidth: 200,
               hidable: true,
-              disableResize: true,
+              // disableResize: true,
             }}
           >
             { range(0, 2).map((val) => (
