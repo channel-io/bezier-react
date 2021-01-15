@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { Icon } from '../../../components/Icon'
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 
 interface StyledTitleWrapperProps {
   fixed: boolean
@@ -21,7 +21,7 @@ export const ChevronIcon = styled(Icon)`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background3};
+    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
   }
 `
 

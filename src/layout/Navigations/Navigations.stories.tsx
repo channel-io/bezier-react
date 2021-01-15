@@ -28,7 +28,7 @@ const Container = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.iconBase};
+  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 const Template = () => {

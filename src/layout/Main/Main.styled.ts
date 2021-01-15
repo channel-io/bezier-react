@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 
 interface MainWrapperProps {
   hasSide: boolean

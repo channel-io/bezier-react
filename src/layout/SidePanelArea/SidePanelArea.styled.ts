@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 
 export const SidePanelAreaWrapper = styled.div`
   grid-column: 2 / 3;

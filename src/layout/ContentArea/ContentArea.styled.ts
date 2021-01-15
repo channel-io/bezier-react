@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 
 export const ContentAreaWrapper = styled.div`
   grid-column: 1;
@@ -27,7 +27,7 @@ export const StyledHandle = styled.div`
     width: 2px;
     height: 100%;
     opacity: 0;
-    background-color: ${props => props.theme?.colors?.background3};
+    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
     transition: opacity 0.2s;
   }
 

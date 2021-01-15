@@ -4,7 +4,7 @@ import React, { useCallback } from 'react'
 /* Internal dependencies */
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 import { ActionType } from '../../Client/utils/LayoutReducer'
 
 const Div = styled.div`

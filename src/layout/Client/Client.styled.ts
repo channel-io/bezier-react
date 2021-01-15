@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 
 export const ClientWrapper = styled.div`
   width: 100%;

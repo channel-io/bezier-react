@@ -5,7 +5,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/utils'
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
@@ -32,7 +32,7 @@ const Container = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.iconBase};
+  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
 enum RouteKeys {
