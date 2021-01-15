@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react'
 import { noop } from 'lodash-es'
-import { window, document, extend } from 'ssr-window'
+import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
@@ -26,10 +26,6 @@ import {
 } from './NavigationArea.styled'
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
-
-extend(document, {
-  requestAnimationFrame() {},
-})
 
 function NavigationArea(
   {

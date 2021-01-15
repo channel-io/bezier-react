@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useRef } from 'react'
 import { clamp, get, isNil } from 'lodash-es'
+import { window } from 'ssr-window'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'

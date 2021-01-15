@@ -90,9 +90,9 @@ const Template = () => {
             /* LayoutState Prop */
             showNavigation
             layoutOption={{
-              initialWidth: 350,
-              maxWidth: 400,
-              minWidth: 250,
+              initialWidth: 200,
+              maxWidth: 600,
+              minWidth: 180,
               hidable: true,
             }}
           >
@@ -108,9 +108,9 @@ const Template = () => {
             withScroll
             /* LayoutState Prop */
             layoutOption={{
-              initialWidth: 300,
-              maxWidth: 400,
-              minWidth: 200,
+              initialWidth: 200,
+              maxWidth: 600,
+              minWidth: 180,
               hidable: true,
               // disableResize: true,
             }}
@@ -155,9 +155,9 @@ const Template = () => {
             withScroll
             /* LayoutState Prop */
             layoutOption={{
-              initialWidth: 300,
-              maxWidth: 400,
-              minWidth: 200,
+              initialWidth: 260,
+              maxWidth: 600,
+              minWidth: 240,
               hidable: false,
             }}
           >
