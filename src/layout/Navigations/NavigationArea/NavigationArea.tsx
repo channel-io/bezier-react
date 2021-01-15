@@ -8,56 +8,46 @@ import React, {
   useMemo,
 } from 'react'
 import { noop } from 'lodash-es'
-import { window, document, extend } from 'ssr-window'
+import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import NavigationProps from './Navigation.types'
+import { ActionType } from '../../Client/utils/LayoutReducer'
+import NavigationProps from './NavigationArea.types'
 import {
   ResizeBar,
   NavigationContainer,
   NavigationPositioner,
   NavigationPresenter,
-  StyledTitleWrapper,
-  StyledContentWrapper,
-  StyledFooterWrapper,
-  ChevronIcon,
-} from './Navigation.styled'
+} from './NavigationArea.styled'
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
 
-extend(document, {
-  requestAnimationFrame() {},
-})
-
-function Navigation(
+function NavigationArea(
   {
     style,
     className,
     testId = NAV_TEST_ID,
-    header,
-    stickyFooter,
-    show, // disable hiding when undefined
-    setShow = noop,
-    /* original navigation props - comment will be deleted after replace original nav */
-    disableResize = false,
-    fixedHeader = false,
-    scrollRef,
-    scrollClassName,
-    withScroll = false,
-    onScroll,
     /* cloneElement Props */
+    hidable = false,
+    disableResize = false,
     optionIndex = 0,
     onMouseDown = noop,
-    onMouseUp = noop,
     onMouseMove = noop,
     children,
     ...otherProps
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const dispatch = useLayoutDispatch()
+  const { showNavigation } = useLayoutState()
+
+  const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
+
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
   const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
@@ -74,8 +64,7 @@ function Navigation(
 
   const handleMouseUp = useCallback(() => {
     setAllowMouseMove(false)
-    onMouseUp()
-  }, [onMouseUp])
+  }, [])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     if (disableResize) { return }
@@ -95,6 +84,8 @@ function Navigation(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
+    if (!hidable) { return }
+
     if (show) {
       setShowChevron(true)
     }
@@ -105,12 +96,15 @@ function Navigation(
   }, 100, undefined, [])
 
   const handleClickClose = useCallback(() => {
-    setShow(false)
+    dispatch({
+      type: ActionType.SET_SHOW_NAVIGATION,
+      payload: false,
+    })
+
     setShowChevron(false)
     setIsHoveringOnPresenter(true)
-  }, [setShow])
+  }, [dispatch])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
@@ -127,71 +121,41 @@ function Navigation(
     }
   }, [handleDecideHover, show])
 
-  const HeaderComponent = useMemo(() => {
-    if (!header) { return null }
-
-    return (
-      <StyledTitleWrapper fixed={fixedHeader}>
-        { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header!, { isHover: isHoveringOnPresenter }) }
-        { showChevron && !allowMouseMove && (
-          <ChevronIcon
-            name="chevron-left-double"
-            onClick={handleClickClose}
-            marginRight={10}
-          />
-        ) }
-      </StyledTitleWrapper>
-    )
-  }, [
-    allowMouseMove,
-    header,
-    fixedHeader,
-    showChevron,
-    handleClickClose,
-    isHoveringOnPresenter,
-  ])
+  const ContentComponent = useMemo(() => (
+    React.cloneElement(children, {
+      showChevron,
+      allowMouseMove,
+      isHoveringOnPresenter,
+      onClickClose: handleClickClose,
+    })
+  ), [allowMouseMove, children, handleClickClose, isHoveringOnPresenter, showChevron])
 
   return (
     <NavigationContainer
       ref={containerRef}
       data-testid={testId}
-      showSidebar={show}
+      showNavigation={show}
       {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter
+          style={style}
           ref={mergedPresenterRef}
           className={className}
-          showSidebar={show}
+          showNavigation={show}
           isHover={isHoveringOnPresenter}
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          { (header && fixedHeader) && (
-            HeaderComponent
-          ) }
-          <StyledContentWrapper
-            ref={scrollRef}
-            className={scrollClassName}
-            withScroll={withScroll}
-            onScroll={onScroll}
-          >
-            { (header && !fixedHeader) && (
-              HeaderComponent
-            ) }
-            { children }
-          </StyledContentWrapper>
-          { stickyFooter && (
-            <StyledFooterWrapper>
-              { stickyFooter }
-            </StyledFooterWrapper>
-          ) }
+          { ContentComponent }
         </NavigationPresenter>
       </NavigationPositioner>
-      <ResizeBar ref={setResizeBarRef} />
+      <ResizeBar
+        ref={setResizeBarRef}
+        disable={disableResize}
+      />
     </NavigationContainer>
   )
 }
 
-export default forwardRef(Navigation)
+export default forwardRef(NavigationArea)
