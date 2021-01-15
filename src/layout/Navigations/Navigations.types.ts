@@ -11,4 +11,3 @@ export interface NavigationRefsProps {
   minWidth: number
   maxWidth: number
 }
-

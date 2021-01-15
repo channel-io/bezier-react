@@ -1,15 +1,17 @@
 /* External dependencies */
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useRef } from 'react'
+import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import Client from '../Client/Client'
 import { getTitle } from '../../utils/utils'
 import { styled, Palette } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
-import Navigation from './Navigation'
-import Navigations from './Navigations'
+import { NavigationContent } from './NavigationContent'
+import Navigations, { NavigationHandles } from './Navigations'
 
 export default {
   title: getTitle(base),
@@ -25,32 +27,12 @@ const Container = styled.div`
   border-radius: 10px;
 `
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  border-radius: 10px;
-`
-
-const NavigationElement1 = styled(Navigation)`
-  width: 200px;
-  z-index: 500;
-`
-
-const NavigationElement2 = styled(Navigation)`
-  width: 300px;
-  z-index: 400;
-  background-color: ${({ theme }) => theme.colors.background0};
-  border-right: 2px solid ${({ theme }) => theme.colors.border2};
-`
-
 const StyledIcon = styled(Icon)`
-  color: ${({ theme }) => theme.colors.iconBase};
+  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
 `
 
-const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
-  // will be provider
-  const [showSidebar, setShowSidebar] = useState(true)
+const Template = () => {
+  const navigationRef = useRef<NavigationHandles | null>(null)
 
   const DummyActions = useMemo(() => (
     <>
@@ -72,60 +54,43 @@ const Template = ({ minWidth1, maxWidth1, minWidth2, maxWidth2 }) => {
   ), [DummyActions])
 
   return (
-    <>
-      <button type="button" onClick={() => setShowSidebar(true)}>사이드바 열기</button>
-      <Container>
-        <Wrapper>
-          <Navigations>
-            <NavigationElement1
-              header={Element1Header}
-              show={showSidebar}
-              setShow={setShowSidebar}
-              minWidth={minWidth1}
-              maxWidth={maxWidth1}
-            >
-              <ListItem content="NavItem1" />
-              <ListItem content="NavItem2" />
-              <ListItem content="NavItem3" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-            </NavigationElement1>
-            <NavigationElement2
-              header={Element2Header}
-              minWidth={minWidth2}
-              maxWidth={maxWidth2}
-              withScroll
-              fixedHeader
-            >
-              <ListItem content="NavItem1" />
-              <ListItem content="NavItem2" />
-              <ListItem content="NavItem3" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-              <ListItem content="NavItem4" />
-              <ListItem content="NavItem5" />
-              <ListItem content="NavItem6" />
-              <ListItem content="NavItem7" />
-            </NavigationElement2>
-          </Navigations>
-        </Wrapper>
-      </Container>
-    </>
+    <Container>
+      <Client>
+        <Navigations ref={navigationRef}>
+          <NavigationContent
+            header={Element1Header}
+            withScroll
+            layoutOption={{
+              initialWidth: 350,
+              maxWidth: 400,
+              minWidth: 250,
+              hidable: true,
+            }}
+          >
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+          <NavigationContent
+            header={Element2Header}
+            fixedHeader
+            withScroll
+            layoutOption={{
+              initialWidth: 300,
+              maxWidth: 400,
+              minWidth: 250,
+              hidable: false,
+            }}
+          >
+            { range(0, 30).map((val) => (
+              <ListItem content={`NavItem - ${val}`} />
+            )) }
+          </NavigationContent>
+        </Navigations>
+      </Client>
+    </Container>
   )
 }
 
 export const Primary = Template.bind({})
-Primary.args = {
-  minWidth1: 100,
-  maxWidth1: 300,
-  minWidth2: 200,
-  maxWidth2: 450,
-}
+Primary.args = {}
