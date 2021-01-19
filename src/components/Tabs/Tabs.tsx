@@ -15,6 +15,7 @@ function Tabs({
   as,
   testId = TABS_TEST_ID,
   disabled = false,
+  height,
   optionsWrapperClassName,
   withIndicator,
   indicatorThickness,
@@ -47,6 +48,7 @@ function Tabs({
       if (isTabItem(element)) {
         return React.cloneElement(element, {
           active: get(element.props, 'allowActive', true) && (currentTabIndex === index),
+          height,
           disabled,
           withIndicator,
           indicatorThickness,
@@ -61,6 +63,7 @@ function Tabs({
     })
   ), [
     disabled,
+    height,
     withIndicator,
     indicatorThickness,
     children,
