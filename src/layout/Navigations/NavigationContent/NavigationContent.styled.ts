@@ -21,7 +21,8 @@ export const ChevronIcon = styled(Icon)`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
+    /* TODO: 디자인 팀과 확인 필요 */
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
   }
 `
 

@@ -3,7 +3,6 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
-import { Icon } from '../../../components/Icon'
 
 interface ResizeBarProps {
   disable: boolean
@@ -77,46 +76,4 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   }};
 
   will-change: transform, opacity;
-`
-
-interface StyledTitleWrapperProps {
-  fixed: boolean
-}
-
-export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
-  display: flex;
-  align-items: center;
-`
-
-export const ChevronIcon = styled(Icon)`
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  padding: 6px;
-  border-radius: 8px;
-  color: #979797;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
-  }
-`
-
-interface StyledContentWrapperProps {
-  withScroll?: boolean
-}
-
-export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: ${({ withScroll }) => (withScroll ? 'auto' : 'hidden')};
-
-  & > *:last-child {
-    margin-bottom: 40px !important;
-  }
-`
-
-export const StyledFooterWrapper = styled.div`
-  width: 100%;
 `
