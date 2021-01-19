@@ -6,8 +6,9 @@ import { render } from '@testing-library/react'
 import {
   FoundationProvider,
   LightFoundation,
-  LightTheme,
+  Themes,
 } from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
@@ -51,13 +52,12 @@ describe('Checkbox test >', () => {
     expect(renderedCheckboxChecker).toHaveStyle('box-sizing: border-box;')
   })
 
-  it('Checker of Checkbox has green background when check status is falsy', () => {
+  it('Checker of Checkbox has normal background when check status is falsy', () => {
     const { getByTestId } = renderComponent()
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']}`)
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightTheme['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${Themes.LightTheme['bg-black-light']};`)
   })
 
   it('Checker of Checkbox has green background when check status is truthy', () => {
@@ -65,7 +65,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Themes.LightTheme['bgtxt-green-normal']};`)
     expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
   })
 
@@ -74,6 +74,6 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightTheme['text-hover-blue']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`opacity: ${DisabledOpacity}`)
   })
 })

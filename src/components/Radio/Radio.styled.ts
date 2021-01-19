@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/indent, consistent-return */
 /* Internal dependencies */
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import { styled, css } from '../../foundation'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
@@ -11,7 +12,7 @@ export const StyledRadioWrapper = styled.div<RadioProps>`
       if (disabled) { return 'auto' }
       return 'pointer'
     }};
-  opacity: ${({ disabled }) => (disabled ? 0.2 : 1)};
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 `
 
 const StyledRadioHandleDot = css<StyledRadioHandleProps>`
@@ -46,7 +47,7 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
     }};
   background-color:
     ${props => {
-      if (props.checked) { return props.foundation?.theme?.['bgtxt-green-default'] }
+      if (props.checked) { return props.foundation?.theme?.['bgtxt-green-normal'] }
       return props.foundation?.theme?.['bg-black-lightest']
     }};
   ${props => props.foundation?.transition?.getTransitionsCSS('background-color')};

@@ -12,7 +12,7 @@ export const Wrapper = styled.div<WrapperProps>`
   background-color:
     ${props => (
       props.checked
-        ? props.foundation?.theme?.['bgtxt-green-default']
+        ? props.foundation?.theme?.['bgtxt-green-normal']
         : props.foundation?.theme?.['bg-black-light']
     )};
   border-radius: ${props => (props.size + PADDING) / 2}px;
@@ -25,7 +25,7 @@ export const Wrapper = styled.div<WrapperProps>`
       ${props => (
         props.checked
           ? props.foundation?.theme?.['bgtxt-green-dark']
-          : props.foundation?.theme?.['bg-black-default']
+          : props.foundation?.theme?.['bg-black-normal']
       )};
   }
 `

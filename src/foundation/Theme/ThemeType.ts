@@ -7,7 +7,6 @@ import BasePaletteKey, {
 type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-darkest`
   | `bg-${BaseMonoPaletteKey}-dark`
-  | `bg-${BaseMonoPaletteKey}-default`
   | `bg-${BaseMonoPaletteKey}-light`
   | `bg-${BaseMonoPaletteKey}-lighter`
   | `bg-${BaseMonoPaletteKey}-lightest`
@@ -21,7 +20,7 @@ type LayoutBackgroundColor =
 
 type ElevationBackgroundColor =
   | 'bg-white-high'
-  | 'bg-white-default'
+  | 'bg-white-normal'
   | 'bg-white-low'
 
 type TextColor =
@@ -33,7 +32,7 @@ type TextColor =
 
 type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-dark`
-  | `bgtxt-${BaseColorfulPaletteKey}-default`
+  | `bgtxt-${BaseColorfulPaletteKey}-normal`
   | `bgtxt-${BaseColorfulPaletteKey}-light`
   | `bgtxt-${BaseColorfulPaletteKey}-lighter`
   | `bgtxt-${BaseColorfulPaletteKey}-lightest`

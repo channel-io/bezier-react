@@ -27,7 +27,7 @@ export const StyledHandle = styled.div`
     width: 2px;
     height: 100%;
     opacity: 0;
-    background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
     transition: opacity 0.2s;
   }
 

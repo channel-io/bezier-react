@@ -42,8 +42,8 @@ function getFoundation(keyword) {
 function withFoundationProvider(Story, context) {
   const Foundation = getFoundation(context.globals.Foundation)
   const backgroundColor = context.globals.Foundation === 'dark'
-    ? DarkFoundation.theme['bg-white-default']
-    : LightFoundation.theme['bg-white-default']
+    ? DarkFoundation.theme['bg-white-normal']
+    : LightFoundation.theme['bg-white-normal']
 
   return (
     <div style={{ backgroundColor, padding: 100 }}>

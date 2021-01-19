@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import { styled, css, absoluteCenter } from '../../foundation'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 import CheckType from './CheckType'
@@ -25,7 +26,7 @@ function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
 const checkerBase = css<StyledCheckerProps>`
   background-color:
     ${({ foundation, checkStatus }) =>
-    (isTrueOrPartial(checkStatus) ? foundation?.theme?.['bgtxt-green-default'] : '')};
+    (isTrueOrPartial(checkStatus) ? foundation?.theme?.['bgtxt-green-normal'] : '')};
   border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'transparent' : '')};
 
   &::after {
@@ -34,6 +35,7 @@ const checkerBase = css<StyledCheckerProps>`
     width: 6px;
     height: 10px;
     content: '';
+    /* stylelint-disable-next-line declaration-colon-newline-after */
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
@@ -54,6 +56,7 @@ const partialChecked = css<StyledCheckerProps>`
   &::after {
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
+    /* stylelint-disable-next-line declaration-colon-newline-after */
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
@@ -64,7 +67,7 @@ const partialChecked = css<StyledCheckerProps>`
 `
 
 const disabledStyle = css<StyledCheckerProps>`
-  opacity: 0.2;
+  opacity: ${DisabledOpacity};
 `
 
 export const Checker = styled.div<StyledCheckerProps>`
@@ -79,6 +82,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
+  /* stylelint-disable-next-line declaration-colon-newline-after */
   ${({ foundation }) =>
     foundation?.border?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bd-black-light'])};
   border-radius: 4px;

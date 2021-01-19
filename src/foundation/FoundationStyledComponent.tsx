@@ -8,7 +8,7 @@
  */
 
 /* External dependencies */
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, forwardRef } from 'react'
 import styled, {
   css as baseCSS,
   ThemedStyledFunction,
@@ -77,16 +77,17 @@ const FoundationStyled: FoundationStyledInterface = (tag) => {
     return function customTemplateFunction(...args: TemplateStringsArray) {
       const BaseComponent = BaseComponentGenerator(...args)
 
-      return function WrappedElement(props) {
+      return forwardRef((props, ref) => {
         const currentFoundation = useContext(FoundationContext)
         return (
           <BaseComponent
+            ref={ref}
             key={args.toString()}
             foundation={currentFoundation}
             {...props}
           />
         )
-      }
+      })
     }
   }
 

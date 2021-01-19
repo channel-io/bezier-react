@@ -77,7 +77,6 @@ const Template = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
   `
 
   const NavigationMainRoute = useMemo(() => {

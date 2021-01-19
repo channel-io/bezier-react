@@ -30,7 +30,7 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   flex-shrink: 0;
   position: relative;
   height: 100%;
-  background-color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
   user-select: none;
   width: ${({ showNavigation }) => (showNavigation === false ? '0px' : 'inherit')};
   /* TODO: Foundation Transition 으로 교체 */
