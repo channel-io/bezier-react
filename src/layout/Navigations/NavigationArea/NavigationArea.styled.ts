@@ -9,15 +9,15 @@ interface ResizeBarProps {
 }
 
 export const ResizeBar = styled.div<ResizeBarProps>`
-  width: 10px;
-  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateX(50%);
-  background-color: transparent;
-  cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
   z-index: 9999999;
+  width: 10px;
+  height: 100%;
+  cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
+  background-color: transparent;
+  transform: translateX(50%);
 `
 
 interface NavigationContainerProps {
@@ -25,26 +25,26 @@ interface NavigationContainerProps {
 }
 
 export const NavigationContainer = styled.div<NavigationContainerProps>`
+  position: relative;
   flex-grow: 0;
   flex-shrink: 0;
-  position: relative;
-  height: 100%;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
-  user-select: none;
   width: ${({ showNavigation }) => (showNavigation === false ? '0px' : 'inherit')};
+  height: 100%;
+  user-select: none;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
   /* TODO: Foundation Transition 으로 교체 */
   transition: width 100ms ease-in-out;
   will-change: width;
 `
 
 export const NavigationPositioner = styled.div`
+  top: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-  overflow: visible;
-  top: 0;
-  left: 0;
-  bottom: 0;
   height: 100%;
+  overflow: visible;
 `
 
 interface NavigationPresenterProps {
@@ -60,13 +60,12 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   /* TODO: Hovering Color Prop 추가 */
   background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
   /* TODO: Foundation Transition 으로 교체 */
-  transition:
-    transform 200ms ease-in,
-    opacity 100ms ease-out;
-
   opacity:
     ${({ showNavigation, isHover }) => (
     isNil(showNavigation) || (isHover) || (showNavigation) ? '1' : '0')};
+  transition:
+    transform 200ms ease-in,
+    opacity 100ms ease-out;
 
   transform:
     ${({ showNavigation, isHover }) => {

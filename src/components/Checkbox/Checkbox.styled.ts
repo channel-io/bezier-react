@@ -35,7 +35,6 @@ const checkerBase = css<StyledCheckerProps>`
     width: 6px;
     height: 10px;
     content: '';
-    /* stylelint-disable-next-line declaration-colon-newline-after */
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
@@ -56,7 +55,6 @@ const partialChecked = css<StyledCheckerProps>`
   &::after {
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
-    /* stylelint-disable-next-line declaration-colon-newline-after */
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
@@ -72,19 +70,20 @@ const disabledStyle = css<StyledCheckerProps>`
 
 export const Checker = styled.div<StyledCheckerProps>`
   position: relative;
+  box-sizing: border-box !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box !important;
   width: ${CHECKER_BOX_SIZE}px;
-  height: ${CHECKER_BOX_SIZE}px;
   min-width: ${CHECKER_BOX_SIZE}px;
+  height: ${CHECKER_BOX_SIZE}px;
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
-  /* stylelint-disable-next-line declaration-colon-newline-after */
   ${({ foundation }) =>
-    foundation?.border?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bd-black-light'])};
+    foundation
+      ?.border
+      ?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bd-black-light'])};
   border-radius: 4px;
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};

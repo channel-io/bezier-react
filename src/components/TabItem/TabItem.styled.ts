@@ -6,10 +6,10 @@ import { StyledWrapperProps } from './TabItem.types'
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: row;
-  justify-content: center;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   height: ${({ height }) => height}px;
   overflow: hidden;
   font-size: inherit;
@@ -37,10 +37,10 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     left: 0;
     width: 100%;
     height: ${props => props.indicatorThickness || 3}px;
-    background-color: ${props => props.foundation?.theme?.['bgtxt-blue-normal']};
     content: '';
-    transform: translateY(100%);
+    background-color: ${props => props.foundation?.theme?.['bgtxt-blue-normal']};
     border-radius: ${props => (props.indicatorThickness || 3) / 2}px;
+    transform: translateY(100%);
 
     ${props => (props.foundation?.transition?.getTransitionsCSS(['transform', 'background-color']))};
 
@@ -70,8 +70,8 @@ interface BackgroundProps {
 
 export const Background = styled.div<BackgroundProps>`
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   width: 100%;
   height: calc(100% - 9px);

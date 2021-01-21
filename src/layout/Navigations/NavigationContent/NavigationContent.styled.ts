@@ -16,9 +16,9 @@ export const ChevronIcon = styled(Icon)`
   width: 20px;
   height: 20px;
   padding: 6px;
-  border-radius: 8px;
   color: #979797;
   cursor: pointer;
+  border-radius: 8px;
 
   &:hover {
     /* TODO: 디자인 팀과 확인 필요 */

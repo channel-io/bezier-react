@@ -6,10 +6,9 @@ export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
   position: relative;
   flex: none;
   width: 100%;
-  height: ${({ isWindows }) => (isWindows ? 32 : 40)}px;
   max-width: 100vw;
+  height: ${({ isWindows }) => (isWindows ? 32 : 40)}px;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-gnb']};
-  /* stylelint-disable-next-line declaration-colon-newline-after */
   ${({ foundation }) =>
     foundation?.border?.getBorder(
       1,
