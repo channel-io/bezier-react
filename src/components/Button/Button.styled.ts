@@ -7,14 +7,14 @@ interface BaseButtonProps {
 }
 
 export const StyledBaseButton = styled.div<BaseButtonProps>`
+  box-sizing: content-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 1px 10px black, 0 10px 10px black;
-  outline: none;
   width: ${props => props.width};
   height: ${props => props.height};
-  border-radius: 15px;
   background-color: white;
-  box-sizing: content-box;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: 0 0 1px 10px black, 0 10px 10px black;
 `

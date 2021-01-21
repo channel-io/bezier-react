@@ -16,9 +16,11 @@ const BaseFoundation = {
 export const LightFoundation: Foundation = {
   ...BaseFoundation,
   theme: Themes.LightTheme,
+  subTheme: Themes.DarkTheme,
 }
 
 export const DarkFoundation: Foundation = {
   ...BaseFoundation,
   theme: Themes.DarkTheme,
+  subTheme: Themes.LightTheme,
 }

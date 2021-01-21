@@ -2,8 +2,8 @@
 import { styled } from '../../foundation'
 
 export const SidePanelAreaWrapper = styled.div`
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
   /* TODO-LAYOUT: z-index 명확화 하기 */
   z-index: 50;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 `

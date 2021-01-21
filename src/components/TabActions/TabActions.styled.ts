@@ -4,7 +4,7 @@ import { StyledWrapperProps } from './TabActions.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 `

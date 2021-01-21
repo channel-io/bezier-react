@@ -9,9 +9,9 @@ import {
 
 export interface Foundation {
   theme: Theme
+  subTheme?: Theme
   transition: typeof Transition
   rounding: typeof Rounding
   elevation: typeof Elevation
   border: typeof Border
-  isDarkMode?: boolean
 }

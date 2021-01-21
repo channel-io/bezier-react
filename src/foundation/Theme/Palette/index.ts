@@ -1,32 +1,29 @@
 /* Internal dependencies */
-import BasePaletteKey from './BasePaletteKey'
+import BasePaletteKey, {
+  BaseMonoPaletteKey,
+  BaseColorfulPaletteKey,
+} from './BasePaletteKey'
 import { getAlphaHex } from './utils'
 
-type BasePaletteKeyWithoutMono = Exclude<BasePaletteKey, BasePaletteKey.grey | BasePaletteKey.black | BasePaletteKey.white>
-
-type BasePaletteKeyWithoutMono300 = `${BasePaletteKeyWithoutMono}300`
-type BasePaletteKeyWithoutMono400 = `${BasePaletteKeyWithoutMono}400`
-type BasePaletteKeyWithoutMono500 = `${BasePaletteKeyWithoutMono}500`
+type BaseColorfulPaletteKey300 = `${BaseColorfulPaletteKey}300`
+type BaseColorfulPaletteKey400 = `${BaseColorfulPaletteKey}400`
+type BaseColorfulPaletteKey500 = `${BaseColorfulPaletteKey}500`
 
 type GreyKeyWithoutAlpha =
   | `${BasePaletteKey.grey}50`
   | `${BasePaletteKey.grey}100`
   | `${BasePaletteKey.grey}200`
-  | `${BasePaletteKey.grey}750`
+  | `${BasePaletteKey.grey}700`
   | `${BasePaletteKey.grey}800`
   | `${BasePaletteKey.grey}850`
   | `${BasePaletteKey.grey}900`
 
-type WhiteKeyWithoutAlpha = 'white'
-type BlackKeyWithoutAlpha = 'black'
-
 export type PaletteKeyWithoutAlpha =
-  | BasePaletteKeyWithoutMono300
-  | BasePaletteKeyWithoutMono400
-  | BasePaletteKeyWithoutMono500
+  | BaseColorfulPaletteKey300
+  | BaseColorfulPaletteKey400
+  | BaseColorfulPaletteKey500
   | GreyKeyWithoutAlpha
-  | WhiteKeyWithoutAlpha
-  | BlackKeyWithoutAlpha
+  | Exclude<BaseMonoPaletteKey, BasePaletteKey.grey>
 
 export type PaletteWithoutAlphaType = Record<PaletteKeyWithoutAlpha, string>
 
@@ -90,7 +87,7 @@ const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
   grey50: '#FCFCFC',
   grey100: '#F6F6F7',
   grey200: '#F0F0F1',
-  grey750: '#404143',
+  grey700: '#464748',
   grey800: '#313234',
   grey850: '#2A2B2D',
   grey900: '#242428',
@@ -103,44 +100,48 @@ const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
-type BasePaletteKeyWithoutMono400_30 = `${BasePaletteKeyWithoutMono}400_30`
-type BasePaletteKeyWithoutMono400_20 = `${BasePaletteKeyWithoutMono}400_20`
-type BasePaletteKeyWithoutMono400_10 = `${BasePaletteKeyWithoutMono}400_10`
+type BaseColorfulPaletteKey400_30 = `${BaseColorfulPaletteKey400}_30`
+type BaseColorfulPaletteKey400_20 = `${BaseColorfulPaletteKey400}_20`
+type BaseColorfulPaletteKey400_10 = `${BaseColorfulPaletteKey400}_10`
 
-type BasePaletteKeyWithoutMono300_40 = `${BasePaletteKeyWithoutMono}300_40`
-type BasePaletteKeyWithoutMono300_30 = `${BasePaletteKeyWithoutMono}300_30`
-type BasePaletteKeyWithoutMono300_20 = `${BasePaletteKeyWithoutMono}300_20`
+type BaseColorfulPaletteKey300_40 = `${BaseColorfulPaletteKey300}_40`
+type BaseColorfulPaletteKey300_30 = `${BaseColorfulPaletteKey300}_30`
+type BaseColorfulPaletteKey300_20 = `${BaseColorfulPaletteKey300}_20`
 /* eslint-enable @typescript-eslint/naming-convention */
 
 type AlphaGreyKey =
+  | `${BasePaletteKey.grey}800_80`
+  | `${BasePaletteKey.grey}700_80`
   | `${BasePaletteKey.grey}200_80`
   | `${BasePaletteKey.grey}100_80`
 
 type AlphaWhiteKey =
-  | `${WhiteKeyWithoutAlpha}_90`
-  | `${WhiteKeyWithoutAlpha}_70`
-  | `${WhiteKeyWithoutAlpha}_40`
-  | `${WhiteKeyWithoutAlpha}_15`
-  | `${WhiteKeyWithoutAlpha}_8`
+  | `${BasePaletteKey.white}_90`
+  | `${BasePaletteKey.white}_60`
+  | `${BasePaletteKey.white}_40`
+  | `${BasePaletteKey.white}_20`
+  | `${BasePaletteKey.white}_12`
+  | `${BasePaletteKey.white}_8`
+  | `${BasePaletteKey.white}_5`
 
 type AlphaBlackKey =
-  | `${BlackKeyWithoutAlpha}_85`
-  | `${BlackKeyWithoutAlpha}_60`
-  | `${BlackKeyWithoutAlpha}_40`
-  | `${BlackKeyWithoutAlpha}_20`
-  | `${BlackKeyWithoutAlpha}_15`
-  | `${BlackKeyWithoutAlpha}_8`
-  | `${BlackKeyWithoutAlpha}_5`
-  | `${BlackKeyWithoutAlpha}_3`
+  | `${BasePaletteKey.black}_85`
+  | `${BasePaletteKey.black}_60`
+  | `${BasePaletteKey.black}_40`
+  | `${BasePaletteKey.black}_20`
+  | `${BasePaletteKey.black}_15`
+  | `${BasePaletteKey.black}_8`
+  | `${BasePaletteKey.black}_5`
+  | `${BasePaletteKey.black}_3`
 
 export type PaletteKey =
   | PaletteKeyWithoutAlpha
-  | BasePaletteKeyWithoutMono400_30
-  | BasePaletteKeyWithoutMono400_20
-  | BasePaletteKeyWithoutMono400_10
-  | BasePaletteKeyWithoutMono300_40
-  | BasePaletteKeyWithoutMono300_30
-  | BasePaletteKeyWithoutMono300_20
+  | BaseColorfulPaletteKey400_30
+  | BaseColorfulPaletteKey400_20
+  | BaseColorfulPaletteKey400_10
+  | BaseColorfulPaletteKey300_40
+  | BaseColorfulPaletteKey300_30
+  | BaseColorfulPaletteKey300_20
   | AlphaGreyKey
   | AlphaWhiteKey
   | AlphaBlackKey
@@ -239,15 +240,19 @@ export const Palette: PaletteType = {
   navy300_20: getAlphaHex(PaletteWithoutAlpha.navy300, 20),
 
   // Alpha Grey
+  grey800_80: getAlphaHex(PaletteWithoutAlpha.grey800, 80),
+  grey700_80: getAlphaHex(PaletteWithoutAlpha.grey700, 80),
   grey200_80: getAlphaHex(PaletteWithoutAlpha.grey200, 80),
   grey100_80: getAlphaHex(PaletteWithoutAlpha.grey100, 80),
 
   // Alpha White
   white_90: getAlphaHex(PaletteWithoutAlpha.white, 90),
-  white_70: getAlphaHex(PaletteWithoutAlpha.white, 70),
+  white_60: getAlphaHex(PaletteWithoutAlpha.white, 60),
   white_40: getAlphaHex(PaletteWithoutAlpha.white, 40),
-  white_15: getAlphaHex(PaletteWithoutAlpha.white, 15),
+  white_20: getAlphaHex(PaletteWithoutAlpha.white, 20),
+  white_12: getAlphaHex(PaletteWithoutAlpha.white, 12),
   white_8: getAlphaHex(PaletteWithoutAlpha.white, 8),
+  white_5: getAlphaHex(PaletteWithoutAlpha.white, 5),
 
   // Alpha Black
   black_85: getAlphaHex(PaletteWithoutAlpha.black, 85),

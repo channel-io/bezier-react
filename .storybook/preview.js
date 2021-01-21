@@ -3,7 +3,12 @@ import React from 'react'
 
 /* Internel dependencies */
 import EnableCSSHoudini from '../src/worklets/EnableCSSHoudini'
-import { FoundationProvider, LightFoundation, DarkFoundation } from '../src/foundation'
+import {
+  FoundationProvider,
+  LightFoundation,
+  DarkFoundation,
+  styled,
+} from '../src/foundation'
 
 // CSS Houdini
 EnableCSSHoudini({ smoothCorners: true })
@@ -36,10 +41,12 @@ function getFoundation(keyword) {
 
 function withFoundationProvider(Story, context) {
   const Foundation = getFoundation(context.globals.Foundation)
-  const backgroundColor = context.globals.Foundation === 'dark' ? 'black' : 'white'
+  const backgroundColor = context.globals.Foundation === 'dark'
+    ? DarkFoundation.theme['bg-white-normal']
+    : LightFoundation.theme['bg-white-normal']
 
   return (
-    <div style={{ backgroundColor }}>
+    <div style={{ backgroundColor, padding: 100 }}>
       <FoundationProvider foundation={Foundation}>
         { Story(context) }
       </FoundationProvider>

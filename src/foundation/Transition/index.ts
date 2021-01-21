@@ -9,16 +9,6 @@ enum TransitionDuration {
 
 const TransitionEasing = 'cubic-bezier(.3,0,0,1)'
 
-function getSingleTransitionCSS(
-  transitionProperty: string,
-  duration: TransitionDuration = TransitionDuration.S,
-  delay: number = 0,
-) {
-  return css`
-    transition: ${transitionProperty} ${duration} ${TransitionEasing} ${delay}ms;
-  `
-}
-
 function getTransitionsCSS(
   transitionProperties: string | string[],
   duration: TransitionDuration = TransitionDuration.S,
@@ -41,6 +31,5 @@ function getTransitionsCSS(
 export const Transition = {
   TransitionEasing,
   TransitionDuration,
-  getSingleTransitionCSS,
   getTransitionsCSS,
 }

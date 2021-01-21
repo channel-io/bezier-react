@@ -72,7 +72,7 @@
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
     "@channel.io/eslint-config": "^1.0.8",
-    "@channel.io/stylelint-config": "^1.1.0",
+    "@channel.io/stylelint-config": "^1.2.0",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",

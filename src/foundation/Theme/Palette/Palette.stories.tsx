@@ -37,6 +37,8 @@ const PaletteTile = styled.div<PaletteProps>`
   margin-bottom: 5px;
   width: 50px;
   height: 50px;
+  ${({ foundation }) => foundation?.elevation?.ev4};
+  ${({ foundation }) => foundation?.rounding?.round16};
   background-color: ${({ color }) => color};
 `
 

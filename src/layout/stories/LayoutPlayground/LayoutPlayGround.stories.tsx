@@ -32,7 +32,7 @@ const Container = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  color: ${({ foundation }) => foundation?.theme?.['text-hover-blue']};
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
 enum RouteKeys {
@@ -77,7 +77,6 @@ const Template = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
   `
 
   const NavigationMainRoute = useMemo(() => {

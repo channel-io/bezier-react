@@ -11,19 +11,19 @@ export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: Head
     gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
+  z-index: ${({ showSideView }) => (showSideView ? 40 : 50)};
   display: grid;
   grid-template-rows: 1fr;
-  z-index: ${({ showSideView }) => (showSideView ? 40 : 50)};
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
 `
 
 export const LeftHeader = styled.div`
-  grid-column: 1 / 2;
   grid-row: 1 / 2;
+  grid-column: 1 / 2;
 `
 
 export const RightHeader = styled.div`
-  grid-column: 2 / 3;
   grid-row: 1 / 2;
+  grid-column: 2 / 3;
 `

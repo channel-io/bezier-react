@@ -1,15 +1,15 @@
 /* Internal dependencies */
 import Navigations from './Navigations'
-import { NavigationArea } from './NavigationArea'
+import { NavigationContent } from './NavigationContent'
 import type NavigationsProps from './Navigations.types'
-import type { NavigationAreaProps } from './NavigationArea'
+import type { NavigationContentProps } from './NavigationContent'
 
 export type {
   NavigationsProps,
-  NavigationAreaProps,
+  NavigationContentProps,
 }
 
 export {
   Navigations,
-  NavigationArea,
+  NavigationContent,
 }

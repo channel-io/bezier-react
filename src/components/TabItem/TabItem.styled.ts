@@ -1,39 +1,29 @@
 /* Internal dependencies */
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import { styled } from '../../foundation'
 import { StyledWrapperProps } from './TabItem.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: row;
   flex-shrink: 0;
+  align-items: center;
   justify-content: center;
-  min-height: 34px;
-  padding: 0 12px;
+  height: ${({ height }) => height}px;
   overflow: hidden;
   font-size: inherit;
   font-weight: bold;
-  color: ${props => props.foundation?.theme?.['text-hover-blue']};
+  color: ${props => props.foundation?.theme?.['txt-black-dark']};
   cursor: pointer;
   user-select: none;
 
-  /* stylelint-disable-next-line */
-  ${props => (
-    props.foundation?.transition?.getTransitionsCSS(
-      'color',
-      props.foundation?.transition?.TransitionDuration.L,
-    )
-  )};
-
-  &:not(:first-child) {
-    margin-left: 20px;
-  }
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
 
   &:hover {
     ${props => (!props.disabled ? `
       ${props.active ? '' : `
-        color: ${props.foundation?.theme?.['text-hover-blue']};
+        color: ${props.foundation?.theme?.['txt-black-darker']};
       `}
     ` : '')}
   }
@@ -47,8 +37,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     left: 0;
     width: 100%;
     height: ${props => props.indicatorThickness || 3}px;
-    background-color: ${props => props.foundation?.theme?.['text-hover-blue']};
     content: '';
+    background-color: ${props => props.foundation?.theme?.['bgtxt-blue-normal']};
+    border-radius: ${props => (props.indicatorThickness || 3) / 2}px;
     transform: translateY(100%);
 
     ${props => (props.foundation?.transition?.getTransitionsCSS(['transform', 'background-color']))};
@@ -56,8 +47,8 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     will-change: transform;
   }
 
-  ${props => (props.active ? `
-    color: ${props.foundation?.theme?.['text-hover-blue']};
+  ${({ foundation, active }) => (active ? `
+    color: ${foundation?.theme?.['bgtxt-blue-normal']};
     pointer-events: none;
 
     &::after {
@@ -68,17 +59,26 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   ${props => (props.disabled ? `
     cursor: not-allowed;
     pointer-events: all;
-
-    ${props.active ? `
-      color: ${props.foundation?.theme?.['text-hover-blue']};
-      &::after {
-        background-color: ${props.foundation?.theme?.['text-hover-blue']};
-      }
-    ` : `
-      color: ${props.foundation?.theme?.['text-hover-blue']};
-      &::after {
-        background-color: ${props.foundation?.theme?.['text-hover-blue']};
-      }
-    `}
+    opacity: ${DisabledOpacity};
   ` : '')}
+`
+
+interface BackgroundProps {
+  isHovered?: boolean
+  disabled?: boolean
+}
+
+export const Background = styled.div<BackgroundProps>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 9px);
+  padding: 0 14px;
+  background-color:
+    ${({ foundation, isHovered, disabled }) =>
+    ((isHovered && !disabled) ? foundation?.theme?.['bg-black-lighter'] : '')};
+  border-radius: 6px;
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `

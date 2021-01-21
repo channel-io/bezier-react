@@ -1,24 +1,7 @@
 /* Internal dependencies */
-import { Palette } from './Palette'
-import BasePaletteKey from './Palette/BasePaletteKey'
-
-// TODO: Complete theme key
-type TextHoverColor = `text-hover-${BasePaletteKey}`
-type BannerBackgroundColor = `bg-banner-${BasePaletteKey}`
-
-type ThemeKey =
-  | TextHoverColor
-  | BannerBackgroundColor
-
-export type Theme = Partial<Record<ThemeKey, string>>
-
-export const LightTheme: Theme = {
-  'text-hover-blue': Palette.blue400,
-}
-
-export const DarkTheme: Theme = {
-  'text-hover-blue': Palette.blue400,
-}
+import ThemeType from './ThemeType'
+import LightTheme from './presets/LightTheme'
+import DarkTheme from './presets/DarkTheme'
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
@@ -34,19 +17,22 @@ function getThemesFromKeyword(keyword: string) {
 }
 
 interface CreateThemesConfig {
-  Theme: Partial<Theme>
+  theme: Partial<ThemeType>
   base?: string
 }
 
 export function createThemes({
-  Theme,
+  theme,
   base = 'light',
-}: CreateThemesConfig): Theme {
+}: CreateThemesConfig): ThemeType {
   return {
     ...getThemesFromKeyword(base),
-    ...Theme,
+    ...theme,
   }
 }
+
+// To prevent circular dependency, re-export type from here.
+export type Theme = ThemeType
 
 export const Themes = {
   createThemes,

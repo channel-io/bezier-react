@@ -14,7 +14,6 @@ const Div = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  background-color: white;
 `
 
 function Content() {

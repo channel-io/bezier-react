@@ -13,13 +13,13 @@ export default {
       control: {
         type: 'radio',
         options: [
-          'round10',
+          'round4',
+          'round6',
+          'round8',
+          'round12',
+          'round16',
           'round20',
-          'round30',
-          'round40',
-          'round50',
-          'round60',
-          'round70',
+          'round32',
         ],
       },
     },
@@ -43,5 +43,5 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  round: 'round10',
+  round: 'round4',
 }
