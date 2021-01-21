@@ -25,6 +25,14 @@ export default {
         type: 'number',
       },
     },
+    height: {
+      control: {
+        type: 'range',
+        min: 29,
+        max: 100,
+        step: 1,
+      },
+    },
   },
 }
 
@@ -75,4 +83,5 @@ WithActions.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
+  height: 29,
 }

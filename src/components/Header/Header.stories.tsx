@@ -3,8 +3,7 @@ import React from 'react'
 import { base } from 'paths.macro'
 
 /* Internal depependencies */
-import { styled } from '../../styling/Theme'
-import Typography from '../../styling/Typography'
+import { styled, Typography } from '../../foundation'
 import { getTitle } from '../../utils/utils'
 import Header from './Header'
 
