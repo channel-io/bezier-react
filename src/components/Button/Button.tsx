@@ -7,7 +7,7 @@ import type { IconName } from '../Icon'
 import { Text } from '../Text'
 import type { ButtonProps } from './Button.types'
 import { ButtonIconPosition } from './Button.types'
-import { StyledButton } from './Button.styled'
+import { StyledBaseButton } from './Button.styled'
 import ButtonTheme from './ButtonTheme'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
@@ -49,7 +49,7 @@ function Button(
   ), [icon])
 
   return (
-    <StyledButton
+    <StyledBaseButton
       as={as}
       ref={forwardedRef}
       buttonTheme={buttonTheme}
@@ -73,7 +73,7 @@ function Button(
       ) }
 
       { iconPositionValidation(icon, iconPosition, ButtonIconPosition.Right) && ViewableIcon }
-    </StyledButton>
+    </StyledBaseButton>
   )
 }
 

@@ -13,16 +13,14 @@ export const StyledBaseButton = styled.div<ButtonProps & StyledButtonProps>`
   align-items: center;
   justify-content: center;
   height: 36px;
+  padding: 0 ${({ text }) => (!text ? 7 : 9)}px;
+  cursor: pointer;
   background-color: white;
   border: none;
   border-radius: 6px;
   outline: none;
-  box-shadow: 0 0 1px 10px black, 0 10px 10px black;
-  padding: ${props => {
-    if (!props.text) { return '0 7px' }
-    return '0 9px'
-  }};
-  cursor: pointer;
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
   ${props => props.buttonTheme};
 `

@@ -41,9 +41,6 @@ export default {
 
 function keywordToTheme(keyword: ButtonThemeKeyword) {
   switch (keyword) {
-    case ButtonThemeKeyword.Danger:
-      return ButtonTheme.Danger
-
     case ButtonThemeKeyword.Primary:
     default:
       return ButtonTheme.Primary
