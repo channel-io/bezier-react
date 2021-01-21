@@ -8,7 +8,14 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { isArray, isNil, set, size, toNumber } from 'lodash-es'
+import {
+  isArray,
+  isNil,
+  isFunction,
+  set,
+  size,
+  toNumber,
+} from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -102,7 +109,7 @@ forwardedRef: React.Ref<NavigationHandles>,
     initialPosition.current = event.clientX
   }, [])
 
-  const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
+  const handleMouseMove = useCallback((callback?: (nextWidth: number) => any) => (event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
     currentIndex.current = initialIndex.current
 
@@ -127,6 +134,13 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
+      }
+
+      if (
+        (currentIndex.current === initialIndex.current) &&
+        isFunction(callback)
+      ) {
+        callback(willChangeWidth)
       }
 
       currentIndex.current -= 1
@@ -181,6 +195,8 @@ forwardedRef: React.Ref<NavigationHandles>,
         // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
         if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
 
+        const onChangeWidth = navChildren.props.onChangeWidth
+
         return (
           <NavigationArea
             key={uuid()}
@@ -193,7 +209,7 @@ forwardedRef: React.Ref<NavigationHandles>,
             hidable={navOptions[index].hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
+            onMouseMove={handleMouseMove(onChangeWidth)}
           >
             { navChildren }
           </NavigationArea>

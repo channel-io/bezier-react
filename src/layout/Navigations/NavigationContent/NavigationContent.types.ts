@@ -11,6 +11,7 @@ export default interface NavigationContentProps extends UIComponentProps {
   scrollClassName?: string
   withScroll?: boolean
   onScroll?: () => void
+  onChangeWidth?: (width: number) => any
 
   /* LayoutState Prop */
   layoutOption: NavigationState
