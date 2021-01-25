@@ -11,10 +11,10 @@ import React, {
 import {
   isArray,
   isNil,
-  isFunction,
   set,
   size,
   toNumber,
+  noop,
 } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
@@ -37,6 +37,7 @@ export interface NavigationHandles {
 
 function Navigations({
   children,
+  onChangeWidth = noop,
 }: NavigationsProps,
 forwardedRef: React.Ref<NavigationHandles>,
 ) {
@@ -44,7 +45,7 @@ forwardedRef: React.Ref<NavigationHandles>,
 
   const [navOptions, setNavOptions] = useState<Array<NavigationState>>([])
 
-  const navigationRefs = useRef<{ [i: number]: NavigationRefsProps }>({})
+  const navigationRefs = useRef<Array<NavigationRefsProps>>([])
   const currentIndex = useRef(0)
   const initialIndex = useRef(0)
   const initialPosition = useRef(0)
@@ -109,7 +110,7 @@ forwardedRef: React.Ref<NavigationHandles>,
     initialPosition.current = event.clientX
   }, [])
 
-  const handleMouseMove = useCallback((callback?: (nextWidth: number) => any) => (event: HTMLElementEventMap['mousemove']) => {
+  const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
     currentIndex.current = initialIndex.current
 
@@ -119,6 +120,9 @@ forwardedRef: React.Ref<NavigationHandles>,
       if (willChangeWidth <= maxWidth) {
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
+
+      onChangeWidth(navigationRefs.current.map(navigationRef => navigationRef.target.style.width))
+
       return
     }
 
@@ -136,20 +140,15 @@ forwardedRef: React.Ref<NavigationHandles>,
         navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
       }
 
-      if (
-        (currentIndex.current === initialIndex.current) &&
-        isFunction(callback)
-      ) {
-        callback(willChangeWidth)
-      }
-
       currentIndex.current -= 1
+
+      onChangeWidth(navigationRefs.current.map(navigationRef => navigationRef.target.style.width))
 
       if (navOptions[currentIndex.current]?.disableResize) {
         return
       }
     }
-  }, [navOptions])
+  }, [navOptions, onChangeWidth])
 
   useImperativeHandle(forwardedRef, () => ({
     handleMouseDownOutside,
@@ -188,14 +187,12 @@ forwardedRef: React.Ref<NavigationHandles>,
   const NavigationAreasComponent = useMemo(() => {
     const childrens = React.Children.toArray(children)
 
-    navigationRefs.current = {}
+    navigationRefs.current = []
 
     return (
       childrens.map((navChildren, index) => {
         // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
         if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
-
-        const onChangeWidth = navChildren.props.onChangeWidth
 
         return (
           <NavigationArea
@@ -209,7 +206,7 @@ forwardedRef: React.Ref<NavigationHandles>,
             hidable={navOptions[index].hidable}
             optionIndex={index}
             onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove(onChangeWidth)}
+            onMouseMove={handleMouseMove}
           >
             { navChildren }
           </NavigationArea>

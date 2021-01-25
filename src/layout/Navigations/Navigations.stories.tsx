@@ -31,7 +31,7 @@ const StyledIcon = styled(Icon)`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
-const Template = () => {
+const Template = ({ onChangeWidth }) => {
   const navigationRef = useRef<NavigationHandles | null>(null)
 
   const DummyActions = useMemo(() => (
@@ -56,7 +56,7 @@ const Template = () => {
   return (
     <Container>
       <Client>
-        <Navigations ref={navigationRef}>
+        <Navigations ref={navigationRef} onChangeWidth={onChangeWidth}>
           <NavigationContent
             header={Element1Header}
             withScroll
@@ -93,4 +93,7 @@ const Template = () => {
 }
 
 export const Primary = Template.bind({})
-Primary.args = {}
+Primary.args = {
+  /* eslint-disable-next-line no-console */
+  onChangeWidth: console.log,
+}
