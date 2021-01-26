@@ -85,6 +85,8 @@ forwardedRef: React.Ref<NavigationHandles>,
 
       currentIndex.current -= 1
 
+      onChangeWidth(navigationRefs.current.map(navigationRef => navigationRef.target.style.width))
+
       if (navOptions[currentIndex.current]?.disableResize) {
         return true
       }
@@ -95,7 +97,7 @@ forwardedRef: React.Ref<NavigationHandles>,
     }
 
     return true
-  }, [navOptions])
+  }, [navOptions, onChangeWidth])
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], optionIndex: number) => {
     for (const index in navigationRefs.current) {
