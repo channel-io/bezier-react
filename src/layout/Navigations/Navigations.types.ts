@@ -3,6 +3,7 @@ import { UIComponentProps } from '../../types/ComponentProps'
 
 export default interface NavigationsProps extends UIComponentProps {
   children: React.ReactElement | React.ReactElement[]
+  onChangeWidth?: (widths: string[]) => any
 }
 
 export interface NavigationRefsProps {

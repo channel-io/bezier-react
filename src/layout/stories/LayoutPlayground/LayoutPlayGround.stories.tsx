@@ -42,7 +42,7 @@ enum RouteKeys {
   Setting = 'setting',
 }
 
-const Template = () => {
+const Template = ({ onChangeWidth }) => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
 
   const navigationRef = useRef<NavigationHandles | null>(null)
@@ -221,7 +221,7 @@ const Template = () => {
       <Container>
         <Client>
           <GNB />
-          <Navigations ref={navigationRef}>
+          <Navigations ref={navigationRef} onChangeWidth={onChangeWidth}>
             { NavigationMainRoute }
             { NavigationSubRoute }
           </Navigations>
@@ -239,5 +239,7 @@ const Template = () => {
 }
 
 export const Primary = Template.bind({})
-
-Primary.args = {}
+Primary.args = {
+  /* eslint-disable-next-line no-console */
+  onChangeWidth: console.log,
+}
