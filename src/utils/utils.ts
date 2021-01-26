@@ -4,3 +4,14 @@ export const getTitle = (baseDir: string) => {
   return filePath.slice(2, filePath.length - 1).join('/')
 }
 
+export function insertItem<T>(array: T[], index: number, data: T) {
+  return [
+    ...array.slice(0, index),
+    data,
+    ...array.slice(index),
+  ]
+}
+
+export function removeItem(array: any[], index: number) {
+  return [...array.slice(0, index), ...array.slice(index + 1)]
+}

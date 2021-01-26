@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import Typography from '../../styling/Typography'
+import { Typography } from '../../foundation'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 

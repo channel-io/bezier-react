@@ -16,11 +16,13 @@ import {
 import RadioProps from './Radio.types'
 
 export const RADIO_TEST_ID = 'ch-design-system-radio'
+export const RADIO_HANDLE_TEST_ID = 'ch-design-system-radio-handle'
 
 function Radio(
   {
     as,
     testId = RADIO_TEST_ID,
+    handleTestId = RADIO_HANDLE_TEST_ID,
     className,
     style,
     dotClassName,
@@ -53,6 +55,7 @@ function Radio(
   return (
     <StyledRadioWrapper
       ref={forwardedRef}
+      data-testid={testId}
       className={className}
       style={style}
       disabled={disabled}
@@ -63,7 +66,7 @@ function Radio(
     >
       <StyledRadioHandle
         as={as}
-        data-testid={testId}
+        data-testid={handleTestId}
         className={dotClassName}
         checked={checked}
         disabled={disabled}

@@ -5,7 +5,6 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { Navigation } from '../../../layout/Navigation'
 import { getTitle } from '../../../utils/utils'
 import { ListItem } from '../ListItem'
 import ListMenuGroup from './ListMenuGroup'
@@ -21,8 +20,6 @@ export default {
     },
   },
 }
-
-const SIDEBAR_WIDTH = 240
 
 const Template = ({ ...otherListMenuGroupProps }) => {
   const [open, setOpen] = useState(false)
@@ -47,12 +44,7 @@ const Template = ({ ...otherListMenuGroupProps }) => {
   }, [])
 
   return (
-    <Navigation
-      withScroll
-      disableResize
-      title="사이드바"
-      minWidth={SIDEBAR_WIDTH}
-    >
+    <div style={{ width: 240 }}>
       <ListMenuGroup
         open={open}
         selectedMenuItemIndex={idx}
@@ -75,7 +67,7 @@ const Template = ({ ...otherListMenuGroupProps }) => {
           content="네이버 가기"
         />
       </ListMenuGroup>
-    </Navigation>
+    </div>
   )
 }
 
