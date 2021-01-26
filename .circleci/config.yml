@@ -66,7 +66,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > .npmrc
       - run:
           name: Config git remote
-          command: git remote set-url upstream "https://github.com/channel-io/design-system"
+          command: git remote add upstream "https://github.com/channel-io/design-system"
       - run: npm publish
 
 workflows:
