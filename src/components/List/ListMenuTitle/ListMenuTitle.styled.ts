@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../styling/Theme'
+import { styled } from '../../../foundation'
 import {
   StyledWrapperProps,
   StyledTitleWrapperProps,
@@ -8,8 +8,8 @@ import {
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   flex-direction: row;
-  padding: 6px 12px 6px 16px;
   height: 20px;
+  padding: 6px 12px 6px 16px;
   line-height: 20px;
 `
 
@@ -18,5 +18,5 @@ export const TitleWrapper = styled.div<StyledTitleWrapperProps>`
   font-size: 12px;
   font-weight: bold;
   line-height: 20px;
-  color: ${props => props.theme?.colors?.text5};
+  color: ${props => props.foundation?.theme?.['txt-black-dark']};
 `

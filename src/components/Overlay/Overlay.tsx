@@ -13,9 +13,9 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
-  EventHandler,
   GetOverlayStyleProps,
   GetOverlayPositionProps,
   GetOverlayTranslatationProps,
@@ -32,15 +32,6 @@ const rootElement =
   document.getElementById!('main') ||
   document.getElementById!('root') ||
   document.getElementById!('__next') as HTMLElement
-
-function listen<K extends keyof HTMLElementEventMap>(element: any, eventName: K, handler: EventHandler<K>) {
-  if (!element) return noop
-
-  element.addEventListener(eventName, handler)
-  return function cleanup() {
-    element.removeEventListener(eventName, handler)
-  }
-}
 
 function getOverlayPosition({ container, target }: GetOverlayPositionProps): React.CSSProperties {
   if (target) {
@@ -291,22 +282,10 @@ function Overlay(
     otherProps,
   ])
 
-  useEffect(() => {
-    if (show) {
-      const removeDocumentClickListener = listen(document, 'click', handleHideOverlay)
-      const removeDocumentKeyupListener = listen(document, 'keyup', handleKeydown)
-      const removeTargetClickListener = listen(target, 'click', handleClickTarget)
-      const remoteContainerWheelListener = listen(containerRef.current, 'wheel', handleBlockMouseWheel)
-
-      return () => {
-        removeDocumentClickListener()
-        removeDocumentKeyupListener()
-        removeTargetClickListener()
-        remoteContainerWheelListener()
-      }
-    }
-    return noop
-  }, [show, target, handleHideOverlay, handleKeydown, handleClickTarget, handleBlockMouseWheel])
+  useEventHandler(document, 'click', handleHideOverlay, show)
+  useEventHandler(document, 'keyup', handleKeydown, show)
+  useEventHandler(target, 'click', handleClickTarget, show)
+  useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
   useEffect(() => {
     if (show) {

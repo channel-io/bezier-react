@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
-import { hideScrollbars } from '../../styling/Mixins'
+import { styled, hideScrollbars } from '../../foundation'
 import { StyledWrapperProps, StyledTabItemWrapperProps } from './Tabs.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`
@@ -8,7 +7,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   flex-direction: row;
   flex-shrink: 0;
   justify-content: space-between;
-  box-shadow: 0 -1px 0 0 ${props => props.theme?.colors?.border3} inset;
+  box-shadow: 0 -1px 0 0 ${props => props.foundation?.theme?.['bg-black-light']} inset;
 `
 
 export const TabItemWrapper = styled.div<StyledTabItemWrapperProps>`

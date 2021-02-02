@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import Overlay from './Overlay'
 import { OverlayPosition } from './Overlay.types'
 
@@ -55,7 +55,7 @@ const Container = styled.div`
   height: 500px;
   position: relative;
   overflow: scroll;
-  border: 1px solid ${props => props.theme?.colors?.border7};
+  border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
 
 const Wrapper = styled.div`
@@ -72,7 +72,7 @@ const Target = styled.div`
   align-items: center;
   width: 70px;
   height: 40px;
-  background-color: ${props => props.theme?.colors?.background3};
+  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
   border-radius: 4px;
 `
 
@@ -80,7 +80,7 @@ const Children = styled.div`
   width: 250px;
   height: 150px;
   overflow-y: scroll;
-  background-color: ${props => props.theme?.colors?.background5};
+  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
   border-radius: 4px;
 `
 

@@ -1,6 +1,7 @@
 
 import All from './All'
 import Android from './Android'
+import Api from './Api'
 import AppCheck from './AppCheck'
 import AppPlus from './AppPlus'
 import AppPush from './AppPush'
@@ -23,8 +24,14 @@ import ArrowTurnRightDown from './ArrowTurnRightDown'
 import ArrowTurnRightUp from './ArrowTurnRightUp'
 import ArrowUp from './ArrowUp'
 import Assignee from './Assignee'
+import Bank from './Bank'
+import Baseball from './Baseball'
+import Basketball from './Basketball'
+import BearFilled from './BearFilled'
+import Bear from './Bear'
 import Block from './Block'
 import Bold from './Bold'
+import BookCover from './BookCover'
 import Book from './Book'
 import BookmarkFilled from './BookmarkFilled'
 import Bookmark from './Bookmark'
@@ -38,6 +45,8 @@ import BrowserEdge from './BrowserEdge'
 import BrowserFirefox from './BrowserFirefox'
 import BrowserIe from './BrowserIe'
 import BrowserSafari from './BrowserSafari'
+import Bus from './Bus'
+import ButtonRoute from './ButtonRoute'
 import Calendar from './Calendar'
 import CallMissed from './CallMissed'
 import CallOff from './CallOff'
@@ -49,6 +58,7 @@ import CancelCircleFilled from './CancelCircleFilled'
 import CancelCircle from './CancelCircle'
 import CancelSmall from './CancelSmall'
 import Cancel from './Cancel'
+import Car from './Car'
 import CartAbandoned from './CartAbandoned'
 import Cart from './Cart'
 import ChannelBtnFilled from './ChannelBtnFilled'
@@ -87,20 +97,27 @@ import ChevronLeftDouble from './ChevronLeftDouble'
 import ChevronLeft from './ChevronLeft'
 import ChevronRightDouble from './ChevronRightDouble'
 import ChevronRight from './ChevronRight'
+import ChevronSmallDown from './ChevronSmallDown'
+import ChevronSmallLeft from './ChevronSmallLeft'
 import ChevronUpDouble from './ChevronUpDouble'
 import ChevronUp from './ChevronUp'
 import Clip from './Clip'
 import Clock from './Clock'
-import CloseWin from './CloseWin'
 import CloudDownload from './CloudDownload'
 import CloudUpload from './CloudUpload'
 import Code from './Code'
+import CoinRecurring from './CoinRecurring'
 import Coin from './Coin'
 import Column from './Column'
+import CommentFilled from './CommentFilled'
+import CommentIn from './CommentIn'
+import CommentOut from './CommentOut'
 import Comment from './Comment'
 import Contact from './Contact'
 import Contract from './Contract'
 import Cookie from './Cookie'
+import Coupon from './Coupon'
+import Credit from './Credit'
 import Creditcard from './Creditcard'
 import Desktop from './Desktop'
 import Devices from './Devices'
@@ -111,7 +128,6 @@ import Edit from './Edit'
 import EmailUnread from './EmailUnread'
 import EmailUnsubscribed from './EmailUnsubscribed'
 import Email from './Email'
-import EnlargeWin from './EnlargeWin'
 import ErrorFilled from './ErrorFilled'
 import ErrorTriangleFilled from './ErrorTriangleFilled'
 import Error from './Error'
@@ -121,6 +137,7 @@ import FaceAngry from './FaceAngry'
 import FaceGrinning from './FaceGrinning'
 import FaceNomouth from './FaceNomouth'
 import FaceSad from './FaceSad'
+import FaceSmileAdd from './FaceSmileAdd'
 import FaceSmileFilled from './FaceSmileFilled'
 import FaceSmile from './FaceSmile'
 import Facebook from './Facebook'
@@ -145,7 +162,9 @@ import Group from './Group'
 import HandLove from './HandLove'
 import HandPoint from './HandPoint'
 import HandPush from './HandPush'
+import HandThumbdownFilled from './HandThumbdownFilled'
 import HandThumbdown from './HandThumbdown'
+import HandThumbupFilled from './HandThumbupFilled'
 import HandThumbup from './HandThumbup'
 import HandWave from './HandWave'
 import Hand from './Hand'
@@ -184,6 +203,7 @@ import LightningFilled from './LightningFilled'
 import Lightning from './Lightning'
 import LinkOff from './LinkOff'
 import Link from './Link'
+import Linkedin from './Linkedin'
 import List from './List'
 import LockOpen from './LockOpen'
 import Lock from './Lock'
@@ -191,14 +211,15 @@ import MapPin from './MapPin'
 import MarkerPen from './MarkerPen'
 import Me from './Me'
 import Megaphone from './Megaphone'
+import MenuFold from './MenuFold'
+import MenuUnfold from './MenuUnfold'
 import Menu from './Menu'
-import MinimizeWin from './MinimizeWin'
+import Metro from './Metro'
 import MinusCircleFilled from './MinusCircleFilled'
 import MinusCircle from './MinusCircle'
 import Mobile from './Mobile'
 import MoonFilled from './MoonFilled'
 import MoreVertical from './MoreVertical'
-import MoreWin from './MoreWin'
 import More from './More'
 import Mouse from './Mouse'
 import Music from './Music'
@@ -229,14 +250,18 @@ import Person from './Person'
 import PieChart from './PieChart'
 import PinOff from './PinOff'
 import Pin from './Pin'
+import Plane from './Plane'
 import Play from './Play'
 import PlusCircleFilled from './PlusCircleFilled'
 import PlusCircle from './PlusCircle'
 import Plus from './Plus'
+import Point from './Point'
 import Power from './Power'
+import Print from './Print'
 import Profile from './Profile'
 import Realtime from './Realtime'
 import Receipt from './Receipt'
+import Recipe from './Recipe'
 import RefreshCircleFilled from './RefreshCircleFilled'
 import Refresh from './Refresh'
 import Repeat from './Repeat'
@@ -244,6 +269,8 @@ import Rotate from './Rotate'
 import Row from './Row'
 import Ruler from './Ruler'
 import Search from './Search'
+import SecurityPerson from './SecurityPerson'
+import Security from './Security'
 import SendFilled from './SendFilled'
 import Send from './Send'
 import SentFailedFilled from './SentFailedFilled'
@@ -251,11 +278,15 @@ import SentFailed from './SentFailed'
 import SentFilled from './SentFilled'
 import Sent from './Sent'
 import Settings from './Settings'
+import Shine from './Shine'
 import Shopping from './Shopping'
 import Shuffle from './Shuffle'
 import Siren from './Siren'
 import Sms from './Sms'
+import Soccerball from './Soccerball'
 import Sorting from './Sorting'
+import SplitLeft from './SplitLeft'
+import SplitRight from './SplitRight'
 import Square from './Square'
 import SquaresFilled from './SquaresFilled'
 import Squares from './Squares'
@@ -271,13 +302,13 @@ import Tag from './Tag'
 import Target from './Target'
 import Template from './Template'
 import TimeElapsed from './TimeElapsed'
+import Tool from './Tool'
 import TransferDisabled from './TransferDisabled'
 import Transfer from './Transfer'
 import Translate from './Translate'
 import Trash from './Trash'
 import TrendingDown from './TrendingDown'
-import TrendingLeft from './TrendingLeft'
-import TrendingRight from './TrendingRight'
+import TrendingLeftCircleFilled from './TrendingLeftCircleFilled'
 import TrendingUp from './TrendingUp'
 import TriangleDownCircleFilled from './TriangleDownCircleFilled'
 import TriangleDownCircle from './TriangleDownCircle'
@@ -295,6 +326,7 @@ import TriangleUpdown from './TriangleUpdown'
 import Tune from './Tune'
 import Twitter from './Twitter'
 import Typography from './Typography'
+import Underline from './Underline'
 import Upload from './Upload'
 import Username from './Username'
 import Variable from './Variable'
@@ -307,6 +339,7 @@ import VolumeOffFilled from './VolumeOffFilled'
 import VolumeOff from './VolumeOff'
 import VolumeUpFilled from './VolumeUpFilled'
 import VolumeUp from './VolumeUp'
+import Wallet from './Wallet'
 import Water from './Water'
 import WeatherCloud from './WeatherCloud'
 import WeatherCloudy from './WeatherCloudy'
@@ -317,17 +350,21 @@ import WeatherThunder from './WeatherThunder'
 import Webhook from './Webhook'
 import WifiOff from './WifiOff'
 import Wifi from './Wifi'
+import WindowsClose from './WindowsClose'
+import WindowsMaximize from './WindowsMaximize'
+import WindowsMinimize from './WindowsMinimize'
+import WindowsRestore from './WindowsRestore'
 import Windows from './Windows'
 import Wing from './Wing'
 import Youtube from './Youtube'
 import ZoomIn from './ZoomIn'
 import ZoomOut from './ZoomOut'
-import Zoyi from './Zoyi'
 /* eslint-disable */
 
 const icons = {
   'all': All,
   'android': Android,
+  'api': Api,
   'app-check': AppCheck,
   'app-plus': AppPlus,
   'app-push': AppPush,
@@ -350,8 +387,14 @@ const icons = {
   'arrow-turn-right-up': ArrowTurnRightUp,
   'arrow-up': ArrowUp,
   'assignee': Assignee,
+  'bank': Bank,
+  'baseball': Baseball,
+  'basketball': Basketball,
+  'bear-filled': BearFilled,
+  'bear': Bear,
   'block': Block,
   'bold': Bold,
+  'book-cover': BookCover,
   'book': Book,
   'bookmark-filled': BookmarkFilled,
   'bookmark': Bookmark,
@@ -365,6 +408,8 @@ const icons = {
   'browser-firefox': BrowserFirefox,
   'browser-ie': BrowserIe,
   'browser-safari': BrowserSafari,
+  'bus': Bus,
+  'button-route': ButtonRoute,
   'calendar': Calendar,
   'call-missed': CallMissed,
   'call-off': CallOff,
@@ -376,6 +421,7 @@ const icons = {
   'cancel-circle': CancelCircle,
   'cancel-small': CancelSmall,
   'cancel': Cancel,
+  'car': Car,
   'cart-abandoned': CartAbandoned,
   'cart': Cart,
   'channel-btn-filled': ChannelBtnFilled,
@@ -414,20 +460,27 @@ const icons = {
   'chevron-left': ChevronLeft,
   'chevron-right-double': ChevronRightDouble,
   'chevron-right': ChevronRight,
+  'chevron-small-down': ChevronSmallDown,
+  'chevron-small-left': ChevronSmallLeft,
   'chevron-up-double': ChevronUpDouble,
   'chevron-up': ChevronUp,
   'clip': Clip,
   'clock': Clock,
-  'close-win': CloseWin,
   'cloud-download': CloudDownload,
   'cloud-upload': CloudUpload,
   'code': Code,
+  'coin-recurring': CoinRecurring,
   'coin': Coin,
   'column': Column,
+  'comment-filled': CommentFilled,
+  'comment-in': CommentIn,
+  'comment-out': CommentOut,
   'comment': Comment,
   'contact': Contact,
   'contract': Contract,
   'cookie': Cookie,
+  'coupon': Coupon,
+  'credit': Credit,
   'creditcard': Creditcard,
   'desktop': Desktop,
   'devices': Devices,
@@ -438,7 +491,6 @@ const icons = {
   'email-unread': EmailUnread,
   'email-unsubscribed': EmailUnsubscribed,
   'email': Email,
-  'enlarge-win': EnlargeWin,
   'error-filled': ErrorFilled,
   'error-triangle-filled': ErrorTriangleFilled,
   'error': Error,
@@ -448,6 +500,7 @@ const icons = {
   'face-grinning': FaceGrinning,
   'face-nomouth': FaceNomouth,
   'face-sad': FaceSad,
+  'face-smile-add': FaceSmileAdd,
   'face-smile-filled': FaceSmileFilled,
   'face-smile': FaceSmile,
   'facebook': Facebook,
@@ -472,7 +525,9 @@ const icons = {
   'hand-love': HandLove,
   'hand-point': HandPoint,
   'hand-push': HandPush,
+  'hand-thumbdown-filled': HandThumbdownFilled,
   'hand-thumbdown': HandThumbdown,
+  'hand-thumbup-filled': HandThumbupFilled,
   'hand-thumbup': HandThumbup,
   'hand-wave': HandWave,
   'hand': Hand,
@@ -511,6 +566,7 @@ const icons = {
   'lightning': Lightning,
   'link-off': LinkOff,
   'link': Link,
+  'linkedin': Linkedin,
   'list': List,
   'lock-open': LockOpen,
   'lock': Lock,
@@ -518,14 +574,15 @@ const icons = {
   'marker-pen': MarkerPen,
   'me': Me,
   'megaphone': Megaphone,
+  'menu-fold': MenuFold,
+  'menu-unfold': MenuUnfold,
   'menu': Menu,
-  'minimize-win': MinimizeWin,
+  'metro': Metro,
   'minus-circle-filled': MinusCircleFilled,
   'minus-circle': MinusCircle,
   'mobile': Mobile,
   'moon-filled': MoonFilled,
   'more-vertical': MoreVertical,
-  'more-win': MoreWin,
   'more': More,
   'mouse': Mouse,
   'music': Music,
@@ -556,14 +613,18 @@ const icons = {
   'pie-chart': PieChart,
   'pin-off': PinOff,
   'pin': Pin,
+  'plane': Plane,
   'play': Play,
   'plus-circle-filled': PlusCircleFilled,
   'plus-circle': PlusCircle,
   'plus': Plus,
+  'point': Point,
   'power': Power,
+  'print': Print,
   'profile': Profile,
   'realtime': Realtime,
   'receipt': Receipt,
+  'recipe': Recipe,
   'refresh-circle-filled': RefreshCircleFilled,
   'refresh': Refresh,
   'repeat': Repeat,
@@ -571,6 +632,8 @@ const icons = {
   'row': Row,
   'ruler': Ruler,
   'search': Search,
+  'security-person': SecurityPerson,
+  'security': Security,
   'send-filled': SendFilled,
   'send': Send,
   'sent-failed-filled': SentFailedFilled,
@@ -578,11 +641,15 @@ const icons = {
   'sent-filled': SentFilled,
   'sent': Sent,
   'settings': Settings,
+  'shine': Shine,
   'shopping': Shopping,
   'shuffle': Shuffle,
   'siren': Siren,
   'sms': Sms,
+  'soccerball': Soccerball,
   'sorting': Sorting,
+  'split-left': SplitLeft,
+  'split-right': SplitRight,
   'square': Square,
   'squares-filled': SquaresFilled,
   'squares': Squares,
@@ -598,13 +665,13 @@ const icons = {
   'target': Target,
   'template': Template,
   'time-elapsed': TimeElapsed,
+  'tool': Tool,
   'transfer-disabled': TransferDisabled,
   'transfer': Transfer,
   'translate': Translate,
   'trash': Trash,
   'trending-down': TrendingDown,
-  'trending-left': TrendingLeft,
-  'trending-right': TrendingRight,
+  'trending-left-circle-filled': TrendingLeftCircleFilled,
   'trending-up': TrendingUp,
   'triangle-down-circle-filled': TriangleDownCircleFilled,
   'triangle-down-circle': TriangleDownCircle,
@@ -622,6 +689,7 @@ const icons = {
   'tune': Tune,
   'twitter': Twitter,
   'typography': Typography,
+  'underline': Underline,
   'upload': Upload,
   'username': Username,
   'variable': Variable,
@@ -634,6 +702,7 @@ const icons = {
   'volume-off': VolumeOff,
   'volume-up-filled': VolumeUpFilled,
   'volume-up': VolumeUp,
+  'wallet': Wallet,
   'water': Water,
   'weather-cloud': WeatherCloud,
   'weather-cloudy': WeatherCloudy,
@@ -644,12 +713,15 @@ const icons = {
   'webhook': Webhook,
   'wifi-off': WifiOff,
   'wifi': Wifi,
+  'windows-close': WindowsClose,
+  'windows-maximize': WindowsMaximize,
+  'windows-minimize': WindowsMinimize,
+  'windows-restore': WindowsRestore,
   'windows': Windows,
   'wing': Wing,
   'youtube': Youtube,
   'zoom-in': ZoomIn,
   'zoom-out': ZoomOut,
-  'zoyi': Zoyi,
 }
 
 export type IconName = keyof typeof icons

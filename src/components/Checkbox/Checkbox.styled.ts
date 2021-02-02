@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
-import { absoluteCenter } from '../../styling/Mixins'
+import DisabledOpacity from '../../constants/DisabledOpacity'
+import { styled, css, absoluteCenter } from '../../foundation'
 import { StyledWrapperProps, StyledCheckerProps, StyledContentProps } from './Checkbox.types'
 import CheckType from './CheckType'
 
@@ -19,83 +19,88 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   )}
 `
 
-const checkerBase = (props: StyledCheckerProps) => `
+function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
+  return checkStatus === CheckType.True || checkStatus === CheckType.Partial
+}
+
+const checkerBase = css<StyledCheckerProps>`
+  background-color:
+    ${({ foundation, checkStatus }) =>
+    (isTrueOrPartial(checkStatus) ? foundation?.theme?.['bgtxt-green-normal'] : '')};
+  border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'transparent' : '')};
+
   &::after {
     ${absoluteCenter`translateY(-13%) rotate(42deg)`}
-    width: 4px;
-    height: 9px;
-    border-right: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    border-bottom: solid ${CHECKER_ICON_THICKNESS}px transparent;
-    border-color: ${props.theme?.colors?.border0};
+    display: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'initial' : 'none')};
+    width: 6px;
+    height: 10px;
     content: '';
-    transition: ${props.theme?.transition?.BorderTransition};
+    ${({ foundation }) =>
+    foundation?.border?.getBorder(
+      CHECKER_ICON_THICKNESS,
+      foundation?.theme?.['bg-white-absolute'],
+      { top: false, left: false },
+    )};
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS('border')};
   }
 
-  ${(props.checkStatus === CheckType.True || props.checkStatus === CheckType.Partial) ? `
-    background-color: ${props.theme?.colors?.success1};
-    border-color: transparent;
-
-    ${!props.disabled ? `
-      &:hover {
-        background-color: ${props.theme?.colors.success1Hover};
-      }
-    ` : ''}
-  ` : ''}
+  &:hover {
+    background-color:
+      ${({ foundation, disabled, checkStatus }) =>
+    ((!disabled && isTrueOrPartial(checkStatus)) ? foundation?.theme?.['bgtxt-green-dark'] : '')};
+  }
 `
 
-const partialChecked = (props: StyledCheckerProps) => ((props.checkStatus === CheckType.Partial) ? `
+const partialChecked = css<StyledCheckerProps>`
   &::after {
     ${absoluteCenter`translateY(-36%) rotate(0)`}
     width: 10px;
-    border-right: none;
-    border-bottom: solid 2px ${props.theme?.colors?.border0};
+    ${({ foundation }) =>
+    foundation?.border?.getBorder(
+      CHECKER_ICON_THICKNESS,
+      foundation?.theme?.['bg-white-absolute'],
+      { top: false, right: false, left: false },
+    )};
   }
-` : '')
+`
 
-const disabled = (props: StyledCheckerProps) => ((props.disabled) ? `
-  background-color: ${props.theme?.colors?.disabled3};
-
-  ${(props.checkStatus === CheckType.False) ? `
-    &::after {
-      border-color: transparent;
-    }
-  ` : `
-    &::after {
-      border-color: ${props.theme?.colors?.border5}
-    }
-  `}
-` : '')
+const disabledStyle = css<StyledCheckerProps>`
+  opacity: ${DisabledOpacity};
+`
 
 export const Checker = styled.div<StyledCheckerProps>`
   position: relative;
+  box-sizing: border-box !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box !important;
   width: ${CHECKER_BOX_SIZE}px;
-  height: ${CHECKER_BOX_SIZE}px;
   min-width: ${CHECKER_BOX_SIZE}px;
+  height: ${CHECKER_BOX_SIZE}px;
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
-  background-color: ${props => props.theme?.colors?.background0};
-  border: ${CHECKER_BORDER_THICKNESS}px solid ${props => props.theme?.colors?.border3};
+  ${({ foundation }) =>
+    foundation
+      ?.border
+      ?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bd-black-light'])};
   border-radius: 4px;
-  transition: ${props => props.theme?.transition?.BackgroundTransition}, ${props => props.theme?.transition?.ColorTransition};
 
-  ${props => (!props.disabled ? `
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
+
+  ${({ foundation, disabled }) => (!disabled ? `
     &:hover {
       &::after {
-        border-color: ${props.theme?.colors?.border2};
+        border-color: ${foundation?.theme?.['bd-black-light']};
       }
     }
   ` : '')}
 
   ${checkerBase}
 
-  ${partialChecked}
+  ${({ checkStatus }) => (checkStatus === CheckType.Partial ? partialChecked : '')}
 
-  ${disabled}
+  ${({ disabled }) => (disabled ? disabledStyle : '')}
 `
 
 export const Content = styled.div<StyledContentProps>`

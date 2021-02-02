@@ -1,11 +1,18 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
+import React, {
+  Ref,
+  forwardRef,
+  useMemo,
+  useCallback,
+  useState,
+} from 'react'
 import { get, noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { Text } from '../Text'
 import { mergeClassNames } from '../../utils/stringUtils'
 import TabItemProps from './TabItem.types'
-import { Wrapper } from './TabItem.styled'
+import { Wrapper, Background } from './TabItem.styled'
 
 export const TAB_ITEM_COMPONENT_NAME = 'TabItem'
 export const TAB_ITEM_TEST_ID = 'ch-design-system-tab-item'
@@ -19,6 +26,7 @@ function TabItemComponent({
   as,
   testId = TAB_ITEM_TEST_ID,
   disabled = false,
+  height = 45,
   withIndicator = true,
   /* ActivatableElement props */
   activeClassName,
@@ -31,6 +39,8 @@ function TabItemComponent({
   onClick = noop,
   ...otherProps
 }: TabItemProps, forwardedRef: Ref<any>) {
+  const [isHovered, setIsHovered] = useState(false)
+
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
@@ -45,11 +55,16 @@ function TabItemComponent({
     }
   }, [active, disabled, onClick])
 
+  const handleMouseEnter = useCallback(() => setIsHovered(true), [])
+
+  const handleMouseLeave = useCallback(() => setIsHovered(false), [])
+
   return (
     <Wrapper
       ref={forwardedRef}
       as={as}
       className={clazzName}
+      height={height}
       active={active}
       disabled={disabled}
       withIndicator={withIndicator}
@@ -58,9 +73,18 @@ function TabItemComponent({
       data-disabled={disabled}
       data-active={active || undefined}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       {...otherProps}
     >
-      { children }
+      <Background
+        isHovered={isHovered}
+        disabled={disabled}
+      >
+        <Text bold>
+          { children }
+        </Text>
+      </Background>
     </Wrapper>
   )
 }

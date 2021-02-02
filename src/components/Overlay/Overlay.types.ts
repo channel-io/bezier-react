@@ -60,5 +60,3 @@ export enum OverlayPosition {
   LeftTop = 'leftTop',
   LeftBottom = 'leftBottom',
 }
-
-export type EventHandler<K extends keyof HTMLElementEventMap> = (event: HTMLElementEventMap[K]) => any

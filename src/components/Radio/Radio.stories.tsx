@@ -5,7 +5,7 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/utils'
 import { Text } from '../Text'
-import Typography from '../../styling/Typography'
+import { Typography } from '../../foundation'
 import Radio from './Radio'
 
 export default {
