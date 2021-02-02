@@ -53,6 +53,7 @@ export default {
 const Container = styled.div`
   width: 600px;
   height: 500px;
+  position: relative;
   overflow: scroll;
   border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
@@ -93,9 +94,10 @@ const ScrollContent = styled.div`
 
 const Template = (props) => {
   const targetRef = useRef<any>()
+  const containerRef = useRef<any>()
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <Wrapper>
         <Target ref={targetRef}>
           target
@@ -103,6 +105,7 @@ const Template = (props) => {
         <Overlay
           {...props}
           target={targetRef.current}
+          container={containerRef.current}
         >
           <Children>
             <ScrollContent>
