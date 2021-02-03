@@ -8,6 +8,7 @@ import Switch from './Switch'
 
 export default {
   title: getTitle(base),
+  component: Switch,
   argTypes: {
     onClick: { action: 'onClick' },
   },
