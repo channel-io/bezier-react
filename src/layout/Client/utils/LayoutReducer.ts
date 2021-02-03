@@ -1,4 +1,4 @@
-import { insertItem } from '../../../utils/utils'
+import { insertItem, removeItem } from '../../../utils/utils'
 
 export interface NavigationState {
   initialWidth: number
@@ -28,6 +28,7 @@ export enum ActionType {
   CLOSE_SIDE_VIEW,
   SET_SHOW_NAVIGATION,
   ADD_NAV_OPTION,
+  REMOVE_NAV_OPTION,
   CLEAR_NAV_OPTION,
 }
 
@@ -54,6 +55,11 @@ interface AddNavOptionAction {
   payload: { index: number, option: NavigationState }
 }
 
+interface RemoveNavOptionAction {
+  type: ActionType.REMOVE_NAV_OPTION
+  payload: { index: number }
+}
+
 interface ClearNavOptionAction {
   type: ActionType.CLEAR_NAV_OPTION
 }
@@ -64,6 +70,7 @@ export type LayoutAction = (
   CloseSideViewAction |
   SetShowNavigationAction |
   AddNavOptionAction |
+  RemoveNavOptionAction |
   ClearNavOptionAction
 )
 
@@ -101,6 +108,13 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       return {
         ...state,
         navOptions: insertItem(state.navOptions, action.payload.index, action.payload.option),
+      }
+    }
+
+    case ActionType.REMOVE_NAV_OPTION: {
+      return {
+        ...state,
+        navOptions: removeItem(state.navOptions, action.payload.index),
       }
     }
 

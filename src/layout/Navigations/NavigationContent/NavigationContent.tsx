@@ -48,6 +48,10 @@ function NavigationContent({
 
   // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 렌더링이 된다
   useLayoutEffect(() => {
+    if (optionIndex === 0) {
+      dispatch({ type: ActionType.CLEAR_NAV_OPTION })
+    }
+
     dispatch({
       type: ActionType.ADD_NAV_OPTION,
       payload: { index: optionIndex, option: layoutOption },
@@ -60,10 +64,6 @@ function NavigationContent({
       })
     }
 
-    // return function cleanUp() {
-    //   console.log('clean-up')
-    //   dispatch({ type: ActionType.CLEAR_NAV_OPTION })
-    // }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layoutOption])
 

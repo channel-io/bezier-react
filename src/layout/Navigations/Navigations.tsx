@@ -160,10 +160,13 @@ forwardedRef: React.Ref<NavigationHandles>,
   }, [navOptions])
 
   const NavigationAreasComponent = useMemo(() => {
+    // React.Children.map 으로 변환하면 안됨
+    const childrens = React.Children.toArray(children)
     navigationRefs.current = []
-    return React.Children.map(children, (navChildren, index) => (
+
+    return childrens.map((navChildren, index) => (
       <NavigationArea
-          /* eslint-disable-next-line react/no-array-index-key */
+        /* eslint-disable-next-line react/no-array-index-key */
         key={`navigation-area-${index}`}
         ref={(element: HTMLDivElement) => {
           set(navigationRefs.current, [index, 'target'], element)
