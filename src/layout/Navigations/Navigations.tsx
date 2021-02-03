@@ -16,7 +16,6 @@ import {
   toNumber,
   noop,
 } from 'lodash-es'
-import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
@@ -187,34 +186,31 @@ forwardedRef: React.Ref<NavigationHandles>,
   }, [navOptions])
 
   const NavigationAreasComponent = useMemo(() => {
-    const childrens = React.Children.toArray(children)
-
     navigationRefs.current = []
 
-    return (
-      childrens.map((navChildren, index) => {
-        // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
-        if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
+    return React.Children.map(children, (navChildren, index) => {
+      // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
+      if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
 
-        return (
-          <NavigationArea
-            key={uuid()}
-            ref={(element: HTMLDivElement) => {
-              set(navigationRefs.current, [index, 'target'], element)
-              set(navigationRefs.current, [index, 'minWidth'], navOptions[index].minWidth)
-              set(navigationRefs.current, [index, 'maxWidth'], navOptions[index].maxWidth)
-            }}
-            disableResize={navOptions[index].disableResize}
-            hidable={navOptions[index].hidable}
-            optionIndex={index}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-          >
-            { navChildren }
-          </NavigationArea>
-        )
-      })
-    )
+      return (
+        <NavigationArea
+          /* eslint-disable-next-line react/no-array-index-key */
+          key={`navigation-area-${index}`}
+          ref={(element: HTMLDivElement) => {
+            set(navigationRefs.current, [index, 'target'], element)
+            set(navigationRefs.current, [index, 'minWidth'], navOptions[index].minWidth)
+            set(navigationRefs.current, [index, 'maxWidth'], navOptions[index].maxWidth)
+          }}
+          disableResize={navOptions[index].disableResize}
+          hidable={navOptions[index].hidable}
+          optionIndex={index}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+        >
+          { navChildren }
+        </NavigationArea>
+      )
+    })
   }, [children, handleMouseDown, handleMouseMove, navOptions])
 
   return (
