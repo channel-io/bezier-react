@@ -18,12 +18,12 @@ export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: Head
   grid-column: 1 / 3;
 `
 
-export const LeftHeader = styled.div`
+export const ContentHeader = styled.div`
   grid-row: 1 / 2;
   grid-column: 1 / 2;
 `
 
-export const RightHeader = styled.div`
+export const CoverableHeader = styled.div`
   grid-row: 1 / 2;
   grid-column: 2 / 3;
 `
