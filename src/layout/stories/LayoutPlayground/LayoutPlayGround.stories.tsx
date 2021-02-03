@@ -88,7 +88,7 @@ const Template = ({ onChangeWidth }) => {
             /* LayoutState Prop */
             showNavigation
             layoutOption={{
-              initialWidth: 200,
+              initialWidth: 250,
               maxWidth: 600,
               minWidth: 180,
               hidable: true,

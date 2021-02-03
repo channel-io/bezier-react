@@ -1,3 +1,5 @@
+import { insertItem } from '../../../utils/utils'
+
 export interface NavigationState {
   initialWidth: number
   maxWidth: number
@@ -10,12 +12,14 @@ export interface LayoutState {
   sideWidth: number | null
   showSideView: boolean
   showNavigation: boolean
+  navOptions: NavigationState[]
 }
 
 export const defaultState: LayoutState = {
   sideWidth: null,
   showSideView: false,
   showNavigation: true,
+  navOptions: [],
 }
 
 export enum ActionType {
@@ -23,8 +27,8 @@ export enum ActionType {
   OPEN_SIDE_VIEW,
   CLOSE_SIDE_VIEW,
   SET_SHOW_NAVIGATION,
-  ADD_NAVIGATION,
-  CLEAR_NAVIGATIONS,
+  ADD_NAV_OPTION,
+  CLEAR_NAV_OPTION,
 }
 
 interface SetSideWidthAction {
@@ -45,11 +49,22 @@ interface SetShowNavigationAction {
   payload: boolean
 }
 
+interface AddNavOptionAction {
+  type: ActionType.ADD_NAV_OPTION
+  payload: { index: number, option: NavigationState }
+}
+
+interface ClearNavOptionAction {
+  type: ActionType.CLEAR_NAV_OPTION
+}
+
 export type LayoutAction = (
   SetSideWidthAction |
   OpenSideViewAction |
   CloseSideViewAction |
-  SetShowNavigationAction
+  SetShowNavigationAction |
+  AddNavOptionAction |
+  ClearNavOptionAction
 )
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
@@ -79,6 +94,20 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       return {
         ...state,
         showNavigation: action.payload,
+      }
+    }
+
+    case ActionType.ADD_NAV_OPTION: {
+      return {
+        ...state,
+        navOptions: insertItem(state.navOptions, action.payload.index, action.payload.option),
+      }
+    }
+
+    case ActionType.CLEAR_NAV_OPTION: {
+      return {
+        ...state,
+        navOptions: [],
       }
     }
 

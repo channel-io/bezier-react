@@ -6,10 +6,8 @@ import React, {
   useLayoutEffect,
   useMemo,
   useRef,
-  useState,
 } from 'react'
 import {
-  isArray,
   isNil,
   set,
   size,
@@ -18,13 +16,10 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../hooks/useLayoutDispatch'
-import { insertItem } from '../../utils/utils'
-import { ActionType, NavigationState } from '../Client/utils/LayoutReducer'
+import useLayoutState from '../../hooks/useLayoutState'
 import NavigationsProps, { NavigationRefsProps } from './Navigations.types'
 import { NavigationsWrapper } from './Navigations.styled'
 import { NavigationArea } from './NavigationArea'
-import NavigationContentProps from './NavigationContent/NavigationContent.types'
 
 // TODO-LAYOUT: z-index 명확화 하기
 const MAX_NAV_Z_INDEX = 100
@@ -40,9 +35,7 @@ function Navigations({
 }: NavigationsProps,
 forwardedRef: React.Ref<NavigationHandles>,
 ) {
-  const layoutDispatch = useLayoutDispatch()
-
-  const [navOptions, setNavOptions] = useState<Array<NavigationState>>([])
+  const { navOptions } = useLayoutState()
 
   const navigationRefs = useRef<Array<NavigationRefsProps>>([])
   const currentIndex = useRef(0)
@@ -156,27 +149,8 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside,
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
+  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 렌더링이 된다
   useLayoutEffect(() => {
-    setNavOptions([])
-
-    const childrens = React.Children.toArray(children)
-    childrens.forEach((child, index) => {
-      if (!React.isValidElement<NavigationContentProps>(child)) { return }
-
-      setNavOptions(options => (insertItem(options, index, child.props.layoutOption)))
-
-      if (child.props.showNavigation) {
-        layoutDispatch({
-          type: ActionType.SET_SHOW_NAVIGATION,
-          payload: child.props.showNavigation,
-        })
-      }
-    })
-  }, [children, layoutDispatch])
-
-  useLayoutEffect(() => {
-    if (!isArray(navOptions)) { return }
-
     for (const index in navigationRefs.current) {
       if (!isNil(navigationRefs.current[index].target) && navOptions[index]) {
         navigationRefs.current[index].target.style.width = `${navOptions[index].initialWidth}px`
@@ -187,30 +161,24 @@ forwardedRef: React.Ref<NavigationHandles>,
 
   const NavigationAreasComponent = useMemo(() => {
     navigationRefs.current = []
-
-    return React.Children.map(children, (navChildren, index) => {
-      // TODO: instanceof 등으로 NavigationContent가 안 내려오면 warning을 띄워주는 것이 좋을 듯
-      if (!navOptions[index] || !React.isValidElement<NavigationContentProps>(navChildren)) { return null }
-
-      return (
-        <NavigationArea
+    return React.Children.map(children, (navChildren, index) => (
+      <NavigationArea
           /* eslint-disable-next-line react/no-array-index-key */
-          key={`navigation-area-${index}`}
-          ref={(element: HTMLDivElement) => {
-            set(navigationRefs.current, [index, 'target'], element)
-            set(navigationRefs.current, [index, 'minWidth'], navOptions[index].minWidth)
-            set(navigationRefs.current, [index, 'maxWidth'], navOptions[index].maxWidth)
-          }}
-          disableResize={navOptions[index].disableResize}
-          hidable={navOptions[index].hidable}
-          optionIndex={index}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-        >
-          { navChildren }
-        </NavigationArea>
-      )
-    })
+        key={`navigation-area-${index}`}
+        ref={(element: HTMLDivElement) => {
+          set(navigationRefs.current, [index, 'target'], element)
+          set(navigationRefs.current, [index, 'minWidth'], navOptions[index]?.minWidth)
+          set(navigationRefs.current, [index, 'maxWidth'], navOptions[index]?.maxWidth)
+        }}
+        disableResize={navOptions[index]?.disableResize || false}
+        hidable={navOptions[index]?.hidable || false}
+        optionIndex={index}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+      >
+        { navChildren }
+      </NavigationArea>
+    ))
   }, [children, handleMouseDown, handleMouseMove, navOptions])
 
   return (

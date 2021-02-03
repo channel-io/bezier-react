@@ -1,9 +1,12 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
-import { noop } from 'lodash-es'
+import React, { useContext, useLayoutEffect, useMemo } from 'react'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../../utils/stringUtils'
+import { NavigationContext } from '../../../contexts/NavigationContext'
+import { ActionType } from '../../Client/utils/LayoutReducer'
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import {
   ChevronIcon,
   StyledContentWrapper,
@@ -28,14 +31,42 @@ function NavigationContent({
   onScroll,
   children,
 
-  /* Navigations Injected Props */
-  showChevron = false,
-  allowMouseMove = false,
-  isHoveringOnPresenter = false,
-  onClickClose = noop,
-  optionIndex,
+  /* LayoutState Prop */
+  layoutOption,
+  showNavigation,
   ...otherProps
 }: NavigationContentProps) {
+  const {
+    optionIndex,
+    showChevron,
+    allowMouseMove,
+    isHoveringOnPresenter,
+    onClickClose,
+  } = useContext(NavigationContext)
+
+  const dispatch = useLayoutDispatch()
+
+  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 렌더링이 된다
+  useLayoutEffect(() => {
+    dispatch({
+      type: ActionType.ADD_NAV_OPTION,
+      payload: { index: optionIndex, option: layoutOption },
+    })
+
+    if (!isNil(showNavigation)) {
+      dispatch({
+        type: ActionType.SET_SHOW_NAVIGATION,
+        payload: showNavigation,
+      })
+    }
+
+    // return function cleanUp() {
+    //   console.log('clean-up')
+    //   dispatch({ type: ActionType.CLEAR_NAV_OPTION })
+    // }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layoutOption])
+
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
   ), [className, scrollClassName, withScroll])

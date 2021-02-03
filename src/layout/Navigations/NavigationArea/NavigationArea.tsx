@@ -11,6 +11,7 @@ import { noop } from 'lodash-es'
 import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
+import { NavigationContext, NavigationContextProps } from '../../../contexts/NavigationContext'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
@@ -73,11 +74,7 @@ function NavigationArea(
       if (!allowMouseMove) return
       onMouseMove(event)
     })
-  }, [
-    disableResize,
-    allowMouseMove,
-    onMouseMove,
-  ])
+  }, [disableResize, allowMouseMove, onMouseMove])
 
   useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)
   useEventHandler(document, 'mouseup', handleMouseUp)
@@ -121,14 +118,13 @@ function NavigationArea(
     }
   }, [handleDecideHover, show])
 
-  const ContentComponent = useMemo(() => (
-    React.cloneElement(children, {
-      showChevron,
-      allowMouseMove,
-      isHoveringOnPresenter,
-      onClickClose: handleClickClose,
-    })
-  ), [allowMouseMove, children, handleClickClose, isHoveringOnPresenter, showChevron])
+  const navigationContextValues: NavigationContextProps = useMemo(() => ({
+    optionIndex,
+    showChevron,
+    allowMouseMove,
+    isHoveringOnPresenter,
+    onClickClose: handleClickClose,
+  }), [allowMouseMove, handleClickClose, isHoveringOnPresenter, optionIndex, showChevron])
 
   return (
     <NavigationContainer
@@ -147,7 +143,9 @@ function NavigationArea(
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          { ContentComponent }
+          <NavigationContext.Provider value={navigationContextValues}>
+            { children }
+          </NavigationContext.Provider>
         </NavigationPresenter>
       </NavigationPositioner>
       <ResizeBar
