@@ -166,22 +166,25 @@ forwardedRef: React.Ref<NavigationHandles>,
   }, [navOptions])
 
   const NavigationAreasComponent = useMemo(() => {
-    // React.Children.map 으로 변환하면 안됨
-    const childrens = React.Children.toArray(children)
     navigationRefs.current = []
-
-    return childrens.map((navChildren, index) => (
-      <NavigationArea
-        /* eslint-disable-next-line react/no-array-index-key */
-        key={`navigation-area-${index}`}
-        ref={(element: HTMLDivElement) => setNavigationRef(element, index)}
-        optionIndex={index}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-      >
-        { navChildren }
-      </NavigationArea>
-    ))
+    // NOTE: React.Children.toArray 와 React.Children.map 의 차이점은
+    // toArray의 경우에는 null child는 무시한 array를 만든다
+    // Map으로 하면 null child 도 iterate을 수행한다
+    return React.Children.map(children, (navChildren, index) => {
+      if (!navChildren) { return null }
+      return (
+        <NavigationArea
+          /* eslint-disable-next-line react/no-array-index-key */
+          key={`navigation-area-${index}`}
+          ref={(element: HTMLDivElement) => setNavigationRef(element, index)}
+          optionIndex={index}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+        >
+          { navChildren }
+        </NavigationArea>
+      )
+    })
   }, [children, handleMouseDown, handleMouseMove, setNavigationRef])
 
   return (
