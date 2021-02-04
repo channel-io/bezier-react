@@ -8,6 +8,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   show?: boolean
   containerClassName?: string
   containerStyle?: React.CSSProperties
+  container?: HTMLElement | null
   target?: HTMLElement | null
   placement?: OverlayPosition
   marginX?: number
@@ -17,6 +18,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
 }
 
 export interface GetOverlayStyleProps {
+  container?: HTMLElement | null
   target?: HTMLElement | null
   overlay: HTMLElement
   placement: OverlayPosition
@@ -26,10 +28,12 @@ export interface GetOverlayStyleProps {
 }
 
 export interface GetOverlayPositionProps {
+  container?: HTMLElement | null
   target: HTMLElement
 }
 
 export interface GetOverlayTranslatationProps {
+  container?: HTMLElement | null
   target: HTMLElement
   overlay: HTMLElement
   placement: OverlayPosition

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useRef } from 'react'
-import { clamp, get, isNil } from 'lodash-es'
+import { clamp, isNil } from 'lodash-es'
 import { window } from 'ssr-window'
 
 /* Internal dependencies */
@@ -18,7 +18,8 @@ import MainProps from './Main.types'
 function Main(
   {
     content,
-    header,
+    contentHeader,
+    coverableHeader,
     sidePanel,
     sideView,
     navigationRef,
@@ -34,11 +35,8 @@ function Main(
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
 
-  const mainHeader = get(header, 'props.mainHeader', null)
-  const coverableHeader = get(header, 'props.coverableHeader', null)
-
   const hasSide = !isNil(sidePanel) || showSideView
-  const hasHeader = !isNil(mainHeader || coverableHeader)
+  const hasHeader = !isNil(contentHeader || coverableHeader)
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     contentInitialWidth.current = contentRef.current!.clientWidth
@@ -79,7 +77,7 @@ function Main(
     >
       <HeaderArea
         hasHeader={hasHeader}
-        mainHeader={mainHeader}
+        contentHeader={contentHeader}
         coverableHeader={coverableHeader}
       />
       <ContentArea

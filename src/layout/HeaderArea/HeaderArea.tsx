@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
-import { HeaderWrapper, LeftHeader, RightHeader } from './HeaderArea.styled'
+import { HeaderWrapper, ContentHeader, CoverableHeader } from './HeaderArea.styled'
 import HeaderAreaProps from './HeaderArea.types'
 
 export const HEADER_AREA_TEST_ID = 'ch-design-system-header-area'
@@ -12,7 +12,7 @@ function HeaderArea(
   {
     style,
     className,
-    mainHeader,
+    contentHeader,
     coverableHeader,
     testId = HEADER_AREA_TEST_ID,
     hasHeader,
@@ -34,8 +34,8 @@ function HeaderArea(
       showSideView={showSideView}
       {...otherProps}
     >
-      <LeftHeader>{ mainHeader }</LeftHeader>
-      <RightHeader>{ coverableHeader }</RightHeader>
+      <ContentHeader>{ contentHeader }</ContentHeader>
+      <CoverableHeader>{ coverableHeader }</CoverableHeader>
     </HeaderWrapper>
   )
 }
