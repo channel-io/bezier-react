@@ -105,6 +105,7 @@ const Template = ({ onChangeWidth }) => {
             header={Element1Header}
             withScroll
             /* LayoutState Prop */
+            showNavigation
             layoutOption={{
               initialWidth: 200,
               maxWidth: 600,

@@ -149,7 +149,13 @@ forwardedRef: React.Ref<NavigationHandles>,
     handleMouseMoveOutside,
   }), [handleMouseDownOutside, handleMouseMoveOutside])
 
-  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 렌더링이 된다
+  const setNavigationRef = useCallback((element: HTMLDivElement, index: number) => {
+    set(navigationRefs.current, [index, 'target'], element)
+    set(navigationRefs.current, [index, 'minWidth'], navOptions[index]?.minWidth)
+    set(navigationRefs.current, [index, 'maxWidth'], navOptions[index]?.maxWidth)
+  }, [navOptions])
+
+  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 깜빡임이 발생한다
   useLayoutEffect(() => {
     for (const index in navigationRefs.current) {
       if (!isNil(navigationRefs.current[index].target) && navOptions[index]) {
@@ -168,13 +174,7 @@ forwardedRef: React.Ref<NavigationHandles>,
       <NavigationArea
         /* eslint-disable-next-line react/no-array-index-key */
         key={`navigation-area-${index}`}
-        ref={(element: HTMLDivElement) => {
-          set(navigationRefs.current, [index, 'target'], element)
-          set(navigationRefs.current, [index, 'minWidth'], navOptions[index]?.minWidth)
-          set(navigationRefs.current, [index, 'maxWidth'], navOptions[index]?.maxWidth)
-        }}
-        disableResize={navOptions[index]?.disableResize || false}
-        hidable={navOptions[index]?.hidable || false}
+        ref={(element: HTMLDivElement) => setNavigationRef(element, index)}
         optionIndex={index}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -182,7 +182,7 @@ forwardedRef: React.Ref<NavigationHandles>,
         { navChildren }
       </NavigationArea>
     ))
-  }, [children, handleMouseDown, handleMouseMove, navOptions])
+  }, [children, handleMouseDown, handleMouseMove, setNavigationRef])
 
   return (
     <NavigationsWrapper>

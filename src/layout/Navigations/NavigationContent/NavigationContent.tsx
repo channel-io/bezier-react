@@ -46,7 +46,7 @@ function NavigationContent({
 
   const dispatch = useLayoutDispatch()
 
-  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 렌더링이 된다
+  // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 깜빡임이 발생한다
   useLayoutEffect(() => {
     if (optionIndex === 0) {
       dispatch({ type: ActionType.CLEAR_NAV_OPTION })
@@ -63,9 +63,7 @@ function NavigationContent({
         payload: showNavigation,
       })
     }
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [layoutOption])
+  }, [dispatch, layoutOption, optionIndex, showNavigation])
 
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))

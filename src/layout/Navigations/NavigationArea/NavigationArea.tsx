@@ -34,8 +34,6 @@ function NavigationArea(
     className,
     testId = NAV_TEST_ID,
     /* cloneElement Props */
-    hidable = false,
-    disableResize = false,
     optionIndex = 0,
     onMouseDown = noop,
     onMouseMove = noop,
@@ -45,8 +43,10 @@ function NavigationArea(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation } = useLayoutState()
+  const { showNavigation, navOptions } = useLayoutState()
 
+  const hidable = useMemo(() => navOptions[optionIndex]?.hidable || false, [navOptions, optionIndex])
+  const disableResize = useMemo(() => navOptions[optionIndex]?.disableResize || false, [navOptions, optionIndex])
   const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
 
   const containerRef = useRef<HTMLDivElement | null>(null)
