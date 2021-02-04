@@ -28,7 +28,6 @@ export * from './components/Header'
 export * from './layout/GNB'
 export * from './layout/GlobalHeader'
 export * from './layout/Client'
-export * from './layout/HeaderContent'
 export * from './layout/Main'
 export * from './layout/Navigations'
 

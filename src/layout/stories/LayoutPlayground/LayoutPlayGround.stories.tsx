@@ -11,7 +11,6 @@ import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
 import Client from '../../Client/Client'
 import { Main } from '../../Main'
-import { HeaderContent } from '../../HeaderContent'
 import GNB from '../../GNB/GNB'
 import Navigations, { NavigationHandles } from '../../Navigations/Navigations'
 import { SidePanelChildProps } from '../../SidePanelArea/SidePanelArea.types'
@@ -89,7 +88,7 @@ const Template = ({ onChangeWidth }) => {
             /* LayoutState Prop */
             showNavigation
             layoutOption={{
-              initialWidth: 200,
+              initialWidth: 250,
               maxWidth: 600,
               minWidth: 180,
               hidable: true,
@@ -106,6 +105,7 @@ const Template = ({ onChangeWidth }) => {
             header={Element1Header}
             withScroll
             /* LayoutState Prop */
+            showNavigation
             layoutOption={{
               initialWidth: 200,
               maxWidth: 600,
@@ -172,25 +172,25 @@ const Template = ({ onChangeWidth }) => {
 
   const ContentRoute = useMemo(() => (<Content />), [])
 
-  const HeaderRoute = useMemo(() => {
+  const ContentHeaderRoute = useMemo(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (
-          <HeaderContent
-            mainHeader={<Div>TeamChat Header</Div>}
-            coverableHeader={<Div>Search</Div>}
-          />
-        )
+        return (<Div>TeamChat Header</Div>)
       case RouteKeys.UserChat:
-        return (
-          <HeaderContent
-            mainHeader={<Div>UserChat Header</Div>}
-            coverableHeader={<Div>Search</Div>}
-          />
-        )
+        return (<Div>UserChat Header</Div>)
       case RouteKeys.Statistic:
-        return (<Div>Statistic Header</Div>)
+        return (<Div>Statistic Heassder</Div>)
       case RouteKeys.Setting:
+      default:
+        return null
+    }
+  }, [Div, route])
+
+  const CoverableHeaderRoute = useMemo(() => {
+    switch (route) {
+      case RouteKeys.TeamChat:
+      case RouteKeys.UserChat:
+        return (<Div>Search</Div>)
       default:
         return null
     }
@@ -228,7 +228,8 @@ const Template = ({ onChangeWidth }) => {
           <Main
             navigationRef={navigationRef}
             content={ContentRoute}
-            header={HeaderRoute}
+            contentHeader={ContentHeaderRoute}
+            coverableHeader={CoverableHeaderRoute}
             sidePanel={SidePanelRoute}
             sideView={SideViewComponent}
           />
