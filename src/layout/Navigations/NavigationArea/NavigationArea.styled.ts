@@ -13,11 +13,31 @@ export const ResizeBar = styled.div<ResizeBarProps>`
   top: 0;
   right: 0;
   z-index: 9999999;
+  display: flex;
+  justify-content: center;
   width: 10px;
   height: 100%;
   cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
   background-color: transparent;
   transform: translateX(50%);
+
+  &::after {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 100%;
+    margin-right: 1px;
+    content: '';
+    background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+    opacity: 0.7;
+  }
+
+  &:hover {
+    &::after {
+      background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+      opacity: 1;
+    }
+  }
 `
 
 interface NavigationContainerProps {
