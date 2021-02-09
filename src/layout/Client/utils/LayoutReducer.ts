@@ -1,4 +1,5 @@
-import { insertItem, removeItem } from '../../../utils/utils'
+/* External dependencies */
+import { omit } from 'lodash-es'
 
 export interface NavigationState {
   initialWidth: number
@@ -12,24 +13,33 @@ export interface LayoutState {
   sideWidth: number | null
   showSideView: boolean
   showNavigation: boolean
-  navOptions: NavigationState[]
+  columnOptions: { [key: string]: NavigationState }
+  columnRefs: Map<string, {
+    target: HTMLDivElement
+    minWidth: number
+    maxWidth: number
+    initialWidth: number
+  }>
 }
 
 export const defaultState: LayoutState = {
   sideWidth: null,
   showSideView: false,
   showNavigation: true,
-  navOptions: [],
+  columnOptions: {},
+  columnRefs: new Map(),
 }
 
 export enum ActionType {
-  SET_SIDE_WIDTH,
-  OPEN_SIDE_VIEW,
-  CLOSE_SIDE_VIEW,
-  SET_SHOW_NAVIGATION,
-  ADD_NAV_OPTION,
-  REMOVE_NAV_OPTION,
-  CLEAR_NAV_OPTION,
+  SET_SIDE_WIDTH = 'SET_SIDE_WIDTH',
+  OPEN_SIDE_VIEW = 'OPEN_SIDE_VIEW',
+  CLOSE_SIDE_VIEW = 'CLOSE_SIDE_VIEW',
+  SET_SHOW_NAVIGATION = 'SET_SHOW_NAVIGATION',
+  ADD_NAV_OPTION = 'ADD_NAV_OPTION',
+  REMOVE_NAV_OPTION = 'REMOVE_NAV_OPTION',
+  CLEAR_NAV_OPTION = 'CLEAR_NAV_OPTION',
+  ADD_COLUMN_REF = 'ADD_COLUMN_REF',
+  REMOVE_COLUMN_REF = 'REMOVE_COLUMN_REF',
 }
 
 interface SetSideWidthAction {
@@ -52,16 +62,26 @@ interface SetShowNavigationAction {
 
 interface AddNavOptionAction {
   type: ActionType.ADD_NAV_OPTION
-  payload: { index: number, option: NavigationState }
+  payload: { key: string, option: NavigationState }
 }
 
 interface RemoveNavOptionAction {
   type: ActionType.REMOVE_NAV_OPTION
-  payload: { index: number }
+  payload: { key: string }
 }
 
 interface ClearNavOptionAction {
   type: ActionType.CLEAR_NAV_OPTION
+}
+
+interface AddColumnRefAction {
+  type: ActionType.ADD_COLUMN_REF
+  payload: { key: string, ref: any }
+}
+
+interface RemoveColumnRefAction {
+  type: ActionType.REMOVE_COLUMN_REF
+  payload: { key: string }
 }
 
 export type LayoutAction = (
@@ -71,7 +91,9 @@ export type LayoutAction = (
   SetShowNavigationAction |
   AddNavOptionAction |
   RemoveNavOptionAction |
-  ClearNavOptionAction
+  ClearNavOptionAction |
+  AddColumnRefAction |
+  RemoveColumnRefAction
 )
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
@@ -107,21 +129,41 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.ADD_NAV_OPTION: {
       return {
         ...state,
-        navOptions: insertItem(state.navOptions, action.payload.index, action.payload.option),
+        columnOptions: {
+          ...state.columnOptions,
+          [action.payload.key]: action.payload.option,
+        },
       }
     }
 
     case ActionType.REMOVE_NAV_OPTION: {
       return {
         ...state,
-        navOptions: removeItem(state.navOptions, action.payload.index),
+        columnOptions: omit(state.columnOptions, action.payload.key),
       }
     }
 
     case ActionType.CLEAR_NAV_OPTION: {
       return {
         ...state,
-        navOptions: [],
+        columnOptions: {},
+      }
+    }
+
+    case ActionType.ADD_COLUMN_REF: {
+      return {
+        ...state,
+        columnRefs: state.columnRefs.set(action.payload.key, action.payload.ref),
+      }
+    }
+
+    case ActionType.REMOVE_COLUMN_REF: {
+      const newColumnRefs = new Map(state.columnRefs)
+      newColumnRefs.delete(action.payload.key)
+
+      return {
+        ...state,
+        columnRefs: newColumnRefs,
       }
     }
 

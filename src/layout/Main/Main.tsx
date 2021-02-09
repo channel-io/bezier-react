@@ -1,7 +1,15 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useRef } from 'react'
+import React, {
+  useContext,
+  forwardRef,
+  useCallback,
+  useRef,
+  useMemo,
+  useLayoutEffect,
+} from 'react'
 import { clamp, isNil } from 'lodash-es'
 import { window } from 'ssr-window'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
@@ -12,6 +20,7 @@ import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
 import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
+import { ResizingContext } from '../../contexts/LayoutContext'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
@@ -22,13 +31,16 @@ function Main(
     coverableHeader,
     sidePanel,
     sideView,
-    navigationRef,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
   const { sideWidth, showSideView } = useLayoutState()
+
+  const currentKey = useMemo(() => uuid(), [])
+
+  const { onMouseDown, onMouseMove } = useContext(ResizingContext)
 
   const contentRef = useRef<HTMLDivElement | null>(null)
   const contentInitialWidth = useRef(0)
@@ -42,8 +54,8 @@ function Main(
     contentInitialWidth.current = contentRef.current!.clientWidth
     initialPosition.current = e.clientX
     sideInitialWidth.current = sideWidth!
-    navigationRef?.current?.handleMouseDownOutside()
-  }, [navigationRef, sideWidth])
+    onMouseDown()
+  }, [onMouseDown, sideWidth])
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
@@ -51,7 +63,7 @@ function Main(
       const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
       if (navigationDelta < 0) {
-        const isNavigationMinimum = navigationRef?.current?.handleMouseMoveOutside(navigationDelta)
+        const isNavigationMinimum = onMouseMove(navigationDelta)
 
         if (isNavigationMinimum) { return }
       }
@@ -65,7 +77,34 @@ function Main(
         ),
       })
     })
-  }, [dispatch, navigationRef])
+  }, [
+    dispatch,
+    onMouseMove,
+  ])
+
+  useLayoutEffect(() => {
+    dispatch({
+      type: LayoutActionType.ADD_COLUMN_REF,
+      payload: {
+        key: currentKey,
+        ref: {
+          target: contentRef.current,
+        },
+      },
+    })
+
+    return function cleanUp() {
+      dispatch({
+        type: LayoutActionType.REMOVE_COLUMN_REF,
+        payload: {
+          key: currentKey,
+        },
+      })
+    }
+  }, [
+    dispatch,
+    currentKey,
+  ])
 
   return (
     <MainWrapper

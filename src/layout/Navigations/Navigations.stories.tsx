@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
@@ -11,7 +11,7 @@ import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
 import { NavigationContent } from './NavigationContent'
-import Navigations, { NavigationHandles } from './Navigations'
+import Navigations from './Navigations'
 
 export default {
   title: getTitle(base),
@@ -21,8 +21,8 @@ export default {
 const Container = styled.div`
   width: 700px;
   height: 400px;
-  margin: 0 auto;
   padding: 2px;
+  margin: 0 auto;
   border: 2px solid ${Palette.grey100};
   border-radius: 10px;
 `
@@ -32,8 +32,6 @@ const StyledIcon = styled(Icon)`
 `
 
 const Template = ({ onChangeWidth }) => {
-  const navigationRef = useRef<NavigationHandles | null>(null)
-
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10}/>
@@ -56,7 +54,7 @@ const Template = ({ onChangeWidth }) => {
   return (
     <Container>
       <Client>
-        <Navigations ref={navigationRef} onChangeWidth={onChangeWidth}>
+        <Navigations onChangeWidth={onChangeWidth}>
           <NavigationContent
             header={Element1Header}
             withScroll

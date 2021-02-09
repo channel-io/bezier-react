@@ -3,15 +3,16 @@ import React, {
   forwardRef,
   useState,
   useEffect,
+  useLayoutEffect,
   useCallback,
   useRef,
   useMemo,
+  useContext,
 } from 'react'
-import { noop } from 'lodash-es'
 import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
-import { NavigationContext, NavigationContextProps } from '../../../contexts/NavigationContext'
+import { ResizingContext } from '../../../contexts/LayoutContext'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
@@ -26,6 +27,8 @@ import {
   NavigationPresenter,
 } from './NavigationArea.styled'
 
+const MAX_NAV_Z_INDEX = '100'
+
 export const NAV_TEST_ID = 'ch-design-system-nav'
 
 function NavigationArea(
@@ -33,20 +36,24 @@ function NavigationArea(
     style,
     className,
     testId = NAV_TEST_ID,
-    /* cloneElement Props */
-    optionIndex = 0,
-    onMouseDown = noop,
-    onMouseMove = noop,
+    currentKey = '',
+    allowMouseMove,
+    setAllowMouseMove,
+    setShowChevron,
+    isHoveringOnPresenter,
+    setIsHoveringOnPresenter,
     children,
     ...otherProps
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, navOptions } = useLayoutState()
+  const { showNavigation, columnOptions } = useLayoutState()
 
-  const hidable = useMemo(() => navOptions[optionIndex]?.hidable || false, [navOptions, optionIndex])
-  const disableResize = useMemo(() => navOptions[optionIndex]?.disableResize || false, [navOptions, optionIndex])
+  const { onMouseDown, onMouseMove } = useContext(ResizingContext)
+
+  const hidable = useMemo(() => columnOptions[currentKey]?.hidable || false, [columnOptions, currentKey])
+  const disableResize = useMemo(() => columnOptions[currentKey]?.disableResize || false, [columnOptions, currentKey])
   const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
 
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -54,18 +61,18 @@ function NavigationArea(
   const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
   const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
 
-  const [allowMouseMove, setAllowMouseMove] = useState(false)
-  const [showChevron, setShowChevron] = useState(false)
-  const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
-
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
-    onMouseDown(event, optionIndex)
+    onMouseDown(event, currentKey)
     setAllowMouseMove(true)
-  }, [optionIndex, onMouseDown])
+  }, [
+    currentKey,
+    onMouseDown,
+    setAllowMouseMove,
+  ])
 
   const handleMouseUp = useCallback(() => {
     setAllowMouseMove(false)
-  }, [])
+  }, [setAllowMouseMove])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     if (disableResize) { return }
@@ -92,16 +99,6 @@ function NavigationArea(
     setShowChevron(false)
   }, 100, undefined, [])
 
-  const handleClickClose = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_NAVIGATION,
-      payload: false,
-    })
-
-    setShowChevron(false)
-    setIsHoveringOnPresenter(true)
-  }, [dispatch])
-
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
     const containerLeft = containerRef.current?.getBoundingClientRect().left || 0
@@ -118,13 +115,37 @@ function NavigationArea(
     }
   }, [handleDecideHover, show])
 
-  const navigationContextValues: NavigationContextProps = useMemo(() => ({
-    optionIndex,
-    showChevron,
-    allowMouseMove,
-    isHoveringOnPresenter,
-    onClickClose: handleClickClose,
-  }), [allowMouseMove, handleClickClose, isHoveringOnPresenter, optionIndex, showChevron])
+  useLayoutEffect(() => {
+    if (presenterRef.current) {
+      presenterRef.current.style.width = `${columnOptions[currentKey]?.initialWidth}px`
+      presenterRef.current.style.zIndex = MAX_NAV_Z_INDEX
+    }
+
+    dispatch({
+      type: ActionType.ADD_COLUMN_REF,
+      payload: {
+        key: currentKey,
+        ref: {
+          target: presenterRef.current,
+          minWidth: columnOptions[currentKey]?.minWidth,
+          maxWidth: columnOptions[currentKey]?.maxWidth,
+        },
+      },
+    })
+
+    return function cleanUp() {
+      dispatch({
+        type: ActionType.REMOVE_COLUMN_REF,
+        payload: {
+          key: currentKey,
+        },
+      })
+    }
+  }, [
+    dispatch,
+    currentKey,
+    columnOptions,
+  ])
 
   return (
     <NavigationContainer
@@ -143,9 +164,7 @@ function NavigationArea(
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          <NavigationContext.Provider value={navigationContextValues}>
-            { children }
-          </NavigationContext.Provider>
+          { children }
         </NavigationPresenter>
       </NavigationPositioner>
       <ResizeBar

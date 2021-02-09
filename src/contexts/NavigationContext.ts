@@ -3,7 +3,7 @@ import { createContext } from 'react'
 import { noop } from 'lodash-es'
 
 export interface NavigationContextProps {
-  optionIndex: number
+  key: string
   showChevron: boolean
   allowMouseMove: boolean
   isHoveringOnPresenter: boolean
@@ -11,7 +11,7 @@ export interface NavigationContextProps {
 }
 
 export const NavigationContext = createContext<NavigationContextProps>({
-  optionIndex: -1,
+  key: '0',
   showChevron: false,
   allowMouseMove: false,
   isHoveringOnPresenter: false,
