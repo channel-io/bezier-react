@@ -32,14 +32,14 @@ function Client(
 ) {
   const [state, dispatch] = useReducer(LayoutReducer, defaultState)
 
-  const keyArray = useMemo(() => Array.from(state.columnRefs.keys()), [state])
+  const keyArray = useMemo(() => state.orderedColumnKeys, [state])
 
   const currentKey = useRef('')
   const initialKey = useRef('')
   const initialPosition = useRef(0)
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown'], key: string) => {
-    state.columnRefs.forEach(ref => {
+    Object.values(state.columnRefs).forEach(ref => {
       const currentNode = ref
       currentNode.initialWidth = currentNode.target.clientWidth
     })
@@ -51,17 +51,18 @@ function Client(
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
+
     currentKey.current = initialKey.current
 
     if (
       (movedPosition > 0) &&
-      state.columnRefs.has(currentKey.current)
+      state.columnRefs[currentKey.current]
     ) {
-      const { initialWidth, maxWidth } = state.columnRefs.get(currentKey.current)!
+      const { initialWidth, maxWidth } = state.columnRefs[currentKey.current]
       const resultWidth = initialWidth + movedPosition
 
       if (resultWidth <= maxWidth) {
-        const widthChageTarget = state.columnRefs.get(currentKey.current)!.target
+        const widthChageTarget = state.columnRefs[currentKey.current].target
 
         window.requestAnimationFrame!(() => {
           widthChageTarget.style.width = `${resultWidth}px`
@@ -70,14 +71,14 @@ function Client(
 
       // onChangeWidth
 
-      return
+      return true
     }
 
     while (
       (currentKey.current) &&
       (movedPosition < 0)
     ) {
-      const { initialWidth, minWidth, maxWidth, target } = state.columnRefs.get(currentKey.current)!
+      const { initialWidth, minWidth, maxWidth, target } = state.columnRefs[currentKey.current]
       const resultWidth = Math.max(initialWidth + movedPosition, minWidth)
 
       if ((initialWidth + movedPosition) > minWidth) {
@@ -99,9 +100,18 @@ function Client(
       // onChangeWidth
 
       if (state.columnOptions[currentKey.current]?.disableResize) {
-        return
+        return true
       }
     }
+
+    /* eslint-disable-next-line consistent-return */
+    Object.values(state.columnRefs).forEach(ref => {
+      if (ref.target.clientWidth !== ref.minWidth) {
+        return false
+      }
+    })
+
+    return true
   }, [
     initialPosition,
     state,

@@ -1,6 +1,17 @@
 /* External dependencies */
 import { omit } from 'lodash-es'
 
+/* Internal dependencies */
+import { insertItem, removeItem } from '../../../utils/utils'
+import ColumnType from '../../../types/ColumnType'
+
+type ColumnRef = {
+  target: HTMLDivElement
+  minWidth: number
+  maxWidth: number
+  initialWidth: number
+}
+
 export interface NavigationState {
   initialWidth: number
   maxWidth: number
@@ -13,21 +24,18 @@ export interface LayoutState {
   sideWidth: number | null
   showSideView: boolean
   showNavigation: boolean
+  orderedColumnKeys: Array<string>
+  columnRefs: { [key: string]: ColumnRef }
   columnOptions: { [key: string]: NavigationState }
-  columnRefs: Map<string, {
-    target: HTMLDivElement
-    minWidth: number
-    maxWidth: number
-    initialWidth: number
-  }>
 }
 
 export const defaultState: LayoutState = {
   sideWidth: null,
   showSideView: false,
   showNavigation: true,
+  orderedColumnKeys: [],
+  columnRefs: {},
   columnOptions: {},
-  columnRefs: new Map(),
 }
 
 export enum ActionType {
@@ -76,7 +84,11 @@ interface ClearNavOptionAction {
 
 interface AddColumnRefAction {
   type: ActionType.ADD_COLUMN_REF
-  payload: { key: string, ref: any }
+  payload: {
+    key: string
+    ref: ColumnRef
+    columnType: ColumnType
+  }
 }
 
 interface RemoveColumnRefAction {
@@ -151,19 +163,35 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     }
 
     case ActionType.ADD_COLUMN_REF: {
+      const newColumnOrder = (() => {
+        switch (action.payload.columnType) {
+          case ColumnType.Nav:
+            // NOTE: Content 는 항상 하나이기 때문에, 뒤에서 두 번째 index 부터 순차적으로 삽입함.
+            return insertItem(state.orderedColumnKeys, action.payload.key, state.orderedColumnKeys.length - 3)
+          case ColumnType.Content:
+          default:
+            return [
+              ...state.orderedColumnKeys,
+              action.payload.key,
+            ]
+        }
+      })()
+
       return {
         ...state,
-        columnRefs: state.columnRefs.set(action.payload.key, action.payload.ref),
+        orderedColumnKeys: newColumnOrder,
+        columnRefs: {
+          ...state.columnRefs,
+          [action.payload.key]: action.payload.ref,
+        },
       }
     }
 
     case ActionType.REMOVE_COLUMN_REF: {
-      const newColumnRefs = new Map(state.columnRefs)
-      newColumnRefs.delete(action.payload.key)
-
       return {
         ...state,
-        columnRefs: newColumnRefs,
+        orderedColumnKeys: removeItem(state.orderedColumnKeys, state.orderedColumnKeys.indexOf(action.payload.key)),
+        columnRefs: omit(state.columnRefs, action.payload.key),
       }
     }
 

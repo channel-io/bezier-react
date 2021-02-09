@@ -93,7 +93,7 @@ const Template = ({ onChangeWidth }) => {
             }}
           >
             { range(0, 30).map((val) => (
-              <ListItem content={`NavItem - ${val}`} />
+              <ListItem key={val} content={`NavItem - ${val}`} />
             )) }
           </NavigationContent>
         )
@@ -113,7 +113,7 @@ const Template = ({ onChangeWidth }) => {
             }}
           >
             { range(0, 2).map((val) => (
-              <ListItem content={` - ${val}`} />
+              <ListItem key={val} content={` - ${val}`} />
             )) }
           </NavigationContent>
         )
@@ -132,7 +132,7 @@ const Template = ({ onChangeWidth }) => {
             }}
           >
             { range(0, 2).map((val) => (
-              <ListItem content={` - ${val}`} />
+              <ListItem key={val} content={` - ${val}`} />
             )) }
           </NavigationContent>
         )
@@ -159,7 +159,7 @@ const Template = ({ onChangeWidth }) => {
             }}
           >
             { range(0, 30).map((val) => (
-              <ListItem content={`NavItem - ${val}`} />
+              <ListItem key={val} content={`NavItem - ${val}`} />
             )) }
           </NavigationContent>
         )

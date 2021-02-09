@@ -12,6 +12,7 @@ import React, {
 import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
+import ColumnType from '../../../types/ColumnType'
 import { ResizingContext } from '../../../contexts/LayoutContext'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
@@ -119,19 +120,21 @@ function NavigationArea(
     if (presenterRef.current) {
       presenterRef.current.style.width = `${columnOptions[currentKey]?.initialWidth}px`
       presenterRef.current.style.zIndex = MAX_NAV_Z_INDEX
-    }
 
-    dispatch({
-      type: ActionType.ADD_COLUMN_REF,
-      payload: {
-        key: currentKey,
-        ref: {
-          target: presenterRef.current,
-          minWidth: columnOptions[currentKey]?.minWidth,
-          maxWidth: columnOptions[currentKey]?.maxWidth,
+      dispatch({
+        type: ActionType.ADD_COLUMN_REF,
+        payload: {
+          key: currentKey,
+          ref: {
+            target: presenterRef.current,
+            minWidth: columnOptions[currentKey]?.minWidth,
+            maxWidth: columnOptions[currentKey]?.maxWidth,
+            initialWidth: columnOptions[currentKey]?.initialWidth,
+          },
+          columnType: ColumnType.Nav,
         },
-      },
-    })
+      })
+    }
 
     return function cleanUp() {
       dispatch({

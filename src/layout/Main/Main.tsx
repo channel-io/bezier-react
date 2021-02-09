@@ -21,6 +21,7 @@ import { SidePanelArea } from '../SidePanelArea'
 import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
 import { ResizingContext } from '../../contexts/LayoutContext'
+import ColumnType from '../../types/ColumnType'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
@@ -54,16 +55,17 @@ function Main(
     contentInitialWidth.current = contentRef.current!.clientWidth
     initialPosition.current = e.clientX
     sideInitialWidth.current = sideWidth!
-    onMouseDown()
-  }, [onMouseDown, sideWidth])
+    onMouseDown(e, currentKey)
+  }, [onMouseDown, sideWidth, currentKey])
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
     window.requestAnimationFrame!(() => {
       const resizerDelta = e.clientX - initialPosition.current
       const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
       const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
+
       if (navigationDelta < 0) {
-        const isNavigationMinimum = onMouseMove(navigationDelta)
+        const isNavigationMinimum = onMouseMove(e)
 
         if (isNavigationMinimum) { return }
       }
@@ -83,15 +85,21 @@ function Main(
   ])
 
   useLayoutEffect(() => {
-    dispatch({
-      type: LayoutActionType.ADD_COLUMN_REF,
-      payload: {
-        key: currentKey,
-        ref: {
-          target: contentRef.current,
+    if (contentRef.current) {
+      dispatch({
+        type: LayoutActionType.ADD_COLUMN_REF,
+        payload: {
+          key: currentKey,
+          ref: {
+            target: contentRef.current,
+            minWidth: CONTENT_MIN_WIDTH,
+            maxWidth: 1200,
+            initialWidth: 0,
+          },
+          columnType: ColumnType.Content,
         },
-      },
-    })
+      })
+    }
 
     return function cleanUp() {
       dispatch({
