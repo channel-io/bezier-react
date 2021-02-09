@@ -27,7 +27,7 @@ import {
   NavigationPresenter,
 } from './NavigationArea.styled'
 
-const MAX_NAV_Z_INDEX = '100'
+const MAX_NAV_Z_INDEX = 100
 
 export const NAV_TEST_ID = 'ch-design-system-nav'
 
@@ -47,13 +47,21 @@ function NavigationArea(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, columnOptions } = useLayoutState()
+  const { showNavigation, columnOptions, orderedColumnKeys } = useLayoutState()
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
   const hidable = useMemo(() => columnOptions[currentKey]?.hidable || false, [columnOptions, currentKey])
-  const disableResize = useMemo(() => columnOptions[currentKey]?.disableResize || false, [columnOptions, currentKey])
-  const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
+  const show = useMemo(() => (!hidable || showNavigation), [hidable, showNavigation])
+  const disableResize = useMemo(() => (
+    !show ||
+    columnOptions[currentKey]?.disableResize ||
+    false
+  ), [
+    show,
+    columnOptions,
+    currentKey,
+  ])
 
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
@@ -92,7 +100,7 @@ function NavigationArea(
     if (show) {
       setShowChevron(true)
     }
-  }, 100, undefined, [show])
+  }, 100, undefined, [show, hidable])
 
   const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)
@@ -117,7 +125,6 @@ function NavigationArea(
   useLayoutEffect(() => {
     if (presenterRef.current) {
       presenterRef.current.style.width = `${columnOptions[currentKey]?.initialWidth}px`
-      presenterRef.current.style.zIndex = MAX_NAV_Z_INDEX
 
       dispatch({
         type: ActionType.ADD_COLUMN_REF,
@@ -146,6 +153,15 @@ function NavigationArea(
     dispatch,
     currentKey,
     columnOptions,
+  ])
+
+  useLayoutEffect(() => {
+    if (presenterRef.current) {
+      presenterRef.current.style.zIndex = (MAX_NAV_Z_INDEX - orderedColumnKeys.indexOf(currentKey)).toString()
+    }
+  }, [
+    currentKey,
+    orderedColumnKeys,
   ])
 
   return (
