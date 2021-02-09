@@ -14,6 +14,7 @@ import {
   toNumber,
   noop,
 } from 'lodash-es'
+import { window } from 'ssr-window'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
@@ -72,7 +73,11 @@ forwardedRef: React.Ref<NavigationHandles>,
       }
 
       if (willChangeWidth <= maxWidth) {
-        navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
+        const widthChangeTarget = navigationRefs.current[currentIndex.current].target
+
+        window.requestAnimationFrame!(() => {
+          widthChangeTarget.style.width = `${willChangeWidth}px`
+        })
       }
 
       currentIndex.current -= 1
@@ -112,7 +117,11 @@ forwardedRef: React.Ref<NavigationHandles>,
       const { initialWidth, maxWidth } = navigationRefs.current[currentIndex.current]
       const willChangeWidth = initialWidth + movedPosition
       if (willChangeWidth <= maxWidth) {
-        navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
+        const widthChangeTarget = navigationRefs.current[currentIndex.current].target
+
+        window.requestAnimationFrame!(() => {
+          widthChangeTarget.style.width = `${willChangeWidth}px`
+        })
       }
 
       onChangeWidth(navigationRefs.current.map(navigationRef => navigationRef.target.style.width))
@@ -131,7 +140,11 @@ forwardedRef: React.Ref<NavigationHandles>,
       }
 
       if (willChangeWidth <= maxWidth) {
-        navigationRefs.current[currentIndex.current].target.style.width = `${willChangeWidth}px`
+        const widthChangeTarget = navigationRefs.current[currentIndex.current].target
+
+        window.requestAnimationFrame!(() => {
+          widthChangeTarget.style.width = `${willChangeWidth}px`
+        })
       }
 
       currentIndex.current -= 1
