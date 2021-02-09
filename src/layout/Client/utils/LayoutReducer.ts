@@ -2,7 +2,7 @@
 import { omit } from 'lodash-es'
 
 /* Internal dependencies */
-import { insertItem, removeItem } from '../../../utils/utils'
+import { insertItem, removeItem } from '../../../utils/arrayUtils'
 import ColumnType from '../../../types/ColumnType'
 
 type ColumnRef = {
@@ -166,14 +166,18 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       const newColumnOrder = (() => {
         switch (action.payload.columnType) {
           case ColumnType.Nav:
-            // NOTE: Content 는 항상 하나이기 때문에, 뒤에서 두 번째 index 부터 순차적으로 삽입함.
-            return insertItem(state.orderedColumnKeys, action.payload.key, state.orderedColumnKeys.length - 3)
+            return insertItem(
+              state.orderedColumnKeys,
+              action.payload.key,
+              // NOTE: Content 는 항상 하나이기 때문에, 뒤에서 두 번째 index 부터 순차적으로 삽입함.
+              state.orderedColumnKeys.length - 3,
+            )
           case ColumnType.Content:
           default:
-            return [
-              ...state.orderedColumnKeys,
+            return insertItem(
+              state.orderedColumnKeys,
               action.payload.key,
-            ]
+            )
         }
       })()
 
@@ -190,7 +194,10 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.REMOVE_COLUMN_REF: {
       return {
         ...state,
-        orderedColumnKeys: removeItem(state.orderedColumnKeys, state.orderedColumnKeys.indexOf(action.payload.key)),
+        orderedColumnKeys: removeItem(
+          state.orderedColumnKeys,
+          state.orderedColumnKeys.indexOf(action.payload.key),
+        ),
         columnRefs: omit(state.columnRefs, action.payload.key),
       }
     }

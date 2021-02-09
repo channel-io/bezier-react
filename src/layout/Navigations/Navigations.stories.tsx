@@ -5,7 +5,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import Client from '../Client/Client'
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import { styled, Palette } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'

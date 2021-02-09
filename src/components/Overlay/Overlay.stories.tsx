@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import { styled } from '../../foundation'
 import Overlay from './Overlay'
 import { OverlayPosition } from './Overlay.types'

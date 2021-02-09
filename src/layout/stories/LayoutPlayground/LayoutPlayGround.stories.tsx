@@ -4,7 +4,7 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/utils'
+import { getTitle } from '../../../utils/etcUtils'
 import { styled } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
