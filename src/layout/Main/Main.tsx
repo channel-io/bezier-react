@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, {
-  useContext,
   forwardRef,
   useCallback,
   useRef,
@@ -14,13 +13,13 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useLayoutState from '../../hooks/useLayoutState'
+import useResizingHandlers from '../../hooks/useResizingHandlers'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
 import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
-import { ResizingContext } from '../../contexts/LayoutContext'
 import ColumnType from '../../types/ColumnType'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
@@ -41,7 +40,7 @@ function Main(
 
   const currentKey = useMemo(() => uuid(), [])
 
-  const { onMouseDown, onMouseMove } = useContext(ResizingContext)
+  const { handleResizeStart, handleResizing } = useResizingHandlers()
 
   const contentRef = useRef<HTMLDivElement | null>(null)
   const sideInitialWidth = useRef(0)
@@ -53,12 +52,12 @@ function Main(
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     initialPosition.current = e.clientX
     sideInitialWidth.current = sideWidth!
-    onMouseDown(e, currentKey)
-  }, [onMouseDown, sideWidth, currentKey])
+    handleResizeStart(e, currentKey)
+  }, [handleResizeStart, sideWidth, currentKey])
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
     if (
-      onMouseMove(e) &&
+      handleResizing(e) &&
       contentRef.current &&
       (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
     ) {
@@ -76,7 +75,7 @@ function Main(
     }
   }, [
     dispatch,
-    onMouseMove,
+    handleResizing,
   ])
 
   useLayoutEffect(() => {

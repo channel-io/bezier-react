@@ -7,13 +7,12 @@ import React, {
   useCallback,
   useRef,
   useMemo,
-  useContext,
 } from 'react'
 import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
 import ColumnType from '../../../types/ColumnType'
-import { ResizingContext } from '../../../contexts/LayoutContext'
+import useResizingHandlers from '../../../hooks/useResizingHandlers'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
@@ -50,7 +49,7 @@ function NavigationArea(
   const dispatch = useLayoutDispatch()
   const { showNavigation, columnOptions } = useLayoutState()
 
-  const { onMouseDown, onMouseMove } = useContext(ResizingContext)
+  const { handleResizeStart, handleResizing } = useResizingHandlers()
 
   const hidable = useMemo(() => columnOptions[currentKey]?.hidable || false, [columnOptions, currentKey])
   const disableResize = useMemo(() => columnOptions[currentKey]?.disableResize || false, [columnOptions, currentKey])
@@ -62,11 +61,11 @@ function NavigationArea(
   const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
 
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
-    onMouseDown(event, currentKey)
+    handleResizeStart(event, currentKey)
     setAllowMouseMove(true)
   }, [
     currentKey,
-    onMouseDown,
+    handleResizeStart,
     setAllowMouseMove,
   ])
 
@@ -79,9 +78,9 @@ function NavigationArea(
 
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) return
-      onMouseMove(event)
+      handleResizing(event)
     })
-  }, [disableResize, allowMouseMove, onMouseMove])
+  }, [disableResize, allowMouseMove, handleResizing])
 
   useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)
   useEventHandler(document, 'mouseup', handleMouseUp)
