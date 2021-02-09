@@ -87,7 +87,7 @@ function Main(
           ref: {
             target: contentRef.current,
             minWidth: CONTENT_MIN_WIDTH,
-            // NOTE: maxWidth 는 존재하지 않음
+            // NOTE: maxWidth, initialWidth 는 존재하지 않음
             maxWidth: 0,
             initialWidth: 0,
           },

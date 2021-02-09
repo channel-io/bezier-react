@@ -12,7 +12,7 @@ export const ResizeBar = styled.div<ResizeBarProps>`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 9999999;
+  z-index: 101;
   display: flex;
   justify-content: center;
   width: 10px;
@@ -76,6 +76,7 @@ interface NavigationPresenterProps {
 }
 
 export const NavigationPresenter = styled.div<NavigationPresenterProps>`
+  z-index: ${({ showNavigation }) => !showNavigation && 102} !important;
   display: flex;
   flex-direction: column;
   height: 100%;
