@@ -41,7 +41,7 @@ enum RouteKeys {
   Setting = 'setting',
 }
 
-const Template = ({ onChangeWidth }) => {
+const Template = () => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.TeamChat)
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
@@ -219,7 +219,7 @@ const Template = ({ onChangeWidth }) => {
       <Container>
         <Client>
           <GNB />
-          <Navigations onChangeWidth={onChangeWidth}>
+          <Navigations>
             <NavigationMainRoute />
             <NavigationSubRoute />
           </Navigations>
@@ -237,7 +237,3 @@ const Template = ({ onChangeWidth }) => {
 }
 
 export const Primary = Template.bind({})
-Primary.args = {
-  /* eslint-disable-next-line no-console */
-  onChangeWidth: console.log,
-}

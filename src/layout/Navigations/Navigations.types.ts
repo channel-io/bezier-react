@@ -1,14 +1,4 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface NavigationsProps extends UIComponentProps {
-  children: React.ReactElement | React.ReactElement[]
-  onChangeWidth?: (widths: string[]) => any
-}
-
-export interface NavigationRefsProps {
-  target: HTMLDivElement
-  initialWidth: number
-  minWidth: number
-  maxWidth: number
-}
+export default interface NavigationsProps extends ChildrenComponentProps {}
