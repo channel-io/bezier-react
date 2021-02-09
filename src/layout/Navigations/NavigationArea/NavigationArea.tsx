@@ -44,7 +44,6 @@ function NavigationArea(
     isHoveringOnPresenter,
     setIsHoveringOnPresenter,
     children,
-    ...otherProps
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -155,7 +154,6 @@ function NavigationArea(
       ref={containerRef}
       data-testid={testId}
       showNavigation={show}
-      {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter

@@ -44,7 +44,6 @@ function Main(
   const { onMouseDown, onMouseMove } = useContext(ResizingContext)
 
   const contentRef = useRef<HTMLDivElement | null>(null)
-  const contentInitialWidth = useRef(0)
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
 
@@ -52,33 +51,29 @@ function Main(
   const hasHeader = !isNil(contentHeader || coverableHeader)
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
-    contentInitialWidth.current = contentRef.current!.clientWidth
     initialPosition.current = e.clientX
     sideInitialWidth.current = sideWidth!
     onMouseDown(e, currentKey)
   }, [onMouseDown, sideWidth, currentKey])
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
-    window.requestAnimationFrame!(() => {
+    if (
+      onMouseMove(e) &&
+      contentRef.current &&
+      (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
+    ) {
       const resizerDelta = e.clientX - initialPosition.current
-      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
-      const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
-
-      if (navigationDelta < 0) {
-        const isNavigationMinimum = onMouseMove(e)
-
-        if (isNavigationMinimum) { return }
-      }
-
-      dispatch({
-        type: LayoutActionType.SET_SIDE_WIDTH,
-        payload: clamp(
-          sideInitialWidth.current - resizerDelta,
-          SIDE_MIN_WIDTH,
-          SIDE_MAX_WIDTH,
-        ),
+      window.requestAnimationFrame!(() => {
+        dispatch({
+          type: LayoutActionType.SET_SIDE_WIDTH,
+          payload: clamp(
+            sideInitialWidth.current - resizerDelta,
+            SIDE_MIN_WIDTH,
+            SIDE_MAX_WIDTH,
+          ),
+        })
       })
-    })
+    }
   }, [
     dispatch,
     onMouseMove,
@@ -93,7 +88,8 @@ function Main(
           ref: {
             target: contentRef.current,
             minWidth: CONTENT_MIN_WIDTH,
-            maxWidth: 1200,
+            // NOTE: maxWidth 는 존재하지 않음
+            maxWidth: 0,
             initialWidth: 0,
           },
           columnType: ColumnType.Content,

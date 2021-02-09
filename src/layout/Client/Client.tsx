@@ -6,6 +6,7 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
+import { isEmpty } from 'lodash-es'
 import { window } from 'ssr-window'
 
 /* Internal dependencies */
@@ -104,14 +105,12 @@ function Client(
       }
     }
 
-    /* eslint-disable-next-line consistent-return */
-    Object.values(state.columnRefs).forEach(ref => {
+    return !isEmpty(Object.values(state.columnRefs).filter(ref => {
       if (ref.target.clientWidth !== ref.minWidth) {
-        return false
+        return true
       }
-    })
-
-    return true
+      return false
+    }))
   }, [
     initialPosition,
     state,

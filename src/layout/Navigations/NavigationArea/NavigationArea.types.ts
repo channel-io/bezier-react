@@ -9,7 +9,4 @@ export default interface NavigationProps extends Omit<ChildrenComponentProps, 'a
   setShowChevron?: any
   isHoveringOnPresenter?: any
   setIsHoveringOnPresenter?: any
-
-  /* cloneElement Props */
-  onMouseUp?: () => void
 }

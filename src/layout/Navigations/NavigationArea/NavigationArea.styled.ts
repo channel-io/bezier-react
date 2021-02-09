@@ -52,8 +52,11 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   height: 100%;
   user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
-  /* TODO: Foundation Transition 으로 교체 */
-  transition: width 100ms ease-in-out;
+  ${({ foundation }) =>
+    foundation?.transition?.getTransitionsCSS(
+      'width',
+      foundation?.transition?.TransitionDuration.M,
+    )};
   will-change: width;
 `
 
@@ -79,13 +82,15 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   pointer-events: auto;
   /* TODO: Hovering Color Prop 추가 */
   background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
-  /* TODO: Foundation Transition 으로 교체 */
   opacity:
     ${({ showNavigation, isHover }) => (
     isNil(showNavigation) || (isHover) || (showNavigation) ? '1' : '0')};
-  transition:
-    transform 200ms ease-in,
-    opacity 100ms ease-out;
+
+  ${({ foundation }) =>
+    foundation?.transition?.getTransitionsCSS(
+      ['transform', 'opacity'],
+      foundation?.transition?.TransitionDuration?.M,
+    )};
 
   transform:
     ${({ showNavigation, isHover }) => {
