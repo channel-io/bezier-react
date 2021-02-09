@@ -82,13 +82,14 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   pointer-events: auto;
   /* TODO: Hovering Color Prop 추가 */
   background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
+  border-radius: 0 ${({ showNavigation }) => !showNavigation && '10px 10px'} 0;
   opacity:
     ${({ showNavigation, isHover }) => (
     isNil(showNavigation) || (isHover) || (showNavigation) ? '1' : '0')};
 
   ${({ foundation }) =>
     foundation?.transition?.getTransitionsCSS(
-      ['transform', 'opacity'],
+      ['transform', 'opacity', 'box-shadow', 'border-radius'],
       foundation?.transition?.TransitionDuration?.M,
     )};
 
@@ -98,6 +99,8 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
     if (isHover) { return ('translate(0, 40px)') }
     return 'translate(calc(20px - 100%), 40px)'
   }};
+
+  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4};
 
   will-change: transform, opacity;
 `

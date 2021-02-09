@@ -95,9 +95,7 @@ function NavigationArea(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
-    if (!hidable) { return }
-
-    if (show) {
+    if (hidable) {
       setShowChevron(true)
     }
   }, 100, undefined, [show, hidable])

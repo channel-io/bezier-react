@@ -45,21 +45,22 @@ function NavigationContent({
   const dispatch = useLayoutDispatch()
   const currentKey = useMemo(() => uuid(), [])
 
+  const [isHide, setIsHide] = useState(false)
   const [showChevron, setShowChevron] = useState(false)
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
-  const handleClickClose = useCallback(() => {
+  const handleClickChevron = useCallback(() => {
     dispatch({
       type: ActionType.SET_SHOW_NAVIGATION,
-      payload: false,
+      payload: isHide,
     })
 
-    setShowChevron(false)
+    setIsHide(prev => !prev)
     setIsHoveringOnPresenter(true)
   }, [
     dispatch,
-    setShowChevron,
+    isHide,
     setIsHoveringOnPresenter,
   ])
 
@@ -84,10 +85,10 @@ function NavigationContent({
       })
     }
   }, [
-    dispatch,
-    layoutOption,
     currentKey,
+    layoutOption,
     showNavigation,
+    dispatch,
   ])
 
   const clazzName = useMemo(() => (
@@ -106,8 +107,8 @@ function NavigationContent({
           !allowMouseMove &&
           (
             <ChevronIcon
-              name="chevron-left-double"
-              onClick={handleClickClose}
+              name={`chevron-${isHide ? 'right' : 'left'}-double`}
+              onClick={handleClickChevron}
               marginRight={10}
             />
           )
@@ -116,11 +117,12 @@ function NavigationContent({
     )
   }, [
     allowMouseMove,
+    isHoveringOnPresenter,
+    showChevron,
+    isHide,
     header,
     fixedHeader,
-    showChevron,
-    handleClickClose,
-    isHoveringOnPresenter,
+    handleClickChevron,
   ])
 
   return (
