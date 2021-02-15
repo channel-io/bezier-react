@@ -27,10 +27,10 @@ import MainProps from './Main.types'
 function Main(
   {
     content,
-    contentHeader,
-    coverableHeader,
-    sidePanel,
-    sideView,
+    ContentHeaderComponent,
+    CoverableHeaderComponent,
+    SidePanelComponent,
+    SideViewComponent,
     children,
     ...otherProps
   }: MainProps,
@@ -47,8 +47,8 @@ function Main(
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
 
-  const hasSide = !isNil(sidePanel) || showSideView
-  const hasHeader = !isNil(contentHeader || coverableHeader)
+  const hasSide = !isNil(SidePanelComponent) || showSideView
+  const hasHeader = !isNil(ContentHeaderComponent || CoverableHeaderComponent)
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
     initialPosition.current = e.clientX
@@ -120,8 +120,8 @@ function Main(
     >
       <HeaderArea
         hasHeader={hasHeader}
-        ContentHeaderComponent={contentHeader}
-        CoverableHeaderComponent={coverableHeader}
+        ContentHeaderComponent={ContentHeaderComponent}
+        CoverableHeaderComponent={CoverableHeaderComponent}
       />
       <ContentArea
         ref={contentRef}
@@ -131,10 +131,10 @@ function Main(
         { children }
       </ContentArea>
       <SidePanelArea>
-        { sidePanel }
+        <SidePanelComponent />
       </SidePanelArea>
       <SideViewArea>
-        { sideView }
+        <SideViewComponent />
       </SideViewArea>
     </MainWrapper>
   )

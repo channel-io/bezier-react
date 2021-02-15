@@ -12,7 +12,7 @@ type ColumnRef = {
   initialWidth: number
 }
 
-export interface NavigationState {
+export interface ColumnState {
   initialWidth: number
   maxWidth: number
   minWidth: number
@@ -21,16 +21,25 @@ export interface NavigationState {
 }
 
 export interface LayoutState {
-  sideWidth: number | null
+  /* Side View related */
+  isSideWidthPristine: boolean
+  prevSideWidth: number
+  sideWidth: number
   showSideView: boolean
+
+  /* Navigations related */
   showNavigation: boolean
+
+  /* Resizing related */
   orderedColumnKeys: Array<string>
   columnRefs: { [key: string]: ColumnRef }
-  columnStates: { [key: string]: NavigationState }
+  columnStates: { [key: string]: ColumnState }
 }
 
 export const defaultState: LayoutState = {
-  sideWidth: null,
+  isSideWidthPristine: true,
+  prevSideWidth: 0,
+  sideWidth: 0,
   showSideView: false,
   showNavigation: true,
   orderedColumnKeys: [],
@@ -70,7 +79,7 @@ interface SetShowNavigationAction {
 
 interface AddNavOptionAction {
   type: ActionType.ADD_NAV_OPTION
-  payload: { key: string, option: NavigationState }
+  payload: { key: string, option: ColumnState }
 }
 
 interface RemoveNavOptionAction {
@@ -113,6 +122,12 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.SET_SIDE_WIDTH: {
       return {
         ...state,
+        isSideWidthPristine: false,
+        prevSideWidth: (
+          action.payload === 0
+            ? state.prevSideWidth
+            : action.payload
+        ),
         sideWidth: action.payload,
       }
     }

@@ -4,6 +4,7 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import useSidePanelWidth from '../../../hooks/useSidePanelWidth'
 import { getTitle } from '../../../utils/etcUtils'
 import { styled } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
@@ -30,6 +31,15 @@ const Container = styled.div`
   border-radius: 10px;
 `
 
+const Div = styled.div<SidePanelChildProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid orange;
+`
+
 const StyledIcon = styled(Icon)`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
@@ -39,6 +49,26 @@ enum RouteKeys {
   UserChat = 'userChat',
   Statistic = 'statistic',
   Setting = 'setting',
+}
+
+function TeamChatSidePanel() {
+  useSidePanelWidth(332)
+
+  return (
+    <Div>
+      SidePanel
+    </Div>
+  )
+}
+
+function UserChatSidePanel() {
+  useSidePanelWidth(332)
+
+  return (
+    <Div>
+      Another SidePanel
+    </Div>
+  )
 }
 
 const Template = () => {
@@ -66,15 +96,6 @@ const Template = () => {
       actions={DummyActions}
     />
   ), [DummyActions])
-
-  const Div = styled.div<SidePanelChildProps>`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    border: 1px solid orange;
-  `
 
   const NavigationMainRoute = useCallback(() => {
     switch (route) {
@@ -180,7 +201,7 @@ const Template = () => {
       default:
         return null
     }
-  }, [Div, route])
+  }, [route])
 
   const CoverableHeaderRoute = useCallback(() => {
     switch (route) {
@@ -190,22 +211,22 @@ const Template = () => {
       default:
         return null
     }
-  }, [Div, route])
+  }, [route])
 
-  const SidePanelRoute = useMemo(() => {
+  const SidePanelRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<Div initialWidth={332}>SidePanel</Div>)
+        return (<TeamChatSidePanel />)
       case RouteKeys.UserChat:
-        return (<Div initialWidth={332}>Another SidePanel</Div>)
+        return (<UserChatSidePanel />)
       case RouteKeys.Statistic:
       case RouteKeys.Setting:
       default:
         return null
     }
-  }, [Div, route])
+  }, [route])
 
-  const SideViewComponent = useMemo(() => (<Div>SideView</Div>), [Div])
+  const SideViewComponent = useCallback(() => (<Div>SideView</Div>), [])
 
   return (
     <>
@@ -222,10 +243,10 @@ const Template = () => {
             <NavigationSubRoute />
           </Navigations>
           <Main
-            contentHeader={ContentHeaderRoute}
-            coverableHeader={CoverableHeaderRoute}
-            sidePanel={SidePanelRoute}
-            sideView={SideViewComponent}
+            ContentHeaderComponent={ContentHeaderRoute}
+            CoverableHeaderComponent={CoverableHeaderRoute}
+            SidePanelComponent={SidePanelRoute}
+            SideViewComponent={SideViewComponent}
           >
             <Content />
           </Main>
