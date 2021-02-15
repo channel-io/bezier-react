@@ -3,7 +3,7 @@ import {
   useRef,
   useCallback,
 } from 'react'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, noop } from 'lodash-es'
 import { window } from 'ssr-window'
 
 /* Internal dependencies */
@@ -31,7 +31,7 @@ export default function useResizingHandlers() {
     initialPosition.current = event.clientX
   }, [columnRefs])
 
-  const handleResizing = useCallback((event: HTMLElementEventMap['mousemove']) => {
+  const handleResizing = useCallback((event: HTMLElementEventMap['mousemove'], onChangeWidth: (width: number) => void = noop) => {
     let movedPosition = event.clientX - initialPosition.current
 
     currentKey.current = initialKey.current
@@ -51,7 +51,7 @@ export default function useResizingHandlers() {
         })
       }
 
-      // onChangeWidth
+      onChangeWidth(resultWidth)
 
       return true
     }
@@ -79,7 +79,7 @@ export default function useResizingHandlers() {
 
       currentKey.current = orderedColumnKeys[orderedColumnKeys.indexOf(currentKey.current) - 1]
 
-      // onChangeWidth
+      onChangeWidth(resultWidth)
 
       if (columnStates[currentKey.current]?.disableResize) {
         return true

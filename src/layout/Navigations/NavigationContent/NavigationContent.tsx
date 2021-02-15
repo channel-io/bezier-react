@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from 'react'
-import { isNil } from 'lodash-es'
+import { isNil, noop } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -35,6 +35,7 @@ function NavigationContent({
   scrollClassName,
   withScroll,
   onScroll,
+  onChangeWidth = noop,
   children,
 
   /* LayoutState Prop */
@@ -133,6 +134,7 @@ function NavigationContent({
       setAllowMouseMove={setAllowMouseMove}
       isHoveringOnPresenter={isHoveringOnPresenter}
       setIsHoveringOnPresenter={setIsHoveringOnPresenter}
+      onChangeWidth={onChangeWidth}
     >
       { (header && fixedHeader) && (
         HeaderComponent

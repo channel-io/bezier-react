@@ -62,12 +62,12 @@ function Main(
       contentRef.current &&
       (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
     ) {
-      const resizerDelta = e.clientX - initialPosition.current
+      const resultSideWidth = sideInitialWidth.current - (e.clientX - initialPosition.current)
       window.requestAnimationFrame!(() => {
         dispatch({
           type: LayoutActionType.SET_SIDE_WIDTH,
           payload: clamp(
-            sideInitialWidth.current - resizerDelta,
+            resultSideWidth,
             SIDE_MIN_WIDTH,
             SIDE_MAX_WIDTH,
           ),

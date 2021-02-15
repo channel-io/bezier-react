@@ -54,10 +54,11 @@ const Template = ({ onChangeWidth }) => {
   return (
     <Container>
       <Client>
-        <Navigations onChangeWidth={onChangeWidth}>
+        <Navigations>
           <NavigationContent
             header={Element1Header}
             withScroll
+            onChangeWidth={onChangeWidth}
             layoutOption={{
               initialWidth: 350,
               maxWidth: 400,
@@ -73,6 +74,7 @@ const Template = ({ onChangeWidth }) => {
             header={Element2Header}
             fixedHeader
             withScroll
+            onChangeWidth={onChangeWidth}
             layoutOption={{
               initialWidth: 300,
               maxWidth: 400,
