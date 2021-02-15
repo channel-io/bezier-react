@@ -26,7 +26,7 @@ export interface LayoutState {
   showNavigation: boolean
   orderedColumnKeys: Array<string>
   columnRefs: { [key: string]: ColumnRef }
-  columnOptions: { [key: string]: NavigationState }
+  columnStates: { [key: string]: NavigationState }
 }
 
 export const defaultState: LayoutState = {
@@ -35,7 +35,7 @@ export const defaultState: LayoutState = {
   showNavigation: true,
   orderedColumnKeys: [],
   columnRefs: {},
-  columnOptions: {},
+  columnStates: {},
 }
 
 export enum ActionType {
@@ -141,8 +141,8 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.ADD_NAV_OPTION: {
       return {
         ...state,
-        columnOptions: {
-          ...state.columnOptions,
+        columnStates: {
+          ...state.columnStates,
           [action.payload.key]: action.payload.option,
         },
       }
@@ -151,14 +151,14 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.REMOVE_NAV_OPTION: {
       return {
         ...state,
-        columnOptions: omit(state.columnOptions, action.payload.key),
+        columnStates: omit(state.columnStates, action.payload.key),
       }
     }
 
     case ActionType.CLEAR_NAV_OPTION: {
       return {
         ...state,
-        columnOptions: {},
+        columnStates: {},
       }
     }
 

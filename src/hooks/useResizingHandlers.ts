@@ -12,7 +12,7 @@ import useLayoutState from './useLayoutState'
 export default function useResizingHandlers() {
   const {
     columnRefs,
-    columnOptions,
+    columnStates,
     orderedColumnKeys,
   } = useLayoutState()
 
@@ -81,7 +81,7 @@ export default function useResizingHandlers() {
 
       // onChangeWidth
 
-      if (columnOptions[currentKey.current]?.disableResize) {
+      if (columnStates[currentKey.current]?.disableResize) {
         return true
       }
     }
@@ -93,7 +93,7 @@ export default function useResizingHandlers() {
       return false
     }))
   }, [
-    columnOptions,
+    columnStates,
     columnRefs,
     orderedColumnKeys,
   ])

@@ -2,9 +2,8 @@
 import { UIComponentProps } from '../../types/ComponentProps'
 
 export default interface MainProps extends UIComponentProps {
-  content: React.ReactElement
-  contentHeader: React.ReactElement
-  coverableHeader: React.ReactElement
+  contentHeader: React.ComponentType
+  coverableHeader: React.ComponentType
   sidePanel: React.ReactElement
   sideView: React.ReactElement
 }

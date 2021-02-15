@@ -31,6 +31,7 @@ function Main(
     coverableHeader,
     sidePanel,
     sideView,
+    children,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -119,15 +120,15 @@ function Main(
     >
       <HeaderArea
         hasHeader={hasHeader}
-        contentHeader={contentHeader}
-        coverableHeader={coverableHeader}
+        ContentHeaderComponent={contentHeader}
+        CoverableHeaderComponent={coverableHeader}
       />
       <ContentArea
         ref={contentRef}
         onResizerMouseDown={handleResizerMouseDown}
         onResizerMouseMove={handleResizerMouseMove}
       >
-        { content }
+        { children }
       </ContentArea>
       <SidePanelArea>
         { sidePanel }

@@ -47,19 +47,19 @@ function NavigationArea(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, columnOptions, orderedColumnKeys } = useLayoutState()
+  const { showNavigation, columnStates, orderedColumnKeys } = useLayoutState()
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => columnOptions[currentKey]?.hidable || false, [columnOptions, currentKey])
+  const hidable = useMemo(() => columnStates[currentKey]?.hidable || false, [columnStates, currentKey])
   const show = useMemo(() => (!hidable || showNavigation), [hidable, showNavigation])
   const disableResize = useMemo(() => (
     !show ||
-    columnOptions[currentKey]?.disableResize ||
+    columnStates[currentKey]?.disableResize ||
     false
   ), [
     show,
-    columnOptions,
+    columnStates,
     currentKey,
   ])
 
@@ -122,7 +122,7 @@ function NavigationArea(
 
   useLayoutEffect(() => {
     if (presenterRef.current) {
-      presenterRef.current.style.width = `${columnOptions[currentKey]?.initialWidth}px`
+      presenterRef.current.style.width = `${columnStates[currentKey]?.initialWidth}px`
 
       dispatch({
         type: ActionType.ADD_COLUMN_REF,
@@ -130,9 +130,9 @@ function NavigationArea(
           key: currentKey,
           ref: {
             target: presenterRef.current,
-            minWidth: columnOptions[currentKey]?.minWidth,
-            maxWidth: columnOptions[currentKey]?.maxWidth,
-            initialWidth: columnOptions[currentKey]?.initialWidth,
+            minWidth: columnStates[currentKey]?.minWidth,
+            maxWidth: columnStates[currentKey]?.maxWidth,
+            initialWidth: columnStates[currentKey]?.initialWidth,
           },
           columnType: ColumnType.Nav,
         },
@@ -150,7 +150,7 @@ function NavigationArea(
   }, [
     dispatch,
     currentKey,
-    columnOptions,
+    columnStates,
   ])
 
   useLayoutEffect(() => {

@@ -101,7 +101,7 @@ function NavigationContent({
     return (
       <StyledTitleWrapper fixed={fixedHeader}>
         { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header!, { isHover: isHoveringOnPresenter }) }
+        { React.cloneElement(header, { isHover: isHoveringOnPresenter }) }
         {
           showChevron &&
           !allowMouseMove &&

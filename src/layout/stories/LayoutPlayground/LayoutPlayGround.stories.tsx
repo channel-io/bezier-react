@@ -168,9 +168,7 @@ const Template = () => {
     }
   }, [Element2Header, route])
 
-  const ContentRoute = useMemo(() => (<Content />), [])
-
-  const ContentHeaderRoute = useMemo(() => {
+  const ContentHeaderRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
         return (<Div>TeamChat Header</Div>)
@@ -184,7 +182,7 @@ const Template = () => {
     }
   }, [Div, route])
 
-  const CoverableHeaderRoute = useMemo(() => {
+  const CoverableHeaderRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
       case RouteKeys.UserChat:
@@ -224,12 +222,13 @@ const Template = () => {
             <NavigationSubRoute />
           </Navigations>
           <Main
-            content={ContentRoute}
             contentHeader={ContentHeaderRoute}
             coverableHeader={CoverableHeaderRoute}
             sidePanel={SidePanelRoute}
             sideView={SideViewComponent}
-          />
+          >
+            <Content />
+          </Main>
         </Client>
       </Container>
     </>
