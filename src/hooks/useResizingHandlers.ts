@@ -44,10 +44,10 @@ export default function useResizingHandlers() {
       const resultWidth = initialWidth + movedPosition
 
       if (resultWidth <= maxWidth) {
-        const widthChageTarget = columnRefs[currentKey.current].target
+        const widthChangeTarget = columnRefs[currentKey.current].target
 
         window.requestAnimationFrame!(() => {
-          widthChageTarget.style.width = `${resultWidth}px`
+          widthChangeTarget.style.width = `${resultWidth}px`
         })
       }
 
