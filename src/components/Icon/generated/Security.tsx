@@ -2,7 +2,14 @@ import React from 'react'
 
 function SvgSecurity(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         d="M7.086 11.639L8.5 10.225l2.36 2.361 4.726-4.725L17 9.275l-6.14 6.14-3.774-3.776z"

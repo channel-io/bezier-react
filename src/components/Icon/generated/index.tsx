@@ -99,6 +99,7 @@ import ChevronRightDouble from './ChevronRightDouble'
 import ChevronRight from './ChevronRight'
 import ChevronSmallDown from './ChevronSmallDown'
 import ChevronSmallLeft from './ChevronSmallLeft'
+import ChevronSmallRight from './ChevronSmallRight'
 import ChevronUpDouble from './ChevronUpDouble'
 import ChevronUp from './ChevronUp'
 import Clip from './Clip'
@@ -462,6 +463,7 @@ const icons = {
   'chevron-right': ChevronRight,
   'chevron-small-down': ChevronSmallDown,
   'chevron-small-left': ChevronSmallLeft,
+  'chevron-small-right': ChevronSmallRight,
   'chevron-up-double': ChevronUpDouble,
   'chevron-up': ChevronUp,
   'clip': Clip,

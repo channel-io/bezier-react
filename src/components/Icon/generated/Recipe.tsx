@@ -2,7 +2,14 @@ import React from 'react'
 
 function SvgRecipe(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path fill="currentColor" d="M17 15H7v2h10v-2z" />
       <path
         fill="currentColor"

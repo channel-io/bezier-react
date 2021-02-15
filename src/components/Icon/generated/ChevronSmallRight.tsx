@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SvgMinusCircle(props: React.SVGProps<SVGSVGElement>) {
+function SvgChevronSmallRight(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,10 +14,10 @@ function SvgMinusCircle(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M4 12c0 4.411 3.59 8 8 8 4.411 0 8-3.589 8-8 0-4.41-3.589-8-8-8-4.41 0-8 3.59-8 8zm-2 0C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12zm15.86 1H6.14v-2h11.72v2z"
+        d="M9.293 6.793a1 1 0 011.414 0l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414L13.086 12 9.293 8.207a1 1 0 010-1.414z"
       />
     </svg>
   )
 }
 
-export default SvgMinusCircle
+export default SvgChevronSmallRight
