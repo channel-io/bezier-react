@@ -66,6 +66,14 @@ const Template = ({ ...otherListMenuGroupProps }) => {
           href="https://naver.com"
           content="네이버 가기"
         />
+        <ListMenuGroup content="중첩 리스트 그룹" open>
+          <ListItem
+            key={uuid()}
+            optionKey="item-with-a"
+            href="https://naver.com"
+            content="네이버 가기"
+          />
+        </ListMenuGroup>
       </ListMenuGroup>
     </div>
   )
@@ -75,7 +83,7 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   name: 'sample group',
-  content: '전체 상태',
-  leftIcon: 'sent',
+  content: '푸시 메시지 설정',
+  leftIcon: 'email-unread',
   selectedOptionIndex: null,
 }
