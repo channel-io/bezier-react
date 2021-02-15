@@ -10,7 +10,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 8px;
+  padding: 0 6px;
   margin-right: 6px;
   margin-left: 6px;
   font-size: 14px;
@@ -19,11 +19,6 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
-
-  ${({ foundation, currentMenuItemIndex }) => !isNil(currentMenuItemIndex) && `
-      color: ${foundation?.theme?.['txt-black-darkest']};
-      background-color: ${foundation?.theme?.['bg-black-lighter']};
-  `}
 
   &:hover {
     background-color: ${props => (isNil(props.currentMenuItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
@@ -40,12 +35,10 @@ export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
   display: flex;
   flex: 1;
   align-items: center;
+`
 
-  ${props => !isNil(props.currentMenuItemIndex) && `
-      svg {
-        color: ${props.foundation?.theme?.['txt-black-darkest']};
-      }
-  `}
+export const ContentWrapper = styled.div`
+  margin-left: 8px;
 `
 
 export const ChildrenWrapper = styled.div`

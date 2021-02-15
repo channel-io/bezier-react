@@ -58,6 +58,7 @@ const Template = ({ ...otherListMenuGroupProps }) => {
             key={uuid()}
             optionKey={`menu-item-${n}`}
             content={`아이템 ${n}`}
+
           />
         )) }
         <ListItem

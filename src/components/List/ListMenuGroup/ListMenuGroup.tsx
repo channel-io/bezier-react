@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNil, isEmpty } from 'lodash-es'
+import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { isListItem } from '../ListItem/ListItem'
@@ -11,6 +11,7 @@ import {
   ChildrenWrapper,
   GroupItemContentWrapper,
   StyledIcon,
+  ContentWrapper,
 } from './ListMenuGroup.styled'
 
 export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
@@ -18,6 +19,9 @@ export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
 function ListMenuGroup({
   as,
   testId = SIDEBAR_MENU_GROUP_TEST_ID,
+  className,
+  arrowClassName,
+  contentClassName,
   onOpen = noop,
   open = false,
   leftIcon,
@@ -25,14 +29,12 @@ function ListMenuGroup({
   content = null,
   rightContent = null,
   onClickArrow = noop,
-  arrowClassName,
   /* OptionMenuHost Props */
   selectedMenuItemIndex = null,
   onChangeOption = noop,
   /* HTMLAttribute props */
   onClick = noop,
   children,
-  className,
   ...otherProps
 }: ListMenuGroupProps,
 forwardedRef: React.Ref<HTMLElement>,
@@ -84,39 +86,37 @@ forwardedRef: React.Ref<HTMLElement>,
     }
   }, [name, onClickArrow])
 
-  const Content = useMemo(() => (
+  const ContentComponent = useMemo(() => (
     <>
       <GroupItemContentWrapper
         currentMenuItemIndex={currentMenuItemIndex}
         open={open}
       >
+        <StyledIcon
+          className={arrowClassName}
+          name={`chevron-small-${open ? 'right' : 'down'}`}
+          size={IconSize.S}
+          onClick={handleClickIcon}
+        />
         { !isNil(leftIcon) && (
           <StyledIcon
             name={leftIcon}
             size={IconSize.S}
-            marginRight={10}
           />
         ) }
-        { content }
+        <ContentWrapper className={contentClassName}>
+          { content }
+        </ContentWrapper>
       </GroupItemContentWrapper>
-      {
-        !isEmpty(children) && !rightContent ? (
-          <StyledIcon
-            className={arrowClassName}
-            name={open ? 'chevron-up' : 'chevron-down'}
-            size={IconSize.XS}
-            onClick={handleClickIcon}
-          />
-        ) : rightContent
-      }
+      { rightContent }
     </>
   ), [
     content,
     leftIcon,
     arrowClassName,
+    contentClassName,
     open,
     rightContent,
-    children,
     handleClickIcon,
     currentMenuItemIndex,
   ])
@@ -155,7 +155,7 @@ forwardedRef: React.Ref<HTMLElement>,
         data-active-index={currentMenuItemIndex}
         {...otherProps}
       >
-        { Content }
+        { ContentComponent }
       </GroupItemWrapper>
       { open && (
         <ChildrenWrapper>
