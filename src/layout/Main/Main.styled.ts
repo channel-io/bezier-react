@@ -19,5 +19,7 @@ export const MainWrapper = styled.div.attrs(({ hasSide, sideWidth }: MainWrapper
   grid-template-rows: ${({ hasHeader }) => (hasHeader ? '70px 1fr' : '0 1fr')};
   width: 100%;
   height: 100%;
-  overflow: hidden;
+
+  /* TODO: 레이아웃 동작 다듬기, 스크롤은 좋지 않은 UX */
+  overflow-x: scroll;
 `
