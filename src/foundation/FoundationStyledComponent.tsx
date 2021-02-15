@@ -77,7 +77,7 @@ const FoundationStyled: FoundationStyledInterface = (tag) => {
     return function customTemplateFunction(...args: TemplateStringsArray) {
       const BaseComponent = BaseComponentGenerator(...args)
 
-      return forwardRef((props, ref) => {
+      const BaseRefComponent = forwardRef((props, ref) => {
         const currentFoundation = useContext(FoundationContext)
         return (
           <BaseComponent
@@ -88,6 +88,9 @@ const FoundationStyled: FoundationStyledInterface = (tag) => {
           />
         )
       })
+      BaseRefComponent.toString = BaseComponent.toString
+
+      return BaseRefComponent
     }
   }
 
