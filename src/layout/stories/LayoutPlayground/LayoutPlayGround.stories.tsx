@@ -4,7 +4,7 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import useSidePanelWidth from '../../../hooks/useSidePanelWidth'
+import useSideWidth from '../../../hooks/useSideWidth'
 import { getTitle } from '../../../utils/etcUtils'
 import { styled } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
@@ -51,7 +51,7 @@ enum RouteKeys {
 }
 
 function TeamChatSidePanel() {
-  useSidePanelWidth(332)
+  useSideWidth(332)
 
   return (
     <Div style={{ height: 2000 }}>
@@ -61,7 +61,7 @@ function TeamChatSidePanel() {
 }
 
 function UserChatSidePanel() {
-  useSidePanelWidth(332)
+  useSideWidth(332)
 
   return (
     <Div>

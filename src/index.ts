@@ -40,5 +40,5 @@ export type { ChildrenComponentProps } from './types/ComponentProps'
 /* Hooks */
 export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
 export { default as useLayoutState } from './hooks/useLayoutState'
-export { default as useSidePanelWidth } from './hooks/useSidePanelWidth'
+export { default as useSideWidth } from './hooks/useSideWidth'
 export { default as useSideView } from './hooks/useSideView'

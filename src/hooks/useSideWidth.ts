@@ -4,19 +4,15 @@ import { useEffect } from 'react'
 /* Internal dependencies */
 import { SIDE_FALLBACK_WIDTH } from '../constants/LayoutSizes'
 import { ActionType } from '../layout/Client/utils/LayoutReducer'
-import useLayoutState from './useLayoutState'
 import useLayoutDispatch from './useLayoutDispatch'
 
-export default function useSidePanelWidth(width: number = SIDE_FALLBACK_WIDTH, alwaysInitialize: boolean = false) {
-  const { isSideWidthPristine, prevSideWidth } = useLayoutState()
+export default function useSideWidth(width: number = SIDE_FALLBACK_WIDTH) {
   const dispatch = useLayoutDispatch()
 
   useEffect(() => {
-    const payload = isSideWidthPristine || alwaysInitialize ? width : prevSideWidth
-
     dispatch({
       type: ActionType.SET_SIDE_WIDTH,
-      payload,
+      payload: width,
     })
 
     return function cleanUp() {

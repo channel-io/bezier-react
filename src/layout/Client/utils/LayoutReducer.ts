@@ -22,14 +22,10 @@ export interface ColumnState {
 
 export interface LayoutState {
   /* Side View related */
-  isSideWidthPristine: boolean
-  prevSideWidth: number
   sideWidth: number
   showSideView: boolean
-
   /* Navigations related */
   showNavigation: boolean
-
   /* Resizing related */
   orderedColumnKeys: Array<string>
   columnRefs: { [key: string]: ColumnRef }
@@ -37,8 +33,6 @@ export interface LayoutState {
 }
 
 export const defaultState: LayoutState = {
-  isSideWidthPristine: true,
-  prevSideWidth: 0,
   sideWidth: 0,
   showSideView: false,
   showNavigation: true,
@@ -122,12 +116,6 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.SET_SIDE_WIDTH: {
       return {
         ...state,
-        isSideWidthPristine: false,
-        prevSideWidth: (
-          action.payload === 0
-            ? state.prevSideWidth
-            : action.payload
-        ),
         sideWidth: action.payload,
       }
     }
