@@ -1,10 +1,10 @@
 /* Internal dependencies */
-import ThemeType from '../../../foundation/Theme/ThemeType'
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { ContentComponentProps } from '../../../types/ComponentProps'
 import { IconName } from '../../Icon'
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
-  arrowClassName?: string
+  chevronClassName?: string
   contentClassName?: string
   iconClassName?: string
   open?: boolean
@@ -12,7 +12,7 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   content?: React.ReactNode
   paddingLeft?: number
   leftIcon?: IconName
-  leftIconColor?: ThemeType
+  leftIconColor?: ThemeKey
   name?: string
   rightContent?: React.ReactNode
   onClick?: (name?: string) => void
@@ -26,7 +26,7 @@ export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
   currentMenuItemIndex?: number | null
-  arrowClassName?: string
+  chevronClassName?: string
   selectedOptionIndex?: number
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void
 }

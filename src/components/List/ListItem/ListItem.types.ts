@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import ThemeType from '../../../foundation/Theme/ThemeType'
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import ActivableElement from '../../../types/ActivatableElement'
 import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
 import OptionItem from '../../../types/OptionItem'
@@ -14,7 +14,7 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   nested?: boolean
   onClick?: (e: any, name?: string) => void
   leftIcon?: IconName
-  leftIconColor?: ThemeType
+  leftIconColor?: ThemeKey
   rightContent?: React.ReactNode
   paddingLeft?: number
 }

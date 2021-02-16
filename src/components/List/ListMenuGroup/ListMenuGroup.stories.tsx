@@ -33,8 +33,8 @@ const Template = ({ ...otherListMenuGroupProps }) => {
   const handleClickGroup = useCallback((name: string) => {
     // eslint-disable-next-line no-console
     console.log(name)
-    // handleToggle()
-  }, [])
+    handleToggle()
+  }, [handleToggle])
 
   const handleClickItem = useCallback((name, key, index) => {
     // eslint-disable-next-line no-console
@@ -101,7 +101,6 @@ const Template = ({ ...otherListMenuGroupProps }) => {
           content="푸시 메시지 설정"
           leftIcon="email-unread"
         >
-
           <ListItem
             key={uuid()}
             optionKey="item-with-a"
@@ -122,7 +121,7 @@ const Template = ({ ...otherListMenuGroupProps }) => {
         <ListMenuGroup
           content="보안"
           leftIcon="security"
-          leftIconColor="txt-black-dark"
+          leftIconColor=""
         />
       </div>
 

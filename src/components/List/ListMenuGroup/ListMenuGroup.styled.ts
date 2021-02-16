@@ -3,7 +3,7 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
-import ThemeType from '../../../foundation/Theme/ThemeType'
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps, StyledContentWrapperProps } from './ListMenuGroup.types'
 
@@ -27,7 +27,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
 `
 
 interface StyledIconProps {
-  color: ThemeType
+  color: ThemeKey
 }
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`

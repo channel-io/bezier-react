@@ -53,7 +53,7 @@ type DimBackgroundColor =
   | 'dim-medium'
   | 'dim-small'
 
-type ThemeKey =
+export type ThemeKey =
   | MonoBackgroundColor
   | LayoutBackgroundColor
   | ElevationBackgroundColor

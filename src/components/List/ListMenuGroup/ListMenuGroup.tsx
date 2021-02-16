@@ -26,7 +26,7 @@ function ListMenuGroupComponent({
   as,
   testId = LIST_MENU_GROUP_TEST_ID,
   className,
-  arrowClassName,
+  chevronClassName,
   contentClassName,
   iconClassName,
   paddingLeft = 0,
@@ -103,7 +103,7 @@ forwardedRef: React.Ref<HTMLElement>,
         paddingLeft={paddingLeft}
       >
         <StyledIcon
-          className={arrowClassName}
+          className={chevronClassName}
           name={`chevron-small-${open ? 'down' : 'right'}`}
           size={IconSize.S}
           onClick={handleClickIcon}
@@ -124,7 +124,7 @@ forwardedRef: React.Ref<HTMLElement>,
     </>
   ), [
     iconClassName,
-    arrowClassName,
+    chevronClassName,
     contentClassName,
     content,
     paddingLeft,
@@ -180,9 +180,7 @@ forwardedRef: React.Ref<HTMLElement>,
         { ContentComponent }
       </GroupItemWrapper>
       { open && (
-        <div>
-          { Items }
-        </div>
+        Items
       ) }
     </>
   )
