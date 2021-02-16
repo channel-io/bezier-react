@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 
 /* Internal depependencies */
 import { styled, Typography } from '../../foundation'
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import Header from './Header'
 
 export default {

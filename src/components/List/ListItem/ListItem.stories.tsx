@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/utils'
+import { getTitle } from '../../../utils/etcUtils'
 import ListItem from './ListItem'
 
 export default {

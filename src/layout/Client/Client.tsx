@@ -5,7 +5,10 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import { LayoutDispatchContext, LayoutStateContext } from '../../contexts/LayoutContext'
+import {
+  LayoutDispatchContext,
+  LayoutStateContext,
+} from '../../contexts/LayoutContext'
 import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
 import LayoutReducer, { defaultState } from './utils/LayoutReducer'

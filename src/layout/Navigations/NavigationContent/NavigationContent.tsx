@@ -1,10 +1,16 @@
 /* External dependencies */
-import React, { useContext, useLayoutEffect, useMemo } from 'react'
-import { isNil } from 'lodash-es'
+import React, {
+  useState,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+} from 'react'
+import { isNil, noop } from 'lodash-es'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import { NavigationArea } from '../NavigationArea'
 import { mergeClassNames } from '../../../utils/stringUtils'
-import { NavigationContext } from '../../../contexts/NavigationContext'
 import { ActionType } from '../../Client/utils/LayoutReducer'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import {
@@ -29,6 +35,7 @@ function NavigationContent({
   scrollClassName,
   withScroll,
   onScroll,
+  onChangeWidth = noop,
   children,
 
   /* LayoutState Prop */
@@ -36,25 +43,33 @@ function NavigationContent({
   showNavigation,
   ...otherProps
 }: NavigationContentProps) {
-  const {
-    optionIndex,
-    showChevron,
-    allowMouseMove,
-    isHoveringOnPresenter,
-    onClickClose,
-  } = useContext(NavigationContext)
-
   const dispatch = useLayoutDispatch()
+  const currentKey = useMemo(() => uuid(), [])
+
+  const [isHide, setIsHide] = useState(false)
+  const [showChevron, setShowChevron] = useState(false)
+  const [allowMouseMove, setAllowMouseMove] = useState(false)
+  const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
+
+  const handleClickChevron = useCallback(() => {
+    dispatch({
+      type: ActionType.SET_SHOW_NAVIGATION,
+      payload: isHide,
+    })
+
+    setIsHide(prev => !prev)
+    setIsHoveringOnPresenter(true)
+  }, [
+    dispatch,
+    isHide,
+    setIsHoveringOnPresenter,
+  ])
 
   // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 깜빡임이 발생한다
   useLayoutEffect(() => {
-    if (optionIndex === 0) {
-      dispatch({ type: ActionType.CLEAR_NAV_OPTION })
-    }
-
     dispatch({
       type: ActionType.ADD_NAV_OPTION,
-      payload: { index: optionIndex, option: layoutOption },
+      payload: { key: currentKey, option: layoutOption },
     })
 
     if (!isNil(showNavigation)) {
@@ -63,7 +78,19 @@ function NavigationContent({
         payload: showNavigation,
       })
     }
-  }, [dispatch, layoutOption, optionIndex, showNavigation])
+
+    return function cleanUp() {
+      dispatch({
+        type: ActionType.REMOVE_NAV_OPTION,
+        payload: { key: currentKey },
+      })
+    }
+  }, [
+    currentKey,
+    layoutOption,
+    showNavigation,
+    dispatch,
+  ])
 
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
@@ -75,27 +102,40 @@ function NavigationContent({
     return (
       <StyledTitleWrapper fixed={fixedHeader}>
         { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header!, { isHover: isHoveringOnPresenter }) }
-        { showChevron && !allowMouseMove && (
-          <ChevronIcon
-            name="chevron-left-double"
-            onClick={onClickClose}
-            marginRight={10}
-          />
-        ) }
+        { React.cloneElement(header, { isHover: isHoveringOnPresenter }) }
+        {
+          showChevron &&
+          !allowMouseMove &&
+          (
+            <ChevronIcon
+              name={`chevron-${isHide ? 'right' : 'left'}-double`}
+              onClick={handleClickChevron}
+              marginRight={10}
+            />
+          )
+        }
       </StyledTitleWrapper>
     )
   }, [
     allowMouseMove,
+    isHoveringOnPresenter,
+    showChevron,
+    isHide,
     header,
     fixedHeader,
-    showChevron,
-    onClickClose,
-    isHoveringOnPresenter,
+    handleClickChevron,
   ])
 
   return (
-    <>
+    <NavigationArea
+      currentKey={currentKey}
+      setShowChevron={setShowChevron}
+      allowMouseMove={allowMouseMove}
+      setAllowMouseMove={setAllowMouseMove}
+      isHoveringOnPresenter={isHoveringOnPresenter}
+      setIsHoveringOnPresenter={setIsHoveringOnPresenter}
+      onChangeWidth={onChangeWidth}
+    >
       { (header && fixedHeader) && (
         HeaderComponent
       ) }
@@ -120,7 +160,7 @@ function NavigationContent({
         { stickyFooter }
       </StyledFooterWrapper>
       ) }
-    </>
+    </NavigationArea>
   )
 }
 

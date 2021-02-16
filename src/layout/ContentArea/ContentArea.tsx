@@ -8,6 +8,7 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import useLayoutState from '../../hooks/useLayoutState'
 import useEventHandler from '../../hooks/useEventHandler'
 import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
@@ -26,6 +27,8 @@ function ContentArea(
   }: ContentAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const { showSideView } = useLayoutState()
+
   const [isDragging, setIsDragging] = useState(false)
 
   const handleMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
@@ -53,7 +56,10 @@ function ContentArea(
       {...otherProps}
     >
       { children }
-      <StyledHandle onMouseDown={handleMouseDown}/>
+      <StyledHandle
+        withSideView={showSideView}
+        onMouseDown={handleMouseDown}
+      />
     </ContentAreaWrapper>
   )
 }

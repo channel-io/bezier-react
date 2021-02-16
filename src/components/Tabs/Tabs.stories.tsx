@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import { TabItem } from '../TabItem'
 import { TabActions } from '../TabActions'
 import Tabs from './Tabs'
