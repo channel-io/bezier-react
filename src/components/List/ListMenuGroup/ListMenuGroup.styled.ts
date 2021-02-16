@@ -3,6 +3,7 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
+import ThemeType from '../../../foundation/Theme/ThemeType'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps, StyledContentWrapperProps } from './ListMenuGroup.types'
 
@@ -10,9 +11,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 6px;
-  margin-right: 6px;
-  margin-left: 6px;
+  padding: 0;
   font-size: 14px;
   font-weight: normal;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
@@ -27,22 +26,22 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 `
 
-export const StyledIcon = styled(Icon)`
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+interface StyledIconProps {
+  color: ThemeType
+}
+
+export const StyledIcon = styled(Icon)<StyledIconProps>`
+  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
 `
 
 export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
   display: flex;
   flex: 1;
   align-items: center;
+
+  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
 `
 
 export const ContentWrapper = styled.div`
   margin-left: 8px;
-`
-
-export const ChildrenWrapper = styled.div`
-  & > * {
-    padding-left: 38px;
-  }
 `

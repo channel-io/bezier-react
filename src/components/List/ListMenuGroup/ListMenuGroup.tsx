@@ -1,33 +1,42 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNil } from 'lodash-es'
+import { noop, isNil, get } from 'lodash-es'
 
 /* Internal dependencies */
+import { LIST_ITEM_PADDING_LEFT, LIST_MENU_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
 import {
   GroupItemWrapper,
-  ChildrenWrapper,
   GroupItemContentWrapper,
   StyledIcon,
   ContentWrapper,
 } from './ListMenuGroup.styled'
 
-export const SIDEBAR_MENU_GROUP_TEST_ID = 'ch-design-system-sidebar-menu-group'
+export const LIST_MENU_GROUP_COMPONENT_NAME = 'ListMenuGroup'
+export const LIST_MENU_GROUP_TEST_ID = 'ch-design-system-list-menu-group'
 
-function ListMenuGroup({
+export function isListMenuGroup(element: any): element is React.ReactElement<ListMenuGroupProps> {
+  return React.isValidElement(element) &&
+    get(element, 'type.displayName') === LIST_MENU_GROUP_COMPONENT_NAME
+}
+
+function ListMenuGroupComponent({
   as,
-  testId = SIDEBAR_MENU_GROUP_TEST_ID,
+  testId = LIST_MENU_GROUP_TEST_ID,
   className,
   arrowClassName,
   contentClassName,
-  onOpen = noop,
+  iconClassName,
+  paddingLeft = 0,
   open = false,
   leftIcon,
+  leftIconColor,
   name,
   content = null,
   rightContent = null,
+  onOpen = noop,
   onClickArrow = noop,
   /* OptionMenuHost Props */
   selectedMenuItemIndex = null,
@@ -91,17 +100,20 @@ forwardedRef: React.Ref<HTMLElement>,
       <GroupItemContentWrapper
         currentMenuItemIndex={currentMenuItemIndex}
         open={open}
+        paddingLeft={paddingLeft}
       >
         <StyledIcon
           className={arrowClassName}
-          name={`chevron-small-${open ? 'right' : 'down'}`}
+          name={`chevron-small-${open ? 'down' : 'right'}`}
           size={IconSize.S}
           onClick={handleClickIcon}
         />
         { !isNil(leftIcon) && (
           <StyledIcon
+            className={iconClassName}
             name={leftIcon}
             size={IconSize.S}
+            color={leftIconColor}
           />
         ) }
         <ContentWrapper className={contentClassName}>
@@ -111,14 +123,17 @@ forwardedRef: React.Ref<HTMLElement>,
       { rightContent }
     </>
   ), [
-    content,
-    leftIcon,
+    iconClassName,
     arrowClassName,
     contentClassName,
+    content,
+    paddingLeft,
+    leftIcon,
+    leftIconColor,
     open,
     rightContent,
-    handleClickIcon,
     currentMenuItemIndex,
+    handleClickIcon,
   ])
 
   const Items = useMemo(() => (
@@ -126,6 +141,7 @@ forwardedRef: React.Ref<HTMLElement>,
       if (isListItem(element)) {
         return React.cloneElement(element, {
           active: (currentMenuItemIndex === index),
+          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
             handleClickItem(index, element.props.optionKey)
             if (element.props.onClick) { element.props.onClick(event) }
@@ -133,12 +149,18 @@ forwardedRef: React.Ref<HTMLElement>,
         })
       }
 
+      if (isListMenuGroup(element)) {
+        return React.cloneElement(element, {
+          paddingLeft: paddingLeft + LIST_MENU_GROUP_PADDING_LEFT,
+        })
+      }
       return element
     })
   ), [
     children,
     currentMenuItemIndex,
     handleClickItem,
+    paddingLeft,
   ])
 
   return (
@@ -158,12 +180,15 @@ forwardedRef: React.Ref<HTMLElement>,
         { ContentComponent }
       </GroupItemWrapper>
       { open && (
-        <ChildrenWrapper>
+        <div>
           { Items }
-        </ChildrenWrapper>
+        </div>
       ) }
     </>
   )
 }
 
-export default forwardRef(ListMenuGroup)
+const ListMenuGroup = forwardRef(ListMenuGroupComponent)
+ListMenuGroup.displayName = LIST_MENU_GROUP_COMPONENT_NAME
+
+export default ListMenuGroup

@@ -2,7 +2,6 @@
 import React, { useCallback, useState } from 'react'
 import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/utils'
@@ -22,20 +21,20 @@ export default {
 }
 
 const Template = ({ ...otherListMenuGroupProps }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [idx, setIdx] = useState(null)
 
   const handleToggle = useCallback(() => {
     setOpen(v => !v)
-    //  if you want to automatically activate specific elemenmt
+    //  if you want to manually activate specific elemenmt
     // setIdx(0)
   }, [])
 
   const handleClickGroup = useCallback((name: string) => {
     // eslint-disable-next-line no-console
     console.log(name)
-    handleToggle()
-  }, [handleToggle])
+    // handleToggle()
+  }, [])
 
   const handleClickItem = useCallback((name, key, index) => {
     // eslint-disable-next-line no-console
@@ -44,38 +43,89 @@ const Template = ({ ...otherListMenuGroupProps }) => {
   }, [])
 
   return (
-    <div style={{ width: 240 }}>
-      <ListMenuGroup
-        open={open}
-        selectedMenuItemIndex={idx}
-        onClick={handleClickGroup}
-        onClickArrow={handleToggle}
-        onChangeOption={handleClickItem}
-        {...otherListMenuGroupProps}
-      >
-        { range(0, 4).map(n => (
-          <ListItem
-            key={uuid()}
-            optionKey={`menu-item-${n}`}
-            content={`아이템 ${n}`}
-
-          />
-        )) }
-        <ListItem
-          key={uuid()}
-          optionKey="item-with-a"
-          href="https://naver.com"
-          content="네이버 가기"
+    <div style={{ width: 600, display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ width: 240 }}>
+        <ListMenuGroup
+          content="GL"
+          leftIcon="dot"
+          leftIconColor="bgtxt-teal-normal"
+          name="nested"
         />
-        <ListMenuGroup content="중첩 리스트 그룹" open>
+        <ListMenuGroup
+          open={open}
+          selectedMenuItemIndex={idx}
+          onClick={handleClickGroup}
+          onClickArrow={handleToggle}
+          onChangeOption={handleClickItem}
+          {...otherListMenuGroupProps}
+        >
+          <ListMenuGroup
+            content="product"
+            open
+            leftIcon="dot"
+            leftIconColor="txt-black-dark"
+            name="nested-2"
+            // eslint-disable-next-line no-console
+            onClick={console.log}
+          >
+            <ListItem
+              key={uuid()}
+              optionKey="item-with-a"
+              href="https://naver.com"
+              content="🔥"
+              leftIcon="dot"
+              leftIconColor="txt-black-dark"
+            />
+            <ListMenuGroup
+              content="feedback"
+              leftIcon="dot"
+              leftIconColor="bgtxt-olive-normal"
+            />
+          </ListMenuGroup>
+
+          <ListMenuGroup
+            content="bug"
+            leftIcon="dot"
+            leftIconColor="bgtxt-red-normal"
+          />
+        </ListMenuGroup>
+        <ListMenuGroup
+          content="etc"
+          leftIcon="dot"
+          leftIconColor="txt-black-dark"
+        />
+      </div>
+      <div style={{ width: 240 }}>
+        <ListMenuGroup
+          open
+          content="푸시 메시지 설정"
+          leftIcon="email-unread"
+        >
+
           <ListItem
             key={uuid()}
             optionKey="item-with-a"
             href="https://naver.com"
-            content="네이버 가기"
+            content="모바일 SDK 푸시"
+            leftIcon="app-push"
+            leftIconColor="txt-black-dark"
+          />
+          <ListItem
+            content="알림톡, 문자 푸시"
+            leftIcon="sms"
+          />
+          <ListItem
+            content="이메일 푸시"
+            leftIcon="email"
           />
         </ListMenuGroup>
-      </ListMenuGroup>
+        <ListMenuGroup
+          content="보안"
+          leftIcon="security"
+          leftIconColor="txt-black-dark"
+        />
+      </div>
+
     </div>
   )
 }
@@ -84,7 +134,8 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   name: 'sample group',
-  content: '푸시 메시지 설정',
-  leftIcon: 'email-unread',
+  content: 'KR',
+  leftIcon: 'dot',
+  leftIconColor: 'bgtxt-pink-normal',
   selectedOptionIndex: null,
 }

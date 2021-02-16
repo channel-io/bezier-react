@@ -4,24 +4,32 @@ import { get, noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../../utils/stringUtils'
+import { IconSize } from '../../Icon'
 import ListItemProps from './ListItem.types'
-import { Wrapper } from './ListItem.styled'
+import { ContentWrapper, StyledIcon, Wrapper } from './ListItem.styled'
 
-export const SIDEBAR_MENU_ITEM_COMPONENT_NAME = 'ListItem'
-export const SIDEBAR_MENU_ITEM_TEST_ID = 'ch-design-system-sidebar-menu-item'
+export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
+export const LIST_ITEM_TEST_ID = 'ch-design-system-list-menu-item'
 
 export function isListItem(element: any): element is React.ReactElement<ListItemProps> {
   return React.isValidElement(element) &&
-    get(element, 'type.displayName') === SIDEBAR_MENU_ITEM_COMPONENT_NAME
+    get(element, 'type.displayName') === LIST_ITEM_COMPONENT_NAME
 }
 
 function ListItemComponent({
+  className,
+  contentClassName,
+  iconClassName,
   as,
-  testId = SIDEBAR_MENU_ITEM_TEST_ID,
+  testId = LIST_ITEM_COMPONENT_NAME,
   content,
   name,
+  leftIcon,
+  leftIconColor,
+  paddingLeft,
   href,
   hide,
+  rightContent = null,
   /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
@@ -29,7 +37,6 @@ function ListItemComponent({
   activeClassName,
   /* HTMLAttribute Props */
   onClick = noop,
-  className,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
@@ -50,6 +57,31 @@ function ListItemComponent({
     onClick,
   ])
 
+  const ContentComponent = useMemo(() => (
+    <>
+      { !isNil(leftIcon) && (
+        <StyledIcon
+          className={iconClassName}
+          name={leftIcon}
+          size={IconSize.S}
+          marginRight={8}
+          color={leftIconColor}
+        />
+      ) }
+      <ContentWrapper className={contentClassName}>
+        { content }
+      </ContentWrapper>
+      { rightContent }
+    </>
+  ), [
+    iconClassName,
+    content,
+    contentClassName,
+    leftIcon,
+    leftIconColor,
+    rightContent,
+  ])
+
   if (hide) return null
 
   if (!isNil(href)) {
@@ -58,6 +90,7 @@ function ListItemComponent({
         ref={forwardedRef}
         as="a"
         className={clazzName}
+        paddingLeft={paddingLeft}
         draggable={false}
         href={href}
         target="_blank"
@@ -69,7 +102,7 @@ function ListItemComponent({
         data-testid={testId}
         {...othreProps}
       >
-        { content }
+        { ContentComponent }
       </Wrapper>
     )
   }
@@ -78,6 +111,7 @@ function ListItemComponent({
     <Wrapper
       as={as}
       className={clazzName}
+      paddingLeft={paddingLeft}
       onClick={handleClick}
       active={active}
       data-active={active}
@@ -85,12 +119,12 @@ function ListItemComponent({
       data-testid={testId}
       {...othreProps}
     >
-      { content }
+      { ContentComponent }
     </Wrapper>
   )
 }
 
 const ListItem = forwardRef(ListItemComponent)
-ListItem.displayName = SIDEBAR_MENU_ITEM_COMPONENT_NAME
+ListItem.displayName = LIST_ITEM_COMPONENT_NAME
 
 export default ListItem

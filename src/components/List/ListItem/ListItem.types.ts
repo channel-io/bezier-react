@@ -1,13 +1,25 @@
 /* Internal dependencies */
+import ThemeType from '../../../foundation/Theme/ThemeType'
 import ActivableElement from '../../../types/ActivatableElement'
 import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
 import OptionItem from '../../../types/OptionItem'
+import { IconName } from '../../Icon'
 
 export default interface ListItemProps extends ContentComponentProps, OptionItem, ActivableElement {
+  iconClassName?: string
+  contentClassName?: string
   name?: string
   href?: string
   hide?: boolean
+  nested?: boolean
   onClick?: (e: any, name?: string) => void
+  leftIcon?: IconName
+  leftIconColor?: ThemeType
+  rightContent?: React.ReactNode
+  paddingLeft?: number
 }
 
-export interface StyledWrapperProps extends UIComponentProps, OptionItem, ActivableElement {}
+export interface StyledWrapperProps extends UIComponentProps, OptionItem, ActivableElement {
+  paddingLeft?: number
+  active?: boolean
+}

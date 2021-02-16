@@ -1,5 +1,7 @@
 /* Internal dependencies */
 import { css, styled } from '../../../foundation'
+import ThemeType from '../../../foundation/Theme/ThemeType'
+import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`
@@ -11,9 +13,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 8px;
-  margin-right: 6px;
-  margin-left: 6px;
+  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
@@ -30,3 +30,13 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
   ${props => (props.active && ActiveItemStyle)}
 `
+
+interface StyledIconProps {
+  color: ThemeType
+}
+
+export const StyledIcon = styled(Icon)<StyledIconProps>`
+  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
+`
+
+export const ContentWrapper = styled.div``

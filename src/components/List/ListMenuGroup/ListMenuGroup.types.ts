@@ -1,14 +1,18 @@
 /* Internal dependencies */
+import ThemeType from '../../../foundation/Theme/ThemeType'
 import { ContentComponentProps } from '../../../types/ComponentProps'
 import { IconName } from '../../Icon'
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
   arrowClassName?: string
   contentClassName?: string
+  iconClassName?: string
   open?: boolean
   onOpen?: (name?: string) => void
   content?: React.ReactNode
+  paddingLeft?: number
   leftIcon?: IconName
+  leftIconColor?: ThemeType
   name?: string
   rightContent?: React.ReactNode
   onClick?: (name?: string) => void

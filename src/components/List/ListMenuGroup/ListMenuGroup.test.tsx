@@ -6,7 +6,7 @@ import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { ListItem } from '../ListItem'
-import ListMenuGroup, { SIDEBAR_MENU_GROUP_TEST_ID } from './ListMenuGroup'
+import ListMenuGroup, { LIST_MENU_GROUP_TEST_ID } from './ListMenuGroup'
 import ListMenuGroupProps from './ListMenuGroup.types'
 
 describe('ListMenuGroup', () => {
@@ -34,7 +34,7 @@ describe('ListMenuGroup', () => {
 
   it('should have default styles', () => {
     const { getByTestId } = renderComponent()
-    const rendered = getByTestId(SIDEBAR_MENU_GROUP_TEST_ID)
+    const rendered = getByTestId(LIST_MENU_GROUP_TEST_ID)
 
     expect(rendered).toHaveStyle('display: flex;')
     expect(rendered).toHaveStyle('align-items: center;')
@@ -45,7 +45,7 @@ describe('ListMenuGroup', () => {
     'should have index on "data-active-index" attr when "selectedOptionIndex" given',
     () => {
       const { getByTestId } = renderComponent({ selectedMenuItemIndex: 2 })
-      const rendered = getByTestId(SIDEBAR_MENU_GROUP_TEST_ID)
+      const rendered = getByTestId(LIST_MENU_GROUP_TEST_ID)
 
       expect(rendered).toHaveAttribute('data-active-index', '2')
     })
