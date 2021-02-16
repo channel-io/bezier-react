@@ -6,4 +6,6 @@ export const SidePanelAreaWrapper = styled.div`
   z-index: 50;
   grid-row: 2 / 3;
   grid-column: 2 / 3;
+  overflow-y: auto;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 `

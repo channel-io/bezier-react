@@ -1,28 +1,38 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useRef } from 'react'
-import { clamp, isNil } from 'lodash-es'
+import React, {
+  forwardRef,
+  useCallback,
+  useRef,
+  useMemo,
+  useLayoutEffect,
+} from 'react'
+import { clamp, isNil, noop } from 'lodash-es'
 import { window } from 'ssr-window'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useLayoutState from '../../hooks/useLayoutState'
+import useResizingHandlers from '../../hooks/useResizingHandlers'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { SidePanelArea } from '../SidePanelArea'
 import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
+import ColumnType from '../../types/ColumnType'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
 function Main(
   {
     content,
-    contentHeader,
-    coverableHeader,
-    sidePanel,
-    sideView,
-    navigationRef,
+    ContentHeaderComponent,
+    CoverableHeaderComponent,
+    SidePanelComponent,
+    SideViewComponent,
+    children,
+    onChangeSideWidth = noop,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -30,42 +40,82 @@ function Main(
   const dispatch = useLayoutDispatch()
   const { sideWidth, showSideView } = useLayoutState()
 
+  const currentKey = useMemo(() => uuid(), [])
+
+  const { handleResizeStart, handleResizing } = useResizingHandlers()
+
   const contentRef = useRef<HTMLDivElement | null>(null)
-  const contentInitialWidth = useRef(0)
   const sideInitialWidth = useRef(0)
   const initialPosition = useRef(0)
 
-  const hasSide = !isNil(sidePanel) || showSideView
-  const hasHeader = !isNil(contentHeader || coverableHeader)
+  const hasSide = !isNil(SidePanelComponent) || showSideView
+  const hasHeader = !isNil(ContentHeaderComponent || CoverableHeaderComponent)
 
   const handleResizerMouseDown = useCallback((e: MouseEvent) => {
-    contentInitialWidth.current = contentRef.current!.clientWidth
     initialPosition.current = e.clientX
     sideInitialWidth.current = sideWidth!
-    navigationRef?.current?.handleMouseDownOutside()
-  }, [navigationRef, sideWidth])
+    handleResizeStart(e, currentKey)
+  }, [handleResizeStart, sideWidth, currentKey])
 
   const handleResizerMouseMove = useCallback((e: MouseEvent) => {
-    window.requestAnimationFrame!(() => {
-      const resizerDelta = e.clientX - initialPosition.current
-      const afterContentWidth = Math.max(contentInitialWidth.current + resizerDelta, CONTENT_MIN_WIDTH)
-      const navigationDelta = contentInitialWidth.current + resizerDelta - afterContentWidth
-      if (navigationDelta < 0) {
-        const isNavigationMinimum = navigationRef?.current?.handleMouseMoveOutside(navigationDelta)
+    if (
+      handleResizing(e) &&
+      contentRef.current &&
+      (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
+    ) {
+      const resultSideWidth = clamp(
+        sideInitialWidth.current - (e.clientX - initialPosition.current),
+        SIDE_MIN_WIDTH,
+        SIDE_MAX_WIDTH,
+      )
 
-        if (isNavigationMinimum) { return }
+      if (sideWidth !== resultSideWidth) {
+        window.requestAnimationFrame!(() => {
+          onChangeSideWidth(resultSideWidth)
+          dispatch({
+            type: LayoutActionType.SET_SIDE_WIDTH,
+            payload: resultSideWidth,
+          })
+        })
       }
+    }
+  }, [
+    dispatch,
+    handleResizing,
+    onChangeSideWidth,
+    sideWidth,
+  ])
 
+  useLayoutEffect(() => {
+    if (contentRef.current) {
       dispatch({
-        type: LayoutActionType.SET_SIDE_WIDTH,
-        payload: clamp(
-          sideInitialWidth.current - resizerDelta,
-          SIDE_MIN_WIDTH,
-          SIDE_MAX_WIDTH,
-        ),
+        type: LayoutActionType.ADD_COLUMN_REF,
+        payload: {
+          key: currentKey,
+          ref: {
+            target: contentRef.current,
+            minWidth: CONTENT_MIN_WIDTH,
+            // NOTE: maxWidth, initialWidth 는 존재하지 않음
+            maxWidth: 0,
+            initialWidth: 0,
+          },
+          columnType: ColumnType.Content,
+        },
       })
-    })
-  }, [dispatch, navigationRef])
+    }
+
+    return function cleanUp() {
+      dispatch({
+        type: LayoutActionType.REMOVE_COLUMN_REF,
+        payload: {
+          key: currentKey,
+        },
+      })
+    }
+  }, [
+    dispatch,
+    currentKey,
+  ])
 
   return (
     <MainWrapper
@@ -77,21 +127,21 @@ function Main(
     >
       <HeaderArea
         hasHeader={hasHeader}
-        contentHeader={contentHeader}
-        coverableHeader={coverableHeader}
+        ContentHeaderComponent={ContentHeaderComponent}
+        CoverableHeaderComponent={CoverableHeaderComponent}
       />
       <ContentArea
         ref={contentRef}
         onResizerMouseDown={handleResizerMouseDown}
         onResizerMouseMove={handleResizerMouseMove}
       >
-        { content }
+        { children }
       </ContentArea>
       <SidePanelArea>
-        { sidePanel }
+        <SidePanelComponent />
       </SidePanelArea>
       <SideViewArea>
-        { sideView }
+        <SideViewComponent />
       </SideViewArea>
     </MainWrapper>
   )

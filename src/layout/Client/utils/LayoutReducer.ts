@@ -1,6 +1,18 @@
-import { insertItem, removeItem } from '../../../utils/utils'
+/* External dependencies */
+import { omit } from 'lodash-es'
 
-export interface NavigationState {
+/* Internal dependencies */
+import { insertItem, removeItem } from '../../../utils/arrayUtils'
+import ColumnType from '../../../types/ColumnType'
+
+type ColumnRef = {
+  target: HTMLDivElement
+  minWidth: number
+  maxWidth: number
+  initialWidth: number
+}
+
+export interface ColumnState {
   initialWidth: number
   maxWidth: number
   minWidth: number
@@ -9,27 +21,36 @@ export interface NavigationState {
 }
 
 export interface LayoutState {
-  sideWidth: number | null
+  /* Side View related */
+  sideWidth: number
   showSideView: boolean
+  /* Navigations related */
   showNavigation: boolean
-  navOptions: NavigationState[]
+  /* Resizing related */
+  orderedColumnKeys: Array<string>
+  columnRefs: { [key: string]: ColumnRef }
+  columnStates: { [key: string]: ColumnState }
 }
 
 export const defaultState: LayoutState = {
-  sideWidth: null,
+  sideWidth: 0,
   showSideView: false,
   showNavigation: true,
-  navOptions: [],
+  orderedColumnKeys: [],
+  columnRefs: {},
+  columnStates: {},
 }
 
 export enum ActionType {
-  SET_SIDE_WIDTH,
-  OPEN_SIDE_VIEW,
-  CLOSE_SIDE_VIEW,
-  SET_SHOW_NAVIGATION,
-  ADD_NAV_OPTION,
-  REMOVE_NAV_OPTION,
-  CLEAR_NAV_OPTION,
+  SET_SIDE_WIDTH = 'SET_SIDE_WIDTH',
+  OPEN_SIDE_VIEW = 'OPEN_SIDE_VIEW',
+  CLOSE_SIDE_VIEW = 'CLOSE_SIDE_VIEW',
+  SET_SHOW_NAVIGATION = 'SET_SHOW_NAVIGATION',
+  ADD_NAV_OPTION = 'ADD_NAV_OPTION',
+  REMOVE_NAV_OPTION = 'REMOVE_NAV_OPTION',
+  CLEAR_NAV_OPTION = 'CLEAR_NAV_OPTION',
+  ADD_COLUMN_REF = 'ADD_COLUMN_REF',
+  REMOVE_COLUMN_REF = 'REMOVE_COLUMN_REF',
 }
 
 interface SetSideWidthAction {
@@ -52,16 +73,30 @@ interface SetShowNavigationAction {
 
 interface AddNavOptionAction {
   type: ActionType.ADD_NAV_OPTION
-  payload: { index: number, option: NavigationState }
+  payload: { key: string, option: ColumnState }
 }
 
 interface RemoveNavOptionAction {
   type: ActionType.REMOVE_NAV_OPTION
-  payload: { index: number }
+  payload: { key: string }
 }
 
 interface ClearNavOptionAction {
   type: ActionType.CLEAR_NAV_OPTION
+}
+
+interface AddColumnRefAction {
+  type: ActionType.ADD_COLUMN_REF
+  payload: {
+    key: string
+    ref: ColumnRef
+    columnType: ColumnType
+  }
+}
+
+interface RemoveColumnRefAction {
+  type: ActionType.REMOVE_COLUMN_REF
+  payload: { key: string }
 }
 
 export type LayoutAction = (
@@ -71,7 +106,9 @@ export type LayoutAction = (
   SetShowNavigationAction |
   AddNavOptionAction |
   RemoveNavOptionAction |
-  ClearNavOptionAction
+  ClearNavOptionAction |
+  AddColumnRefAction |
+  RemoveColumnRefAction
 )
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction): LayoutState {
@@ -107,21 +144,64 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.ADD_NAV_OPTION: {
       return {
         ...state,
-        navOptions: insertItem(state.navOptions, action.payload.index, action.payload.option),
+        columnStates: {
+          ...state.columnStates,
+          [action.payload.key]: action.payload.option,
+        },
       }
     }
 
     case ActionType.REMOVE_NAV_OPTION: {
       return {
         ...state,
-        navOptions: removeItem(state.navOptions, action.payload.index),
+        columnStates: omit(state.columnStates, action.payload.key),
       }
     }
 
     case ActionType.CLEAR_NAV_OPTION: {
       return {
         ...state,
-        navOptions: [],
+        columnStates: {},
+      }
+    }
+
+    case ActionType.ADD_COLUMN_REF: {
+      const newColumnOrder = (() => {
+        switch (action.payload.columnType) {
+          case ColumnType.Nav:
+            return insertItem(
+              state.orderedColumnKeys,
+              action.payload.key,
+              // NOTE: Content 는 항상 하나이기 때문에, 뒤에서 두 번째 index 부터 순차적으로 삽입함.
+              state.orderedColumnKeys.length - 3,
+            )
+          case ColumnType.Content:
+          default:
+            return insertItem(
+              state.orderedColumnKeys,
+              action.payload.key,
+            )
+        }
+      })()
+
+      return {
+        ...state,
+        orderedColumnKeys: newColumnOrder,
+        columnRefs: {
+          ...state.columnRefs,
+          [action.payload.key]: action.payload.ref,
+        },
+      }
+    }
+
+    case ActionType.REMOVE_COLUMN_REF: {
+      return {
+        ...state,
+        orderedColumnKeys: removeItem(
+          state.orderedColumnKeys,
+          state.orderedColumnKeys.indexOf(action.payload.key),
+        ),
+        columnRefs: omit(state.columnRefs, action.payload.key),
       }
     }
 

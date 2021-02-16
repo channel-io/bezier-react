@@ -3,15 +3,16 @@ import React, {
   forwardRef,
   useState,
   useEffect,
+  useLayoutEffect,
   useCallback,
   useRef,
   useMemo,
 } from 'react'
-import { noop } from 'lodash-es'
 import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
-import { NavigationContext, NavigationContextProps } from '../../../contexts/NavigationContext'
+import ColumnType from '../../../types/ColumnType'
+import useResizingHandlers from '../../../hooks/useResizingHandlers'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
@@ -26,6 +27,8 @@ import {
   NavigationPresenter,
 } from './NavigationArea.styled'
 
+const MAX_NAV_Z_INDEX = 100
+
 export const NAV_TEST_ID = 'ch-design-system-nav'
 
 function NavigationArea(
@@ -33,74 +36,79 @@ function NavigationArea(
     style,
     className,
     testId = NAV_TEST_ID,
-    /* cloneElement Props */
-    optionIndex = 0,
-    onMouseDown = noop,
-    onMouseMove = noop,
+    currentKey = '',
+    allowMouseMove,
+    setAllowMouseMove,
+    setShowChevron,
+    isHoveringOnPresenter,
+    setIsHoveringOnPresenter,
+    onChangeWidth,
     children,
-    ...otherProps
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, navOptions } = useLayoutState()
+  const { showNavigation, columnStates, orderedColumnKeys } = useLayoutState()
 
-  const hidable = useMemo(() => navOptions[optionIndex]?.hidable || false, [navOptions, optionIndex])
-  const disableResize = useMemo(() => navOptions[optionIndex]?.disableResize || false, [navOptions, optionIndex])
-  const show = useMemo(() => (hidable ? showNavigation : undefined), [hidable, showNavigation])
+  const { handleResizeStart, handleResizing } = useResizingHandlers()
+
+  const hidable = useMemo(() => columnStates[currentKey]?.hidable || false, [columnStates, currentKey])
+  const show = useMemo(() => (!hidable || showNavigation), [hidable, showNavigation])
+  const disableResize = useMemo(() => (
+    !show ||
+    columnStates[currentKey]?.disableResize ||
+    false
+  ), [
+    show,
+    columnStates,
+    currentKey,
+  ])
 
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
   const mergedPresenterRef = useMergeRefs<HTMLDivElement>(presenterRef, forwardedRef)
   const [resizeBarRef, setResizeBarRef] = useState<HTMLDivElement | null>(null)
 
-  const [allowMouseMove, setAllowMouseMove] = useState(false)
-  const [showChevron, setShowChevron] = useState(false)
-  const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
-
   const handleMouseDown = useCallback((event: HTMLElementEventMap['mousedown']) => {
-    onMouseDown(event, optionIndex)
+    handleResizeStart(event, currentKey)
     setAllowMouseMove(true)
-  }, [optionIndex, onMouseDown])
+  }, [
+    currentKey,
+    handleResizeStart,
+    setAllowMouseMove,
+  ])
 
   const handleMouseUp = useCallback(() => {
     setAllowMouseMove(false)
-  }, [])
+  }, [setAllowMouseMove])
 
   const handleMouseMove = useCallback((event: HTMLElementEventMap['mousemove']) => {
     if (disableResize) { return }
 
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) return
-      onMouseMove(event)
+      handleResizing(event, onChangeWidth)
     })
-  }, [disableResize, allowMouseMove, onMouseMove])
+  }, [
+    disableResize,
+    allowMouseMove,
+    handleResizing,
+    onChangeWidth,
+  ])
 
   useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)
   useEventHandler(document, 'mouseup', handleMouseUp)
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
-    if (!hidable) { return }
-
-    if (show) {
+    if (hidable) {
       setShowChevron(true)
     }
-  }, 100, undefined, [show])
+  }, 100, undefined, [show, hidable])
 
   const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)
   }, 100, undefined, [])
-
-  const handleClickClose = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_NAVIGATION,
-      payload: false,
-    })
-
-    setShowChevron(false)
-    setIsHoveringOnPresenter(true)
-  }, [dispatch])
 
   const handleDecideHover = useThrottledCallback((ev: MouseEvent) => {
     const mouseX = ev.clientX
@@ -118,20 +126,53 @@ function NavigationArea(
     }
   }, [handleDecideHover, show])
 
-  const navigationContextValues: NavigationContextProps = useMemo(() => ({
-    optionIndex,
-    showChevron,
-    allowMouseMove,
-    isHoveringOnPresenter,
-    onClickClose: handleClickClose,
-  }), [allowMouseMove, handleClickClose, isHoveringOnPresenter, optionIndex, showChevron])
+  useLayoutEffect(() => {
+    if (presenterRef.current) {
+      presenterRef.current.style.width = `${columnStates[currentKey]?.initialWidth}px`
+
+      dispatch({
+        type: ActionType.ADD_COLUMN_REF,
+        payload: {
+          key: currentKey,
+          ref: {
+            target: presenterRef.current,
+            minWidth: columnStates[currentKey]?.minWidth,
+            maxWidth: columnStates[currentKey]?.maxWidth,
+            initialWidth: columnStates[currentKey]?.initialWidth,
+          },
+          columnType: ColumnType.Nav,
+        },
+      })
+    }
+
+    return function cleanUp() {
+      dispatch({
+        type: ActionType.REMOVE_COLUMN_REF,
+        payload: {
+          key: currentKey,
+        },
+      })
+    }
+  }, [
+    dispatch,
+    currentKey,
+    columnStates,
+  ])
+
+  useLayoutEffect(() => {
+    if (presenterRef.current) {
+      presenterRef.current.style.zIndex = (MAX_NAV_Z_INDEX - orderedColumnKeys.indexOf(currentKey)).toString()
+    }
+  }, [
+    currentKey,
+    orderedColumnKeys,
+  ])
 
   return (
     <NavigationContainer
       ref={containerRef}
       data-testid={testId}
       showNavigation={show}
-      {...otherProps}
     >
       <NavigationPositioner>
         <NavigationPresenter
@@ -143,9 +184,7 @@ function NavigationArea(
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}
         >
-          <NavigationContext.Provider value={navigationContextValues}>
-            { children }
-          </NavigationContext.Provider>
+          { children }
         </NavigationPresenter>
       </NavigationPositioner>
       <ResizeBar

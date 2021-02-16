@@ -12,8 +12,8 @@ function HeaderArea(
   {
     style,
     className,
-    contentHeader,
-    coverableHeader,
+    ContentHeaderComponent,
+    CoverableHeaderComponent,
     testId = HEADER_AREA_TEST_ID,
     hasHeader,
     ...otherProps
@@ -34,8 +34,12 @@ function HeaderArea(
       showSideView={showSideView}
       {...otherProps}
     >
-      <ContentHeader>{ contentHeader }</ContentHeader>
-      <CoverableHeader>{ coverableHeader }</CoverableHeader>
+      <ContentHeader>
+        <ContentHeaderComponent />
+      </ContentHeader>
+      <CoverableHeader>
+        <CoverableHeaderComponent />
+      </CoverableHeader>
     </HeaderWrapper>
   )
 }

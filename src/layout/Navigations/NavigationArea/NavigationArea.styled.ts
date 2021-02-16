@@ -12,12 +12,32 @@ export const ResizeBar = styled.div<ResizeBarProps>`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 9999999;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
   width: 10px;
   height: 100%;
   cursor: ${props => (props.disable ? 'auto' : 'col-resize')};
   background-color: transparent;
   transform: translateX(50%);
+
+  &::after {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 100%;
+    margin-right: 1px;
+    content: '';
+    background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+    opacity: 0.7;
+  }
+
+  &:hover {
+    &::after {
+      background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+      opacity: 1;
+    }
+  }
 `
 
 interface NavigationContainerProps {
@@ -32,8 +52,11 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   height: 100%;
   user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
-  /* TODO: Foundation Transition 으로 교체 */
-  transition: width 100ms ease-in-out;
+  ${({ foundation }) =>
+    foundation?.transition?.getTransitionsCSS(
+      'width',
+      foundation?.transition?.TransitionDuration.M,
+    )};
   will-change: width;
 `
 
@@ -53,19 +76,23 @@ interface NavigationPresenterProps {
 }
 
 export const NavigationPresenter = styled.div<NavigationPresenterProps>`
+  z-index: ${({ showNavigation }) => !showNavigation && 102} !important;
   display: flex;
   flex-direction: column;
   height: 100%;
   pointer-events: auto;
   /* TODO: Hovering Color Prop 추가 */
   background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
-  /* TODO: Foundation Transition 으로 교체 */
+  border-radius: 0 ${({ showNavigation }) => !showNavigation && '10px 10px'} 0;
   opacity:
     ${({ showNavigation, isHover }) => (
     isNil(showNavigation) || (isHover) || (showNavigation) ? '1' : '0')};
-  transition:
-    transform 200ms ease-in,
-    opacity 100ms ease-out;
+
+  ${({ foundation }) =>
+    foundation?.transition?.getTransitionsCSS(
+      ['transform', 'opacity', 'box-shadow', 'border-radius'],
+      foundation?.transition?.TransitionDuration?.M,
+    )};
 
   transform:
     ${({ showNavigation, isHover }) => {
@@ -73,6 +100,8 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
     if (isHover) { return ('translate(0, 40px)') }
     return 'translate(calc(20px - 100%), 40px)'
   }};
+
+  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4};
 
   will-change: transform, opacity;
 `

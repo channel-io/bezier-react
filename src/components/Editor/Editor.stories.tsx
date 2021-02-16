@@ -3,7 +3,7 @@ import React, { useRef, useCallback } from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import BlocksParserContextType from '../../types/BlocksParserContextType'
 import Bold from './plugins/Bold'
 import { EditorRef } from './Editor.types'
