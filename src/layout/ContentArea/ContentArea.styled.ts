@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { HEADER_HEIGHT } from '../../constants/LayoutSizes'
 import { styled } from '../../foundation'
 
 export const ContentAreaWrapper = styled.div`
@@ -8,14 +9,17 @@ export const ContentAreaWrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
 `
 
-export const StyledHandle = styled.div`
+interface StyledHandleProps {
+  withSideView: boolean
+}
+
+export const StyledHandle = styled.div<StyledHandleProps>`
   position: absolute;
-  top: 0;
   right: -8px;
   bottom: 0;
   z-index: 10000;
   width: 16px;
-  height: 100%;
+  height: calc(100% + ${({ withSideView }) => (withSideView ? HEADER_HEIGHT : 0)}px);
   margin: 0 auto;
   cursor: col-resize;
 

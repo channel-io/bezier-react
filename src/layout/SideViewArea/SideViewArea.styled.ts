@@ -8,4 +8,5 @@ export const SideViewWrapper = styled.div<SideViewWrapperProps>`
   grid-row: 1 / 3;
   grid-column: 2;
   overflow-y: auto;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 `

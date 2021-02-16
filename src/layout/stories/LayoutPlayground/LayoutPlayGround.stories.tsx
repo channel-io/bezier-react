@@ -225,7 +225,7 @@ const Template = () => {
     }
   }, [route])
 
-  const SideViewComponent = useCallback(() => (<Div>SideView</Div>), [])
+  const SideViewComponent = useCallback(() => (<Div style={{ height: 2000 }}>SideView</Div>), [])
 
   return (
     <>
