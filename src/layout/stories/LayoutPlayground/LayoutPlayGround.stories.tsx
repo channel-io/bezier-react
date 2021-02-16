@@ -37,7 +37,6 @@ const Div = styled.div<SidePanelChildProps>`
   justify-content: center;
   width: 100%;
   height: 100%;
-  border: 1px solid orange;
 `
 
 const StyledIcon = styled(Icon)`
@@ -55,7 +54,7 @@ function TeamChatSidePanel() {
   useSidePanelWidth(332)
 
   return (
-    <Div>
+    <Div style={{ height: 2000 }}>
       SidePanel
     </Div>
   )

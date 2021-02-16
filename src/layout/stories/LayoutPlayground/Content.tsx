@@ -4,16 +4,17 @@ import React, { useCallback } from 'react'
 /* Internal dependencies */
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
+import useSideView from '../../../hooks/useSideView'
 import { styled } from '../../../foundation'
 import { ActionType } from '../../Client/utils/LayoutReducer'
 
 const Div = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `
 
 function Content() {
@@ -21,17 +22,7 @@ function Content() {
 
   const { showNavigation } = useLayoutState()
 
-  const handleOpenSideView = useCallback(() => {
-    dispatch({
-      type: ActionType.OPEN_SIDE_VIEW,
-    })
-  }, [dispatch])
-
-  const handleCloseSideView = useCallback(() => {
-    dispatch({
-      type: ActionType.CLOSE_SIDE_VIEW,
-    })
-  }, [dispatch])
+  const [handleOpenSideView, handleCloseSideView] = useSideView()
 
   const handleToggleNavigation = useCallback(() => {
     dispatch({
