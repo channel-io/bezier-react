@@ -70,7 +70,7 @@ function UserChatSidePanel() {
   )
 }
 
-const Template = () => {
+const Template = ({ onChangeWidth }) => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.TeamChat)
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
@@ -103,6 +103,7 @@ const Template = () => {
           <NavigationContent
             header={Element1Header}
             withScroll
+            onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
             showNavigation
             layoutOption={{
@@ -122,6 +123,7 @@ const Template = () => {
           <NavigationContent
             header={Element1Header}
             withScroll
+            onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
             showNavigation
             layoutOption={{
@@ -142,6 +144,7 @@ const Template = () => {
           <NavigationContent
             header={Element1Header}
             withScroll
+            onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
             layoutOption={{
               initialWidth: 300,
@@ -160,7 +163,7 @@ const Template = () => {
       default:
         return null
     }
-  }, [Element1Header, route])
+  }, [Element1Header, route, onChangeWidth])
 
   const NavigationSubRoute = useCallback(() => {
     switch (route) {
@@ -170,6 +173,7 @@ const Template = () => {
             header={Element2Header}
             fixedHeader
             withScroll
+            onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
             layoutOption={{
               initialWidth: 260,
@@ -186,7 +190,7 @@ const Template = () => {
       default:
         return null
     }
-  }, [Element2Header, route])
+  }, [Element2Header, route, onChangeWidth])
 
   const ContentHeaderRoute = useCallback(() => {
     switch (route) {
@@ -246,6 +250,7 @@ const Template = () => {
             CoverableHeaderComponent={CoverableHeaderRoute}
             SidePanelComponent={SidePanelRoute}
             SideViewComponent={SideViewComponent}
+            onChangeSideWidth={onChangeWidth}
           >
             <Content />
           </Main>
@@ -256,3 +261,7 @@ const Template = () => {
 }
 
 export const Primary = Template.bind({})
+Primary.args = {
+  /* eslint-disable-next-line no-console */
+  onChangeWidth: console.log,
+}

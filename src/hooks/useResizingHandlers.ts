@@ -48,10 +48,10 @@ export default function useResizingHandlers() {
 
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`
+
+          onChangeWidth(resultWidth)
         })
       }
-
-      onChangeWidth(resultWidth)
 
       return true
     }
@@ -74,12 +74,12 @@ export default function useResizingHandlers() {
 
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`
+
+          onChangeWidth(resultWidth)
         })
       }
 
       currentKey.current = orderedColumnKeys[orderedColumnKeys.indexOf(currentKey.current) - 1]
-
-      onChangeWidth(resultWidth)
 
       if (columnStates[currentKey.current]?.disableResize) {
         return true

@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useLayoutEffect,
 } from 'react'
-import { clamp, isNil } from 'lodash-es'
+import { clamp, isNil, noop } from 'lodash-es'
 import { window } from 'ssr-window'
 import { v4 as uuid } from 'uuid'
 
@@ -32,6 +32,7 @@ function Main(
     SidePanelComponent,
     SideViewComponent,
     children,
+    onChangeSideWidth = noop,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -62,21 +63,27 @@ function Main(
       contentRef.current &&
       (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
     ) {
-      const resultSideWidth = sideInitialWidth.current - (e.clientX - initialPosition.current)
-      window.requestAnimationFrame!(() => {
-        dispatch({
-          type: LayoutActionType.SET_SIDE_WIDTH,
-          payload: clamp(
-            resultSideWidth,
-            SIDE_MIN_WIDTH,
-            SIDE_MAX_WIDTH,
-          ),
+      const resultSideWidth = clamp(
+        sideInitialWidth.current - (e.clientX - initialPosition.current),
+        SIDE_MIN_WIDTH,
+        SIDE_MAX_WIDTH,
+      )
+
+      if (sideWidth !== resultSideWidth) {
+        window.requestAnimationFrame!(() => {
+          onChangeSideWidth(resultSideWidth)
+          dispatch({
+            type: LayoutActionType.SET_SIDE_WIDTH,
+            payload: resultSideWidth,
+          })
         })
-      })
+      }
     }
   }, [
     dispatch,
     handleResizing,
+    onChangeSideWidth,
+    sideWidth,
   ])
 
   useLayoutEffect(() => {
