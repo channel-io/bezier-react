@@ -3,6 +3,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
+import visualizer from 'rollup-plugin-visualizer'
 
 import packageJson from './package.json'
 
@@ -33,6 +34,7 @@ export default {
       exclude: 'node_modules/**',
       extensions,
     }),
+    visualizer()
   ],
   external: [/@babel\/runtime/]
 }
