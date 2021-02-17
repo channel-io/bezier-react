@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
-import { get, noop, isNil } from 'lodash-es'
+import { get, noop, isNil, isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { mergeClassNames } from '../../../utils/stringUtils'
@@ -26,6 +26,7 @@ function ListItemComponent({
   name,
   leftIcon,
   leftIconColor,
+  disableIconActive = false,
   paddingLeft,
   href,
   hide,
@@ -59,26 +60,32 @@ function ListItemComponent({
 
   const ContentComponent = useMemo(() => (
     <>
-      { !isNil(leftIcon) && (
-        <StyledIcon
-          className={iconClassName}
-          name={leftIcon}
-          size={IconSize.S}
-          marginRight={8}
-          color={leftIconColor}
-        />
-      ) }
+      {
+        !isNil(leftIcon) && (
+          isString(leftIcon) ? (
+            <StyledIcon
+              className={iconClassName}
+              name={leftIcon}
+              size={IconSize.S}
+              marginRight={8}
+              color={(!disableIconActive && active) ? 'bgtxt-blue-normal' : leftIconColor}
+            />
+          ) : leftIcon
+        )
+      }
       <ContentWrapper className={contentClassName}>
         { content }
       </ContentWrapper>
       { rightContent }
     </>
   ), [
-    iconClassName,
-    content,
-    contentClassName,
     leftIcon,
+    iconClassName,
+    disableIconActive,
+    active,
     leftIconColor,
+    contentClassName,
+    content,
     rightContent,
   ])
 

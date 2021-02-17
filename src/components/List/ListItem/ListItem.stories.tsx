@@ -30,4 +30,5 @@ Primary.args = {
   content: '전체 상태',
   leftIcon: 'dot',
   active: false,
+  disableIconActive: false,
 }

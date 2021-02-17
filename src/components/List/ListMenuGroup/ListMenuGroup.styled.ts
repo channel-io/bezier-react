@@ -2,16 +2,22 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { css, styled } from '../../../foundation'
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { Icon } from '../../Icon'
-import { StyledWrapperProps, StyledContentWrapperProps } from './ListMenuGroup.types'
+import { StyledWrapperProps } from './ListMenuGroup.types'
+
+const ActiveItemStyle = css<StyledWrapperProps>`
+  color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
+`
 
 export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
   padding: 0;
+  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
@@ -24,24 +30,25 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
+
+  ${props => (props.active && ActiveItemStyle)}
 `
 
 interface StyledIconProps {
   color: ThemeKey
 }
 
+export const ChevronWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`
+
 export const StyledIcon = styled(Icon)<StyledIconProps>`
   color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
 `
 
-export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
-  display: flex;
-  flex: 1;
-  align-items: center;
-
-  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
-`
-
 export const ContentWrapper = styled.div`
-  margin-left: 8px;
+  flex: 1;
 `

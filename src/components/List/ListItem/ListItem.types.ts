@@ -13,8 +13,10 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   hide?: boolean
   nested?: boolean
   onClick?: (e: any, name?: string) => void
-  leftIcon?: IconName
+  leftIcon?: IconName | React.ReactNode
   leftIconColor?: ThemeKey
+  disableIconActive?: boolean
+  content?: React.ReactNode
   rightContent?: React.ReactNode
   paddingLeft?: number
 }

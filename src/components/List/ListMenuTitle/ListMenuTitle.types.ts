@@ -3,6 +3,7 @@ import { ContentComponentProps, UIComponentProps } from '../../../types/Componen
 
 export default interface ListMenuTitleProps extends ContentComponentProps {
   rightAction?: React.ReactNode
+  hide?: boolean
   onClick?: () => void
   onClickAction?: () => void
 }

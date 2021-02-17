@@ -8,14 +8,17 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   contentClassName?: string
   iconClassName?: string
   open?: boolean
-  onOpen?: (name?: string) => void
+  active?: boolean
   content?: React.ReactNode
   paddingLeft?: number
+  disableGroupSelect?: boolean
   leftIcon?: IconName
   leftIconColor?: ThemeKey
+  disableIconActive?: boolean
   name?: string
   rightContent?: React.ReactNode
-  onClick?: (name?: string) => void
+  onOpen?: (name?: string) => void
+  onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
   /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
   selectedMenuItemIndex?: number | null
@@ -28,6 +31,7 @@ export interface StyledWrapperProps extends ContentComponentProps {
   currentMenuItemIndex?: number | null
   chevronClassName?: string
   selectedOptionIndex?: number
+  selected?: boolean
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void
 }
 

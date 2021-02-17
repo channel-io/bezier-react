@@ -3,15 +3,15 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil, get } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_ITEM_PADDING_LEFT, LIST_MENU_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
+import { LIST_PADDING_LEFT } from '../../../constants/ListPadding'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
 import {
   GroupItemWrapper,
-  GroupItemContentWrapper,
   StyledIcon,
   ContentWrapper,
+  ChevronWrapper,
 } from './ListMenuGroup.styled'
 
 export const LIST_MENU_GROUP_COMPONENT_NAME = 'ListMenuGroup'
@@ -31,8 +31,10 @@ function ListMenuGroupComponent({
   iconClassName,
   paddingLeft = 0,
   open = false,
+  active = false,
   leftIcon,
   leftIconColor,
+  disableIconActive = false,
   name,
   content = null,
   rightContent = null,
@@ -75,10 +77,8 @@ forwardedRef: React.Ref<HTMLElement>,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
-  const handleClickGroup = useCallback(() => {
-    if (onClick) {
-      onClick(name)
-    }
+  const handleClickGroup = useCallback((e: React.MouseEvent) => {
+    onClick(e, name)
   }, [name, onClick])
 
   const handleClickItem = useCallback((
@@ -97,29 +97,27 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const ContentComponent = useMemo(() => (
     <>
-      <GroupItemContentWrapper
-        currentMenuItemIndex={currentMenuItemIndex}
-        open={open}
-        paddingLeft={paddingLeft}
-      >
+      <ChevronWrapper>
         <StyledIcon
           className={chevronClassName}
           name={`chevron-small-${open ? 'down' : 'right'}`}
-          size={IconSize.S}
+          size={IconSize.XXS}
           onClick={handleClickIcon}
+          color="txt-black-darker"
         />
-        { !isNil(leftIcon) && (
-          <StyledIcon
-            className={iconClassName}
-            name={leftIcon}
-            size={IconSize.S}
-            color={leftIconColor}
-          />
-        ) }
-        <ContentWrapper className={contentClassName}>
-          { content }
-        </ContentWrapper>
-      </GroupItemContentWrapper>
+      </ChevronWrapper>
+      { !isNil(leftIcon) && (
+        <StyledIcon
+          className={iconClassName}
+          name={leftIcon}
+          size={IconSize.S}
+          color={(!disableIconActive && active) ? 'bgtxt-blue-normal' : leftIconColor}
+          marginRight={8}
+        />
+      ) }
+      <ContentWrapper className={contentClassName}>
+        { content }
+      </ContentWrapper>
       { rightContent }
     </>
   ), [
@@ -127,33 +125,34 @@ forwardedRef: React.Ref<HTMLElement>,
     chevronClassName,
     contentClassName,
     content,
-    paddingLeft,
     leftIcon,
     leftIconColor,
     open,
     rightContent,
-    currentMenuItemIndex,
     handleClickIcon,
+    disableIconActive,
+    active,
   ])
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
       if (isListItem(element)) {
         return React.cloneElement(element, {
-          active: (currentMenuItemIndex === index),
-          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
+          active: element.props.active ?? (currentMenuItemIndex === index),
+          paddingLeft: paddingLeft + (LIST_PADDING_LEFT * 2),
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
             handleClickItem(index, element.props.optionKey)
-            if (element.props.onClick) { element.props.onClick(event) }
+            if (element.props.onClick) { element.props.onClick(event, element.props.name) }
           },
         })
       }
 
       if (isListMenuGroup(element)) {
         return React.cloneElement(element, {
-          paddingLeft: paddingLeft + LIST_MENU_GROUP_PADDING_LEFT,
+          paddingLeft: paddingLeft + LIST_PADDING_LEFT,
         })
       }
+
       return element
     })
   ), [
@@ -171,10 +170,12 @@ forwardedRef: React.Ref<HTMLElement>,
         name={name}
         className={className}
         open={open}
+        active={active}
         currentMenuItemIndex={currentMenuItemIndex}
         onClick={handleClickGroup}
         data-testid={testId}
         data-active-index={currentMenuItemIndex}
+        paddingLeft={paddingLeft}
         {...otherProps}
       >
         { ContentComponent }

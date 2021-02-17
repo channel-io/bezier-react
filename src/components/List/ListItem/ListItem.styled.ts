@@ -39,4 +39,6 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
   color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
 `
 
-export const ContentWrapper = styled.div``
+export const ContentWrapper = styled.div`
+  flex: 1;
+`

@@ -1,3 +1,2 @@
-export const LIST_MENU_GROUP_PADDING_LEFT = 12
+export const LIST_PADDING_LEFT = 12
 
-export const LIST_ITEM_PADDING_LEFT = 36
