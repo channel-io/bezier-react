@@ -10,13 +10,14 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   open?: boolean
   active?: boolean
   content?: React.ReactNode
+  rightContent?: React.ReactNode
+  hide?: boolean
   paddingLeft?: number
   disableGroupSelect?: boolean
   leftIcon?: IconName
   leftIconColor?: ThemeKey
   disableIconActive?: boolean
   name?: string
-  rightContent?: React.ReactNode
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void

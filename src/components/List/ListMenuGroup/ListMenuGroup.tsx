@@ -38,6 +38,7 @@ function ListMenuGroupComponent({
   name,
   content = null,
   rightContent = null,
+  hide = false,
   onOpen = noop,
   onClickArrow = noop,
   /* OptionMenuHost Props */
@@ -161,6 +162,8 @@ forwardedRef: React.Ref<HTMLElement>,
     handleClickItem,
     paddingLeft,
   ])
+
+  if (hide) return null
 
   return (
     <>

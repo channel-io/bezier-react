@@ -29,7 +29,7 @@ function ListItemComponent({
   disableIconActive = false,
   paddingLeft,
   href,
-  hide,
+  hide = false,
   rightContent = null,
   /* OptionItem Props */
   optionKey,
