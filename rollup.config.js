@@ -29,9 +29,10 @@ export default {
     }),
     commonjs(),
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       exclude: 'node_modules/**',
       extensions,
     }),
   ],
+  external: [/@babel\/runtime/]
 }
