@@ -29,6 +29,7 @@ export default {
     }),
     commonjs(),
     babel({
+      babelHelpers: 'bundled',
       exclude: 'node_modules/**',
       extensions,
     }),
