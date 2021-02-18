@@ -34,7 +34,9 @@ export default {
       exclude: 'node_modules/**',
       extensions,
     }),
-    visualizer()
+    visualizer({
+      filename: "stats.html",
+    }),
   ],
-  external: [/@babel\/runtime/]
+  external: [/@babel\/runtime/],
 }
