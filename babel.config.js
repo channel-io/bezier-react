@@ -7,6 +7,7 @@ module.exports = {
         ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       ],
       plugins: [
+        "@babel/plugin-transform-runtime",
         ["@babel/plugin-proposal-decorators", { legacy: true }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
         ['@babel/plugin-transform-classes', { loose: true }],
@@ -25,6 +26,7 @@ module.exports = {
         ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       ],
       plugins: [
+        "@babel/plugin-transform-runtime",
         ["@babel/plugin-proposal-decorators", { legacy: true }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
         ['@babel/plugin-transform-classes', { loose: true }],
