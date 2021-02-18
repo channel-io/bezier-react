@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil, get } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_PADDING_LEFT } from '../../../constants/ListPadding'
+import { LIST_GROUP_PADDING_LEFT, LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
@@ -111,8 +111,9 @@ forwardedRef: React.Ref<HTMLElement>,
         <StyledIcon
           className={iconClassName}
           name={leftIcon}
-          size={IconSize.S}
-          color={(!disableIconActive && active) ? 'bgtxt-blue-normal' : leftIconColor}
+          active={active}
+          disableIconActive={disableIconActive}
+          color={leftIconColor}
           marginRight={8}
         />
       ) }
@@ -140,7 +141,7 @@ forwardedRef: React.Ref<HTMLElement>,
       if (isListItem(element)) {
         return React.cloneElement(element, {
           active: element.props.active ?? (currentMenuItemIndex === index),
-          paddingLeft: paddingLeft + (LIST_PADDING_LEFT * 2),
+          paddingLeft: paddingLeft + (LIST_GROUP_PADDING_LEFT * 2),
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
             handleClickItem(index, element.props.optionKey)
             if (element.props.onClick) { element.props.onClick(event, element.props.name) }
@@ -150,7 +151,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
       if (isListMenuGroup(element)) {
         return React.cloneElement(element, {
-          paddingLeft: paddingLeft + LIST_PADDING_LEFT,
+          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
         })
       }
 

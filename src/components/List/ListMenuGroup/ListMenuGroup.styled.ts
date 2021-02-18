@@ -46,7 +46,10 @@ export const ChevronWrapper = styled.div`
 `
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`
-  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
+  color: ${props => {
+    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    return props.foundation?.theme?.[props.color || 'txt-black-dark']
+  }};
 `
 
 export const ContentWrapper = styled.div`

@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { css, styled } from '../../../foundation'
-import ThemeType from '../../../foundation/Theme/ThemeType'
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListItem.types'
 
@@ -32,11 +32,16 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 `
 
 interface StyledIconProps {
-  color: ThemeType
+  color: ThemeKey
+  active?: boolean
+  disableIconActive?: boolean
 }
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`
-  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-dark']};
+  color: ${props => {
+    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    return props.foundation?.theme?.[props.color || 'txt-black-dark']
+  }};
 `
 
 export const ContentWrapper = styled.div`

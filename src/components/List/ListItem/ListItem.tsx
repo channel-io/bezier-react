@@ -68,7 +68,9 @@ function ListItemComponent({
               name={leftIcon}
               size={IconSize.S}
               marginRight={8}
-              color={(!disableIconActive && active) ? 'bgtxt-blue-normal' : leftIconColor}
+              active={active}
+              disableIconActive={disableIconActive}
+              color={leftIconColor}
             />
           ) : leftIcon
         )

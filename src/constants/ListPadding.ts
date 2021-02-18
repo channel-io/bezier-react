@@ -1,2 +1,4 @@
-export const LIST_PADDING_LEFT = 12
+export const LIST_GROUP_PADDING_LEFT = 12
+
+export const LIST_ITEM_PADDING_LEFT = LIST_GROUP_PADDING_LEFT * 2
 
