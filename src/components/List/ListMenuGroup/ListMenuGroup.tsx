@@ -111,6 +111,7 @@ forwardedRef: React.Ref<HTMLElement>,
         <StyledIcon
           className={iconClassName}
           name={leftIcon}
+          size={IconSize.S}
           active={active}
           disableIconActive={disableIconActive}
           color={leftIconColor}
@@ -141,7 +142,7 @@ forwardedRef: React.Ref<HTMLElement>,
       if (isListItem(element)) {
         return React.cloneElement(element, {
           active: element.props.active ?? (currentMenuItemIndex === index),
-          paddingLeft: paddingLeft + (LIST_GROUP_PADDING_LEFT * 2),
+          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
           onClick: (event: React.MouseEvent<HTMLDivElement>) => {
             handleClickItem(index, element.props.optionKey)
             if (element.props.onClick) { element.props.onClick(event, element.props.name) }
@@ -151,7 +152,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
       if (isListMenuGroup(element)) {
         return React.cloneElement(element, {
-          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
+          paddingLeft: paddingLeft + LIST_GROUP_PADDING_LEFT,
         })
       }
 
