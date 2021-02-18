@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Design System by Channel",
   "repository": {
     "type": "git",
@@ -68,6 +68,7 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/plugin-transform-classes": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.15",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
@@ -127,6 +128,7 @@
     "regenerator-runtime": "^0.13.7",
     "rollup": "^2.37.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-visualizer": "^4.2.0",
     "styled-components": "^5.2.1",
     "stylelint": "^13.8.0",
     "ts-node": "^8.10.2",
@@ -138,6 +140,7 @@
     "styled-components": ">=5"
   },
   "dependencies": {
+    "@babel/runtime": "^7.12.13",
     "antlr4": "^4.8.0",
     "core-decorators": "^0.20.0",
     "lodash-es": "^4.17.15",

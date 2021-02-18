@@ -193,3 +193,6 @@ storybook-static/
 
 # WebStorm
 .idea
+
+# Rollup Plugin Visualizer
+stats.html

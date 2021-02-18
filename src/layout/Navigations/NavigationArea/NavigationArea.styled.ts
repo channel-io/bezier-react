@@ -51,7 +51,6 @@ export const NavigationContainer = styled.div<NavigationContainerProps>`
   width: ${({ showNavigation }) => (showNavigation === false ? '0px' : 'inherit')};
   height: 100%;
   user-select: none;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
   ${({ foundation }) =>
     foundation?.transition?.getTransitionsCSS(
       'width',
@@ -82,7 +81,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
   height: 100%;
   pointer-events: auto;
   /* TODO: Hovering Color Prop 추가 */
-  background-color: ${({ showNavigation }) => (showNavigation === false && 'white')};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-navi']};
   border-radius: 0 ${({ showNavigation }) => !showNavigation && '10px 10px'} 0;
   opacity:
     ${({ showNavigation, isHover }) => (

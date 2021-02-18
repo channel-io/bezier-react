@@ -116,7 +116,7 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
     case ActionType.SET_SIDE_WIDTH: {
       return {
         ...state,
-        sideWidth: action.payload,
+        sideWidth: state.showSideView ? state.sideWidth : action.payload,
       }
     }
 
