@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useState, useCallback, useRef } from 'react'
-import { isNil } from 'lodash-es'
+import { isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
@@ -95,6 +95,10 @@ function Tooltip({
     setShow(false)
   }, [])
 
+  if (!children) {
+    return null
+  }
+
   return (
     <Container
       onMouseEnter={handleMouseEnter}
@@ -105,7 +109,7 @@ function Tooltip({
       <TooltipContent
         className={className}
         show={show}
-        disabled={disabled}
+        disabled={disabled || isEmpty(content)}
         ref={tooltipRef}
         style={getTooltipStyle({
           container: containerRef.current,
