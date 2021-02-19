@@ -11,7 +11,7 @@ import { document } from 'ssr-window'
 import useLayoutState from '../../hooks/useLayoutState'
 import useEventHandler from '../../hooks/useEventHandler'
 import ContentAreaProps from './ContentArea.types'
-import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
+import { ContentAreaWrapper } from './ContentArea.styled'
 
 export const CONTENT_AREA_TEST_ID = 'ch-design-system-content-area'
 
@@ -27,6 +27,7 @@ function ContentArea(
   }: ContentAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { showSideView } = useLayoutState()
 
   const [isDragging, setIsDragging] = useState(false)
@@ -35,6 +36,7 @@ function ContentArea(
     onResizerMouseMove(e)
   }, [onResizerMouseMove])
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     setIsDragging(true)
     onResizerMouseDown(e)
@@ -56,10 +58,10 @@ function ContentArea(
       {...otherProps}
     >
       { children }
-      <StyledHandle
+      { /* <StyledHandle
         withSideView={showSideView}
         onMouseDown={handleMouseDown}
-      />
+      /> */ }
     </ContentAreaWrapper>
   )
 }

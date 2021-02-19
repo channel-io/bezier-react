@@ -17,15 +17,16 @@ import useResizingHandlers from '../../hooks/useResizingHandlers'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
-import { SidePanelArea } from '../SidePanelArea'
-import { SideViewArea } from '../SideViewArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
 import ColumnType from '../../types/ColumnType'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
+export const LAYOUT_MAIN_TEST_ID = 'ch-design-system-main'
+
 function Main(
   {
+    testId = LAYOUT_MAIN_TEST_ID,
     content,
     ContentHeaderComponent,
     CoverableHeaderComponent,
@@ -119,6 +120,7 @@ function Main(
 
   return (
     <MainWrapper
+      data-testId={testId}
       ref={forwardedRef}
       hasHeader={hasHeader}
       hasSide={hasSide}
@@ -137,12 +139,9 @@ function Main(
       >
         { children }
       </ContentArea>
-      <SidePanelArea>
-        <SidePanelComponent />
-      </SidePanelArea>
-      <SideViewArea>
-        <SideViewComponent />
-      </SideViewArea>
+
+      <SidePanelComponent />
+      <SideViewComponent />
     </MainWrapper>
   )
 }
