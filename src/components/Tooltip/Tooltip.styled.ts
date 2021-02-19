@@ -19,7 +19,6 @@ export const TooltipContent = styled.div<StyledTooltipProps>`
   max-width: 223px;
   height: max-content;
   padding: 10px 14px;
-  font-size: 13px;
   color: ${Palette.white};
   word-break: break-all;
   visibility: hidden;

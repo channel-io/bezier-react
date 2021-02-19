@@ -1,10 +1,15 @@
 /* External dependencies */
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef, useMemo, Ref, forwardRef, useEffect } from 'react'
 import { isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
+import useMergeRefs from '../../hooks/useMergeRefs'
+import { Text } from '../Text'
+import { Typography } from '../../foundation'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
 import { Container, TooltipContent } from './Tooltip.styled'
+
+export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
 
 function getTooltipStyle({
   container,
@@ -47,22 +52,29 @@ function getTooltipStyle({
   return { transform }
 }
 
-function Tooltip({
-  className,
-  content = null,
-  placement = TooltipPosition.Bottom,
-  offset = 0,
-  marginX = 0,
-  marginY = 0,
-  delayHide = false,
-  disabled = false,
-  children = null,
-}: TooltipProps) {
+function Tooltip(
+  {
+    as,
+    testId = TOOLTIP_TEST_ID,
+    className,
+    content = null,
+    placement = TooltipPosition.Bottom,
+    offset = 0,
+    marginX = 0,
+    marginY = 0,
+    delayHide = false,
+    disabled = false,
+    children = null,
+  }: TooltipProps,
+  forwardedRef: Ref<any>,
+) {
   const [show, setShow] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
   const clearHideTimeout = useRef<number>()
+  const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
   const handleMouseEnter = useCallback(() => {
     if (!isNil(clearHideTimeout.current)) {
@@ -95,6 +107,31 @@ function Tooltip({
     setShow(false)
   }, [])
 
+  const tooltipContentStyle = useMemo(() => {
+    if (!mounted) {
+      return undefined
+    }
+
+    return getTooltipStyle({
+      container: containerRef.current,
+      tooltip: tooltipRef.current,
+      placement,
+      offset,
+      marginX,
+      marginY,
+    })
+  }, [
+    mounted,
+    placement,
+    offset,
+    marginX,
+    marginY,
+  ])
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   if (!children) {
     return null
   }
@@ -107,25 +144,22 @@ function Tooltip({
     >
       { children }
       <TooltipContent
+        as={as}
         className={className}
         show={show}
         disabled={disabled || isEmpty(content)}
-        ref={tooltipRef}
-        style={getTooltipStyle({
-          container: containerRef.current,
-          tooltip: tooltipRef.current,
-          placement,
-          offset,
-          marginX,
-          marginY,
-        })}
+        ref={mergedRef}
+        style={tooltipContentStyle}
+        data-testid={testId}
         onMouseEnter={handleTooltipMouseEnter}
         onMouseLeave={handleTooltipMouseLeave}
       >
-        { content }
+        <Text type={Typography.Size13}>
+          { content }
+        </Text>
       </TooltipContent>
     </Container>
   )
 }
 
-export default Tooltip
+export default forwardRef(Tooltip)
