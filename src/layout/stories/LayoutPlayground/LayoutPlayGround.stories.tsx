@@ -51,11 +51,13 @@ enum RouteKeys {
   Setting = 'setting',
 }
 
-function TeamChatSidePanel() {
+function TeamChatSidePanel({ onChangeWidth }) {
   useSideWidth(332)
 
   return (
-    <SidePanelContent>
+    <SidePanelContent
+      onChangeSideWidth={onChangeWidth}
+    >
       <Div style={{ height: 2000 }}>
         SidePanel
       </Div>
@@ -63,11 +65,13 @@ function TeamChatSidePanel() {
   )
 }
 
-function UserChatSidePanel() {
+function UserChatSidePanel({ onChangeWidth }) {
   useSideWidth(332)
 
   return (
-    <SidePanelContent>
+    <SidePanelContent
+      onChangeSideWidth={onChangeWidth}
+    >
       <Div>
         Another SidePanel
       </Div>
@@ -224,21 +228,23 @@ const Template = ({ onChangeWidth }) => {
   const SidePanelRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<TeamChatSidePanel />)
+        return (<TeamChatSidePanel onChangeWidth={onChangeWidth}/>)
       case RouteKeys.UserChat:
-        return (<UserChatSidePanel />)
+        return (<UserChatSidePanel onChangeWidth={onChangeWidth}/>)
       case RouteKeys.Statistic:
       case RouteKeys.Setting:
       default:
         return null
     }
-  }, [route])
+  }, [onChangeWidth, route])
 
   const SideViewComponent = useCallback(() => (
-    <SideViewContent>
+    <SideViewContent
+      onChangeSideWidth={onChangeWidth}
+    >
       <Div style={{ height: 2000 }}>SideView</Div>
     </SideViewContent>
-  ), [])
+  ), [onChangeWidth])
   return (
     <>
       <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>

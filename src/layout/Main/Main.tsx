@@ -1,20 +1,17 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useCallback,
   useRef,
   useMemo,
   useLayoutEffect,
 } from 'react'
-import { clamp, isNil, noop } from 'lodash-es'
-import { window } from 'ssr-window'
+import { isNil } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useLayoutState from '../../hooks/useLayoutState'
-import useResizingHandlers from '../../hooks/useResizingHandlers'
-import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../constants/LayoutSizes'
+import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
 import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
@@ -33,7 +30,6 @@ function Main(
     SidePanelComponent,
     SideViewComponent,
     children,
-    onChangeSideWidth = noop,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -43,49 +39,10 @@ function Main(
 
   const currentKey = useMemo(() => uuid(), [])
 
-  const { handleResizeStart, handleResizing } = useResizingHandlers()
-
   const contentRef = useRef<HTMLDivElement | null>(null)
-  const sideInitialWidth = useRef(0)
-  const initialPosition = useRef(0)
 
   const hasSide = !isNil(SidePanelComponent) || showSideView
   const hasHeader = !isNil(ContentHeaderComponent || CoverableHeaderComponent)
-
-  const handleResizerMouseDown = useCallback((e: MouseEvent) => {
-    initialPosition.current = e.clientX
-    sideInitialWidth.current = sideWidth!
-    handleResizeStart(e, currentKey)
-  }, [handleResizeStart, sideWidth, currentKey])
-
-  const handleResizerMouseMove = useCallback((e: MouseEvent) => {
-    if (
-      handleResizing(e) &&
-      contentRef.current &&
-      (contentRef.current?.clientWidth >= CONTENT_MIN_WIDTH)
-    ) {
-      const resultSideWidth = clamp(
-        sideInitialWidth.current - (e.clientX - initialPosition.current),
-        SIDE_MIN_WIDTH,
-        SIDE_MAX_WIDTH,
-      )
-
-      if (sideWidth !== resultSideWidth) {
-        window.requestAnimationFrame!(() => {
-          onChangeSideWidth(resultSideWidth)
-          dispatch({
-            type: LayoutActionType.SET_SIDE_WIDTH,
-            payload: resultSideWidth,
-          })
-        })
-      }
-    }
-  }, [
-    dispatch,
-    handleResizing,
-    onChangeSideWidth,
-    sideWidth,
-  ])
 
   useLayoutEffect(() => {
     if (contentRef.current) {
@@ -134,8 +91,6 @@ function Main(
       />
       <ContentArea
         ref={contentRef}
-        onResizerMouseDown={handleResizerMouseDown}
-        onResizerMouseMove={handleResizerMouseMove}
       >
         { children }
       </ContentArea>
