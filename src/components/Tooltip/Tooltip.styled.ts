@@ -9,12 +9,15 @@ interface StyledTooltipProps {
 
 export const Container = styled.div`
   position: relative;
+  width: max-content;
+  height: max-content;
 `
 
 export const TooltipContent = styled.div<StyledTooltipProps>`
   position: absolute;
   top: 0;
   bottom: 0;
+  z-index: 1000000000;
   width: max-content;
   max-width: 223px;
   height: max-content;

@@ -59,7 +59,7 @@ function Tooltip(
     className,
     content = null,
     placement = TooltipPosition.Bottom,
-    offset = 0,
+    offset = 5,
     marginX = 0,
     marginY = 0,
     delayHide = false,
