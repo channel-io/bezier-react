@@ -1,9 +1,10 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { css, styled } from '../../../foundation'
 import LayoutSideType from '../../../constants/LayoutSideType'
 
 interface SideAreaWrapperProps {
   sideType: LayoutSideType
+  showSideView: boolean
 }
 
 export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
@@ -12,6 +13,10 @@ export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
   grid-column: 2;
   overflow-y: auto;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
+
+  ${({ showSideView, sideType }) => showSideView && sideType === LayoutSideType.SidePanel && css`
+    display: none;
+  `}
 `
 
 export const Resizer = styled.div`

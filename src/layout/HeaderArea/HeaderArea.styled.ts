@@ -11,7 +11,6 @@ export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: Head
     gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
-  z-index: ${({ showSideView }) => (showSideView ? 40 : 50)};
   display: grid;
   grid-template-rows: 1fr;
   grid-row: 1 / 2;

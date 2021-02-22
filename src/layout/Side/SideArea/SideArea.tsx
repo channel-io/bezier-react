@@ -96,8 +96,9 @@ function SideArea(
   return (
     <SideAreaWrapper
       data-testId={testId}
-      sideType={sideType}
       ref={forwardedRef}
+      sideType={sideType}
+      showSideView={showSideView}
       {...otherProps}
     >
       { children }
