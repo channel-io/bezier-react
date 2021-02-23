@@ -16,39 +16,83 @@ function getTooltipStyle({
   tooltip,
   placement,
   offset,
-  marginX,
-  marginY,
 }: GetTooltipStyle) {
   if (!container || !tooltip) {
     return {}
   }
 
-  const { width: containerWidth, height: containerHeight } = container.getBoundingClientRect()
+  const {
+    width: containerWidth,
+    height: containerHeight,
+    top: containerTop,
+    left: containerLeft,
+  } = container.getBoundingClientRect()
   const { width: tooltipWidth, height: tooltipHeight } = tooltip.getBoundingClientRect()
+  const {
+    width: documentWidth,
+    height: documentHeight,
+    top: documentTop,
+    left: documentLeft,
+  } = document.documentElement.getBoundingClientRect()
 
   let translateX = 0
   let translateY = 0
 
   switch (placement) {
-    case TooltipPosition.Top:
-      translateX += (containerWidth / 2) - (tooltipWidth / 2)
+    case TooltipPosition.TopCenter:
+    case TooltipPosition.TopLeft:
+    case TooltipPosition.TopRight:
       translateY -= (tooltipHeight + offset)
       break
-    case TooltipPosition.Bottom:
-      translateX += (containerWidth / 2) - (tooltipWidth / 2)
+    case TooltipPosition.RightCenter:
+    case TooltipPosition.RightTop:
+    case TooltipPosition.RightBottom:
+      translateX += (containerWidth + offset)
+      break
+    case TooltipPosition.BottomCenter:
+    case TooltipPosition.BottomLeft:
+    case TooltipPosition.BottomRight:
       translateY += (containerHeight + offset)
       break
-    case TooltipPosition.Left:
+    case TooltipPosition.LeftCenter:
+    case TooltipPosition.LeftTop:
+    case TooltipPosition.LeftBottom:
       translateX -= (tooltipWidth + offset)
-      translateY += (containerHeight / 2) - (tooltipHeight / 2)
       break
-    case TooltipPosition.Right:
-      translateX += (containerWidth + offset)
-      translateY += (containerHeight / 2) - (tooltipHeight / 2)
+  }
+  // post position
+  switch (placement) {
+    case TooltipPosition.TopCenter:
+    case TooltipPosition.BottomCenter:
+      translateX -= ((tooltipWidth / 2) - (containerWidth / 2))
+      break
+    case TooltipPosition.TopRight:
+    case TooltipPosition.BottomRight:
+      translateX -= (tooltipWidth - containerWidth)
+      break
+    case TooltipPosition.RightCenter:
+    case TooltipPosition.LeftCenter:
+      translateY -= ((tooltipHeight / 2) - (containerHeight / 2))
+      break
+    case TooltipPosition.RightBottom:
+    case TooltipPosition.LeftBottom:
+      translateY -= (tooltipHeight - containerHeight)
       break
   }
 
-  const transform = `translate(${translateX + marginX}px, ${translateY + marginY}px)`
+  const isOverTop = containerTop + translateY < documentTop
+  const isOverBottom = containerTop + translateY + tooltipHeight > documentTop + documentHeight
+  const isOverLeft = containerLeft + translateX < documentLeft
+  const isOverRight = containerLeft + translateX + tooltipWidth > documentLeft + documentWidth
+
+  if (isOverTop || isOverBottom) {
+    translateY = containerHeight - translateY - tooltipHeight
+  }
+  if (isOverLeft || isOverRight) {
+    translateX = containerWidth - translateX - tooltipWidth
+  }
+
+  const transform = `translate(${translateX}px, ${translateY}px)`
   return { transform }
 }
 
@@ -58,10 +102,8 @@ function Tooltip(
     testId = TOOLTIP_TEST_ID,
     className,
     content = null,
-    placement = TooltipPosition.Bottom,
+    placement = TooltipPosition.BottomCenter,
     offset = 5,
-    marginX = 0,
-    marginY = 0,
     delayHide = false,
     disabled = false,
     children = null,
@@ -117,15 +159,11 @@ function Tooltip(
       tooltip: tooltipRef.current,
       placement,
       offset,
-      marginX,
-      marginY,
     })
   }, [
     mounted,
     placement,
     offset,
-    marginX,
-    marginY,
   ])
 
   useEffect(() => {

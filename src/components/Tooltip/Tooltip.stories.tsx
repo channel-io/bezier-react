@@ -21,10 +21,18 @@ export default {
       control: {
         type: 'radio',
         options: [
-          TooltipPosition.Top,
-          TooltipPosition.Left,
-          TooltipPosition.Bottom,
-          TooltipPosition.Right,
+          TooltipPosition.TopCenter,
+          TooltipPosition.TopLeft,
+          TooltipPosition.TopRight,
+          TooltipPosition.RightCenter,
+          TooltipPosition.RightTop,
+          TooltipPosition.RightBottom,
+          TooltipPosition.BottomCenter,
+          TooltipPosition.BottomLeft,
+          TooltipPosition.BottomRight,
+          TooltipPosition.LeftCenter,
+          TooltipPosition.LeftTop,
+          TooltipPosition.LeftBottom,
         ],
       },
     },
@@ -33,22 +41,6 @@ export default {
         type: 'range',
         min: 0,
         max: 50,
-        step: 1,
-      },
-    },
-    marginX: {
-      control: {
-        type: 'range',
-        min: -200,
-        max: 200,
-        step: 1,
-      },
-    },
-    marginY: {
-      control: {
-        type: 'range',
-        min: -200,
-        max: 200,
         step: 1,
       },
     },
@@ -88,10 +80,8 @@ export const Primary = Template.bind({})
 Primary.args = {
   // eslint-disable-next-line max-len
   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-  placement: TooltipPosition.Bottom,
+  placement: TooltipPosition.BottomCenter,
   offset: 5,
-  marginX: 0,
-  marginY: 0,
   delayHide: false,
   disabled: false,
 }

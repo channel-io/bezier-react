@@ -5,20 +5,26 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   content?: React.ReactNode
   placement?: TooltipPosition
   offset?: number
-  marginX?: number
-  marginY?: number
   delayHide?: boolean
   disabled?: boolean
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'marginX' | 'marginY'>> {
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {
   container: HTMLDivElement | null
   tooltip: HTMLDivElement | null
 }
 
 export enum TooltipPosition {
-  Top = 'top',
-  Bottom = 'bottom',
-  Left = 'left',
-  Right = 'right',
+  TopCenter = 'topCenter',
+  TopLeft = 'topLeft',
+  TopRight = 'topRight',
+  RightCenter = 'rightCenter',
+  RightTop = 'rightTop',
+  RightBottom = 'rightBottom',
+  BottomCenter = 'bottomCenter',
+  BottomLeft = 'bottomLeft',
+  BottomRight = 'bottomRight',
+  LeftCenter = 'leftCenter',
+  LeftTop = 'leftTop',
+  LeftBottom = 'leftBottom',
 }
