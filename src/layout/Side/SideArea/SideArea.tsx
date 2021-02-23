@@ -11,7 +11,7 @@ import useResizingHandlers from '../../../hooks/useResizingHandlers'
 import { ActionType as LayoutActionType } from '../../Client/utils/LayoutReducer'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../../constants/LayoutSizes'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import { Resizer, SideAreaWrapper } from './SideArea.styled'
+import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
 
 export const SIDE_AREA_TEST_ID = 'ch-design-system-side-area'
@@ -101,7 +101,9 @@ function SideArea(
       showSideView={showSideView}
       {...otherProps}
     >
-      { children }
+      <ScrollWrapper>
+        { children }
+      </ScrollWrapper>
       <Resizer
         ref={setResizeBarRef}
       />
