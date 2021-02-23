@@ -8,8 +8,8 @@ import {
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   flex-direction: row;
-  height: 20px;
-  padding: 6px 12px 6px 16px;
+  height: 44px;
+  padding: 18px 6px 6px;
   line-height: 20px;
 `
 

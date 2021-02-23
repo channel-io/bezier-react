@@ -6,7 +6,7 @@ const Text = styled.span<TextProps>`
   ${props => props.typo};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
-  color: 'inherit';
+  color: inherit;
 `
 
 export default Text
