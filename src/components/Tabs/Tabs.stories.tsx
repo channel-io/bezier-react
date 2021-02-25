@@ -9,6 +9,7 @@ import { getTitle } from '../../utils/etcUtils'
 import { TabItem } from '../TabItem'
 import { TabActions } from '../TabActions'
 import Tabs from './Tabs'
+import { TabsSize } from './Tabs.types'
 
 export default {
   title: getTitle(base),
@@ -27,10 +28,12 @@ export default {
     },
     height: {
       control: {
-        type: 'range',
-        min: 29,
-        max: 100,
-        step: 1,
+        type: 'radio',
+        options: [
+          TabsSize.L,
+          TabsSize.Normal,
+          TabsSize.XS,
+        ],
       },
     },
   },
@@ -52,6 +55,7 @@ Primary.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
+  height: TabsSize.Normal,
 }
 
 /* eslint-disable react/button-has-type */
@@ -83,5 +87,5 @@ WithActions.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
-  height: 29,
+  height: TabsSize.Normal,
 }
