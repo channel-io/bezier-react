@@ -1,17 +1,20 @@
 /* External dependencies */
 import React, {
-  useCallback,
-  useState,
   forwardRef,
+  useMemo,
+  useLayoutEffect,
+  useRef,
 } from 'react'
-import { noop } from 'lodash-es'
-import { document } from 'ssr-window'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import useLayoutState from '../../hooks/useLayoutState'
-import useEventHandler from '../../hooks/useEventHandler'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import useMergeRefs from '../../hooks/useMergeRefs'
+import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
+import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
+import ColumnType from '../../types/ColumnType'
 import ContentAreaProps from './ContentArea.types'
-import { ContentAreaWrapper, StyledHandle } from './ContentArea.styled'
+import { ContentAreaWrapper } from './ContentArea.styled'
 
 export const CONTENT_AREA_TEST_ID = 'ch-design-system-content-area'
 
@@ -21,45 +24,57 @@ function ContentArea(
     className,
     testId = CONTENT_AREA_TEST_ID,
     children,
-    onResizerMouseDown = noop,
-    onResizerMouseMove = noop,
     ...otherProps
   }: ContentAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { showSideView } = useLayoutState()
+  const dispatch = useLayoutDispatch()
 
-  const [isDragging, setIsDragging] = useState(false)
+  const contentRef = useRef<HTMLDivElement | null>(null)
+  const mergedContentRef = useMergeRefs<HTMLDivElement>(forwardedRef, contentRef)
 
-  const handleMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
-    onResizerMouseMove(e)
-  }, [onResizerMouseMove])
+  const currentKey = useMemo(() => uuid(), [])
 
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    setIsDragging(true)
-    onResizerMouseDown(e)
-  }, [onResizerMouseDown])
+  useLayoutEffect(() => {
+    if (contentRef.current) {
+      dispatch({
+        type: LayoutActionType.ADD_COLUMN_REF,
+        payload: {
+          key: currentKey,
+          ref: {
+            target: contentRef.current,
+            minWidth: CONTENT_MIN_WIDTH,
+            // NOTE: maxWidth, initialWidth 는 존재하지 않음
+            maxWidth: 0,
+            initialWidth: 0,
+          },
+          columnType: ColumnType.Content,
+        },
+      })
+    }
 
-  const handleMouseUp = useCallback(() => {
-    setIsDragging(false)
-  }, [])
-
-  useEventHandler(document, 'mousemove', handleMouseMove, isDragging)
-  useEventHandler(document, 'mouseup', handleMouseUp)
+    return function cleanUp() {
+      dispatch({
+        type: LayoutActionType.REMOVE_COLUMN_REF,
+        payload: {
+          key: currentKey,
+        },
+      })
+    }
+  }, [
+    dispatch,
+    currentKey,
+  ])
 
   return (
     <ContentAreaWrapper
       style={style}
       className={className}
       data-testid={testId}
-      ref={forwardedRef}
+      ref={mergedContentRef}
       {...otherProps}
     >
       { children }
-      <StyledHandle
-        withSideView={showSideView}
-        onMouseDown={handleMouseDown}
-      />
     </ContentAreaWrapper>
   )
 }

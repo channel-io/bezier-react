@@ -33,7 +33,6 @@ export default function useResizingHandlers() {
 
   const handleResizing = useCallback((event: HTMLElementEventMap['mousemove'], onChangeWidth: (width: number) => void = noop) => {
     let movedPosition = event.clientX - initialPosition.current
-
     currentKey.current = initialKey.current
 
     if (
