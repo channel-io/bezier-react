@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { styled, css } from '../../foundation'
-import { Palette } from '../../foundation/Theme/Palette'
 
 interface StyledTooltipProps {
   show: boolean
@@ -22,12 +21,11 @@ export const TooltipContent = styled.div<StyledTooltipProps>`
   max-width: 223px;
   height: max-content;
   padding: 10px 14px;
-  color: ${Palette.white};
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   word-break: break-all;
   visibility: hidden;
-  background-color: ${Palette.grey900};
-  border-radius: 6px;
-  box-shadow: 0 4px 12px 0 var(${Palette.black_20});
+  ${({ foundation }) => foundation?.elevation?.ev2(true)};
+  ${({ foundation }) => foundation?.rounding?.round4};
 
   ${({ show }) => show && css`
     visibility: visible;

@@ -34,7 +34,7 @@ const RoundingChip = styled.div<RoundingChipProps>`
   width: 100px;
   height: 100px;
   ${({ foundation, round }) => foundation?.rounding?.[round]};
-  ${({ foundation }) => foundation?.elevation?.ev3};
+  ${({ foundation }) => foundation?.elevation?.ev3()};
 `
 
 const Template = (args) => (

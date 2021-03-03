@@ -101,7 +101,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
     return 'translate(calc(20px - 100%), 40px)'
   }};
 
-  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4};
+  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4()};
 
   will-change: transform, opacity;
 `
