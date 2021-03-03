@@ -10,7 +10,9 @@ type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-light`
   | `bg-${BaseMonoPaletteKey}-lighter`
   | `bg-${BaseMonoPaletteKey}-lightest`
-  | 'bg-white-absolute'
+  | `bg-${BasePaletteKey.white}-absolute`
+  | `bg-${BasePaletteKey.white}-lighter-absolute`
+  | `bg-${BasePaletteKey.white}-lightest-absolute`
 
 type LayoutBackgroundColor =
   | 'bg-gnb'

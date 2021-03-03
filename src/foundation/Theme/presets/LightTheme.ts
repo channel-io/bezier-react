@@ -25,6 +25,8 @@ const LightTheme: ThemeType = {
   'bg-grey-lightest': Palette.grey50,
 
   'bg-white-absolute': Palette.white,
+  'bg-white-lighter-absolute': Palette.white_60,
+  'bg-white-lightest-absolute': Palette.white_40,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue500,
