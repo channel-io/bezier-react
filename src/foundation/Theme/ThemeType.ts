@@ -38,8 +38,9 @@ type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-lightest`
 
 type BorderColor =
-  | 'bd-black-light'
-  | 'bd-grey-light'
+  | 'bdr-black-light'
+  | 'bdr-grey-light'
+  | 'bdr-white'
 
 type ShadowColor =
   | 'shdw-xlarge'
@@ -50,8 +51,12 @@ type ShadowColor =
   | 'shdw-inner-base'
 
 type DimBackgroundColor =
-  | 'dim-medium'
-  | 'dim-small'
+  | 'dim-darker'
+  | 'dim-dark'
+  | 'dim-light'
+  | 'dim-alt-light'
+  | 'dim-alt-lighter'
+  | 'dim-alt-lightest'
 
 export type ThemeKey =
   | MonoBackgroundColor

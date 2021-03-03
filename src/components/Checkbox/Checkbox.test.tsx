@@ -57,7 +57,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${Themes.LightTheme['bg-black-light']};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${Themes.LightTheme['bdr-black-light']};`)
   })
 
   it('Checker of Checkbox has green background when check status is truthy', () => {

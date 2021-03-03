@@ -102,8 +102,9 @@ const DarkTheme: ThemeType = {
   'txt-white': Palette.white,
 
   // Border
-  'bd-black-light': Palette.white_12,
-  'bd-grey-light': Palette.grey700,
+  'bdr-black-light': Palette.white_12,
+  'bdr-grey-light': Palette.grey700,
+  'bdr-white': Palette.white,
 
   // Shadow
   'shdw-xlarge': Palette.black_60,
@@ -114,8 +115,12 @@ const DarkTheme: ThemeType = {
   'shdw-inner-base': Palette.white_8,
 
   // Dim
-  'dim-medium': Palette.black_60,
-  'dim-small': Palette.black_20,
+  'dim-darker': Palette.black_60,
+  'dim-dark': Palette.black_40,
+  'dim-light': Palette.black_20,
+  'dim-alt-light': Palette.white_60,
+  'dim-alt-lighter': Palette.white_40,
+  'dim-alt-lightest': Palette.white_20,
 }
 
 export default DarkTheme

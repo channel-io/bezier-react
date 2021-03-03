@@ -101,8 +101,9 @@ const LightTheme: ThemeType = {
   'txt-white': Palette.white,
 
   // Border
-  'bd-black-light': Palette.black_8,
-  'bd-grey-light': Palette.grey200,
+  'bdr-black-light': Palette.black_8,
+  'bdr-grey-light': Palette.grey200,
+  'bdr-white': Palette.grey900,
 
   // Shadow
   'shdw-xlarge': Palette.black_20,
@@ -113,8 +114,12 @@ const LightTheme: ThemeType = {
   'shdw-inner-base': Palette.white_12,
 
   // Dim
-  'dim-medium': Palette.black_60,
-  'dim-small': Palette.black_20,
+  'dim-darker': Palette.black_60,
+  'dim-dark': Palette.black_40,
+  'dim-light': Palette.black_20,
+  'dim-alt-light': Palette.white_60,
+  'dim-alt-lighter': Palette.white_40,
+  'dim-alt-lightest': Palette.white_20,
 }
 
 export default LightTheme
