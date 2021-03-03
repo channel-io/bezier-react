@@ -37,12 +37,17 @@ export default {
         ],
       },
     },
+    tabCount: {
+      control: {
+        type: 'number',
+      },
+    },
   },
 }
 
-const Template = ({ ...otherProps }) => (
+const Template = ({ tabCount, ...otherProps }) => (
   <Tabs {...otherProps}>
-    { range(0, 8).map((n) => (
+    { range(0, tabCount).map((n) => (
       <TabItem optionKey={`tab-item-${n}`}>
         Tab { n }
       </TabItem>
@@ -57,12 +62,13 @@ Primary.args = {
   withIndicator: true,
   indicatorThickness: 3,
   height: TabsSize.Normal,
+  tabCount: 8,
 }
 
 /* eslint-disable react/button-has-type */
-export const WithAction = ({ onClickTabAction, ...otherProps }) => (
+export const WithAction = ({ onClickTabAction, tabCount, ...otherProps }) => (
   <Tabs {...otherProps} style={{ width: '768px' }}>
-    { range(0, 8).map((n) => (
+    { range(0, tabCount).map((n) => (
       <TabItem
         key={uuid()}
         optionKey={`tab-item-${n}`}
@@ -80,4 +86,5 @@ WithAction.args = {
   withIndicator: true,
   indicatorThickness: 3,
   height: TabsSize.Normal,
+  tabCount: 8,
 }
