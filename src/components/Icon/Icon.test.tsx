@@ -25,11 +25,11 @@ describe('Icon test >', () => {
     expect(renderedIcon).toHaveStyle('color: inherit;')
   })
 
-  it('Icon receives custom color', () => {
-    const { getByTestId } = renderIcon({ name: 'all', color: 'rgb(20, 30, 50)' })
+  it('Icon receives custom color Theme Key', () => {
+    const { getByTestId } = renderIcon({ name: 'all', color: 'bgtxt-olive-dark' })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
-    expect(renderedIcon).toHaveStyle('color: rgb(20, 30, 50);')
+    expect(renderedIcon).toHaveStyle('color: rgb(129, 134, 40);')
   })
 })
