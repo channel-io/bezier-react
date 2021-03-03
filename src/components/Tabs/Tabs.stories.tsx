@@ -7,7 +7,7 @@ import { range } from 'lodash-es'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import { TabItem } from '../TabItem'
-import { TabActions } from '../TabActions'
+import { TabAction } from '../TabAction'
 import Tabs from './Tabs'
 import { TabsSize } from './Tabs.types'
 
@@ -15,7 +15,8 @@ export default {
   title: getTitle(base),
   component: Tabs,
   argTypes: {
-    onClick: { control: { action: 'onClick' } },
+    onClick: { action: 'clicked' },
+    onClickTabAction: { action: 'clicked' },
     selectedOptionIndex: {
       control: {
         type: 'number',
@@ -59,8 +60,8 @@ Primary.args = {
 }
 
 /* eslint-disable react/button-has-type */
-export const WithActions = ({ ...otherProps }) => (
-  <Tabs {...otherProps}>
+export const WithAction = ({ onClickTabAction, ...otherProps }) => (
+  <Tabs {...otherProps} style={{ width: '768px' }}>
     { range(0, 8).map((n) => (
       <TabItem
         key={uuid()}
@@ -70,20 +71,11 @@ export const WithActions = ({ ...otherProps }) => (
       </TabItem>
     )) }
 
-    <TabActions
-      style={{
-        marginLeft: 60,
-      }}
-    >
-      <button>Action 1</button>
-      <button>Action 2</button>
-      { ({ disabled }: any) => (
-        <div>I&apos;m { disabled ? 'still' : 'not' } disabled!</div>
-      ) }
-    </TabActions>
+    <TabAction href="https://channel.io" onClick={onClickTabAction}>Sub 1</TabAction>
+    <TabAction onClick={onClickTabAction}>Sub 2</TabAction>
   </Tabs>
 )
-WithActions.args = {
+WithAction.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,

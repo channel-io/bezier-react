@@ -17,3 +17,10 @@ export const TabItemWrapper = styled.div<StyledTabItemWrapperProps>`
   flex-wrap: nowrap;
   overflow-y: scroll;
 `
+
+export const TabActions = styled.div<StyledWrapperProps>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
