@@ -1,13 +1,9 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import {
-  FoundationProvider,
-  LightFoundation,
-  Themes,
-} from '../../foundation'
+import { render } from '../../utils/testUtils'
+import { Themes } from '../../foundation'
 import DisabledOpacity from '../../constants/DisabledOpacity'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
@@ -25,9 +21,7 @@ describe('Checkbox test >', () => {
   })
 
   const renderComponent = (optionProps?: CheckboxProps) => render(
-    <FoundationProvider foundation={LightFoundation}>
-      <Checkbox {...props} {...optionProps} />
-    </FoundationProvider>,
+    <Checkbox {...props} {...optionProps} />,
   )
 
   it('Checkbox has default style', () => {

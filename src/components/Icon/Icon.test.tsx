@@ -1,9 +1,9 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import { FoundationProvider, LightFoundation } from '../../foundation'
+import { render } from '../../utils/testUtils'
+import { LightFoundation } from '../../foundation'
 import Icon, { ICON_TEST_ID } from './Icon'
 import IconProps from './Icon.types'
 
@@ -17,9 +17,7 @@ describe('Icon test >', () => {
   })
 
   const renderIcon = (optionProps?: IconProps) => render(
-    <FoundationProvider foundation={LightFoundation}>
-      <Icon {...props} {...optionProps}/>
-    </FoundationProvider>,
+    <Icon {...props} {...optionProps}/>,
   )
 
   it('Icon inherits fill color', () => {

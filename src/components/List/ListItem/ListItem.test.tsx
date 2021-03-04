@@ -1,8 +1,8 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
+import { render } from '../../../utils/testUtils'
 import ListItem, { LIST_ITEM_COMPONENT_NAME } from './ListItem'
 import ListItemProps from './ListItem.types'
 
