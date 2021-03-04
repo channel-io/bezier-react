@@ -4,6 +4,7 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
+import { TabsSize } from '../Tabs/Tabs.types'
 import TabItem from './TabItem'
 
 export default {
@@ -18,10 +19,12 @@ export default {
     },
     height: {
       control: {
-        type: 'range',
-        min: 29,
-        max: 100,
-        step: 1,
+        type: 'radio',
+        options: [
+          TabsSize.L,
+          TabsSize.Normal,
+          TabsSize.XS,
+        ],
       },
     },
   },
