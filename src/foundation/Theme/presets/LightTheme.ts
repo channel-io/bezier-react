@@ -11,7 +11,7 @@ const LightTheme: ThemeType = {
   'bg-gnb': Palette.grey200_80,
   'bg-navi': Palette.grey100_80,
   'bg-header': Palette.white,
-  'bg-white-floating': Palette.white_90,
+  'bg-white-float': Palette.white_90,
 
   // Mono Background
   'bg-black-darkest': Palette.black_40,
