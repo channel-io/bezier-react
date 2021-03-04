@@ -9,7 +9,7 @@ const DarkTheme: ThemeType = {
   'bg-white-low': Palette.grey800,
 
   // Layout Background
-  'bg-gnb': Palette.grey800_80,
+  'bg-gnb': Palette.grey700_80,
   'bg-navi': Palette.grey700_80,
   'bg-header': Palette.grey800,
   'bg-white-floating': Palette.grey800_80,
