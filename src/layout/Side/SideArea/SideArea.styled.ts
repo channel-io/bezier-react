@@ -42,7 +42,7 @@ export const Resizer = styled.div`
     width: 1px;
     height: 100%;
     content: '';
-    background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+    background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
     opacity: 0.7;
     transition: opacity 0.2s;
   }
