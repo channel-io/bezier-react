@@ -14,6 +14,7 @@ const LightTheme: ThemeType = {
   'bg-white-floating': Palette.white_90,
 
   // Mono Background
+  'bg-black-darkest': Palette.black_40,
   'bg-black-dark': Palette.black_15,
   'bg-black-light': Palette.black_8,
   'bg-black-lighter': Palette.black_5,
