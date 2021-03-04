@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { ThemeKey } from '../../foundation/Theme/ThemeType'
 
 /* Internal dependencies */
 import { StylableComponentProps } from '../../types/ComponentProps'
@@ -16,7 +17,7 @@ export enum IconSize {
 }
 
 export interface IconStyledProps {
-  color?: string
+  color?: ThemeKey
   margintop: number
   marginright: number
   marginbottom: number
@@ -25,7 +26,7 @@ export interface IconStyledProps {
 
 export default interface IconProps extends StylableComponentProps, Omit<SVGProps, 'ref'> {
   name: IconName
-  color?: string
+  color?: ThemeKey
   size?: IconSize
   marginTop?: number
   marginRight?: number

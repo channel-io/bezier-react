@@ -45,7 +45,7 @@ const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
 
   // Green
   green300: '#4FD85F',
-  green400: '#31A551',
+  green400: '#31A552',
   green500: '#41904F',
 
   // Olive

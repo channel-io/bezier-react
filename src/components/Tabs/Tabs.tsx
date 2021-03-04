@@ -1,13 +1,13 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import { noop, isNumber, get, map, identity } from 'lodash-es'
+import { noop, isNumber, isEmpty, get, map, identity } from 'lodash-es'
 
 /* Internal dependencies */
 import { isTabItem } from '../TabItem'
-import { isTabActions } from '../TabActions'
+import { isTabAction } from '../TabAction'
 import TabsProps from './Tabs.types'
-import { Wrapper, TabItemWrapper } from './Tabs.styled'
+import { Wrapper, TabItemWrapper, TabActions } from './Tabs.styled'
 
 export const TABS_TEST_ID = 'ch-design-system-tabs'
 
@@ -58,7 +58,7 @@ function Tabs({
           },
         })
       }
-      if (isTabActions(element)) { return null }
+      if (isTabAction(element)) { return null }
       return element
     })
   ), [
@@ -71,14 +71,24 @@ function Tabs({
     handleClickTab,
   ])
 
-  const Actions = useMemo(() => (
-    map(children, (child) => {
-      if (isTabActions(child)) {
-        return React.cloneElement(child, { key: child.key || uuid(), disabled })
+  const Actions = useMemo(() => {
+    const actions = map(children, (child) => {
+      if (isTabAction(child)) {
+        return React.cloneElement(child, { key: child.key || uuid(), height, disabled })
       }
       return null
     }).filter(identity)
-  ), [disabled, children])
+
+    if (isEmpty(actions)) {
+      return null
+    }
+
+    return (
+      <TabActions>
+        { actions }
+      </TabActions>
+    )
+  }, [height, disabled, children])
 
   return (
     <Wrapper

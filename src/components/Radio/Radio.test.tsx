@@ -1,13 +1,9 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import {
-  FoundationProvider,
-  LightFoundation,
-  Themes,
-} from '../../foundation'
+import { render } from '../../utils/testUtils'
+import { Themes } from '../../foundation'
 import Radio, { RADIO_TEST_ID, RADIO_HANDLE_TEST_ID } from './Radio'
 import RadioProps from './Radio.types'
 
@@ -25,9 +21,7 @@ describe('Radio test >', () => {
   })
 
   const renderRadio = (optionProps?: RadioProps) => render(
-    <FoundationProvider foundation={LightFoundation}>
-      <Radio {...props} {...optionProps}/>
-    </FoundationProvider>,
+    <Radio {...props} {...optionProps}/>,
   )
 
   it('RadioInput has default style', () => {

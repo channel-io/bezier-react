@@ -28,13 +28,13 @@ export const ResizeBar = styled.div<ResizeBarProps>`
     height: 100%;
     margin-right: 1px;
     content: '';
-    background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+    background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
     opacity: 0.7;
   }
 
   &:hover {
     &::after {
-      background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+      background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
       opacity: 1;
     }
   }
@@ -100,7 +100,7 @@ export const NavigationPresenter = styled.div<NavigationPresenterProps>`
     return 'translate(calc(20px - 100%), 40px)'
   }};
 
-  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4};
+  ${({ foundation, showNavigation }) => !showNavigation && foundation?.elevation?.ev4()};
 
   will-change: transform, opacity;
 `

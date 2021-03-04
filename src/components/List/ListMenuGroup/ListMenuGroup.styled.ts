@@ -2,17 +2,22 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { css, styled } from '../../../foundation'
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { Icon } from '../../Icon'
-import { StyledWrapperProps, StyledContentWrapperProps } from './ListMenuGroup.types'
+import { StyledWrapperProps } from './ListMenuGroup.types'
+
+const ActiveItemStyle = css<StyledWrapperProps>`
+  color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
+`
 
 export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 8px;
-  margin-right: 6px;
-  margin-left: 6px;
+  padding: 0;
+  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
@@ -20,36 +25,33 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   cursor: pointer;
   border-radius: 6px;
 
-  ${({ foundation, currentMenuItemIndex }) => !isNil(currentMenuItemIndex) && `
-      color: ${foundation?.theme?.['txt-black-darkest']};
-      background-color: ${foundation?.theme?.['bg-black-lighter']};
-  `}
-
   &:hover {
     background-color: ${props => (isNil(props.currentMenuItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
+
+  ${props => (props.active && ActiveItemStyle)}
 `
 
-export const StyledIcon = styled(Icon)`
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
-`
+interface StyledIconProps {
+  color: ThemeKey
+}
 
-export const GroupItemContentWrapper = styled.div<StyledContentWrapperProps>`
+export const ChevronWrapper = styled.div`
   display: flex;
-  flex: 1;
   align-items: center;
-
-  ${props => !isNil(props.currentMenuItemIndex) && `
-      svg {
-        color: ${props.foundation?.theme?.['txt-black-darkest']};
-      }
-  `}
+  justify-content: center;
+  height: 100%;
 `
 
-export const ChildrenWrapper = styled.div`
-  & > * {
-    padding-left: 38px;
-  }
+export const StyledIcon = styled(Icon)<StyledIconProps>`
+  color: ${props => {
+    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    return props.foundation?.theme?.[props.color || 'txt-black-dark']
+  }};
+`
+
+export const ContentWrapper = styled.div`
+  flex: 1;
 `

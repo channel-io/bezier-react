@@ -8,7 +8,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  align-items: center;
   justify-content: center;
   height: ${({ height }) => height}px;
   overflow: hidden;
@@ -33,9 +32,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
       visibility: hidden;
     ` : '')}
     position: absolute;
+    right: 1px;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 1px;
     height: ${props => props.indicatorThickness || 3}px;
     content: '';
     background-color: ${props => props.foundation?.theme?.['bgtxt-blue-normal']};
@@ -64,21 +63,25 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 `
 
 interface BackgroundProps {
+  padding: number
+  borderRadius: number
   isHovered?: boolean
   disabled?: boolean
 }
 
 export const Background = styled.div<BackgroundProps>`
+  position: relative;
+  top: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: calc(100% - 9px);
-  padding: 0 14px;
+  padding: 0 ${({ padding }) => padding}px;
   background-color:
     ${({ foundation, isHovered, disabled }) =>
     ((isHovered && !disabled) ? foundation?.theme?.['bg-black-lighter'] : '')};
-  border-radius: 6px;
+  border-radius: ${({ borderRadius }) => borderRadius}px;
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `

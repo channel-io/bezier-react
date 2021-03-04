@@ -83,7 +83,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   ${({ foundation }) =>
     foundation
       ?.border
-      ?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bd-black-light'])};
+      ?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bdr-black-light'])};
   border-radius: 4px;
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
@@ -91,7 +91,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   ${({ foundation, disabled }) => (!disabled ? `
     &:hover {
       &::after {
-        border-color: ${foundation?.theme?.['bd-black-light']};
+        border-color: ${foundation?.theme?.['bdr-black-light']};
       }
     }
   ` : '')}

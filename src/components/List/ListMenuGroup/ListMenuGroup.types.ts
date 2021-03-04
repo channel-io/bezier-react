@@ -1,16 +1,25 @@
 /* Internal dependencies */
+import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { ContentComponentProps } from '../../../types/ComponentProps'
 import { IconName } from '../../Icon'
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
+  chevronClassName?: string
+  contentClassName?: string
+  iconClassName?: string
   open?: boolean
-  onOpen?: (name?: string) => void
+  active?: boolean
   content?: React.ReactNode
-  leftIcon?: IconName
-  name?: string
   rightContent?: React.ReactNode
-  arrowClassName?: string
-  onClick?: (name?: string) => void
+  hide?: boolean
+  paddingLeft?: number
+  disableGroupSelect?: boolean
+  leftIcon?: IconName
+  leftIconColor?: ThemeKey
+  disableIconActive?: boolean
+  name?: string
+  onOpen?: (name?: string) => void
+  onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
   /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
   selectedMenuItemIndex?: number | null
@@ -21,8 +30,9 @@ export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
   currentMenuItemIndex?: number | null
-  arrowClassName?: string
+  chevronClassName?: string
   selectedOptionIndex?: number
+  selected?: boolean
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void
 }
 

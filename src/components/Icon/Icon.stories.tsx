@@ -5,7 +5,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import { Text } from '../Text'
-import { styled, Palette } from '../../foundation'
+import { styled } from '../../foundation'
 import icons, { IconName } from './generated'
 import Icon from './Icon'
 import { IconSize } from './Icon.types'
@@ -14,7 +14,6 @@ export default {
   title: getTitle(base),
   component: Icon,
   argTypes: {
-    color: { control: 'color' },
     size: {
       control: {
         type: 'radio',
@@ -60,7 +59,7 @@ export const AllIcons = (args) => (
 )
 AllIcons.args = {
   size: IconSize.Normal,
-  color: Palette.grey700,
+  color: 'bgtxt-olive-dark',
 }
 
 const Template = (args) => <Icon {...args} />
@@ -68,7 +67,7 @@ const Template = (args) => <Icon {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
   name: 'channel',
-  color: Palette.grey700,
+  color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
   marginTop: 0,
   marginRight: 0,
@@ -92,6 +91,6 @@ export const WithText = ({
 )
 WithText.args = {
   name: 'zoyi',
-  color: Palette.grey700,
+  color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
 }

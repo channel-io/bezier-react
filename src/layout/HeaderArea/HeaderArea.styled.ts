@@ -11,13 +11,12 @@ export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: Head
     gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
-  z-index: ${({ showSideView }) => (showSideView ? 40 : 50)};
   display: grid;
   grid-template-rows: 1fr;
   grid-row: 1 / 2;
   grid-column: 1 / 3;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-header']};
-  border-bottom: 1px solid ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+  border-bottom: 1px solid ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
 `
 
 export const ContentHeader = styled.div`

@@ -11,6 +11,8 @@ import { get, noop } from 'lodash-es'
 /* Internal dependencies */
 import { Text } from '../Text'
 import { mergeClassNames } from '../../utils/stringUtils'
+import { Typography } from '../../foundation'
+import { TabsSize } from '../Tabs/Tabs.types'
 import TabItemProps from './TabItem.types'
 import { Wrapper, Background } from './TabItem.styled'
 
@@ -49,6 +51,35 @@ function TabItemComponent({
     active,
   ])
 
+  const backgroundSizeProp = useMemo(() => {
+    if (height >= TabsSize.L) {
+      return {
+        padding: 14,
+        borderRadius: 12,
+      }
+    }
+    if (height > TabsSize.XS) {
+      return {
+        padding: 14,
+        borderRadius: 8,
+      }
+    }
+    return {
+      padding: 7,
+      borderRadius: 6,
+    }
+  }, [height])
+
+  const textTypo = useMemo(() => {
+    if (height >= TabsSize.L) {
+      return Typography.Size16
+    }
+    if (height > TabsSize.XS) {
+      return Typography.Size14
+    }
+    return Typography.Size13
+  }, [height])
+
   const handleClick = useCallback((e) => {
     if (!active && !disabled) {
       onClick(e)
@@ -80,8 +111,9 @@ function TabItemComponent({
       <Background
         isHovered={isHovered}
         disabled={disabled}
+        {...backgroundSizeProp}
       >
-        <Text bold>
+        <Text bold typo={textTypo}>
           { children }
         </Text>
       </Background>

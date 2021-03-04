@@ -11,6 +11,7 @@ function ListMenuTitle({
   as,
   testId = SIDEBAR_MENU_TITLE_TEST_ID,
   content,
+  hide = false,
   rightAction = null,
   onClick = noop,
   onClickAction = noop,
@@ -21,6 +22,10 @@ function ListMenuTitle({
     ev.stopPropagation()
     onClickAction()
   }, [onClickAction])
+
+  if (hide) {
+    return null
+  }
 
   return (
     <Wrapper

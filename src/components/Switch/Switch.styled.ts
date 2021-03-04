@@ -39,7 +39,7 @@ export const Content = styled.div<ContentProps>`
   height: ${props => props.size}px;
   background-color: ${props => props.foundation?.theme?.['bg-white-absolute']};
   border-radius: 50%;
-  ${({ foundation }) => foundation?.elevation?.ev2};
+  ${({ foundation }) => foundation?.elevation?.ev2()};
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
   transform: ${props => (props.checked ? `translateX(${props.size - PADDING}px)` : 'initial')};
 `

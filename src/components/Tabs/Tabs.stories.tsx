@@ -7,14 +7,16 @@ import { range } from 'lodash-es'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import { TabItem } from '../TabItem'
-import { TabActions } from '../TabActions'
+import { TabAction } from '../TabAction'
 import Tabs from './Tabs'
+import { TabsSize } from './Tabs.types'
 
 export default {
   title: getTitle(base),
   component: Tabs,
   argTypes: {
-    onClick: { control: { action: 'onClick' } },
+    onClick: { action: 'clicked' },
+    onClickTabAction: { action: 'clicked' },
     selectedOptionIndex: {
       control: {
         type: 'number',
@@ -27,18 +29,25 @@ export default {
     },
     height: {
       control: {
-        type: 'range',
-        min: 29,
-        max: 100,
-        step: 1,
+        type: 'radio',
+        options: [
+          TabsSize.L,
+          TabsSize.Normal,
+          TabsSize.XS,
+        ],
+      },
+    },
+    tabCount: {
+      control: {
+        type: 'number',
       },
     },
   },
 }
 
-const Template = ({ ...otherProps }) => (
+const Template = ({ tabCount, ...otherProps }) => (
   <Tabs {...otherProps}>
-    { range(0, 8).map((n) => (
+    { range(0, tabCount).map((n) => (
       <TabItem optionKey={`tab-item-${n}`}>
         Tab { n }
       </TabItem>
@@ -52,12 +61,14 @@ Primary.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
+  height: TabsSize.Normal,
+  tabCount: 8,
 }
 
 /* eslint-disable react/button-has-type */
-export const WithActions = ({ ...otherProps }) => (
-  <Tabs {...otherProps}>
-    { range(0, 8).map((n) => (
+export const WithAction = ({ onClickTabAction, tabCount, ...otherProps }) => (
+  <Tabs {...otherProps} style={{ width: '768px' }}>
+    { range(0, tabCount).map((n) => (
       <TabItem
         key={uuid()}
         optionKey={`tab-item-${n}`}
@@ -66,22 +77,14 @@ export const WithActions = ({ ...otherProps }) => (
       </TabItem>
     )) }
 
-    <TabActions
-      style={{
-        marginLeft: 60,
-      }}
-    >
-      <button>Action 1</button>
-      <button>Action 2</button>
-      { ({ disabled }: any) => (
-        <div>I&apos;m { disabled ? 'still' : 'not' } disabled!</div>
-      ) }
-    </TabActions>
+    <TabAction href="https://channel.io" onClick={onClickTabAction}>Sub 1</TabAction>
+    <TabAction onClick={onClickTabAction}>Sub 2</TabAction>
   </Tabs>
 )
-WithActions.args = {
+WithAction.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
-  height: 29,
+  height: TabsSize.Normal,
+  tabCount: 8,
 }
