@@ -1,8 +1,8 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
+import { render } from '../../../utils/testUtils'
 import ListMenuTitle, { SIDEBAR_MENU_TITLE_TEST_ID } from './ListMenuTitle'
 import ListMenuTitleProps from './ListMenuTitle.types'
 
@@ -17,6 +17,7 @@ describe('ListMenuTitle Test >', () => {
 
   const renderListMenuTitle = (optionPtops?: ListMenuTitleProps) =>
     render(<ListMenuTitle {...props} {...optionPtops} />)
+
   it('ListMenuTitle should have flex', () => {
     const { getByTestId } = renderListMenuTitle()
 

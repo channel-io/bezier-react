@@ -12,7 +12,7 @@ export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`
   ${({ foundation }) =>
     foundation?.border?.getBorder(
       1,
-      foundation?.theme?.['bd-black-light'],
+      foundation?.theme?.['bdr-black-light'],
       { top: false, right: false, left: false },
     )};
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};

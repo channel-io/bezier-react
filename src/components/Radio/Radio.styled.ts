@@ -42,7 +42,7 @@ export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>
   }};
   border: ${props => {
     if (props.checked) { return 'none' }
-    return `2px solid ${props.foundation?.theme?.['bd-black-light']}`
+    return `2px solid ${props.foundation?.theme?.['bdr-black-light']}`
   }};
   border-radius: 50%;
   ${props => props.foundation?.transition?.getTransitionsCSS('background-color')};

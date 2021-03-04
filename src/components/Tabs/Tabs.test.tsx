@@ -1,8 +1,8 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
+import { render } from '../../utils/testUtils'
 import Tabs, { TABS_TEST_ID } from './Tabs'
 import TabsProps from './Tabs.types'
 

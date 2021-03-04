@@ -1,10 +1,10 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
+import { render } from '../../../utils/testUtils'
 import { ListItem } from '../ListItem'
 import ListMenuGroup, { LIST_MENU_GROUP_TEST_ID } from './ListMenuGroup'
 import ListMenuGroupProps from './ListMenuGroup.types'

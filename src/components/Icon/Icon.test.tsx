@@ -1,8 +1,9 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
+import { render } from '../../utils/testUtils'
+import { LightFoundation } from '../../foundation'
 import Icon, { ICON_TEST_ID } from './Icon'
 import IconProps from './Icon.types'
 
@@ -15,7 +16,9 @@ describe('Icon test >', () => {
     }
   })
 
-  const renderIcon = (optionProps?: IconProps) => render(<Icon {...props} {...optionProps}/>)
+  const renderIcon = (optionProps?: IconProps) => render(
+    <Icon {...props} {...optionProps}/>,
+  )
 
   it('Icon inherits fill color', () => {
     const { getByTestId } = renderIcon()
@@ -25,11 +28,11 @@ describe('Icon test >', () => {
     expect(renderedIcon).toHaveStyle('color: inherit;')
   })
 
-  it('Icon receives custom color', () => {
-    const { getByTestId } = renderIcon({ name: 'all', color: 'rgb(20, 30, 50)' })
+  it('Icon receives custom color Theme Key', () => {
+    const { getByTestId } = renderIcon({ name: 'all', color: 'bgtxt-olive-dark' })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
-    expect(renderedIcon).toHaveStyle('color: rgb(20, 30, 50);')
+    expect(renderedIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-olive-dark']};`)
   })
 })

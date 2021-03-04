@@ -28,13 +28,13 @@ export const ResizeBar = styled.div<ResizeBarProps>`
     height: 100%;
     margin-right: 1px;
     content: '';
-    background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+    background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
     opacity: 0.7;
   }
 
   &:hover {
     &::after {
-      background-color: ${({ foundation }) => foundation?.theme?.['bd-black-light']};
+      background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
       opacity: 1;
     }
   }

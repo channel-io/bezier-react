@@ -14,7 +14,7 @@ const GNB = styled.div<GNBProps>`
   ${({ foundation }) =>
     foundation?.border?.getBorder(
       1,
-      foundation?.theme?.['bd-black-light'],
+      foundation?.theme?.['bdr-black-light'],
       { top: false, right: true, bottom: false, left: false },
     )};
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
