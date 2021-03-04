@@ -39,7 +39,7 @@ describe('ListItem', () => {
     const { getByTestId } = renderComponent({ href: 'https://naver.com' })
     const rendered = getByTestId(LIST_ITEM_COMPONENT_NAME)
     expect(rendered).toHaveAttribute('href', 'https://naver.com')
-    expect(rendered).toHaveAttribute('rel', 'noopener noreferer')
+    expect(rendered).toHaveAttribute('rel', 'noopener noreferrer')
     expect(rendered).toHaveAttribute('target', '_blank')
   })
 })

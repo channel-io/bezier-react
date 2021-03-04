@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { UIComponentProps } from '../../types/ComponentProps'
 import { styled, css } from '../../foundation'
 import { Icon } from '../Icon'
 import { StyledWrapperProps } from './TabAction.types'
@@ -9,8 +10,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   height: ${({ height }) => height}px;
 `
 
-interface BackgroundProps {
-  href?: string
+interface BackgroundProps extends UIComponentProps {
   padding?: number
   borderRadius?: number
   disabled?: boolean

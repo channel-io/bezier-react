@@ -103,7 +103,7 @@ function ListItemComponent({
         draggable={false}
         href={href}
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
         onClick={handleClick}
         active={false}
         data-active={active}
