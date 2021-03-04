@@ -78,6 +78,8 @@ function TabActionComponent({
       <Background
         as={isNil(href) ? 'div' : 'a'}
         href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={handleClick}
         {...backgroundSizeProp}
       >
