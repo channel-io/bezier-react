@@ -37,7 +37,7 @@ const Color = styled.div<ColorProps>`
   margin-bottom: 5px;
   width: 50px;
   height: 50px;
-  ${({ foundation }) => foundation?.elevation?.ev3};
+  ${({ foundation }) => foundation?.elevation?.ev3()};
   background-color: ${({ color }) => color};
   ${({ foundation }) => foundation?.rounding?.round16};
 `
