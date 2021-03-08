@@ -8,7 +8,7 @@ interface HeaderWrapperProps {
 
 export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: HeaderWrapperProps) => ({
   style: {
-    gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
+    gridTemplateColumns: `minmax(0, 1fr) ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
   display: grid;
