@@ -7,6 +7,7 @@ import useLayoutState from '../../../hooks/useLayoutState'
 import useSideView from '../../../hooks/useSideView'
 import { styled } from '../../../foundation'
 import { ActionType } from '../../Client/utils/LayoutReducer'
+import { Text } from '../../../components/Text'
 
 const Div = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const Div = styled.div`
 function Content() {
   const dispatch = useLayoutDispatch()
 
-  const { showNavigation } = useLayoutState()
+  const { showNavigation, sideWidth, showSideView } = useLayoutState()
 
   const [handleOpenSideView, handleCloseSideView] = useSideView()
 
@@ -33,6 +34,10 @@ function Content() {
 
   return (
     <Div>
+      <div>
+        <Text as="div">{ `sideWidth: ${sideWidth}px` }</Text>
+        <Text as="div">{ `showSideView: ${showSideView ? 'true' : 'false'}` }</Text>
+      </div>
       <button type="button" onClick={handleOpenSideView}>사이드뷰 열기</button>
       <button type="button" onClick={handleCloseSideView}>사이드뷰 닫기</button>
       <button type="button" onClick={handleToggleNavigation}>네비게이션 토글</button>
