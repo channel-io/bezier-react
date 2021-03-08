@@ -134,6 +134,13 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       }
     }
 
+    case ActionType.SET_SHOW_SIDE: {
+      return {
+        ...state,
+        ...action.payload,
+      }
+    }
+
     case ActionType.OPEN_SIDE_VIEW: {
       return {
         ...state,
