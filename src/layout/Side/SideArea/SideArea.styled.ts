@@ -11,9 +11,8 @@ export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
   position: relative;
   grid-row: ${({ sideType }) => (sideType === LayoutSideType.SidePanel ? '2 / 3' : '1 / 3')};
   grid-column: 2;
-  overflow-y: auto;
+  min-height: 0;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
-
   ${({ showSideView, sideType }) => showSideView && sideType === LayoutSideType.SidePanel && css`
     display: none;
   `}
