@@ -25,6 +25,15 @@ function SideViewContent({
         showSideView: true,
       },
     })
+
+    return function cleanup() {
+      dispatch({
+        type: ActionType.SET_SHOW_SIDE,
+        payload: {
+          showSideView: false,
+        },
+      })
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
