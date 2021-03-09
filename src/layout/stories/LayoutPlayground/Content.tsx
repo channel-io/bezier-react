@@ -42,7 +42,7 @@ function Content() {
       <div>
         <Text as="div">{ `sideWidth: ${sideWidth}px` }</Text>
         <Text as="div">{ `showSideView: ${showSideView ? 'true' : 'false'}` }</Text>
-        <Text as="div">{ `showSideView: ${showSidePanel ? 'true' : 'false'}` }</Text>
+        <Text as="div">{ `showSidePanel: ${showSidePanel ? 'true' : 'false'}` }</Text>
       </div>
       <button type="button" onClick={handleOpenSideView}>사이드뷰 열기</button>
       <button type="button" onClick={handleCloseSideView}>사이드뷰 닫기</button>

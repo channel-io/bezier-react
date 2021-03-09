@@ -5,8 +5,8 @@ import { noop } from 'lodash-es'
 /* Internal dependencies */
 import LayoutSideType from '../../../constants/LayoutSideType'
 import { SideArea } from '../SideArea'
-import { ActionType } from '../../Client/utils/LayoutReducer'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import { ActionType } from '../../Client/utils/LayoutReducer'
 import SideViewContentProps from './SideViewContent.types'
 
 export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
@@ -25,7 +25,8 @@ function SideViewContent({
         showSideView: true,
       },
     })
-  }, [dispatch])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <SideArea
