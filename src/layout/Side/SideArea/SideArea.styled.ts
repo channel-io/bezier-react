@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
+import { css, styled, disableAutoMinimum } from '../../../foundation'
 import LayoutSideType from '../../../constants/LayoutSideType'
 
 interface SideAreaWrapperProps {
@@ -11,11 +11,12 @@ export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
   position: relative;
   grid-row: ${({ sideType }) => (sideType === LayoutSideType.SidePanel ? '2 / 3' : '1 / 3')};
   grid-column: 2;
-  min-height: 0;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
   ${({ showSideView, sideType }) => showSideView && sideType === LayoutSideType.SidePanel && css`
     display: none;
   `}
+
+  ${disableAutoMinimum}
 `
 
 export const ScrollWrapper = styled.div`

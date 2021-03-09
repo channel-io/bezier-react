@@ -7,6 +7,11 @@ export const absoluteCenter = (otherTransforms: any) => `
   transform: translate(-50%, -50%) ${otherTransforms};
 `
 
+export const disableAutoMinimum = css`
+  min-width: 0;
+  min-height: 0;
+`
+
 export const hideScrollbars = () => css`
   -ms-overflow-style: none;
 
