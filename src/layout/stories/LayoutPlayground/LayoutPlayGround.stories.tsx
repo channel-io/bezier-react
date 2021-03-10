@@ -17,6 +17,7 @@ import Navigations from '../../Navigations/Navigations'
 import { SidePanelContent } from '../../Side/SidePanelContent'
 import { SideViewContent } from '../../Side/SideViewContent'
 import { NavigationContent } from '../../Navigations/NavigationContent'
+import useLayoutState from '../../../hooks/useLayoutState'
 import Content from './Content'
 
 export default {
@@ -76,6 +77,22 @@ function UserChatSidePanel({ onChangeWidth }) {
         Another SidePanel
       </Div>
     </SidePanelContent>
+  )
+}
+
+function SideViewRoute({ onChangeWidth }) {
+  const { showSideView } = useLayoutState()
+
+  if (!showSideView) {
+    return null
+  }
+
+  return (
+    <SideViewContent
+      onChangeSideWidth={onChangeWidth}
+    >
+      <Div style={{ height: 2000 }}>SideView</Div>
+    </SideViewContent>
   )
 }
 
@@ -239,12 +256,9 @@ const Template = ({ onChangeWidth }) => {
   }, [onChangeWidth, route])
 
   const SideViewComponent = useCallback(() => (
-    <SideViewContent
-      onChangeSideWidth={onChangeWidth}
-    >
-      <Div style={{ height: 2000 }}>SideView</Div>
-    </SideViewContent>
+    <SideViewRoute onChangeWidth={onChangeWidth}/>
   ), [onChangeWidth])
+
   return (
     <>
       <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
