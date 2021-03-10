@@ -20,27 +20,27 @@ export interface ColumnState {
   disableResize?: boolean
 }
 
-interface SetShowSideActionPayload {
+type SetShowSideActionPayload = {
   showSideView?: boolean
   showSidePanel?: boolean
 }
 
-interface AddNavOptionActionPayload {
+type AddNavOptionActionPayload = {
   key: string
   option: ColumnState
 }
 
-interface RemoveNavOptionActionPayload {
+type RemoveNavOptionActionPayload = {
   key: string
 }
 
-interface AddColumnRefActionPayload {
+type AddColumnRefActionPayload = {
   key: string
   ref: ColumnRef
   columnType: ColumnType
 }
 
-interface RemoveColumnRefActionPayload {
+type RemoveColumnRefActionPayload = {
   key: string
 }
 
