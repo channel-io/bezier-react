@@ -4,7 +4,7 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
-import { HeaderArea } from '../Header/HeaderArea'
+import { HeaderArea } from '../HeaderArea'
 import { ContentArea } from '../ContentArea'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
