@@ -33,6 +33,7 @@ export * from './layout/Main'
 export * from './layout/Navigations'
 export * from './layout/Side/SidePanelContent'
 export * from './layout/Side/SideViewContent'
+export * from './layout/redux'
 
 /* Types */
 export type { default as BlocksParserContextType } from './types/BlocksParserContextType'

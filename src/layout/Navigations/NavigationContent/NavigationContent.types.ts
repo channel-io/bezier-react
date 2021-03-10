@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { UIComponentProps } from '../../../types/ComponentProps'
-import { ColumnState } from '../../Client/utils/LayoutReducer'
+import { ColumnState } from '../../redux/LayoutActions'
 
 export default interface NavigationContentProps extends UIComponentProps {
   header?: React.ReactElement | null

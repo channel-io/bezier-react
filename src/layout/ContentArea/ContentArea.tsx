@@ -11,8 +11,8 @@ import { v4 as uuid } from 'uuid'
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
-import { ActionType as LayoutActionType } from '../Client/utils/LayoutReducer'
 import ColumnType from '../../types/ColumnType'
+import LayoutActions from '../redux/LayoutActions'
 import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper } from './ContentArea.styled'
 
@@ -37,29 +37,27 @@ function ContentArea(
 
   useLayoutEffect(() => {
     if (contentRef.current) {
-      dispatch({
-        type: LayoutActionType.ADD_COLUMN_REF,
-        payload: {
-          key: currentKey,
-          ref: {
-            target: contentRef.current,
-            minWidth: CONTENT_MIN_WIDTH,
-            // NOTE: maxWidth, initialWidth 는 존재하지 않음
-            maxWidth: 0,
-            initialWidth: 0,
-          },
-          columnType: ColumnType.Content,
+      const payload = {
+        key: currentKey,
+        ref: {
+          target: contentRef.current,
+          minWidth: CONTENT_MIN_WIDTH,
+          // NOTE: maxWidth, initialWidth 는 존재하지 않음
+          maxWidth: 0,
+          initialWidth: 0,
         },
-      })
+        columnType: ColumnType.Content,
+      }
+
+      dispatch(LayoutActions.addColumnRef(payload))
     }
 
     return function cleanUp() {
-      dispatch({
-        type: LayoutActionType.REMOVE_COLUMN_REF,
-        payload: {
-          key: currentKey,
-        },
-      })
+      const payload = {
+        key: currentKey,
+      }
+
+      dispatch(LayoutActions.removeColumnRef(payload))
     }
   }, [
     dispatch,
