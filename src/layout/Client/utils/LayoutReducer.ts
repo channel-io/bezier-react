@@ -5,6 +5,11 @@ import { omit } from 'lodash-es'
 import { insertItem, removeItem } from '../../../utils/arrayUtils'
 import ColumnType from '../../../types/ColumnType'
 
+interface SetShowSideActionPayload {
+  showSideView?: boolean
+  showSidePanel?: boolean
+}
+
 type ColumnRef = {
   target: HTMLDivElement
   minWidth: number
@@ -21,9 +26,10 @@ export interface ColumnState {
 }
 
 export interface LayoutState {
-  /* Side View related */
+  /* Side related */
   sideWidth: number
   showSideView: boolean
+  showSidePanel: boolean
   /* Navigations related */
   showNavigation: boolean
   /* Resizing related */
@@ -35,6 +41,7 @@ export interface LayoutState {
 export const defaultState: LayoutState = {
   sideWidth: 0,
   showSideView: false,
+  showSidePanel: false,
   showNavigation: true,
   orderedColumnKeys: [],
   columnRefs: {},
@@ -43,6 +50,7 @@ export const defaultState: LayoutState = {
 
 export enum ActionType {
   SET_SIDE_WIDTH = 'SET_SIDE_WIDTH',
+  SET_SHOW_SIDE = 'SET_SHOW_SIDE',
   OPEN_SIDE_VIEW = 'OPEN_SIDE_VIEW',
   CLOSE_SIDE_VIEW = 'CLOSE_SIDE_VIEW',
   SET_SHOW_NAVIGATION = 'SET_SHOW_NAVIGATION',
@@ -56,6 +64,11 @@ export enum ActionType {
 interface SetSideWidthAction {
   type: ActionType.SET_SIDE_WIDTH
   payload: number
+}
+
+interface SetShowSideAction {
+  type: ActionType.SET_SHOW_SIDE
+  payload: SetShowSideActionPayload
 }
 
 interface OpenSideViewAction {
@@ -101,6 +114,7 @@ interface RemoveColumnRefAction {
 
 export type LayoutAction = (
   SetSideWidthAction |
+  SetShowSideAction |
   OpenSideViewAction |
   CloseSideViewAction |
   SetShowNavigationAction |
@@ -117,6 +131,13 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutAction):
       return {
         ...state,
         sideWidth: action.payload,
+      }
+    }
+
+    case ActionType.SET_SHOW_SIDE: {
+      return {
+        ...state,
+        ...action.payload,
       }
     }
 

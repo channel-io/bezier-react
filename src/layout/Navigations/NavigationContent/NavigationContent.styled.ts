@@ -35,10 +35,6 @@ export const StyledContentWrapper = styled.div<StyledContentWrapperProps>`
   height: 100%;
   overflow-x: hidden;
   overflow-y: ${({ withScroll }) => (withScroll ? 'auto' : 'hidden')};
-
-  & > *:last-child {
-    margin-bottom: 40px !important;
-  }
 `
 
 export const StyledFooterWrapper = styled.div`

@@ -24,9 +24,9 @@ function Main(
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { sideWidth, showSideView } = useLayoutState()
+  const { sideWidth, showSideView, showSidePanel } = useLayoutState()
 
-  const hasSide = !isNil(SidePanelComponent) || showSideView
+  const hasSide = showSideView || showSidePanel
   const hasHeader = !isNil(ContentHeaderComponent || CoverableHeaderComponent)
 
   return (
@@ -47,8 +47,8 @@ function Main(
         { children }
       </ContentArea>
 
-      <SidePanelComponent />
-      <SideViewComponent />
+      <SidePanelComponent/>
+      <SideViewComponent/>
     </MainWrapper>
   )
 }

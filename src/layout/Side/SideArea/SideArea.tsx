@@ -4,7 +4,6 @@ import { noop, clamp } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
-import LayoutSideType from '../../../constants/LayoutSideType'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useResizingHandlers from '../../../hooks/useResizingHandlers'
@@ -39,10 +38,6 @@ function SideArea(
   // NOTE: Content는 언제나 마지막 순서이다
   const contentKey = useMemo(() => (orderedColumnKeys[orderedColumnKeys.length - 1]), [orderedColumnKeys])
   const contentRef = useMemo(() => (columnRefs[contentKey]?.target), [columnRefs, contentKey])
-
-  const hideSideView = useMemo(() => (
-    sideType === LayoutSideType.SideView && !showSideView
-  ), [showSideView, sideType])
 
   const handleResizerMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
     if (
@@ -88,10 +83,6 @@ function SideArea(
   useEventHandler(resizeBarRef, 'mousedown', handleResizerMouseDown)
   useEventHandler(document, 'mousemove', handleResizerMouseMove, isDragging)
   useEventHandler(document, 'mouseup', handleResizerMouseUp)
-
-  if (hideSideView) {
-    return null
-  }
 
   return (
     <SideAreaWrapper
