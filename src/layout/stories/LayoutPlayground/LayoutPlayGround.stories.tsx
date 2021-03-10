@@ -73,7 +73,7 @@ function UserChatSidePanel({ onChangeWidth }) {
     <SidePanelContent
       onChangeSideWidth={onChangeWidth}
     >
-      <Div>
+      <Div style={{ height: 2000 }}>
         Another SidePanel
       </Div>
     </SidePanelContent>
