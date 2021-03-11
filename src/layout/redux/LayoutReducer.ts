@@ -9,12 +9,12 @@ import { ColumnRef, ColumnState, LayoutActionTypes } from './LayoutActions'
 
 export interface LayoutState {
   /* Header related */
-  showContentHeader: boolean
-  showCoverableHeader: boolean
+  showContentHeader: boolean | undefined
+  showCoverableHeader: boolean | undefined
   /* Side related */
   sideWidth: number
-  showSideView: boolean
-  showSidePanel: boolean
+  showSideView: boolean | undefined
+  showSidePanel: boolean | undefined
   /* Navigations related */
   showNavigation: boolean
   /* Resizing related */
@@ -24,11 +24,11 @@ export interface LayoutState {
 }
 
 export const defaultState: LayoutState = {
-  showContentHeader: false,
-  showCoverableHeader: false,
+  showContentHeader: undefined,
+  showCoverableHeader: undefined,
   sideWidth: 0,
-  showSideView: false,
-  showSidePanel: false,
+  showSideView: undefined,
+  showSidePanel: undefined,
   showNavigation: true,
   orderedColumnKeys: [],
   columnRefs: {},

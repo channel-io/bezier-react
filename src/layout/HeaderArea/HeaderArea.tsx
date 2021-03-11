@@ -22,8 +22,6 @@ function HeaderArea(
 ) {
   const { sideWidth, showSideView } = useLayoutState()
 
-  if (!hasHeader) { return null }
-
   return (
     <HeaderWrapper
       style={style}
@@ -32,6 +30,7 @@ function HeaderArea(
       ref={forwardedRef}
       sideWidth={sideWidth}
       showSideView={showSideView}
+      showHeader={hasHeader}
       {...otherProps}
     >
       <ContentHeader>

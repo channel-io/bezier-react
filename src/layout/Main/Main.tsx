@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
-import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import useLayoutState from '../../hooks/useLayoutState'
@@ -24,10 +23,10 @@ function Main(
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { sideWidth, showSideView, showSidePanel } = useLayoutState()
+  const { sideWidth, showSideView, showSidePanel, showContentHeader, showCoverableHeader } = useLayoutState()
 
   const hasSide = showSideView || showSidePanel
-  const hasHeader = !isNil(ContentHeaderComponent || CoverableHeaderComponent)
+  const hasHeader = showContentHeader || showCoverableHeader
 
   return (
     <MainWrapper
