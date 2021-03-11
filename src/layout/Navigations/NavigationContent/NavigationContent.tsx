@@ -11,8 +11,8 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { NavigationArea } from '../NavigationArea'
 import { mergeClassNames } from '../../../utils/stringUtils'
-import { ActionType } from '../../Client/utils/LayoutReducer'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import LayoutActions from '../../redux/LayoutActions'
 import {
   ChevronIcon,
   StyledContentWrapper,
@@ -52,10 +52,7 @@ function NavigationContent({
   const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
   const handleClickChevron = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_NAVIGATION,
-      payload: isHide,
-    })
+    dispatch(LayoutActions.setShowNavigation(isHide))
 
     setIsHide(prev => !prev)
     setIsHoveringOnPresenter(true)
@@ -67,23 +64,14 @@ function NavigationContent({
 
   // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 깜빡임이 발생한다
   useLayoutEffect(() => {
-    dispatch({
-      type: ActionType.ADD_NAV_OPTION,
-      payload: { key: currentKey, option: layoutOption },
-    })
+    dispatch(LayoutActions.addNavOption({ key: currentKey, option: layoutOption }))
 
     if (!isNil(showNavigation)) {
-      dispatch({
-        type: ActionType.SET_SHOW_NAVIGATION,
-        payload: showNavigation,
-      })
+      dispatch(LayoutActions.setShowNavigation(showNavigation))
     }
 
     return function cleanUp() {
-      dispatch({
-        type: ActionType.REMOVE_NAV_OPTION,
-        payload: { key: currentKey },
-      })
+      dispatch(LayoutActions.removeNavOption({ key: currentKey }))
     }
   }, [
     currentKey,

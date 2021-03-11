@@ -18,7 +18,7 @@ import useLayoutState from '../../../hooks/useLayoutState'
 import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import { ActionType } from '../../Client/utils/LayoutReducer'
+import LayoutActions from '../../redux/LayoutActions'
 import NavigationProps from './NavigationArea.types'
 import {
   ResizeBar,
@@ -130,28 +130,26 @@ function NavigationArea(
     if (presenterRef.current) {
       presenterRef.current.style.width = `${columnStates[currentKey]?.initialWidth}px`
 
-      dispatch({
-        type: ActionType.ADD_COLUMN_REF,
-        payload: {
-          key: currentKey,
-          ref: {
-            target: presenterRef.current,
-            minWidth: columnStates[currentKey]?.minWidth,
-            maxWidth: columnStates[currentKey]?.maxWidth,
-            initialWidth: columnStates[currentKey]?.initialWidth,
-          },
-          columnType: ColumnType.Nav,
+      const payload = {
+        key: currentKey,
+        ref: {
+          target: presenterRef.current,
+          minWidth: columnStates[currentKey]?.minWidth,
+          maxWidth: columnStates[currentKey]?.maxWidth,
+          initialWidth: columnStates[currentKey]?.initialWidth,
         },
-      })
+        columnType: ColumnType.Nav,
+      }
+
+      dispatch(LayoutActions.addColumnRef(payload))
     }
 
     return function cleanUp() {
-      dispatch({
-        type: ActionType.REMOVE_COLUMN_REF,
-        payload: {
-          key: currentKey,
-        },
-      })
+      const payload = {
+        key: currentKey,
+      }
+
+      dispatch(LayoutActions.removeColumnRef(payload))
     }
   }, [
     dispatch,

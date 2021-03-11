@@ -6,8 +6,8 @@ import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useSideView from '../../../hooks/useSideView'
 import { styled } from '../../../foundation'
-import { ActionType } from '../../Client/utils/LayoutReducer'
 import { Text } from '../../../components/Text'
+import LayoutActions from '../../redux/LayoutActions'
 
 const Div = styled.div`
   display: flex;
@@ -31,10 +31,7 @@ function Content() {
   const [handleOpenSideView, handleCloseSideView] = useSideView()
 
   const handleToggleNavigation = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_NAVIGATION,
-      payload: !showNavigation,
-    })
+    dispatch(LayoutActions.setShowNavigation(!showNavigation))
   }, [dispatch, showNavigation])
 
   return (
