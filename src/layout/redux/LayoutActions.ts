@@ -20,6 +20,11 @@ export interface ColumnState {
   disableResize?: boolean
 }
 
+type SetShowHeaderActionPayload = {
+  showContentHeader?: boolean
+  showCoverableHeader?: boolean
+}
+
 type SetShowSideActionPayload = {
   showSideView?: boolean
   showSidePanel?: boolean
@@ -45,6 +50,7 @@ type RemoveColumnRefActionPayload = {
 }
 
 const actions = {
+  setShowHeader: createAction(AT.SET_SHOW_HEADER)<SetShowHeaderActionPayload>(),
   setSideWidth: createAction(AT.SET_SIDE_WIDTH)<number>(),
   setShowSide: createAction(AT.SET_SHOW_SIDE)<SetShowSideActionPayload>(),
   openSideView: createAction(AT.OPEN_SIDE_VIEW)<void>(),

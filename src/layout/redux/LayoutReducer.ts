@@ -8,6 +8,9 @@ import AT from './LayoutActionTypes'
 import { ColumnRef, ColumnState, LayoutActionTypes } from './LayoutActions'
 
 export interface LayoutState {
+  /* Header related */
+  showContentHeader: boolean
+  showCoverableHeader: boolean
   /* Side related */
   sideWidth: number
   showSideView: boolean
@@ -21,6 +24,8 @@ export interface LayoutState {
 }
 
 export const defaultState: LayoutState = {
+  showContentHeader: false,
+  showCoverableHeader: false,
   sideWidth: 0,
   showSideView: false,
   showSidePanel: false,
@@ -32,6 +37,12 @@ export const defaultState: LayoutState = {
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTypes): LayoutState {
   switch (action.type) {
+    case AT.SET_SHOW_HEADER: {
+      return {
+        ...state,
+        ...action.payload,
+      }
+    }
     case AT.SET_SIDE_WIDTH: {
       return {
         ...state,
