@@ -37,10 +37,16 @@ export const defaultState: LayoutState = {
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTypes): LayoutState {
   switch (action.type) {
-    case AT.SET_SHOW_HEADER: {
+    case AT.SET_SHOW_CONTENT_HEADER: {
       return {
         ...state,
-        ...action.payload,
+        showContentHeader: action.payload,
+      }
+    }
+    case AT.SET_SHOW_COVERABLE_HEADER: {
+      return {
+        ...state,
+        showCoverableHeader: action.payload,
       }
     }
     case AT.SET_SIDE_WIDTH: {

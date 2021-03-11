@@ -10,21 +10,21 @@ export default function useHeader(type: LayoutHeaderType) {
   const dispatch = useLayoutDispatch()
 
   useEffect(() => {
-    const payload = (() => {
+    const action = (() => {
       if (type === LayoutHeaderType.ContentHeader) {
-        return { showContentHeader: true }
+        return LayoutActions.setShowContentHeader
       }
       if (type === LayoutHeaderType.CoverableHeader) {
-        return { showCoverableHeader: true }
+        return LayoutActions.setShowCoverableHeader
       }
-      return {}
+
+      throw new Error(`Invalid Layout Header Type, got ${type}`)
     })()
 
-    dispatch(LayoutActions.setShowHeader(payload))
+    dispatch(action(true))
 
     return function cleanUp() {
-      Object.keys(payload).forEach((key) => { payload[key] = !payload[key] })
-      dispatch(LayoutActions.setShowHeader(payload))
+      dispatch(action(false))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
