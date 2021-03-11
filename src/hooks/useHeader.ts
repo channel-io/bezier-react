@@ -1,6 +1,6 @@
 /* External dependencies */
 import { useEffect } from 'react'
-import LayoutHeaderType from '../constants/LayoutHeaderType'
+import LayoutHeaderType from '../types/LayoutHeaderType'
 import { LayoutActions } from '../layout/redux'
 
 /* Internal dependencies */
