@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import LayoutSideType from '../../../constants/LayoutSideType'
+import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'

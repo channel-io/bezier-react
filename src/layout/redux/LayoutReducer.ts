@@ -8,10 +8,13 @@ import AT from './LayoutActionTypes'
 import { ColumnRef, ColumnState, LayoutActionTypes } from './LayoutActions'
 
 export interface LayoutState {
+  /* Header related */
+  showContentHeader: boolean | undefined
+  showCoverableHeader: boolean | undefined
   /* Side related */
   sideWidth: number
-  showSideView: boolean
-  showSidePanel: boolean
+  showSideView: boolean | undefined
+  showSidePanel: boolean | undefined
   /* Navigations related */
   showNavigation: boolean
   /* Resizing related */
@@ -21,9 +24,11 @@ export interface LayoutState {
 }
 
 export const defaultState: LayoutState = {
+  showContentHeader: undefined,
+  showCoverableHeader: undefined,
   sideWidth: 0,
-  showSideView: false,
-  showSidePanel: false,
+  showSideView: undefined,
+  showSidePanel: undefined,
   showNavigation: true,
   orderedColumnKeys: [],
   columnRefs: {},
@@ -32,6 +37,18 @@ export const defaultState: LayoutState = {
 
 function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTypes): LayoutState {
   switch (action.type) {
+    case AT.SET_SHOW_CONTENT_HEADER: {
+      return {
+        ...state,
+        showContentHeader: action.payload,
+      }
+    }
+    case AT.SET_SHOW_COVERABLE_HEADER: {
+      return {
+        ...state,
+        showCoverableHeader: action.payload,
+      }
+    }
     case AT.SET_SIDE_WIDTH: {
       return {
         ...state,

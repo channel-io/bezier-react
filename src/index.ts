@@ -40,9 +40,11 @@ export type { default as BlocksParserContextType } from './types/BlocksParserCon
 export type { UIComponentProps } from './types/ComponentProps'
 export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
+export type { default as LayoutHeaderType } from './types/LayoutHeaderType'
 
 /* Hooks */
 export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
 export { default as useLayoutState } from './hooks/useLayoutState'
 export { default as useSideWidth } from './hooks/useSideWidth'
 export { default as useSideView } from './hooks/useSideView'
+export { default as useHeader } from './hooks/useHeader'

@@ -22,6 +22,8 @@ function Content() {
   const dispatch = useLayoutDispatch()
 
   const {
+    showContentHeader,
+    showCoverableHeader,
     showNavigation,
     sideWidth,
     showSideView,
@@ -37,6 +39,8 @@ function Content() {
   return (
     <Div>
       <div>
+        <Text as="div">{ `showContentHeader: ${showContentHeader ? 'true' : 'false'}` }</Text>
+        <Text as="div">{ `showCoverableHeader: ${showCoverableHeader ? 'true' : 'false'}` }</Text>
         <Text as="div">{ `sideWidth: ${sideWidth}px` }</Text>
         <Text as="div">{ `showSideView: ${showSideView ? 'true' : 'false'}` }</Text>
         <Text as="div">{ `showSidePanel: ${showSidePanel ? 'true' : 'false'}` }</Text>

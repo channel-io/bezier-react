@@ -4,6 +4,7 @@ import { styled, disableAutoMinimum } from '../../foundation'
 interface HeaderWrapperProps {
   showSideView: boolean
   sideWidth: number
+  showHeader: boolean
 }
 
 export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: HeaderWrapperProps) => ({
@@ -11,7 +12,7 @@ export const HeaderWrapper = styled.div.attrs(({ showSideView, sideWidth }: Head
     gridTemplateColumns: `1fr ${showSideView ? `${sideWidth}px` : 'auto'}`,
   },
 }))<HeaderWrapperProps>`
-  display: grid;
+  display: ${({ showHeader }) => (showHeader ? 'grid' : 'none')};
   grid-template-rows: 1fr;
   grid-row: 1 / 2;
   grid-column: 1 / 3;
