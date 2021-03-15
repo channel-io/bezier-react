@@ -40,7 +40,9 @@ export type { default as BlocksParserContextType } from './types/BlocksParserCon
 export type { UIComponentProps } from './types/ComponentProps'
 export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
-export type { default as LayoutHeaderType } from './types/LayoutHeaderType'
+
+/* Types (Enum) */
+export { default as LayoutHeaderType } from './types/LayoutHeaderType'
 
 /* Hooks */
 export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
