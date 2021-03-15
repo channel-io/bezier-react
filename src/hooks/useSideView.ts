@@ -1,15 +1,15 @@
 /* External dependencies */
 import { useCallback } from 'react'
+import { LayoutActions } from '../layout/redux'
 
 /* Internal dependencies */
-import { ActionType } from '../layout/Client/utils/LayoutReducer'
 import useLayoutDispatch from './useLayoutDispatch'
 
 export default function useSideView() {
   const dispatch = useLayoutDispatch()
 
-  const handleShowSideView = useCallback(() => dispatch({ type: ActionType.OPEN_SIDE_VIEW }), [dispatch])
-  const handleCloseSideView = useCallback(() => dispatch({ type: ActionType.CLOSE_SIDE_VIEW }), [dispatch])
+  const handleShowSideView = useCallback(() => dispatch(LayoutActions.openSideView()), [dispatch])
+  const handleCloseSideView = useCallback(() => dispatch(LayoutActions.closeSideView()), [dispatch])
 
   return [
     handleShowSideView,

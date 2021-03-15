@@ -3,10 +3,10 @@ import React, { useEffect } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import LayoutSideType from '../../../constants/LayoutSideType'
+import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import { ActionType } from '../../Client/utils/LayoutReducer'
+import LayoutActions from '../../redux/LayoutActions'
 import SideViewContentProps from './SideViewContent.types'
 
 export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
@@ -19,20 +19,14 @@ function SideViewContent({
   const dispatch = useLayoutDispatch()
 
   useEffect(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_SIDE,
-      payload: {
-        showSideView: true,
-      },
-    })
+    dispatch(LayoutActions.setShowSide({
+      showSideView: true,
+    }))
 
     return function cleanup() {
-      dispatch({
-        type: ActionType.SET_SHOW_SIDE,
-        payload: {
-          showSideView: false,
-        },
-      })
+      dispatch(LayoutActions.setShowSide({
+        showSideView: false,
+      }))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

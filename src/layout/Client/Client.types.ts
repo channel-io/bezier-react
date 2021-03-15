@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
-import { LayoutState } from './utils/LayoutReducer'
+import { LayoutState } from '../redux/LayoutReducer'
 
 export default interface ClientProps extends UIComponentProps {
   layoutInitialState: LayoutState

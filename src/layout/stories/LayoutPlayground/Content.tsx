@@ -6,8 +6,8 @@ import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useSideView from '../../../hooks/useSideView'
 import { styled } from '../../../foundation'
-import { ActionType } from '../../Client/utils/LayoutReducer'
 import { Text } from '../../../components/Text'
+import LayoutActions from '../../redux/LayoutActions'
 
 const Div = styled.div`
   display: flex;
@@ -22,6 +22,8 @@ function Content() {
   const dispatch = useLayoutDispatch()
 
   const {
+    showContentHeader,
+    showCoverableHeader,
     showNavigation,
     sideWidth,
     showSideView,
@@ -31,15 +33,14 @@ function Content() {
   const [handleOpenSideView, handleCloseSideView] = useSideView()
 
   const handleToggleNavigation = useCallback(() => {
-    dispatch({
-      type: ActionType.SET_SHOW_NAVIGATION,
-      payload: !showNavigation,
-    })
+    dispatch(LayoutActions.setShowNavigation(!showNavigation))
   }, [dispatch, showNavigation])
 
   return (
     <Div>
       <div>
+        <Text as="div">{ `showContentHeader: ${showContentHeader ? 'true' : 'false'}` }</Text>
+        <Text as="div">{ `showCoverableHeader: ${showCoverableHeader ? 'true' : 'false'}` }</Text>
         <Text as="div">{ `sideWidth: ${sideWidth}px` }</Text>
         <Text as="div">{ `showSideView: ${showSideView ? 'true' : 'false'}` }</Text>
         <Text as="div">{ `showSidePanel: ${showSidePanel ? 'true' : 'false'}` }</Text>

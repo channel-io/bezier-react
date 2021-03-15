@@ -19,6 +19,8 @@ import { SideViewContent } from '../../Side/SideViewContent'
 import { NavigationContent } from '../../Navigations/NavigationContent'
 import useLayoutState from '../../../hooks/useLayoutState'
 import Content from './Content'
+import ContentHeader from './ContentHeader'
+import CoverableHeader from './CoverableHeader'
 
 export default {
   title: getTitle(base),
@@ -221,11 +223,11 @@ const Template = ({ onChangeWidth }) => {
   const ContentHeaderRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<Div>TeamChat Header</Div>)
+        return (<ContentHeader>TeamChat Header</ContentHeader>)
       case RouteKeys.UserChat:
-        return (<Div>UserChat Header</Div>)
+        return (<ContentHeader>UserChat Header</ContentHeader>)
       case RouteKeys.Statistic:
-        return (<Div>Statistic Heassder</Div>)
+        return (<ContentHeader>Statistic Heassder</ContentHeader>)
       case RouteKeys.Setting:
       default:
         return null
@@ -236,7 +238,7 @@ const Template = ({ onChangeWidth }) => {
     switch (route) {
       case RouteKeys.TeamChat:
       case RouteKeys.UserChat:
-        return (<Div>Search</Div>)
+        return (<CoverableHeader>Search</CoverableHeader>)
       default:
         return null
     }

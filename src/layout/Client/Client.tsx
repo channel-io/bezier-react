@@ -9,9 +9,9 @@ import {
   LayoutDispatchContext,
   LayoutStateContext,
 } from '../../contexts/LayoutContext'
+import LayoutReducer, { defaultState } from '../redux/LayoutReducer'
 import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
-import LayoutReducer, { defaultState } from './utils/LayoutReducer'
 
 export const CLIENT_TEST_ID = 'ch-design-system-client'
 
