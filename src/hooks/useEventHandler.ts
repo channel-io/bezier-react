@@ -1,6 +1,6 @@
 /* External dependencies */
-import { useEffect } from 'react'
-import { noop, isNil, isFunction } from 'lodash-es'
+import { useEffect, useRef, useMemo } from 'react'
+import { noop, isNil, isFunction, isEqual } from 'lodash-es'
 
 interface HandlerOptionsProps {
   capture?: boolean
@@ -15,12 +15,22 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
   condition: boolean = true,
   options: boolean | HandlerOptionsProps = false,
 ) {
+  const prevOptionsRef = useRef<boolean | HandlerOptionsProps>()
+
+  const nextOptions = useMemo(() => {
+    if (isEqual(prevOptionsRef.current, options)) {
+      return prevOptionsRef.current
+    }
+    prevOptionsRef.current = options
+    return options
+  }, [options])
+
   useEffect(() => {
     if (!isNil(element) && isFunction(element.addEventListener) && condition) {
-      element.addEventListener(eventName, handler, options)
+      element.addEventListener(eventName, handler, nextOptions)
 
       return function cleanup() {
-        element.removeEventListener(eventName, handler, options)
+        element.removeEventListener(eventName, handler, nextOptions)
       }
     }
 
@@ -29,7 +39,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
     condition,
     element,
     eventName,
-    options,
+    nextOptions,
     handler,
   ])
 
