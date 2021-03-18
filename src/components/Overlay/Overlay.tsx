@@ -282,7 +282,7 @@ function Overlay(
     otherProps,
   ])
 
-  useEventHandler(document, 'click', handleHideOverlay, show)
+  useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(target, 'click', handleClickTarget, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
