@@ -30,7 +30,7 @@ function Main(
 
   return (
     <MainWrapper
-      data-testId={testId}
+      data-testid={testId}
       ref={forwardedRef}
       hasHeader={hasHeader}
       hasSide={hasSide}

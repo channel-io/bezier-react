@@ -34,7 +34,7 @@ function SidePanelContent({
   return (
     <SideArea
       sideType={LayoutSideType.SidePanel}
-      data-testId={testId}
+      data-testid={testId}
       onChangeSideWidth={onChangeSideWidth}
     >
       { children }
