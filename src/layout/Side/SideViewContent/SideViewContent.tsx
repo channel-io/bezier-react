@@ -33,7 +33,7 @@ function SideViewContent({
 
   return (
     <SideArea
-      data-testId={testId}
+      data-testid={testId}
       sideType={LayoutSideType.SideView}
       onChangeSideWidth={onChangeSideWidth}
     >
