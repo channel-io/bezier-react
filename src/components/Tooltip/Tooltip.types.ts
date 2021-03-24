@@ -6,9 +6,13 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   placement?: TooltipPosition
   offset?: number
   disabled?: boolean
+  keepInContainer?: boolean
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {}
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {
+  isOverHorizontal: boolean
+  isOverVertical: boolean
+}
 
 export enum TooltipPosition {
   TopCenter = 'topCenter',

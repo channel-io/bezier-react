@@ -83,4 +83,5 @@ Primary.args = {
   placement: TooltipPosition.BottomCenter,
   offset: 5,
   disabled: false,
+  keepInContainer: false,
 }
