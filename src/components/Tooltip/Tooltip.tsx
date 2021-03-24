@@ -127,6 +127,10 @@ function Tooltip(
     placement,
   ])
 
+  if (!children) {
+    return null
+  }
+
   return (
     <Container
       onMouseEnter={handleMouseEnter}
