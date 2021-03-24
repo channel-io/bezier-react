@@ -1,99 +1,97 @@
 /* External dependencies */
-import React, { useState, useCallback, useRef, useMemo, Ref, forwardRef, useEffect } from 'react'
-import { isNil, isEmpty } from 'lodash-es'
+import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref } from 'react'
+import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
 import { Text } from '../Text'
 import { Typography } from '../../foundation'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
-import { Container, TooltipContent } from './Tooltip.styled'
+import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
 
-function getTooltipStyle({
-  container,
-  tooltip,
-  placement,
-  offset,
-}: GetTooltipStyle) {
-  if (!container || !tooltip) {
-    return {}
-  }
-
-  const {
-    width: containerWidth,
-    height: containerHeight,
-    top: containerTop,
-    left: containerLeft,
-  } = container.getBoundingClientRect()
-  const { width: tooltipWidth, height: tooltipHeight } = tooltip.getBoundingClientRect()
-  const {
-    width: documentWidth,
-    height: documentHeight,
-    top: documentTop,
-    left: documentLeft,
-  } = document.documentElement.getBoundingClientRect()
-
-  let translateX = 0
-  let translateY = 0
+function getTooltipStyle({ placement, offset }: GetTooltipStyle) {
+  let paddingTop = 0
+  let paddingRight = 0
+  let paddingBottom = 0
+  let paddingLeft = 0
+  let top = '0'
+  let left = '0'
+  let transform = 'translate(0, 0)'
 
   switch (placement) {
     case TooltipPosition.TopCenter:
+      paddingBottom = offset
+      left = '50%'
+      transform = 'translate(-50%, -100%)'
+      break
     case TooltipPosition.TopLeft:
+      paddingBottom = offset
+      transform = 'translate(0, -100%)'
+      break
     case TooltipPosition.TopRight:
-      translateY -= (tooltipHeight + offset)
+      paddingBottom = offset
+      left = '100%'
+      transform = 'translate(-100%, -100%)'
       break
     case TooltipPosition.RightCenter:
+      paddingLeft = offset
+      top = '50%'
+      left = '100%'
+      transform = 'translate(0, -50%)'
+      break
     case TooltipPosition.RightTop:
+      paddingLeft = offset
+      left = '100%'
+      break
     case TooltipPosition.RightBottom:
-      translateX += (containerWidth + offset)
+      paddingLeft = offset
+      top = '100%'
+      left = '100%'
+      transform = 'translate(0, -100%)'
       break
     case TooltipPosition.BottomCenter:
+      paddingTop = offset
+      top = '100%'
+      left = '50%'
+      transform = 'translate(-50%, 0)'
+      break
     case TooltipPosition.BottomLeft:
+      paddingTop = offset
+      top = '100%'
+      break
     case TooltipPosition.BottomRight:
-      translateY += (containerHeight + offset)
+      paddingTop = offset
+      top = '100%'
+      left = '100%'
+      transform = 'translate(-100%, 0)'
       break
     case TooltipPosition.LeftCenter:
+      paddingRight = offset
+      top = '50%'
+      transform = 'translate(-100%, -50%)'
+      break
     case TooltipPosition.LeftTop:
+      paddingRight = offset
+      transform = 'translate(-100%, 0)'
+      break
     case TooltipPosition.LeftBottom:
-      translateX -= (tooltipWidth + offset)
-      break
-  }
-  // post position
-  switch (placement) {
-    case TooltipPosition.TopCenter:
-    case TooltipPosition.BottomCenter:
-      translateX -= ((tooltipWidth / 2) - (containerWidth / 2))
-      break
-    case TooltipPosition.TopRight:
-    case TooltipPosition.BottomRight:
-      translateX -= (tooltipWidth - containerWidth)
-      break
-    case TooltipPosition.RightCenter:
-    case TooltipPosition.LeftCenter:
-      translateY -= ((tooltipHeight / 2) - (containerHeight / 2))
-      break
-    case TooltipPosition.RightBottom:
-    case TooltipPosition.LeftBottom:
-      translateY -= (tooltipHeight - containerHeight)
+      paddingRight = offset
+      top = '100%'
+      transform = 'translate(-100%, -100%)'
       break
   }
 
-  const isOverTop = containerTop + translateY < documentTop
-  const isOverBottom = containerTop + translateY + tooltipHeight > documentTop + documentHeight
-  const isOverLeft = containerLeft + translateX < documentLeft
-  const isOverRight = containerLeft + translateX + tooltipWidth > documentLeft + documentWidth
-
-  if (isOverTop || isOverBottom) {
-    translateY = containerHeight - translateY - tooltipHeight
+  return {
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    top,
+    left,
+    transform,
   }
-  if (isOverLeft || isOverRight) {
-    translateX = containerWidth - translateX - tooltipWidth
-  }
-
-  const transform = `translate(${translateX}px, ${translateY}px)`
-  return { transform }
 }
 
 function Tooltip(
@@ -103,99 +101,54 @@ function Tooltip(
     className,
     content = null,
     placement = TooltipPosition.BottomCenter,
-    offset = 5,
-    delayHide = false,
     disabled = false,
-    children = null,
+    offset = 5,
+    children,
   }: TooltipProps,
   forwardedRef: Ref<any>,
 ) {
   const [show, setShow] = useState(false)
-  const [mounted, setMounted] = useState(false)
 
-  const containerRef = useRef<HTMLDivElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
-  const clearHideTimeout = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
   const handleMouseEnter = useCallback(() => {
-    if (!isNil(clearHideTimeout.current)) {
-      clearTimeout(clearHideTimeout.current)
-      clearHideTimeout.current = undefined
-    }
-
     setShow(true)
   }, [])
 
   const handleMouseLeave = useCallback(() => {
-    if (delayHide) {
-      clearHideTimeout.current = setTimeout(() => {
-        setShow(false)
-      }, 100)
-      return
-    }
-
-    setShow(false)
-  }, [delayHide])
-
-  const handleTooltipMouseEnter = useCallback(() => {
-    if (!isNil(clearHideTimeout.current)) {
-      clearTimeout(clearHideTimeout.current)
-      clearHideTimeout.current = undefined
-    }
-  }, [])
-
-  const handleTooltipMouseLeave = useCallback(() => {
     setShow(false)
   }, [])
 
-  const tooltipContentStyle = useMemo(() => {
-    if (!mounted) {
-      return undefined
-    }
-
-    return getTooltipStyle({
-      container: containerRef.current,
-      tooltip: tooltipRef.current,
-      placement,
-      offset,
-    })
-  }, [
-    mounted,
-    placement,
+  const contentWrapperStyle = useMemo(() => (
+    getTooltipStyle({ placement, offset })
+  ), [
     offset,
+    placement,
   ])
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!children) {
-    return null
-  }
 
   return (
     <Container
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      ref={containerRef}
     >
       { children }
-      <TooltipContent
-        as={as}
-        className={className}
+      <ContentWrapper
         show={show}
         disabled={disabled || isEmpty(content)}
-        ref={mergedRef}
-        style={tooltipContentStyle}
-        data-testid={testId}
-        onMouseEnter={handleTooltipMouseEnter}
-        onMouseLeave={handleTooltipMouseLeave}
+        style={contentWrapperStyle}
       >
-        <Text type={Typography.Size13}>
-          { content }
-        </Text>
-      </TooltipContent>
+        <Content
+          as={as}
+          className={className}
+          data-testid={testId}
+          ref={mergedRef}
+        >
+          <Text type={Typography.Size13}>
+            { content }
+          </Text>
+        </Content>
+      </ContentWrapper>
     </Container>
   )
 }
