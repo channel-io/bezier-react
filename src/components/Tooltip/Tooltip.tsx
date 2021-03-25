@@ -117,7 +117,7 @@ function Tooltip(
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
-    offset = 5,
+    offset = 4,
     keepInContainer = false,
     delayShow = 0,
     delayHide = 0,

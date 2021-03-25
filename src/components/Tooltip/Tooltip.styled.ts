@@ -28,10 +28,11 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 `
 
 export const Content = styled.div`
+  box-sizing: border-box;
   width: max-content;
-  max-width: 223px;
+  max-width: 260px;
   height: max-content;
-  padding: 10px 14px;
+  padding: 8px 14px;
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   word-break: break-all;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
