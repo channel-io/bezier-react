@@ -141,6 +141,10 @@ function Tooltip(
       return
     }
 
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+
     timerRef.current = setTimeout(() => {
       setShow(true)
     }, delayShow)
@@ -158,7 +162,7 @@ function Tooltip(
       clearTimeout(timerRef.current)
     }
 
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setShow(false)
     }, delayHide)
   }, [
