@@ -44,6 +44,22 @@ export default {
         step: 1,
       },
     },
+    delayShow: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 5000,
+        step: 100,
+      },
+    },
+    delayHide: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 5000,
+        step: 100,
+      },
+    },
   },
 }
 
@@ -81,7 +97,9 @@ Primary.args = {
   // eslint-disable-next-line max-len
   content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
   placement: TooltipPosition.BottomCenter,
-  offset: 5,
-  delayHide: false,
+  offset: 4,
   disabled: false,
+  keepInContainer: false,
+  delayShow: 0,
+  delayHide: 0,
 }

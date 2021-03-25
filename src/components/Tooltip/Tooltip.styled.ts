@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, css } from '../../foundation'
 
-interface StyledTooltipProps {
+interface ContentWrapperProps {
   show: boolean
   disabled: boolean
 }
@@ -11,21 +11,12 @@ export const Container = styled.div`
   width: max-content;
   height: max-content;
 `
-
-export const TooltipContent = styled.div<StyledTooltipProps>`
+export const ContentWrapper = styled.div<ContentWrapperProps>`
   position: absolute;
   top: 0;
-  bottom: 0;
+  left: 0;
   z-index: 1000000000;
-  width: max-content;
-  max-width: 223px;
-  height: max-content;
-  padding: 10px 14px;
-  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
-  word-break: break-all;
   visibility: hidden;
-  ${({ foundation }) => foundation?.elevation?.ev2(true)};
-  ${({ foundation }) => foundation?.rounding?.round4};
 
   ${({ show }) => show && css`
     visibility: visible;
@@ -34,4 +25,16 @@ export const TooltipContent = styled.div<StyledTooltipProps>`
   ${({ disabled }) => disabled && css`
     display: none;
   `}
+`
+
+export const Content = styled.div`
+  box-sizing: border-box;
+  width: max-content;
+  max-width: 260px;
+  height: max-content;
+  padding: 8px 14px;
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
+  word-break: break-all;
+  ${({ foundation }) => foundation?.elevation?.ev2(true)};
+  ${({ foundation }) => foundation?.rounding?.round4};
 `
