@@ -122,6 +122,7 @@ function Tooltip(
     offset = 5,
     keepInContainer = false,
     children,
+    ...otherProps
   }: TooltipProps,
   forwardedRef: Ref<any>,
 ) {
@@ -219,6 +220,7 @@ function Tooltip(
           className={className}
           data-testid={testId}
           ref={mergedRef}
+          {...otherProps}
         >
           <Text type={Typography.Size13}>
             { content }
