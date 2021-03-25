@@ -4,8 +4,6 @@ import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
-import { Text } from '../Text'
-import { Typography } from '../../foundation'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
@@ -251,9 +249,7 @@ function Tooltip(
           ref={mergedRef}
           {...otherProps}
         >
-          <Text type={Typography.Size13}>
-            { content }
-          </Text>
+          { content }
         </Content>
       </ContentWrapper>
     </Container>
