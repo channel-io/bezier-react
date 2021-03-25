@@ -27,11 +27,12 @@ export const CONTAINER_TEST_ID = 'ch-design-system-container'
 export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
-const ESCAPE_KEY = 'Escape'
-const rootElement =
+export const rootElement =
   document.getElementById!('main') ||
   document.getElementById!('root') ||
   document.getElementById!('__next') as HTMLElement
+
+const ESCAPE_KEY = 'Escape'
 
 function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
   if (containerRect && targetRect) {
