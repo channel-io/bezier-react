@@ -33,16 +33,13 @@ const rootElement =
   document.getElementById!('root') ||
   document.getElementById!('__next') as HTMLElement
 
-function getOverlayPosition({ container, target }: GetOverlayPositionProps): React.CSSProperties {
-  if (target) {
-    const { top: targetTop, left: targetLeft } = target.getBoundingClientRect()
+function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
+  if (containerRect && targetRect) {
+    const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
+    const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
 
-    const top = container ?
-      targetTop - target.clientTop - container.getBoundingClientRect().top + container.scrollTop :
-      targetTop - target.clientTop
-    const left = container ?
-      targetLeft - target.clientLeft - container.getBoundingClientRect().left + container.scrollLeft :
-      targetLeft - target.clientLeft
+    const top = targetTop - clientTop - containerTop + scrollTop
+    const left = targetLeft - clientLeft - containerLeft + scrollLeft
 
     return { top, left }
   }
@@ -50,23 +47,22 @@ function getOverlayPosition({ container, target }: GetOverlayPositionProps): Rea
 }
 
 function getOverlayTranslation({
-  container,
-  target,
+  containerRect,
+  targetRect,
   overlay,
   placement,
   marginX,
   marginY,
   keepInContainer,
 }: GetOverlayTranslatationProps): React.CSSProperties {
-  if (target) {
-    const containerElement = container || rootElement as HTMLElement
+  if (containerRect && targetRect) {
     const {
-      width: rootWidth,
-      height: rootHeight,
-      top: rootTop,
-      left: rootLeft,
-    } = containerElement.getBoundingClientRect()
-    const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
+      containerWidth,
+      containerHeight,
+      containerTop,
+      containerLeft,
+    } = containerRect
+    const { targetWidth, targetHeight, targetTop, targetLeft } = targetRect
     const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
 
     let translateX = 0
@@ -120,10 +116,10 @@ function getOverlayTranslation({
     }
 
     if (keepInContainer) {
-      const isOverTop = targetTop + translateY < rootTop
-      const isOverBottom = targetTop + translateY + overlayHeight > rootTop + rootHeight
-      const isOverLeft = targetLeft + translateX < rootLeft
-      const isOverRight = targetLeft + translateX + overlayWidth > rootLeft + rootWidth
+      const isOverTop = targetTop + translateY < containerTop
+      const isOverBottom = targetTop + translateY + overlayHeight > containerTop + containerHeight
+      const isOverLeft = targetLeft + translateX < containerLeft
+      const isOverRight = targetLeft + translateX + overlayWidth > containerLeft + containerWidth
 
       if (isOverTop || isOverBottom) {
         translateY = targetHeight - translateY - overlayHeight
@@ -140,19 +136,19 @@ function getOverlayTranslation({
 }
 
 function getOverlayStyle({
-  container,
-  target,
+  containerRect,
+  targetRect,
   overlay,
   placement,
   marginX,
   marginY,
   keepInContainer,
 }: GetOverlayStyleProps): React.CSSProperties {
-  if (target) {
-    const overlayPositionStyle = getOverlayPosition({ container, target })
+  if (containerRect && targetRect) {
+    const overlayPositionStyle = getOverlayPosition({ containerRect, targetRect })
     const overlayTranslateStyle = getOverlayTranslation({
-      container,
-      target,
+      containerRect,
+      targetRect,
       overlay,
       placement,
       marginX,
@@ -282,6 +278,63 @@ function Overlay(
     otherProps,
   ])
 
+  const containerRect = useMemo(() => {
+    if (!show) {
+      return null
+    }
+
+    const containerElement = container || rootElement as HTMLElement
+    const {
+      width: containerWidth,
+      height: containerHeight,
+      top: containerTop,
+      left: containerLeft,
+    } = containerElement.getBoundingClientRect()
+
+    return {
+      containerWidth,
+      containerHeight,
+      containerTop,
+      containerLeft,
+      scrollTop: container ? container.scrollTop : 0,
+      scrollLeft: container ? container.scrollLeft : 0,
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    show,
+    container,
+    marginX,
+    marginY,
+    placement,
+    keepInContainer,
+  ])
+
+  const targetRect = useMemo(() => {
+    if (!target || !show) {
+      return null
+    }
+
+    const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
+    const { clientTop, clientLeft } = target
+
+    return {
+      targetWidth,
+      targetHeight,
+      targetTop,
+      targetLeft,
+      clientTop,
+      clientLeft,
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    show,
+    target,
+    marginX,
+    marginY,
+    placement,
+    keepInContainer,
+  ])
+
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(target, 'click', handleClickTarget, show)
@@ -290,8 +343,8 @@ function Overlay(
   useEffect(() => {
     if (show) {
       const tempOverlayStyle = getOverlayStyle({
-        container,
-        target,
+        containerRect,
+        targetRect,
         overlay: overlayRef.current as HTMLElement,
         placement,
         marginX,
@@ -307,7 +360,15 @@ function Overlay(
       }
     }
     return noop
-  }, [show, container, marginX, marginY, placement, target, keepInContainer])
+  }, [
+    show,
+    containerRect,
+    targetRect,
+    marginX,
+    marginY,
+    placement,
+    keepInContainer,
+  ])
 
   if (!show) return null
 
