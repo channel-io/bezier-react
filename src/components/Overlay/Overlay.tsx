@@ -299,14 +299,9 @@ function Overlay(
       scrollTop: container ? container.scrollTop : 0,
       scrollLeft: container ? container.scrollLeft : 0,
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     container,
-    marginX,
-    marginY,
-    placement,
-    keepInContainer,
   ])
 
   const targetRect = useMemo(() => {
@@ -325,14 +320,9 @@ function Overlay(
       clientTop,
       clientLeft,
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     target,
-    marginX,
-    marginY,
-    placement,
-    keepInContainer,
   ])
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
