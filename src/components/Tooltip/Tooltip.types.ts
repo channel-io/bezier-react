@@ -7,6 +7,8 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   offset?: number
   disabled?: boolean
   keepInContainer?: boolean
+  delayShow?: number
+  delayHide?: number
 }
 
 export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {

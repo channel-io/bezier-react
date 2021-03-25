@@ -44,6 +44,22 @@ export default {
         step: 1,
       },
     },
+    delayShow: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 5000,
+        step: 100,
+      },
+    },
+    delayHide: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 5000,
+        step: 100,
+      },
+    },
   },
 }
 
@@ -84,4 +100,6 @@ Primary.args = {
   offset: 5,
   disabled: false,
   keepInContainer: false,
+  delayShow: 0,
+  delayHide: 0,
 }

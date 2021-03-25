@@ -121,6 +121,8 @@ function Tooltip(
     disabled = false,
     offset = 5,
     keepInContainer = false,
+    delayShow = 0,
+    delayHide = 0,
     children,
     ...otherProps
   }: TooltipProps,
@@ -131,15 +133,38 @@ function Tooltip(
   const [isOverVertical, setOverVertical] = useState(false)
 
   const tooltipRef = useRef<HTMLDivElement>(null)
+  const timerRef = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
   const handleMouseEnter = useCallback(() => {
-    setShow(true)
-  }, [])
+    if (disabled) {
+      return
+    }
+
+    timerRef.current = setTimeout(() => {
+      setShow(true)
+    }, delayShow)
+  }, [
+    delayShow,
+    disabled,
+  ])
 
   const handleMouseLeave = useCallback(() => {
-    setShow(false)
-  }, [])
+    if (disabled) {
+      return
+    }
+
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+
+    setTimeout(() => {
+      setShow(false)
+    }, delayHide)
+  }, [
+    delayHide,
+    disabled,
+  ])
 
   const contentWrapperStyle = useMemo(() => {
     const {
