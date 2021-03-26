@@ -6,7 +6,7 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import useSideWidth from '../../../hooks/useSideWidth'
 import { getTitle } from '../../../utils/etcUtils'
-import { styled } from '../../../foundation'
+import { styled, Typography } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
@@ -113,7 +113,7 @@ const Template = ({ onChangeWidth }) => {
   ), [])
 
   const Element1Header = useMemo(() => (
-    <Header title="Title" />
+    <Header title="Title" titleSize={Typography.Size24} />
   ), [])
 
   const Element2Header = useMemo(() => (

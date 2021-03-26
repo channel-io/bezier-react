@@ -12,9 +12,10 @@ import { v4 as uuid } from 'uuid'
 import { NavigationArea } from '../NavigationArea'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import { Icon, IconSize } from '../../../components/Icon'
 import LayoutActions from '../../redux/LayoutActions'
 import {
-  ChevronIcon,
+  ChevronIconWrapper,
   StyledContentWrapper,
   StyledFooterWrapper,
   StyledTitleWrapper,
@@ -95,11 +96,16 @@ function NavigationContent({
           showChevron &&
           !allowMouseMove &&
           (
-            <ChevronIcon
-              name={`chevron-${isHide ? 'right' : 'left'}-double`}
+            // TODO: Tooltip 추가
+            <ChevronIconWrapper
               onClick={handleClickChevron}
-              marginRight={10}
-            />
+            >
+              <Icon
+                name={`chevron-${isHide ? 'right' : 'left'}-double` as const}
+                color="txt-black-darkest"
+                size={IconSize.S}
+              />
+            </ChevronIconWrapper>
           )
         }
       </StyledTitleWrapper>

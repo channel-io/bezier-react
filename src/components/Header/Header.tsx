@@ -41,10 +41,17 @@ function Header(
         { title }
       </Text>
     </TitleWrapper>
-  ), [onClickTitle, title, titleClassName, titleImageSize, titleImageUrl, titleSize])
+  ), [
+    onClickTitle,
+    title,
+    titleClassName,
+    titleImageSize,
+    titleImageUrl,
+    titleSize,
+  ])
 
   const actionsComponent = useMemo(() => (
-    actions && (
+    true && (
       <ActionWrapper>
         { actions }
       </ActionWrapper>
