@@ -279,6 +279,9 @@ function Overlay(
     otherProps,
   ])
 
+  /* 기존에는 Overlay의 position을 구하기위해 useEffect내에서 getBoundingClientRect를 통해
+  reflow를 일으키던 것을 #285에서 렌더링 전에 reflow를 일으키며 Overlay의 position을 가지고
+  있도록 변경함. 데스크에서 이에 따른 성능문제 없는지 확인필요 */
   const containerRect = useMemo(() => {
     if (!show) {
       return null
