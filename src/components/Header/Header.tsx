@@ -51,7 +51,7 @@ function Header(
   ])
 
   const actionsComponent = useMemo(() => (
-    true && (
+    actions && (
       <ActionWrapper>
         { actions }
       </ActionWrapper>
