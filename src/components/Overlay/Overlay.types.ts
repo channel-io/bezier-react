@@ -17,9 +17,27 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   onHide?: () => void
 }
 
+interface ContainerRectAttr {
+  containerWidth: number
+  containerHeight: number
+  containerTop: number
+  containerLeft: number
+  scrollTop: number
+  scrollLeft: number
+}
+
+interface TargretRectAttr {
+  targetWidth: number
+  targetHeight: number
+  targetTop: number
+  targetLeft: number
+  clientTop: number
+  clientLeft: number
+}
+
 export interface GetOverlayStyleProps {
-  container?: HTMLElement | null
-  target?: HTMLElement | null
+  containerRect: ContainerRectAttr | null
+  targetRect: TargretRectAttr | null
   overlay: HTMLElement
   placement: OverlayPosition
   marginX: number
@@ -28,13 +46,13 @@ export interface GetOverlayStyleProps {
 }
 
 export interface GetOverlayPositionProps {
-  container?: HTMLElement | null
-  target: HTMLElement
+  containerRect: ContainerRectAttr
+  targetRect: TargretRectAttr | null
 }
 
 export interface GetOverlayTranslatationProps {
-  container?: HTMLElement | null
-  target: HTMLElement
+  containerRect: ContainerRectAttr
+  targetRect: TargretRectAttr | null
   overlay: HTMLElement
   placement: OverlayPosition
   marginX: number
