@@ -9,12 +9,14 @@ import { isNil, noop } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { NavigationArea } from '../NavigationArea'
-import { mergeClassNames } from '../../../utils/stringUtils'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'
+import useLayoutState from '../../../hooks/useLayoutState'
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import { mergeClassNames } from '../../../utils/stringUtils'
+import { Icon, IconSize } from '../../../components/Icon'
+import { NavigationArea } from '../NavigationArea'
 import {
-  ChevronIcon,
+  ChevronIconWrapper,
   StyledContentWrapper,
   StyledFooterWrapper,
   StyledTitleWrapper,
@@ -46,19 +48,19 @@ function NavigationContent({
   const dispatch = useLayoutDispatch()
   const currentKey = useMemo(() => uuid(), [])
 
-  const [isHide, setIsHide] = useState(false)
+  const { showNavigation: isShowingNavigation } = useLayoutState()
+
   const [showChevron, setShowChevron] = useState(false)
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
   const handleClickChevron = useCallback(() => {
-    dispatch(LayoutActions.setShowNavigation(isHide))
+    dispatch(LayoutActions.setShowNavigation(!isShowingNavigation))
 
-    setIsHide(prev => !prev)
     setIsHoveringOnPresenter(true)
   }, [
     dispatch,
-    isHide,
+    isShowingNavigation,
     setIsHoveringOnPresenter,
   ])
 
@@ -95,11 +97,16 @@ function NavigationContent({
           showChevron &&
           !allowMouseMove &&
           (
-            <ChevronIcon
-              name={`chevron-${isHide ? 'right' : 'left'}-double`}
+            // TODO: Tooltip 추가
+            <ChevronIconWrapper
               onClick={handleClickChevron}
-              marginRight={10}
-            />
+            >
+              <Icon
+                name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
+                color="txt-black-darkest"
+                size={IconSize.S}
+              />
+            </ChevronIconWrapper>
           )
         }
       </StyledTitleWrapper>
@@ -108,7 +115,7 @@ function NavigationContent({
     allowMouseMove,
     isHoveringOnPresenter,
     showChevron,
-    isHide,
+    isShowingNavigation,
     header,
     fixedHeader,
     handleClickChevron,

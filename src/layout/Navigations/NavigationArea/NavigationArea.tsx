@@ -116,7 +116,7 @@ function NavigationArea(
     const presenterRight = presenterRef.current?.getBoundingClientRect().right || 0
 
     setIsHoveringOnPresenter(mouseX < presenterRight && mouseX > containerLeft)
-  }, 100, undefined, [])
+  }, 350, undefined, [])
 
   useEffect(() => {
     if (show === false) {

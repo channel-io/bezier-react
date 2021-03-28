@@ -83,7 +83,7 @@ function SideArea(
 
   return (
     <SideAreaWrapper
-      data-testId={testId}
+      data-testid={testId}
       ref={forwardedRef}
       sideType={sideType}
       showSideView={showSideView}
