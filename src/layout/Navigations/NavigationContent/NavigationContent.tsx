@@ -60,7 +60,6 @@ function NavigationContent({
     setIsHoveringOnPresenter(true)
   }, [
     dispatch,
-    // isHide,
     isShowingNavigation,
     setIsHoveringOnPresenter,
   ])
