@@ -1,13 +1,12 @@
 /* External dependencies */
-import React, { useCallback } from 'react'
+import React from 'react'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
+import useNavigationShowHandler from '../../../hooks/useNavigationShowHandler'
 import useSideView from '../../../hooks/useSideView'
 import { styled } from '../../../foundation'
 import { Text } from '../../../components/Text'
-import LayoutActions from '../../redux/LayoutActions'
 
 const Div = styled.div`
   display: flex;
@@ -19,12 +18,9 @@ const Div = styled.div`
 `
 
 function Content() {
-  const dispatch = useLayoutDispatch()
-
   const {
     showContentHeader,
     showCoverableHeader,
-    showNavigation,
     sideWidth,
     showSideView,
     showSidePanel,
@@ -32,9 +28,7 @@ function Content() {
 
   const [handleOpenSideView, handleCloseSideView] = useSideView()
 
-  const handleToggleNavigation = useCallback(() => {
-    dispatch(LayoutActions.setShowNavigation(!showNavigation))
-  }, [dispatch, showNavigation])
+  const handleToggleNavigation = useNavigationShowHandler()
 
   return (
     <Div>

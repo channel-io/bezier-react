@@ -47,6 +47,7 @@ export { default as LayoutHeaderType } from './types/LayoutHeaderType'
 /* Hooks */
 export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
 export { default as useLayoutState } from './hooks/useLayoutState'
+export { default as useNavigationShowHandler } from './hooks/useNavigationShowHandler'
 export { default as useSideWidth } from './hooks/useSideWidth'
 export { default as useSideView } from './hooks/useSideView'
 export { default as useHeader } from './hooks/useHeader'
