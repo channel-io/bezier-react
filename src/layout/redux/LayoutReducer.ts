@@ -43,12 +43,14 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTy
         showContentHeader: action.payload,
       }
     }
+
     case AT.SET_SHOW_COVERABLE_HEADER: {
       return {
         ...state,
         showCoverableHeader: action.payload,
       }
     }
+
     case AT.SET_SIDE_WIDTH: {
       return {
         ...state,

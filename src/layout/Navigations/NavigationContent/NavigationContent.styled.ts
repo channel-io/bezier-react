@@ -1,5 +1,4 @@
 /* Internal dependencies */
-import { Icon } from '../../../components/Icon'
 import { styled } from '../../../foundation'
 
 interface StyledTitleWrapperProps {
@@ -11,18 +10,24 @@ export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
   align-items: center;
 `
 
-export const ChevronIcon = styled(Icon)`
+interface ChevronIconWrapperProps {
+  isHover?: boolean
+}
+
+export const ChevronIconWrapper = styled.div<ChevronIconWrapperProps>`
+  display: flex;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  padding: 6px;
-  color: #979797;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
   cursor: pointer;
   border-radius: 8px;
 
   &:hover {
     /* TODO: 디자인 팀과 확인 필요 */
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
 `
 
