@@ -9,11 +9,12 @@ import { isNil, noop } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { NavigationArea } from '../NavigationArea'
-import { mergeClassNames } from '../../../utils/stringUtils'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import { Icon, IconSize } from '../../../components/Icon'
 import LayoutActions from '../../redux/LayoutActions'
+import useLayoutState from '../../../hooks/useLayoutState'
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import { mergeClassNames } from '../../../utils/stringUtils'
+import { Icon, IconSize } from '../../../components/Icon'
+import { NavigationArea } from '../NavigationArea'
 import {
   ChevronIconWrapper,
   StyledContentWrapper,
@@ -47,19 +48,20 @@ function NavigationContent({
   const dispatch = useLayoutDispatch()
   const currentKey = useMemo(() => uuid(), [])
 
-  const [isHide, setIsHide] = useState(false)
+  const { showNavigation: isShowingNavigation } = useLayoutState()
+
   const [showChevron, setShowChevron] = useState(false)
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
   const handleClickChevron = useCallback(() => {
-    dispatch(LayoutActions.setShowNavigation(isHide))
+    dispatch(LayoutActions.setShowNavigation(!isShowingNavigation))
 
-    setIsHide(prev => !prev)
     setIsHoveringOnPresenter(true)
   }, [
     dispatch,
-    isHide,
+    // isHide,
+    isShowingNavigation,
     setIsHoveringOnPresenter,
   ])
 
@@ -101,7 +103,7 @@ function NavigationContent({
               onClick={handleClickChevron}
             >
               <Icon
-                name={`chevron-${isHide ? 'right' : 'left'}-double` as const}
+                name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
                 color="txt-black-darkest"
                 size={IconSize.S}
               />
@@ -114,7 +116,7 @@ function NavigationContent({
     allowMouseMove,
     isHoveringOnPresenter,
     showChevron,
-    isHide,
+    isShowingNavigation,
     header,
     fixedHeader,
     handleClickChevron,
