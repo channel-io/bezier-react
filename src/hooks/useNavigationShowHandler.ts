@@ -1,9 +1,9 @@
 /* External dependencies */
 import { useCallback } from 'react'
-import { LayoutActions } from '../layout/redux'
-import useLayoutDispatch from './useLayoutDispatch'
 
 /* Internal dependencies */
+import { LayoutActions } from '../layout/redux'
+import useLayoutDispatch from './useLayoutDispatch'
 import useLayoutState from './useLayoutState'
 
 export default function useNavigationShowHandler() {
