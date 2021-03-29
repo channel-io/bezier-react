@@ -288,6 +288,12 @@ function Tooltip(
   ), [])
 
   if (!children) {
+    if (tooltipContainerRef.current && tooltipWrapperRef.current && rootPositioned) {
+      setTooltipAbsoluteStyle(null)
+      setRootPositioned(false)
+      tooltipContainerRef.current.appendChild(tooltipWrapperRef.current)
+    }
+
     return null
   }
 
