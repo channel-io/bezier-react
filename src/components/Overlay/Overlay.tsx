@@ -13,6 +13,7 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import { rootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
@@ -26,11 +27,6 @@ import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
 export const CONTAINER_TEST_ID = 'ch-design-system-container'
 export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
-
-export const rootElement =
-  document.getElementById!('main') ||
-  document.getElementById!('root') ||
-  document.getElementById!('__next') as HTMLElement
 
 const ESCAPE_KEY = 'Escape'
 

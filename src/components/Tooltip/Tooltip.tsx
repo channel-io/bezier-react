@@ -4,6 +4,7 @@ import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
+import { rootElement } from '../../utils/domUtils'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
@@ -130,14 +131,28 @@ function Tooltip(
   const [show, setShow] = useState(false)
   const [isOverHorizontal, setOverHorizontal] = useState(false)
   const [isOverVertical, setOverVertical] = useState(false)
+  const [tooltipAbsoluteStyle, setTooltipAbsoluteStyle] = useState<any>(null)
+  const [absolutePositioned, setAbsolutePositioned] = useState(false)
 
   const tooltipRef = useRef<HTMLDivElement>(null)
+  const tooltipWrapperRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
   const handleMouseEnter = useCallback(() => {
     if (disabled) {
       return
+    }
+
+    if (rootElement && tooltipWrapperRef.current && !absolutePositioned) {
+      const { top, left } = tooltipWrapperRef.current.getBoundingClientRect()
+      setTooltipAbsoluteStyle({
+        position: 'fixed',
+        top,
+        left,
+      })
+      setAbsolutePositioned(true)
+      rootElement.appendChild(tooltipWrapperRef.current)
     }
 
     if (timerRef.current) {
@@ -150,6 +165,7 @@ function Tooltip(
   }, [
     delayShow,
     disabled,
+    absolutePositioned,
   ])
 
   const handleMouseLeave = useCallback(() => {
@@ -178,6 +194,13 @@ function Tooltip(
       ...others
     } = getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical })
 
+    if (tooltipAbsoluteStyle) {
+      return {
+        ...others,
+        ...tooltipAbsoluteStyle,
+      }
+    }
+
     return {
       ...others,
       top: `${top}%`,
@@ -189,6 +212,7 @@ function Tooltip(
     placement,
     isOverHorizontal,
     isOverVertical,
+    tooltipAbsoluteStyle,
   ])
 
   useEffect(() => {
@@ -241,6 +265,7 @@ function Tooltip(
     >
       { children }
       <ContentWrapper
+        ref={tooltipWrapperRef}
         show={show}
         disabled={disabled || isEmpty(content)}
         style={contentWrapperStyle}
