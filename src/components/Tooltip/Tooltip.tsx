@@ -10,11 +10,11 @@ import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
 
-function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical }: GetTooltipStyle) {
-  let paddingTop = 0
-  let paddingRight = 0
-  let paddingBottom = 0
-  let paddingLeft = 0
+function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical, allowHover }: GetTooltipStyle) {
+  let offsetTop = 0
+  let offsetRight = 0
+  let offsetBottom = 0
+  let offsetLeft = 0
   let top = 0
   let left = 0
   let translateX = 0
@@ -22,67 +22,67 @@ function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical }
 
   switch (placement) {
     case TooltipPosition.TopCenter:
-      paddingBottom = offset
+      offsetBottom = offset
       left = 50
       translateX = -50
       translateY = -100
       break
     case TooltipPosition.TopLeft:
-      paddingBottom = offset
+      offsetBottom = offset
       translateY = -100
       break
     case TooltipPosition.TopRight:
-      paddingBottom = offset
+      offsetBottom = offset
       left = 100
       translateX = -100
       translateY = -100
       break
     case TooltipPosition.RightCenter:
-      paddingLeft = offset
+      offsetLeft = offset
       top = 50
       left = 100
       translateX = 0
       translateY = -50
       break
     case TooltipPosition.RightTop:
-      paddingLeft = offset
+      offsetLeft = offset
       left = 100
       break
     case TooltipPosition.RightBottom:
-      paddingLeft = offset
+      offsetLeft = offset
       top = 100
       left = 100
       translateY = -100
       break
     case TooltipPosition.BottomCenter:
-      paddingTop = offset
+      offsetTop = offset
       top = 100
       left = 50
       translateX = -50
       break
     case TooltipPosition.BottomLeft:
-      paddingTop = offset
+      offsetTop = offset
       top = 100
       break
     case TooltipPosition.BottomRight:
-      paddingTop = offset
+      offsetTop = offset
       top = 100
       left = 100
       translateX = -100
       break
       break
     case TooltipPosition.LeftCenter:
-      paddingRight = offset
+      offsetRight = offset
       top = 50
       translateX = -100
       translateY = -50
       break
     case TooltipPosition.LeftTop:
-      paddingRight = offset
+      offsetRight = offset
       translateX = -100
       break
     case TooltipPosition.LeftBottom:
-      paddingRight = offset
+      offsetRight = offset
       top = 100
       translateX = -100
       translateY = -100
@@ -91,18 +91,31 @@ function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical }
 
   if (isOverHorizontal) {
     [left, translateX] = [-translateX, -left];
-    [paddingLeft, paddingRight] = [paddingRight, paddingLeft]
+    [offsetLeft, offsetRight] = [offsetRight, offsetLeft]
   }
   if (isOverVertical) {
     [top, translateY] = [-translateY, -top];
-    [paddingTop, paddingBottom] = [paddingBottom, paddingTop]
+    [offsetTop, offsetBottom] = [offsetBottom, offsetTop]
+  }
+
+  if (allowHover) {
+    return {
+      paddingTop: offsetTop,
+      paddingRight: offsetRight,
+      paddingBottom: offsetBottom,
+      paddingLeft: offsetLeft,
+      top,
+      left,
+      translateX,
+      translateY,
+    }
   }
 
   return {
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
+    marginTop: offsetTop,
+    marginRight: offsetRight,
+    marginBottom: offsetBottom,
+    marginLeft: offsetLeft,
     top,
     left,
     translateX,
@@ -121,6 +134,7 @@ function Tooltip(
     disabled = false,
     offset = 4,
     keepInContainer = false,
+    allowHover = false,
     delayShow = 0,
     delayHide = 0,
     children,
@@ -200,13 +214,17 @@ function Tooltip(
       translateX,
       translateY,
       ...others
-    } = getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical })
+    } = getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical, allowHover })
 
     if (tooltipAbsoluteStyle) {
-      return {
-        ...others,
-        ...tooltipAbsoluteStyle,
+      if (allowHover) {
+        return {
+          ...others,
+          ...tooltipAbsoluteStyle,
+        }
       }
+
+      return tooltipAbsoluteStyle
     }
 
     return {
@@ -220,6 +238,7 @@ function Tooltip(
     placement,
     isOverHorizontal,
     isOverVertical,
+    allowHover,
     tooltipAbsoluteStyle,
   ])
 

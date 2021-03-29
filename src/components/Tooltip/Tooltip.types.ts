@@ -8,11 +8,12 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   offset?: number
   disabled?: boolean
   keepInContainer?: boolean
+  allowHover?: boolean
   delayShow?: number
   delayHide?: number
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover'>> {
   isOverHorizontal: boolean
   isOverVertical: boolean
 }
