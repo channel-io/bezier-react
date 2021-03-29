@@ -3,6 +3,7 @@ import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentP
 
 export default interface TooltipProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode
+  contentClassName?: string
   placement?: TooltipPosition
   offset?: number
   disabled?: boolean

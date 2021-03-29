@@ -114,6 +114,7 @@ function Tooltip(
     as,
     testId = TOOLTIP_TEST_ID,
     className,
+    contentClassName,
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
@@ -233,8 +234,10 @@ function Tooltip(
 
   return (
     <Container
+      className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...otherProps}
     >
       { children }
       <ContentWrapper
@@ -244,10 +247,9 @@ function Tooltip(
       >
         <Content
           as={as}
-          className={className}
           data-testid={testId}
+          className={contentClassName}
           ref={mergedRef}
-          {...otherProps}
         >
           { content }
         </Content>
