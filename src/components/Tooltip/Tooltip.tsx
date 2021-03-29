@@ -131,11 +131,12 @@ function Tooltip(
   const [show, setShow] = useState(false)
   const [isOverHorizontal, setOverHorizontal] = useState(false)
   const [isOverVertical, setOverVertical] = useState(false)
-  const [tooltipAbsoluteStyle, setTooltipAbsoluteStyle] = useState<any>(null)
-  const [absolutePositioned, setAbsolutePositioned] = useState(false)
+  const [tooltipAbsoluteStyle, setTooltipAbsoluteStyle] = useState<React.CSSProperties | null>(null)
+  const [rootPositioned, setRootPositioned] = useState(false)
 
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)
+  const tooltipContainerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
@@ -144,14 +145,14 @@ function Tooltip(
       return
     }
 
-    if (rootElement && tooltipWrapperRef.current && !absolutePositioned) {
+    if (rootElement && tooltipWrapperRef.current && !rootPositioned) {
       const { top, left } = tooltipWrapperRef.current.getBoundingClientRect()
       setTooltipAbsoluteStyle({
         position: 'fixed',
         top,
         left,
       })
-      setAbsolutePositioned(true)
+      setRootPositioned(true)
       rootElement.appendChild(tooltipWrapperRef.current)
     }
 
@@ -165,12 +166,18 @@ function Tooltip(
   }, [
     delayShow,
     disabled,
-    absolutePositioned,
+    rootPositioned,
   ])
 
   const handleMouseLeave = useCallback(() => {
     if (disabled) {
       return
+    }
+
+    if (tooltipContainerRef.current && tooltipWrapperRef.current && rootPositioned) {
+      setTooltipAbsoluteStyle(null)
+      setRootPositioned(false)
+      tooltipContainerRef.current.appendChild(tooltipWrapperRef.current)
     }
 
     if (timerRef.current) {
@@ -183,6 +190,7 @@ function Tooltip(
   }, [
     delayHide,
     disabled,
+    rootPositioned,
   ])
 
   const contentWrapperStyle = useMemo(() => {
@@ -252,12 +260,21 @@ function Tooltip(
     placement,
   ])
 
+  useEffect(() => (
+    function cleanup() {
+      if (tooltipWrapperRef.current) {
+        tooltipWrapperRef.current.remove()
+      }
+    }
+  ), [])
+
   if (!children) {
     return null
   }
 
   return (
     <Container
+      ref={tooltipContainerRef}
       className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
