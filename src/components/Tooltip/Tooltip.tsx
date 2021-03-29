@@ -1,10 +1,12 @@
 /* External dependencies */
 import React, { useState, useCallback, useEffect, useMemo, useRef, forwardRef, Ref } from 'react'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, isString } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
 import { rootElement } from '../../utils/domUtils'
+import { Typography } from '../../foundation'
+import { Text } from '../Text'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
@@ -242,6 +244,18 @@ function Tooltip(
     tooltipAbsoluteStyle,
   ])
 
+  const ContentComponent = useMemo(() => {
+    if (isString(content)) {
+      return (
+        <Text type={Typography.Size13}>
+          { content }
+        </Text>
+      )
+    }
+
+    return content
+  }, [content])
+
   useEffect(() => {
     if (keepInContainer && tooltipRef.current) {
       const {
@@ -318,7 +332,7 @@ function Tooltip(
           className={contentClassName}
           ref={mergedRef}
         >
-          { content }
+          { ContentComponent }
         </Content>
       </ContentWrapper>
     </Container>
