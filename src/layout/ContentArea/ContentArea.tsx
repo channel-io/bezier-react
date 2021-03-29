@@ -24,6 +24,8 @@ function ContentArea(
     className,
     testId = CONTENT_AREA_TEST_ID,
     children,
+    onFocus,
+    onBlur,
     ...otherProps
   }: ContentAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -70,6 +72,8 @@ function ContentArea(
       className={className}
       data-testid={testId}
       ref={mergedContentRef}
+      onFocus={onFocus}
+      onBlur={onBlur}
       {...otherProps}
     >
       { children }
