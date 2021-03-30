@@ -19,6 +19,8 @@ function Main(
     SidePanelComponent,
     SideViewComponent,
     children,
+    onFocusContentArea,
+    onBlurContentArea,
     ...otherProps
   }: MainProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -42,7 +44,7 @@ function Main(
         ContentHeaderComponent={ContentHeaderComponent}
         CoverableHeaderComponent={CoverableHeaderComponent}
       />
-      <ContentArea>
+      <ContentArea onFocus={onFocusContentArea} onBlur={onBlurContentArea}>
         { children }
       </ContentArea>
 
