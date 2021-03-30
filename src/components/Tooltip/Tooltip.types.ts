@@ -13,9 +13,9 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   delayHide?: number
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover'>> {
-  isOverHorizontal: boolean
-  isOverVertical: boolean
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover' | 'keepInContainer'>> {
+  tooltipContainer: HTMLDivElement
+  tooltip: HTMLDivElement
 }
 
 export enum TooltipPosition {
