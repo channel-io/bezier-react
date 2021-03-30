@@ -1,111 +1,177 @@
 /* External dependencies */
-import React, { useState, useCallback, useEffect, useMemo, useRef, forwardRef, Ref } from 'react'
-import { isEmpty } from 'lodash-es'
+import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref } from 'react'
+import ReactDOM from 'react-dom'
+import { isEmpty, isString } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
+import { rootElement } from '../../utils/domUtils'
+import { Typography } from '../../foundation'
+import { Text } from '../Text'
 import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
 
-function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical }: GetTooltipStyle) {
-  let paddingTop = 0
-  let paddingRight = 0
-  let paddingBottom = 0
-  let paddingLeft = 0
-  let top = 0
-  let left = 0
+/* TODO: (@daniel) keepInContainer스펙 추가필요 */
+// function getOverflowPlacement({ placement, tooltip, keepInContainer }) {
+//   if (!keepInContainer) {
+//     return placement
+//   }
+
+//   const {
+//     width: tooltipWidth,
+//     height: tooltipHeight,
+//     top: tooltipTop,
+//     left: tooltipLeft,
+//   } = tooltip.getBoundingClientRect()
+//   const {
+//     width: rootWidth,
+//     height: rootHeight,
+//     top: rootTop,
+//     left: rootLeft,
+//   } = rootElement.getBoundingClientRect()
+
+//   const isOverTop = tooltipTop < rootTop
+//   const isOverBottom = tooltipTop + tooltipHeight > rootTop + rootHeight
+//   const isOverLeft = tooltipLeft < rootLeft
+//   const isOverRight = tooltipLeft + tooltipWidth > rootLeft + rootWidth
+
+//   if (isOverTop) {
+//     if (isOverLeft) {
+//       return TooltipPosition.BottomLeft
+//     }
+//     if (isOverRight) {
+//       return TooltipPosition.BottomRight
+//     }
+//     return TooltipPosition.BottomCenter
+//   }
+
+//   if (isOverBottom) {
+//     if (isOverLeft) {
+//       return TooltipPosition.TopLeft
+//     }
+//     if (isOverRight) {
+//       return TooltipPosition.TopRight
+//     }
+//     return TooltipPosition.TopCenter
+//   }
+
+//   if (isOverLeft) {
+//     if (isOverTop) {
+//       return TooltipPosition.RightTop
+//     }
+//     if (isOverBottom) {
+//       return TooltipPosition.RightBottom
+//     }
+//     return TooltipPosition.RightCenter
+//   }
+
+//   if (isOverRight) {
+//     if (isOverTop) {
+//       return TooltipPosition.LeftTop
+//     }
+//     if (isOverBottom) {
+//       return TooltipPosition.LeftBottom
+//     }
+//     return TooltipPosition.LeftCenter
+//   }
+// }
+
+function getTooltipStyle({
+  tooltipContainer,
+  placement,
+  offset,
+  allowHover,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  keepInContainer,
+}: GetTooltipStyle) {
+  const {
+    top: containerTop,
+    left: containerLeft,
+    width: containerWidth,
+    height: containerHeight,
+  } = tooltipContainer.getBoundingClientRect()
+
+  let top = containerTop
+  let left = containerLeft
   let translateX = 0
   let translateY = 0
 
+  let offsetTop = 0
+  let offsetRight = 0
+  let offsetBottom = 0
+  let offsetLeft = 0
+  let offsetStyle = {}
+
   switch (placement) {
     case TooltipPosition.TopCenter:
-      paddingBottom = offset
-      left = 50
-      translateX = -50
-      translateY = -100
-      break
     case TooltipPosition.TopLeft:
-      paddingBottom = offset
-      translateY = -100
-      break
     case TooltipPosition.TopRight:
-      paddingBottom = offset
-      left = 100
-      translateX = -100
       translateY = -100
+      offsetBottom = offset
       break
     case TooltipPosition.RightCenter:
-      paddingLeft = offset
-      top = 50
-      left = 100
-      translateX = 0
-      translateY = -50
-      break
     case TooltipPosition.RightTop:
-      paddingLeft = offset
-      left = 100
-      break
     case TooltipPosition.RightBottom:
-      paddingLeft = offset
-      top = 100
-      left = 100
-      translateY = -100
+      left += containerWidth
+      offsetLeft = offset
       break
     case TooltipPosition.BottomCenter:
-      paddingTop = offset
-      top = 100
-      left = 50
-      translateX = -50
-      break
     case TooltipPosition.BottomLeft:
-      paddingTop = offset
-      top = 100
-      break
     case TooltipPosition.BottomRight:
-      paddingTop = offset
-      top = 100
-      left = 100
-      translateX = -100
-      break
+      top += containerHeight
+      offsetTop = offset
       break
     case TooltipPosition.LeftCenter:
-      paddingRight = offset
-      top = 50
-      translateX = -100
-      translateY = -50
-      break
     case TooltipPosition.LeftTop:
-      paddingRight = offset
-      translateX = -100
-      break
     case TooltipPosition.LeftBottom:
-      paddingRight = offset
-      top = 100
       translateX = -100
-      translateY = -100
+      offsetRight = offset
       break
   }
 
-  if (isOverHorizontal) {
-    [left, translateX] = [-translateX, -left];
-    [paddingLeft, paddingRight] = [paddingRight, paddingLeft]
+  switch (placement) {
+    case TooltipPosition.TopCenter:
+    case TooltipPosition.BottomCenter:
+      translateX = -50
+      left += (containerWidth / 2)
+      break
+    case TooltipPosition.TopRight:
+    case TooltipPosition.BottomRight:
+      translateX = -100
+      left += containerWidth
+      break
+    case TooltipPosition.RightCenter:
+    case TooltipPosition.LeftCenter:
+      translateY = -50
+      top += (containerHeight / 2)
+      break
+    case TooltipPosition.RightBottom:
+    case TooltipPosition.LeftBottom:
+      translateY = -100
+      top += containerHeight
+      break
   }
-  if (isOverVertical) {
-    [top, translateY] = [-translateY, -top];
-    [paddingTop, paddingBottom] = [paddingBottom, paddingTop]
+
+  if (allowHover) {
+    offsetStyle = {
+      paddingTop: offsetTop,
+      paddingRight: offsetRight,
+      paddingBottom: offsetBottom,
+      paddingLeft: offsetLeft,
+    }
+  } else {
+    top += (offsetTop - offsetBottom)
+    left += (offsetLeft - offsetRight)
   }
 
   return {
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
+    position: 'fixed',
     top,
     left,
-    translateX,
-    translateY,
+    transform: `translate(${translateX}%, ${translateY}%)`,
+    ...offsetStyle,
   }
 }
 
@@ -114,11 +180,13 @@ function Tooltip(
     as,
     testId = TOOLTIP_TEST_ID,
     className,
+    contentClassName,
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
     offset = 4,
     keepInContainer = false,
+    allowHover = false,
     delayShow = 0,
     delayHide = 0,
     children,
@@ -127,10 +195,10 @@ function Tooltip(
   forwardedRef: Ref<any>,
 ) {
   const [show, setShow] = useState(false)
-  const [isOverHorizontal, setOverHorizontal] = useState(false)
-  const [isOverVertical, setOverVertical] = useState(false)
 
   const tooltipRef = useRef<HTMLDivElement>(null)
+  const tooltipWrapperRef = useRef<HTMLDivElement>(null)
+  const tooltipContainerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
@@ -169,62 +237,61 @@ function Tooltip(
   ])
 
   const contentWrapperStyle = useMemo(() => {
-    const {
-      top,
-      left,
-      translateX,
-      translateY,
-      ...others
-    } = getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical })
-
-    return {
-      ...others,
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `translate(${translateX}%, ${translateY}%)`,
+    if (show && tooltipContainerRef.current) {
+      return getTooltipStyle({
+        tooltipContainer: tooltipContainerRef.current,
+        placement,
+        offset,
+        allowHover,
+        keepInContainer,
+      })
     }
+
+    return {}
   }, [
-    offset,
+    show,
     placement,
-    isOverHorizontal,
-    isOverVertical,
+    offset,
+    allowHover,
+    keepInContainer,
   ])
 
-  useEffect(() => {
-    if (keepInContainer && tooltipRef.current) {
-      const {
-        width: tooltipWidth,
-        height: tooltipHeight,
-        top: tooltipTop,
-        left: tooltipLeft,
-      } = tooltipRef.current.getBoundingClientRect()
-      const {
-        width: documentWidth,
-        height: documentHeight,
-        top: documentTop,
-        left: documentLeft,
-      } = document.documentElement.getBoundingClientRect()
-
-      const isOverTop = tooltipTop < documentTop
-      const isOverBottom = tooltipTop + tooltipHeight > documentTop + documentHeight
-      const isOverLeft = tooltipLeft < documentLeft
-      const isOverRight = tooltipLeft + tooltipWidth > documentLeft + documentWidth
-
-      if (isOverTop || isOverBottom) {
-        setOverVertical(true)
-      }
-      if (isOverLeft || isOverRight) {
-        setOverHorizontal(true)
-      }
-
-      return
+  const ContentComponent = useMemo(() => {
+    if (isString(content)) {
+      return (
+        <Text type={Typography.Size14}>
+          { content }
+        </Text>
+      )
     }
 
-    setOverVertical(false)
-    setOverHorizontal(false)
-  }, [
-    keepInContainer,
-    placement,
+    return content
+  }, [content])
+
+  const TooltipComponent = useMemo(() => (
+    <ContentWrapper
+      ref={tooltipWrapperRef}
+      disabled={disabled || isEmpty(content)}
+      style={contentWrapperStyle}
+    >
+      <Content
+        as={as}
+        data-testid={testId}
+        className={contentClassName}
+        ref={mergedRef}
+      >
+        { ContentComponent }
+      </Content>
+    </ContentWrapper>
+  ), [
+    ContentComponent,
+    as,
+    content,
+    contentClassName,
+    contentWrapperStyle,
+    disabled,
+    mergedRef,
+    testId,
   ])
 
   if (!children) {
@@ -233,25 +300,14 @@ function Tooltip(
 
   return (
     <Container
+      ref={tooltipContainerRef}
+      className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...otherProps}
     >
       { children }
-      <ContentWrapper
-        show={show}
-        disabled={disabled || isEmpty(content)}
-        style={contentWrapperStyle}
-      >
-        <Content
-          as={as}
-          className={className}
-          data-testid={testId}
-          ref={mergedRef}
-          {...otherProps}
-        >
-          { content }
-        </Content>
-      </ContentWrapper>
+      { show && ReactDOM.createPortal(TooltipComponent, rootElement) }
     </Container>
   )
 }
