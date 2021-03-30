@@ -80,8 +80,6 @@ export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
 
 function getTooltipStyle({
   tooltipContainer,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  tooltip,
   placement,
   offset,
   allowHover,
@@ -239,10 +237,9 @@ function Tooltip(
   ])
 
   const contentWrapperStyle = useMemo(() => {
-    if (show && tooltipContainerRef.current && tooltipRef.current) {
+    if (show && tooltipContainerRef.current) {
       return getTooltipStyle({
         tooltipContainer: tooltipContainerRef.current,
-        tooltip: tooltipRef.current,
         placement,
         offset,
         allowHover,
@@ -275,7 +272,6 @@ function Tooltip(
     <ContentWrapper
       ref={tooltipWrapperRef}
       disabled={disabled || isEmpty(content)}
-      show={show}
       style={contentWrapperStyle}
     >
       <Content
@@ -291,7 +287,6 @@ function Tooltip(
     ContentComponent,
     as,
     content,
-    show,
     contentClassName,
     contentWrapperStyle,
     disabled,
@@ -312,7 +307,7 @@ function Tooltip(
       {...otherProps}
     >
       { children }
-      { ReactDOM.createPortal(TooltipComponent, rootElement) }
+      { show && ReactDOM.createPortal(TooltipComponent, rootElement) }
     </Container>
   )
 }

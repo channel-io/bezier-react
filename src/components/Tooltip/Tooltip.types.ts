@@ -15,7 +15,6 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
 
 export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover' | 'keepInContainer'>> {
   tooltipContainer: HTMLDivElement
-  tooltip: HTMLDivElement
 }
 
 export enum TooltipPosition {

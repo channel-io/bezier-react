@@ -2,7 +2,6 @@
 import { styled, css } from '../../foundation'
 
 interface ContentWrapperProps {
-  show: boolean
   disabled: boolean
 }
 
@@ -16,11 +15,6 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   top: 0;
   left: 0;
   z-index: 1000000000;
-  visibility: hidden;
-
-  ${({ show }) => show && css`
-    visibility: visible;
-  `}
 
   ${({ disabled }) => disabled && css`
     display: none;
