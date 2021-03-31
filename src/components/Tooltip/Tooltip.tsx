@@ -259,7 +259,7 @@ function Tooltip(
   const ContentComponent = useMemo(() => {
     if (isString(content)) {
       return (
-        <Text type={Typography.Size14}>
+        <Text typo={Typography.Size14}>
           { content }
         </Text>
       )

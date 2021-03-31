@@ -30,5 +30,5 @@ export const Content = styled.div`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   word-break: break-all;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
-  ${({ foundation }) => foundation?.rounding?.round4};
+  ${({ foundation }) => foundation?.rounding?.round8};
 `
