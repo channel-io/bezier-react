@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref } from 'react'
 import ReactDOM from 'react-dom'
-import { isEmpty, isString } from 'lodash-es'
+import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
@@ -256,17 +256,52 @@ function Tooltip(
     keepInContainer,
   ])
 
-  const ContentComponent = useMemo(() => {
-    if (isString(content)) {
+  const getNewLineComponent = useCallback((strContent: string) => (
+    strContent.split('\n').map((str, index) => {
+      if (index === 0) {
+        return (
+          <Text typo={Typography.Size14}>
+            { str }
+          </Text>
+        )
+      }
+
       return (
-        <Text typo={Typography.Size14}>
-          { content }
-        </Text>
+        <>
+          <br />
+          <Text typo={Typography.Size14}>
+            { str }
+          </Text>
+        </>
       )
+    })
+  ), [])
+
+  const ContentComponent = useMemo(() => {
+    if (!show) {
+      return null
+    }
+
+    if (isArray(content)) {
+      return content.map(item => {
+        if (isString(item)) {
+          return getNewLineComponent(item)
+        }
+
+        return item
+      })
+    }
+
+    if (isString(content)) {
+      return getNewLineComponent(content)
     }
 
     return content
-  }, [content])
+  }, [
+    show,
+    content,
+    getNewLineComponent,
+  ])
 
   const TooltipComponent = useMemo(() => (
     <ContentWrapper
