@@ -13,8 +13,12 @@ export default interface TooltipProps extends UIComponentProps, ChildrenComponen
   delayHide?: number
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover' | 'keepInContainer'>> {
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover'>> {
   tooltipContainer: HTMLDivElement
+}
+
+export interface GetReplacement extends Required<Pick<TooltipProps, 'placement' | 'keepInContainer'>> {
+  tooltip: HTMLDivElement
 }
 
 export enum TooltipPosition {

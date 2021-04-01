@@ -3,6 +3,7 @@ import { styled, css } from '../../foundation'
 
 interface ContentWrapperProps {
   disabled: boolean
+  isHidden: boolean
 }
 
 export const Container = styled.div`
@@ -18,6 +19,10 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 
   ${({ disabled }) => disabled && css`
     display: none;
+  `}
+
+  ${({ isHidden }) => isHidden && css`
+    visibility: hidden;
   `}
 `
 
