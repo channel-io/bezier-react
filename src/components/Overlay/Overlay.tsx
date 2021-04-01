@@ -200,12 +200,8 @@ function Overlay(
   const handleHideOverlay = useCallback((event: any) => {
     if (!event.target?.closest(StyledOverlay)) {
       onHide()
+      event.stopPropagation()
     }
-  }, [onHide])
-
-  const handleClickTarget = useCallback((event: HTMLElementEventMap['click']) => {
-    onHide()
-    event.stopPropagation()
   }, [onHide])
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
@@ -299,9 +295,11 @@ function Overlay(
       scrollTop: container ? container.scrollTop : 0,
       scrollLeft: container ? container.scrollLeft : 0,
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     container,
+    children,
   ])
 
   const targetRect = useMemo(() => {
@@ -320,14 +318,15 @@ function Overlay(
       clientTop,
       clientLeft,
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     target,
+    children,
   ])
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
-  useEventHandler(target, 'click', handleClickTarget, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
   useEffect(() => {
