@@ -7,4 +7,6 @@ export default interface MainProps extends UIComponentProps {
   SidePanelComponent: React.ComponentType
   SideViewComponent: React.ComponentType
   onChangeSideWidth?: (width: number) => void
+  onFocusContentArea?: (e: React.FocusEvent<HTMLDivElement>) => void
+  onBlurContentArea?: (e: React.FocusEvent<HTMLDivElement>) => void
 }

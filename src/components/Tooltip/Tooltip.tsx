@@ -1,124 +1,31 @@
 /* External dependencies */
-import React, { useState, useCallback, useEffect, useMemo, useRef, forwardRef, Ref } from 'react'
-import { isEmpty } from 'lodash-es'
+import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useEffect } from 'react'
+import ReactDOM from 'react-dom'
+import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
-import TooltipProps, { GetTooltipStyle, TooltipPosition } from './Tooltip.types'
+import { rootElement } from '../../utils/domUtils'
+import { Typography } from '../../foundation'
+import { Text } from '../Text'
+import TooltipProps, { TooltipPosition } from './Tooltip.types'
+import { getReplacement, getTooltipStyle } from './utils/positionUtils'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
-
-function getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical }: GetTooltipStyle) {
-  let paddingTop = 0
-  let paddingRight = 0
-  let paddingBottom = 0
-  let paddingLeft = 0
-  let top = 0
-  let left = 0
-  let translateX = 0
-  let translateY = 0
-
-  switch (placement) {
-    case TooltipPosition.TopCenter:
-      paddingBottom = offset
-      left = 50
-      translateX = -50
-      translateY = -100
-      break
-    case TooltipPosition.TopLeft:
-      paddingBottom = offset
-      translateY = -100
-      break
-    case TooltipPosition.TopRight:
-      paddingBottom = offset
-      left = 100
-      translateX = -100
-      translateY = -100
-      break
-    case TooltipPosition.RightCenter:
-      paddingLeft = offset
-      top = 50
-      left = 100
-      translateX = 0
-      translateY = -50
-      break
-    case TooltipPosition.RightTop:
-      paddingLeft = offset
-      left = 100
-      break
-    case TooltipPosition.RightBottom:
-      paddingLeft = offset
-      top = 100
-      left = 100
-      translateY = -100
-      break
-    case TooltipPosition.BottomCenter:
-      paddingTop = offset
-      top = 100
-      left = 50
-      translateX = -50
-      break
-    case TooltipPosition.BottomLeft:
-      paddingTop = offset
-      top = 100
-      break
-    case TooltipPosition.BottomRight:
-      paddingTop = offset
-      top = 100
-      left = 100
-      translateX = -100
-      break
-      break
-    case TooltipPosition.LeftCenter:
-      paddingRight = offset
-      top = 50
-      translateX = -100
-      translateY = -50
-      break
-    case TooltipPosition.LeftTop:
-      paddingRight = offset
-      translateX = -100
-      break
-    case TooltipPosition.LeftBottom:
-      paddingRight = offset
-      top = 100
-      translateX = -100
-      translateY = -100
-      break
-  }
-
-  if (isOverHorizontal) {
-    [left, translateX] = [-translateX, -left];
-    [paddingLeft, paddingRight] = [paddingRight, paddingLeft]
-  }
-  if (isOverVertical) {
-    [top, translateY] = [-translateY, -top];
-    [paddingTop, paddingBottom] = [paddingBottom, paddingTop]
-  }
-
-  return {
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
-    top,
-    left,
-    translateX,
-    translateY,
-  }
-}
 
 function Tooltip(
   {
     as,
     testId = TOOLTIP_TEST_ID,
     className,
+    contentClassName,
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
     offset = 4,
     keepInContainer = false,
+    allowHover = false,
     delayShow = 0,
     delayHide = 0,
     children,
@@ -127,10 +34,12 @@ function Tooltip(
   forwardedRef: Ref<any>,
 ) {
   const [show, setShow] = useState(false)
-  const [isOverHorizontal, setOverHorizontal] = useState(false)
-  const [isOverVertical, setOverVertical] = useState(false)
+  const [replacement, setReplacement] = useState(placement)
+  const [replaced, setReplaced] = useState(false)
 
   const tooltipRef = useRef<HTMLDivElement>(null)
+  const tooltipWrapperRef = useRef<HTMLDivElement>(null)
+  const tooltipContainerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<number>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
@@ -169,60 +78,114 @@ function Tooltip(
   ])
 
   const contentWrapperStyle = useMemo(() => {
-    const {
-      top,
-      left,
-      translateX,
-      translateY,
-      ...others
-    } = getTooltipStyle({ placement, offset, isOverHorizontal, isOverVertical })
-
-    return {
-      ...others,
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `translate(${translateX}%, ${translateY}%)`,
+    if (show && tooltipContainerRef.current) {
+      return getTooltipStyle({
+        tooltipContainer: tooltipContainerRef.current,
+        placement: replacement,
+        offset,
+        allowHover,
+      })
     }
+
+    return {}
   }, [
+    show,
+    replacement,
     offset,
-    placement,
-    isOverHorizontal,
-    isOverVertical,
+    allowHover,
+  ])
+
+  const getNewLineComponent = useCallback((strContent: string) => (
+    strContent.split('\n').map((str, index) => {
+      if (index === 0) {
+        return (
+          <Text key={str} typo={Typography.Size14}>
+            { str }
+          </Text>
+        )
+      }
+
+      return (
+        <>
+          <br />
+          <Text key={str} typo={Typography.Size14}>
+            { str }
+          </Text>
+        </>
+      )
+    })
+  ), [])
+
+  const ContentComponent = useMemo(() => {
+    if (!show) {
+      return null
+    }
+
+    if (isArray(content)) {
+      return content.map(item => {
+        if (isString(item)) {
+          return getNewLineComponent(item)
+        }
+
+        return item
+      })
+    }
+
+    if (isString(content)) {
+      return getNewLineComponent(content)
+    }
+
+    return content
+  }, [
+    show,
+    content,
+    getNewLineComponent,
+  ])
+
+  const TooltipComponent = useMemo(() => (
+    <ContentWrapper
+      ref={tooltipWrapperRef}
+      disabled={disabled || isEmpty(content)}
+      isHidden={keepInContainer && !replaced}
+      style={contentWrapperStyle}
+    >
+      <Content
+        as={as}
+        data-testid={testId}
+        className={contentClassName}
+        ref={mergedRef}
+      >
+        { ContentComponent }
+      </Content>
+    </ContentWrapper>
+  ), [
+    ContentComponent,
+    as,
+    content,
+    contentClassName,
+    contentWrapperStyle,
+    disabled,
+    keepInContainer,
+    replaced,
+    mergedRef,
+    testId,
   ])
 
   useEffect(() => {
-    if (keepInContainer && tooltipRef.current) {
-      const {
-        width: tooltipWidth,
-        height: tooltipHeight,
-        top: tooltipTop,
-        left: tooltipLeft,
-      } = tooltipRef.current.getBoundingClientRect()
-      const {
-        width: documentWidth,
-        height: documentHeight,
-        top: documentTop,
-        left: documentLeft,
-      } = document.documentElement.getBoundingClientRect()
-
-      const isOverTop = tooltipTop < documentTop
-      const isOverBottom = tooltipTop + tooltipHeight > documentTop + documentHeight
-      const isOverLeft = tooltipLeft < documentLeft
-      const isOverRight = tooltipLeft + tooltipWidth > documentLeft + documentWidth
-
-      if (isOverTop || isOverBottom) {
-        setOverVertical(true)
-      }
-      if (isOverLeft || isOverRight) {
-        setOverHorizontal(true)
-      }
-
+    if (show && tooltipRef.current) {
+      const newPlacement = getReplacement({
+        tooltip: tooltipRef.current,
+        keepInContainer,
+        placement,
+      })
+      setReplacement(newPlacement)
+      setReplaced(true)
       return
     }
-
-    setOverVertical(false)
-    setOverHorizontal(false)
+    setReplacement(placement)
+    setReplaced(false)
   }, [
+    show,
     keepInContainer,
     placement,
   ])
@@ -233,25 +196,14 @@ function Tooltip(
 
   return (
     <Container
+      ref={tooltipContainerRef}
+      className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...otherProps}
     >
       { children }
-      <ContentWrapper
-        show={show}
-        disabled={disabled || isEmpty(content)}
-        style={contentWrapperStyle}
-      >
-        <Content
-          as={as}
-          className={className}
-          data-testid={testId}
-          ref={mergedRef}
-          {...otherProps}
-        >
-          { content }
-        </Content>
-      </ContentWrapper>
+      { show && ReactDOM.createPortal(TooltipComponent, rootElement) }
     </Container>
   )
 }

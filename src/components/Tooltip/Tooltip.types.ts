@@ -3,17 +3,22 @@ import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentP
 
 export default interface TooltipProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode
+  contentClassName?: string
   placement?: TooltipPosition
   offset?: number
   disabled?: boolean
   keepInContainer?: boolean
+  allowHover?: boolean
   delayShow?: number
   delayHide?: number
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset'>> {
-  isOverHorizontal: boolean
-  isOverVertical: boolean
+export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover'>> {
+  tooltipContainer: HTMLDivElement
+}
+
+export interface GetReplacement extends Required<Pick<TooltipProps, 'placement' | 'keepInContainer'>> {
+  tooltip: HTMLDivElement
 }
 
 export enum TooltipPosition {

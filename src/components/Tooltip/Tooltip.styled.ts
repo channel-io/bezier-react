@@ -2,28 +2,25 @@
 import { styled, css } from '../../foundation'
 
 interface ContentWrapperProps {
-  show: boolean
   disabled: boolean
+  isHidden: boolean
 }
 
 export const Container = styled.div`
   position: relative;
-  width: max-content;
-  height: max-content;
 `
 export const ContentWrapper = styled.div<ContentWrapperProps>`
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1000000000;
-  visibility: hidden;
-
-  ${({ show }) => show && css`
-    visibility: visible;
-  `}
 
   ${({ disabled }) => disabled && css`
     display: none;
+  `}
+
+  ${({ isHidden }) => isHidden && css`
+    visibility: hidden;
   `}
 `
 
@@ -36,5 +33,5 @@ export const Content = styled.div`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   word-break: break-all;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
-  ${({ foundation }) => foundation?.rounding?.round4};
+  ${({ foundation }) => foundation?.rounding?.round8};
 `

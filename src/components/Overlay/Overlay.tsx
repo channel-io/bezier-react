@@ -13,6 +13,7 @@ import { noop } from 'lodash-es'
 import { document } from 'ssr-window'
 
 /* Internal dependencies */
+import { rootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
@@ -26,11 +27,6 @@ import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
 export const CONTAINER_TEST_ID = 'ch-design-system-container'
 export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
-
-export const rootElement =
-  document.getElementById!('main') ||
-  document.getElementById!('root') ||
-  document.getElementById!('__next') as HTMLElement
 
 const ESCAPE_KEY = 'Escape'
 
@@ -204,12 +200,8 @@ function Overlay(
   const handleHideOverlay = useCallback((event: any) => {
     if (!event.target?.closest(StyledOverlay)) {
       onHide()
+      event.stopPropagation()
     }
-  }, [onHide])
-
-  const handleClickTarget = useCallback((event: HTMLElementEventMap['click']) => {
-    onHide()
-    event.stopPropagation()
   }, [onHide])
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
@@ -303,9 +295,11 @@ function Overlay(
       scrollTop: container ? container.scrollTop : 0,
       scrollLeft: container ? container.scrollLeft : 0,
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     container,
+    children,
   ])
 
   const targetRect = useMemo(() => {
@@ -324,14 +318,15 @@ function Overlay(
       clientTop,
       clientLeft,
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     show,
     target,
+    children,
   ])
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
-  useEventHandler(target, 'click', handleClickTarget, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
   useEffect(() => {

@@ -100,6 +100,7 @@ Primary.args = {
   offset: 4,
   disabled: false,
   keepInContainer: false,
+  allowHover: false,
   delayShow: 0,
   delayHide: 0,
 }
