@@ -260,7 +260,7 @@ function Tooltip(
     strContent.split('\n').map((str, index) => {
       if (index === 0) {
         return (
-          <Text typo={Typography.Size14}>
+          <Text key={str} typo={Typography.Size14}>
             { str }
           </Text>
         )
@@ -269,7 +269,7 @@ function Tooltip(
       return (
         <>
           <br />
-          <Text typo={Typography.Size14}>
+          <Text key={str} typo={Typography.Size14}>
             { str }
           </Text>
         </>
