@@ -8,8 +8,6 @@ interface ContentWrapperProps {
 
 export const Container = styled.div`
   position: relative;
-  width: max-content;
-  height: max-content;
 `
 export const ContentWrapper = styled.div<ContentWrapperProps>`
   position: absolute;
