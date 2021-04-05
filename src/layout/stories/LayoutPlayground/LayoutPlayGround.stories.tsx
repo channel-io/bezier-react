@@ -17,7 +17,6 @@ import Navigations from '../../Navigations/Navigations'
 import { SidePanelContent } from '../../Side/SidePanelContent'
 import { SideViewContent } from '../../Side/SideViewContent'
 import { NavigationContent } from '../../Navigations/NavigationContent'
-import useLayoutState from '../../../hooks/useLayoutState'
 import Content from './Content'
 import ContentHeader from './ContentHeader'
 import CoverableHeader from './CoverableHeader'
@@ -83,17 +82,14 @@ function UserChatSidePanel({ onChangeWidth }) {
 }
 
 function SideViewRoute({ onChangeWidth }) {
-  const { showSideView } = useLayoutState()
-
-  if (!showSideView) {
-    return null
-  }
+  const [state, setState] = useState(Math.random() * 100)
 
   return (
     <SideViewContent
       onChangeSideWidth={onChangeWidth}
     >
-      <Div style={{ height: 2000 }}>SideView</Div>
+      <Div style={{ height: 2000 }}>{ state }</Div>
+      <button onClick={() => setState(Math.random() * 100)} type="button">regenerate</button>
     </SideViewContent>
   )
 }
