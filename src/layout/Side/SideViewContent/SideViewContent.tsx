@@ -1,12 +1,11 @@
 /* External dependencies */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import useLayoutState from '../../../hooks/useLayoutState'
 import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import LayoutActions from '../../redux/LayoutActions'
 import SideViewContentProps from './SideViewContent.types'
 
 export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
@@ -16,20 +15,11 @@ function SideViewContent({
   children,
   onChangeSideWidth = noop,
 }: SideViewContentProps) {
-  const dispatch = useLayoutDispatch()
+  const { showSideView } = useLayoutState()
 
-  useEffect(() => {
-    dispatch(LayoutActions.setShowSide({
-      showSideView: true,
-    }))
-
-    return function cleanup() {
-      dispatch(LayoutActions.setShowSide({
-        showSideView: false,
-      }))
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  if (!showSideView) {
+    return null
+  }
 
   return (
     <SideArea
