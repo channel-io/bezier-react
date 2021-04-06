@@ -14,7 +14,7 @@ function SvgChevronLeft(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M15.904 19.057l-1.458 1.37-6.892-7.39a1.5 1.5 0 010-2.046L14.446 3.6l1.458 1.37-6.56 7.044 6.56 7.043z"
+        d="M15.207 19.707a1 1 0 01-1.414 0l-7-7a1 1 0 010-1.414l7-7a1 1 0 111.414 1.414L8.914 12l6.293 6.293a1 1 0 010 1.414z"
       />
     </svg>
   )
