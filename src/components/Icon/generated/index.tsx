@@ -14,6 +14,7 @@ import ArrowHookLeftDown from './ArrowHookLeftDown'
 import ArrowHookLeftUp from './ArrowHookLeftUp'
 import ArrowHookRightDown from './ArrowHookRightDown'
 import ArrowHookRightUp from './ArrowHookRightUp'
+import ArrowLeftCircleFilled from './ArrowLeftCircleFilled'
 import ArrowLeftUp from './ArrowLeftUp'
 import ArrowLeft from './ArrowLeft'
 import ArrowRightUp from './ArrowRightUp'
@@ -24,6 +25,8 @@ import ArrowTurnRightDown from './ArrowTurnRightDown'
 import ArrowTurnRightUp from './ArrowTurnRightUp'
 import ArrowUp from './ArrowUp'
 import Assignee from './Assignee'
+import Atom from './Atom'
+import Badge from './Badge'
 import Bank from './Bank'
 import Baseball from './Baseball'
 import Basketball from './Basketball'
@@ -45,6 +48,7 @@ import BrowserEdge from './BrowserEdge'
 import BrowserFirefox from './BrowserFirefox'
 import BrowserIe from './BrowserIe'
 import BrowserSafari from './BrowserSafari'
+import Bullet from './Bullet'
 import Bus from './Bus'
 import ButtonRoute from './ButtonRoute'
 import Calendar from './Calendar'
@@ -80,6 +84,7 @@ import ChatCheckFilled from './ChatCheckFilled'
 import ChatCheck from './ChatCheck'
 import ChatErrorFilled from './ChatErrorFilled'
 import ChatError from './ChatError'
+import ChatLightning from './ChatLightning'
 import ChatProgressFilled from './ChatProgressFilled'
 import ChatProgress from './ChatProgress'
 import ChatQuestionFilled from './ChatQuestionFilled'
@@ -100,8 +105,11 @@ import ChevronRight from './ChevronRight'
 import ChevronSmallDown from './ChevronSmallDown'
 import ChevronSmallLeft from './ChevronSmallLeft'
 import ChevronSmallRight from './ChevronSmallRight'
+import ChevronSmallUp from './ChevronSmallUp'
+import ChevronSmallUpdown from './ChevronSmallUpdown'
 import ChevronUpDouble from './ChevronUpDouble'
 import ChevronUp from './ChevronUp'
+import ChevronUpdown from './ChevronUpdown'
 import Clip from './Clip'
 import Clock from './Clock'
 import CloudDownload from './CloudDownload'
@@ -122,6 +130,8 @@ import Credit from './Credit'
 import Creditcard from './Creditcard'
 import Desktop from './Desktop'
 import Devices from './Devices'
+import DialogDown from './DialogDown'
+import DialogUp from './DialogUp'
 import Dot from './Dot'
 import Download from './Download'
 import Dragable from './Dragable'
@@ -157,6 +167,7 @@ import Ghost from './Ghost'
 import Gif from './Gif'
 import Globe from './Globe'
 import Goal from './Goal'
+import Google from './Google'
 import Graph from './Graph'
 import GroupFilled from './GroupFilled'
 import Group from './Group'
@@ -180,11 +191,13 @@ import HelpFilled from './HelpFilled'
 import Help from './Help'
 import Hexahedron from './Hexahedron'
 import History from './History'
+import HomeFilled from './HomeFilled'
 import Home from './Home'
 import Hourglass1 from './Hourglass1'
 import Hourglass2 from './Hourglass2'
 import Hourglass3 from './Hourglass3'
 import Hyphen from './Hyphen'
+import ImageFailed from './ImageFailed'
 import Image from './Image'
 import In from './In'
 import InboxAll from './InboxAll'
@@ -193,6 +206,7 @@ import InfoFilled from './InfoFilled'
 import Info from './Info'
 import Instagram from './Instagram'
 import IntoPage from './IntoPage'
+import Invert from './Invert'
 import Ios from './Ios'
 import Italic from './Italic'
 import Key from './Key'
@@ -202,6 +216,7 @@ import Laptop from './Laptop'
 import Lightbulb from './Lightbulb'
 import LightningFilled from './LightningFilled'
 import Lightning from './Lightning'
+import LinkCopy from './LinkCopy'
 import LinkOff from './LinkOff'
 import Link from './Link'
 import Linkedin from './Linkedin'
@@ -286,6 +301,8 @@ import Siren from './Siren'
 import Sms from './Sms'
 import Soccerball from './Soccerball'
 import Sorting from './Sorting'
+import SpaceHorizontal from './SpaceHorizontal'
+import SpaceVertical from './SpaceVertical'
 import SplitLeft from './SplitLeft'
 import SplitRight from './SplitRight'
 import Square from './Square'
@@ -296,6 +313,7 @@ import Star from './Star'
 import Store from './Store'
 import Strikethrough from './Strikethrough'
 import String from './String'
+import SurveyCheck from './SurveyCheck'
 import Survey from './Survey'
 import Sync from './Sync'
 import Tablet from './Tablet'
@@ -324,6 +342,7 @@ import TriangleUpCircleFilled from './TriangleUpCircleFilled'
 import TriangleUpCircle from './TriangleUpCircle'
 import TriangleUp from './TriangleUp'
 import TriangleUpdown from './TriangleUpdown'
+import Trophy from './Trophy'
 import Tune from './Tune'
 import Twitter from './Twitter'
 import Typography from './Typography'
@@ -378,6 +397,7 @@ const icons = {
   'arrow-hook-left-up': ArrowHookLeftUp,
   'arrow-hook-right-down': ArrowHookRightDown,
   'arrow-hook-right-up': ArrowHookRightUp,
+  'arrow-left-circle-filled': ArrowLeftCircleFilled,
   'arrow-left-up': ArrowLeftUp,
   'arrow-left': ArrowLeft,
   'arrow-right-up': ArrowRightUp,
@@ -388,6 +408,8 @@ const icons = {
   'arrow-turn-right-up': ArrowTurnRightUp,
   'arrow-up': ArrowUp,
   'assignee': Assignee,
+  'atom': Atom,
+  'badge': Badge,
   'bank': Bank,
   'baseball': Baseball,
   'basketball': Basketball,
@@ -409,6 +431,7 @@ const icons = {
   'browser-firefox': BrowserFirefox,
   'browser-ie': BrowserIe,
   'browser-safari': BrowserSafari,
+  'bullet': Bullet,
   'bus': Bus,
   'button-route': ButtonRoute,
   'calendar': Calendar,
@@ -444,6 +467,7 @@ const icons = {
   'chat-check': ChatCheck,
   'chat-error-filled': ChatErrorFilled,
   'chat-error': ChatError,
+  'chat-lightning': ChatLightning,
   'chat-progress-filled': ChatProgressFilled,
   'chat-progress': ChatProgress,
   'chat-question-filled': ChatQuestionFilled,
@@ -464,8 +488,11 @@ const icons = {
   'chevron-small-down': ChevronSmallDown,
   'chevron-small-left': ChevronSmallLeft,
   'chevron-small-right': ChevronSmallRight,
+  'chevron-small-up': ChevronSmallUp,
+  'chevron-small-updown': ChevronSmallUpdown,
   'chevron-up-double': ChevronUpDouble,
   'chevron-up': ChevronUp,
+  'chevron-updown': ChevronUpdown,
   'clip': Clip,
   'clock': Clock,
   'cloud-download': CloudDownload,
@@ -486,6 +513,8 @@ const icons = {
   'creditcard': Creditcard,
   'desktop': Desktop,
   'devices': Devices,
+  'dialog-down': DialogDown,
+  'dialog-up': DialogUp,
   'dot': Dot,
   'download': Download,
   'dragable': Dragable,
@@ -521,6 +550,7 @@ const icons = {
   'gif': Gif,
   'globe': Globe,
   'goal': Goal,
+  'google': Google,
   'graph': Graph,
   'group-filled': GroupFilled,
   'group': Group,
@@ -544,11 +574,13 @@ const icons = {
   'help': Help,
   'hexahedron': Hexahedron,
   'history': History,
+  'home-filled': HomeFilled,
   'home': Home,
   'hourglass-1': Hourglass1,
   'hourglass-2': Hourglass2,
   'hourglass-3': Hourglass3,
   'hyphen': Hyphen,
+  'image-failed': ImageFailed,
   'image': Image,
   'in': In,
   'inbox-all': InboxAll,
@@ -557,6 +589,7 @@ const icons = {
   'info': Info,
   'instagram': Instagram,
   'into-page': IntoPage,
+  'invert': Invert,
   'ios': Ios,
   'italic': Italic,
   'key': Key,
@@ -566,6 +599,7 @@ const icons = {
   'lightbulb': Lightbulb,
   'lightning-filled': LightningFilled,
   'lightning': Lightning,
+  'link-copy': LinkCopy,
   'link-off': LinkOff,
   'link': Link,
   'linkedin': Linkedin,
@@ -650,6 +684,8 @@ const icons = {
   'sms': Sms,
   'soccerball': Soccerball,
   'sorting': Sorting,
+  'space-horizontal': SpaceHorizontal,
+  'space-vertical': SpaceVertical,
   'split-left': SplitLeft,
   'split-right': SplitRight,
   'square': Square,
@@ -660,6 +696,7 @@ const icons = {
   'store': Store,
   'strikethrough': Strikethrough,
   'string': String,
+  'survey-check': SurveyCheck,
   'survey': Survey,
   'sync': Sync,
   'tablet': Tablet,
@@ -688,6 +725,7 @@ const icons = {
   'triangle-up-circle': TriangleUpCircle,
   'triangle-up': TriangleUp,
   'triangle-updown': TriangleUpdown,
+  'trophy': Trophy,
   'tune': Tune,
   'twitter': Twitter,
   'typography': Typography,

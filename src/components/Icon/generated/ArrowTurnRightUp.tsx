@@ -12,9 +12,7 @@ function SvgArrowTurnRightUp(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18.586 9.998l-3.974 3.973 1.414 1.414 6.389-6.387-6.389-6.388-1.414 1.414 3.974 3.974H9a7 7 0 00-7 7v5h2v-5a5 5 0 015-5h9.586z"
+        d="M17.207 14.207a1 1 0 01-1.414-1.414L18.586 10H10a5 5 0 00-5 5v4a1 1 0 11-2 0v-4a7 7 0 017-7h8.586l-2.793-2.793a1 1 0 011.414-1.414l4.5 4.5a1 1 0 010 1.414l-4.5 4.5z"
       />
     </svg>
   )

@@ -14,7 +14,7 @@ function SvgArrowTurnRightDown(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18.586 14l-3.974-3.973 1.414-1.414L22.415 15l-6.389 6.388-1.414-1.414L18.586 16H9a7 7 0 01-7-7V4h2v5a5 5 0 005 5h9.586z"
+        d="M16.207 9.793a1 1 0 10-1.414 1.414L17.586 14H9a5 5 0 01-5-5V5a1 1 0 10-2 0v4a7 7 0 007 7h8.586l-2.793 2.793a1 1 0 001.414 1.414l4.5-4.5a1 1 0 000-1.414l-4.5-4.5z"
       />
     </svg>
   )

@@ -12,9 +12,7 @@ function SvgArrowTurnLeftDown(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M5.419 14l3.973-3.973-1.414-1.414L1.59 15l6.388 6.388 1.414-1.414L5.42 16h9.586a7 7 0 007-7V4h-2v5a5 5 0 01-5 5H5.419z"
+        d="M7.793 9.793a1 1 0 011.414 1.414L6.414 14H15a5 5 0 005-5V5a1 1 0 112 0v4a7 7 0 01-7 7H6.414l2.793 2.793a1 1 0 11-1.414 1.414l-4.5-4.5a1 1 0 010-1.414l4.5-4.5z"
       />
     </svg>
   )
