@@ -14,7 +14,7 @@ function SvgChevronUp(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M4.95 15.565l-1.37-1.457 7.39-6.892a1.5 1.5 0 012.047 0l7.39 6.892-1.37 1.457-7.043-6.559-7.044 6.56z"
+        d="M4.293 15.207a1 1 0 010-1.414l7-7a1 1 0 011.414 0l7 7a1 1 0 01-1.414 1.414L12 8.914l-6.293 6.293a1 1 0 01-1.414 0z"
       />
     </svg>
   )
