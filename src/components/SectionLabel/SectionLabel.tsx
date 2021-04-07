@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
-import _ from 'lodash'
+import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
