@@ -21,7 +21,7 @@ export const hideScrollbars = () => css`
 `
 
 interface SmoothCornersOptions {
-  n?: number
+  borderRadius?: number | string
   shadow?: string
   backgroundColor?: string
   backgroundImage?: string
@@ -30,8 +30,8 @@ interface SmoothCornersOptions {
 }
 
 export const smoothCorners = ({
-  n = 3.5,
-  shadow = 'none',
+  borderRadius = 0,
+  shadow = '0 0 0 0 rgba(0, 0, 0, 0)',
   backgroundColor = 'white',
   backgroundImage = '',
   shadowBlur = 0,
@@ -40,16 +40,16 @@ export const smoothCorners = ({
   @supports (background: paint(smooth-corners)) {
     padding: ${shadowBlur * 2}px;
     margin: ${-(shadowBlur * 2) + margin}px;
-    border-radius: 0;
-    box-shadow: none;
     background: paint(smooth-corners);
-
+    border-radius: 0;
     /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
     border-image-source: url(${backgroundImage});
+    box-shadow: none;
 
-    --smooth-corners: ${n};
+    --smooth-corners: ${borderRadius};
     --smooth-corners-shadow: ${shadow};
     --smooth-corners-bg-color: ${backgroundColor};
     --smooth-corners-padding: ${shadowBlur * 2};
+    --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
   }
 `

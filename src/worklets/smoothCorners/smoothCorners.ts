@@ -7,6 +7,7 @@ class SmoothCorners {
       '--smooth-corners-shadow',
       '--smooth-corners-bg-color',
       '--smooth-corners-padding',
+      '--smooth-corners-radius-unit',
     ]
   }
 
@@ -57,27 +58,32 @@ class SmoothCorners {
           .map(value => value.trim())
       ))
 
-    const nX = properties
-      .get('--smooth-corners')
-      .toString()
-
     const halfWidth = geom.width / 2
     const halfHeight = geom.height / 2
 
-    const ratio = (() => {
-      if (!halfWidth || !halfHeight) {
-        return 1
-      } else {
-        return halfHeight / halfWidth
+    const baseN = properties
+      .get('--smooth-corners')
+      .toString()
+
+    const rUnit = properties
+      .get('--smooth-corners-radius-unit')
+      .toString()
+
+    const targetWidth = geom.width - (2 * this.trimPX(padding))
+    const targetHeight = geom.height - (2 * this.trimPX(padding))
+
+    const targetN = (() => {
+      switch (rUnit) {
+        case 'string':
+          return baseN.replace('%', '')
+        case 'number':
+        default:
+          return baseN
       }
     })()
 
-    const ratioForTargetNX = ratio >= 1
-      ? ratio
-      : 1 / ratio
-
-    const targetNX = nX * ratioForTargetNX
-    const targetNY = targetNX * ratio
+    const targetNX = (targetWidth / Number(targetN)) * 1.05
+    const targetNY = (targetHeight / Number(targetN)) * 1.05
 
     const smooth = this.superellipse(
       halfWidth - this.trimPX(padding),
@@ -146,7 +152,7 @@ class SmoothCorners {
       ctx.closePath()
       ctx.clip()
 
-      ctx.drawImage(backgroundImage, -halfWidth, -halfHeight, geom.width, geom.height)
+      ctx.drawImage(backgroundImage, -(targetWidth / 2), -(targetHeight / 2), targetWidth, targetHeight)
     }
 
     ctx.closePath()
