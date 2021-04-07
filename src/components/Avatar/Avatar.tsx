@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 /* Internal denpendencies */
 import AvatarProps, { AvatarSize } from './Avatar.types'
-import { AvatarWrapper, AvatarImage } from './Avatar.styled'
+import StyledAvatar from './Avatar.styled'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
@@ -18,18 +18,16 @@ function Avatar({
   onMouseLeave = _.noop,
 }: AvatarProps) {
   return (
-    <AvatarWrapper
+    <StyledAvatar
       data-testid={testId}
       size={size}
+      src={src}
+      role="img"
+      aria-label={alt}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-    >
-      <AvatarImage
-        src={src}
-        alt={alt}
-      />
-    </AvatarWrapper>
+    />
   )
 }
 

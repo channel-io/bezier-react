@@ -27,8 +27,6 @@ export default interface AvatarProps {
   alt?: string
   testId: string
   size: AvatarSize
-  status: string
-  showStatus: boolean
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void
