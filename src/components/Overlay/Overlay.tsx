@@ -140,7 +140,6 @@ function getOverlayStyle({
   marginX,
   marginY,
   keepInContainer,
-  transition,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (containerRect && targetRect) {
     const overlayPositionStyle = getOverlayPosition({ containerRect, targetRect })
@@ -158,10 +157,6 @@ function getOverlayStyle({
       ...overlayPositionStyle,
       ...overlayTranslateStyle,
       willChange: 'left, top',
-    }
-
-    if (transition) {
-      combinedStyle.transition = 'top 0.3s, left 0.3s'
     }
 
     return combinedStyle
@@ -223,6 +218,7 @@ function Overlay(
           as={as}
           className={className}
           isHidden={isHidden}
+          transition={transition}
           style={{
             ...(style || {}),
             ...(overlayStyle || {}),
@@ -247,6 +243,7 @@ function Overlay(
             as={as}
             className={className}
             isHidden={isHidden}
+            transition={transition}
             style={{
               ...(style || {}),
               ...(overlayStyle || {}),
@@ -268,6 +265,7 @@ function Overlay(
     containerStyle,
     container,
     isHidden,
+    transition,
     overlayStyle,
     children,
     containerTestId,
@@ -345,7 +343,6 @@ function Overlay(
         marginX,
         marginY,
         keepInContainer,
-        transition,
       })
       setOverlayStyle(tempOverlayStyle)
       setIsHidden(false)
@@ -364,7 +361,6 @@ function Overlay(
     marginY,
     placement,
     keepInContainer,
-    transition,
   ])
 
   if (!show) return null

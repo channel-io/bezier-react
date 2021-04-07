@@ -44,7 +44,6 @@ export interface GetOverlayStyleProps {
   marginX: number
   marginY: number
   keepInContainer: boolean
-  transition: boolean
 }
 
 export interface GetOverlayPositionProps {
@@ -64,6 +63,7 @@ export interface GetOverlayTranslatationProps {
 
 export interface StyledOverlayProps {
   isHidden: boolean
+  transition: boolean
 }
 
 export enum OverlayPosition {
