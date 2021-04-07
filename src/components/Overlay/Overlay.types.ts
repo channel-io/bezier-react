@@ -14,6 +14,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   marginX?: number
   marginY?: number
   keepInContainer?: boolean
+  transition?: boolean
   onHide?: () => void
 }
 
@@ -43,6 +44,7 @@ export interface GetOverlayStyleProps {
   marginX: number
   marginY: number
   keepInContainer: boolean
+  transition: boolean
 }
 
 export interface GetOverlayPositionProps {

@@ -140,6 +140,7 @@ function getOverlayStyle({
   marginX,
   marginY,
   keepInContainer,
+  transition,
 }: GetOverlayStyleProps): React.CSSProperties {
   if (containerRect && targetRect) {
     const overlayPositionStyle = getOverlayPosition({ containerRect, targetRect })
@@ -157,6 +158,10 @@ function getOverlayStyle({
       ...overlayPositionStyle,
       ...overlayTranslateStyle,
       willChange: 'left, top',
+    }
+
+    if (transition) {
+      combinedStyle.transition = 'top 0.3s, left 0.3s'
     }
 
     return combinedStyle
@@ -181,6 +186,7 @@ function Overlay(
     marginX = 0,
     marginY = 0,
     keepInContainer = false,
+    transition = false,
     children,
     onHide = noop,
     ...otherProps
@@ -339,6 +345,7 @@ function Overlay(
         marginX,
         marginY,
         keepInContainer,
+        transition,
       })
       setOverlayStyle(tempOverlayStyle)
       setIsHidden(false)
@@ -357,6 +364,7 @@ function Overlay(
     marginY,
     placement,
     keepInContainer,
+    transition,
   ])
 
   if (!show) return null
