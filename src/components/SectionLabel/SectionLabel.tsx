@@ -88,7 +88,7 @@ function SectionLabel({
   ])
 
   return (
-    <>
+    <div>
       <Styled.Wrapper
         clickable={!_.isNil(onClick)}
         onClick={onClick}
@@ -98,7 +98,7 @@ function SectionLabel({
         { rightContent }
       </Styled.Wrapper>
       { open && children }
-    </>
+    </div>
   )
 }
 
