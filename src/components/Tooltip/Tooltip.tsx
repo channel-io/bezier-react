@@ -5,6 +5,7 @@ import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
+import useEventHandler from '../../hooks/useEventHandler'
 import { rootElement } from '../../utils/domUtils'
 import { Typography } from '../../foundation'
 import { Text } from '../Text'
@@ -116,6 +117,10 @@ function Tooltip(
     })
   ), [])
 
+  const handleClickTooltip = useCallback((event: HTMLElementEventMap['click']) => {
+    event.stopPropagation()
+  }, [])
+
   const ContentComponent = useMemo(() => {
     if (!show) {
       return null
@@ -170,6 +175,8 @@ function Tooltip(
     mergedRef,
     testId,
   ])
+
+  useEventHandler(tooltipRef.current, 'click', handleClickTooltip, show)
 
   useEffect(() => {
     if (show && tooltipRef.current) {

@@ -181,6 +181,7 @@ function Overlay(
     marginX = 0,
     marginY = 0,
     keepInContainer = false,
+    transition = false,
     children,
     onHide = noop,
     ...otherProps
@@ -217,6 +218,7 @@ function Overlay(
           as={as}
           className={className}
           isHidden={isHidden}
+          transition={transition}
           style={{
             ...(style || {}),
             ...(overlayStyle || {}),
@@ -241,6 +243,7 @@ function Overlay(
             as={as}
             className={className}
             isHidden={isHidden}
+            transition={transition}
             style={{
               ...(style || {}),
               ...(overlayStyle || {}),
@@ -262,6 +265,7 @@ function Overlay(
     containerStyle,
     container,
     isHidden,
+    transition,
     overlayStyle,
     children,
     containerTestId,
