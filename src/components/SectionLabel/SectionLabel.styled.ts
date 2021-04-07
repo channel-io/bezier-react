@@ -28,6 +28,10 @@ const RightContentWrapper = styled.div<{ clickable: boolean }>`
   ${({ clickable }) => clickable && 'cursor: pointer;'}
 `
 
+const ChildrenWrapper = styled.div<{ show: boolean }>`
+  display: ${({ show }) => (show ? 'unset' : 'none')};
+`
+
 const Wrapper = styled.div<{ clickable: boolean }>`
   display: flex;
   align-items: center;
@@ -40,5 +44,6 @@ export default {
   ContentText,
   ContentWrapper,
   RightContentWrapper,
+  ChildrenWrapper,
   Wrapper,
 }

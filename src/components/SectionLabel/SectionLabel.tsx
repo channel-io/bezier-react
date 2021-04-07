@@ -97,7 +97,9 @@ function SectionLabel({
         { content }
         { rightContent }
       </Styled.Wrapper>
-      { open && children }
+      <Styled.ChildrenWrapper show={open}>
+        { children }
+      </Styled.ChildrenWrapper>
     </div>
   )
 }
