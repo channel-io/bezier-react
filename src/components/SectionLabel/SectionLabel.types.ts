@@ -3,10 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import { ThemeKey } from '../../foundation/Theme/ThemeType'
-import { StylableComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 
-export default interface SectionLabelProps extends StylableComponentProps {
+export default interface SectionLabelProps extends ChildrenComponentProps {
   content?: React.ReactNode
   open?: boolean
   leftIcon?: IconName
