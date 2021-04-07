@@ -22,13 +22,13 @@ const ContentWrapper = styled.div<{ paddingLeft: number }>`
   overflow: hidden;
 `
 
-const RightContentWrapper = styled.div<{ clickable?: boolean }>`
+const RightContentWrapper = styled.div<{ clickable: boolean }>`
   padding-left: 6px;
   margin: 0 6px 0 auto;
   ${({ clickable }) => clickable && 'cursor: pointer;'}
 `
 
-const Wrapper = styled.div<{ clickable?: boolean }>`
+const Wrapper = styled.div<{ clickable: boolean }>`
   display: flex;
   align-items: center;
   height: 28px;
