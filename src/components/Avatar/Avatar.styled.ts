@@ -23,7 +23,7 @@ const StyledAvatar = styled.div<AvatarProps>`
   outline: none;
 
   ${({ src }) => smoothCorners({
-    n: 2.8,
+    n: 2.5,
     backgroundImage: src,
   })};
 `
