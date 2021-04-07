@@ -52,7 +52,7 @@ interface SmoothCornersOptions {
 
 export const smoothCorners = ({
   borderRadius = 0,
-  shadow = 'none',
+  shadow = '0 0 0 0 transparent',
   backgroundColor = 'white',
   backgroundImage = '',
   shadowBlur = 0,

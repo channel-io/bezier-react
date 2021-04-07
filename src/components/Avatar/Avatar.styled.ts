@@ -24,12 +24,8 @@ const StyledAvatar = styled.div<AvatarProps>`
 
   ${({ src }) => smoothCorners({
     n: 2.8,
-    shadow: '0 0 0px 0px transparent',
-    backgroundColor: 'transparent',
     backgroundImage: src,
-    shadowBlur: 15,
   })};
 `
 
 export default StyledAvatar
-
