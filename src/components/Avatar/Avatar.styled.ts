@@ -2,7 +2,7 @@
 import { styled, smoothCorners } from '../../foundation'
 import { AvatarSize } from './Avatar.types'
 
-interface AvatarProps {
+export interface AvatarProps {
   size: AvatarSize
   src: string
 }
