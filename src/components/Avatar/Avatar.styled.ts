@@ -8,14 +8,14 @@ export interface AvatarProps {
 }
 
 const StyledAvatar = styled.div<AvatarProps>`
-  box-sizing: content-box;
   position: relative;
+  box-sizing: content-box;
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   background-color: transparent;
   background-image: ${({ src }) => `url(${src})`};
   background-size: cover;
@@ -23,7 +23,8 @@ const StyledAvatar = styled.div<AvatarProps>`
   outline: none;
 
   ${({ src }) => smoothCorners({
-    n: 2.5,
+    n: 2.38,
+    backgroundColor: 'white',
     backgroundImage: src,
   })};
 `
