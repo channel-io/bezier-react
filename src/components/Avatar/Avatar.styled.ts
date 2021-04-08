@@ -5,6 +5,7 @@ import { AvatarSize } from './Avatar.types'
 export interface AvatarProps {
   size: AvatarSize
   src: string
+  showBorder: boolean
 }
 
 const StyledAvatar = styled.div<AvatarProps>`

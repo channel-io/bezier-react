@@ -1,4 +1,8 @@
+/* Internal dependencies */
+import { StylableComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
+
 export enum AvatarSize {
+  XXXS = 16,
   XXS = 20,
   XS = 24,
   S = 30,
@@ -9,25 +13,19 @@ export enum AvatarSize {
   XXXL = 120,
 }
 
-// TODO: Emoji가 Avatar로 사용돼야하는지, Icon으로 사용돼야하는지?
-
-export enum EmojiAvatarSize {
-  XXS = 16,
-  XS = 20,
-  S = 24,
-  M = 30,
-  L = 36,
-  XL = 42,
-  XXL = 90,
-  XXXL = 120,
+export interface AvatarGroupProps extends ChildrenComponentProps {
+  max: number
+  size?: AvatarSize
+  spacing?: number
 }
 
-export default interface AvatarProps {
+export interface AvatarProps extends StylableComponentProps {
   src: string
-  alt?: string
-  testId: string
-  size: AvatarSize
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseEnter: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseLeave: (event: React.MouseEvent<HTMLDivElement>) => void
+  name?: string
+  testId?: string
+  size?: AvatarSize
+  showBorder?: boolean
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
