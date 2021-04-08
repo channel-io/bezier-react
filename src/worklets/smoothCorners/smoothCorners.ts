@@ -82,8 +82,8 @@ class SmoothCorners {
       }
     })()
 
-    const targetNX = targetWidth / Number(targetR)
-    const targetNY = targetHeight / Number(targetR)
+    const targetNX = targetWidth / targetR
+    const targetNY = targetHeight / targetR
 
     const smooth = this.superellipse(
       halfWidth - this.trimPX(padding),
