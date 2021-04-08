@@ -72,18 +72,18 @@ class SmoothCorners {
     const targetWidth = geom.width - (2 * this.trimPX(padding))
     const targetHeight = geom.height - (2 * this.trimPX(padding))
 
-    const targetN = (() => {
+    const targetR = (() => {
       switch (rUnit) {
         case 'string':
-          return baseN.replace('%', '')
+          return  (Number(baseN.replace('%', '')) / 100) * Math.min(targetWidth, targetHeight)
         case 'number':
         default:
-          return baseN
+          return Number(baseN)
       }
     })()
 
-    const targetNX = targetWidth / Number(targetN)
-    const targetNY = targetHeight / Number(targetN)
+    const targetNX = targetWidth / Number(targetR)
+    const targetNY = targetHeight / Number(targetR)
 
     const smooth = this.superellipse(
       halfWidth - this.trimPX(padding),
