@@ -39,6 +39,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   )
 }
 
+// TODO: 올바른 페어의 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
     [AvatarSize.XXXS]: IconSize.XXS,
@@ -63,29 +64,26 @@ export function AvatarGroup({
     React.cloneElement(avatar, { size })
   ), [size])
 
-  const AvatarsCount = useMemo(() => (
+  const AvatarListCount = useMemo(() => (
     React.Children.count(children)
   ), [children])
 
   const AvatarListComponent = useMemo(() => {
-    if (AvatarsCount <= max) {
+    if (AvatarListCount <= max) {
       return React.Children.map(children, (avatar) => (
         React.isValidElement(avatar) && renderAvatarElement(avatar)
       ))
     }
 
-    const sliceEndIndex = max - AvatarsCount
-    const slicedAvatarList = React.Children.toArray(children)
-      .slice(0, sliceEndIndex)
+    const sliceEndIndex = max - AvatarListCount
+    const slicedAvatarList = React.Children.toArray(children).slice(0, sliceEndIndex)
 
     return slicedAvatarList.map((avatar, index, arr) => {
       if (!React.isValidElement(avatar)) { return null }
       if (isLastIndex(arr, index)) {
         return (
           <AvatarEllipsisWrapper>
-            <AvatarEllipsis
-              spacing={spacing}
-            >
+            <AvatarEllipsis spacing={spacing}>
               <Icon
                 size={getProperIconSize(size)}
                 name="more"
@@ -103,14 +101,12 @@ export function AvatarGroup({
     size,
     spacing,
     children,
-    AvatarsCount,
+    AvatarListCount,
     renderAvatarElement,
   ])
 
   return (
-    <StyledAvatarGroup
-      spacing={spacing}
-    >
+    <StyledAvatarGroup spacing={spacing}>
       { AvatarListComponent }
     </StyledAvatarGroup>
   )
