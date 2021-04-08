@@ -1,13 +1,48 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
-import Avatar from './Avatar'
-import { AvatarProps } from './Avatar.styled'
+import Avatar, { AvatarGroup } from './Avatar'
 import { AvatarSize } from './Avatar.types'
+
+const MOCK_AVATAR_DATA = [
+  {
+    src: 'https://bit.ly/code-beast',
+    name: 'Christian Nwamba',
+  },
+  {
+    src: 'https://bit.ly/tioluwani-kolawole',
+    name: 'Kola Tioluwani',
+  },
+  {
+    src: 'https://bit.ly/kent-c-dodds',
+    name: 'Kent Dodds',
+  },
+  {
+    src: 'https://bit.ly/ryan-florence',
+    name: 'Ryan Florence',
+  },
+  {
+    src: 'https://bit.ly/dan-abramov',
+    name: 'Dan Abrahmov',
+  },
+  {
+    src: 'https://bit.ly/prosper-baba',
+    name: 'Prosper Otemuyiwa',
+  },
+  {
+    src: 'https://bit.ly/sage-adebayo',
+    name: 'Segun Adebayo',
+  },
+]
+
+const AvatarSizeList = Object.keys(AvatarSize)
+  .filter(value => Number.isNaN(Number(value)) === true)
+  .map(key => AvatarSize[key])
 
 export default {
   title: getTitle(base),
@@ -16,58 +51,55 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [
-          AvatarSize.XXS,
-          AvatarSize.XS,
-          AvatarSize.S,
-          AvatarSize.M,
-          AvatarSize.L,
-          AvatarSize.XL,
-          AvatarSize.XXL,
-          AvatarSize.XXXL,
-        ],
+        options: AvatarSizeList,
       },
     },
   },
 }
 
-const AvatarWrapper = styled.div`
-  position: absolute;
-  z-index: 1;
-`
-
 const Wrapper = styled.div`
-  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 8px;
 `
 
-const NonSmoothCornerAvatar = styled.div<AvatarProps>`
-  box-sizing: content-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
-  background-color: black;
-  background-size: cover;
-  border-radius: 42%;
-  outline: none;
-`
+const AvatarList = (() => (
+  AvatarSizeList.map((size, index) => {
+    const { src, name } = MOCK_AVATAR_DATA[index % (MOCK_AVATAR_DATA.length - 1)]
+    return (
+      <Avatar
+        key={uuid()}
+        src={src}
+        name={name}
+        size={size}
+      />
+    )
+  })
+))()
 
 const Template = (args) => (
   <Wrapper>
-    <AvatarWrapper>
-      <Avatar {...args} />
-    </AvatarWrapper>
-    <NonSmoothCornerAvatar {...args} />
+    <Avatar {...args} />
+    { AvatarList }
   </Wrapper>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  src: 'https://bit.ly/dan-abramov',
-  alt: 'Dan Abrahmov',
+  src: 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
+  name: 'Channel',
   size: AvatarSize.M,
+}
+
+const TemplateAvatarGroup = (args) => (
+  <AvatarGroup {...args}>
+    { AvatarList }
+  </AvatarGroup>
+)
+
+export const PrimaryAvatarGroup = TemplateAvatarGroup.bind({})
+PrimaryAvatarGroup.args = {
+  max: 5,
+  size: AvatarSize.XS,
+  spacing: 4,
 }
