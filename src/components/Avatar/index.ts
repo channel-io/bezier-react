@@ -1,13 +1,14 @@
-import Avatar from './Avatar'
-import { AvatarSize, EmojiAvatarSize } from './Avatar.types'
-import type AvatarProps from './Avatar.types'
+import Avatar, { AvatarGroup } from './Avatar'
+import { AvatarSize } from './Avatar.types'
+import type { AvatarProps, AvatarGroupProps } from './Avatar.types'
 
 export type {
   AvatarProps,
+  AvatarGroupProps,
 }
 
 export {
   Avatar,
   AvatarSize,
-  EmojiAvatarSize,
+  AvatarGroup,
 }
