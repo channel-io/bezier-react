@@ -31,7 +31,7 @@ interface SmoothCornersOptions {
 
 export const smoothCorners = ({
   borderRadius = 0,
-  shadow = '0 0 0 0 rgba(0, 0, 0, 0)',
+  shadow = 'none',
   backgroundColor = 'white',
   backgroundImage = '',
   shadowBlur = 0,
