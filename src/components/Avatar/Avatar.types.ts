@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { StylableComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
+import { StatusType } from '../Status'
 
 export enum AvatarSize {
   XXS = 20,
@@ -10,17 +11,6 @@ export enum AvatarSize {
   XL = 48,
   XXL = 90,
   XXXL = 120,
-}
-
-export enum StatusType {
-  NONE = 'NONE',
-  ONLINE = 'ONLINE',
-  OFFLINE = 'OFFLINE',
-  PRIVATE = 'PRVIATE',
-}
-
-export interface StatusProps {
-  type: StatusType
 }
 
 export interface AvatarGroupProps extends ChildrenComponentProps {

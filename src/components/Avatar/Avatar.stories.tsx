@@ -6,8 +6,9 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
+import { StatusType } from '../Status'
 import Avatar, { AvatarGroup } from './Avatar'
-import { AvatarSize, StatusType } from './Avatar.types'
+import { AvatarSize } from './Avatar.types'
 
 const PRIMARY_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 

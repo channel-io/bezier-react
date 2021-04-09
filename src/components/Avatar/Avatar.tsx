@@ -7,26 +7,16 @@ import { v4 as uuid } from 'uuid'
 import Icon from '../Icon/Icon'
 import { IconSize } from '../Icon/Icon.types'
 import { isLastIndex } from '../../utils/arrayUtils'
-import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis, StatusCircle } from './Avatar.styled'
-import { AvatarSize, AvatarProps, AvatarGroupProps, StatusType, StatusProps } from './Avatar.types'
+import { Status, StatusType } from '../Status'
+import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis, StatusWrapper } from './Avatar.styled'
+import { AvatarSize, AvatarProps, AvatarGroupProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
 
-export function Status({
-  type = StatusType.NONE,
-}: StatusProps) {
-  if (type === StatusType.NONE) { return null }
-  // TODO: private 타입 상태 제작 필요
-  if (type === StatusType.PRIVATE) { return null }
-  return (
-    <StatusCircle type={type}/>
-  )
-}
-
 function Avatar({
   avatarUrl,
-  size = AvatarSize.M,
+  size = AvatarSize.XS,
   name = '',
   testId = AVATAR_TEST_ID,
   disabled = false,
@@ -49,9 +39,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
     if (!showStatus) { return null }
 
     return (
-      <Status
-        type={status}
-      />
+      <StatusWrapper>
+        <Status
+          type={status}
+        />
+      </StatusWrapper>
     )
   }, [
     status,
