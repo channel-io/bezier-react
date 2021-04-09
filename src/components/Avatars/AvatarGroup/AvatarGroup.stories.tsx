@@ -1,16 +1,15 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
-import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/etcUtils'
-import { StatusType } from '../../Status'
 import { Avatar, AvatarSize } from '../Avatar'
 import AvatarGroup from './AvatarGroup'
 
-const PRIMARY_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
+const AvatarSizeList = Object.keys(AvatarSize)
+  .filter(value => Number.isNaN(Number(value)) === true)
+  .map(key => AvatarSize[key])
 
 const MOCK_AVATAR_DATA = [
   {
@@ -43,13 +42,9 @@ const MOCK_AVATAR_DATA = [
   },
 ]
 
-const AvatarSizeList = Object.keys(AvatarSize)
-  .filter(value => Number.isNaN(Number(value)) === true)
-  .map(key => AvatarSize[key])
-
 export default {
   title: getTitle(base),
-  component: Avatar,
+  component: AvatarGroup,
   argTypes: {
     size: {
       control: {
@@ -57,61 +52,38 @@ export default {
         options: AvatarSizeList,
       },
     },
+    max: {
+      control: {
+        type: 'range',
+        min: 1,
+        max: MOCK_AVATAR_DATA.length,
+        step: 1,
+      },
+    },
+    spacing: {
+      control: {
+        type: 'range',
+        min: -50,
+        max: 50,
+        step: 1,
+      },
+    },
   },
 }
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 8px;
-  padding: 20px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
-`
-
-const AvatarList = (() => (
-  AvatarSizeList.map((size, index) => {
-    const { avatarUrl, name } = MOCK_AVATAR_DATA[index % (MOCK_AVATAR_DATA.length - 1)]
-    return (
+const Template = (args) => (
+  <AvatarGroup {...args}>
+    { MOCK_AVATAR_DATA.map(({ avatarUrl, name }) => (
       <Avatar
-        key={uuid()}
         avatarUrl={avatarUrl}
         name={name}
-        size={size}
       />
-    )
-  })
-))()
-
-const Template = (args) => (
-  <Wrapper>
-    <Avatar
-      avatarUrl={PRIMARY_AVATAR_URL}
-      size={AvatarSize.XS}
-      showStatus
-      status={StatusType.ONLINE}
-    />
-    <Avatar {...args} />
-    { AvatarList }
-  </Wrapper>
+    )) }
+  </AvatarGroup>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  avatarUrl: PRIMARY_AVATAR_URL,
-  name: 'Channel',
-  size: AvatarSize.M,
-  showBorder: false,
-  disabled: false,
-}
-
-const TemplateAvatarGroup = (args) => (
-  <AvatarGroup {...args}>
-    { AvatarList }
-  </AvatarGroup>
-)
-
-export const PrimaryAvatarGroup = TemplateAvatarGroup.bind({})
-PrimaryAvatarGroup.args = {
   max: 5,
   size: AvatarSize.XS,
   spacing: 4,

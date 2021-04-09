@@ -5,6 +5,7 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/etcUtils'
+import { StatusType } from '../../Status'
 import Avatar from './Avatar'
 import { AvatarSize } from './Avatar.types'
 
@@ -22,6 +23,12 @@ export default {
       control: {
         type: 'radio',
         options: AvatarSizeList,
+      },
+    },
+    status: {
+      control: {
+        type: 'radio',
+        options: StatusType,
       },
     },
   },
@@ -45,7 +52,9 @@ export const Primary = Template.bind({})
 Primary.args = {
   avatarUrl: PRIMARY_AVATAR_URL,
   name: 'Channel',
-  size: AvatarSize.M,
+  size: AvatarSize.XS,
+  showStatus: true,
+  status: StatusType.NONE,
   showBorder: false,
   disabled: false,
 }
