@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo } from 'react'
 import _ from 'lodash'
+import { v4 as uuid } from 'uuid'
 
 /* Internal denpendencies */
 import Icon from '../Icon/Icon'
@@ -67,6 +68,7 @@ export function AvatarGroup({
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement) => (
     React.cloneElement(avatar, {
+      key: uuid(),
       size,
       showBorder: spacing < 0,
     })
@@ -92,21 +94,22 @@ export function AvatarGroup({
 
     return slicedAvatarList.map((avatar, index, arr) => {
       if (!React.isValidElement(avatar)) { return null }
-      if (isLastIndex(arr, index)) {
-        return (
-          <AvatarEllipsisWrapper spacing={calculatedSpacing}>
-            <AvatarEllipsis>
-              <Icon
-                size={getProperIconSize(size)}
-                name="more"
-                color="bg-white-absolute"
-              />
-            </AvatarEllipsis>
-            { renderAvatarElement(avatar) }
-          </AvatarEllipsisWrapper>
-        )
-      }
-      return renderAvatarElement(avatar)
+      if (!isLastIndex(arr, index)) { return renderAvatarElement(avatar) }
+      return (
+        <AvatarEllipsisWrapper
+          key={uuid()}
+          spacing={calculatedSpacing}
+        >
+          <AvatarEllipsis>
+            <Icon
+              size={getProperIconSize(size)}
+              name="more"
+              color="bg-white-absolute"
+            />
+          </AvatarEllipsis>
+          { renderAvatarElement(avatar) }
+        </AvatarEllipsisWrapper>
+      )
     })
   }, [
     max,
