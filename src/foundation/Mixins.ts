@@ -20,6 +20,27 @@ export const hideScrollbars = () => css`
   }
 `
 
+export const ellipsis = (line = 1, lineHeight = 1, unit = 'em') => {
+  if (line <= 1) {
+    return css`
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      `
+  }
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  return css`
+      display: -webkit-box;
+      max-height: ${(line * lineHeight) + unit};
+      overflow: hidden;
+      line-height: ${lineHeight + unit};
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: ${line};
+    `
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+}
+
 interface SmoothCornersOptions {
   borderRadius?: number | string
   shadow?: string
