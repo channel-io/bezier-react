@@ -1,76 +1,15 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useMemo } from 'react'
-import _ from 'lodash'
+import React, { useCallback, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal denpendencies */
-import Icon from '../Icon/Icon'
-import { IconSize } from '../Icon/Icon.types'
-import { isLastIndex } from '../../utils/arrayUtils'
-import { Status, StatusType } from '../Status'
-import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis, StatusWrapper } from './Avatar.styled'
-import { AvatarSize, AvatarProps, AvatarGroupProps } from './Avatar.types'
+import { Icon, IconSize } from '../../Icon'
+import { isLastIndex } from '../../../utils/arrayUtils'
+import { AvatarSize } from '../Avatar'
+import { StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis } from './AvatarGroup.styled'
+import { AvatarGroupProps } from './AvatarGroup.types'
 
-export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
-
-function Avatar({
-  avatarUrl,
-  size = AvatarSize.XS,
-  name = '',
-  testId = AVATAR_TEST_ID,
-  disabled = false,
-  showBorder = false,
-  status = StatusType.NONE,
-  showStatus = false,
-  onClick = _.noop,
-  onMouseEnter = _.noop,
-  onMouseLeave = _.noop,
-  children,
-}: AvatarProps,
-forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const StatusComponent = useMemo(() => {
-    if (children) {
-      return React.isValidElement(children) && React.Children.count(children) === 1
-        ? children : null
-    }
-
-    if (!showStatus) { return null }
-
-    return (
-      <StatusWrapper>
-        <Status
-          type={status}
-        />
-      </StatusWrapper>
-    )
-  }, [
-    status,
-    showStatus,
-    children,
-  ])
-
-  return (
-    <StyledAvatar
-      ref={forwardedRef}
-      data-testid={testId}
-      avatarUrl={avatarUrl}
-      size={size}
-      role="img"
-      aria-label={name}
-      showBorder={showBorder}
-      disabled={disabled}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      { StatusComponent }
-    </StyledAvatar>
-  )
-}
-
-export default forwardRef(Avatar)
 
 // TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
@@ -86,7 +25,7 @@ function getProperIconSize(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
-export function AvatarGroup({
+function AvatarGroup({
   max,
   size = AvatarSize.M,
   spacing = 4,
@@ -155,3 +94,5 @@ export function AvatarGroup({
     </StyledAvatarGroup>
   )
 }
+
+export default AvatarGroup
