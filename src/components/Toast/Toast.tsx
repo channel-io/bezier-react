@@ -3,14 +3,15 @@ import React, { forwardRef, Ref } from 'react'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
-import ToastProps, { Placement } from './Toast.types'
+import ToastProps, { Appearance, Placement } from './Toast.types'
 import { Container, IconWrapper, Content, Close } from './Toast.styled'
 
 function Toast(
   {
     placement = Placement.BottomLeft,
-    appearance = 'info',
+    appearance = Appearance.Info,
     content = '',
+    iconName = 'info-filled',
     as,
     ...props
   }: ToastProps,
@@ -26,7 +27,7 @@ function Toast(
         appearance={appearance}
       >
         <Icon
-          name="info-filled"
+          name={iconName}
           size={IconSize.S}
         />
       </IconWrapper>

@@ -5,8 +5,9 @@ import { base } from 'paths.macro'
 /* Internal depependencies */
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
+import { iconList } from '../Icon/Icon.stories'
 import Toast from './Toast'
-import { Placement } from './Toast.types'
+import ToastProps, { Appearance, Placement } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -15,6 +16,17 @@ export default {
     content: {
       control: {
         type: 'text',
+      },
+    },
+    appearance: {
+      control: {
+        type: 'radio',
+        options: [
+          Appearance.Succes,
+          Appearance.Warning,
+          Appearance.Error,
+          Appearance.Info,
+        ],
       },
     },
     placement: {
@@ -28,6 +40,12 @@ export default {
           Placement.BottomLeft,
           Placement.BottomRight,
         ],
+      },
+    },
+    iconName: {
+      control: {
+        type: 'select',
+        options: iconList,
       },
     },
   },
@@ -48,9 +66,11 @@ const Template = ({ ...otherProps }) => (
   </Container>
 )
 
-export const Primary = Template.bind({})
+export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
-  placement: 'bottomLeft',
+  appearance: Appearance.Info,
+  placement: Placement.BottomLeft,
   content: '안내문구입니다.',
+  iconName: 'info-filled',
 }

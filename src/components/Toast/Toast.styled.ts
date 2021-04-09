@@ -1,37 +1,9 @@
 /* Internal dependencies */
-import { styled, css, Typography } from '../../foundation'
+import { styled, Typography } from '../../foundation'
 import { Appearance, Placement } from './Toast.types'
+import { getIconColor, placements } from './utils'
 
 const MAX_HEIGHT = `${(18 * 5)}px`
-
-const placements = {
-  topLeft: css`
-    top: 0;
-    left: 0;
-  `,
-  topCenter: css`
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `,
-  topRight: css`
-    top: 0;
-    right: 0;
-  `,
-  bottomLeft: css`
-    bottom: 0;
-    left: 0;
-  `,
-  bottomCenter: css`
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `,
-  bottomRight: css`
-    right: 0;
-    bottom: 0;
-  `,
-}
 
 interface ToastProps {
   placement: Placement
@@ -63,7 +35,7 @@ export const IconWrapper = styled.div<IconProps>`
   justify-content: center;
   width: 20px;
   height: 24px;
-  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
+  color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
 export const Content = styled.div`
