@@ -122,7 +122,7 @@ export function AvatarGroup({
 
   return (
     <StyledAvatarGroup
-      data-testId={AVATAR_GROUP_TEST_ID}
+      data-testid={AVATAR_GROUP_TEST_ID}
       spacing={spacing}
     >
       { AvatarListComponent }
