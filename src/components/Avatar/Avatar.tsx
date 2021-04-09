@@ -48,7 +48,6 @@ export default forwardRef(Avatar)
 // TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.XXXS]: IconSize.XXS,
     [AvatarSize.XXS]: IconSize.XXS,
     [AvatarSize.XS]: IconSize.XS,
     [AvatarSize.S]: IconSize.S,

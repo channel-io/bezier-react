@@ -2,7 +2,6 @@
 import { StylableComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
 
 export enum AvatarSize {
-  XXXS = 16,
   XXS = 20,
   XS = 24,
   S = 30,
