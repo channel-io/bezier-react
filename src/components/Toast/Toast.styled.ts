@@ -38,13 +38,19 @@ export const IconWrapper = styled.div<IconProps>`
   color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
 export const Content = styled.div`
+  display: -webkit-box;
   max-height: ${MAX_HEIGHT};
   margin: 3px 6px;
   overflow: hidden;
-  ${Typography.Size14};
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  ${Typography.Size14};
 `
+/* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 
 export const Close = styled.div`
   display: flex;
