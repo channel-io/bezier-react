@@ -7,7 +7,9 @@ import { v4 as uuid } from 'uuid'
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
 import Avatar, { AvatarGroup } from './Avatar'
-import { AvatarSize } from './Avatar.types'
+import { AvatarSize, StatusType } from './Avatar.types'
+
+const PRIMARY_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
 const MOCK_AVATAR_DATA = [
   {
@@ -61,6 +63,8 @@ const Wrapper = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-gap: 8px;
+  padding: 20px;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
 const AvatarList = (() => (
@@ -79,6 +83,12 @@ const AvatarList = (() => (
 
 const Template = (args) => (
   <Wrapper>
+    <Avatar
+      avatarUrl={PRIMARY_AVATAR_URL}
+      size={AvatarSize.XS}
+      showStatus
+      status={StatusType.ONLINE}
+    />
     <Avatar {...args} />
     { AvatarList }
   </Wrapper>
@@ -86,7 +96,7 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  avatarUrl: 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
+  avatarUrl: PRIMARY_AVATAR_URL,
   name: 'Channel',
   size: AvatarSize.M,
   showBorder: false,
