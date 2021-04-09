@@ -63,6 +63,7 @@ function Tooltip(
 
   const handleMouseLeave = useCallback(() => {
     if (disabled) {
+      setShow(false)
       return
     }
 
