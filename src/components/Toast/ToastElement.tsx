@@ -5,13 +5,20 @@ import React, { forwardRef, Ref } from 'react'
 import { Typography } from '../../foundation'
 import { Icon, IconSize } from '../Icon'
 import { Text } from '../Text'
-import ToastProps, { Appearance } from './Toast.types'
-import { Element, IconWrapper, Close, ActionContent, NormalContent, Content } from './Toast.styled'
+import ToastProps, { ToastAppearance } from './Toast.types'
+import {
+  Element,
+  IconWrapper,
+  Close,
+  ActionContent,
+  NormalContent,
+  Content,
+} from './Toast.styled'
 
 const ToastElement = (
   {
     as,
-    appearance = Appearance.Info,
+    appearance = ToastAppearance.Info,
     content = '',
     iconName = 'info-filled',
     actionContent,
@@ -43,6 +50,9 @@ const ToastElement = (
     >
       <Text
         typo={Typography.Size14}
+        style={{
+          height: '18px',
+        }}
       >
         <NormalContent>
           { content }

@@ -8,10 +8,10 @@ import ToastContext from '../../contexts/ToastContext'
 import { TransitionDuration } from '../../foundation'
 import { rootElement } from '../../utils/domUtils'
 import {
-  Callback,
+  OnDismissCallback,
   defaultOptions,
   Options,
-  Placement,
+  ToastPlacement,
   ToastId,
   ToastProviderProps,
   ToastType,
@@ -25,15 +25,11 @@ const { Consumer, Provider } = ToastContext
 
 function ToastProvider({
   autoDismissTimeout = 5000,
-  globalAutoDismiss = true,
-  transitionDuration = TransitionDuration.S,
   children = [],
-  placement = Placement.BottomLeft,
+  placement = ToastPlacement.BottomLeft,
 }: ToastProviderProps) {
   const toastService = useMemo(() => new ToastService(), [])
   const [toasts, setToasts] = useState<ToastType[]>([])
-
-  const portalTarget = rootElement
 
   const add = useCallback((content: string, options: Options = defaultOptions) => {
     const result = toastService.add(content, options)
@@ -51,7 +47,7 @@ function ToastProvider({
     setToasts(toastService.getToasts())
   }, [toastService])
 
-  const onDismiss = useCallback((id: ToastId, callback: Callback = noop) => {
+  const onDismiss = useCallback((id: ToastId, callback: OnDismissCallback = noop) => {
     callback(id)
     remove(id)
   }, [remove])
@@ -60,51 +56,51 @@ function ToastProvider({
     setToasts(toastService.getToasts())
   }, [toastService])
 
+  const ToastContextValue = useMemo(() => ({ add, remove, removeAll, toasts }), [add, remove, removeAll, toasts])
+
+  const hasToasts = useMemo(() => Boolean(toasts.length), [toasts.length])
+
   return (
-    <Provider value={{ add, remove, removeAll, toasts }}>
+    <Provider value={ToastContextValue}>
       { children }
 
-      { portalTarget ? (
-        createPortal(
-          <ToastContainer placement={placement} hasToasts={Boolean(toasts.length)}>
-            { toasts.map(({
-              appearance,
-              autoDismiss,
-              content,
-              iconName,
-              actionContent,
-              actionOnClick,
-              id,
-              // eslint-disable-next-line @typescript-eslint/no-shadow
-              onDismissCallback,
-            }) => (
-              <ToastController
-                key={id}
-                id={id}
-                placement={placement}
-                appearance={appearance}
-                autoDismiss={
-                  autoDismiss !== undefined
-                    ? autoDismiss
-                    : globalAutoDismiss
-                }
-                actionContent={actionContent}
-                actionOnClick={actionOnClick}
-                autoDismissTimeout={autoDismissTimeout}
-                content={content}
-                iconName={iconName}
-                component={ToastElement}
-                transitionDuration={transitionDuration}
-                onDismiss={() => onDismiss(id, onDismissCallback)}
-                positionX=""
-                positionY=""
-              />
-            )) }
-          </ToastContainer>,
-          portalTarget,
-        )
-      ) : (
-        <ToastContainer placement={placement} hasToasts={Boolean(toasts.length)} />
+      { createPortal(
+        <ToastContainer placement={placement} hasToasts={hasToasts}>
+          { toasts.map(({
+            appearance,
+            autoDismiss,
+            content,
+            iconName,
+            actionContent,
+            actionOnClick,
+            id,
+            // eslint-disable-next-line @typescript-eslint/no-shadow
+            onDismissCallback,
+          }) => (
+            <ToastController
+              key={id}
+              id={id}
+              placement={placement}
+              appearance={appearance}
+              autoDismiss={
+                autoDismiss !== undefined
+                  ? autoDismiss
+                  : true
+              }
+              transitionDuration={TransitionDuration.M}
+              actionContent={actionContent}
+              actionOnClick={actionOnClick}
+              autoDismissTimeout={autoDismissTimeout}
+              content={content}
+              iconName={iconName}
+              component={ToastElement}
+              onDismiss={() => onDismiss(id, onDismissCallback)}
+              positionX=""
+              positionY=""
+            />
+          )) }
+        </ToastContainer>,
+        rootElement,
       ) }
     </Provider>
   )

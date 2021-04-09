@@ -1,51 +1,52 @@
+/* Internal dependencies */
 import { css } from '../../../foundation'
-import { Appearance, IconColor, Placement } from '../Toast.types'
+import { ToastAppearance, ToastIconColor, ToastPlacement } from '../Toast.types'
 
-function getIconColor(appearance: Appearance): string {
+function getIconColor(appearance: ToastAppearance): string {
   switch (appearance) {
-    case Appearance.Success:
-      return IconColor.Success
-    case Appearance.Warning:
-      return IconColor.Warning
-    case Appearance.Error:
-      return IconColor.Error
-    case Appearance.Info:
+    case ToastAppearance.Success:
+      return ToastIconColor.Success
+    case ToastAppearance.Warning:
+      return ToastIconColor.Warning
+    case ToastAppearance.Error:
+      return ToastIconColor.Error
+    case ToastAppearance.Info:
     default:
-      return IconColor.Info
+      return ToastIconColor.Info
   }
 }
 
 // TODO: GNB 만큼 left 값 주기
-function getPlacement(placement: Placement) {
+function getPlacement(placement: ToastPlacement) {
   switch (placement) {
-    case Placement.TopCenter:
+    case ToastPlacement.TopCenter:
       return css`
           top: 0;
           left: 50%;
           transform: translateX(-50%);
         `
-    case Placement.TopRight:
+    case ToastPlacement.TopRight:
       return css`
           top: 0;
           right: 0;
         `
-    case Placement.TopLeft:
+    case ToastPlacement.TopLeft:
       return css`
           top: 0;
           left: 64px;
         `
-    case Placement.BottomCenter:
+    case ToastPlacement.BottomCenter:
       return css`
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
         `
-    case Placement.BottomRight:
+    case ToastPlacement.BottomRight:
       return css`
           right: 0;
           bottom: 0;
         `
-    case Placement.BottomLeft:
+    case ToastPlacement.BottomLeft:
     default:
       return css`
         bottom: 0;
@@ -54,19 +55,19 @@ function getPlacement(placement: Placement) {
   }
 }
 
-const initPosition = (placement: Placement, isXPosition: boolean) => {
+const initPosition = (placement: ToastPlacement, isXPosition: boolean) => {
   switch (placement) {
-    case Placement.TopLeft:
+    case ToastPlacement.TopLeft:
       return isXPosition ? '-120%' : '0'
-    case Placement.TopCenter:
+    case ToastPlacement.TopCenter:
       return isXPosition ? '0' : '-120%'
-    case Placement.TopRight:
+    case ToastPlacement.TopRight:
       return isXPosition ? '120%' : '0'
-    case Placement.BottomLeft:
+    case ToastPlacement.BottomLeft:
       return isXPosition ? '-120%' : '0'
-    case Placement.BottomCenter:
+    case ToastPlacement.BottomCenter:
       return isXPosition ? '0' : '120%'
-    case Placement.BottomRight:
+    case ToastPlacement.BottomRight:
       return isXPosition ? '120%' : '0'
     default:
       return '0'

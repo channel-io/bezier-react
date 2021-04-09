@@ -7,7 +7,7 @@ import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 import { TransitionDuration } from '../../foundation/Transition'
 
-export enum Placement {
+export enum ToastPlacement {
   TopLeft = 'topLeft',
   TopCenter = 'topCenter',
   TopRight = 'topRight',
@@ -16,27 +16,27 @@ export enum Placement {
   BottomRight = 'bottomRight',
 }
 
-export enum Appearance {
+export enum ToastAppearance {
   Success = 'success',
   Warning = 'warning',
   Error = 'error',
   Info = 'info',
 }
 
-export enum IconColor {
+export enum ToastIconColor {
   Success = 'bgtxt-green-normal',
   Warning = 'bgtxt-orange-normal',
   Error = 'bgtxt-red-normal',
   Info = 'txt-black-darkest',
 }
 
-export default interface ToastElementProps extends UIComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  appearance?: Appearance
+export default interface ToastElementProps extends UIComponentProps {
+  appearance?: ToastAppearance
   content: string
   iconName?: IconName
   actionContent?: string
   actionOnClick?: Function
-  onDismiss: typeof noop
+  onDismiss: () => void
   transitionDuration: TransitionDuration
   positionX: string
   positionY: string
@@ -44,28 +44,26 @@ export default interface ToastElementProps extends UIComponentProps, React.HTMLA
 
 export interface ToastProviderProps {
   autoDismissTimeout?: number
-  globalAutoDismiss?: boolean
-  transitionDuration?: TransitionDuration
   children?: ReactNode[] | ReactNode
-  placement?: Placement
+  placement?: ToastPlacement
 }
 
 export type ToastId = string
 
-export type Callback = (id: ToastId) => void
+export type OnDismissCallback = (id: ToastId) => void
 
 export type Options = {
   iconName?: IconName
-  appearance?: Appearance
+  appearance?: ToastAppearance
   actionContent?: string
   actionOnClick?: Function
   autoDismiss?: boolean
-  onDismissCallback?: Callback
+  onDismissCallback?: OnDismissCallback
 }
 
 export const defaultOptions: Options = {
   iconName: 'info-filled',
-  appearance: Appearance.Info,
+  appearance: ToastAppearance.Info,
   autoDismiss: false,
   onDismissCallback: noop,
 }
@@ -82,12 +80,12 @@ export interface ContextType {
 export type ToastContainerProps = {
   children?: ReactNode[]
   hasToasts: boolean
-  placement: Placement
+  placement: ToastPlacement
 }
 
 export type ToastControllerProps = ToastElementProps & {
   autoDismiss: boolean
   autoDismissTimeout: number
-  placement: Placement
+  placement: ToastPlacement
   component: ComponentType<ToastElementProps>
 }

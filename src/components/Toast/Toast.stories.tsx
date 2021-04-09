@@ -10,7 +10,7 @@ import { useToast } from '../../hooks/useToast'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import ToastProps, { Appearance, Placement } from './Toast.types'
+import ToastProps, { ToastAppearance, ToastPlacement } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -19,7 +19,7 @@ export default {
     appearance: {
       control: {
         type: 'radio',
-        options: Appearance,
+        options: ToastAppearance,
       },
     },
     iconName: {
@@ -36,7 +36,7 @@ export default {
     placement: {
       control: {
         type: 'select',
-        options: Placement,
+        options: ToastPlacement,
       },
     },
     autoDismissTimeout: {
@@ -73,7 +73,7 @@ const Template = (args) => (
 export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
-  appearance: Appearance.Info,
+  appearance: ToastAppearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
   actionContent: '새로고침',
@@ -109,7 +109,7 @@ function Div({
   }
 
   const handleNeverDismiss = () => toast.addToast('이건 사라지지 않아요!', {
-    appearance: Appearance.Success,
+    appearance: ToastAppearance.Success,
     iconName: 'channel-smile-filled',
     autoDismiss: false,
   })
@@ -129,9 +129,7 @@ function Div({
 
 export const WithAction = ({
   placement,
-  autoDismiss,
   autoDismissTimeout,
-  transitionDuration,
   appearance,
   content,
   iconName,
@@ -140,9 +138,7 @@ export const WithAction = ({
   <Container id="story-wrapper">
     <ToastProvider
       placement={placement}
-      globalAutoDismiss={autoDismiss}
       autoDismissTimeout={autoDismissTimeout}
-      transitionDuration={transitionDuration}
     >
       <Div
         appearance={appearance}
@@ -155,11 +151,9 @@ export const WithAction = ({
 )
 
 WithAction.args = {
-  placement: Placement.BottomLeft,
-  autoDismiss: true,
+  placement: ToastPlacement.BottomLeft,
   autoDismissTimeout: 2000,
-  transitionDuration: TransitionDuration.S,
-  appearance: Appearance.Info,
+  appearance: ToastAppearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
   actionContent: '액션 함수 테스트',

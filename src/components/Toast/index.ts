@@ -2,9 +2,9 @@
 import { useToast } from '../../hooks/useToast'
 import ToastProvider from './ToastProvider'
 import ToastProps, {
-  Placement as ToastPlacement,
-  Appearance as ToastAppearance,
-  IconColor as ToastIconColor,
+  ToastPlacement,
+  ToastAppearance,
+  ToastIconColor,
 } from './Toast.types'
 
 export type {
