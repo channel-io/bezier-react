@@ -15,9 +15,10 @@ export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
 function Avatar({
   avatarUrl,
   size = AvatarSize.M,
-  showBorder = false,
   name = '',
   testId = AVATAR_TEST_ID,
+  disabled = false,
+  showBorder = false,
   onClick = _.noop,
   onMouseEnter = _.noop,
   onMouseLeave = _.noop,
@@ -33,6 +34,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       role="img"
       aria-label={name}
       showBorder={showBorder}
+      disabled={disabled}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

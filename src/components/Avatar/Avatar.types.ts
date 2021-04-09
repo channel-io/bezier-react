@@ -25,6 +25,7 @@ export interface AvatarProps extends StylableComponentProps {
   testId?: string
   size?: AvatarSize
   showBorder?: boolean
+  disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void

@@ -1,5 +1,6 @@
 /* Internal denpendencies */
-import { styled, smoothCorners } from '../../foundation'
+import { styled, css, Foundation, smoothCorners } from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import { AvatarSize } from './Avatar.types'
 
 const AVATAR_BORDER_RAIDUS_PERCENTAGE = 42
@@ -9,6 +10,15 @@ export interface AvatarProps {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
+  disabled: boolean
+}
+
+const disabledStyle = css`
+  opacity: ${DisabledOpacity};
+`
+
+function getBorderStyle(foundation?: Foundation) {
+  return `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}`
 }
 
 export const StyledAvatar = styled.div<AvatarProps>`
@@ -23,28 +33,28 @@ export const StyledAvatar = styled.div<AvatarProps>`
   background-color: transparent;
   background-image: ${({ avatarUrl }) => `url(${avatarUrl})`};
   background-size: cover;
-  border: ${({ foundation, showBorder }) => showBorder &&
-    `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}`};
   border-radius: ${AVATAR_BORDER_RAIDUS_PERCENTAGE}%;
   outline: none;
 
+  ${({ foundation, showBorder }) => (showBorder ? getBorderStyle(foundation) : '')};
+
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
-    shadow: showBorder
-      ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}`
-      : '0 0 0 0 transparent',
+    shadow: showBorder ? getBorderStyle(foundation) : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
     backgroundColor: '#EFEFF0', // TODO: fallback default avatar 설정
     borderRadius: `${AVATAR_BORDER_RAIDUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
-`
 
-function calcNegativeSpacing(spacing: AvatarGroupProps['spacing']) {
-  return spacing < 0 ? (spacing - (AVATAR_BORDER_WIDTH * 2)) : spacing
-}
+  ${({ disabled }) => (disabled ? disabledStyle : '')};
+`
 
 export interface AvatarGroupProps {
   spacing: number
+}
+
+function calcNegativeSpacing(spacing: AvatarGroupProps['spacing']) {
+  return spacing < 0 ? (spacing - (AVATAR_BORDER_WIDTH * 2)) : spacing
 }
 
 export const StyledAvatarGroup = styled.div<AvatarGroupProps>`

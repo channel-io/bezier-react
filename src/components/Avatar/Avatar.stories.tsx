@@ -90,6 +90,7 @@ Primary.args = {
   name: 'Channel',
   size: AvatarSize.M,
   showBorder: false,
+  disabled: false,
 }
 
 const TemplateAvatarGroup = (args) => (
