@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { Foundation, styled } from '../../foundation'
+import { ellipsis, Foundation, styled } from '../../foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps } from './Toast.types'
 import { getIconColor, getPlacement } from './utils'
 
@@ -58,23 +58,11 @@ export const getEllipsisColor = (
     : foundation?.subTheme?.['txt-black-darkest']
 )
 
-/* TODO: @dinohan
-* ellipsis(5, 18으로 대체)
-* display, max-height, overflow, line-height, text-overflow, -webkit-line-clamp, -webkit-box-orient
-*/
-/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
 export const Content = styled.div<ToastElementProps>`
-  display: -webkit-box;
-  max-height: 90px;
+  ${ellipsis(5, 18)};
   margin: 3px 6px;
-  overflow: hidden;
-  line-height: 18px;
   color: ${({ actionContent, actionOnClick, foundation }) => getEllipsisColor(actionContent, actionOnClick, foundation)};
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
 `
-/* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 
 export const NormalContent = styled.div`
   display: inline;
