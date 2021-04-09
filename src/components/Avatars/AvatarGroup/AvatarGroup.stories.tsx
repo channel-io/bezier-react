@@ -5,7 +5,6 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { Avatar, AvatarSize } from '../Avatar'
-import { AvatarSizeList } from '../Avatar/Avatar.stories'
 import AvatarGroup from './AvatarGroup'
 
 const MOCK_AVATAR_LIST = [
@@ -38,6 +37,10 @@ const MOCK_AVATAR_LIST = [
     name: 'Segun Adebayo',
   },
 ]
+
+const AvatarSizeList = Object.keys(AvatarSize)
+  .filter(value => Number.isNaN(Number(value)) === true)
+  .map(key => AvatarSize[key])
 
 export default {
   title: getTitle(base),
