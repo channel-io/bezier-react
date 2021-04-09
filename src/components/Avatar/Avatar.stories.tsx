@@ -11,31 +11,31 @@ import { AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_DATA = [
   {
-    src: 'https://bit.ly/code-beast',
+    avatarUrl: 'https://bit.ly/code-beast',
     name: 'Christian Nwamba',
   },
   {
-    src: 'https://bit.ly/tioluwani-kolawole',
+    avatarUrl: 'https://bit.ly/tioluwani-kolawole',
     name: 'Kola Tioluwani',
   },
   {
-    src: 'https://bit.ly/kent-c-dodds',
+    avatarUrl: 'https://bit.ly/kent-c-dodds',
     name: 'Kent Dodds',
   },
   {
-    src: 'https://bit.ly/ryan-florence',
+    avatarUrl: 'https://bit.ly/ryan-florence',
     name: 'Ryan Florence',
   },
   {
-    src: 'https://bit.ly/dan-abramov',
+    avatarUrl: 'https://bit.ly/dan-abramov',
     name: 'Dan Abrahmov',
   },
   {
-    src: 'https://bit.ly/prosper-baba',
+    avatarUrl: 'https://bit.ly/prosper-baba',
     name: 'Prosper Otemuyiwa',
   },
   {
-    src: 'https://bit.ly/sage-adebayo',
+    avatarUrl: 'https://bit.ly/sage-adebayo',
     name: 'Segun Adebayo',
   },
 ]
@@ -65,11 +65,11 @@ const Wrapper = styled.div`
 
 const AvatarList = (() => (
   AvatarSizeList.map((size, index) => {
-    const { src, name } = MOCK_AVATAR_DATA[index % (MOCK_AVATAR_DATA.length - 1)]
+    const { avatarUrl, name } = MOCK_AVATAR_DATA[index % (MOCK_AVATAR_DATA.length - 1)]
     return (
       <Avatar
         key={uuid()}
-        src={src}
+        avatarUrl={avatarUrl}
         name={name}
         size={size}
       />
@@ -86,9 +86,10 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  src: 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
+  avatarUrl: 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
   name: 'Channel',
   size: AvatarSize.M,
+  showBorder: false,
 }
 
 const TemplateAvatarGroup = (args) => (

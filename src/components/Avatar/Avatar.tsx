@@ -7,16 +7,15 @@ import Icon from '../Icon/Icon'
 import { IconSize } from '../Icon/Icon.types'
 import { isLastIndex } from '../../utils/arrayUtils'
 import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis } from './Avatar.styled'
-import { AvatarProps, AvatarSize, AvatarGroupProps } from './Avatar.types'
+import { AvatarSize, AvatarProps, AvatarGroupProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 function Avatar({
-  src,
-  name = '',
-  testId = AVATAR_TEST_ID,
+  avatarUrl,
   size = AvatarSize.M,
   showBorder = false,
+  name = '',
   onClick = _.noop,
   onMouseEnter = _.noop,
   onMouseLeave = _.noop,
@@ -27,8 +26,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
     <StyledAvatar
       ref={forwardedRef}
       data-testid={testId}
+      avatarUrl={avatarUrl}
       size={size}
-      src={src}
       role="img"
       aria-label={name}
       showBorder={showBorder}
@@ -39,7 +38,9 @@ forwardedRef: React.Ref<HTMLDivElement>,
   )
 }
 
-// TODO: 올바른 페어의 아이콘 사이즈를 지정해줘야함
+export default forwardRef(Avatar)
+
+// TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
     [AvatarSize.XXXS]: IconSize.XXS,
@@ -61,8 +62,14 @@ export function AvatarGroup({
   children,
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement) => (
-    React.cloneElement(avatar, { size })
-  ), [size])
+    React.cloneElement(avatar, {
+      size,
+      showBorder: spacing < 0,
+    })
+  ), [
+    size,
+    spacing,
+  ])
 
   const AvatarListCount = useMemo(() => (
     React.Children.count(children)
@@ -77,13 +84,14 @@ export function AvatarGroup({
 
     const sliceEndIndex = max - AvatarListCount
     const slicedAvatarList = React.Children.toArray(children).slice(0, sliceEndIndex)
+    const calculatedSpacing = AvatarListCount > 0 ? spacing : 0
 
     return slicedAvatarList.map((avatar, index, arr) => {
       if (!React.isValidElement(avatar)) { return null }
       if (isLastIndex(arr, index)) {
         return (
-          <AvatarEllipsisWrapper>
-            <AvatarEllipsis spacing={spacing}>
+          <AvatarEllipsisWrapper spacing={calculatedSpacing}>
+            <AvatarEllipsis>
               <Icon
                 size={getProperIconSize(size)}
                 name="more"
@@ -106,10 +114,10 @@ export function AvatarGroup({
   ])
 
   return (
-    <StyledAvatarGroup spacing={spacing}>
+    <StyledAvatarGroup
+      spacing={spacing}
+    >
       { AvatarListComponent }
     </StyledAvatarGroup>
   )
 }
-
-export default forwardRef(Avatar)
