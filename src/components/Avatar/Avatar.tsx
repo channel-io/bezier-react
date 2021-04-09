@@ -10,12 +10,14 @@ import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis 
 import { AvatarSize, AvatarProps, AvatarGroupProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
+export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
 
 function Avatar({
   avatarUrl,
   size = AvatarSize.M,
   showBorder = false,
   name = '',
+  testId = AVATAR_TEST_ID,
   onClick = _.noop,
   onMouseEnter = _.noop,
   onMouseLeave = _.noop,
@@ -115,6 +117,7 @@ export function AvatarGroup({
 
   return (
     <StyledAvatarGroup
+      data-testId={AVATAR_GROUP_TEST_ID}
       spacing={spacing}
     >
       { AvatarListComponent }
