@@ -4,7 +4,7 @@ import React, { forwardRef, Ref } from 'react'
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import ToastProps, { Appearance, Placement } from './Toast.types'
-import { Container, IconWrapper, Content, Close } from './Toast.styled'
+import { Container, IconWrapper, Content, Close, ActionContent } from './Toast.styled'
 
 function Toast(
   {
@@ -12,6 +12,7 @@ function Toast(
     appearance = Appearance.Info,
     content = '',
     iconName = 'info-filled',
+    actionItem,
     as,
     ...props
   }: ToastProps,
@@ -33,6 +34,10 @@ function Toast(
       </IconWrapper>
       <Content>
         { content }
+        { ' ' }
+        <ActionContent>
+          { ` ${actionItem?.content}` }
+        </ActionContent>
       </Content>
       <Close>
         <Icon

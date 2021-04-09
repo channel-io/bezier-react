@@ -1,6 +1,10 @@
 /* Internal dependencies */
 import Toast from './Toast'
-import ToastProps, { Appearance as ToastAppearance, Placement as ToastPlacement } from './Toast.types'
+import ToastProps, {
+  Placement as ToastPlacement,
+  Appearance as ToastAppearance,
+  IconColor as ToastIconColor,
+} from './Toast.types'
 
 export type {
   ToastProps,
@@ -8,6 +12,7 @@ export type {
 
 export {
   Toast,
-  ToastAppearance,
   ToastPlacement,
+  ToastAppearance,
+  ToastIconColor,
 }

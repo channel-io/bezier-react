@@ -73,4 +73,8 @@ Primary.args = {
   placement: Placement.BottomLeft,
   content: '안내문구입니다.',
   iconName: 'info-filled',
+  actionItem: {
+    content: '새로고침',
+    onClick: null,
+  },
 }

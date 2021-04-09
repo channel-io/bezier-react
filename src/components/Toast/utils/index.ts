@@ -1,12 +1,5 @@
 import { css } from '../../../foundation'
-import { Appearance } from '../Toast.types'
-
-export enum IconColor {
-  Succes = 'bgtxt-green-normal',
-  Warning = 'bgtxt-orange-normal',
-  Error = 'bgtxt-red-normal',
-  Info = 'txt-black-darkest',
-}
+import { Appearance, IconColor } from '../Toast.types'
 
 function getIconColor(appearance: Appearance): string {
   switch (appearance) {

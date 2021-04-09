@@ -52,6 +52,16 @@ export const Content = styled.div`
 `
 /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 
+export const ActionContent = styled.div`
+  display: inline;
+  color: ${({ foundation }) => foundation?.subTheme?.['bgtxt-cobalt-normal']};
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
 export const Close = styled.div`
   display: flex;
   flex-shrink: 0;
