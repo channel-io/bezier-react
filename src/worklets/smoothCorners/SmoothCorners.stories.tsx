@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Div, Div2, Div3 } from './smoothCorners.styled'
+import { WithSmooth, WithoutSmooth } from './smoothCorners.styled'
 
 export default {
   title: 'SmoothCorners',
@@ -35,15 +35,12 @@ export default {
 
 const Template = (args) => (
   <>
-    <Div
+    <WithSmooth
       {...args}
     />
-    <Div2
+    <WithoutSmooth
       {...args}
-    >
-      hello
-    </Div2>
-    <Div3 {...args} />
+    />
   </>
 )
 

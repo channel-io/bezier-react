@@ -179,6 +179,12 @@ function Tooltip(
   useEventHandler(tooltipRef.current, 'click', handleClickTooltip, show)
 
   useEffect(() => {
+    if (disabled) {
+      setShow(false)
+    }
+  }, [disabled])
+
+  useEffect(() => {
     if (show && tooltipRef.current) {
       const newPlacement = getReplacement({
         tooltip: tooltipRef.current,
