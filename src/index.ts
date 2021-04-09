@@ -34,6 +34,7 @@ export * from './layout/Navigations'
 export * from './layout/Side/SidePanelContent'
 export * from './layout/Side/SideViewContent'
 export * from './layout/redux'
+export * from './layout/LayoutProvider'
 
 /* Types */
 export type { default as BlocksParserContextType } from './types/BlocksParserContextType'
