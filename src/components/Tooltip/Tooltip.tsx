@@ -63,7 +63,6 @@ function Tooltip(
 
   const handleMouseLeave = useCallback(() => {
     if (disabled) {
-      setShow(false)
       return
     }
 
@@ -178,6 +177,12 @@ function Tooltip(
   ])
 
   useEventHandler(tooltipRef.current, 'click', handleClickTooltip, show)
+
+  useEffect(() => {
+    if (disabled) {
+      setShow(false)
+    }
+  }, [disabled])
 
   useEffect(() => {
     if (show && tooltipRef.current) {
