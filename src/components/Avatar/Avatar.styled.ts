@@ -2,12 +2,14 @@
 import { styled, css, Foundation, smoothCorners } from '../../foundation'
 import { enableSmoothCorners } from '../../worklets/EnableCSSHoudini'
 import DisabledOpacity from '../../constants/DisabledOpacity'
-import { AvatarSize } from './Avatar.types'
+import { AvatarSize, StatusType } from './Avatar.types'
 
 const AVATAR_BORDER_RAIDUS_PERCENTAGE = 42
 const AVATAR_BORDER_WIDTH = 2
+const STATUS_CIRCLE_SIZE = 8
+const STATUS_CIRCLE_BORDER_WIDTH = 2
 
-export interface AvatarProps {
+interface AvatarProps {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
@@ -52,7 +54,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ disabled }) => (disabled ? disabledStyle : '')};
 `
 
-export interface AvatarGroupProps {
+interface AvatarGroupProps {
   spacing: number
 }
 
@@ -92,4 +94,33 @@ export const AvatarEllipsis = styled.div`
     borderRadius: `${AVATAR_BORDER_RAIDUS_PERCENTAGE}%`,
     backgroundColor: foundation?.theme?.['dim-dark'],
   })}
+`
+
+interface StatusCircleProps {
+  type: StatusType.ONLINE | StatusType.OFFLINE
+}
+
+export const StatusCircle = styled.div<StatusCircleProps>`
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: ${STATUS_CIRCLE_SIZE}px;
+  height: ${STATUS_CIRCLE_SIZE}px;
+  background-color: green;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
+  border: ${STATUS_CIRCLE_BORDER_WIDTH}px solid ${({ foundation }) => foundation?.theme?.['bdr-white']};
+  border-radius: 50%;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: ${STATUS_CIRCLE_SIZE}px;
+    height: ${STATUS_CIRCLE_SIZE}px;
+    background-color: ${({ type, foundation }) =>
+    foundation?.theme?.[type === StatusType.ONLINE ? 'bgtxt-green-normal' : 'bg-black-dark']};
+    border-radius: 50%;
+  }
 `

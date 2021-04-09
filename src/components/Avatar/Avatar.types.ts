@@ -12,18 +12,31 @@ export enum AvatarSize {
   XXXL = 120,
 }
 
+export enum StatusType {
+  NONE = 'NONE',
+  ONLINE = 'ONLINE',
+  OFFLINE = 'OFFLINE',
+  PRIVATE = 'PRVIATE',
+}
+
+export interface StatusProps {
+  type: StatusType
+}
+
 export interface AvatarGroupProps extends ChildrenComponentProps {
   max: number
   size?: AvatarSize
   spacing?: number
 }
 
-export interface AvatarProps extends StylableComponentProps {
+export interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {
   src: string
   name?: string
   testId?: string
   size?: AvatarSize
   showBorder?: boolean
+  status?: StatusType
+  showStatus?: boolean
   disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void

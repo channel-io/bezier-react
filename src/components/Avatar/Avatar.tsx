@@ -7,11 +7,22 @@ import { v4 as uuid } from 'uuid'
 import Icon from '../Icon/Icon'
 import { IconSize } from '../Icon/Icon.types'
 import { isLastIndex } from '../../utils/arrayUtils'
-import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis } from './Avatar.styled'
-import { AvatarSize, AvatarProps, AvatarGroupProps } from './Avatar.types'
+import { StyledAvatar, StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis, StatusCircle } from './Avatar.styled'
+import { AvatarSize, AvatarProps, AvatarGroupProps, StatusType, StatusProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
+
+export function Status({
+  type = StatusType.NONE,
+}: StatusProps) {
+  if (type === StatusType.NONE) { return null }
+  // TODO: private 타입 상태 제작 필요
+  if (type === StatusType.PRIVATE) { return null }
+  return (
+    <StatusCircle type={type}/>
+  )
+}
 
 function Avatar({
   avatarUrl,
@@ -20,12 +31,34 @@ function Avatar({
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
+  status = StatusType.NONE,
+  showStatus = false,
   onClick = _.noop,
   onMouseEnter = _.noop,
   onMouseLeave = _.noop,
+  children,
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const StatusComponent = useMemo(() => {
+    if (children) {
+      return React.isValidElement(children) && React.Children.count(children) === 1
+        ? children : null
+    }
+
+    if (!showStatus) { return null }
+
+    return (
+      <Status
+        type={status}
+      />
+    )
+  }, [
+    status,
+    showStatus,
+    children,
+  ])
+
   return (
     <StyledAvatar
       ref={forwardedRef}
@@ -39,7 +72,9 @@ forwardedRef: React.Ref<HTMLDivElement>,
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-    />
+    >
+      { StatusComponent }
+    </StyledAvatar>
   )
 }
 
