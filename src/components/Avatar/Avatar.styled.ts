@@ -1,5 +1,6 @@
 /* Internal denpendencies */
 import { styled, css, Foundation, smoothCorners } from '../../foundation'
+import { enableSmoothCorners } from '../../worklets/EnableCSSHoudini'
 import DisabledOpacity from '../../constants/DisabledOpacity'
 import { AvatarSize } from './Avatar.types'
 
@@ -21,6 +22,8 @@ function getBorderStyle(foundation?: Foundation) {
   return `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}`
 }
 
+// TODO: fallback default avatar 설정
+
 export const StyledAvatar = styled.div<AvatarProps>`
   position: relative;
   box-sizing: content-box;
@@ -30,7 +33,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   justify-content: center;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  background-color: transparent;
+  background-color: '#EFEFF0';
   background-image: ${({ avatarUrl }) => `url(${avatarUrl})`};
   background-size: cover;
   border-radius: ${AVATAR_BORDER_RAIDUS_PERCENTAGE}%;
@@ -41,7 +44,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? getBorderStyle(foundation) : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: '#EFEFF0', // TODO: fallback default avatar 설정
+    backgroundColor: '#EFEFF0',
     borderRadius: `${AVATAR_BORDER_RAIDUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
@@ -53,8 +56,9 @@ export interface AvatarGroupProps {
   spacing: number
 }
 
-function calcNegativeSpacing(spacing: AvatarGroupProps['spacing']) {
-  return spacing < 0 ? (spacing - (AVATAR_BORDER_WIDTH * 2)) : spacing
+function calcNegativeSpacing(spacing: AvatarGroupProps['spacing'] = 0) {
+  if (spacing >= 0 || !enableSmoothCorners.current) { return spacing }
+  return (spacing - (AVATAR_BORDER_WIDTH * 2))
 }
 
 export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
@@ -80,6 +84,9 @@ export const AvatarEllipsis = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: ${({ foundation }) => foundation?.theme?.['dim-dark']};
+  border-radius: ${AVATAR_BORDER_RAIDUS_PERCENTAGE}%;
+  outline: none;
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RAIDUS_PERCENTAGE}%`,
