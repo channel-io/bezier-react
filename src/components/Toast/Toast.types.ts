@@ -1,6 +1,8 @@
-/* Internal dependencies */
+/* External dependencies */
+import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
-import { ComponentType } from 'react'
+
+/* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 
@@ -27,19 +29,15 @@ export enum IconColor {
   Info = 'txt-black-darkest',
 }
 
-export interface ActionItemType {
-  content: string
-  onClick: any
-}
-
 export default interface ToastElementProps extends UIComponentProps, React.HTMLAttributes<HTMLDivElement> {
   appearance?: Appearance
   content: string
   iconName?: IconName
-  actionItem?: ActionItemType
+  actionContent?: string
+  actionOnClick?: Function
   onDismiss: typeof noop
-  onMouseEnter: (e) => void
-  onMouseLeave: (e) => void
+  onMouseEnter: typeof noop
+  onMouseLeave: typeof noop
   transitionDuration: number
   positionX: string
   positionY: string
@@ -48,7 +46,7 @@ export default interface ToastElementProps extends UIComponentProps, React.HTMLA
 export interface ToastProviderProps {
   autoDismissTimeout?: number
   globalAutoDismiss?: boolean
-  children?: JSX.Element[] | JSX.Element
+  children?: ReactNode[] | ReactNode
   placement?: Placement
   portalTargetSelector?: string
   transitionDuration?: number
@@ -59,34 +57,33 @@ export type ToastId = string
 export type Callback = (id: ToastId) => void
 
 export type Options = {
-  content: string
   iconName?: IconName
   appearance?: Appearance
-  actionItem?: ActionItemType
+  actionContent?: string
+  actionOnClick?: Function
   autoDismiss?: boolean
   onDismissCallback?: Callback
 }
 
 export const defaultOptions: Options = {
-  content: '안내 문구입니다.',
   iconName: 'info-filled',
   appearance: Appearance.Info,
   autoDismiss: false,
   onDismissCallback: noop,
 }
 
-export type ToastType = Options & { id: ToastId }
+export type ToastType = Options & { id: ToastId, content: string }
 
 export interface ContextType {
-  add: (options: Options) => void
-  remove: (id:ToastId) => void
+  add: (content: string, options: Options) => ToastId
+  remove: (id: ToastId) => void
   removeAll: () => void
   update: (id: ToastId, options: Options) => void
   toasts: ToastType[]
 }
 
 export type ToastContainerProps = {
-  children?: JSX.Element[]
+  children?: ReactNode[]
   hasToasts: boolean
   placement: Placement
 }

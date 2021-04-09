@@ -9,7 +9,7 @@ import { getTitle } from '../../utils/etcUtils'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from '../../contexts/ToastProvider'
 import { useToast } from '../../hooks/useToast'
-import ToastElement from './Toast'
+import ToastElement from './ToastElement'
 import ToastProps, { Appearance, Placement } from './Toast.types'
 
 export default {
@@ -74,12 +74,13 @@ function Div({
   appearance,
   content,
   iconName,
-  actionItem,
+  actionContent,
+  actionOnClick,
 }) {
   const toast = useToast()
 
   const handleClick = () => {
-    toast.addToast({ appearance, content, iconName, actionItem })
+    toast.addToast(content, { appearance, iconName, actionContent, actionOnClick })
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,7 +94,15 @@ function Div({
   )
 }
 
-const Template = ({ placement, transitionDuration, appearance, content, iconName, actionItem }) => (
+const Template = ({
+  placement,
+  transitionDuration,
+  appearance,
+  content,
+  iconName,
+  actionContent,
+  actionOnClick,
+}) => (
   <Container id="story-container">
     <ToastProvider
       placement={placement}
@@ -104,7 +113,8 @@ const Template = ({ placement, transitionDuration, appearance, content, iconName
         appearance={appearance}
         content={content}
         iconName={iconName}
-        actionItem={actionItem}
+        actionContent={actionContent}
+        actionOnClick={actionOnClick}
       />
     </ToastProvider>
   </Container>
@@ -118,8 +128,6 @@ Primary.args = {
   appearance: Appearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
-  actionItem: {
-    content: '새로고침',
-    onClick: noop,
-  },
+  actionContent: '새로고침',
+  actionOnClick: noop,
 }

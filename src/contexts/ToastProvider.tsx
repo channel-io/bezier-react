@@ -17,10 +17,10 @@ import {
 } from '../components/Toast/Toast.types'
 import ToastContainer from '../components/Toast/ToastContainer'
 import ToastController from '../components/Toast/ToastController'
-import ToastElement from '../components/Toast/Toast'
+import ToastElement from '../components/Toast/ToastElement'
 
 export const ToastContext = createContext<ContextType>({
-  add: noop,
+  add: () => '',
   remove: noop,
   removeAll: noop,
   update: noop,
@@ -48,16 +48,17 @@ function ToastProvider({
     return Boolean(toasts.filter((toast) => toast.id === id).length)
   }
 
-  const add = (options: Options = defaultOptions) => {
+  const add = (content: string, options: Options = defaultOptions) => {
     const newId: ToastId = uuid()
 
     if (has(newId)) {
-      return
+      return ''
     }
 
-    const newToast: ToastType = { id: newId, ...options }
+    const newToast: ToastType = { id: newId, content, ...options }
     const newToasts: ToastType[] = [...toasts, newToast]
     setToasts(newToasts)
+    return newId
   }
 
   const remove = (id: ToastId): void => {
@@ -109,7 +110,8 @@ function ToastProvider({
               autoDismiss,
               content,
               iconName,
-              actionItem,
+              actionContent,
+              actionOnClick,
               id,
               // eslint-disable-next-line @typescript-eslint/no-shadow
               onDismissCallback,
@@ -125,7 +127,8 @@ function ToastProvider({
                     : globalAutoDismiss
                 }
                 iconName={iconName}
-                actionItem={actionItem}
+                actionContent={actionContent}
+                actionOnClick={actionOnClick}
                 autoDismissTimeout={autoDismissTimeout}
                 content={content}
                 component={ToastElement}

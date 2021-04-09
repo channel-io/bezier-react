@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { Foundation, styled, Typography } from '../../foundation'
-import ToastElementProps, { ActionItemType, Appearance, ToastContainerProps } from './Toast.types'
+import ToastElementProps, { Appearance, ToastContainerProps } from './Toast.types'
 import { getIconColor, placements } from './utils'
 
 const MAX_HEIGHT = `${(18 * 5)}px`
@@ -49,12 +49,11 @@ export const IconWrapper = styled.div<IconProps>`
   color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
-const ellipsisColor = (actionItem?: ActionItemType, foundation?: Foundation) => {
-  if (actionItem?.content) {
-    return foundation?.subTheme?.['bgtxt-cobalt-normal']
-  }
-  return foundation?.subTheme?.['txt-black-darkest']
-}
+const ellipsisColor = (actionContent?: string, foundation?: Foundation) => (
+  actionContent
+    ? foundation?.subTheme?.['bgtxt-cobalt-normal']
+    : foundation?.subTheme?.['txt-black-darkest']
+)
 
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
 export const Content = styled.div<ToastElementProps>`
@@ -62,7 +61,7 @@ export const Content = styled.div<ToastElementProps>`
   max-height: ${MAX_HEIGHT};
   margin: 3px 6px;
   overflow: hidden;
-  color: ${({ actionItem, foundation }) => ellipsisColor(actionItem, foundation)};
+  color: ${({ actionContent, foundation }) => ellipsisColor(actionContent, foundation)};
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;

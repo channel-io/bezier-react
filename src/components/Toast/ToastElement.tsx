@@ -12,7 +12,8 @@ const ToastElement = (
     appearance = Appearance.Info,
     content = '',
     iconName = 'info-filled',
-    actionItem,
+    actionContent,
+    actionOnClick,
     onMouseEnter,
     onMouseLeave,
     onDismiss,
@@ -35,15 +36,15 @@ const ToastElement = (
       />
     </IconWrapper>
     <Content
-      actionItem={actionItem}
+      actionContent={actionContent}
     >
       <NormalContent>
         { content }
       </NormalContent>
       { ' ' }
-      { actionItem && actionItem.content && (
-        <ActionContent>
-          { ` ${actionItem?.content}` }
+      { actionContent && actionOnClick && (
+        <ActionContent onClick={() => actionOnClick()}>
+          { actionContent }
         </ActionContent>
       ) }
     </Content>
