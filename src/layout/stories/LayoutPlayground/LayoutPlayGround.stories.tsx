@@ -10,6 +10,7 @@ import { styled, Typography } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
+import { LayoutProvider } from '../../LayoutProvider'
 import Client from '../../Client/Client'
 import { Main } from '../../Main'
 import GNB from '../../GNB/GNB'
@@ -253,29 +254,31 @@ const Template = ({ onChangeWidth }) => {
   ), [onChangeWidth])
 
   return (
-    <Container>
-      <Client>
-        <GNB>
-          <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
-          <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
-          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
-          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
-        </GNB>
-        <Navigations>
-          <NavigationMainRoute />
-          <NavigationSubRoute />
-        </Navigations>
-        <Main
-          ContentHeaderComponent={ContentHeaderRoute}
-          CoverableHeaderComponent={CoverableHeaderRoute}
-          SidePanelComponent={SidePanelRoute}
-          SideViewComponent={SideViewComponent}
-          onChangeSideWidth={onChangeWidth}
-        >
-          <Content />
-        </Main>
-      </Client>
-    </Container>
+    <LayoutProvider>
+      <Container>
+        <Client>
+          <GNB>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
+          </GNB>
+          <Navigations>
+            <NavigationMainRoute />
+            <NavigationSubRoute />
+          </Navigations>
+          <Main
+            ContentHeaderComponent={ContentHeaderRoute}
+            CoverableHeaderComponent={CoverableHeaderRoute}
+            SidePanelComponent={SidePanelRoute}
+            SideViewComponent={SideViewComponent}
+            onChangeSideWidth={onChangeWidth}
+          >
+            <Content />
+          </Main>
+        </Client>
+      </Container>
+    </LayoutProvider>
   )
 }
 
