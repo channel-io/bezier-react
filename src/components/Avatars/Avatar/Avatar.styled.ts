@@ -1,8 +1,8 @@
 /* Internal denpendencies */
 import { styled, css, Foundation, smoothCorners } from '../../../foundation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
+import { avatarBorderWidth, avatarBorderRadiusPercentage } from '../constants/AvatarStyle'
 import { AvatarSize } from './Avatar.types'
-import { avatarBorderWidth, avatarBorderRadiusPercentage } from '../constants/AvatarStyle';
 
 interface AvatarProps {
   avatarUrl: string
