@@ -20,7 +20,7 @@ export const hideScrollbars = () => css`
   }
 `
 
-export const ellipsis = (line = 1, lineHeight = 1, unit = 'em') => {
+export const ellipsis = (line = 1, lineHeight = 22, unit = 'px') => {
   if (line <= 1) {
     return css`
         overflow: hidden;
