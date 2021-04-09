@@ -5,13 +5,10 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { Avatar, AvatarSize } from '../Avatar'
+import { AvatarSizeList } from '../Avatar/Avatar.stories'
 import AvatarGroup from './AvatarGroup'
 
-const AvatarSizeList = Object.keys(AvatarSize)
-  .filter(value => Number.isNaN(Number(value)) === true)
-  .map(key => AvatarSize[key])
-
-const MOCK_AVATAR_DATA = [
+const MOCK_AVATAR_LIST = [
   {
     avatarUrl: 'https://bit.ly/code-beast',
     name: 'Christian Nwamba',
@@ -56,7 +53,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: MOCK_AVATAR_DATA.length,
+        max: MOCK_AVATAR_LIST.length,
         step: 1,
       },
     },
@@ -73,7 +70,7 @@ export default {
 
 const Template = (args) => (
   <AvatarGroup {...args}>
-    { MOCK_AVATAR_DATA.map(({ avatarUrl, name }) => (
+    { MOCK_AVATAR_LIST.map(({ avatarUrl, name }) => (
       <Avatar
         avatarUrl={avatarUrl}
         name={name}

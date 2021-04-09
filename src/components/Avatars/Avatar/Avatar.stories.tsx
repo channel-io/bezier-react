@@ -9,9 +9,9 @@ import { StatusType } from '../../Status'
 import Avatar from './Avatar'
 import { AvatarSize } from './Avatar.types'
 
-const PRIMARY_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
+const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
-const AvatarSizeList = Object.keys(AvatarSize)
+export const AvatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
@@ -50,7 +50,7 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  avatarUrl: PRIMARY_AVATAR_URL,
+  avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
   size: AvatarSize.XS,
   showStatus: true,
