@@ -205,6 +205,11 @@ function Overlay(
     }
   }, [onHide])
 
+  const handleClickTarget = useCallback((event: HTMLElementEventMap['click']) => {
+    onHide()
+    event.stopPropagation()
+  }, [onHide])
+
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
     if (event.key === ESCAPE_KEY) {
       onHide()
@@ -331,6 +336,7 @@ function Overlay(
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
+  useEventHandler(target, 'click', handleClickTarget, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
   useEffect(() => {
