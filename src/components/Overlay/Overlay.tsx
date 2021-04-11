@@ -182,6 +182,7 @@ function Overlay(
     marginY = 0,
     keepInContainer = false,
     transition = false,
+    targetClose = true,
     children,
     onHide = noop,
     ...otherProps
@@ -201,9 +202,15 @@ function Overlay(
   const handleHideOverlay = useCallback((event: any) => {
     if (!event.target?.closest(StyledOverlay)) {
       onHide()
-      event.stopPropagation()
+
+      if (targetClose) {
+        event.stopPropagation()
+      }
     }
-  }, [onHide])
+  }, [
+    targetClose,
+    onHide,
+  ])
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
     if (event.key === ESCAPE_KEY) {
