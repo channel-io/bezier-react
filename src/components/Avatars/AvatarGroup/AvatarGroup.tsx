@@ -31,11 +31,11 @@ function AvatarGroup({
   spacing = 4,
   children,
 }: AvatarGroupProps) {
-  const renderAvatarElement = useCallback((avatar: React.ReactElement) => (
+  const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
     React.cloneElement(avatar, {
       key: uuid(),
       size,
-      showBorder: spacing < 0,
+      showBorder: avatar.props.showBorder || spacing < 0,
     })
   ), [
     size,
