@@ -34,7 +34,9 @@ forwardedRef: React.Ref<HTMLDivElement>,
     if (!showStatus) { return null }
 
     return (
-      <StatusWrapper>
+      <StatusWrapper
+        showBorder={showBorder}
+      >
         <Status
           type={status}
         />
@@ -43,6 +45,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   }, [
     status,
     showStatus,
+    showBorder,
     children,
   ])
 

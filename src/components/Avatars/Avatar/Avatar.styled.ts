@@ -1,8 +1,11 @@
 /* Internal denpendencies */
-import { styled, css, Foundation, smoothCorners } from '../../../foundation'
+import { styled, css, smoothCorners } from '../../../foundation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
-import { avatarBorderWidth, avatarBorderRadiusPercentage } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { AvatarSize } from './Avatar.types'
+
+const STATUS_GAP = 2
 
 interface AvatarProps {
   avatarUrl: string
@@ -15,11 +18,47 @@ const disabledStyle = css`
   opacity: ${DisabledOpacity};
 `
 
-function getBorderStyle(foundation?: Foundation) {
-  return `0 0 0 ${avatarBorderWidth}px ${foundation?.theme?.['bg-white-absolute']}`
+/**
+ * NOTE: (@ed) smooth corner가 적용되지 않는 브라우저에서, 보더를 제대로 보여주기 위한 코드입니다.
+ * Safari, Firefox에선 z-index로 수도 엘리먼트와 부모 엘리먼트간의 쌓임 맥락이 제대로 형성되지 않아
+ * "transform-style: perserve-3d" 와 "transform: translateZ(-{n}px)"(AvatarGroup 참고) 로 상하 레이어로 보이도록 했습니다.
+ * https://stackoverflow.com/questions/3032856/is-it-possible-to-set-the-stacking-order-of-pseudo-elements-below-their-parent-e
+ */
+const disableSmoothCornerFallbackBorderStyle = css`
+  transform-style: preserve-3d;
+
+  &::before {
+    position: absolute;
+    top: -${AVATAR_BORDER_WIDTH}px;
+    left: -${AVATAR_BORDER_WIDTH}px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: ${({ foundation }) => `${foundation?.theme?.['bg-white-absolute']}`};
+    border: ${({ foundation }) => `${AVATAR_BORDER_WIDTH}px solid ${foundation?.theme?.['bg-white-absolute']}`};
+    border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
+    transform: translateZ(-1px);
+  }
+`
+
+function calcStatusGap(showBorder: boolean) {
+  return `${showBorder && enableSmoothCorners.current
+    ? (AVATAR_BORDER_WIDTH * 2) - STATUS_GAP
+    : -STATUS_GAP}px`
 }
 
-// TODO: fallback default avatar 설정
+// TODO: Image fallback 처리
+function getDisableSmoothCornerFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
+  return css`
+    background-color: '#EFEFF0';
+    background-image: ${`url(${avatarUrl})`};
+    background-size: cover;
+    border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
+
+    ${showBorder ? disableSmoothCornerFallbackBorderStyle : ''}
+  `
+}
 
 export const StyledAvatar = styled.div<AvatarProps>`
   position: relative;
@@ -30,27 +69,23 @@ export const StyledAvatar = styled.div<AvatarProps>`
   justify-content: center;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  background-color: '#EFEFF0';
-  background-image: ${({ avatarUrl }) => `url(${avatarUrl})`};
-  background-size: cover;
-  border-radius: ${avatarBorderRadiusPercentage}%;
   outline: none;
 
-  ${({ foundation, showBorder }) => (showBorder ? getBorderStyle(foundation) : '')};
+  ${({ avatarUrl, showBorder }) => getDisableSmoothCornerFallbackStyle({ avatarUrl, showBorder })}
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
-    shadow: showBorder ? getBorderStyle(foundation) : undefined,
-    shadowBlur: showBorder ? avatarBorderWidth : 0,
+    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
+    shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
     backgroundColor: '#EFEFF0',
-    borderRadius: `${avatarBorderRadiusPercentage}%`,
+    borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
 
   ${({ disabled }) => (disabled ? disabledStyle : '')};
 `
 
-export const StatusWrapper = styled.div`
+export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
   position: absolute;
-  right: -2px;
-  bottom: -2px;
+  right: ${({ showBorder }) => calcStatusGap(showBorder)};
+  bottom: ${({ showBorder }) => calcStatusGap(showBorder)};
 `

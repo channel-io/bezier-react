@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal denpendencies */
 import { Icon, IconSize } from '../../Icon'
 import { isLastIndex } from '../../../utils/arrayUtils'
-import { AvatarSize } from '../Avatar'
+import { AvatarProps, AvatarSize } from '../Avatar'
 import { StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsis } from './AvatarGroup.styled'
 import { AvatarGroupProps } from './AvatarGroup.types'
 
@@ -64,6 +64,7 @@ function AvatarGroup({
         <AvatarEllipsisWrapper
           key={uuid()}
           spacing={calculatedSpacing}
+          max={max}
         >
           <AvatarEllipsis>
             <Icon
@@ -89,6 +90,7 @@ function AvatarGroup({
     <StyledAvatarGroup
       data-testid={AVATAR_GROUP_TEST_ID}
       spacing={spacing}
+      max={max}
     >
       { AvatarListComponent }
     </StyledAvatarGroup>

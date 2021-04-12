@@ -1,3 +1,3 @@
-export const avatarBorderRadiusPercentage = 42
+export const AVATAR_BORDER_RADIUS_PERCENTAGE = 42
 
-export const avatarBorderWidth = 2
+export const AVATAR_BORDER_WIDTH = 2
