@@ -150,6 +150,7 @@
     "prosemirror-model": "^1.13.0",
     "prosemirror-state": "^1.3.3",
     "prosemirror-view": "^1.16.5",
+    "resize-observer-polyfill": "^1.5.1",
     "ssr-window": "^2.0.0",
     "typesafe-actions": "^5.1.0",
     "uuid": "^8.3.2"

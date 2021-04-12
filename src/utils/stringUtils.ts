@@ -2,6 +2,7 @@
 import {
   isEmpty,
   isString,
+  isNumber,
   map,
   trim,
 } from 'lodash-es'
@@ -56,4 +57,10 @@ export function unescapeTags(str: string): string {
     reHasEscapedHtml.test(str) ?
       str.replace(reEscapedHtml, (entity) => htmlUnescapes[entity]) : str
   )
+}
+
+export function isNumberString(value?: any) {
+  if (isNumber(value)) { return true }
+  if (isString(value)) { return !!((value as string).match(/^(?:-|\+|)?\d+(?:,\d{3})*(?:\.\d+)?$/)) }
+  return false
 }
