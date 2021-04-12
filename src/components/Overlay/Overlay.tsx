@@ -44,7 +44,7 @@ function Overlay(
     marginY = 0,
     keepInContainer = false,
     transition = false,
-    targetClose = true,
+    enableClickOutside = false,
     children,
     onHide = noop,
     ...otherProps
@@ -65,12 +65,12 @@ function Overlay(
     if (!event.target?.closest(StyledOverlay)) {
       onHide()
 
-      if (targetClose) {
+      if (!enableClickOutside) {
         event.stopPropagation()
       }
     }
   }, [
-    targetClose,
+    enableClickOutside,
     onHide,
   ])
 

@@ -15,7 +15,7 @@ export default interface OverlayProps extends UIComponentProps, ChildrenComponen
   marginY?: number
   keepInContainer?: boolean
   transition?: boolean
-  targetClose?: boolean
+  enableClickOutside?: boolean
   onHide?: () => void
 }
 
