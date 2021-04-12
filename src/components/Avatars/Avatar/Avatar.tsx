@@ -1,9 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import _ from 'lodash'
 
 /* Internal denpendencies */
 import { Status, StatusType } from '../../Status'
+import useProgressiveImage from '../../../hooks/useProgressiveImage'
+import DefaultAvatarSvg from '../assets/DefaultAvatar'
 import { StyledAvatar, StatusWrapper } from './Avatar.styled'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 
@@ -25,6 +28,13 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const loadedAvatarUrl = useProgressiveImage(avatarUrl)
+
+  const defaultAvatarUrl = useMemo(() => {
+    const svgString = encodeURIComponent(renderToStaticMarkup(<DefaultAvatarSvg />))
+    return `"data:image/svg+xml,${svgString}"`
+  }, [])
+
   const StatusComponent = useMemo(() => {
     if (children) {
       return React.isValidElement(children) && React.Children.count(children) === 1
@@ -53,7 +63,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     <StyledAvatar
       ref={forwardedRef}
       data-testid={testId}
-      avatarUrl={avatarUrl}
+      avatarUrl={loadedAvatarUrl || defaultAvatarUrl}
       size={size}
       role="img"
       aria-label={name}
