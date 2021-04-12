@@ -50,6 +50,7 @@ function calcStatusGap(showBorder: boolean) {
 
 // TODO: Image fallback 처리
 function getDisableSmoothCornerFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
+  if (enableSmoothCorners.current) { return '' }
   return css`
     background-color: '#EFEFF0';
     background-image: ${`url(${avatarUrl})`};
