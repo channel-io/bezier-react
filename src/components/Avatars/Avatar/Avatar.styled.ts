@@ -72,6 +72,8 @@ export const StyledAvatar = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
+  ${({ disabled }) => (disabled ? disabledStyle : '')};
+
   ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })}
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
@@ -81,8 +83,6 @@ export const StyledAvatar = styled.div<AvatarProps>`
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
-
-  ${({ disabled }) => (disabled ? disabledStyle : '')};
 `
 
 export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
