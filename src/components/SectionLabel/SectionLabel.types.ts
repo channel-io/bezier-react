@@ -4,19 +4,28 @@ import React from 'react'
 /* Internal dependencies */
 import { ThemeKey } from '../../foundation/Theme/ThemeType'
 import { ChildrenComponentProps } from '../../types/ComponentProps'
-import { IconName } from '../Icon'
+import { IconName, IconSize } from '../Icon'
+
+export type SectionLabelHelpProps = {
+  icon?: IconName
+  iconSize?: IconSize
+  iconColor?: ThemeKey
+  tooltipContent: string
+}
+
+export type SectionLabelItemProps = {
+  icon: IconName
+  iconColor?: ThemeKey
+} | {
+  content: React.ReactNode
+}
 
 export default interface SectionLabelProps extends ChildrenComponentProps {
   content?: React.ReactNode
   open?: boolean
-  leftIcon?: IconName
-  leftIconColor?: ThemeKey
-  leftContent?: React.ReactNode
-  rightIcon?: IconName
-  rightIconColor?: ThemeKey
-  rightContent?: React.ReactNode
-  leftPadding?: number
-  contentLeftPadding?: number
+  divider?: boolean
+  help?: SectionLabelHelpProps
+  left?: SectionLabelItemProps
+  right?: SectionLabelItemProps | SectionLabelItemProps[]
   onClick?: (e: React.MouseEvent) => void
-  onClickRightContent?: (e: React.MouseEvent) => void
 }

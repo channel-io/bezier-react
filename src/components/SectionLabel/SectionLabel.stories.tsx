@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useState } from 'react'
-import _ from 'lodash'
 import base from 'paths.macro'
 
 /* Internal dependencies */
@@ -15,6 +14,23 @@ export default {
   component: SectionLabel,
 }
 
+const testNumberLabel = (
+  <div
+    style={{
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      borderRadius: 6,
+      display: 'flex',
+      justifyContent:
+      'center',
+      alignItems: 'center',
+    }}
+  >
+    <Text typo={Typography.Size13}>1</Text>
+  </div>
+)
+
 const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
   const [open, setOpen] = useState(true)
   const toggle = () => setOpen(v => !v)
@@ -25,37 +41,56 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        rightIcon="plus-circle"
-        rightIconColor="bgtxt-teal-normal"
+        right={{
+          icon: 'plus-circle',
+          iconColor: 'bgtxt-teal-normal',
+        }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        rightContent={(
-          <Text typo={Typography.Size13}>5</Text>
-        )}
+        right={{
+          content: (
+            <Text typo={Typography.Size13}>5</Text>
+          ),
+        }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftIcon="star-filled"
+        left={{ icon: 'star-filled' }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftIcon="star-filled"
-        leftIconColor="bgtxt-yellow-normal"
+        left={{
+          icon: 'star-filled',
+          iconColor: 'bgtxt-yellow-normal',
+        }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftContent={(
-          <div style={{ backgroundColor: 'red', width: 20, height: 20 }} />
-        )}
+        left={{
+          content: (
+            <div style={{ backgroundColor: 'red', width: 20, height: 20 }} />
+          ),
+        }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftIcon="star-filled"
+        left={{ icon: 'star-filled' }}
         {...otherSectionLabelProps}
-        content="Teams • 314159265358979"
+        content="Teams • 3141592653589794626"
       />
       <SectionLabel
+        left={{ icon: 'star-filled' }}
+        right={[
+          { content: testNumberLabel },
+          { icon: 'plus-circle-filled' },
+          { icon: 'chevron-up' },
+        ]}
+        {...otherSectionLabelProps}
+        content="Teams • 3141592653589794626"
+      />
+      <SectionLabel
+        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
         open={open}
         onClick={toggle}
@@ -72,7 +107,14 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         />
       </SectionLabel>
       <SectionLabel
-        onClickRightContent={_.noop}
+        help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
+        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        {...otherSectionLabelProps}
+      />
+      <SectionLabel
+        divider
+        help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
+        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
       />
     </div>
