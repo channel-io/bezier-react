@@ -27,5 +27,9 @@ export default interface SectionLabelProps extends ChildrenComponentProps {
   help?: SectionLabelHelpProps
   left?: SectionLabelItemProps
   right?: SectionLabelItemProps | SectionLabelItemProps[]
+  wrapperClassName?: string
+  contentWrapperClassName?: string
+  leftWrapperClassName?: string
+  rightWrapperClassName?: string
   onClick?: (e: React.MouseEvent) => void
 }

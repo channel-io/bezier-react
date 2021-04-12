@@ -55,8 +55,8 @@ const Wrapper = styled.div<{ clickable: boolean }>`
 `
 
 const Divider = styled.div`
-  width: 100%;
   height: 1px;
+  margin: 0 6px;
   background-color: ${({ foundation }) => foundation?.theme?.['bdr-grey-light']};
 `
 

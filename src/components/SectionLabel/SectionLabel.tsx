@@ -18,9 +18,13 @@ function SectionLabel({
   right,
   onClick,
   children,
+  wrapperClassName,
+  contentWrapperClassName,
+  leftWrapperClassName,
+  rightWrapperClassName,
 }: SectionLabelProps) {
   const content = useMemo(() => (
-    <Styled.ContentWrapper>
+    <Styled.ContentWrapper className={contentWrapperClassName}>
       { _.isString(givenContent)
         ? (
           <Styled.ContentText bold typo={Typography.Size13}>
@@ -28,7 +32,10 @@ function SectionLabel({
           </Styled.ContentText>
         ) : givenContent }
     </Styled.ContentWrapper>
-  ), [givenContent])
+  ), [
+    givenContent,
+    contentWrapperClassName,
+  ])
 
   const renderLeftItem = useCallback(
     (item: SectionLabelItemProps) => (
@@ -54,12 +61,13 @@ function SectionLabel({
     const show = !_.isNil(item)
 
     return show && (
-      <Styled.LeftContentWrapper>
+      <Styled.LeftContentWrapper className={leftWrapperClassName}>
         { item }
       </Styled.LeftContentWrapper>
     )
   }, [
     left,
+    leftWrapperClassName,
     renderLeftItem,
   ])
 
@@ -93,12 +101,13 @@ function SectionLabel({
     const show = !_.isEmpty(items)
 
     return show && (
-      <Styled.RightContentWrapper>
+      <Styled.RightContentWrapper className={rightWrapperClassName}>
         { items }
       </Styled.RightContentWrapper>
     )
   }, [
     right,
+    rightWrapperClassName,
     renderRightItem,
   ])
 
@@ -118,6 +127,7 @@ function SectionLabel({
     <div>
       { divider && <Styled.Divider /> }
       <Styled.Wrapper
+        className={wrapperClassName}
         clickable={!_.isNil(onClick)}
         onClick={onClick}
       >
