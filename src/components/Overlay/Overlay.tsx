@@ -16,12 +16,8 @@ import { document } from 'ssr-window'
 import { rootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
-import OverlayProps, {
-  GetOverlayStyleProps,
-  GetOverlayPositionProps,
-  GetOverlayTranslatationProps,
-  OverlayPosition,
-} from './Overlay.types'
+import { getOverlayStyle } from './utils/positionUtils'
+import OverlayProps, { OverlayPosition } from './Overlay.types'
 import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
 
 export const CONTAINER_TEST_ID = 'ch-design-system-container'
@@ -29,140 +25,6 @@ export const WRAPPER_TEST_ID = 'ch-design-system-wrapper'
 export const OVERLAY_TEST_ID = 'ch-design-system-overlay'
 
 const ESCAPE_KEY = 'Escape'
-
-function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
-  if (containerRect && targetRect) {
-    const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
-    const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
-
-    const top = targetTop - clientTop - containerTop + scrollTop
-    const left = targetLeft - clientLeft - containerLeft + scrollLeft
-
-    return { top, left }
-  }
-  return {}
-}
-
-function getOverlayTranslation({
-  containerRect,
-  targetRect,
-  overlay,
-  placement,
-  marginX,
-  marginY,
-  keepInContainer,
-}: GetOverlayTranslatationProps): React.CSSProperties {
-  if (containerRect && targetRect) {
-    const {
-      containerWidth,
-      containerHeight,
-      containerTop,
-      containerLeft,
-    } = containerRect
-    const { targetWidth, targetHeight, targetTop, targetLeft } = targetRect
-    const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
-
-    let translateX = 0
-    let translateY = 0
-
-    // pre position
-    switch (placement) {
-      case OverlayPosition.TopCenter:
-      case OverlayPosition.TopLeft:
-      case OverlayPosition.TopRight:
-        translateY -= (overlayHeight + marginY)
-        translateX += marginX
-        break
-      case OverlayPosition.RightCenter:
-      case OverlayPosition.RightTop:
-      case OverlayPosition.RightBottom:
-        translateX += (targetWidth + marginX)
-        translateY += marginY
-        break
-      case OverlayPosition.BottomCenter:
-      case OverlayPosition.BottomLeft:
-      case OverlayPosition.BottomRight:
-        translateY += (targetHeight + marginY)
-        translateX += marginX
-        break
-      case OverlayPosition.LeftCenter:
-      case OverlayPosition.LeftTop:
-      case OverlayPosition.LeftBottom:
-        translateX -= (overlayWidth + marginX)
-        translateY += marginY
-        break
-    }
-    // post position
-    switch (placement) {
-      case OverlayPosition.TopCenter:
-      case OverlayPosition.BottomCenter:
-        translateX -= ((overlayWidth / 2) - (targetWidth / 2))
-        break
-      case OverlayPosition.TopRight:
-      case OverlayPosition.BottomRight:
-        translateX -= (overlayWidth - targetWidth)
-        break
-      case OverlayPosition.RightCenter:
-      case OverlayPosition.LeftCenter:
-        translateY -= ((overlayHeight / 2) - (targetHeight / 2))
-        break
-      case OverlayPosition.RightBottom:
-      case OverlayPosition.LeftBottom:
-        translateY -= (overlayHeight - targetHeight)
-        break
-    }
-
-    if (keepInContainer) {
-      const isOverTop = targetTop + translateY < containerTop
-      const isOverBottom = targetTop + translateY + overlayHeight > containerTop + containerHeight
-      const isOverLeft = targetLeft + translateX < containerLeft
-      const isOverRight = targetLeft + translateX + overlayWidth > containerLeft + containerWidth
-
-      if (isOverTop || isOverBottom) {
-        translateY = targetHeight - translateY - overlayHeight
-      }
-      if (isOverLeft || isOverRight) {
-        translateX = targetWidth - translateX - overlayWidth
-      }
-    }
-
-    const transform = `translate(${translateX}px, ${translateY}px)`
-    return { transform }
-  }
-  return {}
-}
-
-function getOverlayStyle({
-  containerRect,
-  targetRect,
-  overlay,
-  placement,
-  marginX,
-  marginY,
-  keepInContainer,
-}: GetOverlayStyleProps): React.CSSProperties {
-  if (containerRect && targetRect) {
-    const overlayPositionStyle = getOverlayPosition({ containerRect, targetRect })
-    const overlayTranslateStyle = getOverlayTranslation({
-      containerRect,
-      targetRect,
-      overlay,
-      placement,
-      marginX,
-      marginY,
-      keepInContainer,
-    })
-
-    const combinedStyle = {
-      ...overlayPositionStyle,
-      ...overlayTranslateStyle,
-      willChange: 'left, top',
-    }
-
-    return combinedStyle
-  }
-  return {}
-}
 
 function Overlay(
   {
@@ -182,6 +44,7 @@ function Overlay(
     marginY = 0,
     keepInContainer = false,
     transition = false,
+    enableClickOutside = false,
     children,
     onHide = noop,
     ...otherProps
@@ -201,9 +64,15 @@ function Overlay(
   const handleHideOverlay = useCallback((event: any) => {
     if (!event.target?.closest(StyledOverlay)) {
       onHide()
-      event.stopPropagation()
+
+      if (!enableClickOutside) {
+        event.stopPropagation()
+      }
     }
-  }, [onHide])
+  }, [
+    enableClickOutside,
+    onHide,
+  ])
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
     if (event.key === ESCAPE_KEY) {
@@ -275,9 +144,6 @@ function Overlay(
     otherProps,
   ])
 
-  /* 기존에는 Overlay의 position을 구하기위해 useEffect내에서 getBoundingClientRect를 통해
-  reflow를 일으키던 것을 #285에서 렌더링 전에 reflow를 일으키며 Overlay의 position을 가지고
-  있도록 변경함. 데스크에서 이에 따른 성능문제 없는지 확인필요 */
   const containerRect = useMemo(() => {
     if (!show) {
       return null
