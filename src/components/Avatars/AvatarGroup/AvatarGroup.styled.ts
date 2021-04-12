@@ -21,7 +21,7 @@ const disableSmoothCornersFallbackEllipsisStyle = css`
  * https://stackoverflow.com/questions/3032856/is-it-possible-to-set-the-stacking-order-of-pseudo-elements-below-their-parent-e
  */
 function getAvatarZindexStyle({ spacing, max }: AvatarGroupProps) {
-  if (spacing >= 0 || enableSmoothCorners.current) { return spacing }
+  if (spacing >= 0 || enableSmoothCorners.current) { return '' }
   let result = ''
   for (let i = 0; i < max; i += 1) {
     result += `
@@ -34,7 +34,7 @@ function getAvatarZindexStyle({ spacing, max }: AvatarGroupProps) {
 }
 
 function getAvatarEllipsisZIndexStyle({ spacing, max }: AvatarGroupProps) {
-  if (spacing >= 0) { return spacing }
+  if (spacing >= 0) { return '' }
   return css`
     transform: translateZ(${max - 1}px);
   `
