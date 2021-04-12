@@ -9,7 +9,7 @@ interface AvatarGroupProps {
   max: number
 }
 
-const disableSmoothCornerFallbackEllipsisStyle = css`
+const disableSmoothCornersFallbackEllipsisStyle = css`
   background-color: ${({ foundation }) => foundation?.theme?.['dim-dark']};
   border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
 `
@@ -74,7 +74,7 @@ export const AvatarEllipsis = styled.div`
   height: 100%;
   outline: none;
 
-  ${disableSmoothCornerFallbackEllipsisStyle}
+  ${disableSmoothCornersFallbackEllipsisStyle}
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
