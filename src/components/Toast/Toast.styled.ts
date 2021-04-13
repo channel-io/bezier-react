@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { Foundation, styled, Typography } from '../../foundation'
-import ToastProps, { ActionItemType, Appearance } from './Toast.types'
-import { getIconColor } from './utils'
+import ToastElementProps, { ActionItemType, Appearance, ToastContainerProps } from './Toast.types'
+import { getIconColor, placements } from './utils'
 
 const MAX_HEIGHT = `${(18 * 5)}px`
 
@@ -9,9 +9,23 @@ interface IconProps {
   appearance: Appearance
 }
 
-export const Container = styled.div<ToastProps>`
+export const Container = styled.div<ToastContainerProps>`
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100vh;
+  padding: 8px 16px;
+  overflow: hidden;
+  pointer-events: none;
+  ${({ placement }) => placements(placement)}
+`
+
+export const Element = styled.div<ToastElementProps>`
   position: relative;
-  z-index: 10000000000;
+  z-index: 10000000;
   display: flex;
   align-items: flex-start;
   width: 288px;
@@ -43,7 +57,7 @@ const ellipsisColor = (actionItem?: ActionItemType, foundation?: Foundation) => 
 }
 
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-export const Content = styled.div<ToastProps>`
+export const Content = styled.div<ToastElementProps>`
   display: -webkit-box;
   max-height: ${MAX_HEIGHT};
   margin: 3px 6px;

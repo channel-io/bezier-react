@@ -17,7 +17,7 @@ import {
 } from '../components/Toast/Toast.types'
 import ToastContainer from '../components/Toast/ToastContainer'
 import ToastController from '../components/Toast/ToastController'
-import Toast from '../components/Toast/Toast'
+import ToastElement from '../components/Toast/Toast'
 
 export const ToastContext = createContext<ContextType>({
   add: noop,
@@ -128,7 +128,7 @@ function ToastProvider({
                 actionItem={actionItem}
                 autoDismissTimeout={autoDismissTimeout}
                 content={content}
-                component={Toast}
+                component={ToastElement}
                 placement={placement}
                 transitionDuration={transitionDuration}
                 onDismiss={() => onDismiss(id, onDismissCallback)}

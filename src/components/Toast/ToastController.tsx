@@ -60,7 +60,7 @@ function ToastController({
   autoDismissTimeout,
   transitionDuration,
   placement,
-  component: Toast,
+  component: ToastElement,
   id,
   onDismiss,
   ...props
@@ -86,7 +86,7 @@ function ToastController({
   }, [])
 
   return (
-    <Toast
+    <ToastElement
       key={id}
       transitionDuration={transitionDuration}
       onDismiss={handleDismiss}

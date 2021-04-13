@@ -9,12 +9,12 @@ import { getTitle } from '../../utils/etcUtils'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from '../../contexts/ToastProvider'
 import { useToast } from '../../hooks/useToast'
-import Toast from './Toast'
+import ToastElement from './Toast'
 import ToastProps, { Appearance, Placement } from './Toast.types'
 
 export default {
   title: getTitle(base),
-  component: Toast,
+  component: ToastElement,
   argTypes: {
     placement: {
       control: {

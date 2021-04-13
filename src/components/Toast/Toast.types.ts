@@ -32,7 +32,7 @@ export interface ActionItemType {
   onClick: any
 }
 
-export default interface ToastProps extends UIComponentProps, React.HTMLAttributes<HTMLDivElement> {
+export default interface ToastElementProps extends UIComponentProps, React.HTMLAttributes<HTMLDivElement> {
   appearance?: Appearance
   content: string
   iconName?: IconName
@@ -91,9 +91,9 @@ export type ToastContainerProps = {
   placement: Placement
 }
 
-export type ToastControllerProps = ToastProps & {
+export type ToastControllerProps = ToastElementProps & {
   autoDismiss: boolean
   autoDismissTimeout: number
   placement: Placement
-  component: ComponentType<ToastProps>
+  component: ComponentType<ToastElementProps>
 }

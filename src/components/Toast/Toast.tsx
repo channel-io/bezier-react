@@ -4,9 +4,9 @@ import React, { forwardRef, Ref } from 'react'
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import ToastProps, { Appearance } from './Toast.types'
-import { Container, IconWrapper, Content, Close, ActionContent, NormalContent } from './Toast.styled'
+import { Element, IconWrapper, Content, Close, ActionContent, NormalContent } from './Toast.styled'
 
-const Toast = (
+const ToastElement = (
   {
     as,
     appearance = Appearance.Info,
@@ -20,7 +20,7 @@ const Toast = (
   }: ToastProps,
   forwardedRef: Ref<any>,
 ) => (
-  <Container
+  <Element
     ref={forwardedRef}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
@@ -53,7 +53,7 @@ const Toast = (
         size={IconSize.XS}
       />
     </Close>
-  </Container>
+  </Element>
 )
 
-export default forwardRef(Toast)
+export default forwardRef(ToastElement)
