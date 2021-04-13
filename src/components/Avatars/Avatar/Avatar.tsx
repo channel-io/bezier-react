@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, { forwardRef, isValidElement, useMemo } from 'react'
 import _ from 'lodash'
 
 /* Internal denpendencies */
@@ -13,6 +13,10 @@ import { AvatarSize, AvatarProps } from './Avatar.types'
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 const defaultAvatarUrl = svgToDataUrl(<DefaultAvatarSvg />)
+
+function isValidAvatarChildren(children: {} | null | undefined) {
+  return React.isValidElement(children) && React.Children.count(children) === 1
+}
 
 function Avatar({
   avatarUrl,
@@ -33,26 +37,31 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const loadedAvatarUrl = useProgressiveImage(avatarUrl)
 
   const StatusComponent = useMemo(() => {
-    if (children) {
-      return React.isValidElement(children) && React.Children.count(children) === 1
-        ? children : null
+    if (
+      !showStatus
+      || disabled
+    ) {
+      return null
     }
-
-    if (!showStatus || status === StatusType.NONE) { return null }
 
     return (
       <StatusWrapper
         showBorder={showBorder}
       >
-        <Status
-          type={status}
-        />
+        { isValidAvatarChildren(children)
+          ? children
+          : (
+            <Status
+              type={status}
+            />
+          ) }
       </StatusWrapper>
     )
   }, [
     status,
     showStatus,
     showBorder,
+    disabled,
     children,
   ])
 
@@ -64,7 +73,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       size={size}
       role="img"
       aria-label={name}
-      showBorder={showBorder}
+      showBorder={!disabled && showBorder}
       disabled={disabled}
       onClick={onClick}
       onMouseEnter={onMouseEnter}

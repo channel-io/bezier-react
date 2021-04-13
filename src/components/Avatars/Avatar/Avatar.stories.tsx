@@ -60,3 +60,27 @@ Primary.args = {
   showBorder: false,
   disabled: false,
 }
+
+const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
+  <Wrapper>
+    <Avatar {...args}>
+      <Avatar
+        avatarUrl="https://bit.ly/kent-c-dodds"
+        name="Kent Dodds"
+        size={AvatarSize.XXS}
+        showBorder
+      />
+    </Avatar>
+  </Wrapper>
+)
+
+export const WithCustomStatus: Story<AvatarProps> = TemplateWithCustomStatus.bind({})
+WithCustomStatus.args = {
+  avatarUrl: MOCK_AVATAR_URL,
+  name: 'Channel',
+  size: AvatarSize.L,
+  showStatus: true,
+  status: StatusType.NONE,
+  showBorder: false,
+  disabled: false,
+}
