@@ -4,7 +4,7 @@ import React, { forwardRef, Ref } from 'react'
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import ToastProps, { Appearance } from './Toast.types'
-import { Container, IconWrapper, Content, Close, ActionContent } from './Toast.styled'
+import { Container, IconWrapper, Content, Close, ActionContent, NormalContent } from './Toast.styled'
 
 const Toast = (
   {
@@ -34,8 +34,12 @@ const Toast = (
         size={IconSize.S}
       />
     </IconWrapper>
-    <Content>
-      { content }
+    <Content
+      actionItem={actionItem}
+    >
+      <NormalContent>
+        { content }
+      </NormalContent>
       { ' ' }
       { actionItem && actionItem.content && (
         <ActionContent>

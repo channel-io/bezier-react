@@ -1,15 +1,9 @@
 /* Internal dependencies */
-import { styled, Typography } from '../../foundation'
-import { Appearance } from './Toast.types'
+import { Foundation, styled, Typography } from '../../foundation'
+import ToastProps, { ActionItemType, Appearance } from './Toast.types'
 import { getIconColor } from './utils'
 
 const MAX_HEIGHT = `${(18 * 5)}px`
-
-interface ToastProps {
-  positionX: string
-  positionY: string
-  transitionDuration: number
-}
 
 interface IconProps {
   appearance: Appearance
@@ -41,19 +35,31 @@ export const IconWrapper = styled.div<IconProps>`
   color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
+const ellipsisColor = (actionItem?: ActionItemType, foundation?: Foundation) => {
+  if (actionItem?.content) {
+    return foundation?.subTheme?.['bgtxt-cobalt-normal']
+  }
+  return foundation?.subTheme?.['txt-black-darkest']
+}
+
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-export const Content = styled.div`
+export const Content = styled.div<ToastProps>`
   display: -webkit-box;
   max-height: ${MAX_HEIGHT};
   margin: 3px 6px;
   overflow: hidden;
-  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
+  color: ${({ actionItem, foundation }) => ellipsisColor(actionItem, foundation)};
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   ${Typography.Size14};
 `
 /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+
+export const NormalContent = styled.div`
+  display: inline;
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
+`
 
 export const ActionContent = styled.div`
   display: inline;

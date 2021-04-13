@@ -16,6 +16,27 @@ export default {
   title: getTitle(base),
   component: Toast,
   argTypes: {
+    placement: {
+      control: {
+        type: 'radio',
+        options: [
+          Placement.TopCenter,
+          Placement.TopLeft,
+          Placement.TopRight,
+          Placement.BottomCenter,
+          Placement.BottomLeft,
+          Placement.BottomRight,
+        ],
+      },
+    },
+    transitionDuration: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 1000,
+        step: 10,
+      },
+    },
     content: {
       control: {
         type: 'text',
@@ -32,19 +53,6 @@ export default {
         ],
       },
     },
-    placement: {
-      control: {
-        type: 'radio',
-        options: [
-          Placement.TopCenter,
-          Placement.TopLeft,
-          Placement.TopRight,
-          Placement.BottomCenter,
-          Placement.BottomLeft,
-          Placement.BottomRight,
-        ],
-      },
-    },
     iconName: {
       control: {
         type: 'select',
@@ -57,7 +65,7 @@ export default {
 const Container = styled.div`
   position: relative;
   width: 600px;
-  height: 500px;
+  height: 600px;
   background-color: #ddd;
   border: 1px solid grey;
 `
@@ -85,10 +93,11 @@ function Div({
   )
 }
 
-const Template = ({ placement, appearance, content, iconName, actionItem }) => (
+const Template = ({ placement, transitionDuration, appearance, content, iconName, actionItem }) => (
   <Container id="story-container">
     <ToastProvider
       placement={placement}
+      transitionDuration={transitionDuration}
       portalTargetSelector="#story-container"
     >
       <Div
@@ -105,6 +114,7 @@ export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
   placement: Placement.BottomLeft,
+  transitionDuration: 200,
   appearance: Appearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
