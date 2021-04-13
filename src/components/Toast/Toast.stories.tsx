@@ -1,11 +1,14 @@
 /* External dependencies */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { base } from 'paths.macro'
+import { noop } from 'lodash'
 
 /* Internal depependencies */
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
 import { iconList } from '../Icon/Icon.stories'
+import ToastProvider from '../../contexts/ToastProvider'
+import { useToast } from '../../hooks/useToast'
 import Toast from './Toast'
 import ToastProps, { Appearance, Placement } from './Toast.types'
 
@@ -55,26 +58,58 @@ const Container = styled.div`
   position: relative;
   width: 600px;
   height: 500px;
+  background-color: #ddd;
   border: 1px solid grey;
 `
 
-const Template = ({ ...otherProps }) => (
-  <Container>
-    <Toast
-      {...otherProps}
-    />
+function Div({
+  appearance,
+  content,
+  iconName,
+  actionItem,
+}) {
+  const toast = useToast()
+
+  const handleClick = () => {
+    toast.addToast({ appearance, content, iconName, actionItem })
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(handleClick, [])
+
+  return (
+    <div>
+      <button type="button" onClick={handleClick}>Toast!</button>
+      <button type="button" onClick={() => toast.removeAllToasts()}>RemoveAll!</button>
+    </div>
+  )
+}
+
+const Template = ({ placement, appearance, content, iconName, actionItem }) => (
+  <Container id="story-container">
+    <ToastProvider
+      placement={placement}
+      portalTargetSelector="#story-container"
+    >
+      <Div
+        appearance={appearance}
+        content={content}
+        iconName={iconName}
+        actionItem={actionItem}
+      />
+    </ToastProvider>
   </Container>
 )
 
 export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
-  appearance: Appearance.Info,
   placement: Placement.BottomLeft,
+  appearance: Appearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
   actionItem: {
     content: '새로고침',
-    onClick: null,
+    onClick: noop,
   },
 }

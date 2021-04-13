@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { noop } from 'lodash-es'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 
@@ -31,9 +32,23 @@ export interface ActionItemType {
 }
 
 export default interface ToastProps extends UIComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  placement?: Placement
   appearance?: Appearance
-  iconName: IconName
   content: string
+  iconName?: IconName
   actionItem?: ActionItemType
+  onDismiss: typeof noop
+  onMouseEnter: (e) => void
+  onMouseLeave: (e) => void
+  transitionDuration: number
+  positionX: string
+  positionY: string
+}
+
+export interface ToastProviderProps {
+  autoDismissTimeout?: number
+  globalAutoDismiss?: boolean
+  children?: JSX.Element[] | JSX.Element
+  placement?: Placement
+  portalTargetSelector?: string
+  transitionDuration?: number
 }

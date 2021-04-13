@@ -1,12 +1,14 @@
 /* Internal dependencies */
 import { styled, Typography } from '../../foundation'
-import { Appearance, Placement } from './Toast.types'
-import { getIconColor, placements } from './utils'
+import { Appearance } from './Toast.types'
+import { getIconColor } from './utils'
 
 const MAX_HEIGHT = `${(18 * 5)}px`
 
 interface ToastProps {
-  placement: Placement
+  positionX: string
+  positionY: string
+  transitionDuration: number
 }
 
 interface IconProps {
@@ -14,8 +16,8 @@ interface IconProps {
 }
 
 export const Container = styled.div<ToastProps>`
-  position: absolute;
-  z-index: 1000000;
+  position: relative;
+  z-index: 10000000000;
   display: flex;
   align-items: flex-start;
   width: 288px;
@@ -23,9 +25,10 @@ export const Container = styled.div<ToastProps>`
   margin: 16px;
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation.ev3()};
-
+  pointer-events: auto;
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
-  ${props => placements[props.placement]}
+  transition-duration: ${({ transitionDuration }) => transitionDuration / 1000}s;
+  transform: translate(${({ positionX, positionY }) => `${positionX}, ${positionY}`});
 `
 
 export const IconWrapper = styled.div<IconProps>`

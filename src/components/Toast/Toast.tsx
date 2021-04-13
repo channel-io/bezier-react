@@ -3,50 +3,53 @@ import React, { forwardRef, Ref } from 'react'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
-import ToastProps, { Appearance, Placement } from './Toast.types'
+import ToastProps, { Appearance } from './Toast.types'
 import { Container, IconWrapper, Content, Close, ActionContent } from './Toast.styled'
 
-function Toast(
+const Toast = (
   {
-    placement = Placement.BottomLeft,
+    as,
     appearance = Appearance.Info,
     content = '',
     iconName = 'info-filled',
     actionItem,
-    as,
+    onMouseEnter,
+    onMouseLeave,
+    onDismiss,
     ...props
   }: ToastProps,
   forwardedRef: Ref<any>,
-) {
-  return (
-    <Container
-      placement={placement}
-      ref={forwardedRef}
-      {...props}
+) => (
+  <Container
+    ref={forwardedRef}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    {...props}
+  >
+    <IconWrapper
+      appearance={appearance}
     >
-      <IconWrapper
-        appearance={appearance}
-      >
-        <Icon
-          name={iconName}
-          size={IconSize.S}
-        />
-      </IconWrapper>
-      <Content>
-        { content }
-        { ' ' }
+      <Icon
+        name={iconName}
+        size={IconSize.S}
+      />
+    </IconWrapper>
+    <Content>
+      { content }
+      { ' ' }
+      { actionItem && actionItem.content && (
         <ActionContent>
           { ` ${actionItem?.content}` }
         </ActionContent>
-      </Content>
-      <Close>
-        <Icon
-          name="cancel"
-          size={IconSize.XS}
-        />
-      </Close>
-    </Container>
-  )
-}
+      ) }
+    </Content>
+    <Close onClick={onDismiss}>
+      <Icon
+        name="cancel"
+        size={IconSize.XS}
+      />
+    </Close>
+  </Container>
+)
 
 export default forwardRef(Toast)

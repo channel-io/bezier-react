@@ -1,5 +1,5 @@
 import { css } from '../../../foundation'
-import { Appearance, IconColor } from '../Toast.types'
+import { Appearance, IconColor, Placement } from '../Toast.types'
 
 function getIconColor(appearance: Appearance): string {
   switch (appearance) {
@@ -15,33 +15,42 @@ function getIconColor(appearance: Appearance): string {
   }
 }
 
-const placements = {
-  topLeft: css`
-    top: 0;
-    left: 0;
-  `,
-  topCenter: css`
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `,
-  topRight: css`
-    top: 0;
-    right: 0;
-  `,
-  bottomLeft: css`
-    bottom: 0;
-    left: 0;
-  `,
-  bottomCenter: css`
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `,
-  bottomRight: css`
-    right: 0;
-    bottom: 0;
-  `,
+function placements(placement: Placement) {
+  switch (placement) {
+    case Placement.TopCenter:
+      return css`
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        `
+    case Placement.TopRight:
+      return css`
+          top: 0;
+          right: 0;
+        `
+    case Placement.TopLeft:
+      return css`
+          top: 0;
+          left: 0;
+        `
+    case Placement.BottomCenter:
+      return css`
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        `
+    case Placement.BottomRight:
+      return css`
+          right: 0;
+          bottom: 0;
+        `
+    case Placement.BottomLeft:
+    default:
+      return css`
+        bottom: 0;
+        left: 0;
+      `
+  }
 }
 
 export {
