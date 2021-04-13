@@ -16,7 +16,7 @@ const disableSmoothCornersFallbackEllipsisStyle = css`
 
 /**
  * NOTE: (@ed) smooth corner가 적용되지 않는 브라우저에서, 보더를 제대로 보여주기 위한 코드입니다.
- * Safari, Firefox에선 z-index로 수도 엘리먼트와 부모 엘리먼트간의 쌓임 맥락이 제대로 형성되지 않아
+ * z-index로 수도 엘리먼트와 부모 엘리먼트간의 쌓임 맥락이 제대로 형성되지 않아
  * "transform-style: perserve-3d"(Avatar 참고)와 transform: translateZ(-{n}px)로 상하 레이어로 보이도록 했습니다.
  * https://stackoverflow.com/questions/3032856/is-it-possible-to-set-the-stacking-order-of-pseudo-elements-below-their-parent-e
  */
