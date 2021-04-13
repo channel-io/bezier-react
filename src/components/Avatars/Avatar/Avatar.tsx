@@ -38,7 +38,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
         ? children : null
     }
 
-    if (!showStatus) { return null }
+    if (!showStatus || status === StatusType.NONE) { return null }
 
     return (
       <StatusWrapper
