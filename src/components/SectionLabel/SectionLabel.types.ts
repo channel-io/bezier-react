@@ -2,6 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
+import type { css } from '../../foundation'
 import { ThemeKey } from '../../foundation/Theme/ThemeType'
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 import { IconName, IconSize } from '../Icon'
@@ -21,6 +22,8 @@ export type SectionLabelItemProps = {
   content: React.ReactElement
 }
 
+type InjectedInterpolation = ReturnType<typeof css>
+
 export default interface SectionLabelProps extends ChildrenComponentProps {
   content?: React.ReactNode
   open?: boolean
@@ -29,8 +32,12 @@ export default interface SectionLabelProps extends ChildrenComponentProps {
   left?: SectionLabelItemProps
   right?: SectionLabelItemProps | SectionLabelItemProps[]
   wrapperClassName?: string
+  wrapperInterpolation?: InjectedInterpolation
   contentWrapperClassName?: string
+  contentWrapperInterpolation?: InjectedInterpolation
   leftWrapperClassName?: string
+  leftWrapperInterpolation?: InjectedInterpolation
   rightWrapperClassName?: string
+  rightWrapperInterpolation?: InjectedInterpolation
   onClick?: (e: React.MouseEvent) => void
 }

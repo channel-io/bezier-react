@@ -1,7 +1,11 @@
 /* Internal dependencies */
-import { styled } from '../../foundation'
+import { styled, css } from '../../foundation'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
+
+interface WithInterpolation {
+  interpolation?: ReturnType<typeof css>
+}
 
 interface ClickableElementProps {
   clickable: boolean
@@ -17,10 +21,12 @@ const LeftIcon = styled(Icon)<ClickableElementProps>`
   ${({ clickable }) => clickableElementStyle(clickable)}
 `
 
-const LeftContentWrapper = styled.div`
+const LeftContentWrapper = styled.div<WithInterpolation>`
   display: flex;
   align-items: center;
   padding-left: 6px;
+
+  ${({ interpolation }) => interpolation}
 `
 
 const ContentText = styled(Text)`
@@ -30,11 +36,13 @@ const ContentText = styled(Text)`
   white-space: nowrap;
 `
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<WithInterpolation>`
   display: flex;
   align-items: center;
   padding-left: 6px;
   overflow: hidden;
+
+  ${({ interpolation }) => interpolation}
 `
 
 const HelpIconWrapper = styled.div`
@@ -43,11 +51,13 @@ const HelpIconWrapper = styled.div`
   margin-left: 8px;
 `
 
-const RightContentWrapper = styled.div`
+const RightContentWrapper = styled.div<WithInterpolation>`
   display: flex;
   align-items: center;
   padding-left: 6px;
   margin: 0 6px 0 auto;
+
+  ${({ interpolation }) => interpolation}
 `
 
 const RightItemWrapper = styled.div<ClickableElementProps>`
@@ -64,12 +74,14 @@ const ChildrenWrapper = styled.div<{ show: boolean }>`
   display: ${({ show }) => (show ? 'unset' : 'none')};
 `
 
-const Wrapper = styled.div<ClickableElementProps>`
+const Wrapper = styled.div<ClickableElementProps & WithInterpolation>`
   display: flex;
   align-items: center;
   height: 28px;
 
   ${({ clickable }) => clickableElementStyle(clickable)}
+
+  ${({ interpolation }) => interpolation}
 `
 
 const Divider = styled.div`

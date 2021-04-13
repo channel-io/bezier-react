@@ -4,7 +4,7 @@ import base from 'paths.macro'
 import _ from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
+import { css, Typography } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
 import { ListItem } from '../List/ListItem'
 import { Text } from '../Text'
@@ -31,6 +31,10 @@ const testNumberLabel = (
     <Text typo={Typography.Size13}>1</Text>
   </div>
 )
+
+const testWrapperInterpolation = css`
+  background-color: red;
+`
 
 const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
   const [open, setOpen] = useState(true)
@@ -115,8 +119,8 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
         right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        wrapperInterpolation={testWrapperInterpolation}
         {...otherSectionLabelProps}
       />
     </div>

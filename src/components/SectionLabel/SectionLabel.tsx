@@ -20,12 +20,19 @@ function SectionLabel({
   onClick,
   children,
   wrapperClassName,
+  wrapperInterpolation,
   contentWrapperClassName,
+  contentWrapperInterpolation,
   leftWrapperClassName,
+  leftWrapperInterpolation,
   rightWrapperClassName,
+  rightWrapperInterpolation,
 }: SectionLabelProps) {
   const content = useMemo(() => (
-    <Styled.ContentWrapper className={contentWrapperClassName}>
+    <Styled.ContentWrapper
+      className={contentWrapperClassName}
+      interpolation={contentWrapperInterpolation}
+    >
       { _.isString(givenContent)
         ? (
           <Styled.ContentText bold typo={Typography.Size13}>
@@ -36,6 +43,7 @@ function SectionLabel({
   ), [
     givenContent,
     contentWrapperClassName,
+    contentWrapperInterpolation,
   ])
 
   const renderLeftItem = useCallback(
@@ -64,13 +72,17 @@ function SectionLabel({
     const show = !_.isNil(item)
 
     return show && (
-      <Styled.LeftContentWrapper className={leftWrapperClassName}>
+      <Styled.LeftContentWrapper
+        className={leftWrapperClassName}
+        interpolation={leftWrapperInterpolation}
+      >
         { item }
       </Styled.LeftContentWrapper>
     )
   }, [
     left,
     leftWrapperClassName,
+    leftWrapperInterpolation,
     renderLeftItem,
   ])
 
@@ -108,13 +120,17 @@ function SectionLabel({
     const show = !_.isEmpty(items)
 
     return show && (
-      <Styled.RightContentWrapper className={rightWrapperClassName}>
+      <Styled.RightContentWrapper
+        className={rightWrapperClassName}
+        interpolation={rightWrapperInterpolation}
+      >
         { items }
       </Styled.RightContentWrapper>
     )
   }, [
     right,
     rightWrapperClassName,
+    rightWrapperInterpolation,
     renderRightItem,
   ])
 
@@ -137,6 +153,7 @@ function SectionLabel({
         className={wrapperClassName}
         clickable={!_.isNil(onClick)}
         onClick={onClick}
+        interpolation={wrapperInterpolation}
       >
         { leftContent }
         { content }
