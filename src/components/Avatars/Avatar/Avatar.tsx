@@ -1,18 +1,18 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { renderToStaticMarkup } from 'react-dom/server'
 import _ from 'lodash'
 
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
+import { svgToDataUrl } from '../../../utils/svgUtils'
 import { Status, StatusType } from '../../Status'
 import { StyledAvatar, StatusWrapper } from './Avatar.styled'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
-const defaultAvatarUrl = `"data:image/svg+xml,${encodeURIComponent(renderToStaticMarkup(<DefaultAvatarSvg />))}"`
+const defaultAvatarUrl = svgToDataUrl(<DefaultAvatarSvg />)
 
 function Avatar({
   avatarUrl,
