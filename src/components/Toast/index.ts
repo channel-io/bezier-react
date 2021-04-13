@@ -1,5 +1,6 @@
 /* Internal dependencies */
-import Toast from './Toast'
+import ToastProvider from '../../contexts/ToastProvider'
+import { useToast } from '../../hooks/useToast'
 import ToastProps, {
   Placement as ToastPlacement,
   Appearance as ToastAppearance,
@@ -11,7 +12,8 @@ export type {
 }
 
 export {
-  Toast,
+  ToastProvider,
+  useToast,
   ToastPlacement,
   ToastAppearance,
   ToastIconColor,

@@ -1,4 +1,7 @@
+/* External dependencies */
 import React from 'react'
+
+/* Internal dependencies */
 import { styled } from '../../foundation'
 import { ToastContainerProps } from './Toast.types'
 import { placements } from './utils'

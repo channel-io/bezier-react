@@ -17,7 +17,7 @@ import {
 } from '../components/Toast/Toast.types'
 import ToastContainer from '../components/Toast/ToastContainer'
 import ToastController from '../components/Toast/ToastController'
-import { Toast } from '../components/Toast'
+import Toast from '../components/Toast/Toast'
 
 export const ToastContext = createContext<ContextType>({
   add: noop,
