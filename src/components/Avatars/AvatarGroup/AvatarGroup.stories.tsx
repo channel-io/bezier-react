@@ -1,10 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { Avatar, AvatarSize } from '../Avatar'
+import { AvatarGroupProps } from './AvatarGroup.types'
 import AvatarGroup from './AvatarGroup'
 
 const MOCK_AVATAR_LIST = [
@@ -69,12 +71,13 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = (args) => (
+const Template: Story<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>
     { MOCK_AVATAR_LIST.map(({ avatarUrl, name }) => (
       <Avatar
+        key={name}
         avatarUrl={avatarUrl}
         name={name}
       />
@@ -82,7 +85,7 @@ const Template = (args) => (
   </AvatarGroup>
 )
 
-export const Primary = Template.bind({})
+export const Primary: Story<AvatarGroupProps> = Template.bind({})
 Primary.args = {
   max: 5,
   size: AvatarSize.XS,

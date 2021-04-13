@@ -1,13 +1,14 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/etcUtils'
 import { StatusType } from '../../Status'
 import Avatar from './Avatar'
-import { AvatarSize } from './Avatar.types'
+import { AvatarProps, AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
@@ -32,23 +33,24 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 8px;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template = (args) => (
+const Template: Story<AvatarProps> = (args) => (
   <Wrapper>
     <Avatar {...args} />
   </Wrapper>
 )
 
-export const Primary = Template.bind({})
+export const Primary: Story<AvatarProps> = Template.bind({})
 Primary.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
