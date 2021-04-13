@@ -60,6 +60,7 @@ function AvatarGroup({
     return slicedAvatarList.map((avatar, index, arr) => {
       if (!React.isValidElement(avatar)) { return null }
       if (!isLastIndex(arr, index)) { return renderAvatarElement(avatar) }
+
       return (
         <AvatarEllipsisWrapper
           key={uuid()}

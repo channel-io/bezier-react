@@ -40,7 +40,7 @@ const MOCK_AVATAR_LIST = [
   },
 ]
 
-const AvatarSizeList = Object.keys(AvatarSize)
+const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
@@ -51,7 +51,7 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: AvatarSizeList,
+        options: avatarSizeList,
       },
     },
     max: {

@@ -12,9 +12,12 @@ import { AvatarProps, AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
-const AvatarSizeList = Object.keys(AvatarSize)
+const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
+
+const statusTypeList = Object.keys(StatusType)
+  .map(key => StatusType[key])
 
 export default {
   title: getTitle(base),
@@ -23,13 +26,16 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: AvatarSizeList,
+        options: avatarSizeList,
       },
     },
     status: {
       control: {
         type: 'radio',
-        options: StatusType,
+        options: [
+          undefined,
+          ...statusTypeList,
+        ],
       },
     },
   },
@@ -55,8 +61,6 @@ Primary.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
   size: AvatarSize.XS,
-  showStatus: true,
-  status: StatusType.NONE,
   showBorder: false,
   disabled: false,
 }
@@ -79,8 +83,6 @@ WithCustomStatus.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
   size: AvatarSize.L,
-  showStatus: true,
-  status: StatusType.NONE,
   showBorder: false,
   disabled: false,
 }

@@ -1,22 +1,18 @@
 /* External dependencies */
-import React, { forwardRef, isValidElement, useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import _ from 'lodash'
 
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
 import { svgToDataUrl } from '../../../utils/svgUtils'
-import { Status, StatusType } from '../../Status'
+import { Status } from '../../Status'
 import { StyledAvatar, StatusWrapper } from './Avatar.styled'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 const defaultAvatarUrl = svgToDataUrl(<DefaultAvatarSvg />)
-
-function isValidAvatarChildren(children: {} | null | undefined) {
-  return React.isValidElement(children) && React.Children.count(children) === 1
-}
 
 function Avatar({
   avatarUrl,
@@ -25,8 +21,7 @@ function Avatar({
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
-  status = StatusType.NONE,
-  showStatus = false,
+  status,
   onClick = _.noop,
   onMouseEnter = _.noop,
   onMouseLeave = _.noop,
@@ -38,28 +33,32 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   const StatusComponent = useMemo(() => {
     if (
-      !showStatus
-      || disabled
+      disabled
+      || (_.isEmpty(children) && !status)
+      || (children && !React.isValidElement(children))
     ) {
       return null
     }
+
+    const Contents = (() => {
+      if (children) { return children }
+      if (status) {
+        return (
+          <Status type={status} />
+        )
+      }
+      return null
+    })()
 
     return (
       <StatusWrapper
         showBorder={showBorder}
       >
-        { isValidAvatarChildren(children)
-          ? children
-          : (
-            <Status
-              type={status}
-            />
-          ) }
+        { Contents }
       </StatusWrapper>
     )
   }, [
     status,
-    showStatus,
     showBorder,
     disabled,
     children,

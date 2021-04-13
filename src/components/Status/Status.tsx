@@ -8,10 +8,8 @@ import { StatusType, StatusProps } from './Status.types'
 export const STATUS_TEST_ID = 'ch-design-system-status'
 
 function Status({
-  type = StatusType.NONE,
+  type,
 }: StatusProps) {
-  if (type === StatusType.NONE) { return null }
-
   if (type === StatusType.PRIVATE) {
     return (
       <StatusCircle

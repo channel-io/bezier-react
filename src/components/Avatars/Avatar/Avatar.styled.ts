@@ -51,7 +51,7 @@ function calcStatusGap(showBorder: boolean) {
 function getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
   if (enableSmoothCorners.current) { return '' }
   return css`
-    background-color: '#EFEFF0';
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
     background-image: ${`url(${avatarUrl})`};
     background-size: cover;
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
@@ -78,7 +78,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: '#EFEFF0',
+    backgroundColor: `${foundation?.theme?.['bg-grey-light']}`,
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
