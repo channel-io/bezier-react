@@ -14,7 +14,7 @@ export enum AvatarSize {
 }
 
 export interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {
-  src: string
+  avatarUrl: string
   name?: string
   testId?: string
   size?: AvatarSize
