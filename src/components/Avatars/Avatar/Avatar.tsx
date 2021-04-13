@@ -4,13 +4,15 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import _ from 'lodash'
 
 /* Internal denpendencies */
-import { Status, StatusType } from '../../Status'
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
+import { Status, StatusType } from '../../Status'
 import { StyledAvatar, StatusWrapper } from './Avatar.styled'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
+
+const defaultAvatarUrl = `"data:image/svg+xml,${encodeURIComponent(renderToStaticMarkup(<DefaultAvatarSvg />))}"`
 
 function Avatar({
   avatarUrl,
@@ -29,11 +31,6 @@ function Avatar({
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const loadedAvatarUrl = useProgressiveImage(avatarUrl)
-
-  const defaultAvatarUrl = useMemo(() => {
-    const svgString = encodeURIComponent(renderToStaticMarkup(<DefaultAvatarSvg />))
-    return `"data:image/svg+xml,${svgString}"`
-  }, [])
 
   const StatusComponent = useMemo(() => {
     if (children) {
