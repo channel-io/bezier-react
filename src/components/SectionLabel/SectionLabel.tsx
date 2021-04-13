@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
 import _ from 'lodash-es'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
@@ -42,10 +43,12 @@ function SectionLabel({
       'content' in item
         ? item.content
         : (
-          <Icon
+          <Styled.LeftIcon
             name={item.icon}
             size={IconSize.S}
             color={item.iconColor ?? 'txt-black-dark'}
+            clickable={!_.isNil(item.onClick)}
+            onClick={item.onClick}
           />
         )
     ),
@@ -72,18 +75,23 @@ function SectionLabel({
   ])
 
   const renderRightItem = useCallback(
-    (item: SectionLabelItemProps, index: number) => (
-      <Styled.RightItemWrapper key={index}>
-        { 'content' in item
-          ? item.content
-          : (
-            <Icon
-              name={item.icon}
-              size={IconSize.XS}
-              color={item.iconColor ?? 'txt-black-dark'}
-            />
-          ) }
-      </Styled.RightItemWrapper>
+    (item: SectionLabelItemProps, key?: string) => (
+      'content' in item ? React.cloneElement(
+        item.content,
+        { key },
+      ) : (
+        <Styled.RightItemWrapper
+          key={key}
+          clickable={!_.isNil(item.onClick)}
+          onClick={item.onClick}
+        >
+          <Icon
+            name={item.icon}
+            size={IconSize.XS}
+            color={item.iconColor ?? 'txt-black-dark'}
+          />
+        </Styled.RightItemWrapper>
+      )
     ),
     [],
   )
@@ -93,11 +101,10 @@ function SectionLabel({
       return null
     }
 
-    const items = _.compact(
-      _.isArray(right)
-        ? right.map(renderRightItem)
-        : [right].map(renderRightItem),
-    )
+    const items = _.isArray(right)
+      ? right.map((item) => renderRightItem(item, uuid()))
+      : renderRightItem(right)
+
     const show = !_.isEmpty(items)
 
     return show && (

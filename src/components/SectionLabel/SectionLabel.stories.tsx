@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
+import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
@@ -17,7 +18,7 @@ export default {
 const testNumberLabel = (
   <div
     style={{
-      width: '100%',
+      width: '30px',
       height: '100%',
       backgroundColor: 'rgba(0, 0, 0, 0.05)',
       borderRadius: 6,
@@ -44,6 +45,7 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         right={{
           icon: 'plus-circle',
           iconColor: 'bgtxt-teal-normal',
+          onClick: _.noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -63,6 +65,7 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         left={{
           icon: 'star-filled',
           iconColor: 'bgtxt-yellow-normal',
+          onClick: _.noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -83,8 +86,8 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         left={{ icon: 'star-filled' }}
         right={[
           { content: testNumberLabel },
-          { icon: 'plus-circle-filled' },
-          { icon: 'chevron-up' },
+          { icon: 'plus-circle-filled', onClick: _.noop },
+          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: _.noop },
         ]}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"
@@ -112,7 +115,6 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        divider
         help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
         right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
@@ -125,6 +127,7 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   content: 'Teams • 6',
+  divider: false,
   listItemProps: {
     paddingLeft: 6,
   },

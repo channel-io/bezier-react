@@ -1,6 +1,21 @@
 /* Internal dependencies */
 import { styled } from '../../foundation'
+import { Icon } from '../Icon'
 import { Text } from '../Text'
+
+interface ClickableElementProps {
+  clickable: boolean
+}
+
+function clickableElementStyle(clickable: boolean): string | false {
+  return clickable && `
+  cursor: pointer;
+  `
+}
+
+const LeftIcon = styled(Icon)<ClickableElementProps>`
+  ${({ clickable }) => clickableElementStyle(clickable)}
+`
 
 const LeftContentWrapper = styled.div`
   display: flex;
@@ -35,23 +50,26 @@ const RightContentWrapper = styled.div`
   margin: 0 6px 0 auto;
 `
 
-const RightItemWrapper = styled.div`
+const RightItemWrapper = styled.div<ClickableElementProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
+
+  ${({ clickable }) => clickableElementStyle(clickable)}
 `
 
 const ChildrenWrapper = styled.div<{ show: boolean }>`
   display: ${({ show }) => (show ? 'unset' : 'none')};
 `
 
-const Wrapper = styled.div<{ clickable: boolean }>`
+const Wrapper = styled.div<ClickableElementProps>`
   display: flex;
   align-items: center;
   height: 28px;
-  ${({ clickable }) => clickable && 'cursor: pointer;'}
+
+  ${({ clickable }) => clickableElementStyle(clickable)}
 `
 
 const Divider = styled.div`
@@ -61,6 +79,7 @@ const Divider = styled.div`
 `
 
 export default {
+  LeftIcon,
   LeftContentWrapper,
   ContentText,
   ContentWrapper,

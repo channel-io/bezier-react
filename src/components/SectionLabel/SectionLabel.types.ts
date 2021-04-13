@@ -16,8 +16,9 @@ export type SectionLabelHelpProps = {
 export type SectionLabelItemProps = {
   icon: IconName
   iconColor?: ThemeKey
+  onClick?(e: React.MouseEvent): void
 } | {
-  content: React.ReactNode
+  content: React.ReactElement
 }
 
 export default interface SectionLabelProps extends ChildrenComponentProps {
