@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import _ from 'lodash'
+import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
@@ -22,9 +22,9 @@ function Avatar({
   disabled = false,
   showBorder = false,
   status,
-  onClick = _.noop,
-  onMouseEnter = _.noop,
-  onMouseLeave = _.noop,
+  onClick = noop,
+  onMouseEnter = noop,
+  onMouseLeave = noop,
   children,
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
@@ -34,7 +34,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const StatusComponent = useMemo(() => {
     if (
       disabled
-      || (_.isEmpty(children) && !status)
+      || (isEmpty(children) && !status)
       || (children && !React.isValidElement(children))
     ) {
       return null
