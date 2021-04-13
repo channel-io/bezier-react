@@ -5,42 +5,19 @@ import { v4 as uuid } from 'uuid'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { ActionItemType, Appearance, Placement, ToastProviderProps } from '../components/Toast/Toast.types'
+import {
+  Callback,
+  ContextType,
+  defaultOptions,
+  Options,
+  Placement,
+  ToastId,
+  ToastProviderProps,
+  ToastType,
+} from '../components/Toast/Toast.types'
 import ToastContainer from '../components/Toast/ToastContainer'
 import ToastController from '../components/Toast/ToastController'
 import { Toast } from '../components/Toast'
-import { IconName } from '../components/Icon'
-
-export type ToastId = string
-
-export type Callback = (id: ToastId) => void
-
-export type ToastType = Options & { id: ToastId }
-
-export type Options = {
-  content: string
-  iconName?: IconName
-  appearance?: Appearance
-  actionItem?: ActionItemType
-  autoDismiss?: boolean
-  onDismissCallback?: Callback
-}
-
-const defaultOptions: Options = {
-  content: '안내 문구입니다.',
-  iconName: 'info-filled',
-  appearance: Appearance.Info,
-  autoDismiss: false,
-  onDismissCallback: noop,
-}
-
-interface ContextType {
-  add: (options: Options) => void
-  remove: (id:ToastId) => void
-  removeAll: () => void
-  update: (id: ToastId, options: Options) => void
-  toasts: ToastType[]
-}
 
 export const ToastContext = createContext<ContextType>({
   add: noop,

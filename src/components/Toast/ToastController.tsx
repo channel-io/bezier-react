@@ -1,15 +1,9 @@
 /* External dependencies */
-import React, { ComponentType, useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import ToastProps, { Placement } from './Toast.types'
-
-type ToastControllerProps = ToastProps & {
-  autoDismiss: boolean
-  autoDismissTimeout: number
-  placement: Placement
-  component: ComponentType<ToastProps> }
+import { Placement, ToastControllerProps } from './Toast.types'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class Timer {

@@ -1,19 +1,9 @@
 import React from 'react'
 import { styled } from '../../foundation'
-import { Placement } from './Toast.types'
+import { ToastContainerProps } from './Toast.types'
 import { placements } from './utils'
 
-export type ToastContainerProps = {
-  children?: JSX.Element[]
-  hasToasts: boolean
-  placement: Placement
-}
-
-interface ContainerProps {
-  placement: Placement
-}
-
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<ToastContainerProps>`
   position: absolute;
   bottom: 0;
   z-index: 1000000;
@@ -35,6 +25,7 @@ const ToastContainer = ({
 }: ToastContainerProps) => (
   <Container
     placement={placement}
+    hasToasts={hasToasts}
     {...props}
   />
 )

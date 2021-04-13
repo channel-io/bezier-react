@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { noop } from 'lodash-es'
+import { ComponentType } from 'react'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 
@@ -51,4 +52,48 @@ export interface ToastProviderProps {
   placement?: Placement
   portalTargetSelector?: string
   transitionDuration?: number
+}
+
+export type ToastId = string
+
+export type Callback = (id: ToastId) => void
+
+export type Options = {
+  content: string
+  iconName?: IconName
+  appearance?: Appearance
+  actionItem?: ActionItemType
+  autoDismiss?: boolean
+  onDismissCallback?: Callback
+}
+
+export const defaultOptions: Options = {
+  content: '안내 문구입니다.',
+  iconName: 'info-filled',
+  appearance: Appearance.Info,
+  autoDismiss: false,
+  onDismissCallback: noop,
+}
+
+export type ToastType = Options & { id: ToastId }
+
+export interface ContextType {
+  add: (options: Options) => void
+  remove: (id:ToastId) => void
+  removeAll: () => void
+  update: (id: ToastId, options: Options) => void
+  toasts: ToastType[]
+}
+
+export type ToastContainerProps = {
+  children?: JSX.Element[]
+  hasToasts: boolean
+  placement: Placement
+}
+
+export type ToastControllerProps = ToastProps & {
+  autoDismiss: boolean
+  autoDismissTimeout: number
+  placement: Placement
+  component: ComponentType<ToastProps>
 }
