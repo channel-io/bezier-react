@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import _ from 'lodash-es'
+import { isNil, isArray, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -33,7 +33,7 @@ function SectionLabel({
       className={contentWrapperClassName}
       interpolation={contentWrapperInterpolation}
     >
-      { _.isString(givenContent)
+      { isString(givenContent)
         ? (
           <Styled.ContentText bold typo={Typography.Size13}>
             { givenContent }
@@ -55,7 +55,7 @@ function SectionLabel({
             name={item.icon}
             size={IconSize.S}
             color={item.iconColor ?? 'txt-black-dark'}
-            clickable={!_.isNil(item.onClick)}
+            clickable={!isNil(item.onClick)}
             onClick={item.onClick}
           />
         )
@@ -64,12 +64,12 @@ function SectionLabel({
   )
 
   const leftContent = useMemo(() => {
-    if (_.isNil(left)) {
+    if (isNil(left)) {
       return null
     }
 
     const item = renderLeftItem(left)
-    const show = !_.isNil(item)
+    const show = !isNil(item)
 
     return show && (
       <Styled.LeftContentWrapper
@@ -94,7 +94,7 @@ function SectionLabel({
       ) : (
         <Styled.RightItemWrapper
           key={key}
-          clickable={!_.isNil(item.onClick)}
+          clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         >
           <Icon
@@ -109,15 +109,15 @@ function SectionLabel({
   )
 
   const rightContent = useMemo(() => {
-    if (_.isNil(right)) {
+    if (isNil(right)) {
       return null
     }
 
-    const items = _.isArray(right)
+    const items = isArray(right)
       ? right.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(right)
 
-    const show = !_.isEmpty(right)
+    const show = !isEmpty(right)
 
     return show && (
       <Styled.RightContentWrapper
@@ -134,7 +134,7 @@ function SectionLabel({
     renderRightItem,
   ])
 
-  const helpContent = useMemo(() => !_.isNil(help) && (
+  const helpContent = useMemo(() => !isNil(help) && (
     <Tooltip content={help.tooltipContent}>
       <Styled.HelpIconWrapper>
         <Icon
@@ -151,7 +151,7 @@ function SectionLabel({
       { divider && <Styled.Divider /> }
       <Styled.Wrapper
         className={wrapperClassName}
-        clickable={!_.isNil(onClick)}
+        clickable={!isNil(onClick)}
         onClick={onClick}
         interpolation={wrapperInterpolation}
       >
