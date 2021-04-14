@@ -7,11 +7,14 @@ import { AvatarSize } from './Avatar.types'
 
 const STATUS_GAP = 2
 
+interface AvatarWrapperProps {
+  disabled: boolean
+}
+
 interface AvatarProps {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
-  disabled: boolean
 }
 
 const disabledStyle = css`
@@ -63,8 +66,6 @@ export const StyledAvatar = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ disabled }) => (disabled ? disabledStyle : '')};
-
   ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })};
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
@@ -76,9 +77,11 @@ export const StyledAvatar = styled.div<AvatarProps>`
   })};
 `
 
-export const AvatarWrapper = styled.div`
+export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   position: relative;
   z-index: 1;
+
+  ${({ disabled }) => (disabled ? disabledStyle : '')};
 `
 
 export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`

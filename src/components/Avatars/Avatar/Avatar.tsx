@@ -65,7 +65,9 @@ forwardedRef: React.Ref<HTMLDivElement>,
   ])
 
   return (
-    <AvatarWrapper>
+    <AvatarWrapper
+      disabled={disabled}
+    >
       <StyledAvatar
         ref={forwardedRef}
         data-testid={testId}
@@ -74,7 +76,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
         role="img"
         aria-label={name}
         showBorder={!disabled && showBorder}
-        disabled={disabled}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
