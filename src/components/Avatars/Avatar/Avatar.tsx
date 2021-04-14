@@ -7,7 +7,7 @@ import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
 import { svgToDataUrl } from '../../../utils/svgUtils'
 import { Status } from '../../Status'
-import { StyledAvatar, StatusWrapper } from './Avatar.styled'
+import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
@@ -65,21 +65,23 @@ forwardedRef: React.Ref<HTMLDivElement>,
   ])
 
   return (
-    <StyledAvatar
-      ref={forwardedRef}
-      data-testid={testId}
-      avatarUrl={loadedAvatarUrl || defaultAvatarUrl}
-      size={size}
-      role="img"
-      aria-label={name}
-      showBorder={!disabled && showBorder}
-      disabled={disabled}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      { StatusComponent }
-    </StyledAvatar>
+    <AvatarWrapper>
+      <StyledAvatar
+        ref={forwardedRef}
+        data-testid={testId}
+        avatarUrl={loadedAvatarUrl || defaultAvatarUrl}
+        size={size}
+        role="img"
+        aria-label={name}
+        showBorder={!disabled && showBorder}
+        disabled={disabled}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        { StatusComponent }
+      </StyledAvatar>
+    </AvatarWrapper>
   )
 }
 

@@ -18,19 +18,12 @@ const disabledStyle = css`
   opacity: ${DisabledOpacity};
 `
 
-/**
- * NOTE: (@ed) smooth corner가 적용되지 않는 브라우저에서, 보더를 제대로 보여주기 위한 코드입니다.
- * z-index로 수도 엘리먼트와 부모 엘리먼트간의 쌓임 맥락이 제대로 형성되지 않아
- * "transform-style: perserve-3d" 와 "transform: translateZ(-{n}px)"(AvatarGroup 참고)로 상하 레이어로 보이도록 했습니다.
- * https://stackoverflow.com/questions/3032856/is-it-possible-to-set-the-stacking-order-of-pseudo-elements-below-their-parent-e
- */
 const disableSmoothCornersFallbackBorderStyle = css`
-  transform-style: preserve-3d;
-
-  &::before {
+  &::after {
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
     left: -${AVATAR_BORDER_WIDTH}px;
+    z-index: -1;
     display: block;
     width: 100%;
     height: 100%;
@@ -38,7 +31,6 @@ const disableSmoothCornersFallbackBorderStyle = css`
     background-color: ${({ foundation }) => `${foundation?.theme?.['bg-white-absolute']}`};
     border: ${({ foundation }) => `${AVATAR_BORDER_WIDTH}px solid ${foundation?.theme?.['bg-white-absolute']}`};
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
-    transform: translateZ(-1px);
   }
 `
 
@@ -73,7 +65,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
 
   ${({ disabled }) => (disabled ? disabledStyle : '')};
 
-  ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })}
+  ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })};
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
@@ -82,6 +74,11 @@ export const StyledAvatar = styled.div<AvatarProps>`
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
+`
+
+export const AvatarWrapper = styled.div`
+  position: relative;
+  z-index: 1;
 `
 
 export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
