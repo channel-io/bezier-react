@@ -1,7 +1,6 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from '../../../foundation'
-import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
-import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 
 interface AvatarGroupProps {
   spacing: number
@@ -13,16 +12,11 @@ const disableSmoothCornersFallbackEllipsisStyle = css`
   border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
 `
 
-function calcNegativeSpacing(spacing: number = 0) {
-  if (spacing >= 0 || !enableSmoothCorners.current) { return spacing }
-  return (spacing - (AVATAR_BORDER_WIDTH * 2))
-}
-
 export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   display: flex;
 
   & > * + * {
-    margin-left: ${({ spacing }) => calcNegativeSpacing(spacing)}px;
+    margin-left: ${({ spacing }) => spacing}px;
   }
 `
 
