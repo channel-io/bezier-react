@@ -109,7 +109,7 @@ function SectionLabel({
   )
 
   const rightContent = useMemo(() => {
-    if (isNil(right)) {
+    if (isNil(right) || isEmpty(right)) {
       return null
     }
 
@@ -117,9 +117,7 @@ function SectionLabel({
       ? right.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(right)
 
-    const show = !isEmpty(right)
-
-    return show && (
+    return (
       <Styled.RightContentWrapper
         className={rightWrapperClassName}
         interpolation={rightWrapperInterpolation}
