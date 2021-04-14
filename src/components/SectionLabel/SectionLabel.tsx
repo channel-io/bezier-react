@@ -117,7 +117,7 @@ function SectionLabel({
       ? right.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(right)
 
-    const show = !_.isEmpty(items)
+    const show = !_.isEmpty(right)
 
     return show && (
       <Styled.RightContentWrapper
