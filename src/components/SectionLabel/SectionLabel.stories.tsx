@@ -23,8 +23,7 @@ const testNumberLabel = (
       backgroundColor: 'rgba(0, 0, 0, 0.05)',
       borderRadius: 6,
       display: 'flex',
-      justifyContent:
-      'center',
+      justifyContent: 'center',
       alignItems: 'center',
     }}
   >
