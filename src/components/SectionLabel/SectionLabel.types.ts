@@ -1,11 +1,11 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import type { css } from '../../foundation'
-import { ThemeKey } from '../../foundation/Theme/ThemeType'
-import { ChildrenComponentProps } from '../../types/ComponentProps'
-import { IconName, IconSize } from '../Icon'
+import type { ThemeKey } from '../../foundation/Theme/ThemeType'
+import type { ChildrenComponentProps } from '../../types/ComponentProps'
+import type InjectedInterpolation from '../../types/InjectedInterpolation'
+import type { IconName, IconSize } from '../Icon'
 
 export type SectionLabelHelpProps = {
   icon?: IconName
@@ -21,8 +21,6 @@ export type SectionLabelItemProps = {
 } | {
   content: React.ReactElement
 }
-
-type InjectedInterpolation = ReturnType<typeof css>
 
 export default interface SectionLabelProps extends ChildrenComponentProps {
   content?: React.ReactNode
