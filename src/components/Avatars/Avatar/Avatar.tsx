@@ -33,8 +33,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   const StatusComponent = useMemo(() => {
     if (
-      disabled
-      || (isEmpty(children) && !status)
+      (isEmpty(children) && !status)
       || (children && !React.isValidElement(children))
     ) {
       return null
@@ -60,7 +59,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
   }, [
     status,
     showBorder,
-    disabled,
     children,
   ])
 
@@ -75,7 +73,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
         size={size}
         role="img"
         aria-label={name}
-        showBorder={!disabled && showBorder}
+        showBorder={showBorder}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
