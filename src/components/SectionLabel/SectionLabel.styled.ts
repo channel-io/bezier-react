@@ -1,10 +1,11 @@
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
+import { styled } from '../../foundation'
+import type InjectedInterpolation from '../../types/InjectedInterpolation'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
 
 interface WithInterpolation {
-  interpolation?: ReturnType<typeof css>
+  interpolation?: InjectedInterpolation
 }
 
 interface ClickableElementProps {
