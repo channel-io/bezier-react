@@ -29,7 +29,7 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const loadedAvatarUrl = useProgressiveImage(avatarUrl)
+  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatarUrl)
 
   const StatusComponent = useMemo(() => {
     if (
@@ -69,7 +69,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       <StyledAvatar
         ref={forwardedRef}
         data-testid={testId}
-        avatarUrl={loadedAvatarUrl || defaultAvatarUrl}
+        avatarUrl={loadedAvatarUrl}
         size={size}
         role="img"
         aria-label={name}

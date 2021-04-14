@@ -17,7 +17,7 @@ function getInitialSource(src: string) {
   return cachedImage
 }
 
-export default function useProgressiveImage(src: string) {
+export default function useProgressiveImage(src: string, defaultSrc: string) {
   const [source, setSource] = useState<CacheImage | null>(() => getInitialSource(src))
 
   useEffect(() => {
@@ -47,8 +47,8 @@ export default function useProgressiveImage(src: string) {
     source,
   ])
 
-  if (!source) { return null }
+  if (!source) { return defaultSrc }
 
-  return source.isLoaded ? source.src : null
+  return source.isLoaded ? source.src : defaultSrc
 }
 
