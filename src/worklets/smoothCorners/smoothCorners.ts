@@ -3,7 +3,6 @@ class SmoothCorners {
   static get inputProperties() {
     return [
       'border-image-source',
-      'list-style-image',
       '--smooth-corners',
       '--smooth-corners-shadow',
       '--smooth-corners-bg-color',
@@ -40,9 +39,6 @@ class SmoothCorners {
   paint(ctx, geom, properties) {
     const backgroundImage = properties
       .get('border-image-source')
-
-    const fallbackImage = properties
-      .get('list-style-image')
 
     const backgroundColor = properties
       .get('--smooth-corners-bg-color')
@@ -155,10 +151,6 @@ class SmoothCorners {
 
       ctx.closePath()
       ctx.clip()
-
-      if (fallbackImage) {
-        ctx.drawImage(fallbackImage, -(targetWidth / 2), -(targetHeight / 2), targetWidth, targetHeight)
-      }
 
       ctx.drawImage(backgroundImage, -(targetWidth / 2), -(targetHeight / 2), targetWidth, targetHeight)
     }
