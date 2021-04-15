@@ -46,6 +46,7 @@ interface SmoothCornersOptions {
   shadow?: string
   backgroundColor?: string
   backgroundImage?: string
+  fallbackImage?: string
   shadowBlur?: number
   margin?: number
 }
@@ -55,6 +56,7 @@ export const smoothCorners = ({
   shadow = '0 0 0 0 transparent',
   backgroundColor = 'white',
   backgroundImage = '',
+  fallbackImage = '',
   shadowBlur = 0,
   margin = 0,
 }: SmoothCornersOptions) => css`
@@ -63,9 +65,11 @@ export const smoothCorners = ({
     margin: ${-(shadowBlur * 2) + margin}px;
     background: paint(smooth-corners);
     border-radius: 0;
-    /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
-    border-image-source: url(${backgroundImage});
     box-shadow: none;
+    
+    /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
+    ${backgroundImage ? css`border-image-source: url(${backgroundImage});` : ''}
+    ${fallbackImage ? css`list-style-image: url(${fallbackImage});` : ''}
 
     --smooth-corners: ${borderRadius};
     --smooth-corners-shadow: ${shadow};

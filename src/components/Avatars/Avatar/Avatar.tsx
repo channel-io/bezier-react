@@ -3,7 +3,6 @@ import React, { forwardRef, useMemo } from 'react'
 import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
-import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
 import { svgToDataUrl } from '../../../utils/svgUtils'
 import { Status } from '../../Status'
@@ -29,8 +28,6 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatarUrl)
-
   const StatusComponent = useMemo(() => {
     if (
       (isEmpty(children) && !status)
@@ -69,7 +66,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
       <StyledAvatar
         ref={forwardedRef}
         data-testid={testId}
-        avatarUrl={loadedAvatarUrl}
+        avatarUrl={avatarUrl}
+        fallbackUrl={defaultAvatarUrl}
         size={size}
         role="img"
         aria-label={name}

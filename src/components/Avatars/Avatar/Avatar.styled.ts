@@ -13,6 +13,7 @@ interface AvatarWrapperProps {
 
 interface AvatarProps {
   avatarUrl: string
+  fallbackUrl: string
   size: AvatarSize
   showBorder: boolean
 }
@@ -43,11 +44,11 @@ function calcStatusGap(showBorder: boolean) {
     : -STATUS_GAP}px`
 }
 
-function getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
+function getDisableSmoothCornersFallbackStyle({ avatarUrl, fallbackUrl, showBorder }: Omit<AvatarProps, 'size'>) {
   if (enableSmoothCorners.current) { return '' }
   return css`
     background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
-    background-image: ${`url(${avatarUrl})`};
+    background-image: ${`url(${avatarUrl}), url(${fallbackUrl})`};
     background-size: cover;
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
 
@@ -66,14 +67,15 @@ export const StyledAvatar = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })};
+  ${({ avatarUrl, fallbackUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, fallbackUrl, showBorder })};
 
-  ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
+  ${({ foundation, avatarUrl, fallbackUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
     backgroundColor: `${foundation?.theme?.['bg-grey-light']}`,
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
+    fallbackImage: fallbackUrl,
   })};
 `
 
