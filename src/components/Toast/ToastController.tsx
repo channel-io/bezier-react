@@ -1,9 +1,10 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Placement, ToastControllerProps } from './Toast.types'
+import { ToastControllerProps } from './Toast.types'
+import { initPosition } from './utils'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class Timer {
@@ -37,28 +38,10 @@ class Timer {
   }
 }
 
-const initPosition = (placement: Placement, isXPosition: boolean) => {
-  switch (placement) {
-    case Placement.TopLeft:
-      return isXPosition ? '-120%' : '0'
-    case Placement.TopCenter:
-      return isXPosition ? '0' : '-120%'
-    case Placement.TopRight:
-      return isXPosition ? '120%' : '0'
-    case Placement.BottomLeft:
-      return isXPosition ? '-120%' : '0'
-    case Placement.BottomCenter:
-      return isXPosition ? '0' : '120%'
-    case Placement.BottomRight:
-      return isXPosition ? '120%' : '0'
-    default:
-      return '0'
-  }
-}
-
 function ToastController({
   autoDismissTimeout,
   transitionDuration,
+  autoDismiss,
   placement,
   component: ToastElement,
   id,
@@ -68,21 +51,53 @@ function ToastController({
   const [positionX, setPositionX] = useState(initPosition(placement, true))
   const [positionY, setPositionY] = useState(initPosition(placement, false))
 
-  const handleMouseEnter = useCallback(() => {
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-  }, [])
-
   const handleDismiss = useCallback(() => {
     setPositionX(initPosition(placement, true))
     setPositionY(initPosition(placement, false))
     setTimeout(onDismiss, transitionDuration)
-  }, [onDismiss, placement, transitionDuration])
+  }, [
+    onDismiss,
+    placement,
+    transitionDuration,
+  ])
+
+  const timer = useMemo(() => new Timer(handleDismiss, autoDismissTimeout), [
+    autoDismissTimeout,
+    handleDismiss,
+  ])
+
+  const handleMouseEnter = useCallback(() => {
+    timer.pause()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    if (autoDismiss) {
+      timer.resume()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const startTimer = useCallback(() => {
+    timer.resume()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const clearTimer = useCallback(() => {
+    if (autoDismiss) {
+      timer.clear()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     setPositionX('0')
     setPositionY('0')
+    if (autoDismiss) {
+      startTimer()
+    }
+    return clearTimer
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

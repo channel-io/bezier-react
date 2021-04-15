@@ -1,7 +1,6 @@
 /* External dependencies */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { base } from 'paths.macro'
-import { noop } from 'lodash'
 
 /* Internal depependencies */
 import { styled } from '../../foundation'
@@ -18,7 +17,7 @@ export default {
   argTypes: {
     placement: {
       control: {
-        type: 'radio',
+        type: 'select',
         options: [
           Placement.TopCenter,
           Placement.TopLeft,
@@ -27,6 +26,14 @@ export default {
           Placement.BottomLeft,
           Placement.BottomRight,
         ],
+      },
+    },
+    autoDismissTimeout: {
+      control: {
+        type: 'range',
+        min: 1000,
+        max: 6000,
+        step: 100,
       },
     },
     transitionDuration: {
@@ -75,12 +82,25 @@ function Div({
   content,
   iconName,
   actionContent,
-  actionOnClick,
 }) {
   const toast = useToast()
 
+  const [count, setCount] = useState(0)
+  const [display, setDisplay] = useState('액션 함수 테스트')
+
+  const handleAction = (value) => {
+    setDisplay(value)
+  }
+
   const handleClick = () => {
-    toast.addToast(content, { appearance, iconName, actionContent, actionOnClick })
+    const curentContent = `${count}. ${content}`
+    toast.addToast(curentContent, {
+      appearance,
+      iconName,
+      actionContent,
+      actionOnClick: () => handleAction(curentContent),
+    })
+    setCount(count + 1)
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,22 +110,26 @@ function Div({
     <div>
       <button type="button" onClick={handleClick}>Toast!</button>
       <button type="button" onClick={() => toast.removeAllToasts()}>RemoveAll!</button>
+      <div>{ display }</div>
     </div>
   )
 }
 
 const Template = ({
   placement,
+  autoDismiss,
+  autoDismissTimeout,
   transitionDuration,
   appearance,
   content,
   iconName,
   actionContent,
-  actionOnClick,
 }) => (
   <Container id="story-container">
     <ToastProvider
       placement={placement}
+      globalAutoDismiss={autoDismiss}
+      autoDismissTimeout={autoDismissTimeout}
       transitionDuration={transitionDuration}
       portalTargetSelector="#story-container"
     >
@@ -114,7 +138,6 @@ const Template = ({
         content={content}
         iconName={iconName}
         actionContent={actionContent}
-        actionOnClick={actionOnClick}
       />
     </ToastProvider>
   </Container>
@@ -124,10 +147,11 @@ export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
   placement: Placement.BottomLeft,
+  autoDismiss: true,
+  autoDismissTimeout: 2000,
   transitionDuration: 200,
   appearance: Appearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
-  actionContent: '새로고침',
-  actionOnClick: noop,
+  actionContent: '액션 함수 테스트',
 }

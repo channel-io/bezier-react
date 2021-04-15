@@ -78,7 +78,6 @@ export interface ContextType {
   add: (content: string, options: Options) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
-  update: (id: ToastId, options: Options) => void
   toasts: ToastType[]
 }
 

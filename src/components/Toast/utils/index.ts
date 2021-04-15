@@ -53,7 +53,27 @@ function placements(placement: Placement) {
   }
 }
 
+const initPosition = (placement: Placement, isXPosition: boolean) => {
+  switch (placement) {
+    case Placement.TopLeft:
+      return isXPosition ? '-120%' : '0'
+    case Placement.TopCenter:
+      return isXPosition ? '0' : '-120%'
+    case Placement.TopRight:
+      return isXPosition ? '120%' : '0'
+    case Placement.BottomLeft:
+      return isXPosition ? '-120%' : '0'
+    case Placement.BottomCenter:
+      return isXPosition ? '0' : '120%'
+    case Placement.BottomRight:
+      return isXPosition ? '120%' : '0'
+    default:
+      return '0'
+  }
+}
+
 export {
   getIconColor,
   placements,
+  initPosition,
 }

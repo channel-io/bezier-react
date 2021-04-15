@@ -1,7 +1,6 @@
 /* External dependencies */
-import React, { createContext, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { v4 as uuid } from 'uuid'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -18,12 +17,12 @@ import {
 import ToastContainer from '../components/Toast/ToastContainer'
 import ToastController from '../components/Toast/ToastController'
 import ToastElement from '../components/Toast/ToastElement'
+import ToastService from '../components/Toast/ToastService'
 
 export const ToastContext = createContext<ContextType>({
   add: () => '',
   remove: noop,
   removeAll: noop,
-  update: noop,
   toasts: [],
 })
 
@@ -39,67 +38,40 @@ function ToastProvider({
   portalTargetSelector = 'body',
   transitionDuration = 220,
 }: ToastProviderProps) {
+  const toastService = useMemo(() => new ToastService(), [])
   const [toasts, setToasts] = useState<ToastType[]>([])
 
-  const has = (id: string) => {
-    if (!toasts.length) {
-      return false
-    }
-    return Boolean(toasts.filter((toast) => toast.id === id).length)
-  }
+  const add = useCallback((content: string, options: Options = defaultOptions) => {
+    const result = toastService.add(content, options)
+    setToasts(toastService.getToasts())
+    return result
+  }, [toastService])
 
-  const add = (content: string, options: Options = defaultOptions) => {
-    const newId: ToastId = uuid()
+  const remove = useCallback((id: ToastId) => {
+    toastService.remove(id)
+    setToasts(toastService.getToasts())
+  }, [toastService])
 
-    if (has(newId)) {
-      return ''
-    }
+  const removeAll = useCallback(() => {
+    toastService.removeAll()
+    setToasts(toastService.getToasts())
+  }, [toastService])
 
-    const newToast: ToastType = { id: newId, content, ...options }
-    const newToasts: ToastType[] = [...toasts, newToast]
-    setToasts(newToasts)
-    return newId
-  }
-
-  const remove = (id: ToastId): void => {
-    if (!has(id)) {
-      return
-    }
-    const newToasts: ToastType[] = toasts.filter((toast) => toast.id !== id)
-    setToasts(newToasts)
-  }
-
-  const removeAll = () => {
-    if (!toasts.length) {
-      return
-    }
-
-    setToasts([])
-  }
-
-  const update = (id: ToastId, options: Options = defaultOptions): void => {
-    if (!has(id)) {
-      return
-    }
-
-    const oldToasts = toasts
-    const index = oldToasts.findIndex((toast) => toast.id === id)
-    const updatedToast: ToastType = { ...oldToasts[index], ...options }
-    const newToasts = [...oldToasts.slice(0, index), updatedToast, ...oldToasts.slice(index + 1)]
-    setToasts(newToasts)
-  }
-
-  const onDismiss = (id: ToastId, callback: Callback = noop) => {
+  const onDismiss = useCallback((id: ToastId, callback: Callback = noop) => {
     callback(id)
     remove(id)
-  }
+  }, [remove])
 
   const portalTarget = canUseDOM
     ? document.querySelector(portalTargetSelector)
     : null
 
+  useEffect(() => {
+    setToasts(toastService.getToasts())
+  }, [toastService])
+
   return (
-    <Provider value={{ add, remove, removeAll, update, toasts }}>
+    <Provider value={{ add, remove, removeAll, toasts }}>
       { children }
 
       { portalTarget ? (
@@ -137,7 +109,6 @@ function ToastProvider({
                 onDismiss={() => onDismiss(id, onDismissCallback)}
                 onMouseEnter={noop}
                 onMouseLeave={noop}
-                toasts={toasts}
                 positionX=""
                 positionY=""
               />
