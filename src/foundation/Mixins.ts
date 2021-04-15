@@ -66,10 +66,10 @@ export const smoothCorners = ({
     background: paint(smooth-corners);
     border-radius: 0;
     box-shadow: none;
-
+    
     /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
-    border-image-source: url(${backgroundImage});
-    list-style-image: url(${fallbackImage});
+    ${backgroundImage ? css`border-image-source: url(${backgroundImage});` : ''}
+    ${fallbackImage ? css`list-style-image: url(${fallbackImage});` : ''}
 
     --smooth-corners: ${borderRadius};
     --smooth-corners-shadow: ${shadow};
