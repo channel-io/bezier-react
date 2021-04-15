@@ -39,5 +39,5 @@ const Template: Story<StatusProps> = (args) => (
 
 export const Primary: Story<StatusProps> = Template.bind({})
 Primary.args = {
-  type: StatusType.ONLINE,
+  type: StatusType.Online,
 }

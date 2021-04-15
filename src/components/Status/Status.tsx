@@ -10,7 +10,7 @@ export const STATUS_TEST_ID = 'ch-design-system-status'
 function Status({
   type,
 }: StatusProps) {
-  if (type === StatusType.PRIVATE) {
+  if (type === StatusType.Private) {
     return (
       <StatusCircle
         data-testid={STATUS_TEST_ID}
@@ -28,7 +28,7 @@ function Status({
   return (
     <StatusCircle
       data-testid={STATUS_TEST_ID}
-      color={type === StatusType.ONLINE ? 'bgtxt-green-normal' : 'bg-black-dark'}
+      color={type === StatusType.Online ? 'bgtxt-green-normal' : 'bg-black-dark'}
     />
   )
 }

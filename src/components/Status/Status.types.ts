@@ -1,7 +1,7 @@
 export enum StatusType {
-  ONLINE = 'ONLINE',
-  OFFLINE = 'OFFLINE',
-  PRIVATE = 'PRVIATE',
+  Online = 'ONLINE',
+  Offline = 'OFFLINE',
+  Private = 'PRVIATE',
 }
 
 export interface StatusProps {
