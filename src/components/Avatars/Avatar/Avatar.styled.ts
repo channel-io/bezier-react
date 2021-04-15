@@ -1,7 +1,7 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from '../../../foundation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
-import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_BACKGROUND_COLOR } from '../constants/AvatarStyle'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { AvatarSize } from './Avatar.types'
 
@@ -46,7 +46,7 @@ function calcStatusGap(showBorder: boolean) {
 function getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
   if (enableSmoothCorners.current) { return '' }
   return css`
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
+    background-color: ${AVATAR_BACKGROUND_COLOR};
     background-image: ${`url(${avatarUrl})`};
     background-size: cover;
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
@@ -71,7 +71,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: `${foundation?.theme?.['bg-grey-light']}`,
+    backgroundColor: `${AVATAR_BACKGROUND_COLOR}`,
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
