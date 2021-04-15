@@ -1,15 +1,23 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from '../../../foundation'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { Text, TextProps } from '../../Text'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 
 interface AvatarGroupProps {
   spacing: number
-  max: number
 }
 
 const disableSmoothCornersFallbackEllipsisStyle = css`
   background-color: ${({ foundation }) => foundation?.theme?.['dim-dark']};
   border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
+`
+
+export const AvatarEllipsisCount = styled(Text) <TextProps>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: ${({ height }) => height}px;
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
 export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
@@ -18,13 +26,17 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   & > * + * {
     margin-left: ${({ spacing }) => spacing}px;
   }
+
+  & ${AvatarEllipsisCount} {
+    margin-left: ${({ spacing }) => (spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING)}px;
+  }
 `
 
-export const AvatarEllipsisWrapper = styled.div<AvatarGroupProps>`
+export const AvatarEllipsisIconWrapper = styled.div`
   position: relative;
 `
 
-export const AvatarEllipsis = styled.div`
+export const AvatarEllipsisIcon = styled.div`
   position: absolute;
   top: 0;
   right: 0;

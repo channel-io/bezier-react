@@ -5,10 +5,10 @@ import { noop, isEmpty } from 'lodash-es'
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import DefaultAvatarSvg from '../assets/DefaultAvatar'
-import { svgToDataUrl } from '../../../utils/svgUtils'
 import { Status } from '../../Status'
-import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
+import { svgToDataUrl } from '../../../utils/svgUtils'
 import { AvatarSize, AvatarProps } from './Avatar.types'
+import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 

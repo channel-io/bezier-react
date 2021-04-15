@@ -2,11 +2,12 @@
 import React from 'react'
 import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { Avatar, AvatarSize } from '../Avatar'
-import { AvatarGroupProps } from './AvatarGroup.types'
+import { AvatarGroupEllipsisType, AvatarGroupProps } from './AvatarGroup.types'
 import AvatarGroup from './AvatarGroup'
 
 const MOCK_AVATAR_LIST = [
@@ -48,6 +49,12 @@ export default {
   title: getTitle(base),
   component: AvatarGroup,
   argTypes: {
+    ellipsisType: {
+      control: {
+        type: 'radio',
+        options: AvatarGroupEllipsisType,
+      },
+    },
     size: {
       control: {
         type: 'radio',
@@ -77,7 +84,7 @@ const Template: Story<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>
     { MOCK_AVATAR_LIST.map(({ avatarUrl, name }) => (
       <Avatar
-        key={name}
+        key={uuid()}
         avatarUrl={avatarUrl}
         name={name}
       />
@@ -89,5 +96,6 @@ export const Primary: Story<AvatarGroupProps> = Template.bind({})
 Primary.args = {
   max: 5,
   size: AvatarSize.XS,
+  ellipsisType: AvatarGroupEllipsisType.Icon,
   spacing: 4,
 }

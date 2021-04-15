@@ -4,3 +4,5 @@ export const AVATAR_BORDER_WIDTH = 2
 
 // LightTheme 'bgtxt-blue-light' to HEX
 export const AVATAR_BACKGROUND_COLOR = '#cfccfb'
+
+export const AVATAR_GROUP_DEFAULT_SPACING = 4

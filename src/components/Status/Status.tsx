@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { StatusCircle, PrivateIcon } from './Status.styled'
 import { StatusType, StatusProps } from './Status.types'
+import { StatusCircle, PrivateIcon } from './Status.styled'
 
 export const STATUS_TEST_ID = 'ch-design-system-status'
 
