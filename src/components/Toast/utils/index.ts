@@ -3,8 +3,8 @@ import { Appearance, IconColor, Placement } from '../Toast.types'
 
 function getIconColor(appearance: Appearance): string {
   switch (appearance) {
-    case Appearance.Succes:
-      return IconColor.Succes
+    case Appearance.Success:
+      return IconColor.Success
     case Appearance.Warning:
       return IconColor.Warning
     case Appearance.Error:

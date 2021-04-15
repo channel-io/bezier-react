@@ -17,7 +17,7 @@ export const Container = styled.div<ToastContainerProps>`
   flex-direction: column;
   max-width: 100%;
   max-height: 100vh;
-  padding: 8px 16px;
+  padding: 16px 16px;
   overflow: hidden;
   pointer-events: none;
   ${({ placement }) => placements(placement)}
@@ -30,12 +30,12 @@ export const Element = styled.div<ToastElementProps>`
   align-items: flex-start;
   width: 288px;
   padding: 16px;
-  margin: 16px;
+  margin-top: 6px;
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation.ev3()};
   pointer-events: auto;
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
-  transition-duration: ${({ transitionDuration }) => transitionDuration / 1000}s;
+  transition: ${({ foundation, transitionDuration }) => foundation?.transition.getTransitionsCSS('none', transitionDuration)};
   transform: translate(${({ positionX, positionY }) => `${positionX}, ${positionY}`});
 `
 

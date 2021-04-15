@@ -5,11 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { defaultOptions, Options, ToastId, ToastType } from './Toast.types'
 
 class ToastService {
-  toasts: ToastType[]
-
-  constructor() {
-    this.toasts = []
-  }
+  toasts: ToastType[] = []
 
   getToasts = () => this.toasts
 
@@ -21,7 +17,7 @@ class ToastService {
     if (!this.toasts.length) {
       return false
     }
-    return this.toasts.reduce((pre, cur) => (cur.id === id ? true : pre), false)
+    return this.toasts.reduce((flag, cur) => (cur.id === id ? true : flag), false)
   }
 
   add = (content: string, options: Options = defaultOptions) => {
@@ -31,7 +27,11 @@ class ToastService {
       return ''
     }
 
-    const newToast: ToastType = { id: newId, content, ...options }
+    const newToast: ToastType = {
+      id: newId,
+      content,
+      ...options,
+    }
     const newToasts: ToastType[] = [...this.toasts, newToast]
     this.setToasts(newToasts)
     return newId

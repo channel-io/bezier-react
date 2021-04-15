@@ -3,8 +3,21 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
 import { initPosition } from './utils'
+
+function parseDuration(transitionDuration: TransitionDuration) {
+  switch (transitionDuration) {
+    case TransitionDuration.L:
+      return 500
+    case TransitionDuration.M:
+      return 300
+    case TransitionDuration.S:
+    default:
+      return 150
+  }
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class Timer {
@@ -54,7 +67,7 @@ function ToastController({
   const handleDismiss = useCallback(() => {
     setPositionX(initPosition(placement, true))
     setPositionY(initPosition(placement, false))
-    setTimeout(onDismiss, transitionDuration)
+    setTimeout(onDismiss, parseDuration(transitionDuration))
   }, [
     onDismiss,
     placement,
@@ -65,18 +78,6 @@ function ToastController({
     autoDismissTimeout,
     handleDismiss,
   ])
-
-  const handleMouseEnter = useCallback(() => {
-    timer.pause()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    if (autoDismiss) {
-      timer.resume()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const startTimer = useCallback(() => {
     timer.resume()
@@ -94,11 +95,21 @@ function ToastController({
     setPositionX('0')
     setPositionY('0')
     if (autoDismiss) {
-      startTimer()
+      setTimeout(startTimer, parseDuration(transitionDuration))
     }
     return clearTimer
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // TODO: eslint 설정 바뀌면 useEffect callback 함수 이름 넣어주기
+  useEffect(() => {
+    if (autoDismiss) {
+      startTimer()
+    } else {
+      clearTimer()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoDismiss])
 
   return (
     <ToastElement
@@ -108,8 +119,6 @@ function ToastController({
       {...props}
       positionX={positionX}
       positionY={positionY}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     />
   )
 }

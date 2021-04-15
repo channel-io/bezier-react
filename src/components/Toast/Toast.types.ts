@@ -5,6 +5,7 @@ import { noop } from 'lodash-es'
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
+import { TransitionDuration } from '../../foundation/Transition'
 
 export enum Placement {
   TopLeft = 'topLeft',
@@ -16,14 +17,14 @@ export enum Placement {
 }
 
 export enum Appearance {
-  Succes = 'succes',
+  Success = 'success',
   Warning = 'warning',
   Error = 'error',
   Info = 'info',
 }
 
 export enum IconColor {
-  Succes = 'bgtxt-green-normal',
+  Success = 'bgtxt-green-normal',
   Warning = 'bgtxt-orange-normal',
   Error = 'bgtxt-red-normal',
   Info = 'txt-black-darkest',
@@ -36,9 +37,7 @@ export default interface ToastElementProps extends UIComponentProps, React.HTMLA
   actionContent?: string
   actionOnClick?: Function
   onDismiss: typeof noop
-  onMouseEnter: typeof noop
-  onMouseLeave: typeof noop
-  transitionDuration: number
+  transitionDuration: TransitionDuration
   positionX: string
   positionY: string
 }
@@ -46,10 +45,10 @@ export default interface ToastElementProps extends UIComponentProps, React.HTMLA
 export interface ToastProviderProps {
   autoDismissTimeout?: number
   globalAutoDismiss?: boolean
+  transitionDuration?: TransitionDuration
   children?: ReactNode[] | ReactNode
   placement?: Placement
   portalTargetSelector?: string
-  transitionDuration?: number
 }
 
 export type ToastId = string

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal depependencies */
-import { styled } from '../../foundation'
+import { styled, TransitionDuration } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from '../../contexts/ToastProvider'
@@ -18,14 +18,7 @@ export default {
     placement: {
       control: {
         type: 'select',
-        options: [
-          Placement.TopCenter,
-          Placement.TopLeft,
-          Placement.TopRight,
-          Placement.BottomCenter,
-          Placement.BottomLeft,
-          Placement.BottomRight,
-        ],
+        options: Placement,
       },
     },
     autoDismissTimeout: {
@@ -38,10 +31,8 @@ export default {
     },
     transitionDuration: {
       control: {
-        type: 'range',
-        min: 100,
-        max: 1000,
-        step: 10,
+        type: 'radio',
+        options: TransitionDuration,
       },
     },
     content: {
@@ -52,12 +43,7 @@ export default {
     appearance: {
       control: {
         type: 'radio',
-        options: [
-          Appearance.Succes,
-          Appearance.Warning,
-          Appearance.Error,
-          Appearance.Info,
-        ],
+        options: Appearance,
       },
     },
     iconName: {
@@ -94,14 +80,22 @@ function Div({
 
   const handleClick = () => {
     const curentContent = `${count}. ${content}`
+
     toast.addToast(curentContent, {
       appearance,
       iconName,
       actionContent,
       actionOnClick: () => handleAction(curentContent),
     })
+
     setCount(count + 1)
   }
+
+  const handleNeverDismiss = () => toast.addToast('이건 사라지지 않아요!', {
+    appearance: Appearance.Success,
+    iconName: 'channel-smile-filled',
+    autoDismiss: false,
+  })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(handleClick, [])
@@ -109,6 +103,7 @@ function Div({
   return (
     <div>
       <button type="button" onClick={handleClick}>Toast!</button>
+      <button type="button" onClick={handleNeverDismiss}>never dismiss</button>
       <button type="button" onClick={() => toast.removeAllToasts()}>RemoveAll!</button>
       <div>{ display }</div>
     </div>
@@ -125,13 +120,17 @@ const Template = ({
   iconName,
   actionContent,
 }) => (
-  <Container id="story-container">
+  <Container id="story-wrapper">
     <ToastProvider
       placement={placement}
       globalAutoDismiss={autoDismiss}
       autoDismissTimeout={autoDismissTimeout}
       transitionDuration={transitionDuration}
-      portalTargetSelector="#story-container"
+      /*
+      * portalTargetSelector를 통해 wrapper를 지정할 수 있습니다.
+      * querySelector 문법을 따릅니다.
+      */
+      portalTargetSelector="#story-wrapper"
     >
       <Div
         appearance={appearance}
@@ -149,7 +148,7 @@ Primary.args = {
   placement: Placement.BottomLeft,
   autoDismiss: true,
   autoDismissTimeout: 2000,
-  transitionDuration: 200,
+  transitionDuration: TransitionDuration.S,
   appearance: Appearance.Info,
   content: '안내문구입니다.',
   iconName: 'info-filled',
