@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../foundation'
-import { Transition } from '../../foundation/Transition'
+import { styled, Transition } from '../../foundation'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { toCSSUnit } from '../../utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
@@ -10,9 +9,7 @@ export interface StyledWrapperProps extends UIComponentProps {
   wrapperHeight: number | string
 }
 
-export interface StyledOptionItemWrapperProps extends Pick<SegmentedControlItemProps, | 'disabled'> {
-  active?: boolean
-}
+export interface StyledOptionItemWrapperProps extends SegmentedControlItemProps {}
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;

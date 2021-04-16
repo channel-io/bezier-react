@@ -2,6 +2,7 @@
 import React, { useRef, useState, useCallback } from 'react'
 import base from 'paths.macro'
 import { range, filter, isEmpty, trim } from 'lodash-es'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
@@ -9,6 +10,7 @@ import { styled } from '../../foundation'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
 import SegmentedControl from './SegmentedControl'
+import SegmentedControlProps from './SegmentedControl.types'
 
 export default {
   title: getTitle(base),
@@ -25,7 +27,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const Wrapper = styled.div`
   display: flex;
@@ -108,22 +110,20 @@ const Input = styled.input`
   }
 `
 
-function PrimaryStory({ width, height, selectedOptionIndex, ...otherProps }) {
-  return (
-    <SegmentedControl
-      width={width}
-      height={height}
-      selectedOptionIndex={selectedOptionIndex}
-      {...otherProps}
-    >
-      { ['Open', 'Snoozed', 'Closed'].map((item) => (
-        <Text key={item} bold>{ item }</Text>
-      )) }
-    </SegmentedControl>
-  )
-}
+const PrimaryStory: Story<SegmentedControlProps> = ({ width, height, selectedOptionIndex, ...otherProps }) => (
+  <SegmentedControl
+    width={width}
+    height={height}
+    selectedOptionIndex={selectedOptionIndex}
+    {...otherProps}
+  >
+    { ['Open', 'Snoozed', 'Closed'].map((item) => (
+      <Text key={item} bold>{ item }</Text>
+    )) }
+  </SegmentedControl>
+)
 
-function PlaygroundStory({ width, height, ...otherProps }) {
+const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...otherProps }) => {
   const inputWrapper = useRef<HTMLInputElement>(null)
 
   const [items, setItems] = useState<any>(range(0, 5) as any[])

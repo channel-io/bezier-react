@@ -2,7 +2,7 @@
 import React, { Ref, forwardRef, useState, useEffect, useLayoutEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
 import { noop, isNumber } from 'lodash-es'
-import { ResizeObserver } from '@juggle/resize-observer'
+import { ResizeObserver, ResizeObserverEntry } from '@juggle/resize-observer'
 
 /* Internal dependencies */
 import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'
@@ -33,7 +33,7 @@ function SegmentedControl(
   const [optionItemWidth, setOptionItemWidth] = useState<number>(0)
 
   const resizeObserver = useMemo(() => (
-    new ResizeObserver((entries) => {
+    new ResizeObserver((entries: ResizeObserverEntry[]) => {
       const entry = entries[0]
       setWrapperHeight(entry.contentRect.height)
       setOptionItemWidth(entry.contentRect.width / React.Children.count(children))
@@ -59,7 +59,7 @@ function SegmentedControl(
     onChangeOption(index)
   }, [onChangeOption])
 
-  const renderOption = useCallback((Element, index) => (
+  const renderOption = useCallback((Element: React.ReactNode, index: number) => (
     <OptionItemWrapper
       key={uuid()}
       disabled={disabled}
