@@ -11,18 +11,21 @@ import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './Segmented
 
 export const SEGMENTED_CONTROL_TEST_ID = 'ch-design-system-segmented-control'
 
-function SegmentedControl({
-  as,
-  testId = SEGMENTED_CONTROL_TEST_ID,
-  disabled = false,
-  width = '100%',
-  height = 36,
-  /* OptionItemHost props */
-  selectedOptionIndex = 0,
-  onChangeOption = noop,
-  /* HTMLAttribute props */
-  children,
-}: SegmentedControlProps, forwardedRef: Ref<any>) {
+function SegmentedControl(
+  {
+    as,
+    testId = SEGMENTED_CONTROL_TEST_ID,
+    disabled = false,
+    width = '100%',
+    height = 36,
+    /* OptionItemHost props */
+    selectedOptionIndex = 0,
+    onChangeOption = noop,
+    /* HTMLAttribute props */
+    children,
+  }: SegmentedControlProps,
+  forwardedRef: Ref<any>,
+) {
   const wrapperRef = useReusableForwardedRef<HTMLDivElement>(forwardedRef)
 
   const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)

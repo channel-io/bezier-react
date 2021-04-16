@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { styled } from '../../foundation'
+import { Transition } from '../../foundation/Transition'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { toCSSUnit } from '../../utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
@@ -74,7 +75,9 @@ export const Indicator = styled.div`
   justify-content: center;
   padding: 2px;
   cursor: default;
-  transition: transform 0.2s ease-in-out, width 0.25s ease-in-out;
+  ${({ foundation }) => (
+    foundation?.transition?.getTransitionsCSS('transform', Transition.TransitionDuration.M)
+  )};
   will-change: transform;
 `
 
