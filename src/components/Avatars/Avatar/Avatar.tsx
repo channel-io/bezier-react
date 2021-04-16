@@ -4,15 +4,13 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
-import DefaultAvatarSvg from '../assets/DefaultAvatar'
+import defaultAvatar from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
-import { svgToDataUrl } from '../../../utils/svgUtils'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
+export const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
-
-const defaultAvatarUrl = svgToDataUrl(<DefaultAvatarSvg />)
 
 function Avatar({
   avatarUrl,
@@ -29,7 +27,7 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatarUrl)
+  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatar)
 
   const StatusComponent = useMemo(() => {
     if (
@@ -65,6 +63,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   return (
     <AvatarWrapper
       disabled={disabled}
+      data-testid={AVATAR_WRAPPER_TEST_ID}
     >
       <StyledAvatar
         ref={forwardedRef}
