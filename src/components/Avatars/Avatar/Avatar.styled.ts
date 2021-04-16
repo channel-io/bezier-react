@@ -17,11 +17,17 @@ interface AvatarProps {
   showBorder: boolean
 }
 
+function calcStatusGap(showBorder: boolean) {
+  return `${showBorder && enableSmoothCorners.current
+    ? (AVATAR_BORDER_WIDTH * 2) - STATUS_GAP
+    : -STATUS_GAP}px`
+}
+
 const disabledStyle = css`
   opacity: ${DisabledOpacity};
 `
 
-const disableSmoothCornersFallbackBorderStyle = css`
+const smoothCornersFallbackBorderStyle = css`
   &::after {
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
@@ -37,24 +43,6 @@ const disableSmoothCornersFallbackBorderStyle = css`
   }
 `
 
-function calcStatusGap(showBorder: boolean) {
-  return `${showBorder && enableSmoothCorners.current
-    ? (AVATAR_BORDER_WIDTH * 2) - STATUS_GAP
-    : -STATUS_GAP}px`
-}
-
-function getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder }: Pick<AvatarProps, 'avatarUrl' | 'showBorder'>) {
-  if (enableSmoothCorners.current) { return '' }
-  return css`
-    background-color: ${AVATAR_BACKGROUND_COLOR};
-    background-image: ${`url(${avatarUrl})`};
-    background-size: cover;
-    border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
-
-    ${showBorder ? disableSmoothCornersFallbackBorderStyle : ''}
-  `
-}
-
 export const StyledAvatar = styled.div<AvatarProps>`
   position: relative;
   box-sizing: content-box;
@@ -66,7 +54,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ avatarUrl, showBorder }) => getDisableSmoothCornersFallbackStyle({ avatarUrl, showBorder })};
+  ${({ showBorder }) => (!enableSmoothCorners.current && showBorder ? smoothCornersFallbackBorderStyle : '')}
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,

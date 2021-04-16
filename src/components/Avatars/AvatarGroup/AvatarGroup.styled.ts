@@ -1,5 +1,5 @@
 /* Internal denpendencies */
-import { styled, css, smoothCorners } from '../../../foundation'
+import { styled, smoothCorners } from '../../../foundation'
 import { Text, TextProps } from '../../Text'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
@@ -7,11 +7,6 @@ import { AvatarSize } from '../Avatar/Avatar.types'
 interface AvatarGroupProps {
   spacing: number
 }
-
-const disableSmoothCornersFallbackEllipsisStyle = css`
-  background-color: ${({ foundation }) => foundation?.theme?.['dim-dark']};
-  border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
-`
 
 export const AvatarEllipsisCount = styled(Text)<TextProps & { size: AvatarSize }>`
   position: relative;
@@ -49,8 +44,6 @@ export const AvatarEllipsisIcon = styled.div`
   width: 100%;
   height: 100%;
   outline: none;
-
-  ${disableSmoothCornersFallbackEllipsisStyle}
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
