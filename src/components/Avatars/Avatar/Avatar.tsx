@@ -16,7 +16,7 @@ const defaultAvatarUrl = svgToDataUrl(<DefaultAvatarSvg />)
 
 function Avatar({
   avatarUrl,
-  size = AvatarSize.XS,
+  size = AvatarSize.Size24,
   name = '',
   testId = AVATAR_TEST_ID,
   disabled = false,

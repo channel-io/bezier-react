@@ -95,7 +95,7 @@ const Template: Story<AvatarGroupProps> = (args) => (
 export const Primary: Story<AvatarGroupProps> = Template.bind({})
 Primary.args = {
   max: 5,
-  size: AvatarSize.XS,
+  size: AvatarSize.Size30,
   ellipsisType: AvatarGroupEllipsisType.Icon,
   spacing: 4,
 }

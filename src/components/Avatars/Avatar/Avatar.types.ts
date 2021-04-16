@@ -3,14 +3,14 @@ import { StylableComponentProps, ChildrenComponentProps } from '../../../types/C
 import { StatusType } from '../../Status'
 
 export enum AvatarSize {
-  XXS = 20,
-  XS = 24,
-  S = 30,
-  M = 36,
-  L = 42,
-  XL = 48,
-  XXL = 90,
-  XXXL = 120,
+  Size20 = 20,
+  Size24 = 24,
+  Size30 = 30,
+  Size36 = 36,
+  Size42 = 42,
+  Size48 = 48,
+  Size90 = 90,
+  Size120 = 120,
 }
 
 export interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {

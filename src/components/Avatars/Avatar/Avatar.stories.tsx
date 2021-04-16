@@ -60,7 +60,7 @@ export const Primary: Story<AvatarProps> = Template.bind({})
 Primary.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
-  size: AvatarSize.XS,
+  size: AvatarSize.Size24,
   showBorder: false,
   disabled: false,
 }
@@ -71,7 +71,7 @@ const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
       <Avatar
         avatarUrl="https://bit.ly/kent-c-dodds"
         name="Kent Dodds"
-        size={AvatarSize.XXS}
+        size={AvatarSize.Size20}
         showBorder
       />
     </Avatar>
@@ -82,7 +82,7 @@ export const WithCustomStatus: Story<AvatarProps> = TemplateWithCustomStatus.bin
 WithCustomStatus.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
-  size: AvatarSize.L,
+  size: AvatarSize.Size48,
   showBorder: false,
   disabled: false,
 }

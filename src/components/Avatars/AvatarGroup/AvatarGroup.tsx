@@ -24,34 +24,34 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.XXS]: IconSize.XXS,
-    [AvatarSize.XS]: IconSize.XS,
-    [AvatarSize.S]: IconSize.S,
-    [AvatarSize.M]: IconSize.Normal,
-    [AvatarSize.L]: IconSize.Normal,
-    [AvatarSize.XL]: IconSize.L,
-    [AvatarSize.XXL]: IconSize.L,
-    [AvatarSize.XXXL]: IconSize.L,
+    [AvatarSize.Size20]: IconSize.XXS,
+    [AvatarSize.Size24]: IconSize.XS,
+    [AvatarSize.Size30]: IconSize.S,
+    [AvatarSize.Size36]: IconSize.Normal,
+    [AvatarSize.Size42]: IconSize.Normal,
+    [AvatarSize.Size48]: IconSize.L,
+    [AvatarSize.Size90]: IconSize.L,
+    [AvatarSize.Size120]: IconSize.L,
   }[avatarSize]
 }
 
 // TODO: 올바른 페어의 ellipsis 텍스트 사이즈를 지정해줘야함
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.XXS]: Typography.Size12,
-    [AvatarSize.XS]: Typography.Size13,
-    [AvatarSize.S]: Typography.Size15,
-    [AvatarSize.M]: Typography.Size16,
-    [AvatarSize.L]: Typography.Size18,
-    [AvatarSize.XL]: Typography.Size24,
-    [AvatarSize.XXL]: Typography.Size24,
-    [AvatarSize.XXXL]: Typography.Size24,
+    [AvatarSize.Size20]: Typography.Size12,
+    [AvatarSize.Size24]: Typography.Size13,
+    [AvatarSize.Size30]: Typography.Size15,
+    [AvatarSize.Size36]: Typography.Size16,
+    [AvatarSize.Size42]: Typography.Size18,
+    [AvatarSize.Size48]: Typography.Size24,
+    [AvatarSize.Size90]: Typography.Size24,
+    [AvatarSize.Size120]: Typography.Size24,
   }[avatarSize]
 }
 
 function AvatarGroup({
   max,
-  size = AvatarSize.M,
+  size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis = noop,
