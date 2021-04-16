@@ -91,7 +91,7 @@ function AvatarGroup({
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
           <AvatarEllipsisIconWrapper
-            key={uuid()}
+            key="ellipsis"
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
@@ -110,7 +110,7 @@ function AvatarGroup({
       if (ellipsisType === AvatarGroupEllipsisType.Count) {
         return (
           <React.Fragment
-            key={uuid()}
+            key="ellipsis"
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCount
