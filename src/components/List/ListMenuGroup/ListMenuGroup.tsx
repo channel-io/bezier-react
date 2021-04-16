@@ -1,9 +1,15 @@
 /* External dependencies */
-import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNil, get } from 'lodash-es'
+import React, { useCallback, useMemo, useState, useEffect, forwardRef, useContext } from 'react'
+import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_GROUP_PADDING_LEFT, LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
+import { LIST_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
+import {
+  defaultListMenuContext,
+  ListMenuContext,
+  ListMenuContextProps,
+  mergeListMenuContexts,
+} from '../../../contexts/ListMenuContext'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
@@ -14,13 +20,7 @@ import {
   ChevronWrapper,
 } from './ListMenuGroup.styled'
 
-export const LIST_MENU_GROUP_COMPONENT_NAME = 'ListMenuGroup'
 export const LIST_MENU_GROUP_TEST_ID = 'ch-design-system-list-menu-group'
-
-export function isListMenuGroup(element: any): element is React.ReactElement<ListMenuGroupProps> {
-  return React.isValidElement(element) &&
-    get(element, 'type.displayName') === LIST_MENU_GROUP_COMPONENT_NAME
-}
 
 function ListMenuGroupComponent({
   as,
@@ -29,9 +29,9 @@ function ListMenuGroupComponent({
   chevronClassName,
   contentClassName,
   iconClassName,
-  paddingLeft = 0,
+  paddingLeft: givenPaddingLeft = 0,
   open = false,
-  active = false,
+  active: givenActive,
   leftIcon,
   leftIconColor,
   disableIconActive = false,
@@ -45,7 +45,7 @@ function ListMenuGroupComponent({
   selectedMenuItemIndex = null,
   onChangeOption = noop,
   /* HTMLAttribute props */
-  onClick = noop,
+  onClick: givenOnClick = noop,
   children,
   ...otherProps
 }: ListMenuGroupProps,
@@ -78,10 +78,6 @@ forwardedRef: React.Ref<HTMLElement>,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
-  const handleClickGroup = useCallback((e: React.MouseEvent) => {
-    onClick(e, name)
-  }, [name, onClick])
-
   const handleClickItem = useCallback((
     itemIndex: number,
     optionKey: string,
@@ -95,6 +91,21 @@ forwardedRef: React.Ref<HTMLElement>,
       onClickArrow(name)
     }
   }, [name, onClickArrow])
+
+  const inheritedContext = useContext(ListMenuContext) ?? defaultListMenuContext
+  const context = mergeListMenuContexts(
+    inheritedContext, {
+      paddingLeft: givenPaddingLeft,
+      active: givenActive,
+      onClick: givenOnClick,
+    },
+    LIST_GROUP_PADDING_LEFT,
+  )
+  const { paddingLeft, active, onClick } = context
+
+  const handleClickGroup = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    onClick(e, name)
+  }, [name, onClick])
 
   const ContentComponent = useMemo(() => (
     <>
@@ -139,30 +150,23 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
-      if (isListItem(element)) {
-        return React.cloneElement(element, {
-          active: element.props.active ?? (currentMenuItemIndex === index),
-          paddingLeft: paddingLeft + LIST_ITEM_PADDING_LEFT,
-          onClick: (event: React.MouseEvent<HTMLDivElement>) => {
-            handleClickItem(index, element.props.optionKey)
-            if (element.props.onClick) { element.props.onClick(event, element.props.name) }
-          },
-        })
+      const passedContext: ListMenuContextProps = {
+        ...context,
+        active: currentMenuItemIndex === index,
+        onClick: () => handleClickItem(index, element.props.optionKey),
       }
 
-      if (isListMenuGroup(element)) {
-        return React.cloneElement(element, {
-          paddingLeft: paddingLeft + LIST_GROUP_PADDING_LEFT,
-        })
-      }
-
-      return element
+      return (
+        <ListMenuContext.Provider value={passedContext}>
+          { element }
+        </ListMenuContext.Provider>
+      )
     })
   ), [
     children,
+    context,
     currentMenuItemIndex,
     handleClickItem,
-    paddingLeft,
   ])
 
   if (hide) return null
@@ -193,6 +197,5 @@ forwardedRef: React.Ref<HTMLElement>,
 }
 
 const ListMenuGroup = forwardRef(ListMenuGroupComponent)
-ListMenuGroup.displayName = LIST_MENU_GROUP_COMPONENT_NAME
 
 export default ListMenuGroup
