@@ -13,6 +13,13 @@ import { StyledAvatarGroup, AvatarEllipsisIconWrapper, AvatarEllipsisIcon, Avata
 
 export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
 
+const MAX_AVATAR_LIST_COUNT = 99
+
+function getRestAvatarListCountText(count: number, max: number) {
+  const restCount = count - max
+  return `+${restCount > MAX_AVATAR_LIST_COUNT ? MAX_AVATAR_LIST_COUNT : restCount}`
+}
+
 // TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
@@ -96,7 +103,6 @@ function AvatarGroup({
       }
 
       if (ellipsisType === AvatarGroupEllipsisType.Count) {
-        const restAvatarCount = AvatarListCount - max
         return (
           <React.Fragment
             key={uuid()}
@@ -107,7 +113,7 @@ function AvatarGroup({
               height={size}
               typo={getProperTypoSize(size)}
             >
-              { `+${restAvatarCount}` }
+              { getRestAvatarListCountText(AvatarListCount, max) }
             </AvatarEllipsisCount>
           </React.Fragment>
         )
