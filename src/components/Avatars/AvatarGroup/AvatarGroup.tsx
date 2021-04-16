@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
+import { noop } from 'lodash-es'
 
 /* Internal denpendencies */
 import { Typography } from '../../../foundation'
@@ -53,6 +54,8 @@ function AvatarGroup({
   size = AvatarSize.M,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
+  onMouseEnterEllipsis = noop,
+  onMouseLeaveEllipsis = noop,
   children,
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
@@ -89,6 +92,8 @@ function AvatarGroup({
         return (
           <AvatarEllipsisIconWrapper
             key={uuid()}
+            onMouseEnter={onMouseEnterEllipsis}
+            onMouseLeave={onMouseLeaveEllipsis}
           >
             <AvatarEllipsisIcon>
               <Icon
@@ -110,8 +115,10 @@ function AvatarGroup({
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCount
               forwardedAs="span"
-              height={size}
+              size={size}
               typo={getProperTypoSize(size)}
+              onMouseEnter={onMouseEnterEllipsis}
+              onMouseLeave={onMouseLeaveEllipsis}
             >
               { getRestAvatarListCountText(AvatarListCount, max) }
             </AvatarEllipsisCount>
@@ -128,6 +135,8 @@ function AvatarGroup({
     ellipsisType,
     AvatarListCount,
     renderAvatarElement,
+    onMouseEnterEllipsis,
+    onMouseLeaveEllipsis,
   ])
 
   return (

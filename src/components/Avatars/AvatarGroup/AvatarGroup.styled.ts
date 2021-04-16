@@ -2,6 +2,7 @@
 import { styled, css, smoothCorners } from '../../../foundation'
 import { Text, TextProps } from '../../Text'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
+import { AvatarSize } from '../Avatar/Avatar.types'
 
 interface AvatarGroupProps {
   spacing: number
@@ -12,11 +13,12 @@ const disableSmoothCornersFallbackEllipsisStyle = css`
   border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
 `
 
-export const AvatarEllipsisCount = styled(Text) <TextProps>`
+export const AvatarEllipsisCount = styled(Text)<TextProps & { size: AvatarSize }>`
   position: relative;
   display: flex;
   align-items: center;
-  height: ${({ height }) => height}px;
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
