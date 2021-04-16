@@ -98,7 +98,6 @@
     "@types/prosemirror-state": "^1.2.5",
     "@types/prosemirror-view": "^1.16.1",
     "@types/react": "^16.14.2",
-    "@types/react-dom": "^17.0.3",
     "@types/styled-components": "^5.1.5",
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
