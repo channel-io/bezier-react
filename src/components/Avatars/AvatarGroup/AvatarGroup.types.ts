@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { AvatarSize } from '../Avatar'
 
 export enum AvatarGroupEllipsisType {
@@ -12,4 +13,7 @@ export interface AvatarGroupProps extends ChildrenComponentProps {
   size?: AvatarSize
   spacing?: number
   ellipsisType?: AvatarGroupEllipsisType
+  onMouseEnterEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
+  onMouseLeaveEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
+  interpolation?: InjectedInterpolation
 }

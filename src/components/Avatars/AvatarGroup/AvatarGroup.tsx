@@ -56,6 +56,7 @@ function AvatarGroup({
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
+  interpolation,
   children,
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
@@ -92,6 +93,7 @@ function AvatarGroup({
         return (
           <AvatarEllipsisIconWrapper
             key="ellipsis"
+            interpolation={interpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
@@ -114,6 +116,7 @@ function AvatarGroup({
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCount
+              interpolation={interpolation}
               forwardedAs="span"
               size={size}
               typo={getProperTypoSize(size)}
@@ -133,6 +136,7 @@ function AvatarGroup({
     size,
     children,
     ellipsisType,
+    interpolation,
     AvatarListCount,
     renderAvatarElement,
     onMouseEnterEllipsis,

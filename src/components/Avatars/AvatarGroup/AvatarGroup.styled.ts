@@ -1,20 +1,28 @@
 /* Internal denpendencies */
 import { styled, smoothCorners } from '../../../foundation'
-import { Text, TextProps } from '../../Text'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
+import { Text, TextProps } from '../../Text'
 import { AvatarSize } from '../Avatar/Avatar.types'
 
 interface AvatarGroupProps {
   spacing: number
 }
 
-export const AvatarEllipsisCount = styled(Text)<TextProps & { size: AvatarSize }>`
+interface AvatarEllipsisCountProps extends TextProps{
+  size: AvatarSize
+  interpolation?: InjectedInterpolation
+}
+
+export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
   position: relative;
   display: flex;
   align-items: center;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
@@ -29,8 +37,10 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisIconWrapper = styled.div`
+export const AvatarEllipsisIconWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
   position: relative;
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const AvatarEllipsisIcon = styled.div`

@@ -1,5 +1,6 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from '../../../foundation'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
 import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_BACKGROUND_COLOR } from '../constants/AvatarStyle'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
@@ -15,6 +16,7 @@ interface AvatarProps {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
+  interpolation?: InjectedInterpolation
 }
 
 function calcStatusGap(showBorder: boolean) {
@@ -63,6 +65,8 @@ export const StyledAvatar = styled.div<AvatarProps>`
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const AvatarWrapper = styled.div<AvatarWrapperProps>`

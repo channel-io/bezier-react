@@ -23,6 +23,7 @@ function Avatar({
   onClick = noop,
   onMouseEnter = noop,
   onMouseLeave = noop,
+  interpolation,
   children,
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
@@ -66,6 +67,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       data-testid={AVATAR_WRAPPER_TEST_ID}
     >
       <StyledAvatar
+        interpolation={interpolation}
         ref={forwardedRef}
         data-testid={testId}
         avatarUrl={loadedAvatarUrl}
