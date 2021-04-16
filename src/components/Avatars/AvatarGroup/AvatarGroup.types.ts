@@ -3,8 +3,8 @@ import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import { AvatarSize } from '../Avatar'
 
 export enum AvatarGroupEllipsisType {
-  Icon = 'ICON',
-  Count = 'COUNT',
+  Icon = 'Icon',
+  Count = 'Count',
 }
 
 export interface AvatarGroupProps extends ChildrenComponentProps {
