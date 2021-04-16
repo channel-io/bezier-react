@@ -4,7 +4,7 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
-import defaultAvatar from '../assets/defaultAvatar.svg'
+import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
@@ -27,7 +27,7 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatar)
+  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatarUrl)
 
   const StatusComponent = useMemo(() => {
     if (
