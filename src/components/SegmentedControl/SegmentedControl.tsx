@@ -2,7 +2,7 @@
 import React, { Ref, forwardRef, useState, useEffect, useLayoutEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
 import { noop, isNumber } from 'lodash-es'
-import ResizeObserver from 'resize-observer-polyfill'
+import { ResizeObserver } from '@juggle/resize-observer';
 
 /* Internal dependencies */
 import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'

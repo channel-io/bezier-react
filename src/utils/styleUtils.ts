@@ -14,7 +14,7 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { AbsoluteUnit, RelativeUnit, Units } from '../types/CSS'
+import { AbsoluteUnit, RelativeUnit, CSSUnits } from '../types/CSS'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
@@ -22,12 +22,12 @@ export const UnitValues: string[] = [
   ...values(RelativeUnit),
 ]
 
-export interface CSSNumberTypeOption {
-  defaultUnit?: Units
-  allowUnits?: Array<Units>
+export interface CSSUnitOption {
+  defaultUnit?: CSSUnits
+  allowUnits?: Array<CSSUnits>
 }
 
-function isCSSNumberTypeOption(opts?: any): opts is CSSNumberTypeOption {
+function isCSSUnitOption(opts?: any): opts is CSSUnitOption {
   return !isNil(opts)
     && isObject(opts)
     && (
@@ -37,20 +37,20 @@ function isCSSNumberTypeOption(opts?: any): opts is CSSNumberTypeOption {
 }
 
 /* eslint-disable max-len */
-export function toCSSNumberType(value: any, defaultValue?: string): string | undefined
-export function toCSSNumberType(value: any, opts?: CSSNumberTypeOption): string | undefined
-export function toCSSNumberType(value: any, defaultValue?: string, opts?: CSSNumberTypeOption): string | undefined
-export function toCSSNumberType(value: any, defaultValueOrOption?: string | CSSNumberTypeOption, opts?: CSSNumberTypeOption): string | undefined {
-  const defaultValue = isCSSNumberTypeOption(defaultValueOrOption) ? undefined : defaultValueOrOption
+export function toCSSUnit(value: any, defaultValue?: string): string | undefined
+export function toCSSUnit(value: any, opts?: CSSUnitOption): string | undefined
+export function toCSSUnit(value: any, defaultValue?: string, opts?: CSSUnitOption): string | undefined
+export function toCSSUnit(value: any, defaultValueOrOption?: string | CSSUnitOption, opts?: CSSUnitOption): string | undefined {
+  const defaultValue = isCSSUnitOption(defaultValueOrOption) ? undefined : defaultValueOrOption
   const options = (() => {
-    if (isCSSNumberTypeOption(defaultValueOrOption)) { return defaultValueOrOption }
-    if (isCSSNumberTypeOption(opts)) { return opts }
+    if (isCSSUnitOption(defaultValueOrOption)) { return defaultValueOrOption }
+    if (isCSSUnitOption(opts)) { return opts }
     return undefined
   })()
   const defaultUnit = get(options, 'defaultUnit', AbsoluteUnit.px)
 
   if (isString(value)) {
-    if (isEmpty(value)) { return `0${defaultUnit}` }
+    if (isEmpty(value)) { return defaultValue || `0${defaultUnit}` }
     if (isNumberString(value)) { return `${value}${defaultUnit}` }
     if (!isEmpty(options?.allowUnits)) {
       if (some(options!.allowUnits, (unit) => endsWith(value, unit))) {
@@ -62,10 +62,8 @@ export function toCSSNumberType(value: any, defaultValueOrOption?: string | CSSN
   }
 
   if (isNumber(value)) {
-    if (isNaN(value) || value === Infinity) { return `0${defaultUnit}` }
-    if (options?.defaultUnit) {
-      return `${value}${defaultUnit}`
-    }
+    if (isNaN(value) || value === Infinity) { return defaultValue || `0${defaultUnit}` }
+    if (options?.defaultUnit) { return `${value}${defaultUnit}` }
     return `${value}${defaultUnit}`
   }
 

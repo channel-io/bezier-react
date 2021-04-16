@@ -7,19 +7,9 @@ export default interface SegmentedControlProps extends UIComponentProps, OptionI
   height?: number | string | 'auto'
 }
 
-export interface StyledWrapperProps extends UIComponentProps {
-  wrapperWidth: number | string
-  wrapperHeight: number | string
-}
-
 export interface SegmentedControlItemProps extends Pick<UIComponentProps,
 | 'as'
 | 'disabled'
 | 'children'> {
-  active?: boolean
-}
-
-export interface StyledSegmentedControlItemProps extends Pick<SegmentedControlItemProps,
-| 'disabled'> {
   active?: boolean
 }

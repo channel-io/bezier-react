@@ -61,6 +61,6 @@ export function unescapeTags(str: string): string {
 
 export function isNumberString(value?: any) {
   if (isNumber(value)) { return true }
-  if (isString(value)) { return !!((value as string).match(/^(?:-|\+|)?\d+(?:,\d{3})*(?:\.\d+)?$/)) }
+  if (isString(value)) { return /^(?:-|\+|)?\d+(?:,\d{3})*(?:\.\d+)?$/.test(value) }
   return false
 }

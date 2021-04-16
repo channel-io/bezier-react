@@ -1,8 +1,6 @@
 /* External dependencies */
 import React, { useRef, useEffect } from 'react'
-
-/* Internal dependencies */
-import _ from 'lodash'
+import { isNil, isFunction } from 'lodash-es'
 
 export type ForwardedRefInstance<T> = ((instance: T | null) => void) | React.MutableRefObject<T | null> | null | undefined
 
@@ -10,8 +8,8 @@ function useReusableForwardedRef<T>(forwardedRef: ForwardedRefInstance<T>): Reac
   const targetRef = useRef<T>(null)
 
   useEffect(() => {
-    if (!_.isNil(forwardedRef)) {
-      if (_.isFunction(forwardedRef)) {
+    if (!isNil(forwardedRef)) {
+      if (isFunction(forwardedRef)) {
         forwardedRef(targetRef.current)
       } else {
         forwardedRef.current = targetRef.current

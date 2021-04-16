@@ -1,19 +1,26 @@
-/* External dependencies */
-import { get } from 'lodash-es'
-
 /* Internal dependencies */
 import { styled } from '../../foundation'
-import { toCSSNumberType } from '../../utils/styleUtils'
-import { StyledWrapperProps, StyledSegmentedControlItemProps } from './SegmentedControl.types'
+import { UIComponentProps } from '../../types/ComponentProps'
+import { toCSSUnit } from '../../utils/styleUtils'
+import { SegmentedControlItemProps } from './SegmentedControl.types'
+
+export interface StyledWrapperProps extends UIComponentProps {
+  wrapperWidth: number | string
+  wrapperHeight: number | string
+}
+
+export interface StyledOptionItemWrapperProps extends Pick<SegmentedControlItemProps, | 'disabled'> {
+  active?: boolean
+}
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  width: ${props => toCSSNumberType(get(props, 'wrapperWidth'), '100%')};
+  width: ${({ wrapperWidth }) => toCSSUnit(wrapperWidth, '100%')};
   min-width: 50px;
-  height: ${props => toCSSNumberType(get(props, 'wrapperHeight'), 'auto')};
+  height: ${({ wrapperHeight }) => toCSSUnit(wrapperHeight, 'auto')};
   overflow: hidden;
   font-size: 14px;
   font-weight: bold;
@@ -23,7 +30,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
-export const OptionItemWrapper = styled.div<StyledSegmentedControlItemProps>`
+export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
   position: absolute;
   box-sizing: border-box;
   display: flex;
@@ -74,9 +81,7 @@ export const Indicator = styled.div`
 export const IndicatorBox = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${props => props.foundation?.theme?.['bg-white-high']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
   border-radius: 6px;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.05),
-    0 1px 2px rgba(0, 0, 0, 0.08),
-    inset 0 0 2px rgba(255, 255, 255, 0.12);
+  ${({ foundation }) => foundation?.elevation?.ev1()};
 `

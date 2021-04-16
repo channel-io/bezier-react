@@ -19,4 +19,4 @@ export enum RelativeUnit {
   perc = '%',
 }
 
-export type Units = `${AbsoluteUnit}` | `${RelativeUnit}`
+export type CSSUnits = `${AbsoluteUnit}` | `${RelativeUnit}`

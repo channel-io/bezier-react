@@ -108,7 +108,22 @@ const Input = styled.input`
   }
 `
 
-const Template = ({ width, height, ...otherProps }) => {
+function PrimaryStory({ width, height, selectedOptionIndex, ...otherProps }) {
+  return (
+    <SegmentedControl
+      width={width}
+      height={height}
+      selectedOptionIndex={selectedOptionIndex}
+      {...otherProps}
+    >
+      { ['Open', 'Snoozed', 'Closed'].map((item) => (
+        <Text key={item} bold>{ item }</Text>
+      )) }
+    </SegmentedControl>
+  )
+}
+
+function PlaygroundStory({ width, height, ...otherProps }) {
   const inputWrapper = useRef<HTMLInputElement>(null)
 
   const [items, setItems] = useState<any>(range(0, 5) as any[])
@@ -193,9 +208,18 @@ const Template = ({ width, height, ...otherProps }) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = PrimaryStory.bind({})
+
+export const Playground = PlaygroundStory.bind({})
 
 Primary.args = {
+  disabled: false,
+  width: '400px',
+  height: '36px',
+  selectedOptionIndex: 0,
+}
+
+Playground.args = {
   disabled: false,
   width: '400px',
   height: '36px',

@@ -1,3 +1,4 @@
+/* Internal dependencies */
 import { mergeClassNames, isNumberString } from './stringUtils'
 
 describe('mergeClassNames()', () => {
