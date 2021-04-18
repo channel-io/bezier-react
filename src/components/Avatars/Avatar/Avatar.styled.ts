@@ -10,7 +10,7 @@ interface AvatarWrapperProps {
   disabled: boolean
 }
 
-interface AvatarProps {
+export interface AvatarProps {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
