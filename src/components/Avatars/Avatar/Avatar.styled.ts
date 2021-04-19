@@ -61,7 +61,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: `${AVATAR_BACKGROUND_COLOR}`,
+    backgroundColor: foundation?.theme?.['bg-white-absolute'],
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
