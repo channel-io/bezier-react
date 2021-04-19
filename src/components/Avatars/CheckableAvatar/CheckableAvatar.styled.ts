@@ -22,10 +22,14 @@ const getBackgroundColor = (isChecked: boolean, foundation?: Foundation) =>
   foundation?.theme?.[isChecked ? 'bgtxt-green-dark' : 'bg-grey-dark']
 
 /* eslint-disable @typescript-eslint/indent */
-const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) => css`
-  cursor: ${isCheckable ? 'pointer' : 'not-allowed'};
-  
-  ${isCheckable && css`
+const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
+  (!isCheckable
+  ? css`
+    cursor: not-allowed;
+  `
+  : css`
+    cursor: pointer;
+
     ${CheckIcon} {
       opacity: ${isChecked ? 1 : 0};
       will-change: opacity;
@@ -48,14 +52,12 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) => css`
         borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
       })};
     }
-  
+
     &:hover ${CheckIcon},
     &:hover ${StyledAvatar}::before {
       opacity: 1;
     }
-  `
-  }
-`
+  `)
 /* eslint-enable @typescript-eslint/indent */
 
 export const CheckableAvatarWrapper = styled.div<CheckableAvatarWrapperProps>`

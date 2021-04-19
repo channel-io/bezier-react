@@ -2,15 +2,11 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { Avatar, AvatarProps } from '../Avatar'
+import { Avatar } from '../Avatar'
+import { CheckableAvatarProps } from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon } from './CheckableAvatar.styled'
 
 export const CHECKABLE_AVATAR_TEST_ID = 'ch-design-system-checkable-avatar'
-
-interface CheckableAvatarProps extends AvatarProps {
-  isChecked: boolean
-  isCheckable: boolean
-}
 
 function CheckableAvatar({
   isChecked = false,
