@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { createContext } from 'react'
-import _ from 'lodash'
+import { noop } from 'lodash-es'
 
 export interface ListMenuContextProps {
   depth: number
@@ -13,7 +13,7 @@ export const defaultListMenuContext = {
   depth: 0,
   paddingLeft: 0,
   active: false,
-  onClick: _.noop,
+  onClick: noop,
 }
 
 export function mergeListMenuContexts(
