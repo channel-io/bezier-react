@@ -62,14 +62,14 @@ export const smoothCorners = ({
   margin: ${margin}px;
   background-color: ${backgroundColor};
 
-  ${backgroundImage ? css`
+  ${backgroundImage && css`
     background-image: url(${backgroundImage});
     background-size: cover;
-  ` : ''}
+  `}
 
-  ${borderRadius ? css`
+  ${borderRadius && css`
     border-radius: ${borderRadius};
-  ` : ''}
+  `}
 
   @supports (background: paint(smooth-corners)) {
     padding: ${shadowBlur * 2}px;
