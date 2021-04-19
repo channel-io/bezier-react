@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import ToastProvider from '../../contexts/ToastProvider'
 import { useToast } from '../../hooks/useToast'
+import ToastProvider from './ToastProvider'
 import ToastProps, {
   Placement as ToastPlacement,
   Appearance as ToastAppearance,

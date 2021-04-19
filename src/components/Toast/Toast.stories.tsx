@@ -1,13 +1,14 @@
 /* External dependencies */
 import React, { useEffect, useState } from 'react'
+import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal depependencies */
 import { styled, TransitionDuration } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
-import { iconList } from '../Icon/Icon.stories'
-import ToastProvider from '../../contexts/ToastProvider'
 import { useToast } from '../../hooks/useToast'
+import { iconList } from '../Icon/Icon.stories'
+import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
 import ToastProps, { Appearance, Placement } from './Toast.types'
 
@@ -15,6 +16,23 @@ export default {
   title: getTitle(base),
   component: ToastElement,
   argTypes: {
+    appearance: {
+      control: {
+        type: 'radio',
+        options: Appearance,
+      },
+    },
+    iconName: {
+      control: {
+        type: 'select',
+        options: iconList,
+      },
+    },
+    content: {
+      control: {
+        type: 'text',
+      },
+    },
     placement: {
       control: {
         type: 'select',
@@ -35,33 +53,32 @@ export default {
         options: TransitionDuration,
       },
     },
-    content: {
-      control: {
-        type: 'text',
-      },
-    },
-    appearance: {
-      control: {
-        type: 'radio',
-        options: Appearance,
-      },
-    },
-    iconName: {
-      control: {
-        type: 'select',
-        options: iconList,
-      },
-    },
   },
 }
 
 const Container = styled.div`
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: 200px;
+  height: 200px;
   background-color: #ddd;
   border: 1px solid grey;
 `
+
+const Template = (args) => (
+  <ToastElement
+    {...args}
+  />
+)
+
+export const Primary: ToastProps = Template.bind({})
+
+Primary.args = {
+  appearance: Appearance.Info,
+  content: '안내문구입니다.',
+  iconName: 'info-filled',
+  actionContent: '새로고침',
+  actionOnClick: noop,
+}
 
 function Div({
   appearance,
@@ -110,7 +127,7 @@ function Div({
   )
 }
 
-const Template = ({
+export const WithAction = ({
   placement,
   autoDismiss,
   autoDismissTimeout,
@@ -126,11 +143,6 @@ const Template = ({
       globalAutoDismiss={autoDismiss}
       autoDismissTimeout={autoDismissTimeout}
       transitionDuration={transitionDuration}
-      /*
-      * portalTargetSelector를 통해 wrapper를 지정할 수 있습니다.
-      * querySelector 문법을 따릅니다.
-      */
-      portalTargetSelector="#story-wrapper"
     >
       <Div
         appearance={appearance}
@@ -142,9 +154,7 @@ const Template = ({
   </Container>
 )
 
-export const Primary: ToastProps = Template.bind({})
-
-Primary.args = {
+WithAction.args = {
   placement: Placement.BottomLeft,
   autoDismiss: true,
   autoDismissTimeout: 2000,

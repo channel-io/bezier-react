@@ -1,35 +1,27 @@
 /* External dependencies */
-import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import ToastContext from '../../contexts/ToastContext'
+import { TransitionDuration } from '../../foundation'
+import { rootElement } from '../../utils/domUtils'
 import {
   Callback,
-  ContextType,
   defaultOptions,
   Options,
   Placement,
   ToastId,
   ToastProviderProps,
   ToastType,
-} from '../components/Toast/Toast.types'
-import ToastContainer from '../components/Toast/ToastContainer'
-import ToastController from '../components/Toast/ToastController'
-import ToastElement from '../components/Toast/ToastElement'
-import ToastService from '../components/Toast/ToastService'
-import { TransitionDuration } from '../foundation'
-
-export const ToastContext = createContext<ContextType>({
-  add: () => '',
-  remove: noop,
-  removeAll: noop,
-  toasts: [],
-})
+} from './Toast.types'
+import ToastContainer from './ToastContainer'
+import ToastController from './ToastController'
+import ToastElement from './ToastElement'
+import ToastService from './ToastService'
 
 const { Consumer, Provider } = ToastContext
-
-const canUseDOM = Boolean(window?.document?.createElement)
 
 function ToastProvider({
   autoDismissTimeout = 5000,
@@ -37,14 +29,11 @@ function ToastProvider({
   transitionDuration = TransitionDuration.S,
   children = [],
   placement = Placement.BottomLeft,
-  portalTargetSelector = 'body',
 }: ToastProviderProps) {
   const toastService = useMemo(() => new ToastService(), [])
   const [toasts, setToasts] = useState<ToastType[]>([])
 
-  const portalTarget = canUseDOM
-    ? document.querySelector(portalTargetSelector)
-    : null
+  const portalTarget = rootElement
 
   const add = useCallback((content: string, options: Options = defaultOptions) => {
     const result = toastService.add(content, options)

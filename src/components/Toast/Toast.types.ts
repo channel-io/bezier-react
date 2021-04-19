@@ -48,7 +48,6 @@ export interface ToastProviderProps {
   transitionDuration?: TransitionDuration
   children?: ReactNode[] | ReactNode
   placement?: Placement
-  portalTargetSelector?: string
 }
 
 export type ToastId = string

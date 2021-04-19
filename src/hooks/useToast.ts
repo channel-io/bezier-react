@@ -1,5 +1,8 @@
+/* External dependencies */
 import { useContext } from 'react'
-import { ToastContext } from '../contexts/ToastProvider'
+
+/* Internal dependencies */
+import ToastContext from '../contexts/ToastContext'
 
 export const useToast = () => {
   const context = useContext(ToastContext)

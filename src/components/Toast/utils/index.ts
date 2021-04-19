@@ -15,7 +15,8 @@ function getIconColor(appearance: Appearance): string {
   }
 }
 
-function placements(placement: Placement) {
+// TODO: GNB 만큼 left 값 주기
+function getPlacement(placement: Placement) {
   switch (placement) {
     case Placement.TopCenter:
       return css`
@@ -31,7 +32,7 @@ function placements(placement: Placement) {
     case Placement.TopLeft:
       return css`
           top: 0;
-          left: 0;
+          left: 64px;
         `
     case Placement.BottomCenter:
       return css`
@@ -48,7 +49,7 @@ function placements(placement: Placement) {
     default:
       return css`
         bottom: 0;
-        left: 0;
+        left: 64px;
       `
   }
 }
@@ -74,6 +75,6 @@ const initPosition = (placement: Placement, isXPosition: boolean) => {
 
 export {
   getIconColor,
-  placements,
+  getPlacement,
   initPosition,
 }

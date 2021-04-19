@@ -1,9 +1,7 @@
 /* Internal dependencies */
-import { Foundation, styled, Typography } from '../../foundation'
+import { Foundation, styled } from '../../foundation'
 import ToastElementProps, { Appearance, ToastContainerProps } from './Toast.types'
-import { getIconColor, placements } from './utils'
-
-const MAX_HEIGHT = `${(18 * 5)}px`
+import { getIconColor, getPlacement } from './utils'
 
 interface IconProps {
   appearance: Appearance
@@ -20,7 +18,7 @@ export const Container = styled.div<ToastContainerProps>`
   padding: 16px 16px;
   overflow: hidden;
   pointer-events: none;
-  ${({ placement }) => placements(placement)}
+  ${({ placement }) => getPlacement(placement)}
 `
 
 export const Element = styled.div<ToastElementProps>`
@@ -35,7 +33,8 @@ export const Element = styled.div<ToastElementProps>`
   ${({ foundation }) => foundation?.elevation.ev3()};
   pointer-events: auto;
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
-  transition: ${({ foundation, transitionDuration }) => foundation?.transition.getTransitionsCSS('none', transitionDuration)};
+  transition: ${({ foundation, transitionDuration }) =>
+    foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
   transform: translate(${({ positionX, positionY }) => `${positionX}, ${positionY}`});
 `
 
@@ -49,8 +48,12 @@ export const IconWrapper = styled.div<IconProps>`
   color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
-const ellipsisColor = (actionContent?: string, foundation?: Foundation) => (
-  actionContent
+export const getEllipsisColor = (
+  actionContent: string | undefined,
+  actionOnClick: Function | undefined,
+  foundation: Foundation | undefined,
+) => (
+  (actionContent && actionOnClick)
     ? foundation?.subTheme?.['bgtxt-cobalt-normal']
     : foundation?.subTheme?.['txt-black-darkest']
 )
@@ -58,14 +61,12 @@ const ellipsisColor = (actionContent?: string, foundation?: Foundation) => (
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
 export const Content = styled.div<ToastElementProps>`
   display: -webkit-box;
-  max-height: ${MAX_HEIGHT};
   margin: 3px 6px;
   overflow: hidden;
-  color: ${({ actionContent, foundation }) => ellipsisColor(actionContent, foundation)};
+  color: ${({ actionContent, actionOnClick, foundation }) => getEllipsisColor(actionContent, actionOnClick, foundation)};
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
-  ${Typography.Size14};
 `
 /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 

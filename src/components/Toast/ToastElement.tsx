@@ -2,9 +2,11 @@
 import React, { forwardRef, Ref } from 'react'
 
 /* Internal dependencies */
+import { Typography } from '../../foundation'
 import { Icon, IconSize } from '../Icon'
+import { Text } from '../Text'
 import ToastProps, { Appearance } from './Toast.types'
-import { Element, IconWrapper, Content, Close, ActionContent, NormalContent } from './Toast.styled'
+import { Element, IconWrapper, Close, ActionContent, NormalContent, Content } from './Toast.styled'
 
 const ToastElement = (
   {
@@ -37,16 +39,21 @@ const ToastElement = (
     </IconWrapper>
     <Content
       actionContent={actionContent}
+      actionOnClick={actionOnClick}
     >
-      <NormalContent>
-        { content }
-      </NormalContent>
-      { ' ' }
-      { actionContent && actionOnClick && (
-        <ActionContent onClick={() => actionOnClick()}>
-          { actionContent }
-        </ActionContent>
-      ) }
+      <Text
+        typo={Typography.Size14}
+      >
+        <NormalContent>
+          { content }
+        </NormalContent>
+        { ' ' }
+        { actionContent && actionOnClick && (
+          <ActionContent onClick={() => actionOnClick()}>
+            { actionContent }
+          </ActionContent>
+        ) }
+      </Text>
     </Content>
     <Close onClick={onDismiss}>
       <Icon

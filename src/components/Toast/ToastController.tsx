@@ -113,7 +113,6 @@ function ToastController({
 
   return (
     <ToastElement
-      key={id}
       transitionDuration={transitionDuration}
       onDismiss={handleDismiss}
       {...props}
