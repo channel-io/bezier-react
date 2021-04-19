@@ -11,10 +11,11 @@ import {
   some,
   endsWith,
   values,
+  includes,
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { AbsoluteUnit, RelativeUnit, CSSUnits } from '../types/CSS'
+import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '../types/CSS'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
@@ -36,11 +37,19 @@ function isCSSUnitOption(opts?: any): opts is CSSUnitOption {
     )
 }
 
+export function isBoxSizingUnit(value?: any): value is BoxSizingUnit {
+  return value && includes(BoxSizingUnit, value)
+}
+
+export function isExplicitDefaulting(value?: any): value is ExplicitDefaulting {
+  return value && includes(ExplicitDefaulting, value)
+}
+
 /* eslint-disable max-len */
-export function toCSSUnit(value: any, defaultValue?: string): string | undefined
-export function toCSSUnit(value: any, opts?: CSSUnitOption): string | undefined
-export function toCSSUnit(value: any, defaultValue?: string, opts?: CSSUnitOption): string | undefined
-export function toCSSUnit(value: any, defaultValueOrOption?: string | CSSUnitOption, opts?: CSSUnitOption): string | undefined {
+export function toLength(value: any, defaultValue?: string): string | undefined
+export function toLength(value: any, opts?: CSSUnitOption): string | undefined
+export function toLength(value: any, defaultValue?: string, opts?: CSSUnitOption): string | undefined
+export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOption, opts?: CSSUnitOption): string | undefined {
   const defaultValue = isCSSUnitOption(defaultValueOrOption) ? undefined : defaultValueOrOption
   const options = (() => {
     if (isCSSUnitOption(defaultValueOrOption)) { return defaultValueOrOption }
@@ -52,6 +61,8 @@ export function toCSSUnit(value: any, defaultValueOrOption?: string | CSSUnitOpt
   if (isString(value)) {
     if (isEmpty(value)) { return defaultValue || `0${defaultUnit}` }
     if (isNumberString(value)) { return `${value}${defaultUnit}` }
+    if (isBoxSizingUnit(value)) { return value }
+    if (isExplicitDefaulting(value)) { return value }
     if (!isEmpty(options?.allowUnits)) {
       if (some(options!.allowUnits, (unit) => endsWith(value, unit))) {
         return value

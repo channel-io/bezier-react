@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, Transition } from '../../foundation'
 import { UIComponentProps } from '../../types/ComponentProps'
-import { toCSSUnit } from '../../utils/styleUtils'
+import { toLength } from '../../utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
 
 export interface StyledWrapperProps extends UIComponentProps {
@@ -16,9 +16,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  width: ${({ wrapperWidth }) => toCSSUnit(wrapperWidth, '100%')};
+  width: ${({ wrapperWidth }) => toLength(wrapperWidth, '100%')};
   min-width: 50px;
-  height: ${({ wrapperHeight }) => toCSSUnit(wrapperHeight, 'auto')};
+  height: ${({ wrapperHeight }) => toLength(wrapperHeight, 'auto')};
   overflow: hidden;
   font-size: 14px;
   font-weight: bold;
