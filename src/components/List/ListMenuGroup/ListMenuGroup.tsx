@@ -1,15 +1,11 @@
 /* External dependencies */
-import React, { useCallback, useMemo, useState, useEffect, forwardRef, useContext } from 'react'
+import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { LIST_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
-import {
-  defaultListMenuContext,
-  ListMenuContext,
-  ListMenuContextProps,
-  mergeListMenuContexts,
-} from '../../../contexts/ListMenuContext'
+import { ListMenuContext } from '../../../contexts/ListMenuContext'
+import useListMenuContext from '../../../hooks/useListMenuContext'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
 import ListMenuGroupProps from './ListMenuGroup.types'
@@ -92,15 +88,11 @@ forwardedRef: React.Ref<HTMLElement>,
     }
   }, [name, onClickArrow])
 
-  const inheritedContext = useContext(ListMenuContext) ?? defaultListMenuContext
-  const context = mergeListMenuContexts(
-    inheritedContext, {
-      paddingLeft: givenPaddingLeft,
-      active: givenActive,
-      onClick: givenOnClick,
-    },
-    LIST_GROUP_PADDING_LEFT,
-  )
+  const context = useListMenuContext({
+    paddingLeft: givenPaddingLeft,
+    active: givenActive,
+    onClick: givenOnClick,
+  }, LIST_GROUP_PADDING_LEFT)
   const { paddingLeft, active, onClick } = context
 
   const handleClickGroup = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -150,7 +142,7 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
-      const passedContext: ListMenuContextProps = {
+      const passedContext = {
         ...context,
         active: currentMenuItemIndex === index,
         onClick: () => handleClickItem(index, element.props.optionKey),

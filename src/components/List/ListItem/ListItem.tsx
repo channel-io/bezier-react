@@ -1,10 +1,10 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useCallback, useMemo, useContext } from 'react'
+import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
 import { get, noop, isNil, isString } from 'lodash-es'
 
 /* Internal dependencies */
-import { defaultListMenuContext, ListMenuContext, mergeListMenuContexts } from '../../../contexts/ListMenuContext'
 import { LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
+import useListMenuContext from '../../../hooks/useListMenuContext'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import { IconSize } from '../../Icon'
 import ListItemProps from './ListItem.types'
@@ -42,15 +42,11 @@ function ListItemComponent({
   onClick: givenOnClick = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
-  const inheritedContext = useContext(ListMenuContext) ?? defaultListMenuContext
-  const context = mergeListMenuContexts(
-    inheritedContext, {
-      paddingLeft: givenPaddingLeft,
-      active: givenActive,
-      onClick: givenOnClick,
-    },
-    LIST_ITEM_PADDING_LEFT,
-  )
+  const context = useListMenuContext({
+    paddingLeft: givenPaddingLeft,
+    active: givenActive,
+    onClick: givenOnClick,
+  }, LIST_ITEM_PADDING_LEFT)
   const { paddingLeft, active, onClick } = context
 
   const clazzName = useMemo(() => (
