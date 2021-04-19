@@ -29,7 +29,7 @@ function ListMenuGroupComponent({
   chevronClassName,
   contentClassName,
   iconClassName,
-  paddingLeft: givenPaddingLeft = 0,
+  paddingLeft: givenPaddingLeft,
   open = false,
   active: givenActive,
   leftIcon,
