@@ -2,7 +2,7 @@
 import { styled, css, smoothCorners } from '../../../foundation'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
-import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_BACKGROUND_COLOR } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { AvatarSize } from './Avatar.types'
 
