@@ -14,6 +14,7 @@ export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 function Avatar({
   avatarUrl,
+  fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
   name = '',
   testId = AVATAR_TEST_ID,
@@ -28,7 +29,7 @@ function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const loadedAvatarUrl = useProgressiveImage(avatarUrl, defaultAvatarUrl)
+  const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
 
   const StatusComponent = useMemo(() => {
     if (
