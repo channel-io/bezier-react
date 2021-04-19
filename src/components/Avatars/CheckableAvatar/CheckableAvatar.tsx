@@ -8,18 +8,21 @@ import { CheckableAvatarWrapper, CheckIcon } from './CheckableAvatar.styled'
 export const CHECKABLE_AVATAR_TEST_ID = 'ch-design-system-checkable-avatar'
 
 interface CheckableAvatarProps extends AvatarProps {
-  notSelectable: boolean
+  isChecked: boolean
+  isCheckable: boolean
 }
 
 function CheckableAvatar({
-  notSelectable = false,
+  isChecked = false,
+  isCheckable = true,
   children,
   ...props
 }: CheckableAvatarProps) {
   return (
     <CheckableAvatarWrapper
       data-testid={CHECKABLE_AVATAR_TEST_ID}
-      notSelectable={notSelectable}
+      isChecked={isChecked}
+      isCheckable={isCheckable}
     >
       <CheckIcon
         name="check"
