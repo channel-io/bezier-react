@@ -56,7 +56,7 @@ export const StyledAvatar = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ showBorder }) => (!enableSmoothCorners.current && showBorder ? smoothCornersFallbackBorderStyle : '')}
+  ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-absolute']}` : undefined,
@@ -73,7 +73,7 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   position: relative;
   z-index: 1;
 
-  ${({ disabled }) => (disabled ? disabledStyle : '')};
+  ${({ disabled }) => disabled && disabledStyle};
 `
 
 export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
