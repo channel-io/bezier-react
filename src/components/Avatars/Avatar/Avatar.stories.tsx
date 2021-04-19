@@ -41,6 +41,7 @@ export default {
   },
 } as Meta
 
+// NOTE: (@ed) border 색상을 명확하게 보여주기 위해 회색의 Wrapper를 추가했습니다
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
