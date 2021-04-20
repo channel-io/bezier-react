@@ -15,7 +15,7 @@ export const Container = styled.div<ToastContainerProps>`
   flex-direction: column;
   max-width: 100%;
   max-height: 100vh;
-  padding: 16px 16px;
+  padding: 16px;
   overflow: hidden;
   pointer-events: none;
   ${({ placement }) => getPlacement(placement)}
@@ -50,10 +50,10 @@ export const IconWrapper = styled.div<IconProps>`
 
 export const getEllipsisColor = (
   actionContent: string | undefined,
-  actionOnClick: Function | undefined,
+  onClick: Function | undefined,
   foundation: Foundation | undefined,
 ) => (
-  (actionContent && actionOnClick)
+  (actionContent && onClick)
     ? foundation?.subTheme?.['bgtxt-cobalt-normal']
     : foundation?.subTheme?.['txt-black-darkest']
 )
@@ -61,7 +61,7 @@ export const getEllipsisColor = (
 export const Content = styled.div<ToastElementProps>`
   ${ellipsis(5, 18)};
   margin: 3px 6px;
-  color: ${({ actionContent, actionOnClick, foundation }) => getEllipsisColor(actionContent, actionOnClick, foundation)};
+  color: ${({ actionContent, onClick, foundation }) => getEllipsisColor(actionContent, onClick, foundation)};
 `
 
 export const NormalContent = styled.div`
