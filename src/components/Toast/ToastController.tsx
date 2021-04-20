@@ -101,7 +101,6 @@ function ToastController({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // TODO: eslint 설정 바뀌면 useEffect callback 함수 이름 넣어주기
   useEffect(() => {
     if (autoDismiss) {
       startTimer()
