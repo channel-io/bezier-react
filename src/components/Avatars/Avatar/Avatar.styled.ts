@@ -2,11 +2,9 @@
 import { styled, css, smoothCorners } from '../../../foundation'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
-import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { AVATAR_STATUS_GAP, AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { AvatarSize } from './Avatar.types'
-
-const STATUS_GAP = 2
 
 interface AvatarWrapperProps {
   disabled: boolean
@@ -21,8 +19,8 @@ interface AvatarProps {
 
 function calcStatusGap(showBorder: boolean) {
   return `${showBorder && enableSmoothCorners.current
-    ? (AVATAR_BORDER_WIDTH * 2) - STATUS_GAP
-    : -STATUS_GAP}px`
+    ? (AVATAR_BORDER_WIDTH * 2) - AVATAR_STATUS_GAP
+    : -AVATAR_STATUS_GAP}px`
 }
 
 const disabledStyle = css`
