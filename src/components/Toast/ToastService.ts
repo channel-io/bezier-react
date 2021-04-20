@@ -46,12 +46,13 @@ class ToastService {
     return newId
   }
 
-  remove = (id: ToastId): void => {
+  remove = (id: ToastId): boolean => {
     if (!this.has(id)) {
-      return
+      return false
     }
     const newToasts: ToastType[] = this.toasts.filter((toast) => toast.id !== id)
     this.setToasts(newToasts)
+    return true // remove success
   }
 
   removeAll = () => {

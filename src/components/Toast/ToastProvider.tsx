@@ -48,10 +48,12 @@ function ToastProvider({
   ])
 
   const remove = useCallback((id: ToastId) => {
-    leftToastService.remove(id)
-    rightToastService.remove(id)
-    setLeftToasts(leftToastService.getToasts())
-    setRightToasts(rightToastService.getToasts())
+    if (leftToastService.remove(id)) {
+      setLeftToasts(leftToastService.getToasts())
+    }
+    if (rightToastService.remove(id)) {
+      setRightToasts(rightToastService.getToasts())
+    }
   }, [
     leftToastService,
     rightToastService,
