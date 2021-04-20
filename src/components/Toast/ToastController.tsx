@@ -1,10 +1,10 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 /* Internal dependencies */
 import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
-import { initPosition } from './utils'
+import { displayPosition, initPosition } from './utils'
 
 function parseDuration(transitionDuration: TransitionDuration) {
   switch (transitionDuration) {
@@ -29,13 +29,11 @@ function ToastController({
   ...props
 }: ToastControllerProps) {
   const [transform, setTransform] = useState(initPosition(placement))
-  const [timer, setTimer] = useState(0)
+  const timer = useRef<number>()
 
   const handleDismiss = useCallback(() => {
     setTransform(initPosition(placement))
-    setTimer(
-      setTimeout(onDismiss, parseDuration(transitionDuration)),
-    )
+    timer.current = setTimeout(onDismiss, parseDuration(transitionDuration))
   }, [
     onDismiss,
     placement,
@@ -43,25 +41,25 @@ function ToastController({
   ])
 
   const startTimer = useCallback(() => {
-    setTimer(
-      setTimeout(handleDismiss, autoDismissTimeout),
-    )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    timer.current = setTimeout(handleDismiss, autoDismissTimeout)
+  }, [
+    autoDismissTimeout,
+    handleDismiss,
+  ])
 
   const clearTimer = useCallback(() => {
     if (autoDismiss) {
-      clearTimeout(timer)
+      clearTimeout(timer.current)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoDismiss])
+
+  useEffect(() => {
+    setTransform(displayPosition())
   }, [])
 
   useEffect(() => {
-    setTransform(initPosition())
     if (autoDismiss) {
-      setTimer(
-        setTimeout(startTimer, parseDuration(transitionDuration)),
-      )
+      timer.current = setTimeout(startTimer, parseDuration(transitionDuration))
     }
     return clearTimer
   // eslint-disable-next-line react-hooks/exhaustive-deps

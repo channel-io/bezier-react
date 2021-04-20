@@ -44,8 +44,11 @@ const initPosition = (placement?: ToastPlacement) => {
   }
 }
 
+const displayPosition = () => css` transform: translateX(0); `
+
 export {
   getIconColor,
   getPlacement,
   initPosition,
+  displayPosition,
 }
