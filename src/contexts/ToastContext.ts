@@ -9,7 +9,8 @@ const ToastContext = createContext<ContextType>({
   add: () => '',
   remove: noop,
   removeAll: noop,
-  toasts: [],
+  leftToasts: [],
+  rightToasts: [],
 })
 
 export default ToastContext

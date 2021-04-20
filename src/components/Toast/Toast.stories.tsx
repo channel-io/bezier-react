@@ -4,13 +4,13 @@ import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal depependencies */
-import { styled, TransitionDuration } from '../../foundation'
+import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
 import { useToast } from '../../hooks/useToast'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import ToastProps, { ToastAppearance, ToastPlacement } from './Toast.types'
+import ToastProps, { ToastAppearance } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -33,24 +33,12 @@ export default {
         type: 'text',
       },
     },
-    placement: {
-      control: {
-        type: 'select',
-        options: ToastPlacement,
-      },
-    },
     autoDismissTimeout: {
       control: {
         type: 'range',
         min: 1000,
         max: 6000,
         step: 100,
-      },
-    },
-    transitionDuration: {
-      control: {
-        type: 'radio',
-        options: TransitionDuration,
       },
     },
   },
@@ -114,12 +102,17 @@ function Div({
     autoDismiss: false,
   })
 
+  const handleRightToast = () => toast.addToast('오른쪽!', {
+    rightSide: true,
+  })
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(handleClick, [])
 
   return (
     <div>
       <button type="button" onClick={handleClick}>Toast!</button>
+      <button type="button" onClick={handleRightToast}>Right Side!</button>
       <button type="button" onClick={handleNeverDismiss}>never dismiss</button>
       <button type="button" onClick={() => toast.removeAllToasts()}>RemoveAll!</button>
       <div>{ display }</div>
@@ -128,7 +121,6 @@ function Div({
 }
 
 export const WithAction = ({
-  placement,
   autoDismissTimeout,
   appearance,
   content,
@@ -137,7 +129,6 @@ export const WithAction = ({
 }) => (
   <Container id="story-wrapper">
     <ToastProvider
-      placement={placement}
       autoDismissTimeout={autoDismissTimeout}
     >
       <Div
@@ -151,7 +142,6 @@ export const WithAction = ({
 )
 
 WithAction.args = {
-  placement: ToastPlacement.BottomLeft,
   autoDismissTimeout: 2000,
   appearance: ToastAppearance.Info,
   content: '안내문구입니다.',

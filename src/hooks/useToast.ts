@@ -15,6 +15,7 @@ export const useToast = () => {
     addToast: context.add,
     removeToast: context.remove,
     removeAllToasts: context.removeAll,
-    toasts: context.toasts,
+    leftToasts: context.leftToasts,
+    rightToasts: context.rightToasts,
   }
 }

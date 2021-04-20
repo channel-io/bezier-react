@@ -26,26 +26,46 @@ const { Consumer, Provider } = ToastContext
 function ToastProvider({
   autoDismissTimeout = 5000,
   children = [],
-  placement = ToastPlacement.BottomLeft,
 }: ToastProviderProps) {
-  const toastService = useMemo(() => new ToastService(), [])
-  const [toasts, setToasts] = useState<ToastType[]>([])
+  const leftToastService = useMemo(() => new ToastService(), [])
+  const rightToastService = useMemo(() => new ToastService(), [])
+  const [leftToasts, setLeftToasts] = useState<ToastType[]>([])
+  const [rightToasts, setRightToasts] = useState<ToastType[]>([])
 
   const add = useCallback((content: string, options: Options = defaultOptions) => {
-    const result = toastService.add(content, options)
-    setToasts(toastService.getToasts())
+    let result = ''
+    if (options.rightSide) {
+      result = rightToastService.add(content, options)
+    } else {
+      result = leftToastService.add(content, options)
+    }
+    setLeftToasts(leftToastService.getToasts())
+    setRightToasts(rightToastService.getToasts())
     return result
-  }, [toastService])
+  }, [
+    leftToastService,
+    rightToastService,
+  ])
 
   const remove = useCallback((id: ToastId) => {
-    toastService.remove(id)
-    setToasts(toastService.getToasts())
-  }, [toastService])
+    leftToastService.remove(id)
+    rightToastService.remove(id)
+    setLeftToasts(leftToastService.getToasts())
+    setRightToasts(rightToastService.getToasts())
+  }, [
+    leftToastService,
+    rightToastService,
+  ])
 
   const removeAll = useCallback(() => {
-    toastService.removeAll()
-    setToasts(toastService.getToasts())
-  }, [toastService])
+    leftToastService.removeAll()
+    rightToastService.removeAll()
+    setLeftToasts(leftToastService.getToasts())
+    setRightToasts(rightToastService.getToasts())
+  }, [
+    leftToastService,
+    rightToastService,
+  ])
 
   const onDismiss = useCallback((id: ToastId, callback: OnDismissCallback = noop) => {
     callback(id)
@@ -53,53 +73,77 @@ function ToastProvider({
   }, [remove])
 
   useEffect(() => {
-    setToasts(toastService.getToasts())
-  }, [toastService])
+    setLeftToasts(leftToastService.getToasts())
+    setRightToasts(rightToastService.getToasts())
+  }, [
+    leftToastService,
+    rightToastService,
+  ])
 
-  const ToastContextValue = useMemo(() => ({ add, remove, removeAll, toasts }), [add, remove, removeAll, toasts])
+  const ToastContextValue = useMemo(() => ({
+    add,
+    remove,
+    removeAll,
+    leftToasts,
+    rightToasts,
+  }), [
+    add,
+    remove,
+    removeAll,
+    leftToasts,
+    rightToasts,
+  ])
 
-  const hasToasts = useMemo(() => Boolean(toasts.length), [toasts.length])
+  const hasToasts = useMemo(() => Boolean(leftToasts.length), [leftToasts.length])
+
+  const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
+    <ToastContainer placement={placement} hasToasts={hasToasts}>
+      { toasts.map(({
+        appearance,
+        autoDismiss,
+        content,
+        iconName,
+        actionContent,
+        actionOnClick,
+        id,
+        // eslint-disable-next-line @typescript-eslint/no-shadow
+        onDismissCallback,
+      }) => (
+        <ToastController
+          key={id}
+          id={id}
+          placement={placement}
+          appearance={appearance}
+          autoDismiss={
+            autoDismiss !== undefined
+              ? autoDismiss
+              : true
+          }
+          transitionDuration={TransitionDuration.M}
+          actionContent={actionContent}
+          actionOnClick={actionOnClick}
+          autoDismissTimeout={autoDismissTimeout}
+          content={content}
+          iconName={iconName}
+          component={ToastElement}
+          onDismiss={() => onDismiss(id, onDismissCallback)}
+          positionX=""
+          positionY=""
+        />
+      )) }
+    </ToastContainer>
+  ), [autoDismissTimeout, hasToasts, onDismiss])
 
   return (
     <Provider value={ToastContextValue}>
       { children }
 
       { createPortal(
-        <ToastContainer placement={placement} hasToasts={hasToasts}>
-          { toasts.map(({
-            appearance,
-            autoDismiss,
-            content,
-            iconName,
-            actionContent,
-            actionOnClick,
-            id,
-            // eslint-disable-next-line @typescript-eslint/no-shadow
-            onDismissCallback,
-          }) => (
-            <ToastController
-              key={id}
-              id={id}
-              placement={placement}
-              appearance={appearance}
-              autoDismiss={
-                autoDismiss !== undefined
-                  ? autoDismiss
-                  : true
-              }
-              transitionDuration={TransitionDuration.M}
-              actionContent={actionContent}
-              actionOnClick={actionOnClick}
-              autoDismissTimeout={autoDismissTimeout}
-              content={content}
-              iconName={iconName}
-              component={ToastElement}
-              onDismiss={() => onDismiss(id, onDismissCallback)}
-              positionX=""
-              positionY=""
-            />
-          )) }
-        </ToastContainer>,
+        createContainer(ToastPlacement.BottomLeft, leftToasts),
+        rootElement,
+      ) }
+      { createPortal(
+        createContainer(ToastPlacement.BottomRight, rightToasts),
         rootElement,
       ) }
     </Provider>

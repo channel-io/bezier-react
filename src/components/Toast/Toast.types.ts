@@ -8,11 +8,7 @@ import { IconName } from '../Icon'
 import { TransitionDuration } from '../../foundation/Transition'
 
 export enum ToastPlacement {
-  TopLeft = 'topLeft',
-  TopCenter = 'topCenter',
-  TopRight = 'topRight',
   BottomLeft = 'bottomLeft',
-  BottomCenter = 'bottomCenter',
   BottomRight = 'bottomRight',
 }
 
@@ -45,7 +41,6 @@ export default interface ToastElementProps extends UIComponentProps {
 export interface ToastProviderProps {
   autoDismissTimeout?: number
   children?: ReactNode[] | ReactNode
-  placement?: ToastPlacement
 }
 
 export type ToastId = string
@@ -59,6 +54,7 @@ export type Options = {
   actionOnClick?: Function
   autoDismiss?: boolean
   onDismissCallback?: OnDismissCallback
+  rightSide?: boolean
 }
 
 export const defaultOptions: Options = {
@@ -74,7 +70,8 @@ export interface ContextType {
   add: (content: string, options: Options) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
-  toasts: ToastType[]
+  leftToasts: ToastType[]
+  rightToasts: ToastType[]
 }
 
 export type ToastContainerProps = {
