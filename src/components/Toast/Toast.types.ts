@@ -62,6 +62,7 @@ export const defaultOptions: ToastOptions = {
   appearance: ToastAppearance.Info,
   autoDismiss: false,
   onDismiss: noop,
+  rightSide: false,
 }
 
 export type ToastType = ToastOptions & { id: ToastId, content: string }
