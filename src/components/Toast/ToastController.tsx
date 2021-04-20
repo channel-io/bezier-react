@@ -1,11 +1,11 @@
 /* External dependencies */
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
 import { initPosition } from './utils'
+import ToastTimer from './utils/ToastTimer'
 
 function parseDuration(transitionDuration: TransitionDuration) {
   switch (transitionDuration) {
@@ -19,38 +19,6 @@ function parseDuration(transitionDuration: TransitionDuration) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-class Timer {
-  timerId!: number
-
-  start: number
-
-  remaining: number
-
-  onDismiss: typeof noop
-
-  constructor(onDismiss: typeof noop, autoDismissTimeout: number) {
-    this.start = autoDismissTimeout
-    this.remaining = autoDismissTimeout
-    this.onDismiss = onDismiss
-  }
-
-  clear = () => {
-    clearTimeout(this.timerId)
-  }
-
-  pause = () => {
-    clearTimeout(this.timerId)
-    this.remaining -= Date.now() - this.start
-  }
-
-  resume = () => {
-    this.start = Date.now()
-    clearTimeout(this.timerId)
-    this.timerId = setTimeout(this.onDismiss, this.remaining)
-  }
-}
-
 function ToastController({
   autoDismissTimeout,
   transitionDuration,
@@ -61,10 +29,10 @@ function ToastController({
   onDismiss,
   ...props
 }: ToastControllerProps) {
-  const [transform, setPositionX] = useState(initPosition(placement))
+  const [transform, setTransform] = useState(initPosition(placement))
 
   const handleDismiss = useCallback(() => {
-    setPositionX(initPosition(placement))
+    setTransform(initPosition(placement))
     setTimeout(onDismiss, parseDuration(transitionDuration))
   }, [
     onDismiss,
@@ -72,7 +40,7 @@ function ToastController({
     transitionDuration,
   ])
 
-  const timer = useMemo(() => new Timer(handleDismiss, autoDismissTimeout), [
+  const timer = useMemo(() => new ToastTimer(handleDismiss, autoDismissTimeout), [
     autoDismissTimeout,
     handleDismiss,
   ])
@@ -90,7 +58,7 @@ function ToastController({
   }, [])
 
   useEffect(() => {
-    setPositionX(initPosition())
+    setTransform(initPosition())
     if (autoDismiss) {
       setTimeout(startTimer, parseDuration(transitionDuration))
     }

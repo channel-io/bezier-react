@@ -24,8 +24,6 @@ const ToastElement = (
     iconName = 'info-filled',
     actionContent,
     onClick,
-    onMouseEnter,
-    onMouseLeave,
     onDismiss,
     ...props
   }: ToastProps,
@@ -55,8 +53,6 @@ const ToastElement = (
   return (
     <Element
       ref={forwardedRef}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       {...props}
     >
       <IconWrapper
