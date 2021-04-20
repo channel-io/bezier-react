@@ -62,7 +62,7 @@ export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
   appearance: ToastAppearance.Info,
-  content: '안내문구입니다.',
+  content: '안내문구입니다.\nnewLine',
   iconName: 'info-filled',
   actionContent: '새로고침',
   onClick: noop,
