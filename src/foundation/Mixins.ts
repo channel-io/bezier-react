@@ -20,8 +20,29 @@ export const hideScrollbars = () => css`
   }
 `
 
+export const ellipsis = (line = 1, lineHeight = 22, unit = 'px') => {
+  if (line <= 1) {
+    return css`
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      `
+  }
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  return css`
+      display: -webkit-box;
+      max-height: ${(line * lineHeight) + unit};
+      overflow: hidden;
+      line-height: ${lineHeight + unit};
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: ${line};
+    `
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+}
+
 interface SmoothCornersOptions {
-  n?: number
+  borderRadius?: number | string
   shadow?: string
   backgroundColor?: string
   backgroundImage?: string
@@ -30,7 +51,7 @@ interface SmoothCornersOptions {
 }
 
 export const smoothCorners = ({
-  n = 3.5,
+  borderRadius = 0,
   shadow = 'none',
   backgroundColor = 'white',
   backgroundImage = '',
@@ -40,16 +61,16 @@ export const smoothCorners = ({
   @supports (background: paint(smooth-corners)) {
     padding: ${shadowBlur * 2}px;
     margin: ${-(shadowBlur * 2) + margin}px;
-    border-radius: 0;
-    box-shadow: none;
     background: paint(smooth-corners);
-
+    border-radius: 0;
     /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
     border-image-source: url(${backgroundImage});
+    box-shadow: none;
 
-    --smooth-corners: ${n};
+    --smooth-corners: ${borderRadius};
     --smooth-corners-shadow: ${shadow};
     --smooth-corners-bg-color: ${backgroundColor};
     --smooth-corners-padding: ${shadowBlur * 2};
+    --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
   }
 `

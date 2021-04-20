@@ -10,6 +10,7 @@ import { styled, Typography } from '../../../foundation'
 import { Icon } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
+import { LayoutProvider } from '../../LayoutProvider'
 import Client from '../../Client/Client'
 import { Main } from '../../Main'
 import GNB from '../../GNB/GNB'
@@ -17,7 +18,6 @@ import Navigations from '../../Navigations/Navigations'
 import { SidePanelContent } from '../../Side/SidePanelContent'
 import { SideViewContent } from '../../Side/SideViewContent'
 import { NavigationContent } from '../../Navigations/NavigationContent'
-import useLayoutState from '../../../hooks/useLayoutState'
 import Content from './Content'
 import ContentHeader from './ContentHeader'
 import CoverableHeader from './CoverableHeader'
@@ -27,12 +27,11 @@ export default {
 }
 
 const Container = styled.div`
-  width: 1200px;
-  height: 800px;
-  padding: 2px;
-  margin: 0 auto;
-  border: 2px solid grey;
-  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `
 
 const Div = styled.div`
@@ -83,17 +82,14 @@ function UserChatSidePanel({ onChangeWidth }) {
 }
 
 function SideViewRoute({ onChangeWidth }) {
-  const { showSideView } = useLayoutState()
-
-  if (!showSideView) {
-    return null
-  }
+  const [state, setState] = useState(Math.random() * 100)
 
   return (
     <SideViewContent
       onChangeSideWidth={onChangeWidth}
     >
-      <Div style={{ height: 2000 }}>SideView</Div>
+      <Div style={{ height: 2000 }}>{ state }</Div>
+      <button onClick={() => setState(Math.random() * 100)} type="button">regenerate</button>
     </SideViewContent>
   )
 }
@@ -112,10 +108,6 @@ const Template = ({ onChangeWidth }) => {
     </>
   ), [])
 
-  const Element1Header = useMemo(() => (
-    <Header title="Title" titleSize={Typography.Size24} />
-  ), [])
-
   const Element2Header = useMemo(() => (
     <Header
       title="Betty"
@@ -129,7 +121,7 @@ const Template = ({ onChangeWidth }) => {
       case RouteKeys.TeamChat:
         return (
           <NavigationContent
-            header={Element1Header}
+            header={<Header title="Channel corp." titleSize={Typography.Size24} />}
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
@@ -149,7 +141,7 @@ const Template = ({ onChangeWidth }) => {
       case RouteKeys.UserChat:
         return (
           <NavigationContent
-            header={Element1Header}
+            header={<Header title="Inbox" titleSize={Typography.Size24} />}
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
@@ -170,7 +162,7 @@ const Template = ({ onChangeWidth }) => {
       case RouteKeys.Setting:
         return (
           <NavigationContent
-            header={Element1Header}
+            header={<Header title="Setting" titleSize={Typography.Size24} />}
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
@@ -191,7 +183,7 @@ const Template = ({ onChangeWidth }) => {
       default:
         return null
     }
-  }, [Element1Header, route, onChangeWidth])
+  }, [route, onChangeWidth])
 
   const NavigationSubRoute = useCallback(() => {
     switch (route) {
@@ -262,15 +254,15 @@ const Template = ({ onChangeWidth }) => {
   ), [onChangeWidth])
 
   return (
-    <>
-      <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
-      <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
-      <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
-      <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
-      Current Route is - { route }
+    <LayoutProvider>
       <Container>
         <Client>
-          <GNB />
+          <GNB>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
+            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
+          </GNB>
           <Navigations>
             <NavigationMainRoute />
             <NavigationSubRoute />
@@ -286,7 +278,7 @@ const Template = ({ onChangeWidth }) => {
           </Main>
         </Client>
       </Container>
-    </>
+    </LayoutProvider>
   )
 }
 

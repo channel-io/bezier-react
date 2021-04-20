@@ -20,7 +20,15 @@ export const Wrapper = styled.div`
 
 export const StyledOverlay = styled.div<StyledOverlayProps>`
   position: absolute;
-  ${props => props.isHidden && css`
+
+  ${({ isHidden }) => isHidden && css`
     visibility: hidden;
   `}
+
+  ${({ transition, foundation }) => transition && (
+    foundation?.transition?.getTransitionsCSS(
+      ['top, left'],
+      foundation?.transition?.TransitionDuration.M,
+    )
+  )}
 `

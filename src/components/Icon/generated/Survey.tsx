@@ -14,7 +14,7 @@ function SvgSurvey(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17 20H7V5h2v1h6V5h2v15zm.5-17H15V2H9v1H6.5C5.673 3 5 3.673 5 4.5v16c0 .827.673 1.5 1.5 1.5h11c.827 0 1.5-.673 1.5-1.5v-16c0-.827-.673-1.5-1.5-1.5zM9 12h6v-2H9v2zm6 4H9v-2h6v2z"
+        d="M8 3a1 1 0 011-1h6a1 1 0 011 1h1a3 3 0 013 3v13a3 3 0 01-3 3H7a3 3 0 01-3-3V6a3 3 0 013-3h1zm1 3a1 1 0 01-1-1H7a1 1 0 00-1 1v13a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1h-1a1 1 0 01-1 1H9zm-1 6h8v-2H8v2zm0 4h8v-2H8v2z"
       />
     </svg>
   )

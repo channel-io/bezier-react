@@ -52,7 +52,7 @@ function NavigationArea(
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => columnStates[currentKey]?.hidable || false, [columnStates, currentKey])
+  const hidable = useMemo(() => (columnStates[currentKey] ? columnStates[currentKey].hidable : true), [columnStates, currentKey])
   const show = useMemo(() => (!hidable || showNavigation), [hidable, showNavigation])
   const disableResize = useMemo(() => (
     !show ||

@@ -14,7 +14,7 @@ function SvgChevronSmallRight(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M9.293 6.793a1 1 0 011.414 0l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414L13.086 12 9.293 8.207a1 1 0 010-1.414z"
+        d="M9.793 6.793a1 1 0 011.414 0l4.5 4.5a1 1 0 010 1.414l-4.5 4.5a1 1 0 01-1.414-1.414L13.586 12 9.793 8.207a1 1 0 010-1.414z"
       />
     </svg>
   )

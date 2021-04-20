@@ -14,7 +14,7 @@ function SvgArrowLeft(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M10.538 21.427l1.457-1.37L5.363 13H21v-2H5.389l6.606-7.03-1.457-1.37-7.881 8.386a1.5 1.5 0 000 2.055l7.881 8.386z"
+        d="M11.538 21.427l1.457-1.37L6.363 13H21v-2H6.389l6.606-7.03-1.457-1.37-7.881 8.386a1.5 1.5 0 000 2.055l7.881 8.386z"
       />
     </svg>
   )

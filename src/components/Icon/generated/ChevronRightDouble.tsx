@@ -10,12 +10,16 @@ function SvgChevronRightDouble(props: React.SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12.46 4.684l1.46-1.368 7.178 7.657a1.5 1.5 0 010 2.051l-7.178 7.657-1.46-1.368 6.859-7.315-6.858-7.314zm-8.87 0l1.46-1.368 7.177 7.657a1.5 1.5 0 010 2.051l-7.178 7.657-1.459-1.368 6.858-7.315L3.59 4.684z"
-      />
+      <g fill="currentColor">
+        <path
+          fill="currentColor"
+          d="M6.76 4.35a1 1 0 00-1.52 1.3L10.684 12 5.24 18.35a1 1 0 001.518 1.3l6-7a1 1 0 000-1.3l-6-7z"
+        />
+        <path
+          fill="currentColor"
+          d="M14.76 4.35a1 1 0 00-1.52 1.3L18.684 12l-5.442 6.35a1 1 0 001.518 1.3l6-7a1 1 0 000-1.3l-6-7z"
+        />
+      </g>
     </svg>
   )
 }

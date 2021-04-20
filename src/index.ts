@@ -21,6 +21,7 @@ export * from './components/List/ListItem'
 export * from './components/Overlay'
 export * from './components/Header'
 export * from './components/Tooltip'
+export * from './components/SectionLabel'
 export * from './components/SegmentedControl'
 
 // TODO: Antlr 문제 수정 후 export (Cannot read property RuleContext of undefined)
@@ -35,6 +36,7 @@ export * from './layout/Navigations'
 export * from './layout/Side/SidePanelContent'
 export * from './layout/Side/SideViewContent'
 export * from './layout/redux'
+export * from './layout/LayoutProvider'
 
 /* Types */
 export type { default as BlocksParserContextType } from './types/BlocksParserContextType'
