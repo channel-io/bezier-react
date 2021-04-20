@@ -33,7 +33,9 @@ function ToastController({
 
   const handleDismiss = useCallback(() => {
     setTransform(initPosition(placement))
-    setTimeout(onDismiss, parseDuration(transitionDuration))
+    setTimer(
+      setTimeout(onDismiss, parseDuration(transitionDuration)),
+    )
   }, [
     onDismiss,
     placement,
@@ -57,7 +59,9 @@ function ToastController({
   useEffect(() => {
     setTransform(initPosition())
     if (autoDismiss) {
-      setTimeout(startTimer, parseDuration(transitionDuration))
+      setTimer(
+        setTimeout(startTimer, parseDuration(transitionDuration)),
+      )
     }
     return clearTimer
   // eslint-disable-next-line react-hooks/exhaustive-deps
