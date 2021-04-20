@@ -117,11 +117,7 @@ function ToastProvider({
           id={id}
           placement={placement}
           appearance={appearance}
-          autoDismiss={
-            autoDismiss !== undefined
-              ? autoDismiss
-              : true
-          }
+          autoDismiss={autoDismiss ?? true}
           transitionDuration={TransitionDuration.M}
           actionContent={actionContent}
           onClick={onClick}
