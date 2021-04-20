@@ -6,7 +6,6 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/etcUtils'
-import { StatusType } from '../../Status'
 import { AvatarSize } from '../Avatar'
 import { CheckableAvatarProps } from './CheckableAvatar.types'
 import CheckableAvatar from './CheckableAvatar'
@@ -55,9 +54,6 @@ const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
-const statusTypeList = Object.keys(StatusType)
-  .map(key => StatusType[key])
-
 export default {
   title: getTitle(base),
   component: CheckableAvatar,
@@ -81,11 +77,23 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<CheckableAvatarProps> = (args) => (
-  <Wrapper>
-    <CheckableAvatar {...args} />
-  </Wrapper>
-)
+const Template: Story<CheckableAvatarProps> = (args) => {
+  const [checked, setChecked] = useState(false)
+
+  const handleClick = useCallback(() => {
+    setChecked(!checked)
+  }, [checked])
+
+  return (
+    <Wrapper>
+      <CheckableAvatar
+        {...args}
+        isChecked={checked}
+        onClick={handleClick}
+      />
+    </Wrapper>
+  )
+}
 
 export const Primary: Story<CheckableAvatarProps> = Template.bind({})
 Primary.args = {
