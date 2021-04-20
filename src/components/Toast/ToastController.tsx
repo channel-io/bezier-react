@@ -1,11 +1,10 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 /* Internal dependencies */
 import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
 import { initPosition } from './utils'
-import ToastTimer from './utils/ToastTimer'
 
 function parseDuration(transitionDuration: TransitionDuration) {
   switch (transitionDuration) {
@@ -30,6 +29,7 @@ function ToastController({
   ...props
 }: ToastControllerProps) {
   const [transform, setTransform] = useState(initPosition(placement))
+  const [timer, setTimer] = useState(0)
 
   const handleDismiss = useCallback(() => {
     setTransform(initPosition(placement))
@@ -40,19 +40,16 @@ function ToastController({
     transitionDuration,
   ])
 
-  const timer = useMemo(() => new ToastTimer(handleDismiss, autoDismissTimeout), [
-    autoDismissTimeout,
-    handleDismiss,
-  ])
-
   const startTimer = useCallback(() => {
-    timer.resume()
+    setTimer(
+      setTimeout(handleDismiss, autoDismissTimeout),
+    )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const clearTimer = useCallback(() => {
     if (autoDismiss) {
-      timer.clear()
+      clearTimeout(timer)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -65,15 +62,6 @@ function ToastController({
     return clearTimer
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  useEffect(() => {
-    if (autoDismiss) {
-      startTimer()
-    } else {
-      clearTimer()
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoDismiss])
 
   return (
     <ToastElement
