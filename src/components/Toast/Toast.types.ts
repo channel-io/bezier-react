@@ -77,7 +77,6 @@ export interface ToastContextType {
 
 export type ToastContainerProps = {
   children?: ReactNode[]
-  hasToasts: boolean
   placement: ToastPlacement
 }
 

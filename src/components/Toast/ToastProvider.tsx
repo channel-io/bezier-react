@@ -96,13 +96,10 @@ function ToastProvider({
     rightToasts,
   ])
 
-  const hasToasts = useMemo(() => Boolean(leftToasts.length), [leftToasts.length])
-
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
     <ToastContainer
       key={placement}
       placement={placement}
-      hasToasts={hasToasts}
     >
       { toasts.map(({
         appearance,
@@ -137,7 +134,7 @@ function ToastProvider({
         />
       )) }
     </ToastContainer>
-  ), [autoDismissTimeout, hasToasts, handleDismiss])
+  ), [autoDismissTimeout, handleDismiss])
 
   return (
     <Provider value={ToastContextValue}>
