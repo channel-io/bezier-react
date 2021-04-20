@@ -24,7 +24,7 @@ import ToastService from './ToastService'
 const { Consumer, Provider } = ToastContext
 
 function ToastProvider({
-  autoDismissTimeout = 5000,
+  autoDismissTimeout = 3000,
   children = [],
 }: ToastProviderProps) {
   const leftToastService = useMemo(() => new ToastService(), [])
