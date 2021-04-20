@@ -49,8 +49,10 @@ export default function useProgressiveImage(src: string, defaultSrc: string) {
     source,
   ])
 
-  if (!source) { return defaultSrc }
+  if (!source || !source.isLoaded) {
+    return defaultSrc
+  }
 
-  return source.isLoaded ? source.src : defaultSrc
+  return source.src
 }
 
