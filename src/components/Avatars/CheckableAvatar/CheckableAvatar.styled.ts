@@ -15,6 +15,7 @@ export const CheckIcon = styled(Icon)`
   z-index: 2;
   width: 47.61904762%;
   height: 47.61904762%;
+  pointer-events: none;
   opacity: 0;
 `
 
