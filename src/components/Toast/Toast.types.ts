@@ -1,6 +1,7 @@
 /* External dependencies */
 import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
+import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
@@ -34,8 +35,7 @@ export default interface ToastElementProps extends UIComponentProps {
   onClick?: Function
   onDismiss: () => void
   transitionDuration: TransitionDuration
-  positionX: string
-  positionY: string
+  transform: FlattenSimpleInterpolation
 }
 
 export interface ToastProviderProps {
@@ -67,7 +67,7 @@ export const defaultOptions: ToastOptions = {
 
 export type ToastType = ToastOptions & { id: ToastId, content: string }
 
-export interface ContextType {
+export interface ToastContextType {
   add: (content: string, options: ToastOptions) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void

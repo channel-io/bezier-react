@@ -5,7 +5,7 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import ToastContext from '../../contexts/ToastContext'
-import { TransitionDuration } from '../../foundation'
+import { css, TransitionDuration } from '../../foundation'
 import { rootElement } from '../../utils/domUtils'
 import {
   OnDismissCallback,
@@ -99,7 +99,11 @@ function ToastProvider({
   const hasToasts = useMemo(() => Boolean(leftToasts.length), [leftToasts.length])
 
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
-    <ToastContainer placement={placement} hasToasts={hasToasts}>
+    <ToastContainer
+      key={placement}
+      placement={placement}
+      hasToasts={hasToasts}
+    >
       { toasts.map(({
         appearance,
         autoDismiss,
@@ -129,8 +133,7 @@ function ToastProvider({
           iconName={iconName}
           component={ToastElement}
           onDismiss={() => handleDismiss(id, onDismiss)}
-          positionX=""
-          positionY=""
+          transform={css``}
         />
       )) }
     </ToastContainer>
@@ -139,7 +142,6 @@ function ToastProvider({
   return (
     <Provider value={ToastContextValue}>
       { children }
-
       { createPortal(
         [
           createContainer(ToastPlacement.BottomLeft, leftToasts),

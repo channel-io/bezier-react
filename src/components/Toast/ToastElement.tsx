@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, Ref, useCallback } from 'react'
+import React, { forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -31,7 +31,7 @@ const ToastElement = (
   }: ToastProps,
   forwardedRef: Ref<any>,
 ) => {
-  const getNewLineComponent = useCallback(() => (
+  const getNewLineComponent = useMemo(() => (
     content.split('\n').map((str, index) => {
       if (index === 0) {
         return (
@@ -78,7 +78,7 @@ const ToastElement = (
           }}
         >
           <NormalContent>
-            { getNewLineComponent() }
+            { getNewLineComponent }
           </NormalContent>
           { ' ' }
           { actionContent && onClick && (

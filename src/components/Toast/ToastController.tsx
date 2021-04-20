@@ -61,12 +61,10 @@ function ToastController({
   onDismiss,
   ...props
 }: ToastControllerProps) {
-  const [positionX, setPositionX] = useState(initPosition(placement, true))
-  const [positionY, setPositionY] = useState(initPosition(placement, false))
+  const [transform, setPositionX] = useState(initPosition(placement))
 
   const handleDismiss = useCallback(() => {
-    setPositionX(initPosition(placement, true))
-    setPositionY(initPosition(placement, false))
+    setPositionX(initPosition(placement))
     setTimeout(onDismiss, parseDuration(transitionDuration))
   }, [
     onDismiss,
@@ -92,8 +90,7 @@ function ToastController({
   }, [])
 
   useEffect(() => {
-    setPositionX('0')
-    setPositionY('0')
+    setPositionX(initPosition())
     if (autoDismiss) {
       setTimeout(startTimer, parseDuration(transitionDuration))
     }
@@ -115,8 +112,7 @@ function ToastController({
       transitionDuration={transitionDuration}
       onDismiss={handleDismiss}
       {...props}
-      positionX={positionX}
-      positionY={positionY}
+      transform={transform}
     />
   )
 }

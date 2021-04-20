@@ -35,7 +35,7 @@ export const Element = styled.div<ToastElementProps>`
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
-  transform: translate(${({ positionX, positionY }) => `${positionX}, ${positionY}`});
+  ${({ transform }) => transform}
 `
 
 export const IconWrapper = styled.div<IconProps>`

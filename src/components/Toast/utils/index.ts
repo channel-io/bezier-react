@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import { css } from '../../../foundation'
-import { GNB_WDITH } from '../../../layout/GNB/GNB.styled'
+import { GNB_WIDTH } from '../../../layout/GNB/GNB.styled'
 import { ToastAppearance, ToastIconColor, ToastPlacement } from '../Toast.types'
 
-function getIconColor(appearance: ToastAppearance): string {
+function getIconColor(appearance: ToastAppearance): ToastIconColor {
   switch (appearance) {
     case ToastAppearance.Success:
       return ToastIconColor.Success
@@ -17,7 +17,6 @@ function getIconColor(appearance: ToastAppearance): string {
   }
 }
 
-// TODO: GNB 만큼 left 값 주기
 function getPlacement(placement: ToastPlacement) {
   switch (placement) {
     case ToastPlacement.BottomRight:
@@ -29,19 +28,19 @@ function getPlacement(placement: ToastPlacement) {
     default:
       return css`
         bottom: 0;
-        left: ${GNB_WDITH};
+        left: ${GNB_WIDTH};
       `
   }
 }
 
-const initPosition = (placement: ToastPlacement, isXPosition: boolean) => {
+const initPosition = (placement?: ToastPlacement) => {
   switch (placement) {
     case ToastPlacement.BottomLeft:
-      return isXPosition ? '-120%' : '0'
+      return css` transform: translateX(-120%); `
     case ToastPlacement.BottomRight:
-      return isXPosition ? '120%' : '0'
+      return css` transform: translateX(120%); `
     default:
-      return '0'
+      return css` transform: translateX(0); `
   }
 }
 

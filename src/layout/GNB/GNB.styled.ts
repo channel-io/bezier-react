@@ -2,7 +2,7 @@
 import { styled } from '../../foundation'
 import GNBProps from './GNB.types'
 
-export const GNB_WDITH = '68px'
+export const GNB_WIDTH = '68px'
 
 const GNB = styled.div<GNBProps>`
   z-index: 10000;
@@ -10,7 +10,7 @@ const GNB = styled.div<GNBProps>`
   flex: none;
   flex-direction: column;
   align-items: center;
-  width: ${GNB_WDITH};
+  width: ${GNB_WIDTH};
   height: 100%;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-gnb']};
   ${({ foundation }) =>
