@@ -21,6 +21,7 @@ export * from './components/List/ListItem'
 export * from './components/Overlay'
 export * from './components/Header'
 export * from './components/Tooltip'
+export * from './components/SegmentedControl'
 
 // TODO: Antlr 문제 수정 후 export (Cannot read property RuleContext of undefined)
 // export * from './components/Editor'
@@ -53,3 +54,5 @@ export { default as useHeader } from './hooks/useHeader'
 
 /* Utils */
 export { rootElement } from './utils/domUtils'
+export * as StyleUtils from './utils/styleUtils'
+export * as StringUtils from './utils/stringUtils'
