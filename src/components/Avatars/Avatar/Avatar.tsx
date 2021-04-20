@@ -16,7 +16,7 @@ function Avatar({
   avatarUrl,
   fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
-  name = '',
+  name,
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,

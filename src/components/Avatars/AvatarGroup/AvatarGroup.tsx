@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import { v4 as uuid } from 'uuid'
 import { noop } from 'lodash-es'
 
 /* Internal denpendencies */
@@ -61,7 +60,7 @@ function AvatarGroup({
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
     React.cloneElement(avatar, {
-      key: uuid(),
+      key: `${avatar.props.name}-${avatar.props.avatarUrl}`,
       size,
       showBorder: avatar.props.showBorder || spacing < 0,
     })
