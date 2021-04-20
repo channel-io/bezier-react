@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, Ref, useMemo } from 'react'
+import React, { Fragment, forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -40,12 +40,14 @@ const ToastElement = (
       }
 
       return (
-        <>
+        <Fragment key={uuid()}>
           <br />
-          <Text key={uuid()} typo={Typography.Size14}>
+          <Text
+            typo={Typography.Size14}
+          >
             { str }
           </Text>
-        </>
+        </Fragment>
       )
     })
   ), [content])
