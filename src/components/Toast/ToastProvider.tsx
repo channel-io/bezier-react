@@ -21,7 +21,7 @@ import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 import ToastService from './ToastService'
 
-const { Consumer, Provider } = ToastContext
+const { Provider } = ToastContext
 
 function ToastProvider({
   autoDismissTimeout = 3000,
@@ -145,9 +145,5 @@ function ToastProvider({
     </Provider>
   )
 }
-
-export const ToastConsumer = ({ children }) => (
-  <Consumer>{ context => children(context) }</Consumer>
-)
 
 export default ToastProvider
