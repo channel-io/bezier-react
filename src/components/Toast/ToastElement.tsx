@@ -22,7 +22,7 @@ const ToastElement = (
     content = '',
     iconName = 'info-filled',
     actionContent,
-    actionOnClick,
+    onClick,
     onMouseEnter,
     onMouseLeave,
     onDismiss,
@@ -46,7 +46,7 @@ const ToastElement = (
     </IconWrapper>
     <Content
       actionContent={actionContent}
-      actionOnClick={actionOnClick}
+      onClick={onClick}
     >
       <Text
         typo={Typography.Size14}
@@ -58,8 +58,8 @@ const ToastElement = (
           { content }
         </NormalContent>
         { ' ' }
-        { actionContent && actionOnClick && (
-          <ActionContent onClick={() => actionOnClick()}>
+        { actionContent && onClick && (
+          <ActionContent onClick={() => onClick()}>
             { actionContent }
           </ActionContent>
         ) }

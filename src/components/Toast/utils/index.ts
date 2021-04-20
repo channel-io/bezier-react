@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { css } from '../../../foundation'
+import { GNB_WDITH } from '../../../layout/GNB/GNB.styled'
 import { ToastAppearance, ToastIconColor, ToastPlacement } from '../Toast.types'
 
 function getIconColor(appearance: ToastAppearance): string {
@@ -28,7 +29,7 @@ function getPlacement(placement: ToastPlacement) {
     default:
       return css`
         bottom: 0;
-        left: 64px;
+        left: ${GNB_WDITH};
       `
   }
 }

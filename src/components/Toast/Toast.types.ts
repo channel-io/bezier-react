@@ -31,7 +31,7 @@ export default interface ToastElementProps extends UIComponentProps {
   content: string
   iconName?: IconName
   actionContent?: string
-  actionOnClick?: Function
+  onClick?: Function
   onDismiss: () => void
   transitionDuration: TransitionDuration
   positionX: string
@@ -47,27 +47,27 @@ export type ToastId = string
 
 export type OnDismissCallback = (id: ToastId) => void
 
-export type Options = {
+export type ToastOptions = {
   iconName?: IconName
   appearance?: ToastAppearance
   actionContent?: string
-  actionOnClick?: Function
+  onClick?: Function
   autoDismiss?: boolean
-  onDismissCallback?: OnDismissCallback
+  onDismiss?: OnDismissCallback
   rightSide?: boolean
 }
 
-export const defaultOptions: Options = {
+export const defaultOptions: ToastOptions = {
   iconName: 'info-filled',
   appearance: ToastAppearance.Info,
   autoDismiss: false,
-  onDismissCallback: noop,
+  onDismiss: noop,
 }
 
-export type ToastType = Options & { id: ToastId, content: string }
+export type ToastType = ToastOptions & { id: ToastId, content: string }
 
 export interface ContextType {
-  add: (content: string, options: Options) => ToastId
+  add: (content: string, options: ToastOptions) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
   leftToasts: ToastType[]

@@ -10,7 +10,7 @@ import { rootElement } from '../../utils/domUtils'
 import {
   OnDismissCallback,
   defaultOptions,
-  Options,
+  ToastOptions,
   ToastPlacement,
   ToastId,
   ToastProviderProps,
@@ -32,15 +32,15 @@ function ToastProvider({
   const [leftToasts, setLeftToasts] = useState<ToastType[]>([])
   const [rightToasts, setRightToasts] = useState<ToastType[]>([])
 
-  const add = useCallback((content: string, options: Options = defaultOptions) => {
+  const add = useCallback((content: string, options: ToastOptions = defaultOptions) => {
     let result = ''
     if (options.rightSide) {
       result = rightToastService.add(content, options)
+      setRightToasts(rightToastService.getToasts())
     } else {
       result = leftToastService.add(content, options)
+      setLeftToasts(leftToastService.getToasts())
     }
-    setLeftToasts(leftToastService.getToasts())
-    setRightToasts(rightToastService.getToasts())
     return result
   }, [
     leftToastService,
@@ -67,7 +67,7 @@ function ToastProvider({
     rightToastService,
   ])
 
-  const onDismiss = useCallback((id: ToastId, callback: OnDismissCallback = noop) => {
+  const handleDismiss = useCallback((id: ToastId, callback: OnDismissCallback = noop) => {
     callback(id)
     remove(id)
   }, [remove])
@@ -104,10 +104,10 @@ function ToastProvider({
         content,
         iconName,
         actionContent,
-        actionOnClick,
+        onClick,
         id,
         // eslint-disable-next-line @typescript-eslint/no-shadow
-        onDismissCallback,
+        onDismiss,
       }) => (
         <ToastController
           key={id}
@@ -121,29 +121,28 @@ function ToastProvider({
           }
           transitionDuration={TransitionDuration.M}
           actionContent={actionContent}
-          actionOnClick={actionOnClick}
+          onClick={onClick}
           autoDismissTimeout={autoDismissTimeout}
           content={content}
           iconName={iconName}
           component={ToastElement}
-          onDismiss={() => onDismiss(id, onDismissCallback)}
+          onDismiss={() => handleDismiss(id, onDismiss)}
           positionX=""
           positionY=""
         />
       )) }
     </ToastContainer>
-  ), [autoDismissTimeout, hasToasts, onDismiss])
+  ), [autoDismissTimeout, hasToasts, handleDismiss])
 
   return (
     <Provider value={ToastContextValue}>
       { children }
 
       { createPortal(
-        createContainer(ToastPlacement.BottomLeft, leftToasts),
-        rootElement,
-      ) }
-      { createPortal(
-        createContainer(ToastPlacement.BottomRight, rightToasts),
+        [
+          createContainer(ToastPlacement.BottomLeft, leftToasts),
+          createContainer(ToastPlacement.BottomRight, rightToasts),
+        ],
         rootElement,
       ) }
     </Provider>

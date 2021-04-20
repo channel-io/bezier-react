@@ -65,7 +65,7 @@ Primary.args = {
   content: '안내문구입니다.',
   iconName: 'info-filled',
   actionContent: '새로고침',
-  actionOnClick: noop,
+  onClick: noop,
 }
 
 function Div({
@@ -90,7 +90,7 @@ function Div({
       appearance,
       iconName,
       actionContent,
-      actionOnClick: () => handleAction(curentContent),
+      onClick: () => handleAction(curentContent),
     })
 
     setCount(count + 1)

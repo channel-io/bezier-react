@@ -2,7 +2,12 @@
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { defaultOptions, Options, ToastId, ToastType } from './Toast.types'
+import {
+  defaultOptions,
+  ToastOptions,
+  ToastId,
+  ToastType,
+} from './Toast.types'
 
 class ToastService {
   toasts: ToastType[] = []
@@ -20,7 +25,7 @@ class ToastService {
     return this.toasts.reduce((flag, cur) => (cur.id === id ? true : flag), false)
   }
 
-  add = (content: string, options: Options = defaultOptions) => {
+  add = (content: string, options: ToastOptions = defaultOptions) => {
     const newId: ToastId = uuid()
 
     if (this.has(newId)) {
