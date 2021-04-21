@@ -3,14 +3,10 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { css, styled } from '../../../foundation'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListMenuGroup.types'
-
-interface WithInterpolation {
-  interpolation?: InjectedInterpolation
-}
 
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};

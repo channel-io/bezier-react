@@ -13,7 +13,6 @@ export enum ChevronIconType {
 }
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
-  interpolation?: InjectedInterpolation
   chevronClassName?: string
   chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
@@ -45,7 +44,6 @@ export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
   currentMenuItemIndex?: number | null
-  interpolation?: InjectedInterpolation
   chevronClassName?: string
   selectedOptionIndex?: number
   selected?: boolean
