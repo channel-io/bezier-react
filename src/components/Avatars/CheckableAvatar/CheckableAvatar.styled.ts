@@ -4,17 +4,19 @@ import { StyledAvatar } from '../Avatar/Avatar.styled'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { Icon } from '../../Icon'
 
+// NOTE: 20px (IconSize) / 42px (WrapperSize) = 0.476129...
+const CHECK_ICON_SIZE_PERCENTAGE = 47.61904762
+
 interface CheckableAvatarWrapperProps {
   isChecked: boolean
   isCheckable: boolean
 }
 
-// 20px (IconSize) / 42px (WrapperSize) = 0.476129...
 export const CheckIcon = styled(Icon)`
   position: absolute;
   z-index: 2;
-  width: 47.61904762%;
-  height: 47.61904762%;
+  width: ${CHECK_ICON_SIZE_PERCENTAGE}%;
+  height: ${CHECK_ICON_SIZE_PERCENTAGE}%;
   pointer-events: none;
   opacity: 0;
 `
