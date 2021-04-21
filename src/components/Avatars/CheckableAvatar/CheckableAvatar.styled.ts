@@ -1,8 +1,9 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners, Foundation } from '../../../foundation'
-import { StyledAvatar } from '../Avatar/Avatar.styled'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { Icon } from '../../Icon'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { StyledAvatar } from '../Avatar/Avatar.styled'
 
 // NOTE: 20px (IconSize) / 42px (WrapperSize) = 0.476129...
 const CHECK_ICON_SIZE_PERCENTAGE = 47.61904762
@@ -46,7 +47,12 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
       height: 100%;
       content: '';
       opacity: ${isChecked ? 1 : 0};
-      will-change: opacity, background-color;
+      /**
+       * NOTE: (@ed) smooth-corners가 적용된 상태에선 background 색상을 background-color 속성을 통해 그리지 않으므로 (background: paint(smooth-corners))
+       * smooth-corners가 사용 가능한 브라우저에선 background-color 트랜지션또한 불가능합니다.
+       * 발생하지 않는 트랜지션에 will-change 속성을 주는 건 불필요하므로, will-change 속성에서 background-color를 제거합니다.
+       */
+      will-change: ${enableSmoothCorners.current ? 'opacity' : 'opcacity, background-color'};
   
       ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
   
