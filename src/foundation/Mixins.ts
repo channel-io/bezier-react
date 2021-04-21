@@ -1,3 +1,4 @@
+/* Internal dependencies */
 import { css } from './FoundationStyledComponent'
 
 export const absoluteCenter = (otherTransforms: any) => `
@@ -52,12 +53,24 @@ interface SmoothCornersOptions {
 
 export const smoothCorners = ({
   borderRadius = 0,
-  shadow = 'none',
+  shadow = '0 0 0 0 transparent',
   backgroundColor = 'white',
   backgroundImage = '',
   shadowBlur = 0,
   margin = 0,
 }: SmoothCornersOptions) => css`
+  margin: ${margin}px;
+  background-color: ${backgroundColor};
+
+  ${backgroundImage && css`
+    background-image: url(${backgroundImage});
+    background-size: cover;
+  `}
+
+  ${borderRadius && css`
+    border-radius: ${borderRadius};
+  `}
+
   @supports (background: paint(smooth-corners)) {
     padding: ${shadowBlur * 2}px;
     margin: ${-(shadowBlur * 2) + margin}px;
