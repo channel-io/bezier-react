@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { ContentComponentProps } from '../../../types/ComponentProps'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import {
   IconName,
   IconSize,
@@ -12,9 +13,13 @@ export enum ChevronIconType {
 }
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
+  interpolation?: InjectedInterpolation
   chevronClassName?: string
+  chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
+  contentInterpolation?: InjectedInterpolation
   iconClassName?: string
+  iconInterpolation?: InjectedInterpolation
   open?: boolean
   active?: boolean
   content?: React.ReactNode
@@ -40,6 +45,7 @@ export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
   currentMenuItemIndex?: number | null
+  interpolation?: InjectedInterpolation
   chevronClassName?: string
   selectedOptionIndex?: number
   selected?: boolean

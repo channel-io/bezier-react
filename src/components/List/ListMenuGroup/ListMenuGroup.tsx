@@ -24,9 +24,13 @@ function ListMenuGroupComponent({
   as,
   testId = LIST_MENU_GROUP_TEST_ID,
   className,
+  interpolation,
   chevronClassName,
+  chevronInterpolation,
   contentClassName,
+  contentInterpolation,
   iconClassName,
+  iconInterpolation,
   paddingLeft: givenPaddingLeft,
   open = false,
   active: givenActive,
@@ -111,6 +115,7 @@ forwardedRef: React.Ref<HTMLElement>,
         <ChevronWrapper>
           <StyledIcon
             className={chevronClassName}
+            interpolation={chevronInterpolation}
             name={chevronIcon}
             size={chevronIconSize}
             onClick={handleClickIcon}
@@ -120,6 +125,7 @@ forwardedRef: React.Ref<HTMLElement>,
         { !isNil(leftIcon) && (
         <StyledIcon
           className={iconClassName}
+          interpolation={iconInterpolation}
           name={leftIcon}
           size={IconSize.S}
           active={active}
@@ -128,7 +134,10 @@ forwardedRef: React.Ref<HTMLElement>,
           marginRight={8}
         />
         ) }
-        <ContentWrapper className={contentClassName}>
+        <ContentWrapper
+          className={contentClassName}
+          interpolation={contentInterpolation}
+        >
           { content }
         </ContentWrapper>
         { rightContent }
@@ -137,8 +146,11 @@ forwardedRef: React.Ref<HTMLElement>,
   },
   [
     iconClassName,
+    iconInterpolation,
     chevronClassName,
+    chevronInterpolation,
     contentClassName,
+    contentInterpolation,
     content,
     chevronIconSize,
     chevronIconType,
@@ -181,6 +193,7 @@ forwardedRef: React.Ref<HTMLElement>,
         ref={forwardedRef}
         name={name}
         className={className}
+        interpolation={interpolation}
         open={open}
         active={active}
         currentMenuItemIndex={currentMenuItemIndex}
