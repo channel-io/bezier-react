@@ -1,12 +1,8 @@
 /* Internal dependencies */
 import { styled } from '../../foundation'
-import type InjectedInterpolation from '../../types/InjectedInterpolation'
+import { WithInterpolation } from '../../types/InjectedInterpolation'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
-
-interface WithInterpolation {
-  interpolation?: InjectedInterpolation
-}
 
 interface ClickableElementProps {
   clickable: boolean

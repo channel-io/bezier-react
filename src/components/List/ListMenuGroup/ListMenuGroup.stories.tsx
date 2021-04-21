@@ -1,12 +1,23 @@
 /* External dependencies */
-import React, { useCallback, useState } from 'react'
+import React, {
+  useCallback,
+  useState,
+} from 'react'
 import base from 'paths.macro'
+import {
+  Story,
+  Meta,
+} from '@storybook/react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
+import { IconSize } from '../../Icon'
 import { ListItem } from '../ListItem'
 import ListMenuGroup from './ListMenuGroup'
+import ListMenuGroupProps, {
+  ChevronIconType,
+} from './ListMenuGroup.types'
 
 export default {
   title: getTitle(base),
@@ -18,9 +29,9 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ ...otherListMenuGroupProps }) => {
+const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => {
   const [open, setOpen] = useState(true)
   const [idx, setIdx] = useState(null)
 
@@ -129,11 +140,13 @@ const Template = ({ ...otherListMenuGroupProps }) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary: Story<ListMenuGroupProps> = Template.bind({})
 
 Primary.args = {
   name: 'sample group',
   content: 'KR',
+  chevronIconType: ChevronIconType.Small,
+  chevronIconSize: IconSize.XS,
   leftIcon: 'dot',
   leftIconColor: 'bgtxt-pink-normal',
   selectedOptionIndex: null,

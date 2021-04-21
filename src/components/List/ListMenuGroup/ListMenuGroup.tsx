@@ -8,7 +8,9 @@ import { ListMenuContext } from '../../../contexts/ListMenuContext'
 import useListMenuContext from '../../../hooks/useListMenuContext'
 import { isListItem } from '../ListItem/ListItem'
 import { IconSize } from '../../Icon'
-import ListMenuGroupProps from './ListMenuGroup.types'
+import ListMenuGroupProps, {
+  ChevronIconType,
+} from './ListMenuGroup.types'
 import {
   GroupItemWrapper,
   StyledIcon,
@@ -22,12 +24,18 @@ function ListMenuGroupComponent({
   as,
   testId = LIST_MENU_GROUP_TEST_ID,
   className,
+  interpolation,
   chevronClassName,
+  chevronInterpolation,
   contentClassName,
+  contentInterpolation,
   iconClassName,
+  iconInterpolation,
   paddingLeft: givenPaddingLeft,
   open = false,
   active: givenActive,
+  chevronIconType = ChevronIconType.Small,
+  chevronIconSize = IconSize.XS,
   leftIcon,
   leftIconColor,
   disableIconActive = false,
@@ -71,7 +79,7 @@ forwardedRef: React.Ref<HTMLElement>,
     if (open) {
       onOpen(name)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
   const handleClickItem = useCallback((
@@ -99,20 +107,25 @@ forwardedRef: React.Ref<HTMLElement>,
     onClick(e, name)
   }, [name, onClick])
 
-  const ContentComponent = useMemo(() => (
-    <>
-      <ChevronWrapper>
-        <StyledIcon
-          className={chevronClassName}
-          name={`chevron-small-${open ? 'down' : 'right'}`}
-          size={IconSize.XXS}
-          onClick={handleClickIcon}
-          color="txt-black-darker"
-        />
-      </ChevronWrapper>
-      { !isNil(leftIcon) && (
+  const ContentComponent = useMemo(() => {
+    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
+
+    return (
+      <>
+        <ChevronWrapper>
+          <StyledIcon
+            className={chevronClassName}
+            interpolation={chevronInterpolation}
+            name={chevronIcon}
+            size={chevronIconSize}
+            onClick={handleClickIcon}
+            color="txt-black-darker"
+          />
+        </ChevronWrapper>
+        { !isNil(leftIcon) && (
         <StyledIcon
           className={iconClassName}
+          interpolation={iconInterpolation}
           name={leftIcon}
           size={IconSize.S}
           active={active}
@@ -120,17 +133,27 @@ forwardedRef: React.Ref<HTMLElement>,
           color={leftIconColor}
           marginRight={8}
         />
-      ) }
-      <ContentWrapper className={contentClassName}>
-        { content }
-      </ContentWrapper>
-      { rightContent }
-    </>
-  ), [
+        ) }
+        <ContentWrapper
+          className={contentClassName}
+          interpolation={contentInterpolation}
+        >
+          { content }
+        </ContentWrapper>
+        { rightContent }
+      </>
+    )
+  },
+  [
     iconClassName,
+    iconInterpolation,
     chevronClassName,
+    chevronInterpolation,
     contentClassName,
+    contentInterpolation,
     content,
+    chevronIconSize,
+    chevronIconType,
     leftIcon,
     leftIconColor,
     open,
@@ -170,6 +193,7 @@ forwardedRef: React.Ref<HTMLElement>,
         ref={forwardedRef}
         name={name}
         className={className}
+        interpolation={interpolation}
         open={open}
         active={active}
         currentMenuItemIndex={currentMenuItemIndex}
