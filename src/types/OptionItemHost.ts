@@ -1,6 +1,6 @@
-interface OptionItemHost {
+interface OptionItemHost<OptionKeyType = string> {
   selectedOptionIndex?: number
-  onChangeOption?: (optionKey?: string, optionIndex?: number) => void
+  onChangeOption?: (optionKey?: OptionKeyType, optionIndex?: number) => void
 }
 
 export default OptionItemHost
