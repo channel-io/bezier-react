@@ -32,7 +32,7 @@ export default interface ToastElementProps extends UIComponentProps {
   content: string
   iconName?: IconName
   actionContent?: string
-  onClick?: Function
+  onClick?: () => void
   onDismiss: () => void
   transitionDuration: TransitionDuration
   transform: FlattenSimpleInterpolation
@@ -51,7 +51,7 @@ export type ToastOptions = {
   iconName?: IconName
   appearance?: ToastAppearance
   actionContent?: string
-  onClick?: Function
+  onClick?: () => void
   autoDismiss?: boolean
   onDismiss?: OnDismissCallback
   rightSide?: boolean
