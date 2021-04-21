@@ -1,6 +1,6 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from '../../../foundation'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
 import { AVATAR_STATUS_GAP, AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
@@ -10,11 +10,10 @@ interface AvatarWrapperProps {
   disabled: boolean
 }
 
-export interface AvatarProps {
+export interface AvatarProps extends WithInterpolation {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean
-  interpolation?: InjectedInterpolation
 }
 
 function calcStatusGap(showBorder: boolean) {
