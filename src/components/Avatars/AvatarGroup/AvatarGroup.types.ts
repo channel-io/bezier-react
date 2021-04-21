@@ -15,5 +15,5 @@ export interface AvatarGroupProps extends ChildrenComponentProps {
   ellipsisType?: AvatarGroupEllipsisType
   onMouseEnterEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeaveEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
-  interpolation?: InjectedInterpolation
+  ellipsisInterpolation?: InjectedInterpolation
 }

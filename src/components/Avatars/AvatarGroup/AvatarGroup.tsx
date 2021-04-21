@@ -55,7 +55,7 @@ function AvatarGroup({
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
-  interpolation,
+  ellipsisInterpolation,
   children,
 }: AvatarGroupProps) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
@@ -69,18 +69,18 @@ function AvatarGroup({
     spacing,
   ])
 
-  const AvatarListCount = useMemo(() => (
+  const avatarListCount = useMemo(() => (
     React.Children.count(children)
   ), [children])
 
   const AvatarListComponent = useMemo(() => {
-    if (AvatarListCount <= max) {
+    if (avatarListCount <= max) {
       return React.Children.map(children, (avatar) => (
         React.isValidElement(avatar) && renderAvatarElement(avatar)
       ))
     }
 
-    const sliceEndIndex = max - AvatarListCount
+    const sliceEndIndex = max - avatarListCount
     const slicedAvatarList = React.Children.toArray(children).slice(0, sliceEndIndex)
 
     return slicedAvatarList.map((avatar, index, arr) => {
@@ -92,7 +92,7 @@ function AvatarGroup({
         return (
           <AvatarEllipsisIconWrapper
             key="ellipsis"
-            interpolation={interpolation}
+            interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
@@ -115,14 +115,14 @@ function AvatarGroup({
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCount
-              interpolation={interpolation}
+              interpolation={ellipsisInterpolation}
               forwardedAs="span"
               size={size}
               typo={getProperTypoSize(size)}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
-              { getRestAvatarListCountText(AvatarListCount, max) }
+              { getRestAvatarListCountText(avatarListCount, max) }
             </AvatarEllipsisCount>
           </React.Fragment>
         )
@@ -135,8 +135,8 @@ function AvatarGroup({
     size,
     children,
     ellipsisType,
-    interpolation,
-    AvatarListCount,
+    ellipsisInterpolation,
+    avatarListCount,
     renderAvatarElement,
     onMouseEnterEllipsis,
     onMouseLeaveEllipsis,
