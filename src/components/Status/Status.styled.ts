@@ -11,11 +11,13 @@ interface StatusCircleProps {
 }
 
 export const StatusCircle = styled.div<StatusCircleProps>`
+  ${({ foundation }) => foundation?.border?.getBorder(STATUS_CIRCLE_BORDER_WIDTH, foundation?.theme?.['bdr-white'])};
+
   position: relative;
+  box-sizing: content-box;
   width: ${STATUS_CIRCLE_SIZE}px;
   height: ${STATUS_CIRCLE_SIZE}px;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
-  border: ${STATUS_CIRCLE_BORDER_WIDTH}px solid ${({ foundation }) => foundation?.theme?.['bdr-white']};
   border-radius: 50%;
 
   &::after {

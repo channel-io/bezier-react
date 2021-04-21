@@ -29,16 +29,18 @@ const disabledStyle = css`
 
 const smoothCornersFallbackBorderStyle = css`
   &::after {
+    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bg-white-absolute'])};
+
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
     left: -${AVATAR_BORDER_WIDTH}px;
     z-index: -1;
+    box-sizing: content-box;
     display: block;
     width: 100%;
     height: 100%;
     content: '';
     background-color: ${({ foundation }) => `${foundation?.theme?.['bg-white-absolute']}`};
-    border: ${({ foundation }) => `${AVATAR_BORDER_WIDTH}px solid ${foundation?.theme?.['bg-white-absolute']}`};
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
   }
 `
