@@ -1,12 +1,24 @@
 /* Internal dependencies */
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { ContentComponentProps } from '../../../types/ComponentProps'
-import { IconName } from '../../Icon'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import {
+  IconName,
+  IconSize,
+} from '../../Icon'
+
+export enum ChevronIconType {
+  Normal = 'chevron',
+  Small = 'chevron-small',
+}
 
 export default interface ListMenuGroupProps extends ContentComponentProps {
   chevronClassName?: string
+  chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
+  contentInterpolation?: InjectedInterpolation
   iconClassName?: string
+  iconInterpolation?: InjectedInterpolation
   open?: boolean
   active?: boolean
   content?: React.ReactNode
@@ -14,6 +26,8 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   hide?: boolean
   paddingLeft?: number
   disableGroupSelect?: boolean
+  chevronIconType?: ChevronIconType
+  chevronIconSize?: IconSize
   leftIcon?: IconName
   leftIconColor?: ThemeKey
   disableIconActive?: boolean

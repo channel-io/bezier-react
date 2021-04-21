@@ -2,6 +2,7 @@ import { DEFAULT_EXTENSIONS } from '@babel/core'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
+import url from '@rollup/plugin-url'
 import commonjs from '@rollup/plugin-commonjs'
 import visualizer from 'rollup-plugin-visualizer'
 
@@ -29,6 +30,7 @@ export default {
       extensions,
     }),
     commonjs(),
+    url(),
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
