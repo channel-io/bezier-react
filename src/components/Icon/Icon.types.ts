@@ -1,8 +1,8 @@
 /* External dependencies */
 import React from 'react'
-import { ThemeKey } from '../../foundation/Theme/ThemeType'
 
 /* Internal dependencies */
+import { ThemeKey } from '../../foundation/Theme/ThemeType'
 import { StylableComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
