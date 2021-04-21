@@ -28,7 +28,7 @@ function getPlacement(placement: ToastPlacement) {
     default:
       return css`
         bottom: 0;
-        left: ${GNB_WIDTH};
+        left: ${GNB_WIDTH}px;
       `
   }
 }
