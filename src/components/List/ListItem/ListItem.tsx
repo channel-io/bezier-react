@@ -3,6 +3,8 @@ import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
 import { get, noop, isNil, isString } from 'lodash-es'
 
 /* Internal dependencies */
+import { LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
+import useListMenuContext from '../../../hooks/useListMenuContext'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import { IconSize } from '../../Icon'
 import ListItemProps from './ListItem.types'
@@ -27,19 +29,26 @@ function ListItemComponent({
   leftIcon,
   leftIconColor,
   disableIconActive = false,
-  paddingLeft,
+  paddingLeft: givenPaddingLeft,
   href,
   hide = false,
   rightContent = null,
   /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
-  active = false,
+  active: givenActive,
   activeClassName,
   /* HTMLAttribute Props */
-  onClick = noop,
+  onClick: givenOnClick = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
+  const context = useListMenuContext({
+    paddingLeft: givenPaddingLeft,
+    active: givenActive,
+    onClick: givenOnClick,
+  }, LIST_ITEM_PADDING_LEFT)
+  const { paddingLeft, active, onClick } = context
+
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
