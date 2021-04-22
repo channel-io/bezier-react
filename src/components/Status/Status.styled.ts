@@ -1,13 +1,13 @@
 /* Internal denpendencies */
 import { styled, absoluteCenter } from '../../foundation'
-import { ThemeKey } from '../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
 
 const STATUS_CIRCLE_SIZE = 8
 const STATUS_CIRCLE_BORDER_WIDTH = 2
 
 interface StatusCircleProps {
-  color: ThemeKey
+  color: SemanticNames
 }
 
 export const StatusCircle = styled.div<StatusCircleProps>`

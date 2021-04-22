@@ -4,7 +4,7 @@ import { isNil } from 'lodash-es'
 /* Internal dependencies */
 import { css, styled } from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListMenuGroup.types'
 
@@ -38,7 +38,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
 `
 
 interface StyledIconProps extends WithInterpolation {
-  color: ThemeKey
+  color: SemanticNames
 }
 
 export const ChevronWrapper = styled.div`
@@ -53,7 +53,7 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
-  
+
   ${({ interpolation }) => interpolation}
 `
 

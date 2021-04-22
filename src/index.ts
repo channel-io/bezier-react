@@ -25,6 +25,7 @@ export * from './components/SectionLabel'
 export * from './components/Avatars/Avatar'
 export * from './components/Avatars/AvatarGroup'
 export * from './components/TagBadge'
+export * from './components/Status'
 export * from './components/SegmentedControl'
 
 // TODO: Antlr 문제 수정 후 export (Cannot read property RuleContext of undefined)

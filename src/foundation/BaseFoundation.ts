@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { Foundation } from './Foundation'
-import { Themes } from './Theme'
+import { Themes } from './Colors'
 import { Transition } from './Transition'
 import { Rounding } from './Rounding'
 import { Elevation } from './Elevation'

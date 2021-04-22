@@ -1,5 +1,6 @@
-import { Palette } from '../Palette'
-import ThemeType from '../ThemeType'
+/* Internal dependencies */
+import { Palette } from '../../Palette'
+import ThemeType from '../types/ThemeType'
 
 const LightTheme: ThemeType = {
   // Elevation Background
@@ -11,7 +12,7 @@ const LightTheme: ThemeType = {
   'bg-gnb': Palette.grey200_80,
   'bg-navi': Palette.grey100_80,
   'bg-header': Palette.white,
-  'bg-white-float': Palette.white_90,
+  'bg-header-float': Palette.white_90,
 
   // Mono Background
   'bg-black-darkest': Palette.black_40,
@@ -20,14 +21,10 @@ const LightTheme: ThemeType = {
   'bg-black-lighter': Palette.black_5,
   'bg-black-lightest': Palette.black_3,
 
-  'bg-grey-darkest': Palette.grey800,
+  'bg-grey-dark': Palette.grey500,
   'bg-grey-light': Palette.grey200,
   'bg-grey-lighter': Palette.grey100,
   'bg-grey-lightest': Palette.grey50,
-
-  'bg-white-absolute': Palette.white,
-  'bg-white-lighter-absolute': Palette.white_60,
-  'bg-white-lightest-absolute': Palette.white_40,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue500,
@@ -100,8 +97,20 @@ const LightTheme: ThemeType = {
   'txt-black-darkest': Palette.black_85,
   'txt-black-darker': Palette.black_60,
   'txt-black-dark': Palette.black_40,
-  'txt-black-light': Palette.black_20,
-  'txt-white': Palette.white,
+  'txt-white-normal': Palette.white,
+
+  // Mono-absolute text and background
+  'bgtxt-absolute-black-dark': Palette.black,
+  'bgtxt-absolute-black-normal': Palette.black_85,
+  'bgtxt-absolute-black-light': Palette.black_60,
+  'bgtxt-absolute-black-lighter': Palette.black_40,
+  'bgtxt-absolute-black-lightest': Palette.black_20,
+
+  'bgtxt-absolute-white-dark': Palette.white,
+  'bgtxt-absolute-white-normal': Palette.white_90,
+  'bgtxt-absolute-white-light': Palette.white_60,
+  'bgtxt-absolute-white-lighter': Palette.white_40,
+  'bgtxt-absolute-white-lightest': Palette.white_20,
 
   // Border
   'bdr-black-light': Palette.black_8,
@@ -109,20 +118,12 @@ const LightTheme: ThemeType = {
   'bdr-white': Palette.white,
 
   // Shadow
-  'shdw-xlarge': Palette.black_20,
-  'shdw-large': Palette.black_20,
+  'shdw-xlarge': Palette.black_30,
+  'shdw-large': Palette.black_22,
   'shdw-medium': Palette.black_15,
   'shdw-small': Palette.black_8,
   'shdw-base': Palette.black_5,
   'shdw-inner-base': Palette.white_12,
-
-  // Dim
-  'dim-darker': Palette.black_60,
-  'dim-dark': Palette.black_40,
-  'dim-light': Palette.black_20,
-  'dim-alt-light': Palette.white_60,
-  'dim-alt-lighter': Palette.white_40,
-  'dim-alt-lightest': Palette.white_20,
 }
 
 export default LightTheme

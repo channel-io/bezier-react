@@ -6,7 +6,7 @@ import { base } from 'paths.macro'
 /* Internal dependencies */
 import Client from '../Client/Client'
 import { getTitle } from '../../utils/etcUtils'
-import { styled, Palette } from '../../foundation'
+import { styled } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/List/ListItem'
 import { Header } from '../../components/Header'
@@ -23,7 +23,7 @@ const Container = styled.div`
   height: 400px;
   padding: 2px;
   margin: 0 auto;
-  border: 2px solid ${Palette.grey100};
+  border: 2px solid black;
   border-radius: 10px;
 `
 

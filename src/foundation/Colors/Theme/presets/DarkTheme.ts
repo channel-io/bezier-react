@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { Palette } from '../Palette'
-import ThemeType from '../ThemeType'
+import { Palette } from '../../Palette'
+import ThemeType from '../types/ThemeType'
 
 const DarkTheme: ThemeType = {
   // Elevation Background
@@ -12,7 +12,7 @@ const DarkTheme: ThemeType = {
   'bg-gnb': Palette.grey700_80,
   'bg-navi': Palette.grey800_80,
   'bg-header': Palette.grey800,
-  'bg-white-float': Palette.grey800_80,
+  'bg-header-float': Palette.grey800_80,
 
   // Mono Background
   'bg-black-darkest': Palette.white_40,
@@ -21,14 +21,10 @@ const DarkTheme: ThemeType = {
   'bg-black-lighter': Palette.white_8,
   'bg-black-lightest': Palette.white_5,
 
-  'bg-grey-darkest': Palette.grey200,
+  'bg-grey-dark': Palette.grey500,
   'bg-grey-light': Palette.grey700,
   'bg-grey-lighter': Palette.grey800,
   'bg-grey-lightest': Palette.grey850,
-
-  'bg-white-absolute': Palette.white,
-  'bg-white-lighter-absolute': Palette.white_60,
-  'bg-white-lightest-absolute': Palette.white_40,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue400,
@@ -101,8 +97,20 @@ const DarkTheme: ThemeType = {
   'txt-black-darkest': Palette.white_90,
   'txt-black-darker': Palette.white_60,
   'txt-black-dark': Palette.white_40,
-  'txt-black-light': Palette.white_20,
-  'txt-white': Palette.white,
+  'txt-white-normal': Palette.grey900,
+
+  // Mono-absolute text and background
+  'bgtxt-absolute-black-dark': Palette.black,
+  'bgtxt-absolute-black-normal': Palette.black_85,
+  'bgtxt-absolute-black-light': Palette.black_60,
+  'bgtxt-absolute-black-lighter': Palette.black_40,
+  'bgtxt-absolute-black-lightest': Palette.black_20,
+
+  'bgtxt-absolute-white-dark': Palette.white,
+  'bgtxt-absolute-white-normal': Palette.white_90,
+  'bgtxt-absolute-white-light': Palette.white_60,
+  'bgtxt-absolute-white-lighter': Palette.white_40,
+  'bgtxt-absolute-white-lightest': Palette.white_20,
 
   // Border
   'bdr-black-light': Palette.white_12,
@@ -116,14 +124,6 @@ const DarkTheme: ThemeType = {
   'shdw-small': Palette.black_15,
   'shdw-base': Palette.black_8,
   'shdw-inner-base': Palette.white_8,
-
-  // Dim
-  'dim-darker': Palette.black_60,
-  'dim-dark': Palette.black_40,
-  'dim-light': Palette.black_20,
-  'dim-alt-light': Palette.white_60,
-  'dim-alt-lighter': Palette.white_40,
-  'dim-alt-lightest': Palette.white_20,
 }
 
 export default DarkTheme
