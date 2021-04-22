@@ -1,6 +1,7 @@
 /* Internal dependneices */
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 
+// FIXME: 임시 Variant입니다. 협의하여 결정 필요함
 enum TagBadgeVariant {
   Default = 'default',
   Important = 'important',

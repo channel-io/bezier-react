@@ -4,6 +4,7 @@ import React, { useMemo } from 'react'
 /* Internal dependencies */
 import TagBadgeSize from '../constants/TagBadgeSize'
 import { TAG_BADGE_ICON_SIZE, TAG_TEXT_HORIZONTAL_PADDING } from '../constants/TagBadgeStyle'
+import TagBadgeVariant from '../constants/TagBadgeVariant'
 import TagBadgeText from '../TagBadgeText/TagBadgeText'
 import {
   getProperTagBadgeBgColor,
@@ -18,8 +19,8 @@ export const TAG_TEST_ID = 'ch-design-system-tag'
 
 function Tag({
   size = TagBadgeSize.M,
-  variant,
-  color: givenColor = 'txt-black-darkest',
+  variant = TagBadgeVariant.Default,
+  color: givenColor,
   closable = false,
   children,
   // Handlers
@@ -31,7 +32,7 @@ function Tag({
   ...props
 }: TagProps) {
   const bgColor = useMemo(() => (
-    variant ? getProperTagBadgeBgColor(variant) : givenColor
+    givenColor || getProperTagBadgeBgColor(variant)
   ), [givenColor, variant])
 
   const CloseIconComponent = useMemo(() => closable && (
