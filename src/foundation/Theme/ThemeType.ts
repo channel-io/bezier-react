@@ -1,3 +1,7 @@
+/**
+ * version: 1
+ */
+
 /* Internal dependencies */
 import BasePaletteKey, {
   BaseMonoPaletteKey,
@@ -6,19 +10,17 @@ import BasePaletteKey, {
 
 type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-darkest`
+  | `bg-${BaseMonoPaletteKey}-darker`
   | `bg-${BaseMonoPaletteKey}-dark`
   | `bg-${BaseMonoPaletteKey}-light`
   | `bg-${BaseMonoPaletteKey}-lighter`
   | `bg-${BaseMonoPaletteKey}-lightest`
-  | `bg-${BasePaletteKey.white}-absolute`
-  | `bg-${BasePaletteKey.white}-lighter-absolute`
-  | `bg-${BasePaletteKey.white}-lightest-absolute`
 
 type LayoutBackgroundColor =
   | 'bg-gnb'
   | 'bg-navi'
   | 'bg-header'
-  | 'bg-white-float'
+  | 'bg-header-float'
 
 type ElevationBackgroundColor =
   | 'bg-white-high'
@@ -29,8 +31,7 @@ type TextColor =
   | `txt-${BasePaletteKey.black}-darkest`
   | `txt-${BasePaletteKey.black}-darker`
   | `txt-${BasePaletteKey.black}-dark`
-  | `txt-${BasePaletteKey.black}-light`
-  | `txt-${BasePaletteKey.white}`
+  | `txt-${BasePaletteKey.white}-normal`
 
 type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-dark`
@@ -38,6 +39,13 @@ type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-light`
   | `bgtxt-${BaseColorfulPaletteKey}-lighter`
   | `bgtxt-${BaseColorfulPaletteKey}-lightest`
+
+type MonoAbsoluteTextAndBackgroundColor =
+  | `bgtxt-absolute-${BaseMonoPaletteKey}-dark`
+  | `bgtxt-absolute-${BaseMonoPaletteKey}-normal`
+  | `bgtxt-absolute-${BaseMonoPaletteKey}-light`
+  | `bgtxt-absolute-${BaseMonoPaletteKey}-lighter`
+  | `bgtxt-absolute-${BaseMonoPaletteKey}-lightest`
 
 type BorderColor =
   | 'bdr-black-light'
@@ -52,23 +60,15 @@ type ShadowColor =
   | 'shdw-base'
   | 'shdw-inner-base'
 
-type DimBackgroundColor =
-  | 'dim-darker'
-  | 'dim-dark'
-  | 'dim-light'
-  | 'dim-alt-light'
-  | 'dim-alt-lighter'
-  | 'dim-alt-lightest'
-
 export type ThemeKey =
   | MonoBackgroundColor
   | LayoutBackgroundColor
   | ElevationBackgroundColor
   | TextColor
   | ColorfulTextAndBackgroundColor
+  | MonoAbsoluteTextAndBackgroundColor
   | BorderColor
   | ShadowColor
-  | DimBackgroundColor
 
 type ThemeType = Partial<Record<ThemeKey, string>>
 

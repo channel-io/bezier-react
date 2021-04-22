@@ -100,7 +100,7 @@ function AvatarGroup({
               <Icon
                 size={getProperIconSize(size)}
                 name="more"
-                color="bg-white-absolute"
+                color="bgtxt-absolute-white-normal"
               />
             </AvatarEllipsisIcon>
             { renderAvatarElement(avatar) }
