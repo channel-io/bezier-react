@@ -36,7 +36,7 @@ function SectionLabel({
     >
       { isString(givenContent)
         ? (
-          <Styled.ContentText typo={Typography.Size13}>
+          <Styled.ContentText bold typo={Typography.Size13}>
             { givenContent }
           </Styled.ContentText>
         ) : givenContent }
