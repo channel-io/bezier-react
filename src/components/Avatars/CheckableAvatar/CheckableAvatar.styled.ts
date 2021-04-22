@@ -1,12 +1,14 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners, Foundation } from '../../../foundation'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
-import { Icon } from '../../Icon'
+import { Icon, IconSize } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { AvatarSize } from '../Avatar/Avatar.types'
 import { StyledAvatar } from '../Avatar/Avatar.styled'
 
-// NOTE: 20px (IconSize) / 42px (WrapperSize) = 0.476129...
-const CHECK_ICON_SIZE_PERCENTAGE = 47.61904762
+const BASE_ICON_SIZE = IconSize.S
+const BASE_WRAPPER_SIZE = AvatarSize.Size42
+const CHECK_ICON_SIZE_PERCENTAGE = (BASE_ICON_SIZE / BASE_WRAPPER_SIZE) * 100
 
 interface CheckableAvatarWrapperProps {
   isChecked: boolean
