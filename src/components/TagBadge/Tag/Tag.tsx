@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import TagBadgeSize from '../constants/TagBadgeSize'
@@ -24,7 +25,7 @@ function Tag({
   closable = false,
   children,
   // Handlers
-  onClose,
+  onClose = noop,
   // Injected Styles
   wrapperClassName,
   wrapperInterpolation,
@@ -33,15 +34,22 @@ function Tag({
 }: TagProps) {
   const bgColor = useMemo(() => (
     givenColor || getProperTagBadgeBgColor(variant)
-  ), [givenColor, variant])
+  ), [
+    givenColor,
+    variant,
+  ])
 
   const CloseIconComponent = useMemo(() => closable && (
     <Styled.CloseIcon
       name="cancel-small"
       size={TAG_BADGE_ICON_SIZE}
       color="txt-black-darker"
+      onClick={onClose}
     />
-  ), [closable])
+  ), [
+    closable,
+    onClose,
+  ])
 
   return (
     <Styled.Wrapper
@@ -59,6 +67,7 @@ function Tag({
       >
         { children }
       </TagBadgeText>
+
       { CloseIconComponent }
     </Styled.Wrapper>
   )

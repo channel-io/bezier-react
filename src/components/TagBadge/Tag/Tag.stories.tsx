@@ -45,4 +45,6 @@ Primary.args = {
   text: 'Design',
   size: TagBadgeSize.M,
   variant: TagBadgeVariant.Important,
+  // eslint-disable-next-line no-console
+  onClose: console.log,
 }

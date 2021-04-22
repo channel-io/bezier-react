@@ -39,7 +39,10 @@ function Badge({
       size={TAG_BADGE_ICON_SIZE}
       color={textThemeKey}
     />
-  )), [iconName, textThemeKey])
+  )), [
+    iconName,
+    textThemeKey,
+  ])
 
   return (
     <Styled.Wrapper
@@ -53,6 +56,7 @@ function Badge({
       interpolation={wrapperInterpolation}
     >
       { IconComponent }
+
       <TagBadgeText
         horizontalPadding={BADGE_TEXT_HORIZONTAL_PADDING}
         typo={getProperTagBadgeTypo(size)}
