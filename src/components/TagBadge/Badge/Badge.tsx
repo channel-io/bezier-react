@@ -30,18 +30,18 @@ function Badge({
   testId = BADGE_TEST_ID,
   ...props
 }: BadgeProps) {
-  const bgThemeKey = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
-  const textThemeKey = useMemo(() => (getProperBadgeColor(variant)), [variant])
+  const bgSemanticNames = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
+  const textSemanticNames = useMemo(() => (getProperBadgeColor(variant)), [variant])
 
   const IconComponent = useMemo(() => (iconName && (
     <Icon
       name={iconName}
       size={TAG_BADGE_ICON_SIZE}
-      color={textThemeKey}
+      color={textSemanticNames}
     />
   )), [
     iconName,
-    textThemeKey,
+    textSemanticNames,
   ])
 
   return (
@@ -51,8 +51,8 @@ function Badge({
       data-testid={testId}
       horizontalPadding={getProperTagBadgePadding(size)}
       rounding={getProperTagBadgeRounding(size)}
-      bgColor={bgThemeKey}
-      color={textThemeKey}
+      bgColor={bgSemanticNames}
+      color={textSemanticNames}
       interpolation={wrapperInterpolation}
     >
       { IconComponent }

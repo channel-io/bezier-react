@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Typography } from '../../../foundation/Typography'
 import TagBadgeVariant, { BadgeColorPreset, TagBadgeBgColorPreset } from '../constants/TagBadgeVariant'
 import TagBadgeSize from '../constants/TagBadgeSize'
@@ -32,10 +32,10 @@ export function getProperTagBadgeTypo(size: TagBadgeSize) {
   }[size]
 }
 
-export function getProperTagBadgeBgColor(color: TagBadgeVariant): ThemeKey {
+export function getProperTagBadgeBgColor(color: TagBadgeVariant): SemanticNames {
   return TagBadgeBgColorPreset[color]
 }
 
-export function getProperBadgeColor(color: TagBadgeVariant): ThemeKey {
+export function getProperBadgeColor(color: TagBadgeVariant): SemanticNames {
   return BadgeColorPreset[color]
 }

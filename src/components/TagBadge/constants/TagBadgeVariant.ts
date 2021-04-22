@@ -1,5 +1,5 @@
 /* Internal dependneices */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 
 // FIXME: 임시 Variant입니다. 협의하여 결정 필요함
 enum TagBadgeVariant {
@@ -12,7 +12,7 @@ enum TagBadgeVariant {
   Pink = 'Pink',
 }
 
-export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: ThemeKey } = {
+export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: SemanticNames } = {
   [TagBadgeVariant.Default]: 'bg-black-lighter',
   [TagBadgeVariant.Important]: 'bgtxt-blue-lighter',
   [TagBadgeVariant.Information]: 'bgtxt-cobalt-lighter',
@@ -22,7 +22,7 @@ export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: ThemeKey } = {
   [TagBadgeVariant.Pink]: 'bgtxt-pink-lighter',
 }
 
-export const BadgeColorPreset: { [T in TagBadgeVariant]: ThemeKey } = {
+export const BadgeColorPreset: { [T in TagBadgeVariant]: SemanticNames } = {
   [TagBadgeVariant.Default]: 'bg-black-darkest',
   [TagBadgeVariant.Important]: 'bgtxt-blue-normal',
   [TagBadgeVariant.Information]: 'bgtxt-cobalt-normal',

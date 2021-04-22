@@ -1,14 +1,14 @@
 /* Internal dependencies */
 import { styled, css } from '../../foundation'
-import { ThemeKey } from '../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../foundation/Colors/Theme'
 import { WithInterpolation } from '../../types/InjectedInterpolation'
 import { TAGBADGE_VERTICAL_PADDING } from './constants/TagBadgeStyle'
 
 interface CommonTagBadgeStyleProps extends WithInterpolation {
   rounding: ReturnType<typeof css>
   horizontalPadding: number
-  color?: ThemeKey
-  bgColor: ThemeKey
+  color?: SemanticNames
+  bgColor: SemanticNames
 }
 
 const Wrapper = styled.div<CommonTagBadgeStyleProps>`
