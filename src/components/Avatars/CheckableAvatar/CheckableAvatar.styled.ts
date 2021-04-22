@@ -52,7 +52,7 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
        * smooth-corners가 사용 가능한 브라우저에선 background-color 트랜지션또한 불가능합니다.
        * 발생하지 않는 트랜지션에 will-change 속성을 주는 건 불필요하므로, will-change 속성에서 background-color를 제거합니다.
        */
-      will-change: ${enableSmoothCorners.current ? 'opacity' : 'opcacity, background-color'};
+      will-change: ${enableSmoothCorners.current ? 'opacity' : 'opacity, background-color'};
   
       ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
   
