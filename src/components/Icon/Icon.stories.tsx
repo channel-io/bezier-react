@@ -71,7 +71,7 @@ Primary.args = {
   size: IconSize.Normal,
   marginTop: 0,
   marginRight: 0,
-  marginBotton: 0,
+  marginBottom: 0,
   marginLeft: 0,
 }
 
