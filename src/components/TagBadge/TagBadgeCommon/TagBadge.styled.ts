@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
-import { SemanticNames } from '../../foundation/Colors/Theme'
-import { WithInterpolation } from '../../types/InjectedInterpolation'
+import { styled, css } from '../../../foundation'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { TAGBADGE_VERTICAL_PADDING } from './constants/TagBadgeStyle'
 
 interface CommonTagBadgeStyleProps extends WithInterpolation {

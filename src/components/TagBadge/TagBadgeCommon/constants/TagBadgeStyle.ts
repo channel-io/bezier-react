@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { IconSize } from '../../Icon'
+import { IconSize } from '../../../Icon'
 
 export const BADGE_TEXT_HORIZONTAL_PADDING = 3
 

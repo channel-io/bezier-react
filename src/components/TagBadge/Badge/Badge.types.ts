@@ -3,8 +3,10 @@
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { IconName } from '../../Icon/generated'
-import TagBadgeSize from '../constants/TagBadgeSize'
-import TagBadgeVariant from '../constants/TagBadgeVariant'
+import {
+  TagBadgeSize,
+  TagBadgeVariant,
+} from '../TagBadgeCommon'
 
 interface BadgeProps extends ChildrenComponentProps {
   size?: TagBadgeSize

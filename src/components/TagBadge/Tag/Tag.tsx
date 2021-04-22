@@ -3,17 +3,18 @@ import React, { useMemo } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import TagBadgeSize from '../constants/TagBadgeSize'
-import { TAG_BADGE_ICON_SIZE, TAG_TEXT_HORIZONTAL_PADDING } from '../constants/TagBadgeStyle'
-import TagBadgeVariant from '../constants/TagBadgeVariant'
-import TagBadgeText from '../TagBadgeText/TagBadgeText'
 import {
+  TagBadgeStyled,
+  TagBadgeSize,
+  TagBadgeVariant,
+  TagBadgeText,
+  TAG_BADGE_ICON_SIZE,
+  TAG_TEXT_HORIZONTAL_PADDING,
   getProperTagBadgeBgColor,
   getProperTagBadgePadding,
   getProperTagBadgeTypo,
   getProperTagBadgeRounding,
-} from '../utils/TagBadgeUtils'
-import TagBadgeStyled from '../TagBadge.styled'
+} from '../TagBadgeCommon'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 

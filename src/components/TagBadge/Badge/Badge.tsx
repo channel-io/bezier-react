@@ -3,18 +3,19 @@ import React, { useMemo } from 'react'
 
 /* Internal dependencies */
 import { Icon } from '../../Icon'
-import TagBadgeSize from '../constants/TagBadgeSize'
-import { BADGE_TEXT_HORIZONTAL_PADDING, TAG_BADGE_ICON_SIZE } from '../constants/TagBadgeStyle'
-import TagBadgeVariant from '../constants/TagBadgeVariant'
-import { TagBadgeText } from '../TagBadgeText'
 import {
-  getProperBadgeColor,
+  TagBadgeText,
+  TagBadgeSize,
+  TagBadgeVariant,
+  TAG_BADGE_ICON_SIZE,
+  BADGE_TEXT_HORIZONTAL_PADDING,
+  getProperBadgeTextColor,
   getProperTagBadgeBgColor,
   getProperTagBadgePadding,
   getProperTagBadgeRounding,
   getProperTagBadgeTypo,
-} from '../utils/TagBadgeUtils'
-import Styled from '../TagBadge.styled'
+  TagBadgeStyled as Styled,
+} from '../TagBadgeCommon'
 import BadgeProps from './Badge.types'
 
 export const BADGE_TEST_ID = 'ch-design-system-badge'
@@ -31,7 +32,7 @@ function Badge({
   ...props
 }: BadgeProps) {
   const bgSemanticNames = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
-  const textSemanticNames = useMemo(() => (getProperBadgeColor(variant)), [variant])
+  const textSemanticNames = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
 
   const IconComponent = useMemo(() => (iconName && (
     <Icon

@@ -1,5 +1,5 @@
 /* Internal dependneices */
-import { SemanticNames } from '../../../foundation/Colors/Theme'
+import { SemanticNames } from '../../../../foundation/Colors/Theme'
 
 // FIXME: 임시 Variant입니다. 협의하여 결정 필요함
 enum TagBadgeVariant {

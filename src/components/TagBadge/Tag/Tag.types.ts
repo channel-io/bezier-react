@@ -2,8 +2,10 @@
 import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
-import TagBadgeSize from '../constants/TagBadgeSize'
-import TagBadgeVariant from '../constants/TagBadgeVariant'
+import {
+  TagBadgeSize,
+  TagBadgeVariant,
+} from '../TagBadgeCommon'
 
 interface TagProps extends ChildrenComponentProps {
   size?: TagBadgeSize
