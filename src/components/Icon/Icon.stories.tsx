@@ -17,13 +17,13 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [
-          IconSize.L,
-          IconSize.Normal,
-          IconSize.S,
-          IconSize.XS,
-          IconSize.XXS,
-        ],
+        options: {
+          L: IconSize.L,
+          Normal: IconSize.Normal,
+          S: IconSize.S,
+          XS: IconSize.XS,
+          XXS: IconSize.XXS,
+        },
       },
     },
   },

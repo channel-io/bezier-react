@@ -20,11 +20,11 @@ export default {
     height: {
       control: {
         type: 'radio',
-        options: [
-          TabsSize.L,
-          TabsSize.Normal,
-          TabsSize.XS,
-        ],
+        options: {
+          L: TabsSize.L,
+          Normal: TabsSize.Normal,
+          XS: TabsSize.XS,
+        },
       },
     },
   },
