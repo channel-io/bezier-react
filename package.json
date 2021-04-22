@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/design-system",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "description": "Design System by Channel",
   "repository": {
     "type": "git",
@@ -143,6 +143,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
+    "@juggle/resize-observer": "^3.3.0",
     "antlr4": "^4.8.0",
     "core-decorators": "^0.20.0",
     "lodash-es": "^4.17.15",
