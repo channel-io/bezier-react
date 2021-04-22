@@ -3,6 +3,7 @@ import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { Typography } from '../../../foundation/Typography'
 import TagBadgeVariant, { BadgeColorPreset, TagBadgeBgColorPreset } from '../constants/TagBadgeVariant'
 import TagBadgeSize from '../constants/TagBadgeSize'
+import { Rounding } from '../../../foundation'
 
 export function getProperTagBadgePadding(size: TagBadgeSize) {
   return {
@@ -10,6 +11,15 @@ export function getProperTagBadgePadding(size: TagBadgeSize) {
     [TagBadgeSize.S]: 4,
     [TagBadgeSize.M]: 4,
     [TagBadgeSize.L]: 4,
+  }[size]
+}
+
+export function getProperTagBadgeRounding(size: TagBadgeSize) {
+  return {
+    [TagBadgeSize.XS]: Rounding.round4,
+    [TagBadgeSize.S]: Rounding.round6,
+    [TagBadgeSize.M]: Rounding.round6,
+    [TagBadgeSize.L]: Rounding.round6,
   }[size]
 }
 

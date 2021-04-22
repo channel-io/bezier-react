@@ -1,20 +1,18 @@
 /* Internal dependencies */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import { IconName } from '../../Icon/generated'
 import TagBadgeSize from '../constants/TagBadgeSize'
 import TagBadgeVariant from '../constants/TagBadgeVariant'
 
-interface TagProps extends ChildrenComponentProps {
+interface BadgeProps extends ChildrenComponentProps {
   size?: TagBadgeSize
   variant?: TagBadgeVariant
-  color?: ThemeKey
-  closable?: boolean
-  // Handlers
-  onClose?: (e: React.MouseEvent) => void
+  iconName?: IconName
   // Injected Styles
   wrapperClassName?: string
   wrapperInterpolation?: InjectedInterpolation
 }
 
-export default TagProps
+export default BadgeProps

@@ -3,12 +3,13 @@ import React, { useMemo } from 'react'
 
 /* Internal dependencies */
 import TagBadgeSize from '../constants/TagBadgeSize'
-import { TAG_CLOSE_ICON_SIZE, TAG_TEXT_HORIZONTAL_PADDING } from '../constants/TagBadgeStyle'
+import { TAG_BADGE_ICON_SIZE, TAG_TEXT_HORIZONTAL_PADDING } from '../constants/TagBadgeStyle'
 import TagBadgeText from '../TagBadgeText/TagBadgeText'
 import {
   getProperTagBadgeBgColor,
   getProperTagBadgePadding,
   getProperTagBadgeTypo,
+  getProperTagBadgeRounding,
 } from '../utils/TagBadgeUtils'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
@@ -36,7 +37,7 @@ function Tag({
   const CloseIconComponent = useMemo(() => closable && (
     <Styled.CloseIcon
       name="cancel-small"
-      size={TAG_CLOSE_ICON_SIZE}
+      size={TAG_BADGE_ICON_SIZE}
       color="txt-black-darker"
     />
   ), [closable])
@@ -47,6 +48,7 @@ function Tag({
       className={wrapperClassName}
       data-testid={testId}
       horizontalPadding={getProperTagBadgePadding(size)}
+      rounding={getProperTagBadgeRounding(size)}
       bgColor={bgColor}
       interpolation={wrapperInterpolation}
     >
