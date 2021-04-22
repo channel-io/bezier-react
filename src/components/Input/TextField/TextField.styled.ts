@@ -1,30 +1,27 @@
-/* External dependencies */
-import { FlattenSimpleInterpolation } from 'styled-components'
-
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
+import { css, styled, Typography, disabledWrapper } from '../../../foundation'
 import { Icon } from '../../Icon'
 import img from '../../Icon/assets/cancel-circle-filled.svg'
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { InputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from '../constants'
+import { InputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from './constants/InputWrapperStyle'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
   clickable: boolean
 }
 
-const clickableElementStyle = css<ClickableElementProps>`
+const clickableElementStyle = css`
   cursor: pointer;
 `
 
 export const placeholderStyle = (themeKey:ThemeKey = 'txt-black-dark') => css`
   &::placeholder {
-    color: ${({ foundation }) => foundation?.theme?.[themeKey] || 'txt-black-dark'} !important;
+    color: ${({ foundation }) => foundation?.theme?.[themeKey] || 'txt-black-dark'};
   }
 `
 
-const SearchInputStyle = css`
+const searchInputStyle = css`
   &[type="search"] {
     appearance: textfield;
   }
@@ -39,35 +36,42 @@ const SearchInputStyle = css`
     height: 20px;
     cursor: pointer;
     background: url(${img}) no-repeat 50% 50%;
-    background-size: contain;
-    opacity: 0.4;
+
+    filter: opacity(0.4);
+
     :hover {
-      opacity: 0.6;
+      filter: opacity(0.6);
     }
+
+    background-size: contain;
   }
 `
 
 interface InputProps {
   disabled: boolean
   readOnly: boolean
-  typo: FlattenSimpleInterpolation
 }
 
 const Input = styled.input<InputProps>`
   width: 100%;
   height: 100%;
-  ${({ typo }) => typo}
+  ${Typography.Size14}
   padding: 0;
 
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-  color: ${({ readOnly, foundation }) => readOnly && foundation?.theme?.['txt-black-darker']};
-  color: ${({ disabled, foundation }) => disabled && foundation?.theme?.['txt-black-dark']};
+  color: ${({ foundation, readOnly, disabled }) => {
+    const colorKey: ThemeKey = (() => {
+      if (disabled) { return 'txt-black-dark' }
+      if (readOnly) { return 'txt-black-darker' }
+      return 'txt-black-darkest'
+    })()
+    return foundation?.theme?.[colorKey]
+  }};
 
   background-color: transparent;
   border: none;
   outline: none;
 
-  ${({ type }) => type === 'search' && SearchInputStyle}
+  ${({ type }) => type === 'search' && searchInputStyle}
 
   ${placeholderStyle()}
 `
@@ -120,13 +124,18 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   align-items: center;
   height: ${({ size }) => size}px;
   padding: 0 10px;
-  background-color: ${({ variant, foundation }) => variant === 'secondary' && foundation?.theme?.['bg-black-lightest']};
-  background-color: ${({ variant, readOnly, foundation }) =>
-    variant === 'primary' && readOnly && foundation?.theme?.['bg-grey-lighter']};
-  border-radius: 8px;
-  opacity: ${({ disabled }) => disabled && 0.4};
+  background-color: ${({ variant, readOnly, foundation }) => {
+    const colorKey: ThemeKey = (() => {
+      if (variant === TextFieldVariant.Primary && readOnly) { return 'bg-grey-lighter' }
+      if (variant === TextFieldVariant.Secondary) { return 'bg-black-lightest' }
+      return 'bg-white-normal'
+    })()
+    return foundation?.theme?.[colorKey]
+  }};
+  ${({ foundation }) => foundation?.rounding.round8}
+  ${({ disabled }) => disabled && disabledWrapper};
 
-  ${({ variant }) => variant === 'primary' && InputWrapperStyle};
+  ${({ variant }) => variant === TextFieldVariant.Primary && InputWrapperStyle};
   ${({ focused }) => focused && focusedInputWrapperStyle}
   ${({ hasError }) => hasError && erroredInputWrapperStyle}
 
