@@ -22,7 +22,7 @@ function CheckableAvatar({
     >
       <CheckIcon
         name="check"
-        color="bg-white-absolute"
+        color="bgtxt-absolute-white-normal"
       />
       <Avatar
         {...props}
