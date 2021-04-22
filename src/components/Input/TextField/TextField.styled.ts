@@ -41,6 +41,9 @@ const SearchInputStyle = css`
     background: url(${img}) no-repeat 50% 50%;
     background-size: contain;
     opacity: 0.4;
+    :hover {
+      opacity: 0.6;
+    }
   }
 `
 
