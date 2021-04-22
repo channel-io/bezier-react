@@ -13,6 +13,7 @@ import {
   getProperTagBadgeTypo,
   getProperTagBadgeRounding,
 } from '../utils/TagBadgeUtils'
+import TagBadgeStyled from '../TagBadge.styled'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 
@@ -52,7 +53,7 @@ function Tag({
   ])
 
   return (
-    <Styled.Wrapper
+    <TagBadgeStyled.Wrapper
       {...props}
       className={wrapperClassName}
       data-testid={testId}
@@ -69,7 +70,7 @@ function Tag({
       </TagBadgeText>
 
       { CloseIconComponent }
-    </Styled.Wrapper>
+    </TagBadgeStyled.Wrapper>
   )
 }
 

@@ -14,7 +14,7 @@ import {
   getProperTagBadgeRounding,
   getProperTagBadgeTypo,
 } from '../utils/TagBadgeUtils'
-import Styled from './Badge.styled'
+import Styled from '../TagBadge.styled'
 import BadgeProps from './Badge.types'
 
 export const BADGE_TEST_ID = 'ch-design-system-badge'

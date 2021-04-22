@@ -3,13 +3,13 @@ import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 
 // FIXME: 임시 Variant입니다. 협의하여 결정 필요함
 enum TagBadgeVariant {
-  Default = 'default',
-  Important = 'important',
-  Information = 'information',
-  Teal = 'teal',
-  Trial = 'trial',
-  Olive = 'olive',
-  Pink = 'pink',
+  Default = 'Default',
+  Important = 'Important',
+  Information = 'Information',
+  Teal = 'Teal',
+  Trial = 'Trial',
+  Olive = 'Olive',
+  Pink = 'Pink',
 }
 
 export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: ThemeKey } = {

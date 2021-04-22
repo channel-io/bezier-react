@@ -17,13 +17,13 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
+        options: TagBadgeSize,
       },
     },
     variant: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
+        options: TagBadgeVariant,
       },
     },
   },
