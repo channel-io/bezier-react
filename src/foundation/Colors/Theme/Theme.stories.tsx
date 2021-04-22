@@ -3,9 +3,9 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
-import { styled } from '../index'
-import { Themes } from './index'
+import { getTitle } from '../../../utils/etcUtils'
+import { styled } from '../../index'
+import { Themes } from '../index'
 
 export default {
   title: getTitle(base),

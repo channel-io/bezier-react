@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import ActivableElement from '../../../types/ActivatableElement'
 import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
 import OptionItem from '../../../types/OptionItem'
@@ -14,7 +14,7 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   nested?: boolean
   onClick?: (e: any, name?: string) => void
   leftIcon?: IconName | React.ReactNode
-  leftIconColor?: ThemeKey
+  leftIconColor?: SemanticNames
   disableIconActive?: boolean
   content?: React.ReactNode
   rightContent?: React.ReactNode
