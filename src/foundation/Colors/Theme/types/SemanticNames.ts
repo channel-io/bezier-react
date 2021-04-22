@@ -1,12 +1,8 @@
-/**
- * version: 1
- */
-
 /* Internal dependencies */
 import BasePaletteKey, {
   BaseMonoPaletteKey,
   BaseColorfulPaletteKey,
-} from './Palette/BasePaletteKey'
+} from '../../Palette/BasePaletteKey'
 
 type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-darkest`
@@ -60,7 +56,7 @@ type ShadowColor =
   | 'shdw-base'
   | 'shdw-inner-base'
 
-export type ThemeKey =
+type SemanticNames =
   | MonoBackgroundColor
   | LayoutBackgroundColor
   | ElevationBackgroundColor
@@ -70,6 +66,4 @@ export type ThemeKey =
   | BorderColor
   | ShadowColor
 
-type ThemeType = Partial<Record<ThemeKey, string>>
-
-export default ThemeType
+export default SemanticNames

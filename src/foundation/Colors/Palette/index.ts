@@ -1,4 +1,5 @@
 /**
+ * date: 2021.04.22
  * version: 1
  */
 
@@ -7,7 +8,7 @@ import BasePaletteKey, {
   BaseMonoPaletteKey,
   BaseColorfulPaletteKey,
 } from './BasePaletteKey'
-import { getAlphaHex } from './utils'
+import { getAlphaHex } from './alphaUtils'
 
 type BaseColorfulPaletteKey300 = `${BaseColorfulPaletteKey}300`
 type BaseColorfulPaletteKey400 = `${BaseColorfulPaletteKey}400`

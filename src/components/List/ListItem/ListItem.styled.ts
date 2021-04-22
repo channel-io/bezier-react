@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { css, styled } from '../../../foundation'
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListItem.types'
 
@@ -32,7 +32,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 `
 
 interface StyledIconProps {
-  color: ThemeKey
+  color: SemanticNames
   active?: boolean
   disableIconActive?: boolean
 }
