@@ -28,6 +28,7 @@ const LeftContentWrapper = styled.div<WithInterpolation>`
 
 const ContentText = styled(Text)`
   overflow: hidden;
+  font-weight: 600;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
   text-overflow: ellipsis;
   white-space: nowrap;
