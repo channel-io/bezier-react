@@ -27,6 +27,7 @@ function SectionLabel({
   leftWrapperInterpolation,
   rightWrapperClassName,
   rightWrapperInterpolation,
+  ...props
 }: SectionLabelProps) {
   const content = useMemo(() => (
     <Styled.ContentWrapper
@@ -152,6 +153,8 @@ function SectionLabel({
         clickable={!isNil(onClick)}
         onClick={onClick}
         interpolation={wrapperInterpolation}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
       >
         { leftContent }
         { content }

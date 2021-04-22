@@ -22,7 +22,7 @@ export type SectionLabelItemProps = {
   content: React.ReactElement
 }
 
-export default interface SectionLabelProps extends ChildrenComponentProps {
+export default interface SectionLabelProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode
   open?: boolean
   divider?: boolean
