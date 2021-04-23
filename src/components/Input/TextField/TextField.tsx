@@ -1,15 +1,21 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
 import ReactDOM from 'react-dom'
-import { isNil, isEmpty, isArray, toString } from 'lodash-es'
+import { isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../../Icon'
-import { Typography } from '../../../foundation'
 import Styled from './TextField.styled'
 import type TextFieldProps from './TextField.types'
-import { TextFieldItemProps, TextFieldRef, SelectionRangeDirections, TextFieldSize } from './TextField.types'
+import {
+  TextFieldItemProps,
+  TextFieldType,
+  TextFieldRef,
+  SelectionRangeDirections,
+  TextFieldSize,
+  TextFieldVariant,
+} from './TextField.types'
 
 export const TEXT_INPUT_TEST_ID = 'ch-design-system-text-input'
 
@@ -22,7 +28,7 @@ function TextFieldComponent({
   autoComplete = 'off',
   disabled = false,
   readOnly = false,
-  variant = 'primary',
+  variant = TextFieldVariant.Primary,
   hasError = false,
   allowClear = false,
   selectAllOnInit = false,
@@ -66,8 +72,9 @@ function TextFieldComponent({
   }, [])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
+    if (includes([TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden], type)) { return }
     if (inputRef.current) { inputRef.current.setSelectionRange(start || 0, end || 0, direction || 'none') }
-  }, [])
+  }, [type])
 
   const getSelectionRange = useCallback((): [number, number] => {
     if (inputRef.current) {
@@ -248,6 +255,7 @@ function TextFieldComponent({
       variant={variant}
       size={size}
       hasError={hasError}
+      readOnly={readOnly}
       disabled={disabled}
       focused={focused}
       interpolation={wrapperInterpolation}
@@ -260,7 +268,7 @@ function TextFieldComponent({
         name={name}
         size={size}
         autoComplete={autoComplete}
-        type={allowClear ? 'search' : type}
+        type={allowClear ? TextFieldType.Search : type}
         readOnly={readOnly}
         disabled={disabled}
         value={normalizedValue}
@@ -269,7 +277,6 @@ function TextFieldComponent({
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
-        typo={Typography.Size14}
         {...otherProps}
       />
       { rightContent }

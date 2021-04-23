@@ -7,6 +7,17 @@ import { UIComponentProps } from '../../../types/ComponentProps'
 import type InjectedInterpolation from '../../../types/InjectedInterpolation'
 import type { IconName } from '../../Icon'
 
+export enum TextFieldType {
+  Search = 'search',
+  Text = 'text',
+  Email = 'email',
+  Password = 'password',
+  Tel = 'tel',
+  Url = 'url',
+  Hidden = 'hidden',
+  Number = 'number',
+}
+
 export enum TextFieldSize {
   XL = 56,
   L = 44,
@@ -16,7 +27,10 @@ export enum TextFieldSize {
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
-export type TextFieldVariant = 'primary' | 'secondary'
+export enum TextFieldVariant {
+  Primary,
+  Secondary,
+}
 
 export type TextFieldItemProps = {
   icon: IconName
@@ -38,8 +52,9 @@ export interface TextFieldRef {
 }
 
 export default interface TextFieldProps
-  extends UIComponentProps, React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'type'> {
   variant?: TextFieldVariant
+  type?: TextFieldType
   hasError?: boolean
   allowClear?: boolean
   selectAllOnInit?: boolean

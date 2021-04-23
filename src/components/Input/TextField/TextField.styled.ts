@@ -4,8 +4,8 @@ import { Icon } from '../../Icon'
 import img from '../../Icon/assets/cancel-circle-filled.svg'
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { InputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from './constants/InputWrapperStyle'
-import { TextFieldSize, TextFieldVariant } from './TextField.types'
+import { InputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from '../constants/InputWrapperStyle'
+import { TextFieldSize, TextFieldType, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
   clickable: boolean
@@ -22,15 +22,15 @@ export const placeholderStyle = (themeKey:ThemeKey = 'txt-black-dark') => css`
 `
 
 const searchInputStyle = css`
-  &[type="search"] {
+  &[type="${TextFieldType.Search}"] {
     appearance: textfield;
   }
 
-  &[type="search"]::-webkit-search-decoration {
+  &[type="${TextFieldType.Search}"]::-webkit-search-decoration {
     appearance: none;
   }
 
-  &[type="search"]::-webkit-search-cancel-button {
+  &[type="${TextFieldType.Search}"]::-webkit-search-cancel-button {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -71,7 +71,7 @@ const Input = styled.input<InputProps>`
   border: none;
   outline: none;
 
-  ${({ type }) => type === 'search' && searchInputStyle}
+  ${({ type }) => type === TextFieldType.Search && searchInputStyle}
 
   ${placeholderStyle()}
 `

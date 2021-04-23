@@ -21,6 +21,10 @@ export const hideScrollbars = () => css`
   }
 `
 
+export const disabledWrapper = css`
+  filter: opacity(0.4);
+`
+
 export const ellipsis = (line = 1, lineHeight = 22, unit = 'px') => {
   if (line <= 1) {
     return css`

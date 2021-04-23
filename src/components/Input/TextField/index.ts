@@ -1,6 +1,6 @@
 import TextField from './TextField'
 import type TextFieldProps from './TextField.types'
-import { TextFieldSize } from './TextField.types'
+import { TextFieldSize, TextFieldType } from './TextField.types'
 
 export type {
   TextFieldProps,
@@ -9,4 +9,5 @@ export type {
 export {
   TextField,
   TextFieldSize,
+  TextFieldType,
 }
