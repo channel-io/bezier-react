@@ -46,7 +46,13 @@ function withFoundationProvider(Story, context) {
     : LightFoundation.theme['bg-white-normal']
 
   return (
-    <div style={{ backgroundColor, padding: 100 }}>
+    <div
+      style={{
+        backgroundColor,
+        padding: 100,
+        fontFamily: 'Inter',
+      }}
+    >
       <FoundationProvider foundation={Foundation}>
         { Story(context) }
       </FoundationProvider>

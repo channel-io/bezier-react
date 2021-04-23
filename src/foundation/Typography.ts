@@ -13,7 +13,7 @@ const Size12 = css`
 
 const Size13 = css`
   font-size: 13px;
-  line-height: 16px;
+  line-height: 18px;
 `
 
 const Size14 = css`
@@ -23,12 +23,14 @@ const Size14 = css`
 
 const Size15 = css`
   font-size: 15px;
-  line-height: 22px;
+  line-height: 20px;
+  letter-spacing: -0.1px;
 `
 
 const Size16 = css`
   font-size: 16px;
   line-height: 22px;
+  letter-spacing: -0.1px;
 `
 
 const Size18 = css`
@@ -39,6 +41,7 @@ const Size18 = css`
 const Size24 = css`
   font-size: 24px;
   line-height: 32px;
+  letter-spacing: -0.4px;
 `
 
 export const Typography = {
