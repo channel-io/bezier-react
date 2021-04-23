@@ -1,5 +1,4 @@
 /* Internal dependencies */
-
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { IconName } from '../../Icon/generated'
