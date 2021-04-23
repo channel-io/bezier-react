@@ -53,7 +53,9 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        rightContent={<Text typo={Typography.Size13}>5</Text>}
+        rightContent={(
+          <Text typo={Typography.Size13}>5</Text>
+        )}
         {...otherSectionLabelProps}
       />
       <SectionLabel
@@ -69,7 +71,9 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftContent={<div style={{ backgroundColor: 'red', width: 20, height: 20 }} />}
+        leftContent={(
+          <div style={{ backgroundColor: 'red', width: 20, height: 20 }} />
+        )}
         {...otherSectionLabelProps}
       />
       <SectionLabel
