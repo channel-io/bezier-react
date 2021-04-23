@@ -31,7 +31,7 @@ const ToastElement = (
   }: ToastProps,
   forwardedRef: Ref<any>,
 ) => {
-  const getNewLineComponent = useMemo(() => (
+  const newLineComponent = useMemo(() => (
     content.split('\n').map((str, index) => {
       if (index === 0) {
         return (
@@ -83,7 +83,7 @@ const ToastElement = (
           }}
         >
           <NormalContent>
-            { getNewLineComponent }
+            { newLineComponent }
           </NormalContent>
           { ' ' }
           { actionContent && onClick && (
