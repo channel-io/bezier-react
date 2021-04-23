@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { UIComponentProps } from '../../../types/ComponentProps'
 import type InjectedInterpolation from '../../../types/InjectedInterpolation'
 import type { IconName } from '../../Icon'
@@ -34,7 +34,7 @@ export enum TextFieldVariant {
 
 export type TextFieldItemProps = {
   icon: IconName
-  iconColor?: ThemeKey
+  iconColor?: SemanticNames
   onClick?: (event: React.MouseEvent) => void
 } | React.ReactElement
 

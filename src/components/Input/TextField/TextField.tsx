@@ -1,5 +1,14 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
+import React, {
+  Ref,
+  forwardRef,
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useCallback,
+  useMemo,
+} from 'react'
 import ReactDOM from 'react-dom'
 import { isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
@@ -16,6 +25,7 @@ import {
   TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
+import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
 
 export const TEXT_INPUT_TEST_ID = 'ch-design-system-text-input'
 
@@ -51,13 +61,14 @@ function TextFieldComponent({
 }: TextFieldProps, forwardedRef: Ref<TextFieldRef>) {
   const [focused, setFocused] = useState(false)
 
+  const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
+  const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
+
   const normalizedValue = useMemo(() => (
     isNil(value) ? undefined : toString(value)
-  ), [
-    value,
-  ])
+  ), [value])
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const focus = useCallback(() => {
     setTimeout(() => {
@@ -158,22 +169,19 @@ function TextFieldComponent({
     onChange,
   ])
 
-  const renderLeftItem = useCallback(
-    (item: TextFieldItemProps) => (
-      'icon' in item
-        ? (
-          <Styled.LeftIcon
-            name={item.icon}
-            size={IconSize.S}
-            color={item.iconColor ?? 'txt-black-dark'}
-            clickable={!isNil(item.onClick)}
-            onClick={item.onClick}
-          />
-        )
-        : item
-    ),
-    [],
-  )
+  const renderLeftItem = useCallback((item: TextFieldItemProps) => (
+    'icon' in item
+      ? (
+        <Styled.LeftIcon
+          name={item.icon}
+          size={IconSize.S}
+          color={item.iconColor ?? 'txt-black-dark'}
+          clickable={!isNil(item.onClick)}
+          onClick={item.onClick}
+        />
+      )
+      : item
+  ), [])
 
   const leftComponent = useMemo(() => {
     if (isNil(leftContent)) {
@@ -181,9 +189,7 @@ function TextFieldComponent({
     }
 
     const item = renderLeftItem(leftContent)
-    const show = !isNil(item)
-
-    return show && (
+    return !isNil(item) && (
       <Styled.LeftContentWrapper
         className={leftWrapperClassName}
         interpolation={leftWrapperInterpolation}
@@ -198,27 +204,24 @@ function TextFieldComponent({
     renderLeftItem,
   ])
 
-  const renderRightItem = useCallback(
-    (item: TextFieldItemProps, key?: string) => (
-      'icon' in item ? (
-        <Styled.RightItemWrapper
-          key={key}
-          clickable={!isNil(item.onClick)}
-          onClick={item.onClick}
-        >
-          <Icon
-            name={item.icon}
-            size={IconSize.XS}
-            color={item.iconColor ?? 'txt-black-dark'}
-          />
-        </Styled.RightItemWrapper>
-      ) : React.cloneElement(
-        item,
-        { key },
-      )
-    ),
-    [],
-  )
+  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => (
+    'icon' in item ? (
+      <Styled.RightItemWrapper
+        key={key}
+        clickable={!isNil(item.onClick)}
+        onClick={item.onClick}
+      >
+        <Icon
+          name={item.icon}
+          size={IconSize.XS}
+          color={item.iconColor ?? 'txt-black-dark'}
+        />
+      </Styled.RightItemWrapper>
+    ) : React.cloneElement(
+      item,
+      { key },
+    )
+  ), [])
 
   const rightComponent = useMemo(() => {
     if (isNil(rightContent) || isEmpty(rightContent)) {
@@ -249,6 +252,7 @@ function TextFieldComponent({
       className={wrapperClassName}
       variant={variant}
       size={size}
+      bgColor={wrapperBgColorSemanticName}
       hasError={hasError}
       readOnly={readOnly}
       disabled={disabled}
@@ -262,6 +266,7 @@ function TextFieldComponent({
         ref={inputRef}
         name={name}
         size={size}
+        color={inputColorSemanticName}
         autoComplete={autoComplete}
         type={allowClear ? TextFieldType.Search : type}
         readOnly={readOnly}

@@ -1,8 +1,8 @@
 /* Internal dependencies */
 import { css, styled, Typography, disabledWrapper } from '../../../foundation'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import img from '../../Icon/assets/cancel-circle-filled.svg'
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import {
   inputWrapperStyle,
@@ -19,7 +19,7 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-export const placeholderStyle = (themeKey: ThemeKey = 'txt-black-dark') => css`
+export const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
   &::placeholder {
     color: ${({ foundation }) => foundation?.theme?.[themeKey]};
   }
@@ -54,6 +54,7 @@ const searchInputStyle = css`
 interface InputProps {
   disabled: boolean
   readOnly: boolean
+  color: SemanticNames
 }
 
 const Input = styled.input<InputProps>`
@@ -62,14 +63,7 @@ const Input = styled.input<InputProps>`
   ${Typography.Size14}
   padding: 0;
 
-  color: ${({ foundation, readOnly, disabled }) => {
-    const colorKey: ThemeKey = (() => {
-      if (disabled) { return 'txt-black-dark' }
-      if (readOnly) { return 'txt-black-darker' }
-      return 'txt-black-darkest'
-    })()
-    return foundation?.theme?.[colorKey]
-  }};
+  color: ${({ foundation, color }) => foundation?.theme?.[color]};
 
   background-color: transparent;
   border: none;
@@ -114,6 +108,7 @@ const RightItemWrapper = styled('div')<ClickableElementProps & WithInterpolation
 
 interface WrapperProps {
   variant?: TextFieldVariant
+  bgColor: SemanticNames
   size?: TextFieldSize
   hasError?: boolean
   readOnly?: boolean
@@ -128,14 +123,8 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   align-items: center;
   height: ${({ size }) => size}px;
   padding: 0 10px;
-  background-color: ${({ variant, readOnly, foundation }) => {
-    const colorKey: ThemeKey = (() => {
-      if (variant === TextFieldVariant.Primary && readOnly) { return 'bg-grey-lighter' }
-      if (variant === TextFieldVariant.Secondary) { return 'bg-black-lightest' }
-      return 'bg-white-normal'
-    })()
-    return foundation?.theme?.[colorKey]
-  }};
+  background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
+
   ${({ foundation }) => foundation?.rounding.round8}
   ${({ disabled }) => disabled && disabledWrapper};
 
