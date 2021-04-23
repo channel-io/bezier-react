@@ -1,12 +1,12 @@
 /* External dependencies */
 import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
-import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 import { TransitionDuration } from '../../foundation/Transition'
+import { css } from '../../foundation'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',
@@ -35,7 +35,7 @@ export default interface ToastElementProps extends UIComponentProps {
   onClick?: () => void
   onDismiss: () => void
   transitionDuration: TransitionDuration
-  transform: FlattenSimpleInterpolation
+  transform: ReturnType<typeof css>
 }
 
 export interface ToastProviderProps {
