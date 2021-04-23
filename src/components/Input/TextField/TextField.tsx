@@ -179,8 +179,7 @@ function TextFieldComponent({
           clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         />
-      )
-      : item
+      ) : item
   ), [])
 
   const leftComponent = useMemo(() => {

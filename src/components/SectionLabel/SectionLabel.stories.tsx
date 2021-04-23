@@ -45,7 +45,7 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        right={{
+        rightContent={{
           icon: 'plus-circle',
           iconColor: 'bgtxt-teal-normal',
           onClick: _.noop,
@@ -53,19 +53,15 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        right={{
-          content: (
-            <Text typo={Typography.Size13}>5</Text>
-          ),
-        }}
+        rightContent={<Text typo={Typography.Size13}>5</Text>}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        left={{ icon: 'star-filled' }}
+        leftContent={{ icon: 'star-filled' }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        left={{
+        leftContent={{
           icon: 'star-filled',
           iconColor: 'bgtxt-yellow-normal',
           onClick: _.noop,
@@ -73,22 +69,18 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        left={{
-          content: (
-            <div style={{ backgroundColor: 'red', width: 20, height: 20 }} />
-          ),
-        }}
+        leftContent={<div style={{ backgroundColor: 'red', width: 20, height: 20 }} />}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        left={{ icon: 'star-filled' }}
+        leftContent={{ icon: 'star-filled' }}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"
       />
       <SectionLabel
-        left={{ icon: 'star-filled' }}
-        right={[
-          { content: testNumberLabel },
+        leftContent={{ icon: 'star-filled' }}
+        rightContent={[
+          testNumberLabel,
           { icon: 'plus-circle-filled', onClick: _.noop },
           { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: _.noop },
         ]}
@@ -96,7 +88,7 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
         content="Teams • 3141592653589794626"
       />
       <SectionLabel
-        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
         open={open}
         onClick={toggle}
@@ -114,11 +106,11 @@ const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) =>
       </SectionLabel>
       <SectionLabel
         help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
-        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        right={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         wrapperInterpolation={testWrapperInterpolation}
         {...otherSectionLabelProps}
       />

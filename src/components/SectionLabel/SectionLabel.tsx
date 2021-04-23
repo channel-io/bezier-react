@@ -15,8 +15,8 @@ function SectionLabel({
   open = true,
   divider = false,
   help,
-  left,
-  right,
+  leftContent,
+  rightContent,
   onClick,
   children,
   wrapperClassName,
@@ -46,29 +46,25 @@ function SectionLabel({
     contentWrapperInterpolation,
   ])
 
-  const renderLeftItem = useCallback(
-    (item: SectionLabelItemProps) => (
-      'content' in item
-        ? item.content
-        : (
-          <Styled.LeftIcon
-            name={item.icon}
-            size={IconSize.S}
-            color={item.iconColor ?? 'txt-black-dark'}
-            clickable={!isNil(item.onClick)}
-            onClick={item.onClick}
-          />
-        )
-    ),
-    [],
-  )
+  const renderLeftItem = useCallback((item: SectionLabelItemProps) => (
+    'icon' in item
+      ? (
+        <Styled.LeftIcon
+          name={item.icon}
+          size={IconSize.S}
+          color={item.iconColor ?? 'txt-black-dark'}
+          clickable={!isNil(item.onClick)}
+          onClick={item.onClick}
+        />
+      ) : item
+  ), [])
 
-  const leftContent = useMemo(() => {
-    if (isNil(left)) {
+  const leftComponent = useMemo(() => {
+    if (isNil(leftContent)) {
       return null
     }
 
-    const item = renderLeftItem(left)
+    const item = renderLeftItem(leftContent)
     const show = !isNil(item)
 
     return show && (
@@ -80,42 +76,39 @@ function SectionLabel({
       </Styled.LeftContentWrapper>
     )
   }, [
-    left,
+    leftContent,
     leftWrapperClassName,
     leftWrapperInterpolation,
     renderLeftItem,
   ])
 
-  const renderRightItem = useCallback(
-    (item: SectionLabelItemProps, key?: string) => (
-      'content' in item ? React.cloneElement(
-        item.content,
-        { key },
-      ) : (
-        <Styled.RightItemWrapper
-          key={key}
-          clickable={!isNil(item.onClick)}
-          onClick={item.onClick}
-        >
-          <Icon
-            name={item.icon}
-            size={IconSize.XS}
-            color={item.iconColor ?? 'txt-black-dark'}
-          />
-        </Styled.RightItemWrapper>
-      )
-    ),
-    [],
-  )
+  const renderRightItem = useCallback((item: SectionLabelItemProps, key?: string) => (
+    'icon' in item ? (
+      <Styled.RightItemWrapper
+        key={key}
+        clickable={!isNil(item.onClick)}
+        onClick={item.onClick}
+      >
+        <Icon
+          name={item.icon}
+          size={IconSize.XS}
+          color={item.iconColor ?? 'txt-black-dark'}
+        />
+      </Styled.RightItemWrapper>
+    ) : React.cloneElement(
+      item,
+      { key },
+    )
+  ), [])
 
-  const rightContent = useMemo(() => {
-    if (isNil(right) || isEmpty(right)) {
+  const rightComponent = useMemo(() => {
+    if (isNil(rightContent) || isEmpty(rightContent)) {
       return null
     }
 
-    const items = isArray(right)
-      ? right.map((item) => renderRightItem(item, uuid()))
-      : renderRightItem(right)
+    const items = isArray(rightContent)
+      ? rightContent.map((item) => renderRightItem(item, uuid()))
+      : renderRightItem(rightContent)
 
     return (
       <Styled.RightContentWrapper
@@ -126,7 +119,7 @@ function SectionLabel({
       </Styled.RightContentWrapper>
     )
   }, [
-    right,
+    rightContent,
     rightWrapperClassName,
     rightWrapperInterpolation,
     renderRightItem,
@@ -153,10 +146,10 @@ function SectionLabel({
         onClick={onClick}
         interpolation={wrapperInterpolation}
       >
-        { leftContent }
+        { leftComponent }
         { content }
         { helpContent }
-        { rightContent }
+        { rightComponent }
       </Styled.Wrapper>
       { children && (
         <Styled.ChildrenWrapper show={open}>
