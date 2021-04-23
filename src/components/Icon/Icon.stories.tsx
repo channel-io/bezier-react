@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
 import { Text } from '../Text'
 import { styled } from '../../foundation'
 import icons, { IconName } from './generated'
@@ -17,13 +17,7 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: {
-          L: IconSize.L,
-          Normal: IconSize.Normal,
-          S: IconSize.S,
-          XS: IconSize.XS,
-          XXS: IconSize.XXS,
-        },
+        options: getObjectFromEnum(IconSize),
       },
     },
   },

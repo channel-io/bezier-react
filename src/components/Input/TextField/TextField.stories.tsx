@@ -3,9 +3,9 @@ import React, { useRef, useCallback, useState } from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/etcUtils'
+import { getTitle, getObjectFromEnum } from '../../../utils/etcUtils'
 import TextField from './TextField'
-import { TextFieldRef, TextFieldSize } from './TextField.types'
+import { TextFieldRef, TextFieldSize, TextFieldVariant } from './TextField.types'
 
 export default {
   title: getTitle(base),
@@ -44,7 +44,7 @@ const PrimaryTemplate = ({ wrapperWidth, ...otherProps }) => {
 export const Primary = PrimaryTemplate.bind({})
 
 Primary.args = {
-  variant: 'primary',
+  variant: TextFieldVariant.Primary,
   size: TextFieldSize.M,
   disabled: false,
   readOnly: false,
@@ -67,21 +67,13 @@ Primary.argTypes = {
   size: {
     control: {
       type: 'radio', // type 'select' is automatically inferred when 'options' is defined
-      options: {
-        XL: TextFieldSize.XL,
-        L: TextFieldSize.L,
-        M: TextFieldSize.M,
-        XS: TextFieldSize.XS,
-      },
+      options: getObjectFromEnum(TextFieldSize),
     },
   },
   variant: {
     control: {
       type: 'radio',
-      options: [
-        'primary',
-        'secondary',
-      ],
+      options: getObjectFromEnum(TextFieldVariant),
     },
   },
 }

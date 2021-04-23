@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
 import { TabItem } from '../TabItem'
 import { TabAction } from '../TabAction'
 import Tabs from './Tabs'
@@ -30,11 +30,7 @@ export default {
     height: {
       control: {
         type: 'radio',
-        options: {
-          L: TabsSize.L,
-          Normal: TabsSize.Normal,
-          XS: TabsSize.XS,
-        },
+        options: getObjectFromEnum(TabsSize),
       },
     },
     tabCount: {
