@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 import { Typography } from '../../foundation'
 import { Icon, IconSize } from '../Icon'
 import { Text } from '../Text'
-import ToastProps, { ToastAppearance } from './Toast.types'
+import ToastProps, { ToastPreset } from './Toast.types'
 import {
   Element,
   IconWrapper,
@@ -15,13 +15,15 @@ import {
   NormalContent,
   Content,
 } from './Toast.styled'
+import { getToastPreset } from './utils'
 
 const ToastElement = (
   {
     as,
-    appearance = ToastAppearance.Info,
+    preset = ToastPreset.Default,
     content = '',
-    iconName = 'info-filled',
+    appearance,
+    iconName,
     actionContent,
     onClick,
     onDismiss,
@@ -52,16 +54,21 @@ const ToastElement = (
     })
   ), [content])
 
+  const {
+    appearance: presetAppearance,
+    iconName: presetIconName,
+  } = useMemo(() => getToastPreset(preset), [preset])
+
   return (
     <Element
       ref={forwardedRef}
       {...props}
     >
       <IconWrapper
-        appearance={appearance}
+        appearance={appearance ?? presetAppearance}
       >
         <Icon
-          name={iconName}
+          name={iconName ?? presetIconName}
           size={IconSize.S}
         />
       </IconWrapper>

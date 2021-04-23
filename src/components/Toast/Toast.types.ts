@@ -27,10 +27,24 @@ export enum ToastIconColor {
   Info = 'txt-black-darkest',
 }
 
+export enum ToastPreset {
+  Default = 'Default',
+  Success = 'Success',
+  Error = 'Error',
+  Offline = 'Offline',
+  Online = 'Online',
+}
+
+export interface ToastPresetType {
+  appearance: ToastAppearance
+  iconName: IconName
+}
+
 export default interface ToastElementProps extends UIComponentProps {
+  preset?: ToastPreset
   appearance?: ToastAppearance
-  content: string
   iconName?: IconName
+  content: string
   actionContent?: string
   onClick?: () => void
   onDismiss: () => void
@@ -48,6 +62,7 @@ export type ToastId = string
 export type OnDismissCallback = (id: ToastId) => void
 
 export type ToastOptions = {
+  preset?: ToastPreset
   iconName?: IconName
   appearance?: ToastAppearance
   actionContent?: string

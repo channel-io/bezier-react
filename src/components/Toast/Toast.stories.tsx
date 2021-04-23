@@ -10,22 +10,34 @@ import { useToast } from '../../hooks/useToast'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import ToastProps, { ToastAppearance } from './Toast.types'
+import ToastProps, { ToastAppearance, ToastPreset } from './Toast.types'
 
 export default {
   title: getTitle(base),
   component: ToastElement,
   argTypes: {
+    preset: {
+      control: {
+        type: 'select',
+        options: ToastPreset,
+      },
+    },
     appearance: {
       control: {
         type: 'radio',
-        options: ToastAppearance,
+        options: {
+          ...ToastAppearance,
+          undefined,
+        },
       },
     },
     iconName: {
       control: {
         type: 'select',
-        options: iconList,
+        options: [
+          ...iconList,
+          undefined,
+        ],
       },
     },
     content: {
@@ -61,16 +73,18 @@ const Template = (args) => (
 export const Primary: ToastProps = Template.bind({})
 
 Primary.args = {
-  appearance: ToastAppearance.Info,
   content: '안내문구입니다.\nnewLine',
-  iconName: 'info-filled',
+  preset: ToastPreset.Default,
+  appearance: undefined,
+  iconName: undefined,
   actionContent: '새로고침',
   onClick: noop,
 }
 
 function Div({
-  appearance,
   content,
+  preset,
+  appearance,
   iconName,
   actionContent,
 }) {
@@ -87,6 +101,7 @@ function Div({
     const curentContent = `${count}. ${content}`
 
     toast.addToast(curentContent, {
+      preset,
       appearance,
       iconName,
       actionContent,
@@ -122,8 +137,9 @@ function Div({
 
 export const WithAction = ({
   autoDismissTimeout,
-  appearance,
   content,
+  preset,
+  appearance,
   iconName,
   actionContent,
 }) => (
@@ -132,8 +148,9 @@ export const WithAction = ({
       autoDismissTimeout={autoDismissTimeout}
     >
       <Div
-        appearance={appearance}
         content={content}
+        preset={preset}
+        appearance={appearance}
         iconName={iconName}
         actionContent={actionContent}
       />
@@ -143,8 +160,9 @@ export const WithAction = ({
 
 WithAction.args = {
   autoDismissTimeout: 2000,
-  appearance: ToastAppearance.Info,
   content: '안내문구입니다.',
-  iconName: 'info-filled',
+  preset: ToastPreset.Default,
+  appearance: undefined,
+  iconName: undefined,
   actionContent: '액션 함수 테스트',
 }

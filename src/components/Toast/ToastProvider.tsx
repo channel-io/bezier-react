@@ -102,9 +102,10 @@ function ToastProvider({
       placement={placement}
     >
       { toasts.map(({
-        appearance,
         autoDismiss,
         content,
+        preset,
+        appearance,
         iconName,
         actionContent,
         onClick,
@@ -116,12 +117,13 @@ function ToastProvider({
           key={id}
           id={id}
           placement={placement}
-          appearance={appearance}
           autoDismiss={autoDismiss ?? true}
           transitionDuration={TransitionDuration.M}
           actionContent={actionContent}
           onClick={onClick}
           autoDismissTimeout={autoDismissTimeout}
+          preset={preset}
+          appearance={appearance}
           content={content}
           iconName={iconName}
           component={ToastElement}

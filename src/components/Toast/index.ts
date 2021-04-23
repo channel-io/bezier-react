@@ -5,6 +5,7 @@ import ToastProps, {
   ToastPlacement,
   ToastAppearance,
   ToastIconColor,
+  ToastPreset,
 } from './Toast.types'
 
 export type {
@@ -14,6 +15,7 @@ export type {
 export {
   ToastProvider,
   useToast,
+  ToastPreset,
   ToastPlacement,
   ToastAppearance,
   ToastIconColor,

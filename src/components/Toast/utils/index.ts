@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { css } from '../../../foundation'
 import { GNB_WIDTH } from '../../../layout/GNB/GNB.styled'
-import { ToastAppearance, ToastIconColor, ToastPlacement } from '../Toast.types'
+import { ToastAppearance, ToastIconColor, ToastPlacement, ToastPreset, ToastPresetType } from '../Toast.types'
 
 function getIconColor(appearance: ToastAppearance): ToastIconColor {
   switch (appearance) {
@@ -44,6 +44,37 @@ const initPosition = (placement?: ToastPlacement) => {
   }
 }
 
+const getToastPreset = (preset: ToastPreset): ToastPresetType => {
+  switch (preset) {
+    case ToastPreset.Success:
+      return {
+        iconName: 'check-circle-filled',
+        appearance: ToastAppearance.Success,
+      }
+    case ToastPreset.Error:
+      return {
+        iconName: 'error-triangle-filled',
+        appearance: ToastAppearance.Error,
+      }
+    case ToastPreset.Offline:
+      return {
+        iconName: 'wifi-off',
+        appearance: ToastAppearance.Warning,
+      }
+    case ToastPreset.Online:
+      return {
+        iconName: 'wifi',
+        appearance: ToastAppearance.Success,
+      }
+    case ToastPreset.Default:
+    default:
+      return {
+        iconName: 'info-filled',
+        appearance: ToastAppearance.Info,
+      }
+  }
+}
+
 const displayPosition = () => css` transform: translateX(0); `
 
 export {
@@ -51,4 +82,5 @@ export {
   getPlacement,
   initPosition,
   displayPosition,
+  getToastPreset,
 }
