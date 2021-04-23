@@ -63,6 +63,8 @@ function TextFieldComponent({
 
   const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
   const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
+  const focusTimeout = useRef<ReturnType<typeof setTimeout>>()
+  const blurTimeout = useRef<ReturnType<typeof setTimeout>>()
 
   const normalizedValue = useMemo(() => (
     isNil(value) ? undefined : toString(value)
@@ -71,13 +73,15 @@ function TextFieldComponent({
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const focus = useCallback(() => {
-    setTimeout(() => {
+    clearTimeout(focusTimeout.current)
+    focusTimeout.current = setTimeout(() => {
       inputRef.current?.focus()
     }, 0)
   }, [])
 
   const blur = useCallback(() => {
-    setTimeout(() => {
+    clearTimeout(blurTimeout.current)
+    blurTimeout.current = setTimeout(() => {
       inputRef.current?.blur()
     }, 0)
   }, [])
