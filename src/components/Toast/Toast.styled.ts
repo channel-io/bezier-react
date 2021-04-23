@@ -30,9 +30,8 @@ export const Element = styled.div<ToastElementProps>`
   padding: 16px;
   margin-top: 6px;
   ${({ foundation }) => foundation?.rounding?.round12}
-  ${({ foundation }) => foundation?.elevation.ev3()};
+  ${({ foundation }) => foundation?.elevation.ev3(true)};
   pointer-events: auto;
-  background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
   ${({ transform }) => transform}

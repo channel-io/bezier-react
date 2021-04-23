@@ -110,7 +110,6 @@ function ToastProvider({
         actionContent,
         onClick,
         id,
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         onDismiss,
       }) => (
         <ToastController

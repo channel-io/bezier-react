@@ -33,6 +33,8 @@ function getPlacement(placement: ToastPlacement) {
   }
 }
 
+const getToastInitialTransform = () => css` transform: translateX(0); `
+
 const initPosition = (placement?: ToastPlacement) => {
   switch (placement) {
     case ToastPlacement.BottomLeft:
@@ -40,7 +42,7 @@ const initPosition = (placement?: ToastPlacement) => {
     case ToastPlacement.BottomRight:
       return css` transform: translateX(120%); `
     default:
-      return css` transform: translateX(0); `
+      return getToastInitialTransform()
   }
 }
 
@@ -75,12 +77,10 @@ const getToastPreset = (preset: ToastPreset): ToastPresetType => {
   }
 }
 
-const displayPosition = () => css` transform: translateX(0); `
-
 export {
   getIconColor,
   getPlacement,
   initPosition,
-  displayPosition,
+  getToastInitialTransform,
   getToastPreset,
 }

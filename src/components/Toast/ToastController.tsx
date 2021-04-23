@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 /* Internal dependencies */
 import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
-import { displayPosition, initPosition } from './utils'
+import { getToastInitialTransform, initPosition } from './utils'
 
 function parseDuration(transitionDuration: TransitionDuration) {
   switch (transitionDuration) {
@@ -54,7 +54,7 @@ function ToastController({
   }, [autoDismiss])
 
   useEffect(() => {
-    setTransform(displayPosition())
+    setTransform(getToastInitialTransform())
   }, [])
 
   useEffect(() => {
