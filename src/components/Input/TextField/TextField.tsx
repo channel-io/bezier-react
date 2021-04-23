@@ -33,8 +33,8 @@ function TextFieldComponent({
   allowClear = false,
   selectAllOnInit = false,
   selectAllOnFocus = false,
-  left,
-  right,
+  leftContent,
+  rightContent,
   wrapperClassName,
   wrapperInterpolation,
   leftWrapperClassName,
@@ -61,27 +61,23 @@ function TextFieldComponent({
 
   const focus = useCallback(() => {
     setTimeout(() => {
-      if (inputRef.current) { inputRef.current.focus() }
+      inputRef.current?.focus()
     }, 0)
   }, [])
 
   const blur = useCallback(() => {
     setTimeout(() => {
-      if (inputRef.current) { inputRef.current.blur() }
+      inputRef.current?.blur()
     }, 0)
   }, [])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
     if (includes([TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden], type)) { return }
-    if (inputRef.current) { inputRef.current.setSelectionRange(start || 0, end || 0, direction || 'none') }
+    inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 
-  const getSelectionRange = useCallback((): [number, number] => {
-    if (inputRef.current) {
-      return [inputRef.current.selectionStart || 0, inputRef.current.selectionEnd || 0]
-    }
-    return [0, 0]
-  }, [])
+  const getSelectionRange = useCallback((): [number, number] =>
+    [inputRef.current?.selectionStart || 0, inputRef.current?.selectionEnd || 0], [])
 
   const selectAll = useCallback(() => {
     focus()
@@ -123,13 +119,12 @@ function TextFieldComponent({
   }))
 
   useEffect(() => {
-    if ((selectAllOnInit || autoFocus) && inputRef.current) {
+    if (autoFocus) {
       focus()
-      setSelectionRange(inputRef.current.value.length, inputRef.current.value.length)
-
-      if (selectAllOnInit) {
-        selectAll()
-      }
+    }
+    if (selectAllOnInit) {
+      focus()
+      selectAll()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -165,9 +160,8 @@ function TextFieldComponent({
 
   const renderLeftItem = useCallback(
     (item: TextFieldItemProps) => (
-      'content' in item
-        ? item.content
-        : (
+      'icon' in item
+        ? (
           <Styled.LeftIcon
             name={item.icon}
             size={IconSize.S}
@@ -176,16 +170,17 @@ function TextFieldComponent({
             onClick={item.onClick}
           />
         )
+        : item
     ),
     [],
   )
 
-  const leftContent = useMemo(() => {
-    if (isNil(left)) {
+  const leftComponent = useMemo(() => {
+    if (isNil(leftContent)) {
       return null
     }
 
-    const item = renderLeftItem(left)
+    const item = renderLeftItem(leftContent)
     const show = !isNil(item)
 
     return show && (
@@ -197,7 +192,7 @@ function TextFieldComponent({
       </Styled.LeftContentWrapper>
     )
   }, [
-    left,
+    leftContent,
     leftWrapperClassName,
     leftWrapperInterpolation,
     renderLeftItem,
@@ -205,34 +200,34 @@ function TextFieldComponent({
 
   const renderRightItem = useCallback(
     (item: TextFieldItemProps, key?: string) => (
-      'content' in item ? React.cloneElement(
-        item.content,
-        { key },
-      ) : (
+      'icon' in item ? (
         <Styled.RightItemWrapper
           key={key}
           clickable={!isNil(item.onClick)}
-          color={item.iconColor ?? 'txt-black-dark'}
           onClick={item.onClick}
         >
           <Icon
             name={item.icon}
             size={IconSize.XS}
+            color={item.iconColor ?? 'txt-black-dark'}
           />
         </Styled.RightItemWrapper>
+      ) : React.cloneElement(
+        item,
+        { key },
       )
     ),
     [],
   )
 
-  const rightContent = useMemo(() => {
-    if (isNil(right) || isEmpty(right)) {
+  const rightComponent = useMemo(() => {
+    if (isNil(rightContent) || isEmpty(rightContent)) {
       return null
     }
 
-    const items = isArray(right)
-      ? right.map((item) => renderRightItem(item, uuid()))
-      : renderRightItem(right)
+    const items = isArray(rightContent)
+      ? rightContent.map((item) => renderRightItem(item, uuid()))
+      : renderRightItem(rightContent)
 
     return (
       <Styled.RightContentWrapper
@@ -243,7 +238,7 @@ function TextFieldComponent({
       </Styled.RightContentWrapper>
     )
   }, [
-    right,
+    rightContent,
     rightWrapperClassName,
     rightWrapperInterpolation,
     renderRightItem,
@@ -262,7 +257,7 @@ function TextFieldComponent({
       data-testid={testId}
       onMouseDown={focus}
     >
-      { leftContent }
+      { leftComponent }
       <Styled.Input
         ref={inputRef}
         name={name}
@@ -279,7 +274,7 @@ function TextFieldComponent({
         onChange={handleChange}
         {...otherProps}
       />
-      { rightContent }
+      { rightComponent }
     </Styled.Wrapper>
   )
 }

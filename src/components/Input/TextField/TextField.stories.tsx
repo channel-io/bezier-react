@@ -29,7 +29,7 @@ const PrimaryTemplate = ({ wrapperWidth, ...otherProps }) => {
       <TextField
         ref={inputRef}
         value={value}
-        left={{
+        leftContent={{
           icon: 'search',
           iconColor: 'txt-black-dark',
           onClick: handleClickLeftIcon,

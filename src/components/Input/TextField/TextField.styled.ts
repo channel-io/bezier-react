@@ -4,7 +4,11 @@ import { Icon } from '../../Icon'
 import img from '../../Icon/assets/cancel-circle-filled.svg'
 import { ThemeKey } from '../../../foundation/Theme/ThemeType'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { InputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from '../constants/InputWrapperStyle'
+import {
+  inputWrapperStyle,
+  focusedInputWrapperStyle,
+  erroredInputWrapperStyle,
+} from '../constants/InputWrapperStyle'
 import { TextFieldSize, TextFieldType, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
@@ -15,9 +19,9 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-export const placeholderStyle = (themeKey:ThemeKey = 'txt-black-dark') => css`
+export const placeholderStyle = (themeKey: ThemeKey = 'txt-black-dark') => css`
   &::placeholder {
-    color: ${({ foundation }) => foundation?.theme?.[themeKey] || 'txt-black-dark'};
+    color: ${({ foundation }) => foundation?.theme?.[themeKey]};
   }
 `
 
@@ -135,7 +139,7 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   ${({ foundation }) => foundation?.rounding.round8}
   ${({ disabled }) => disabled && disabledWrapper};
 
-  ${({ variant }) => variant === TextFieldVariant.Primary && InputWrapperStyle};
+  ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle};
   ${({ focused }) => focused && focusedInputWrapperStyle}
   ${({ hasError }) => hasError && erroredInputWrapperStyle}
 

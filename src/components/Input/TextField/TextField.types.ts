@@ -36,9 +36,7 @@ export type TextFieldItemProps = {
   icon: IconName
   iconColor?: ThemeKey
   onClick?: (event: React.MouseEvent) => void
-} | {
-  content: React.ReactElement
-}
+} | React.ReactElement
 
 export interface TextFieldRef {
   focus(options?: FocusOptions): void
@@ -59,8 +57,8 @@ export default interface TextFieldProps
   allowClear?: boolean
   selectAllOnInit?: boolean
   selectAllOnFocus?: boolean
-  left?: TextFieldItemProps
-  right?: TextFieldItemProps | TextFieldItemProps[]
+  leftContent?: TextFieldItemProps
+  rightContent?: TextFieldItemProps | TextFieldItemProps[]
   wrapperClassName?: string
   wrapperInterpolation?: InjectedInterpolation
   leftWrapperClassName?: string
