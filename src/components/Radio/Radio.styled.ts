@@ -22,7 +22,7 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   content: '';
   background-color: ${props => {
     if (!props.disabled && !props.checked && props.hovered) { return props.foundation?.theme?.['bg-black-light'] }
-    if (props.checked) { return props.foundation?.theme?.['bg-white-absolute'] }
+    if (props.checked) { return props.foundation?.theme?.['bgtxt-absolute-white-normal'] }
     return 'transparent'
   }};
   border-radius: 50%;

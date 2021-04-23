@@ -37,7 +37,7 @@ export const Content = styled.div<ContentProps>`
   left: ${PADDING / 2}px;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  background-color: ${props => props.foundation?.theme?.['bg-white-absolute']};
+  background-color: ${props => props.foundation?.theme?.['bgtxt-absolute-white-normal']};
   border-radius: 50%;
   ${({ foundation }) => foundation?.elevation?.ev2()};
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};

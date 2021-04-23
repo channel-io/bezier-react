@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ThemeKey } from '../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../foundation/Colors/Theme'
 import { StylableComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
@@ -17,7 +17,7 @@ export enum IconSize {
 }
 
 export interface IconStyledProps {
-  color?: ThemeKey
+  color?: SemanticNames
   margintop: number
   marginright: number
   marginbottom: number
@@ -26,7 +26,7 @@ export interface IconStyledProps {
 
 export default interface IconProps extends StylableComponentProps, Omit<SVGProps, 'ref'> {
   name: IconName
-  color?: ThemeKey
+  color?: SemanticNames
   size?: IconSize
   marginTop?: number
   marginRight?: number

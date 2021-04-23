@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { ContentComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import {
@@ -29,7 +29,7 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   chevronIconType?: ChevronIconType
   chevronIconSize?: IconSize
   leftIcon?: IconName
-  leftIconColor?: ThemeKey
+  leftIconColor?: SemanticNames
   disableIconActive?: boolean
   name?: string
   onOpen?: (name?: string) => void

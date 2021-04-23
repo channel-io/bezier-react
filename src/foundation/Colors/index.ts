@@ -1,7 +1,9 @@
 /* Internal dependencies */
-import ThemeType from './ThemeType'
-import LightTheme from './presets/LightTheme'
-import DarkTheme from './presets/DarkTheme'
+import {
+  LightTheme,
+  DarkTheme,
+  ThemeType,
+} from './Theme'
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
