@@ -57,6 +57,6 @@ export const AvatarEllipsisIcon = styled.div`
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    backgroundColor: foundation?.theme?.['dim-dark'],
+    backgroundColor: foundation?.theme?.['bg-black-darkest'],
   })}
 `
