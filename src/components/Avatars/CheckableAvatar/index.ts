@@ -1,5 +1,5 @@
 import CheckableAvatar from './CheckableAvatar'
-import type { CheckableAvatarProps } from './CheckableAvatar.types'
+import type CheckableAvatarProps from './CheckableAvatar.types'
 
 export type {
   CheckableAvatarProps,
