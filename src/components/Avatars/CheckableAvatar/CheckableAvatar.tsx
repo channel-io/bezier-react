@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal denpendencies */
 import { Avatar } from '../Avatar'
-import { CheckableAvatarProps } from './CheckableAvatar.types'
+import CheckableAvatarProps from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon } from './CheckableAvatar.styled'
 
 export const CHECKABLE_AVATAR_TEST_ID = 'ch-design-system-checkable-avatar'
