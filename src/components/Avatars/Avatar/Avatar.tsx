@@ -34,7 +34,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   const StatusComponent = useMemo(() => {
     if (
-      (isEmpty(children) && !status)
+      (isEmpty(children) && !isOnline && !status)
       || (children && !React.isValidElement(children))
     ) {
       return null
