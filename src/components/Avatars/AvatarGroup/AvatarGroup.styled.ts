@@ -37,7 +37,7 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisIconWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
+export const AvatarEllipsisWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
