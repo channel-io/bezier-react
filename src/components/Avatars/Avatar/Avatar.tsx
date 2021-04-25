@@ -5,7 +5,7 @@ import { noop, isEmpty } from 'lodash-es'
 /* Internal denpendencies */
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
-import { Status } from '../../Status'
+import { Status, StatusType } from '../../Status'
 import { AvatarSize, AvatarProps } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
@@ -20,6 +20,7 @@ function Avatar({
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
+  isOnline = false,
   status,
   onClick = noop,
   onMouseEnter = noop,
@@ -41,6 +42,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
     const Contents = (() => {
       if (children) { return children }
+      if (isOnline) {
+        return (
+          <Status type={StatusType.Online} />
+        )
+      }
       if (status) {
         return (
           <Status type={status} />
@@ -58,6 +64,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     )
   }, [
     status,
+    isOnline,
     showBorder,
     children,
   ])
