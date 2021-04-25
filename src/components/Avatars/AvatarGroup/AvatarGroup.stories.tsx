@@ -77,6 +77,12 @@ export default {
         step: 1,
       },
     },
+    onMouseEnterEllipsis: {
+      action: 'mouseEnter',
+    },
+    onMouseLeaveEllipsis: {
+      action: 'mouseLeave',
+    },
   },
 } as Meta
 

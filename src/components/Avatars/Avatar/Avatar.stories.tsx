@@ -38,6 +38,15 @@ export default {
         ],
       },
     },
+    onClick: {
+      action: 'clicked',
+    },
+    onMouseEnter: {
+      action: 'mouseEnter',
+    },
+    onMouseLeave: {
+      action: 'mouseLeave',
+    },
   },
 } as Meta
 
