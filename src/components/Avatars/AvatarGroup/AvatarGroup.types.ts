@@ -8,7 +8,7 @@ export enum AvatarGroupEllipsisType {
   Count = 'Count',
 }
 
-export interface AvatarGroupProps extends ChildrenComponentProps {
+export default interface AvatarGroupProps extends ChildrenComponentProps {
   max: number
   size?: AvatarSize
   spacing?: number

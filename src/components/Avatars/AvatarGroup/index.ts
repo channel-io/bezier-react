@@ -1,14 +1,12 @@
 import AvatarGroup from './AvatarGroup'
-import type {
-  AvatarGroupProps,
-  AvatarGroupEllipsisType,
-} from './AvatarGroup.types'
+import type AvatarGroupProps from './AvatarGroup.types'
+import { AvatarGroupEllipsisType } from './AvatarGroup.types'
 
 export type {
   AvatarGroupProps,
-  AvatarGroupEllipsisType,
 }
 
 export {
   AvatarGroup,
+  AvatarGroupEllipsisType,
 }
