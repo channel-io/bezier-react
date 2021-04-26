@@ -60,5 +60,9 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 export const ContentWrapper = styled.div<WithInterpolation>`
   flex: 1;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   ${({ interpolation }) => interpolation}
 `

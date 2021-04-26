@@ -46,4 +46,8 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 
 export const ContentWrapper = styled.div`
   flex: 1;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
