@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
+import { css, ellipsis, styled } from '../../../foundation'
 import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListItem.types'
@@ -46,4 +46,6 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 
 export const ContentWrapper = styled.div`
   flex: 1;
+
+  ${ellipsis()}
 `

@@ -2,7 +2,7 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
+import { css, ellipsis, styled } from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
@@ -59,6 +59,8 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 
 export const ContentWrapper = styled.div<WithInterpolation>`
   flex: 1;
+
+  ${ellipsis()}
 
   ${({ interpolation }) => interpolation}
 `
