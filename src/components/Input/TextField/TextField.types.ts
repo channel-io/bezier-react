@@ -50,7 +50,7 @@ export interface TextFieldRef {
 }
 
 export default interface TextFieldProps
-  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'type'> {
+  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   variant?: TextFieldVariant
   type?: TextFieldType
   hasError?: boolean
@@ -65,6 +65,6 @@ export default interface TextFieldProps
   leftWrapperInterpolation?: InjectedInterpolation
   rightWrapperClassName?: string
   rightWrapperInterpolation?: InjectedInterpolation
-  onFocus?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
-  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+  onFocus?: React.ChangeEventHandler<HTMLInputElement>
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
 }

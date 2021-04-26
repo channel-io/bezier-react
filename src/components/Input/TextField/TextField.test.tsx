@@ -54,11 +54,4 @@ describe('TextField', () => {
     const inputElement = rendered.getElementsByTagName('input')[0]
     expect(inputElement).toHaveAttribute('maxLength', '5')
   })
-
-  it('should have "search" value on "type" attribute when "allowClear" prop is "true', () => {
-    const { getByTestId } = renderComponent({ allowClear: true })
-    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-    const inputElement = rendered.getElementsByTagName('input')[0]
-    expect(inputElement).toHaveAttribute('type', 'search')
-  })
 })

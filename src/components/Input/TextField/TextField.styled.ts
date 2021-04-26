@@ -1,15 +1,15 @@
 /* Internal dependencies */
-import { css, styled, Typography, disabledWrapper } from '../../../foundation'
+import { css, styled, Typography } from '../../../foundation'
+import DisabledOpacity from '../../../constants/DisabledOpacity'
 import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
-import img from '../../Icon/assets/cancel-circle-filled.svg'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
 } from '../constants/InputWrapperStyle'
-import { TextFieldSize, TextFieldType, TextFieldVariant } from './TextField.types'
+import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
   clickable: boolean
@@ -22,32 +22,6 @@ const clickableElementStyle = css`
 export const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
   &::placeholder {
     color: ${({ foundation }) => foundation?.theme?.[themeKey]};
-  }
-`
-
-const searchInputStyle = css`
-  &[type="${TextFieldType.Search}"] {
-    appearance: textfield;
-  }
-
-  &[type="${TextFieldType.Search}"]::-webkit-search-decoration {
-    appearance: none;
-  }
-
-  &[type="${TextFieldType.Search}"]::-webkit-search-cancel-button {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background: url(${img}) no-repeat 50% 50%;
-
-    filter: opacity(0.4);
-
-    :hover {
-      filter: opacity(0.6);
-    }
-
-    background-size: contain;
   }
 `
 
@@ -68,8 +42,6 @@ const Input = styled.input<InputProps>`
   background-color: transparent;
   border: none;
   outline: none;
-
-  ${({ type }) => type === TextFieldType.Search && searchInputStyle}
 
   ${placeholderStyle()}
 `
@@ -94,7 +66,7 @@ const RightContentWrapper = styled.div<WithInterpolation>`
   ${({ interpolation }) => interpolation}
 `
 
-const RightItemWrapper = styled('div')<ClickableElementProps & WithInterpolation>`
+const RightItemWrapper = styled.div<ClickableElementProps & WithInterpolation>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,6 +76,23 @@ const RightItemWrapper = styled('div')<ClickableElementProps & WithInterpolation
   ${({ clickable }) => clickable && clickableElementStyle}
 
   ${({ interpolation }) => interpolation}
+`
+
+const ClearIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding-right: 2px;
+
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+
+  :hover {
+    color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+  }
+
+  ${clickableElementStyle}
 `
 
 interface WrapperProps {
@@ -126,7 +115,7 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
 
   ${({ foundation }) => foundation?.rounding.round8}
-  ${({ disabled }) => disabled && disabledWrapper};
+  opacity: ${({ disabled }) => disabled && DisabledOpacity};
 
   ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle};
   ${({ focused }) => focused && focusedInputWrapperStyle}
@@ -143,5 +132,6 @@ export default {
   LeftContentWrapper,
   RightItemWrapper,
   RightContentWrapper,
+  ClearIconWrapper,
   Wrapper,
 }

@@ -10,7 +10,7 @@ import React, {
   useMemo,
 } from 'react'
 import ReactDOM from 'react-dom'
-import { isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
+import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -60,6 +60,7 @@ function TextFieldComponent({
   ...otherProps
 }: TextFieldProps, forwardedRef: Ref<TextFieldRef>) {
   const [focused, setFocused] = useState(false)
+  const [hovered, setHovered] = useState(false)
 
   const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
   const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
@@ -69,6 +70,16 @@ function TextFieldComponent({
   const normalizedValue = useMemo(() => (
     isNil(value) ? undefined : toString(value)
   ), [value])
+
+  const activeClear = useMemo(() => (
+    !disabled
+    && !readOnly
+    && allowClear
+  ), [
+    disabled,
+    readOnly,
+    allowClear,
+  ])
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -173,6 +184,19 @@ function TextFieldComponent({
     onChange,
   ])
 
+  const handleClear = useCallback(() => {
+    const input = inputRef.current
+    if (!readOnly && !disabled && input) {
+      const setValue = Object?.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
+      const event = new Event('input', { bubbles: true })
+      setValue?.call(input, '')
+      input.dispatchEvent(event)
+    }
+  }, [
+    readOnly,
+    disabled,
+  ])
+
   const renderLeftItem = useCallback((item: TextFieldItemProps) => (
     'icon' in item
       ? (
@@ -250,6 +274,26 @@ function TextFieldComponent({
     renderRightItem,
   ])
 
+  const clearComponent = useMemo(() => (
+    <Styled.ClearIconWrapper
+      onClick={handleClear}
+    >
+      {
+        getSize(normalizedValue) > 0 && (focused || hovered) && (
+          <Icon
+            name="cancel-circle-filled"
+            size={IconSize.XS}
+          />
+        )
+      }
+    </Styled.ClearIconWrapper>
+  ), [
+    focused,
+    handleClear,
+    hovered,
+    normalizedValue,
+  ])
+
   return (
     <Styled.Wrapper
       className={wrapperClassName}
@@ -262,6 +306,8 @@ function TextFieldComponent({
       focused={focused}
       interpolation={wrapperInterpolation}
       data-testid={testId}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       onMouseDown={focus}
     >
       { leftComponent }
@@ -271,7 +317,7 @@ function TextFieldComponent({
         size={size}
         color={inputColorSemanticName}
         autoComplete={autoComplete}
-        type={allowClear ? TextFieldType.Search : type}
+        type={type}
         readOnly={readOnly}
         disabled={disabled}
         value={normalizedValue}
@@ -282,6 +328,7 @@ function TextFieldComponent({
         onChange={handleChange}
         {...otherProps}
       />
+      { activeClear && clearComponent }
       { rightComponent }
     </Styled.Wrapper>
   )

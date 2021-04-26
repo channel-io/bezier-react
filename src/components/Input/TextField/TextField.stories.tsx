@@ -25,10 +25,11 @@ const PrimaryTemplate = ({ wrapperWidth, ...otherProps }) => {
   }, [])
 
   return (
-    <div style={{ width: wrapperWidth }}>
+    <div style={{ width: '300px' }}>
       <TextField
         ref={inputRef}
         value={value}
+        autoFocus
         leftContent={{
           icon: 'search',
           iconColor: 'txt-black-dark',
@@ -53,17 +54,9 @@ Primary.args = {
   selectAllOnFocus: false,
   maxLength: 10,
   placeholder: 'this is placeholder',
-  wrapperWidth: 280,
 }
 
 Primary.argTypes = {
-  wrapperWidth: {
-    control: {
-      type: 'range',
-      min: 100,
-      max: 300,
-    },
-  },
   size: {
     control: {
       type: 'radio', // type 'select' is automatically inferred when 'options' is defined
