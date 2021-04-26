@@ -84,7 +84,7 @@ export const WithText = ({
   </Text>
 )
 WithText.args = {
-  name: 'zoyi',
+  name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
 }
