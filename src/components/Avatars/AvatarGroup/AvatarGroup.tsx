@@ -94,7 +94,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
         return (
           <AvatarEllipsisWrapper
             key="ellipsis"
-            ref={forwardedRef}
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
@@ -118,7 +117,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisWrapper
-              ref={forwardedRef}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
@@ -144,7 +142,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
     ellipsisType,
     ellipsisInterpolation,
     avatarListCount,
-    forwardedRef,
     renderAvatarElement,
     onMouseEnterEllipsis,
     onMouseLeaveEllipsis,
@@ -153,6 +150,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   return (
     <StyledAvatarGroup
       data-testid={AVATAR_GROUP_TEST_ID}
+      ref={forwardedRef}
       spacing={spacing}
     >
       { AvatarListComponent }
