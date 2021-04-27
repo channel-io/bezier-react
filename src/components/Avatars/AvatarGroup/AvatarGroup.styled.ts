@@ -37,7 +37,7 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisIconWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
+export const AvatarEllipsisWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
@@ -57,6 +57,6 @@ export const AvatarEllipsisIcon = styled.div`
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    backgroundColor: foundation?.theme?.['dim-dark'],
+    backgroundColor: foundation?.theme?.['bg-black-darkest'],
   })}
 `

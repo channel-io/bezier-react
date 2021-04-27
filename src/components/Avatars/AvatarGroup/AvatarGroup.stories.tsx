@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { Avatar, AvatarSize } from '../Avatar'
-import { AvatarGroupEllipsisType, AvatarGroupProps } from './AvatarGroup.types'
+import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import AvatarGroup from './AvatarGroup'
 
 const MOCK_AVATAR_LIST = [
@@ -76,6 +76,12 @@ export default {
         max: 50,
         step: 1,
       },
+    },
+    onMouseEnterEllipsis: {
+      action: 'mouseEnter',
+    },
+    onMouseLeaveEllipsis: {
+      action: 'mouseLeave',
     },
   },
 } as Meta
