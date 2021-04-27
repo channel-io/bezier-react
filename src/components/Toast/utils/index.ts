@@ -33,7 +33,7 @@ function getPlacement(placement: ToastPlacement) {
   }
 }
 
-const getToastInitialTransform = () => css` transform: translateX(0); `
+const showedToastTranslateXStyle = css` transform: translateX(0); `
 
 const initPosition = (placement?: ToastPlacement) => {
   switch (placement) {
@@ -42,7 +42,7 @@ const initPosition = (placement?: ToastPlacement) => {
     case ToastPlacement.BottomRight:
       return css` transform: translateX(120%); `
     default:
-      return getToastInitialTransform()
+      return showedToastTranslateXStyle
   }
 }
 
@@ -81,6 +81,6 @@ export {
   getIconColor,
   getPlacement,
   initPosition,
-  getToastInitialTransform,
+  showedToastTranslateXStyle,
   getToastPreset,
 }
