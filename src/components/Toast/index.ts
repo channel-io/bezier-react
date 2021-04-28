@@ -1,5 +1,4 @@
 /* Internal dependencies */
-import { useToast } from '../../hooks/useToast'
 import ToastProvider from './ToastProvider'
 import ToastProps, {
   ToastPlacement,
@@ -14,7 +13,6 @@ export type {
 
 export {
   ToastProvider,
-  useToast,
   ToastPreset,
   ToastPlacement,
   ToastAppearance,

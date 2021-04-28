@@ -6,7 +6,7 @@ import { base } from 'paths.macro'
 /* Internal depependencies */
 import { styled } from '../../foundation'
 import { getTitle } from '../../utils/etcUtils'
-import { useToast } from '../../hooks/useToast'
+import useToast from '../../hooks/useToast'
 import { iconList } from '../Icon/Icon.stories'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'

@@ -4,7 +4,7 @@ import { useContext } from 'react'
 /* Internal dependencies */
 import ToastContext from '../contexts/ToastContext'
 
-export const useToast = () => {
+export default function useToast() {
   const context = useContext(ToastContext)
 
   if (!context) {
