@@ -1,9 +1,14 @@
+/**
+ * date: 2021.04.22
+ * version: 1
+ */
+
 /* Internal dependencies */
 import BasePaletteKey, {
   BaseMonoPaletteKey,
   BaseColorfulPaletteKey,
 } from './BasePaletteKey'
-import { getAlphaHex } from './utils'
+import { getAlphaHex } from './alphaUtils'
 
 type BaseColorfulPaletteKey300 = `${BaseColorfulPaletteKey}300`
 type BaseColorfulPaletteKey400 = `${BaseColorfulPaletteKey}400`
@@ -13,6 +18,7 @@ type GreyKeyWithoutAlpha =
   | `${BasePaletteKey.grey}50`
   | `${BasePaletteKey.grey}100`
   | `${BasePaletteKey.grey}200`
+  | `${BasePaletteKey.grey}500`
   | `${BasePaletteKey.grey}700`
   | `${BasePaletteKey.grey}800`
   | `${BasePaletteKey.grey}850`
@@ -29,27 +35,27 @@ export type PaletteWithoutAlphaType = Record<PaletteKeyWithoutAlpha, string>
 
 const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
   // Blue
-  blue300: '#6688FF',
+  blue300: '#6687FF',
   blue400: '#5E56F0',
   blue500: '#4E40C9',
 
   // Cobalt
-  cobalt300: '#5CCEFF',
+  cobalt300: '#47C8FF',
   cobalt400: '#329BE7',
   cobalt500: '#327AB8',
 
   // Teal
   teal300: '#3CDDCD',
-  teal400: '#0EB1A0',
+  teal400: '#0FB3A3',
   teal500: '#449C8A',
 
   // Green
-  green300: '#4FD85F',
+  green300: '#3ACF5A',
   green400: '#31A552',
   green500: '#41904F',
 
   // Olive
-  olive300: '#CAD649',
+  olive300: '#CAD548',
   olive400: '#A0A540',
   olive500: '#818628',
 
@@ -59,18 +65,18 @@ const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
   yellow500: '#C39E37',
 
   // Orange
-  orange300: '#FFAB5E',
-  orange400: '#F19639',
-  orange500: '#C07A2A',
+  orange300: '#FFAB5C',
+  orange400: '#F4800B',
+  orange500: '#C57417',
 
   // Red
-  red300: '#F86363',
-  red400: '#E94D56',
+  red300: '#FF5C5C',
+  red400: '#E94E58',
   red500: '#AC3E46',
 
   // Pink
   pink300: '#EC6FD3',
-  pink400: '#CC48AD',
+  pink400: '#CB48AD',
   pink500: '#A32E92',
 
   // Purple
@@ -85,8 +91,9 @@ const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
 
   // Grey
   grey50: '#FCFCFC',
-  grey100: '#F6F6F7',
-  grey200: '#F0F0F1',
+  grey100: '#F7F7F8',
+  grey200: '#EFEFF0',
+  grey500: '#A7A7AA',
   grey700: '#464748',
   grey800: '#313234',
   grey850: '#2A2B2D',
@@ -128,6 +135,8 @@ type AlphaBlackKey =
   | `${BasePaletteKey.black}_85`
   | `${BasePaletteKey.black}_60`
   | `${BasePaletteKey.black}_40`
+  | `${BasePaletteKey.black}_30`
+  | `${BasePaletteKey.black}_22`
   | `${BasePaletteKey.black}_20`
   | `${BasePaletteKey.black}_15`
   | `${BasePaletteKey.black}_8`
@@ -258,6 +267,8 @@ export const Palette: PaletteType = {
   black_85: getAlphaHex(PaletteWithoutAlpha.black, 85),
   black_60: getAlphaHex(PaletteWithoutAlpha.black, 60),
   black_40: getAlphaHex(PaletteWithoutAlpha.black, 40),
+  black_30: getAlphaHex(PaletteWithoutAlpha.black, 30),
+  black_22: getAlphaHex(PaletteWithoutAlpha.black, 22),
   black_20: getAlphaHex(PaletteWithoutAlpha.black, 20),
   black_15: getAlphaHex(PaletteWithoutAlpha.black, 15),
   black_8: getAlphaHex(PaletteWithoutAlpha.black, 8),

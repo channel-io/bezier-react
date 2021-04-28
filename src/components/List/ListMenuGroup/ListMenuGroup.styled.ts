@@ -2,8 +2,9 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { css, ellipsis, styled } from '../../../foundation'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListMenuGroup.types'
 
@@ -32,10 +33,12 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
   ${props => (props.active && ActiveItemStyle)}
+
+  ${({ interpolation }) => interpolation}
 `
 
-interface StyledIconProps {
-  color: ThemeKey
+interface StyledIconProps extends WithInterpolation {
+  color: SemanticNames
 }
 
 export const ChevronWrapper = styled.div`
@@ -50,8 +53,14 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
+
+  ${({ interpolation }) => interpolation}
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<WithInterpolation>`
   flex: 1;
+
+  ${ellipsis()}
+
+  ${({ interpolation }) => interpolation}
 `

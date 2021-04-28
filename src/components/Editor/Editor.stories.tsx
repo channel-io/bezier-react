@@ -54,7 +54,7 @@ function NodeReplacer(context: BlocksParserContext) {
   const mapChildReplace = (childContext: BlocksParserContext) =>
     childContext.children.map(child => NodeReplacer(child))
 
-  const { type } = context
+  const { type, value } = context
 
   switch (type) {
     case BlocksParserContextType.Root: {
@@ -68,7 +68,7 @@ function NodeReplacer(context: BlocksParserContext) {
     case BlocksParserContextType.Text: {
       return (
         <span>
-          { context.value }
+          { value }
         </span>
       )
     }

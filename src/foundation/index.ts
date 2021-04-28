@@ -3,8 +3,7 @@ export * from './BaseFoundation'
 
 // Foundations
 export * from './Elevation'
-export * from './Theme/Palette'
-export * from './Theme'
+export * from './Colors'
 export * from './Rounding'
 export * from './Transition'
 export * from './Border'

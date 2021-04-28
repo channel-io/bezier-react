@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { css, styled } from '../../../foundation'
-import { ThemeKey } from '../../../foundation/Theme/ThemeType'
+import { css, ellipsis, styled } from '../../../foundation'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
 import { Icon } from '../../Icon'
 import { StyledWrapperProps } from './ListItem.types'
 
@@ -32,7 +32,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 `
 
 interface StyledIconProps {
-  color: ThemeKey
+  color: SemanticNames
   active?: boolean
   disableIconActive?: boolean
 }
@@ -46,4 +46,6 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 
 export const ContentWrapper = styled.div`
   flex: 1;
+
+  ${ellipsis()}
 `

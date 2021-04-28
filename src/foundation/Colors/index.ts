@@ -1,7 +1,10 @@
 /* Internal dependencies */
-import ThemeType from './ThemeType'
-import LightTheme from './presets/LightTheme'
-import DarkTheme from './presets/DarkTheme'
+import {
+  LightTheme,
+  DarkTheme,
+  ThemeType,
+  SemanticNames,
+} from './Theme'
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'
@@ -33,6 +36,8 @@ export function createThemes({
 
 // To prevent circular dependency, re-export type from here.
 export type Theme = ThemeType
+
+export type { SemanticNames }
 
 export const Themes = {
   createThemes,
