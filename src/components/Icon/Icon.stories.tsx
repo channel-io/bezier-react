@@ -29,15 +29,15 @@ export default {
   },
 }
 
-const iconList: IconName[] = Object.keys(icons) as IconName[]
+export const iconList: IconName[] = Object.keys(icons) as IconName[]
 
 const IconInfo = styled.div`
-  width: 120px;
-  height: 120px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 120px;
+  height: 120px;
 `
 
 const Name = styled.p`
