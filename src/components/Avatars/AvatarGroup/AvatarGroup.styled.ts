@@ -1,6 +1,6 @@
 /* Internal denpendencies */
 import { styled, smoothCorners } from '../../../foundation'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import { Text, TextProps } from '../../Text'
 import { AvatarSize } from '../Avatar/Avatar.types'
@@ -9,9 +9,8 @@ interface AvatarGroupProps {
   spacing: number
 }
 
-interface AvatarEllipsisCountProps extends TextProps{
+interface AvatarEllipsisCountProps extends TextProps, WithInterpolation {
   size: AvatarSize
-  interpolation?: InjectedInterpolation
 }
 
 export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
