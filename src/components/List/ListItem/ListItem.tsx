@@ -6,9 +6,20 @@ import { get, noop, isNil, isString } from 'lodash-es'
 import { LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
 import useListMenuContext from '../../../hooks/useListMenuContext'
 import { mergeClassNames } from '../../../utils/stringUtils'
-import { IconSize } from '../../Icon'
-import ListItemProps from './ListItem.types'
-import { ContentWrapper, StyledIcon, Wrapper } from './ListItem.styled'
+import { Text } from '../../Text'
+import { Icon, IconSize } from '../../Icon'
+import { isIconName } from '../../Icon/generated'
+import { Typography } from '../../../foundation'
+import ListItemProps, { ListItemSize } from './ListItem.types'
+import {
+  ContentWrapper,
+  LeftSide,
+  IconWrapper,
+  Wrapper,
+  DescriptionWrapper,
+  Content,
+  Description,
+} from './ListItem.styled'
 
 export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
 export const LIST_ITEM_TEST_ID = 'ch-design-system-list-menu-item'
@@ -24,12 +35,15 @@ function ListItemComponent({
   iconClassName,
   as,
   testId = LIST_ITEM_COMPONENT_NAME,
+  size = ListItemSize.M,
+  showLine,
   content,
+  description,
   name,
   leftIcon,
   leftIconColor,
   disableIconActive = false,
-  paddingLeft: givenPaddingLeft,
+  paddingLeft: givenPaddingLeft = 0,
   href,
   hide = false,
   rightContent = null,
@@ -69,24 +83,51 @@ function ListItemComponent({
 
   const ContentComponent = useMemo(() => (
     <>
-      {
-        !isNil(leftIcon) && (
-          isString(leftIcon) ? (
-            <StyledIcon
-              className={iconClassName}
-              name={leftIcon}
-              size={IconSize.S}
-              marginRight={8}
-              active={active}
-              disableIconActive={disableIconActive}
-              color={leftIconColor}
-            />
-          ) : leftIcon
-        )
-      }
-      <ContentWrapper className={contentClassName}>
-        { content }
-      </ContentWrapper>
+      <LeftSide>
+        <ContentWrapper className={contentClassName}>
+          {
+            leftIcon && (
+              (isString(leftIcon) && isIconName(leftIcon))
+                ? (
+                  <IconWrapper
+                    color={leftIconColor}
+                    className={iconClassName}
+                    active={active}
+                    disableIconActive={disableIconActive}
+                  >
+                    <Icon
+                      name={leftIcon}
+                      size={IconSize.S}
+                    />
+                  </IconWrapper>
+                ) : leftIcon
+            )
+          }
+          <Content showLine={showLine}>
+            <Text
+              typo={size === ListItemSize.XL
+                ? Typography.Size18
+                : Typography.Size14}
+            >
+              { content }
+            </Text>
+          </Content>
+        </ContentWrapper>
+        { description && (
+          <DescriptionWrapper
+            active={active}
+          >
+            { leftIcon && <IconWrapper /> }
+            <Description showLine={showLine}>
+              <Text
+                typo={Typography.Size14}
+              >
+                { description }
+              </Text>
+            </Description>
+          </DescriptionWrapper>
+        ) }
+      </LeftSide>
       { rightContent }
     </>
   ), [
@@ -97,7 +138,10 @@ function ListItemComponent({
     leftIconColor,
     contentClassName,
     content,
+    description,
     rightContent,
+    size,
+    showLine,
   ])
 
   if (hide) return null
@@ -108,6 +152,7 @@ function ListItemComponent({
         ref={forwardedRef}
         as="a"
         className={clazzName}
+        size={size}
         paddingLeft={paddingLeft}
         draggable={false}
         href={href}
@@ -129,6 +174,7 @@ function ListItemComponent({
     <Wrapper
       as={as}
       className={clazzName}
+      size={size}
       paddingLeft={paddingLeft}
       onClick={handleClick}
       active={active}

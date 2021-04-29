@@ -1,13 +1,22 @@
 /* Internal dependencies */
+import React from 'react'
 import { SemanticNames } from '../../../foundation/Colors/Theme'
 import ActivableElement from '../../../types/ActivatableElement'
-import { ContentComponentProps, UIComponentProps } from '../../../types/ComponentProps'
+import { ContentComponentProps } from '../../../types/ComponentProps'
 import OptionItem from '../../../types/OptionItem'
 import { IconName } from '../../Icon'
+
+export enum ListItemSize {
+  S = 'S',
+  M = 'M',
+  L = 'L',
+  XL = 'XL',
+}
 
 export default interface ListItemProps extends ContentComponentProps, OptionItem, ActivableElement {
   iconClassName?: string
   contentClassName?: string
+  size?: ListItemSize
   name?: string
   href?: string
   hide?: boolean
@@ -16,12 +25,9 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   leftIcon?: IconName | React.ReactNode
   leftIconColor?: SemanticNames
   disableIconActive?: boolean
+  showLine?: number
   content?: React.ReactNode
+  description?: React.ReactNode
   rightContent?: React.ReactNode
   paddingLeft?: number
-}
-
-export interface StyledWrapperProps extends UIComponentProps, OptionItem, ActivableElement {
-  paddingLeft?: number
-  active?: boolean
 }
