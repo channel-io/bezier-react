@@ -19,6 +19,7 @@ import {
   DescriptionWrapper,
   Content,
   Description,
+  RightSide,
 } from './ListItem.styled'
 
 export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
@@ -128,7 +129,11 @@ function ListItemComponent({
           </DescriptionWrapper>
         ) }
       </LeftSide>
-      { rightContent }
+      { rightContent && (
+        <RightSide>
+          { rightContent }
+        </RightSide>
+      ) }
     </>
   ), [
     leftIcon,

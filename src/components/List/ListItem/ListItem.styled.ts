@@ -17,6 +17,10 @@ export const LeftSide = styled.div`
   width: 100%;
 `
 
+export const RightSide = styled.div`
+  margin-left: 8px;
+`
+
 export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -65,8 +69,6 @@ export const IconWrapper = styled.div<IconWrapperProps>`
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
 `
-
-export const RightSide = styled.div``
 
 function getStyleOfSize(size?: ListItemSize) {
   switch (size) {
