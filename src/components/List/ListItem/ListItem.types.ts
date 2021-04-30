@@ -25,7 +25,7 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   leftIcon?: IconName | React.ReactNode
   leftIconColor?: SemanticNames
   disableIconActive?: boolean
-  showLine?: number
+  descriptionMaxLines?: number
   content?: React.ReactNode
   description?: React.ReactNode
   rightContent?: React.ReactNode

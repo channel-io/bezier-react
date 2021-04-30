@@ -1,6 +1,7 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useCallback, useMemo } from 'react'
+import React, { Ref, forwardRef, useCallback, useMemo, Fragment } from 'react'
 import { get, noop, isNil, isString } from 'lodash-es'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
@@ -37,7 +38,7 @@ function ListItemComponent({
   as,
   testId = LIST_ITEM_COMPONENT_NAME,
   size = ListItemSize.M,
-  showLine,
+  descriptionMaxLines,
   content,
   description,
   name,
@@ -82,52 +83,100 @@ function ListItemComponent({
     onClick,
   ])
 
+  const getNewLineComponenet = useCallback((desc: string) => (
+    desc.split('\n').map((str, index) => {
+      if (index === 0) {
+        return (
+          <Text key={uuid()} typo={Typography.Size14}>
+            { str }
+          </Text>
+        )
+      }
+
+      return (
+        <Fragment key={uuid()}>
+          <br />
+          <Text
+            typo={Typography.Size14}
+          >
+            { str }
+          </Text>
+        </Fragment>
+      )
+    })
+  ), [])
+
+  const topComponent = useMemo(() => (
+    <ContentWrapper className={contentClassName}>
+      {
+        leftIcon && (
+          (isString(leftIcon) && isIconName(leftIcon))
+            ? (
+              <IconWrapper
+                color={leftIconColor}
+                className={iconClassName}
+                active={active}
+                disableIconActive={disableIconActive}
+              >
+                <Icon
+                  name={leftIcon}
+                  size={IconSize.S}
+                />
+              </IconWrapper>
+            ) : leftIcon
+        )
+      }
+      <Content>
+        { isString(content) ? (
+          <Text
+            typo={size === ListItemSize.XL
+              ? Typography.Size18
+              : Typography.Size14}
+          >
+            { content }
+          </Text>
+        ) : content }
+      </Content>
+    </ContentWrapper>
+  ), [
+    active,
+    content,
+    contentClassName,
+    disableIconActive,
+    iconClassName,
+    leftIcon,
+    leftIconColor,
+    size,
+  ])
+
+  const bottomComponent = useMemo(() => (
+    <DescriptionWrapper
+      active={active}
+    >
+      { leftIcon && <IconWrapper /> }
+      <Description descriptionMaxLines={descriptionMaxLines}>
+        { isString(description) ? (
+          <Text
+            typo={Typography.Size14}
+          >
+            { getNewLineComponenet(description) }
+          </Text>
+        ) : description }
+      </Description>
+    </DescriptionWrapper>
+  ), [
+    active,
+    description,
+    descriptionMaxLines,
+    getNewLineComponenet,
+    leftIcon,
+  ])
+
   const ContentComponent = useMemo(() => (
     <>
       <LeftSide>
-        <ContentWrapper className={contentClassName}>
-          {
-            leftIcon && (
-              (isString(leftIcon) && isIconName(leftIcon))
-                ? (
-                  <IconWrapper
-                    color={leftIconColor}
-                    className={iconClassName}
-                    active={active}
-                    disableIconActive={disableIconActive}
-                  >
-                    <Icon
-                      name={leftIcon}
-                      size={IconSize.S}
-                    />
-                  </IconWrapper>
-                ) : leftIcon
-            )
-          }
-          <Content showLine={showLine}>
-            <Text
-              typo={size === ListItemSize.XL
-                ? Typography.Size18
-                : Typography.Size14}
-            >
-              { content }
-            </Text>
-          </Content>
-        </ContentWrapper>
-        { description && (
-          <DescriptionWrapper
-            active={active}
-          >
-            { leftIcon && <IconWrapper /> }
-            <Description showLine={showLine}>
-              <Text
-                typo={Typography.Size14}
-              >
-                { description }
-              </Text>
-            </Description>
-          </DescriptionWrapper>
-        ) }
+        { topComponent }
+        { description && bottomComponent }
       </LeftSide>
       { rightContent && (
         <RightSide>
@@ -136,17 +185,10 @@ function ListItemComponent({
       ) }
     </>
   ), [
-    leftIcon,
-    iconClassName,
-    disableIconActive,
-    active,
-    leftIconColor,
-    contentClassName,
-    content,
     description,
+    topComponent,
+    bottomComponent,
     rightContent,
-    size,
-    showLine,
   ])
 
   if (hide) return null

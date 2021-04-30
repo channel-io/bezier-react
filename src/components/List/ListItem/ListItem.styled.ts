@@ -41,7 +41,7 @@ export const DescriptionWrapper = styled.div<DescriptionProps>`
 };
 `
 interface EllipsisProps {
-  showLine?: number
+  descriptionMaxLines?: number
 }
 
 export const Content = styled.div<EllipsisProps>`
@@ -49,7 +49,7 @@ export const Content = styled.div<EllipsisProps>`
 `
 
 export const Description = styled.div<EllipsisProps>`
-  ${({ showLine }) => showLine && ellipsis(showLine)}
+  ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines)}
 `
 
 interface IconWrapperProps {
