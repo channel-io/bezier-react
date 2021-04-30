@@ -16,6 +16,7 @@ import {
   ContentWrapper,
   LeftSide,
   IconWrapper,
+  IconMargin,
   Wrapper,
   DescriptionWrapper,
   Content,
@@ -110,7 +111,7 @@ function ListItemComponent({
     <ContentWrapper className={contentClassName}>
       {
         leftIcon && (
-          (isString(leftIcon) && isIconName(leftIcon))
+          isIconName(leftIcon)
             ? (
               <IconWrapper
                 color={leftIconColor}
@@ -127,15 +128,17 @@ function ListItemComponent({
         )
       }
       <Content>
-        { isString(content) ? (
-          <Text
-            typo={size === ListItemSize.XL
-              ? Typography.Size18
-              : Typography.Size14}
-          >
-            { content }
-          </Text>
-        ) : content }
+        {
+          isString(content) ? (
+            <Text
+              typo={size === ListItemSize.XL
+                ? Typography.Size18
+                : Typography.Size14}
+            >
+              { content }
+            </Text>
+          ) : content
+        }
       </Content>
     </ContentWrapper>
   ), [
@@ -153,15 +156,17 @@ function ListItemComponent({
     <DescriptionWrapper
       active={active}
     >
-      { leftIcon && <IconWrapper /> }
+      { leftIcon && <IconMargin /> }
       <Description descriptionMaxLines={descriptionMaxLines}>
-        { isString(description) ? (
-          <Text
-            typo={Typography.Size14}
-          >
-            { getNewLineComponenet(description) }
-          </Text>
-        ) : description }
+        {
+          isString(description) ? (
+            <Text
+              typo={Typography.Size14}
+            >
+              { getNewLineComponenet(description) }
+            </Text>
+          ) : description
+        }
       </Description>
     </DescriptionWrapper>
   ), [
@@ -172,23 +177,26 @@ function ListItemComponent({
     leftIcon,
   ])
 
+  const rightComponent = useMemo(() => (
+    <RightSide>
+      { rightContent }
+    </RightSide>
+  ), [rightContent])
+
   const ContentComponent = useMemo(() => (
     <>
       <LeftSide>
         { topComponent }
         { description && bottomComponent }
       </LeftSide>
-      { rightContent && (
-        <RightSide>
-          { rightContent }
-        </RightSide>
-      ) }
+      { rightContent && rightComponent }
     </>
   ), [
-    description,
     topComponent,
+    description,
     bottomComponent,
     rightContent,
+    rightComponent,
   ])
 
   if (hide) return null

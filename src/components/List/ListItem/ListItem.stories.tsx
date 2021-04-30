@@ -47,5 +47,5 @@ Primary.args = {
   leftIcon: 'inbox',
   active: false,
   disableIconActive: false,
-  showLine: 0,
+  descriptionMaxLines: 0,
 }

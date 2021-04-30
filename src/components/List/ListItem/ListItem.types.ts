@@ -7,10 +7,10 @@ import OptionItem from '../../../types/OptionItem'
 import { IconName } from '../../Icon'
 
 export enum ListItemSize {
-  S = 'S',
-  M = 'M',
-  L = 'L',
-  XL = 'XL',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
 }
 
 export default interface ListItemProps extends ContentComponentProps, OptionItem, ActivableElement {
