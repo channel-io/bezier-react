@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { css } from '../FoundationStyledComponent'
 
-enum TransitionDuration {
+export enum TransitionDuration {
   S = '150ms',
   M = '300ms',
   L = '500ms',

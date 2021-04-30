@@ -1,0 +1,67 @@
+/* External dependencies */
+import { v4 as uuid } from 'uuid'
+
+/* Internal dependencies */
+import {
+  defaultOptions,
+  ToastOptions,
+  ToastId,
+  ToastType,
+} from './Toast.types'
+
+/* ToastService를 사용하는 이유
+Notion: https://www.notion.so/channelio/Toast-bc13dfbc81314141909250d9cf02c4c7#82b94a73d2f34257ab4799cdeccbc70c
+*/
+
+class ToastService {
+  toasts: ToastType[] = []
+
+  getToasts = () => this.toasts
+
+  setToasts = (newToasts: ToastType[]) => {
+    this.toasts = newToasts
+  }
+
+  has = (id: string) => {
+    if (!this.toasts.length) {
+      return false
+    }
+    return this.toasts.reduce((flag, cur) => (cur.id === id ? true : flag), false)
+  }
+
+  add = (content: string, options: ToastOptions = defaultOptions) => {
+    const newId: ToastId = uuid()
+
+    if (this.has(newId)) {
+      return ''
+    }
+
+    const newToast: ToastType = {
+      id: newId,
+      content,
+      ...options,
+    }
+    const newToasts: ToastType[] = [...this.toasts, newToast]
+    this.setToasts(newToasts)
+    return newId
+  }
+
+  remove = (id: ToastId): boolean => {
+    if (!this.has(id)) {
+      return false
+    }
+    const newToasts: ToastType[] = this.toasts.filter((toast) => toast.id !== id)
+    this.setToasts(newToasts)
+    return true // remove success
+  }
+
+  removeAll = () => {
+    if (!this.toasts.length) {
+      return
+    }
+
+    this.setToasts([])
+  }
+}
+
+export default ToastService
