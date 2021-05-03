@@ -20,7 +20,6 @@ export default {
         step: 1,
       },
     },
-    onClick: { control: { action: 'onClick' } },
     active: { control: { type: 'boolean' } },
     leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
     size: { control: { type: 'select', options: ListItemSize } },

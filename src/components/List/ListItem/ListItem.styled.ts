@@ -92,7 +92,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
   &:hover {
-    ${({ foundation, active }) => (active ? '' : `
+    ${({ foundation, active }) => (!active && `
       background-color: ${foundation?.theme?.['bg-black-lighter']};
     `)}
   }
