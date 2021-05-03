@@ -13,7 +13,6 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { getTitle } from '../../../utils/etcUtils'
 import { IconSize } from '../../Icon'
-import { ListItem } from '../ListItem'
 import ListMenuGroup from './ListMenuGroup'
 import ListMenuGroupProps, {
   ChevronIconType,
@@ -79,10 +78,9 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
             // eslint-disable-next-line no-console
             onClick={console.log}
           >
-            <ListItem
-              key={uuid()}
+            <ListMenuGroup
               optionKey="item-with-a"
-              href="https://naver.com"
+              href="https://naver.com" // TODO: 자식이 없는 ListMenuGroup은 Item과 같은 기능들을 가져야 함.
               content="🔥"
               leftIcon="dot"
               leftIconColor="txt-black-dark"
@@ -112,7 +110,7 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
           content="푸시 메시지 설정"
           leftIcon="email-unread"
         >
-          <ListItem
+          <ListMenuGroup
             key={uuid()}
             optionKey="item-with-a"
             href="https://naver.com"
@@ -120,11 +118,11 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
             leftIcon="app-push"
             leftIconColor="txt-black-dark"
           />
-          <ListItem
+          <ListMenuGroup
             content="알림톡, 문자 푸시"
             leftIcon="sms"
           />
-          <ListItem
+          <ListMenuGroup
             content="이메일 푸시"
             leftIcon="email"
           />

@@ -113,14 +113,16 @@ forwardedRef: React.Ref<HTMLElement>,
     return (
       <>
         <ChevronWrapper>
-          <StyledIcon
-            className={chevronClassName}
-            interpolation={chevronInterpolation}
-            name={chevronIcon}
-            size={chevronIconSize}
-            onClick={handleClickIcon}
-            color="txt-black-darker"
-          />
+          { children && (
+            <StyledIcon
+              className={chevronClassName}
+              interpolation={chevronInterpolation}
+              name={chevronIcon}
+              size={chevronIconSize}
+              onClick={handleClickIcon}
+              color="txt-black-darker"
+            />
+          ) }
         </ChevronWrapper>
         { !isNil(leftIcon) && (
         <StyledIcon
@@ -161,6 +163,7 @@ forwardedRef: React.Ref<HTMLElement>,
     handleClickIcon,
     disableIconActive,
     active,
+    children,
   ])
 
   const Items = useMemo(() => (

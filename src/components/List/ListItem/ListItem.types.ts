@@ -29,5 +29,4 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   content?: React.ReactNode
   description?: React.ReactNode
   rightContent?: React.ReactNode
-  paddingLeft?: number
 }

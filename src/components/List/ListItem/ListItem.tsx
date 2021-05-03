@@ -4,8 +4,6 @@ import { get, noop, isNil, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { LIST_ITEM_PADDING_LEFT } from '../../../constants/ListPadding'
-import useListMenuContext from '../../../hooks/useListMenuContext'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import { Text } from '../../Text'
 import { Icon, IconSize } from '../../Icon'
@@ -46,26 +44,18 @@ function ListItemComponent({
   leftIcon,
   leftIconColor,
   disableIconActive = false,
-  paddingLeft: givenPaddingLeft = 0,
   href,
   hide = false,
   rightContent = null,
   /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
-  active: givenActive,
+  active,
   activeClassName,
   /* HTMLAttribute Props */
-  onClick: givenOnClick = noop,
+  onClick = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
-  const context = useListMenuContext({
-    paddingLeft: givenPaddingLeft,
-    active: givenActive,
-    onClick: givenOnClick,
-  }, LIST_ITEM_PADDING_LEFT)
-  const { paddingLeft, active, onClick } = context
-
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
@@ -208,7 +198,6 @@ function ListItemComponent({
         as="a"
         className={clazzName}
         size={size}
-        paddingLeft={paddingLeft}
         draggable={false}
         href={href}
         target="_blank"
@@ -230,7 +219,6 @@ function ListItemComponent({
       as={as}
       className={clazzName}
       size={size}
-      paddingLeft={paddingLeft}
       onClick={handleClick}
       active={active}
       data-active={active}

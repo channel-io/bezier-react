@@ -79,7 +79,6 @@ export const IconMargin = styled.div`
 
 export interface StyledWrapperProps {
   size?: ListItemSize
-  paddingLeft: number
   active?: boolean
 }
 
@@ -87,7 +86,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
-  padding-left: ${({ paddingLeft }) => `${paddingLeft + 6}px`};
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
   text-decoration: none;
   cursor: pointer;
