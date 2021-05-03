@@ -13,15 +13,15 @@ import { isIconName } from '../../Icon/generated'
 import { Typography } from '../../../foundation'
 import ListItemProps, { ListItemSize } from './ListItem.types'
 import {
+  Wrapper,
   ContentWrapper,
-  LeftSide,
   IconWrapper,
   IconMargin,
-  Wrapper,
+  TitleWrapper,
+  Title,
   DescriptionWrapper,
-  Content,
   Description,
-  RightSide,
+  RightContent,
 } from './ListItem.styled'
 
 export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
@@ -107,8 +107,8 @@ function ListItemComponent({
     })
   ), [])
 
-  const topComponent = useMemo(() => (
-    <ContentWrapper className={contentClassName}>
+  const titleComponent = useMemo(() => (
+    <TitleWrapper className={contentClassName}>
       {
         leftIcon && (
           isIconName(leftIcon)
@@ -127,7 +127,7 @@ function ListItemComponent({
             ) : leftIcon
         )
       }
-      <Content>
+      <Title>
         {
           isString(content) ? (
             <Text
@@ -139,8 +139,8 @@ function ListItemComponent({
             </Text>
           ) : content
         }
-      </Content>
-    </ContentWrapper>
+      </Title>
+    </TitleWrapper>
   ), [
     active,
     content,
@@ -152,7 +152,7 @@ function ListItemComponent({
     size,
   ])
 
-  const bottomComponent = useMemo(() => (
+  const descriptionComponent = useMemo(() => (
     <DescriptionWrapper
       active={active}
     >
@@ -178,23 +178,23 @@ function ListItemComponent({
   ])
 
   const rightComponent = useMemo(() => (
-    <RightSide>
+    <RightContent>
       { rightContent }
-    </RightSide>
+    </RightContent>
   ), [rightContent])
 
   const ContentComponent = useMemo(() => (
     <>
-      <LeftSide>
-        { topComponent }
-        { description && bottomComponent }
-      </LeftSide>
+      <ContentWrapper>
+        { titleComponent }
+        { description && descriptionComponent }
+      </ContentWrapper>
       { rightContent && rightComponent }
     </>
   ), [
-    topComponent,
+    titleComponent,
     description,
-    bottomComponent,
+    descriptionComponent,
     rightContent,
     rightComponent,
   ])

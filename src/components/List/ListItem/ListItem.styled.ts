@@ -9,17 +9,17 @@ const ActiveItemStyle = css<StyledWrapperProps>`
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-export const LeftSide = styled.div`
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `
 
-export const RightSide = styled.div`
+export const RightContent = styled.div`
   margin-left: 8px;
 `
 
-export const ContentWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
 `
@@ -38,15 +38,16 @@ export const DescriptionWrapper = styled.div<DescriptionProps>`
     : foundation?.theme['txt-black-darker'])
 };
 `
-interface EllipsisProps {
-  descriptionMaxLines?: number
-}
 
-export const Content = styled.div<EllipsisProps>`
+export const Title = styled.div`
   ${ellipsis()}
 `
 
-export const Description = styled.div<EllipsisProps>`
+interface DescriptionProps {
+  descriptionMaxLines?: number
+}
+
+export const Description = styled.div<DescriptionProps>`
   ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines)}
 `
 
