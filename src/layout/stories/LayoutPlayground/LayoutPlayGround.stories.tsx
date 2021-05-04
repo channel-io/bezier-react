@@ -7,7 +7,7 @@ import { base } from 'paths.macro'
 import useSideWidth from '../../../hooks/useSideWidth'
 import { getTitle } from '../../../utils/etcUtils'
 import { styled, Typography } from '../../../foundation'
-import { Icon } from '../../../components/Icon'
+import { Icon, IconSize } from '../../../components/Icon'
 import { Header } from '../../../components/Header'
 import { ListItem } from '../../../components/List/ListItem'
 import { LayoutProvider } from '../../LayoutProvider'
@@ -44,6 +44,21 @@ const Div = styled.div`
 
 const StyledIcon = styled(Icon)`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+`
+
+const HeaderActionIconWrapper = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  ${({ foundation }) => foundation?.rounding?.round8}
+
+  &:hover {
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+  }
 `
 
 enum RouteKeys {
@@ -141,7 +156,21 @@ const Template = ({ onChangeWidth }) => {
       case RouteKeys.UserChat:
         return (
           <NavigationContent
-            header={<Header title="Inbox" titleSize={Typography.Size24} />}
+            header={(
+              <Header
+                title="Inbox"
+                titleSize={Typography.Size24}
+                actions={[(
+                  <HeaderActionIconWrapper>
+                    <Icon
+                      name="search"
+                      color="txt-black-darkest"
+                      size={IconSize.S}
+                    />
+                  </HeaderActionIconWrapper>
+                )]}
+              />
+            )}
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */

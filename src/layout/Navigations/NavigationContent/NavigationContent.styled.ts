@@ -21,7 +21,6 @@ export const ChevronIconWrapper = styled.div<ChevronIconWrapperProps>`
   justify-content: center;
   width: 36px;
   height: 36px;
-  margin-right: 10px;
   cursor: pointer;
   border-radius: 8px;
 
