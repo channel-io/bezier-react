@@ -3,9 +3,8 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { ListMenuContext } from '../../contexts/ListMenuContext'
-import useListMenuContext from '../../hooks/useListMenuContext'
-import { isListItem } from '../List/ListItem/ListItem'
+import { OutlineItemContext } from '../../contexts/OutlineItemContext'
+import useOutlineItemContext from '../../hooks/useOutlineItemContext'
 import { IconSize } from '../Icon'
 import OutlineItemProps, {
   ChevronIconType,
@@ -18,8 +17,6 @@ import {
 } from './OutlineItem.styled'
 
 export const LIST_GROUP_PADDING_LEFT = 16
-
-export const LIST_ITEM_PADDING_LEFT = LIST_GROUP_PADDING_LEFT * 2
 
 export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
 
@@ -66,15 +63,6 @@ forwardedRef: React.Ref<HTMLElement>,
     if (isNil(selectedMenuItemIndex)
       || (selectedMenuItemIndex < childs.length && selectedMenuItemIndex < 0)) {
       setCurrentMenuItemIndex(null)
-      return
-    }
-
-    const element = childs[selectedMenuItemIndex]
-
-    if (isListItem(element)) {
-      if (element.props.href) { return }
-
-      setCurrentMenuItemIndex(selectedMenuItemIndex)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMenuItemIndex])
@@ -100,7 +88,7 @@ forwardedRef: React.Ref<HTMLElement>,
     }
   }, [name, onClickArrow])
 
-  const context = useListMenuContext({
+  const context = useOutlineItemContext({
     paddingLeft: givenPaddingLeft,
     active: givenActive,
     onClick: givenOnClick,
@@ -183,9 +171,9 @@ forwardedRef: React.Ref<HTMLElement>,
       }
 
       return (
-        <ListMenuContext.Provider value={passedContext}>
+        <OutlineItemContext.Provider value={passedContext}>
           { element }
-        </ListMenuContext.Provider>
+        </OutlineItemContext.Provider>
       )
     })
   ), [
