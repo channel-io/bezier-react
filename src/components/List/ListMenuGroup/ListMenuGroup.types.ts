@@ -32,6 +32,7 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   leftIconColor?: SemanticNames
   disableIconActive?: boolean
   name?: string
+  href?: string
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void

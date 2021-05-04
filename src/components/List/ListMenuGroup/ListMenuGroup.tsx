@@ -40,6 +40,7 @@ function ListMenuGroupComponent({
   leftIconColor,
   disableIconActive = false,
   name,
+  href,
   content = null,
   rightContent = null,
   hide = false,
@@ -188,6 +189,36 @@ forwardedRef: React.Ref<HTMLElement>,
   ])
 
   if (hide) return null
+
+  if (!isNil(href)) {
+    return (
+      <>
+        <GroupItemWrapper
+          ref={forwardedRef}
+          as="a"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          name={name}
+          className={className}
+          interpolation={interpolation}
+          open={open}
+          active={false}
+          currentMenuItemIndex={currentMenuItemIndex}
+          onClick={handleClickGroup}
+          data-testid={testId}
+          data-active-index={currentMenuItemIndex}
+          paddingLeft={paddingLeft}
+          {...otherProps}
+        >
+          { ContentComponent }
+        </GroupItemWrapper>
+        { open && (
+          Items
+        ) }
+      </>
+    )
+  }
 
   return (
     <>
