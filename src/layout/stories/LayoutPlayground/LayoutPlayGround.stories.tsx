@@ -54,7 +54,7 @@ const HeaderActionIconWrapper = styled.div`
   width: 36px;
   height: 36px;
   cursor: pointer;
-  border-radius: 8px;
+  ${({ foundation }) => foundation?.rounding?.round8}
 
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
