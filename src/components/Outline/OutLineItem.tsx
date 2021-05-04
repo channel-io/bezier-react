@@ -3,26 +3,26 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
-import { ListMenuContext } from '../../../contexts/ListMenuContext'
-import useListMenuContext from '../../../hooks/useListMenuContext'
-import { isListItem } from '../ListItem/ListItem'
-import { IconSize } from '../../Icon'
-import ListMenuGroupProps, {
+import { LIST_GROUP_PADDING_LEFT } from '../../constants/ListPadding'
+import { ListMenuContext } from '../../contexts/ListMenuContext'
+import useListMenuContext from '../../hooks/useListMenuContext'
+import { isListItem } from '../List/ListItem/ListItem'
+import { IconSize } from '../Icon'
+import OutlineItemProps, {
   ChevronIconType,
-} from './ListMenuGroup.types'
+} from './OutlineItem.types'
 import {
   GroupItemWrapper,
   StyledIcon,
   ContentWrapper,
   ChevronWrapper,
-} from './ListMenuGroup.styled'
+} from './OutlineItem.styled'
 
-export const LIST_MENU_GROUP_TEST_ID = 'ch-design-system-list-menu-group'
+export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
 
-function ListMenuGroupComponent({
+function OutlineItemComponent({
   as,
-  testId = LIST_MENU_GROUP_TEST_ID,
+  testId = OUTLINE_ITEM_TEST_ID,
   className,
   interpolation,
   chevronClassName,
@@ -53,7 +53,7 @@ function ListMenuGroupComponent({
   onClick: givenOnClick = noop,
   children,
   ...otherProps
-}: ListMenuGroupProps,
+}: OutlineItemProps,
 forwardedRef: React.Ref<HTMLElement>,
 ) {
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
@@ -250,6 +250,6 @@ forwardedRef: React.Ref<HTMLElement>,
   )
 }
 
-const ListMenuGroup = forwardRef(ListMenuGroupComponent)
+const OutlineItem = forwardRef(OutlineItemComponent)
 
-export default ListMenuGroup
+export default OutlineItem

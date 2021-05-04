@@ -11,16 +11,16 @@ import {
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/etcUtils'
-import { IconSize } from '../../Icon'
-import ListMenuGroup from './ListMenuGroup'
-import ListMenuGroupProps, {
+import { getTitle } from '../../utils/etcUtils'
+import { IconSize } from '../Icon'
+import OutlineItem from './OutlineItem'
+import OutlineItemProps, {
   ChevronIconType,
-} from './ListMenuGroup.types'
+} from './OutlineItem.types'
 
 export default {
   title: getTitle(base),
-  component: ListMenuGroup,
+  component: OutlineItem,
   argTypes: {
     open: {
       control: {
@@ -30,7 +30,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => {
+const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
   const [open, setOpen] = useState(true)
   const [idx, setIdx] = useState(null)
 
@@ -55,21 +55,21 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
   return (
     <div style={{ width: 600, display: 'flex', justifyContent: 'space-between' }}>
       <div style={{ width: 240 }}>
-        <ListMenuGroup
+        <OutlineItem
           content="GL"
           leftIcon="dot"
           leftIconColor="bgtxt-teal-normal"
           name="nested"
         />
-        <ListMenuGroup
+        <OutlineItem
           open={open}
           selectedMenuItemIndex={idx}
           onClick={handleClickGroup}
           onClickArrow={handleToggle}
           onChangeOption={handleClickItem}
-          {...otherListMenuGroupProps}
+          {...otherOutlineItemProps}
         >
-          <ListMenuGroup
+          <OutlineItem
             content="product"
             open
             leftIcon="dot"
@@ -78,39 +78,39 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
             // eslint-disable-next-line no-console
             onClick={console.log}
           >
-            <ListMenuGroup
+            <OutlineItem
               optionKey="item-with-a"
-              href="https://naver.com" // TODO: 자식이 없는 ListMenuGroup은 Item과 같은 기능들을 가져야 함.
+              href="https://naver.com" // TODO: 자식이 없는 OutlineItem은 Item과 같은 기능들을 가져야 함.
               content="🔥"
               leftIcon="dot"
               leftIconColor="txt-black-dark"
             />
-            <ListMenuGroup
+            <OutlineItem
               content="feedback"
               leftIcon="dot"
               leftIconColor="bgtxt-olive-normal"
             />
-          </ListMenuGroup>
+          </OutlineItem>
 
-          <ListMenuGroup
+          <OutlineItem
             content="bug"
             leftIcon="dot"
             leftIconColor="bgtxt-red-normal"
           />
-        </ListMenuGroup>
-        <ListMenuGroup
+        </OutlineItem>
+        <OutlineItem
           content="etc"
           leftIcon="dot"
           leftIconColor="txt-black-dark"
         />
       </div>
       <div style={{ width: 240 }}>
-        <ListMenuGroup
+        <OutlineItem
           open
           content="푸시 메시지 설정"
           leftIcon="email-unread"
         >
-          <ListMenuGroup
+          <OutlineItem
             key={uuid()}
             optionKey="item-with-a"
             href="https://naver.com"
@@ -118,16 +118,16 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
             leftIcon="app-push"
             leftIconColor="txt-black-dark"
           />
-          <ListMenuGroup
+          <OutlineItem
             content="알림톡, 문자 푸시"
             leftIcon="sms"
           />
-          <ListMenuGroup
+          <OutlineItem
             content="이메일 푸시"
             leftIcon="email"
           />
-        </ListMenuGroup>
-        <ListMenuGroup
+        </OutlineItem>
+        <OutlineItem
           content="보안"
           leftIcon="security"
           leftIconColor=""
@@ -138,7 +138,7 @@ const Template: Story<ListMenuGroupProps> = ({ ...otherListMenuGroupProps }) => 
   )
 }
 
-export const Primary: Story<ListMenuGroupProps> = Template.bind({})
+export const Primary: Story<OutlineItemProps> = Template.bind({})
 
 Primary.args = {
   name: 'sample group',

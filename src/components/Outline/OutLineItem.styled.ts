@@ -2,11 +2,11 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, ellipsis, styled } from '../../../foundation'
-import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { SemanticNames } from '../../../foundation/Colors/Theme'
-import { Icon } from '../../Icon'
-import { StyledWrapperProps } from './ListMenuGroup.types'
+import { css, ellipsis, styled } from '../../foundation'
+import { WithInterpolation } from '../../types/InjectedInterpolation'
+import { SemanticNames } from '../../foundation/Colors/Theme'
+import { Icon } from '../Icon'
+import { StyledWrapperProps } from './OutlineItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
