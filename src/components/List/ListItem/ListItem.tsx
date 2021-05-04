@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import { Text } from '../../Text'
 import { Icon, IconSize } from '../../Icon'
-import { isIconName } from '../../Icon/generated'
+import { isIconName } from '../../Icon/util'
 import { Typography } from '../../../foundation'
 import ListItemProps, { ListItemSize } from './ListItem.types'
 import {

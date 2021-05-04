@@ -764,10 +764,7 @@ const icons = {
   'zoom-out': ZoomOut,
 }
 
-/* eslint-enable */
-
 export type IconName = keyof typeof icons
 
-export const isIconName = (name): name is IconName => Object.keys(icons).includes(name)
-
+/* eslint-enable */
 export default icons
