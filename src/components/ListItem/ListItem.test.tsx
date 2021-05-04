@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../../utils/testUtils'
+import { render } from '../../utils/testUtils'
 import ListItem, { LIST_ITEM_COMPONENT_NAME } from './ListItem'
 import ListItemProps from './ListItem.types'
 

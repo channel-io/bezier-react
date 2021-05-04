@@ -3,26 +3,26 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_GROUP_PADDING_LEFT } from '../../../constants/ListPadding'
-import { ListMenuContext } from '../../../contexts/ListMenuContext'
-import useListMenuContext from '../../../hooks/useListMenuContext'
-import { isListItem } from '../ListItem/ListItem'
-import { IconSize } from '../../Icon'
-import ListMenuGroupProps, {
+import { OutlineItemContext } from '../../contexts/OutlineItemContext'
+import useOutlineItemContext from '../../hooks/useOutlineItemContext'
+import { IconSize } from '../Icon'
+import OutlineItemProps, {
   ChevronIconType,
-} from './ListMenuGroup.types'
+} from './OutlineItem.types'
 import {
   GroupItemWrapper,
   StyledIcon,
   ContentWrapper,
   ChevronWrapper,
-} from './ListMenuGroup.styled'
+} from './OutlineItem.styled'
 
-export const LIST_MENU_GROUP_TEST_ID = 'ch-design-system-list-menu-group'
+export const LIST_GROUP_PADDING_LEFT = 16
 
-function ListMenuGroupComponent({
+export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
+
+function OutlineItemComponent({
   as,
-  testId = LIST_MENU_GROUP_TEST_ID,
+  testId = OUTLINE_ITEM_TEST_ID,
   className,
   interpolation,
   chevronClassName,
@@ -40,6 +40,7 @@ function ListMenuGroupComponent({
   leftIconColor,
   disableIconActive = false,
   name,
+  href,
   content = null,
   rightContent = null,
   hide = false,
@@ -52,7 +53,7 @@ function ListMenuGroupComponent({
   onClick: givenOnClick = noop,
   children,
   ...otherProps
-}: ListMenuGroupProps,
+}: OutlineItemProps,
 forwardedRef: React.Ref<HTMLElement>,
 ) {
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
@@ -62,15 +63,6 @@ forwardedRef: React.Ref<HTMLElement>,
     if (isNil(selectedMenuItemIndex)
       || (selectedMenuItemIndex < childs.length && selectedMenuItemIndex < 0)) {
       setCurrentMenuItemIndex(null)
-      return
-    }
-
-    const element = childs[selectedMenuItemIndex]
-
-    if (isListItem(element)) {
-      if (element.props.href) { return }
-
-      setCurrentMenuItemIndex(selectedMenuItemIndex)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMenuItemIndex])
@@ -96,7 +88,7 @@ forwardedRef: React.Ref<HTMLElement>,
     }
   }, [name, onClickArrow])
 
-  const context = useListMenuContext({
+  const context = useOutlineItemContext({
     paddingLeft: givenPaddingLeft,
     active: givenActive,
     onClick: givenOnClick,
@@ -113,14 +105,16 @@ forwardedRef: React.Ref<HTMLElement>,
     return (
       <>
         <ChevronWrapper>
-          <StyledIcon
-            className={chevronClassName}
-            interpolation={chevronInterpolation}
-            name={chevronIcon}
-            size={chevronIconSize}
-            onClick={handleClickIcon}
-            color="txt-black-darker"
-          />
+          { !isNil(children) && (
+            <StyledIcon
+              className={chevronClassName}
+              interpolation={chevronInterpolation}
+              name={chevronIcon}
+              size={chevronIconSize}
+              onClick={handleClickIcon}
+              color="txt-black-darker"
+            />
+          ) }
         </ChevronWrapper>
         { !isNil(leftIcon) && (
         <StyledIcon
@@ -161,10 +155,15 @@ forwardedRef: React.Ref<HTMLElement>,
     handleClickIcon,
     disableIconActive,
     active,
+    children,
   ])
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
+      if (!React.isValidElement(element)) {
+        return element
+      }
+
       const passedContext = {
         ...context,
         active: currentMenuItemIndex === index,
@@ -172,9 +171,9 @@ forwardedRef: React.Ref<HTMLElement>,
       }
 
       return (
-        <ListMenuContext.Provider value={passedContext}>
+        <OutlineItemContext.Provider value={passedContext}>
           { element }
-        </ListMenuContext.Provider>
+        </OutlineItemContext.Provider>
       )
     })
   ), [
@@ -185,6 +184,36 @@ forwardedRef: React.Ref<HTMLElement>,
   ])
 
   if (hide) return null
+
+  if (!isNil(href)) {
+    return (
+      <>
+        <GroupItemWrapper
+          ref={forwardedRef}
+          as="a"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          name={name}
+          className={className}
+          interpolation={interpolation}
+          open={open}
+          active={false}
+          currentMenuItemIndex={currentMenuItemIndex}
+          onClick={handleClickGroup}
+          data-testid={testId}
+          data-active-index={currentMenuItemIndex}
+          paddingLeft={paddingLeft}
+          {...otherProps}
+        >
+          { ContentComponent }
+        </GroupItemWrapper>
+        { open && (
+          Items
+        ) }
+      </>
+    )
+  }
 
   return (
     <>
@@ -212,6 +241,6 @@ forwardedRef: React.Ref<HTMLElement>,
   )
 }
 
-const ListMenuGroup = forwardRef(ListMenuGroupComponent)
+const OutlineItem = forwardRef(OutlineItemComponent)
 
-export default ListMenuGroup
+export default OutlineItem

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { styled } from '../../foundation'
 import {
   StyledWrapperProps,
   StyledTitleWrapperProps,
