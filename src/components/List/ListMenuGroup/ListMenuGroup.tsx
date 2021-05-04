@@ -114,7 +114,7 @@ forwardedRef: React.Ref<HTMLElement>,
     return (
       <>
         <ChevronWrapper>
-          { children && (
+          { !isNil(children) && (
             <StyledIcon
               className={chevronClassName}
               interpolation={chevronInterpolation}
@@ -169,6 +169,10 @@ forwardedRef: React.Ref<HTMLElement>,
 
   const Items = useMemo(() => (
     React.Children.map(children, (element, index) => {
+      if (!React.isValidElement(element)) {
+        return element
+      }
+
       const passedContext = {
         ...context,
         active: currentMenuItemIndex === index,

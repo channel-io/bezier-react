@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { SemanticNames } from '../../../foundation/Colors/Theme'
-import { ContentComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps, ContentComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import {
   IconName,
@@ -12,7 +12,7 @@ export enum ChevronIconType {
   Small = 'chevron-small',
 }
 
-export default interface ListMenuGroupProps extends ContentComponentProps {
+export default interface ListMenuGroupProps extends ContentComponentProps, ChildrenComponentProps {
   chevronClassName?: string
   chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
