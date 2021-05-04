@@ -18,17 +18,15 @@ export type SectionLabelItemProps = {
   icon: IconName
   iconColor?: SemanticNames
   onClick?(e: React.MouseEvent): void
-} | {
-  content: React.ReactElement
-}
+} | React.ReactElement
 
 export default interface SectionLabelProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode
   open?: boolean
   divider?: boolean
   help?: SectionLabelHelpProps
-  left?: SectionLabelItemProps
-  right?: SectionLabelItemProps | SectionLabelItemProps[]
+  leftContent?: SectionLabelItemProps
+  rightContent?: SectionLabelItemProps | SectionLabelItemProps[]
   wrapperClassName?: string
   wrapperInterpolation?: InjectedInterpolation
   contentWrapperClassName?: string

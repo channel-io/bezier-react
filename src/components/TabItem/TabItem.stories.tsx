@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
 import { TabsSize } from '../Tabs/Tabs.types'
 import TabItem from './TabItem'
 
@@ -20,11 +20,7 @@ export default {
     height: {
       control: {
         type: 'radio',
-        options: [
-          TabsSize.L,
-          TabsSize.Normal,
-          TabsSize.XS,
-        ],
+        options: getObjectFromEnum(TabsSize),
       },
     },
   },
