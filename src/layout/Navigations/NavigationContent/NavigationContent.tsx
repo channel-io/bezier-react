@@ -102,7 +102,7 @@ function NavigationContent({
     handleClickChevron,
   ])
 
-  const headerElement = useMemo(() => {
+  const HeaderElement = useMemo(() => {
     if (!header) { return null }
 
     const headerActionElements = isArray(header.props.actions)
@@ -147,7 +147,7 @@ function NavigationContent({
       onChangeWidth={onChangeWidth}
     >
       { (header && fixedHeader) && (
-        headerElement
+        HeaderElement
       ) }
 
       <StyledContentWrapper
@@ -160,7 +160,7 @@ function NavigationContent({
         {...otherProps}
       >
         { (header && !fixedHeader) && (
-          headerElement
+          HeaderElement
         ) }
         { children }
       </StyledContentWrapper>
