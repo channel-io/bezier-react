@@ -4,11 +4,11 @@ import { get, noop, isNil, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { mergeClassNames } from '../../../utils/stringUtils'
-import { Text } from '../../Text'
-import { Icon, IconSize } from '../../Icon'
-import { isIconName } from '../../Icon/util'
-import { Typography } from '../../../foundation'
+import { mergeClassNames } from '../../utils/stringUtils'
+import { Text } from '../Text'
+import { Icon, IconSize } from '../Icon'
+import { isIconName } from '../Icon/util'
+import { Typography } from '../../foundation'
 import ListItemProps, { ListItemSize } from './ListItem.types'
 import {
   Wrapper,

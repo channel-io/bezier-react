@@ -1,10 +1,10 @@
 /* Internal dependencies */
 import React from 'react'
-import { SemanticNames } from '../../../foundation/Colors/Theme'
-import ActivableElement from '../../../types/ActivatableElement'
-import { ContentComponentProps } from '../../../types/ComponentProps'
-import OptionItem from '../../../types/OptionItem'
-import { IconName } from '../../Icon'
+import { SemanticNames } from '../../foundation/Colors/Theme'
+import ActivableElement from '../../types/ActivatableElement'
+import { ContentComponentProps } from '../../types/ComponentProps'
+import OptionItem from '../../types/OptionItem'
+import { IconName } from '../Icon'
 
 export enum ListItemSize {
   S = 's',

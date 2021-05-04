@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { css, ellipsis, styled } from '../../../foundation'
-import { SemanticNames } from '../../../foundation/Colors/Theme'
+import { css, ellipsis, styled } from '../../foundation'
+import { SemanticNames } from '../../foundation/Colors/Theme'
 import { ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
