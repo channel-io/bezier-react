@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../../utils/testUtils'
+import { render } from '../../utils/testUtils'
 import ListMenuTitle, { SIDEBAR_MENU_TITLE_TEST_ID } from './ListMenuTitle'
 import ListMenuTitleProps from './ListMenuTitle.types'
 

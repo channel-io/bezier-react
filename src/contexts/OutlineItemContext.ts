@@ -2,25 +2,25 @@
 import React, { createContext } from 'react'
 import { noop } from 'lodash-es'
 
-export interface ListMenuContextProps {
+export interface OutlineItemContextProps {
   depth: number
   paddingLeft: number
   active: boolean
   onClick: (event?: React.MouseEvent<HTMLDivElement>, name?: string) => void
 }
 
-export const defaultListMenuContext = {
+export const defaultOutlineItemContext = {
   depth: 0,
   paddingLeft: 0,
   active: false,
   onClick: noop,
 }
 
-export function mergeListMenuContexts(
-  inherited: ListMenuContextProps,
-  props: Partial<Omit<ListMenuContextProps, 'depth'>>,
+export function mergeOutlineItemContexts(
+  inherited: OutlineItemContextProps,
+  props: Partial<Omit<OutlineItemContextProps, 'depth'>>,
   indent: number,
-): ListMenuContextProps {
+): OutlineItemContextProps {
   return {
     depth: inherited.depth + 1,
     paddingLeft: inherited.paddingLeft + (props.paddingLeft ?? 0) + (inherited.depth > 0 ? indent : 0),
@@ -32,4 +32,4 @@ export function mergeListMenuContexts(
   }
 }
 
-export const ListMenuContext = createContext<ListMenuContextProps>(defaultListMenuContext)
+export const OutlineItemContext = createContext<OutlineItemContextProps>(defaultOutlineItemContext)

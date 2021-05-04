@@ -1,18 +1,18 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../../foundation/Colors/Theme'
-import { ContentComponentProps } from '../../../types/ComponentProps'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import { SemanticNames } from '../../foundation/Colors/Theme'
+import { ChildrenComponentProps, ContentComponentProps } from '../../types/ComponentProps'
+import InjectedInterpolation from '../../types/InjectedInterpolation'
 import {
   IconName,
   IconSize,
-} from '../../Icon'
+} from '../Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',
   Small = 'chevron-small',
 }
 
-export default interface ListMenuGroupProps extends ContentComponentProps {
+export default interface OutlineItemProps extends ContentComponentProps, ChildrenComponentProps {
   chevronClassName?: string
   chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
@@ -32,6 +32,7 @@ export default interface ListMenuGroupProps extends ContentComponentProps {
   leftIconColor?: SemanticNames
   disableIconActive?: boolean
   name?: string
+  href?: string
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
