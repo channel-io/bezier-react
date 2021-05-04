@@ -80,7 +80,7 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
           >
             <OutlineItem
               optionKey="item-with-a"
-              href="https://naver.com" // TODO: 자식이 없는 OutlineItem은 Item과 같은 기능들을 가져야 함.
+              href="https://naver.com"
               content="🔥"
               leftIcon="dot"
               leftIconColor="txt-black-dark"
