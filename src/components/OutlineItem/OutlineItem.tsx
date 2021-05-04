@@ -3,7 +3,6 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { LIST_GROUP_PADDING_LEFT } from '../../constants/ListPadding'
 import { ListMenuContext } from '../../contexts/ListMenuContext'
 import useListMenuContext from '../../hooks/useListMenuContext'
 import { isListItem } from '../List/ListItem/ListItem'
@@ -17,6 +16,10 @@ import {
   ContentWrapper,
   ChevronWrapper,
 } from './OutlineItem.styled'
+
+export const LIST_GROUP_PADDING_LEFT = 16
+
+export const LIST_ITEM_PADDING_LEFT = LIST_GROUP_PADDING_LEFT * 2
 
 export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
 
