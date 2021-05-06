@@ -6,6 +6,7 @@ import { noop, isNil } from 'lodash-es'
 import { OutlineItemContext } from '../../contexts/OutlineItemContext'
 import useOutlineItemContext from '../../hooks/useOutlineItemContext'
 import { IconSize } from '../Icon'
+import { isIconName } from '../Icon/util'
 import OutlineItemProps, {
   ChevronIconType,
 } from './OutlineItem.types'
@@ -14,6 +15,7 @@ import {
   StyledIcon,
   ContentWrapper,
   ChevronWrapper,
+  IconWrapper,
 } from './OutlineItem.styled'
 
 export const LIST_GROUP_PADDING_LEFT = 16
@@ -116,18 +118,27 @@ forwardedRef: React.Ref<HTMLElement>,
             />
           ) }
         </ChevronWrapper>
-        { !isNil(leftIcon) && (
-        <StyledIcon
-          className={iconClassName}
-          interpolation={iconInterpolation}
-          name={leftIcon}
-          size={IconSize.S}
-          active={active}
-          disableIconActive={disableIconActive}
-          color={leftIconColor}
-          marginRight={8}
-        />
-        ) }
+        {
+          !isNil(leftIcon) &&
+          (
+            <IconWrapper>
+              {
+              isIconName(leftIcon)
+                ? (
+                  <StyledIcon
+                    className={iconClassName}
+                    interpolation={iconInterpolation}
+                    name={leftIcon}
+                    size={IconSize.S}
+                    active={active}
+                    disableIconActive={disableIconActive}
+                    color={leftIconColor}
+                  />
+                ) : leftIcon
+              }
+            </IconWrapper>
+          )
+        }
         <ContentWrapper
           className={contentClassName}
           interpolation={contentInterpolation}

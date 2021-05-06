@@ -49,6 +49,10 @@ export const ChevronWrapper = styled.div`
   height: 100%;
 `
 
+export const IconWrapper = styled.div`
+  margin-right: 8px;
+`
+
 export const StyledIcon = styled(Icon)<StyledIconProps>`
   color: ${props => {
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
