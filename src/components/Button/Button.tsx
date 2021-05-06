@@ -20,15 +20,11 @@ import { StyledBaseButton } from './Button.styled'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
 
-const ICON_MARGIN = 3
-const TEXT_MARGIN = 4
-
 function Button(
   {
     as,
     testId = BUTTON_TEST_ID,
     text,
-    bold,
     italic,
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
@@ -39,6 +35,32 @@ function Button(
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
+  const textMargin = useMemo(() => {
+    switch (size) {
+      case ButtonSize.S:
+      case ButtonSize.XS:
+        return 3
+      case ButtonSize.XL:
+      case ButtonSize.L:
+      case ButtonSize.M:
+      default:
+        return 4
+    }
+  }, [size])
+
+  const iconMargin = useMemo(() => {
+    switch (size) {
+      case ButtonSize.S:
+      case ButtonSize.XS:
+        return 0
+      case ButtonSize.XL:
+      case ButtonSize.L:
+      case ButtonSize.M:
+      default:
+        return 3
+    }
+  }, [size])
+
   const iconSize = useMemo(() => {
     switch (size) {
       case ButtonSize.S:
@@ -57,13 +79,14 @@ function Button(
       <Icon
         name={icon}
         size={iconSize}
-        marginRight={(text && !isRightIcon) ? ICON_MARGIN : 0}
-        marginLeft={(text && isRightIcon) ? ICON_MARGIN : 0}
+        marginRight={(text && !isRightIcon) ? iconMargin : 0}
+        marginLeft={(text && isRightIcon) ? iconMargin : 0}
       />
     )
   ), [
     text,
     iconSize,
+    iconMargin,
   ])
 
   return (
@@ -83,10 +106,10 @@ function Button(
         <Text
           inheritColor
           typo={Typography.Size14}
-          bold={bold}
+          bold
           italic={italic}
-          marginRight={TEXT_MARGIN}
-          marginLeft={TEXT_MARGIN}
+          marginRight={textMargin}
+          marginLeft={textMargin}
         >
           { text }
         </Text>

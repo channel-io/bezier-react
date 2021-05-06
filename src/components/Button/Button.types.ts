@@ -27,7 +27,6 @@ export enum ButtonSize {
 
 export interface ButtonProps extends StylableComponentProps {
   text: string
-  bold?: boolean
   italic?: boolean
   disabled?: boolean
   active?: boolean

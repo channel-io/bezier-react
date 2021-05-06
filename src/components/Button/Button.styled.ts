@@ -10,7 +10,7 @@ import {
   ButtonColorVariant,
 } from './Button.types'
 
-function sizeConverter(size?: ButtonSize, text?: string) {
+function getSizeCSSFromButtonSize(size?: ButtonSize, text?: string) {
   switch (size) {
     case ButtonSize.XS:
       return css`
@@ -64,10 +64,11 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
         color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-        background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
+        ${({ foundation }) => foundation?.elevation?.ev3()};
+        ${({ foundation }) => foundation?.transition?.getTransitionsCSS('box-shadow')};
 
         &:hover {
-          background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lightest']};
+          ${({ foundation }) => foundation?.elevation?.ev4()};
         }
       `
     case ButtonStyleVariant.Primary:
@@ -83,28 +84,47 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant) {
   }
 }
 
-function styleVariantConverter(styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
+function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
         ${({ foundation }) => foundation?.elevation?.ev3()};
         /* NOTE: height 기반의 100% border-radius 를 사용하기 위해, foundation rounding 을 무시한 hack */
         border-radius: 1000px;
+
+        &:hover {
+          ${({ foundation }) => foundation?.elevation?.ev4()};
+        }
       `
     case ButtonStyleVariant.Tertiary:
     case ButtonStyleVariant.Secondary:
     case ButtonStyleVariant.Primary:
-    default:
-      return css`
-        ${({ foundation }) => ((size === ButtonSize.XS) ? foundation?.rounding?.round6 : foundation?.rounding?.round8)};
-      `
+    default: {
+      switch (size) {
+        case ButtonSize.XS:
+          return css`
+            ${({ foundation }) => foundation?.rounding?.round6};
+          `
+        case ButtonSize.XL:
+          return css`
+            ${({ foundation }) => foundation?.rounding?.round12};
+          `
+        case ButtonSize.S:
+        case ButtonSize.L:
+        case ButtonSize.M:
+        default:
+          return css`
+            ${({ foundation }) => foundation?.rounding?.round8};
+          `
+      }
+    }
   }
 }
 
-function colorVariantConverter(colorVariant?: ButtonColorVariant, styleVariant?: ButtonStyleVariant) {
-  const convertedStyleVariant = styleVariantConverter(styleVariant)
+function getCSSFromVariant(colorVariant?: ButtonColorVariant, styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
+  const effectCSS = getEffectCSSFromVariant(styleVariant, size)
 
-  const convertedColorVariant = (() => {
+  const colorCSS = (() => {
     if (colorVariant === ButtonColorVariant.Monochrome) {
       return monochromeVariantConverter(styleVariant)
     }
@@ -145,8 +165,8 @@ function colorVariantConverter(colorVariant?: ButtonColorVariant, styleVariant?:
   })()
 
   return [
-    convertedStyleVariant,
-    convertedColorVariant,
+    effectCSS,
+    colorCSS,
   ]
 }
 
@@ -160,8 +180,8 @@ export const StyledBaseButton = styled.button<ButtonProps>`
   border-radius: 6px;
   outline: none;
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
-  ${({ size, text }) => sizeConverter(size, text)};
-  ${({ styleVariant, colorVariant }) => colorVariantConverter(colorVariant, styleVariant)};
+  ${({ size, text }) => getSizeCSSFromButtonSize(size, text)};
+  ${({ styleVariant, colorVariant, size }) => getCSSFromVariant(colorVariant, styleVariant, size)};
 `

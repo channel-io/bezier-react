@@ -50,7 +50,6 @@ Primary.args = {
   text: 'Invite',
   leftIcon: 'plus',
   rightIcon: 'arrow-right',
-  bold: false,
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,
