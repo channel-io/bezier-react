@@ -26,7 +26,7 @@ function Tag({
   color: givenColor,
   children,
   // Handlers
-  onDelete = null,
+  onDelete,
   // Injected Styles
   wrapperClassName,
   wrapperInterpolation,

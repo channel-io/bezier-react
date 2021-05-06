@@ -12,7 +12,7 @@ interface TagProps extends ChildrenComponentProps {
   variant?: TagBadgeVariant
   color?: SemanticNames
   // Handlers
-  onDelete?: ((e: React.MouseEvent) => void) | null
+  onDelete?: (e: React.MouseEvent) => void
   // Injected Styles
   wrapperClassName?: string
   wrapperInterpolation?: InjectedInterpolation
