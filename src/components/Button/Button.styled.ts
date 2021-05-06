@@ -65,7 +65,6 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant) {
       return css`
         color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
         ${({ foundation }) => foundation?.elevation?.ev3()};
-        ${({ foundation }) => foundation?.transition?.getTransitionsCSS('box-shadow')};
 
         &:hover {
           ${({ foundation }) => foundation?.elevation?.ev4()};
