@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from 'react'
-import { isNil, noop } from 'lodash-es'
+import { isArray, isNil, noop, compact } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -86,27 +86,43 @@ function NavigationContent({
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
   ), [className, scrollClassName, withScroll])
 
-  const HeaderComponent = useMemo(() => {
+  const showNavigationToggleButtonElement = useMemo(() => (
+    // TODO: Tooltip 추가
+    <ChevronIconWrapper
+      onClick={handleClickChevron}
+    >
+      <Icon
+        name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
+        color="txt-black-darkest"
+        size={IconSize.S}
+      />
+    </ChevronIconWrapper>
+  ), [
+    isShowingNavigation,
+    handleClickChevron,
+  ])
+
+  const HeaderElement = useMemo(() => {
     if (!header) { return null }
+
+    const headerActionElements = isArray(header.props.actions)
+      ? header.props.actions
+      : [header.props.actions]
 
     return (
       <StyledTitleWrapper fixed={fixedHeader}>
         { /* Background 등 처리를 위해 */ }
-        { React.cloneElement(header, { isHover: isHoveringOnPresenter }) }
         {
-          showChevron &&
-          !allowMouseMove &&
-          (
-            // TODO: Tooltip 추가
-            <ChevronIconWrapper
-              onClick={handleClickChevron}
-            >
-              <Icon
-                name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
-                color="txt-black-darkest"
-                size={IconSize.S}
-              />
-            </ChevronIconWrapper>
+          React.cloneElement(
+            header, {
+              isHover: isHoveringOnPresenter,
+              actions: compact([
+                showChevron && !allowMouseMove && (
+                  showNavigationToggleButtonElement
+                ),
+                ...headerActionElements,
+              ]),
+            },
           )
         }
       </StyledTitleWrapper>
@@ -115,10 +131,9 @@ function NavigationContent({
     allowMouseMove,
     isHoveringOnPresenter,
     showChevron,
-    isShowingNavigation,
+    showNavigationToggleButtonElement,
     header,
     fixedHeader,
-    handleClickChevron,
   ])
 
   return (
@@ -132,7 +147,7 @@ function NavigationContent({
       onChangeWidth={onChangeWidth}
     >
       { (header && fixedHeader) && (
-        HeaderComponent
+        HeaderElement
       ) }
 
       <StyledContentWrapper
@@ -145,7 +160,7 @@ function NavigationContent({
         {...otherProps}
       >
         { (header && !fixedHeader) && (
-          HeaderComponent
+          HeaderElement
         ) }
         { children }
       </StyledContentWrapper>

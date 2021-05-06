@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
 import { Text } from '../Text'
 import { styled } from '../../foundation'
 import icons, { IconName } from './generated'
@@ -17,27 +17,21 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [
-          IconSize.L,
-          IconSize.Normal,
-          IconSize.S,
-          IconSize.XS,
-          IconSize.XXS,
-        ],
+        options: getObjectFromEnum(IconSize),
       },
     },
   },
 }
 
-const iconList: IconName[] = Object.keys(icons) as IconName[]
+export const iconList: IconName[] = Object.keys(icons) as IconName[]
 
 const IconInfo = styled.div`
-  width: 120px;
-  height: 120px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 120px;
+  height: 120px;
 `
 
 const Name = styled.p`
@@ -71,7 +65,7 @@ Primary.args = {
   size: IconSize.Normal,
   marginTop: 0,
   marginRight: 0,
-  marginBotton: 0,
+  marginBottom: 0,
   marginLeft: 0,
 }
 
@@ -90,7 +84,7 @@ export const WithText = ({
   </Text>
 )
 WithText.args = {
-  name: 'zoyi',
+  name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
 }

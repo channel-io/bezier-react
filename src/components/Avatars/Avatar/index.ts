@@ -1,6 +1,6 @@
 import Avatar from './Avatar'
+import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
-import type { AvatarProps } from './Avatar.types'
 
 export type {
   AvatarProps,

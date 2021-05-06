@@ -8,7 +8,7 @@ import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/etcUtils'
 import { StatusType } from '../../Status'
 import Avatar from './Avatar'
-import { AvatarProps, AvatarSize } from './Avatar.types'
+import AvatarProps, { AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
@@ -37,6 +37,15 @@ export default {
           ...statusTypeList,
         ],
       },
+    },
+    onClick: {
+      action: 'clicked',
+    },
+    onMouseEnter: {
+      action: 'mouseEnter',
+    },
+    onMouseLeave: {
+      action: 'mouseLeave',
     },
   },
 } as Meta

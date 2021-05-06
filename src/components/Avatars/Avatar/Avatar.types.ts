@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { StylableComponentProps, ChildrenComponentProps } from '../../../types/ComponentProps'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { StatusType } from '../../Status'
 
 export enum AvatarSize {
@@ -14,7 +13,7 @@ export enum AvatarSize {
   Size120 = 120,
 }
 
-export interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {
+export default interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {
   avatarUrl: string
   fallbackUrl?: string
   name: string
@@ -26,5 +25,4 @@ export interface AvatarProps extends StylableComponentProps, ChildrenComponentPr
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
-  interpolation?: InjectedInterpolation
 }

@@ -6,7 +6,7 @@ import { noop, isEmpty } from 'lodash-es'
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
-import { AvatarSize, AvatarProps } from './Avatar.types'
+import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
 export const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'

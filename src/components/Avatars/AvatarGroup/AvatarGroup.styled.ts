@@ -1,6 +1,6 @@
 /* Internal denpendencies */
 import { styled, smoothCorners } from '../../../foundation'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import { Text, TextProps } from '../../Text'
 import { AvatarSize } from '../Avatar/Avatar.types'
@@ -9,9 +9,8 @@ interface AvatarGroupProps {
   spacing: number
 }
 
-interface AvatarEllipsisCountProps extends TextProps{
+interface AvatarEllipsisCountProps extends TextProps, WithInterpolation {
   size: AvatarSize
-  interpolation?: InjectedInterpolation
 }
 
 export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
@@ -37,7 +36,7 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisIconWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
+export const AvatarEllipsisWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
@@ -57,6 +56,6 @@ export const AvatarEllipsisIcon = styled.div`
 
   ${({ foundation }) => smoothCorners({
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    backgroundColor: foundation?.theme?.['dim-dark'],
+    backgroundColor: foundation?.theme?.['bg-black-darkest'],
   })}
 `
