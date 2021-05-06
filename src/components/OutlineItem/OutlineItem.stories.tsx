@@ -73,7 +73,7 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
           <OutlineItem
             content="product"
             open
-            leftIcon={(
+            leftContent={(
               <Avatar
                 size={IconSize.S}
               />

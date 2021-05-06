@@ -38,6 +38,7 @@ function OutlineItemComponent({
   active: givenActive,
   chevronIconType = ChevronIconType.Small,
   chevronIconSize = IconSize.XS,
+  leftContent,
   leftIcon,
   leftIconColor,
   disableIconActive = false,
@@ -101,6 +102,41 @@ forwardedRef: React.Ref<HTMLElement>,
     onClick(e, name)
   }, [name, onClick])
 
+  const leftComponent = useMemo(() => {
+    if (!isNil(leftContent)) {
+      return (
+        <IconWrapper>
+          { leftContent }
+        </IconWrapper>
+      )
+    }
+    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+      return (
+        <IconWrapper>
+          <StyledIcon
+            className={iconClassName}
+            interpolation={iconInterpolation}
+            name={leftIcon}
+            size={IconSize.S}
+            active={active}
+            disableIconActive={disableIconActive}
+            color={leftIconColor}
+          />
+        </IconWrapper>
+      )
+    }
+
+    return null
+  }, [
+    active,
+    disableIconActive,
+    iconClassName,
+    iconInterpolation,
+    leftContent,
+    leftIcon,
+    leftIconColor,
+  ])
+
   const ContentComponent = useMemo(() => {
     const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
 
@@ -118,27 +154,7 @@ forwardedRef: React.Ref<HTMLElement>,
             />
           ) }
         </ChevronWrapper>
-        {
-          !isNil(leftIcon) &&
-          (
-            <IconWrapper>
-              {
-              isIconName(leftIcon)
-                ? (
-                  <StyledIcon
-                    className={iconClassName}
-                    interpolation={iconInterpolation}
-                    name={leftIcon}
-                    size={IconSize.S}
-                    active={active}
-                    disableIconActive={disableIconActive}
-                    color={leftIconColor}
-                  />
-                ) : leftIcon
-              }
-            </IconWrapper>
-          )
-        }
+        { leftComponent }
         <ContentWrapper
           className={contentClassName}
           interpolation={contentInterpolation}
@@ -150,23 +166,18 @@ forwardedRef: React.Ref<HTMLElement>,
     )
   },
   [
-    iconClassName,
-    iconInterpolation,
+    chevronIconType,
+    open,
+    children,
     chevronClassName,
     chevronInterpolation,
+    chevronIconSize,
+    handleClickIcon,
+    leftComponent,
     contentClassName,
     contentInterpolation,
     content,
-    chevronIconSize,
-    chevronIconType,
-    leftIcon,
-    leftIconColor,
-    open,
     rightContent,
-    handleClickIcon,
-    disableIconActive,
-    active,
-    children,
   ])
 
   const Items = useMemo(() => (
