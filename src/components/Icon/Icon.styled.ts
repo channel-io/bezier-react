@@ -1,6 +1,13 @@
 /* Internal dependencies */
-import { styled } from '../../foundation'
-import { IconStyledProps } from './Icon.types'
+import { styled, SemanticNames } from '../../foundation'
+
+export interface IconStyledProps {
+  color?: SemanticNames
+  margintop: number
+  marginright: number
+  marginbottom: number
+  marginleft: number
+}
 
 function getMargin({
   margintop,
