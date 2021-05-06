@@ -25,6 +25,8 @@ const Text = styled.span<TextProps & TextStyledProps>`
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
   color: inherit;
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')}
 `
 
 export default Text
