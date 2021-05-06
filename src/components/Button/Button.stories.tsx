@@ -4,65 +4,41 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
-import { ButtonIconPosition } from './Button.types'
-import ButtonTheme from './ButtonTheme'
+import { ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import Button from './Button'
-
-enum ButtonThemeKeyword {
-  Primary = 'Primary',
-  Danger = 'Danger',
-}
 
 export default {
   title: getTitle(base),
   component: Button,
   argTypes: {
     onClick: { action: 'onClick' },
-    iconPosition: {
+    styleVariant: {
       control: {
         type: 'select',
         options: [
-          ButtonIconPosition.Left,
-          ButtonIconPosition.Right,
+          ...Object.values(ButtonStyleVariant),
         ],
       },
     },
-    buttonTheme: {
+    colorVariant: {
       control: {
         type: 'select',
         options: [
-          ButtonThemeKeyword.Primary,
-          ButtonThemeKeyword.Danger,
+          ...Object.values(ButtonColorVariant),
         ],
       },
     },
   },
 }
 
-function keywordToTheme(keyword: ButtonThemeKeyword) {
-  switch (keyword) {
-    case ButtonThemeKeyword.Primary:
-    default:
-      return ButtonTheme.Primary
-  }
-}
-
-const Template = ({ buttonTheme, ...args }) => {
-  const buttonThemeFromArgs = keywordToTheme(buttonTheme)
-
-  return (
-    <Button
-      buttonTheme={buttonThemeFromArgs}
-      {...args}
-    />
-  )
-}
+const Template = ({ buttonTheme, ...args }) => <Button {...args}/>
 
 export const Primary = Template.bind({})
 Primary.args = {
-  text: 'New Message',
-  icon: 'send-filled',
-  bold: true,
-  iconPosition: ButtonIconPosition.Left,
-  buttonTheme: ButtonThemeKeyword.Primary,
+  text: 'Invite',
+  leftIcon: 'plus',
+  rightIcon: 'arrow-right',
+  bold: false,
+  styleVariant: ButtonStyleVariant.Primary,
+  colorVariant: ButtonColorVariant.Blue,
 }

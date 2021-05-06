@@ -1,68 +1,65 @@
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, { forwardRef, useCallback } from 'react'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import type { IconName } from '../Icon'
 import { Text } from '../Text'
-import type { ButtonProps } from './Button.types'
-import { ButtonIconPosition } from './Button.types'
+import { Typography } from '../../foundation'
+import {
+  ButtonProps,
+  ButtonStyleVariant,
+  ButtonColorVariant,
+} from './Button.types'
 import { StyledBaseButton } from './Button.styled'
-import ButtonTheme from './ButtonTheme'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
 
-const ICON_MARGIN = 1
-const TEXT_MARGIN = 5
-
-function iconPositionValidation(
-  icon: string | undefined,
-  iconPosition: ButtonIconPosition,
-  targetPosition: ButtonIconPosition,
-) {
-  if (icon && iconPosition === targetPosition) { return true }
-  return false
-}
+const ICON_MARGIN = 3
+const TEXT_MARGIN = 4
 
 function Button(
   {
     as,
     testId = BUTTON_TEST_ID,
     text,
-    typo,
     bold,
     italic,
-    buttonTheme = ButtonTheme.Primary,
-    icon,
-    iconPosition = ButtonIconPosition.Left,
+    styleVariant = ButtonStyleVariant.Primary,
+    colorVariant = ButtonColorVariant.Blue,
+    leftIcon,
+    rightIcon,
     onClick,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const ViewableIcon = useMemo(() => (
-    <Icon
-      name={icon as IconName}
-      size={IconSize.S}
-      marginRight={ICON_MARGIN}
-      marginLeft={ICON_MARGIN}
-    />
-  ), [icon])
+  const renderIcon = useCallback((icon?: IconName) => (
+    icon && (
+      <Icon
+        name={icon}
+        size={IconSize.S}
+        marginRight={ICON_MARGIN}
+        marginLeft={ICON_MARGIN}
+      />
+    )
+  ), [])
 
   return (
     <StyledBaseButton
       as={as}
       ref={forwardedRef}
-      buttonTheme={buttonTheme}
+      styleVariant={styleVariant}
+      colorVariant={colorVariant}
       text={text}
       data-testid={testId}
       onClick={onClick}
     >
-      { iconPositionValidation(icon, iconPosition, ButtonIconPosition.Left) && ViewableIcon }
+      { renderIcon(leftIcon) }
 
       { text && (
         <Text
           inheritColor
-          typo={typo}
+          typo={Typography.Size14}
           bold={bold}
           italic={italic}
           marginRight={TEXT_MARGIN}
@@ -72,7 +69,7 @@ function Button(
         </Text>
       ) }
 
-      { iconPositionValidation(icon, iconPosition, ButtonIconPosition.Right) && ViewableIcon }
+      { renderIcon(rightIcon) }
     </StyledBaseButton>
   )
 }

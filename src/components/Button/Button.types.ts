@@ -1,25 +1,39 @@
 /* Internal dependencies */
-import { TextProps } from '../Text'
 import { StylableComponentProps } from '../../types/ComponentProps'
 import type { IconName } from '../Icon/generated'
-import type { ButtonThemeType } from './ButtonTheme'
 
-export enum ButtonTheme {
-  Normal = 'normal',
+export enum ButtonStyleVariant {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Tertiary = 'tertiary',
+  Floating = 'floating',
 }
 
-export enum ButtonIconPosition {
-  Left = 'left',
-  Right = 'right',
+export enum ButtonColorVariant {
+  Blue = 'blue',
+  Red = 'red',
+  Green = 'green',
+  Cobalt = 'cobalt',
+  Monochrome = 'monochrome',
+}
+
+export enum ButtonSize {
+  XXS,
+  XS,
+  M,
+  L,
+  XL,
 }
 
 export interface ButtonProps extends StylableComponentProps {
-  text?: string
-  typo?: TextProps['typo']
+  text: string
   bold?: boolean
   italic?: boolean
-  theme?: ButtonThemeType
-  icon?: IconName
-  iconPosition?: ButtonIconPosition
+  disabled?: boolean
+  active?: boolean
+  styleVariant?: ButtonStyleVariant
+  colorVariant?: ButtonColorVariant
+  leftIcon?: IconName
+  rightIcon?: IconName
   onClick?: (event: MouseEvent) => void
 }

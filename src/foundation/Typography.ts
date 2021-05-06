@@ -44,6 +44,8 @@ const Size24 = css`
   letter-spacing: -0.4px;
 `
 
+export type TypographyType = ReturnType<typeof css>
+
 export const Typography = {
   Size11,
   Size12,
