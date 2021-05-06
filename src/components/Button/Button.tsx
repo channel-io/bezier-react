@@ -137,7 +137,6 @@ function Button(
       { text && (
         <Text
           testId={BUTTON_TEXT_TEST_ID}
-          inheritColor
           typo={typography}
           bold
           marginRight={textMargin}

@@ -11,7 +11,6 @@ export const TEXT_TEST_ID = 'ch-design-system-text'
 function Text({
   as,
   testId = TEXT_TEST_ID,
-  inheritColor = false,
   bold = false,
   italic = false,
   typo = Typography.Size15,
@@ -28,7 +27,6 @@ function Text({
       as={as}
       style={style}
       className={className}
-      inheritColor={inheritColor}
       bold={bold}
       italic={italic}
       typo={typo}
