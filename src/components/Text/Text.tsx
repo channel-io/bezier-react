@@ -33,10 +33,10 @@ function Text({
       italic={italic}
       typo={typo}
       data-testid={testId}
-      marginTop={marginTop}
-      marginRight={marginRight}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
+      margintop={marginTop}
+      marginright={marginRight}
+      marginbottom={marginBottom}
+      marginleft={marginLeft}
     >
       { children }
     </TextView>
