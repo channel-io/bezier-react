@@ -100,6 +100,7 @@ function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: Butto
       return css`
         ${({ foundation }) => foundation?.elevation?.ev3()};
         /* NOTE: height 기반의 100% border-radius 를 사용하기 위해, foundation rounding 을 무시한 hack */
+        overflow: hidden;
         border-radius: 1000px;
 
         &:hover {
@@ -214,7 +215,6 @@ export const StyledBaseButton = styled.button<ButtonProps>`
   justify-content: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   border: none;
-  border-radius: 6px;
   outline: none;
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 

@@ -21,6 +21,7 @@ import {
 import { StyledBaseButton } from './Button.styled'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
+export const BUTTON_TEXT_TEST_ID = 'ch-design-system-button-text'
 
 function Button(
   {
@@ -135,6 +136,7 @@ function Button(
 
       { text && (
         <Text
+          testId={BUTTON_TEXT_TEST_ID}
           inheritColor
           typo={typography}
           bold
