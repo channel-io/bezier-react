@@ -80,10 +80,12 @@ import Channel from './Channel'
 import ChannelsList from './ChannelsList'
 import ChatBubbleFilled from './ChatBubbleFilled'
 import ChatBubble from './ChatBubble'
+import ChatCancel from './ChatCancel'
 import ChatCheckFilled from './ChatCheckFilled'
 import ChatCheck from './ChatCheck'
 import ChatErrorFilled from './ChatErrorFilled'
 import ChatError from './ChatError'
+import ChatInfo from './ChatInfo'
 import ChatLightning from './ChatLightning'
 import ChatProgressFilled from './ChatProgressFilled'
 import ChatProgress from './ChatProgress'
@@ -463,10 +465,12 @@ const icons = {
   'channels-list': ChannelsList,
   'chat-bubble-filled': ChatBubbleFilled,
   'chat-bubble': ChatBubble,
+  'chat-cancel': ChatCancel,
   'chat-check-filled': ChatCheckFilled,
   'chat-check': ChatCheck,
   'chat-error-filled': ChatErrorFilled,
   'chat-error': ChatError,
+  'chat-info': ChatInfo,
   'chat-lightning': ChatLightning,
   'chat-progress-filled': ChatProgressFilled,
   'chat-progress': ChatProgress,
