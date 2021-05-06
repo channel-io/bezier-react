@@ -13,6 +13,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import { IconSize } from '../Icon'
+import { Avatar } from '../Avatars/Avatar'
 import OutlineItem from './OutlineItem'
 import OutlineItemProps, {
   ChevronIconType,
@@ -72,7 +73,11 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
           <OutlineItem
             content="product"
             open
-            leftIcon="dot"
+            leftContent={(
+              <Avatar
+                size={IconSize.S}
+              />
+          )}
             leftIconColor="txt-black-dark"
             name="nested-2"
             // eslint-disable-next-line no-console
