@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useMemo,
 } from 'react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
@@ -25,13 +26,13 @@ function Button(
     as,
     testId = BUTTON_TEST_ID,
     text,
-    italic,
+    disabled = false,
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
     colorVariant = ButtonColorVariant.Blue,
     leftIcon,
     rightIcon,
-    onClick,
+    onClick = noop,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -45,6 +46,20 @@ function Button(
       case ButtonSize.M:
       default:
         return 4
+    }
+  }, [size])
+
+  const typography = useMemo(() => {
+    switch (size) {
+      case ButtonSize.XS:
+      case ButtonSize.S:
+        return Typography.Size13
+      case ButtonSize.XL:
+        return Typography.Size16
+      case ButtonSize.L:
+      case ButtonSize.M:
+      default:
+        return Typography.Size14
     }
   }, [size])
 
@@ -74,6 +89,14 @@ function Button(
     }
   }, [size])
 
+  const handleClick = useCallback((event: MouseEvent) => {
+    if (!disabled) { onClick(event) }
+    return null
+  }, [
+    onClick,
+    disabled,
+  ])
+
   const renderIcon = useCallback((icon?: IconName, isRightIcon?: boolean) => (
     icon && (
       <Icon
@@ -94,20 +117,20 @@ function Button(
       as={as}
       ref={forwardedRef}
       size={size}
+      disabled={disabled}
       styleVariant={styleVariant}
       colorVariant={colorVariant}
       text={text}
       data-testid={testId}
-      onClick={onClick}
+      onClick={handleClick}
     >
       { renderIcon(leftIcon, false) }
 
       { text && (
         <Text
           inheritColor
-          typo={Typography.Size14}
+          typo={typography}
           bold
-          italic={italic}
           marginRight={textMargin}
           marginLeft={textMargin}
         >

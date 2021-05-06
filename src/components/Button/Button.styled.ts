@@ -3,6 +3,7 @@ import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled, css } from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import {
   ButtonProps,
   ButtonSize,
@@ -10,31 +11,41 @@ import {
   ButtonColorVariant,
 } from './Button.types'
 
-function getSizeCSSFromButtonSize(size?: ButtonSize, text?: string) {
+interface GetSizeCSSFromButtonSizeArgs {
+  size?: ButtonSize
+  text?: string
+}
+
+function getSizeCSSFromButtonSize({ size, text }: GetSizeCSSFromButtonSizeArgs) {
   switch (size) {
     case ButtonSize.XS:
       return css`
+        min-width: 20px;
         height: 20px;
         padding: 2px;
       `
     case ButtonSize.S:
       return css`
+        min-width: 24px;
         height: 24px;
         padding: 3px ${isEmpty(text) ? 3 : 4}px;
       `
     case ButtonSize.L:
       return css`
+        min-width: 44px;
         height: 44px;
         padding: 12px ${isEmpty(text) ? 12 : 10}px;
       `
     case ButtonSize.XL:
       return css`
+        min-width: 54px;
         height: 54px;
         padding: 15px ${isEmpty(text) ? 15 : 14}px;
       `
     case ButtonSize.M:
     default:
       return css`
+        min-width: 36px;
         height: 36px;
         padding: 8px ${isEmpty(text) ? 8 : 10}px;
       `
@@ -120,7 +131,19 @@ function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: Butto
   }
 }
 
-function getCSSFromVariant(colorVariant?: ButtonColorVariant, styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
+interface GetCSSFromVariantArgs {
+  colorVariant?: ButtonColorVariant
+  styleVariant?: ButtonStyleVariant
+  size?: ButtonSize
+  disabled?: boolean
+}
+
+function getCSSFromVariant({
+  colorVariant,
+  styleVariant,
+  size,
+  disabled,
+}: GetCSSFromVariantArgs) {
   const effectCSS = getEffectCSSFromVariant(styleVariant, size)
 
   const colorCSS = (() => {
@@ -133,17 +156,34 @@ function getCSSFromVariant(colorVariant?: ButtonColorVariant, styleVariant?: But
         return css`
           color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
           background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
-
-          &:hover {
-            color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
-            background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-light`]};
-          }
         `
       case ButtonStyleVariant.Tertiary:
         return css`
           color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
           background-color: transparent;
+        `
+      case ButtonStyleVariant.Floating:
+      case ButtonStyleVariant.Primary:
+      default:
+        return css`
+          color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
+        `
+    }
+  })()
 
+  const hoverCSS = (() => {
+    if (disabled) return css``
+
+    switch (styleVariant) {
+      case ButtonStyleVariant.Secondary:
+        return css`
+          &:hover {
+            background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lighter`]};
+          }
+        `
+      case ButtonStyleVariant.Tertiary:
+        return css`
           &:hover {
             color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
             background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
@@ -153,19 +193,17 @@ function getCSSFromVariant(colorVariant?: ButtonColorVariant, styleVariant?: But
       case ButtonStyleVariant.Primary:
       default:
         return css`
-          color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
-
           &:hover {
             background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
           }
         `
     }
-  })()
+  })
 
   return [
     effectCSS,
     colorCSS,
+    hoverCSS,
   ]
 }
 
@@ -174,13 +212,14 @@ export const StyledBaseButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   border: none;
   border-radius: 6px;
   outline: none;
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
-  ${({ size, text }) => getSizeCSSFromButtonSize(size, text)};
-  ${({ styleVariant, colorVariant, size }) => getCSSFromVariant(colorVariant, styleVariant, size)};
+  ${getSizeCSSFromButtonSize};
+  ${getCSSFromVariant};
 `

@@ -48,6 +48,7 @@ const Template = ({ buttonTheme, ...args }) => <Button {...args}/>
 export const Primary = Template.bind({})
 Primary.args = {
   text: 'Invite',
+  disabled: false,
   leftIcon: 'plus',
   rightIcon: 'arrow-right',
   size: ButtonSize.M,
