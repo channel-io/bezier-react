@@ -32,7 +32,7 @@ export interface ButtonProps extends StylableComponentProps {
   size?: ButtonSize
   styleVariant?: ButtonStyleVariant
   colorVariant?: ButtonColorVariant
-  leftIcon?: IconName
-  rightIcon?: IconName
+  leftComponent?: IconName | React.ReactNode
+  rightComponent?: IconName | React.ReactNode
   onClick?: (event: MouseEvent) => void
 }

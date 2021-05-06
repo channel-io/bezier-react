@@ -4,6 +4,7 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
+import { Avatar } from '../Avatars/Avatar'
 import {
   ButtonSize,
   ButtonStyleVariant,
@@ -50,8 +51,17 @@ Primary.args = {
   text: 'Invite',
   disabled: false,
   active: false,
-  leftIcon: 'plus',
-  rightIcon: 'arrow-right',
+  leftComponent: 'plus',
+  rightComponent: 'arrow-right',
+  size: ButtonSize.M,
+  styleVariant: ButtonStyleVariant.Primary,
+  colorVariant: ButtonColorVariant.Blue,
+}
+
+export const WithCustomComponent = Template.bind({})
+WithCustomComponent.args = {
+  text: 'Set Manager',
+  leftComponent: <Avatar avatarUrl="https://source.unsplash.com/random"/>,
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,

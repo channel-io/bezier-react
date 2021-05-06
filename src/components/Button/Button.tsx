@@ -8,6 +8,7 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
+import { isIconName } from '../Icon/util'
 import type { IconName } from '../Icon'
 import { Text } from '../Text'
 import { Typography } from '../../foundation'
@@ -31,8 +32,8 @@ function Button(
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
     colorVariant = ButtonColorVariant.Blue,
-    leftIcon,
-    rightIcon,
+    leftComponent,
+    rightComponent,
     onClick = noop,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
@@ -98,16 +99,20 @@ function Button(
     disabled,
   ])
 
-  const renderIcon = useCallback((icon?: IconName, isRightIcon?: boolean) => (
-    icon && (
-      <Icon
-        name={icon}
-        size={iconSize}
-        marginRight={(text && !isRightIcon) ? iconMargin : 0}
-        marginLeft={(text && isRightIcon) ? iconMargin : 0}
-      />
-    )
-  ), [
+  const renderSideComponent = useCallback((component?: IconName | React.ReactNode, isRightIcon?: boolean) => {
+    if (isIconName(component)) {
+      return (
+        <Icon
+          name={component}
+          size={iconSize}
+          marginRight={(text && !isRightIcon) ? iconMargin : 0}
+          marginLeft={(text && isRightIcon) ? iconMargin : 0}
+        />
+      )
+    }
+
+    return component
+  }, [
     text,
     iconSize,
     iconMargin,
@@ -126,7 +131,7 @@ function Button(
       data-testid={testId}
       onClick={handleClick}
     >
-      { renderIcon(leftIcon, false) }
+      { renderSideComponent(leftComponent, false) }
 
       { text && (
         <Text
@@ -140,7 +145,7 @@ function Button(
         </Text>
       ) }
 
-      { renderIcon(rightIcon, true) }
+      { renderSideComponent(rightComponent, true) }
     </StyledBaseButton>
   )
 }
