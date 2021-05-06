@@ -7,6 +7,7 @@ import AppPlus from './AppPlus'
 import AppPush from './AppPush'
 import Apple from './Apple'
 import AppsAdd from './AppsAdd'
+import AppsFilled from './AppsFilled'
 import Apps from './Apps'
 import Archive from './Archive'
 import ArrowDown from './ArrowDown'
@@ -251,6 +252,7 @@ import Notification from './Notification'
 import Number from './Number'
 import Office from './Office'
 import OpenInNew from './OpenInNew'
+import Order from './Order'
 import Out from './Out'
 import PageDownload from './PageDownload'
 import PageZip from './PageZip'
@@ -261,9 +263,11 @@ import PeopleList from './PeopleList'
 import People from './People'
 import PersonAdd from './PersonAdd'
 import PersonBlocked from './PersonBlocked'
+import PersonCheck from './PersonCheck'
 import PersonCircleFilled from './PersonCircleFilled'
 import PersonCircle from './PersonCircle'
 import PersonFilled from './PersonFilled'
+import PersonRemove from './PersonRemove'
 import Person from './Person'
 import PieChart from './PieChart'
 import PinOff from './PinOff'
@@ -301,6 +305,7 @@ import Shopping from './Shopping'
 import Shuffle from './Shuffle'
 import Siren from './Siren'
 import Sms from './Sms'
+import Snooze from './Snooze'
 import Soccerball from './Soccerball'
 import Sorting from './Sorting'
 import SpaceHorizontal from './SpaceHorizontal'
@@ -349,6 +354,7 @@ import Tune from './Tune'
 import Twitter from './Twitter'
 import Typography from './Typography'
 import Underline from './Underline'
+import Untag from './Untag'
 import Upload from './Upload'
 import Username from './Username'
 import Variable from './Variable'
@@ -392,6 +398,7 @@ const icons = {
   'app-push': AppPush,
   'apple': Apple,
   'apps-add': AppsAdd,
+  'apps-filled': AppsFilled,
   'apps': Apps,
   'archive': Archive,
   'arrow-down': ArrowDown,
@@ -636,6 +643,7 @@ const icons = {
   'number': Number,
   'office': Office,
   'open-in-new': OpenInNew,
+  'order': Order,
   'out': Out,
   'page-download': PageDownload,
   'page-zip': PageZip,
@@ -646,9 +654,11 @@ const icons = {
   'people': People,
   'person-add': PersonAdd,
   'person-blocked': PersonBlocked,
+  'person-check': PersonCheck,
   'person-circle-filled': PersonCircleFilled,
   'person-circle': PersonCircle,
   'person-filled': PersonFilled,
+  'person-remove': PersonRemove,
   'person': Person,
   'pie-chart': PieChart,
   'pin-off': PinOff,
@@ -686,6 +696,7 @@ const icons = {
   'shuffle': Shuffle,
   'siren': Siren,
   'sms': Sms,
+  'snooze': Snooze,
   'soccerball': Soccerball,
   'sorting': Sorting,
   'space-horizontal': SpaceHorizontal,
@@ -734,6 +745,7 @@ const icons = {
   'twitter': Twitter,
   'typography': Typography,
   'underline': Underline,
+  'untag': Untag,
   'upload': Upload,
   'username': Username,
   'variable': Variable,
