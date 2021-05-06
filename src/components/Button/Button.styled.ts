@@ -136,6 +136,7 @@ interface GetCSSFromVariantArgs {
   styleVariant?: ButtonStyleVariant
   size?: ButtonSize
   disabled?: boolean
+  active?: boolean
 }
 
 function getCSSFromVariant({
@@ -143,6 +144,7 @@ function getCSSFromVariant({
   styleVariant,
   size,
   disabled,
+  active,
 }: GetCSSFromVariantArgs) {
   const effectCSS = getEffectCSSFromVariant(styleVariant, size)
 
@@ -178,33 +180,31 @@ function getCSSFromVariant({
     switch (styleVariant) {
       case ButtonStyleVariant.Secondary:
         return css`
-          &:hover {
-            background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lighter`]};
-          }
+          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lighter`]};
         `
       case ButtonStyleVariant.Tertiary:
         return css`
-          &:hover {
-            color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
-            background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
-          }
+          color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
+          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
         `
       case ButtonStyleVariant.Floating:
       case ButtonStyleVariant.Primary:
       default:
         return css`
-          &:hover {
-            background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
-          }
+          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
         `
     }
   })
 
-  return [
-    effectCSS,
-    colorCSS,
-    hoverCSS,
-  ]
+  return css`
+    ${effectCSS};
+    ${colorCSS};
+    ${active && hoverCSS};
+
+    &:hover {
+      ${hoverCSS};
+    }
+  `
 }
 
 export const StyledBaseButton = styled.button<ButtonProps>`

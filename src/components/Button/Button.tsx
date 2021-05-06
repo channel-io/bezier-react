@@ -27,6 +27,7 @@ function Button(
     testId = BUTTON_TEST_ID,
     text,
     disabled = false,
+    active = false,
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
     colorVariant = ButtonColorVariant.Blue,
@@ -118,6 +119,7 @@ function Button(
       ref={forwardedRef}
       size={size}
       disabled={disabled}
+      active={active}
       styleVariant={styleVariant}
       colorVariant={colorVariant}
       text={text}

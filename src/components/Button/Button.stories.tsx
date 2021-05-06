@@ -49,6 +49,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   text: 'Invite',
   disabled: false,
+  active: false,
   leftIcon: 'plus',
   rightIcon: 'arrow-right',
   size: ButtonSize.M,
