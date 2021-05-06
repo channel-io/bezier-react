@@ -52,46 +52,89 @@ function getSizeCSSFromButtonSize({ size, text }: GetSizeCSSFromButtonSizeArgs) 
   }
 }
 
-function monochromeVariantConverter(styleVariant?: ButtonStyleVariant) {
-  switch (styleVariant) {
-    case ButtonStyleVariant.Secondary:
-      return css`
-        color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-        background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?: boolean, active?: boolean) {
+  const colorCSS = (() => {
+    switch (styleVariant) {
+      case ButtonStyleVariant.Secondary:
+        return css`
+          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+          background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
 
-        &:hover {
+          ${!disabled && css`
+            &:hover {
+              background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
+            }
+          `}
+        `
+      case ButtonStyleVariant.Tertiary:
+        return css`
+          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+          background-color: transparent;
+
+          ${!disabled && css`
+            &:hover {
+              background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lightest']};
+            }
+          `}
+        `
+      case ButtonStyleVariant.Floating:
+        return css`
+          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+          ${({ foundation }) => foundation?.elevation?.ev3()};
+
+          ${!disabled && css`
+            &:hover {
+              ${({ foundation }) => foundation?.elevation?.ev4()};
+            }
+          `}
+        `
+      case ButtonStyleVariant.Primary:
+      default:
+        return css`
+          color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+          background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lightest']};
+
+          ${!disabled && css`
+            &:hover {
+              background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lighter']};
+            }
+          `}
+        `
+    }
+  })()
+
+  const activeCSS = (() => {
+    if (disabled) { return css`` }
+
+    switch (styleVariant) {
+      case ButtonStyleVariant.Secondary:
+        return css`
           background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-        }
-      `
-    case ButtonStyleVariant.Tertiary:
-      return css`
-        color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-        background-color: transparent;
-
-        &:hover {
+        `
+      case ButtonStyleVariant.Tertiary:
+        return css`
           background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lightest']};
-        }
-      `
-    case ButtonStyleVariant.Floating:
-      return css`
-        color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-        ${({ foundation }) => foundation?.elevation?.ev3()};
-
-        &:hover {
+        `
+      case ButtonStyleVariant.Floating:
+        return css`
           ${({ foundation }) => foundation?.elevation?.ev4()};
-        }
-      `
-    case ButtonStyleVariant.Primary:
-    default:
-      return css`
-        color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-        background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lightest']};
-
-        &:hover {
+        `
+      case ButtonStyleVariant.Primary:
+      default:
+        return css`
           background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lighter']};
-        }
-      `
-  }
+        `
+    }
+  })()
+
+  return css`
+    ${colorCSS};
+    ${active && activeCSS};
+
+    &:hover {
+      ${activeCSS};
+    }
+  `
 }
 
 function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
@@ -151,7 +194,7 @@ function getCSSFromVariant({
 
   const colorCSS = (() => {
     if (colorVariant === ButtonColorVariant.Monochrome) {
-      return monochromeVariantConverter(styleVariant)
+      return monochromeVariantConverter(styleVariant, disabled, active)
     }
 
     switch (styleVariant) {
@@ -175,7 +218,7 @@ function getCSSFromVariant({
     }
   })()
 
-  const hoverCSS = (() => {
+  const activeCSS = (() => {
     if (disabled) return css``
 
     switch (styleVariant) {
@@ -200,10 +243,10 @@ function getCSSFromVariant({
   return css`
     ${effectCSS};
     ${colorCSS};
-    ${active && hoverCSS};
+    ${active && activeCSS};
 
     &:hover {
-      ${hoverCSS};
+      ${activeCSS};
     }
   `
 }
