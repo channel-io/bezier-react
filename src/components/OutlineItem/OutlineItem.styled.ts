@@ -17,7 +17,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0;
+  padding: 0 6px;
   padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
