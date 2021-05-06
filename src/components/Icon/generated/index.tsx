@@ -66,6 +66,7 @@ import Cancel from './Cancel'
 import Car from './Car'
 import CartAbandoned from './CartAbandoned'
 import Cart from './Cart'
+import ChainReaction from './ChainReaction'
 import ChannelBtnFilled from './ChannelBtnFilled'
 import ChannelBtnSmileFilled from './ChannelBtnSmileFilled'
 import ChannelBtnSmile from './ChannelBtnSmile'
@@ -154,6 +155,7 @@ import FaceSad from './FaceSad'
 import FaceSmileAdd from './FaceSmileAdd'
 import FaceSmileFilled from './FaceSmileFilled'
 import FaceSmile from './FaceSmile'
+import FaceWow from './FaceWow'
 import Facebook from './Facebook'
 import FastForward from './FastForward'
 import FastRewind from './FastRewind'
@@ -241,6 +243,7 @@ import MoonFilled from './MoonFilled'
 import MoreVertical from './MoreVertical'
 import More from './More'
 import Mouse from './Mouse'
+import MultiNode from './MultiNode'
 import Music from './Music'
 import Naver from './Naver'
 import New from './New'
@@ -303,6 +306,7 @@ import Settings from './Settings'
 import Shine from './Shine'
 import Shopping from './Shopping'
 import Shuffle from './Shuffle'
+import SingleNode from './SingleNode'
 import Siren from './Siren'
 import Sms from './Sms'
 import Snooze from './Snooze'
@@ -335,6 +339,8 @@ import Translate from './Translate'
 import Trash from './Trash'
 import TrendingDown from './TrendingDown'
 import TrendingLeftCircleFilled from './TrendingLeftCircleFilled'
+import TrendingLeft from './TrendingLeft'
+import TrendingRight from './TrendingRight'
 import TrendingUp from './TrendingUp'
 import TriangleDownCircleFilled from './TriangleDownCircleFilled'
 import TriangleDownCircle from './TriangleDownCircle'
@@ -457,6 +463,7 @@ const icons = {
   'car': Car,
   'cart-abandoned': CartAbandoned,
   'cart': Cart,
+  'chain-reaction': ChainReaction,
   'channel-btn-filled': ChannelBtnFilled,
   'channel-btn-smile-filled': ChannelBtnSmileFilled,
   'channel-btn-smile': ChannelBtnSmile,
@@ -545,6 +552,7 @@ const icons = {
   'face-smile-add': FaceSmileAdd,
   'face-smile-filled': FaceSmileFilled,
   'face-smile': FaceSmile,
+  'face-wow': FaceWow,
   'facebook': Facebook,
   'fast-forward': FastForward,
   'fast-rewind': FastRewind,
@@ -632,6 +640,7 @@ const icons = {
   'more-vertical': MoreVertical,
   'more': More,
   'mouse': Mouse,
+  'multi-node': MultiNode,
   'music': Music,
   'naver': Naver,
   'new': New,
@@ -694,6 +703,7 @@ const icons = {
   'shine': Shine,
   'shopping': Shopping,
   'shuffle': Shuffle,
+  'single-node': SingleNode,
   'siren': Siren,
   'sms': Sms,
   'snooze': Snooze,
@@ -726,6 +736,8 @@ const icons = {
   'trash': Trash,
   'trending-down': TrendingDown,
   'trending-left-circle-filled': TrendingLeftCircleFilled,
+  'trending-left': TrendingLeft,
+  'trending-right': TrendingRight,
   'trending-up': TrendingUp,
   'triangle-down-circle-filled': TriangleDownCircleFilled,
   'triangle-down-circle': TriangleDownCircle,

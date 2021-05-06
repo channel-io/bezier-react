@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SvgTrendingLeft(props: React.SVGProps<SVGSVGElement>) {
+function SvgSingleNode(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,10 +14,10 @@ function SvgTrendingLeft(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6.151 11.634l5.166-5.165a.4.4 0 01.683.283v3.247h5.5a.5.5 0 01.5.5v3a.5.5 0 01-.5.5H12v3.25a.4.4 0 01-.683.283l-5.166-5.165a.518.518 0 010-.733z"
+        d="M2 5a3 3 0 015.83-1H10a3 3 0 013 3v10a1 1 0 001 1h2.17a3.001 3.001 0 110 2H14a3 3 0 01-3-3V7a1 1 0 00-1-1H7.83A3.001 3.001 0 012 5z"
       />
     </svg>
   )
 }
 
-export default SvgTrendingLeft
+export default SvgSingleNode
