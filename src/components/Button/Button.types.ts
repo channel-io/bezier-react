@@ -18,8 +18,8 @@ export enum ButtonColorVariant {
 }
 
 export enum ButtonSize {
-  XXS = 'XXS',
   XS = 'XS',
+  S = 'S',
   M = 'M',
   L = 'L',
   XL = 'XL',

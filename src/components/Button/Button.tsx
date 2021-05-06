@@ -1,5 +1,9 @@
 /* External dependencies */
-import React, { forwardRef, useCallback } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
@@ -35,16 +39,32 @@ function Button(
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
+  const iconSize = useMemo(() => {
+    switch (size) {
+      case ButtonSize.S:
+      case ButtonSize.XS:
+        return IconSize.XS
+      case ButtonSize.XL:
+      case ButtonSize.L:
+      case ButtonSize.M:
+      default:
+        return IconSize.S
+    }
+  }, [size])
+
   const renderIcon = useCallback((icon?: IconName, isRightIcon?: boolean) => (
     icon && (
       <Icon
         name={icon}
-        size={IconSize.S}
+        size={iconSize}
         marginRight={(text && !isRightIcon) ? ICON_MARGIN : 0}
         marginLeft={(text && isRightIcon) ? ICON_MARGIN : 0}
       />
     )
-  ), [text])
+  ), [
+    text,
+    iconSize,
+  ])
 
   return (
     <StyledBaseButton

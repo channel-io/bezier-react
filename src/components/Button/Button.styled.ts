@@ -12,12 +12,12 @@ import {
 
 function sizeConverter(size?: ButtonSize, text?: string) {
   switch (size) {
-    case ButtonSize.XXS:
+    case ButtonSize.XS:
       return css`
         height: 20px;
         padding: 2px;
       `
-    case ButtonSize.XS:
+    case ButtonSize.S:
       return css`
         height: 24px;
         padding: 3px ${isEmpty(text) ? 3 : 4}px;
@@ -83,7 +83,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant) {
   }
 }
 
-function styleVariantConverter(styleVariant?: ButtonStyleVariant) {
+function styleVariantConverter(styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
@@ -96,7 +96,7 @@ function styleVariantConverter(styleVariant?: ButtonStyleVariant) {
     case ButtonStyleVariant.Primary:
     default:
       return css`
-        ${({ foundation }) => foundation?.rounding?.round8};
+        ${({ foundation }) => ((size === ButtonSize.XS) ? foundation?.rounding?.round6 : foundation?.rounding?.round8)};
       `
   }
 }
