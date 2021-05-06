@@ -49,7 +49,7 @@ export const ChevronWrapper = styled.div`
   height: 100%;
 `
 
-export const IconWrapper = styled.div`
+export const LeftContentWrapper = styled.div`
   margin-right: 8px;
 `
 

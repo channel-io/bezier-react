@@ -15,7 +15,7 @@ import {
   StyledIcon,
   ContentWrapper,
   ChevronWrapper,
-  IconWrapper,
+  LeftContentWrapper,
 } from './OutlineItem.styled'
 
 export const LIST_GROUP_PADDING_LEFT = 16
@@ -105,14 +105,14 @@ forwardedRef: React.Ref<HTMLElement>,
   const leftComponent = useMemo(() => {
     if (!isNil(leftContent)) {
       return (
-        <IconWrapper>
+        <LeftContentWrapper>
           { leftContent }
-        </IconWrapper>
+        </LeftContentWrapper>
       )
     }
     if (!isNil(leftIcon) && isIconName(leftIcon)) {
       return (
-        <IconWrapper>
+        <LeftContentWrapper>
           <StyledIcon
             className={iconClassName}
             interpolation={iconInterpolation}
@@ -122,7 +122,7 @@ forwardedRef: React.Ref<HTMLElement>,
             disableIconActive={disableIconActive}
             color={leftIconColor}
           />
-        </IconWrapper>
+        </LeftContentWrapper>
       )
     }
 
