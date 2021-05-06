@@ -18,11 +18,11 @@ export enum ButtonColorVariant {
 }
 
 export enum ButtonSize {
-  XXS,
-  XS,
-  M,
-  L,
-  XL,
+  XXS = 'XXS',
+  XS = 'XS',
+  M = 'M',
+  L = 'L',
+  XL = 'XL',
 }
 
 export interface ButtonProps extends StylableComponentProps {
@@ -31,6 +31,7 @@ export interface ButtonProps extends StylableComponentProps {
   italic?: boolean
   disabled?: boolean
   active?: boolean
+  size?: ButtonSize
   styleVariant?: ButtonStyleVariant
   colorVariant?: ButtonColorVariant
   leftIcon?: IconName

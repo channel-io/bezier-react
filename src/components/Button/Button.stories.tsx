@@ -4,7 +4,11 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
-import { ButtonStyleVariant, ButtonColorVariant } from './Button.types'
+import {
+  ButtonSize,
+  ButtonStyleVariant,
+  ButtonColorVariant,
+} from './Button.types'
 import Button from './Button'
 
 export default {
@@ -12,9 +16,17 @@ export default {
   component: Button,
   argTypes: {
     onClick: { action: 'onClick' },
+    size: {
+      control: {
+        type: 'radio',
+        options: [
+          ...Object.values(ButtonSize),
+        ],
+      },
+    },
     styleVariant: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: [
           ...Object.values(ButtonStyleVariant),
         ],
@@ -22,7 +34,7 @@ export default {
     },
     colorVariant: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: [
           ...Object.values(ButtonColorVariant),
         ],
@@ -39,6 +51,7 @@ Primary.args = {
   leftIcon: 'plus',
   rightIcon: 'arrow-right',
   bold: false,
+  size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,
 }

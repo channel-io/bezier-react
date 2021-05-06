@@ -8,6 +8,7 @@ import { Text } from '../Text'
 import { Typography } from '../../foundation'
 import {
   ButtonProps,
+  ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,
 } from './Button.types'
@@ -25,6 +26,7 @@ function Button(
     text,
     bold,
     italic,
+    size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
     colorVariant = ButtonColorVariant.Blue,
     leftIcon,
@@ -33,28 +35,29 @@ function Button(
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const renderIcon = useCallback((icon?: IconName) => (
+  const renderIcon = useCallback((icon?: IconName, isRightIcon?: boolean) => (
     icon && (
       <Icon
         name={icon}
         size={IconSize.S}
-        marginRight={ICON_MARGIN}
-        marginLeft={ICON_MARGIN}
+        marginRight={(text && !isRightIcon) ? ICON_MARGIN : 0}
+        marginLeft={(text && isRightIcon) ? ICON_MARGIN : 0}
       />
     )
-  ), [])
+  ), [text])
 
   return (
     <StyledBaseButton
       as={as}
       ref={forwardedRef}
+      size={size}
       styleVariant={styleVariant}
       colorVariant={colorVariant}
       text={text}
       data-testid={testId}
       onClick={onClick}
     >
-      { renderIcon(leftIcon) }
+      { renderIcon(leftIcon, false) }
 
       { text && (
         <Text
@@ -69,7 +72,7 @@ function Button(
         </Text>
       ) }
 
-      { renderIcon(rightIcon) }
+      { renderIcon(rightIcon, true) }
     </StyledBaseButton>
   )
 }
