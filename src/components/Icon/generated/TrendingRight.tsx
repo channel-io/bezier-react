@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgTrendingRight(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M17.848 12.367l-5.166 5.165a.4.4 0 01-.683-.283v-3.25H6.5a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5H12V6.751a.4.4 0 01.683-.283l5.166 5.166a.518.518 0 010 .732z"
+        clipRule="evenodd"
+        d="M17.849 11.634l-5.167-5.166a.4.4 0 00-.683.283v3.248H6.5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5H12v3.249a.4.4 0 00.682.283l5.167-5.165a.518.518 0 000-.732z"
       />
     </svg>
   )
