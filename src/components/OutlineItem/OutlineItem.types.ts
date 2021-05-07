@@ -28,6 +28,7 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   disableGroupSelect?: boolean
   chevronIconType?: ChevronIconType
   chevronIconSize?: IconSize
+  leftContent?: React.ReactNode
   leftIcon?: IconName
   leftIconColor?: SemanticNames
   disableIconActive?: boolean

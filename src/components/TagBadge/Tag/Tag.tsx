@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
-import { noop } from 'lodash-es'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -24,10 +24,9 @@ function Tag({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
   color: givenColor,
-  closable = false,
   children,
   // Handlers
-  onClose = noop,
+  onDelete,
   // Injected Styles
   wrapperClassName,
   wrapperInterpolation,
@@ -41,17 +40,14 @@ function Tag({
     variant,
   ])
 
-  const CloseIconComponent = useMemo(() => closable && (
+  const CloseIconComponent = useMemo(() => !isNil(onDelete) && (
     <Styled.CloseIcon
       name="cancel-small"
       size={TAG_BADGE_ICON_SIZE}
       color="txt-black-darker"
-      onClick={onClose}
+      onClick={onDelete}
     />
-  ), [
-    closable,
-    onClose,
-  ])
+  ), [onDelete])
 
   return (
     <TagBadgeStyled.Wrapper
