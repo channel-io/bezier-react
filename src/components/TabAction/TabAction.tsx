@@ -18,16 +18,17 @@ export function isTabAction(element: any): element is React.ReactElement<TabActi
     get(element, 'type.displayName') === TAB_ACTIONS_COMPONENT_NAME
 }
 
-function TabActionComponent({
-  testId = TAB_ACTIONS_TEST_ID,
-  disabled = false,
-  href,
-  height = TabsSize.Normal,
-  onClick,
-  /* HTMLAttribute props */
-  children,
-  ...otherProps
-}: TabActionProps, forwardedRef: Ref<any>) {
+function TabActionComponent(
+  {
+    testId = TAB_ACTIONS_TEST_ID,
+    disabled = false,
+    href,
+    height = TabsSize.Normal,
+    onClick,
+    children,
+  }: TabActionProps,
+  forwardedRef: Ref<HTMLDivElement>,
+) {
   const backgroundSizeProp = useMemo(() => {
     if (height >= TabsSize.L) {
       return {
@@ -67,19 +68,44 @@ function TabActionComponent({
     }
   }, [onClick])
 
+  const BackgroundWithProps = useCallback(({
+    children: _children,
+    ...otherProps
+  }: {
+    children: React.ReactNode
+    onClick: (e: any) => void
+  }) => {
+    if (isNil(href)) {
+      return (
+        <Background
+          {...otherProps}
+        >
+          { _children }
+        </Background>
+      )
+    }
+
+    return (
+      <Background
+        as="a"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...otherProps}
+      >
+        { _children }
+      </Background>
+    )
+  }, [href])
+
   return (
     <Wrapper
       ref={forwardedRef}
       data-testid={testId}
       data-disabled={disabled}
       height={height}
-      {...otherProps}
     >
-      <Background
-        as={isNil(href) ? 'div' : 'a'}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+      <BackgroundWithProps
         onClick={handleClick}
         {...backgroundSizeProp}
       >
@@ -89,7 +115,7 @@ function TabActionComponent({
         { !isNil(href) && (
           <LinkIcon name="open-in-new" size={iconSize} />
         ) }
-      </Background>
+      </BackgroundWithProps>
     </Wrapper>
   )
 }

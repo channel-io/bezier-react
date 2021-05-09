@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
@@ -17,6 +18,7 @@ function Text({
   style,
   className,
   children,
+  onClick = noop,
 }: TextProps) {
   return (
     <TextView
@@ -27,6 +29,7 @@ function Text({
       italic={italic}
       typo={typo}
       data-testid={testId}
+      onClick={onClick}
     >
       { children }
     </TextView>

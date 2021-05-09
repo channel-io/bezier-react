@@ -10,6 +10,5 @@ export default interface TabActionProps extends Omit<UIComponentProps, 'children
   height?: TabsSize | number
   onClick?: () => boolean
   children: Array<React.ReactNode | ((args: { disabled: boolean }) => React.ReactNode)>
+  disabled?: boolean
 }
-
-export interface StyledWrapperProps extends UIComponentProps {}

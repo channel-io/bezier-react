@@ -22,42 +22,43 @@ export const LIST_GROUP_PADDING_LEFT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
 
-function OutlineItemComponent({
-  as,
-  testId = OUTLINE_ITEM_TEST_ID,
-  className,
-  interpolation,
-  chevronClassName,
-  chevronInterpolation,
-  contentClassName,
-  contentInterpolation,
-  iconClassName,
-  iconInterpolation,
-  paddingLeft: givenPaddingLeft,
-  open = false,
-  active: givenActive,
-  chevronIconType = ChevronIconType.Small,
-  chevronIconSize = IconSize.XS,
-  leftContent,
-  leftIcon,
-  leftIconColor,
-  disableIconActive = false,
-  name,
-  href,
-  content = null,
-  rightContent = null,
-  hide = false,
-  onOpen = noop,
-  onClickArrow = noop,
-  /* OptionMenuHost Props */
-  selectedMenuItemIndex = null,
-  onChangeOption = noop,
-  /* HTMLAttribute props */
-  onClick: givenOnClick = noop,
-  children,
-  ...otherProps
-}: OutlineItemProps,
-forwardedRef: React.Ref<HTMLElement>,
+function OutlineItemComponent(
+  {
+    as,
+    testId = OUTLINE_ITEM_TEST_ID,
+    className,
+    interpolation,
+    chevronClassName,
+    chevronInterpolation,
+    contentClassName,
+    contentInterpolation,
+    iconClassName,
+    iconInterpolation,
+    paddingLeft: givenPaddingLeft,
+    open = false,
+    active: givenActive,
+    chevronIconType = ChevronIconType.Small,
+    chevronIconSize = IconSize.XS,
+    leftContent,
+    leftIcon,
+    leftIconColor,
+    disableIconActive = false,
+    name,
+    href,
+    content = null,
+    rightContent = null,
+    hide = false,
+    onOpen = noop,
+    onClickArrow = noop,
+    /* OptionMenuHost Props */
+    selectedMenuItemIndex = null,
+    onChangeOption = noop,
+    /* HTMLAttribute props */
+    onClick: givenOnClick = noop,
+    children,
+    ...otherProps
+  }: OutlineItemProps,
+  forwardedRef: React.Ref<HTMLElement>,
 ) {
   const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
 
@@ -84,9 +85,9 @@ forwardedRef: React.Ref<HTMLElement>,
     onChangeOption(name, optionKey, itemIndex)
   }, [name, onChangeOption])
 
-  const handleClickIcon = useCallback((ev: React.MouseEvent<SVGSVGElement>) => {
+  const handleClickIcon = useCallback((event?: React.MouseEvent<SVGSVGElement>) => {
     if (onClickArrow) {
-      ev.stopPropagation()
+      event?.stopPropagation()
       onClickArrow(name)
     }
   }, [name, onClickArrow])
@@ -98,8 +99,8 @@ forwardedRef: React.Ref<HTMLElement>,
   }, LIST_GROUP_PADDING_LEFT)
   const { paddingLeft, active, onClick } = context
 
-  const handleClickGroup = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    onClick(e, name)
+  const handleClickGroup = useCallback((event?: React.MouseEvent) => {
+    onClick(event, name)
   }, [name, onClick])
 
   const leftComponent = useMemo(() => {
@@ -211,7 +212,7 @@ forwardedRef: React.Ref<HTMLElement>,
     return (
       <>
         <GroupItemWrapper
-          ref={forwardedRef}
+          ref={forwardedRef as React.Ref<HTMLAnchorElement>}
           as="a"
           href={href}
           target="_blank"

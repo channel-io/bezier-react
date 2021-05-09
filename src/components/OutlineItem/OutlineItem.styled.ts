@@ -6,14 +6,14 @@ import { css, ellipsis, styled } from '../../foundation'
 import { WithInterpolation } from '../../types/InjectedInterpolation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
-import { StyledWrapperProps } from './OutlineItem.types'
+import OutlineItemProps, { StyledWrapperProps } from './OutlineItem.types'
 
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-export const GroupItemWrapper = styled.div<StyledWrapperProps>`
+export const GroupItemWrapper = styled.div<StyledWrapperProps & OutlineItemProps>`
   display: flex;
   align-items: center;
   height: 32px;
@@ -37,10 +37,6 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface StyledIconProps extends WithInterpolation {
-  color: SemanticNames
-}
-
 export const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -53,7 +49,11 @@ export const LeftContentWrapper = styled.div`
   margin-right: 8px;
 `
 
-export const StyledIcon = styled(Icon)<StyledIconProps>`
+interface StyledIconProps extends WithInterpolation {
+  color?: SemanticNames
+}
+
+export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
   color: ${props => {
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
