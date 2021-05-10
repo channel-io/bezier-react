@@ -50,6 +50,8 @@ export const ChevronWrapper = styled.div`
 `
 
 export const LeftContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin-right: 8px;
 `
 
