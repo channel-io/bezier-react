@@ -1,20 +1,21 @@
 /* Internal dependencies */
-import { styled } from '../../styling/Theme'
+import { styled } from '../../foundation'
 import { IconStyledProps } from './Icon.types'
 
 function getMargin({
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
+  margintop,
+  marginright,
+  marginbottom,
+  marginleft,
 }: IconStyledProps): string {
-  return `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
+  return `${margintop}px ${marginright}px ${marginbottom}px ${marginleft}px`
 }
 
 const Icon = styled.svg<IconStyledProps>`
-  color: ${props => props.color || 'inherit'};
+  flex: 0 0 auto;
   margin: ${getMargin};
-  transition: ${props => props.theme?.transition?.ColorTransition};
+  color: ${({ foundation, color }) => (color && foundation?.theme?.[color]) || 'inherit'};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')}
 `
 
 export default Icon

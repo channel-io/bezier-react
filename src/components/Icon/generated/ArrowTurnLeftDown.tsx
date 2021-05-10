@@ -2,11 +2,17 @@ import React from 'react'
 
 function SvgArrowTurnLeftDown(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        d="M7.978 21.388L1.59 15l6.388-6.387 1.414 1.414L5.42 14h9.586a5 5 0 004.995-4.783L20.005 9V4h2v5a7 7 0 01-7 7H5.419l3.973 3.974-1.414 1.414z"
+        d="M7.793 9.793a1 1 0 011.414 1.414L6.414 14H15a5 5 0 005-5V5a1 1 0 112 0v4a7 7 0 01-7 7H6.414l2.793 2.793a1 1 0 11-1.414 1.414l-4.5-4.5a1 1 0 010-1.414l4.5-4.5z"
       />
     </svg>
   )

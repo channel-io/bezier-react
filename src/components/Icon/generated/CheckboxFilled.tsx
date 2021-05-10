@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgCheckboxFilled(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M17 3a4 4 0 014 4v10c0 2.21-1.79 4-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm0 4.446l-6.14 6.14L8 10.726l-1.414 1.413 4.274 4.276 7.554-7.555L17 7.446z"
+        clipRule="evenodd"
+        d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm-.414 9.14L8 10.724l2.86 2.861L17 7.446l1.414 1.414-7.554 7.555-4.274-4.276z"
       />
     </svg>
   )

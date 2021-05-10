@@ -1,59 +1,54 @@
-/* eslint-disable @typescript-eslint/indent, consistent-return */
 /* Internal dependencies */
-import { styled, css } from '../../styling/Theme'
+import DisabledOpacity from '../../constants/DisabledOpacity'
+import { styled, css } from '../../foundation'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`
   display: flex;
   align-items: center;
-  cursor:
-    ${props => {
-      if (props.disabled) { return 'auto' }
-      return 'pointer'
-    }};
+  cursor: ${({ disabled }) => {
+    if (disabled) { return 'auto' }
+    return 'pointer'
+  }};
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 `
 
 const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
   content: '';
-  background-color:
-    ${props => {
-      if (!props.disabled && !props.checked && props.hovered) { return props.theme?.colors?.handle2 }
-      if (props.checked && props.disabled) { return props.theme?.colors?.handle5 }
-      if (props.checked) { return props.theme?.colors?.handle1 }
-      return 'transparent'
-    }};
+  background-color: ${props => {
+    if (!props.disabled && !props.checked && props.hovered) { return props.foundation?.theme?.['bg-black-light'] }
+    if (props.checked) { return props.foundation?.theme?.['bgtxt-absolute-white-normal'] }
+    return 'transparent'
+  }};
   border-radius: 50%;
-  transition: ${props => props.theme?.transition?.BackgroundTransition};
+  transform: translate(-50%, -50%);
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
 export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
-  box-sizing: border-box;
   position: relative;
+  box-sizing: border-box;
   width: 18px;
   height: 18px;
   margin-right: 9px;
+  background-color: ${props => {
+    if (props.checked) { return props.foundation?.theme?.['bgtxt-green-normal'] }
+    return props.foundation?.theme?.['bg-black-lightest']
+  }};
+  border: ${props => {
+    if (props.checked) { return 'none' }
+    return `2px solid ${props.foundation?.theme?.['bdr-black-light']}`
+  }};
   border-radius: 50%;
-  border:
-    ${props => {
-      if (props.checked) { return 'none' }
-      return `2px solid ${props.theme?.colors?.border3}`
-    }};
-  background-color:
-    ${props => {
-      if (props.disabled) { return props.theme?.colors?.background3 }
-      if (props.checked) { return props.theme?.colors?.success1 }
-      return props.theme?.colors?.background0
-    }};
-  transition: ${props => props.theme?.transition?.BackgroundTransition};
+  ${props => props.foundation?.transition?.getTransitionsCSS('background-color')};
 
   &::after {
     ${StyledRadioHandleDot};
   }
 `
-/* eslint-enable @typescript-eslint/indent, consistent-return */
+

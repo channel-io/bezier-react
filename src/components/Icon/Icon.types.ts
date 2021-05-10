@@ -1,11 +1,10 @@
 /* External dependencies */
-import React from 'react'
+import { MouseEventHandler } from 'react'
 
 /* Internal dependencies */
+import { SemanticNames } from '../../foundation/Colors/Theme'
 import { StylableComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
-
-type SVGProps = React.SVGProps<SVGSVGElement>
 
 export enum IconSize {
   L = 34,
@@ -16,19 +15,20 @@ export enum IconSize {
 }
 
 export interface IconStyledProps {
-  color?: string
-  marginTop: number
-  marginRight: number
-  marginBottom: number
-  marginLeft: number
+  color?: SemanticNames
+  margintop: number
+  marginright: number
+  marginbottom: number
+  marginleft: number
 }
 
-export default interface IconProps extends StylableComponentProps, Omit<SVGProps, 'ref'> {
+export default interface IconProps extends StylableComponentProps {
   name: IconName
-  color?: string
+  color?: SemanticNames
   size?: IconSize
   marginTop?: number
   marginRight?: number
   marginBottom?: number
   marginLeft?: number
+  onClick?: MouseEventHandler<SVGSVGElement>
 }

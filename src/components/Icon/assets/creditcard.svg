@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path fill="#65676A" fill-rule="evenodd" d="M20.5 5c.827 0 1.5.673 1.5 1.5v11c0 .827-.673 1.5-1.5 1.5h-17c-.827 0-1.5-.673-1.5-1.5v-11C2 5.673 2.673 5 3.5 5zm-.5 7H4v5h16v-5zm-10 1v2H6v-2h4zm10-6H4v2h16V7z"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="creditcard">
+<path id="Combined Shape" fill-rule="evenodd" clip-rule="evenodd" d="M20 17H4V12H20V17ZM20 9H4V7H20V9ZM3.5 5H20.5C21.327 5 22 5.673 22 6.5V17.5C22 18.327 21.327 19 20.5 19H3.5C2.673 19 2 18.327 2 17.5V6.5C2 5.673 2.673 5 3.5 5ZM10 15H6V13H10V15Z" fill="#313234"/>
+</g>
 </svg>

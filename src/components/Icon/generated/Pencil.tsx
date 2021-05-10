@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgPencil(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M19.678 5.736L18.414 7 17 5.586l1.263-1.264a.997.997 0 011.415 0 1 1 0 010 1.414zM4 20v-1.415L4.586 18 6 19.414 5.414 20H4zM15.586 7L17 8.414 7.414 18 6 16.586 15.586 7zm5.506-4.092a2.99 2.99 0 00-2.122-.879c-.767 0-1.535.293-2.121.88L1.999 17.756V22h4.244L21.092 7.151a3.003 3.003 0 000-4.243z"
+        clipRule="evenodd"
+        d="M16.777 10.395L6.675 20.496l-3.398-.014v-3.146l10.29-10.152 3.21 3.211zm1.414-1.414l1.385-1.385a2.257 2.257 0 00-3.181-3.202L14.99 5.78l3.2 3.2zm2.799.03L7.5 22.5l-5.227-.023a1 1 0 01-.996-1V16.5L14.99 2.97a4.257 4.257 0 016 6.04z"
       />
     </svg>
   )

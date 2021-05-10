@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgList(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M4.5 17.5a1.5 1.5 0 11-.001 3.001A1.5 1.5 0 014.5 17.5zM21 18v2H8v-2h13zM4.5 10.5a1.5 1.5 0 11-.001 3.001A1.5 1.5 0 014.5 10.5zM21 11v2H8v-2h13zM4.5 3.5a1.5 1.5 0 11-.001 3.001A1.5 1.5 0 014.5 3.5zM21 4v2H8V4h13z"
+        clipRule="evenodd"
+        d="M4.5 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm0 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM6 19a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM21 6H8V4h13v2zM8 13h13v-2H8v2zm13 7H8v-2h13v2z"
       />
     </svg>
   )

@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import LoaderProps, { SpinnerSize, SpinnerThickness, SpinnerColor } from './Loader.types'
+import LoaderProps, { SpinnerSize, SpinnerThickness } from './Loader.types'
 import { StyledLoader, Spinner, Content } from './Loader.styled'
 
 export const LOADER_TEST_ID = 'ch-design-system-loader'
@@ -14,7 +14,7 @@ function Loader({
   isLoading = true,
   size = SpinnerSize.Normal,
   thickness = SpinnerThickness.Normal,
-  color = SpinnerColor.Grey,
+  color = 'bg-black-dark',
   delayed = false,
   dim = false,
   occupy = false,

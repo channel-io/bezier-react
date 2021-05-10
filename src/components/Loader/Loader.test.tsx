@@ -1,9 +1,8 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
+import { render } from '../../utils/testUtils'
 import Loader, { LOADER_TEST_ID } from './Loader'
 import LoaderProps from './Loader.types'
 
@@ -17,9 +16,7 @@ describe('Loader test >', () => {
   })
 
   const renderLoader = (optionProps?: LoaderProps) => render(
-    <ThemeProvider theme={LightTheme}>
-      <Loader {...props} {...optionProps} />
-    </ThemeProvider>,
+    <Loader {...props} {...optionProps} />,
   )
 
   it('Loader has default style', () => {

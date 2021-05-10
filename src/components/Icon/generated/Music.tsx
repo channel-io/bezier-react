@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgMusic(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M20 15.835l-.006-.001L20 16a3 3 0 01-2.824 2.995L17 19a3 3 0 111-5.829V6.142L9 7.526v10.309l-.006-.001L9 18a3 3 0 01-2.824 2.995L6 21a3 3 0 111-5.829V4.692a1 1 0 01.848-.988l11-1.692A1 1 0 0120 3v12.835z"
+        clipRule="evenodd"
+        d="M7.848 3.704A1 1 0 007 4.692v10.479a3 3 0 101.996 2.664H9V7.526l9-1.385v7.029a3 3 0 101.995 2.664H20V3a1 1 0 00-1.152-.988l-11 1.692z"
       />
     </svg>
   )

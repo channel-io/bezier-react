@@ -4,7 +4,7 @@ import { StylableComponentProps } from '../../types/ComponentProps'
 import type { IconName } from '../Icon/generated'
 
 export enum ButtonTheme {
-  Normal = 'normal'
+  Normal = 'normal',
 }
 
 export default interface ButtonProps extends StylableComponentProps {

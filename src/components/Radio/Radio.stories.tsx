@@ -3,9 +3,9 @@ import React, { useState, useMemo } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import { Text } from '../Text'
-import Typography from '../../styling/Typography'
+import { Typography } from '../../foundation'
 import Radio from './Radio'
 
 export default {

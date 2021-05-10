@@ -2,11 +2,19 @@ import React from 'react'
 
 function SvgPeopleList(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M7 8v8H6v5H4v-5H3V8h4zm14 10v2H10v-2h11zm0-7v2H10v-2h11zM5 3a2 2 0 11-.001 4.001A2 2 0 015 3zm16 1v2H10V4h11z"
+        clipRule="evenodd"
+        d="M5 7A2 2 0 105 3 2 2 0 005 7zm-2 9h1v5h2v-5h1V8H3v8zM21 6H10V4h11v2zm-11 7h11v-2H10v2zm11 7H10v-2h11v2z"
       />
     </svg>
   )

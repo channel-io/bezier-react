@@ -3,6 +3,7 @@ import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
 import { Extendable } from './utilTypes'
+import type InjectedInterpolation from './InjectedInterpolation'
 
 export interface RenderConfigProps {
   as?: React.ElementType
@@ -12,6 +13,7 @@ export interface RenderConfigProps {
 export type StylableComponentProps = Extendable<{
   style?: CSSProperties
   className?: string
+  interpolation?: InjectedInterpolation
 }>
 
 export type UIComponentProps = RenderConfigProps & StylableComponentProps

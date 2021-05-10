@@ -1,11 +1,10 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '@testing-library/react'
 
 /* Internal dependencies */
-import { ThemeProvider, LightTheme } from '../../styling/Theme'
-import Palette from '../../styling/Palette'
-import { Light as LightColors } from '../../styling/Colors'
+import { render } from '../../utils/testUtils'
+import { Themes } from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
@@ -22,9 +21,7 @@ describe('Checkbox test >', () => {
   })
 
   const renderComponent = (optionProps?: CheckboxProps) => render(
-    <ThemeProvider theme={LightTheme}>
-      <Checkbox {...props} {...optionProps} />
-    </ThemeProvider>,
+    <Checkbox {...props} {...optionProps} />,
   )
 
   it('Checkbox has default style', () => {
@@ -49,13 +46,12 @@ describe('Checkbox test >', () => {
     expect(renderedCheckboxChecker).toHaveStyle('box-sizing: border-box;')
   })
 
-  it('Checker of Checkbox has green background when check status is falsy', () => {
+  it('Checker of Checkbox has normal background when check status is falsy', () => {
     const { getByTestId } = renderComponent()
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.white};`)
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${LightColors.border3};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${Themes.LightTheme['bdr-black-light']};`)
   })
 
   it('Checker of Checkbox has green background when check status is truthy', () => {
@@ -63,7 +59,7 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Palette.green400};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Themes.LightTheme['bgtxt-green-normal']};`)
     expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
   })
 
@@ -72,6 +68,6 @@ describe('Checkbox test >', () => {
 
     const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${LightColors.disabled3};`)
+    expect(renderedCheckboxChecker).toHaveStyle(`opacity: ${DisabledOpacity}`)
   })
 })

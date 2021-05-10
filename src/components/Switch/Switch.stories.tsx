@@ -3,11 +3,12 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/utils'
+import { getTitle } from '../../utils/etcUtils'
 import Switch from './Switch'
 
 export default {
   title: getTitle(base),
+  component: Switch,
   argTypes: {
     onClick: { action: 'onClick' },
   },

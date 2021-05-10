@@ -5,6 +5,7 @@ import { MouseEvent } from 'react'
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 
 export default interface RadioProps extends ChildrenComponentProps {
+  handleTestId?: string
   dotClassName?: string
   watchingValue?: any
   disabled?: boolean
