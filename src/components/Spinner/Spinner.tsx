@@ -5,10 +5,10 @@ import React from 'react'
 import SpinnerProps, { SpinnerSize } from './Spinner.types'
 import { SpinIcon } from './Spinner.styled'
 
-export const LOADER_TEST_ID = 'ch-design-system-loader'
+export const SPINNER_TEST_ID = 'ch-design-system-spinner'
 
 function Spinner({
-  testId = LOADER_TEST_ID,
+  testId = SPINNER_TEST_ID,
   className,
   size = SpinnerSize.M,
   color,
