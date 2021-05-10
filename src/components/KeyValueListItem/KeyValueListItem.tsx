@@ -96,7 +96,7 @@ function KeyValueListItem(
     renderAction,
   ])
 
-  const ValueComonent = useMemo(() => (
+  const ValueComponent = useMemo(() => (
     <Styled.ValueWrapper
       interpolation={valueWrapperInterpolation}
     >
@@ -141,7 +141,7 @@ function KeyValueListItem(
           </Styled.KeyText>
         </Styled.KeyContentWrapper>
 
-        { !multiline && ValueComonent }
+        { !multiline && ValueComponent }
 
         { ActionsComponent }
       </Styled.Row>
