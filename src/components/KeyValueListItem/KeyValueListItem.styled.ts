@@ -1,5 +1,5 @@
 /* External dependencies */
-import _ from 'lodash'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { css, ellipsis, SemanticNames, styled } from '../../foundation'
@@ -90,12 +90,12 @@ const ActionIconWrapper = styled.div<ActionWrapperProps>`
   ${({ foundation }) => foundation?.rounding?.round6}
 
   &:hover {
-    ${({ foundation, hoverBackgroundColor }) => !_.isNil(hoverBackgroundColor) && css`
+    ${({ foundation, hoverBackgroundColor }) => !isNil(hoverBackgroundColor) && css`
       background-color: ${foundation?.theme?.[hoverBackgroundColor]};
     `}
 
     ${ActionIcon} {
-      ${({ foundation, hoverIconColor }) => !_.isNil(hoverIconColor) && css`
+      ${({ foundation, hoverIconColor }) => !isNil(hoverIconColor) && css`
         color: ${foundation?.theme?.[hoverIconColor]};
       `}
     }

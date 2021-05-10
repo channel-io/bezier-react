@@ -1,6 +1,17 @@
 /* External dependencies */
-import React, { forwardRef, Ref, useCallback, useMemo } from 'react'
-import _ from 'lodash'
+import React, {
+  forwardRef,
+  Ref,
+  useCallback,
+  useMemo,
+} from 'react'
+import {
+  noop,
+  isNil,
+  isEmpty,
+  isArray,
+  isBoolean,
+} from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -35,8 +46,8 @@ function KeyValueListItem(
           key={key}
           hoverBackgroundColor={action.hoverBackgroundColor ?? 'bg-black-lighter'}
           hoverIconColor={action.hoverIconColor ?? 'txt-black-darkest'}
-          show={_.isBoolean(action.show) ? action.show : true}
-          onClick={action.onClick ?? _.noop}
+          show={isBoolean(action.show) ? action.show : true}
+          onClick={action.onClick ?? noop}
         >
           <Styled.ActionIcon
             name={action.icon}
@@ -46,7 +57,7 @@ function KeyValueListItem(
         </Styled.ActionIconWrapper>
       )
 
-      if (!_.isEmpty(action.tooltip)) {
+      if (!isEmpty(action.tooltip)) {
         return (
           <Styled.ActionIconTooltip
             content={action.tooltip}
@@ -82,11 +93,11 @@ function KeyValueListItem(
   }, [keyIcon])
 
   const ActionsComponent = useMemo(() => {
-    if (_.isNil(actions) || _.isEmpty(actions)) {
+    if (isNil(actions) || isEmpty(actions)) {
       return null
     }
 
-    const item = _.isArray(actions)
+    const item = isArray(actions)
       ? actions.map((action) => renderAction(action, uuid()))
       : renderAction(actions)
 
