@@ -80,7 +80,7 @@ function ListItemComponent({
     desc.split('\n').map((str, index) => {
       if (index === 0) {
         return (
-          <Text key={uuid()} typo={Typography.Size14}>
+          <Text key={uuid()} typo={Typography.Size12}>
             { str }
           </Text>
         )
@@ -89,9 +89,7 @@ function ListItemComponent({
       return (
         <Fragment key={uuid()}>
           <br />
-          <Text
-            typo={Typography.Size14}
-          >
+          <Text typo={Typography.Size12}>
             { str }
           </Text>
         </Fragment>
@@ -163,13 +161,9 @@ function ListItemComponent({
       { leftIcon && <IconMargin /> }
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
-          isString(description) ? (
-            <Text
-              typo={Typography.Size14}
-            >
-              { getNewLineComponenet(description) }
-            </Text>
-          ) : description
+          isString(description)
+            ? getNewLineComponenet(description)
+            : description
         }
       </Description>
     </DescriptionWrapper>
