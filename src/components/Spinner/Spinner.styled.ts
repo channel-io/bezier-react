@@ -41,6 +41,5 @@ export const SpinIcon = styled.div<StyledSpinnerProps>`
   border-bottom-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-left-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-radius: 50%;
-  transform-origin: 50% 50%;
   animation: loaderRotate 1s infinite linear;
 `
