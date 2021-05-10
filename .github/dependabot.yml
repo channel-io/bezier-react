@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+    reviewers:
+      - "jwoo0122"
+    commit-message:
+      prefix: "[Dependency]"
+    labels:
+      - "dependency updates"

@@ -6,14 +6,15 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
-import { Icon, IconSize } from '../Icon'
+import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
 import { Typography } from '../../foundation'
 import ListItemProps, { ListItemSize } from './ListItem.types'
 import {
   Wrapper,
   ContentWrapper,
-  IconWrapper,
+  LeftContentWrapper,
+  StyledIcon,
   IconMargin,
   TitleWrapper,
   Title,
@@ -41,6 +42,7 @@ function ListItemComponent({
   content,
   description,
   name,
+  leftContent,
   leftIcon,
   leftIconColor,
   disableIconActive = false,
@@ -78,7 +80,7 @@ function ListItemComponent({
     desc.split('\n').map((str, index) => {
       if (index === 0) {
         return (
-          <Text key={uuid()} typo={Typography.Size14}>
+          <Text key={uuid()} typo={Typography.Size12}>
             { str }
           </Text>
         )
@@ -87,9 +89,7 @@ function ListItemComponent({
       return (
         <Fragment key={uuid()}>
           <br />
-          <Text
-            typo={Typography.Size14}
-          >
+          <Text typo={Typography.Size12}>
             { str }
           </Text>
         </Fragment>
@@ -97,26 +97,42 @@ function ListItemComponent({
     })
   ), [])
 
+  const leftComponent = useMemo(() => {
+    if (!isNil(leftContent)) {
+      return (
+        <LeftContentWrapper>
+          { leftContent }
+        </LeftContentWrapper>
+      )
+    }
+    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+      return (
+        <LeftContentWrapper>
+          <StyledIcon
+            className={iconClassName}
+            name={leftIcon}
+            size={IconSize.S}
+            active={active}
+            disableIconActive={disableIconActive}
+            color={leftIconColor}
+          />
+        </LeftContentWrapper>
+      )
+    }
+
+    return null
+  }, [
+    active,
+    disableIconActive,
+    iconClassName,
+    leftContent,
+    leftIcon,
+    leftIconColor,
+  ])
+
   const titleComponent = useMemo(() => (
     <TitleWrapper className={contentClassName}>
-      {
-        leftIcon && (
-          isIconName(leftIcon)
-            ? (
-              <IconWrapper
-                color={leftIconColor}
-                className={iconClassName}
-                active={active}
-                disableIconActive={disableIconActive}
-              >
-                <Icon
-                  name={leftIcon}
-                  size={IconSize.S}
-                />
-              </IconWrapper>
-            ) : leftIcon
-        )
-      }
+      { leftComponent }
       <Title>
         {
           isString(content) ? (
@@ -132,13 +148,9 @@ function ListItemComponent({
       </Title>
     </TitleWrapper>
   ), [
-    active,
+    leftComponent,
     content,
     contentClassName,
-    disableIconActive,
-    iconClassName,
-    leftIcon,
-    leftIconColor,
     size,
   ])
 
@@ -149,13 +161,9 @@ function ListItemComponent({
       { leftIcon && <IconMargin /> }
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
-          isString(description) ? (
-            <Text
-              typo={Typography.Size14}
-            >
-              { getNewLineComponenet(description) }
-            </Text>
-          ) : description
+          isString(description)
+            ? getNewLineComponenet(description)
+            : description
         }
       </Description>
     </DescriptionWrapper>

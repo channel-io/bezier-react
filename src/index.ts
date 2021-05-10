@@ -16,6 +16,7 @@ export * from './components/Tabs'
 export * from './components/TabItem'
 export * from './components/TabAction'
 export * from './components/ListMenuTitle'
+export * from './components/Spinner'
 export * from './components/OutlineItem'
 export * from './components/ListItem'
 export * from './components/Overlay'
@@ -30,6 +31,7 @@ export * from './components/TagBadge'
 export * from './components/Status'
 export * from './components/SegmentedControl'
 export * from './components/Input/TextField'
+export * from './components/KeyValueListItem'
 
 // TODO: Antlr 문제 수정 후 export (Cannot read property RuleContext of undefined)
 // export * from './components/Editor'
@@ -50,6 +52,8 @@ export type { default as BlocksParserContextType } from './types/BlocksParserCon
 export type { UIComponentProps } from './types/ComponentProps'
 export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
+export type { default as InjectedInterpolation } from './types/InjectedInterpolation'
+export type { WithInterpolation } from './types/InjectedInterpolation'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from './types/LayoutHeaderType'

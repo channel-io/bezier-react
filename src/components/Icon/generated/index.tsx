@@ -7,6 +7,7 @@ import AppPlus from './AppPlus'
 import AppPush from './AppPush'
 import Apple from './Apple'
 import AppsAdd from './AppsAdd'
+import AppsFilled from './AppsFilled'
 import Apps from './Apps'
 import Archive from './Archive'
 import ArrowDown from './ArrowDown'
@@ -65,6 +66,7 @@ import Cancel from './Cancel'
 import Car from './Car'
 import CartAbandoned from './CartAbandoned'
 import Cart from './Cart'
+import ChainReaction from './ChainReaction'
 import ChannelBtnFilled from './ChannelBtnFilled'
 import ChannelBtnSmileFilled from './ChannelBtnSmileFilled'
 import ChannelBtnSmile from './ChannelBtnSmile'
@@ -80,10 +82,12 @@ import Channel from './Channel'
 import ChannelsList from './ChannelsList'
 import ChatBubbleFilled from './ChatBubbleFilled'
 import ChatBubble from './ChatBubble'
+import ChatCancel from './ChatCancel'
 import ChatCheckFilled from './ChatCheckFilled'
 import ChatCheck from './ChatCheck'
 import ChatErrorFilled from './ChatErrorFilled'
 import ChatError from './ChatError'
+import ChatInfo from './ChatInfo'
 import ChatLightning from './ChatLightning'
 import ChatProgressFilled from './ChatProgressFilled'
 import ChatProgress from './ChatProgress'
@@ -151,6 +155,7 @@ import FaceSad from './FaceSad'
 import FaceSmileAdd from './FaceSmileAdd'
 import FaceSmileFilled from './FaceSmileFilled'
 import FaceSmile from './FaceSmile'
+import FaceWow from './FaceWow'
 import Facebook from './Facebook'
 import FastForward from './FastForward'
 import FastRewind from './FastRewind'
@@ -238,6 +243,7 @@ import MoonFilled from './MoonFilled'
 import MoreVertical from './MoreVertical'
 import More from './More'
 import Mouse from './Mouse'
+import MultiNode from './MultiNode'
 import Music from './Music'
 import Naver from './Naver'
 import New from './New'
@@ -249,6 +255,7 @@ import Notification from './Notification'
 import Number from './Number'
 import Office from './Office'
 import OpenInNew from './OpenInNew'
+import Order from './Order'
 import Out from './Out'
 import PageDownload from './PageDownload'
 import PageZip from './PageZip'
@@ -259,9 +266,11 @@ import PeopleList from './PeopleList'
 import People from './People'
 import PersonAdd from './PersonAdd'
 import PersonBlocked from './PersonBlocked'
+import PersonCheck from './PersonCheck'
 import PersonCircleFilled from './PersonCircleFilled'
 import PersonCircle from './PersonCircle'
 import PersonFilled from './PersonFilled'
+import PersonRemove from './PersonRemove'
 import Person from './Person'
 import PieChart from './PieChart'
 import PinOff from './PinOff'
@@ -297,8 +306,10 @@ import Settings from './Settings'
 import Shine from './Shine'
 import Shopping from './Shopping'
 import Shuffle from './Shuffle'
+import SingleNode from './SingleNode'
 import Siren from './Siren'
 import Sms from './Sms'
+import Snooze from './Snooze'
 import Soccerball from './Soccerball'
 import Sorting from './Sorting'
 import SpaceHorizontal from './SpaceHorizontal'
@@ -328,6 +339,8 @@ import Translate from './Translate'
 import Trash from './Trash'
 import TrendingDown from './TrendingDown'
 import TrendingLeftCircleFilled from './TrendingLeftCircleFilled'
+import TrendingLeft from './TrendingLeft'
+import TrendingRight from './TrendingRight'
 import TrendingUp from './TrendingUp'
 import TriangleDownCircleFilled from './TriangleDownCircleFilled'
 import TriangleDownCircle from './TriangleDownCircle'
@@ -347,6 +360,7 @@ import Tune from './Tune'
 import Twitter from './Twitter'
 import Typography from './Typography'
 import Underline from './Underline'
+import Untag from './Untag'
 import Upload from './Upload'
 import Username from './Username'
 import Variable from './Variable'
@@ -390,6 +404,7 @@ const icons = {
   'app-push': AppPush,
   'apple': Apple,
   'apps-add': AppsAdd,
+  'apps-filled': AppsFilled,
   'apps': Apps,
   'archive': Archive,
   'arrow-down': ArrowDown,
@@ -448,6 +463,7 @@ const icons = {
   'car': Car,
   'cart-abandoned': CartAbandoned,
   'cart': Cart,
+  'chain-reaction': ChainReaction,
   'channel-btn-filled': ChannelBtnFilled,
   'channel-btn-smile-filled': ChannelBtnSmileFilled,
   'channel-btn-smile': ChannelBtnSmile,
@@ -463,10 +479,12 @@ const icons = {
   'channels-list': ChannelsList,
   'chat-bubble-filled': ChatBubbleFilled,
   'chat-bubble': ChatBubble,
+  'chat-cancel': ChatCancel,
   'chat-check-filled': ChatCheckFilled,
   'chat-check': ChatCheck,
   'chat-error-filled': ChatErrorFilled,
   'chat-error': ChatError,
+  'chat-info': ChatInfo,
   'chat-lightning': ChatLightning,
   'chat-progress-filled': ChatProgressFilled,
   'chat-progress': ChatProgress,
@@ -534,6 +552,7 @@ const icons = {
   'face-smile-add': FaceSmileAdd,
   'face-smile-filled': FaceSmileFilled,
   'face-smile': FaceSmile,
+  'face-wow': FaceWow,
   'facebook': Facebook,
   'fast-forward': FastForward,
   'fast-rewind': FastRewind,
@@ -621,6 +640,7 @@ const icons = {
   'more-vertical': MoreVertical,
   'more': More,
   'mouse': Mouse,
+  'multi-node': MultiNode,
   'music': Music,
   'naver': Naver,
   'new': New,
@@ -632,6 +652,7 @@ const icons = {
   'number': Number,
   'office': Office,
   'open-in-new': OpenInNew,
+  'order': Order,
   'out': Out,
   'page-download': PageDownload,
   'page-zip': PageZip,
@@ -642,9 +663,11 @@ const icons = {
   'people': People,
   'person-add': PersonAdd,
   'person-blocked': PersonBlocked,
+  'person-check': PersonCheck,
   'person-circle-filled': PersonCircleFilled,
   'person-circle': PersonCircle,
   'person-filled': PersonFilled,
+  'person-remove': PersonRemove,
   'person': Person,
   'pie-chart': PieChart,
   'pin-off': PinOff,
@@ -680,8 +703,10 @@ const icons = {
   'shine': Shine,
   'shopping': Shopping,
   'shuffle': Shuffle,
+  'single-node': SingleNode,
   'siren': Siren,
   'sms': Sms,
+  'snooze': Snooze,
   'soccerball': Soccerball,
   'sorting': Sorting,
   'space-horizontal': SpaceHorizontal,
@@ -711,6 +736,8 @@ const icons = {
   'trash': Trash,
   'trending-down': TrendingDown,
   'trending-left-circle-filled': TrendingLeftCircleFilled,
+  'trending-left': TrendingLeft,
+  'trending-right': TrendingRight,
   'trending-up': TrendingUp,
   'triangle-down-circle-filled': TriangleDownCircleFilled,
   'triangle-down-circle': TriangleDownCircle,
@@ -730,6 +757,7 @@ const icons = {
   'twitter': Twitter,
   'typography': Typography,
   'underline': Underline,
+  'untag': Untag,
   'upload': Upload,
   'username': Username,
   'variable': Variable,

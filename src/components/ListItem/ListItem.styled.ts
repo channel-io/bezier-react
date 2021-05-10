@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { css, ellipsis, styled } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
+import { Icon } from '../Icon'
 import { ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
@@ -63,14 +64,17 @@ const IconSpacing = css`
   margin-right: 8px;
 `
 
-export const IconWrapper = styled.div<IconWrapperProps>`
-  ${IconSpacing}
-  display: flex;
-  align-items: center;
+export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${props => {
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
+`
+
+export const LeftContentWrapper = styled.div`
+  ${IconSpacing}
+  display: flex;
+  align-items: center;
 `
 
 export const IconMargin = styled.div`
@@ -97,7 +101,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     `)}
   }
 
-  &:hover ${IconWrapper} {
+  &:hover ${StyledIcon} {
     color: ${({ foundation, active, color }) => (
     active
       ? foundation?.theme['bgtxt-blue-normal']

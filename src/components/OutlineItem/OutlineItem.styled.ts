@@ -17,7 +17,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0;
+  padding: 0 6px;
   padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
@@ -47,6 +47,12 @@ export const ChevronWrapper = styled.div`
   justify-content: center;
   width: 16px;
   height: 100%;
+`
+
+export const LeftContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
 `
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`
