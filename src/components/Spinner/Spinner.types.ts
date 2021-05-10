@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { SemanticNames } from '../../foundation'
-import { ChildrenComponentProps } from '../../types/ComponentProps'
+import { UIComponentProps } from '../../types/ComponentProps'
 
 export enum SpinnerSize {
   XL = 50,
@@ -16,12 +16,12 @@ export enum SpinnerThickness {
   Light = 2,
 }
 
-export default interface SpinnerProps extends ChildrenComponentProps {
+export default interface SpinnerProps extends UIComponentProps {
   size?: SpinnerSize
   color?: SemanticNames
 }
 
-export interface StyledSpinnerProps {
+export interface StyledSpinnerProps extends SpinnerProps {
   size: SpinnerSize
   color?: SemanticNames
 }
