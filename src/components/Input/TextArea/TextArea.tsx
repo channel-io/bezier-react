@@ -106,6 +106,7 @@ function TextArea(
         placeholder={placeholder}
         maxHeight={maxHeight}
         spellCheck={false}
+        interpolation={inputInterpolation}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onInput={handleChangeInput}

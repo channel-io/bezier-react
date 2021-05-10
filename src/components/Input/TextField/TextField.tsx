@@ -330,7 +330,6 @@ function TextFieldComponent({
       />
       { activeClear && clearComponent }
       { rightComponent }
-      { focused ? 'asdf' : 'no focus' }
     </Styled.Wrapper>
   )
 }

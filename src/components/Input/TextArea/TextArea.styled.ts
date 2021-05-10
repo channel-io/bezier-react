@@ -45,6 +45,8 @@ const Input = styled.div<InputProps>`
     border: none;
     outline: none;
   }
+
+  ${({ interpolation }) => interpolation}
 `
 
 export default {
