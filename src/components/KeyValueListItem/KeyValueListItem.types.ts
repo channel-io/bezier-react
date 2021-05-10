@@ -25,5 +25,4 @@ export interface KeyValueListItemProps extends ChildrenComponentProps {
   className?: string
   valueWrapperInterpolation?: InjectedInterpolation
   keyWrapperInterpolation?: InjectedInterpolation
-  children?: React.ReactNode
 }

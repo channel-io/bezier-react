@@ -107,21 +107,6 @@ function KeyValueListItem(
     valueWrapperInterpolation,
   ])
 
-  const MultilineValueComponent = useMemo(() => {
-    if (!multiline) {
-      return null
-    }
-
-    return (
-      <Styled.ValueWrapper>
-        { children }
-      </Styled.ValueWrapper>
-    )
-  }, [
-    children,
-    multiline,
-  ])
-
   return (
     <Styled.Wrapper
       ref={forwardedRef}
@@ -148,7 +133,7 @@ function KeyValueListItem(
 
       { multiline && (
         <Styled.Row>
-          { MultilineValueComponent }
+          { ValueComponent }
         </Styled.Row>
       ) }
     </Styled.Wrapper>
