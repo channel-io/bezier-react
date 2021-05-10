@@ -78,7 +78,7 @@ function Button(
       case ButtonSize.L:
       case ButtonSize.M:
       default:
-        return 3
+        return 2
     }
   }, [size])
 

@@ -66,7 +66,7 @@ describe('Button Test >', () => {
       expect(secondaryButton).toHaveStyle('overflow: hidden;')
     })
 
-    it('Secondary', () => {
+    it('Tertiary', () => {
       const { getByTestId } = renderButton({ styleVariant: ButtonStyleVariant.Tertiary })
       const tertiaryButton = getByTestId(BUTTON_TEST_ID)
 
