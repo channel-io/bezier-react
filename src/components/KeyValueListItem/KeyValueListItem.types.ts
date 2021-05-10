@@ -1,11 +1,11 @@
 /* External dependencies */
 import React from 'react'
+
+/* Internal dependencies */
 import { SemanticNames } from '../../foundation'
 import { ChildrenComponentProps } from '../../types/ComponentProps'
 import InjectedInterpolation from '../../types/InjectedInterpolation'
 import { IconName } from '../Icon'
-
-/* Internal dependencies */
 
 export type KeyValueActionProps = {
   icon: IconName

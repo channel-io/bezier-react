@@ -1,3 +1,4 @@
+/* Internal dependencies */
 import KeyValueListItem from './KeyValueListItem'
 import type { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 
