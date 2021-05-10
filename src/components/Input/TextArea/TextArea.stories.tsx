@@ -23,7 +23,6 @@ const Template = ({ ...otherProps }) => {
         {...otherProps}
       />
     </div>
-
   )
 }
 
