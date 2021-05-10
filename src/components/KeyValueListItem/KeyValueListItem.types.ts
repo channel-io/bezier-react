@@ -1,7 +1,8 @@
 /* External dependencies */
 import React from 'react'
 import { SemanticNames } from '../../foundation'
-import InjectedInterpolation, { WithInterpolation } from '../../types/InjectedInterpolation'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
+import InjectedInterpolation from '../../types/InjectedInterpolation'
 import { IconName } from '../Icon'
 
 /* Internal dependencies */
@@ -16,7 +17,7 @@ export type KeyValueActionProps = {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 } | React.ReactElement
 
-export interface KeyValueListItemProps extends WithInterpolation {
+export interface KeyValueListItemProps extends ChildrenComponentProps {
   multiline?: boolean
   keyIcon?: IconName
   keyContent?: string
@@ -24,8 +25,5 @@ export interface KeyValueListItemProps extends WithInterpolation {
   className?: string
   valueWrapperInterpolation?: InjectedInterpolation
   keyWrapperInterpolation?: InjectedInterpolation
-  testId?: string
   children?: React.ReactNode
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
 }
