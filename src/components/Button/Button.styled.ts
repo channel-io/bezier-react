@@ -2,7 +2,10 @@
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
+import {
+  styled,
+  css,
+} from '../../foundation'
 import DisabledOpacity from '../../constants/DisabledOpacity'
 import {
   ButtonProps,

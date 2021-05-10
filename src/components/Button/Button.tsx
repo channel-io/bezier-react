@@ -7,7 +7,10 @@ import React, {
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Icon, IconSize } from '../Icon'
+import {
+  Icon,
+  IconSize,
+} from '../Icon'
 import { isIconName } from '../Icon/util'
 import type { IconName } from '../Icon'
 import { Text } from '../Text'

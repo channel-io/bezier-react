@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
@@ -9,6 +10,7 @@ import {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,
+  ButtonProps,
 } from './Button.types'
 import Button from './Button'
 
@@ -42,11 +44,11 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ buttonTheme, ...args }) => <Button {...args}/>
+const Template: Story<ButtonProps> = ({ buttonTheme, ...args }) => <Button {...args}/>
 
-export const Primary = Template.bind({})
+export const Primary: Story<ButtonProps> = Template.bind({})
 Primary.args = {
   text: 'Invite',
   disabled: false,
@@ -58,7 +60,7 @@ Primary.args = {
   colorVariant: ButtonColorVariant.Blue,
 }
 
-export const WithCustomComponent = Template.bind({})
+export const WithCustomComponent: Story<ButtonProps> = Template.bind({})
 WithCustomComponent.args = {
   text: 'Set Manager',
   leftComponent: <Avatar avatarUrl="https://source.unsplash.com/random"/>,
