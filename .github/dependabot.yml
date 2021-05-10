@@ -8,6 +8,6 @@ updates:
     reviewers:
       - "jwoo0122"
     commit-message:
-      prefix: "[Dependency Updates] - "
+      prefix: "[Dependency]"
     labels:
       - "dependency updates"
