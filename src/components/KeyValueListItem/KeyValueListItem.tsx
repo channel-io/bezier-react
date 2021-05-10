@@ -1,4 +1,3 @@
-// TODO-v4: 디자인 시스템으로 이전
 /* External dependencies */
 import React, { forwardRef, Ref, useCallback, useMemo } from 'react'
 import _ from 'lodash'
@@ -7,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import { Typography } from '../../foundation'
+import { isIconName } from '../Icon/util'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 import Styled from './KeyValueListItem.styled'
 
@@ -68,8 +68,7 @@ function KeyValueListItem(
   }, [])
 
   const KeyIconComponent = useMemo(() => {
-    // isIconName export 하고 교체
-    if (_.isString(keyIcon)) {
+    if (isIconName(keyIcon)) {
       return (
         <Icon
           name={keyIcon}
