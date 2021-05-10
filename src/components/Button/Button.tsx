@@ -14,6 +14,10 @@ import {
 import { isIconName } from '../Icon/util'
 import type { IconName } from '../Icon'
 import { Text } from '../Text'
+import {
+  Spinner,
+  SpinnerSize,
+} from '../Spinner'
 import { Typography } from '../../foundation'
 import {
   ButtonProps,
@@ -21,7 +25,7 @@ import {
   ButtonStyleVariant,
   ButtonColorVariant,
 } from './Button.types'
-import { StyledBaseButton } from './Button.styled'
+import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
 export const BUTTON_TEXT_TEST_ID = 'ch-design-system-button-text'
@@ -32,6 +36,7 @@ function Button(
     testId = BUTTON_TEST_ID,
     text,
     disabled = false,
+    loading = false,
     active = false,
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
@@ -82,6 +87,19 @@ function Button(
     }
   }, [size])
 
+  const ButtonSpinnerSize = useMemo(() => {
+    switch (size) {
+      case ButtonSize.S:
+      case ButtonSize.XS:
+        return SpinnerSize.XS
+      case ButtonSize.XL:
+      case ButtonSize.L:
+      case ButtonSize.M:
+      default:
+        return SpinnerSize.S
+    }
+  }, [size])
+
   const iconSize = useMemo(() => {
     switch (size) {
       case ButtonSize.S:
@@ -94,6 +112,23 @@ function Button(
         return IconSize.S
     }
   }, [size])
+
+  const iconAndSpinnerColor = useMemo(() => {
+    if (
+      (colorVariant !== ButtonColorVariant.Monochrome) ||
+      (
+        (styleVariant !== ButtonStyleVariant.Secondary) &&
+        (styleVariant !== ButtonStyleVariant.Tertiary)
+      )
+    ) {
+      return undefined
+    }
+
+    return 'txt-black-darker'
+  }, [
+    colorVariant,
+    styleVariant,
+  ])
 
   const handleClick = useCallback((event: MouseEvent) => {
     if (!disabled) { onClick(event) }
@@ -111,6 +146,7 @@ function Button(
           size={iconSize}
           marginRight={(text && !isRightIcon) ? iconMargin : 0}
           marginLeft={(text && isRightIcon) ? iconMargin : 0}
+          color={iconAndSpinnerColor}
         />
       )
     }
@@ -120,10 +156,11 @@ function Button(
     text,
     iconSize,
     iconMargin,
+    iconAndSpinnerColor,
   ])
 
   return (
-    <StyledBaseButton
+    <Styled.ButtonWrapper
       as={as}
       ref={forwardedRef}
       size={size}
@@ -135,22 +172,33 @@ function Button(
       data-testid={testId}
       onClick={handleClick}
     >
-      { renderSideComponent(leftComponent, false) }
+      <Styled.ButtonContents visible={!loading}>
+        { renderSideComponent(leftComponent, false) }
 
-      { text && (
-        <Text
-          testId={BUTTON_TEXT_TEST_ID}
-          typo={typography}
-          bold
-          marginRight={textMargin}
-          marginLeft={textMargin}
-        >
-          { text }
-        </Text>
+        { text && (
+          <Text
+            testId={BUTTON_TEXT_TEST_ID}
+            typo={typography}
+            bold
+            marginRight={textMargin}
+            marginLeft={textMargin}
+          >
+            { text }
+          </Text>
+        ) }
+
+        { renderSideComponent(rightComponent, true) }
+      </Styled.ButtonContents>
+
+      { loading && (
+        <Styled.ButtonLoader>
+          <Spinner
+            size={ButtonSpinnerSize}
+            color={iconAndSpinnerColor}
+          />
+        </Styled.ButtonLoader>
       ) }
-
-      { renderSideComponent(rightComponent, true) }
-    </StyledBaseButton>
+    </Styled.ButtonWrapper>
   )
 }
 

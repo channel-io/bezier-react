@@ -53,6 +53,7 @@ Primary.args = {
   text: 'Invite',
   disabled: false,
   active: false,
+  loading: false,
   leftComponent: 'plus',
   rightComponent: 'arrow-right',
   size: ButtonSize.M,

@@ -261,11 +261,31 @@ function getCSSFromVariant({
   `
 }
 
-export const StyledBaseButton = styled.button<ButtonProps>`
-  box-sizing: border-box;
+interface ButtonContentsProps {
+  visible?: boolean
+}
+
+export const ButtonContents = styled.div<ButtonContentsProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+`
+
+export const ButtonLoader = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ButtonWrapper = styled.button<ButtonProps>`
+  position: relative;
+  box-sizing: border-box;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   border: none;
   outline: none;

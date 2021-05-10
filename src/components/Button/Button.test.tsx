@@ -36,9 +36,7 @@ describe('Button Test >', () => {
     const defaultButton = getByTestId(BUTTON_TEST_ID)
 
     expect(defaultButton).toHaveStyle('box-sizing: border-box')
-    expect(defaultButton).toHaveStyle('display: flex')
-    expect(defaultButton).toHaveStyle('align-items: center')
-    expect(defaultButton).toHaveStyle('justify-content: center')
+    expect(defaultButton).toHaveStyle('position: relative;')
     expect(defaultButton).toHaveStyle('border: none;')
     expect(defaultButton).toHaveStyle('outline: none;')
   })
