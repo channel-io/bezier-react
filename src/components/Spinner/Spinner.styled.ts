@@ -34,10 +34,12 @@ export const SpinIcon = styled.div<StyledSpinnerProps>`
   display: inline-block;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  border-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-style: solid;
   border-width: ${({ size }) => getThicknessFromSize(size)}px;
   border-top-color: transparent;
+  border-right-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
+  border-bottom-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
+  border-left-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-radius: 50%;
   transform-origin: 50% 50%;
   animation: loaderRotate 1s infinite linear;
