@@ -2,6 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
+import { LightFoundation } from '../../foundation'
 import { render } from '../../utils/testUtils'
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
 import SpinnerProps, { SpinnerSize } from './Spinner.types'
@@ -28,6 +29,29 @@ describe('Spinner test >', () => {
     expect(renderedSpinner).toHaveStyle('border-style: solid;')
     expect(renderedSpinner).toHaveStyle('border-width: 3px;')
     expect(renderedSpinner).toHaveStyle('border-radius: 50%;')
+  })
+
+  describe('Color >', () => {
+    it('Default color is inherited color', () => {
+      const { getByTestId } = renderSpinner()
+      const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+
+      expect(renderedSpinner).toHaveStyle('border-top-color: transparent;')
+      expect(renderedSpinner).toHaveStyle('border-right-color: inherit;')
+      expect(renderedSpinner).toHaveStyle('border-bottom-color: inherit;')
+      expect(renderedSpinner).toHaveStyle('border-left-color: inherit;')
+    })
+
+    it('Spinner received SemanticNames', () => {
+      const targetSemanticName = 'bgtxt-blue-normal'
+      const { getByTestId } = renderSpinner({ color: targetSemanticName })
+      const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+
+      expect(renderedSpinner).toHaveStyle('border-top-color: transparent;')
+      expect(renderedSpinner).toHaveStyle(`border-right-color: ${LightFoundation.theme[targetSemanticName]};`)
+      expect(renderedSpinner).toHaveStyle(`border-bottom-color: ${LightFoundation.theme[targetSemanticName]};`)
+      expect(renderedSpinner).toHaveStyle(`border-left-color: ${LightFoundation.theme[targetSemanticName]};`)
+    })
   })
 
   describe('Spinner Size >', () => {
