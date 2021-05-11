@@ -49,4 +49,11 @@ Primary.args = {
   italic: false,
   style: { color: 'gray' },
   text: 'hello',
+  marginTop: 0,
+  marginRight: 0,
+  marginBottom: 0,
+  marginLeft: 0,
+  marginVertical: 0,
+  marginHorizontal: 0,
+  marginAll: 0,
 }
