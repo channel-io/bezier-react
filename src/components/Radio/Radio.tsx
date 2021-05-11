@@ -33,7 +33,7 @@ function Radio(
     children,
     ...otherProps
   }: RadioProps,
-  forwardedRef: React.Ref<HTMLElement>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const [hovered, setHovered] = useState(false)
 

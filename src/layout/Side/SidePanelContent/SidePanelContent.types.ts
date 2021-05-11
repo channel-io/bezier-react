@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../../types/ComponentProps'
 
-export default interface SidePanelContentProps extends UIComponentProps {
+export default interface SidePanelContentProps extends ChildrenComponentProps {
   onChangeSideWidth?: (width: number) => void
 }

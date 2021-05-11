@@ -2,7 +2,10 @@
 import { UIComponentProps } from '../../types/ComponentProps'
 import { styled, css } from '../../foundation'
 import { Icon } from '../Icon'
-import { StyledWrapperProps } from './TabAction.types'
+
+export interface StyledWrapperProps {
+  height: number
+}
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;

@@ -1,8 +1,8 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import { ColumnState } from '../../redux/LayoutActions'
 
-export default interface NavigationContentProps extends UIComponentProps {
+export default interface NavigationContentProps extends ChildrenComponentProps {
   header?: React.ReactElement | null
   fixedHeader?: boolean
   stickyFooter?: React.ReactElement | null

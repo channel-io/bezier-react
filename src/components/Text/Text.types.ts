@@ -8,4 +8,5 @@ export default interface TextProps extends ChildrenComponentProps {
   bold?: boolean
   italic?: boolean
   typo?: ReturnType<typeof css>
+  onClick?: () => void
 }

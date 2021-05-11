@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface ContentAreaProps extends UIComponentProps {
+export default interface ContentAreaProps extends ChildrenComponentProps {
   onFocus?: (e: React.FocusEvent<HTMLDivElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLDivElement>) => void
 }

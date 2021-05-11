@@ -1,8 +1,7 @@
 /* Internal dependencies */
 import { styled, hideScrollbars } from '../../foundation'
-import { StyledWrapperProps, StyledTabItemWrapperProps } from './Tabs.types'
 
-export const Wrapper = styled.div<StyledWrapperProps>`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
@@ -10,7 +9,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   box-shadow: 0 -1px 0 0 ${props => props.foundation?.theme?.['bg-black-light']} inset;
 `
 
-export const TabItemWrapper = styled.div<StyledTabItemWrapperProps>`
+export const TabItemWrapper = styled.div`
   ${hideScrollbars}
   display: flex;
   flex-direction: row;
@@ -18,7 +17,7 @@ export const TabItemWrapper = styled.div<StyledTabItemWrapperProps>`
   overflow-y: hidden;
 `
 
-export const TabActions = styled.div<StyledWrapperProps>`
+export const TabActions = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
