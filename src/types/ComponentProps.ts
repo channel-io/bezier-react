@@ -4,12 +4,12 @@ import React, { CSSProperties } from 'react'
 /* Internal dependencies */
 import type InjectedInterpolation from './InjectedInterpolation'
 
-export interface RenderConfigProps {
+interface RenderConfigProps {
   as?: React.ElementType
   testId?: string
 }
 
-export type StylableComponentProps = {
+interface StylableComponentProps {
   style?: CSSProperties
   className?: string
   interpolation?: InjectedInterpolation
