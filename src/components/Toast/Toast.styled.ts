@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ellipsis, Foundation, styled } from '../../foundation'
+import { ellipsis, Foundation, styled, Transition } from '../../foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps } from './Toast.types'
-import { getIconColor, getPlacement } from './utils'
+import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 
 interface IconProps {
   appearance: ToastAppearance
@@ -22,6 +22,16 @@ export const Container = styled.div<ToastContainerProps>`
 `
 
 export const Element = styled.div<ToastElementProps>`
+  @keyframes ToastAnimation {
+    from {
+      ${({ placement }) => initPosition(placement)}
+    }
+
+    to {
+      ${showedToastTranslateXStyle}
+    }
+  }
+
   position: relative;
   z-index: 10000000;
   display: flex;
@@ -35,6 +45,7 @@ export const Element = styled.div<ToastElementProps>`
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
+  animation: ${({ transitionDuration }) => `${transitionDuration} ${Transition.TransitionEasing} 0s 1 ToastAnimation`};
   ${({ transform }) => transform}
 `
 

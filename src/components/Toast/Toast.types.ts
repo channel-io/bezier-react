@@ -6,7 +6,6 @@ import { noop } from 'lodash-es'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 import { TransitionDuration } from '../../foundation/Transition'
-import { css } from '../../foundation'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',
@@ -49,7 +48,7 @@ export default interface ToastElementProps extends UIComponentProps {
   onClick?: () => void
   onDismiss: () => void
   transitionDuration: TransitionDuration
-  transform: ReturnType<typeof css>
+  placement: ToastPlacement
 }
 
 export interface ToastProviderProps {
@@ -98,6 +97,5 @@ export type ToastContainerProps = {
 export type ToastControllerProps = ToastElementProps & {
   autoDismiss: boolean
   autoDismissTimeout: number
-  placement: ToastPlacement
   component: ComponentType<ToastElementProps>
 }
