@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { StylableComponentProps } from '../../types/ComponentProps'
+import { UIComponentProps } from '../../types/ComponentProps'
 import type { IconName } from '../Icon/generated'
 
 export enum ButtonStyleVariant {
@@ -25,7 +25,7 @@ export enum ButtonSize {
   XL = 'XL',
 }
 
-export interface ButtonProps extends StylableComponentProps {
+export default interface ButtonProps extends UIComponentProps {
   text?: string
   disabled?: boolean
   loading?: boolean
@@ -36,4 +36,6 @@ export interface ButtonProps extends StylableComponentProps {
   leftComponent?: IconName | React.ReactNode
   rightComponent?: IconName | React.ReactNode
   onClick?: (event: MouseEvent) => void
+  width: number
+  height: number
 }

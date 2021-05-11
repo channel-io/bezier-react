@@ -7,8 +7,7 @@ import {
   css,
 } from '../../foundation'
 import DisabledOpacity from '../../constants/DisabledOpacity'
-import {
-  ButtonProps,
+import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,

@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import DisabledOpacity from '../../constants/DisabledOpacity'
 import { styled } from '../../foundation'
-import { StyledWrapperProps } from './TabItem.types'
+import TabItemProps, { StyledWrapperProps } from './TabItem.types'
 
-export const Wrapper = styled.div<StyledWrapperProps>`
+export const Wrapper = styled.div<StyledWrapperProps & TabItemProps>`
   position: relative;
   display: flex;
   flex-direction: row;

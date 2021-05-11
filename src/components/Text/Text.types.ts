@@ -12,4 +12,5 @@ export default interface TextProps extends ChildrenComponentProps {
   marginRight?: number
   marginBottom?: number
   marginLeft?: number
+  onClick?: () => void
 }

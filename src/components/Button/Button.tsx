@@ -19,8 +19,7 @@ import {
   SpinnerSize,
 } from '../Spinner'
 import { Typography } from '../../foundation'
-import {
-  ButtonProps,
+import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,

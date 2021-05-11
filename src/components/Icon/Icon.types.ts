@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../foundation'
-import { StylableComponentProps } from '../../types/ComponentProps'
+import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
@@ -14,7 +14,7 @@ export enum IconSize {
   XXS = 12,
 }
 
-export default interface IconProps extends StylableComponentProps {
+export default interface IconProps extends Omit<UIComponentProps, 'as'> {
   name: IconName
   color?: SemanticNames
   size?: IconSize

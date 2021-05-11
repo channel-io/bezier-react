@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
@@ -21,6 +22,7 @@ function Text({
   style,
   className,
   children,
+  onClick = noop,
 }: TextProps) {
   return (
     <TextView
@@ -35,6 +37,7 @@ function Text({
       marginright={marginRight}
       marginbottom={marginBottom}
       marginleft={marginLeft}
+      onClick={onClick}
     >
       { children }
     </TextView>

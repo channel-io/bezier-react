@@ -4,7 +4,7 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from './Button.types'
-import type { ButtonProps } from './Button.types'
+import type ButtonProps from './Button.types'
 
 export type { ButtonProps }
 

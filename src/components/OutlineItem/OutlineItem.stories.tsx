@@ -13,7 +13,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { getTitle } from '../../utils/etcUtils'
 import { IconSize } from '../Icon'
-import { Avatar } from '../Avatars/Avatar'
+import { Avatar, AvatarSize } from '../Avatars/Avatar'
 import OutlineItem from './OutlineItem'
 import OutlineItemProps, {
   ChevronIconType,
@@ -75,7 +75,7 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
             open
             leftContent={(
               <Avatar
-                size={IconSize.S}
+                size={AvatarSize.Size20}
               />
           )}
             leftIconColor="txt-black-dark"

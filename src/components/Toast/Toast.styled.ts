@@ -21,7 +21,7 @@ export const Container = styled.div<ToastContainerProps>`
   ${({ placement }) => getPlacement(placement)}
 `
 
-export const Element = styled.div<ToastElementProps>`
+export const Element = styled.div<Pick<ToastElementProps, 'transform' | 'transitionDuration'>>`
   position: relative;
   z-index: 10000000;
   display: flex;
@@ -32,6 +32,7 @@ export const Element = styled.div<ToastElementProps>`
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation.ev3(true)};
   pointer-events: auto;
+  background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
   ${({ transform }) => transform}
@@ -57,7 +58,7 @@ export const getEllipsisColor = (
     : foundation?.subTheme?.['txt-black-darkest']
 )
 
-export const Content = styled.div<ToastElementProps>`
+export const Content = styled.div<Pick<ToastElementProps, 'actionContent' | 'onClick'>>`
   ${ellipsis(5, 18)};
   margin: 3px 6px;
   color: ${({ actionContent, onClick, foundation }) => getEllipsisColor(actionContent, onClick, foundation)};
