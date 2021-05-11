@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { ellipsis, Foundation, styled, Transition } from '../../foundation'
-import ToastElementProps, { ToastAppearance, ToastContainerProps } from './Toast.types'
+import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 
 interface IconProps {
@@ -22,9 +22,19 @@ export const Container = styled.div<ToastContainerProps>`
 `
 
 export const Element = styled.div<ToastElementProps>`
-  @keyframes ToastAnimation {
+  @keyframes ToastAnimationLeft {
     from {
-      ${({ placement }) => initPosition(placement)}
+      ${initPosition(ToastPlacement.BottomLeft)}
+    }
+
+    to {
+      ${showedToastTranslateXStyle}
+    }
+  }
+
+  @keyframes ToastAnimationRight {
+    from {
+      ${initPosition(ToastPlacement.BottomRight)}
     }
 
     to {
@@ -45,7 +55,13 @@ export const Element = styled.div<ToastElementProps>`
   background-color: ${({ foundation }) => foundation?.subTheme?.['bg-grey-lighter']};
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
-  animation: ${({ transitionDuration }) => `${transitionDuration} ${Transition.TransitionEasing} 0s 1 ToastAnimation`};
+  animation: ${({ transitionDuration, placement }) => `
+    ${transitionDuration}
+    ${Transition.TransitionEasing}
+    0s
+    1
+    ${placement === ToastPlacement.BottomLeft ? 'ToastAnimationLeft' : 'ToastAnimationRight'}
+  `};
   ${({ transform }) => transform}
 `
 
