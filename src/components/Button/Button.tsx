@@ -19,7 +19,10 @@ import {
   Spinner,
   SpinnerSize,
 } from '../Spinner'
-import { Typography } from '../../foundation'
+import {
+  Typography,
+  SemanticNames,
+} from '../../foundation'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
@@ -29,6 +32,18 @@ import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'ch-design-system-button'
 export const BUTTON_TEXT_TEST_ID = 'ch-design-system-button-text'
+
+const monochromeIconAndSpinnerDefaultColors: {
+  [color in ButtonColorVariant]?: {
+    [style in ButtonStyleVariant]?: SemanticNames
+  }
+} = {
+  [ButtonColorVariant.Monochrome]: {
+    [ButtonStyleVariant.Secondary]: 'txt-black-darker',
+    [ButtonStyleVariant.Tertiary]: 'txt-black-dark',
+    [ButtonStyleVariant.Floating]: 'txt-black-dark',
+  },
+}
 
 function Button(
   {
@@ -118,26 +133,11 @@ function Button(
     }
   }, [size])
 
-  const iconAndSpinnerColor = useMemo(() => {
-    if (
-      active ||
-      isHovered ||
-      (colorVariant !== ButtonColorVariant.Monochrome) ||
-      (
-        (styleVariant !== ButtonStyleVariant.Secondary) &&
-        (styleVariant !== ButtonStyleVariant.Tertiary) &&
-        (styleVariant !== ButtonStyleVariant.Floating)
-      )
-    ) {
-      return undefined
-    }
-
-    if (styleVariant === ButtonStyleVariant.Secondary) {
-      return 'txt-black-darker'
-    }
-
-    return 'txt-black-dark'
-  }, [
+  const overridedIconAndSpinnerColor = useMemo(() => (
+    (active || isHovered)
+      ? undefined
+      : monochromeIconAndSpinnerDefaultColors[colorVariant]?.[styleVariant]
+  ), [
     colorVariant,
     styleVariant,
     active,
@@ -163,7 +163,7 @@ function Button(
           size={iconSize}
           marginRight={(text && !isRightIcon) ? iconMargin : 0}
           marginLeft={(text && isRightIcon) ? iconMargin : 0}
-          color={iconAndSpinnerColor}
+          color={overridedIconAndSpinnerColor}
         />
       )
     }
@@ -173,7 +173,7 @@ function Button(
     text,
     iconSize,
     iconMargin,
-    iconAndSpinnerColor,
+    overridedIconAndSpinnerColor,
   ])
 
   return (
@@ -216,7 +216,7 @@ function Button(
         <Styled.ButtonLoader>
           <Spinner
             size={ButtonSpinnerSize}
-            color={iconAndSpinnerColor}
+            color={overridedIconAndSpinnerColor}
           />
         </Styled.ButtonLoader>
       ) }
