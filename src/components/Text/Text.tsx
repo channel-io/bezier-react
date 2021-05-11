@@ -15,6 +15,13 @@ function Text({
   bold = false,
   italic = false,
   typo = Typography.Size15,
+  marginTop = 0,
+  marginRight = 0,
+  marginBottom = 0,
+  marginLeft = 0,
+  marginVertical = 0,
+  marginHorizontal = 0,
+  marginAll = 0,
   style,
   className,
   children,
@@ -29,6 +36,10 @@ function Text({
       italic={italic}
       typo={typo}
       data-testid={testId}
+      margintop={marginTop || marginVertical || marginAll}
+      marginright={marginRight || marginHorizontal || marginAll}
+      marginbottom={marginBottom || marginVertical || marginAll}
+      marginleft={marginLeft || marginHorizontal || marginAll}
       onClick={onClick}
     >
       { children }

@@ -9,6 +9,7 @@ module.exports = {
     '@storybook/addon-toolbars',
     '@storybook/addon-docs',
     '@storybook/addon-controls',
+    '@storybook/addon-backgrounds',
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({

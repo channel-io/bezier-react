@@ -26,6 +26,7 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('font-size: 15px;')
     expect(renderedText).toHaveStyle('font-weight: normal;')
     expect(renderedText).toHaveStyle('font-style: normal;')
+    expect(renderedText).toHaveStyle('color: inherit;')
   })
 
   it('Text receives bold style', () => {

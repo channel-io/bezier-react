@@ -3,10 +3,10 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
+import { iconList } from '../../utils/storyUtils'
 import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
 import { Text } from '../Text'
 import { styled } from '../../foundation'
-import icons, { IconName } from './generated'
 import Icon from './Icon'
 import { IconSize } from './Icon.types'
 
@@ -22,8 +22,6 @@ export default {
     },
   },
 }
-
-export const iconList: IconName[] = Object.keys(icons) as IconName[]
 
 const IconInfo = styled.div`
   display: inline-flex;
