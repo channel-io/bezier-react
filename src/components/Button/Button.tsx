@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useCallback,
   useMemo,
+  useState,
 } from 'react'
 import { noop } from 'lodash-es'
 
@@ -32,6 +33,9 @@ export const BUTTON_TEXT_TEST_ID = 'ch-design-system-button-text'
 function Button(
   {
     as,
+    className,
+    style,
+    interpolation,
     testId = BUTTON_TEST_ID,
     text,
     disabled = false,
@@ -46,6 +50,8 @@ function Button(
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
+  const [isHovered, setIsHovered] = useState(false)
+
   const textMargin = useMemo(() => {
     switch (size) {
       case ButtonSize.S:
@@ -114,20 +120,32 @@ function Button(
 
   const iconAndSpinnerColor = useMemo(() => {
     if (
+      active ||
+      isHovered ||
       (colorVariant !== ButtonColorVariant.Monochrome) ||
       (
         (styleVariant !== ButtonStyleVariant.Secondary) &&
-        (styleVariant !== ButtonStyleVariant.Tertiary)
+        (styleVariant !== ButtonStyleVariant.Tertiary) &&
+        (styleVariant !== ButtonStyleVariant.Floating)
       )
     ) {
       return undefined
     }
 
-    return 'txt-black-darker'
+    if (styleVariant === ButtonStyleVariant.Secondary) {
+      return 'txt-black-darker'
+    }
+
+    return 'txt-black-dark'
   }, [
     colorVariant,
     styleVariant,
+    active,
+    isHovered,
   ])
+
+  const handleMouseEnter = useCallback(() => { setIsHovered(true) }, [])
+  const handleMouseLeave = useCallback(() => { setIsHovered(false) }, [])
 
   const handleClick = useCallback((event: MouseEvent) => {
     if (!disabled) { onClick(event) }
@@ -161,6 +179,9 @@ function Button(
   return (
     <Styled.ButtonWrapper
       as={as}
+      style={style}
+      className={className}
+      interpolation={interpolation}
       ref={forwardedRef}
       size={size}
       disabled={disabled}
@@ -170,6 +191,8 @@ function Button(
       text={text}
       data-testid={testId}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Styled.ButtonContents visible={!loading}>
         { renderSideComponent(leftComponent, false) }

@@ -71,7 +71,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
         `
       case ButtonStyleVariant.Tertiary:
         return css`
-          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+          color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
           background-color: transparent;
 
           ${!disabled && css`
@@ -294,4 +294,6 @@ export const ButtonWrapper = styled.button<ButtonProps>`
 
   ${getSizeCSSFromButtonSize};
   ${getCSSFromVariant};
+
+  ${({ interpolation }) => interpolation};
 `
