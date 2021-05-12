@@ -27,7 +27,7 @@ function ToastController({
   onDismiss,
   ...props
 }: ToastControllerProps) {
-  const [transform, setTransform] = useState(initPosition(placement))
+  const [transform, setTransform] = useState(showedToastTranslateXStyle)
   const timer = useRef<number>()
 
   const handleDismiss = useCallback(() => {
@@ -53,10 +53,6 @@ function ToastController({
   }, [autoDismiss])
 
   useEffect(() => {
-    setTransform(showedToastTranslateXStyle)
-  }, [])
-
-  useEffect(() => {
     if (autoDismiss) {
       timer.current = setTimeout(startTimer, parseDuration(transitionDuration))
     }
@@ -67,6 +63,7 @@ function ToastController({
   return (
     <ToastElement
       transitionDuration={transitionDuration}
+      placement={placement}
       onDismiss={handleDismiss}
       {...props}
       transform={transform}

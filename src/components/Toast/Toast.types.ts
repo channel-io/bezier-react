@@ -50,6 +50,7 @@ export default interface ToastElementProps extends UIComponentProps {
   onDismiss: () => void
   transitionDuration: TransitionDuration
   transform: ReturnType<typeof css>
+  placement: ToastPlacement
 }
 
 export interface ToastProviderProps {
@@ -98,6 +99,5 @@ export type ToastContainerProps = {
 export type ToastControllerProps = ToastElementProps & {
   autoDismiss: boolean
   autoDismissTimeout: number
-  placement: ToastPlacement
   component: ComponentType<ToastElementProps>
 }
