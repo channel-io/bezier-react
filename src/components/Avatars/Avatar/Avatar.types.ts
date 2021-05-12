@@ -23,7 +23,7 @@ export default interface AvatarProps extends ChildrenComponentProps {
   status?: StatusType
   disabled?: boolean
   wrapperClassName?: string
-  wrapperInterpolation: InjectedInterpolation
+  wrapperInterpolation?: InjectedInterpolation
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
