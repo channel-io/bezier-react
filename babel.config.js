@@ -8,15 +8,7 @@ module.exports = {
       ],
       plugins: [
         "@babel/plugin-transform-runtime",
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
-        ['@babel/plugin-transform-classes', { loose: true }],
-        ['transform-imports', {
-          'core-decorators': {
-            transform: 'core-decorators/lib/${member}',
-            preventFullImport: true,
-          },
-        }],
       ],
     },
     build: {
@@ -27,15 +19,7 @@ module.exports = {
       ],
       plugins: [
         "@babel/plugin-transform-runtime",
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
-        ['@babel/plugin-transform-classes', { loose: true }],
-        ['transform-imports', {
-          'core-decorators': {
-            transform: 'core-decorators/lib/${member}',
-            preventFullImport: true,
-          },
-        }],
       ],
     },
   },
