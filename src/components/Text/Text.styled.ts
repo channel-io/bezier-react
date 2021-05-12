@@ -1,8 +1,9 @@
 /* Internal dependencies */
-import { styled } from '../../foundation'
+import { SemanticNames, styled } from '../../foundation'
 import TextProps from './Text.types'
 
 export interface TextStyledProps {
+  color?: SemanticNames
   margintop: number
   marginright: number
   marginbottom: number
@@ -24,7 +25,7 @@ const Text = styled.span<TextProps & TextStyledProps>`
   margin: ${getMargin};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
-  color: inherit;
+  color: ${({ foundation, color }) => (color && foundation?.theme?.[color]) || 'inherit'};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')}
 `

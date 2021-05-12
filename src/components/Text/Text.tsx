@@ -14,6 +14,7 @@ function Text({
   testId = TEXT_TEST_ID,
   bold = false,
   italic = false,
+  color,
   typo = Typography.Size15,
   marginTop = 0,
   marginRight = 0,
@@ -34,6 +35,7 @@ function Text({
       className={className}
       bold={bold}
       italic={italic}
+      color={color}
       typo={typo}
       data-testid={testId}
       margintop={marginTop || marginVertical || marginAll}
