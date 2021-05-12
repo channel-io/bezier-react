@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { StatusType } from '../../Status'
 
 export enum AvatarSize {
@@ -21,6 +22,8 @@ export default interface AvatarProps extends ChildrenComponentProps {
   showBorder?: boolean
   status?: StatusType
   disabled?: boolean
+  wrapperClassName?: string
+  wrapperInterpolation: InjectedInterpolation
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
