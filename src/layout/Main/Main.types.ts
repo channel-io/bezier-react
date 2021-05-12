@@ -1,7 +1,10 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import {
+  ChildrenComponentProps,
+  ContentComponentProps,
+} from '../../types/ComponentProps'
 
-export default interface MainProps extends UIComponentProps {
+export default interface MainProps extends ChildrenComponentProps, ContentComponentProps {
   ContentHeaderComponent: React.ComponentType
   CoverableHeaderComponent: React.ComponentType
   SidePanelComponent: React.ComponentType

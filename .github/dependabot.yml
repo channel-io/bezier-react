@@ -4,7 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "02:00"
+      time: "11:00"
+      timezone: "Asia/Seoul"
+    target-branch: "exp"
     reviewers:
       - "jwoo0122"
     commit-message:

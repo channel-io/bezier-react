@@ -6,7 +6,7 @@ export interface OutlineItemContextProps {
   depth: number
   paddingLeft: number
   active: boolean
-  onClick: (event?: React.MouseEvent<HTMLDivElement>, name?: string) => void
+  onClick: (event?: React.MouseEvent<Element>, name?: string) => void
 }
 
 export const defaultOutlineItemContext = {
@@ -25,7 +25,7 @@ export function mergeOutlineItemContexts(
     depth: inherited.depth + 1,
     paddingLeft: inherited.paddingLeft + (props.paddingLeft ?? 0) + (inherited.depth > 0 ? indent : 0),
     active: props.active ?? inherited.active,
-    onClick: (event?: React.MouseEvent<HTMLDivElement>, name?: string) => {
+    onClick: (event?: React.MouseEvent<Element>, name?: string) => {
       inherited.onClick(event, name)
       props.onClick?.(event, name)
     },

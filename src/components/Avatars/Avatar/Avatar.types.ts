@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { StylableComponentProps, ChildrenComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import { StatusType } from '../../Status'
 
 export enum AvatarSize {
@@ -13,11 +13,10 @@ export enum AvatarSize {
   Size120 = 120,
 }
 
-export default interface AvatarProps extends StylableComponentProps, ChildrenComponentProps {
+export default interface AvatarProps extends ChildrenComponentProps {
   avatarUrl: string
   fallbackUrl?: string
   name: string
-  testId?: string
   size?: AvatarSize
   showBorder?: boolean
   status?: StatusType

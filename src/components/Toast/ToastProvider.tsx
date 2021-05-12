@@ -114,7 +114,6 @@ function ToastProvider({
       }) => (
         <ToastController
           key={id}
-          id={id}
           placement={placement}
           autoDismiss={autoDismiss ?? true}
           transitionDuration={TransitionDuration.M}
