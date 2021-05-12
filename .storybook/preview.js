@@ -20,6 +20,19 @@ const FoundationKeyword = {
 
 export const parameters = {
   layout: 'centered',
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: 'white',
+      },
+      {
+        name: 'dark',
+        value: '#2f3233',
+      },
+    ],
+  }
 }
 
 export const globalTypes = {

@@ -1,7 +1,20 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
+import React, {
+  Ref,
+  forwardRef,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from 'react'
 import { v4 as uuid } from 'uuid'
-import { noop, isNumber, isEmpty, get, map, identity } from 'lodash-es'
+import {
+  noop,
+  isNumber,
+  isEmpty,
+  get,
+  identity,
+} from 'lodash-es'
 
 /* Internal dependencies */
 import { isTabItem } from '../TabItem'
@@ -52,7 +65,8 @@ function Tabs({
           disabled,
           withIndicator,
           indicatorThickness,
-          onClick: (event: React.MouseEvent<HTMLDivElement>) => {
+          onClick: (event: React.MouseEvent<HTMLElement>) => {
+            event.persist()
             handleClickTab(index, element.props.optionKey, get(element.props, 'allowActive', true))
             if (element.props.onClick) { element.props.onClick(event) }
           },
@@ -72,12 +86,12 @@ function Tabs({
   ])
 
   const Actions = useMemo(() => {
-    const actions = map(children, (child) => {
+    const actions = React.Children.map(children, (child) => {
       if (isTabAction(child)) {
         return React.cloneElement(child, { key: child.key || uuid(), height, disabled })
       }
       return null
-    }).filter(identity)
+    })?.filter(identity)
 
     if (isEmpty(actions)) {
       return null
@@ -93,7 +107,6 @@ function Tabs({
   return (
     <Wrapper
       ref={forwardedRef}
-      disabled={disabled}
       data-testid={testId}
       data-disabled={disabled}
       data-active-index={currentTabIndex}

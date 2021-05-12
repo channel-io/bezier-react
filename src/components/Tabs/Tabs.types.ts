@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 import OptionItemHost from '../../types/OptionItemHost'
 
 export enum TabsSize {
@@ -8,13 +8,10 @@ export enum TabsSize {
   XS = 33,
 }
 
-export default interface TabsProps extends UIComponentProps, OptionItemHost {
+export default interface TabsProps extends ChildrenComponentProps, OptionItemHost {
   height?: TabsSize | number
+  disabled?: boolean
   optionsWrapperClassName?: string
   withIndicator?: boolean
   indicatorThickness?: number
 }
-
-export interface StyledWrapperProps extends UIComponentProps {}
-
-export interface StyledTabItemWrapperProps extends UIComponentProps {}

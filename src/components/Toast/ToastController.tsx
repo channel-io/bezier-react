@@ -24,7 +24,6 @@ function ToastController({
   autoDismiss,
   placement,
   component: ToastElement,
-  id,
   onDismiss,
   ...props
 }: ToastControllerProps) {

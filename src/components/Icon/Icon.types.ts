@@ -2,27 +2,21 @@
 import { MouseEventHandler } from 'react'
 
 /* Internal dependencies */
-import { SemanticNames } from '../../foundation/Colors/Theme'
-import { StylableComponentProps } from '../../types/ComponentProps'
+import { SemanticNames } from '../../foundation'
+import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
+  XL = 44,
   L = 34,
   Normal = 24,
   S = 20,
   XS = 16,
   XXS = 12,
+  XXXS = 10,
 }
 
-export interface IconStyledProps {
-  color?: SemanticNames
-  margintop: number
-  marginright: number
-  marginbottom: number
-  marginleft: number
-}
-
-export default interface IconProps extends StylableComponentProps {
+export default interface IconProps extends Omit<UIComponentProps, 'as'> {
   name: IconName
   color?: SemanticNames
   size?: IconSize

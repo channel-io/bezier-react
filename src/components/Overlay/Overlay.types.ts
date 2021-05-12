@@ -5,6 +5,8 @@ import React from 'react'
 import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
 
 export default interface OverlayProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
+  containerTestId?: string
+  wrapperTestId?: string
   show?: boolean
   containerClassName?: string
   containerStyle?: React.CSSProperties

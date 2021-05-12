@@ -33,9 +33,6 @@ export * from './components/SegmentedControl'
 export * from './components/Input/TextField'
 export * from './components/KeyValueListItem'
 
-// TODO: Antlr 문제 수정 후 export (Cannot read property RuleContext of undefined)
-// export * from './components/Editor'
-
 /* Layout */
 export * from './layout/GNB'
 export * from './layout/GlobalHeader'
