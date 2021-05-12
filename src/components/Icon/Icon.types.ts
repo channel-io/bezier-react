@@ -7,11 +7,13 @@ import { UIComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
+  XL = 44,
   L = 34,
   Normal = 24,
   S = 20,
   XS = 16,
   XXS = 12,
+  XXXS = 10,
 }
 
 export default interface IconProps extends Omit<UIComponentProps, 'as'> {
