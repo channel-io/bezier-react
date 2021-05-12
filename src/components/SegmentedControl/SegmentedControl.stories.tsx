@@ -184,7 +184,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...other
             <ItemText>{ item }</ItemText>
             <ItemIcon
               name="cancel"
-              color="txt-white"
+              color="txt-white-normal"
               disabled={allItems.length === 1}
               onClick={clickRemoveIconHandlerFactory(index)}
             />
@@ -199,7 +199,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...other
           />
           <ItemIcon
             name="plus"
-            color="txt-white"
+            color="txt-white-normal"
             onClick={handleClickAddIcon}
           />
         </InputItem>
