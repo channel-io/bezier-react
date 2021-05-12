@@ -47,6 +47,8 @@ function TextFieldComponent({
   rightContent,
   disableLeftWrapper = false,
   disableRightWrapper = false,
+  inputClassName,
+  inputInterpolation,
   wrapperClassName,
   wrapperInterpolation,
   leftWrapperClassName,
@@ -340,6 +342,8 @@ function TextFieldComponent({
     >
       { leftComponent }
       <Styled.Input
+        className={inputClassName}
+        interpolation={inputInterpolation}
         ref={inputRef}
         name={name}
         size={size}

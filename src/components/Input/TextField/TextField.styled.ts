@@ -25,7 +25,7 @@ export const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => 
   }
 `
 
-interface InputProps {
+interface InputProps extends WithInterpolation {
   disabled: boolean
   readOnly: boolean
   color: SemanticNames
@@ -44,6 +44,8 @@ const Input = styled.input<InputProps>`
   outline: none;
 
   ${placeholderStyle()}
+
+  ${({ interpolation }) => interpolation}
 `
 
 const LeftIcon = styled(Icon)<ClickableElementProps>`
