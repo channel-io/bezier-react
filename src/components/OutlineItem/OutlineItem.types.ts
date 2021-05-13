@@ -41,15 +41,15 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
-  /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
-  selectedMenuItemIndex?: number | null
+  /* OptionItemHost for Sidebar Menu - nullable selectedOutlineItemIndex */
+  selectedOutlineItemIndex?: number | null
   onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
 }
 
 export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
-  currentMenuItemIndex?: number | null
+  currentOutlineItemIndex?: number | null
   chevronClassName?: string
   selectedOptionIndex?: number
   selected?: boolean
@@ -58,5 +58,5 @@ export interface StyledWrapperProps extends ContentComponentProps {
 
 export interface StyledContentWrapperProps extends ContentComponentProps {
   open?: boolean
-  currentMenuItemIndex?: number | null
+  currentOutlineItemIndex?: number | null
 }

@@ -51,7 +51,7 @@ function OutlineItemComponent(
     onOpen = noop,
     onClickArrow = noop,
     /* OptionMenuHost Props */
-    selectedMenuItemIndex = null,
+    selectedOutlineItemIndex = null,
     onChangeOption = noop,
     /* HTMLAttribute props */
     onClick: givenOnClick = noop,
@@ -60,25 +60,25 @@ function OutlineItemComponent(
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const [currentMenuItemIndex, setCurrentMenuItemIndex] = useState<number | null>(selectedMenuItemIndex)
+  const [currentOutlineItemIndex, setCurrentOutlineItemIndex] = useState<number | null>(selectedOutlineItemIndex)
 
   useEffect(() => {
     const childs = React.Children.toArray(children)
-    if (isNil(selectedMenuItemIndex)
-      || (selectedMenuItemIndex < childs.length && selectedMenuItemIndex < 0)) {
-      setCurrentMenuItemIndex(null)
+    if (isNil(selectedOutlineItemIndex)
+      || (selectedOutlineItemIndex < childs.length && selectedOutlineItemIndex < 0)) {
+      setCurrentOutlineItemIndex(null)
       return
     }
 
-    const element = childs[selectedMenuItemIndex]
+    const element = childs[selectedOutlineItemIndex]
 
     if (React.isValidElement(element) && isNil(element.props.children)) {
       if (element.props.href) { return }
 
-      setCurrentMenuItemIndex(selectedMenuItemIndex)
+      setCurrentOutlineItemIndex(selectedOutlineItemIndex)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedMenuItemIndex])
+  }, [selectedOutlineItemIndex])
 
   useEffect(() => {
     if (open) {
@@ -198,7 +198,7 @@ function OutlineItemComponent(
 
       const passedContext = {
         ...context,
-        active: currentMenuItemIndex === index,
+        active: currentOutlineItemIndex === index,
         onClick: () => handleClickItem(index, element.props.optionKey),
       }
 
@@ -211,7 +211,7 @@ function OutlineItemComponent(
   ), [
     children,
     context,
-    currentMenuItemIndex,
+    currentOutlineItemIndex,
     handleClickItem,
   ])
 
@@ -231,10 +231,10 @@ function OutlineItemComponent(
           interpolation={interpolation}
           open={open}
           active={false}
-          currentMenuItemIndex={currentMenuItemIndex}
+          currentOutlineItemIndex={currentOutlineItemIndex}
           onClick={handleClickGroup}
           data-testid={testId}
-          data-active-index={currentMenuItemIndex}
+          data-active-index={currentOutlineItemIndex}
           paddingLeft={paddingLeft}
           {...otherProps}
         >
@@ -257,10 +257,10 @@ function OutlineItemComponent(
         interpolation={interpolation}
         open={open}
         active={active}
-        currentMenuItemIndex={currentMenuItemIndex}
+        currentOutlineItemIndex={currentOutlineItemIndex}
         onClick={handleClickGroup}
         data-testid={testId}
-        data-active-index={currentMenuItemIndex}
+        data-active-index={currentOutlineItemIndex}
         paddingLeft={paddingLeft}
         {...otherProps}
       >
