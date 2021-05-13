@@ -19,7 +19,7 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-export const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
+const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
   &::placeholder {
     color: ${({ foundation }) => foundation?.theme?.[themeKey]};
   }

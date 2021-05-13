@@ -2,7 +2,7 @@
 import { SemanticNames, styled } from '../../foundation'
 import TextProps from './Text.types'
 
-export interface TextStyledProps {
+interface TextStyledProps {
   color?: SemanticNames
   margintop: number
   marginright: number

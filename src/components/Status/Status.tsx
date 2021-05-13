@@ -5,7 +5,8 @@ import React from 'react'
 import { StatusType, StatusProps } from './Status.types'
 import { StatusCircle, PrivateIcon } from './Status.styled'
 
-export const STATUS_TEST_ID = 'ch-design-system-status'
+// TODO: 테스트 코드 작성
+const STATUS_TEST_ID = 'ch-design-system-status'
 
 function Status({
   type,

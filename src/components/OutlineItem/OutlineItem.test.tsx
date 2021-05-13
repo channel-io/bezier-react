@@ -13,8 +13,8 @@ describe('OutlineItem', () => {
 
   beforeEach(() => {
     props = {
+      optionKey: 'optionKey',
       open: true,
-      selectedOptionIndex: 0,
       content: 'campaigns',
     }
   })
@@ -40,12 +40,10 @@ describe('OutlineItem', () => {
     expect(rendered[0]).toHaveStyle('height: 32px;')
   })
 
-  it(
-    'should have index on "data-active-index" attr when "selectedOptionIndex" given',
-    () => {
-      const { getAllByTestId } = renderComponent({ selectedMenuItemIndex: 2 })
-      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+  it('should have index on "data-active-index" attr when "selectedOptionIndex" given', () => {
+    const { getAllByTestId } = renderComponent({ selectedMenuItemIndex: 2 })
+    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
 
-      expect(rendered[0]).toHaveAttribute('data-active-index', '2')
-    })
+    expect(rendered[0]).toHaveAttribute('data-active-index', '2')
+  })
 })

@@ -75,7 +75,7 @@ export const IconWrapper = styled.div<IconProps>`
   color: ${({ foundation, appearance }) => foundation?.subTheme?.[getIconColor(appearance)]};
 `
 
-export const getEllipsisColor = (
+const getEllipsisColor = (
   actionContent: string | undefined,
   onClick: Function | undefined,
   foundation: Foundation | undefined,

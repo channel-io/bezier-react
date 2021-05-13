@@ -9,8 +9,9 @@ import { Status } from '../../Status'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
-export const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
-export const AVATAR_TEST_ID = 'ch-design-system-avatar'
+// TODO: 테스트 코드 작성
+const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
+const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 function Avatar({
   avatarUrl,

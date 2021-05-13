@@ -55,8 +55,3 @@ export interface StyledWrapperProps extends ContentComponentProps {
   selected?: boolean
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void
 }
-
-export interface StyledContentWrapperProps extends ContentComponentProps {
-  open?: boolean
-  currentMenuItemIndex?: number | null
-}

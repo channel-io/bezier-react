@@ -23,7 +23,8 @@ import {
 } from './NavigationContent.styled'
 import NavigationContentProps from './NavigationContent.types'
 
-export const NAV_CONTENT_TEST_ID = 'ch-design-system-nav-content'
+// TODO: 테스트 코드 작성
+const NAV_CONTENT_TEST_ID = 'ch-design-system-nav-content'
 
 function NavigationContent({
   style,

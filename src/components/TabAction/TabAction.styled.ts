@@ -3,7 +3,7 @@ import { UIComponentProps } from '../../types/ComponentProps'
 import { styled, css } from '../../foundation'
 import { Icon } from '../Icon'
 
-export interface StyledWrapperProps {
+interface StyledWrapperProps {
   height: number
 }
 

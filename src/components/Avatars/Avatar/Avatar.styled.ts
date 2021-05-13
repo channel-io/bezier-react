@@ -10,7 +10,7 @@ interface AvatarWrapperProps extends WithInterpolation {
   disabled: boolean
 }
 
-export interface AvatarProps extends WithInterpolation {
+interface AvatarProps extends WithInterpolation {
   avatarUrl: string
   size: AvatarSize
   showBorder: boolean

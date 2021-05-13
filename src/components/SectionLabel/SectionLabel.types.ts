@@ -7,7 +7,7 @@ import type { ChildrenComponentProps } from '../../types/ComponentProps'
 import type InjectedInterpolation from '../../types/InjectedInterpolation'
 import type { IconName, IconSize } from '../Icon'
 
-export type SectionLabelHelpProps = {
+type SectionLabelHelpProps = {
   icon?: IconName
   iconSize?: IconSize
   iconColor?: SemanticNames

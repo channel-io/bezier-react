@@ -3,7 +3,7 @@ import React from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import Checkbox from './Checkbox'
 import CheckType from './CheckType'
 

@@ -5,7 +5,7 @@ import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { css, Typography } from '../../foundation'
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { ListItem } from '../ListItem'
 import { Text } from '../Text'
 import SectionLabel from './SectionLabel'

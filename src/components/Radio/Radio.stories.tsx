@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { Text } from '../Text'
 import { Typography } from '../../foundation'
 import Radio from './Radio'

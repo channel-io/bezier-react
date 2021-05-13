@@ -3,7 +3,10 @@ import React, { useRef, useCallback, useState } from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle, getObjectFromEnum } from '../../../utils/etcUtils'
+import {
+  getTitle,
+  getObjectFromEnum,
+} from '../../../utils/storyUtils'
 import TextField from './TextField'
 import { TextFieldRef, TextFieldSize, TextFieldVariant } from './TextField.types'
 

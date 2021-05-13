@@ -5,8 +5,10 @@ import { base } from 'paths.macro'
 
 /* Internal depependencies */
 import { styled } from '../../foundation'
-import { getTitle } from '../../utils/etcUtils'
-import { iconList } from '../../utils/storyUtils'
+import {
+  iconList,
+  getTitle,
+} from '../../utils/storyUtils'
 import useToast from '../../hooks/useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'

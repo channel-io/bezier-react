@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react'
 import { isNil, isFunction } from 'lodash-es'
 
-export type ForwardedRefInstance<T> = ((instance: T | null) => void) | React.MutableRefObject<T | null> | null | undefined
+type ForwardedRefInstance<T> = ((instance: T | null) => void) | React.MutableRefObject<T | null> | null | undefined
 
 function useReusableForwardedRef<T>(forwardedRef: ForwardedRefInstance<T>): React.RefObject<T> {
   const targetRef = useRef<T>(null)

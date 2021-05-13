@@ -5,7 +5,7 @@ import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import useSideWidth from '../../../hooks/useSideWidth'
-import { getTitle } from '../../../utils/etcUtils'
+import { getTitle } from '../../../utils/storyUtils'
 import { styled, Typography } from '../../../foundation'
 import { Icon, IconSize } from '../../../components/Icon'
 import { Header } from '../../../components/Header'

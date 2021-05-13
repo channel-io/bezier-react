@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, SemanticNames } from '../../foundation'
 
-export interface IconStyledProps {
+interface IconStyledProps {
   color?: SemanticNames
   margintop: number
   marginright: number

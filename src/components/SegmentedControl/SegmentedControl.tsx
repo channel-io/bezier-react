@@ -9,7 +9,8 @@ import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'
 import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
-export const SEGMENTED_CONTROL_TEST_ID = 'ch-design-system-segmented-control'
+// TODO: 테스트 코드 작성
+const SEGMENTED_CONTROL_TEST_ID = 'ch-design-system-segmented-control'
 
 function SegmentedControl(
   {

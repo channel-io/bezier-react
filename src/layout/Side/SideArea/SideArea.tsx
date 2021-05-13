@@ -13,7 +13,8 @@ import LayoutActions from '../../redux/LayoutActions'
 import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
 
-export const SIDE_AREA_TEST_ID = 'ch-design-system-side-area'
+// TODO: 테스트 코드 작성
+const SIDE_AREA_TEST_ID = 'ch-design-system-side-area'
 
 function SideArea(
   {

@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "src/index.ts",
+    "src/components/Icon/generated/**/*",
+    "src/layout/stories/**/*",
+    "**/*.stories.tsx",
+    "src/utils/storyUtils.ts"
+  ],
+  "files": [
+    "./src/index.ts"
+  ]
+}

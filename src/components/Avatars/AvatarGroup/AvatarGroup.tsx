@@ -11,7 +11,8 @@ import { AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import { StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsisIcon, AvatarEllipsisCount } from './AvatarGroup.styled'
 
-export const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
+// TODO: 테스트 코드 작성
+const AVATAR_GROUP_TEST_ID = 'ch-design-system-avatar-group'
 
 const MAX_AVATAR_LIST_COUNT = 99
 
