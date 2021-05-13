@@ -13,7 +13,7 @@ export const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
 export const AVATAR_TEST_ID = 'ch-design-system-avatar'
 
 function Avatar({
-  avatarUrl,
+  avatarUrl = '',
   fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
   name,
