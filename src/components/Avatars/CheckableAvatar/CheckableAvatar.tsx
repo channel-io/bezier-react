@@ -11,6 +11,8 @@ export const CHECKABLE_AVATAR_TEST_ID = 'ch-design-system-checkable-avatar'
 function CheckableAvatar({
   isChecked = false,
   isCheckable = true,
+  checkableWrapperClassName,
+  checkableWrapperInterpolation,
   children,
   ...props
 }: CheckableAvatarProps) {
@@ -19,6 +21,8 @@ function CheckableAvatar({
       data-testid={CHECKABLE_AVATAR_TEST_ID}
       isChecked={isChecked}
       isCheckable={isCheckable}
+      className={checkableWrapperClassName}
+      interpolation={checkableWrapperInterpolation}
     >
       <CheckIcon
         name="check"

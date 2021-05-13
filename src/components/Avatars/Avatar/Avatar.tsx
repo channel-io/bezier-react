@@ -24,7 +24,10 @@ function Avatar({
   onClick = noop,
   onMouseEnter = noop,
   onMouseLeave = noop,
+  className,
+  wrapperClassName,
   interpolation,
+  wrapperInterpolation,
   children,
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
@@ -64,11 +67,14 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   return (
     <AvatarWrapper
+      className={wrapperClassName}
+      interpolation={wrapperInterpolation}
       disabled={disabled}
       data-testid={AVATAR_WRAPPER_TEST_ID}
     >
       <StyledAvatar
         interpolation={interpolation}
+        className={className}
         ref={forwardedRef}
         data-testid={testId}
         avatarUrl={loadedAvatarUrl}
