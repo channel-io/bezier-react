@@ -77,19 +77,8 @@ function TextFieldComponent({
     isNil(value) ? undefined : toString(value)
   ), [value])
 
-  const activeInput = useMemo(() => (
-    !disabled && !readOnly
-  ), [
-    disabled,
-    readOnly,
-  ])
-
-  const activeClear = useMemo(() => (
-    activeInput && allowClear
-  ), [
-    activeInput,
-    allowClear,
-  ])
+  const activeInput = !disabled && !readOnly
+  const activeClear = activeInput && allowClear
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
