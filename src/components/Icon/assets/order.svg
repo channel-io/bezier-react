@@ -1,5 +1,9 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<<<<<<< HEAD
 <g id="order">
 <path id="Combined Shape" fill-rule="evenodd" clip-rule="evenodd" d="M2 6H22V4H2V6ZM5 13H19V11H5V13ZM16 20H8V18H16V20Z" fill="#313234"/>
 </g>
+=======
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 6H22V4H2V6ZM5 13H19V11H5V13ZM16 20H8V18H16V20Z" fill="#313234"/>
+>>>>>>> order아이콘 png에서 svg로 교체
 </svg>
