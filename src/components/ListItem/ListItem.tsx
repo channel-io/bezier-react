@@ -68,11 +68,8 @@ function ListItemComponent({
   ])
 
   const handleClick = useCallback((e: React.MouseEvent) => {
-    if (!active) {
-      onClick(e, name)
-    }
+    onClick(e, name)
   }, [
-    active,
     name,
     onClick,
   ])
