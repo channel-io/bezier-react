@@ -5,12 +5,13 @@ import { Icon, IconSize } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
 import { StyledAvatar } from '../Avatar/Avatar.styled'
+import { WithInterpolation } from '../../../types/InjectedInterpolation'
 
 const BASE_ICON_SIZE = IconSize.S
 const BASE_WRAPPER_SIZE = AvatarSize.Size42
 const CHECK_ICON_SIZE_PERCENTAGE = (BASE_ICON_SIZE / BASE_WRAPPER_SIZE) * 100
 
-interface CheckableAvatarWrapperProps {
+interface CheckableAvatarWrapperProps extends WithInterpolation {
   isChecked: boolean
   isCheckable: boolean
 }
@@ -39,10 +40,10 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
     ${CheckIcon} {
       opacity: ${isChecked ? 1 : 0};
       will-change: opacity;
-  
+
       ${({ foundation }) => foundation?.transition.getTransitionsCSS('opacity')}
     }
-  
+
     ${StyledAvatar}::before {
       display: block;
       width: 100%;
@@ -55,9 +56,9 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
        * 발생하지 않는 트랜지션에 will-change 속성을 주는 건 불필요하므로, will-change 속성에서 background-color를 제거합니다.
        */
       will-change: ${enableSmoothCorners.current ? 'opacity' : 'opacity, background-color'};
-  
+
       ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
-  
+
       ${({ foundation }) => smoothCorners({
         backgroundColor: getBackgroundColor(isChecked, foundation),
         borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
@@ -77,6 +78,8 @@ export const CheckableAvatarWrapper = styled.div<CheckableAvatarWrapperProps>`
   align-items: center;
   justify-content: center;
   user-select: none;
-  
+
   ${({ isChecked, isCheckable }) => getCheckableStyle(isChecked, isCheckable)}
+
+  ${({ interpolation }) => interpolation}
 `

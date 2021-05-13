@@ -6,7 +6,7 @@ import { AVATAR_STATUS_GAP, AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { AvatarSize } from './Avatar.types'
 
-interface AvatarWrapperProps {
+interface AvatarWrapperProps extends WithInterpolation {
   disabled: boolean
 }
 
@@ -73,6 +73,8 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   z-index: 1;
 
   ${({ disabled }) => disabled && disabledStyle};
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
