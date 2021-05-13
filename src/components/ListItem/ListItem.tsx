@@ -67,11 +67,8 @@ function ListItemComponent({
   ])
 
   const handleClick = useCallback((e) => {
-    if (!active) {
-      onClick(e, name)
-    }
+    onClick(e, name)
   }, [
-    active,
     name,
     onClick,
   ])
