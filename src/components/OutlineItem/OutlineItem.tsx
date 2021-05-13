@@ -67,6 +67,15 @@ function OutlineItemComponent(
     if (isNil(selectedMenuItemIndex)
       || (selectedMenuItemIndex < childs.length && selectedMenuItemIndex < 0)) {
       setCurrentMenuItemIndex(null)
+      return
+    }
+
+    const element = childs[selectedMenuItemIndex]
+
+    if (React.isValidElement(element) && isNil(element.props.children)) {
+      if (element.props.href) { return }
+
+      setCurrentMenuItemIndex(selectedMenuItemIndex)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMenuItemIndex])
