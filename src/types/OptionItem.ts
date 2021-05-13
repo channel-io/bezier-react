@@ -1,5 +1,5 @@
 interface OptionItem {
-  optionKey: string
+  optionKey?: string
 }
 
 export default OptionItem

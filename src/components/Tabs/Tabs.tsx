@@ -49,7 +49,7 @@ function Tabs({
 
   const handleClickTab = useCallback((
     tabIndex: number,
-    optionKey: string,
+    optionKey?: string,
     allowActive: boolean = true,
   ) => {
     if (allowActive) { setCurrentTabIndex(tabIndex) }
@@ -67,7 +67,7 @@ function Tabs({
           indicatorThickness,
           onClick: (event: React.MouseEvent<HTMLElement>) => {
             event.persist()
-            handleClickTab(index, element.props.optionKey, get(element.props, 'allowActive', true))
+            handleClickTab(index, element.props?.optionKey, get(element.props, 'allowActive', true))
             if (element.props.onClick) { element.props.onClick(event) }
           },
         })

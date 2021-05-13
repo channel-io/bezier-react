@@ -5,6 +5,7 @@ import {
   ContentComponentProps,
 } from '../../types/ComponentProps'
 import InjectedInterpolation from '../../types/InjectedInterpolation'
+import OptionItem from '../../types/OptionItem'
 import {
   IconName,
   IconSize,
@@ -15,7 +16,7 @@ export enum ChevronIconType {
   Small = 'chevron-small',
 }
 
-export default interface OutlineItemProps extends ContentComponentProps, ChildrenComponentProps {
+export default interface OutlineItemProps extends ContentComponentProps, ChildrenComponentProps, OptionItem {
   chevronClassName?: string
   chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
@@ -37,7 +38,6 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   paddingLeft?: number
   name?: string
   href?: string
-  optionKey?: string
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void

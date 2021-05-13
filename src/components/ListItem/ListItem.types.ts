@@ -3,6 +3,7 @@ import React from 'react'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import ActivableElement from '../../types/ActivatableElement'
 import { ContentComponentProps } from '../../types/ComponentProps'
+import OptionItem from '../../types/OptionItem'
 import { IconName } from '../Icon'
 
 export enum ListItemSize {
@@ -12,7 +13,7 @@ export enum ListItemSize {
   XL = 'xl',
 }
 
-export default interface ListItemProps extends ContentComponentProps, ActivableElement {
+export default interface ListItemProps extends ContentComponentProps, ActivableElement, OptionItem {
   iconClassName?: string
   contentClassName?: string
   size?: ListItemSize
@@ -28,7 +29,6 @@ export default interface ListItemProps extends ContentComponentProps, ActivableE
   content?: React.ReactNode
   description?: React.ReactNode
   rightContent?: React.ReactNode
-  optionKey?: string
   onClick?: (e: React.MouseEvent, name?: string) => void
   onMouseDown?: (e: React.MouseEvent) => void
 }
