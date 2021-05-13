@@ -53,7 +53,7 @@ function Tabs({
     allowActive: boolean = true,
   ) => {
     if (allowActive) { setCurrentTabIndex(tabIndex) }
-    onChangeOption(optionKey, tabIndex)
+    onChangeOption(tabIndex, optionKey)
   }, [onChangeOption])
 
   const Content = useMemo(() => (
