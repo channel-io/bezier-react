@@ -1,11 +1,10 @@
 import TextField from './TextField'
+import type { TextFieldProps, TextFieldRef } from './TextField.types'
 import {
-  TextFieldRef,
   TextFieldVariant,
   TextFieldSize,
   TextFieldType,
 } from './TextField.types'
-import type TextFieldProps from './TextField.types'
 
 export type {
   TextFieldProps,

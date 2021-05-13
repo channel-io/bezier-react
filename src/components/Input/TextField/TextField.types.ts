@@ -49,7 +49,7 @@ export interface TextFieldRef {
   getDOMNode(): Element | Text | null
 }
 
-export default interface TextFieldProps
+export interface TextFieldProps
   extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   variant?: TextFieldVariant
   type?: TextFieldType
