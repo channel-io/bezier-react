@@ -8,7 +8,7 @@ import { TabsSize } from '../Tabs/Tabs.types'
 export default interface TabActionProps extends Omit<UIComponentProps, 'children'> {
   href?: string
   height?: TabsSize | number
-  onClick?: () => boolean
-  children: Array<React.ReactNode | ((args: { disabled: boolean }) => React.ReactNode)>
+  onClick?: () => void
+  children: React.ReactNode | ((args: { disabled: boolean }) => React.ReactNode)
   disabled?: boolean
 }
