@@ -15,12 +15,6 @@ const ActiveItemStyle = css<StyledWrapperProps>`
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`
-
 export const RightContent = styled.div`
   margin-left: 8px;
 `
@@ -63,12 +57,6 @@ interface IconWrapperProps {
   disableIconActive?: boolean
 }
 
-const IconSpacing = css`
-  flex-shrink: 0;
-  width: 20px;
-  margin-right: 8px;
-`
-
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${props => {
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
@@ -77,13 +65,16 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
 `
 
 export const LeftContentWrapper = styled.div`
-  ${IconSpacing}
   display: flex;
   align-items: center;
+  margin-right: 8px;
 `
 
-export const IconMargin = styled.div`
-  ${IconSpacing}
+export const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-rows: fit-content(100%) fit-content(100%);
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  width: 100%;
 `
 
 export const Wrapper = styled.div<StyledWrapperProps>`

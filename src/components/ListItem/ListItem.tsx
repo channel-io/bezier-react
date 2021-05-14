@@ -12,15 +12,14 @@ import { Typography } from '../../foundation'
 import ListItemProps, { ListItemSize } from './ListItem.types'
 import {
   Wrapper,
-  ContentWrapper,
   LeftContentWrapper,
   StyledIcon,
-  IconMargin,
   TitleWrapper,
   Title,
   DescriptionWrapper,
   Description,
   RightContent,
+  ContentWrapper,
 } from './ListItem.styled'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
@@ -99,6 +98,7 @@ function ListItem({
         </LeftContentWrapper>
       )
     }
+
     if (!isNil(leftIcon) && isIconName(leftIcon)) {
       return (
         <LeftContentWrapper>
@@ -126,7 +126,6 @@ function ListItem({
 
   const titleComponent = useMemo(() => (
     <TitleWrapper className={contentClassName}>
-      { leftComponent }
       <Title>
         {
           isString(content) ? (
@@ -142,31 +141,31 @@ function ListItem({
       </Title>
     </TitleWrapper>
   ), [
-    leftComponent,
     content,
     contentClassName,
     size,
   ])
 
   const descriptionComponent = useMemo(() => (
-    <DescriptionWrapper
-      active={active}
-    >
-      { leftIcon && <IconMargin /> }
-      <Description descriptionMaxLines={descriptionMaxLines}>
-        {
-          isString(description)
-            ? getNewLineComponenet(description)
-            : description
-        }
-      </Description>
-    </DescriptionWrapper>
+    <>
+      <div />
+      <DescriptionWrapper
+        active={active}
+      >
+        <Description descriptionMaxLines={descriptionMaxLines}>
+          {
+            isString(description)
+              ? getNewLineComponenet(description)
+              : description
+          }
+        </Description>
+      </DescriptionWrapper>
+    </>
   ), [
     active,
     description,
     descriptionMaxLines,
     getNewLineComponenet,
-    leftIcon,
   ])
 
   const rightComponent = useMemo(() => (
@@ -178,12 +177,14 @@ function ListItem({
   const ContentComponent = useMemo(() => (
     <>
       <ContentWrapper>
+        { leftComponent }
         { titleComponent }
         { description && descriptionComponent }
       </ContentWrapper>
       { rightContent && rightComponent }
     </>
   ), [
+    leftComponent,
     titleComponent,
     description,
     descriptionComponent,
