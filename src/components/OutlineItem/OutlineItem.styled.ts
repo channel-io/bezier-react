@@ -27,7 +27,7 @@ export const GroupItemWrapper = styled.div<StyledWrapperProps & OutlineItemProps
   border-radius: 6px;
 
   &:hover {
-    background-color: ${props => (isNil(props.currentMenuItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
+    background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
