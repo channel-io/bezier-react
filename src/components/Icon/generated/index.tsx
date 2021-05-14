@@ -95,6 +95,7 @@ import ChatQuestionFilled from './ChatQuestionFilled'
 import ChatQuestion from './ChatQuestion'
 import ChatReady from './ChatReady'
 import CheckAll from './CheckAll'
+import CheckBold from './CheckBold'
 import CheckCircleFilled from './CheckCircleFilled'
 import CheckCircle from './CheckCircle'
 import Check from './Check'
@@ -201,6 +202,7 @@ import Home from './Home'
 import Hourglass1 from './Hourglass1'
 import Hourglass2 from './Hourglass2'
 import Hourglass3 from './Hourglass3'
+import HyphenBold from './HyphenBold'
 import Hyphen from './Hyphen'
 import ImageFailed from './ImageFailed'
 import Image from './Image'
@@ -279,6 +281,7 @@ import Plane from './Plane'
 import Play from './Play'
 import PlusCircleFilled from './PlusCircleFilled'
 import PlusCircle from './PlusCircle'
+import PlusSmall from './PlusSmall'
 import Plus from './Plus'
 import Point from './Point'
 import Power from './Power'
@@ -492,6 +495,7 @@ const icons = {
   'chat-question': ChatQuestion,
   'chat-ready': ChatReady,
   'check-all': CheckAll,
+  'check-bold': CheckBold,
   'check-circle-filled': CheckCircleFilled,
   'check-circle': CheckCircle,
   'check': Check,
@@ -598,6 +602,7 @@ const icons = {
   'hourglass-1': Hourglass1,
   'hourglass-2': Hourglass2,
   'hourglass-3': Hourglass3,
+  'hyphen-bold': HyphenBold,
   'hyphen': Hyphen,
   'image-failed': ImageFailed,
   'image': Image,
@@ -676,6 +681,7 @@ const icons = {
   'play': Play,
   'plus-circle-filled': PlusCircleFilled,
   'plus-circle': PlusCircle,
+  'plus-small': PlusSmall,
   'plus': Plus,
   'point': Point,
   'power': Power,

@@ -41,7 +41,7 @@ describe('OutlineItem', () => {
   })
 
   it('should have index on "data-active-index" attr when "selectedOptionIndex" given', () => {
-    const { getAllByTestId } = renderComponent({ selectedMenuItemIndex: 2 })
+    const { getAllByTestId } = renderComponent({ selectedOutlineItemIndex: 2 })
     const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
 
     expect(rendered[0]).toHaveAttribute('data-active-index', '2')

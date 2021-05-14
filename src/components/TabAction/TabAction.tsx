@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
-import { get, isNil } from 'lodash-es'
+import { get, isNil, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Text } from '../Text'
@@ -25,7 +25,7 @@ function TabActionComponent(
     disabled = false,
     href,
     height = TabsSize.Normal,
-    onClick,
+    onClick = noop,
     children,
   }: TabActionProps,
   forwardedRef: Ref<HTMLDivElement>,
@@ -62,12 +62,6 @@ function TabActionComponent(
     }
     return IconSize.XS
   }, [height])
-
-  const handleClick = useCallback((e) => {
-    if (onClick?.() === false) {
-      e.preventDefault()
-    }
-  }, [onClick])
 
   const BackgroundWithProps = useCallback(({
     children: _children,
@@ -107,7 +101,7 @@ function TabActionComponent(
       height={height}
     >
       <BackgroundWithProps
-        onClick={handleClick}
+        onClick={onClick}
         {...backgroundSizeProp}
       >
         <Text bold typo={textTypo}>

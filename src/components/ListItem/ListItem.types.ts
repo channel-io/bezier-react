@@ -13,7 +13,7 @@ export enum ListItemSize {
   XL = 'xl',
 }
 
-export default interface ListItemProps extends ContentComponentProps, OptionItem, ActivableElement {
+export default interface ListItemProps extends ContentComponentProps, ActivableElement, OptionItem {
   iconClassName?: string
   contentClassName?: string
   size?: ListItemSize
@@ -21,7 +21,6 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   href?: string
   hide?: boolean
   nested?: boolean
-  onClick?: (e: any, name?: string) => void
   leftContent?: React.ReactNode
   leftIcon?: IconName
   leftIconColor?: SemanticNames
@@ -30,4 +29,6 @@ export default interface ListItemProps extends ContentComponentProps, OptionItem
   content?: React.ReactNode
   description?: React.ReactNode
   rightContent?: React.ReactNode
+  onClick?: (e: React.MouseEvent, name?: string) => void
+  onMouseDown?: (e: React.MouseEvent) => void
 }

@@ -64,7 +64,7 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
         />
         <OutlineItem
           open={open}
-          selectedMenuItemIndex={idx}
+          selectedOutlineItemIndex={idx}
           onClick={handleClickGroup}
           onClickArrow={handleToggle}
           onChangeOption={handleClickItem}

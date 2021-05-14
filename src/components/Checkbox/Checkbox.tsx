@@ -26,7 +26,7 @@ function Checkbox(
     disabled = false,
     checked = false,
     children,
-    onClick,
+    onClick = noop,
   }: CheckboxProps,
   forwardedRef: Ref<any>,
 ) {
