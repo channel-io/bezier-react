@@ -45,8 +45,8 @@ function TextFieldComponent({
   selectAllOnFocus = false,
   leftContent,
   rightContent,
-  disableLeftWrapper = false,
-  disableRightWrapper = false,
+  withoutLeftContentWrapper = false,
+  withoutRightContentWrapper = false,
   inputClassName,
   inputInterpolation,
   wrapperClassName,
@@ -229,7 +229,7 @@ function TextFieldComponent({
 
     const item = renderLeftItem(leftContent)
 
-    if (isNil(item) || disableLeftWrapper) { return item }
+    if (isNil(item) || withoutLeftContentWrapper) { return item }
 
     return (
       <Styled.LeftContentWrapper
@@ -241,7 +241,7 @@ function TextFieldComponent({
     )
   }, [
     leftContent,
-    disableLeftWrapper,
+    withoutLeftContentWrapper,
     leftWrapperClassName,
     leftWrapperInterpolation,
     renderLeftItem,
@@ -275,7 +275,7 @@ function TextFieldComponent({
       ? rightContent.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(rightContent)
 
-    if (disableRightWrapper) { return items }
+    if (withoutRightContentWrapper) { return items }
 
     return (
       <Styled.RightContentWrapper
@@ -287,7 +287,7 @@ function TextFieldComponent({
     )
   }, [
     rightContent,
-    disableRightWrapper,
+    withoutRightContentWrapper,
     rightWrapperClassName,
     rightWrapperInterpolation,
     renderRightItem,

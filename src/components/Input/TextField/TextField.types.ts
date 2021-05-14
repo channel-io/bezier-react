@@ -59,8 +59,8 @@ export default interface TextFieldProps
   selectAllOnFocus?: boolean
   leftContent?: TextFieldItemProps
   rightContent?: TextFieldItemProps | TextFieldItemProps[]
-  disableLeftWrapper?: boolean
-  disableRightWrapper?: boolean
+  withoutLeftContentWrapper?: boolean
+  withoutRightContentWrapper?: boolean
   inputClassName?: string
   inputInterpolation?: InjectedInterpolation
   wrapperClassName?: string
