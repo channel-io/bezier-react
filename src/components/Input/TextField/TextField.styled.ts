@@ -28,7 +28,6 @@ const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
 interface InputProps extends WithInterpolation {
   disabled: boolean
   readOnly: boolean
-  color: SemanticNames
 }
 
 const Input = styled.input<InputProps>`
@@ -37,7 +36,7 @@ const Input = styled.input<InputProps>`
   ${Typography.Size14}
   padding: 0;
 
-  color: ${({ foundation, color }) => foundation?.theme?.[color]};
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
 
   background-color: transparent;
   border: none;

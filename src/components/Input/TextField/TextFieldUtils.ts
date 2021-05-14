@@ -20,22 +20,3 @@ export function getProperTextFieldBgColor({
   if (variant === TextFieldVariant.Primary && (focused || hasError)) { return 'bg-white-normal' }
   return 'bg-grey-lightest'
 }
-
-interface TextColorProps {
-  focused: boolean
-  readOnly: boolean
-  hasError: boolean
-  disabled: boolean
-}
-
-export function getProperTextFieldInputColor({
-  focused,
-  hasError,
-  readOnly,
-  disabled,
-}: TextColorProps): SemanticNames {
-  if (focused || hasError) { return 'txt-black-darkest' }
-  if (readOnly) { return 'txt-black-darker' }
-  if (disabled) { return 'txt-black-dark' }
-  return 'txt-black-dark'
-}
