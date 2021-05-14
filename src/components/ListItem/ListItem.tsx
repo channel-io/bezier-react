@@ -155,7 +155,7 @@ function ListItemComponent({
     <DescriptionWrapper
       active={active}
     >
-      { leftIcon && <IconMargin /> }
+      { (leftIcon || leftContent) && <IconMargin /> }
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)
@@ -170,6 +170,7 @@ function ListItemComponent({
     descriptionMaxLines,
     getNewLineComponenet,
     leftIcon,
+    leftContent,
   ])
 
   const rightComponent = useMemo(() => (
