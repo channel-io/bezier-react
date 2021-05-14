@@ -8,7 +8,7 @@ import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import SideViewContentProps from './SideViewContent.types'
 
-export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
+export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-bezier-react-side-view-content'
 
 function SideViewContent({
   testId = SIDE_VIEW_CONTENT_TEST_ID,

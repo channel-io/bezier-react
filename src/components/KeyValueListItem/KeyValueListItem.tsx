@@ -21,7 +21,7 @@ import { isIconName } from '../Icon/util'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 import Styled from './KeyValueListItem.styled'
 
-export const KEY_VALUE_LIST_ITEM_TEST_ID = 'ch-design-system-key-value-list-item'
+export const KEY_VALUE_LIST_ITEM_TEST_ID = 'ch-bezier-react-key-value-list-item'
 
 function KeyValueListItem(
   {

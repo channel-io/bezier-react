@@ -5,7 +5,7 @@ import React, { forwardRef } from 'react'
 import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
 
-export const CLIENT_TEST_ID = 'ch-design-system-client'
+export const CLIENT_TEST_ID = 'ch-bezier-react-client'
 
 function Client(
   {

@@ -9,7 +9,7 @@ import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'
 import SidePanelContentProps from './SidePanelContent.types'
 
-export const SIDE_PANEL_CONTENT_TEST_ID = 'ch-design-system-side-panel-content'
+export const SIDE_PANEL_CONTENT_TEST_ID = 'ch-bezier-react-side-panel-content'
 
 function SidePanelContent({
   testId = SIDE_PANEL_CONTENT_TEST_ID,

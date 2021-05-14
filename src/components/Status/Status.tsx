@@ -5,7 +5,7 @@ import React from 'react'
 import { StatusType, StatusProps } from './Status.types'
 import { StatusCircle, PrivateIcon } from './Status.styled'
 
-export const STATUS_TEST_ID = 'ch-design-system-status'
+export const STATUS_TEST_ID = 'ch-bezier-react-status'
 
 function Status({
   type,

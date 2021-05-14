@@ -23,7 +23,7 @@ import {
 } from './NavigationContent.styled'
 import NavigationContentProps from './NavigationContent.types'
 
-export const NAV_CONTENT_TEST_ID = 'ch-design-system-nav-content'
+export const NAV_CONTENT_TEST_ID = 'ch-bezier-react-nav-content'
 
 function NavigationContent({
   style,

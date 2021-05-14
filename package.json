@@ -1,10 +1,10 @@
 {
-  "name": "@channel.io/design-system",
+  "name": "@channel.io/bezier-react",
   "version": "0.3.29",
-  "description": "Design System by Channel",
+  "description": "React components from Bezier Design System",
   "repository": {
     "type": "git",
-    "url": "https://github.com/channel-io/design-system"
+    "url": "https://github.com/channel-io/bezier-react"
   },
   "main": "build/index.js",
   "module": "build/index.es.js",

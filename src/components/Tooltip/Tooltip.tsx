@@ -13,7 +13,7 @@ import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils/positionUtils'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
-export const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
+export const TOOLTIP_TEST_ID = 'ch-bezier-react-tooltip'
 
 function Tooltip(
   {

@@ -27,7 +27,7 @@ import {
 } from './TextField.types'
 import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
 
-export const TEXT_INPUT_TEST_ID = 'ch-design-system-text-input'
+export const TEXT_INPUT_TEST_ID = 'ch-bezier-react-text-input'
 
 function TextFieldComponent({
   name,

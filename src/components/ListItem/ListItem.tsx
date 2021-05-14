@@ -24,7 +24,7 @@ import {
 } from './ListItem.styled'
 
 export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
-export const LIST_ITEM_TEST_ID = 'ch-design-system-list-menu-item'
+export const LIST_ITEM_TEST_ID = 'ch-bezier-react-list-menu-item'
 
 export function isListItem(element: any): element is React.ReactElement<ListItemProps> {
   return React.isValidElement(element) &&

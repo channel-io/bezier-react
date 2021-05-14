@@ -9,8 +9,8 @@ import { Status } from '../../Status'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
-export const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
-export const AVATAR_TEST_ID = 'ch-design-system-avatar'
+export const AVATAR_WRAPPER_TEST_ID = 'ch-bezier-react-avatar-wrapper'
+export const AVATAR_TEST_ID = 'ch-bezier-react-avatar'
 
 function Avatar({
   avatarUrl,

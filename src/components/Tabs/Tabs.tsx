@@ -22,7 +22,7 @@ import { isTabAction } from '../TabAction'
 import TabsProps from './Tabs.types'
 import { Wrapper, TabItemWrapper, TabActions } from './Tabs.styled'
 
-export const TABS_TEST_ID = 'ch-design-system-tabs'
+export const TABS_TEST_ID = 'ch-bezier-react-tabs'
 
 function Tabs({
   as,

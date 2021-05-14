@@ -5,7 +5,7 @@ import { noop, isNil } from 'lodash-es'
 import ListMenuTitleProps from './ListMenuTitle.types'
 import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
 
-export const SIDEBAR_MENU_TITLE_TEST_ID = 'ch-design-system-sidebar-menu-title'
+export const SIDEBAR_MENU_TITLE_TEST_ID = 'ch-bezier-react-sidebar-menu-title'
 
 function ListMenuTitle({
   as,

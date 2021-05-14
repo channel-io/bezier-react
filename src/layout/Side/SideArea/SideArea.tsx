@@ -13,7 +13,7 @@ import LayoutActions from '../../redux/LayoutActions'
 import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
 
-export const SIDE_AREA_TEST_ID = 'ch-design-system-side-area'
+export const SIDE_AREA_TEST_ID = 'ch-bezier-react-side-area'
 
 function SideArea(
   {

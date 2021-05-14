@@ -18,7 +18,7 @@ import {
 } from '../TagBadgeCommon'
 import BadgeProps from './Badge.types'
 
-export const BADGE_TEST_ID = 'ch-design-system-badge'
+export const BADGE_TEST_ID = 'ch-bezier-react-badge'
 
 function Badge({
   size = TagBadgeSize.M,

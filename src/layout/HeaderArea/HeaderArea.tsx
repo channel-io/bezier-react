@@ -6,7 +6,7 @@ import useLayoutState from '../../hooks/useLayoutState'
 import { HeaderWrapper, ContentHeader, CoverableHeader } from './HeaderArea.styled'
 import HeaderAreaProps from './HeaderArea.types'
 
-export const HEADER_AREA_TEST_ID = 'ch-design-system-header-area'
+export const HEADER_AREA_TEST_ID = 'ch-bezier-react-header-area'
 
 function HeaderArea(
   {

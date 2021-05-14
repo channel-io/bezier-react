@@ -7,7 +7,7 @@ import { Text } from '../Text'
 import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 
-export const NAV_HEADER_TEST_ID = 'ch-design-system-nav-header'
+export const NAV_HEADER_TEST_ID = 'ch-bezier-react-nav-header'
 
 function Header(
   {

@@ -6,7 +6,7 @@ import { Text } from '../../../Text'
 import TagBadgeTextProps from './TagBadgeText.types'
 import Styled from './TagBadgeText.styled'
 
-export const TAG_BADGE_TEXT_TEST_ID = 'ch-design-system-avatar-group'
+export const TAG_BADGE_TEXT_TEST_ID = 'ch-bezier-react-avatar-group'
 
 function TagBadgeText({
   typo,

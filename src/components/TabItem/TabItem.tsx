@@ -17,7 +17,7 @@ import TabItemProps from './TabItem.types'
 import { Wrapper, Background } from './TabItem.styled'
 
 export const TAB_ITEM_COMPONENT_NAME = 'TabItem'
-export const TAB_ITEM_TEST_ID = 'ch-design-system-tab-item'
+export const TAB_ITEM_TEST_ID = 'ch-bezier-react-tab-item'
 
 export function isTabItem(element: any): element is React.ReactElement<TabItemProps> {
   return React.isValidElement(element) &&

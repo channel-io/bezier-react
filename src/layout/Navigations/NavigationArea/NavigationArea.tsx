@@ -29,7 +29,7 @@ import {
 
 const MAX_NAV_Z_INDEX = 100
 
-export const NAV_TEST_ID = 'ch-design-system-nav'
+export const NAV_TEST_ID = 'ch-bezier-react-nav'
 
 function NavigationArea(
   {

@@ -1,6 +1,6 @@
 references:
   workspace_root: &workspace_root
-    /home/circleci/design-system
+    /home/circleci/bezier-react
 
   attach_workspace: &attach_workspace
     attach_workspace:
@@ -28,12 +28,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - design-system-dependencies-{{ checksum "package.json" }}
+          - bezier-react-dependencies-{{ checksum "package.json" }}
       - run: npm ci
       - save_cache:
           paths:
             - node_modules
-          key: design-system-dependencies-{{ checksum "package.json" }}
+          key: bezier-react-dependencies-{{ checksum "package.json" }}
       - persist_to_workspace:
           root: *workspace_root
           paths:

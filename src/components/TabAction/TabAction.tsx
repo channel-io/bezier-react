@@ -10,7 +10,7 @@ import { TabsSize } from '../Tabs/Tabs.types'
 import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
 
-export const TAB_ACTIONS_TEST_ID = 'ch-design-system-tab-action'
+export const TAB_ACTIONS_TEST_ID = 'ch-bezier-react-tab-action'
 export const TAB_ACTIONS_COMPONENT_NAME = 'TabAction'
 
 export function isTabAction(element: any): element is React.ReactElement<TabActionProps> {

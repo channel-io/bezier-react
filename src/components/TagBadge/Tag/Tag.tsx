@@ -18,7 +18,7 @@ import {
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 
-export const TAG_TEST_ID = 'ch-design-system-tag'
+export const TAG_TEST_ID = 'ch-bezier-react-tag'
 
 function Tag({
   size = TagBadgeSize.M,

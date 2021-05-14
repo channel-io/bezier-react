@@ -9,7 +9,7 @@ import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'
 import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
-export const SEGMENTED_CONTROL_TEST_ID = 'ch-design-system-segmented-control'
+export const SEGMENTED_CONTROL_TEST_ID = 'ch-bezier-react-segmented-control'
 
 function SegmentedControl(
   {

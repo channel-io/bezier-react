@@ -8,7 +8,7 @@ import { ContentArea } from '../ContentArea'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
-export const LAYOUT_MAIN_TEST_ID = 'ch-design-system-main'
+export const LAYOUT_MAIN_TEST_ID = 'ch-bezier-react-main'
 
 function Main(
   {

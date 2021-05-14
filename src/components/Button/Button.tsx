@@ -30,8 +30,8 @@ import ButtonProps, {
 } from './Button.types'
 import * as Styled from './Button.styled'
 
-export const BUTTON_TEST_ID = 'ch-design-system-button'
-export const BUTTON_TEXT_TEST_ID = 'ch-design-system-button-text'
+export const BUTTON_TEST_ID = 'ch-bezier-react-button'
+export const BUTTON_TEXT_TEST_ID = 'ch-bezier-react-button-text'
 
 const monochromeIconAndSpinnerDefaultColors: {
   [color in ButtonColorVariant]?: {
