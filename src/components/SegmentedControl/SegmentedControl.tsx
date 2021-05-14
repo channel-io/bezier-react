@@ -54,7 +54,7 @@ function SegmentedControl(
     }
   }, [selectedOptionIndex])
 
-  const handleClickOptionItem = useCallback((index) => {
+  const handleClickOptionItem = useCallback((index: number) => {
     setCurrentIndex(index)
     onChangeOption(index)
   }, [onChangeOption])
