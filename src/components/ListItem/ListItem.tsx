@@ -217,6 +217,7 @@ function ListItem({
 
   return (
     <Wrapper
+      ref={forwardedRef}
       as={as}
       className={clazzName}
       size={size}
