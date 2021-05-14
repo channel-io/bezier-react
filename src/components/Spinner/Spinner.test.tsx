@@ -11,9 +11,7 @@ describe('Spinner test >', () => {
   let props: SpinnerProps
 
   beforeEach(() => {
-    props = {
-      isLoading: true,
-    }
+    props = {}
   })
 
   const renderSpinner = (optionProps?: SpinnerProps) => render(

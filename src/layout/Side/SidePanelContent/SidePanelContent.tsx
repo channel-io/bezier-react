@@ -9,7 +9,8 @@ import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'
 import SidePanelContentProps from './SidePanelContent.types'
 
-export const SIDE_PANEL_CONTENT_TEST_ID = 'ch-bezier-react-side-panel-content'
+// TODO: 테스트 코드 작성
+const SIDE_PANEL_CONTENT_TEST_ID = 'bezier-react-side-panel-content'
 
 function SidePanelContent({
   testId = SIDE_PANEL_CONTENT_TEST_ID,

@@ -1,3 +1,8 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.2.0
+
 references:
   workspace_root: &workspace_root
     /home/circleci/bezier-react
@@ -20,7 +25,6 @@ filter_only_tagged: &filter_only_tagged
     branches:
       ignore: /.*/
 
-version: 2
 jobs:
   install:
     <<: *defaults
@@ -56,6 +60,9 @@ jobs:
     steps:
       - *attach_workspace
       - run: npm run jest
+      - codecov/upload:
+          file: './coverage/clover.xml'
+          token: $CODECOV_TOKEN
 
   publish:
     <<: *defaults
@@ -68,20 +75,27 @@ jobs:
 
 workflows:
   version: 2
-  build_n_test:
+  install_n_test:
     jobs:
       - install:
           filters:
             branches:
               ignore:
                 - master
-                - exp
       - lint:
           requires:
             - install
+          filters:
+            branches:
+              ignore:
+                - exp
       - typecheck:
           requires:
             - install
+          filters:
+            branches:
+              ignore:
+                - exp
       - test:
           requires:
             - install
@@ -90,11 +104,7 @@ workflows:
     jobs:
       - install:
           <<: *filter_only_tagged
-      - test:
-          <<: *filter_only_tagged
-          requires:
-            - install
       - publish:
           <<: *filter_only_tagged
           requires:
-            - test
+            - install

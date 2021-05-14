@@ -9,7 +9,8 @@ import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'
 import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
-export const SEGMENTED_CONTROL_TEST_ID = 'ch-bezier-react-segmented-control'
+// TODO: 테스트 코드 작성
+const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
 
 function SegmentedControl(
   {
@@ -54,7 +55,7 @@ function SegmentedControl(
     }
   }, [selectedOptionIndex])
 
-  const handleClickOptionItem = useCallback((index) => {
+  const handleClickOptionItem = useCallback((index: number) => {
     setCurrentIndex(index)
     onChangeOption(index)
   }, [onChangeOption])

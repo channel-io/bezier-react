@@ -7,7 +7,7 @@ module.exports = {
         ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       ],
       plugins: [
-        "@babel/plugin-transform-runtime",
+        '@babel/plugin-transform-runtime',
         ['@babel/plugin-proposal-class-properties', { loose: false }],
       ],
     },
@@ -18,7 +18,7 @@ module.exports = {
         ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
       ],
       plugins: [
-        "@babel/plugin-transform-runtime",
+        '@babel/plugin-transform-runtime',
         ['@babel/plugin-proposal-class-properties', { loose: false }],
       ],
     },

@@ -5,7 +5,8 @@ import React, { forwardRef } from 'react'
 import { ClientWrapper } from './Client.styled'
 import ClientProps from './Client.types'
 
-export const CLIENT_TEST_ID = 'ch-bezier-react-client'
+// TODO: 테스트 코드 작성
+const CLIENT_TEST_ID = 'bezier-react-client'
 
 function Client(
   {

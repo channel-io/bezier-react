@@ -5,7 +5,7 @@ import React from 'react'
 import SpinnerProps, { SpinnerSize } from './Spinner.types'
 import { SpinIcon } from './Spinner.styled'
 
-export const SPINNER_TEST_ID = 'ch-bezier-react-spinner'
+export const SPINNER_TEST_ID = 'bezier-react-spinner'
 
 function Spinner({
   testId = SPINNER_TEST_ID,

@@ -15,7 +15,7 @@ export enum AvatarSize {
 }
 
 export default interface AvatarProps extends ChildrenComponentProps {
-  avatarUrl: string
+  avatarUrl?: string
   fallbackUrl?: string
   name: string
   size?: AvatarSize

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
-import { get, isNil } from 'lodash-es'
+import { get, isNil, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Text } from '../Text'
@@ -10,8 +10,9 @@ import { TabsSize } from '../Tabs/Tabs.types'
 import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
 
-export const TAB_ACTIONS_TEST_ID = 'ch-bezier-react-tab-action'
-export const TAB_ACTIONS_COMPONENT_NAME = 'TabAction'
+// TODO: 테스트 코드 작성
+const TAB_ACTIONS_TEST_ID = 'bezier-react-tab-action'
+const TAB_ACTIONS_COMPONENT_NAME = 'TabAction'
 
 export function isTabAction(element: any): element is React.ReactElement<TabActionProps> {
   return React.isValidElement(element) &&
@@ -24,7 +25,7 @@ function TabActionComponent(
     disabled = false,
     href,
     height = TabsSize.Normal,
-    onClick,
+    onClick = noop,
     children,
   }: TabActionProps,
   forwardedRef: Ref<HTMLDivElement>,
@@ -61,12 +62,6 @@ function TabActionComponent(
     }
     return IconSize.XS
   }, [height])
-
-  const handleClick = useCallback((e) => {
-    if (onClick?.() === false) {
-      e.preventDefault()
-    }
-  }, [onClick])
 
   const BackgroundWithProps = useCallback(({
     children: _children,
@@ -106,7 +101,7 @@ function TabActionComponent(
       height={height}
     >
       <BackgroundWithProps
-        onClick={handleClick}
+        onClick={onClick}
         {...backgroundSizeProp}
       >
         <Text bold typo={textTypo}>

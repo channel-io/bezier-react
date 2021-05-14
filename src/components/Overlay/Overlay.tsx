@@ -20,9 +20,10 @@ import { getOverlayStyle } from './utils/positionUtils'
 import OverlayProps, { OverlayPosition } from './Overlay.types'
 import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
 
-export const CONTAINER_TEST_ID = 'ch-bezier-react-container'
-export const WRAPPER_TEST_ID = 'ch-bezier-react-wrapper'
-export const OVERLAY_TEST_ID = 'ch-bezier-react-overlay'
+// TODO: 테스트 코드 작성
+const CONTAINER_TEST_ID = 'bezier-react-container'
+const WRAPPER_TEST_ID = 'bezier-react-wrapper'
+const OVERLAY_TEST_ID = 'bezier-react-overlay'
 
 const ESCAPE_KEY = 'Escape'
 

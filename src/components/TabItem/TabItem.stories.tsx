@@ -3,7 +3,10 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+} from '../../utils/storyUtils'
 import { TabsSize } from '../Tabs/Tabs.types'
 import TabItem from './TabItem'
 

@@ -22,7 +22,7 @@ import { isTabAction } from '../TabAction'
 import TabsProps from './Tabs.types'
 import { Wrapper, TabItemWrapper, TabActions } from './Tabs.styled'
 
-export const TABS_TEST_ID = 'ch-bezier-react-tabs'
+export const TABS_TEST_ID = 'bezier-react-tabs'
 
 function Tabs({
   as,
@@ -49,11 +49,11 @@ function Tabs({
 
   const handleClickTab = useCallback((
     tabIndex: number,
-    optionKey: string,
+    optionKey?: string,
     allowActive: boolean = true,
   ) => {
     if (allowActive) { setCurrentTabIndex(tabIndex) }
-    onChangeOption(optionKey, tabIndex)
+    onChangeOption(tabIndex, optionKey)
   }, [onChangeOption])
 
   const Content = useMemo(() => (
@@ -67,7 +67,7 @@ function Tabs({
           indicatorThickness,
           onClick: (event: React.MouseEvent<HTMLElement>) => {
             event.persist()
-            handleClickTab(index, element.props.optionKey, get(element.props, 'allowActive', true))
+            handleClickTab(index, element.props?.optionKey, get(element.props, 'allowActive', true))
             if (element.props.onClick) { element.props.onClick(event) }
           },
         })

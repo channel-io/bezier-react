@@ -5,7 +5,7 @@ import { range, filter, isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { styled } from '../../foundation'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
@@ -184,7 +184,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...other
             <ItemText>{ item }</ItemText>
             <ItemIcon
               name="cancel"
-              color="txt-white"
+              color="txt-white-normal"
               disabled={allItems.length === 1}
               onClick={clickRemoveIconHandlerFactory(index)}
             />
@@ -199,7 +199,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...other
           />
           <ItemIcon
             name="plus"
-            color="txt-white"
+            color="txt-white-normal"
             onClick={handleClickAddIcon}
           />
         </InputItem>

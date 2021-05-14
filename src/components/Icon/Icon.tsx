@@ -7,7 +7,7 @@ import IconProps, { IconSize } from './Icon.types'
 import icons from './generated'
 import Styled from './Icon.styled'
 
-export const ICON_TEST_ID = 'ch-bezier-react-icon'
+export const ICON_TEST_ID = 'bezier-react-icon'
 
 function Icon({
   name,
@@ -20,6 +20,7 @@ function Icon({
   marginBottom = 0,
   marginLeft = 0,
   onClick = noop,
+  onMouseDown = noop,
 }: IconProps) {
   if (!icons[name]) { return null }
 
@@ -36,6 +37,7 @@ function Icon({
       marginbottom={marginBottom}
       marginleft={marginLeft}
       onClick={onClick}
+      onMouseDown={onMouseDown}
     />
   )
 }

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useCallback, useMemo, Fragment } from 'react'
-import { get, noop, isNil, isString } from 'lodash-es'
+import { noop, isNil, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -23,20 +23,14 @@ import {
   RightContent,
 } from './ListItem.styled'
 
-export const LIST_ITEM_COMPONENT_NAME = 'ListItem'
-export const LIST_ITEM_TEST_ID = 'ch-bezier-react-list-menu-item'
+export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
-export function isListItem(element: any): element is React.ReactElement<ListItemProps> {
-  return React.isValidElement(element) &&
-    get(element, 'type.displayName') === LIST_ITEM_COMPONENT_NAME
-}
-
-function ListItemComponent({
+function ListItem({
   className,
   contentClassName,
   iconClassName,
   as,
-  testId = LIST_ITEM_COMPONENT_NAME,
+  testId = LIST_ITEM_TEST_ID,
   size = ListItemSize.M,
   descriptionMaxLines,
   content,
@@ -56,6 +50,7 @@ function ListItemComponent({
   activeClassName,
   /* HTMLAttribute Props */
   onClick = noop,
+  onMouseDown = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
@@ -66,7 +61,7 @@ function ListItemComponent({
     active,
   ])
 
-  const handleClick = useCallback((e) => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
     onClick(e, name)
   }, [
     name,
@@ -208,6 +203,7 @@ function ListItemComponent({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
+        onMouseDown={onMouseDown}
         active={false}
         data-active={active}
         data-option-key={optionKey}
@@ -225,6 +221,7 @@ function ListItemComponent({
       className={clazzName}
       size={size}
       onClick={handleClick}
+      onMouseDown={onMouseDown}
       active={active}
       data-active={active}
       data-option-key={optionKey}
@@ -236,7 +233,4 @@ function ListItemComponent({
   )
 }
 
-const ListItem = forwardRef(ListItemComponent)
-ListItem.displayName = LIST_ITEM_COMPONENT_NAME
-
-export default ListItem
+export default forwardRef(ListItem)

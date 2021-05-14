@@ -1,8 +1,4 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
-import { LayoutState } from '../redux/LayoutReducer'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface ClientProps extends UIComponentProps {
-  layoutInitialState: LayoutState
-  children: React.ReactElement
-}
+export default interface ClientProps extends ChildrenComponentProps {}

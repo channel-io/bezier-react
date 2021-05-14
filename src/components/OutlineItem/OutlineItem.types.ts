@@ -4,8 +4,8 @@ import {
   ChildrenComponentProps,
   ContentComponentProps,
 } from '../../types/ComponentProps'
-import OptionItem from '../../types/OptionItem'
 import InjectedInterpolation from '../../types/InjectedInterpolation'
+import OptionItem from '../../types/OptionItem'
 import {
   IconName,
   IconSize,
@@ -26,37 +26,32 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   open?: boolean
   active?: boolean
   content?: React.ReactNode
-  rightContent?: React.ReactNode
-  hide?: boolean
-  paddingLeft?: number
-  disableGroupSelect?: boolean
-  chevronIconType?: ChevronIconType
-  chevronIconSize?: IconSize
   leftContent?: React.ReactNode
   leftIcon?: IconName
   leftIconColor?: SemanticNames
+  rightContent?: React.ReactNode
+  hide?: boolean
+  disableGroupSelect?: boolean
   disableIconActive?: boolean
+  chevronIconType?: ChevronIconType
+  chevronIconSize?: IconSize
+  paddingLeft?: number
   name?: string
   href?: string
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
-  /* OptionItemHost for Sidebar Menu - nullable selectedMenuItemIndex */
-  selectedMenuItemIndex?: number | null
+  /* OptionItemHost for Sidebar Menu - nullable selectedOutlineItemIndex */
+  selectedOutlineItemIndex?: number | null
   onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
 }
 
 export interface StyledWrapperProps extends ContentComponentProps {
   open?: boolean
   rightContent?: React.ReactNode
-  currentMenuItemIndex?: number | null
+  currentOutlineItemIndex?: number | null
   chevronClassName?: string
   selectedOptionIndex?: number
   selected?: boolean
   onChangeOption?: (optionKey?: string, optionIndex?: number) => void
-}
-
-export interface StyledContentWrapperProps extends ContentComponentProps {
-  open?: boolean
-  currentMenuItemIndex?: number | null
 }

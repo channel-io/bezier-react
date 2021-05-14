@@ -36,6 +36,4 @@ export default interface ButtonProps extends UIComponentProps {
   leftComponent?: IconName | React.ReactNode
   rightComponent?: IconName | React.ReactNode
   onClick?: (event: MouseEvent) => void
-  width: number
-  height: number
 }

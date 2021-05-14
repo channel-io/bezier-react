@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./build",
+    "declaration": false,
+    "noEmit": true,
     "module": "esnext",
     "target": "es5",
     "lib": ["dom", "ESNext"],
     "sourceMap": true,
     "jsx": "react",
-    "emitDeclarationOnly": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -15,7 +14,6 @@
     "isolatedModules": true,
     "strict": true,
     "allowJs": true,
-    "experimentalDecorators": true,
     "noImplicitAny": false,
   },
   "types": ["react", "jest"],
@@ -26,6 +24,5 @@
     "node_modules",
     "build",
     "src/**/*.stories.tsx",
-    "src/**/*.test.tsx"
   ]
 }

@@ -15,8 +15,8 @@ import {
 } from './Radio.styled'
 import RadioProps from './Radio.types'
 
-export const RADIO_TEST_ID = 'ch-bezier-react-radio'
-export const RADIO_HANDLE_TEST_ID = 'ch-bezier-react-radio-handle'
+export const RADIO_TEST_ID = 'bezier-react-radio'
+export const RADIO_HANDLE_TEST_ID = 'bezier-react-radio-handle'
 
 function Radio(
   {

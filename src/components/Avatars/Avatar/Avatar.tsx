@@ -9,11 +9,12 @@ import { Status } from '../../Status'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
-export const AVATAR_WRAPPER_TEST_ID = 'ch-bezier-react-avatar-wrapper'
-export const AVATAR_TEST_ID = 'ch-bezier-react-avatar'
+// TODO: 테스트 코드 작성
+const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
+const AVATAR_TEST_ID = 'bezier-react-avatar'
 
 function Avatar({
-  avatarUrl,
+  avatarUrl = '',
   fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
   name,

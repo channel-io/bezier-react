@@ -4,7 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
-import TextFieldProps from './TextField.types'
+import { TextFieldProps } from './TextField.types'
 
 describe('TextField', () => {
   let props: TextFieldProps

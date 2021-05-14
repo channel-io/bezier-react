@@ -16,7 +16,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Icon, IconSize } from '../../Icon'
 import Styled from './TextField.styled'
-import type TextFieldProps from './TextField.types'
+import type { TextFieldProps } from './TextField.types'
 import {
   TextFieldItemProps,
   TextFieldType,
@@ -27,7 +27,7 @@ import {
 } from './TextField.types'
 import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
 
-export const TEXT_INPUT_TEST_ID = 'ch-bezier-react-text-input'
+export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 
 function TextFieldComponent({
   name,

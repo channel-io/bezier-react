@@ -11,8 +11,8 @@ import type CheckboxProps from './Checkbox.types'
 import { Wrapper, Checker, Content } from './Checkbox.styled'
 import CheckType from './CheckType'
 
-export const CHECKBOX_TEST_ID = 'ch-bezier-react-checkbox'
-export const CHECKBOX_CHECKER_TEST_ID = 'ch-bezier-react-checkbox-checker'
+export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
+export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
 
 const checkTypeValues = values(CheckType)
 
@@ -26,7 +26,7 @@ function Checkbox(
     disabled = false,
     checked = false,
     children,
-    onClick,
+    onClick = noop,
   }: CheckboxProps,
   forwardedRef: Ref<any>,
 ) {
