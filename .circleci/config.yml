@@ -68,7 +68,7 @@ jobs:
 
 workflows:
   version: 2
-  build_n_test:
+  install_n_test:
     jobs:
       - install:
           filters:
@@ -90,11 +90,7 @@ workflows:
     jobs:
       - install:
           <<: *filter_only_tagged
-      - test:
-          <<: *filter_only_tagged
-          requires:
-            - install
       - publish:
           <<: *filter_only_tagged
           requires:
-            - test
+            - install

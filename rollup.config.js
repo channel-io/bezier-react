@@ -1,10 +1,10 @@
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
-import babel from '@rollup/plugin-babel'
 import url from '@rollup/plugin-url'
 import commonjs from '@rollup/plugin-commonjs'
 import visualizer from 'rollup-plugin-visualizer'
+import typescript from '@wessberg/rollup-plugin-ts'
 
 import packageJson from './package.json'
 
@@ -31,13 +31,12 @@ export default {
     }),
     commonjs(),
     url(),
-    babel({
-      babelHelpers: 'runtime',
-      exclude: 'node_modules/**',
-      extensions,
+    typescript({
+      tsconfig: 'tsconfig.rollup.json',
+      transpiler: 'babel',
     }),
     visualizer({
-      filename: "stats.html",
+      filename: 'stats.html',
     }),
   ],
   external: [/@babel\/runtime/],
