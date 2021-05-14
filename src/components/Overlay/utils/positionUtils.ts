@@ -88,6 +88,20 @@ function getOverlayTranslation({
         break
     }
 
+    // inner position
+    switch (placement) {
+      case OverlayPosition.InnerLeftBottom:
+        translateY = targetHeight - overlayHeight
+        break
+      case OverlayPosition.InnerRightTop:
+        translateX = targetWidth - overlayWidth
+        break
+      case OverlayPosition.InnerRightBottom:
+        translateX = targetWidth - overlayWidth
+        translateY = targetHeight - overlayHeight
+        break
+    }
+
     if (keepInContainer) {
       const isOverTop = targetTop + translateY < containerTop
       const isOverBottom = targetTop + translateY + overlayHeight > containerTop + containerHeight

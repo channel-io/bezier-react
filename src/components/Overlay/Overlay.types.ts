@@ -82,4 +82,8 @@ export enum OverlayPosition {
   LeftCenter = 'leftCenter',
   LeftTop = 'leftTop',
   LeftBottom = 'leftBottom',
+  InnerLeftTop = 'innerLeftTop',
+  InnerLeftBottom = 'innerLeftBottom',
+  InnerRightTop = 'innerRightTop',
+  InnerRightBottom = 'innerRightBottom',
 }
