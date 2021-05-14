@@ -77,17 +77,14 @@ workflows:
   version: 2
   install_n_test:
     jobs:
-      - install:
-          filters:
-            branches:
-              ignore:
-                - master
+      - install
       - lint:
           requires:
             - install
           filters:
             branches:
               ignore:
+                - master
                 - exp
       - typecheck:
           requires:
@@ -95,6 +92,7 @@ workflows:
           filters:
             branches:
               ignore:
+                - master
                 - exp
       - test:
           requires:
