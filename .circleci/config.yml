@@ -1,3 +1,8 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.2.0
+
 references:
   workspace_root: &workspace_root
     /home/circleci/design-system
@@ -20,7 +25,6 @@ filter_only_tagged: &filter_only_tagged
     branches:
       ignore: /.*/
 
-version: 2
 jobs:
   install:
     <<: *defaults
@@ -56,6 +60,9 @@ jobs:
     steps:
       - *attach_workspace
       - run: npm run jest
+      - codecov/upload:
+          file: './coverage/clover.xml'
+          token: $CODECOV_TOKEN
 
   publish:
     <<: *defaults
