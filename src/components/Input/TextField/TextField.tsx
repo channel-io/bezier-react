@@ -16,7 +16,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Icon, IconSize } from '../../Icon'
 import Styled from './TextField.styled'
-import type TextFieldProps from './TextField.types'
+import type { TextFieldProps } from './TextField.types'
 import {
   TextFieldItemProps,
   TextFieldType,
