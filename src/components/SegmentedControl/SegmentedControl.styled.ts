@@ -4,12 +4,12 @@ import { UIComponentProps } from '../../types/ComponentProps'
 import { toLength } from '../../utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
 
-export interface StyledWrapperProps extends UIComponentProps {
+interface StyledWrapperProps extends UIComponentProps {
   wrapperWidth: number | string
   wrapperHeight: number | string
 }
 
-export interface StyledOptionItemWrapperProps extends SegmentedControlItemProps {}
+interface StyledOptionItemWrapperProps extends SegmentedControlItemProps {}
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;

@@ -24,14 +24,14 @@ type GreyKeyWithoutAlpha =
   | `${BasePaletteKey.grey}850`
   | `${BasePaletteKey.grey}900`
 
-export type PaletteKeyWithoutAlpha =
+type PaletteKeyWithoutAlpha =
   | BaseColorfulPaletteKey300
   | BaseColorfulPaletteKey400
   | BaseColorfulPaletteKey500
   | GreyKeyWithoutAlpha
   | Exclude<BaseMonoPaletteKey, BasePaletteKey.grey>
 
-export type PaletteWithoutAlphaType = Record<PaletteKeyWithoutAlpha, string>
+type PaletteWithoutAlphaType = Record<PaletteKeyWithoutAlpha, string>
 
 const PaletteWithoutAlpha: PaletteWithoutAlphaType = {
   // Blue
@@ -143,7 +143,7 @@ type AlphaBlackKey =
   | `${BasePaletteKey.black}_5`
   | `${BasePaletteKey.black}_3`
 
-export type PaletteKey =
+type PaletteKey =
   | PaletteKeyWithoutAlpha
   | BaseColorfulPaletteKey400_30
   | BaseColorfulPaletteKey400_20
@@ -155,7 +155,7 @@ export type PaletteKey =
   | AlphaWhiteKey
   | AlphaBlackKey
 
-export type PaletteType = Record<PaletteKey, string>
+type PaletteType = Record<PaletteKey, string>
 
 export const Palette: PaletteType = {
   ...PaletteWithoutAlpha,

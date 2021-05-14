@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
-import { getTitle } from '../../../utils/etcUtils'
+import { getTitle } from '../../../utils/storyUtils'
 import { StatusType } from '../../Status'
 import Avatar from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'

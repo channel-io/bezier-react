@@ -18,11 +18,11 @@ import {
   LeftContentWrapper,
 } from './OutlineItem.styled'
 
-export const LIST_GROUP_PADDING_LEFT = 16
+const LIST_GROUP_PADDING_LEFT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
 
-function OutlineItemComponent(
+function OutlineItem(
   {
     as,
     testId = OUTLINE_ITEM_TEST_ID,
@@ -273,6 +273,4 @@ function OutlineItemComponent(
   )
 }
 
-const OutlineItem = forwardRef(OutlineItemComponent)
-
-export default OutlineItem
+export default forwardRef(OutlineItem)

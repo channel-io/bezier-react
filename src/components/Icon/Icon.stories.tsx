@@ -3,8 +3,11 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { iconList } from '../../utils/storyUtils'
-import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+  iconList,
+} from '../../utils/storyUtils'
 import { Text } from '../Text'
 import { styled } from '../../foundation'
 import Icon from './Icon'

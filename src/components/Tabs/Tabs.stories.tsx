@@ -5,7 +5,10 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from '../../utils/etcUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+} from '../../utils/storyUtils'
 import { TabItem } from '../TabItem'
 import { TabAction } from '../TabAction'
 import Tabs from './Tabs'

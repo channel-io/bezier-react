@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/etcUtils'
+import { getTitle } from '../../../utils/storyUtils'
 import { Avatar, AvatarSize } from '../Avatar'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import AvatarGroup from './AvatarGroup'

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { ReactElement } from 'react'
-import { render, RenderOptions } from '@testing-library/react'
+import { render as baseRender, RenderOptions } from '@testing-library/react'
 
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../types/ComponentProps'
@@ -17,13 +17,9 @@ function TestProviders({ children }: ChildrenComponentProps) {
   )
 }
 
-function customRender(
+export function render(
   ui: ReactElement,
   options?: Omit<RenderOptions, 'queries'>,
 ) {
-  return render(ui, { wrapper: TestProviders, ...options })
+  return baseRender(ui, { wrapper: TestProviders, ...options })
 }
-
-export * from '@testing-library/react'
-
-export { customRender as render }

@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { render } from '../../utils/testUtils'
@@ -17,10 +18,11 @@ describe('Checkbox test >', () => {
       contentClassName: undefined,
       disabled: false,
       checked: CheckType.False,
+      onClick: noop,
     }
   })
 
-  const renderComponent = (optionProps?: CheckboxProps) => render(
+  const renderComponent = (optionProps?: Partial<CheckboxProps>) => render(
     <Checkbox {...props} {...optionProps} />,
   )
 

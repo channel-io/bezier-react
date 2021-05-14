@@ -53,4 +53,3 @@ export enum BoxSizingUnit {
 }
 
 export type CSSUnits = `${AbsoluteUnit}` | `${RelativeUnit}`
-export type SizingUnits = CSSUnits | `${ExplicitDefaulting}` | `${BoxSizingUnit}`

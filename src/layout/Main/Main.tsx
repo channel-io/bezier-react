@@ -8,7 +8,8 @@ import { ContentArea } from '../ContentArea'
 import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
-export const LAYOUT_MAIN_TEST_ID = 'ch-design-system-main'
+// TODO: 테스트 코드 작성
+const LAYOUT_MAIN_TEST_ID = 'ch-design-system-main'
 
 function Main(
   {

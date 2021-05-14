@@ -8,7 +8,8 @@ import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import SideViewContentProps from './SideViewContent.types'
 
-export const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
+// TODO: 테스트 코드 작성
+const SIDE_VIEW_CONTENT_TEST_ID = 'ch-design-system-side-view-content'
 
 function SideViewContent({
   testId = SIDE_VIEW_CONTENT_TEST_ID,

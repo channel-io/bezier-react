@@ -11,7 +11,7 @@ import {
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { IconSize } from '../Icon'
 import { Avatar, AvatarSize } from '../Avatars/Avatar'
 import OutlineItem from './OutlineItem'

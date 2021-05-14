@@ -5,7 +5,7 @@ import { range, filter, isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { styled } from '../../foundation'
 import { Text } from '../Text'
 import { Icon } from '../Icon'

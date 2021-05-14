@@ -21,7 +21,7 @@ describe('Tabs', () => {
   )
 
   it('should have default styles', () => {
-    const { getByTestId } = renderComponent({ optionKey: 'my-tab-item' })
+    const { getByTestId } = renderComponent()
     const rendered = getByTestId(TABS_TEST_ID)
 
     expect(rendered).toHaveStyle('display: flex;')

@@ -5,6 +5,11 @@ import { Icon } from '../Icon'
 import { ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
+interface StyledWrapperProps {
+  size?: ListItemSize
+  active?: boolean
+}
+
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
@@ -80,11 +85,6 @@ export const LeftContentWrapper = styled.div`
 export const IconMargin = styled.div`
   ${IconSpacing}
 `
-
-export interface StyledWrapperProps {
-  size?: ListItemSize
-  active?: boolean
-}
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
