@@ -4,7 +4,8 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
-import { TextFieldProps } from './TextField.types'
+import { TextFieldProps, TextFieldVariant } from './TextField.types'
+import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 describe('TextField', () => {
   let props: TextFieldProps
@@ -53,5 +54,35 @@ describe('TextField', () => {
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     const inputElement = rendered.getElementsByTagName('input')[0]
     expect(inputElement).toHaveAttribute('maxLength', '5')
+  })
+
+  it('sholud have the correct background-color according to the state.', () => {
+    expect(getProperTextFieldBgColor({
+      variant: TextFieldVariant.Primary,
+      focused: false,
+      hasError: false,
+      readOnly: false,
+    })).toBe('bg-grey-lightest')
+
+    expect(getProperTextFieldBgColor({
+      variant: TextFieldVariant.Primary,
+      focused: true,
+      hasError: false,
+      readOnly: false,
+    })).toBe('bg-white-normal')
+
+    expect(getProperTextFieldBgColor({
+      variant: TextFieldVariant.Primary,
+      focused: false,
+      hasError: true,
+      readOnly: false,
+    })).toBe('bg-white-normal')
+
+    expect(getProperTextFieldBgColor({
+      variant: TextFieldVariant.Primary,
+      focused: false,
+      hasError: false,
+      readOnly: true,
+    })).toBe('bg-grey-lighter')
   })
 })
