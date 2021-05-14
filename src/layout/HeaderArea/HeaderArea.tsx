@@ -7,7 +7,7 @@ import { HeaderWrapper, ContentHeader, CoverableHeader } from './HeaderArea.styl
 import HeaderAreaProps from './HeaderArea.types'
 
 // TODO: 테스트 코드 작성
-const HEADER_AREA_TEST_ID = 'ch-design-system-header-area'
+const HEADER_AREA_TEST_ID = 'bezier-react-header-area'
 
 function HeaderArea(
   {

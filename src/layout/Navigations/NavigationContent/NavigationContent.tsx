@@ -24,7 +24,7 @@ import {
 import NavigationContentProps from './NavigationContent.types'
 
 // TODO: 테스트 코드 작성
-const NAV_CONTENT_TEST_ID = 'ch-design-system-nav-content'
+const NAV_CONTENT_TEST_ID = 'bezier-react-nav-content'
 
 function NavigationContent({
   style,

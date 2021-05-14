@@ -10,7 +10,7 @@ import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
 // TODO: 테스트 코드 작성
-const SEGMENTED_CONTROL_TEST_ID = 'ch-design-system-segmented-control'
+const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
 
 function SegmentedControl(
   {

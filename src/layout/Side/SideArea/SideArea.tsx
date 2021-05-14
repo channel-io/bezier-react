@@ -14,7 +14,7 @@ import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
 
 // TODO: 테스트 코드 작성
-const SIDE_AREA_TEST_ID = 'ch-design-system-side-area'
+const SIDE_AREA_TEST_ID = 'bezier-react-side-area'
 
 function SideArea(
   {

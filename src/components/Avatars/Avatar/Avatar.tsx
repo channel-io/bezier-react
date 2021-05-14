@@ -10,8 +10,8 @@ import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
 // TODO: 테스트 코드 작성
-const AVATAR_WRAPPER_TEST_ID = 'ch-design-system-avatar-wrapper'
-const AVATAR_TEST_ID = 'ch-design-system-avatar'
+const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
+const AVATAR_TEST_ID = 'bezier-react-avatar'
 
 function Avatar({
   avatarUrl = '',

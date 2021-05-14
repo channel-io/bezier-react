@@ -9,7 +9,7 @@ import { MainWrapper } from './Main.styled'
 import MainProps from './Main.types'
 
 // TODO: 테스트 코드 작성
-const LAYOUT_MAIN_TEST_ID = 'ch-design-system-main'
+const LAYOUT_MAIN_TEST_ID = 'bezier-react-main'
 
 function Main(
   {

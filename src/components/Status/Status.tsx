@@ -6,7 +6,7 @@ import { StatusType, StatusProps } from './Status.types'
 import { StatusCircle, PrivateIcon } from './Status.styled'
 
 // TODO: 테스트 코드 작성
-const STATUS_TEST_ID = 'ch-design-system-status'
+const STATUS_TEST_ID = 'bezier-react-status'
 
 function Status({
   type,

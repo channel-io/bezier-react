@@ -17,7 +17,7 @@ import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper } from './ContentArea.styled'
 
 // TODO: 테스트 코드 작성
-const CONTENT_AREA_TEST_ID = 'ch-design-system-content-area'
+const CONTENT_AREA_TEST_ID = 'bezier-react-content-area'
 
 function ContentArea(
   {

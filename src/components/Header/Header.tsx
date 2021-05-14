@@ -8,7 +8,7 @@ import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from
 import HeaderProps from './Header.types'
 
 // TODO: 테스트 코드 작성
-const NAV_HEADER_TEST_ID = 'ch-design-system-nav-header'
+const NAV_HEADER_TEST_ID = 'bezier-react-nav-header'
 
 function Header(
   {

@@ -11,7 +11,7 @@ import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
 
 // TODO: 테스트 코드 작성
-const TAB_ACTIONS_TEST_ID = 'ch-design-system-tab-action'
+const TAB_ACTIONS_TEST_ID = 'bezier-react-tab-action'
 const TAB_ACTIONS_COMPONENT_NAME = 'TabAction'
 
 export function isTabAction(element: any): element is React.ReactElement<TabActionProps> {

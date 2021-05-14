@@ -19,7 +19,7 @@ import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 
 // TODO: 테스트 코드 작성
-const TAG_TEST_ID = 'ch-design-system-tag'
+const TAG_TEST_ID = 'bezier-react-tag'
 
 function Tag({
   size = TagBadgeSize.M,

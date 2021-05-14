@@ -14,7 +14,7 @@ import { getReplacement, getTooltipStyle } from './utils/positionUtils'
 import { Container, ContentWrapper, Content } from './Tooltip.styled'
 
 // TODO: 테스트 코드 작성
-const TOOLTIP_TEST_ID = 'ch-design-system-tooltip'
+const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
 
 function Tooltip(
   {

@@ -20,7 +20,7 @@ import {
 
 const LIST_GROUP_PADDING_LEFT = 16
 
-export const OUTLINE_ITEM_TEST_ID = 'ch-design-system-outline-item'
+export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
 
 function OutlineItem(
   {

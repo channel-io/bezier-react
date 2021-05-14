@@ -30,7 +30,7 @@ import {
 const MAX_NAV_Z_INDEX = 100
 
 // TODO: 테스트 코드 작성
-const NAV_TEST_ID = 'ch-design-system-nav'
+const NAV_TEST_ID = 'bezier-react-nav'
 
 function NavigationArea(
   {

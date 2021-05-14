@@ -10,7 +10,7 @@ import LayoutActions from '../../redux/LayoutActions'
 import SidePanelContentProps from './SidePanelContent.types'
 
 // TODO: 테스트 코드 작성
-const SIDE_PANEL_CONTENT_TEST_ID = 'ch-design-system-side-panel-content'
+const SIDE_PANEL_CONTENT_TEST_ID = 'bezier-react-side-panel-content'
 
 function SidePanelContent({
   testId = SIDE_PANEL_CONTENT_TEST_ID,

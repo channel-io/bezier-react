@@ -23,7 +23,7 @@ import {
   RightContent,
 } from './ListItem.styled'
 
-export const LIST_ITEM_TEST_ID = 'ch-design-system-list-menu-item'
+export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
 function ListItem({
   className,

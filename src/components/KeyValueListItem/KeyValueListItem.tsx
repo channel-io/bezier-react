@@ -22,7 +22,7 @@ import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.t
 import Styled from './KeyValueListItem.styled'
 
 // TODO: 테스트 코드 작성
-const KEY_VALUE_LIST_ITEM_TEST_ID = 'ch-design-system-key-value-list-item'
+const KEY_VALUE_LIST_ITEM_TEST_ID = 'bezier-react-key-value-list-item'
 
 function KeyValueListItem(
   {
