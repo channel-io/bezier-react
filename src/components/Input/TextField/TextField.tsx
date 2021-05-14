@@ -25,7 +25,7 @@ import {
   TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
-import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
+import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 export const TEXT_INPUT_TEST_ID = 'ch-design-system-text-input'
 
@@ -75,19 +75,7 @@ function TextFieldComponent({
     hasError,
     readOnly,
   ])
-  const inputColorSemanticName = useMemo(() => (
-    getProperTextFieldInputColor({
-      focused,
-      hasError,
-      readOnly,
-      disabled,
-    })
-  ), [
-    focused,
-    hasError,
-    readOnly,
-    disabled,
-  ])
+
   const focusTimeout = useRef<ReturnType<typeof setTimeout>>()
   const blurTimeout = useRef<ReturnType<typeof setTimeout>>()
 
@@ -339,7 +327,6 @@ function TextFieldComponent({
         ref={inputRef}
         name={name}
         size={size}
-        color={inputColorSemanticName}
         autoComplete={autoComplete}
         type={type}
         readOnly={readOnly}
