@@ -2,7 +2,6 @@ module.exports = {
   roots: ['./src'],
   setupFilesAfterEnv: ['./jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
-  testPathIgnorePatterns: ['node_modules/'],
   transformIgnorePatterns: [],
   transform: {
     '^.+\\.[t|j]sx?$': 'babel-jest',
@@ -13,4 +12,14 @@ module.exports = {
     'identity-obj-proxy',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
+  collectCoverage: true,
+  coveragePathIgnorePatterns: [
+    'src/components/Icon/generated/',
+    'src/worklets/',
+    'src/index.ts',
+  ],
+  collectCoverageFrom: [
+    '**/*.{ts,tsx,js,jsx}',
+    '!**/*.stories.tsx',
+  ],
 }
