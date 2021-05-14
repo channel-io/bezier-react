@@ -90,15 +90,21 @@ function getOverlayTranslation({
 
     // inner position
     switch (placement) {
+      case OverlayPosition.InnerLeftTop:
+        translateX = marginX
+        translateY = marginY
+        break
       case OverlayPosition.InnerLeftBottom:
-        translateY = targetHeight - overlayHeight
+        translateX = marginX
+        translateY = targetHeight - overlayHeight + marginY
         break
       case OverlayPosition.InnerRightTop:
-        translateX = targetWidth - overlayWidth
+        translateX = targetWidth - overlayWidth + marginX
+        translateY = marginY
         break
       case OverlayPosition.InnerRightBottom:
-        translateX = targetWidth - overlayWidth
-        translateY = targetHeight - overlayHeight
+        translateX = targetWidth - overlayWidth + marginX
+        translateY = targetHeight - overlayHeight + marginY
         break
     }
 
