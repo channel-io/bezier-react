@@ -4,7 +4,7 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from '../index'
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 
 export default {
   title: getTitle(base),

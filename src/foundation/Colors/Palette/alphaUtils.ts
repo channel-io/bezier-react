@@ -15,7 +15,7 @@ type Alpha =
   | 5
   | 3
 
-export function alphaToHex(alpha: Alpha) {
+function alphaToHex(alpha: Alpha) {
   const intValue = Math.round(alpha / 100 * 255)
   const hexValue = intValue.toString(16)
   return hexValue.padStart(2, '0').toUpperCase()

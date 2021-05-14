@@ -18,7 +18,7 @@ import {
   ButtonStyleVariant,
   ButtonSize,
 } from './Button.types'
-import type { ButtonProps } from './Button.types'
+import type ButtonProps from './Button.types'
 
 describe('Button Test >', () => {
   let props: ButtonProps

@@ -16,7 +16,8 @@ import LayoutActions from '../redux/LayoutActions'
 import ContentAreaProps from './ContentArea.types'
 import { ContentAreaWrapper } from './ContentArea.styled'
 
-export const CONTENT_AREA_TEST_ID = 'ch-design-system-content-area'
+// TODO: 테스트 코드 작성
+const CONTENT_AREA_TEST_ID = 'bezier-react-content-area'
 
 function ContentArea(
   {

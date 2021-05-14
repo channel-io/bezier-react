@@ -7,7 +7,7 @@ import { Typography } from '../../foundation'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
-export const TEXT_TEST_ID = 'ch-design-system-text'
+export const TEXT_TEST_ID = 'bezier-react-text'
 
 function Text({
   as,

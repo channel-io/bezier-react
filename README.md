@@ -1,7 +1,8 @@
-# Design system
-React Component library from Channel.io
+# bezier-react
+React components from Bezier Design System.
 
 ## Install
+```console
+npm i @channel.io/bezier-react styled-components
 ```
-> npm i @channel.io/design-system
-```
+bezier-react has styled-components as peer dependency so don't forget to install it.

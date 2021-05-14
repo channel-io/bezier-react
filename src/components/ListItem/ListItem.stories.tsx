@@ -3,8 +3,10 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { iconList } from '../../utils/storyUtils'
-import { getTitle } from '../../utils/etcUtils'
+import {
+  iconList,
+  getTitle,
+} from '../../utils/storyUtils'
 import ListItem from './ListItem'
 import { ListItemSize } from './ListItem.types'
 

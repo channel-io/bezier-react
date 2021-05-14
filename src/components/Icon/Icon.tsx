@@ -7,7 +7,7 @@ import IconProps, { IconSize } from './Icon.types'
 import icons from './generated'
 import Styled from './Icon.styled'
 
-export const ICON_TEST_ID = 'ch-design-system-icon'
+export const ICON_TEST_ID = 'bezier-react-icon'
 
 function Icon({
   name,

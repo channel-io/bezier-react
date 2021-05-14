@@ -3,7 +3,7 @@ import React, { useState, useCallback } from 'react'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/etcUtils'
+import { getTitle } from '../../utils/storyUtils'
 import { styled } from '../../foundation'
 import Tooltip from './Tooltip'
 import { TooltipPosition } from './Tooltip.types'

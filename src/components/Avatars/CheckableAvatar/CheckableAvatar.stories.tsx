@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '../../../foundation'
-import { getTitle } from '../../../utils/etcUtils'
+import { getTitle } from '../../../utils/storyUtils'
 import { AvatarSize } from '../Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import CheckableAvatar from './CheckableAvatar'

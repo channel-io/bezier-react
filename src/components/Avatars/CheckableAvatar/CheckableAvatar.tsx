@@ -6,7 +6,8 @@ import { Avatar } from '../Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon } from './CheckableAvatar.styled'
 
-export const CHECKABLE_AVATAR_TEST_ID = 'ch-design-system-checkable-avatar'
+// TODO: 테스트 코드 작성
+const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 
 function CheckableAvatar({
   isChecked = false,
