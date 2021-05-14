@@ -38,7 +38,7 @@ interface DivProps {
   height: number
 }
 
-export const WithSmooth = styled.div<DivProps>`
+const WithSmooth = styled.div<DivProps>`
   box-sizing: content-box;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@ export const WithSmooth = styled.div<DivProps>`
     borderRadius: '42%',
   })};
 `
-export const WithoutSmooth = styled.div<DivProps>`
+const WithoutSmooth = styled.div<DivProps>`
   box-sizing: content-box;
   display: flex;
   align-items: center;
