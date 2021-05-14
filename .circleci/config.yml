@@ -82,13 +82,20 @@ workflows:
             branches:
               ignore:
                 - master
-                - exp
       - lint:
           requires:
             - install
+          filters:
+            branches:
+              ignore:
+                - exp
       - typecheck:
           requires:
             - install
+          filters:
+            branches:
+              ignore:
+                - exp
       - test:
           requires:
             - install
