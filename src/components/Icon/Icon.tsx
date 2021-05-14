@@ -20,6 +20,7 @@ function Icon({
   marginBottom = 0,
   marginLeft = 0,
   onClick = noop,
+  onMouseDown = noop,
 }: IconProps) {
   if (!icons[name]) { return null }
 
@@ -36,6 +37,7 @@ function Icon({
       marginbottom={marginBottom}
       marginleft={marginLeft}
       onClick={onClick}
+      onMouseDown={onMouseDown}
     />
   )
 }

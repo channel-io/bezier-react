@@ -25,4 +25,5 @@ export default interface IconProps extends Omit<UIComponentProps, 'as'> {
   marginBottom?: number
   marginLeft?: number
   onClick?: MouseEventHandler<SVGSVGElement>
+  onMouseDown?: MouseEventHandler<SVGSVGElement>
 }

@@ -56,6 +56,7 @@ function ListItemComponent({
   activeClassName,
   /* HTMLAttribute Props */
   onClick = noop,
+  onMouseDown = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
@@ -66,7 +67,7 @@ function ListItemComponent({
     active,
   ])
 
-  const handleClick = useCallback((e) => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
     onClick(e, name)
   }, [
     name,
@@ -208,6 +209,7 @@ function ListItemComponent({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
+        onMouseDown={onMouseDown}
         active={false}
         data-active={active}
         data-option-key={optionKey}
@@ -225,6 +227,7 @@ function ListItemComponent({
       className={clazzName}
       size={size}
       onClick={handleClick}
+      onMouseDown={onMouseDown}
       active={active}
       data-active={active}
       data-option-key={optionKey}

@@ -10,7 +10,7 @@ export default interface CheckboxProps extends ChildrenComponentProps {
   contentClassName?: string
   disabled?: boolean
   checked?: boolean | CheckType
-  onClick: () => void
+  onClick?: () => void
 }
 
 export interface StyledWrapperProps extends UIComponentProps {
