@@ -15,7 +15,7 @@ import {
   ContentWrapper,
   LeftContentWrapper,
   StyledIcon,
-  IconMargin,
+  LeftMargin,
   TitleWrapper,
   Title,
   DescriptionWrapper,
@@ -155,7 +155,7 @@ function ListItemComponent({
     <DescriptionWrapper
       active={active}
     >
-      { (leftIcon || leftContent) && <IconMargin /> }
+      { (leftIcon || leftContent) && <LeftMargin /> }
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)

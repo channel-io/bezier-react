@@ -58,7 +58,7 @@ interface IconWrapperProps {
   disableIconActive?: boolean
 }
 
-const IconSpacing = css`
+const leftSpacing = css`
   flex-shrink: 0;
   width: 20px;
   margin-right: 8px;
@@ -72,13 +72,13 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
 `
 
 export const LeftContentWrapper = styled.div`
-  ${IconSpacing}
+  ${leftSpacing}
   display: flex;
   align-items: center;
 `
 
-export const IconMargin = styled.div`
-  ${IconSpacing}
+export const LeftMargin = styled.div`
+  ${leftSpacing}
 `
 
 export interface StyledWrapperProps {
