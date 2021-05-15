@@ -6,7 +6,7 @@ import {
   OverlayPosition,
 } from '../Overlay.types'
 
-function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
+export function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
   if (containerRect && targetRect) {
     const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
     const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
@@ -19,7 +19,7 @@ function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionPro
   return {}
 }
 
-function getOverlayTranslation({
+export function getOverlayTranslation({
   containerRect,
   targetRect,
   overlay,
