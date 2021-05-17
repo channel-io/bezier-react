@@ -147,19 +147,17 @@ function ListItem({
   ])
 
   const descriptionComponent = useMemo(() => (
-    <>
-      <DescriptionWrapper
-        active={active}
-      >
-        <Description descriptionMaxLines={descriptionMaxLines}>
-          {
-            isString(description)
-              ? getNewLineComponenet(description)
-              : description
-          }
-        </Description>
-      </DescriptionWrapper>
-    </>
+    <DescriptionWrapper
+      active={active}
+    >
+      <Description descriptionMaxLines={descriptionMaxLines}>
+        {
+          isString(description)
+            ? getNewLineComponenet(description)
+            : description
+        }
+      </Description>
+    </DescriptionWrapper>
   ), [
     active,
     description,
