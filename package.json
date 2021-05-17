@@ -79,7 +79,7 @@
     "@storybook/addon-docs": "^6.2.9",
     "@storybook/addon-toolbars": "^6.2.9",
     "@storybook/react": "^6.2.9",
-    "@storybook/storybook-deployer": "^2.8.7",
+    "@storybook/storybook-deployer": "^2.8.8",
     "@svgr/babel-plugin-add-jsx-attribute": "^5.4.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^5.4.0",
     "@svgr/cli": "^5.5.0",
