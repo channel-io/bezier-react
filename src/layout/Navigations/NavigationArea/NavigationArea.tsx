@@ -8,7 +8,10 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { window, document } from 'ssr-window'
+import {
+  getWindow,
+  getDocument,
+} from 'ssr-window'
 
 /* Internal dependencies */
 import ColumnType from '../../../types/ColumnType'
@@ -26,6 +29,9 @@ import {
   NavigationPositioner,
   NavigationPresenter,
 } from './NavigationArea.styled'
+
+const window = getWindow()
+const document = getDocument()
 
 const MAX_NAV_Z_INDEX = 100
 

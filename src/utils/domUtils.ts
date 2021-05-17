@@ -1,5 +1,7 @@
 /* External dependencies */
-import { document } from 'ssr-window'
+import { getDocument } from 'ssr-window'
+
+const document = getDocument()
 
 export const rootElement =
   document.getElementById!('main') ||

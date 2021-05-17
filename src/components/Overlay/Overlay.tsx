@@ -10,7 +10,7 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
-import { document } from 'ssr-window'
+import { getDocument } from 'ssr-window'
 
 /* Internal dependencies */
 import { rootElement } from '../../utils/domUtils'
@@ -19,6 +19,8 @@ import useMergeRefs from '../../hooks/useMergeRefs'
 import { getOverlayStyle } from './utils/positionUtils'
 import OverlayProps, { OverlayPosition } from './Overlay.types'
 import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
+
+const document = getDocument()
 
 // TODO: 테스트 코드 작성
 const CONTAINER_TEST_ID = 'bezier-react-container'

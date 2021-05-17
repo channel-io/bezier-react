@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from 'react'
 import { noop, clamp } from 'lodash-es'
-import { document } from 'ssr-window'
+import { getDocument } from 'ssr-window'
 
 /* Internal dependencies */
 import useEventHandler from '../../../hooks/useEventHandler'
@@ -12,6 +12,8 @@ import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'
 import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
+
+const document = getDocument()
 
 // TODO: 테스트 코드 작성
 const SIDE_AREA_TEST_ID = 'bezier-react-side-area'

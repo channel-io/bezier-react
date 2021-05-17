@@ -4,10 +4,12 @@ import {
   useCallback,
 } from 'react'
 import { isEmpty, noop } from 'lodash-es'
-import { window } from 'ssr-window'
+import { getWindow } from 'ssr-window'
 
 /* Internal dependencies */
 import useLayoutState from './useLayoutState'
+
+const window = getWindow()
 
 export default function useResizingHandlers() {
   const {
