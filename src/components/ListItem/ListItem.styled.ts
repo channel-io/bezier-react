@@ -21,6 +21,8 @@ export const RightContent = styled.div`
 
 export const TitleWrapper = styled.div`
   display: flex;
+  grid-row: 1;
+  grid-column: 2;
   align-items: center;
 `
 
@@ -30,6 +32,8 @@ interface DescriptionProps {
 
 export const DescriptionWrapper = styled.div<DescriptionProps>`
   display: flex;
+  grid-row: 2;
+  grid-column: 2;
   align-items: center;
   width: 100%;
   margin-top: 2px;
@@ -66,6 +70,8 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
 
 export const LeftContentWrapper = styled.div`
   display: flex;
+  grid-row: 1;
+  grid-column: 1;
   align-items: center;
   margin-right: 8px;
 `

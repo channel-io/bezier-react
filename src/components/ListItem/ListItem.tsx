@@ -114,7 +114,7 @@ function ListItem({
       )
     }
 
-    return <div />
+    return null
   }, [
     active,
     disableIconActive,
@@ -148,7 +148,6 @@ function ListItem({
 
   const descriptionComponent = useMemo(() => (
     <>
-      <div />
       <DescriptionWrapper
         active={active}
       >
