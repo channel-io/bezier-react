@@ -6,7 +6,7 @@ import {
   OverlayPosition,
 } from '../Overlay.types'
 
-function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
+export function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
   if (containerRect && targetRect) {
     const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
     const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
@@ -19,7 +19,7 @@ function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionPro
   return {}
 }
 
-function getOverlayTranslation({
+export function getOverlayTranslation({
   containerRect,
   targetRect,
   overlay,
@@ -85,6 +85,26 @@ function getOverlayTranslation({
       case OverlayPosition.RightBottom:
       case OverlayPosition.LeftBottom:
         translateY -= (overlayHeight - targetHeight)
+        break
+    }
+
+    // inner position
+    switch (placement) {
+      case OverlayPosition.InnerLeftTop:
+        translateX = marginX
+        translateY = marginY
+        break
+      case OverlayPosition.InnerLeftBottom:
+        translateX = marginX
+        translateY = targetHeight - overlayHeight + marginY
+        break
+      case OverlayPosition.InnerRightTop:
+        translateX = targetWidth - overlayWidth + marginX
+        translateY = marginY
+        break
+      case OverlayPosition.InnerRightBottom:
+        translateX = targetWidth - overlayWidth + marginX
+        translateY = targetHeight - overlayHeight + marginY
         break
     }
 
