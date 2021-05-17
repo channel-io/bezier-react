@@ -1,19 +1,17 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from 'react'
 import { noop, clamp } from 'lodash-es'
-import { getDocument } from 'ssr-window'
 
 /* Internal dependencies */
 import useEventHandler from '../../../hooks/useEventHandler'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useResizingHandlers from '../../../hooks/useResizingHandlers'
+import { document } from '../../../utils/domUtils'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../../constants/LayoutSizes'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'
 import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
-
-const document = getDocument()
 
 // TODO: 테스트 코드 작성
 const SIDE_AREA_TEST_ID = 'bezier-react-side-area'

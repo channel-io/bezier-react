@@ -8,10 +8,6 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import {
-  getWindow,
-  getDocument,
-} from 'ssr-window'
 
 /* Internal dependencies */
 import ColumnType from '../../../types/ColumnType'
@@ -22,6 +18,10 @@ import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import LayoutActions from '../../redux/LayoutActions'
+import {
+  window,
+  document,
+} from '../../../utils/domUtils'
 import NavigationProps from './NavigationArea.types'
 import {
   ResizeBar,
@@ -29,9 +29,6 @@ import {
   NavigationPositioner,
   NavigationPresenter,
 } from './NavigationArea.styled'
-
-const window = getWindow()
-const document = getDocument()
 
 const MAX_NAV_Z_INDEX = 100
 
