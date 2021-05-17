@@ -8,7 +8,6 @@ import React, {
   useRef,
   useMemo,
 } from 'react'
-import { window, document } from 'ssr-window'
 
 /* Internal dependencies */
 import ColumnType from '../../../types/ColumnType'
@@ -19,6 +18,10 @@ import useThrottledCallback from '../../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import LayoutActions from '../../redux/LayoutActions'
+import {
+  window,
+  document,
+} from '../../../utils/domUtils'
 import NavigationProps from './NavigationArea.types'
 import {
   ResizeBar,
