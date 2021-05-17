@@ -11,6 +11,9 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-backgrounds',
   ],
+  features: {
+    postcss: false,
+  },
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.scss$/,
