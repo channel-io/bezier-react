@@ -3,8 +3,8 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import commonjs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
 import visualizer from 'rollup-plugin-visualizer'
-import typescript from '@wessberg/rollup-plugin-ts'
 
 import packageJson from './package.json'
 
@@ -31,9 +31,10 @@ export default {
     }),
     commonjs(),
     url(),
-    typescript({
-      tsconfig: 'tsconfig.rollup.json',
-      transpiler: 'babel',
+    babel({
+      babelHelpers: 'runtime',
+      exclude: 'node_modules/**',
+      extensions,
     }),
     visualizer({
       filename: 'stats.html',
