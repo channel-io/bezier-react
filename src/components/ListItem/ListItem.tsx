@@ -51,6 +51,8 @@ function ListItem({
   /* HTMLAttribute Props */
   onClick = noop,
   onMouseDown = noop,
+  onMouseEnter = noop,
+  onMouseLeave = noop,
   ...othreProps
 }: ListItemProps, forwardedRef: Ref<any>) {
   const clazzName = useMemo(() => (
@@ -204,6 +206,8 @@ function ListItem({
         rel="noopener noreferrer"
         onClick={handleClick}
         onMouseDown={onMouseDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         active={false}
         data-active={active}
         data-option-key={optionKey}
@@ -217,11 +221,14 @@ function ListItem({
 
   return (
     <Wrapper
+      ref={forwardedRef}
       as={as}
       className={clazzName}
       size={size}
       onClick={handleClick}
       onMouseDown={onMouseDown}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       active={active}
       data-active={active}
       data-option-key={optionKey}

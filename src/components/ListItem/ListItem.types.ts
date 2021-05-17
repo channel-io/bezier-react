@@ -31,4 +31,6 @@ export default interface ListItemProps extends ContentComponentProps, ActivableE
   rightContent?: React.ReactNode
   onClick?: (e: React.MouseEvent, name?: string) => void
   onMouseDown?: (e: React.MouseEvent) => void
+  onMouseEnter?: (e: React.MouseEvent) => void
+  onMouseLeave?: (e: React.MouseEvent) => void
 }

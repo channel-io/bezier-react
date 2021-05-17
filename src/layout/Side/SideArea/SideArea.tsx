@@ -1,12 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from 'react'
 import { noop, clamp } from 'lodash-es'
-import { document } from 'ssr-window'
 
 /* Internal dependencies */
 import useEventHandler from '../../../hooks/useEventHandler'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useResizingHandlers from '../../../hooks/useResizingHandlers'
+import { document } from '../../../utils/domUtils'
 import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '../../../constants/LayoutSizes'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import LayoutActions from '../../redux/LayoutActions'

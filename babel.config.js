@@ -8,6 +8,7 @@ module.exports = {
       ],
       plugins: [
         '@babel/plugin-transform-runtime',
+        ['@babel/plugin-proposal-private-property-in-object', { loose: false }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
       ],
     },
@@ -19,6 +20,7 @@ module.exports = {
       ],
       plugins: [
         '@babel/plugin-transform-runtime',
+        ['@babel/plugin-proposal-private-property-in-object', { loose: false }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
       ],
     },

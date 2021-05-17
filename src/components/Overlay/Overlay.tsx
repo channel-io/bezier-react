@@ -10,10 +10,9 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
-import { document } from 'ssr-window'
 
 /* Internal dependencies */
-import { rootElement } from '../../utils/domUtils'
+import { document, rootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import { getOverlayStyle } from './utils/positionUtils'
