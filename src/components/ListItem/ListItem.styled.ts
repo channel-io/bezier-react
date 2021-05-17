@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, ellipsis, styled } from '../../foundation'
+import { css, ellipsis, LineHeightAbsoluteNumber, styled } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
 import { ListItemSize } from './ListItem.types'
@@ -48,7 +48,7 @@ interface DescriptionProps {
 }
 
 export const Description = styled.div<DescriptionProps>`
-  ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines)}
+  ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines, LineHeightAbsoluteNumber.Lh16)}
 `
 
 interface IconWrapperProps {
@@ -72,7 +72,6 @@ export const LeftContentWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   display: grid;
-  grid-template-rows: fit-content(100%) fit-content(100%);
   grid-template-columns: fit-content(100%) minmax(0, 1fr);
   width: 100%;
 `

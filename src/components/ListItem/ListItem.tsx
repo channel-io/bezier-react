@@ -114,7 +114,7 @@ function ListItem({
       )
     }
 
-    return null
+    return <div />
   }, [
     active,
     disableIconActive,
