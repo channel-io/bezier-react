@@ -59,6 +59,10 @@ export interface TextFieldProps
   selectAllOnFocus?: boolean
   leftContent?: TextFieldItemProps
   rightContent?: TextFieldItemProps | TextFieldItemProps[]
+  withoutLeftContentWrapper?: boolean
+  withoutRightContentWrapper?: boolean
+  inputClassName?: string
+  inputInterpolation?: InjectedInterpolation
   wrapperClassName?: string
   wrapperInterpolation?: InjectedInterpolation
   leftWrapperClassName?: string
@@ -67,4 +71,6 @@ export interface TextFieldProps
   rightWrapperInterpolation?: InjectedInterpolation
   onFocus?: React.ChangeEventHandler<HTMLInputElement>
   onChange?: React.ChangeEventHandler<HTMLInputElement>
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
+  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>
 }
