@@ -1,12 +1,24 @@
 /* Internal dependencies */
+import { css } from '../../../foundation'
 import {
-  GetOverlayStyleProps,
-  GetOverlayPositionProps,
-  GetOverlayTranslatationProps,
   OverlayPosition,
+  ContainerRectAttr,
+  TargetRectAttr,
 } from '../Overlay.types'
 
-export function getOverlayPosition({ containerRect, targetRect }: GetOverlayPositionProps): React.CSSProperties {
+const TOP_POSITION_OFFSET = 15
+
+interface GetOverlayPositionArgs {
+  containerRect: ContainerRectAttr
+  targetRect: TargetRectAttr | null
+  show: boolean
+}
+
+export function getOverlayPosition({
+  containerRect,
+  targetRect,
+  show,
+}: GetOverlayPositionArgs) {
   if (containerRect && targetRect) {
     const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
     const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
@@ -14,20 +26,36 @@ export function getOverlayPosition({ containerRect, targetRect }: GetOverlayPosi
     const top = targetTop - clientTop - containerTop + scrollTop
     const left = targetLeft - clientLeft - containerLeft + scrollLeft
 
-    return { top, left }
+    return {
+      top: show ? top : top - TOP_POSITION_OFFSET,
+      left,
+    }
   }
-  return {}
+  return {
+    top: 0,
+    left: 0,
+  }
+}
+
+interface GetOverlayTranslatationArgs {
+  containerRect: ContainerRectAttr
+  targetRect: TargetRectAttr | null
+  overlay: HTMLElement
+  position: OverlayPosition
+  marginX: number
+  marginY: number
+  keepInContainer: boolean
 }
 
 export function getOverlayTranslation({
   containerRect,
   targetRect,
   overlay,
-  placement,
+  position,
   marginX,
   marginY,
   keepInContainer,
-}: GetOverlayTranslatationProps): React.CSSProperties {
+}: GetOverlayTranslatationArgs) {
   if (containerRect && targetRect) {
     const {
       containerWidth,
@@ -42,7 +70,7 @@ export function getOverlayTranslation({
     let translateY = 0
 
     // pre position
-    switch (placement) {
+    switch (position) {
       case OverlayPosition.TopCenter:
       case OverlayPosition.TopLeft:
       case OverlayPosition.TopRight:
@@ -68,8 +96,9 @@ export function getOverlayTranslation({
         translateY += marginY
         break
     }
-    // post position
-    switch (placement) {
+
+    switch (position) {
+      // post position
       case OverlayPosition.TopCenter:
       case OverlayPosition.BottomCenter:
         translateX -= ((overlayWidth / 2) - (targetWidth / 2))
@@ -86,10 +115,8 @@ export function getOverlayTranslation({
       case OverlayPosition.LeftBottom:
         translateY -= (overlayHeight - targetHeight)
         break
-    }
 
-    // inner position
-    switch (placement) {
+      // inner position
       case OverlayPosition.InnerLeftTop:
         translateX = marginX
         translateY = marginY
@@ -122,40 +149,55 @@ export function getOverlayTranslation({
       }
     }
 
-    const transform = `translate(${translateX}px, ${translateY}px)`
-    return { transform }
+    return {
+      translateX,
+      translateY,
+    }
   }
-  return {}
+  return {
+    translateX: 0,
+    translateY: 0,
+  }
+}
+
+interface GetOverlayStyleArgs {
+  containerRect: ContainerRectAttr | null
+  targetRect: TargetRectAttr | null
+  overlay: HTMLElement
+  position: OverlayPosition
+  marginX: number
+  marginY: number
+  keepInContainer: boolean
+  show: boolean
 }
 
 export function getOverlayStyle({
   containerRect,
   targetRect,
   overlay,
-  placement,
+  position,
   marginX,
   marginY,
   keepInContainer,
-}: GetOverlayStyleProps): React.CSSProperties {
+  show,
+}: GetOverlayStyleArgs) {
   if (containerRect && targetRect) {
-    const overlayPositionStyle = getOverlayPosition({ containerRect, targetRect })
-    const overlayTranslateStyle = getOverlayTranslation({
+    const { top, left } = getOverlayPosition({ containerRect, targetRect, show })
+    const { translateX, translateY } = getOverlayTranslation({
       containerRect,
       targetRect,
       overlay,
-      placement,
+      position,
       marginX,
       marginY,
       keepInContainer,
     })
 
-    const combinedStyle = {
-      ...overlayPositionStyle,
-      ...overlayTranslateStyle,
-      willChange: 'left, top',
-    }
-
-    return combinedStyle
+    return css`
+      top: ${top}px;
+      left: ${left}px;
+      transform: translateX(${translateX}px) translateY(${translateY}px);
+    `
   }
-  return {}
+  return css``
 }

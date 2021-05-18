@@ -1,8 +1,24 @@
 /* Internal dependencies */
 import { styled, css } from '../../foundation'
-import { StyledOverlayProps } from './Overlay.types'
+import OverlayProps, {
+  OverlayPosition,
+  ContainerRectAttr,
+  TargetRectAttr,
+} from './Overlay.types'
+import { getOverlayStyle } from './utils/positionUtils'
 
-export const Container = styled.div`
+interface StyledOverlayProps extends OverlayProps {
+  show: boolean
+  containerRect: ContainerRectAttr
+  targetRect: TargetRectAttr | null
+  overlay: any
+  position: OverlayPosition
+  marginX: number
+  marginY: number
+  keepInContainer: boolean
+}
+
+export const DefaultContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -12,23 +28,25 @@ export const Container = styled.div`
   height: 100%;
 `
 
-export const Wrapper = styled.div`
+export const DefaultWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
 `
 
-export const StyledOverlay = styled.div<StyledOverlayProps>`
+export const Overlay = styled.div<StyledOverlayProps>`
   position: absolute;
 
-  ${({ isHidden }) => isHidden && css`
-    visibility: hidden;
-  `}
+  ${getOverlayStyle};
 
-  ${({ transition, foundation }) => transition && (
+  ${({ show }) => !show && css`
+    opacity: 0;
+  `};
+
+  ${({ withTransition, foundation }) => withTransition && (
     foundation?.transition?.getTransitionsCSS(
-      ['top, left'],
-      foundation?.transition?.TransitionDuration.M,
+      ['top', 'opacity'],
+      foundation?.transition?.TransitionDuration.S,
     )
-  )}
+  )};
 `

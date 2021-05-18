@@ -1,7 +1,5 @@
 /* External dependencies */
 import React, {
-  useState,
-  useEffect,
   useMemo,
   useRef,
   useCallback,
@@ -15,9 +13,12 @@ import { noop } from 'lodash-es'
 import { document, rootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
-import { getOverlayStyle } from './utils/positionUtils'
-import OverlayProps, { OverlayPosition } from './Overlay.types'
-import { Container, Wrapper, StyledOverlay } from './Overlay.styled'
+import OverlayProps, {
+  OverlayPosition,
+  ContainerRectAttr,
+  TargetRectAttr,
+} from './Overlay.types'
+import * as Styled from './Overlay.styled'
 
 // TODO: 테스트 코드 작성
 const CONTAINER_TEST_ID = 'bezier-react-container'
@@ -39,20 +40,17 @@ function Overlay(
     containerStyle,
     container,
     target,
-    placement = OverlayPosition.LeftCenter,
+    position = OverlayPosition.LeftCenter,
     marginX = 0,
     marginY = 0,
     keepInContainer = false,
-    transition = false,
+    withTransition = false,
     enableClickOutside = false,
     children,
     onHide = noop,
-    ...otherProps
   }: OverlayProps,
   forwardedRef: Ref<any>,
 ) {
-  const [overlayStyle, setOverlayStyle] = useState<React.CSSProperties>()
-  const [isHidden, setIsHidden] = useState<boolean>(true)
   const overlayRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
@@ -62,7 +60,7 @@ function Overlay(
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(StyledOverlay)) {
+    if (!event.target?.closest(Styled.Overlay)) {
       onHide()
 
       if (!enableClickOutside) {
@@ -80,75 +78,7 @@ function Overlay(
     }
   }, [onHide])
 
-  const overlay = useMemo(() => {
-    if (container) {
-      return (
-        <StyledOverlay
-          as={as}
-          className={className}
-          isHidden={isHidden}
-          transition={transition}
-          style={{
-            ...(style || {}),
-            ...(overlayStyle || {}),
-          }}
-          ref={mergedRef}
-          data-testid={testId}
-          {...otherProps}
-        >
-          { children }
-        </StyledOverlay>
-      )
-    }
-    return (
-      <Container
-        ref={containerRef}
-        className={containerClassName}
-        style={containerStyle}
-        data-testid={containerTestId}
-      >
-        <Wrapper data-testid={wrapperTestId}>
-          <StyledOverlay
-            as={as}
-            className={className}
-            isHidden={isHidden}
-            transition={transition}
-            style={{
-              ...(style || {}),
-              ...(overlayStyle || {}),
-            }}
-            ref={mergedRef}
-            data-testid={testId}
-            {...otherProps}
-          >
-            { children }
-          </StyledOverlay>
-        </Wrapper>
-      </Container>
-    )
-  }, [
-    as,
-    className,
-    style,
-    containerClassName,
-    containerStyle,
-    container,
-    isHidden,
-    transition,
-    overlayStyle,
-    children,
-    containerTestId,
-    wrapperTestId,
-    testId,
-    mergedRef,
-    otherProps,
-  ])
-
-  const containerRect = useMemo(() => {
-    if (!show) {
-      return null
-    }
-
+  const containerRect: ContainerRectAttr = useMemo(() => {
     const containerElement = container || rootElement as HTMLElement
     const {
       width: containerWidth,
@@ -167,17 +97,21 @@ function Overlay(
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    show,
     container,
     children,
   ])
 
-  const targetRect = useMemo(() => {
-    if (!target || !show) {
+  const targetRect: TargetRectAttr | null = useMemo(() => {
+    if (!target) {
       return null
     }
 
-    const { width: targetWidth, height: targetHeight, top: targetTop, left: targetLeft } = target.getBoundingClientRect()
+    const {
+      width: targetWidth,
+      height: targetHeight,
+      top: targetTop,
+      left: targetLeft,
+    } = target.getBoundingClientRect()
     const { clientTop, clientLeft } = target
 
     return {
@@ -190,7 +124,6 @@ function Overlay(
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    show,
     target,
     children,
   ])
@@ -199,39 +132,55 @@ function Overlay(
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
-  useEffect(() => {
-    if (show) {
-      const tempOverlayStyle = getOverlayStyle({
-        containerRect,
-        targetRect,
-        overlay: overlayRef.current as HTMLElement,
-        placement,
-        marginX,
-        marginY,
-        keepInContainer,
-      })
-      setOverlayStyle(tempOverlayStyle)
-      setIsHidden(false)
-
-      return () => {
-        setOverlayStyle(undefined)
-        setIsHidden(true)
-      }
+  const OverlayContainer = useMemo(() => {
+    if (container) {
+      return ({ children: _children }) => _children
     }
-    return noop
+
+    return ({ children: _children }) => (
+      <Styled.DefaultContainer
+        ref={containerRef}
+        className={containerClassName}
+        style={containerStyle}
+        data-testid={containerTestId}
+      >
+        <Styled.DefaultWrapper data-testid={wrapperTestId}>
+          { _children }
+        </Styled.DefaultWrapper>
+      </Styled.DefaultContainer>
+    )
   }, [
-    show,
-    containerRect,
-    targetRect,
-    marginX,
-    marginY,
-    placement,
-    keepInContainer,
+    containerRef,
+    container,
+    containerClassName,
+    containerStyle,
+    containerTestId,
+    wrapperTestId,
   ])
 
-  if (!show) return null
-
-  return ReactDOM.createPortal(overlay, container || rootElement as HTMLElement)
+  return ReactDOM.createPortal(
+    <OverlayContainer>
+      <Styled.Overlay
+        as={as}
+        ref={mergedRef}
+        className={className}
+        show={show}
+        withTransition={withTransition}
+        style={style}
+        data-testid={testId}
+        containerRect={containerRect}
+        targetRect={targetRect}
+        overlay={overlayRef.current}
+        position={position}
+        marginX={marginX}
+        marginY={marginY}
+        keepInContainer={keepInContainer}
+      >
+        { children }
+      </Styled.Overlay>
+    </OverlayContainer>,
+    container || rootElement as HTMLElement,
+  )
 }
 
 export default forwardRef(Overlay)
