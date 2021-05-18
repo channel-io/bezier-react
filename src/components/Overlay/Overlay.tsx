@@ -134,13 +134,16 @@ function Overlay(
 
   const OverlayContainer = useMemo(() => {
     if (container) {
-      return ({ children: _children }) => _children
+      return ({ children: _children }: { children: React.ReactNode }) => (
+        <>{ _children }</>
+      )
     }
 
-    return ({ children: _children }) => (
+    return ({ children: _children, show: _show }: { children: React.ReactNode, show: boolean }) => (
       <Styled.DefaultContainer
         ref={containerRef}
         className={containerClassName}
+        show={_show}
         style={containerStyle}
         data-testid={containerTestId}
       >
@@ -159,7 +162,7 @@ function Overlay(
   ])
 
   return ReactDOM.createPortal(
-    <OverlayContainer>
+    <OverlayContainer show={show}>
       <Styled.Overlay
         as={as}
         ref={mergedRef}

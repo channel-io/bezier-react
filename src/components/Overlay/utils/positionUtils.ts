@@ -6,11 +6,11 @@ import {
   TargetRectAttr,
 } from '../Overlay.types'
 
-const TOP_POSITION_OFFSET = 15
+const TOP_POSITION_OFFSET = 5
 
 interface GetOverlayPositionArgs {
   containerRect: ContainerRectAttr
-  targetRect: TargetRectAttr | null
+  targetRect: TargetRectAttr
   show: boolean
 }
 
@@ -19,21 +19,15 @@ export function getOverlayPosition({
   targetRect,
   show,
 }: GetOverlayPositionArgs) {
-  if (containerRect && targetRect) {
-    const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
-    const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
+  const { containerTop, containerLeft, scrollTop, scrollLeft } = containerRect
+  const { targetTop, targetLeft, clientTop, clientLeft } = targetRect
 
-    const top = targetTop - clientTop - containerTop + scrollTop
-    const left = targetLeft - clientLeft - containerLeft + scrollLeft
+  const top = targetTop - clientTop - containerTop + scrollTop
+  const left = targetLeft - clientLeft - containerLeft + scrollLeft
 
-    return {
-      top: show ? top : top - TOP_POSITION_OFFSET,
-      left,
-    }
-  }
   return {
-    top: 0,
-    left: 0,
+    top: show ? top : top - TOP_POSITION_OFFSET,
+    left,
   }
 }
 
@@ -161,7 +155,7 @@ export function getOverlayTranslation({
 }
 
 interface GetOverlayStyleArgs {
-  containerRect: ContainerRectAttr | null
+  containerRect: ContainerRectAttr
   targetRect: TargetRectAttr | null
   overlay: HTMLElement
   position: OverlayPosition

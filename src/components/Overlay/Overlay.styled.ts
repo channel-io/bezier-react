@@ -18,7 +18,9 @@ interface StyledOverlayProps extends OverlayProps {
   keepInContainer: boolean
 }
 
-export const DefaultContainer = styled.div`
+interface DefaultContainerProps extends Pick<OverlayProps, 'show'> {}
+
+export const DefaultContainer = styled.div<DefaultContainerProps>`
   position: fixed;
   top: 0;
   right: 0;
@@ -26,6 +28,8 @@ export const DefaultContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
+  pointer-events: ${({ show }) => (show ? 'all' : 'none')};
 `
 
 export const DefaultWrapper = styled.div`
