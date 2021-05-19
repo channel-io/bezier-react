@@ -53,10 +53,11 @@ function Select(
   const [isDropdownOpened, setIsDropdownOpened] = useState(defaultFocus)
   const [triggerRef, setTriggerRef] = useState<HTMLDivElement | null>(null)
 
-  const handleTriggerRef = useCallback((triggerInst: HTMLDivElement) => {
-    setTriggerRef(triggerInst)
-  }, [])
-
+  /**
+   * NOTE: useMergeRefs 의 결과에 대한 type 을 정확하게 추론하기 위해
+   * setTriggerRef 에 대한 wrapping 함수를 작성.
+   */
+  const handleTriggerRef = useCallback((triggerInst: HTMLDivElement) => { setTriggerRef(triggerInst) }, [])
   const mergedTriggerRef = useMergeRefs(handleTriggerRef, forwardedRef)
 
   const LeftComponent = useMemo(() => {
@@ -74,8 +75,10 @@ function Select(
   }, [iconComponent])
 
   const handleClickTrigger = useCallback(() => {
-    setIsDropdownOpened(prevState => !prevState)
-  }, [])
+    if (!disabled) {
+      setIsDropdownOpened(prevState => !prevState)
+    }
+  }, [disabled])
 
   return (
     <Styled.Container
@@ -90,7 +93,7 @@ function Select(
         as={as}
         ref={mergedTriggerRef}
         size={size}
-        focus={isDropdownOpened}
+        focus={isDropdownOpened && !disabled}
         error={hasError}
         disabled={disabled}
         onClick={handleClickTrigger}
@@ -113,7 +116,7 @@ function Select(
       <Styled.Dropdown
         testId={dropdownTestId}
         withTransition
-        show={isDropdownOpened}
+        show={isDropdownOpened && !disabled}
         marginY={6}
         target={triggerRef}
         container={dropdownContainer || containerRef.current}

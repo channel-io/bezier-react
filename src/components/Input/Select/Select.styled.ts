@@ -62,8 +62,8 @@ export const Trigger = styled.div<TriggerProps>`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
   ${({ foundation }) => foundation?.rounding?.round8};
   ${inputWrapperStyle};
-  cursor: pointer;
-
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};

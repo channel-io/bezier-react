@@ -6,7 +6,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   data-testid="bezier-react-select-container"
 >
   <div
-    class="sc-gKsewC hyvXCw"
+    class="sc-gKsewC eNEzrg"
     data-testid="bezier-react-select-trigger"
   >
     <div
