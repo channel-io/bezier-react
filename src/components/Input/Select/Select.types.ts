@@ -7,12 +7,13 @@ export enum SelectSize {
   XL = 'XL',
   L = 'L',
   M = 'M',
-  XS = 'XS',
+  S = 'S',
 }
 
 interface SelectProps extends ChildrenComponentProps {
   triggerTestId?: string
   dropdownTestId?: string
+  size?: SelectSize
   disabled?: boolean
   defaultFocus?: boolean
   placeholder?: string

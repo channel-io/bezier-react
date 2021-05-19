@@ -78,7 +78,7 @@ function Overlay(
     }
   }, [onHide])
 
-  const containerRect: ContainerRectAttr = useMemo(() => {
+  const containerRect: () => ContainerRectAttr = useCallback(() => {
     const containerElement = container || getRootElement() as HTMLElement
 
     const {
@@ -102,7 +102,7 @@ function Overlay(
     children,
   ])
 
-  const targetRect: TargetRectAttr | null = useMemo(() => {
+  const targetRect: () => TargetRectAttr | null = useCallback(() => {
     if (!target) {
       return null
     }
@@ -172,8 +172,8 @@ function Overlay(
         withTransition={withTransition}
         style={style}
         data-testid={testId}
-        containerRect={containerRect}
-        targetRect={targetRect}
+        containerRect={containerRect()}
+        targetRect={targetRect()}
         overlay={overlayRef.current}
         position={position}
         marginX={marginX}

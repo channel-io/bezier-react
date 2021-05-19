@@ -11,6 +11,7 @@ import {
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
 } from '../constants/InputWrapperStyle'
+import { SelectSize } from './Select.types'
 
 interface ContainerProps {
   interpolation?: InjectedInterpolation
@@ -26,13 +27,37 @@ interface TriggerProps {
   focus: boolean
   error: boolean
   disabled: boolean
+  size: SelectSize
 }
 
-// TODO: Size variant
+function selectSizeConverter(size: SelectSize) {
+  switch (size) {
+    case SelectSize.XL:
+      return css`
+        height: 54px;
+      `
+    case SelectSize.L:
+      return css`
+        height: 44px;
+      `
+    case SelectSize.S:
+      return css`
+        height: 28px;
+      `
+    case SelectSize.M:
+    default:
+      return css`
+        height: 36px;
+      `
+  }
+}
+
 export const Trigger = styled.div<TriggerProps>`
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${({ size }) => selectSizeConverter(size)};
   padding: 8px 12px;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
   ${({ foundation }) => foundation?.rounding?.round8};

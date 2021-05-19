@@ -18,7 +18,7 @@ import { Text } from '../../Text'
 import { OverlayPosition } from '../../Overlay'
 import { Typography } from '../../../foundation'
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import SelectProps from './Select.types'
+import SelectProps, { SelectSize } from './Select.types'
 import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
@@ -34,6 +34,7 @@ function Select(
     style,
     className,
     interpolation,
+    size = SelectSize.M,
     disabled = false,
     defaultFocus = false,
     placeholder = 'hello',
@@ -88,6 +89,7 @@ function Select(
         data-testid={triggerTestId}
         as={as}
         ref={mergedTriggerRef}
+        size={size}
         focus={isDropdownOpened}
         error={hasError}
         disabled={disabled}
@@ -103,6 +105,7 @@ function Select(
           <Icon
             name={isDropdownOpened ? 'chevron-up' : 'chevron-down'}
             size={IconSize.XS}
+            marginLeft={6}
           />
         ) }
       </Styled.Trigger>

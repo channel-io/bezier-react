@@ -6,7 +6,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   data-testid="bezier-react-select-container"
 >
   <div
-    class="sc-gKsewC jzYmJy"
+    class="sc-gKsewC hyvXCw"
     data-testid="bezier-react-select-trigger"
   >
     <div
@@ -20,13 +20,13 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       </span>
     </div>
     <svg
-      class="sc-bdfBwQ lezJkb"
+      class="sc-bdfBwQ hGXmBd"
       data-testid="bezier-react-icon"
       fill="none"
       foundation="[object Object]"
       height="16"
       marginbottom="0"
-      marginleft="0"
+      marginleft="6"
       marginright="0"
       margintop="0"
       viewBox="0 0 24 24"
