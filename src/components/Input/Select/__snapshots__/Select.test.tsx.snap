@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Test > Default Style > Snapshot > 1`] = `
+<div
+  class="sc-jSgupP hosdlv"
+  data-testid="bezier-react-select-container"
+>
+  <div
+    class="sc-gKsewC jzYmJy"
+    data-testid="bezier-react-select-trigger"
+  >
+    <div
+      class="sc-iBPRYJ iUImDk"
+    >
+      <span
+        class="sc-gsTCUz dIRrgv"
+        data-testid="bezier-react-text"
+      >
+        hello
+      </span>
+    </div>
+    <svg
+      class="sc-bdfBwQ lezJkb"
+      data-testid="bezier-react-icon"
+      fill="none"
+      foundation="[object Object]"
+      height="16"
+      marginbottom="0"
+      marginleft="0"
+      marginright="0"
+      margintop="0"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M19.707 8.793a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 011.414-1.414L12 15.086l6.293-6.293a1 1 0 011.414 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <div
+    class="sc-eCssSg gBwSIV sc-fubCfw honUEG"
+    data-testid="bezier-react-select-dropdown"
+  />
+</div>
+`;
