@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { document, rootElement } from '../../utils/domUtils'
+import { document, getRootElement } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
@@ -79,7 +79,8 @@ function Overlay(
   }, [onHide])
 
   const containerRect: ContainerRectAttr = useMemo(() => {
-    const containerElement = container || rootElement as HTMLElement
+    const containerElement = container || getRootElement() as HTMLElement
+
     const {
       width: containerWidth,
       height: containerHeight,
@@ -182,7 +183,7 @@ function Overlay(
         { children }
       </Styled.Overlay>
     </OverlayContainer>,
-    container || rootElement as HTMLElement,
+    container || getRootElement() as HTMLElement,
   )
 }
 

@@ -1,7 +1,9 @@
 /* External dependencies */
 import React from 'react'
 
-function setRef<T>(ref: React.Ref<T>, value: T) {
+type CallbackRef<T> = (_inst: T) => any
+
+function setRef<T>(ref: React.Ref<T> | CallbackRef<T>, value: T) {
   if (typeof ref === 'function') {
     ref(value)
   } else if (ref) {
@@ -9,7 +11,7 @@ function setRef<T>(ref: React.Ref<T>, value: T) {
   }
 }
 
-export default function useMergeRefs<T>(...refs: Array<React.Ref<T>>) {
+export default function useMergeRefs<T>(...refs: Array<React.Ref<T> | CallbackRef<T>>) {
   /* eslint-disable-next-line consistent-return */
   return React.useCallback((inst: T) => {
     const filteredRefs = refs.filter(Boolean)

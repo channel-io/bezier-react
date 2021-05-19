@@ -6,7 +6,7 @@ import { noop } from 'lodash-es'
 /* Internal dependencies */
 import ToastContext from '../../contexts/ToastContext'
 import { css, TransitionDuration } from '../../foundation'
-import { rootElement } from '../../utils/domUtils'
+import { getRootElement } from '../../utils/domUtils'
 import {
   OnDismissCallback,
   defaultOptions,
@@ -140,7 +140,7 @@ function ToastProvider({
           createContainer(ToastPlacement.BottomLeft, leftToasts),
           createContainer(ToastPlacement.BottomRight, rightToasts),
         ],
-        rootElement,
+        getRootElement(),
       ) }
     </Provider>
   )
