@@ -8,7 +8,7 @@ import Select, {
   SELECT_TRIGGER_TEST_ID,
   SELECT_DROPDOWN_TEST_ID,
 } from './Select'
-import SelectProps from './Select.types'
+import SelectProps, { SelectSize } from './Select.types'
 
 describe('Select Test >', () => {
   let props: SelectProps
@@ -55,6 +55,73 @@ describe('Select Test >', () => {
       expect(defaultSelectDropdown).toHaveStyle('min-width: 200px;')
       expect(defaultSelectDropdown).toHaveStyle('min-height: 42px;')
       expect(defaultSelectDropdown).toHaveStyle('max-height: 640px;')
+    })
+  })
+
+  describe('SelectSize >', () => {
+    it('Size only effects to trigger style >', () => {
+      const XL_CONTAINER_TEST_ID = `${SELECT_CONTAINER_TEST_ID}_XL`
+      const XL_DROPDOWN_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_XL`
+      const L_CONTAINER_TEST_ID = `${SELECT_CONTAINER_TEST_ID}_L`
+      const L_DROPDOWN_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_L`
+
+      const { getByTestId: getByTestIdForXL } = renderSelect({
+        size: SelectSize.XL,
+        testId: XL_CONTAINER_TEST_ID,
+        dropdownTestId: XL_DROPDOWN_TEST_ID,
+      })
+      const { getByTestId: getByTestIdForL } = renderSelect({
+        size: SelectSize.L,
+        testId: L_CONTAINER_TEST_ID,
+        dropdownTestId: L_DROPDOWN_TEST_ID,
+      })
+
+      const xlSelectContainer = getByTestIdForXL(XL_CONTAINER_TEST_ID)
+      const xlSelectDropdown = getByTestIdForXL(XL_DROPDOWN_TEST_ID)
+      const lSelectContainer = getByTestIdForL(L_CONTAINER_TEST_ID)
+      const lSelectDropdown = getByTestIdForL(L_DROPDOWN_TEST_ID)
+
+      const xlContainerStyle = window.getComputedStyle(xlSelectContainer)
+      const xlDropdownStyle = window.getComputedStyle(xlSelectDropdown)
+      const lContainerStyle = window.getComputedStyle(lSelectContainer)
+      const lDropdownStyle = window.getComputedStyle(lSelectDropdown)
+
+      // Container
+      expect(xlContainerStyle.getPropertyValue('display')).toEqual(lContainerStyle.getPropertyValue('display'))
+
+      // Dropdown
+      expect(xlDropdownStyle.getPropertyValue('width')).toEqual(lDropdownStyle.getPropertyValue('width'))
+      expect(xlDropdownStyle.getPropertyValue('min-width')).toEqual(lDropdownStyle.getPropertyValue('min-width'))
+      expect(xlDropdownStyle.getPropertyValue('min-height')).toEqual(lDropdownStyle.getPropertyValue('min-height'))
+      expect(xlDropdownStyle.getPropertyValue('max-height')).toEqual(lDropdownStyle.getPropertyValue('max-height'))
+    })
+
+    it('Size S >', () => {
+      const { getByTestId } = renderSelect({ size: SelectSize.S })
+      const defaultSelectDropdown = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(defaultSelectDropdown).toHaveStyle('height: 28px;')
+    })
+
+    it('Size M >', () => {
+      const { getByTestId } = renderSelect({ size: SelectSize.M })
+      const defaultSelectDropdown = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(defaultSelectDropdown).toHaveStyle('height: 36px;')
+    })
+
+    it('Size L >', () => {
+      const { getByTestId } = renderSelect({ size: SelectSize.L })
+      const defaultSelectDropdown = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(defaultSelectDropdown).toHaveStyle('height: 44px;')
+    })
+
+    it('Size XL >', () => {
+      const { getByTestId } = renderSelect({ size: SelectSize.XL })
+      const defaultSelectDropdown = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(defaultSelectDropdown).toHaveStyle('height: 54px;')
     })
   })
 })
