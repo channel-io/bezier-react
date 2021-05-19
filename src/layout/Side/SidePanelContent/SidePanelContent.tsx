@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect } from 'react'
+import React, { forwardRef, Ref, useEffect } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -12,11 +12,14 @@ import SidePanelContentProps from './SidePanelContent.types'
 // TODO: 테스트 코드 작성
 const SIDE_PANEL_CONTENT_TEST_ID = 'bezier-react-side-panel-content'
 
-function SidePanelContent({
-  testId = SIDE_PANEL_CONTENT_TEST_ID,
-  children,
-  onChangeSideWidth = noop,
-}: SidePanelContentProps) {
+function SidePanelContent(
+  {
+    testId = SIDE_PANEL_CONTENT_TEST_ID,
+    children,
+    onChangeSideWidth = noop,
+  }: SidePanelContentProps,
+  forwardedRef: Ref<any>,
+) {
   const dispatch = useLayoutDispatch()
 
   useEffect(() => {
@@ -34,6 +37,7 @@ function SidePanelContent({
 
   return (
     <SideArea
+      ref={forwardedRef}
       sideType={LayoutSideType.SidePanel}
       data-testid={testId}
       onChangeSideWidth={onChangeSideWidth}
@@ -43,4 +47,4 @@ function SidePanelContent({
   )
 }
 
-export default SidePanelContent
+export default forwardRef(SidePanelContent)
