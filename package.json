@@ -29,7 +29,8 @@
     "prepublishOnly": "npm run build:icon && npm run build",
     "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream"
+    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
