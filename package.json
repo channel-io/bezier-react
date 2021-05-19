@@ -32,11 +32,6 @@
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run verify && npm run test"
-    }
-  },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
       "stylelint"
