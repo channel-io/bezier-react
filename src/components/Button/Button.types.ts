@@ -26,6 +26,7 @@ export enum ButtonSize {
 }
 
 export default interface ButtonProps extends UIComponentProps {
+  type?: HTMLButtonElement['type']
   text?: string
   disabled?: boolean
   loading?: boolean

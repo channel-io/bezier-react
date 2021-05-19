@@ -52,6 +52,7 @@ function Button(
     style,
     interpolation,
     testId = BUTTON_TEST_ID,
+    type = 'button',
     text,
     disabled = false,
     loading = false,
@@ -179,6 +180,7 @@ function Button(
   return (
     <Styled.ButtonWrapper
       as={as}
+      type={type}
       style={style}
       className={className}
       interpolation={interpolation}
