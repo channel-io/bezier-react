@@ -45,6 +45,10 @@ function TextFieldComponent({
   selectAllOnFocus = false,
   leftContent,
   rightContent,
+  withoutLeftContentWrapper = false,
+  withoutRightContentWrapper = false,
+  inputClassName,
+  inputInterpolation,
   wrapperClassName,
   wrapperInterpolation,
   leftWrapperClassName,
@@ -57,6 +61,8 @@ function TextFieldComponent({
   onBlur,
   onFocus,
   onChange,
+  onKeyDown,
+  onKeyUp,
   ...otherProps
 }: TextFieldProps, forwardedRef: Ref<TextFieldRef>) {
   const [focused, setFocused] = useState(false)
@@ -71,15 +77,8 @@ function TextFieldComponent({
     isNil(value) ? undefined : toString(value)
   ), [value])
 
-  const activeClear = useMemo(() => (
-    !disabled
-    && !readOnly
-    && allowClear
-  ), [
-    disabled,
-    readOnly,
-    allowClear,
-  ])
+  const activeInput = !disabled && !readOnly
+  const activeClear = activeInput && allowClear
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -156,7 +155,7 @@ function TextFieldComponent({
   }, [])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled && !readOnly) {
+    if (activeInput) {
       setFocused(true)
       if (selectAllOnFocus) { selectAll() }
       if (onFocus) { onFocus(event) }
@@ -164,8 +163,7 @@ function TextFieldComponent({
   }, [
     selectAllOnFocus,
     selectAll,
-    readOnly,
-    disabled,
+    activeInput,
     onFocus,
   ])
 
@@ -175,27 +173,41 @@ function TextFieldComponent({
   }, [onBlur])
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!readOnly && !disabled && onChange) {
+    if (activeInput && onChange) {
       onChange(event)
     }
   }, [
-    readOnly,
-    disabled,
+    activeInput,
     onChange,
+  ])
+
+  const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (activeInput && onKeyDown) {
+      onKeyDown(event)
+    }
+  }, [
+    activeInput,
+    onKeyDown,
+  ])
+
+  const handleKeyUp = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (activeInput && onKeyUp) {
+      onKeyUp(event)
+    }
+  }, [
+    activeInput,
+    onKeyUp,
   ])
 
   const handleClear = useCallback(() => {
     const input = inputRef.current
-    if (!readOnly && !disabled && input) {
+    if (activeInput && input) {
       const setValue = Object?.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
       const event = new Event('input', { bubbles: true })
       setValue?.call(input, '')
       input.dispatchEvent(event)
     }
-  }, [
-    readOnly,
-    disabled,
-  ])
+  }, [activeInput])
 
   const renderLeftItem = useCallback((item: TextFieldItemProps) => (
     'icon' in item
@@ -216,7 +228,10 @@ function TextFieldComponent({
     }
 
     const item = renderLeftItem(leftContent)
-    return !isNil(item) && (
+
+    if (isNil(item) || withoutLeftContentWrapper) { return item }
+
+    return (
       <Styled.LeftContentWrapper
         className={leftWrapperClassName}
         interpolation={leftWrapperInterpolation}
@@ -226,6 +241,7 @@ function TextFieldComponent({
     )
   }, [
     leftContent,
+    withoutLeftContentWrapper,
     leftWrapperClassName,
     leftWrapperInterpolation,
     renderLeftItem,
@@ -259,6 +275,8 @@ function TextFieldComponent({
       ? rightContent.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(rightContent)
 
+    if (withoutRightContentWrapper) { return items }
+
     return (
       <Styled.RightContentWrapper
         className={rightWrapperClassName}
@@ -269,6 +287,7 @@ function TextFieldComponent({
     )
   }, [
     rightContent,
+    withoutRightContentWrapper,
     rightWrapperClassName,
     rightWrapperInterpolation,
     renderRightItem,
@@ -312,6 +331,8 @@ function TextFieldComponent({
     >
       { leftComponent }
       <Styled.Input
+        className={inputClassName}
+        interpolation={inputInterpolation}
         ref={inputRef}
         name={name}
         size={size}
@@ -326,6 +347,8 @@ function TextFieldComponent({
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
         {...otherProps}
       />
       { activeClear && clearComponent }

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, ellipsis, styled } from '../../foundation'
+import { css, ellipsis, LineHeightAbsoluteNumber, styled } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
 import { ListItemSize } from './ListItem.types'
@@ -15,18 +15,14 @@ const ActiveItemStyle = css<StyledWrapperProps>`
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`
-
 export const RightContent = styled.div`
   margin-left: 8px;
 `
 
 export const TitleWrapper = styled.div`
   display: flex;
+  grid-row: 1;
+  grid-column: 2;
   align-items: center;
 `
 
@@ -36,6 +32,8 @@ interface DescriptionProps {
 
 export const DescriptionWrapper = styled.div<DescriptionProps>`
   display: flex;
+  grid-row: 2;
+  grid-column: 2;
   align-items: center;
   width: 100%;
   margin-top: 2px;
@@ -54,7 +52,7 @@ interface DescriptionProps {
 }
 
 export const Description = styled.div<DescriptionProps>`
-  ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines)}
+  ${({ descriptionMaxLines }) => descriptionMaxLines && ellipsis(descriptionMaxLines, LineHeightAbsoluteNumber.Lh16)}
 `
 
 interface IconWrapperProps {
@@ -62,12 +60,6 @@ interface IconWrapperProps {
   active?: boolean
   disableIconActive?: boolean
 }
-
-const IconSpacing = css`
-  flex-shrink: 0;
-  width: 20px;
-  margin-right: 8px;
-`
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${props => {
@@ -77,13 +69,17 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
 `
 
 export const LeftContentWrapper = styled.div`
-  ${IconSpacing}
   display: flex;
+  grid-row: 1;
+  grid-column: 1;
   align-items: center;
+  margin-right: 8px;
 `
 
-export const IconMargin = styled.div`
-  ${IconSpacing}
+export const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  width: 100%;
 `
 
 export const Wrapper = styled.div<StyledWrapperProps>`
