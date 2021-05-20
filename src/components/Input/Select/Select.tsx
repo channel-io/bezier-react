@@ -80,6 +80,10 @@ function Select(
     }
   }, [disabled])
 
+  const handleHideDropdown = useCallback(() => {
+    setIsDropdownOpened(false)
+  }, [])
+
   return (
     <Styled.Container
       data-testid={testId}
@@ -121,7 +125,7 @@ function Select(
         target={triggerRef}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
-        onHide={() => setIsDropdownOpened(false)}
+        onHide={handleHideDropdown}
       >
         { children }
       </Styled.Dropdown>
