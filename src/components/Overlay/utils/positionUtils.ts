@@ -6,7 +6,7 @@ import {
   TargetRectAttr,
 } from '../Overlay.types'
 
-const TOP_POSITION_OFFSET = 5
+const TOP_POSITION_OFFSET = 10
 
 interface GetOverlayPositionArgs {
   containerRect: ContainerRectAttr
@@ -34,7 +34,7 @@ export function getOverlayPosition({
 interface GetOverlayTranslatationArgs {
   containerRect: ContainerRectAttr
   targetRect: TargetRectAttr | null
-  overlay: HTMLElement
+  overlay: HTMLElement | null
   position: OverlayPosition
   marginX: number
   marginY: number
@@ -50,7 +50,7 @@ export function getOverlayTranslation({
   marginY,
   keepInContainer,
 }: GetOverlayTranslatationArgs) {
-  if (containerRect && targetRect) {
+  if (containerRect && targetRect && overlay) {
     const {
       containerWidth,
       containerHeight,
@@ -157,7 +157,7 @@ export function getOverlayTranslation({
 interface GetOverlayStyleArgs {
   containerRect: ContainerRectAttr
   targetRect: TargetRectAttr | null
-  overlay: HTMLElement
+  overlay: HTMLElement | null
   position: OverlayPosition
   marginX: number
   marginY: number

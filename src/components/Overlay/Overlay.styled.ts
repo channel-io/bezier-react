@@ -11,7 +11,7 @@ interface StyledOverlayProps extends OverlayProps {
   show: boolean
   containerRect: ContainerRectAttr
   targetRect: TargetRectAttr | null
-  overlay: any
+  overlay: HTMLElement | null
   position: OverlayPosition
   marginX: number
   marginY: number

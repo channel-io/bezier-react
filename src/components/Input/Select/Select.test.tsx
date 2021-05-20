@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
@@ -49,6 +50,10 @@ describe('Select Test >', () => {
 
     it('Dropdown >', () => {
       const { getByTestId } = renderSelect()
+
+      const defaultSelectTrigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+      userEvent.click(defaultSelectTrigger)
+
       const defaultSelectDropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
 
       expect(defaultSelectDropdown).toHaveStyle('width: 100%;')
@@ -61,28 +66,44 @@ describe('Select Test >', () => {
   describe('SelectSize >', () => {
     it('Size only effects to trigger style >', () => {
       const XL_CONTAINER_TEST_ID = `${SELECT_CONTAINER_TEST_ID}_XL`
-      const XL_DROPDOWN_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_XL`
+      const XL_TRIGGER_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_XL`
+      const XL_DROPDOWN_TEST_ID = `${SELECT_DROPDOWN_TEST_ID}_XL`
       const L_CONTAINER_TEST_ID = `${SELECT_CONTAINER_TEST_ID}_L`
-      const L_DROPDOWN_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_L`
+      const L_TRIGGER_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_L`
+      const L_DROPDOWN_TEST_ID = `${SELECT_DROPDOWN_TEST_ID}_L`
 
       const { getByTestId: getByTestIdForXL } = renderSelect({
         size: SelectSize.XL,
         testId: XL_CONTAINER_TEST_ID,
+        triggerTestId: XL_TRIGGER_TEST_ID,
         dropdownTestId: XL_DROPDOWN_TEST_ID,
       })
       const { getByTestId: getByTestIdForL } = renderSelect({
         size: SelectSize.L,
         testId: L_CONTAINER_TEST_ID,
+        triggerTestId: L_TRIGGER_TEST_ID,
         dropdownTestId: L_DROPDOWN_TEST_ID,
       })
 
+      // Select Size.XL
       const xlSelectContainer = getByTestIdForXL(XL_CONTAINER_TEST_ID)
+      const xlSelectTrigger = getByTestIdForXL(XL_TRIGGER_TEST_ID)
+      // Open Dropdown
+      userEvent.click(xlSelectTrigger)
       const xlSelectDropdown = getByTestIdForXL(XL_DROPDOWN_TEST_ID)
-      const lSelectContainer = getByTestIdForL(L_CONTAINER_TEST_ID)
-      const lSelectDropdown = getByTestIdForL(L_DROPDOWN_TEST_ID)
-
+      // Close Dropdown
+      userEvent.click(xlSelectTrigger)
       const xlContainerStyle = window.getComputedStyle(xlSelectContainer)
       const xlDropdownStyle = window.getComputedStyle(xlSelectDropdown)
+
+      // Select Size.L
+      const lSelectContainer = getByTestIdForL(L_CONTAINER_TEST_ID)
+      const lSelectTrigger = getByTestIdForL(L_TRIGGER_TEST_ID)
+      // Open Dropdown
+      userEvent.click(lSelectTrigger)
+      const lSelectDropdown = getByTestIdForL(L_DROPDOWN_TEST_ID)
+      // Close Dropdown
+      userEvent.click(lSelectTrigger)
       const lContainerStyle = window.getComputedStyle(lSelectContainer)
       const lDropdownStyle = window.getComputedStyle(lSelectDropdown)
 

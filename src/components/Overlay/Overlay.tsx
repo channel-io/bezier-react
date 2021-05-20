@@ -1,8 +1,10 @@
 /* External dependencies */
 import React, {
+  useState,
   useMemo,
   useRef,
   useCallback,
+  useEffect,
   Ref,
   forwardRef,
 } from 'react'
@@ -51,9 +53,21 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<any>,
 ) {
+  // NOTE: DOM render 가 필요한지 여부를 결정하는 state
+  const [shouldRender, setShouldRender] = useState(false)
+
+  // NOTE: 화면에 실제 표현해야 하는지 여부를 결정하는 state
+  const [shouldShow, setShouldShow] = useState(false)
+
   const overlayRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
+
+  const handleTransitionEnd = useCallback(() => {
+    if (!show) {
+      setShouldRender(false)
+    }
+  }, [show])
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
@@ -162,13 +176,61 @@ function Overlay(
     wrapperTestId,
   ])
 
+  /**
+   * Case 1: show === true
+   * show -> shouldRender -> shouldShow
+   * shouldRender 를 true 로 설정하고, 직후에 shouldShow 를 true 로 설정하여 transition 유발
+   *
+   * Case 2: show === false
+   * show -> shouldShow -> (...) -> shouldRender
+   * shouldShow 를 false 로 설정하고, shouldRender 는 transition 필요 여부에 따라 다르게 결정함
+   *    Case 2-1: withTransition === true
+   *    shouldShow -> onTransitionEnd -> shouldRender
+   *    onTransitionEnd handler 를 이용해 transition 이 끝난 다음 shouldRender 를 false 로 설정
+   *    Case 2-2: withTransition === false
+   *    shouldShow && shouldRender
+   *    transition 을 기다릴 필요가 없으므로 바로 shouldRender 를 false 로 설정
+   */
+  useEffect(() => {
+    if (show) {
+      // NOTE: hide transition 이 아직 끝나지 않았을 때 show 가 다시 true 로 변경될 경우
+      // shouldShow 를 true 로 되돌려 다시 Overlay 가 표시되도록 함
+      if (shouldRender) {
+        setShouldShow(true)
+      } else {
+        setShouldRender(true)
+      }
+    }
+
+    if (!show) {
+      setShouldShow(false)
+
+      if (!withTransition) {
+        setShouldRender(false)
+      }
+    }
+  }, [
+    show,
+    withTransition,
+    shouldRender,
+    shouldShow,
+  ])
+
+  useEffect(() => {
+    if (shouldRender) {
+      setShouldShow(true)
+    }
+  }, [shouldRender])
+
+  if (!shouldRender) { return null }
+
   return ReactDOM.createPortal(
     <OverlayContainer show={show}>
       <Styled.Overlay
         as={as}
         ref={mergedRef}
         className={className}
-        show={show}
+        show={shouldShow}
         withTransition={withTransition}
         style={style}
         data-testid={testId}
@@ -179,6 +241,7 @@ function Overlay(
         marginX={marginX}
         marginY={marginY}
         keepInContainer={keepInContainer}
+        onTransitionEnd={handleTransitionEnd}
       >
         { children }
       </Styled.Overlay>
