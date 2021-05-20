@@ -92,27 +92,24 @@ describe('TextField', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
-    expect(rendered)
-      // eslint-disable-next-line max-len
-      .toHaveStyle(`box-shadow: 0 1px 2px ${LightFoundation.theme['bg-black-lightest']}, inset 0 0 0 1px ${LightFoundation.theme['bg-black-lighter']}`)
+    // eslint-disable-next-line max-len
+    expect(rendered).toHaveStyle(`box-shadow: 0 1px 2px ${LightFoundation.theme['bg-black-lightest']}, inset 0 0 0 1px ${LightFoundation.theme['bg-black-lighter']}`)
   })
 
   it('shoud have error style when "hasError" props is "true"', () => {
     const { getByTestId } = renderComponent({ hasError: true })
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
-    expect(rendered)
-      // eslint-disable-next-line max-len
-      .toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']};`)
+    // eslint-disable-next-line max-len
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']};`)
   })
   it('shoud have focused style when "input" focused', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     rendered.getElementsByTagName('input')[0].focus()
     expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
-    expect(rendered)
-      // eslint-disable-next-line max-len
-      .toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']};
+    // eslint-disable-next-line max-len
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']};
     `)
   })
 
