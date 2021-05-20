@@ -147,7 +147,7 @@ function Button(
   const handleMouseEnter = useCallback(() => { setIsHovered(true) }, [])
   const handleMouseLeave = useCallback(() => { setIsHovered(false) }, [])
 
-  const handleClick = useCallback((event: MouseEvent) => {
+  const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
     if (!disabled) { onClick(event) }
     return null
   }, [
