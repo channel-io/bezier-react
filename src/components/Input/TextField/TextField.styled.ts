@@ -19,12 +19,6 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
-  &::placeholder {
-    color: ${({ foundation }) => foundation?.theme?.[themeKey]};
-  }
-`
-
 interface InputProps extends WithInterpolation {
   disabled: boolean
   readOnly: boolean
@@ -42,7 +36,9 @@ const Input = styled.input<InputProps>`
   border: none;
   outline: none;
 
-  ${placeholderStyle()}
+  &::placeholder {
+    color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+  }
 
   ${({ interpolation }) => interpolation}
 `
