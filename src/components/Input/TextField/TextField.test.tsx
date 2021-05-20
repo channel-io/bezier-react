@@ -1,5 +1,7 @@
 /* External dependencies */
+import { fireEvent } from '@testing-library/dom'
 import React from 'react'
+import { LightFoundation } from '../../../foundation'
 
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
@@ -56,7 +58,7 @@ describe('TextField', () => {
     expect(inputElement).toHaveAttribute('maxLength', '5')
   })
 
-  it('sholud have the correct background-color according to the state.', () => {
+  it('sholud return the correct background-color according to the state.', () => {
     expect(getProperTextFieldBgColor({
       variant: TextFieldVariant.Primary,
       focused: false,
@@ -84,5 +86,145 @@ describe('TextField', () => {
       hasError: false,
       readOnly: true,
     })).toBe('bg-grey-lighter')
+  })
+
+  it('shoud have default style when have no props.', () => {
+    const { getByTestId } = renderComponent()
+    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
+    expect(rendered)
+      // eslint-disable-next-line max-len
+      .toHaveStyle(`box-shadow: 0 1px 2px ${LightFoundation.theme['bg-black-lightest']}, inset 0 0 0 1px ${LightFoundation.theme['bg-black-lighter']}`)
+  })
+
+  it('shoud have error style when "hasError" props is "true"', () => {
+    const { getByTestId } = renderComponent({ hasError: true })
+    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
+    expect(rendered)
+      // eslint-disable-next-line max-len
+      .toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']};`)
+  })
+  it('shoud have focused style when "input" focused', () => {
+    const { getByTestId } = renderComponent()
+    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+    rendered.getElementsByTagName('input')[0].focus()
+    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
+    expect(rendered)
+      // eslint-disable-next-line max-len
+      .toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']};
+    `)
+  })
+
+  describe('callback should called', () => {
+    it('onFocus', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      input.focus()
+      expect(onFocus).toBeCalled()
+    })
+
+    it('onChange', () => {
+      const onChange = jest.fn()
+      const { getByTestId } = renderComponent({ onChange })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.change(input, { target: { value: 'test' } })
+      expect(onChange).toBeCalled()
+    })
+
+    it('onKeyDown', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyDown).toBeCalled()
+    })
+
+    it('onKeyUp', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyUp).toBeCalled()
+    })
+  })
+
+  describe('no callback should called when "disabled" or "readOnly" props are "true"', () => {
+    it('onFocus, disabled', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus, disabled: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      input.focus()
+      expect(onFocus).not.toBeCalled()
+    })
+
+    it('onFocus, readOnly', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus, readOnly: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      input.focus()
+      expect(onFocus).not.toBeCalled()
+    })
+
+    it('onChange, disabled', () => {
+      const onChange = jest.fn()
+      const { getByTestId } = renderComponent({ onChange, disabled: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.change(input, { target: { value: 'test' } })
+      expect(onChange).not.toBeCalled()
+    })
+
+    it('onChange, readOnly', () => {
+      const onChange = jest.fn()
+      const { getByTestId } = renderComponent({ onChange, readOnly: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.change(input, { target: { value: 'test' } })
+      expect(onChange).not.toBeCalled()
+    })
+
+    it('onKeyDown, disabled', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown, disabled: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyDown).not.toBeCalled()
+    })
+
+    it('onKeyDown, readOnly', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown, readOnly: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyDown).not.toBeCalled()
+    })
+
+    it('onKeyUp, disabled', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp, disabled: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyUp).not.toBeCalled()
+    })
+
+    it('onKeyUp, readOnly', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp, readOnly: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      expect(onKeyUp).not.toBeCalled()
+    })
   })
 })
