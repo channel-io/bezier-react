@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import { isNil, isArray, isEmpty, isString } from 'lodash-es'
+import { isNil, isArray, isEmpty, isString, isNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -10,6 +10,10 @@ import { Icon, IconSize } from '../Icon'
 import { Tooltip } from '../Tooltip'
 import Styled from './SectionLabel.styled'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
+
+export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
+export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
+export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
 
 function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string): React.ReactElement {
   if (!('icon' in props)) {
@@ -32,7 +36,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
         <Icon
           name={icon}
           size={IconSize.XS}
-          color={iconColor ?? 'txt-black-dark'}
+          color={iconColor}
         />
       </Styled.RightItemWrapper>
     )
@@ -40,6 +44,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
 
   return (
     <Button
+      key={key}
       size={ButtonSize.XS}
       styleVariant={ButtonStyleVariant.Tertiary}
       colorVariant={ButtonColorVariant.Monochrome}
@@ -75,8 +80,9 @@ function SectionLabel({
     <Styled.ContentWrapper
       className={contentWrapperClassName}
       interpolation={contentWrapperInterpolation}
+      data-testid={SECTION_LABEL_TEST_CONTENT_ID}
     >
-      { isString(givenContent)
+      { isString(givenContent) || isNumber(givenContent)
         ? (
           <Styled.ContentText bold typo={Typography.Size13}>
             { givenContent }
@@ -114,6 +120,7 @@ function SectionLabel({
       <Styled.LeftContentWrapper
         className={leftWrapperClassName}
         interpolation={leftWrapperInterpolation}
+        data-testid={SECTION_LABEL_TEST_LEFT_CONTENT_ID}
       >
         { item }
       </Styled.LeftContentWrapper>
@@ -138,6 +145,7 @@ function SectionLabel({
       <Styled.RightContentWrapper
         className={rightWrapperClassName}
         interpolation={rightWrapperInterpolation}
+        data-testid={SECTION_LABEL_TEST_RIGHT_CONTENT_ID}
       >
         { items }
       </Styled.RightContentWrapper>
