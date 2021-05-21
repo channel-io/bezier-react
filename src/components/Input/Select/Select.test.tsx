@@ -15,9 +15,11 @@ describe('Select Test >', () => {
   let props: SelectProps
 
   beforeEach(() => {
+    const { body } = document
+    body.innerHTML = ''
+
     const rootElement = document.createElement('div')
     rootElement.setAttribute('id', 'root')
-    const { body } = document
 
     body.appendChild(rootElement)
   })
