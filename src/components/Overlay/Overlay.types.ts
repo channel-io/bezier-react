@@ -2,26 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface OverlayProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  containerTestId?: string
-  wrapperTestId?: string
-  show?: boolean
-  containerClassName?: string
-  containerStyle?: React.CSSProperties
-  container?: HTMLElement | null
-  target?: HTMLElement | null
-  placement?: OverlayPosition
-  marginX?: number
-  marginY?: number
-  keepInContainer?: boolean
-  transition?: boolean
-  enableClickOutside?: boolean
-  onHide?: () => void
-}
-
-interface ContainerRectAttr {
+export interface ContainerRectAttr {
   containerWidth: number
   containerHeight: number
   containerTop: number
@@ -30,7 +13,7 @@ interface ContainerRectAttr {
   scrollLeft: number
 }
 
-interface TargretRectAttr {
+export interface TargetRectAttr {
   targetWidth: number
   targetHeight: number
   targetTop: number
@@ -39,34 +22,21 @@ interface TargretRectAttr {
   clientLeft: number
 }
 
-export interface GetOverlayStyleProps {
-  containerRect: ContainerRectAttr | null
-  targetRect: TargretRectAttr | null
-  overlay: HTMLElement
-  placement: OverlayPosition
-  marginX: number
-  marginY: number
-  keepInContainer: boolean
-}
-
-export interface GetOverlayPositionProps {
-  containerRect: ContainerRectAttr
-  targetRect: TargretRectAttr | null
-}
-
-export interface GetOverlayTranslatationProps {
-  containerRect: ContainerRectAttr
-  targetRect: TargretRectAttr | null
-  overlay: HTMLElement
-  placement: OverlayPosition
-  marginX: number
-  marginY: number
-  keepInContainer: boolean
-}
-
-export interface StyledOverlayProps {
-  isHidden: boolean
-  transition: boolean
+export default interface OverlayProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
+  containerTestId?: string
+  wrapperTestId?: string
+  show?: boolean
+  containerClassName?: string
+  containerStyle?: React.CSSProperties
+  container?: HTMLElement | null
+  target?: HTMLElement | null
+  position?: OverlayPosition
+  marginX?: number
+  marginY?: number
+  keepInContainer?: boolean
+  withTransition?: boolean
+  enableClickOutside?: boolean
+  onHide?: () => void
 }
 
 export enum OverlayPosition {

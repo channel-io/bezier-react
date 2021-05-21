@@ -31,6 +31,7 @@ export * from './components/Avatars/CheckableAvatar'
 export * from './components/TagBadge'
 export * from './components/Status'
 export * from './components/SegmentedControl'
+export * from './components/Input/Select'
 export * from './components/Input/TextField'
 export * from './components/KeyValueListItem'
 
@@ -65,6 +66,6 @@ export { default as useHeader } from './hooks/useHeader'
 export { default as useToast } from './hooks/useToast'
 
 /* Utils */
-export { rootElement } from './utils/domUtils'
+export { getRootElement } from './utils/domUtils'
 export * as StyleUtils from './utils/styleUtils'
 export * as StringUtils from './utils/stringUtils'

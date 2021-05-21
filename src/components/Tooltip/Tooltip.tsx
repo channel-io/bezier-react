@@ -8,7 +8,7 @@ import useMergeRefs from '../../hooks/useMergeRefs'
 import useEventHandler from '../../hooks/useEventHandler'
 import {
   window,
-  rootElement,
+  getRootElement,
 } from '../../utils/domUtils'
 import { Typography } from '../../foundation'
 import { Text } from '../Text'
@@ -220,7 +220,7 @@ function Tooltip(
       {...otherProps}
     >
       { children }
-      { show && ReactDOM.createPortal(TooltipComponent, rootElement) }
+      { show && ReactDOM.createPortal(TooltipComponent, getRootElement()) }
     </Container>
   )
 }
