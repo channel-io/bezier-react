@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { IconName } from '../../Icon/generated'
 import {
   TagBadgeSize,
@@ -11,9 +10,6 @@ interface BadgeProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDi
   size?: TagBadgeSize
   variant?: TagBadgeVariant
   iconName?: IconName
-  // Injected Styles
-  wrapperClassName?: string
-  wrapperInterpolation?: InjectedInterpolation
 }
 
 export default BadgeProps
