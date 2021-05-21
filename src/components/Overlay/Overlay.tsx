@@ -12,7 +12,11 @@ import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { document, getRootElement } from '../../utils/domUtils'
+import {
+  window,
+  document,
+  getRootElement,
+} from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
@@ -193,20 +197,18 @@ function Overlay(
    */
   useEffect(() => {
     if (show) {
-      // NOTE: hide transition 이 아직 끝나지 않았을 때 show 가 다시 true 로 변경될 경우
-      // shouldShow 를 true 로 되돌려 다시 Overlay 가 표시되도록 함
       if (shouldRender) {
-        setShouldShow(true)
+        window.requestAnimationFrame(() => setShouldShow(true))
       } else {
-        setShouldRender(true)
+        window.requestAnimationFrame(() => setShouldRender(true))
       }
     }
 
     if (!show) {
-      setShouldShow(false)
+      window.requestAnimationFrame(() => setShouldShow(false))
 
       if (!withTransition) {
-        setShouldRender(false)
+        window.requestAnimationFrame(() => setShouldRender(false))
       }
     }
   }, [
