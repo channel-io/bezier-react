@@ -1,0 +1,11 @@
+{
+  "branches": "master",
+  "tagFormat": "v${version}",
+  "repository": "https://github.com/channel-io/bezier-react",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    "@semantic-release/github"
+  ]
+}
