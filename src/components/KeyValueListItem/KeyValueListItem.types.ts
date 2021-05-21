@@ -17,7 +17,7 @@ export type KeyValueActionProps = {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 } | React.ReactElement
 
-export interface KeyValueListItemProps extends ChildrenComponentProps {
+export interface KeyValueListItemProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   multiline?: boolean
   keyIcon?: IconName
   keyContent?: string
