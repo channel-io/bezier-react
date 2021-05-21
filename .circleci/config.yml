@@ -59,6 +59,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
+      - run: apt-get update && apt-get install curl -y
       - run: npm run jest
       - codecov/upload:
           file: './coverage/clover.xml'
