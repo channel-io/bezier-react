@@ -13,7 +13,6 @@ import {
   IconSize,
 } from '../Icon'
 import { isIconName } from '../Icon/util'
-import type { IconName } from '../Icon'
 import { Text } from '../Text'
 import {
   Spinner,
@@ -29,6 +28,7 @@ import ButtonProps, {
   ButtonColorVariant,
 } from './Button.types'
 import * as Styled from './Button.styled'
+import type { IconName } from '../Icon'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
