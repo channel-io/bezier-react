@@ -16,7 +16,7 @@ defaults: &defaults
   working_directory: *workspace_root
 
   docker:
-    - image: node:16.2.0-slim
+    - image: node:16.2.0
 
 filter_only_tagged: &filter_only_tagged
   filters:
@@ -59,7 +59,6 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: apt-get update && apt-get install curl -y
       - run: npm run jest
       - codecov/upload:
           file: './coverage/clover.xml'
