@@ -30,7 +30,8 @@
     "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
@@ -117,6 +118,7 @@
     "rollup": "^2.37.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.5.0",
+    "semantic-release": "^17.4.3",
     "styled-components": "^5.2.1",
     "stylelint": "^13.8.0",
     "ts-node": "^8.10.2",

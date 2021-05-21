@@ -55,7 +55,7 @@ jobs:
       - *attach_workspace
       - run: npm run typecheck
 
-  test:
+  jest:
     <<: *defaults
     steps:
       - *attach_workspace
@@ -64,14 +64,17 @@ jobs:
           file: './coverage/clover.xml'
           token: $CODECOV_TOKEN
 
-  publish:
-    <<: *defaults
+  build:
+    <<: &defaults
     steps:
       - *attach_workspace
-      - run:
-          name: Authenticate to npm registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > .npmrc
-      - run: npm publish
+      - run: npm run build
+
+  release:
+    <<: &defaults
+    steps:
+      - *attach_workspace
+      - run: npm run semantic-release
 
 workflows:
   version: 2
@@ -85,7 +88,6 @@ workflows:
             branches:
               ignore:
                 - master
-                - exp
       - typecheck:
           requires:
             - install
@@ -93,16 +95,30 @@ workflows:
             branches:
               ignore:
                 - master
-                - exp
-      - test:
+      - jest:
           requires:
             - install
 
-  deploy_tagged:
+  release:
     jobs:
-      - install:
-          <<: *filter_only_tagged
-      - publish:
-          <<: *filter_only_tagged
+      - install
+          filters:
+            branches:
+              - master
+      - lint:
           requires:
             - install
+      - typecheck:
+          requires:
+            - install
+      - jest:
+          requires:
+            - install
+      - build:
+          requires:
+            - lint
+            - typecheck
+            - jest
+      - release:
+          requires:
+            - build
