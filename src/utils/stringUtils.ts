@@ -31,7 +31,7 @@ export function hasEscapeTags(str: string): boolean {
 }
 
 export function escapeTags(str: string): string {
-  if (!isString(str)) return str
+  if (!isString(str)) { return str }
 
   if (hasEscapeTags(str)) {
     return str.replace(reUnescapedHtml, (chr) => htmlEscapes[chr])
@@ -51,7 +51,7 @@ const reEscapedHtml = /&(?:amp|lt|gt|quot);/g
 const reHasEscapedHtml = RegExp(reEscapedHtml.source)
 
 export function unescapeTags(str: string): string {
-  if (!isString(str)) return str
+  if (!isString(str)) { return str }
 
   return (
     reHasEscapedHtml.test(str) ?

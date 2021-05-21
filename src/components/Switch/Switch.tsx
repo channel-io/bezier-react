@@ -28,7 +28,11 @@ function Switch(
     if (!disabled && onClick) {
       onClick(!checked, event)
     }
-  }, [onClick, checked, disabled])
+  }, [
+    onClick,
+    checked,
+    disabled,
+  ])
 
   return (
     <Wrapper

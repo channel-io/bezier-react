@@ -22,7 +22,7 @@ describe('Select Test >', () => {
     body.appendChild(rootElement)
   })
 
-  const renderSelect = (optionProps?: Partial<SelectProps>) => render(<Select {...props} {...optionProps}/>)
+  const renderSelect = (optionProps?: Partial<SelectProps>) => render(<Select {...props} {...optionProps} />)
 
   describe('Default Style >', () => {
     it('Snapshot >', () => {

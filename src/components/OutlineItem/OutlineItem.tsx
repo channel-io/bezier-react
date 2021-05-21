@@ -92,14 +92,20 @@ function OutlineItem(
     optionKey: string,
   ) => {
     onChangeOption(name, optionKey, itemIndex)
-  }, [name, onChangeOption])
+  }, [
+    name,
+    onChangeOption,
+  ])
 
   const handleClickIcon = useCallback((event?: React.MouseEvent<SVGSVGElement>) => {
     if (onClickArrow) {
       event?.stopPropagation()
       onClickArrow(name)
     }
-  }, [name, onClickArrow])
+  }, [
+    name,
+    onClickArrow,
+  ])
 
   const context = useOutlineItemContext({
     paddingLeft: givenPaddingLeft,
@@ -110,7 +116,10 @@ function OutlineItem(
 
   const handleClickGroup = useCallback((event?: React.MouseEvent) => {
     onClick(event, name)
-  }, [name, onClick])
+  }, [
+    name,
+    onClick,
+  ])
 
   const leftComponent = useMemo(() => {
     if (!isNil(leftContent)) {
@@ -215,7 +224,7 @@ function OutlineItem(
     handleClickItem,
   ])
 
-  if (hide) return null
+  if (hide) { return null }
 
   if (!isNil(href)) {
     return (

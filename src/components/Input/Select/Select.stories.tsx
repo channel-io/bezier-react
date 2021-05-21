@@ -24,7 +24,7 @@ export default {
 }
 
 const Template = (args) => (
-  <Select {...args}/>
+  <Select {...args} />
 )
 
 export const Primary = Template.bind({})

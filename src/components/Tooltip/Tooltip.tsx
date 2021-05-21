@@ -6,7 +6,10 @@ import { isEmpty, isString, isArray } from 'lodash-es'
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
 import useEventHandler from '../../hooks/useEventHandler'
-import { getRootElement } from '../../utils/domUtils'
+import {
+  window,
+  getRootElement,
+} from '../../utils/domUtils'
 import { Typography } from '../../foundation'
 import { Text } from '../Text'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
@@ -42,7 +45,7 @@ function Tooltip(
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)
   const tooltipContainerRef = useRef<HTMLDivElement>(null)
-  const timerRef = useRef<number>()
+  const timerRef = useRef<ReturnType<Window['setTimeout']>>()
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
 
   const handleMouseEnter = useCallback(() => {
@@ -54,7 +57,7 @@ function Tooltip(
       clearTimeout(timerRef.current)
     }
 
-    timerRef.current = setTimeout(() => {
+    timerRef.current = window.setTimeout(() => {
       setShow(true)
     }, delayShow)
   }, [
@@ -71,7 +74,7 @@ function Tooltip(
       clearTimeout(timerRef.current)
     }
 
-    timerRef.current = setTimeout(() => {
+    timerRef.current = window.setTimeout(() => {
       setShow(false)
     }, delayHide)
   }, [

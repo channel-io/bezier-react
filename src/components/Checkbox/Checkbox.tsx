@@ -7,9 +7,9 @@ import React, {
 import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import type CheckboxProps from './Checkbox.types'
 import { Wrapper, Checker, Content } from './Checkbox.styled'
 import CheckType from './CheckType'
+import type CheckboxProps from './Checkbox.types'
 
 export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
 export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
@@ -34,9 +34,7 @@ function Checkbox(
     if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
     if (includes(checkTypeValues, checked)) { return checked }
     return CheckType.False
-  }, [
-    checked,
-  ])
+  }, [checked])
 
   return (
     <Wrapper

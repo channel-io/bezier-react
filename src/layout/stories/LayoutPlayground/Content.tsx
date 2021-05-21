@@ -34,7 +34,10 @@ function Content() {
 
   const handleToggleNavigation = useCallback(() => {
     dispatch(LayoutActions.setShowNavigation(!showNavigation))
-  }, [dispatch, showNavigation])
+  }, [
+    dispatch,
+    showNavigation,
+  ])
 
   return (
     <Div>

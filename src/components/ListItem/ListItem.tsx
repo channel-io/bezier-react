@@ -189,7 +189,7 @@ function ListItem({
     rightComponent,
   ])
 
-  if (hide) return null
+  if (hide) { return null }
 
   if (!isNil(href)) {
     return (

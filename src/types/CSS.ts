@@ -8,6 +8,7 @@ export enum ExplicitDefaulting {
   Revert = 'revert',
 }
 
+/* eslint-disable @channel.io/pascal-case-enum-name */
 /**
  * Specification: https://drafts.csswg.org/css-values-4/#absolute-lengths
  */
@@ -53,3 +54,4 @@ export enum BoxSizingUnit {
 }
 
 export type CSSUnits = `${AbsoluteUnit}` | `${RelativeUnit}`
+/* eslint-disable @channel.io/pascal-case-enum-name */

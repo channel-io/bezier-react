@@ -49,8 +49,8 @@ function Main(
         { children }
       </ContentArea>
 
-      <SidePanelComponent/>
-      <SideViewComponent/>
+      <SidePanelComponent />
+      <SideViewComponent />
     </MainWrapper>
   )
 }

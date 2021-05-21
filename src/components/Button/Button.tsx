@@ -13,7 +13,6 @@ import {
   IconSize,
 } from '../Icon'
 import { isIconName } from '../Icon/util'
-import type { IconName } from '../Icon'
 import { Text } from '../Text'
 import {
   Spinner,
@@ -29,6 +28,7 @@ import ButtonProps, {
   ButtonColorVariant,
 } from './Button.types'
 import * as Styled from './Button.styled'
+import type { IconName } from '../Icon'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
@@ -148,7 +148,7 @@ function Button(
   const handleMouseEnter = useCallback(() => { setIsHovered(true) }, [])
   const handleMouseLeave = useCallback(() => { setIsHovered(false) }, [])
 
-  const handleClick = useCallback((event: MouseEvent) => {
+  const handleClick = useCallback((event: React.MouseEvent) => {
     if (!disabled) { onClick(event) }
     return null
   }, [

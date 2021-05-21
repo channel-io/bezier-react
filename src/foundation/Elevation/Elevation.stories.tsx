@@ -37,7 +37,7 @@ const ElevationChip = styled.div<ElevationChipProps>`
 `
 
 const Template = (args) => (
-  <ElevationChip {...args}/>
+  <ElevationChip {...args} />
 )
 
 export const Primary = Template.bind({})

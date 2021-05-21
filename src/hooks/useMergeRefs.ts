@@ -15,8 +15,8 @@ export default function useMergeRefs<T>(...refs: Array<React.Ref<T> | CallbackRe
   /* eslint-disable-next-line consistent-return */
   return React.useCallback((inst: T) => {
     const filteredRefs = refs.filter(Boolean)
-    if (!filteredRefs.length) return null
-    if (filteredRefs.length === 0) return filteredRefs[0]
+    if (!filteredRefs.length) { return null }
+    if (filteredRefs.length === 0) { return filteredRefs[0] }
 
     filteredRefs.forEach(ref => setRef<T>(ref, inst))
   }, [refs])

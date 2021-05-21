@@ -56,8 +56,20 @@ function NavigationArea(
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => (columnStates[currentKey] ? columnStates[currentKey].hidable : true), [columnStates, currentKey])
-  const show = useMemo(() => (!hidable || showNavigation), [hidable, showNavigation])
+  const hidable = useMemo(() => (
+    columnStates[currentKey]
+      ? columnStates[currentKey].hidable
+      : true
+  ), [
+    columnStates,
+    currentKey,
+  ])
+  const show = useMemo(() => (
+    !hidable || showNavigation
+  ), [
+    hidable,
+    showNavigation,
+  ])
   const disableResize = useMemo(() => (
     !show ||
     columnStates[currentKey]?.disableResize ||
@@ -90,7 +102,7 @@ function NavigationArea(
     if (disableResize) { return }
 
     window.requestAnimationFrame!(() => {
-      if (!allowMouseMove) return
+      if (!allowMouseMove) { return }
       handleResizing(event, onChangeWidth)
     })
   }, [
@@ -128,7 +140,10 @@ function NavigationArea(
     } else {
       document.removeEventListener!('mousemove', handleDecideHover, false)
     }
-  }, [handleDecideHover, show])
+  }, [
+    handleDecideHover,
+    show,
+  ])
 
   useLayoutEffect(() => {
     if (presenterRef.current) {

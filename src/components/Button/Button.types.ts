@@ -36,5 +36,5 @@ export default interface ButtonProps extends UIComponentProps {
   colorVariant?: ButtonColorVariant
   leftComponent?: IconName | React.ReactNode
   rightComponent?: IconName | React.ReactNode
-  onClick?: (event: MouseEvent) => void
+  onClick?: (event: React.MouseEvent) => void
 }
