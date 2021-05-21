@@ -34,9 +34,7 @@ function Checkbox(
     if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
     if (includes(checkTypeValues, checked)) { return checked }
     return CheckType.False
-  }, [
-    checked,
-  ])
+  }, [checked])
 
   return (
     <Wrapper

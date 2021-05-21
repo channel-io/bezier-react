@@ -29,7 +29,7 @@ describe('Button Test >', () => {
     }
   })
 
-  const renderButton = (optionProps?: ButtonProps) => render(<Button {...props} {...optionProps}/>)
+  const renderButton = (optionProps?: ButtonProps) => render(<Button {...props} {...optionProps} />)
 
   it('Reset CSS', () => {
     const { getByTestId } = renderButton()

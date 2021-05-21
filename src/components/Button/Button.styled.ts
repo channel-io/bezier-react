@@ -227,7 +227,7 @@ function getCSSFromVariant({
   })()
 
   const activeCSS = (() => {
-    if (disabled) return css``
+    if (disabled) { return css`` }
 
     switch (styleVariant) {
       case ButtonStyleVariant.Secondary:

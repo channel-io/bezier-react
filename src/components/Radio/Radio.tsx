@@ -41,7 +41,11 @@ function Radio(
     if (!disabled && onClick) {
       onClick(value, e)
     }
-  }, [onClick, disabled, value])
+  }, [
+    onClick,
+    disabled,
+    value,
+  ])
 
   const handleMouseOver = useCallback(() => setHovered(true), [])
 
@@ -50,7 +54,10 @@ function Radio(
   const checked = useMemo(() => {
     if (isNil(watchingValue) || isNil(value)) { return false }
     return watchingValue === value
-  }, [watchingValue, value])
+  }, [
+    watchingValue,
+    value,
+  ])
 
   return (
     <StyledRadioWrapper

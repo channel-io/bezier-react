@@ -27,7 +27,7 @@ export default {
 }
 
 const Template = ({ ...args }) => (
-  <Spinner {...args}/>
+  <Spinner {...args} />
 
 )
 

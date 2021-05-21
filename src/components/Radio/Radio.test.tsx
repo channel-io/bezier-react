@@ -21,7 +21,7 @@ describe('Radio test >', () => {
   })
 
   const renderRadio = (optionProps?: RadioProps) => render(
-    <Radio {...props} {...optionProps}/>,
+    <Radio {...props} {...optionProps} />,
   )
 
   it('RadioInput has default style', () => {

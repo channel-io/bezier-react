@@ -54,7 +54,7 @@ const Template = ({ color }) => (
     {
       Object.keys(color).map(colorKey => (
         <ColorChip>
-          <Color color={color[colorKey]}/>
+          <Color color={color[colorKey]} />
           <ColorName>{ colorKey }</ColorName>
         </ColorChip>
       ))

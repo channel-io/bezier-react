@@ -15,21 +15,21 @@ type BaseColorfulPaletteKey400 = `${BaseColorfulPaletteKey}400`
 type BaseColorfulPaletteKey500 = `${BaseColorfulPaletteKey}500`
 
 type GreyKeyWithoutAlpha =
-  | `${BasePaletteKey.grey}50`
-  | `${BasePaletteKey.grey}100`
-  | `${BasePaletteKey.grey}200`
-  | `${BasePaletteKey.grey}500`
-  | `${BasePaletteKey.grey}700`
-  | `${BasePaletteKey.grey}800`
-  | `${BasePaletteKey.grey}850`
-  | `${BasePaletteKey.grey}900`
+  | `${BasePaletteKey.Grey}50`
+  | `${BasePaletteKey.Grey}100`
+  | `${BasePaletteKey.Grey}200`
+  | `${BasePaletteKey.Grey}500`
+  | `${BasePaletteKey.Grey}700`
+  | `${BasePaletteKey.Grey}800`
+  | `${BasePaletteKey.Grey}850`
+  | `${BasePaletteKey.Grey}900`
 
 type PaletteKeyWithoutAlpha =
   | BaseColorfulPaletteKey300
   | BaseColorfulPaletteKey400
   | BaseColorfulPaletteKey500
   | GreyKeyWithoutAlpha
-  | Exclude<BaseMonoPaletteKey, BasePaletteKey.grey>
+  | Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>
 
 type PaletteWithoutAlphaType = Record<PaletteKeyWithoutAlpha, string>
 
@@ -117,31 +117,31 @@ type BaseColorfulPaletteKey300_20 = `${BaseColorfulPaletteKey300}_20`
 /* eslint-enable @typescript-eslint/naming-convention */
 
 type AlphaGreyKey =
-  | `${BasePaletteKey.grey}800_80`
-  | `${BasePaletteKey.grey}700_80`
-  | `${BasePaletteKey.grey}200_80`
-  | `${BasePaletteKey.grey}100_80`
+  | `${BasePaletteKey.Grey}800_80`
+  | `${BasePaletteKey.Grey}700_80`
+  | `${BasePaletteKey.Grey}200_80`
+  | `${BasePaletteKey.Grey}100_80`
 
 type AlphaWhiteKey =
-  | `${BasePaletteKey.white}_90`
-  | `${BasePaletteKey.white}_60`
-  | `${BasePaletteKey.white}_40`
-  | `${BasePaletteKey.white}_20`
-  | `${BasePaletteKey.white}_12`
-  | `${BasePaletteKey.white}_8`
-  | `${BasePaletteKey.white}_5`
+  | `${BasePaletteKey.White}_90`
+  | `${BasePaletteKey.White}_60`
+  | `${BasePaletteKey.White}_40`
+  | `${BasePaletteKey.White}_20`
+  | `${BasePaletteKey.White}_12`
+  | `${BasePaletteKey.White}_8`
+  | `${BasePaletteKey.White}_5`
 
 type AlphaBlackKey =
-  | `${BasePaletteKey.black}_85`
-  | `${BasePaletteKey.black}_60`
-  | `${BasePaletteKey.black}_40`
-  | `${BasePaletteKey.black}_30`
-  | `${BasePaletteKey.black}_22`
-  | `${BasePaletteKey.black}_20`
-  | `${BasePaletteKey.black}_15`
-  | `${BasePaletteKey.black}_8`
-  | `${BasePaletteKey.black}_5`
-  | `${BasePaletteKey.black}_3`
+  | `${BasePaletteKey.Black}_85`
+  | `${BasePaletteKey.Black}_60`
+  | `${BasePaletteKey.Black}_40`
+  | `${BasePaletteKey.Black}_30`
+  | `${BasePaletteKey.Black}_22`
+  | `${BasePaletteKey.Black}_20`
+  | `${BasePaletteKey.Black}_15`
+  | `${BasePaletteKey.Black}_8`
+  | `${BasePaletteKey.Black}_5`
+  | `${BasePaletteKey.Black}_3`
 
 type PaletteKey =
   | PaletteKeyWithoutAlpha

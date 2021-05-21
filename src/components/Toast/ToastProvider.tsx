@@ -130,7 +130,10 @@ function ToastProvider({
         />
       )) }
     </ToastContainer>
-  ), [autoDismissTimeout, handleDismiss])
+  ), [
+    autoDismissTimeout,
+    handleDismiss,
+  ])
 
   return (
     <Provider value={ToastContextValue}>

@@ -16,7 +16,7 @@ defaults: &defaults
   working_directory: *workspace_root
 
   docker:
-    - image: zoyi/ci-node:12.16.1
+    - image: node:16.2.0
 
 filter_only_tagged: &filter_only_tagged
   filters:
