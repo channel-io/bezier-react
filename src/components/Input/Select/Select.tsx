@@ -37,7 +37,7 @@ function Select(
     size = SelectSize.M,
     disabled = false,
     defaultFocus = false,
-    placeholder = 'hello',
+    placeholder = '',
     iconComponent,
     text,
     withoutChevron = false,

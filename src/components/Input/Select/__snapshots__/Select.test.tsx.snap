@@ -107,9 +107,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       <span
         class="c3"
         data-testid="bezier-react-text"
-      >
-        hello
-      </span>
+      />
     </div>
     <svg
       class="c4"
