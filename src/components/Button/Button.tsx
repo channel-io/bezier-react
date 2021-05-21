@@ -52,6 +52,7 @@ function Button(
     style,
     interpolation,
     testId = BUTTON_TEST_ID,
+    type = 'button',
     text,
     disabled = false,
     loading = false,
@@ -147,7 +148,7 @@ function Button(
   const handleMouseEnter = useCallback(() => { setIsHovered(true) }, [])
   const handleMouseLeave = useCallback(() => { setIsHovered(false) }, [])
 
-  const handleClick = useCallback((event: MouseEvent) => {
+  const handleClick = useCallback((event: React.MouseEvent) => {
     if (!disabled) { onClick(event) }
     return null
   }, [
@@ -179,6 +180,7 @@ function Button(
   return (
     <Styled.ButtonWrapper
       as={as}
+      type={type}
       style={style}
       className={className}
       interpolation={interpolation}

@@ -26,7 +26,7 @@ import {
   TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
-import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
+import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 
@@ -71,6 +71,19 @@ function TextFieldComponent({
 
   const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
   const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
+  const wrapperBgColorSemanticName = useMemo(() => (
+    getProperTextFieldBgColor({
+      variant,
+      focused,
+      hasError,
+      readOnly,
+    })
+  ), [
+    variant,
+    focused,
+    hasError,
+    readOnly,
+  ])
 
   const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
   const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
@@ -338,7 +351,6 @@ function TextFieldComponent({
         ref={inputRef}
         name={name}
         size={size}
-        color={inputColorSemanticName}
         autoComplete={autoComplete}
         type={type}
         readOnly={readOnly}
