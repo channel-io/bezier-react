@@ -18,10 +18,6 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 }
 
 .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   font-size: 14px;
   line-height: 18px;
   margin: 0px 0px 0px 0px;
