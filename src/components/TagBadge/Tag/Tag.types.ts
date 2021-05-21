@@ -7,7 +7,7 @@ import {
   TagBadgeVariant,
 } from '../TagBadgeCommon'
 
-interface TagProps extends ChildrenComponentProps {
+interface TagProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   size?: TagBadgeSize
   variant?: TagBadgeVariant
   color?: SemanticNames
