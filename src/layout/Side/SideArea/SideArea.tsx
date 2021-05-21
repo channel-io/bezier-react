@@ -38,7 +38,12 @@ function SideArea(
 
   // NOTE: Content는 언제나 마지막 순서이다
   const contentKey = useMemo(() => (orderedColumnKeys[orderedColumnKeys.length - 1]), [orderedColumnKeys])
-  const contentRef = useMemo(() => (columnRefs[contentKey]?.target), [columnRefs, contentKey])
+  const contentRef = useMemo(() => (
+    columnRefs[contentKey]?.target
+  ), [
+    columnRefs,
+    contentKey,
+  ])
 
   const handleResizerMouseMove = useCallback((e: HTMLElementEventMap['mousemove']) => {
     if (
@@ -72,7 +77,11 @@ function SideArea(
     initialPosition.current = event.clientX
     sideInitialWidth.current = sideWidth!
     handleResizeStart(event, contentKey)
-  }, [sideWidth, handleResizeStart, contentKey])
+  }, [
+    sideWidth,
+    handleResizeStart,
+    contentKey,
+  ])
 
   const handleResizerMouseUp = useCallback(() => {
     setIsDragging(false)

@@ -26,6 +26,7 @@ export enum ButtonSize {
 }
 
 export default interface ButtonProps extends UIComponentProps {
+  type?: HTMLButtonElement['type']
   text?: string
   disabled?: boolean
   loading?: boolean
@@ -35,5 +36,5 @@ export default interface ButtonProps extends UIComponentProps {
   colorVariant?: ButtonColorVariant
   leftComponent?: IconName | React.ReactNode
   rightComponent?: IconName | React.ReactNode
-  onClick?: (event: MouseEvent) => void
+  onClick?: (event: React.MouseEvent) => void
 }

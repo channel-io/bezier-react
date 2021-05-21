@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Test > Default Style > Snapshot > 1`] = `
+.c4 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 6px;
+  color: inherit;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+.c3 {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 36px;
+  padding: 8px 12px;
+  color: #00000099;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px #00000008, inset 0 0 0 1px #0000000D;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #FCFCFC;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+.c1:hover {
+  background-color: #F7F7F8;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-select-container"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-select-trigger"
+  >
+    <div
+      class="c2"
+    >
+      <span
+        class="c3"
+        data-testid="bezier-react-text"
+      />
+    </div>
+    <svg
+      class="c4"
+      data-testid="bezier-react-icon"
+      fill="none"
+      foundation="[object Object]"
+      height="16"
+      marginbottom="0"
+      marginleft="6"
+      marginright="0"
+      margintop="0"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M19.707 8.793a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 011.414-1.414L12 15.086l6.293-6.293a1 1 0 011.414 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</div>
+`;

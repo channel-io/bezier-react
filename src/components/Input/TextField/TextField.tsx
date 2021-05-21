@@ -14,9 +14,9 @@ import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lo
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import { window } from '../../../utils/domUtils'
 import { Icon, IconSize } from '../../Icon'
 import Styled from './TextField.styled'
-import type { TextFieldProps } from './TextField.types'
 import {
   TextFieldItemProps,
   TextFieldType,
@@ -25,7 +25,8 @@ import {
   TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
-import { getProperTextFieldInputColor, getProperTextFieldBgColor } from './TextFieldUtils'
+import { getProperTextFieldBgColor } from './TextFieldUtils'
+import type { TextFieldProps } from './TextField.types'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 
@@ -45,6 +46,10 @@ function TextFieldComponent({
   selectAllOnFocus = false,
   leftContent,
   rightContent,
+  withoutLeftContentWrapper = false,
+  withoutRightContentWrapper = false,
+  inputClassName,
+  inputInterpolation,
   wrapperClassName,
   wrapperInterpolation,
   leftWrapperClassName,
@@ -57,42 +62,49 @@ function TextFieldComponent({
   onBlur,
   onFocus,
   onChange,
+  onKeyDown,
+  onKeyUp,
   ...otherProps
 }: TextFieldProps, forwardedRef: Ref<TextFieldRef>) {
   const [focused, setFocused] = useState(false)
   const [hovered, setHovered] = useState(false)
 
-  const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
-  const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
-  const focusTimeout = useRef<ReturnType<typeof setTimeout>>()
-  const blurTimeout = useRef<ReturnType<typeof setTimeout>>()
+  const wrapperBgColorSemanticName = useMemo(() => (
+    getProperTextFieldBgColor({
+      variant,
+      focused,
+      hasError,
+      readOnly,
+    })
+  ), [
+    variant,
+    focused,
+    hasError,
+    readOnly,
+  ])
+
+  const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
+  const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
 
   const normalizedValue = useMemo(() => (
     isNil(value) ? undefined : toString(value)
   ), [value])
 
-  const activeClear = useMemo(() => (
-    !disabled
-    && !readOnly
-    && allowClear
-  ), [
-    disabled,
-    readOnly,
-    allowClear,
-  ])
+  const activeInput = !disabled && !readOnly
+  const activeClear = activeInput && allowClear
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const focus = useCallback(() => {
     clearTimeout(focusTimeout.current)
-    focusTimeout.current = setTimeout(() => {
+    focusTimeout.current = window.setTimeout(() => {
       inputRef.current?.focus()
     }, 0)
   }, [])
 
   const blur = useCallback(() => {
     clearTimeout(blurTimeout.current)
-    blurTimeout.current = setTimeout(() => {
+    blurTimeout.current = window.setTimeout(() => {
       inputRef.current?.blur()
     }, 0)
   }, [])
@@ -156,7 +168,7 @@ function TextFieldComponent({
   }, [])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled && !readOnly) {
+    if (activeInput) {
       setFocused(true)
       if (selectAllOnFocus) { selectAll() }
       if (onFocus) { onFocus(event) }
@@ -164,8 +176,7 @@ function TextFieldComponent({
   }, [
     selectAllOnFocus,
     selectAll,
-    readOnly,
-    disabled,
+    activeInput,
     onFocus,
   ])
 
@@ -175,27 +186,41 @@ function TextFieldComponent({
   }, [onBlur])
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!readOnly && !disabled && onChange) {
+    if (activeInput && onChange) {
       onChange(event)
     }
   }, [
-    readOnly,
-    disabled,
+    activeInput,
     onChange,
+  ])
+
+  const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (activeInput && onKeyDown) {
+      onKeyDown(event)
+    }
+  }, [
+    activeInput,
+    onKeyDown,
+  ])
+
+  const handleKeyUp = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (activeInput && onKeyUp) {
+      onKeyUp(event)
+    }
+  }, [
+    activeInput,
+    onKeyUp,
   ])
 
   const handleClear = useCallback(() => {
     const input = inputRef.current
-    if (!readOnly && !disabled && input) {
+    if (activeInput && input) {
       const setValue = Object?.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
       const event = new Event('input', { bubbles: true })
       setValue?.call(input, '')
       input.dispatchEvent(event)
     }
-  }, [
-    readOnly,
-    disabled,
-  ])
+  }, [activeInput])
 
   const renderLeftItem = useCallback((item: TextFieldItemProps) => (
     'icon' in item
@@ -216,7 +241,10 @@ function TextFieldComponent({
     }
 
     const item = renderLeftItem(leftContent)
-    return !isNil(item) && (
+
+    if (isNil(item) || withoutLeftContentWrapper) { return item }
+
+    return (
       <Styled.LeftContentWrapper
         className={leftWrapperClassName}
         interpolation={leftWrapperInterpolation}
@@ -226,6 +254,7 @@ function TextFieldComponent({
     )
   }, [
     leftContent,
+    withoutLeftContentWrapper,
     leftWrapperClassName,
     leftWrapperInterpolation,
     renderLeftItem,
@@ -259,6 +288,8 @@ function TextFieldComponent({
       ? rightContent.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(rightContent)
 
+    if (withoutRightContentWrapper) { return items }
+
     return (
       <Styled.RightContentWrapper
         className={rightWrapperClassName}
@@ -269,6 +300,7 @@ function TextFieldComponent({
     )
   }, [
     rightContent,
+    withoutRightContentWrapper,
     rightWrapperClassName,
     rightWrapperInterpolation,
     renderRightItem,
@@ -312,10 +344,11 @@ function TextFieldComponent({
     >
       { leftComponent }
       <Styled.Input
+        className={inputClassName}
+        interpolation={inputInterpolation}
         ref={inputRef}
         name={name}
         size={size}
-        color={inputColorSemanticName}
         autoComplete={autoComplete}
         type={type}
         readOnly={readOnly}
@@ -326,6 +359,8 @@ function TextFieldComponent({
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
         {...otherProps}
       />
       { activeClear && clearComponent }

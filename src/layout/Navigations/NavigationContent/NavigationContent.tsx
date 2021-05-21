@@ -85,7 +85,11 @@ function NavigationContent({
 
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((withScroll && scrollClassName) || undefined))
-  ), [className, scrollClassName, withScroll])
+  ), [
+    className,
+    scrollClassName,
+    withScroll,
+  ])
 
   const showNavigationToggleButtonElement = useMemo(() => (
     // TODO: Tooltip 추가

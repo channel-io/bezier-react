@@ -20,7 +20,6 @@ function getMargin({
 }
 
 const Text = styled.span<TextProps & TextStyledProps>`
-  display: flex;
   ${props => props.typo};
   margin: ${getMargin};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};

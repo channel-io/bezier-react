@@ -12,7 +12,7 @@ export default {
   title: getTitle(base),
   component: Overlay,
   argTypes: {
-    placement: {
+    position: {
       control: {
         type: 'radio',
         options: [
@@ -55,25 +55,25 @@ export default {
 }
 
 const Container = styled.div`
+  position: relative;
   width: 600px;
   height: 500px;
-  position: relative;
   overflow: scroll;
   border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 900px;
   height: 800px;
 `
 
 const Target = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 70px;
   height: 40px;
   background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
@@ -89,10 +89,10 @@ const Children = styled.div`
 `
 
 const ScrollContent = styled.div`
+  box-sizing: border-box;
   width: 250px;
   height: 350px;
   padding: 5px;
-  box-sizing: border-box;
   color: white;
 `
 
@@ -135,8 +135,9 @@ const Template = (props) => {
 export const Primary = Template.bind({})
 Primary.args = {
   show: false,
-  placement: OverlayPosition.BottomCenter,
+  position: OverlayPosition.BottomCenter,
   marginX: 0,
   marginY: 0,
   keepInContainer: false,
+  withTransition: false,
 }

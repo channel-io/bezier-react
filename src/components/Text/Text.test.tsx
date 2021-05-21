@@ -16,7 +16,7 @@ describe('Text test >', () => {
     }
   })
 
-  const renderComponent = (optionProps?: TextProps) => render(<Text {...props} {...optionProps}/>)
+  const renderComponent = (optionProps?: TextProps) => render(<Text {...props} {...optionProps} />)
 
   it('Text have default style', () => {
     const { getByTestId } = renderComponent()

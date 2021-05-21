@@ -17,7 +17,7 @@ describe('Icon test >', () => {
   })
 
   const renderIcon = (optionProps?: IconProps) => render(
-    <Icon {...props} {...optionProps}/>,
+    <Icon {...props} {...optionProps} />,
   )
 
   it('Icon inherits fill color', () => {

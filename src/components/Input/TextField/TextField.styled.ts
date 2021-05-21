@@ -19,16 +19,9 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-const placeholderStyle = (themeKey: SemanticNames = 'txt-black-dark') => css`
-  &::placeholder {
-    color: ${({ foundation }) => foundation?.theme?.[themeKey]};
-  }
-`
-
-interface InputProps {
+interface InputProps extends WithInterpolation {
   disabled: boolean
   readOnly: boolean
-  color: SemanticNames
 }
 
 const Input = styled.input<InputProps>`
@@ -37,13 +30,17 @@ const Input = styled.input<InputProps>`
   ${Typography.Size14}
   padding: 0;
 
-  color: ${({ foundation, color }) => foundation?.theme?.[color]};
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
 
   background-color: transparent;
   border: none;
   outline: none;
 
-  ${placeholderStyle()}
+  &::placeholder {
+    color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+  }
+
+  ${({ interpolation }) => interpolation}
 `
 
 const LeftIcon = styled(Icon)<ClickableElementProps>`

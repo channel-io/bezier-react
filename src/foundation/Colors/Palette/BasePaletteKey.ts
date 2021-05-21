@@ -1,37 +1,37 @@
 enum BasePaletteKey {
-  blue = 'blue',
-  cobalt = 'cobalt',
-  teal = 'teal',
-  green = 'green',
-  olive = 'olive',
-  yellow = 'yellow',
-  orange = 'orange',
-  red = 'red',
-  pink = 'pink',
-  purple = 'purple',
-  navy = 'navy',
-  grey = 'grey',
+  Blue = 'blue',
+  Cobalt = 'cobalt',
+  Teal = 'teal',
+  Green = 'green',
+  Olive = 'olive',
+  Yellow = 'yellow',
+  Orange = 'orange',
+  Red = 'red',
+  Pink = 'pink',
+  Purple = 'purple',
+  Navy = 'navy',
+  Grey = 'grey',
 
-  black = 'black',
-  white = 'white',
+  Black = 'black',
+  White = 'white',
 }
 
 export type BaseMonoPaletteKey =
-  | BasePaletteKey.grey
-  | BasePaletteKey.black
-  | BasePaletteKey.white
+  | BasePaletteKey.Grey
+  | BasePaletteKey.Black
+  | BasePaletteKey.White
 
 export type BaseColorfulPaletteKey =
-  | BasePaletteKey.blue
-  | BasePaletteKey.cobalt
-  | BasePaletteKey.teal
-  | BasePaletteKey.green
-  | BasePaletteKey.olive
-  | BasePaletteKey.yellow
-  | BasePaletteKey.orange
-  | BasePaletteKey.red
-  | BasePaletteKey.pink
-  | BasePaletteKey.purple
-  | BasePaletteKey.navy
+  | BasePaletteKey.Blue
+  | BasePaletteKey.Cobalt
+  | BasePaletteKey.Teal
+  | BasePaletteKey.Green
+  | BasePaletteKey.Olive
+  | BasePaletteKey.Yellow
+  | BasePaletteKey.Orange
+  | BasePaletteKey.Red
+  | BasePaletteKey.Pink
+  | BasePaletteKey.Purple
+  | BasePaletteKey.Navy
 
 export default BasePaletteKey

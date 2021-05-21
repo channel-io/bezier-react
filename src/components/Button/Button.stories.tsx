@@ -46,7 +46,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<ButtonProps> = ({ buttonTheme, ...args }) => <Button {...args}/>
+const Template: Story<ButtonProps> = ({ buttonTheme, ...args }) => <Button {...args} />
 
 export const Primary: Story<ButtonProps> = Template.bind({})
 Primary.args = {
@@ -64,7 +64,7 @@ Primary.args = {
 export const WithCustomComponent: Story<ButtonProps> = Template.bind({})
 WithCustomComponent.args = {
   text: 'Set Manager',
-  leftComponent: <Avatar avatarUrl="https://source.unsplash.com/random"/>,
+  leftComponent: <Avatar avatarUrl="https://source.unsplash.com/random" />,
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,

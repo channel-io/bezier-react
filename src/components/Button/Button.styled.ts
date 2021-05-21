@@ -63,8 +63,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
           background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
 
           ${!disabled && css`
-            &:hover,
-            &:focus {
+            &:hover {
               background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
             }
           `}
@@ -75,8 +74,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
           background-color: transparent;
 
           ${!disabled && css`
-            &:hover,
-            &:focus {
+            &:hover {
               background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lightest']};
             }
           `}
@@ -87,8 +85,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
           ${({ foundation }) => foundation?.elevation?.ev3()};
 
           ${!disabled && css`
-            &:hover,
-            &:focus {
+            &:hover {
               ${({ foundation }) => foundation?.elevation?.ev4()};
             }
           `}
@@ -100,8 +97,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
           background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lightest']};
 
           ${!disabled && css`
-            &:hover,
-            &:focus {
+            &:hover {
               background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lighter']};
             }
           `}
@@ -137,8 +133,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
     ${colorCSS};
     ${active && activeCSS};
 
-    &:hover,
-    &:focus {
+    &:hover {
       ${activeCSS};
     }
   `
@@ -153,8 +148,7 @@ function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: Butto
         overflow: hidden;
         border-radius: 1000px;
 
-        &:hover,
-        &:focus {
+        &:hover {
           ${({ foundation }) => foundation?.elevation?.ev4()};
         }
       `
@@ -227,7 +221,7 @@ function getCSSFromVariant({
   })()
 
   const activeCSS = (() => {
-    if (disabled) return css``
+    if (disabled) { return css`` }
 
     switch (styleVariant) {
       case ButtonStyleVariant.Secondary:
@@ -253,8 +247,7 @@ function getCSSFromVariant({
     ${colorCSS};
     ${active && activeCSS};
 
-    &:hover,
-    &:focus {
+    &:hover {
       ${activeCSS};
     }
   `

@@ -102,7 +102,11 @@ function Tabs({
         { actions }
       </TabActions>
     )
-  }, [height, disabled, children])
+  }, [
+    height,
+    disabled,
+    children,
+  ])
 
   return (
     <Wrapper

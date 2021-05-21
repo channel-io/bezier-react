@@ -38,7 +38,7 @@ const RoundingChip = styled.div<RoundingChipProps>`
 `
 
 const Template = (args) => (
-  <RoundingChip {...args}/>
+  <RoundingChip {...args} />
 )
 
 export const Primary = Template.bind({})

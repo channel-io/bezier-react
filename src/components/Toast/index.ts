@@ -5,10 +5,16 @@ import ToastProps, {
   ToastAppearance,
   ToastIconColor,
   ToastPreset,
+  ToastOptions,
+  ToastId,
+  ToastType,
 } from './Toast.types'
 
 export type {
   ToastProps,
+  ToastOptions,
+  ToastId,
+  ToastType,
 }
 
 export {
