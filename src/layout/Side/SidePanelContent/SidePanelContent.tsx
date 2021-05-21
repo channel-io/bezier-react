@@ -18,7 +18,7 @@ function SidePanelContent(
     children,
     onChangeSideWidth = noop,
   }: SidePanelContentProps,
-  forwardedRef: Ref<any>,
+  forwardedRef: Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
 
