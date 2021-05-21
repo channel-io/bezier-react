@@ -14,6 +14,7 @@ import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lo
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import { window } from '../../../utils/domUtils'
 import { Icon, IconSize } from '../../Icon'
 import Styled from './TextField.styled'
 import type { TextFieldProps } from './TextField.types'
@@ -68,6 +69,8 @@ function TextFieldComponent({
   const [focused, setFocused] = useState(false)
   const [hovered, setHovered] = useState(false)
 
+  const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
+  const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
   const wrapperBgColorSemanticName = useMemo(() => (
     getProperTextFieldBgColor({
       variant,
@@ -82,8 +85,8 @@ function TextFieldComponent({
     readOnly,
   ])
 
-  const focusTimeout = useRef<ReturnType<typeof setTimeout>>()
-  const blurTimeout = useRef<ReturnType<typeof setTimeout>>()
+  const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
+  const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
 
   const normalizedValue = useMemo(() => (
     isNil(value) ? undefined : toString(value)
@@ -96,14 +99,14 @@ function TextFieldComponent({
 
   const focus = useCallback(() => {
     clearTimeout(focusTimeout.current)
-    focusTimeout.current = setTimeout(() => {
+    focusTimeout.current = window.setTimeout(() => {
       inputRef.current?.focus()
     }, 0)
   }, [])
 
   const blur = useCallback(() => {
     clearTimeout(blurTimeout.current)
-    blurTimeout.current = setTimeout(() => {
+    blurTimeout.current = window.setTimeout(() => {
       inputRef.current?.blur()
     }, 0)
   }, [])

@@ -1,7 +1,13 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
 /* Internal dependencies */
+import { window } from '../../utils/domUtils'
 import { TransitionDuration } from '../../foundation'
 import { ToastControllerProps } from './Toast.types'
 import { showedToastTranslateXStyle, initPosition } from './utils'
@@ -28,11 +34,11 @@ function ToastController({
   ...props
 }: ToastControllerProps) {
   const [transform, setTransform] = useState(showedToastTranslateXStyle)
-  const timer = useRef<number>()
+  const timer = useRef<ReturnType<Window['setTimeout']>>()
 
   const handleDismiss = useCallback(() => {
     setTransform(initPosition(placement))
-    timer.current = setTimeout(onDismiss, parseDuration(transitionDuration))
+    timer.current = window.setTimeout(onDismiss, parseDuration(transitionDuration))
   }, [
     onDismiss,
     placement,
@@ -40,7 +46,7 @@ function ToastController({
   ])
 
   const startTimer = useCallback(() => {
-    timer.current = setTimeout(handleDismiss, autoDismissTimeout)
+    timer.current = window.setTimeout(handleDismiss, autoDismissTimeout)
   }, [
     autoDismissTimeout,
     handleDismiss,
@@ -54,7 +60,7 @@ function ToastController({
 
   useEffect(() => {
     if (autoDismiss) {
-      timer.current = setTimeout(startTimer, parseDuration(transitionDuration))
+      timer.current = window.setTimeout(startTimer, parseDuration(transitionDuration))
     }
     return clearTimer
   // eslint-disable-next-line react-hooks/exhaustive-deps
