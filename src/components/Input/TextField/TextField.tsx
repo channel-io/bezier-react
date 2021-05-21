@@ -17,7 +17,6 @@ import { v4 as uuid } from 'uuid'
 import { window } from '../../../utils/domUtils'
 import { Icon, IconSize } from '../../Icon'
 import Styled from './TextField.styled'
-import type { TextFieldProps } from './TextField.types'
 import {
   TextFieldItemProps,
   TextFieldType,
@@ -27,6 +26,7 @@ import {
   TextFieldVariant,
 } from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'
+import type { TextFieldProps } from './TextField.types'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 
