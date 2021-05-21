@@ -216,12 +216,6 @@ function Overlay(
     shouldShow,
   ])
 
-  useEffect(() => {
-    if (shouldRender) {
-      setShouldShow(true)
-    }
-  }, [shouldRender])
-
   if (!shouldRender) { return null }
 
   return ReactDOM.createPortal(
