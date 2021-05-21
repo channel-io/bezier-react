@@ -118,8 +118,8 @@ const Template = ({ onChangeWidth }) => {
 
   const DummyActions = useMemo(() => (
     <>
-      <StyledIcon name="search" marginRight={10}/>
-      <StyledIcon name="triangle-updown"/>
+      <StyledIcon name="search" marginRight={10} />
+      <StyledIcon name="triangle-updown" />
     </>
   ), [])
 
@@ -212,7 +212,10 @@ const Template = ({ onChangeWidth }) => {
       default:
         return null
     }
-  }, [route, onChangeWidth])
+  }, [
+    route,
+    onChangeWidth,
+  ])
 
   const NavigationSubRoute = useCallback(() => {
     switch (route) {
@@ -239,7 +242,11 @@ const Template = ({ onChangeWidth }) => {
       default:
         return null
     }
-  }, [Element2Header, route, onChangeWidth])
+  }, [
+    Element2Header,
+    route,
+    onChangeWidth,
+  ])
 
   const ContentHeaderRoute = useCallback(() => {
     switch (route) {
@@ -268,18 +275,21 @@ const Template = ({ onChangeWidth }) => {
   const SidePanelRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
-        return (<TeamChatSidePanel onChangeWidth={onChangeWidth}/>)
+        return (<TeamChatSidePanel onChangeWidth={onChangeWidth} />)
       case RouteKeys.UserChat:
-        return (<UserChatSidePanel onChangeWidth={onChangeWidth}/>)
+        return (<UserChatSidePanel onChangeWidth={onChangeWidth} />)
       case RouteKeys.Statistic:
       case RouteKeys.Setting:
       default:
         return null
     }
-  }, [onChangeWidth, route])
+  }, [
+    onChangeWidth,
+    route,
+  ])
 
   const SideViewComponent = useCallback(() => (
-    <SideViewRoute onChangeWidth={onChangeWidth}/>
+    <SideViewRoute onChangeWidth={onChangeWidth} />
   ), [onChangeWidth])
 
   return (

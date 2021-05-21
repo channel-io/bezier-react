@@ -44,7 +44,7 @@ const BorderChip = styled.div<BorderChipProps>`
 `
 
 const Template = (args) => (
-  <BorderChip {...args}/>
+  <BorderChip {...args} />
 )
 
 export const Primary = Template.bind({})

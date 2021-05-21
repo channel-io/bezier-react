@@ -229,7 +229,7 @@ function Overlay(
     keepInContainer,
   ])
 
-  if (!show) return null
+  if (!show) { return null }
 
   return ReactDOM.createPortal(overlay, container || rootElement as HTMLElement)
 }

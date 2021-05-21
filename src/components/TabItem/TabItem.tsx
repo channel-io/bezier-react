@@ -84,7 +84,11 @@ function TabItemComponent({
     if (!active && !disabled) {
       onClick(e)
     }
-  }, [active, disabled, onClick])
+  }, [
+    active,
+    disabled,
+    onClick,
+  ])
 
   const handleMouseEnter = useCallback(() => setIsHovered(true), [])
 

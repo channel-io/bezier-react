@@ -96,7 +96,10 @@ const Template = (args) => {
           top: 100,
         }
     }
-  }, [args, isEntered])
+  }, [
+    args,
+    isEntered,
+  ])
 
   return (
     <>

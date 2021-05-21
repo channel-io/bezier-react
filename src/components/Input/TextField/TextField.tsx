@@ -69,8 +69,6 @@ function TextFieldComponent({
   const [focused, setFocused] = useState(false)
   const [hovered, setHovered] = useState(false)
 
-  const wrapperBgColorSemanticName = useMemo(() => (getProperTextFieldBgColor(variant, readOnly)), [variant, readOnly])
-  const inputColorSemanticName = useMemo(() => (getProperTextFieldInputColor(disabled, readOnly)), [disabled, readOnly])
   const wrapperBgColorSemanticName = useMemo(() => (
     getProperTextFieldBgColor({
       variant,

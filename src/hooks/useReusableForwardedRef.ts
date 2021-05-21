@@ -15,9 +15,7 @@ function useReusableForwardedRef<T>(forwardedRef: ForwardedRefInstance<T>): Reac
         forwardedRef.current = targetRef.current
       }
     }
-  }, [
-    forwardedRef,
-  ])
+  }, [forwardedRef])
 
   return targetRef
 }

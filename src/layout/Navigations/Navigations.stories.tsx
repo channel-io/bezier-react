@@ -34,8 +34,8 @@ const StyledIcon = styled(Icon)`
 const Template = ({ onChangeWidth }) => {
   const DummyActions = useMemo(() => (
     <>
-      <StyledIcon name="search" marginRight={10}/>
-      <StyledIcon name="triangle-updown"/>
+      <StyledIcon name="search" marginRight={10} />
+      <StyledIcon name="triangle-updown" />
     </>
   ), [])
 
