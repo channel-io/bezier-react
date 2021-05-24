@@ -78,33 +78,9 @@ jobs:
 
 workflows:
   version: 2
-  install_n_test:
+  test_n_release:
     jobs:
       - install
-      - lint:
-          requires:
-            - install
-          filters:
-            branches:
-              ignore:
-                - master
-      - typecheck:
-          requires:
-            - install
-          filters:
-            branches:
-              ignore:
-                - master
-      - jest:
-          requires:
-            - install
-
-  release:
-    jobs:
-      - install:
-          filters:
-            branches:
-              - master
       - lint:
           requires:
             - install
