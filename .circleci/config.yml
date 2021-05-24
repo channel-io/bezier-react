@@ -101,7 +101,7 @@ workflows:
 
   release:
     jobs:
-      - install
+      - install:
           filters:
             branches:
               - master
