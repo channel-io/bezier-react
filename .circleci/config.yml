@@ -65,13 +65,13 @@ jobs:
           token: $CODECOV_TOKEN
 
   build:
-    <<: &defaults
+    <<: *defaults
     steps:
       - *attach_workspace
       - run: npm run build
 
   release:
-    <<: &defaults
+    <<: *defaults
     steps:
       - *attach_workspace
       - run: npm run semantic-release
