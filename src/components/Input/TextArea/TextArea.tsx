@@ -10,10 +10,10 @@ import React, {
 
 /* Internal dependencies */
 import useMergeRefs from '../../../hooks/useMergeRefs'
-import type { TextAreaProps } from './TextArea.types'
 import Styled from './TextArea.styled'
+import type { TextAreaProps } from './TextArea.types'
 
-export const TEXT_AREA_TEST_ID = 'ch-design-system-text-area'
+export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 
 function TextArea(
   {
@@ -34,7 +34,7 @@ function TextArea(
     onChange,
     ...props
   }: TextAreaProps,
-  forwardedRef: Ref<any>,
+  forwardedRef: Ref<HTMLTextAreaElement>,
 ) {
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)
