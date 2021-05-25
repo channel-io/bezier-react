@@ -37,7 +37,7 @@ function ListItem({
   name,
   leftContent,
   leftIcon,
-  leftIconColor,
+  color,
   disableIconActive = false,
   href,
   hide = false,
@@ -47,6 +47,7 @@ function ListItem({
   /* Activable Element Props */
   active,
   activeClassName,
+  disabled = false,
   /* HTMLAttribute Props */
   onClick = noop,
   onMouseDown = noop,
@@ -63,8 +64,11 @@ function ListItem({
   ])
 
   const handleClick = useCallback((e: React.MouseEvent) => {
-    onClick(e, name)
+    if (!disabled) {
+      onClick(e, name)
+    }
   }, [
+    disabled,
     name,
     onClick,
   ])
@@ -108,7 +112,7 @@ function ListItem({
             size={IconSize.S}
             active={active}
             disableIconActive={disableIconActive}
-            color={leftIconColor}
+            color={color}
           />
         </LeftContentWrapper>
       )
@@ -121,7 +125,7 @@ function ListItem({
     iconClassName,
     leftContent,
     leftIcon,
-    leftIconColor,
+    color,
   ])
 
   const titleComponent = useMemo(() => (
@@ -207,6 +211,8 @@ function ListItem({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         active={false}
+        color={color}
+        disabled={disabled}
         data-active={active}
         data-option-key={optionKey}
         data-testid={testId}
@@ -228,6 +234,8 @@ function ListItem({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       active={active}
+      disabled={disabled}
+      color={color}
       data-active={active}
       data-option-key={optionKey}
       data-testid={testId}

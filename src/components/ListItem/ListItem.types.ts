@@ -23,7 +23,8 @@ export default interface ListItemProps extends ContentComponentProps, ActivableE
   nested?: boolean
   leftContent?: React.ReactNode
   leftIcon?: IconName
-  leftIconColor?: SemanticNames
+  color?: SemanticNames
+  disabled?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number
   content?: React.ReactNode

@@ -22,6 +22,8 @@ export default {
         step: 1,
       },
     },
+    disabled: { control: { type: 'boolean' } },
+    color: { control: { type: 'select', options: ['bgtxt-red-normal', 'bgtxt-green-normal', 'txt-black-darkest'] } },
     active: { control: { type: 'boolean' } },
     leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
     size: { control: { type: 'select', options: ListItemSize } },

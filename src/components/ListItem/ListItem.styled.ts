@@ -8,10 +8,12 @@ import { getStyleOfSize } from './utils'
 interface StyledWrapperProps {
   size?: ListItemSize
   active?: boolean
+  disabled?: boolean
+  color?: SemanticNames
 }
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
+  color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : foundation?.theme?.['bgtxt-blue-normal'])};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
@@ -63,8 +65,11 @@ interface IconWrapperProps {
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${props => {
+    if (props.color) {
+      return props.foundation?.theme?.[props.color]
+    }
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
-    return props.foundation?.theme?.[props.color || 'txt-black-dark']
+    return props.foundation?.theme?.['txt-black-dark']
   }};
 `
 
@@ -86,23 +91,30 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-darkest']};
   text-decoration: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.4 : 1)};
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
   &:hover {
-    ${({ foundation, active }) => (!active && `
+    ${({ foundation, disabled, active }) => (!disabled && !active && `
       background-color: ${foundation?.theme?.['bg-black-lighter']};
     `)}
   }
 
   &:hover ${StyledIcon} {
-    color: ${({ foundation, active, color }) => (
-    active
-      ? foundation?.theme['bgtxt-blue-normal']
-      : foundation?.theme?.[color || 'txt-black-darkest']
-  )};
+    color: ${({ disabled, foundation, active, color }) => {
+    if (color) {
+      return foundation?.theme?.[color]
+    }
+    if (!disabled) {
+      return active ? foundation?.theme?.['bgtxt-blue-normal'] : foundation?.theme?.['txt-black-darkest']
+    }
+
+    return foundation?.theme?.['txt-black-dark']
+  }}
   }
 
   ${({ active }) => (active && ActiveItemStyle)}
