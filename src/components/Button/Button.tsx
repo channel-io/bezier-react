@@ -22,13 +22,13 @@ import {
   Typography,
   SemanticNames,
 } from '../../foundation'
+import type { IconName } from '../Icon'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,
 } from './Button.types'
 import * as Styled from './Button.styled'
-import type { IconName } from '../Icon'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'

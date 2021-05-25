@@ -64,12 +64,6 @@ jobs:
           file: './coverage/clover.xml'
           token: $CODECOV_TOKEN
 
-  build:
-    <<: *defaults
-    steps:
-      - *attach_workspace
-      - run: npm run build
-
   release:
     <<: *defaults
     steps:
@@ -90,11 +84,8 @@ workflows:
       - jest:
           requires:
             - install
-      - build:
+      - release:
           requires:
             - lint
             - typecheck
             - jest
-      - release:
-          requires:
-            - build
