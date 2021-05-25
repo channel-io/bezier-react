@@ -66,7 +66,7 @@ const svgElements = [
   'unknown',
   'use',
   'video',
-  'view',
+  // 'view',
 ]
 
 module.exports = {
