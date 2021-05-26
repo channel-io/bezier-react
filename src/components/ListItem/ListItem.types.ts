@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import React from 'react'
-import { SemanticNames } from '../../foundation/Colors/Theme'
 import ActivableElement from '../../types/ActivatableElement'
 import { ContentComponentProps } from '../../types/ComponentProps'
 import OptionItem from '../../types/OptionItem'
@@ -13,6 +12,14 @@ export enum ListItemSize {
   XL = 'xl',
 }
 
+export enum ListItemColorVariant {
+  Blue = 'blue',
+  Red = 'red',
+  Green = 'green',
+  Cobalt = 'cobalt',
+  Monochrome = 'monochrome',
+}
+
 export default interface ListItemProps extends ContentComponentProps, ActivableElement, OptionItem {
   iconClassName?: string
   contentClassName?: string
@@ -23,7 +30,7 @@ export default interface ListItemProps extends ContentComponentProps, ActivableE
   nested?: boolean
   leftContent?: React.ReactNode
   leftIcon?: IconName
-  color?: SemanticNames
+  colorVariant?: ListItemColorVariant
   disabled?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number

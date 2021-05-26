@@ -8,7 +8,10 @@ import {
   getTitle,
 } from '../../utils/storyUtils'
 import ListItem from './ListItem'
-import { ListItemSize } from './ListItem.types'
+import {
+  ListItemSize,
+  ListItemColorVariant,
+} from './ListItem.types'
 
 export default {
   title: getTitle(base),
@@ -23,7 +26,14 @@ export default {
       },
     },
     disabled: { control: { type: 'boolean' } },
-    color: { control: { type: 'select', options: ['bgtxt-red-normal', 'bgtxt-green-normal', 'txt-black-darkest'] } },
+    colorVariant: {
+      control: {
+        type: 'radio',
+        options: [
+          ...Object.values(ListItemColorVariant),
+        ],
+      },
+    },
     active: { control: { type: 'boolean' } },
     leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
     size: { control: { type: 'select', options: ListItemSize } },

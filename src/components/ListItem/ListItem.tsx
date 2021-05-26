@@ -8,8 +8,8 @@ import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
-import { Typography } from '../../foundation'
-import ListItemProps, { ListItemSize } from './ListItem.types'
+import { SemanticNames, Typography } from '../../foundation'
+import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
@@ -24,6 +24,14 @@ import {
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
+const ColorVariantToColor: { [key in ListItemColorVariant]? : SemanticNames } = {
+  [ListItemColorVariant.Blue]: 'bgtxt-blue-normal',
+  [ListItemColorVariant.Red]: 'bgtxt-red-normal',
+  [ListItemColorVariant.Green]: 'bgtxt-green-normal',
+  [ListItemColorVariant.Cobalt]: 'bgtxt-cobalt-normal',
+  [ListItemColorVariant.Monochrome]: undefined,
+}
+
 function ListItem({
   className,
   contentClassName,
@@ -37,8 +45,7 @@ function ListItem({
   name,
   leftContent,
   leftIcon,
-  color,
-  disableIconActive = false,
+  colorVariant = ListItemColorVariant.Monochrome,
   href,
   hide = false,
   rightContent = null,
@@ -62,6 +69,8 @@ function ListItem({
     activeClassName,
     active,
   ])
+
+  const color = ColorVariantToColor[colorVariant]
 
   const handleClick = useCallback((e: React.MouseEvent) => {
     if (!disabled) {
@@ -111,7 +120,6 @@ function ListItem({
             name={leftIcon}
             size={IconSize.S}
             active={active}
-            disableIconActive={disableIconActive}
             color={color}
           />
         </LeftContentWrapper>
@@ -121,7 +129,6 @@ function ListItem({
     return null
   }, [
     active,
-    disableIconActive,
     iconClassName,
     leftContent,
     leftIcon,
@@ -151,9 +158,7 @@ function ListItem({
   ])
 
   const descriptionComponent = useMemo(() => (
-    <DescriptionWrapper
-      active={active}
-    >
+    <DescriptionWrapper>
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)
@@ -163,7 +168,6 @@ function ListItem({
       </Description>
     </DescriptionWrapper>
   ), [
-    active,
     description,
     descriptionMaxLines,
     getNewLineComponenet,

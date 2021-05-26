@@ -1,5 +1,11 @@
 /* Internal dependencies */
-import { css, ellipsis, LineHeightAbsoluteNumber, styled } from '../../foundation'
+import disabledOpacity from '../../constants/DisabledOpacity'
+import {
+  css,
+  ellipsis,
+  LineHeightAbsoluteNumber,
+  styled,
+} from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
 import { ListItemSize } from './ListItem.types'
@@ -13,7 +19,7 @@ interface StyledWrapperProps {
 }
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : foundation?.theme?.['bgtxt-blue-normal'])};
+  color: ${({ foundation, color }) => (foundation?.theme?.[color ?? 'bgtxt-blue-normal'])};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
@@ -28,20 +34,14 @@ export const TitleWrapper = styled.div`
   align-items: center;
 `
 
-interface DescriptionProps {
-  active?: boolean
-}
-
-export const DescriptionWrapper = styled.div<DescriptionProps>`
+export const DescriptionWrapper = styled.div`
   display: flex;
   grid-row: 2;
   grid-column: 2;
   align-items: center;
   width: 100%;
   margin-top: 2px;
-  color: ${({ foundation, active }) => (active
-    ? foundation?.theme['bgtxt-blue-normal']
-    : foundation?.theme['txt-black-darker'])
+  color: ${({ foundation }) => (foundation?.theme['txt-black-darker'])
 };
 `
 
@@ -60,7 +60,6 @@ export const Description = styled.div<DescriptionProps>`
 interface IconWrapperProps {
   color?: SemanticNames
   active?: boolean
-  disableIconActive?: boolean
 }
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
@@ -68,7 +67,7 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
     if (props.color) {
       return props.foundation?.theme?.[props.color]
     }
-    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    if (props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.['txt-black-dark']
   }};
 `
@@ -94,7 +93,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-darkest']};
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  opacity: ${({ disabled }) => (disabled ? 0.4 : 1)};
+  opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
@@ -109,11 +108,11 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     if (color) {
       return foundation?.theme?.[color]
     }
-    if (!disabled) {
-      return active ? foundation?.theme?.['bgtxt-blue-normal'] : foundation?.theme?.['txt-black-darkest']
+    if (active) {
+      return foundation?.theme?.['bgtxt-blue-normal']
     }
 
-    return foundation?.theme?.['txt-black-dark']
+    return disabled ? foundation?.theme?.['txt-black-dark'] : foundation?.theme?.['txt-black-darkest']
   }}
   }
 
