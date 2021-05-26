@@ -56,10 +56,6 @@ function TextArea(
     readOnly,
   ])
 
-  const focus = useCallback(() => {
-    inputRef.current?.focus()
-  }, [])
-
   const handleFocus = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
     if (readOnly) { return }
     setFocused(true)
@@ -77,7 +73,7 @@ function TextArea(
   // eslint-disable-next-line prefer-arrow-callback
   useLayoutEffect(function initialAutoFocus() {
     if (autoFocus) {
-      focus()
+      inputRef.current?.focus()
       inputRef.current?.setSelectionRange(inputRef.current?.value.length, inputRef.current?.value.length)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
