@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
+.c0 {
+  box-shadow: 0 1px 2px #00000008, inset 0 0 0 1px #0000000D;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  background-color: #FCFCFC;
+  overflow: hidden;
+  border-radius: 8px;
+  -webkit-transition-property: border-color,box-shadow;
+  transition-property: border-color,box-shadow;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+.c1 {
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-text-area"
+>
+  <textarea
+    class="c1"
+    foundation="[object Object]"
+  />
+</div>
+`;

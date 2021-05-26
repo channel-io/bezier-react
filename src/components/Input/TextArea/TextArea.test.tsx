@@ -20,6 +20,11 @@ describe('TextArea 테스트 >', () => {
     <TextArea {...props} {...optionProps} />,
   )
 
+  it('SnapShot 테스트 >', () => {
+    const { container } = renderComponent()
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
   it('TextArea는 기본 attribute들을 가져야 한다', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
