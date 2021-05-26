@@ -8,18 +8,41 @@ import {
 } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
-import { ListItemSize } from './ListItem.types'
+import {
+  ListItemColorVariant,
+  ListItemSize,
+} from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
 interface StyledWrapperProps {
   size?: ListItemSize
   active?: boolean
   disabled?: boolean
-  color?: SemanticNames
+  colorVariant: ListItemColorVariant
+}
+
+const getColorFromColorVariantWithDefaultValue = (
+  colorVariant: ListItemColorVariant,
+  defaultValue: SemanticNames,
+): SemanticNames => {
+  switch (colorVariant) {
+    case (ListItemColorVariant.Blue):
+      return 'bgtxt-blue-normal'
+    case (ListItemColorVariant.Red):
+      return 'bgtxt-red-normal'
+    case (ListItemColorVariant.Green):
+      return 'bgtxt-green-normal'
+    case (ListItemColorVariant.Cobalt):
+      return 'bgtxt-cobalt-normal'
+    default:
+      return defaultValue
+  }
 }
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${({ foundation, color }) => (foundation?.theme?.[color ?? 'bgtxt-blue-normal'])};
+  color: ${({ foundation, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'bgtxt-blue-normal')]
+  )};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
@@ -58,18 +81,14 @@ export const Description = styled.div<DescriptionProps>`
 `
 
 interface IconWrapperProps {
-  color?: SemanticNames
+  colorVariant: ListItemColorVariant
   active?: boolean
 }
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
-  color: ${props => {
-    if (props.color) {
-      return props.foundation?.theme?.[props.color]
-    }
-    if (props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
-    return props.foundation?.theme?.['txt-black-dark']
-  }};
+  color: ${({ foundation, colorVariant, active }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
+  )};
 `
 
 export const LeftContentWrapper = styled.div`
@@ -90,7 +109,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
-  color: ${({ foundation, color }) => foundation?.theme?.[color || 'txt-black-darkest']};
+  color: ${({ foundation, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'txt-black-darkest')]
+  )};
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
@@ -104,16 +125,12 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   }
 
   &:hover ${StyledIcon} {
-    color: ${({ disabled, foundation, active, color }) => {
-    if (color) {
-      return foundation?.theme?.[color]
-    }
-    if (active) {
-      return foundation?.theme?.['bgtxt-blue-normal']
-    }
-
-    return disabled ? foundation?.theme?.['txt-black-dark'] : foundation?.theme?.['txt-black-darkest']
-  }}
+    color: ${({ foundation, active, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
+      colorVariant,
+      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
+    )]
+  )};
   }
 
   ${({ active }) => (active && ActiveItemStyle)}

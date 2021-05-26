@@ -8,7 +8,7 @@ import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
-import { SemanticNames, Typography } from '../../foundation'
+import { Typography } from '../../foundation'
 import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
 import {
   Wrapper,
@@ -23,14 +23,6 @@ import {
 } from './ListItem.styled'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
-
-const ColorVariantToColor: { [key in ListItemColorVariant]? : SemanticNames } = {
-  [ListItemColorVariant.Blue]: 'bgtxt-blue-normal',
-  [ListItemColorVariant.Red]: 'bgtxt-red-normal',
-  [ListItemColorVariant.Green]: 'bgtxt-green-normal',
-  [ListItemColorVariant.Cobalt]: 'bgtxt-cobalt-normal',
-  [ListItemColorVariant.Monochrome]: undefined,
-}
 
 function ListItem({
   className,
@@ -69,8 +61,6 @@ function ListItem({
     activeClassName,
     active,
   ])
-
-  const color = ColorVariantToColor[colorVariant]
 
   const handleClick = useCallback((e: React.MouseEvent) => {
     if (!disabled) {
@@ -120,7 +110,7 @@ function ListItem({
             name={leftIcon}
             size={IconSize.S}
             active={active}
-            color={color}
+            colorVariant={colorVariant}
           />
         </LeftContentWrapper>
       )
@@ -132,7 +122,7 @@ function ListItem({
     iconClassName,
     leftContent,
     leftIcon,
-    color,
+    colorVariant,
   ])
 
   const titleComponent = useMemo(() => (
@@ -215,7 +205,7 @@ function ListItem({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         active={false}
-        color={color}
+        colorVariant={colorVariant}
         disabled={disabled}
         data-active={active}
         data-option-key={optionKey}
@@ -239,7 +229,7 @@ function ListItem({
       onMouseLeave={onMouseLeave}
       active={active}
       disabled={disabled}
-      color={color}
+      colorVariant={colorVariant}
       data-active={active}
       data-option-key={optionKey}
       data-testid={testId}
