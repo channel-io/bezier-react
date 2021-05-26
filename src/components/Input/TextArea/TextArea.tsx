@@ -6,11 +6,13 @@ import React, {
   useCallback,
   useState,
   useLayoutEffect,
+  useMemo,
 } from 'react'
 
 /* Internal dependencies */
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import Styled from './TextArea.styled'
+import { getTextAreaBgColorSemanticName } from './utils'
 import type { TextAreaProps } from './TextArea.types'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
@@ -25,6 +27,7 @@ function TextArea(
     wrapperStyle,
     testId = TEXT_AREA_TEST_ID,
     autoFocus = false,
+    readOnly = false,
     value = '',
     hasError = false,
     maxRows,
@@ -41,14 +44,30 @@ function TextArea(
 
   const [focused, setFocused] = useState(false)
 
+  const bgColorSemanticName = useMemo(() => (
+    getTextAreaBgColorSemanticName({
+      focused,
+      hasError,
+      readOnly,
+    })
+  ), [
+    focused,
+    hasError,
+    readOnly,
+  ])
+
   const focus = useCallback(() => {
     inputRef.current?.focus()
   }, [])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
+    if (readOnly) { return }
     setFocused(true)
     onFocus?.(event)
-  }, [onFocus])
+  }, [
+    onFocus,
+    readOnly,
+  ])
 
   const handleBlur = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
     setFocused(false)
@@ -70,11 +89,13 @@ function TextArea(
       interpolation={interpolation}
       focused={focused}
       hasError={hasError}
+      bgColor={bgColorSemanticName}
       data-testid={testId}
     >
       <Styled.TextAreaAutoSizeBase
         ref={mergedInputRef}
         value={value}
+        readOnly={readOnly}
         maxRows={maxRows}
         minRows={minRows}
         onChange={onChange}

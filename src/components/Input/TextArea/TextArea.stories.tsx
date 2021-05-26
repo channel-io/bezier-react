@@ -38,6 +38,8 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   autoFocus: true,
+  readOnly: false,
+  hasError: false,
   maxRows: 5,
   placeholder: 'say hi to autoResizable textarea!',
 }
