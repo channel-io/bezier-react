@@ -1,4 +1,5 @@
 /* External dependencies */
+import { fireEvent } from '@testing-library/dom'
 import React from 'react'
 
 /* Internal dependencies */
@@ -19,20 +20,57 @@ describe('TextArea 테스트 >', () => {
     <TextArea {...props} {...optionProps} />,
   )
 
-  it('TextArea have default attribute', () => {
+  it('TextArea는 기본 attribute들을 가져야 한다', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
-    const inputElement = rendered.getElementsByTagName('textarea')[0]
-    expect(inputElement).not.toHaveAttribute('disabled')
-    expect(inputElement).not.toHaveAttribute('placeholder')
-    expect(inputElement).not.toHaveAttribute('maxRows')
+    const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+    expect(textareaElement).not.toHaveAttribute('disabled')
+    expect(textareaElement).not.toHaveAttribute('placeholder')
+    expect(textareaElement).not.toHaveAttribute('maxRows')
   })
 
-  it('should have "placeholder" attribute when "placeholder" props is "true"', () => {
-    const { getByTestId } = renderComponent({ placeholder: 'this is placeholder' })
+  it('placeholder가 주입되었을 때 주입되는 값과 동일한 "placeholder"를 가져야 한다', () => {
+    const PLACEHOLDER_TEXT = 'this is placeholder'
+    const { getByTestId } = renderComponent({ placeholder: PLACEHOLDER_TEXT })
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
-    const inputElement = rendered.getElementsByTagName('textarea')[0]
-    expect(inputElement).toHaveAttribute('placeholder', 'this is placeholder')
+    const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+    expect(textareaElement).toHaveAttribute('placeholder', PLACEHOLDER_TEXT)
+  })
+
+  describe('onFocus 테스트 >', () => {
+    it('readOnly 이면 onFocus 가 안 불려야 한다', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus, readOnly: true })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      textareaElement.focus()
+
+      expect(onFocus).not.toBeCalled()
+    })
+
+    it('readOnly 가 주입되지 않았다면 onFocus는 불려야 한다', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      textareaElement.focus()
+
+      expect(onFocus).toBeCalled()
+    })
+  })
+
+  describe('onChange 테스트 >', () => {
+    it('정상적인 상황에서 잘 불린다', () => {
+      const onChange = jest.fn()
+      const { getByTestId } = renderComponent({ onChange })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      fireEvent.change(textareaElement, { target: { value: 'test' } })
+      expect(onChange).toBeCalled()
+    })
   })
 })
 
