@@ -1,5 +1,7 @@
 /* External dependencies */
 import { isArray } from 'lodash'
+
+/* Internal dependencies */
 import { IconName } from '../components/Icon'
 import { TabsSize } from '../components/Tabs/Tabs.types'
 import {
