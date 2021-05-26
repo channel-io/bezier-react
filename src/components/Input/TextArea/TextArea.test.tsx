@@ -72,6 +72,36 @@ describe('TextArea 테스트 >', () => {
       expect(onChange).toBeCalled()
     })
   })
+
+  describe('onBlur 테스트 >', () => {
+    it('정상적인 상황에서 잘 불린다', () => {
+      const onBlur = jest.fn()
+      const { getByTestId } = renderComponent({ onBlur })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      textareaElement.focus()
+      textareaElement.blur()
+      expect(onBlur).toBeCalled()
+    })
+  })
+
+  describe('autoFocus 테스트 >', () => {
+    it('autoFocus를 주입하면 focus 상태로 되어야 한다', () => {
+      const { getByTestId } = renderComponent({ autoFocus: true })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      expect(textareaElement).toEqual(document.activeElement)
+    })
+
+    it('selection 이 가장 끝에 위치하여야 한다', () => {
+      const TEST_INITIAL_VALUE = 'test value'
+      const { getByTestId } = renderComponent({ autoFocus: true, value: TEST_INITIAL_VALUE })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      expect(textareaElement.selectionEnd).toEqual(TEST_INITIAL_VALUE.length)
+    })
+  })
 })
 
 describe('TextArea util test >', () => {
