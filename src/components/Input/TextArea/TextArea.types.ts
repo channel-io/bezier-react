@@ -6,6 +6,8 @@ import { TextareaAutosizeProps } from 'react-textarea-autosize'
 import { UIComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 
+type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
+
 export interface TextAreaProps extends UIComponentProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   wrapperInterpolation?: InjectedInterpolation
   wrapperStyle?: CSSProperties
@@ -15,7 +17,8 @@ export interface TextAreaProps extends UIComponentProps, React.TextareaHTMLAttri
   hasError?: boolean
   maxRows?: TextareaAutosizeProps['maxRows']
   minRows?: TextareaAutosizeProps['minRows']
-  onFocus?: React.ChangeEventHandler<HTMLTextAreaElement>
-  onBlur?: React.ChangeEventHandler<HTMLTextAreaElement>
-  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
+  height?: number
+  onFocus?: TextAreaChangeEventHandler
+  onBlur?: TextAreaChangeEventHandler
+  onChange?: TextAreaChangeEventHandler
 }
