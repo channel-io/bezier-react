@@ -72,9 +72,13 @@ function TextArea(
 
   // eslint-disable-next-line prefer-arrow-callback
   useLayoutEffect(function initialAutoFocus() {
+    function setSelectionToEnd() {
+      inputRef.current?.setSelectionRange(inputRef.current?.value.length, inputRef.current?.value.length)
+    }
+
     if (autoFocus) {
       inputRef.current?.focus()
-      inputRef.current?.setSelectionRange(inputRef.current?.value.length, inputRef.current?.value.length)
+      setSelectionToEnd()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
