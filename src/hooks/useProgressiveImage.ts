@@ -23,7 +23,7 @@ export default function useProgressiveImage(src: string, defaultSrc: string) {
   const [source, setSource] = useState<CacheImage | null>(() => getInitialSource(src))
 
   useEffect(() => {
-    if (source) { return undefined }
+    if (source?.src === src) { return undefined }
 
     const image = new Image()
     image.src = src
