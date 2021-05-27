@@ -19,12 +19,7 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-interface InputProps extends WithInterpolation {
-  disabled: boolean
-  readOnly: boolean
-}
-
-const Input = styled.input<InputProps>`
+const Input = styled.input<WithInterpolation>`
   width: 100%;
   height: 100%;
   ${Typography.Size14}
@@ -97,7 +92,6 @@ interface WrapperProps {
   bgColor: SemanticNames
   size?: TextFieldSize
   hasError?: boolean
-  readOnly?: boolean
   focused?: boolean
   disabled?: boolean
 }
