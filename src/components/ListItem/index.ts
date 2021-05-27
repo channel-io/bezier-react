@@ -1,4 +1,5 @@
 import ListItem from './ListItem'
+import { ListItemSize } from './ListItem.types'
 import type ListItemProps from './ListItem.types'
 
 export type {
@@ -7,4 +8,5 @@ export type {
 
 export {
   ListItem,
+  ListItemSize,
 }
