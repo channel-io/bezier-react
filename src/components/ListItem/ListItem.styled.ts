@@ -5,6 +5,7 @@ import {
   ellipsis,
   LineHeightAbsoluteNumber,
   styled,
+  TransitionDuration,
 } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
@@ -69,6 +70,10 @@ export const TitleWrapper = styled.div`
   grid-row: 1;
   grid-column: 2;
   align-items: center;
+
+  & span {
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
+  }
 `
 
 export const DescriptionWrapper = styled.div`
@@ -103,6 +108,8 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, colorVariant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
+  
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
 `
 
 export const LeftContentWrapper = styled.div`
@@ -123,14 +130,16 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
+
   color: ${({ foundation, colorVariant }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'txt-black-darkest')]
   )};
+  
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color'])};
 
   ${({ disabled, active, focused }) => !disabled && !active && css`
     ${focused && css`
