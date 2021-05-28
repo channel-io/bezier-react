@@ -90,6 +90,7 @@ export const MainContentWrapper = styled.div`
 `
 
 export const Dropdown = styled(Overlay)`
+  z-index: 10;
   width: 100%;
   min-width: 200px;
   min-height: 42px;
