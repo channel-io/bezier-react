@@ -1,10 +1,10 @@
 /* External dependencies */
-import { fireEvent } from '@testing-library/dom'
 import React from 'react'
-import { LightFoundation } from '../../../foundation'
+import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
+import { LightFoundation } from '../../../foundation'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
 import { TextFieldProps, TextFieldVariant } from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'
