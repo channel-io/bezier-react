@@ -17,6 +17,7 @@ import { getStyleOfSize } from './utils'
 interface StyledWrapperProps {
   size?: ListItemSize
   active?: boolean
+  focused?: boolean
   disabled?: boolean
   colorVariant: ListItemColorVariant
 }
@@ -38,6 +39,19 @@ const getColorFromColorVariantWithDefaultValue = (
       return defaultValue
   }
 }
+
+const FocusedItemStyle = css<StyledWrapperProps>`
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+`
+
+const FocusedIconStyle = css<StyledWrapperProps>`
+  color: ${({ foundation, active, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
+      colorVariant,
+      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
+    )]
+  )};
+`
 
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation, colorVariant }) => (
@@ -118,20 +132,23 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
-  &:hover {
-    ${({ foundation, disabled, active }) => (!disabled && !active && `
-      background-color: ${foundation?.theme?.['bg-black-lighter']};
-    `)}
-  }
+  ${({ disabled, active, focused }) => !disabled && !active && css`
+    ${focused && css`
+      ${FocusedItemStyle}
 
-  &:hover ${StyledIcon} {
-    color: ${({ foundation, active, colorVariant }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
-      colorVariant,
-      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
-    )]
-  )};
-  }
+      ${StyledIcon} {
+        ${FocusedIconStyle}
+      }
+    `}
+
+    &:hover {
+      ${FocusedItemStyle}
+    }
+
+    &:hover ${StyledIcon} {
+      ${FocusedIconStyle}
+    }
+`};
 
   ${({ active }) => (active && ActiveItemStyle)}
 `
