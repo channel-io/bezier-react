@@ -1,5 +1,5 @@
 import ListItem from './ListItem'
-import { 
+import {
   ListItemSize,
   ListItemColorVariant,
 } from './ListItem.types'
