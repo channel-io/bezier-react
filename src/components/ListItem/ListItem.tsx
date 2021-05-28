@@ -34,6 +34,8 @@ import {
   ContentWrapper,
 } from './ListItem.styled'
 
+const LINE_BREAK_CHAR = '\n'
+
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
 type ListItemRefType = React.Ref<HTMLDivElement & HTMLAnchorElement>
@@ -91,7 +93,7 @@ function ListItem({
   ])
 
   const getNewLineComponenet = useCallback((desc: string) => (
-    desc.split('\n').map((str, index) => {
+    desc.split(LINE_BREAK_CHAR).map((str, index) => {
       if (index === 0) {
         return (
           <Text key={uuid()} typo={Typography.Size12}>
