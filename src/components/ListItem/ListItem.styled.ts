@@ -1,17 +1,48 @@
 /* Internal dependencies */
-import { css, ellipsis, LineHeightAbsoluteNumber, styled } from '../../foundation'
+import disabledOpacity from '../../constants/DisabledOpacity'
+import {
+  css,
+  ellipsis,
+  LineHeightAbsoluteNumber,
+  styled,
+} from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
-import { ListItemSize } from './ListItem.types'
+import {
+  ListItemColorVariant,
+  ListItemSize,
+} from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
 interface StyledWrapperProps {
   size?: ListItemSize
   active?: boolean
+  disabled?: boolean
+  colorVariant: ListItemColorVariant
+}
+
+const getColorFromColorVariantWithDefaultValue = (
+  colorVariant: ListItemColorVariant,
+  defaultValue: SemanticNames,
+): SemanticNames => {
+  switch (colorVariant) {
+    case (ListItemColorVariant.Blue):
+      return 'bgtxt-blue-normal'
+    case (ListItemColorVariant.Red):
+      return 'bgtxt-red-normal'
+    case (ListItemColorVariant.Green):
+      return 'bgtxt-green-normal'
+    case (ListItemColorVariant.Cobalt):
+      return 'bgtxt-cobalt-normal'
+    default:
+      return defaultValue
+  }
 }
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
+  color: ${({ foundation, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'bgtxt-blue-normal')]
+  )};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
@@ -26,20 +57,14 @@ export const TitleWrapper = styled.div`
   align-items: center;
 `
 
-interface DescriptionProps {
-  active?: boolean
-}
-
-export const DescriptionWrapper = styled.div<DescriptionProps>`
+export const DescriptionWrapper = styled.div`
   display: flex;
   grid-row: 2;
   grid-column: 2;
   align-items: center;
   width: 100%;
   margin-top: 2px;
-  color: ${({ foundation, active }) => (active
-    ? foundation?.theme['bgtxt-blue-normal']
-    : foundation?.theme['txt-black-darker'])
+  color: ${({ foundation }) => (foundation?.theme['txt-black-darker'])
 };
 `
 
@@ -56,16 +81,14 @@ export const Description = styled.div<DescriptionProps>`
 `
 
 interface IconWrapperProps {
-  color?: SemanticNames
+  colorVariant: ListItemColorVariant
   active?: boolean
-  disableIconActive?: boolean
 }
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
-  color: ${props => {
-    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
-    return props.foundation?.theme?.[props.color || 'txt-black-dark']
-  }};
+  color: ${({ foundation, colorVariant, active }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
+  )};
 `
 
 export const LeftContentWrapper = styled.div`
@@ -86,22 +109,27 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+  color: ${({ foundation, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'txt-black-darkest')]
+  )};
   text-decoration: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
   &:hover {
-    ${({ foundation, active }) => (!active && `
+    ${({ foundation, disabled, active }) => (!disabled && !active && `
       background-color: ${foundation?.theme?.['bg-black-lighter']};
     `)}
   }
 
   &:hover ${StyledIcon} {
-    color: ${({ foundation, active, color }) => (
-    active
-      ? foundation?.theme['bgtxt-blue-normal']
-      : foundation?.theme?.[color || 'txt-black-darkest']
+    color: ${({ foundation, active, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
+      colorVariant,
+      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
+    )]
   )};
   }
 

@@ -9,7 +9,7 @@ import { Text } from '../Text'
 import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
 import { Typography } from '../../foundation'
-import ListItemProps, { ListItemSize } from './ListItem.types'
+import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
@@ -37,8 +37,7 @@ function ListItem({
   name,
   leftContent,
   leftIcon,
-  leftIconColor,
-  disableIconActive = false,
+  colorVariant = ListItemColorVariant.Monochrome,
   href,
   hide = false,
   rightContent = null,
@@ -47,6 +46,7 @@ function ListItem({
   /* Activable Element Props */
   active,
   activeClassName,
+  disabled = false,
   /* HTMLAttribute Props */
   onClick = noop,
   onMouseDown = noop,
@@ -63,8 +63,11 @@ function ListItem({
   ])
 
   const handleClick = useCallback((e: React.MouseEvent) => {
-    onClick(e, name)
+    if (!disabled) {
+      onClick(e, name)
+    }
   }, [
+    disabled,
     name,
     onClick,
   ])
@@ -107,8 +110,7 @@ function ListItem({
             name={leftIcon}
             size={IconSize.S}
             active={active}
-            disableIconActive={disableIconActive}
-            color={leftIconColor}
+            colorVariant={colorVariant}
           />
         </LeftContentWrapper>
       )
@@ -117,11 +119,10 @@ function ListItem({
     return null
   }, [
     active,
-    disableIconActive,
     iconClassName,
     leftContent,
     leftIcon,
-    leftIconColor,
+    colorVariant,
   ])
 
   const titleComponent = useMemo(() => (
@@ -147,9 +148,7 @@ function ListItem({
   ])
 
   const descriptionComponent = useMemo(() => (
-    <DescriptionWrapper
-      active={active}
-    >
+    <DescriptionWrapper>
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)
@@ -159,7 +158,6 @@ function ListItem({
       </Description>
     </DescriptionWrapper>
   ), [
-    active,
     description,
     descriptionMaxLines,
     getNewLineComponenet,
@@ -207,6 +205,8 @@ function ListItem({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         active={false}
+        colorVariant={colorVariant}
+        disabled={disabled}
         data-active={active}
         data-option-key={optionKey}
         data-testid={testId}
@@ -228,6 +228,8 @@ function ListItem({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       active={active}
+      disabled={disabled}
+      colorVariant={colorVariant}
       data-active={active}
       data-option-key={optionKey}
       data-testid={testId}
