@@ -8,7 +8,10 @@ import {
   getTitle,
 } from '../../utils/storyUtils'
 import ListItem from './ListItem'
-import { ListItemSize } from './ListItem.types'
+import {
+  ListItemSize,
+  ListItemColorVariant,
+} from './ListItem.types'
 
 export default {
   title: getTitle(base),
@@ -20,6 +23,15 @@ export default {
         min: 50,
         max: 500,
         step: 1,
+      },
+    },
+    disabled: { control: { type: 'boolean' } },
+    colorVariant: {
+      control: {
+        type: 'radio',
+        options: [
+          ...Object.values(ListItemColorVariant),
+        ],
       },
     },
     active: { control: { type: 'boolean' } },

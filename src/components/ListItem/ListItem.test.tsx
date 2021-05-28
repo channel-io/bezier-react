@@ -1,11 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import { getWindow, getDocument } from 'ssr-window'
+import { LightFoundation } from '../../foundation'
 
 /* Internal dependencies */
 import { render } from '../../utils/testUtils'
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
-import ListItemProps, { ListItemSize } from './ListItem.types'
+import ListItemProps, { ListItemColorVariant, ListItemSize } from './ListItem.types'
 
 describe('ListItem', () => {
   let props: ListItemProps
@@ -21,6 +22,13 @@ describe('ListItem', () => {
   const renderComponent = (optionProps?: Partial<ListItemProps>) => render(
     <ListItem {...props} {...optionProps} />,
   )
+
+  it('Snapshot >', () => {
+    const { getByTestId } = renderComponent()
+    const rendered = getByTestId(LIST_ITEM_TEST_ID)
+
+    expect(rendered).toMatchSnapshot()
+  })
 
   it('should have "optionKey" value on "data-option-key" ', () => {
     const { getByTestId } = renderComponent({ optionKey: 'my-menu-item' })
@@ -48,6 +56,70 @@ describe('ListItem', () => {
     const { queryByTestId } = renderComponent({ hide: true })
     const rendered = queryByTestId(LIST_ITEM_TEST_ID)
     expect(rendered).not.toBeInTheDocument()
+  })
+
+  describe('should have correct style of "colorVariant"', () => {
+    it('red', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Red })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-red-normal']}`)
+    })
+
+    it('blue', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Blue })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
+    })
+
+    it('green', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Green })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']}`)
+    })
+
+    it('cobalt', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Cobalt })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-cobalt-normal']}`)
+    })
+
+    it('monoChrome', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Monochrome })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['txt-black-darkest']}`)
+    })
+  })
+
+  describe('should have correct style of "colorVariant" and "active" ', () => {
+    it('red', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Red, active: true })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-red-normal']}`)
+    })
+
+    it('blue', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Blue, active: true })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
+    })
+
+    it('green', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Green, active: true })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']}`)
+    })
+
+    it('cobalt', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Cobalt, active: true })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-cobalt-normal']}`)
+    })
+
+    it('monoChrome', () => {
+      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Monochrome, active: true })
+      const rendered = getByTestId(LIST_ITEM_TEST_ID)
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
+    })
   })
 
   describe('should have correct style of "size"', () => {

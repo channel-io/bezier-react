@@ -333,7 +333,6 @@ function TextFieldComponent({
       size={size}
       bgColor={wrapperBgColorSemanticName}
       hasError={hasError}
-      readOnly={readOnly}
       disabled={disabled}
       focused={focused}
       interpolation={wrapperInterpolation}

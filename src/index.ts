@@ -33,6 +33,7 @@ export * from './components/Status'
 export * from './components/SegmentedControl'
 export * from './components/Input/Select'
 export * from './components/Input/TextField'
+export * from './components/Input/TextArea'
 export * from './components/KeyValueListItem'
 
 /* Layout */
