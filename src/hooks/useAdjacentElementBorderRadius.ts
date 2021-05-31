@@ -4,22 +4,22 @@ import {
   useEffect,
 } from 'react'
 
-function flattenBorderTopStyle(elem: HTMLElement) {
+function flattenBorderTopRadiusStyle(elem: HTMLElement) {
   elem.style.borderTopLeftRadius = '0px'
   elem.style.borderTopRightRadius = '0px'
 }
 
-function flattenBorderBottomStyle(elem: HTMLElement) {
+function flattenBorderBottomRadiusStyle(elem: HTMLElement) {
   elem.style.borderBottomLeftRadius = '0px'
   elem.style.borderBottomRightRadius = '0px'
 }
 
-function resetBorderTopStyle(elem: HTMLElement) {
+function resetBorderTopRadiusStyle(elem: HTMLElement) {
   elem.style.borderTopLeftRadius = ''
   elem.style.borderTopRightRadius = ''
 }
 
-function resetBorderBottmStyle(elem: HTMLElement) {
+function resetBorderBottomRadiusStyle(elem: HTMLElement) {
   elem.style.borderBottomLeftRadius = ''
   elem.style.borderBottomRightRadius = ''
 }
@@ -54,15 +54,15 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     if (!element) { return }
 
     if (isFilteredElement && nextSibling) {
-      flattenBorderBottomStyle(element)
+      flattenBorderBottomRadiusStyle(element)
     } else {
-      resetBorderBottmStyle(element)
+      resetBorderBottomRadiusStyle(element)
     }
 
     if (isFilteredElement && previousSibling) {
-      flattenBorderTopStyle(element)
+      flattenBorderTopRadiusStyle(element)
     } else {
-      resetBorderTopStyle(element)
+      resetBorderTopRadiusStyle(element)
     }
   }, [
     isFilteredElement,
@@ -76,9 +76,9 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     if (!nextSibling) { return }
 
     if (isFilteredElement) {
-      flattenBorderTopStyle(nextSibling)
+      flattenBorderTopRadiusStyle(nextSibling)
     } else {
-      resetBorderTopStyle(nextSibling)
+      resetBorderTopRadiusStyle(nextSibling)
     }
   }, [
     isFilteredElement,
@@ -90,9 +90,9 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     if (!previousSibling) { return }
 
     if (isFilteredElement) {
-      flattenBorderBottomStyle(previousSibling)
+      flattenBorderBottomRadiusStyle(previousSibling)
     } else {
-      resetBorderBottmStyle(previousSibling)
+      resetBorderBottomRadiusStyle(previousSibling)
     }
   }, [
     isFilteredElement,
