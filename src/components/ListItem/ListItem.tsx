@@ -1,9 +1,11 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useCallback, useMemo, Fragment } from 'react'
+import React, { Ref, useRef, forwardRef, useCallback, useMemo, Fragment } from 'react'
 import { noop, isNil, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import useMergeRefs from '../../hooks/useMergeRefs'
+import useAdjacentElementBorderRadius from '../../hooks/useAdjacentElementBorderRadius'
 import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
@@ -23,6 +25,12 @@ import {
 } from './ListItem.styled'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
+
+type ListItemRefType = HTMLDivElement & HTMLAnchorElement
+
+function filterActiveItem(node: HTMLElement) {
+  return node.dataset.active === 'true'
+}
 
 function ListItem({
   className,
@@ -53,7 +61,12 @@ function ListItem({
   onMouseEnter = noop,
   onMouseLeave = noop,
   ...othreProps
-}: ListItemProps, forwardedRef: Ref<any>) {
+}: ListItemProps, forwardedRef: Ref<ListItemRefType>) {
+  const listItemRef = useRef<ListItemRefType>(null)
+  const mergedRef = useMergeRefs<ListItemRefType>(listItemRef, forwardedRef)
+
+  useAdjacentElementBorderRadius(listItemRef.current, filterActiveItem, active)
+
   const clazzName = useMemo(() => (
     mergeClassNames(className, ((active && activeClassName) || undefined))
   ), [
@@ -192,7 +205,7 @@ function ListItem({
   if (!isNil(href)) {
     return (
       <Wrapper
-        ref={forwardedRef}
+        ref={mergedRef}
         as="a"
         className={clazzName}
         size={size}
@@ -207,7 +220,7 @@ function ListItem({
         active={false}
         colorVariant={colorVariant}
         disabled={disabled}
-        data-active={active}
+        data-active={false}
         data-option-key={optionKey}
         data-testid={testId}
         {...othreProps}
@@ -219,7 +232,7 @@ function ListItem({
 
   return (
     <Wrapper
-      ref={forwardedRef}
+      ref={mergedRef}
       as={as}
       className={clazzName}
       size={size}
