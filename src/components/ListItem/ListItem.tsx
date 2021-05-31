@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, {
   forwardRef,
+  useState,
   useCallback,
   useMemo,
 } from 'react'
@@ -13,6 +14,8 @@ import {
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import useMergeRefs from '../../hooks/useMergeRefs'
+import useAdjacentElementBorderRadius from '../../hooks/useAdjacentElementBorderRadius'
 import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
@@ -38,7 +41,11 @@ const LINE_BREAK_CHAR = '\n'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
-type ListItemRefType = React.Ref<HTMLDivElement & HTMLAnchorElement>
+function filterActiveItem(node: HTMLElement) {
+  return node.dataset.active === 'true'
+}
+
+type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
 function ListItem({
   className,
@@ -70,9 +77,22 @@ function ListItem({
   onMouseEnter = noop,
   onMouseLeave = noop,
   ...otherProps
-}: ListItemProps, forwardedRef: ListItemRefType) {
+}: ListItemProps,
+forwardedRef: React.Ref<ListItemRef>,
+) {
+  const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
+
+  const setListItemRef = useCallback((node: ListItemRef | null) => {
+    if (!node) { return }
+    setListItemElement(node)
+  }, [])
+
+  const mergedRef = useMergeRefs<ListItemRef>(setListItemRef, forwardedRef)
+
   const isHyperLink = !isEmpty(href)
   const isActive = isHyperLink ? false : active
+
+  useAdjacentElementBorderRadius(listItemElement, filterActiveItem, isActive)
 
   const mergedClassName = useMemo(() => (
     mergeClassNames(className, ((isActive && activeClassName) || undefined))
@@ -92,7 +112,7 @@ function ListItem({
     onClick,
   ])
 
-  const getNewLineComponenet = useCallback((desc: string) => (
+  const getNewLineComponent = useCallback((desc: string) => (
     desc.split(LINE_BREAK_CHAR).map((str, index) => {
       if (index === 0) {
         return (
@@ -170,7 +190,7 @@ function ListItem({
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)
-            ? getNewLineComponenet(description)
+            ? getNewLineComponent(description)
             : description
         }
       </Description>
@@ -178,7 +198,7 @@ function ListItem({
   ), [
     description,
     descriptionMaxLines,
-    getNewLineComponenet,
+    getNewLineComponent,
   ])
 
   const rightComponent = useMemo(() => (
@@ -215,8 +235,8 @@ function ListItem({
     testId,
   ])
 
-  const commonListItemProps = useMemo((): ListItemProps & { ref: ListItemRefType } => ({
-    ref: forwardedRef,
+  const commonListItemProps = useMemo((): ListItemProps & { ref: React.Ref<ListItemRef> } => ({
+    ref: mergedRef,
     className: mergedClassName,
     size,
     onClick: handleClick,
@@ -229,7 +249,7 @@ function ListItem({
     colorVariant,
     ...otherProps,
   }), [
-    forwardedRef,
+    mergedRef,
     mergedClassName,
     size,
     handleClick,
