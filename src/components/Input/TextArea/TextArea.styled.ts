@@ -38,7 +38,13 @@ interface TextAreaAutoSizeBaseProps extends WithInterpolation{
   readOnly: boolean
 }
 
-const TextAreaAutoSizeBase = styled(TextareaAutosize)<TextAreaAutoSizeBaseProps>`
+/**
+ * FIXME: https://github.com/rollup/plugins/issues/872
+ * @rollup/plugin-commonjs 의 버그로 인해 default export 가 namespace 그 자체로 계산됨.
+ * commonjs 상황을 위해 '.default' 를 추가함.
+ */
+// @ts-ignore
+const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize)<TextAreaAutoSizeBaseProps>`
   box-sizing: border-box;
   width: 100%;
   resize: none;
