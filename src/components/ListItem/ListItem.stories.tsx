@@ -1,5 +1,8 @@
 /* External dependencies */
-import React from 'react'
+import React, {
+  useState,
+  useMemo,
+} from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
@@ -63,4 +66,51 @@ Primary.args = {
   disableIconActive: false,
   descriptionMaxLines: 0,
   href: '',
+}
+
+export const MultiListItem = ({
+  listRange,
+}) => {
+  const [activeIndex, setActiveIndex] = useState<Set<number>>(new Set())
+
+  const isActive = (index: number) => activeIndex.has(index)
+
+  const toggleActive = (index: number) => setActiveIndex((prevSet) => {
+    if (prevSet.has(index)) {
+      prevSet.delete(index)
+      return new Set([...prevSet])
+    }
+    return new Set([...prevSet.add(index)])
+  })
+
+  const list = useMemo(() => [...Array(listRange).keys()], [listRange])
+
+  return (
+    <div>
+      { list.map((index) => (
+        <ListItem
+          key={index}
+          className={isActive(index) && 'active'}
+          optionKey={`menu-item-${index}`}
+          active={isActive(index)}
+          onClick={() => toggleActive(index)}
+          content={`이것은 ${index}번 아이템입니다.`}
+        />
+      )) }
+    </div>
+  )
+}
+
+MultiListItem.args = {
+  listRange: 10,
+}
+
+MultiListItem.argTypes = {
+  listRange: {
+    control: {
+      type: 'range',
+      min: 2,
+      max: 20,
+    },
+  },
 }
