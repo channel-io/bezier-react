@@ -50,7 +50,7 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
   ])
 
   // eslint-disable-next-line prefer-arrow-callback
-  useEffect(function stylingElementBorderRadius() {
+  useEffect(function styleElementBorderRadius() {
     if (!element) { return }
 
     if (isFilteredElement && nextSibling) {
@@ -72,7 +72,7 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
   ])
 
   // eslint-disable-next-line prefer-arrow-callback
-  useEffect(function stylingNextSiblingBorderRadius() {
+  useEffect(function styleNextSiblingBorderRadius() {
     if (!nextSibling) { return }
 
     if (isFilteredElement) {
@@ -86,7 +86,7 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
   ])
 
   // eslint-disable-next-line prefer-arrow-callback
-  useEffect(function stylingPrevSiblingBorderRadius() {
+  useEffect(function stylePrevSiblingBorderRadius() {
     if (!previousSibling) { return }
 
     if (isFilteredElement) {
