@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 /* External dependencies */
 import {
   useState,
@@ -32,7 +33,6 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
   const [nextSibling, setNextSibling] = useState<ElementType | null>(null)
   const [previousSibling, setPreviousSibling] = useState<ElementType | null>(null)
 
-  // eslint-disable-next-line prefer-arrow-callback
   useEffect(function updateAdjacentElement() {
     if (!element) { return }
 
@@ -49,7 +49,6 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     isFilteredElement,
   ])
 
-  // eslint-disable-next-line prefer-arrow-callback
   useEffect(function styleElementBorderRadius() {
     if (!element) { return }
 
@@ -71,7 +70,6 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     previousSibling,
   ])
 
-  // eslint-disable-next-line prefer-arrow-callback
   useEffect(function styleNextSiblingBorderRadius() {
     if (!nextSibling) { return }
 
@@ -85,7 +83,6 @@ function useAdjacentElementBorderRadius<ElementType extends HTMLElement>(
     nextSibling,
   ])
 
-  // eslint-disable-next-line prefer-arrow-callback
   useEffect(function stylePrevSiblingBorderRadius() {
     if (!previousSibling) { return }
 
