@@ -77,9 +77,11 @@ function ListItem({
   onMouseEnter = noop,
   onMouseLeave = noop,
   ...otherProps
-}: ListItemProps, forwardedRef: React.Ref<ListItemRefType>) {
-  const listItemRef = useRef<ListItemRefType>(null)
-  const mergedRef = useMergeRefs<ListItemRefType>(listItemRef, forwardedRef)
+}: ListItemProps,
+forwardedRef: React.Ref<ListItemRef>,
+) {
+  const listItemRef = useRef<ListItemRef>(null)
+  const mergedRef = useMergeRefs<ListItemRef>(listItemRef, forwardedRef)
 
   const isHyperLink = !isEmpty(href)
   const isActive = isHyperLink ? false : active
