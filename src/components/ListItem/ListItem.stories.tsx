@@ -4,6 +4,7 @@ import React, {
   useMemo,
 } from 'react'
 import base from 'paths.macro'
+import { compact } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -70,8 +71,11 @@ Primary.args = {
 
 export const MultiListItem = ({
   listRange,
-}) => {
-  const [activeIndex, setActiveIndex] = useState<Set<number>>(new Set())
+}: { listRange: number }) => {
+  const [activeIndex, setActiveIndex] = useState<Set<number>>(() => {
+    const randomActiveIndex = [...Array(listRange).keys()].map((index) => (Math.random() < 0.5 ? index : null))
+    return new Set(compact([...randomActiveIndex]))
+  })
 
   const isActive = (index: number) => activeIndex.has(index)
 
