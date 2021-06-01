@@ -45,7 +45,7 @@ function filterActiveItem(node: HTMLElement) {
   return node.dataset.active === 'true'
 }
 
-type ListItemRefType = HTMLDivElement & HTMLAnchorElement
+type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
 function ListItem({
   className,
@@ -229,7 +229,7 @@ forwardedRef: React.Ref<ListItemRef>,
     testId,
   ])
 
-  const commonListItemProps = useMemo((): ListItemProps & { ref: React.Ref<ListItemRefType> } => ({
+  const commonListItemProps = useMemo((): ListItemProps & { ref: React.Ref<ListItemRef> } => ({
     ref: mergedRef,
     className: mergedClassName,
     size,
