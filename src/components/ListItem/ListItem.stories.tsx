@@ -62,8 +62,10 @@ Primary.args = {
   rightContent: '',
   leftIcon: 'inbox',
   active: false,
+  focused: false,
   disableIconActive: false,
   descriptionMaxLines: 0,
+  href: '',
 }
 
 export const MultiListItem = ({
