@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, {
-  useRef,
   forwardRef,
+  useState,
   useCallback,
   useMemo,
 } from 'react'
@@ -80,13 +80,19 @@ function ListItem({
 }: ListItemProps,
 forwardedRef: React.Ref<ListItemRef>,
 ) {
-  const listItemRef = useRef<ListItemRef>(null)
-  const mergedRef = useMergeRefs<ListItemRef>(listItemRef, forwardedRef)
+  const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
+
+  const setListItemRef = useCallback((node: ListItemRef | null) => {
+    if (!node) { return }
+    setListItemElement(node)
+  }, [])
+
+  const mergedRef = useMergeRefs<ListItemRef>(setListItemRef, forwardedRef)
 
   const isHyperLink = !isEmpty(href)
   const isActive = isHyperLink ? false : active
 
-  useAdjacentElementBorderRadius(listItemRef.current, filterActiveItem, isActive)
+  useAdjacentElementBorderRadius(listItemElement, filterActiveItem, isActive)
 
   const mergedClassName = useMemo(() => (
     mergeClassNames(className, ((isActive && activeClassName) || undefined))
