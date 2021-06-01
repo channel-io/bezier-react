@@ -106,7 +106,7 @@ forwardedRef: React.Ref<ListItemRef>,
     onClick,
   ])
 
-  const getNewLineComponenet = useCallback((desc: string) => (
+  const getNewLineComponent = useCallback((desc: string) => (
     desc.split(LINE_BREAK_CHAR).map((str, index) => {
       if (index === 0) {
         return (
@@ -184,7 +184,7 @@ forwardedRef: React.Ref<ListItemRef>,
       <Description descriptionMaxLines={descriptionMaxLines}>
         {
           isString(description)
-            ? getNewLineComponenet(description)
+            ? getNewLineComponent(description)
             : description
         }
       </Description>
@@ -192,7 +192,7 @@ forwardedRef: React.Ref<ListItemRef>,
   ), [
     description,
     descriptionMaxLines,
-    getNewLineComponenet,
+    getNewLineComponent,
   ])
 
   const rightComponent = useMemo(() => (
