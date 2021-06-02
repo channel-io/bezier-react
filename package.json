@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "0.7.1",
+  "version": "0.8.1",
   "description": "React components from Bezier Design System",
   "repository": {
     "type": "git",
@@ -117,7 +117,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "regenerator-runtime": "^0.13.7",
-    "rollup": "^2.37.1",
+    "rollup": "^2.50.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.5.0",
     "semantic-release": "^17.4.3",
