@@ -6,6 +6,7 @@ import { render } from '../../../utils/testUtils'
 import Avatar, { AVATAR_TEST_ID } from './Avatar'
 import AvatarProps from './Avatar.types'
 
+// TODO: 테스트 코드 보강
 describe('Avatar test >', () => {
   let props: AvatarProps
 
