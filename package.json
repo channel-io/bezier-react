@@ -84,6 +84,7 @@
     "@svgr/cli": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.6",
+    "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^25.2.3",
     "@types/lodash-es": "^4.17.4",
