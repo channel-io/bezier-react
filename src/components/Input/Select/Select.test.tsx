@@ -58,7 +58,6 @@ describe('Select Test >', () => {
 
       const defaultSelectDropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
 
-      expect(defaultSelectDropdown).toHaveStyle('width: 100%;')
       expect(defaultSelectDropdown).toHaveStyle('z-index: 10;')
       expect(defaultSelectDropdown).toHaveStyle('min-width: 200px;')
       expect(defaultSelectDropdown).toHaveStyle('min-height: 42px;')
