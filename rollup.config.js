@@ -1,6 +1,6 @@
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
@@ -10,35 +10,60 @@ import packageJson from './package.json'
 
 const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
 
-export default {
+const commonPlugins = [
+  commonjs(),
+  babel({
+    babelHelpers: 'runtime',
+    exclude: 'node_modules/**',
+    extensions,
+  }),
+  peerDepsExternal(),
+  url(),
+  visualizer({
+    filename: 'stats.html',
+  }),
+]
+
+const configGenerator = ({
+  output: _output,
+  plugins: _plugins,
+}) => ({
   input: 'src/index.ts',
-  output: [
-    {
-      file: packageJson.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: packageJson.module,
-      format: 'esm',
-      sourcemap: true,
-    },
-  ],
+  output: {
+    ..._output,
+    sourcemap: true,
+  },
   plugins: [
-    peerDepsExternal(),
-    resolve({
-      extensions,
-    }),
-    commonjs(),
-    url(),
-    babel({
-      babelHelpers: 'runtime',
-      exclude: 'node_modules/**',
-      extensions,
-    }),
-    visualizer({
-      filename: 'stats.html',
-    }),
+    ..._plugins,
+    ...commonPlugins,
   ],
   external: [/@babel\/runtime/],
-}
+})
+
+export default [
+  // CommonJS
+  configGenerator({
+    output: {
+      file: packageJson.main,
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        mainFields: ['main', 'module'],
+        extensions,
+      }),
+    ],
+  }),
+  // ESModules
+  configGenerator({
+    output: {
+      file: packageJson.module,
+      format: 'esm',
+    },
+    plugins: [
+      nodeResolve({
+        extensions,
+      }),
+    ],
+  }),
+]
