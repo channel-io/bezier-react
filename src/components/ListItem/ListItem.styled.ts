@@ -5,6 +5,7 @@ import {
   ellipsis,
   LineHeightAbsoluteNumber,
   styled,
+  TransitionDuration,
 } from '../../foundation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
@@ -17,6 +18,7 @@ import { getStyleOfSize } from './utils'
 interface StyledWrapperProps {
   size?: ListItemSize
   active?: boolean
+  focused?: boolean
   disabled?: boolean
   colorVariant: ListItemColorVariant
 }
@@ -39,6 +41,19 @@ const getColorFromColorVariantWithDefaultValue = (
   }
 }
 
+const FocusedItemStyle = css<StyledWrapperProps>`
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+`
+
+const FocusedIconStyle = css<StyledWrapperProps>`
+  color: ${({ foundation, active, colorVariant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
+      colorVariant,
+      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
+    )]
+  )};
+`
+
 const ActiveItemStyle = css<StyledWrapperProps>`
   color: ${({ foundation, colorVariant }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'bgtxt-blue-normal')]
@@ -55,6 +70,10 @@ export const TitleWrapper = styled.div`
   grid-row: 1;
   grid-column: 2;
   align-items: center;
+
+  & span {
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
+  }
 `
 
 export const DescriptionWrapper = styled.div`
@@ -89,6 +108,8 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, colorVariant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
+  
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
 `
 
 export const LeftContentWrapper = styled.div`
@@ -109,29 +130,34 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   display: flex;
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
+
   color: ${({ foundation, colorVariant }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'txt-black-darkest')]
   )};
+  
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color'])};
 
-  &:hover {
-    ${({ foundation, disabled, active }) => (!disabled && !active && `
-      background-color: ${foundation?.theme?.['bg-black-lighter']};
-    `)}
-  }
+  ${({ disabled, active, focused }) => !disabled && !active && css`
+    ${focused && css`
+      ${FocusedItemStyle}
 
-  &:hover ${StyledIcon} {
-    color: ${({ foundation, active, colorVariant }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
-      colorVariant,
-      active ? 'bgtxt-blue-normal' : 'txt-black-dark',
-    )]
-  )};
-  }
+      ${StyledIcon} {
+        ${FocusedIconStyle}
+      }
+    `}
+
+    &:hover {
+      ${FocusedItemStyle}
+    }
+
+    &:hover ${StyledIcon} {
+      ${FocusedIconStyle}
+    }
+`};
 
   ${({ active }) => (active && ActiveItemStyle)}
 `

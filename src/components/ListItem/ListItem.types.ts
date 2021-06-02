@@ -31,6 +31,7 @@ export default interface ListItemProps extends ContentComponentProps, ActivableE
   leftContent?: React.ReactNode
   leftIcon?: IconName
   colorVariant?: ListItemColorVariant
+  focused?: boolean
   disabled?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number
