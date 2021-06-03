@@ -47,6 +47,8 @@ interface TextAreaAutoSizeBaseProps extends WithInterpolation{
 const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize)<TextAreaAutoSizeBaseProps>`
   box-sizing: border-box;
   width: 100%;
+  padding: 0;
+  margin: 0;
   resize: none;
   background: none;
   border: none;
