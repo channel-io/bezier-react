@@ -7,7 +7,7 @@ import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
 import AvatarProps, { AvatarSize } from './Avatar.types'
-import { StyledAvatar, AvatarWrapper, StatusWrapper } from './Avatar.styled'
+import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
 // TODO: 테스트 코드 작성
 const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
@@ -73,22 +73,24 @@ forwardedRef: React.Ref<HTMLDivElement>,
       disabled={disabled}
       data-testid={AVATAR_WRAPPER_TEST_ID}
     >
-      <StyledAvatar
-        interpolation={interpolation}
-        className={className}
-        ref={forwardedRef}
-        data-testid={testId}
-        avatarUrl={loadedAvatarUrl}
-        size={size}
-        role="img"
-        aria-label={name}
-        showBorder={showBorder}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        { StatusComponent }
-      </StyledAvatar>
+      <AvatarImageWrapper>
+        <AvatarImage
+          className={className}
+          interpolation={interpolation}
+          ref={forwardedRef}
+          data-testid={testId}
+          avatarUrl={loadedAvatarUrl}
+          size={size}
+          role="img"
+          aria-label={name}
+          showBorder={showBorder}
+          onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          { StatusComponent }
+        </AvatarImage>
+      </AvatarImageWrapper>
     </AvatarWrapper>
   )
 }
