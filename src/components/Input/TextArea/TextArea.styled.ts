@@ -54,6 +54,10 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
 
   ${Typography.Size14}
 
+  &::placeholder {
+    ${Typography.Size14}
+  }
+
   ${({ interpolation }) => interpolation}
 `
 

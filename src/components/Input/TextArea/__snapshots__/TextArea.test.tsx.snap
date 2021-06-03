@@ -29,6 +29,26 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   line-height: 18px;
 }
 
+.c1::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1::-moz-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1:-ms-input-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1::placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
 <div
   class="c0"
   data-testid="bezier-react-text-area"
