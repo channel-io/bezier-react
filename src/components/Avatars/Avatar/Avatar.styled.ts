@@ -44,7 +44,7 @@ const smoothCornersFallbackBorderStyle = css`
   }
 `
 
-export const StyledAvatar = styled.div<AvatarProps>`
+export const AvatarImage = styled.div<AvatarProps>`
   position: relative;
   box-sizing: content-box;
   display: flex;
@@ -68,11 +68,16 @@ export const StyledAvatar = styled.div<AvatarProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarWrapper = styled.div<AvatarWrapperProps>`
+export const AvatarImageWrapper = styled.div`
   position: relative;
   z-index: 1;
+`
 
-  ${({ disabled }) => disabled && disabledStyle};
+export const AvatarWrapper = styled.div<AvatarWrapperProps>`
+  position: relative;
+  z-index: 0;
+
+  ${({ disabled }) => disabled && disabledStyle}
 
   ${({ interpolation }) => interpolation}
 `

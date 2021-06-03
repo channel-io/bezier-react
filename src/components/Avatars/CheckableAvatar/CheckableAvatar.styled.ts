@@ -4,7 +4,7 @@ import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { Icon, IconSize } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
-import { StyledAvatar } from '../Avatar/Avatar.styled'
+import { AvatarImage } from '../Avatar/Avatar.styled'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 
 const BASE_ICON_SIZE = IconSize.S
@@ -44,7 +44,7 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
       ${({ foundation }) => foundation?.transition.getTransitionsCSS('opacity')}
     }
 
-    ${StyledAvatar}::before {
+    ${AvatarImage}::before {
       display: block;
       width: 100%;
       height: 100%;
@@ -66,7 +66,7 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
     }
 
     &:hover ${CheckIcon},
-    &:hover ${StyledAvatar}::before {
+    &:hover ${AvatarImage}::before {
       opacity: 1;
     }
   `)
