@@ -9,7 +9,6 @@ import React, {
   useCallback,
   useMemo,
 } from 'react'
-import ReactDOM from 'react-dom'
 import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
@@ -143,7 +142,7 @@ function TextFieldComponent({
     return { top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0 }
   }, [])
 
-  const getDOMNode = useCallback(() => ReactDOM.findDOMNode(inputRef.current), [])
+  const getDOMNode = useCallback(() => inputRef.current, [])
 
   useImperativeHandle(forwardedRef, () => ({
     focus,
