@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 
@@ -12,7 +12,7 @@ import {
 import useToast from '../../hooks/useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import ToastProps, { ToastAppearance, ToastPreset } from './Toast.types'
+import { ToastAppearance, ToastPreset } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -72,7 +72,7 @@ const Template = (args) => (
   />
 )
 
-export const Primary: ToastProps = Template.bind({})
+export const Primary = Template.bind({})
 
 Primary.args = {
   content: '안내문구입니다.\nnewLine',
@@ -168,3 +168,43 @@ WithAction.args = {
   iconName: undefined,
   actionContent: '액션 함수 테스트',
 }
+
+function ZIndexController() {
+  const { addToast } = useToast()
+
+  const handleClick = useCallback((zIndex?: number) => {
+    addToast(`z-index: ${zIndex}`, {
+      preset: ToastPreset.Default,
+      zIndex,
+    })
+  }, [addToast])
+
+  return (
+    <div>
+      <button type="button" onClick={() => handleClick()}>default</button>
+      <button type="button" onClick={() => handleClick(1000)}>z-index: 1000</button>
+      <button type="button" onClick={() => handleClick(3000)}>z-index: 3000</button>
+    </div>
+  )
+}
+
+const Box = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100vw;
+  height: 200px;
+  background-color: ${({ foundation }) => foundation.theme['bgtxt-orange-lighter']};
+`
+
+export const WithZIndex = () => (
+  <Container id="story-wrapper">
+    <ToastProvider>
+      <ZIndexController />
+      <Box>
+        z-index: 2000
+      </Box>
+    </ToastProvider>
+  </Container>
+)

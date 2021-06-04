@@ -11,7 +11,7 @@ import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from '.
 
 // TODO: 테스트 코드 작성
 const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
-const AVATAR_TEST_ID = 'bezier-react-avatar'
+export const AVATAR_TEST_ID = 'bezier-react-avatar'
 
 function Avatar({
   avatarUrl = '',

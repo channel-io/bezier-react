@@ -4,7 +4,14 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 .c0 {
   box-shadow: 0 1px 2px #00000008, inset 0 0 0 1px #0000000D;
   box-sizing: border-box;
-  padding: 8px 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #FCFCFC;
   overflow: hidden;
   border-radius: 8px;
@@ -21,10 +28,37 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 .c1 {
   box-sizing: border-box;
   width: 100%;
+  padding: 8px 12px;
+  margin: 0;
   resize: none;
   background: none;
   border: none;
   outline: none;
+  -ms-overflow-style: none;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1::-webkit-scrollbar {
+  display: none;
+}
+
+.c1::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1::-moz-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1:-ms-input-placeholder {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c1::placeholder {
   font-size: 14px;
   line-height: 18px;
 }
