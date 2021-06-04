@@ -3,8 +3,7 @@ import { ellipsis, Foundation, styled, Transition } from '../../foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 
-// z-index 최대 크기
-const TOAST_DEFAULT_ZINDEX = 2147483647
+const TOAST_DEFAULT_ZINDEX = Number.MAX_SAFE_INTEGER
 
 interface IconProps {
   appearance: ToastAppearance
@@ -28,7 +27,8 @@ interface StyledToastProps extends Pick<ToastElementProps,
 | 'transform'
 | 'transitionDuration'
 | 'placement'
-| 'zIndex'>{}
+| 'zIndex'
+>{}
 
 export const Element = styled.div<StyledToastProps>`
   @keyframes ToastAnimationLeft {
