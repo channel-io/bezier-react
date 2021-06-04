@@ -102,7 +102,7 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   display: flex;
   align-items: center;
   height: ${({ size }) => size}px;
-  padding: 0 10px;
+  padding: 0 12px;
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
 
   ${({ foundation }) => foundation?.rounding.round8}
