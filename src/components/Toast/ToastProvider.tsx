@@ -111,6 +111,7 @@ function ToastProvider({
         onClick,
         id,
         onDismiss,
+        zIndex,
       }) => (
         <ToastController
           key={id}
@@ -127,6 +128,7 @@ function ToastProvider({
           component={ToastElement}
           onDismiss={() => handleDismiss(id, onDismiss)}
           transform={css``}
+          zIndex={zIndex}
         />
       )) }
     </ToastContainer>

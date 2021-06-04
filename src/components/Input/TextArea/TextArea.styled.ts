@@ -2,7 +2,12 @@
 import TextareaAutosize from 'react-textarea-autosize'
 
 /* Internal dependencies */
-import { SemanticNames, styled, Typography } from '../../../foundation'
+import {
+  hideScrollbars,
+  SemanticNames,
+  styled,
+  Typography,
+} from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import {
   erroredInputWrapperStyle,
@@ -20,7 +25,8 @@ const Wrapper = styled.div<WrapperProps>`
   ${inputWrapperStyle};
 
   box-sizing: border-box;
-  padding: 8px 12px;
+  display: flex;
+  align-items: center;
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
 
   ${({ focused }) => focused && focusedInputWrapperStyle}
@@ -47,12 +53,20 @@ interface TextAreaAutoSizeBaseProps extends WithInterpolation{
 const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize)<TextAreaAutoSizeBaseProps>`
   box-sizing: border-box;
   width: 100%;
+  padding: 8px 12px;
+  margin: 0;
   resize: none;
   background: none;
   border: none;
   outline: none;
 
+  ${hideScrollbars()}
+
   ${Typography.Size14}
+
+  &::placeholder {
+    ${Typography.Size14}
+  }
 
   ${({ interpolation }) => interpolation}
 `
