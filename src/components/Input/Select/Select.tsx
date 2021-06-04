@@ -8,7 +8,6 @@ import React, {
   Ref,
   useImperativeHandle,
 } from 'react'
-import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
 import {
@@ -81,7 +80,7 @@ function Select(
     setIsDropdownOpened(false)
   }, [])
 
-  const getDOMNode = useCallback(() => ReactDOM.findDOMNode(triggerRef.current), [])
+  const getDOMNode = useCallback(() => triggerRef.current, [])
 
   useImperativeHandle(forwardedRef, () => ({
     handleClickTrigger,
