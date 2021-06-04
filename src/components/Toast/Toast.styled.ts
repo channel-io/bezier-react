@@ -3,6 +3,8 @@ import { ellipsis, Foundation, styled, Transition } from '../../foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 
+const TOAST_DEFAULT_ZINDEX = Number.MAX_SAFE_INTEGER
+
 interface IconProps {
   appearance: ToastAppearance
 }
@@ -21,7 +23,14 @@ export const Container = styled.div<ToastContainerProps>`
   ${({ placement }) => getPlacement(placement)}
 `
 
-export const Element = styled.div<Pick<ToastElementProps, 'transform' | 'transitionDuration' | 'placement'>>`
+interface StyledToastProps extends Pick<ToastElementProps,
+| 'transform'
+| 'transitionDuration'
+| 'placement'
+| 'zIndex'
+>{}
+
+export const Element = styled.div<StyledToastProps>`
   @keyframes ToastAnimationLeft {
     from {
       ${initPosition(ToastPlacement.BottomLeft)}
@@ -43,7 +52,7 @@ export const Element = styled.div<Pick<ToastElementProps, 'transform' | 'transit
   }
 
   position: relative;
-  z-index: 10000000;
+  z-index: ${({ zIndex }) => zIndex ?? TOAST_DEFAULT_ZINDEX};
   display: flex;
   align-items: flex-start;
   width: 288px;
