@@ -51,6 +51,7 @@ export default interface ToastElementProps extends UIComponentProps {
   transitionDuration: TransitionDuration
   transform: ReturnType<typeof css>
   placement: ToastPlacement
+  zIndex?: number
 }
 
 export interface ToastProviderProps {
@@ -71,6 +72,7 @@ export type ToastOptions = {
   autoDismiss?: boolean
   onDismiss?: OnDismissCallback
   rightSide?: boolean
+  zIndex?: number
 }
 
 export const defaultOptions: ToastOptions = {

@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import { getWindow, getDocument } from 'ssr-window'
+import { v4 as uuid } from 'uuid'
 import { LightFoundation } from '../../foundation'
 
 /* Internal dependencies */
@@ -194,4 +195,68 @@ describe('ListItem', () => {
       }
     })
   })
+})
+
+describe('ListItem adjacent sibling flatten border-radius >', () => {
+  const actives: ListItemProps['active'][] = [true, false, true, true, true, false]
+
+  const ListItemGroup = () => (
+    <div>
+      { actives.map((active, index) => (
+        <ListItem
+          key={uuid()}
+          testId={`${index}`}
+          active={active}
+        />
+      )) }
+    </div>
+  )
+
+  const borderRadiusTopFlattenStyle = 'border-top-left-radius: 0px; border-top-right-radius: 0px;'
+  const borderRadiusBottomFlattenStyle = 'border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
+
+  it('should not change style when "active" prop is false (1)', () => {
+    const { getByTestId } = render(<ListItemGroup />)
+    const rendered = getByTestId('1')
+    expect(rendered).not.toHaveStyle(borderRadiusTopFlattenStyle)
+    expect(rendered).not.toHaveStyle(borderRadiusBottomFlattenStyle)
+  })
+
+  it('should not change style when "active" prop is false (2)', () => {
+    const { getByTestId } = render(<ListItemGroup />)
+    const rendered = getByTestId('5')
+    expect(rendered).not.toHaveStyle(borderRadiusTopFlattenStyle)
+    expect(rendered).not.toHaveStyle(borderRadiusBottomFlattenStyle)
+  })
+
+  it('should not change style when "active" prop is true and not have "activated" sibling element', () => {
+    const { getByTestId } = render(<ListItemGroup />)
+    const rendered = getByTestId('0')
+    expect(rendered).not.toHaveStyle(borderRadiusTopFlattenStyle)
+    expect(rendered).not.toHaveStyle(borderRadiusBottomFlattenStyle)
+  })
+
+  it('should change style "border-bottom-radius: 0" when "active" prop is true and have only "activated" next sibling element',
+    () => {
+      const { getByTestId } = render(<ListItemGroup />)
+      const rendered = getByTestId('2')
+      expect(rendered).toHaveStyle(borderRadiusBottomFlattenStyle)
+      expect(rendered).not.toHaveStyle(borderRadiusTopFlattenStyle)
+    })
+
+  it('should change style "border-radius: 0" when "active" prop is true and have "activated" next and prev sibling element',
+    () => {
+      const { getByTestId } = render(<ListItemGroup />)
+      const rendered = getByTestId('3')
+      expect(rendered).toHaveStyle(borderRadiusBottomFlattenStyle)
+      expect(rendered).toHaveStyle(borderRadiusTopFlattenStyle)
+    })
+
+  it('should change style "border-top-radius: 0" when "active" prop is true and have only "activated" prev sibling element',
+    () => {
+      const { getByTestId } = render(<ListItemGroup />)
+      const rendered = getByTestId('4')
+      expect(rendered).toHaveStyle(borderRadiusTopFlattenStyle)
+      expect(rendered).not.toHaveStyle(borderRadiusBottomFlattenStyle)
+    })
 })

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar test > Snapshot 1`] = `
+.c0 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  margin: 0px;
+  background-color: #FFFFFFE6;
+  background-image: url(https://www.google.com);
+  background-size: cover;
+  border-radius: 42%;
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c0 {
+    padding: 0px;
+    margin: 0px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    border-image-source: url(https://www.google.com);
+    box-shadow: none;
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 0 transparent;
+    --smooth-corners-bg-color: #FFFFFFE6;
+    --smooth-corners-padding: 0;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+<div
+  aria-label="Name"
+  class="c0"
+  data-testid="bezier-react-avatar"
+  role="img"
+  size="24"
+/>
+`;
