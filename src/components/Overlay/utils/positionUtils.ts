@@ -190,7 +190,7 @@ export function getOverlayStyle({
     return css`
       top: ${top}px;
       left: ${left}px;
-      transform: translateX(${translateX}px) translateY(${translateY}px);
+      transform: translateX(${Math.round(translateX)}px) translateY(${Math.round(translateY)}px);
     `
   }
   return css``
