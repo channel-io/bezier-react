@@ -1,17 +1,21 @@
 {
-  "branches": "master",
+  "branches": [
+    'master',
+    {
+      name: 'next*',
+      prerelease: true,
+    },
+  ],
   "tagFormat": "v${version}",
   "repository": "https://github.com/channel-io/bezier-react",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {
         "message": "chore(release): v${nextRelease.version} [skip ci]"
       }
     ],
-    "@semantic-release/github"
   ]
 }
