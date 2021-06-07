@@ -10,6 +10,12 @@ export enum SelectSize {
   S = 'S',
 }
 
+export interface SelectRef {
+  handleClickTrigger(): void
+  handleHideDropdown(): void
+  getDOMNode(): Element | Text | null
+}
+
 interface SelectProps extends ChildrenComponentProps {
   triggerTestId?: string
   dropdownTestId?: string

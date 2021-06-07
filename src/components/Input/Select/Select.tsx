@@ -6,6 +6,7 @@ import React, {
   useRef,
   forwardRef,
   Ref,
+  useImperativeHandle,
 } from 'react'
 
 /* Internal dependencies */
@@ -17,8 +18,10 @@ import {
 import { Text } from '../../Text'
 import { OverlayPosition } from '../../Overlay'
 import { Typography } from '../../../foundation'
-import useMergeRefs from '../../../hooks/useMergeRefs'
-import SelectProps, { SelectSize } from './Select.types'
+import SelectProps, {
+  SelectRef,
+  SelectSize,
+} from './Select.types'
 import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
@@ -46,19 +49,12 @@ function Select(
     dropdownPosition = OverlayPosition.BottomLeft,
     children,
   }: SelectProps,
-  forwardedRef: Ref<HTMLDivElement>,
+  forwardedRef: Ref<SelectRef>,
 ) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLDivElement>(null)
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(defaultFocus)
-  const [triggerRef, setTriggerRef] = useState<HTMLDivElement | null>(null)
-
-  /**
-   * NOTE: useMergeRefs 의 결과에 대한 type 을 정확하게 추론하기 위해
-   * setTriggerRef 에 대한 wrapping 함수를 작성.
-   */
-  const handleTriggerRef = useCallback((triggerInst: HTMLDivElement) => { setTriggerRef(triggerInst) }, [])
-  const mergedTriggerRef = useMergeRefs(handleTriggerRef, forwardedRef)
 
   const LeftComponent = useMemo(() => {
     if (isIconName(iconComponent)) {
@@ -84,6 +80,14 @@ function Select(
     setIsDropdownOpened(false)
   }, [])
 
+  const getDOMNode = useCallback(() => triggerRef.current, [])
+
+  useImperativeHandle(forwardedRef, () => ({
+    handleClickTrigger,
+    handleHideDropdown,
+    getDOMNode,
+  }))
+
   return (
     <Styled.Container
       data-testid={testId}
@@ -95,7 +99,7 @@ function Select(
       <Styled.Trigger
         data-testid={triggerTestId}
         as={as}
-        ref={mergedTriggerRef}
+        ref={triggerRef}
         size={size}
         focus={isDropdownOpened && !disabled}
         error={hasError}
@@ -122,7 +126,7 @@ function Select(
         withTransition
         show={isDropdownOpened && !disabled}
         marginY={6}
-        target={triggerRef}
+        target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
         onHide={handleHideDropdown}
