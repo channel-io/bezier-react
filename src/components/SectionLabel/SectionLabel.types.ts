@@ -11,7 +11,7 @@ type SectionLabelHelpProps = {
   icon?: IconName
   iconSize?: IconSize
   iconColor?: SemanticNames
-  tooltipContent: string
+  tooltipContent: React.ReactNode
 }
 
 export type SectionLabelItemProps = {
