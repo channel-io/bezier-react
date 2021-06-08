@@ -16,12 +16,12 @@ const ActiveItemStyle = css<StyledWrapperProps>`
 export const GroupItemWrapper = styled.div<StyledWrapperProps & OutlineItemProps>`
   display: flex;
   align-items: center;
-  height: 32px;
+  height: 28px;
   padding: 0 6px;
   padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
   font-size: 14px;
   font-weight: normal;
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
   text-decoration: none;
   cursor: pointer;
   border-radius: 6px;
