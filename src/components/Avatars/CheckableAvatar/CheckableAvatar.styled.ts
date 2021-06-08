@@ -1,5 +1,5 @@
 /* Internal denpendencies */
-import { styled, css, smoothCorners, Foundation } from '../../../foundation'
+import { styled, css, smoothCorners, Foundation, SemanticNames } from '../../../foundation'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { Icon, IconSize } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
@@ -14,6 +14,7 @@ const CHECK_ICON_SIZE_PERCENTAGE = (BASE_ICON_SIZE / BASE_WRAPPER_SIZE) * 100
 interface CheckableAvatarWrapperProps extends WithInterpolation {
   isChecked: boolean
   isCheckable: boolean
+  checkedBackgroundColor: SemanticNames
 }
 
 export const CheckIcon = styled(Icon)`
@@ -25,11 +26,11 @@ export const CheckIcon = styled(Icon)`
   opacity: 0;
 `
 
-const getBackgroundColor = (isChecked: boolean, foundation?: Foundation) =>
-  foundation?.theme?.[isChecked ? 'bgtxt-green-dark' : 'bg-grey-dark']
+const getBackgroundColor = (isChecked: boolean, checkedBackgroundColor: SemanticNames, foundation?: Foundation) =>
+  foundation?.theme?.[isChecked ? checkedBackgroundColor : 'bg-grey-dark']
 
 /* eslint-disable @typescript-eslint/indent */
-const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
+const getCheckableStyle = (isChecked: boolean, isCheckable: boolean, checkedBackgroundColor: SemanticNames) =>
   (!isCheckable
   ? css`
     cursor: not-allowed;
@@ -60,7 +61,7 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
       ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
 
       ${({ foundation }) => smoothCorners({
-        backgroundColor: getBackgroundColor(isChecked, foundation),
+        backgroundColor: getBackgroundColor(isChecked, checkedBackgroundColor, foundation),
         borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
       })};
     }
@@ -79,7 +80,7 @@ export const CheckableAvatarWrapper = styled.div<CheckableAvatarWrapperProps>`
   justify-content: center;
   user-select: none;
 
-  ${({ isChecked, isCheckable }) => getCheckableStyle(isChecked, isCheckable)}
+  ${({ isChecked, isCheckable, checkedBackgroundColor }) => getCheckableStyle(isChecked, isCheckable, checkedBackgroundColor)}
 
   ${({ interpolation }) => interpolation}
 `
