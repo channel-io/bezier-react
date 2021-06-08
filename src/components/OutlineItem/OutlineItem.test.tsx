@@ -37,7 +37,7 @@ describe('OutlineItem', () => {
 
     expect(rendered[0]).toHaveStyle('display: flex;')
     expect(rendered[0]).toHaveStyle('align-items: center;')
-    expect(rendered[0]).toHaveStyle('height: 32px;')
+    expect(rendered[0]).toHaveStyle('height: 28px;')
   })
 
   it('should have index on "data-active-index" attr when "selectedOptionIndex" given', () => {
