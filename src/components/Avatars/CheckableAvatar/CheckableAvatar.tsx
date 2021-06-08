@@ -12,6 +12,7 @@ const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 function CheckableAvatar({
   isChecked = false,
   isCheckable = true,
+  checkedBackgroundColor = 'bgtxt-green-dark',
   checkableWrapperClassName,
   checkableWrapperInterpolation,
   children,
@@ -22,6 +23,7 @@ function CheckableAvatar({
       data-testid={CHECKABLE_AVATAR_TEST_ID}
       isChecked={isChecked}
       isCheckable={isCheckable}
+      checkedBackgroundColor={checkedBackgroundColor}
       className={checkableWrapperClassName}
       interpolation={checkableWrapperInterpolation}
     >

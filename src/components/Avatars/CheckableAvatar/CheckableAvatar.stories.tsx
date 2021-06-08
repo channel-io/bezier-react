@@ -64,6 +64,15 @@ export default {
         options: avatarSizeList,
       },
     },
+    checkedBackgroundColor: {
+      control: {
+        type: 'radio',
+        options: [
+          'bgtxt-green-normal',
+          'bgtxt-cobalt-normal',
+        ],
+      },
+    },
   },
 } as Meta
 
@@ -104,6 +113,7 @@ Primary.args = {
   disabled: false,
   isChecked: false,
   isCheckable: true,
+  checkedBackgroundColor: undefined,
 }
 
 const List = styled.li`
@@ -121,7 +131,7 @@ const Name = styled.span`
   margin-left: 4px;
 `
 
-const TemplateCheckableAvatarList: Story<CheckableAvatarProps> = () => {
+const TemplateCheckableAvatarList: Story<CheckableAvatarProps> = (args) => {
   const [checkedList, setCheckedList] = useState<{ [id: number]: boolean }>({})
 
   const handleClickList = useCallback((id: number) => {
@@ -138,6 +148,7 @@ const TemplateCheckableAvatarList: Story<CheckableAvatarProps> = () => {
           key={id}
         >
           <CheckableAvatar
+            {...args}
             avatarUrl={avatarUrl}
             name={name}
             isChecked={checkedList[id]}
@@ -168,5 +179,6 @@ CheckableAvatarList.args = {
   disabled: false,
   isChecked: false,
   isCheckable: true,
+  checkedBackgroundColor: undefined,
 }
 
