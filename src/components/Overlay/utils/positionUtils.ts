@@ -144,8 +144,8 @@ export function getOverlayTranslation({
     }
 
     return {
-      translateX,
-      translateY,
+      translateX: Math.round(translateX),
+      translateY: Math.round(translateY),
     }
   }
   return {
@@ -190,7 +190,7 @@ export function getOverlayStyle({
     return css`
       top: ${top}px;
       left: ${left}px;
-      transform: translateX(${Math.round(translateX)}px) translateY(${Math.round(translateY)}px);
+      transform: translateX(${translateX}px) translateY(${translateY}px);
     `
   }
   return css``
