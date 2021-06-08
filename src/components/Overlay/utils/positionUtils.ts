@@ -144,8 +144,8 @@ export function getOverlayTranslation({
     }
 
     return {
-      translateX,
-      translateY,
+      translateX: Math.round(translateX),
+      translateY: Math.round(translateY),
     }
   }
   return {
