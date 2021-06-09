@@ -43,6 +43,7 @@ function OutlineItem(
     leftContent,
     leftIcon,
     leftIconColor,
+    disableChevron = false,
     disableIconActive = false,
     name,
     href,
@@ -121,6 +122,39 @@ function OutlineItem(
     onClick,
   ])
 
+  const chevronComponent = useMemo(() => {
+    if (disableChevron) {
+      return null
+    }
+
+    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
+    const showChevron = !isNil(children)
+
+    return (
+      <ChevronWrapper>
+        { showChevron && (
+          <StyledIcon
+            className={chevronClassName}
+            interpolation={chevronInterpolation}
+            name={chevronIcon}
+            size={chevronIconSize}
+            onClick={handleClickIcon}
+            color="txt-black-darker"
+          />
+        ) }
+      </ChevronWrapper>
+    )
+  }, [
+    disableChevron,
+    open,
+    chevronIconType,
+    chevronIconSize,
+    chevronClassName,
+    chevronInterpolation,
+    children,
+    handleClickIcon,
+  ])
+
   const leftComponent = useMemo(() => {
     if (!isNil(leftContent)) {
       return (
@@ -156,42 +190,21 @@ function OutlineItem(
     leftIconColor,
   ])
 
-  const ContentComponent = useMemo(() => {
-    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
-
-    return (
-      <>
-        <ChevronWrapper>
-          { !isNil(children) && (
-            <StyledIcon
-              className={chevronClassName}
-              interpolation={chevronInterpolation}
-              name={chevronIcon}
-              size={chevronIconSize}
-              onClick={handleClickIcon}
-              color="txt-black-darker"
-            />
-          ) }
-        </ChevronWrapper>
-        { leftComponent }
-        <ContentWrapper
-          className={contentClassName}
-          interpolation={contentInterpolation}
-        >
-          { content }
-        </ContentWrapper>
-        { rightContent }
-      </>
-    )
-  },
+  const ContentComponent = useMemo(() => (
+    <>
+      { chevronComponent }
+      { leftComponent }
+      <ContentWrapper
+        className={contentClassName}
+        interpolation={contentInterpolation}
+      >
+        { content }
+      </ContentWrapper>
+      { rightContent }
+    </>
+  ),
   [
-    chevronIconType,
-    open,
-    children,
-    chevronClassName,
-    chevronInterpolation,
-    chevronIconSize,
-    handleClickIcon,
+    chevronComponent,
     leftComponent,
     contentClassName,
     contentInterpolation,

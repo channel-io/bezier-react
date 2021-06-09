@@ -32,6 +32,7 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   rightContent?: React.ReactNode
   hide?: boolean
   disableIconActive?: boolean
+  disableChevron?: boolean
   chevronIconType?: ChevronIconType
   chevronIconSize?: IconSize
   paddingLeft?: number
