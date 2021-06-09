@@ -98,7 +98,7 @@ function NavigationContent({
     >
       <Icon
         name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
-        color="txt-black-darkest"
+        color="txt-black-darker"
         size={IconSize.S}
       />
     </ChevronIconWrapper>
