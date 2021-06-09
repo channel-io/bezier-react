@@ -31,7 +31,6 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   leftIconColor?: SemanticNames
   rightContent?: React.ReactNode
   hide?: boolean
-  disableGroupSelect?: boolean
   disableIconActive?: boolean
   chevronIconType?: ChevronIconType
   chevronIconSize?: IconSize
@@ -44,14 +43,4 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   /* OptionItemHost for Sidebar Menu - nullable selectedOutlineItemIndex */
   selectedOutlineItemIndex?: number | null
   onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
-}
-
-export interface StyledWrapperProps extends ContentComponentProps {
-  open?: boolean
-  rightContent?: React.ReactNode
-  currentOutlineItemIndex?: number | null
-  chevronClassName?: string
-  selectedOptionIndex?: number
-  selected?: boolean
-  onChangeOption?: (optionKey?: string, optionIndex?: number) => void
 }

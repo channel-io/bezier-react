@@ -26,6 +26,7 @@ function OutlineItem(
   {
     as,
     testId = OUTLINE_ITEM_TEST_ID,
+    style,
     className,
     interpolation,
     chevronClassName,
@@ -56,7 +57,6 @@ function OutlineItem(
     /* HTMLAttribute props */
     onClick: givenOnClick = noop,
     children,
-    ...otherProps
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -235,17 +235,15 @@ function OutlineItem(
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          name={name}
+          style={style}
           className={className}
           interpolation={interpolation}
-          open={open}
           active={false}
           currentOutlineItemIndex={currentOutlineItemIndex}
+          paddingLeft={paddingLeft}
           onClick={handleClickGroup}
           data-testid={testId}
           data-active-index={currentOutlineItemIndex}
-          paddingLeft={paddingLeft}
-          {...otherProps}
         >
           { ContentComponent }
         </GroupItemWrapper>
@@ -261,17 +259,15 @@ function OutlineItem(
       <GroupItemWrapper
         as={as}
         ref={forwardedRef}
-        name={name}
+        style={style}
         className={className}
         interpolation={interpolation}
-        open={open}
         active={active}
         currentOutlineItemIndex={currentOutlineItemIndex}
+        paddingLeft={paddingLeft}
         onClick={handleClickGroup}
         data-testid={testId}
         data-active-index={currentOutlineItemIndex}
-        paddingLeft={paddingLeft}
-        {...otherProps}
       >
         { ContentComponent }
       </GroupItemWrapper>
