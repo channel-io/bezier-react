@@ -28,7 +28,7 @@ const disabledStyle = css`
 
 const smoothCornersFallbackBorderStyle = css`
   &::after {
-    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bgtxt-absolute-white-normal'])};
+    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bgtxt-absolute-white-dark'])};
 
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
@@ -39,7 +39,7 @@ const smoothCornersFallbackBorderStyle = css`
     width: 100%;
     height: 100%;
     content: '';
-    background-color: ${({ foundation }) => `${foundation?.theme?.['bgtxt-absolute-white-normal']}`};
+    background-color: ${({ foundation }) => `${foundation?.theme?.['bgtxt-absolute-white-dark']}`};
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
   }
 `
@@ -58,9 +58,9 @@ export const AvatarImage = styled.div<AvatarProps>`
   ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
 
   ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
-    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bgtxt-absolute-white-normal']}` : undefined,
+    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bgtxt-absolute-white-dark']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: foundation?.theme?.['bgtxt-absolute-white-normal'],
+    backgroundColor: foundation?.theme?.['bgtxt-absolute-white-dark'],
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     backgroundImage: avatarUrl,
   })};
