@@ -13,7 +13,7 @@ interface AvatarEllipsisCountProps extends TextProps, WithInterpolation {
   size: AvatarSize
 }
 
-interface AvatarEllipsisWrapperProps extends WithInterpolation {
+interface AvatarEllipsisWrapperProps extends Partial<AvatarGroupProps>, WithInterpolation {
   isCountEllipsisType?: boolean
 }
 
@@ -39,9 +39,9 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
 export const AvatarEllipsisWrapper = styled.div<AvatarEllipsisWrapperProps>`
   position: relative;
 
-  ${({ isCountEllipsisType }) => isCountEllipsisType && css`
+  ${({ isCountEllipsisType, spacing = 0 }) => isCountEllipsisType && css`
     && {
-      margin-left: ${AVATAR_GROUP_DEFAULT_SPACING}px;
+      margin-left: ${spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING}px;
     }
   `}
 

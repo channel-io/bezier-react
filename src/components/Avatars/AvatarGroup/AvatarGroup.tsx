@@ -118,6 +118,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisWrapper
+              spacing={spacing}
               isCountEllipsisType
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
@@ -141,6 +142,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     max,
     size,
     children,
+    spacing,
     ellipsisType,
     ellipsisInterpolation,
     avatarListCount,
