@@ -1,5 +1,5 @@
 /* Internal denpendencies */
-import { styled, smoothCorners } from '../../../foundation'
+import { styled, smoothCorners, css } from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import { Text, TextProps } from '../../Text'
@@ -11,6 +11,10 @@ interface AvatarGroupProps {
 
 interface AvatarEllipsisCountProps extends TextProps, WithInterpolation {
   size: AvatarSize
+}
+
+interface AvatarEllipsisWrapperProps extends WithInterpolation {
+  isCountEllipsisType?: boolean
 }
 
 export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
@@ -30,14 +34,16 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   & > * + * {
     margin-left: ${({ spacing }) => spacing}px;
   }
-
-  & ${AvatarEllipsisCount} {
-    margin-left: ${({ spacing }) => (spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING)}px;
-  }
 `
 
-export const AvatarEllipsisWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
+export const AvatarEllipsisWrapper = styled.div<AvatarEllipsisWrapperProps>`
   position: relative;
+
+  ${({ isCountEllipsisType }) => isCountEllipsisType && css`
+    && {
+      margin-left: ${AVATAR_GROUP_DEFAULT_SPACING}px;
+    }
+  `}
 
   ${({ interpolation }) => interpolation}
 `
