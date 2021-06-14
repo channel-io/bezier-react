@@ -12,18 +12,22 @@ const alignRight = css`
   margin-left: auto;
 `
 
-interface WrapperProps extends WithInterpolation {}
+interface WrapperProps extends WithInterpolation {
+  multiline: boolean
+}
 
 const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 28px;
-  padding: 4px 6px;
 
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
+
+  ${({ multiline }) => multiline && css`
+    padding-bottom: 6px;
+  `}
 
   ${({ foundation }) => foundation?.rounding?.round6}
 
@@ -64,6 +68,13 @@ const ValueWrapper = styled.div<ValueWrapperProps>`
 const Row = styled.div`
   display: flex;
   align-items: center;
+  padding: 4px 6px;
+`
+
+const MultiValueRow = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
 `
 
 const ActionIcon = styled(Icon)``
@@ -109,6 +120,7 @@ export default {
   KeyContentWrapper,
   ValueWrapper,
   Row,
+  MultiValueRow,
   ActionIcon,
   ActionIconWrapper,
   ActionIconTooltip,

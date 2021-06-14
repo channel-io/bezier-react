@@ -19,7 +19,7 @@ export type KeyValueActionProps = {
 
 export interface KeyValueListItemProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   multiline?: boolean
-  keyIcon?: IconName
+  keyIcon?: IconName | React.ReactNode
   keyContent?: string
   actions?: KeyValueActionProps | KeyValueActionProps[]
   className?: string
