@@ -21,8 +21,7 @@ import { isIconName } from '../Icon/util'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 import Styled from './KeyValueListItem.styled'
 
-// TODO: 테스트 코드 작성
-const KEY_VALUE_LIST_ITEM_TEST_ID = 'bezier-react-key-value-list-item'
+export const KEY_VALUE_LIST_ITEM_TEST_ID = 'bezier-react-key-value-list-item'
 
 function KeyValueListItem(
   {
