@@ -9,7 +9,13 @@ import { AvatarProps, AvatarSize } from '../Avatar'
 import { isLastIndex } from '../../../utils/arrayUtils'
 import { AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
-import { StyledAvatarGroup, AvatarEllipsisWrapper, AvatarEllipsisIcon, AvatarEllipsisCount } from './AvatarGroup.styled'
+import {
+  StyledAvatarGroup,
+  AvatarEllipsisWrapper,
+  AvatarEllipsisCountWrapper,
+  AvatarEllipsisIcon,
+  AvatarEllipsisCount,
+} from './AvatarGroup.styled'
 
 // TODO: 테스트 코드 작성
 const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
@@ -117,9 +123,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
             key="ellipsis"
           >
             { renderAvatarElement(avatar) }
-            <AvatarEllipsisWrapper
+            <AvatarEllipsisCountWrapper
               spacing={spacing}
-              isCountEllipsisType
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
@@ -131,7 +136,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
               </AvatarEllipsisCount>
-            </AvatarEllipsisWrapper>
+            </AvatarEllipsisCountWrapper>
           </React.Fragment>
         )
       }
