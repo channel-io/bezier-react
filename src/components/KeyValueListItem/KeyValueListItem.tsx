@@ -125,10 +125,13 @@ function KeyValueListItem(
       interpolation={interpolation}
       className={className}
       data-testid={testId}
+      multiline={multiline}
       // eslint-disable-next-line react/jsx-props-no-multi-spaces
       {...props}
     >
-      <Styled.Row>
+      <Styled.Row
+        multiline={multiline}
+      >
         { KeyIconComponent }
         <Styled.KeyContentWrapper
           interpolation={keyWrapperInterpolation}
