@@ -129,9 +129,7 @@ function KeyValueListItem(
       // eslint-disable-next-line react/jsx-props-no-multi-spaces
       {...props}
     >
-      <Styled.Row
-        multiline={multiline}
-      >
+      <Styled.Row>
         { KeyIconComponent }
         <Styled.KeyContentWrapper
           interpolation={keyWrapperInterpolation}
@@ -147,9 +145,9 @@ function KeyValueListItem(
       </Styled.Row>
 
       { multiline && (
-        <Styled.Row>
+        <Styled.MultiValueRow>
           { ValueComponent }
-        </Styled.Row>
+        </Styled.MultiValueRow>
       ) }
     </Styled.Wrapper>
   )
