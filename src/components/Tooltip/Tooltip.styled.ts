@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
+import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '../../foundation'
 
 interface ContentWrapperProps {
   disabled: boolean
@@ -34,4 +34,8 @@ export const Content = styled.div`
   word-break: break-all;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
   ${({ foundation }) => foundation?.rounding?.round8};
+`
+
+export const EllipsisableContent = styled.div`
+  ${ellipsis(10, LineHeightAbsoluteNumber.Lh18)}
 `

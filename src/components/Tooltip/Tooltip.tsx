@@ -14,7 +14,7 @@ import { Typography } from '../../foundation'
 import { Text } from '../Text'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils/positionUtils'
-import { Container, ContentWrapper, Content } from './Tooltip.styled'
+import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
 
 // TODO: 테스트 코드 작성
 const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
@@ -164,7 +164,9 @@ function Tooltip(
         className={contentClassName}
         ref={mergedRef}
       >
-        { ContentComponent }
+        <EllipsisableContent>
+          { ContentComponent }
+        </EllipsisableContent>
       </Content>
     </ContentWrapper>
   ), [
