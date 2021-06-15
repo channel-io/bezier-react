@@ -6,20 +6,26 @@ import { css, ellipsis, styled } from '../../foundation'
 import { WithInterpolation } from '../../types/InjectedInterpolation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
-import OutlineItemProps, { StyledWrapperProps } from './OutlineItem.types'
+import OutlineItemProps from './OutlineItem.types'
 
-const ActiveItemStyle = css<StyledWrapperProps>`
+interface WrapperProps extends WithInterpolation {
+  active: boolean
+  paddingLeft: number
+  currentOutlineItemIndex?: number | null
+}
+
+const ActiveItemStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-const NonActiveItemStyle = css<StyledWrapperProps>`
+const NonActiveItemStyle = css<WrapperProps>`
   &:hover {
     background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
   }
 `
 
-export const GroupItemWrapper = styled.div<StyledWrapperProps & OutlineItemProps>`
+export const GroupItemWrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   height: 28px;

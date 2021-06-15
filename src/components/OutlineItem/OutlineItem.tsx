@@ -26,6 +26,7 @@ function OutlineItem(
   {
     as,
     testId = OUTLINE_ITEM_TEST_ID,
+    style,
     className,
     interpolation,
     chevronClassName,
@@ -42,6 +43,7 @@ function OutlineItem(
     leftContent,
     leftIcon,
     leftIconColor,
+    disableChevron = false,
     disableIconActive = false,
     name,
     href,
@@ -56,7 +58,6 @@ function OutlineItem(
     /* HTMLAttribute props */
     onClick: givenOnClick = noop,
     children,
-    ...otherProps
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -121,6 +122,39 @@ function OutlineItem(
     onClick,
   ])
 
+  const chevronComponent = useMemo(() => {
+    if (disableChevron) {
+      return null
+    }
+
+    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
+    const showChevron = !isNil(children)
+
+    return (
+      <ChevronWrapper>
+        { showChevron && (
+          <StyledIcon
+            className={chevronClassName}
+            interpolation={chevronInterpolation}
+            name={chevronIcon}
+            size={chevronIconSize}
+            onClick={handleClickIcon}
+            color="txt-black-darker"
+          />
+        ) }
+      </ChevronWrapper>
+    )
+  }, [
+    disableChevron,
+    open,
+    chevronIconType,
+    chevronIconSize,
+    chevronClassName,
+    chevronInterpolation,
+    children,
+    handleClickIcon,
+  ])
+
   const leftComponent = useMemo(() => {
     if (!isNil(leftContent)) {
       return (
@@ -156,42 +190,21 @@ function OutlineItem(
     leftIconColor,
   ])
 
-  const ContentComponent = useMemo(() => {
-    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
-
-    return (
-      <>
-        <ChevronWrapper>
-          { !isNil(children) && (
-            <StyledIcon
-              className={chevronClassName}
-              interpolation={chevronInterpolation}
-              name={chevronIcon}
-              size={chevronIconSize}
-              onClick={handleClickIcon}
-              color="txt-black-darker"
-            />
-          ) }
-        </ChevronWrapper>
-        { leftComponent }
-        <ContentWrapper
-          className={contentClassName}
-          interpolation={contentInterpolation}
-        >
-          { content }
-        </ContentWrapper>
-        { rightContent }
-      </>
-    )
-  },
+  const ContentComponent = useMemo(() => (
+    <>
+      { chevronComponent }
+      { leftComponent }
+      <ContentWrapper
+        className={contentClassName}
+        interpolation={contentInterpolation}
+      >
+        { content }
+      </ContentWrapper>
+      { rightContent }
+    </>
+  ),
   [
-    chevronIconType,
-    open,
-    children,
-    chevronClassName,
-    chevronInterpolation,
-    chevronIconSize,
-    handleClickIcon,
+    chevronComponent,
     leftComponent,
     contentClassName,
     contentInterpolation,
@@ -235,17 +248,15 @@ function OutlineItem(
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          name={name}
+          style={style}
           className={className}
           interpolation={interpolation}
-          open={open}
           active={false}
           currentOutlineItemIndex={currentOutlineItemIndex}
+          paddingLeft={paddingLeft}
           onClick={handleClickGroup}
           data-testid={testId}
           data-active-index={currentOutlineItemIndex}
-          paddingLeft={paddingLeft}
-          {...otherProps}
         >
           { ContentComponent }
         </GroupItemWrapper>
@@ -261,17 +272,15 @@ function OutlineItem(
       <GroupItemWrapper
         as={as}
         ref={forwardedRef}
-        name={name}
+        style={style}
         className={className}
         interpolation={interpolation}
-        open={open}
         active={active}
         currentOutlineItemIndex={currentOutlineItemIndex}
+        paddingLeft={paddingLeft}
         onClick={handleClickGroup}
         data-testid={testId}
         data-active-index={currentOutlineItemIndex}
-        paddingLeft={paddingLeft}
-        {...otherProps}
       >
         { ContentComponent }
       </GroupItemWrapper>
