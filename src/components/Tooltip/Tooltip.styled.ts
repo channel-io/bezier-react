@@ -37,5 +37,5 @@ export const Content = styled.div`
 `
 
 export const EllipsisableContent = styled.div`
-  ${ellipsis(10, LineHeightAbsoluteNumber.Lh18)}
+  ${ellipsis(20, LineHeightAbsoluteNumber.Lh18)}
 `
