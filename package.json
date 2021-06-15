@@ -22,7 +22,7 @@
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
     "typecheck": "ts-prune -e -p tsconfig.prune.json && tsc",
     "test": "npm run lint && npm run typecheck && npm run jest",
-    "jest": "cross-env BABEL_ENV=test jest",
+    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
     "build": "npm run build:icon && npm run build:rollup",
     "build:rollup": "cross-env BABEL_ENV=build rollup -c",
