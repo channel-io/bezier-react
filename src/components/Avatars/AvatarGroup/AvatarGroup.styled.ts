@@ -1,5 +1,5 @@
 /* Internal denpendencies */
-import { styled, smoothCorners } from '../../../foundation'
+import { styled, smoothCorners, css } from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import { Text, TextProps } from '../../Text'
@@ -30,16 +30,20 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   & > * + * {
     margin-left: ${({ spacing }) => spacing}px;
   }
-
-  & ${AvatarEllipsisCount} {
-    margin-left: ${({ spacing }) => (spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING)}px;
-  }
 `
 
-export const AvatarEllipsisWrapper = styled.div<Pick<AvatarEllipsisCountProps, 'interpolation'>>`
+export const AvatarEllipsisWrapper = styled.div<WithInterpolation>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
+`
+
+export const AvatarEllipsisCountWrapper = styled(AvatarEllipsisWrapper)<AvatarGroupProps>`
+  ${({ spacing }) => css`
+    && {
+      margin-left: ${spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING}px;
+    }
+  `}
 `
 
 export const AvatarEllipsisIcon = styled.div`
