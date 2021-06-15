@@ -70,7 +70,7 @@ function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?
         `
       case ButtonStyleVariant.Tertiary:
         return css`
-          color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
           background-color: transparent;
 
           ${!disabled && css`

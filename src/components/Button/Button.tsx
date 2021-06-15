@@ -33,15 +33,28 @@ import * as Styled from './Button.styled'
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
-const monochromeIconAndSpinnerDefaultColors: {
+const monochromeTextDefaultColors: {
   [color in ButtonColorVariant]?: {
-    [style in ButtonStyleVariant]?: SemanticNames
+    [style in ButtonSize]?: SemanticNames
   }
 } = {
   [ButtonColorVariant.Monochrome]: {
-    [ButtonStyleVariant.Secondary]: 'txt-black-darker',
-    [ButtonStyleVariant.Tertiary]: 'txt-black-dark',
-    [ButtonStyleVariant.Floating]: 'txt-black-dark',
+    [ButtonSize.S]: 'txt-black-darker',
+    [ButtonSize.XS]: 'txt-black-darker',
+  },
+}
+
+const monochromeIconAndSpinnerDefaultColors: {
+  [color in ButtonColorVariant]?: {
+    [style in ButtonSize]?: SemanticNames
+  }
+} = {
+  [ButtonColorVariant.Monochrome]: {
+    [ButtonSize.XL]: 'txt-black-darker',
+    [ButtonSize.L]: 'txt-black-darker',
+    [ButtonSize.M]: 'txt-black-darker',
+    [ButtonSize.S]: 'txt-black-dark',
+    [ButtonSize.XS]: 'txt-black-dark',
   },
 }
 
@@ -134,13 +147,24 @@ function Button(
     }
   }, [size])
 
+  const overridedTextColor = useMemo(() => (
+    (active || isHovered)
+      ? undefined
+      : monochromeTextDefaultColors[colorVariant]?.[size]
+  ), [
+    colorVariant,
+    size,
+    active,
+    isHovered,
+  ])
+
   const overridedIconAndSpinnerColor = useMemo(() => (
     (active || isHovered)
       ? undefined
-      : monochromeIconAndSpinnerDefaultColors[colorVariant]?.[styleVariant]
+      : monochromeIconAndSpinnerDefaultColors[colorVariant]?.[size]
   ), [
     colorVariant,
-    styleVariant,
+    size,
     active,
     isHovered,
   ])
@@ -204,6 +228,7 @@ function Button(
             testId={BUTTON_TEXT_TEST_ID}
             typo={typography}
             bold
+            color={overridedTextColor}
             marginRight={textMargin}
             marginLeft={textMargin}
           >
