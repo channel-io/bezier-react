@@ -23,7 +23,7 @@ exports[`Avatar test > Snapshot 1`] = `
   height: 24px;
   outline: none;
   margin: 0px;
-  background-color: #FFFFFFE6;
+  background-color: #FFFFFF;
   background-image: url(https://www.google.com);
   background-size: cover;
   border-radius: 42%;
@@ -39,7 +39,7 @@ exports[`Avatar test > Snapshot 1`] = `
     box-shadow: none;
     --smooth-corners: 42%;
     --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #FFFFFFE6;
+    --smooth-corners-bg-color: #FFFFFF;
     --smooth-corners-padding: 0;
     --smooth-corners-radius-unit: string;
   }

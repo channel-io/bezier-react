@@ -19,6 +19,12 @@ const ActiveItemStyle = css`
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
+const NonActiveItemStyle = css<WrapperProps>`
+  &:hover {
+    background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
+  }
+`
+
 export const GroupItemWrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
@@ -32,13 +38,9 @@ export const GroupItemWrapper = styled.div<WrapperProps>`
   cursor: pointer;
   border-radius: 6px;
 
-  &:hover {
-    background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
-  }
-
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
 
-  ${props => (props.active && ActiveItemStyle)}
+  ${({ active }) => (active ? ActiveItemStyle : NonActiveItemStyle)}
 
   ${({ interpolation }) => interpolation}
 `
