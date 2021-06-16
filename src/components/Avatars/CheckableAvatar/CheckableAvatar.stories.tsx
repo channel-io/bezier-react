@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from '../../../foundation'
 import { getTitle } from '../../../utils/storyUtils'
-import { AvatarSize } from '../Avatar'
+import { Avatar, AvatarSize } from '../Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import CheckableAvatar from './CheckableAvatar'
 
@@ -86,7 +86,9 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<CheckableAvatarProps> = (args) => {
+type CheckableAvatarPropsWithAdditionalAvatar = CheckableAvatarProps & { withAdditionalAvatar: boolean }
+
+const Template: Story<CheckableAvatarPropsWithAdditionalAvatar> = ({ withAdditionalAvatar, ...args }) => {
   const [checked, setChecked] = useState(false)
 
   const handleClick = useCallback(() => {
@@ -99,12 +101,21 @@ const Template: Story<CheckableAvatarProps> = (args) => {
         {...args}
         isChecked={checked}
         onClick={handleClick}
-      />
+      >
+        { withAdditionalAvatar && (
+          <Avatar
+            size={AvatarSize.Size20}
+            avatarUrl={args.avatarUrl}
+            name="additionalAvatar"
+            showBorder
+          />
+        ) }
+      </CheckableAvatar>
     </Wrapper>
   )
 }
 
-export const Primary: Story<CheckableAvatarProps> = Template.bind({})
+export const Primary: Story<CheckableAvatarPropsWithAdditionalAvatar> = Template.bind({})
 Primary.args = {
   avatarUrl: MOCK_AVATAR_URL,
   name: 'Channel',
@@ -114,6 +125,7 @@ Primary.args = {
   isChecked: false,
   isCheckable: true,
   checkedBackgroundColor: undefined,
+  withAdditionalAvatar: false,
 }
 
 const List = styled.li`
