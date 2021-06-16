@@ -5,7 +5,7 @@ import { Icon, IconSize } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
 import { AvatarImage } from '../Avatar/Avatar.styled'
-import { WithInterpolation } from '../../../types/InjectedInterpolation'
+import { InjectedInterpolation, WithInterpolation } from '../../../types/InjectedInterpolation'
 
 const BASE_ICON_SIZE = IconSize.S
 const BASE_WRAPPER_SIZE = AvatarSize.Size42
@@ -14,7 +14,6 @@ const CHECK_ICON_SIZE_PERCENTAGE = (BASE_ICON_SIZE / BASE_WRAPPER_SIZE) * 100
 interface CheckableAvatarWrapperProps extends WithInterpolation {
   isChecked: boolean
   isCheckable: boolean
-  checkedBackgroundColor: SemanticNames
 }
 
 export const CheckIcon = styled(Icon)`
@@ -30,22 +29,14 @@ const getBackgroundColor = (isChecked: boolean, checkedBackgroundColor: Semantic
   foundation?.theme?.[isChecked ? checkedBackgroundColor : 'bg-grey-dark']
 
 /* eslint-disable @typescript-eslint/indent */
-const getCheckableStyle = (isChecked: boolean, isCheckable: boolean, checkedBackgroundColor: SemanticNames) =>
-  (!isCheckable
-  ? css`
-    cursor: not-allowed;
-  `
-  : css`
-    cursor: pointer;
-
-    ${CheckIcon} {
-      opacity: ${isChecked ? 1 : 0};
-      will-change: opacity;
-
-      ${({ foundation }) => foundation?.transition.getTransitionsCSS('opacity')}
-    }
-
-    ${AvatarImage}::before {
+export const getAvatarImageStyle = (
+  isChecked: boolean,
+  isCheckable: boolean,
+  checkedBackgroundColor: SemanticNames,
+  interpolation?: InjectedInterpolation,
+) => css`
+  ${isCheckable && css`
+    &::before {
       display: block;
       width: 100%;
       height: 100%;
@@ -65,6 +56,25 @@ const getCheckableStyle = (isChecked: boolean, isCheckable: boolean, checkedBack
         borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
       })};
     }
+  `}
+
+  ${interpolation}
+`
+
+const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
+  (!isCheckable
+  ? css`
+    cursor: not-allowed;
+  `
+  : css`
+    cursor: pointer;
+
+    ${CheckIcon} {
+      opacity: ${isChecked ? 1 : 0};
+      will-change: opacity;
+
+      ${({ foundation }) => foundation?.transition.getTransitionsCSS('opacity')}
+    }
 
     &:hover ${CheckIcon},
     &:hover ${AvatarImage}::before {
@@ -80,7 +90,7 @@ export const CheckableAvatarWrapper = styled.div<CheckableAvatarWrapperProps>`
   justify-content: center;
   user-select: none;
 
-  ${({ isChecked, isCheckable, checkedBackgroundColor }) => getCheckableStyle(isChecked, isCheckable, checkedBackgroundColor)}
+  ${({ isChecked, isCheckable }) => getCheckableStyle(isChecked, isCheckable)}
 
   ${({ interpolation }) => interpolation}
 `
