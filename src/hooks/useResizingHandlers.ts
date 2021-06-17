@@ -45,10 +45,14 @@ export default function useResizingHandlers() {
       if (resultWidth <= maxWidth) {
         const widthChangeTarget = columnRefs[currentKey.current].target
 
+        const isMovingInitial = initialKey.current === currentKey.current
+
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`
 
-          onChangeWidth(resultWidth)
+          if (isMovingInitial) {
+            onChangeWidth(resultWidth)
+          }
         })
       }
 
@@ -71,10 +75,14 @@ export default function useResizingHandlers() {
       if (resultWidth <= maxWidth) {
         const widthChangeTarget = target
 
+        const isMovingInitial = initialKey.current === currentKey.current
+
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`
 
-          onChangeWidth(resultWidth)
+          if (isMovingInitial) {
+            onChangeWidth(resultWidth)
+          }
         })
       }
 
