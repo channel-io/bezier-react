@@ -151,31 +151,47 @@ function Overlay(
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
-  const overlay = useMemo(() => {
-    const content = (
-      <Styled.Overlay
-        as={as}
-        ref={mergedRef}
-        className={className}
-        show={shouldShow}
-        withTransition={withTransition}
-        style={style}
-        data-testid={testId}
-        containerRect={containerRect()}
-        targetRect={targetRect()}
-        overlay={overlayRef.current}
-        position={position}
-        marginX={marginX}
-        marginY={marginY}
-        keepInContainer={keepInContainer}
-        onTransitionEnd={handleTransitionEnd}
-      >
-        { children }
-      </Styled.Overlay>
-    )
+  const Content = useMemo(() => (
+    <Styled.Overlay
+      as={as}
+      ref={mergedRef}
+      className={className}
+      show={shouldShow}
+      withTransition={withTransition}
+      style={style}
+      data-testid={testId}
+      containerRect={containerRect()}
+      targetRect={targetRect()}
+      overlay={overlayRef.current}
+      position={position}
+      marginX={marginX}
+      marginY={marginY}
+      keepInContainer={keepInContainer}
+      onTransitionEnd={handleTransitionEnd}
+    >
+      { children }
+    </Styled.Overlay>
+  ), [
+    as,
+    children,
+    className,
+    containerRect,
+    handleTransitionEnd,
+    keepInContainer,
+    marginX,
+    marginY,
+    mergedRef,
+    position,
+    shouldShow,
+    style,
+    targetRect,
+    testId,
+    withTransition,
+  ])
 
+  const overlay = useMemo(() => {
     if (container) {
-      return content
+      return Content
     }
 
     return (
@@ -187,32 +203,18 @@ function Overlay(
         data-testid={containerTestId}
       >
         <Styled.DefaultWrapper data-testid={wrapperTestId}>
-          { content }
+          { Content }
         </Styled.DefaultWrapper>
       </Styled.DefaultContainer>
     )
   }, [
-    as,
-    mergedRef,
-    className,
-    shouldShow,
-    withTransition,
-    style,
-    testId,
-    containerRect,
-    targetRect,
-    position,
-    marginX,
-    marginY,
-    keepInContainer,
-    handleTransitionEnd,
-    children,
     container,
     containerClassName,
     show,
     containerStyle,
     containerTestId,
     wrapperTestId,
+    Content,
   ])
 
   /**
