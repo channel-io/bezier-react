@@ -151,30 +151,65 @@ function Overlay(
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
-  const OverlayContainer = useMemo(() => {
+  const overlay = useMemo(() => {
+    const content = (
+      <Styled.Overlay
+        as={as}
+        ref={mergedRef}
+        className={className}
+        show={shouldShow}
+        withTransition={withTransition}
+        style={style}
+        data-testid={testId}
+        containerRect={containerRect()}
+        targetRect={targetRect()}
+        overlay={overlayRef.current}
+        position={position}
+        marginX={marginX}
+        marginY={marginY}
+        keepInContainer={keepInContainer}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        { children }
+      </Styled.Overlay>
+    )
+
     if (container) {
-      return ({ children: _children }: { children: React.ReactNode }) => (
-        <>{ _children }</>
-      )
+      return content
     }
 
-    return ({ children: _children, show: _show }: { children: React.ReactNode, show: boolean }) => (
+    return (
       <Styled.DefaultContainer
         ref={containerRef}
         className={containerClassName}
-        show={_show}
+        show={show}
         style={containerStyle}
         data-testid={containerTestId}
       >
         <Styled.DefaultWrapper data-testid={wrapperTestId}>
-          { _children }
+          { content }
         </Styled.DefaultWrapper>
       </Styled.DefaultContainer>
     )
   }, [
-    containerRef,
+    as,
+    mergedRef,
+    className,
+    shouldShow,
+    withTransition,
+    style,
+    testId,
+    containerRect,
+    targetRect,
+    position,
+    marginX,
+    marginY,
+    keepInContainer,
+    handleTransitionEnd,
+    children,
     container,
     containerClassName,
+    show,
     containerStyle,
     containerTestId,
     wrapperTestId,
@@ -221,27 +256,7 @@ function Overlay(
   if (!shouldRender) { return null }
 
   return ReactDOM.createPortal(
-    <OverlayContainer show={show}>
-      <Styled.Overlay
-        as={as}
-        ref={mergedRef}
-        className={className}
-        show={shouldShow}
-        withTransition={withTransition}
-        style={style}
-        data-testid={testId}
-        containerRect={containerRect()}
-        targetRect={targetRect()}
-        overlay={overlayRef.current}
-        position={position}
-        marginX={marginX}
-        marginY={marginY}
-        keepInContainer={keepInContainer}
-        onTransitionEnd={handleTransitionEnd}
-      >
-        { children }
-      </Styled.Overlay>
-    </OverlayContainer>,
+    overlay,
     container || getRootElement() as HTMLElement,
   )
 }
