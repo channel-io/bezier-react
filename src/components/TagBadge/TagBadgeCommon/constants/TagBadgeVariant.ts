@@ -1,6 +1,3 @@
-/* Internal dependneices */
-import { SemanticNames } from '../../../../foundation/Colors/Theme'
-
 enum TagBadgeVariant {
   Default = 'Default',
   MonochromeLight = 'MonochromeLight',
@@ -18,7 +15,7 @@ enum TagBadgeVariant {
   Purple = 'Purple',
 }
 
-export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: SemanticNames } = {
+export const TagBadgeBgColorPreset = {
   [TagBadgeVariant.Default]: 'bg-black-lighter',
   [TagBadgeVariant.MonochromeLight]: 'bg-black-lighter',
   [TagBadgeVariant.MonochromeDark]: 'bg-black-darkest',
@@ -33,9 +30,9 @@ export const TagBadgeBgColorPreset: { [T in TagBadgeVariant]: SemanticNames } = 
   [TagBadgeVariant.Orange]: 'bgtxt-orange-lighter',
   [TagBadgeVariant.Red]: 'bgtxt-red-lighter',
   [TagBadgeVariant.Purple]: 'bgtxt-purple-lighter',
-}
+} as const
 
-export const BadgeColorPreset: { [T in TagBadgeVariant]: SemanticNames } = {
+export const BadgeColorPreset = {
   [TagBadgeVariant.Default]: 'txt-black-darkest',
   [TagBadgeVariant.MonochromeLight]: 'txt-black-dark',
   [TagBadgeVariant.MonochromeDark]: 'bgtxt-absolute-white-dark',
@@ -50,6 +47,6 @@ export const BadgeColorPreset: { [T in TagBadgeVariant]: SemanticNames } = {
   [TagBadgeVariant.Orange]: 'bgtxt-orange-normal',
   [TagBadgeVariant.Red]: 'bgtxt-red-normal',
   [TagBadgeVariant.Purple]: 'bgtxt-purple-normal',
-}
+} as const
 
 export default TagBadgeVariant
