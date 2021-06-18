@@ -67,7 +67,13 @@ function NavigationContent({
 
   // NOTE: LAYOUTEFFECT를 사용하지 않으면 initial 값이 없을때 순간 깜빡임이 발생한다
   useLayoutEffect(() => {
-    dispatch(LayoutActions.addNavOption({ key: currentKey, option: layoutOption }))
+    dispatch(LayoutActions.addNavOption({
+      key: currentKey,
+      option: {
+        ...layoutOption,
+        onChangeWidth,
+      },
+    }))
 
     if (!isNil(showNavigation)) {
       dispatch(LayoutActions.setShowNavigation(showNavigation))
@@ -81,6 +87,7 @@ function NavigationContent({
     layoutOption,
     showNavigation,
     dispatch,
+    onChangeWidth,
   ])
 
   const clazzName = useMemo(() => (
@@ -149,7 +156,6 @@ function NavigationContent({
       setAllowMouseMove={setAllowMouseMove}
       isHoveringOnPresenter={isHoveringOnPresenter}
       setIsHoveringOnPresenter={setIsHoveringOnPresenter}
-      onChangeWidth={onChangeWidth}
     >
       { (header && fixedHeader) && (
         HeaderElement
