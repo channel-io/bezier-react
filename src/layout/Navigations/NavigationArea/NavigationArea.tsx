@@ -46,7 +46,6 @@ function NavigationArea(
     setShowChevron,
     isHoveringOnPresenter,
     setIsHoveringOnPresenter,
-    onChangeWidth,
     children,
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -103,13 +102,12 @@ function NavigationArea(
 
     window.requestAnimationFrame!(() => {
       if (!allowMouseMove) { return }
-      handleResizing(event, onChangeWidth)
+      handleResizing(event)
     })
   }, [
     disableResize,
     allowMouseMove,
     handleResizing,
-    onChangeWidth,
   ])
 
   useEventHandler(resizeBarRef, 'mousedown', handleMouseDown)

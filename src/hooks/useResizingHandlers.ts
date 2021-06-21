@@ -31,7 +31,7 @@ export default function useResizingHandlers() {
     initialPosition.current = event.clientX
   }, [columnRefs])
 
-  const handleResizing = useCallback((event: HTMLElementEventMap['mousemove'], onChangeWidth: (width: number) => void = noop) => {
+  const handleResizing = useCallback((event: HTMLElementEventMap['mousemove']) => {
     let movedPosition = event.clientX - initialPosition.current
     currentKey.current = initialKey.current
 
@@ -44,6 +44,7 @@ export default function useResizingHandlers() {
 
       if (resultWidth <= maxWidth) {
         const widthChangeTarget = columnRefs[currentKey.current].target
+        const onChangeWidth = columnStates[currentKey.current]?.onChangeWidth ?? noop
 
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`
@@ -70,6 +71,7 @@ export default function useResizingHandlers() {
 
       if (resultWidth <= maxWidth) {
         const widthChangeTarget = target
+        const onChangeWidth = columnStates[currentKey.current]?.onChangeWidth ?? noop
 
         window.requestAnimationFrame!(() => {
           widthChangeTarget.style.width = `${resultWidth}px`

@@ -18,6 +18,7 @@ export interface ColumnState {
   minWidth: number
   hidable?: boolean
   disableResize?: boolean
+  onChangeWidth?: (width: number) => void
 }
 
 type SetShowSideActionPayload = {
