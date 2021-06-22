@@ -9,11 +9,13 @@ import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './Checka
 // TODO: 테스트 코드 작성
 const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 
+const CHECKED_DEFAULT_SEMANTIC_COLOR = 'bgtxt-green-normal'
+
 function CheckableAvatar({
   size = AvatarSize.Size24,
   isChecked = false,
   isCheckable = true,
-  checkedBackgroundColor = 'bgtxt-green-normal',
+  checkedBackgroundColor = CHECKED_DEFAULT_SEMANTIC_COLOR,
   checkableWrapperClassName,
   checkableWrapperInterpolation,
   interpolation,
