@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { Avatar } from '../Avatar'
+import { Avatar, AvatarSize } from '../Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './CheckableAvatar.styled'
 
@@ -10,6 +10,7 @@ import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './Checka
 const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 
 function CheckableAvatar({
+  size = AvatarSize.Size24,
   isChecked = false,
   isCheckable = true,
   checkedBackgroundColor = 'bgtxt-green-normal',
@@ -29,10 +30,12 @@ function CheckableAvatar({
     >
       <CheckIcon
         name="check"
+        avatarSize={size}
         color="bgtxt-absolute-white-normal"
       />
       <Avatar
         {...props}
+        size={size}
         interpolation={getAvatarImageStyle(isChecked, isCheckable, checkedBackgroundColor, interpolation)}
       >
         { children }
