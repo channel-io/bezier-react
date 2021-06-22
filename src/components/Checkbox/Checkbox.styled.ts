@@ -25,8 +25,9 @@ function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
 
 const checkerBase = css<StyledCheckerProps>`
   background-color:
-    ${({ foundation, checkStatus }) =>
-    (isTrueOrPartial(checkStatus) ? foundation?.theme?.['bgtxt-green-normal'] : '')};
+    ${({ foundation, checkStatus }) => (isTrueOrPartial(checkStatus)
+    ? foundation?.theme?.['bgtxt-green-normal']
+    : foundation?.theme?.['bg-white-normal'])};
   border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'transparent' : '')};
 
   &::after {
