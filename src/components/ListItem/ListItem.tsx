@@ -167,8 +167,8 @@ forwardedRef: React.Ref<ListItemRef>,
 
   const titleComponent = useMemo(() => (
     <TitleWrapper className={contentClassName}>
-      <Title>
-        { isString(content) ? (
+      { isString(content) ? (
+        <Title>
           <Text
             typo={size === ListItemSize.XL
               ? Typography.Size18
@@ -176,8 +176,8 @@ forwardedRef: React.Ref<ListItemRef>,
           >
             { content }
           </Text>
-        ) : content }
-      </Title>
+        </Title>
+      ) : content }
     </TitleWrapper>
   ), [
     content,
