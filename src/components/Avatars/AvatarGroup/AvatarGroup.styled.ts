@@ -17,7 +17,6 @@ export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
   position: relative;
   display: flex;
   align-items: center;
-  width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 
