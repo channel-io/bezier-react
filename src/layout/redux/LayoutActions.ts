@@ -21,11 +21,6 @@ export interface ColumnState {
   onChangeWidth?: (width: number) => void
 }
 
-type SetShowSideActionPayload = {
-  showSideView?: boolean
-  showSidePanel?: boolean
-}
-
 type AddNavOptionActionPayload = {
   key: string
   option: ColumnState
@@ -48,11 +43,10 @@ type RemoveColumnRefActionPayload = {
 const actions = {
   setShowContentHeader: createAction(AT.SET_SHOW_CONTENT_HEADER)<boolean>(),
   setShowCoverableHeader: createAction(AT.SET_SHOW_COVERABLE_HEADER)<boolean>(),
-  setSideWidth: createAction(AT.SET_SIDE_WIDTH)<number>(),
-  setShowSide: createAction(AT.SET_SHOW_SIDE)<SetShowSideActionPayload>(),
-  openSideView: createAction(AT.OPEN_SIDE_VIEW)<void>(),
-  closeSideView: createAction(AT.CLOSE_SIDE_VIEW)<void>(),
+  setShowSidePanel: createAction(AT.SET_SHOW_SIDE_PANEL)<boolean>(),
+  setShowSideView: createAction(AT.SET_SHOW_SIDE_VIEW)<boolean>(),
   setShowNavigation: createAction(AT.SET_SHOW_NAVIGATION)<boolean>(),
+  setSideWidth: createAction(AT.SET_SIDE_WIDTH)<number>(),
   addNavOption: createAction(AT.ADD_NAV_OPTION)<AddNavOptionActionPayload>(),
   removeNavOption: createAction(AT.REMOVE_NAV_OPTION)<RemoveNavOptionActionPayload>(),
   clearNavOption: createAction(AT.CLEAR_NAV_OPTION)<void>(),

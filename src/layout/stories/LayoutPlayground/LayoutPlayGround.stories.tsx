@@ -1,10 +1,11 @@
 /* External dependencies */
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import useSideWidth from '../../../hooks/useSideWidth'
+import useSidePanelHandler from '../../../hooks/useSidePanelHandler'
 import { getTitle } from '../../../utils/storyUtils'
 import { styled, Typography } from '../../../foundation'
 import { Icon, IconSize } from '../../../components/Icon'
@@ -70,6 +71,16 @@ enum RouteKeys {
 
 function TeamChatSidePanel({ onChangeWidth }) {
   useSideWidth(332)
+  const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
+
+  useEffect(function showSidePanelLayout() {
+    handleOpenSidePanel()
+
+    return function cleanup() {
+      handleCloseSidePanel()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <SidePanelContent
@@ -84,6 +95,16 @@ function TeamChatSidePanel({ onChangeWidth }) {
 
 function UserChatSidePanel({ onChangeWidth }) {
   useSideWidth(332)
+  const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
+
+  useEffect(function showSidePanelLayout() {
+    handleOpenSidePanel()
+
+    return function cleanup() {
+      handleCloseSidePanel()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <SidePanelContent

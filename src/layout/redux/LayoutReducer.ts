@@ -51,31 +51,24 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTy
       }
     }
 
+    case AT.SET_SHOW_SIDE_PANEL: {
+      return {
+        ...state,
+        showSidePanel: action.payload,
+      }
+    }
+
+    case AT.SET_SHOW_SIDE_VIEW: {
+      return {
+        ...state,
+        showSideView: action.payload,
+      }
+    }
+
     case AT.SET_SIDE_WIDTH: {
       return {
         ...state,
         sideWidth: action.payload,
-      }
-    }
-
-    case AT.SET_SHOW_SIDE: {
-      return {
-        ...state,
-        ...action.payload,
-      }
-    }
-
-    case AT.OPEN_SIDE_VIEW: {
-      return {
-        ...state,
-        showSideView: true,
-      }
-    }
-
-    case AT.CLOSE_SIDE_VIEW: {
-      return {
-        ...state,
-        showSideView: false,
       }
     }
 
