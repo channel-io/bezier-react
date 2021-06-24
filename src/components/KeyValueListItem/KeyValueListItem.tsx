@@ -134,7 +134,7 @@ function KeyValueListItem(
         <Styled.KeyContentWrapper
           interpolation={keyWrapperInterpolation}
         >
-          { isNumberString() ? (
+          { isNumberString(keyContent) ? (
             <Styled.KeyText bold typo={Typography.Size12}>
               { keyContent }
             </Styled.KeyText>
