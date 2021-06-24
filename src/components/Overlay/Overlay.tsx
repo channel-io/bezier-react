@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, {
+  useReducer,
   useState,
   useMemo,
   useRef,
@@ -7,6 +8,7 @@ import React, {
   useEffect,
   Ref,
   forwardRef,
+  useImperativeHandle,
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
@@ -18,7 +20,6 @@ import {
   getRootElement,
 } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
-import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
   OverlayPosition,
   ContainerRectAttr,
@@ -63,15 +64,20 @@ function Overlay(
   // NOTE: 화면에 실제 표현해야 하는지 여부를 결정하는 state
   const [shouldShow, setShouldShow] = useState(false)
 
+  const [dummy, forceUpdate] = useReducer(x => !x, true)
+
   const overlayRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
   const handleTransitionEnd = useCallback(() => {
     if (!show) {
       setShouldRender(false)
     }
   }, [show])
+
+  const handleOverlayForceUpdate = useCallback(() => {
+    forceUpdate()
+  }, [])
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
@@ -147,6 +153,11 @@ function Overlay(
     children,
   ])
 
+  useImperativeHandle(forwardedRef, () => ({
+    overlayRef,
+    onForceUpdate: handleOverlayForceUpdate,
+  }))
+
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
@@ -154,7 +165,7 @@ function Overlay(
   const Content = useMemo(() => (
     <Styled.Overlay
       as={as}
-      ref={mergedRef}
+      ref={overlayRef}
       className={className}
       show={shouldShow}
       withTransition={withTransition}
@@ -171,6 +182,7 @@ function Overlay(
     >
       { children }
     </Styled.Overlay>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   ), [
     as,
     children,
@@ -180,13 +192,13 @@ function Overlay(
     keepInContainer,
     marginX,
     marginY,
-    mergedRef,
     position,
     shouldShow,
     style,
     targetRect,
     testId,
     withTransition,
+    dummy,
   ])
 
   const overlay = useMemo(() => {
@@ -215,6 +227,13 @@ function Overlay(
     containerTestId,
     wrapperTestId,
     Content,
+  ])
+
+  useEffect(() => {
+    handleOverlayForceUpdate()
+  }, [
+    children,
+    handleOverlayForceUpdate,
   ])
 
   /**
