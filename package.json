@@ -31,7 +31,8 @@
     "prepublishOnly": "npm run build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "prepare": "husky install",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "update-snapshot": "jest --updateSnapshot"
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
