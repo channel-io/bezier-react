@@ -55,6 +55,7 @@ export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
 export type { default as InjectedInterpolation } from './types/InjectedInterpolation'
 export type { WithInterpolation } from './types/InjectedInterpolation'
+export type { DispatchHandlerSuccess } from './types/NamedPrimitive'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from './types/LayoutHeaderType'
@@ -63,7 +64,8 @@ export { default as LayoutHeaderType } from './types/LayoutHeaderType'
 export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
 export { default as useLayoutState } from './hooks/useLayoutState'
 export { default as useSideWidth } from './hooks/useSideWidth'
-export { default as useSideView } from './hooks/useSideView'
+export { default as useSidePanelHandler } from './hooks/useSidePanelHandler'
+export { default as useSideViewHandler } from './hooks/useSideViewHandler'
 export { default as useHeader } from './hooks/useHeader'
 export { default as useToast } from './hooks/useToast'
 

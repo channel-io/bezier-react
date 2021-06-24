@@ -4,7 +4,7 @@ import React, { useCallback } from 'react'
 /* Internal dependencies */
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useLayoutState from '../../../hooks/useLayoutState'
-import useSideView from '../../../hooks/useSideView'
+import useSideViewHandler from '../../../hooks/useSideViewHandler'
 import { styled } from '../../../foundation'
 import { Text } from '../../../components/Text'
 import LayoutActions from '../../redux/LayoutActions'
@@ -30,7 +30,7 @@ function Content() {
     showSidePanel,
   } = useLayoutState()
 
-  const [handleOpenSideView, handleCloseSideView] = useSideView()
+  const [handleOpenSideView, handleCloseSideView] = useSideViewHandler()
 
   const handleToggleNavigation = useCallback(() => {
     dispatch(LayoutActions.setShowNavigation(!showNavigation))
