@@ -37,9 +37,11 @@ function HeaderArea(
       <ContentHeader>
         <ContentHeaderComponent />
       </ContentHeader>
-      <CoverableHeader>
-        <CoverableHeaderComponent />
-      </CoverableHeader>
+      { CoverableHeaderComponent && (
+        <CoverableHeader>
+          <CoverableHeaderComponent />
+        </CoverableHeader>
+      ) }
     </HeaderWrapper>
   )
 }
