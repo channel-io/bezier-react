@@ -16,6 +16,7 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
+import { isNumberString } from '../../utils/stringUtils'
 import { Typography } from '../../foundation'
 import { isIconName } from '../Icon/util'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
@@ -133,9 +134,11 @@ function KeyValueListItem(
         <Styled.KeyContentWrapper
           interpolation={keyWrapperInterpolation}
         >
-          <Styled.KeyText bold typo={Typography.Size12}>
-            { keyContent }
-          </Styled.KeyText>
+          { isNumberString() ? (
+            <Styled.KeyText bold typo={Typography.Size12}>
+              { keyContent }
+            </Styled.KeyText>
+          ) : keyContent }
         </Styled.KeyContentWrapper>
 
         { !multiline && ValueComponent }
