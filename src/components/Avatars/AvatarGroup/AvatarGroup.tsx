@@ -110,7 +110,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
               <Icon
                 size={getProperIconSize(size)}
                 name="more"
-                color="bgtxt-absolute-white-normal"
+                color="bgtxt-absolute-white-dark"
               />
             </AvatarEllipsisIcon>
             { renderAvatarElement(avatar) }
