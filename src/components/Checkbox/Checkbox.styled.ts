@@ -13,10 +13,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   align-items: center;
   cursor: pointer;
 
-  ${props => (props.disabled
-    ? 'cursor: not-allowed;'
-    : ''
-  )}
+  ${props => (props.disabled && css`
+    cursor: not-allowed;
+  `)}
 `
 
 function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
@@ -28,7 +27,7 @@ const checkerBase = css<StyledCheckerProps>`
     ${({ foundation, checkStatus }) => (isTrueOrPartial(checkStatus)
     ? foundation?.theme?.['bgtxt-green-normal']
     : foundation?.theme?.['bg-white-normal'])};
-  border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) ? 'transparent' : '')};
+  border-color: ${({ checkStatus }) => (isTrueOrPartial(checkStatus) && 'transparent')};
 
   &::after {
     ${absoluteCenter`translateY(-13%) rotate(42deg)`}
@@ -48,7 +47,7 @@ const checkerBase = css<StyledCheckerProps>`
   &:hover {
     background-color:
       ${({ foundation, disabled, checkStatus }) =>
-    ((!disabled && isTrueOrPartial(checkStatus)) ? foundation?.theme?.['bgtxt-green-dark'] : '')};
+    ((!disabled && isTrueOrPartial(checkStatus)) && foundation?.theme?.['bgtxt-green-dark'])};
   }
 `
 
@@ -81,6 +80,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   min-height: ${CHECKER_BOX_SIZE}px;
   font-size: 10px;
   color: transparent;
+
   ${({ foundation }) =>
     foundation
       ?.border
@@ -89,19 +89,19 @@ export const Checker = styled.div<StyledCheckerProps>`
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 
-  ${({ foundation, disabled }) => (!disabled ? `
+  ${({ foundation, disabled }) => (!disabled && css`
     &:hover {
       &::after {
         border-color: ${foundation?.theme?.['bdr-black-light']};
       }
     }
-  ` : '')}
+  `)};
 
-  ${checkerBase}
+  ${checkerBase};
 
-  ${({ checkStatus }) => (checkStatus === CheckType.Partial ? partialChecked : '')}
+  ${({ checkStatus }) => (checkStatus === CheckType.Partial && partialChecked)};
 
-  ${({ disabled }) => (disabled ? disabledStyle : '')}
+  ${({ disabled }) => (disabled && disabledStyle)};
 `
 
 export const Content = styled.div<StyledContentProps>`
