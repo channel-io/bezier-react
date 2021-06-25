@@ -63,6 +63,7 @@ function AvatarGroup({
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
   ellipsisInterpolation,
+  className,
   children,
 }: AvatarGroupProps,
 forwardedRef: React.Ref<HTMLDivElement>,
@@ -159,6 +160,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   return (
     <StyledAvatarGroup
+      className={className}
       data-testid={AVATAR_GROUP_TEST_ID}
       ref={forwardedRef}
       spacing={spacing}
