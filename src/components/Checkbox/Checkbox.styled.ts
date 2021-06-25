@@ -78,6 +78,7 @@ export const Checker = styled.div<StyledCheckerProps>`
   min-width: ${CHECKER_BOX_SIZE}px;
   height: ${CHECKER_BOX_SIZE}px;
   min-height: ${CHECKER_BOX_SIZE}px;
+  margin: 1px;
   font-size: 10px;
   color: transparent;
 
