@@ -85,7 +85,8 @@ export const Checker = styled.div<StyledCheckerProps>`
     foundation
       ?.border
       ?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bdr-black-light'])};
-  border-radius: 4px;
+
+  border-radius: ${({ foundation }) => foundation?.rounding.round4};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 
