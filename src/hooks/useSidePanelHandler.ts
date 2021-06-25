@@ -1,8 +1,8 @@
 /* External dependencies */
 import { useCallback } from 'react'
-import { LayoutActions } from '../layout/redux'
 
 /* Internal dependencies */
+import { LayoutActions } from '../layout/redux'
 import useLayoutDispatch from './useLayoutDispatch'
 import useLayoutState from './useLayoutState'
 
@@ -17,5 +17,5 @@ export default function useSidePanelHandler() {
     showSidePanel,
     handleOpenSidePanel,
     handleCloseSidePanel,
-  ] as [boolean, () => void, () => void]
+  ] as const
 }
