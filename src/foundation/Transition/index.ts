@@ -2,9 +2,9 @@
 import { css } from '../FoundationStyledComponent'
 
 export enum TransitionDuration {
-  S = '150ms',
-  M = '300ms',
-  L = '500ms',
+  S = 150,
+  M = 300,
+  L = 500,
 }
 
 const TransitionEasing = 'cubic-bezier(.3,0,0,1)'
@@ -22,7 +22,7 @@ function getTransitionsCSS(
 
   return css`
     transition-property: ${properties};
-    transition-duration: ${duration};
+    transition-duration: ${duration}ms;
     transition-timing-function: ${TransitionEasing};
     transition-delay: ${delay}ms;
   `
