@@ -70,7 +70,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
     React.cloneElement(avatar, {
-      key: `${avatar.props.name}-${avatar.props.avatarUrl}`,
+      key: avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`,
       size,
       showBorder: avatar.props.showBorder || spacing < 0,
     })
