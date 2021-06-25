@@ -5,19 +5,36 @@ import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '.
 import { Text, TextProps } from '../../Text'
 import { AvatarSize } from '../Avatar/Avatar.types'
 
+interface AvatarSizeProps {
+  size: AvatarSize
+}
+
 interface AvatarGroupProps {
   spacing: number
 }
 
-interface AvatarEllipsisCountProps extends TextProps, WithInterpolation {
-  size: AvatarSize
+interface AvatarEllipsisCountWrapperProps extends AvatarSizeProps, AvatarGroupProps { }
+
+interface AvatarEllipsisCountProps extends AvatarSizeProps, TextProps, WithInterpolation { }
+
+// TODO: 올바른 페어의 패딩 사이즈를 지정해줘야함
+function getProperEllipsisCountPaddingRight(avatarSize: AvatarSize) {
+  return {
+    [AvatarSize.Size20]: 4,
+    [AvatarSize.Size24]: 5,
+    [AvatarSize.Size30]: 6,
+    [AvatarSize.Size36]: 6,
+    [AvatarSize.Size42]: 6,
+    [AvatarSize.Size48]: 6,
+    [AvatarSize.Size90]: 6,
+    [AvatarSize.Size120]: 6,
+  }[avatarSize]
 }
 
 export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
   position: relative;
   display: flex;
   align-items: center;
-  width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 
@@ -32,14 +49,16 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisWrapper = styled.div<WithInterpolation>`
+export const AvatarEllipsisIconWrapper = styled.div<WithInterpolation>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarEllipsisCountWrapper = styled(AvatarEllipsisWrapper)<AvatarGroupProps>`
-  ${({ spacing }) => css`
+export const AvatarEllipsisCountWrapper = styled.div<AvatarEllipsisCountWrapperProps>`
+  ${({ spacing, size }) => css`
+    padding-right: ${getProperEllipsisCountPaddingRight(size)}px;
+
     && {
       margin-left: ${spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING}px;
     }

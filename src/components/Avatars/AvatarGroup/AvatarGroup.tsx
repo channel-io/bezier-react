@@ -11,7 +11,7 @@ import { AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import {
   StyledAvatarGroup,
-  AvatarEllipsisWrapper,
+  AvatarEllipsisIconWrapper,
   AvatarEllipsisCountWrapper,
   AvatarEllipsisIcon,
   AvatarEllipsisCount,
@@ -63,13 +63,14 @@ function AvatarGroup({
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
   ellipsisInterpolation,
+  className,
   children,
 }: AvatarGroupProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
     React.cloneElement(avatar, {
-      key: `${avatar.props.name}-${avatar.props.avatarUrl}`,
+      key: avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`,
       size,
       showBorder: avatar.props.showBorder || spacing < 0,
     })
@@ -99,7 +100,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
-          <AvatarEllipsisWrapper
+          <AvatarEllipsisIconWrapper
             key="ellipsis"
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
@@ -109,11 +110,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
               <Icon
                 size={getProperIconSize(size)}
                 name="more"
-                color="bgtxt-absolute-white-normal"
+                color="bgtxt-absolute-white-dark"
               />
             </AvatarEllipsisIcon>
             { renderAvatarElement(avatar) }
-          </AvatarEllipsisWrapper>
+          </AvatarEllipsisIconWrapper>
         )
       }
 
@@ -124,6 +125,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCountWrapper
+              size={size}
               spacing={spacing}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
@@ -158,6 +160,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
   return (
     <StyledAvatarGroup
+      className={className}
       data-testid={AVATAR_GROUP_TEST_ID}
       ref={forwardedRef}
       spacing={spacing}
