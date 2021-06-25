@@ -6,7 +6,7 @@ import {
 
 export default interface MainProps extends ChildrenComponentProps, ContentComponentProps {
   ContentHeaderComponent: React.ComponentType
-  CoverableHeaderComponent: React.ComponentType
+  CoverableHeaderComponent?: React.ComponentType
   SidePanelComponent: React.ComponentType
   SideViewComponent: React.ComponentType
   onChangeSideWidth?: (width: number) => void
