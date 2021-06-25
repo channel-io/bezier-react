@@ -39,7 +39,7 @@ const checkerBase = css<StyledCheckerProps>`
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
-      foundation?.theme?.['bgtxt-absolute-white-normal'],
+      foundation?.theme?.['bgtxt-absolute-white-dark'],
       { top: false, left: false },
     )};
     ${({ foundation }) => foundation?.transition?.getTransitionsCSS('border')};
@@ -59,7 +59,7 @@ const partialChecked = css<StyledCheckerProps>`
     ${({ foundation }) =>
     foundation?.border?.getBorder(
       CHECKER_ICON_THICKNESS,
-      foundation?.theme?.['bgtxt-absolute-white-normal'],
+      foundation?.theme?.['bgtxt-absolute-white-dark'],
       { top: false, right: false, left: false },
     )};
   }
