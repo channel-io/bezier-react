@@ -8,7 +8,6 @@ import React, {
   useEffect,
   Ref,
   forwardRef,
-  useImperativeHandle,
 } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
@@ -20,6 +19,7 @@ import {
   getRootElement,
 } from '../../utils/domUtils'
 import useEventHandler from '../../hooks/useEventHandler'
+import useMergeRefs from '../../hooks/useMergeRefs'
 import OverlayProps, {
   OverlayPosition,
   ContainerRectAttr,
@@ -68,6 +68,7 @@ function Overlay(
 
   const overlayRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
   const handleTransitionEnd = useCallback(() => {
     if (!show) {
@@ -153,11 +154,6 @@ function Overlay(
     children,
   ])
 
-  useImperativeHandle(forwardedRef, () => ({
-    overlayRef,
-    onForceUpdate: handleOverlayForceUpdate,
-  }))
-
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
@@ -165,7 +161,7 @@ function Overlay(
   const Content = useMemo(() => (
     <Styled.Overlay
       as={as}
-      ref={overlayRef}
+      ref={mergedRef}
       className={className}
       show={shouldShow}
       withTransition={withTransition}
@@ -192,6 +188,7 @@ function Overlay(
     keepInContainer,
     marginX,
     marginY,
+    mergedRef,
     position,
     shouldShow,
     style,
