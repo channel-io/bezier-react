@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "1.0.0-next-v1.16",
+  "version": "1.0.0-next-v1.18",
   "description": "React components from Bezier Design System",
   "repository": {
     "type": "git",
@@ -31,7 +31,8 @@
     "prepublishOnly": "npm run build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "prepare": "husky install",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "update-snapshot": "jest --updateSnapshot"
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
