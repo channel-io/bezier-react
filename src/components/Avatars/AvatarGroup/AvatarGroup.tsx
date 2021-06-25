@@ -11,7 +11,7 @@ import { AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import {
   StyledAvatarGroup,
-  AvatarEllipsisWrapper,
+  AvatarEllipsisIconWrapper,
   AvatarEllipsisCountWrapper,
   AvatarEllipsisIcon,
   AvatarEllipsisCount,
@@ -99,7 +99,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
-          <AvatarEllipsisWrapper
+          <AvatarEllipsisIconWrapper
             key="ellipsis"
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
@@ -113,7 +113,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
               />
             </AvatarEllipsisIcon>
             { renderAvatarElement(avatar) }
-          </AvatarEllipsisWrapper>
+          </AvatarEllipsisIconWrapper>
         )
       }
 

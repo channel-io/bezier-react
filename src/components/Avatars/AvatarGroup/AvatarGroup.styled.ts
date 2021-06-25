@@ -49,7 +49,7 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisWrapper = styled.div<WithInterpolation>`
+export const AvatarEllipsisIconWrapper = styled.div<WithInterpolation>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
