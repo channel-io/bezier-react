@@ -124,6 +124,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
           >
             { renderAvatarElement(avatar) }
             <AvatarEllipsisCountWrapper
+              size={size}
               spacing={spacing}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
