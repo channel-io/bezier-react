@@ -2,17 +2,20 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { Avatar } from '../Avatar'
+import { Avatar, AvatarSize } from '../Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './CheckableAvatar.styled'
 
 // TODO: 테스트 코드 작성
 const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 
+const CHECKED_DEFAULT_SEMANTIC_COLOR = 'bgtxt-green-normal'
+
 function CheckableAvatar({
+  size = AvatarSize.Size24,
   isChecked = false,
   isCheckable = true,
-  checkedBackgroundColor = 'bgtxt-green-dark',
+  checkedBackgroundColor = CHECKED_DEFAULT_SEMANTIC_COLOR,
   checkableWrapperClassName,
   checkableWrapperInterpolation,
   interpolation,
@@ -29,10 +32,12 @@ function CheckableAvatar({
     >
       <CheckIcon
         name="check"
+        avatarSize={size}
         color="bgtxt-absolute-white-normal"
       />
       <Avatar
         {...props}
+        size={size}
         interpolation={getAvatarImageStyle(isChecked, isCheckable, checkedBackgroundColor, interpolation)}
       >
         { children }

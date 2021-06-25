@@ -1,28 +1,45 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners, Foundation, SemanticNames } from '../../../foundation'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
-import { Icon, IconSize } from '../../Icon'
+import { Icon } from '../../Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
 import { AvatarImage } from '../Avatar/Avatar.styled'
 import { InjectedInterpolation, WithInterpolation } from '../../../types/InjectedInterpolation'
-
-const BASE_ICON_SIZE = IconSize.S
-const BASE_WRAPPER_SIZE = AvatarSize.Size42
-const CHECK_ICON_SIZE_PERCENTAGE = (BASE_ICON_SIZE / BASE_WRAPPER_SIZE) * 100
 
 interface CheckableAvatarWrapperProps extends WithInterpolation {
   isChecked: boolean
   isCheckable: boolean
 }
 
-export const CheckIcon = styled(Icon)`
+interface CheckIconProps {
+  avatarSize: AvatarSize
+}
+
+const getCheckIconSize = (avatarSize: AvatarSize) => ({
+  [AvatarSize.Size20]: 14,
+  [AvatarSize.Size24]: 16,
+  [AvatarSize.Size30]: 20,
+  [AvatarSize.Size36]: 22,
+  [AvatarSize.Size42]: 24,
+  [AvatarSize.Size48]: 28,
+  [AvatarSize.Size90]: 46,
+  [AvatarSize.Size120]: 60,
+}[avatarSize])
+
+export const CheckIcon = styled(Icon)<CheckIconProps>`
   position: absolute;
   z-index: 2;
-  width: ${CHECK_ICON_SIZE_PERCENTAGE}%;
-  height: ${CHECK_ICON_SIZE_PERCENTAGE}%;
   pointer-events: none;
   opacity: 0;
+
+  ${({ avatarSize }) => {
+    const iconSize = getCheckIconSize(avatarSize)
+    return css`
+      width: ${iconSize}px;
+      height: ${iconSize}px;
+    `
+  }};
 `
 
 const getBackgroundColor = (isChecked: boolean, checkedBackgroundColor: SemanticNames, foundation?: Foundation) =>
