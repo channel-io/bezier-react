@@ -14,6 +14,7 @@ import {
   ActionContent,
   NormalContent,
   Content,
+  EllipsisableContent,
 } from './Toast.styled'
 import { getToastPreset } from './utils'
 
@@ -80,22 +81,24 @@ const ToastElement = (
         actionContent={actionContent}
         onClick={onClick}
       >
-        <Text
-          typo={Typography.Size14}
-          style={{
-            height: '18px',
-          }}
-        >
-          <NormalContent>
-            { newLineComponent }
-          </NormalContent>
-          { ' ' }
-          { actionContent && onClick && (
-            <ActionContent onClick={() => onClick()}>
-              { actionContent }
-            </ActionContent>
-          ) }
-        </Text>
+        <EllipsisableContent>
+          <Text
+            typo={Typography.Size14}
+            style={{
+              height: '18px',
+            }}
+          >
+            <NormalContent>
+              { newLineComponent }
+            </NormalContent>
+            { ' ' }
+            { actionContent && onClick && (
+              <ActionContent onClick={() => onClick()}>
+                { actionContent }
+              </ActionContent>
+            ) }
+          </Text>
+        </EllipsisableContent>
       </Content>
       <Close onClick={onDismiss}>
         <Icon
