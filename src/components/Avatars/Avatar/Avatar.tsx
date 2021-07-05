@@ -6,6 +6,7 @@ import { noop, isEmpty } from 'lodash-es'
 import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
+import { smoothCornersStyle } from '../../../foundation'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
@@ -75,11 +76,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
     >
       <AvatarImageWrapper>
         <AvatarImage
+          style={smoothCornersStyle({ imageUrl: loadedAvatarUrl })}
           className={className}
           interpolation={interpolation}
           ref={forwardedRef}
           data-testid={testId}
-          avatarUrl={loadedAvatarUrl}
           size={size}
           role="img"
           aria-label={name}

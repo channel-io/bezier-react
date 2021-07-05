@@ -24,7 +24,7 @@ exports[`Avatar test > Snapshot 1`] = `
   outline: none;
   margin: 0px;
   background-color: #FFFFFF;
-  background-image: url(https://www.google.com);
+  background-image: var(--background-image);
   background-size: cover;
   border-radius: 42%;
 }
@@ -35,7 +35,7 @@ exports[`Avatar test > Snapshot 1`] = `
     margin: 0px;
     background: paint(smooth-corners);
     border-radius: 0;
-    border-image-source: url(https://www.google.com);
+    border-image-source: var(--background-image);
     box-shadow: none;
     --smooth-corners: 42%;
     --smooth-corners-shadow: 0 0 0 0 transparent;
@@ -51,5 +51,6 @@ exports[`Avatar test > Snapshot 1`] = `
   data-testid="bezier-react-avatar"
   role="img"
   size="24"
+  style="--background-image: url(https://www.google.com);"
 />
 `;

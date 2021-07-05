@@ -2,7 +2,7 @@
 import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
+import { smoothCornersStyle, Typography } from '../../foundation'
 import { Text } from '../Text'
 import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
@@ -31,7 +31,10 @@ function Header(
     <TitleWrapper className={titleClassName}>
       { titleImageUrl && (
         <ImageWrapper>
-          <TitleImage imageUrl={titleImageUrl} imageSize={titleImageSize} />
+          <TitleImage
+            style={smoothCornersStyle({ imageUrl: titleImageUrl })}
+            imageSize={titleImageSize}
+          />
         </ImageWrapper>
       ) }
       <Text

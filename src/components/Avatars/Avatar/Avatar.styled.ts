@@ -11,7 +11,6 @@ interface AvatarWrapperProps extends WithInterpolation {
 }
 
 interface AvatarProps extends WithInterpolation {
-  avatarUrl: string
   size: AvatarSize
   showBorder: boolean
 }
@@ -57,12 +56,12 @@ export const AvatarImage = styled.div<AvatarProps>`
 
   ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
 
-  ${({ foundation, avatarUrl, showBorder }) => smoothCorners({
+  ${({ foundation, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bgtxt-absolute-white-dark']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
     backgroundColor: foundation?.theme?.['bgtxt-absolute-white-dark'],
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    backgroundImage: avatarUrl,
+    hasBackgroundImage: true,
   })};
 
   ${({ interpolation }) => interpolation}

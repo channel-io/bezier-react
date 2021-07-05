@@ -34,7 +34,6 @@ export const ActionWrapper = styled.div`
 
 interface TitleImageProps {
   imageSize: number
-  imageUrl: string
 }
 
 export const TitleImage = styled.div<TitleImageProps>`
@@ -45,15 +44,14 @@ export const TitleImage = styled.div<TitleImageProps>`
   width: ${props => props.imageSize}px;
   height: ${props => props.imageSize}px;
   background-color: white;
-  background-image: ${props => `url(${props.imageUrl})`};
   border-radius: 36%;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
 
-  ${props => smoothCorners({
+  ${smoothCorners({
     shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5)',
     backgroundColor: 'white',
-    backgroundImage: props.imageUrl,
     shadowBlur: 15,
+    hasBackgroundImage: true,
   })};
 `
