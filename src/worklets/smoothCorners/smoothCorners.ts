@@ -11,16 +11,40 @@ class SmoothCorners {
     ]
   }
 
+  constructor() {
+    this.superellipseCache = new Map()
+  }
+
   trimPX(pixel) {
     return parseInt(pixel.replace('px', ''), 10)
   }
 
-  superellipse(a, b, nX, nY) {
+  superellipse(...args) {
+    const sanitizedArgs = this.sanitizeSuperellipseArgs(...args)
+
+    const cacheKey = this.getSuperellipseCacheKey(...sanitizedArgs)
+
+    if (this.superellipseCache.has(cacheKey)) {
+      return [...this.superellipseCache.get(cacheKey)]
+    }
+
+    const result = this.computeSuperellipse(...sanitizedArgs)
+
+    this.superellipseCache.set(cacheKey, result);
+
+    return result;
+  }
+
+  sanitizeSuperellipseArgs(a, b, nX, nY) {
     if (nX > 100) nX = 100
     if (nY > 100) nY = 100
     if (nX < 0.00000000001) nX = 0.00000000001
     if (nY < 0.00000000001) nY = 0.00000000001
 
+    return [a, b, nX, nY]
+  }
+
+  computeSuperellipse(a, b, nX, nY) {
     const nX2 = 2 / nX
     const nY2 = 2 / nY
     const steps = 360
@@ -33,7 +57,12 @@ class SmoothCorners {
         y: Math.abs(sinT) ** nY2 * b * Math.sign(sinT)
       }
     }
+
     return Array.from({ length: steps + 1 }, (_, i) => points(i * step))
+  }
+
+  getSuperellipseCacheKey(a, b, nX, nY) {
+    return [a, b, nX, nY].join(':')
   }
 
   paint(ctx, geom, properties) {
