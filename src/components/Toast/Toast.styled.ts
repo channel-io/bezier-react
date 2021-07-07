@@ -65,7 +65,7 @@ export const Element = styled.div<StyledToastProps>`
   transition: ${({ foundation, transitionDuration }) =>
     foundation?.transition.getTransitionsCSS('transform', transitionDuration)};
   animation: ${({ transitionDuration, placement }) => `
-    ${transitionDuration}
+    ${transitionDuration}ms
     ${Transition.TransitionEasing}
     0s
     1
