@@ -1,5 +1,8 @@
-/* Internal dependencies */
+/* External dependencies */
+import type { CSSProperties } from 'react'
 import { isNil } from 'lodash'
+
+/* Internal dependencies */
 import { css } from './FoundationStyledComponent'
 
 export const absoluteCenter = (otherTransforms: any) => `
@@ -59,7 +62,7 @@ interface SmoothCornersOptions {
   borderRadius?: number | string
   shadow?: string
   backgroundColor?: string
-  backgroundImage?: string
+  hasBackgroundImage?: boolean
   shadowBlur?: number
   margin?: number
 }
@@ -68,15 +71,15 @@ export const smoothCorners = ({
   borderRadius = 0,
   shadow = '0 0 0 0 transparent',
   backgroundColor = 'white',
-  backgroundImage = '',
+  hasBackgroundImage = false,
   shadowBlur = 0,
   margin = 0,
 }: SmoothCornersOptions) => css`
   margin: ${margin}px;
   background-color: ${backgroundColor};
 
-  ${backgroundImage && css`
-    background-image: url(${backgroundImage});
+  ${hasBackgroundImage && css`
+    background-image: var(--background-image);
     background-size: cover;
   `}
 
@@ -90,7 +93,7 @@ export const smoothCorners = ({
     background: paint(smooth-corners);
     border-radius: 0;
     /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
-    border-image-source: url(${backgroundImage});
+    border-image-source: var(--background-image);
     box-shadow: none;
 
     --smooth-corners: ${borderRadius};
@@ -100,3 +103,12 @@ export const smoothCorners = ({
     --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
   }
 `
+
+interface SmoothCornersElementOptions {
+  imageUrl: string
+}
+
+export const smoothCornersStyle = ({ imageUrl }: SmoothCornersElementOptions): CSSProperties => ({
+  // @ts-ignore
+  '--background-image': `url(${imageUrl})`,
+})
