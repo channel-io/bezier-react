@@ -1,8 +1,5 @@
 /* Internal dependencies */
-import {
-  UIComponentProps,
-  ChildrenComponentProps,
-} from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 import CheckType from './CheckType'
 
 export default interface CheckboxProps extends ChildrenComponentProps {
@@ -11,17 +8,4 @@ export default interface CheckboxProps extends ChildrenComponentProps {
   disabled?: boolean
   checked?: boolean | CheckType
   onClick?: () => void
-}
-
-export interface StyledWrapperProps extends UIComponentProps {
-  disabled?: boolean
-}
-
-export interface StyledCheckerProps extends UIComponentProps {
-  disabled?: boolean
-  checkStatus?: CheckType
-}
-
-export interface StyledContentProps extends UIComponentProps {
-  className?: string
 }

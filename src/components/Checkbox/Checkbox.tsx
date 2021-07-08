@@ -7,7 +7,8 @@ import React, {
 import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Wrapper, Checker, Content } from './Checkbox.styled'
+import { IconSize, IconProps } from '../Icon'
+import { Wrapper, Checker, Icon, Content } from './Checkbox.styled'
 import CheckType from './CheckType'
 import type CheckboxProps from './Checkbox.types'
 
@@ -15,6 +16,11 @@ export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
 export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
 
 const checkTypeValues = values(CheckType)
+
+const checkIconCommonProps: Pick<IconProps, 'size' | 'color'> = {
+  size: IconSize.XS,
+  color: 'bgtxt-absolute-white-dark',
+}
 
 function Checkbox(
   {
@@ -36,6 +42,28 @@ function Checkbox(
     return CheckType.False
   }, [checked])
 
+  const CheckIcon = useMemo(() => {
+    switch (checkStatus) {
+      case CheckType.True:
+        return (
+          <Icon
+            name="check-bold"
+            {...checkIconCommonProps}
+          />
+        )
+      case CheckType.Partial:
+        return (
+          <Icon
+            name="hyphen-bold"
+            {...checkIconCommonProps}
+
+          />
+        )
+      default:
+        return null
+    }
+  }, [checkStatus])
+
   return (
     <Wrapper
       ref={forwardedRef}
@@ -49,8 +77,9 @@ function Checkbox(
         disabled={disabled}
         checkStatus={checkStatus}
         data-testid={checkerTestId}
-      />
-
+      >
+        { CheckIcon }
+      </Checker>
       { !isEmpty(children) ? (
         <Content className={contentClassName}>
           { children }
