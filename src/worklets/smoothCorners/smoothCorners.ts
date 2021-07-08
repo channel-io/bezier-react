@@ -140,7 +140,7 @@ class SmoothCorners {
       ctx.fill()
     }
 
-    if (backgroundImage) {
+    if (backgroundImage instanceof CSSImageValue) {
       smooth.forEach(({ x, y }, index) => {
         if (index === 0) {
           ctx.moveTo(x, y)

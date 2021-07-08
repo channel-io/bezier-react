@@ -35,8 +35,8 @@ exports[`Avatar test > Snapshot 1`] = `
     margin: 0px;
     background: paint(smooth-corners);
     border-radius: 0;
-    border-image-source: var(--background-image);
     box-shadow: none;
+    border-image-source: var(--background-image);
     --smooth-corners: 42%;
     --smooth-corners-shadow: 0 0 0 0 transparent;
     --smooth-corners-bg-color: #FFFFFF;
