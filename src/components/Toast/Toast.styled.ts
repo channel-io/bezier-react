@@ -104,6 +104,7 @@ export const EllipsisableContent = styled.div`
   ${ellipsis(5, 18)};
 
   overflow: visible;
+  word-break: break-word;
 `
 
 export const NormalContent = styled.span`
