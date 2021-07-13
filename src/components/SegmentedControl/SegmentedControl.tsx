@@ -1,11 +1,11 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useState, useEffect, useLayoutEffect, useMemo, useCallback } from 'react'
+import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
 import { noop, isNumber } from 'lodash-es'
-import { ResizeObserver, ResizeObserverEntry } from '@juggle/resize-observer'
+import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
-import useReusableForwardedRef from '../../hooks/useReusableForwardedRef'
+import useMergeRefs from '../../hooks/useMergeRefs'
 import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
@@ -27,27 +27,21 @@ function SegmentedControl(
   }: SegmentedControlProps,
   forwardedRef: Ref<any>,
 ) {
-  const wrapperRef = useReusableForwardedRef<HTMLDivElement>(forwardedRef)
-
   const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)
   const [wrapperHeight, setWrapperHeight] = useState<number>(0)
-  const [optionItemWidth, setOptionItemWidth] = useState<number>(0)
+  const [wrapperWidth, setWrapperWidth] = useState<number>(0)
 
-  const resizeObserver = useMemo(() => (
-    new ResizeObserver((entries: ResizeObserverEntry[]) => {
-      const entry = entries[0]
-      setWrapperHeight(entry.contentRect.height)
-      setOptionItemWidth(entry.contentRect.width / React.Children.count(children))
-    })
-  ), [children])
+  const numItems = useMemo(() => React.Children.count(children), [children])
+  const optionItemWidth = wrapperWidth / Math.max(1, numItems)
 
-  useLayoutEffect(() => {
-    resizeObserver.observe(wrapperRef.current!)
-    return function cleanup() {
-      resizeObserver.disconnect()
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resizeObserver])
+  const updateDimensions = useCallback((_width?: number, _height?: number) => {
+    if (isNumber(_width)) { setWrapperWidth(_width) }
+    if (isNumber(_height)) { setWrapperHeight(_height) }
+  }, [])
+
+  const { ref: resizeDetectorRef } = useResizeDetector({ onResize: updateDimensions })
+
+  const wrapperRef = useMergeRefs(resizeDetectorRef, forwardedRef)
 
   useEffect(() => {
     if (isNumber(selectedOptionIndex)) {
