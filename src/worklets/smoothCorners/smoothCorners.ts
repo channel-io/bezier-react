@@ -32,7 +32,7 @@ class SmoothCorners {
 
     this.superellipseCache.set(cacheKey, result);
 
-    return result;
+    return [...result];
   }
 
   sanitizeSuperellipseArgs(a, b, nX, nY) {
