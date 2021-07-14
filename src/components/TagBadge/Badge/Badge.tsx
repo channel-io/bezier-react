@@ -14,7 +14,7 @@ import {
   getProperTagBadgePadding,
   getProperTagBadgeRounding,
   getProperTagBadgeTypo,
-  TagBadgeStyled as Styled,
+  TagBadgeStyled,
 } from '../TagBadgeCommon'
 import BadgeProps from './Badge.types'
 
@@ -46,15 +46,15 @@ function Badge({
   ])
 
   return (
-    <Styled.Wrapper
+    <TagBadgeStyled.Wrapper
       {...props}
       className={className}
       interpolation={interpolation}
       data-testid={testId}
       horizontalPadding={getProperTagBadgePadding(size)}
       rounding={getProperTagBadgeRounding(size)}
-      bgColor={bgSemanticName}
       color={textSemanticName}
+      bgColor={bgSemanticName}
     >
       { IconComponent }
 
@@ -64,8 +64,8 @@ function Badge({
       >
         { children }
       </TagBadgeText>
-    </Styled.Wrapper>
+    </TagBadgeStyled.Wrapper>
   )
 }
 
-export default Badge
+export default React.memo(Badge)

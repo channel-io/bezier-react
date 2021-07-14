@@ -33,7 +33,7 @@ function Tag({
   testId = TAG_TEST_ID,
   ...props
 }: TagProps) {
-  const bgColor = useMemo(() => (
+  const bgSemanticName = useMemo(() => (
     givenColor || getProperTagBadgeBgColor(variant)
   ), [
     givenColor,
@@ -57,7 +57,7 @@ function Tag({
       data-testid={testId}
       horizontalPadding={getProperTagBadgePadding(size)}
       rounding={getProperTagBadgeRounding(size)}
-      bgColor={bgColor}
+      bgColor={bgSemanticName}
     >
       <TagBadgeText
         horizontalPadding={TAG_TEXT_HORIZONTAL_PADDING}
@@ -71,4 +71,4 @@ function Tag({
   )
 }
 
-export default Tag
+export default React.memo(Tag)

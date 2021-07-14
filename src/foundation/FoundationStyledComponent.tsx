@@ -134,8 +134,13 @@ const FoundationCSS: FoundationCSSInterface = function (...args) {
   return baseCSS(...args)
 }
 
+function useFoundation() {
+  return useContext(FoundationContext)
+}
+
 export {
   FoundationStyled as styled,
   FoundationCSS as css,
   FoundationProvider,
+  useFoundation,
 }
