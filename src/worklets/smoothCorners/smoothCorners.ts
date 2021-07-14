@@ -22,7 +22,7 @@ class SmoothCorners {
   superellipse(...args) {
     const sanitizedArgs = this.sanitizeSuperellipseArgs(...args)
 
-    const cacheKey = this.getSuperellipseCacheKey(...sanitizedArgs)
+    const cacheKey = this.getSuperellipseCacheKey(sanitizedArgs)
 
     if (this.superellipseCache.has(cacheKey)) {
       return [...this.superellipseCache.get(cacheKey)]
@@ -61,8 +61,8 @@ class SmoothCorners {
     return Array.from({ length: steps + 1 }, (_, i) => points(i * step))
   }
 
-  getSuperellipseCacheKey(a, b, nX, nY) {
-    return [a, b, nX, nY].join(':')
+  getSuperellipseCacheKey(args) {
+    return args.join(':')
   }
 
   paint(ctx, geom, properties) {
