@@ -8,7 +8,6 @@ interface CommonTagBadgeStyleProps extends WithInterpolation {
   rounding: ReturnType<typeof css>
   horizontalPadding: number
   color?: SemanticNames
-  bgColor: SemanticNames
 }
 
 const Wrapper = styled.div<CommonTagBadgeStyleProps>`
@@ -16,7 +15,7 @@ const Wrapper = styled.div<CommonTagBadgeStyleProps>`
   align-items: center;
   padding: ${TAGBADGE_VERTICAL_PADDING}px ${({ horizontalPadding }) => horizontalPadding}px;
   color: ${({ foundation, color = 'txt-black-darkest' }) => foundation?.theme?.[color]};
-  background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
+  background-color: var(--bgColor);
 
   ${({ rounding }) => rounding};
 

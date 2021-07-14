@@ -3,6 +3,7 @@ import React, { useMemo } from 'react'
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
+import { useFoundation } from '../../../foundation'
 import {
   TagBadgeStyled,
   TagBadgeSize,
@@ -33,7 +34,9 @@ function Tag({
   testId = TAG_TEST_ID,
   ...props
 }: TagProps) {
-  const bgColor = useMemo(() => (
+  const foundation = useFoundation()
+
+  const bgSemanticName = useMemo(() => (
     givenColor || getProperTagBadgeBgColor(variant)
   ), [
     givenColor,
@@ -57,7 +60,9 @@ function Tag({
       data-testid={testId}
       horizontalPadding={getProperTagBadgePadding(size)}
       rounding={getProperTagBadgeRounding(size)}
-      bgColor={bgColor}
+      style={{
+        '--bgColor': foundation?.theme[bgSemanticName],
+      }}
     >
       <TagBadgeText
         horizontalPadding={TAG_TEXT_HORIZONTAL_PADDING}
@@ -71,4 +76,4 @@ function Tag({
   )
 }
 
-export default Tag
+export default React.memo(Tag)
