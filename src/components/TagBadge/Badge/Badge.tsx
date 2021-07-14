@@ -2,7 +2,6 @@
 import React, { useMemo } from 'react'
 
 /* Internal dependencies */
-import { useFoundation } from '../../../foundation'
 import { Icon } from '../../Icon'
 import {
   TagBadgeText,
@@ -32,8 +31,6 @@ function Badge({
   testId = BADGE_TEST_ID,
   ...props
 }: BadgeProps) {
-  const foundation = useFoundation()
-
   const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
   const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
 
@@ -57,9 +54,7 @@ function Badge({
       horizontalPadding={getProperTagBadgePadding(size)}
       rounding={getProperTagBadgeRounding(size)}
       color={textSemanticName}
-      style={{
-        '--bgColor': foundation?.theme[bgSemanticName],
-      }}
+      bgColor={bgSemanticName}
     >
       { IconComponent }
 
