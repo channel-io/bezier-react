@@ -136,8 +136,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
-    "@juggle/resize-observer": "^3.3.0",
     "lodash-es": "^4.17.15",
+    "react-resize-detector": "^6.7.4",
     "ssr-window": "^3.0.0",
     "typesafe-actions": "^5.1.0",
     "uuid": "^8.3.2"
