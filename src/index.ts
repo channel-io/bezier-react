@@ -55,6 +55,7 @@ export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
 export type { default as InjectedInterpolation } from './types/InjectedInterpolation'
 export type { WithInterpolation } from './types/InjectedInterpolation'
+export type { WithFoundation } from './types/WithFoundation'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from './types/LayoutHeaderType'
