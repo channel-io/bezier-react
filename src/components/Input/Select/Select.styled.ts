@@ -89,7 +89,11 @@ export const MainContentWrapper = styled.div`
   align-items: center;
 `
 
-export const Dropdown = styled(Overlay)`
+interface DropdownProps {
+  interpolation?: InjectedInterpolation
+}
+
+export const Dropdown = styled(Overlay)<DropdownProps>`
   z-index: 10;
   min-width: 200px;
   min-height: 42px;
@@ -97,4 +101,6 @@ export const Dropdown = styled(Overlay)`
 
   ${({ foundation }) => foundation?.rounding?.round8};
   ${({ foundation }) => foundation?.elevation?.ev3()};
+
+  ${({ interpolation }) => interpolation}
 `

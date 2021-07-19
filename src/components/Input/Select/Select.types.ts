@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { OverlayProps } from '../../Overlay'
 import { IconName } from '../../Icon'
 
@@ -28,6 +29,7 @@ interface SelectProps extends ChildrenComponentProps {
   withoutChevron?: boolean
   dropdownContainer?: HTMLElement | null
   dropdownPosition?: OverlayProps['position']
+  dropdownInterpolation?: InjectedInterpolation
   hasError?: boolean
 }
 
