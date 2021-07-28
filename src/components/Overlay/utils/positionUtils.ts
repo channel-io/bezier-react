@@ -135,11 +135,28 @@ export function getOverlayTranslation({
       const isOverLeft = targetLeft + translateX < containerLeft
       const isOverRight = targetLeft + translateX + overlayWidth > containerLeft + containerWidth
 
-      if (isOverTop || isOverBottom) {
-        translateY = targetHeight - translateY - overlayHeight
+      const topSpace = targetTop - containerTop
+      const bottomSpace = (containerTop + containerHeight) - (targetTop + targetHeight)
+      const leftSpace = targetLeft - containerLeft
+      const rightSpace = (containerLeft + containerWidth) - (targetLeft + targetWidth)
+
+      if (isOverTop) {
+        translateY = topSpace > bottomSpace
+          ? translateY
+          : targetHeight - translateY - overlayHeight
+      } else if (isOverBottom) {
+        translateY = bottomSpace > topSpace
+          ? translateY
+          : targetHeight - translateY - overlayHeight
       }
-      if (isOverLeft || isOverRight) {
-        translateX = targetWidth - translateX - overlayWidth
+      if (isOverLeft) {
+        translateX = leftSpace > rightSpace
+          ? translateX
+          : targetWidth - translateX - overlayWidth
+      } else if (isOverRight) {
+        translateX = rightSpace > leftSpace
+          ? translateX
+          : targetWidth - translateX - overlayWidth
       }
     }
 
