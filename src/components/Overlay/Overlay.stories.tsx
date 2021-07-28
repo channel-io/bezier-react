@@ -51,26 +51,48 @@ export default {
         step: 1,
       },
     },
+    containerWidth: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 1000,
+        step: 20,
+      },
+    },
+    containerHeight: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 1000,
+        step: 20,
+      },
+    },
   },
 }
 
-const Container = styled.div`
+interface ContainerProps {
+  width?: number
+  height?: number
+}
+
+const Container = styled.div<ContainerProps>`
   position: relative;
-  width: 600px;
-  height: 500px;
-  overflow: scroll;
+  width: ${({ width }) => width ?? 600}px;
+  height: ${({ height }) => height ?? 500}px;
+  overflow: hidden;
   border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 900px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
 `
 
 const Target = styled.div`
+  position: absolute;
+  top: 200px;
+  left: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,12 +118,20 @@ const ScrollContent = styled.div`
   color: white;
 `
 
-const Template = (props) => {
+const Template = ({
+  containerWidth,
+  containerHeight,
+  ...props
+}) => {
   const targetRef = useRef<any>()
   const containerRef = useRef<any>()
 
   return (
-    <Container ref={containerRef}>
+    <Container
+      width={containerWidth}
+      height={containerHeight}
+      ref={containerRef}
+    >
       <Wrapper>
         <Target ref={targetRef}>
           target
@@ -140,6 +170,8 @@ Primary.args = {
   marginY: 0,
   keepInContainer: false,
   withTransition: false,
+  containerHeight: 500,
+  containerWidth: 600,
 }
 
 const StressTestTemplate = (props) => {
