@@ -37,6 +37,7 @@ function Select(
     style,
     className,
     interpolation,
+    dropdownInterpolation,
     size = SelectSize.M,
     disabled = false,
     defaultFocus = false,
@@ -129,6 +130,7 @@ function Select(
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
+        interpolation={dropdownInterpolation}
         onHide={handleHideDropdown}
       >
         { children }

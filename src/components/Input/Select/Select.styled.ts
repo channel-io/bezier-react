@@ -4,7 +4,7 @@ import {
   css,
 } from '../../../foundation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
+import InjectedInterpolation, { WithInterpolation } from '../../../types/InjectedInterpolation'
 import { Overlay } from '../../Overlay'
 import {
   inputWrapperStyle,
@@ -89,7 +89,9 @@ export const MainContentWrapper = styled.div`
   align-items: center;
 `
 
-export const Dropdown = styled(Overlay)`
+interface DropdownProps extends WithInterpolation {}
+
+export const Dropdown = styled(Overlay)<DropdownProps>`
   z-index: 10;
   min-width: 200px;
   min-height: 42px;
@@ -97,4 +99,6 @@ export const Dropdown = styled(Overlay)`
 
   ${({ foundation }) => foundation?.rounding?.round8};
   ${({ foundation }) => foundation?.elevation?.ev3()};
+
+  ${({ interpolation }) => interpolation}
 `
