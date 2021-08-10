@@ -21,6 +21,7 @@ const LightTheme: ThemeType = {
   'bg-black-lighter': Palette.black_5,
   'bg-black-lightest': Palette.black_3,
 
+  'bg-grey-darkest': Palette.grey900,
   'bg-grey-dark': Palette.grey500,
   'bg-grey-light': Palette.grey200,
   'bg-grey-lighter': Palette.grey100,

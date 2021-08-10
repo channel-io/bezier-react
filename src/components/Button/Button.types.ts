@@ -14,7 +14,15 @@ export enum ButtonColorVariant {
   Red = 'red',
   Green = 'green',
   Cobalt = 'cobalt',
+  Orange = 'orange',
+  Pink = 'pink',
+  Purple = 'purple',
+  /**
+   * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
+   */
   Monochrome = 'monochrome',
+  MonochromeLight = 'monochromeLight',
+  MonochromeDark = 'monochromeDark',
 }
 
 export enum ButtonSize {
