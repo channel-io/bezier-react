@@ -95,18 +95,23 @@ const getEllipsisColor = (
 )
 
 export const Content = styled.div<Pick<ToastElementProps, 'actionContent' | 'onClick'>>`
-  ${ellipsis(5, 18)};
   margin: 3px 6px;
+  overflow: hidden;
   color: ${({ actionContent, onClick, foundation }) => getEllipsisColor(actionContent, onClick, foundation)};
 `
 
-export const NormalContent = styled.div`
-  display: inline;
+export const EllipsisableContent = styled.div`
+  ${ellipsis(5, 18)};
+
+  overflow: visible;
+  word-break: break-word;
+`
+
+export const NormalContent = styled.span`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
 `
 
-export const ActionContent = styled.div`
-  display: inline;
+export const ActionContent = styled.span`
   color: ${({ foundation }) => foundation?.subTheme?.['bgtxt-cobalt-normal']};
   cursor: pointer;
 
