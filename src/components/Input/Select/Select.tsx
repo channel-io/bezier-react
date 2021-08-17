@@ -8,6 +8,7 @@ import React, {
   Ref,
   useImperativeHandle,
 } from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import {
@@ -28,6 +29,9 @@ export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
 export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
+const DEFAULT_DROPDOWN_MARGIN_Y = 6
+const DEFAULT_DROPDOWN_Z_INDEX = 10
+
 function Select(
   {
     testId = SELECT_CONTAINER_TEST_ID,
@@ -43,11 +47,19 @@ function Select(
     defaultFocus = false,
     placeholder = '',
     iconComponent,
+    iconColor = 'txt-black-dark',
     text,
+    textColor = 'txt-black-darkest',
     withoutChevron = false,
+    chevronColor = 'txt-black-darker',
     hasError = false,
     dropdownContainer,
+    dropdownMarginX,
+    dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
+    dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
     dropdownPosition = OverlayPosition.BottomLeft,
+    onClickTrigger = _.noop,
+    onHideDropdown = _.noop,
     children,
   }: SelectProps,
   forwardedRef: Ref<SelectRef>,
@@ -63,23 +75,32 @@ function Select(
         <Icon
           name={iconComponent}
           size={IconSize.XS}
+          color={iconColor}
           marginRight={6}
         />
       )
     }
 
     return iconComponent
-  }, [iconComponent])
+  }, [
+    iconComponent,
+    iconColor,
+  ])
 
-  const handleClickTrigger = useCallback(() => {
+  const handleClickTrigger = useCallback((event: React.MouseEvent) => {
     if (!disabled) {
       setIsDropdownOpened(prevState => !prevState)
+      onClickTrigger(event)
     }
-  }, [disabled])
+  }, [
+    disabled,
+    onClickTrigger,
+  ])
 
   const handleHideDropdown = useCallback(() => {
     setIsDropdownOpened(false)
-  }, [])
+    onHideDropdown()
+  }, [onHideDropdown])
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
@@ -109,14 +130,18 @@ function Select(
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
-          <Text typo={Typography.Size14}>
+          <Text
+            typo={Typography.Size14}
+            color={textColor}
+          >
             { text || placeholder }
           </Text>
         </Styled.MainContentWrapper>
         { !withoutChevron && (
           <Icon
-            name={isDropdownOpened ? 'chevron-up' : 'chevron-down'}
+            name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
             size={IconSize.XS}
+            color={chevronColor}
             marginLeft={6}
           />
         ) }
@@ -126,7 +151,9 @@ function Select(
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        marginY={6}
+        zIndex={dropdownZIndex}
+        marginX={dropdownMarginX}
+        marginY={dropdownMarginY}
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}

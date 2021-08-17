@@ -89,10 +89,12 @@ export const MainContentWrapper = styled.div`
   align-items: center;
 `
 
-interface DropdownProps extends WithInterpolation {}
+interface DropdownProps extends WithInterpolation {
+  zIndex: number
+}
 
 export const Dropdown = styled(Overlay)<DropdownProps>`
-  z-index: 10;
+  z-index: ${({ zIndex }) => zIndex};
   min-width: 200px;
   min-height: 42px;
   max-height: 640px;
