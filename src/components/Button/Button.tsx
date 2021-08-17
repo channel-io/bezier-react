@@ -5,7 +5,13 @@ import React, {
   useMemo,
   useState,
 } from 'react'
-import { noop } from 'lodash-es'
+import {
+  flattenDeep,
+  fromPairs,
+  isArray,
+  noop,
+  values,
+} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -33,29 +39,72 @@ import * as Styled from './Button.styled'
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
-const monochromeTextDefaultColors: {
-  [color in ButtonColorVariant]?: {
-    [style in ButtonSize]?: SemanticNames
-  }
-} = {
-  [ButtonColorVariant.Monochrome]: {
-    [ButtonSize.S]: 'txt-black-darker',
-    [ButtonSize.XS]: 'txt-black-darker',
-  },
+type VariantTuple = `${ButtonColorVariant},${ButtonStyleVariant},${ButtonSize}`
+
+function tupleKey(...[colorVariant, styleVariant, size]: [ButtonColorVariant, ButtonStyleVariant, ButtonSize]): VariantTuple {
+  return `${colorVariant},${styleVariant},${size}` as const
 }
 
-const monochromeIconAndSpinnerDefaultColors: {
-  [color in ButtonColorVariant]?: {
-    [style in ButtonSize]?: SemanticNames
+function combinations(
+  colors: ButtonColorVariant | ButtonColorVariant[],
+  styles: ButtonStyleVariant | ButtonStyleVariant[],
+  sizes: ButtonSize | ButtonSize[],
+) : VariantTuple[] {
+  function toArray<T>(items: T | T[]): T[] {
+    return isArray(items) ? items : [items]
   }
-} = {
-  [ButtonColorVariant.Monochrome]: {
-    [ButtonSize.XL]: 'txt-black-darker',
-    [ButtonSize.L]: 'txt-black-darker',
-    [ButtonSize.M]: 'txt-black-darker',
-    [ButtonSize.S]: 'txt-black-dark',
-    [ButtonSize.XS]: 'txt-black-dark',
-  },
+
+  return flattenDeep(
+    toArray(colors).map((color) =>
+      toArray(styles).map((style) =>
+        toArray(sizes).map((size) => tupleKey(color, style, size)))),
+  )
+}
+
+const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
+  ...fromPairs(
+    combinations(
+      ButtonColorVariant.Monochrome,
+      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
+      [ButtonSize.S, ButtonSize.XS],
+    )
+      .map((key) => [key, 'txt-black-darker']),
+  ),
+}
+
+const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
+  ...fromPairs(
+    combinations(
+      ButtonColorVariant.Monochrome,
+      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
+      [ButtonSize.XL, ButtonSize.L, ButtonSize.M],
+    )
+      .map((key) => [key, 'txt-black-darker']),
+  ),
+  ...fromPairs(
+    combinations(
+      ButtonColorVariant.Monochrome,
+      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
+      [ButtonSize.S, ButtonSize.XS],
+    )
+      .map((key) => [key, 'txt-black-dark']),
+  ),
+  ...fromPairs(
+    combinations(
+      ButtonColorVariant.MonochromeLight,
+      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
+      values(ButtonSize),
+    )
+      .map((key) => [key, 'txt-black-dark']),
+  ),
+  ...fromPairs(
+    combinations(
+      ButtonColorVariant.MonochromeDark,
+      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
+      values(ButtonSize),
+    )
+      .map((key) => [key, 'txt-black-darker']),
+  ),
 }
 
 function Button(
@@ -150,9 +199,10 @@ function Button(
   const overridedTextColor = useMemo(() => (
     (active || isHovered)
       ? undefined
-      : monochromeTextDefaultColors[colorVariant]?.[size]
+      : OVERRIDED_TEXT_DEFAULT_COLORS[tupleKey(colorVariant, styleVariant, size)]
   ), [
     colorVariant,
+    styleVariant,
     size,
     active,
     isHovered,
@@ -161,9 +211,10 @@ function Button(
   const overridedIconAndSpinnerColor = useMemo(() => (
     (active || isHovered)
       ? undefined
-      : monochromeIconAndSpinnerDefaultColors[colorVariant]?.[size]
+      : OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS[tupleKey(colorVariant, styleVariant, size)]
   ), [
     colorVariant,
+    styleVariant,
     size,
     active,
     isHovered,

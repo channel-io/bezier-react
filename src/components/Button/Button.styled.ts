@@ -5,6 +5,7 @@ import { isEmpty } from 'lodash-es'
 import {
   styled,
   css,
+  SemanticNames,
 } from '../../foundation'
 import DisabledOpacity from '../../constants/DisabledOpacity'
 import ButtonProps, {
@@ -54,87 +55,164 @@ function getSizeCSSFromButtonSize({ size, text }: GetSizeCSSFromButtonSizeArgs) 
   }
 }
 
-function monochromeVariantConverter(styleVariant?: ButtonStyleVariant, disabled?: boolean, active?: boolean) {
-  const colorCSS = (() => {
-    switch (styleVariant) {
-      case ButtonStyleVariant.Secondary:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-          background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+interface ButtonSemanticNames {
+  color?: SemanticNames
+  activeColor?: SemanticNames
+  backgroundColor?: SemanticNames | 'transparent'
+  activeBackgroundColor?: SemanticNames | 'transparent'
+}
 
-          ${!disabled && css`
-            &:hover {
-              background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-            }
-          `}
-        `
-      case ButtonStyleVariant.Tertiary:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-          background-color: transparent;
+function defaultSemanticNames(colorVariant: ButtonColorVariant): Record<ButtonStyleVariant, ButtonSemanticNames> {
+  if (colorVariant === ButtonColorVariant.Monochrome ||
+      colorVariant === ButtonColorVariant.MonochromeLight ||
+      colorVariant === ButtonColorVariant.MonochromeDark) {
+    throw new Error('unreached code')
+  }
 
-          ${!disabled && css`
-            &:hover {
-              background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lightest']};
-            }
-          `}
-        `
-      case ButtonStyleVariant.Floating:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-          ${({ foundation }) => foundation?.elevation?.ev3()};
+  return {
+    [ButtonStyleVariant.Primary]: {
+      color: 'bgtxt-absolute-white-dark',
+      backgroundColor: `bgtxt-${colorVariant}-normal` as const,
+      activeBackgroundColor: `bgtxt-${colorVariant}-dark` as const,
+    },
 
-          ${!disabled && css`
-            &:hover {
-              ${({ foundation }) => foundation?.elevation?.ev4()};
-            }
-          `}
-        `
-      case ButtonStyleVariant.Primary:
-      default:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-          background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lightest']};
+    [ButtonStyleVariant.Secondary]: {
+      color: `bgtxt-${colorVariant}-normal` as const,
+      backgroundColor: `bgtxt-${colorVariant}-lightest` as const,
+      activeBackgroundColor: `bgtxt-${colorVariant}-lighter` as const,
+    },
 
-          ${!disabled && css`
-            &:hover {
-              background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lighter']};
-            }
-          `}
-        `
+    [ButtonStyleVariant.Tertiary]: {
+      color: `bgtxt-${colorVariant}-normal` as const,
+      backgroundColor: 'transparent',
+      activeColor: `bgtxt-${colorVariant}-dark` as const,
+      activeBackgroundColor: `bgtxt-${colorVariant}-lightest` as const,
+    },
+
+    [ButtonStyleVariant.Floating]: {
+      color: 'bgtxt-absolute-white-dark',
+      backgroundColor: `bgtxt-${colorVariant}-normal` as const,
+      activeBackgroundColor: `bgtxt-${colorVariant}-dark` as const,
+    },
+  }
+}
+
+const MONOCHROME_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames> = {
+  [ButtonStyleVariant.Primary]: {
+    color: 'bgtxt-absolute-white-dark',
+    backgroundColor: 'bgtxt-absolute-black-lightest',
+    activeBackgroundColor: 'bgtxt-absolute-black-lighter',
+  },
+
+  [ButtonStyleVariant.Secondary]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'bg-black-lighter',
+    activeBackgroundColor: 'bg-black-light',
+  },
+
+  [ButtonStyleVariant.Tertiary]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'transparent',
+    activeBackgroundColor: 'bg-black-lightest',
+  },
+
+  [ButtonStyleVariant.Floating]: {
+    color: 'txt-black-darkest',
+  },
+}
+
+const MONOCHROME_LIGHT_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames> = {
+  [ButtonStyleVariant.Primary]: {
+    color: 'bgtxt-absolute-white-dark',
+    backgroundColor: 'bg-black-darkest',
+  },
+
+  [ButtonStyleVariant.Secondary]: {
+    color: 'txt-black-darker',
+    backgroundColor: 'bg-black-lighter',
+    activeBackgroundColor: 'bg-black-light',
+  },
+
+  [ButtonStyleVariant.Tertiary]: {
+    color: 'txt-black-darker',
+    backgroundColor: 'transparent',
+    activeBackgroundColor: 'bg-black-lightest',
+  },
+
+  [ButtonStyleVariant.Floating]: {
+    color: 'txt-black-darker',
+    backgroundColor: 'bg-white-high',
+  },
+}
+
+const MONOCHROME_DARK_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames> = {
+  [ButtonStyleVariant.Primary]: {
+    color: 'bgtxt-absolute-white-dark',
+    backgroundColor: 'bg-grey-darkest',
+  },
+
+  [ButtonStyleVariant.Secondary]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'bg-black-lighter',
+    activeBackgroundColor: 'bg-black-light',
+  },
+
+  [ButtonStyleVariant.Tertiary]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'transparent',
+    activeBackgroundColor: 'bg-black-lightest',
+  },
+
+  [ButtonStyleVariant.Floating]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'bg-white-high',
+  },
+}
+
+function getColorCSS(
+  semanticNames: Record<ButtonStyleVariant, ButtonSemanticNames>,
+  styleVariant: ButtonStyleVariant,
+  disabled?: boolean,
+  active?: boolean,
+) {
+  const colorCSS = (color?: SemanticNames) => {
+    if (!color) { return css`` }
+
+    return css`
+      color: ${({ foundation }) => foundation?.theme?.[color]};
+    `
+  }
+
+  const backgroundColorCSS = (backgroundColor?: SemanticNames | 'transparent') => {
+    if (!backgroundColor) { return css`` }
+
+    if (backgroundColor === 'transparent') {
+      return css`
+        background-color: transparent;
+      `
     }
-  })()
 
-  const activeCSS = (() => {
-    if (disabled) { return css`` }
+    return css`
+      background-color: ${({ foundation }) => foundation?.theme?.[backgroundColor]};
+    `
+  }
 
-    switch (styleVariant) {
-      case ButtonStyleVariant.Secondary:
-        return css`
-          background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-        `
-      case ButtonStyleVariant.Tertiary:
-        return css`
-          background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lightest']};
-        `
-      case ButtonStyleVariant.Floating:
-        return css`
-          ${({ foundation }) => foundation?.elevation?.ev4()};
-        `
-      case ButtonStyleVariant.Primary:
-      default:
-        return css`
-          background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-black-lighter']};
-        `
-    }
-  })()
+  const idleColorCSS = css`
+    ${colorCSS(semanticNames[styleVariant].color)}
+    ${backgroundColorCSS(semanticNames[styleVariant].backgroundColor)}
+  `
+
+  const activeColorCSS = disabled ? css`` : css`
+    ${colorCSS(semanticNames[styleVariant].activeColor)}
+    ${backgroundColorCSS(semanticNames[styleVariant].activeBackgroundColor)}
+  `
 
   return css`
-    ${colorCSS};
-    ${active && activeCSS};
+    ${idleColorCSS};
+    ${active && activeColorCSS};
 
     &:hover {
-      ${activeCSS};
+      ${activeColorCSS};
     }
   `
 }
@@ -186,70 +264,32 @@ interface GetCSSFromVariantArgs {
 }
 
 function getCSSFromVariant({
-  colorVariant,
-  styleVariant,
+  colorVariant = ButtonColorVariant.Blue,
+  styleVariant = ButtonStyleVariant.Primary,
   size,
   disabled,
   active,
 }: GetCSSFromVariantArgs) {
   const effectCSS = getEffectCSSFromVariant(styleVariant, size)
 
-  const colorCSS = (() => {
-    if (colorVariant === ButtonColorVariant.Monochrome) {
-      return monochromeVariantConverter(styleVariant, disabled, active)
-    }
-
-    switch (styleVariant) {
-      case ButtonStyleVariant.Secondary:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
-        `
-      case ButtonStyleVariant.Tertiary:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
-          background-color: transparent;
-        `
-      case ButtonStyleVariant.Floating:
-      case ButtonStyleVariant.Primary:
+  const semanticNames = (() => {
+    switch (colorVariant) {
+      case ButtonColorVariant.Monochrome:
+        return MONOCHROME_SEMANTIC_NAMES
+      case ButtonColorVariant.MonochromeLight:
+        return MONOCHROME_LIGHT_SEMANTIC_NAMES
+      case ButtonColorVariant.MonochromeDark:
+        return MONOCHROME_DARK_SEMANTIC_NAMES
       default:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-normal`]};
-        `
+        return defaultSemanticNames(colorVariant)
     }
   })()
 
-  const activeCSS = (() => {
-    if (disabled) { return css`` }
-
-    switch (styleVariant) {
-      case ButtonStyleVariant.Secondary:
-        return css`
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lighter`]};
-        `
-      case ButtonStyleVariant.Tertiary:
-        return css`
-          color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-lightest`]};
-        `
-      case ButtonStyleVariant.Floating:
-      case ButtonStyleVariant.Primary:
-      default:
-        return css`
-          background-color: ${({ foundation }) => foundation?.theme?.[`bgtxt-${colorVariant}-dark`]};
-        `
-    }
-  })
+  const colorCSS = getColorCSS(semanticNames, styleVariant, disabled, active)
 
   return css`
-    ${effectCSS};
-    ${colorCSS};
-    ${active && activeCSS};
-
-    &:hover {
-      ${activeCSS};
-    }
+    ${effectCSS}
+    ${colorCSS}
   `
 }
 
@@ -285,8 +325,8 @@ export const ButtonWrapper = styled.button<ButtonProps>`
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
-  ${getSizeCSSFromButtonSize};
-  ${getCSSFromVariant};
+  ${getSizeCSSFromButtonSize}
+  ${getCSSFromVariant}
 
-  ${({ interpolation }) => interpolation};
+  ${({ interpolation }) => interpolation}
 `
