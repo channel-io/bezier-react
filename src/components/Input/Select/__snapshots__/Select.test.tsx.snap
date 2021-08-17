@@ -6,7 +6,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0px 0px 0px 6px;
-  color: inherit;
+  color: #00000099;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 150ms;
@@ -23,7 +23,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
-  color: inherit;
+  color: #000000D9;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 150ms;
@@ -102,11 +102,13 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
     >
       <span
         class="c3"
+        color="txt-black-darkest"
         data-testid="bezier-react-text"
       />
     </div>
     <svg
       class="c4"
+      color="txt-black-darker"
       data-testid="bezier-react-icon"
       fill="none"
       foundation="[object Object]"

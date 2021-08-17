@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { SemanticNames } from '../../../foundation'
 import { ChildrenComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 import { OverlayProps } from '../../Overlay'
@@ -12,7 +13,7 @@ export enum SelectSize {
 }
 
 export interface SelectRef {
-  handleClickTrigger(): void
+  handleClickTrigger(event: React.MouseEvent): void
   handleHideDropdown(): void
   getDOMNode(): Element | Text | null
 }
@@ -25,12 +26,17 @@ interface SelectProps extends ChildrenComponentProps {
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
+  iconColor?: SemanticNames
   text?: string
+  textColor?: SemanticNames
   withoutChevron?: boolean
+  chevronColor?: SemanticNames
   dropdownContainer?: HTMLElement | null
   dropdownPosition?: OverlayProps['position']
   dropdownInterpolation?: InjectedInterpolation
   hasError?: boolean
+  onClickTrigger?: (event: React.MouseEvent) => void
+  onHideDropdown?: () => void
 }
 
 export default SelectProps

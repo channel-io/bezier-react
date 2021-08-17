@@ -8,6 +8,7 @@ import React, {
   Ref,
   useImperativeHandle,
 } from 'react'
+import _ from 'lodash'
 
 /* Internal dependencies */
 import {
@@ -43,11 +44,16 @@ function Select(
     defaultFocus = false,
     placeholder = '',
     iconComponent,
+    iconColor = 'txt-black-dark',
     text,
+    textColor = 'txt-black-darkest',
     withoutChevron = false,
+    chevronColor = 'txt-black-darker',
     hasError = false,
     dropdownContainer,
     dropdownPosition = OverlayPosition.BottomLeft,
+    onClickTrigger = _.noop,
+    onHideDropdown = _.noop,
     children,
   }: SelectProps,
   forwardedRef: Ref<SelectRef>,
@@ -63,23 +69,32 @@ function Select(
         <Icon
           name={iconComponent}
           size={IconSize.XS}
+          color={iconColor}
           marginRight={6}
         />
       )
     }
 
     return iconComponent
-  }, [iconComponent])
+  }, [
+    iconComponent,
+    iconColor,
+  ])
 
-  const handleClickTrigger = useCallback(() => {
+  const handleClickTrigger = useCallback((event: React.MouseEvent) => {
     if (!disabled) {
       setIsDropdownOpened(prevState => !prevState)
+      onClickTrigger(event)
     }
-  }, [disabled])
+  }, [
+    disabled,
+    onClickTrigger,
+  ])
 
   const handleHideDropdown = useCallback(() => {
     setIsDropdownOpened(false)
-  }, [])
+    onHideDropdown()
+  }, [onHideDropdown])
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
@@ -109,14 +124,18 @@ function Select(
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
-          <Text typo={Typography.Size14}>
+          <Text
+            typo={Typography.Size14}
+            color={textColor}
+          >
             { text || placeholder }
           </Text>
         </Styled.MainContentWrapper>
         { !withoutChevron && (
           <Icon
-            name={isDropdownOpened ? 'chevron-up' : 'chevron-down'}
+            name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
             size={IconSize.XS}
+            color={chevronColor}
             marginLeft={6}
           />
         ) }
