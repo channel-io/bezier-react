@@ -32,7 +32,11 @@ interface SelectProps extends ChildrenComponentProps {
   withoutChevron?: boolean
   chevronColor?: SemanticNames
   dropdownContainer?: HTMLElement | null
+  dropdownMarginX?: OverlayProps['marginX']
+  dropdownMarginY?: OverlayProps['marginY']
+  dropdownZIndex?: number
   dropdownPosition?: OverlayProps['position']
+  dropdownStyle?: OverlayProps['containerStyle']
   dropdownInterpolation?: InjectedInterpolation
   hasError?: boolean
   onClickTrigger?: (event: React.MouseEvent) => void

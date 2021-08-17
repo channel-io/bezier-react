@@ -29,6 +29,9 @@ export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
 export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
+const DEFAULT_DROPDOWN_MARGIN_Y = 6
+const DEFAULT_DROPDOWN_Z_INDEX = 10
+
 function Select(
   {
     testId = SELECT_CONTAINER_TEST_ID,
@@ -51,6 +54,9 @@ function Select(
     chevronColor = 'txt-black-darker',
     hasError = false,
     dropdownContainer,
+    dropdownMarginX,
+    dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
+    dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
     dropdownPosition = OverlayPosition.BottomLeft,
     onClickTrigger = _.noop,
     onHideDropdown = _.noop,
@@ -145,7 +151,9 @@ function Select(
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        marginY={6}
+        zIndex={dropdownZIndex}
+        marginX={dropdownMarginX}
+        marginY={dropdownMarginY}
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
