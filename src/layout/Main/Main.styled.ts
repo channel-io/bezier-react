@@ -21,5 +21,5 @@ export const MainWrapper = styled.div.attrs(({ hasSide, sideWidth }: MainWrapper
   height: 100%;
 
   /* TODO: 레이아웃 동작 다듬기, 스크롤은 좋지 않은 UX */
-  overflow-x: scroll;
+  overflow-x: auto;
 `
