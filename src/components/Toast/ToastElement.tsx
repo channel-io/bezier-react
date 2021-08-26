@@ -17,9 +17,12 @@ import {
 } from './Toast.styled'
 import { getToastPreset } from './utils'
 
+export const TOAST_TEST_ID = 'bezier-react-toast'
+
 const ToastElement = (
   {
     as,
+    testId = TOAST_TEST_ID,
     preset = ToastPreset.Default,
     content = '',
     appearance,
@@ -62,6 +65,7 @@ const ToastElement = (
   return (
     <Element
       ref={forwardedRef}
+      data-testid={testId}
       {...props}
     >
       <IconWrapper

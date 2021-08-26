@@ -1,6 +1,15 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useCallback, useMemo, Fragment } from 'react'
-import { noop, isNil, isString } from 'lodash-es'
+import React, {
+  forwardRef,
+  useCallback,
+  useMemo,
+} from 'react'
+import {
+  noop,
+  isNil,
+  isEmpty,
+  isString,
+} from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -9,7 +18,10 @@ import { Text } from '../Text'
 import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
 import { Typography } from '../../foundation'
-import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
+import ListItemProps, {
+  ListItemSize,
+  ListItemColorVariant,
+} from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
@@ -22,7 +34,11 @@ import {
   ContentWrapper,
 } from './ListItem.styled'
 
+const LINE_BREAK_CHAR = '\n'
+
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
+
+type ListItemRefType = React.Ref<HTMLDivElement & HTMLAnchorElement>
 
 function ListItem({
   className,
@@ -38,7 +54,7 @@ function ListItem({
   leftContent,
   leftIcon,
   colorVariant = ListItemColorVariant.Monochrome,
-  href,
+  href = '',
   hide = false,
   rightContent = null,
   /* OptionItem Props */
@@ -46,20 +62,24 @@ function ListItem({
   /* Activable Element Props */
   active,
   activeClassName,
+  focused = false,
   disabled = false,
   /* HTMLAttribute Props */
   onClick = noop,
   onMouseDown = noop,
   onMouseEnter = noop,
   onMouseLeave = noop,
-  ...othreProps
-}: ListItemProps, forwardedRef: Ref<any>) {
-  const clazzName = useMemo(() => (
-    mergeClassNames(className, ((active && activeClassName) || undefined))
+  ...otherProps
+}: ListItemProps, forwardedRef: ListItemRefType) {
+  const isHyperLink = !isEmpty(href)
+  const isActive = isHyperLink ? false : active
+
+  const mergedClassName = useMemo(() => (
+    mergeClassNames(className, ((isActive && activeClassName) || undefined))
   ), [
     className,
     activeClassName,
-    active,
+    isActive,
   ])
 
   const handleClick = useCallback((e: React.MouseEvent) => {
@@ -73,7 +93,7 @@ function ListItem({
   ])
 
   const getNewLineComponenet = useCallback((desc: string) => (
-    desc.split('\n').map((str, index) => {
+    desc.split(LINE_BREAK_CHAR).map((str, index) => {
       if (index === 0) {
         return (
           <Text key={uuid()} typo={Typography.Size12}>
@@ -83,12 +103,12 @@ function ListItem({
       }
 
       return (
-        <Fragment key={uuid()}>
+        <React.Fragment key={uuid()}>
           <br />
           <Text typo={Typography.Size12}>
             { str }
           </Text>
-        </Fragment>
+        </React.Fragment>
       )
     })
   ), [])
@@ -109,7 +129,7 @@ function ListItem({
             className={iconClassName}
             name={leftIcon}
             size={IconSize.S}
-            active={active}
+            active={isActive}
             colorVariant={colorVariant}
           />
         </LeftContentWrapper>
@@ -118,7 +138,7 @@ function ListItem({
 
     return null
   }, [
-    active,
+    isActive,
     iconClassName,
     leftContent,
     leftIcon,
@@ -128,17 +148,15 @@ function ListItem({
   const titleComponent = useMemo(() => (
     <TitleWrapper className={contentClassName}>
       <Title>
-        {
-          isString(content) ? (
-            <Text
-              typo={size === ListItemSize.XL
-                ? Typography.Size18
-                : Typography.Size14}
-            >
-              { content }
-            </Text>
-          ) : content
-        }
+        { isString(content) ? (
+          <Text
+            typo={size === ListItemSize.XL
+              ? Typography.Size18
+              : Typography.Size14}
+          >
+            { content }
+          </Text>
+        ) : content }
       </Title>
     </TitleWrapper>
   ), [
@@ -187,57 +205,69 @@ function ListItem({
     rightComponent,
   ])
 
+  const commonDataAttr = useMemo(() => ({
+    'data-active': isActive,
+    'data-option-key': optionKey,
+    'data-testid': testId,
+  }), [
+    isActive,
+    optionKey,
+    testId,
+  ])
+
+  const commonListItemProps = useMemo((): ListItemProps & { ref: ListItemRefType } => ({
+    ref: forwardedRef,
+    className: mergedClassName,
+    size,
+    onClick: handleClick,
+    onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
+    active: isActive,
+    focused,
+    disabled,
+    colorVariant,
+    ...otherProps,
+  }), [
+    forwardedRef,
+    mergedClassName,
+    size,
+    handleClick,
+    onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
+    isActive,
+    focused,
+    disabled,
+    colorVariant,
+    otherProps,
+  ])
+
   if (hide) { return null }
 
-  if (!isNil(href)) {
-    return (
+  return isHyperLink
+    ? (
       <Wrapper
-        ref={forwardedRef}
-        as="a"
-        className={clazzName}
-        size={size}
-        draggable={false}
+        {...commonDataAttr}
+        {...commonListItemProps}
+        as={'a' as React.ElementType<any>}
         href={href}
+        draggable={false}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
-        onMouseDown={onMouseDown}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        active={false}
-        colorVariant={colorVariant}
-        disabled={disabled}
-        data-active={active}
-        data-option-key={optionKey}
-        data-testid={testId}
-        {...othreProps}
       >
         { ContentComponent }
       </Wrapper>
     )
-  }
-
-  return (
-    <Wrapper
-      ref={forwardedRef}
-      as={as}
-      className={clazzName}
-      size={size}
-      onClick={handleClick}
-      onMouseDown={onMouseDown}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      active={active}
-      disabled={disabled}
-      colorVariant={colorVariant}
-      data-active={active}
-      data-option-key={optionKey}
-      data-testid={testId}
-      {...othreProps}
-    >
-      { ContentComponent }
-    </Wrapper>
-  )
+    : (
+      <Wrapper
+        {...commonDataAttr}
+        {...commonListItemProps}
+        as={as}
+      >
+        { ContentComponent }
+      </Wrapper>
+    )
 }
 
 export default forwardRef(ListItem)

@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "0.7.0",
+  "version": "0.9.3",
   "description": "React components from Bezier Design System",
   "repository": {
     "type": "git",
@@ -84,6 +84,7 @@
     "@svgr/cli": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.6",
+    "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^25.2.3",
     "@types/lodash-es": "^4.17.4",
@@ -117,7 +118,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "regenerator-runtime": "^0.13.7",
-    "rollup": "^2.37.1",
+    "rollup": "^2.50.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.5.0",
     "semantic-release": "^17.4.3",
