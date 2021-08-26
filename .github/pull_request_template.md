@@ -1,13 +1,9 @@
-# Description
-변경사항 개요를 작성해주세요. Github 이슈, Notion 등 연관 문서가 있다면 첨부해주세요.
+<!-- Pull Request 를 작성하기 전, 충분히 로컬 환경에서 테스트 했는지 확인하세요. -->
+# Summary
+<!-- 수정 내용에 대한 요약  -->
 
-## Changes Detail
-* 변경1 세부사항
-* 변경2 세부사항
-
-# Tests
-- [ ] Jest 테스트 코드 작성 완료
-- [ ] Storybook 작성 완료
+# Details
+<!-- 수정 내역과 연관되는 문제의 자세한 설명 혹은 설명되어 있는 Issue  -->
 
 ## Browser Compatibility
 OS / Engine 호환성을 반드시 확인해주세요.
@@ -21,6 +17,6 @@ OS / Engine 호환성을 반드시 확인해주세요.
 - [ ] Safari - WebKit
 - [ ] Firefox - Gecko (Option)
 
-# (Option) Issues
-(연관된 PR이나 Task / 특정 시점까지 머지하면 안됨 / 번역 추가 필요 / ...)
-* 이슈 없음.
+
+# References
+<!-- - 해결 방법이 근거하고 있거나 리뷰어가 참고해야 하는 외부 문서 -->
