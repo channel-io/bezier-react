@@ -125,6 +125,9 @@ function Button(
     leftComponent,
     rightComponent,
     onClick = noop,
+    onMouseEnter = noop,
+    onMouseLeave = noop,
+    onBlur = noop,
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -220,8 +223,14 @@ function Button(
     isHovered,
   ])
 
-  const handleMouseEnter = useCallback(() => { setIsHovered(true) }, [])
-  const handleMouseLeave = useCallback(() => { setIsHovered(false) }, [])
+  const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+    setIsHovered(true)
+    onMouseEnter(e)
+  }, [onMouseEnter])
+  const handleMouseLeave = useCallback((e: React.MouseEvent) => {
+    setIsHovered(false)
+    onMouseLeave(e)
+  }, [onMouseLeave])
 
   const handleClick = useCallback((event: React.MouseEvent) => {
     if (!disabled) { onClick(event) }
@@ -270,6 +279,7 @@ function Button(
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onBlur={onBlur}
     >
       <Styled.ButtonContents visible={!loading}>
         { renderSideComponent(leftComponent, false) }
