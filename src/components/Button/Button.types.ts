@@ -45,4 +45,7 @@ export default interface ButtonProps extends UIComponentProps {
   leftComponent?: IconName | React.ReactNode
   rightComponent?: IconName | React.ReactNode
   onClick?: (event: React.MouseEvent) => void
+  onMouseEnter?: (event: React.MouseEvent) => void
+  onMouseLeave?: (event: React.MouseEvent) => void
+  onBlur?: (event: React.MouseEvent) => void
 }
