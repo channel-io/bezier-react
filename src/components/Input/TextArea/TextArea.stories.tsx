@@ -40,6 +40,7 @@ Primary.args = {
   autoFocus: true,
   readOnly: false,
   hasError: false,
+  minRows: 1,
   maxRows: 5,
   placeholder: 'say hi to autoResizable textarea!',
 }
