@@ -104,11 +104,13 @@ function Select(
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
-  useImperativeHandle(forwardedRef, () => ({
+  const handle = useMemo((): SelectRef => ({ handleClickTrigger, handleHideDropdown, getDOMNode }), [
     handleClickTrigger,
     handleHideDropdown,
     getDOMNode,
-  }))
+  ])
+
+  useImperativeHandle(forwardedRef, () => handle)
 
   return (
     <Styled.Container
