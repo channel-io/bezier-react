@@ -47,26 +47,20 @@ function NavigationArea(
     isHoveringOnPresenter,
     setIsHoveringOnPresenter,
     children,
+    showNavigation,
+    hidableNavigationKey,
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, columnStates, orderedColumnKeys } = useLayoutState()
+  const { columnStates, orderedColumnKeys } = useLayoutState()
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => (
-    columnStates[currentKey]
-      ? columnStates[currentKey].hidable
-      : true
-  ), [
-    columnStates,
-    currentKey,
-  ])
   const show = useMemo(() => (
-    !hidable || showNavigation
+    !hidableNavigationKey || showNavigation
   ), [
-    hidable,
+    hidableNavigationKey,
     showNavigation,
   ])
   const disableResize = useMemo(() => (
@@ -115,10 +109,10 @@ function NavigationArea(
   useEventHandler(document, 'mousemove', handleMouseMove, allowMouseMove)
 
   const handlePresenterMouseEnter = useThrottledCallback(() => {
-    if (hidable) {
+    if (hidableNavigationKey) {
       setShowChevron(true)
     }
-  }, 100, undefined, [show, hidable])
+  }, 100, undefined, [show, hidableNavigationKey])
 
   const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)

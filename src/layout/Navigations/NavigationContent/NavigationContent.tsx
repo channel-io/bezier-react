@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useMemo,
 } from 'react'
-import { isArray, isNil, noop, compact } from 'lodash-es'
+import { isArray, noop, compact } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -43,25 +43,44 @@ function NavigationContent({
 
   /* LayoutState Prop */
   layoutOption,
-  showNavigation,
+  hidableNavigationKey,
   ...otherProps
 }: NavigationContentProps) {
   const dispatch = useLayoutDispatch()
   const currentKey = useMemo(() => uuid(), [])
 
-  const { showNavigation: isShowingNavigation } = useLayoutState()
+  const { showingHidableNavigations } = useLayoutState()
+
+  const isShowingNavigation = useMemo(() => {
+    if (!hidableNavigationKey) { return true }
+    return showingHidableNavigations.indexOf(hidableNavigationKey) >= 0
+  }, [
+    hidableNavigationKey,
+    showingHidableNavigations,
+  ])
+
+  const reverseShowingHidableNavigation = useCallback(() => {
+    if (!hidableNavigationKey) { return }
+    if (isShowingNavigation) {
+      dispatch(LayoutActions.removeShowingHidableNavigation(hidableNavigationKey))
+      return
+    }
+    dispatch(LayoutActions.addShowingHidableNavigation(hidableNavigationKey))
+  }, [
+    hidableNavigationKey,
+    isShowingNavigation,
+    dispatch,
+  ])
 
   const [showChevron, setShowChevron] = useState(false)
   const [allowMouseMove, setAllowMouseMove] = useState(false)
   const [isHoveringOnPresenter, setIsHoveringOnPresenter] = useState(false)
 
   const handleClickChevron = useCallback(() => {
-    dispatch(LayoutActions.setShowNavigation(!isShowingNavigation))
-
+    reverseShowingHidableNavigation()
     setIsHoveringOnPresenter(true)
   }, [
-    dispatch,
-    isShowingNavigation,
+    reverseShowingHidableNavigation,
     setIsHoveringOnPresenter,
   ])
 
@@ -75,17 +94,12 @@ function NavigationContent({
       },
     }))
 
-    if (!isNil(showNavigation)) {
-      dispatch(LayoutActions.setShowNavigation(showNavigation))
-    }
-
     return function cleanUp() {
       dispatch(LayoutActions.removeNavOption({ key: currentKey }))
     }
   }, [
     currentKey,
     layoutOption,
-    showNavigation,
     dispatch,
     onChangeWidth,
   ])
@@ -156,6 +170,8 @@ function NavigationContent({
       setAllowMouseMove={setAllowMouseMove}
       isHoveringOnPresenter={isHoveringOnPresenter}
       setIsHoveringOnPresenter={setIsHoveringOnPresenter}
+      showNavigation={isShowingNavigation}
+      hidableNavigationKey={hidableNavigationKey}
     >
       { (header && fixedHeader) && (
         HeaderElement

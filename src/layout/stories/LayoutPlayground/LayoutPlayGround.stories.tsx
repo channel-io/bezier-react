@@ -4,6 +4,8 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
+import LayoutActions from '../../redux/LayoutActions'
+import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useSideWidth from '../../../hooks/useSideWidth'
 import useSidePanelHandler from '../../../hooks/useSidePanelHandler'
 import { getTitle } from '../../../utils/storyUtils'
@@ -131,7 +133,12 @@ function SideViewRoute({ onChangeWidth }) {
 }
 
 const Template = ({ onChangeWidth }) => {
+  const dispatch = useLayoutDispatch()
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
+
+  useEffect(() => {
+    dispatch(LayoutActions.setShowingHidableNavigations([RouteKeys.TeamChat, RouteKeys.UserChat]))
+  }, [dispatch])
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
     setRoute((e.target as HTMLButtonElement).value as RouteKeys)
@@ -161,12 +168,11 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            showNavigation
+            hidableNavigationKey={route}
             layoutOption={{
               initialWidth: 250,
               maxWidth: 600,
               minWidth: 180,
-              hidable: true,
             }}
           >
             { range(0, 30).map((val) => (
@@ -195,12 +201,11 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            showNavigation
+            hidableNavigationKey={route}
             layoutOption={{
               initialWidth: 400,
               maxWidth: 600,
               minWidth: 300,
-              hidable: true,
               // disableResize: true,
             }}
           >
@@ -220,7 +225,6 @@ const Template = ({ onChangeWidth }) => {
               initialWidth: 300,
               maxWidth: 400,
               minWidth: 200,
-              hidable: false,
               disableResize: true,
             }}
           >
@@ -252,7 +256,6 @@ const Template = ({ onChangeWidth }) => {
               initialWidth: 260,
               maxWidth: 600,
               minWidth: 240,
-              hidable: false,
             }}
           >
             { range(0, 30).map((val) => (
@@ -314,35 +317,41 @@ const Template = ({ onChangeWidth }) => {
   ), [onChangeWidth])
 
   return (
+    <Container>
+      <Client>
+        <GNB>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
+        </GNB>
+        <Navigations>
+          <NavigationMainRoute />
+          <NavigationSubRoute />
+        </Navigations>
+        <Main
+          ContentHeaderComponent={ContentHeaderRoute}
+          CoverableHeaderComponent={CoverableHeaderRoute}
+          SidePanelComponent={SidePanelRoute}
+          SideViewComponent={SideViewComponent}
+          onChangeSideWidth={onChangeWidth}
+        >
+          <Content />
+        </Main>
+      </Client>
+    </Container>
+  )
+}
+
+function LayoutProvidedTemplate(props) {
+  return (
     <LayoutProvider>
-      <Container>
-        <Client>
-          <GNB>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
-          </GNB>
-          <Navigations>
-            <NavigationMainRoute />
-            <NavigationSubRoute />
-          </Navigations>
-          <Main
-            ContentHeaderComponent={ContentHeaderRoute}
-            CoverableHeaderComponent={CoverableHeaderRoute}
-            SidePanelComponent={SidePanelRoute}
-            SideViewComponent={SideViewComponent}
-            onChangeSideWidth={onChangeWidth}
-          >
-            <Content />
-          </Main>
-        </Client>
-      </Container>
+      <Template {...props} />
     </LayoutProvider>
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {
   /* eslint-disable-next-line no-console */
   onChangeWidth: console.log,

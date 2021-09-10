@@ -17,6 +17,7 @@ export interface LayoutState {
   showSidePanel: boolean
   /* Navigations related */
   showNavigation: boolean
+  showingHidableNavigations: Array<string>
   /* Resizing related */
   orderedColumnKeys: Array<string>
   columnRefs: { [key: string]: ColumnRef }
@@ -30,6 +31,7 @@ export const defaultState: LayoutState = {
   showSideView: false,
   showSidePanel: false,
   showNavigation: true,
+  showingHidableNavigations: [],
   orderedColumnKeys: [],
   columnRefs: {},
   columnStates: {},
@@ -76,6 +78,27 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTy
       return {
         ...state,
         showNavigation: action.payload,
+      }
+    }
+
+    case AT.SET_SHOWING_HIDABLE_NAVIGATIONS: {
+      return {
+        ...state,
+        showingHidableNavigations: action.payload,
+      }
+    }
+
+    case AT.ADD_SHOWING_HIDABLE_NAVIGATION: {
+      return {
+        ...state,
+        showingHidableNavigations: state.showingHidableNavigations.filter(nav => nav !== action.payload).concat([action.payload]),
+      }
+    }
+
+    case AT.REMOVE_SHOWING_HIDABLE_NAVIGATION: {
+      return {
+        ...state,
+        showingHidableNavigations: state.showingHidableNavigations.filter(nav => nav !== action.payload),
       }
     }
 
