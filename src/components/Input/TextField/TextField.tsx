@@ -144,7 +144,7 @@ function TextFieldComponent({
 
   const getDOMNode = useCallback(() => inputRef.current, [])
 
-  useImperativeHandle(forwardedRef, () => ({
+  const handle = useMemo((): TextFieldRef => ({
     focus,
     blur,
     setSelectionRange,
@@ -153,7 +153,18 @@ function TextFieldComponent({
     unselect,
     getBoundingClientRect,
     getDOMNode,
-  }))
+  }), [
+    focus,
+    blur,
+    setSelectionRange,
+    getSelectionRange,
+    selectAll,
+    unselect,
+    getBoundingClientRect,
+    getDOMNode,
+  ])
+
+  useImperativeHandle(forwardedRef, () => handle)
 
   useEffect(() => {
     if (autoFocus) {
