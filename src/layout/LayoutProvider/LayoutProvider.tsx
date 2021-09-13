@@ -6,14 +6,15 @@ import {
   LayoutDispatchContext,
   LayoutStateContext,
 } from '../../contexts/LayoutContext'
-import LayoutReducer, { defaultState } from '../redux/LayoutReducer'
+import LayoutReducer, { defaultState, LayoutState } from '../redux/LayoutReducer'
 
 interface LayoutProviderProps {
   children: React.ReactNode
+  initialState: Partial<LayoutState>
 }
 
-function LayoutProvider({ children }: LayoutProviderProps) {
-  const [layoutState, layoutDispatch] = useReducer(LayoutReducer, defaultState)
+function LayoutProvider({ children, initialState }: LayoutProviderProps) {
+  const [layoutState, layoutDispatch] = useReducer(LayoutReducer, { ...defaultState, ...initialState })
 
   return (
     <LayoutStateContext.Provider value={layoutState}>

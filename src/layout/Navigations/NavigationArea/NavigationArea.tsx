@@ -65,13 +65,6 @@ function NavigationArea(
     currentKey,
   ])
 
-  // const show = useMemo(() => (
-  //   !hidable || showNavigation
-  // ), [
-  //   hidable,
-  //   showNavigation,
-  // ])
-
   const disableResize = useMemo(() => (
     !showNavigation ||
     columnStates[currentKey]?.disableResize ||

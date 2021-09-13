@@ -4,8 +4,6 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import LayoutActions from '../../redux/LayoutActions'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import useSideWidth from '../../../hooks/useSideWidth'
 import useSidePanelHandler from '../../../hooks/useSidePanelHandler'
 import { getTitle } from '../../../utils/storyUtils'
@@ -133,12 +131,7 @@ function SideViewRoute({ onChangeWidth }) {
 }
 
 const Template = ({ onChangeWidth }) => {
-  const dispatch = useLayoutDispatch()
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
-
-  useEffect(() => {
-    dispatch(LayoutActions.setShowingHidableNavigations([RouteKeys.TeamChat, RouteKeys.UserChat]))
-  }, [dispatch])
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
     setRoute((e.target as HTMLButtonElement).value as RouteKeys)
@@ -347,7 +340,12 @@ const Template = ({ onChangeWidth }) => {
 
 function LayoutProvidedTemplate(props) {
   return (
-    <LayoutProvider>
+    <LayoutProvider initialState={{
+      showingHidableNavigations: [
+        RouteKeys.TeamChat,
+        RouteKeys.UserChat,
+      ] }}
+    >
       <Template {...props} />
     </LayoutProvider>
   )
