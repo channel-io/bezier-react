@@ -11,5 +11,5 @@ export default interface NavigationProps extends Omit<ChildrenComponentProps, 'a
   isHoveringOnPresenter?: any
   setIsHoveringOnPresenter?: any
   showNavigation?: boolean
-  hidableNavigationKey?: string
+  navigationKey?: string
 }

@@ -17,6 +17,7 @@ export interface ColumnState {
   maxWidth: number
   minWidth: number
   disableResize?: boolean
+  hidable?: boolean
   onChangeWidth?: (width: number) => void
 }
 

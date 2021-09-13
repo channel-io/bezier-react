@@ -43,7 +43,7 @@ function NavigationContent({
 
   /* LayoutState Prop */
   layoutOption,
-  hidableNavigationKey,
+  navigationKey,
   ...otherProps
 }: NavigationContentProps) {
   const dispatch = useLayoutDispatch()
@@ -52,22 +52,24 @@ function NavigationContent({
   const { showingHidableNavigations } = useLayoutState()
 
   const isShowingNavigation = useMemo(() => {
-    if (!hidableNavigationKey) { return true }
-    return showingHidableNavigations.indexOf(hidableNavigationKey) >= 0
+    if (!navigationKey || !layoutOption.hidable) { return true }
+    return showingHidableNavigations.indexOf(navigationKey) >= 0
   }, [
-    hidableNavigationKey,
+    navigationKey,
+    layoutOption.hidable,
     showingHidableNavigations,
   ])
 
   const reverseShowingHidableNavigation = useCallback(() => {
-    if (!hidableNavigationKey) { return }
+    if (!navigationKey || !layoutOption.hidable) { return }
     if (isShowingNavigation) {
-      dispatch(LayoutActions.removeShowingHidableNavigation(hidableNavigationKey))
+      dispatch(LayoutActions.removeShowingHidableNavigation(navigationKey))
       return
     }
-    dispatch(LayoutActions.addShowingHidableNavigation(hidableNavigationKey))
+    dispatch(LayoutActions.addShowingHidableNavigation(navigationKey))
   }, [
-    hidableNavigationKey,
+    navigationKey,
+    layoutOption.hidable,
     isShowingNavigation,
     dispatch,
   ])
@@ -171,7 +173,7 @@ function NavigationContent({
       isHoveringOnPresenter={isHoveringOnPresenter}
       setIsHoveringOnPresenter={setIsHoveringOnPresenter}
       showNavigation={isShowingNavigation}
-      hidableNavigationKey={hidableNavigationKey}
+      navigationKey={navigationKey}
     >
       { (header && fixedHeader) && (
         HeaderElement

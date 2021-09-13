@@ -168,11 +168,12 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            hidableNavigationKey={route}
+            navigationKey={route}
             layoutOption={{
               initialWidth: 250,
               maxWidth: 600,
               minWidth: 180,
+              hidable: true,
             }}
           >
             { range(0, 30).map((val) => (
@@ -201,11 +202,12 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            hidableNavigationKey={route}
+            navigationKey={route}
             layoutOption={{
               initialWidth: 400,
               maxWidth: 600,
               minWidth: 300,
+              hidable: true,
               // disableResize: true,
             }}
           >
