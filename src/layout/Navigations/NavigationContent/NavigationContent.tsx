@@ -53,7 +53,7 @@ function NavigationContent({
 
   const isShowingNavigation = useMemo(() => {
     if (!navigationKey || !layoutOption.hidable) { return true }
-    return showingHidableNavigations.indexOf(navigationKey) >= 0
+    return showingHidableNavigations.has(navigationKey)
   }, [
     navigationKey,
     layoutOption.hidable,

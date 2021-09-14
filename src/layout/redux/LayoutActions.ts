@@ -46,7 +46,7 @@ const actions = {
   setShowSidePanel: createAction(AT.SET_SHOW_SIDE_PANEL)<boolean>(),
   setShowSideView: createAction(AT.SET_SHOW_SIDE_VIEW)<boolean>(),
   setShowNavigation: createAction(AT.SET_SHOW_NAVIGATION)<boolean>(),
-  setShowingHidableNavigations: createAction(AT.SET_SHOWING_HIDABLE_NAVIGATIONS)<Array<string>>(),
+  setShowingHidableNavigations: createAction(AT.SET_SHOWING_HIDABLE_NAVIGATIONS)<Set<string>>(),
   addShowingHidableNavigation: createAction(AT.ADD_SHOWING_HIDABLE_NAVIGATION)<string>(),
   removeShowingHidableNavigation: createAction(AT.REMOVE_SHOWING_HIDABLE_NAVIGATION)<string>(),
   setSideWidth: createAction(AT.SET_SIDE_WIDTH)<number>(),

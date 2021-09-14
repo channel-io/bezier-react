@@ -341,10 +341,10 @@ const Template = ({ onChangeWidth }) => {
 function LayoutProvidedTemplate(props) {
   return (
     <LayoutProvider initialState={{
-      showingHidableNavigations: [
+      showingHidableNavigations: new Set([
         RouteKeys.TeamChat,
         RouteKeys.UserChat,
-      ] }}
+      ]) }}
     >
       <Template {...props} />
     </LayoutProvider>
