@@ -129,7 +129,7 @@ function NavigationArea(
   }, 350, undefined, [])
 
   useEffect(() => {
-    if (showNavigation === false) {
+    if (!showNavigation) {
       document.addEventListener!('mousemove', handleDecideHover, false)
     } else {
       document.removeEventListener!('mousemove', handleDecideHover, false)
