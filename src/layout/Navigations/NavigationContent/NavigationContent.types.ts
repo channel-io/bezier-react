@@ -11,9 +11,8 @@ export default interface NavigationContentProps extends ChildrenComponentProps {
   withScroll?: boolean
   onScroll?: () => void
   onChangeWidth?: (width: number) => void
-  navigationKey?: string
 
   /* LayoutState Prop */
+  navigationKey: string
   layoutOption: ColumnState
-  routeKey?: string
 }

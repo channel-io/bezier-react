@@ -216,6 +216,7 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
+            navigationKey={route}
             layoutOption={{
               initialWidth: 300,
               maxWidth: 400,
@@ -247,6 +248,7 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
+            navigationKey={route}
             layoutOption={{
               initialWidth: 260,
               maxWidth: 600,

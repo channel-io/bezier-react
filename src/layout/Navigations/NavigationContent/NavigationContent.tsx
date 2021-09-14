@@ -52,24 +52,24 @@ function NavigationContent({
   const { showingHidableNavigations } = useLayoutState()
 
   const isShowingNavigation = useMemo(() => {
-    if (!navigationKey || !layoutOption.hidable) { return true }
+    if (!layoutOption.hidable) { return true }
     return showingHidableNavigations.has(navigationKey)
   }, [
-    navigationKey,
     layoutOption.hidable,
+    navigationKey,
     showingHidableNavigations,
   ])
 
   const reverseShowingHidableNavigation = useCallback(() => {
-    if (!navigationKey || !layoutOption.hidable) { return }
+    if (!layoutOption.hidable) { return }
     if (isShowingNavigation) {
       dispatch(LayoutActions.removeShowingHidableNavigation(navigationKey))
       return
     }
     dispatch(LayoutActions.addShowingHidableNavigation(navigationKey))
   }, [
-    navigationKey,
     layoutOption.hidable,
+    navigationKey,
     isShowingNavigation,
     dispatch,
   ])
@@ -173,7 +173,6 @@ function NavigationContent({
       isHoveringOnPresenter={isHoveringOnPresenter}
       setIsHoveringOnPresenter={setIsHoveringOnPresenter}
       showNavigation={isShowingNavigation}
-      navigationKey={navigationKey}
     >
       { (header && fixedHeader) && (
         HeaderElement
