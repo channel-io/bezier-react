@@ -5,6 +5,8 @@ import React, { CSSProperties } from 'react'
 import { UIComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 
+export const MIN_ROWS = 5
+
 export enum TextAreaSize {
   S = 10,
   M = 17,
