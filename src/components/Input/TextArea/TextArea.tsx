@@ -13,7 +13,7 @@ import React, {
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
-import type { TextAreaProps } from './TextArea.types'
+import TextAreaProps, { TextAreaSize } from './TextArea.types'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 
@@ -30,8 +30,7 @@ function TextArea(
     readOnly = false,
     value = '',
     hasError = false,
-    maxRows,
-    minRows,
+    size = TextAreaSize.S,
     onFocus,
     onBlur,
     onChange,
@@ -96,8 +95,8 @@ function TextArea(
         ref={mergedInputRef}
         value={value}
         readOnly={readOnly}
-        maxRows={maxRows}
-        minRows={minRows}
+        maxRows={size}
+        minRows={5}
         onChange={onChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
