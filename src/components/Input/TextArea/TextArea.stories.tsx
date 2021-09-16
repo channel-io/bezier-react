@@ -6,8 +6,9 @@ import React, {
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
+import { getObjectFromEnum, getTitle } from '../../../utils/storyUtils'
 import TextArea from './TextArea'
+import { TextAreaSize } from './TextArea.types'
 
 export default {
   title: getTitle(base),
@@ -40,6 +41,15 @@ Primary.args = {
   autoFocus: true,
   readOnly: false,
   hasError: false,
-  maxRows: 5,
+  size: TextAreaSize.S,
   placeholder: 'say hi to autoResizable textarea!',
+}
+
+Primary.argTypes = {
+  size: {
+    control: {
+      type: 'radio',
+      options: getObjectFromEnum(TextAreaSize),
+    },
+  },
 }

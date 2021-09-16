@@ -5,7 +5,7 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
-import { TextAreaProps } from './TextArea.types'
+import TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'
 
 // SEE ALSO: https://github.com/Andarist/react-textarea-autosize#how-to-test-it-with-jest-and-react-test-renderer-if-you-need-ref
