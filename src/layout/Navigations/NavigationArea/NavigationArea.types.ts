@@ -10,4 +10,5 @@ export default interface NavigationProps extends Omit<ChildrenComponentProps, 'a
   setShowChevron?: any
   isHoveringOnPresenter?: any
   setIsHoveringOnPresenter?: any
+  showNavigation?: boolean
 }

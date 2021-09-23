@@ -47,34 +47,30 @@ function NavigationArea(
     isHoveringOnPresenter,
     setIsHoveringOnPresenter,
     children,
+    showNavigation,
   }: NavigationProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { showNavigation, columnStates, orderedColumnKeys } = useLayoutState()
+  const { columnStates, orderedColumnKeys } = useLayoutState()
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
   const hidable = useMemo(() => (
     columnStates[currentKey]
       ? columnStates[currentKey].hidable
-      : true
+      : false
   ), [
     columnStates,
     currentKey,
   ])
-  const show = useMemo(() => (
-    !hidable || showNavigation
-  ), [
-    hidable,
-    showNavigation,
-  ])
+
   const disableResize = useMemo(() => (
-    !show ||
+    !showNavigation ||
     columnStates[currentKey]?.disableResize ||
     false
   ), [
-    show,
+    showNavigation,
     columnStates,
     currentKey,
   ])
@@ -118,7 +114,7 @@ function NavigationArea(
     if (hidable) {
       setShowChevron(true)
     }
-  }, 100, undefined, [show, hidable])
+  }, 100, undefined, [hidable])
 
   const handlePresenterMouseLeave = useThrottledCallback(() => {
     setShowChevron(false)
@@ -133,14 +129,14 @@ function NavigationArea(
   }, 350, undefined, [])
 
   useEffect(() => {
-    if (show === false) {
+    if (!showNavigation) {
       document.addEventListener!('mousemove', handleDecideHover, false)
     } else {
       document.removeEventListener!('mousemove', handleDecideHover, false)
     }
   }, [
+    showNavigation,
     handleDecideHover,
-    show,
   ])
 
   useLayoutEffect(() => {
@@ -187,14 +183,14 @@ function NavigationArea(
     <NavigationContainer
       ref={containerRef}
       data-testid={testId}
-      showNavigation={show}
+      showNavigation={showNavigation}
     >
       <NavigationPositioner>
         <NavigationPresenter
           style={style}
           ref={mergedPresenterRef}
           className={className}
-          showNavigation={show}
+          showNavigation={showNavigation}
           isHover={isHoveringOnPresenter}
           onMouseEnter={handlePresenterMouseEnter}
           onMouseLeave={handlePresenterMouseLeave}

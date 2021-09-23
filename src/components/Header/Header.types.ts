@@ -10,7 +10,7 @@ export default interface HeaderProps extends Omit<ChildrenComponentProps, 'as'> 
   titleClassName?: string
   titleImageUrl?: string
   titleImageSize?: number
-  actions?: Array<React.ReactNode>
+  actions?: Array<React.ReactNode> | React.ReactNode
   onClickTitle?: () => void
   onClickActions?: Array<Function>
   /* Navigation cloneElement Props */

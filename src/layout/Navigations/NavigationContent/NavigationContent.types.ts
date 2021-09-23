@@ -13,6 +13,6 @@ export default interface NavigationContentProps extends ChildrenComponentProps {
   onChangeWidth?: (width: number) => void
 
   /* LayoutState Prop */
+  navigationKey: string
   layoutOption: ColumnState
-  showNavigation?: boolean
 }

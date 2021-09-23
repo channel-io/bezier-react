@@ -16,8 +16,8 @@ export interface ColumnState {
   initialWidth: number
   maxWidth: number
   minWidth: number
-  hidable?: boolean
   disableResize?: boolean
+  hidable?: boolean
   onChangeWidth?: (width: number) => void
 }
 
@@ -46,6 +46,9 @@ const actions = {
   setShowSidePanel: createAction(AT.SET_SHOW_SIDE_PANEL)<boolean>(),
   setShowSideView: createAction(AT.SET_SHOW_SIDE_VIEW)<boolean>(),
   setShowNavigation: createAction(AT.SET_SHOW_NAVIGATION)<boolean>(),
+  setShowingHidableNavigations: createAction(AT.SET_SHOWING_HIDABLE_NAVIGATIONS)<Set<string>>(),
+  addShowingHidableNavigation: createAction(AT.ADD_SHOWING_HIDABLE_NAVIGATION)<string>(),
+  removeShowingHidableNavigation: createAction(AT.REMOVE_SHOWING_HIDABLE_NAVIGATION)<string>(),
   setSideWidth: createAction(AT.SET_SIDE_WIDTH)<number>(),
   addNavOption: createAction(AT.ADD_NAV_OPTION)<AddNavOptionActionPayload>(),
   removeNavOption: createAction(AT.REMOVE_NAV_OPTION)<RemoveNavOptionActionPayload>(),

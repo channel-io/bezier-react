@@ -161,7 +161,7 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            showNavigation
+            navigationKey={route}
             layoutOption={{
               initialWidth: 250,
               maxWidth: 600,
@@ -195,7 +195,7 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
-            showNavigation
+            navigationKey={route}
             layoutOption={{
               initialWidth: 400,
               maxWidth: 600,
@@ -216,11 +216,11 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
+            navigationKey={route}
             layoutOption={{
               initialWidth: 300,
               maxWidth: 400,
               minWidth: 200,
-              hidable: false,
               disableResize: true,
             }}
           >
@@ -248,11 +248,11 @@ const Template = ({ onChangeWidth }) => {
             withScroll
             onChangeWidth={onChangeWidth}
             /* LayoutState Prop */
+            navigationKey={route}
             layoutOption={{
               initialWidth: 260,
               maxWidth: 600,
               minWidth: 240,
-              hidable: false,
             }}
           >
             { range(0, 30).map((val) => (
@@ -314,35 +314,46 @@ const Template = ({ onChangeWidth }) => {
   ), [onChangeWidth])
 
   return (
-    <LayoutProvider>
-      <Container>
-        <Client>
-          <GNB>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
-            <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
-          </GNB>
-          <Navigations>
-            <NavigationMainRoute />
-            <NavigationSubRoute />
-          </Navigations>
-          <Main
-            ContentHeaderComponent={ContentHeaderRoute}
-            CoverableHeaderComponent={CoverableHeaderRoute}
-            SidePanelComponent={SidePanelRoute}
-            SideViewComponent={SideViewComponent}
-            onChangeSideWidth={onChangeWidth}
-          >
-            <Content />
-          </Main>
-        </Client>
-      </Container>
+    <Container>
+      <Client>
+        <GNB>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.TeamChat}>팀챗</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.UserChat}>유저챗</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Statistic}>통계</button>
+          <button type="button" onClick={handleChangeRoute} value={RouteKeys.Setting}>세팅</button>
+        </GNB>
+        <Navigations>
+          <NavigationMainRoute />
+          <NavigationSubRoute />
+        </Navigations>
+        <Main
+          ContentHeaderComponent={ContentHeaderRoute}
+          CoverableHeaderComponent={CoverableHeaderRoute}
+          SidePanelComponent={SidePanelRoute}
+          SideViewComponent={SideViewComponent}
+          onChangeSideWidth={onChangeWidth}
+        >
+          <Content />
+        </Main>
+      </Client>
+    </Container>
+  )
+}
+
+function LayoutProvidedTemplate(props) {
+  return (
+    <LayoutProvider initialState={{
+      showingHidableNavigations: new Set([
+        RouteKeys.TeamChat,
+        RouteKeys.UserChat,
+      ]) }}
+    >
+      <Template {...props} />
     </LayoutProvider>
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {
   /* eslint-disable-next-line no-console */
   onChangeWidth: console.log,
