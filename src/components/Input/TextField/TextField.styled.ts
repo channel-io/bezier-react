@@ -112,11 +112,11 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   ${({ borderRadius }) => borderRadius}
   opacity: ${({ disabled }) => disabled && DisabledOpacity};
 
-  ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle};
-  ${({ focused }) => focused && focusedInputWrapperStyle};
-  ${({ hasError }) => hasError && erroredInputWrapperStyle};
+  ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle}
+  ${({ focused }) => focused && focusedInputWrapperStyle}
+  ${({ hasError }) => hasError && erroredInputWrapperStyle}
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['border-color', 'box-shadow'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['border-color', 'box-shadow'])}
 
   ${({ interpolation }) => interpolation}
 `

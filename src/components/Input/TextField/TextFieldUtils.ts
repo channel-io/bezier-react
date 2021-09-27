@@ -32,9 +32,10 @@ interface BorderRadiusProps {
 export function getProperTextFieldBorderRadius({
   size,
 }: BorderRadiusProps): FlattenSimpleInterpolation {
-  if (size > TextFieldSize.L) {
-    return Rounding.round12
+  switch (size) {
+    case TextFieldSize.XL:
+      return Rounding.round12
+    default:
+      return Rounding.round8
   }
-
-  return Rounding.round8
 }
