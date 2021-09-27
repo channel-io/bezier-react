@@ -24,7 +24,7 @@ import {
   TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
-import { getProperTextFieldBgColor } from './TextFieldUtils'
+import { getProperTextFieldBgColor, getProperTextFieldBorderRadius } from './TextFieldUtils'
 import type { TextFieldProps } from './TextField.types'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
@@ -81,6 +81,12 @@ function TextFieldComponent({
     hasError,
     readOnly,
   ])
+
+  const wrapperBorderRadius = useMemo(() => (
+    getProperTextFieldBorderRadius({
+      size,
+    })
+  ), [size])
 
   const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
   const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
@@ -342,6 +348,7 @@ function TextFieldComponent({
       variant={variant}
       size={size}
       bgColor={wrapperBgColorSemanticName}
+      borderRadius={wrapperBorderRadius}
       hasError={hasError}
       disabled={disabled}
       focused={focused}

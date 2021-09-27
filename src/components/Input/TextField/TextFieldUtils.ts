@@ -1,6 +1,10 @@
+/* External dependencies */
+import { FlattenSimpleInterpolation } from 'styled-components'
+
 /* Internal dependencies */
 import { SemanticNames } from '../../../foundation/Colors/Theme'
-import { TextFieldVariant } from './TextField.types'
+import { Rounding } from '../../../foundation/Rounding'
+import { TextFieldVariant, TextFieldSize } from './TextField.types'
 
 interface BackgroundColorProps {
   variant: TextFieldVariant
@@ -19,4 +23,18 @@ export function getProperTextFieldBgColor({
   if (variant === TextFieldVariant.Primary && readOnly) { return 'bg-grey-lighter' }
   if (variant === TextFieldVariant.Primary && (focused || hasError)) { return 'bg-white-normal' }
   return 'bg-grey-lightest'
+}
+
+interface BorderRadiusProps {
+  size: TextFieldSize
+}
+
+export function getProperTextFieldBorderRadius({
+  size,
+}: BorderRadiusProps): FlattenSimpleInterpolation {
+  if (size > TextFieldSize.L) {
+    return Rounding.round12
+  }
+
+  return Rounding.round8
 }
