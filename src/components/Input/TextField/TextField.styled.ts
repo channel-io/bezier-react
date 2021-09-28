@@ -1,3 +1,6 @@
+/* External dependencies */
+import { FlattenSimpleInterpolation } from 'styled-components'
+
 /* Internal dependencies */
 import { css, styled, Typography } from '../../../foundation'
 import DisabledOpacity from '../../../constants/DisabledOpacity'
@@ -91,6 +94,7 @@ interface WrapperProps {
   variant?: TextFieldVariant
   bgColor: SemanticNames
   size?: TextFieldSize
+  borderRadius?: FlattenSimpleInterpolation
   hasError?: boolean
   focused?: boolean
   disabled?: boolean
@@ -105,14 +109,14 @@ const Wrapper = styled.div<WrapperProps & WithInterpolation>`
   padding: 0 12px;
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
 
-  ${({ foundation }) => foundation?.rounding.round8}
+  ${({ borderRadius }) => borderRadius}
   opacity: ${({ disabled }) => disabled && DisabledOpacity};
 
-  ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle};
+  ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle}
   ${({ focused }) => focused && focusedInputWrapperStyle}
   ${({ hasError }) => hasError && erroredInputWrapperStyle}
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['border-color', 'box-shadow'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['border-color', 'box-shadow'])}
 
   ${({ interpolation }) => interpolation}
 `
