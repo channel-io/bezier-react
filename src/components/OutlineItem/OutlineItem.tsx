@@ -38,6 +38,7 @@ function OutlineItem(
     paddingLeft: givenPaddingLeft,
     open = false,
     active: givenActive,
+    focused = false,
     chevronIconType = ChevronIconType.Small,
     chevronIconSize = IconSize.XS,
     leftContent,
@@ -252,6 +253,7 @@ function OutlineItem(
           className={className}
           interpolation={interpolation}
           active={false}
+          focused={focused}
           currentOutlineItemIndex={currentOutlineItemIndex}
           paddingLeft={paddingLeft}
           onClick={handleClickGroup}
@@ -276,6 +278,7 @@ function OutlineItem(
         className={className}
         interpolation={interpolation}
         active={active}
+        focused={focused}
         currentOutlineItemIndex={currentOutlineItemIndex}
         paddingLeft={paddingLeft}
         onClick={handleClickGroup}

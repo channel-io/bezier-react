@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
+import { LightFoundation } from '../../foundation'
 import { render } from '../../utils/testUtils'
 import OutlineItem, { OUTLINE_ITEM_TEST_ID } from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
@@ -45,5 +46,26 @@ describe('OutlineItem', () => {
     const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
 
     expect(rendered[0]).toHaveAttribute('data-active-index', '2')
+  })
+
+  it('should have focused style when given "focused = true"', () => {
+    const { getAllByTestId } = renderComponent({ focused: true })
+    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+  })
+
+  it('should have active style when given "active = true"', () => {
+    const { getAllByTestId } = renderComponent({ active: true })
+    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
+  })
+
+  it('should have active style when given both "focused = true" and "active = true"', () => {
+    const { getAllByTestId } = renderComponent({ active: true, focused: true })
+    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
   })
 })

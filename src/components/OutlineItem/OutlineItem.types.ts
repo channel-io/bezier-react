@@ -25,6 +25,7 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   iconInterpolation?: InjectedInterpolation
   open?: boolean
   active?: boolean
+  focused?: boolean
   content?: React.ReactNode
   leftContent?: React.ReactNode
   leftIcon?: IconName
