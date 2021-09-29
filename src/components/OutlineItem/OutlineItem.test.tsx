@@ -68,4 +68,15 @@ describe('OutlineItem', () => {
 
     expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
   })
+
+  it('cannot have focused style when "selectedOutlineItemIndex" prop is not null', () => {
+    const { getAllByTestId } = renderComponent({
+      focused: true,
+      selectedOutlineItemIndex: 0,
+      children: renderComponent(),
+    })
+    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+    expect(rendered[0]).not.toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+  })
 })
