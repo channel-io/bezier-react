@@ -21,11 +21,13 @@ import {
 const LIST_GROUP_PADDING_LEFT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
+export const OUTLINE_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-outline-item-left-icon'
 
 function OutlineItem(
   {
     as,
     testId = OUTLINE_ITEM_TEST_ID,
+    leftIconTestId = OUTLINE_ITEM_LEFT_ICON_TEST_ID,
     style,
     className,
     interpolation,
@@ -38,6 +40,7 @@ function OutlineItem(
     paddingLeft: givenPaddingLeft,
     open = false,
     active: givenActive,
+    focused = false,
     chevronIconType = ChevronIconType.Small,
     chevronIconSize = IconSize.XS,
     leftContent,
@@ -167,6 +170,7 @@ function OutlineItem(
       return (
         <LeftContentWrapper>
           <StyledIcon
+            testId={leftIconTestId}
             className={iconClassName}
             interpolation={iconInterpolation}
             name={leftIcon}
@@ -188,6 +192,7 @@ function OutlineItem(
     leftContent,
     leftIcon,
     leftIconColor,
+    leftIconTestId,
   ])
 
   const ContentComponent = useMemo(() => (
@@ -252,6 +257,7 @@ function OutlineItem(
           className={className}
           interpolation={interpolation}
           active={false}
+          focused={focused}
           currentOutlineItemIndex={currentOutlineItemIndex}
           paddingLeft={paddingLeft}
           onClick={handleClickGroup}
@@ -276,6 +282,7 @@ function OutlineItem(
         className={className}
         interpolation={interpolation}
         active={active}
+        focused={focused}
         currentOutlineItemIndex={currentOutlineItemIndex}
         paddingLeft={paddingLeft}
         onClick={handleClickGroup}

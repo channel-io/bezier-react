@@ -10,9 +10,14 @@ import OutlineItemProps from './OutlineItem.types'
 
 interface WrapperProps extends WithInterpolation {
   active: boolean
+  focused: boolean
   paddingLeft: number
   currentOutlineItemIndex?: number | null
 }
+
+const FocusedItemStyle = css<WrapperProps>`
+  background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
+`
 
 const ActiveItemStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
@@ -20,8 +25,10 @@ const ActiveItemStyle = css`
 `
 
 const NonActiveItemStyle = css<WrapperProps>`
+  ${({ focused }) => focused && FocusedItemStyle}
+
   &:hover {
-    background-color: ${props => (isNil(props.currentOutlineItemIndex) && props.foundation?.theme?.['bg-black-lighter'])};
+    ${FocusedItemStyle}
   }
 `
 

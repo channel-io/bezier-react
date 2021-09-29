@@ -17,6 +17,7 @@ export enum ChevronIconType {
 }
 
 export default interface OutlineItemProps extends ContentComponentProps, ChildrenComponentProps, OptionItem {
+  leftIconTestId?: string
   chevronClassName?: string
   chevronInterpolation?: InjectedInterpolation
   contentClassName?: string
@@ -25,6 +26,7 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   iconInterpolation?: InjectedInterpolation
   open?: boolean
   active?: boolean
+  focused?: boolean
   content?: React.ReactNode
   leftContent?: React.ReactNode
   leftIcon?: IconName
