@@ -21,11 +21,13 @@ import {
 const LIST_GROUP_PADDING_LEFT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
+export const OUTLINE_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-outline-item-left-icon'
 
 function OutlineItem(
   {
     as,
     testId = OUTLINE_ITEM_TEST_ID,
+    leftIconTestId = OUTLINE_ITEM_LEFT_ICON_TEST_ID,
     style,
     className,
     interpolation,
@@ -168,6 +170,7 @@ function OutlineItem(
       return (
         <LeftContentWrapper>
           <StyledIcon
+            testId={leftIconTestId}
             className={iconClassName}
             interpolation={iconInterpolation}
             name={leftIcon}
@@ -189,6 +192,7 @@ function OutlineItem(
     leftContent,
     leftIcon,
     leftIconColor,
+    leftIconTestId,
   ])
 
   const ContentComponent = useMemo(() => (

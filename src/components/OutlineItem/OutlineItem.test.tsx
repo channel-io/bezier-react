@@ -6,7 +6,10 @@ import { range } from 'lodash-es'
 /* Internal dependencies */
 import { LightFoundation } from '../../foundation'
 import { render } from '../../utils/testUtils'
-import OutlineItem, { OUTLINE_ITEM_TEST_ID } from './OutlineItem'
+import OutlineItem, {
+  OUTLINE_ITEM_LEFT_ICON_TEST_ID,
+  OUTLINE_ITEM_TEST_ID,
+} from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
 
 describe('OutlineItem', () => {
@@ -48,35 +51,79 @@ describe('OutlineItem', () => {
     expect(rendered[0]).toHaveAttribute('data-active-index', '2')
   })
 
-  it('should have focused style when given "focused = true"', () => {
-    const { getAllByTestId } = renderComponent({ focused: true })
-    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+  describe('should have correct background style', () => {
+    it('should have no background style when not given focused or active prop', () => {
+      const { getAllByTestId } = renderComponent()
+      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
 
-    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
-  })
-
-  it('should have active style when given "active = true"', () => {
-    const { getAllByTestId } = renderComponent({ active: true })
-    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
-
-    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
-  })
-
-  it('should have active style when given both "focused = true" and "active = true"', () => {
-    const { getAllByTestId } = renderComponent({ active: true, focused: true })
-    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
-
-    expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
-  })
-
-  it('cannot have focused style when "selectedOutlineItemIndex" prop is not null', () => {
-    const { getAllByTestId } = renderComponent({
-      focused: true,
-      selectedOutlineItemIndex: 0,
-      children: renderComponent(),
+      expect(rendered[0]).not.toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+      expect(rendered[0]).not.toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
     })
-    const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
 
-    expect(rendered[0]).not.toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+    it('should have focused style when given "focused = true"', () => {
+      const { getAllByTestId } = renderComponent({ focused: true })
+      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+      expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+    })
+
+    it('should have active style when given "active = true"', () => {
+      const { getAllByTestId } = renderComponent({ active: true })
+      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+      expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
+    })
+
+    it('should have active style when given both "focused = true" and "active = true"', () => {
+      const { getAllByTestId } = renderComponent({ active: true, focused: true })
+      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+      expect(rendered[0]).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']};`)
+    })
+
+    it('cannot have focused style when "selectedOutlineItemIndex" prop is not null', () => {
+      const { getAllByTestId } = renderComponent({
+        focused: true,
+        selectedOutlineItemIndex: 0,
+      })
+      const rendered = getAllByTestId(OUTLINE_ITEM_TEST_ID)
+
+      expect(rendered[0]).not.toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-lighter']};`)
+    })
+  })
+
+  describe('should have correct left icon style', () => {
+    it('shows default left icon color', () => {
+      const { getByTestId } = renderComponent({ leftIcon: 'info' })
+      const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
+
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+    })
+
+    it('shows given leftIconColor if exists', () => {
+      const { getByTestId } = renderComponent({ leftIcon: 'info', leftIconColor: 'bgtxt-green-normal' })
+      const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
+
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']};`)
+    })
+
+    it('shows active icon color, ignoring given leftIconColor', () => {
+      const { getByTestId } = renderComponent({ leftIcon: 'info', leftIconColor: 'bgtxt-green-normal', active: true })
+      const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
+
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']};`)
+    })
+
+    it('shows given leftIconColor even if "active = true", if "disableIconActive = true"', () => {
+      const { getByTestId } = renderComponent({
+        leftIcon: 'info',
+        leftIconColor: 'bgtxt-purple-normal',
+        active: true,
+        disableIconActive: true,
+      })
+      const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
+
+      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-purple-normal']};`)
+    })
   })
 })
