@@ -103,8 +103,10 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       <span
         class="c3"
         color="txt-black-darkest"
-        data-testid="bezier-react-text"
-      />
+        data-testid="bezier-react-select-trigger-text"
+      >
+        foo
+      </span>
     </div>
     <svg
       class="c4"
