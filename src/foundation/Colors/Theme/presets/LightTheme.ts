@@ -114,6 +114,7 @@ const LightTheme: ThemeType = {
   'bgtxt-absolute-white-lightest': Palette.white_20,
 
   // Border
+  'bdr-black-dark': Palette.black_15,
   'bdr-black-light': Palette.black_8,
   'bdr-grey-light': Palette.grey200,
   'bdr-white': Palette.white,
