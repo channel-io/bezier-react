@@ -10,26 +10,6 @@ export const StyledTitleWrapper = styled.div<StyledTitleWrapperProps>`
   align-items: center;
 `
 
-interface ChevronIconWrapperProps {
-  isHover?: boolean
-}
-
-export const ChevronIconWrapper = styled.div<ChevronIconWrapperProps>`
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  border-radius: 8px;
-
-  &:hover {
-    /* TODO: 디자인 팀과 확인 필요 */
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
-  }
-`
-
 interface StyledContentWrapperProps {
   withScroll?: boolean
 }
