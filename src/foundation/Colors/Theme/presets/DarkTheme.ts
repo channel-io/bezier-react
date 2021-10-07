@@ -113,9 +113,10 @@ const DarkTheme: ThemeType = {
   'bgtxt-absolute-white-lightest': Palette.white_20,
 
   // Border
+  'bdr-black-dark': Palette.white_20,
   'bdr-black-light': Palette.white_12,
   'bdr-grey-light': Palette.grey700,
-  'bdr-white': Palette.grey900,
+  'bdr-white': Palette.grey700,
 
   // Shadow
   'shdw-xlarge': Palette.black_60,
