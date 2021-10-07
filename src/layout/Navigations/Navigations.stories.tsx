@@ -10,6 +10,7 @@ import { styled } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/ListItem'
 import { Header } from '../../components/Header'
+import { LayoutProvider } from '../LayoutProvider'
 import { NavigationContent } from './NavigationContent'
 import Navigations from './Navigations'
 
@@ -56,6 +57,7 @@ const Template = ({ onChangeWidth }) => {
       <Client>
         <Navigations>
           <NavigationContent
+            navigationKey="1"
             header={Element1Header}
             withScroll
             onChangeWidth={onChangeWidth}
@@ -71,6 +73,7 @@ const Template = ({ onChangeWidth }) => {
             )) }
           </NavigationContent>
           <NavigationContent
+            navigationKey="2"
             header={Element2Header}
             fixedHeader
             withScroll
@@ -92,7 +95,15 @@ const Template = ({ onChangeWidth }) => {
   )
 }
 
-export const Primary = Template.bind({})
+function LayoutProvidedTemplate(props) {
+  return (
+    <LayoutProvider initialState={undefined}>
+      <Template {...props} />
+    </LayoutProvider>
+  )
+}
+
+export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {
   /* eslint-disable-next-line no-console */
   onChangeWidth: console.log,
