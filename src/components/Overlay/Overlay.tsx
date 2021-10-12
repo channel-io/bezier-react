@@ -30,7 +30,7 @@ import * as Styled from './Overlay.styled'
 // TODO: 테스트 코드 작성
 const CONTAINER_TEST_ID = 'bezier-react-container'
 const WRAPPER_TEST_ID = 'bezier-react-wrapper'
-const OVERLAY_TEST_ID = 'bezier-react-overlay'
+export const OVERLAY_TEST_ID = 'bezier-react-overlay'
 
 const ESCAPE_KEY = 'Escape'
 

@@ -62,6 +62,7 @@ const ActiveItemStyle = css<StyledWrapperProps>`
 `
 
 export const RightContent = styled.div`
+  display: flex;
   margin-left: 8px;
 `
 

@@ -3,11 +3,13 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
+import { LightFoundation } from '../../../foundation'
 import { render } from '../../../utils/testUtils'
 import Select, {
   SELECT_CONTAINER_TEST_ID,
   SELECT_TRIGGER_TEST_ID,
   SELECT_DROPDOWN_TEST_ID,
+  SELECT_TRIGGER_TEXT_TEST_ID,
 } from './Select'
 import SelectProps, { SelectSize } from './Select.types'
 
@@ -28,7 +30,7 @@ describe('Select Test >', () => {
 
   describe('Default Style >', () => {
     it('Snapshot >', () => {
-      const { container } = renderSelect()
+      const { container } = renderSelect({ text: 'foo' })
       expect(container.firstChild).toMatchSnapshot()
     })
 
@@ -145,6 +147,29 @@ describe('Select Test >', () => {
       const defaultSelectDropdown = getByTestId(SELECT_TRIGGER_TEST_ID)
 
       expect(defaultSelectDropdown).toHaveStyle('height: 54px;')
+    })
+  })
+
+  describe('Trigger text style >', () => {
+    it('shows default text color', () => {
+      const { getByTestId } = renderSelect({ text: 'lorem ipsum' })
+      const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
+
+      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-darkest']};`)
+    })
+
+    it('shows given text color', () => {
+      const { getByTestId } = renderSelect({ text: 'lorem ipsum', textColor: 'bgtxt-green-normal' })
+      const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
+
+      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']};`)
+    })
+
+    it('shows placeholder text color if content is empty', () => {
+      const { getByTestId } = renderSelect({ text: '', textColor: 'bgtxt-blue-normal' })
+      const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
+
+      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
     })
   })
 })

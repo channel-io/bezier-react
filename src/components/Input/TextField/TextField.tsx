@@ -143,9 +143,9 @@ function TextFieldComponent({
     setSelectionRange,
   ])
 
-  const getBoundingClientRect = useCallback((): ClientRect => {
+  const getBoundingClientRect = useCallback((): DOMRect => {
     if (inputRef.current) { return inputRef.current.getBoundingClientRect() }
-    return { top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0 }
+    return new DOMRect(undefined, undefined, 0, 0)
   }, [])
 
   const getDOMNode = useCallback(() => inputRef.current, [])

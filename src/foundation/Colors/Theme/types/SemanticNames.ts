@@ -44,6 +44,7 @@ type MonoAbsoluteTextAndBackgroundColor =
   | `bgtxt-absolute-${BaseMonoPaletteKey}-lightest`
 
 type BorderColor =
+  | 'bdr-black-dark'
   | 'bdr-black-light'
   | 'bdr-grey-light'
   | 'bdr-white'

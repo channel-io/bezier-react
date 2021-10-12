@@ -8,7 +8,10 @@ import React, {
   Ref,
   useImperativeHandle,
 } from 'react'
-import _ from 'lodash'
+import {
+  isEmpty,
+  noop,
+} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -27,6 +30,7 @@ import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
 export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
+export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
 const DEFAULT_DROPDOWN_MARGIN_Y = 6
@@ -36,6 +40,7 @@ function Select(
   {
     testId = SELECT_CONTAINER_TEST_ID,
     triggerTestId = SELECT_TRIGGER_TEST_ID,
+    triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
     dropdownTestId = SELECT_DROPDOWN_TEST_ID,
     as,
     style,
@@ -58,8 +63,8 @@ function Select(
     dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
     dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
     dropdownPosition = OverlayPosition.BottomLeft,
-    onClickTrigger = _.noop,
-    onHideDropdown = _.noop,
+    onClickTrigger = noop,
+    onHideDropdown = noop,
     children,
   }: SelectProps,
   forwardedRef: Ref<SelectRef>,
@@ -112,6 +117,8 @@ function Select(
 
   useImperativeHandle(forwardedRef, () => handle)
 
+  const hasContent = !isEmpty(text)
+
   return (
     <Styled.Container
       data-testid={testId}
@@ -133,10 +140,11 @@ function Select(
         <Styled.MainContentWrapper>
           { LeftComponent }
           <Text
+            testId={triggerTextTestId}
             typo={Typography.Size14}
-            color={textColor}
+            color={hasContent ? textColor : 'txt-black-dark'}
           >
-            { text || placeholder }
+            { hasContent ? text : placeholder }
           </Text>
         </Styled.MainContentWrapper>
         { !withoutChevron && (

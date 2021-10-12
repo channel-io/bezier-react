@@ -20,6 +20,7 @@ export interface SelectRef {
 
 interface SelectProps extends ChildrenComponentProps {
   triggerTestId?: string
+  triggerTextTestId?: string
   dropdownTestId?: string
   size?: SelectSize
   disabled?: boolean
