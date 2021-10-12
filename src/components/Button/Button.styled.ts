@@ -136,7 +136,7 @@ const MONOCHROME_LIGHT_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemantic
   [ButtonStyleVariant.Tertiary]: {
     color: 'txt-black-darker',
     backgroundColor: 'transparent',
-    activeBackgroundColor: 'bg-black-lightest',
+    activeBackgroundColor: 'bg-black-lighter',
   },
 
   [ButtonStyleVariant.Floating]: {
@@ -160,7 +160,7 @@ const MONOCHROME_DARK_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticN
   [ButtonStyleVariant.Tertiary]: {
     color: 'txt-black-darkest',
     backgroundColor: 'transparent',
-    activeBackgroundColor: 'bg-black-lightest',
+    activeBackgroundColor: 'bg-black-lighter',
   },
 
   [ButtonStyleVariant.Floating]: {

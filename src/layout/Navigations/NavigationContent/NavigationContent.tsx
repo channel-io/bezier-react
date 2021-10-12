@@ -13,10 +13,9 @@ import LayoutActions from '../../redux/LayoutActions'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import { mergeClassNames } from '../../../utils/stringUtils'
-import { Icon, IconSize } from '../../../components/Icon'
+import { Button, ButtonStyleVariant, ButtonColorVariant } from '../../../components/Button'
 import { NavigationArea } from '../NavigationArea'
 import {
-  ChevronIconWrapper,
   StyledContentWrapper,
   StyledFooterWrapper,
   StyledTitleWrapper,
@@ -116,15 +115,12 @@ function NavigationContent({
 
   const showNavigationToggleButtonElement = useMemo(() => (
     // TODO: Tooltip 추가
-    <ChevronIconWrapper
+    <Button
+      leftComponent={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
+      styleVariant={ButtonStyleVariant.Tertiary}
+      colorVariant={ButtonColorVariant.MonochromeLight}
       onClick={handleClickChevron}
-    >
-      <Icon
-        name={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
-        color="txt-black-darker"
-        size={IconSize.S}
-      />
-    </ChevronIconWrapper>
+    />
   ), [
     isShowingNavigation,
     handleClickChevron,
