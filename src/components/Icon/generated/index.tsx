@@ -300,6 +300,7 @@ import Search from './Search'
 import SecurityPerson from './SecurityPerson'
 import Security from './Security'
 import SendFilled from './SendFilled'
+import SendForward from './SendForward'
 import Send from './Send'
 import SentFailedFilled from './SentFailedFilled'
 import SentFailed from './SentFailed'
@@ -700,6 +701,7 @@ const icons = {
   'security-person': SecurityPerson,
   'security': Security,
   'send-filled': SendFilled,
+  'send-forward': SendForward,
   'send': Send,
   'sent-failed-filled': SentFailedFilled,
   'sent-failed': SentFailed,
