@@ -57,8 +57,9 @@ export default [
   // ESModules
   configGenerator({
     output: {
-      file: packageJson.module,
+      dir: 'build',
       format: 'esm',
+      preserveModules: true,
     },
     plugins: [
       nodeResolve({
