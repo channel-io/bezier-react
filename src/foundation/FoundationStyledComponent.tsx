@@ -23,6 +23,7 @@ import styled, {
   FlattenInterpolation,
   SimpleInterpolation,
   CSSObject,
+  keyframes,
 } from 'styled-components'
 
 /* Internal dependencies */
@@ -143,4 +144,5 @@ export {
   FoundationCSS as css,
   FoundationProvider,
   useFoundation,
+  keyframes,
 }

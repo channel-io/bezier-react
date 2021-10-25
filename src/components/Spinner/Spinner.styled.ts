@@ -1,5 +1,9 @@
 /* Internal dependencies */
-import { styled } from '../../foundation'
+import {
+  styled,
+  css,
+  keyframes,
+} from '../../foundation'
 import {
   StyledSpinnerProps,
   SpinnerSize,
@@ -20,17 +24,21 @@ function getThicknessFromSize(size: SpinnerSize) {
   }
 }
 
-export const SpinIcon = styled.div<StyledSpinnerProps>`
-  @keyframes loaderRotate {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
+const spinnerKeyframes = keyframes`
+  0% {
+    transform: rotate(0deg);
   }
 
+  100% {
+    transform: rotate(360deg);
+  }
+`
+
+const spinnerAnimation = () => css`
+  animation: ${spinnerKeyframes} 1s infinite linear;
+`
+
+export const SpinIcon = styled.div<StyledSpinnerProps>`
   display: inline-block;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
@@ -41,7 +49,7 @@ export const SpinIcon = styled.div<StyledSpinnerProps>`
   border-bottom-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-left-color: ${({ foundation, color }) => (color ? foundation?.theme?.[color] : 'inherit')};
   border-radius: 50%;
-  animation: loaderRotate 1s infinite linear;
+  ${spinnerAnimation}
 
   ${({ interpolation }) => interpolation};
 `
