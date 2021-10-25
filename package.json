@@ -6,10 +6,10 @@
     "type": "git",
     "url": "https://github.com/channel-io/bezier-react"
   },
-  "main": "build/index.js",
-  "module": "build/index.es.js",
+  "main": "build/index.cjs.js",
+  "module": "build/src/index.js",
+  "types": "build/src/index.d.ts",
   "sideEffects": false,
-  "types": "build/index.d.ts",
   "files": [
     "build"
   ],
@@ -20,7 +20,7 @@
     "lint": "npm run eslint-all && npm run stylelint-all",
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
-    "typecheck": "ts-prune -e -p tsconfig.prune.json && tsc",
+    "typecheck": "ts-prune -e -p tsconfig.prune.json && tsc --emitDeclarationOnly --declarationDir build/src",
     "test": "npm run lint && npm run typecheck && npm run jest",
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
