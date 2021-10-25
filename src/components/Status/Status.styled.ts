@@ -33,7 +33,7 @@ export const StatusCircle = styled.div<StatusCircleProps>`
   }
 `
 
-export const PrivateIcon = styled(Icon)`
+export const LockIcon = styled(Icon)`
   ${absoluteCenter('')}
   z-index: 1;
 `
