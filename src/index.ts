@@ -7,6 +7,7 @@ EnableCSSHoudini({ smoothCorners: true })
 export * from './foundation'
 
 /* Components */
+export * from './components/Banner'
 export * from './components/Button'
 export * from './components/Icon'
 export * from './components/Switch'
