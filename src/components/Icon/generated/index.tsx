@@ -18,6 +18,7 @@ import ArrowHookRightUp from './ArrowHookRightUp'
 import ArrowLeftCircleFilled from './ArrowLeftCircleFilled'
 import ArrowLeftUp from './ArrowLeftUp'
 import ArrowLeft from './ArrowLeft'
+import ArrowRightUpSmall from './ArrowRightUpSmall'
 import ArrowRightUp from './ArrowRightUp'
 import ArrowRight from './ArrowRight'
 import ArrowTurnLeftDown from './ArrowTurnLeftDown'
@@ -87,10 +88,12 @@ import ChatCheckFilled from './ChatCheckFilled'
 import ChatCheck from './ChatCheck'
 import ChatErrorFilled from './ChatErrorFilled'
 import ChatError from './ChatError'
+import ChatForward from './ChatForward'
 import ChatInfo from './ChatInfo'
 import ChatLightning from './ChatLightning'
 import ChatProgressFilled from './ChatProgressFilled'
 import ChatProgress from './ChatProgress'
+import ChatPush from './ChatPush'
 import ChatQuestionFilled from './ChatQuestionFilled'
 import ChatQuestion from './ChatQuestion'
 import ChatReady from './ChatReady'
@@ -127,12 +130,14 @@ import CommentFilled from './CommentFilled'
 import CommentIn from './CommentIn'
 import CommentOut from './CommentOut'
 import Comment from './Comment'
+import Communication from './Communication'
 import Contact from './Contact'
 import Contract from './Contract'
 import Cookie from './Cookie'
 import Coupon from './Coupon'
 import Credit from './Credit'
 import Creditcard from './Creditcard'
+import Data from './Data'
 import Desktop from './Desktop'
 import Devices from './Devices'
 import DialogDown from './DialogDown'
@@ -141,6 +146,7 @@ import Dot from './Dot'
 import Download from './Download'
 import Dragable from './Dragable'
 import Edit from './Edit'
+import EmailFilled from './EmailFilled'
 import EmailUnread from './EmailUnread'
 import EmailUnsubscribed from './EmailUnsubscribed'
 import Email from './Email'
@@ -186,6 +192,7 @@ import HandThumbupFilled from './HandThumbupFilled'
 import HandThumbup from './HandThumbup'
 import HandWave from './HandWave'
 import Hand from './Hand'
+import HashtagLarge from './HashtagLarge'
 import Hashtag from './Hashtag'
 import Heading from './Heading'
 import HeadsetOff from './HeadsetOff'
@@ -216,6 +223,8 @@ import IntoPage from './IntoPage'
 import Invert from './Invert'
 import Ios from './Ios'
 import Italic from './Italic'
+import KakaoFilled from './KakaoFilled'
+import Kakao from './Kakao'
 import Key from './Key'
 import Keyboard from './Keyboard'
 import Lab from './Lab'
@@ -233,15 +242,21 @@ import Lock from './Lock'
 import MapPin from './MapPin'
 import MarkerPen from './MarkerPen'
 import Me from './Me'
+import MegaphoneFilled from './MegaphoneFilled'
 import Megaphone from './Megaphone'
 import MenuFold from './MenuFold'
 import MenuUnfold from './MenuUnfold'
 import Menu from './Menu'
+import MessagingApp from './MessagingApp'
 import Metro from './Metro'
+import MicrophoneOff from './MicrophoneOff'
+import Microphone from './Microphone'
 import MinusCircleFilled from './MinusCircleFilled'
 import MinusCircle from './MinusCircle'
+import MobileMessaging from './MobileMessaging'
 import Mobile from './Mobile'
 import MoonFilled from './MoonFilled'
+import Moon from './Moon'
 import MoreVertical from './MoreVertical'
 import More from './More'
 import Mouse from './Mouse'
@@ -300,6 +315,9 @@ import Search from './Search'
 import SecurityPerson from './SecurityPerson'
 import Security from './Security'
 import SendFilled from './SendFilled'
+import SendForwardFailedFilled from './SendForwardFailedFilled'
+import SendForwardFailed from './SendForwardFailed'
+import SendForwardFilled from './SendForwardFilled'
 import SendForward from './SendForward'
 import Send from './Send'
 import SentFailedFilled from './SentFailedFilled'
@@ -312,6 +330,7 @@ import Shopping from './Shopping'
 import Shuffle from './Shuffle'
 import SingleNode from './SingleNode'
 import Siren from './Siren'
+import SmsFilled from './SmsFilled'
 import Sms from './Sms'
 import Snooze from './Snooze'
 import Soccerball from './Soccerball'
@@ -419,6 +438,7 @@ const icons = {
   'arrow-left-circle-filled': ArrowLeftCircleFilled,
   'arrow-left-up': ArrowLeftUp,
   'arrow-left': ArrowLeft,
+  'arrow-right-up-small': ArrowRightUpSmall,
   'arrow-right-up': ArrowRightUp,
   'arrow-right': ArrowRight,
   'arrow-turn-left-down': ArrowTurnLeftDown,
@@ -488,10 +508,12 @@ const icons = {
   'chat-check': ChatCheck,
   'chat-error-filled': ChatErrorFilled,
   'chat-error': ChatError,
+  'chat-forward': ChatForward,
   'chat-info': ChatInfo,
   'chat-lightning': ChatLightning,
   'chat-progress-filled': ChatProgressFilled,
   'chat-progress': ChatProgress,
+  'chat-push': ChatPush,
   'chat-question-filled': ChatQuestionFilled,
   'chat-question': ChatQuestion,
   'chat-ready': ChatReady,
@@ -528,12 +550,14 @@ const icons = {
   'comment-in': CommentIn,
   'comment-out': CommentOut,
   'comment': Comment,
+  'communication': Communication,
   'contact': Contact,
   'contract': Contract,
   'cookie': Cookie,
   'coupon': Coupon,
   'credit': Credit,
   'creditcard': Creditcard,
+  'data': Data,
   'desktop': Desktop,
   'devices': Devices,
   'dialog-down': DialogDown,
@@ -542,6 +566,7 @@ const icons = {
   'download': Download,
   'dragable': Dragable,
   'edit': Edit,
+  'email-filled': EmailFilled,
   'email-unread': EmailUnread,
   'email-unsubscribed': EmailUnsubscribed,
   'email': Email,
@@ -587,6 +612,7 @@ const icons = {
   'hand-thumbup': HandThumbup,
   'hand-wave': HandWave,
   'hand': Hand,
+  'hashtag-large': HashtagLarge,
   'hashtag': Hashtag,
   'heading': Heading,
   'headset-off': HeadsetOff,
@@ -617,6 +643,8 @@ const icons = {
   'invert': Invert,
   'ios': Ios,
   'italic': Italic,
+  'kakao-filled': KakaoFilled,
+  'kakao': Kakao,
   'key': Key,
   'keyboard': Keyboard,
   'lab': Lab,
@@ -634,15 +662,21 @@ const icons = {
   'map-pin': MapPin,
   'marker-pen': MarkerPen,
   'me': Me,
+  'megaphone-filled': MegaphoneFilled,
   'megaphone': Megaphone,
   'menu-fold': MenuFold,
   'menu-unfold': MenuUnfold,
   'menu': Menu,
+  'messaging-app': MessagingApp,
   'metro': Metro,
+  'microphone-off': MicrophoneOff,
+  'microphone': Microphone,
   'minus-circle-filled': MinusCircleFilled,
   'minus-circle': MinusCircle,
+  'mobile-messaging': MobileMessaging,
   'mobile': Mobile,
   'moon-filled': MoonFilled,
+  'moon': Moon,
   'more-vertical': MoreVertical,
   'more': More,
   'mouse': Mouse,
@@ -701,6 +735,9 @@ const icons = {
   'security-person': SecurityPerson,
   'security': Security,
   'send-filled': SendFilled,
+  'send-forward-failed-filled': SendForwardFailedFilled,
+  'send-forward-failed': SendForwardFailed,
+  'send-forward-filled': SendForwardFilled,
   'send-forward': SendForward,
   'send': Send,
   'sent-failed-filled': SentFailedFilled,
@@ -713,6 +750,7 @@ const icons = {
   'shuffle': Shuffle,
   'single-node': SingleNode,
   'siren': Siren,
+  'sms-filled': SmsFilled,
   'sms': Sms,
   'snooze': Snooze,
   'soccerball': Soccerball,
