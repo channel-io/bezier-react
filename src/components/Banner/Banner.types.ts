@@ -1,3 +1,6 @@
+/* External dependencies */
+import type { ReactNode } from 'react'
+
 /* Internal dependencies */
 import type { UIComponentProps } from '../..'
 import type { SemanticNames } from '../../foundation'
@@ -13,6 +16,11 @@ export enum BannerColorVariant {
   Alt = 'alt',
 }
 
+export type RenderLinkFunc = (props: {
+  content: ReactNode
+  linkTo?: string
+}) => JSX.Element
+
 export interface BannerProps extends UIComponentProps {
   colorVariant?: BannerColorVariant
   icon: IconName | null
@@ -22,6 +30,7 @@ export interface BannerProps extends UIComponentProps {
   hasLink?: boolean
   linkText?: string
   linkTo?: string
+  renderLink?: RenderLinkFunc
 
   dismissible?: boolean
   onDismiss?: () => void

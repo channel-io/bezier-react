@@ -15,6 +15,7 @@ import {
 import {
   BannerColorVariant,
   BannerProps,
+  RenderLinkFunc,
 } from './Banner.types'
 import Styled from './Banner.styled'
 
@@ -22,29 +23,40 @@ const BANNER_TEST_ID = 'bezier-react-banner'
 export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'
 export const BANNER_DISMISS_TEST_ID = 'bezier-react-banner-dismiss'
 
+const externalLinkRenderer: RenderLinkFunc = ({
+  content,
+  linkTo,
+}) => (
+  <a
+    href={linkTo}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-testid={BANNER_LINK_TEST_ID}
+  >
+    { content }
+  </a>
+)
+
 function Link({
   colorVariant = BannerColorVariant.Default,
   hasLink = false,
   linkText,
   linkTo,
+  renderLink = externalLinkRenderer,
 }: BannerProps) {
   if (!hasLink) { return null }
 
-  return (
-    <a
-      href={linkTo}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-testid={BANNER_LINK_TEST_ID}
-    >
+  return renderLink({
+    content: (
       <Styled.Link
         color={TEXT_COLORS[colorVariant]}
         bold
       >
         { linkText }
       </Styled.Link>
-    </a>
-  )
+    ),
+    linkTo,
+  })
 }
 
 function DismissButton({
