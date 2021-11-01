@@ -1,8 +1,5 @@
 /* Internal dependencies */
-import type {
-  InjectedInterpolation,
-  UIComponentProps,
-} from '../..'
+import type { UIComponentProps } from '../..'
 import type { SemanticNames } from '../../foundation'
 import type { IconName } from '../Icon/generated'
 
@@ -17,9 +14,6 @@ export enum BannerColorVariant {
 }
 
 export interface BannerProps extends UIComponentProps {
-  className?: string
-  interpolation?: InjectedInterpolation
-
   colorVariant?: BannerColorVariant
   icon: IconName | null
   iconColor?: SemanticNames
