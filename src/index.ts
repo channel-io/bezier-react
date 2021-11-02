@@ -1,9 +1,4 @@
-import EnableCSSHoudini from './worklets/EnableCSSHoudini'
-
-EnableCSSHoudini({ smoothCorners: true })
-
 /* Foundation */
-
 export * from './foundation'
 
 /* Components */

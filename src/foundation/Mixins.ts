@@ -96,7 +96,7 @@ export const smoothCorners = ({
     box-shadow: none;
 
     ${hasBackgroundImage && css`
-    border-image-source: var(--background-image);
+      border-image-source: var(--background-image);
     `}
 
     --smooth-corners: ${borderRadius};
