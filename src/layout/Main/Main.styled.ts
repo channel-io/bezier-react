@@ -16,7 +16,7 @@ export const MainWrapper = styled.div.attrs(({ hasSide, sideWidth }: MainWrapper
   },
 }))<MainWrapperProps>`
   display: grid;
-  grid-template-rows: ${({ hasHeader }) => (hasHeader ? `${HEADER_HEIGHT}px 1fr` : '0 1fr')};
+  grid-template-rows: ${({ hasHeader }) => (hasHeader ? `minmax(${HEADER_HEIGHT}px, auto) 1fr` : '0 1fr')};
   width: 100%;
   height: 100%;
 
