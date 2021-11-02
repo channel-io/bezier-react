@@ -1,6 +1,6 @@
 /* External dependencies */
 import type { CSSProperties } from 'react'
-import { isNil } from 'lodash'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { css } from './FoundationStyledComponent'
