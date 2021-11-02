@@ -1,6 +1,6 @@
 /* External dependencies */
 import type { CSSProperties } from 'react'
-import { isNil } from 'lodash'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { css } from './FoundationStyledComponent'
@@ -96,7 +96,7 @@ export const smoothCorners = ({
     box-shadow: none;
 
     ${hasBackgroundImage && css`
-    border-image-source: var(--background-image);
+      border-image-source: var(--background-image);
     `}
 
     --smooth-corners: ${borderRadius};

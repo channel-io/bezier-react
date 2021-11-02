@@ -27,6 +27,7 @@ import styled, {
 } from 'styled-components'
 
 /* Internal dependencies */
+import EnableCSSHoudini from '../worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
 import { Foundation } from './index'
 
@@ -41,6 +42,7 @@ function FoundationProvider({
   foundation,
   children,
 }: FoundationProviderProps) {
+  EnableCSSHoudini({ smoothCorners: true })
   return <FoundationContext.Provider value={foundation}>{ children }</FoundationContext.Provider>
 }
 

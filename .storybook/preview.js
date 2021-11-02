@@ -2,16 +2,11 @@
 import React from 'react'
 
 /* Internel dependencies */
-import EnableCSSHoudini from '../src/worklets/EnableCSSHoudini'
 import {
   FoundationProvider,
   LightFoundation,
   DarkFoundation,
-  styled,
 } from '../src/foundation'
-
-// CSS Houdini
-EnableCSSHoudini({ smoothCorners: true })
 
 const FoundationKeyword = {
   Light: 'light',
