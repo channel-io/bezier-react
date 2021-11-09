@@ -95,7 +95,7 @@ function Banner(
     colorVariant = BannerColorVariant.Default,
     icon,
     iconColor,
-    text,
+    content,
     testId = BANNER_TEST_ID,
   } = props
 
@@ -116,15 +116,15 @@ function Banner(
       ) }
 
       <Styled.ContentWrapper>
-        { isString(text) ? (
+        { isString(content) ? (
           <Text
             typo={Typography.Size14}
             color={TEXT_COLORS[colorVariant]}
           >
-            { text }
+            { content }
             <Link {...props} />
           </Text>
-        ) : text }
+        ) : content }
       </Styled.ContentWrapper>
 
       <DismissButton {...props} />

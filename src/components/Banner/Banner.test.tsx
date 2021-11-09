@@ -15,7 +15,7 @@ describe('Banner >', () => {
   beforeEach(() => {
     props = {
       icon: 'info',
-      text: 'Lorem ipsum dolor amet.',
+      content: 'Lorem ipsum dolor amet.',
       hasLink: false,
       dismissible: false,
     }
