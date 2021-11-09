@@ -115,7 +115,7 @@ function Banner(
         />
       ) }
 
-      <Styled.ContentWrapper>
+      <Styled.ContentWrapper colorVariant={colorVariant}>
         { isString(content) ? (
           <Text
             typo={Typography.Size14}

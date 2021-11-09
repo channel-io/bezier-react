@@ -5,12 +5,17 @@ import { Icon } from '../Icon'
 import { Text } from '../Text'
 import {
   BACKGROUND_COLORS,
+  TEXT_COLORS,
   ELEVATIONS,
 } from './Banner.const'
 import type { BannerColorVariant } from './Banner.types'
 
 const BannerIcon = styled(Icon)``
-const ContentWrapper = styled.div``
+const ContentWrapper = styled.div<{
+  colorVariant: BannerColorVariant
+}>`
+  color: ${({ foundation, colorVariant }) => foundation?.theme?.[TEXT_COLORS[colorVariant]]};
+`
 const Dismiss = styled.div`
   display: flex;
   width: 20px;
