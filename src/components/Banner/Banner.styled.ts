@@ -10,7 +10,7 @@ import {
 import type { BannerColorVariant } from './Banner.types'
 
 const BannerIcon = styled(Icon)``
-const Content = styled(Text)``
+const ContentWrapper = styled.div``
 const Dismiss = styled.div`
   display: flex;
   width: 20px;
@@ -42,11 +42,11 @@ const Wrapper = styled.div<{
 
   ${({ interpolation }) => interpolation}
 
-  > ${Content} {
+  > ${ContentWrapper} {
     flex: 1;
   }
 
-  > ${BannerIcon} + ${Content} {
+  > ${BannerIcon} + ${ContentWrapper} {
     margin-left: 6px;
   }
 
@@ -61,7 +61,7 @@ const Wrapper = styled.div<{
 
 export default {
   BannerIcon,
-  Content,
+  ContentWrapper,
   Dismiss,
   Link,
   Wrapper,
