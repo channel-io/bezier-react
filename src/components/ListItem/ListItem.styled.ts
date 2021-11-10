@@ -64,6 +64,7 @@ const ActiveItemStyle = css<StyledWrapperProps>`
 export const RightContent = styled.div`
   display: flex;
   margin-left: 8px;
+  white-space: nowrap;
 `
 
 export const TitleWrapper = styled.div`
