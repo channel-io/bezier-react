@@ -1,9 +1,13 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
-import { isNil } from 'lodash-es'
+import {
+  isNil,
+  isString,
+} from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
+import { Text } from '../Text'
 import {
   Icon,
   IconSize,
@@ -91,7 +95,7 @@ function Banner(
     colorVariant = BannerColorVariant.Default,
     icon,
     iconColor,
-    text,
+    content,
     testId = BANNER_TEST_ID,
   } = props
 
@@ -111,13 +115,17 @@ function Banner(
         />
       ) }
 
-      <Styled.Content
-        typo={Typography.Size14}
-        color={TEXT_COLORS[colorVariant]}
-      >
-        { text }
-        <Link {...props} />
-      </Styled.Content>
+      <Styled.ContentWrapper colorVariant={colorVariant}>
+        { isString(content) ? (
+          <Text
+            typo={Typography.Size14}
+            color={TEXT_COLORS[colorVariant]}
+          >
+            { content }
+            <Link {...props} />
+          </Text>
+        ) : content }
+      </Styled.ContentWrapper>
 
       <DismissButton {...props} />
     </Styled.Wrapper>

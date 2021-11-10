@@ -25,7 +25,7 @@ export interface BannerProps extends UIComponentProps {
   colorVariant?: BannerColorVariant
   icon: IconName | null
   iconColor?: SemanticNames
-  text: string
+  content: string | ReactNode
 
   hasLink?: boolean
   linkText?: string

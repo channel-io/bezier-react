@@ -54,7 +54,7 @@ export const Primary: Story<BannerProps> = Template.bind({})
 Primary.args = {
   colorVariant: BannerColorVariant.Default,
   icon: 'lightbulb',
-  text: 'Information here.',
+  content: 'Information here.',
   dismissible: true,
   onDismiss: noop,
 }
