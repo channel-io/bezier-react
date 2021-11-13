@@ -27,6 +27,7 @@ function TextArea(
     wrapperStyle,
     testId = TEXT_AREA_TEST_ID,
     autoFocus = false,
+    disabled = false,
     readOnly = false,
     value = '',
     hasError = false,
@@ -41,6 +42,8 @@ function TextArea(
 ) {
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)
+
+  const activeInput = !disabled && !readOnly
 
   const [focused, setFocused] = useState(false)
 
@@ -57,12 +60,12 @@ function TextArea(
   ])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
-    if (readOnly) { return }
+    if (!activeInput) { return }
     setFocused(true)
     onFocus?.(event)
   }, [
     onFocus,
-    readOnly,
+    activeInput,
   ])
 
   const handleBlur = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
@@ -89,12 +92,14 @@ function TextArea(
       interpolation={interpolation}
       focused={focused}
       hasError={hasError}
+      disabled={disabled}
       bgColor={bgColorSemanticName}
       data-testid={testId}
     >
       <Styled.TextAreaAutoSizeBase
         ref={mergedInputRef}
         value={value}
+        disabled={disabled}
         readOnly={readOnly}
         maxRows={maxRows}
         minRows={minRows}

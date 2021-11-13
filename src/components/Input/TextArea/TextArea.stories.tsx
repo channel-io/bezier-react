@@ -54,6 +54,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   autoFocus: true,
   readOnly: false,
+  disabled: false,
   hasError: false,
   minRows: TextAreaHeight.Row6,
   maxRows: TextAreaHeight.Row10,
