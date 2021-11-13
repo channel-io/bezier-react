@@ -1,6 +1,8 @@
 /* External dependencies */
 import { fireEvent } from '@testing-library/dom'
 import React from 'react'
+import disabledOpacity from '../../../constants/DisabledOpacity'
+import { Palette } from '../../../foundation/Colors/Palette'
 
 /* Internal dependencies */
 import { render } from '../../../utils/testUtils'
@@ -13,6 +15,7 @@ describe('TextArea 테스트 >', () => {
   let props: TextAreaProps
 
   beforeEach(() => {
+    jest.useFakeTimers()
     props = {}
   })
 
@@ -30,9 +33,11 @@ describe('TextArea 테스트 >', () => {
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
     const textareaElement = rendered.getElementsByTagName('textarea')[0]
 
+    expect(textareaElement).not.toHaveAttribute('readOnly')
     expect(textareaElement).not.toHaveAttribute('disabled')
     expect(textareaElement).not.toHaveAttribute('placeholder')
     expect(textareaElement).not.toHaveAttribute('maxRows')
+    expect(textareaElement).not.toHaveAttribute('minRows')
   })
 
   it('placeholder가 주입되었을 때 주입되는 값과 동일한 "placeholder"를 가져야 한다', () => {
@@ -44,8 +49,42 @@ describe('TextArea 테스트 >', () => {
     expect(textareaElement).toHaveAttribute('placeholder', PLACEHOLDER_TEXT)
   })
 
+  it('disabled 나 readOnly prop이 주입되었을 때 주입되는 attribute를 가져야 한다', () => {
+    const { getByTestId } = renderComponent({ disabled: true, readOnly: true })
+    const rendered = getByTestId(TEXT_AREA_TEST_ID)
+    const textareaElement = rendered.getElementsByTagName('textarea')[0]
+    expect(textareaElement).toHaveAttribute('readOnly')
+    expect(textareaElement).toHaveAttribute('disabled')
+  })
+
+  it('disabled prop이 주입되었을 때는 root wrapper의 opacity가 0.4이어야 한다', () => {
+    const { getByTestId } = renderComponent({ disabled: true })
+    const rendered = getByTestId(TEXT_AREA_TEST_ID)
+    expect(rendered).toHaveStyle(`opacity: ${disabledOpacity}`)
+  })
+
+  it('focus 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {
+    const onFocus = jest.fn()
+    const { getByTestId } = renderComponent({ onFocus })
+    const rendered = getByTestId(TEXT_AREA_TEST_ID)
+    const textareaElement = rendered.getElementsByTagName('textarea')[0]
+    textareaElement.focus()
+
+    jest.advanceTimersByTime(1000)
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${Palette.blue400_20}, inset 0 0 0 1px ${Palette.blue400}`)
+  })
+
+  it('error 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {
+    const onFocus = jest.fn()
+    const { getByTestId } = renderComponent({ onFocus, hasError: true })
+    const rendered = getByTestId(TEXT_AREA_TEST_ID)
+
+    jest.advanceTimersByTime(1000)
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${Palette.orange400_20}, inset 0 0 0 1px ${Palette.orange400}`)
+  })
+
   describe('onFocus 테스트 >', () => {
-    it('readOnly 이면 onFocus 가 안 불려야 한다', () => {
+    it('readOnly가 주입됐다면 onFocus 가 안 불려야 한다', () => {
       const onFocus = jest.fn()
       const { getByTestId } = renderComponent({ onFocus, readOnly: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -55,7 +94,27 @@ describe('TextArea 테스트 >', () => {
       expect(onFocus).not.toBeCalled()
     })
 
-    it('readOnly 가 주입되지 않았다면 onFocus는 불려야 한다', () => {
+    it('disabled가 주입됐다면 onFocus 가 안 불려야 한다', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus, disabled: true })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      textareaElement.focus()
+
+      expect(onFocus).not.toBeCalled()
+    })
+
+    it('disabled, readOnly가 주입됐다면 onFocus 가 안 불려야 한다', () => {
+      const onFocus = jest.fn()
+      const { getByTestId } = renderComponent({ onFocus, disabled: true, readOnly: true })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+      textareaElement.focus()
+
+      expect(onFocus).not.toBeCalled()
+    })
+
+    it('readOnly, disabled 가 주입되지 않았다면 onFocus는 불려야 한다', () => {
       const onFocus = jest.fn()
       const { getByTestId } = renderComponent({ onFocus })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
