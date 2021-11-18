@@ -15,15 +15,16 @@ export enum TextAreaSize {
 
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
 
-export default interface TextAreaProps extends UIComponentProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export default interface TextAreaProps
+  extends UIComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
+  size?: TextAreaSize
+  autoFocus?: boolean
+  hasError?: boolean
+  readOnly?: boolean
+  disabled?: boolean
   wrapperInterpolation?: InjectedInterpolation
   wrapperStyle?: CSSProperties
   wrapperClassName?: string
-  autoFocus?: boolean
-  value?: string
-  hasError?: boolean
-  size?: TextAreaSize
-  height?: number
   onFocus?: TextAreaChangeEventHandler
   onBlur?: TextAreaChangeEventHandler
   onChange?: TextAreaChangeEventHandler
