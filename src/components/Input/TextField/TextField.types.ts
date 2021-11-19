@@ -50,15 +50,17 @@ export interface TextFieldRef {
 }
 
 export interface TextFieldProps
-  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
+  leftContent?: TextFieldItemProps
+  rightContent?: TextFieldItemProps | TextFieldItemProps[]
   variant?: TextFieldVariant
   type?: TextFieldType
   hasError?: boolean
+  readOnly?: boolean
+  disabled?: boolean
   allowClear?: boolean
   selectAllOnInit?: boolean
   selectAllOnFocus?: boolean
-  leftContent?: TextFieldItemProps
-  rightContent?: TextFieldItemProps | TextFieldItemProps[]
   withoutLeftContentWrapper?: boolean
   withoutRightContentWrapper?: boolean
   inputClassName?: string
