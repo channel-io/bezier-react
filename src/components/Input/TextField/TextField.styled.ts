@@ -30,6 +30,8 @@ const Input = styled.input<WithInterpolation>`
 
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
 
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'auto')};
+
   background-color: transparent;
   border: none;
   outline: none;

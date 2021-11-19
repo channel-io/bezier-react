@@ -44,6 +44,7 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 interface TextAreaAutoSizeBaseProps extends WithInterpolation{
+  disabled: boolean
   readOnly: boolean
 }
 
@@ -58,6 +59,7 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
   width: 100%;
   padding: 8px 12px;
   margin: 0;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'auto')};
   resize: none;
   background: none;
   border: none;
