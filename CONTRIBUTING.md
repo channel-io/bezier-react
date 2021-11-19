@@ -22,6 +22,21 @@ See also: [cz-cli](https://github.com/commitizen/cz-cli).
 6. Push to your forked repository.
 7. Issue that pull request (from forked repository to origin).
 
+## Commit Convention
+We are using commitzen as described above.
+In more detail, it follows the [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type). You will add what kind of commit belongs to using the commitzen, and the types are as follows.
+
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation only changes
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- refactor: A code change that neither fixes a bug nor adds a feature
+- perf: A code change that improves performance
+- test: Adding missing or correcting existing tests
+- chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+> Note that not all types make the resease start immediately. Only `BREAKING_CHANGE`, `feat`, `fix`, `perf` will be released immediately. See also: [semantic-release](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release)
+>
 ## Report bugs using Github's [issues](https://github.com/channel-io/bezier-react/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/channel-io/bezier-react/issues/new/choose).
 

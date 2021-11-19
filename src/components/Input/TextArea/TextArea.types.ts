@@ -16,16 +16,17 @@ export enum TextAreaHeight {
 
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
 
-export default interface TextAreaProps extends UIComponentProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export default interface TextAreaProps
+  extends UIComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
+  minRows?: TextAreaHeight
+  maxRows?: TextAreaHeight
+  autoFocus?: boolean
+  hasError?: boolean
+  readOnly?: boolean
+  disabled?: boolean
   wrapperInterpolation?: InjectedInterpolation
   wrapperStyle?: CSSProperties
   wrapperClassName?: string
-  autoFocus?: boolean
-  value?: string
-  hasError?: boolean
-  minRows?: TextAreaHeight
-  maxRows?: TextAreaHeight
-  height?: number
   onFocus?: TextAreaChangeEventHandler
   onBlur?: TextAreaChangeEventHandler
   onChange?: TextAreaChangeEventHandler
