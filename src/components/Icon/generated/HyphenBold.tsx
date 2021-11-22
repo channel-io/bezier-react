@@ -10,7 +10,10 @@ function SvgHyphenBold(props: React.SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <rect fill="currentColor" x={5} y={10.5} width={14} height={3} rx={1} />
+      <path
+        fill="currentColor"
+        d="M5 12a1.5 1.5 0 011.5-1.5h11a1.5 1.5 0 010 3h-11A1.5 1.5 0 015 12z"
+      />
     </svg>
   )
 }

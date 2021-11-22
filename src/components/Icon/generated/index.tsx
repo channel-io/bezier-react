@@ -320,11 +320,8 @@ import SendForwardFailed from './SendForwardFailed'
 import SendForwardFilled from './SendForwardFilled'
 import SendForward from './SendForward'
 import Send from './Send'
-import SentFailedFilled from './SentFailedFilled'
-import SentFailed from './SentFailed'
-import SentFilled from './SentFilled'
-import Sent from './Sent'
 import Settings from './Settings'
+import Shape from './Shape'
 import Shine from './Shine'
 import Shopping from './Shopping'
 import Shuffle from './Shuffle'
@@ -740,11 +737,8 @@ const icons = {
   'send-forward-filled': SendForwardFilled,
   'send-forward': SendForward,
   'send': Send,
-  'sent-failed-filled': SentFailedFilled,
-  'sent-failed': SentFailed,
-  'sent-filled': SentFilled,
-  'sent': Sent,
   'settings': Settings,
+  'shape': Shape,
   'shine': Shine,
   'shopping': Shopping,
   'shuffle': Shuffle,
