@@ -53,6 +53,7 @@ function Link({
   return renderLink({
     content: (
       <Styled.Link
+        typo={Typography.Size14}
         color={TEXT_COLORS[colorVariant]}
         bold
       >
