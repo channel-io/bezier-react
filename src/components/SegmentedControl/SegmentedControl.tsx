@@ -10,6 +10,9 @@ import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
+const SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX = 'bezier-react-segmented-control-option-item'
+export const segmentedControlOptionItemTestId = (index: number) =>
+  [SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX, index.toString()].join('-')
 
 function SegmentedControl(
   {
@@ -56,6 +59,7 @@ function SegmentedControl(
   const renderOption = useCallback((Element: React.ReactNode, index: number) => (
     <OptionItemWrapper
       key={uuid()}
+      data-testid={segmentedControlOptionItemTestId(index)}
       disabled={disabled}
       active={index === currentIndex}
       style={{

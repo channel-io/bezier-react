@@ -1,10 +1,12 @@
 /* Internal dependencies */
 import { styled, Transition } from '../../foundation'
+import disabledOpacity from '../../constants/DisabledOpacity'
 import { UIComponentProps } from '../../types/ComponentProps'
 import { toLength } from '../../utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
 
 interface StyledWrapperProps extends UIComponentProps {
+  disabled?: boolean
   wrapperWidth: number | string
   wrapperHeight: number | string
 }
@@ -25,6 +27,9 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   line-height: 18px;
   background-color: ${props => props.foundation?.theme?.['bg-black-lighter']};
   border-radius: 8px;
+  ${({ disabled }) => disabled && `
+    opacity: ${disabledOpacity};
+  `}
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
@@ -40,14 +45,11 @@ export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-  color: ${props => {
-    if (props.disabled) {
-      return props.foundation?.theme?.['txt-black-light']
-    }
-    return props.active
+  color: ${props => (
+    props.active
       ? props.foundation?.theme?.['txt-black-darkest']
       : props.foundation?.theme?.['txt-black-dark']
-  }};
+  )};
   cursor: ${props => {
     if (props.disabled) { return 'not-allowed' }
     if (props.active) { return 'auto' }
