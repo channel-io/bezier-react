@@ -191,6 +191,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   </div>
   <div
     class="c3"
+    data-testid="bezier-react-segmented-control-option-item-0"
     style="width: 0px; height: 0px; left: 0px;"
   >
     <span
@@ -202,6 +203,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   </div>
   <div
     class="c5"
+    data-testid="bezier-react-segmented-control-option-item-1"
     style="width: 0px; height: 0px; left: 0px;"
   >
     <span
@@ -213,6 +215,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   </div>
   <div
     class="c3"
+    data-testid="bezier-react-segmented-control-option-item-2"
     style="width: 0px; height: 0px; left: 0px;"
   >
     <span
@@ -224,6 +227,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   </div>
   <div
     class="c3"
+    data-testid="bezier-react-segmented-control-option-item-3"
     style="width: 0px; height: 0px; left: 0px;"
   >
     <span
