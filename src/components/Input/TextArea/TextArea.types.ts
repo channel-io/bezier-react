@@ -5,19 +5,21 @@ import React, { CSSProperties } from 'react'
 import { UIComponentProps } from '../../../types/ComponentProps'
 import InjectedInterpolation from '../../../types/InjectedInterpolation'
 
-export const MIN_ROWS = 5
-
-export enum TextAreaSize {
-  S = 10,
-  M = 17,
-  L = 29,
+export enum TextAreaHeight {
+  Row3 = 3,
+  Row6 = 6,
+  Row10 = 10,
+  Row16 = 16,
+  Row24 = 24,
+  Row36 = 36,
 }
 
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
 
 export default interface TextAreaProps
   extends UIComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
-  size?: TextAreaSize
+  minRows?: TextAreaHeight
+  maxRows?: TextAreaHeight
   autoFocus?: boolean
   hasError?: boolean
   readOnly?: boolean

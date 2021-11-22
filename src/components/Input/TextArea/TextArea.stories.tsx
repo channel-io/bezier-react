@@ -8,11 +8,25 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from '../../../utils/storyUtils'
 import TextArea from './TextArea'
-import { TextAreaSize } from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 
 export default {
   title: getTitle(base),
   component: TextArea,
+  argTypes: {
+    minRows: {
+      control: {
+        type: 'radio',
+        options: getObjectFromEnum(TextAreaHeight),
+      },
+    },
+    maxRows: {
+      control: {
+        type: 'radio',
+        options: getObjectFromEnum(TextAreaHeight),
+      },
+    },
+  },
 }
 
 const Template = ({ ...otherProps }) => {
@@ -40,16 +54,9 @@ export const Primary = Template.bind({})
 Primary.args = {
   autoFocus: true,
   readOnly: false,
+  disabled: false,
   hasError: false,
-  size: TextAreaSize.S,
+  minRows: TextAreaHeight.Row6,
+  maxRows: TextAreaHeight.Row10,
   placeholder: 'say hi to autoResizable textarea!',
-}
-
-Primary.argTypes = {
-  size: {
-    control: {
-      type: 'radio',
-      options: getObjectFromEnum(TextAreaSize),
-    },
-  },
 }

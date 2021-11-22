@@ -8,6 +8,7 @@ import {
   styled,
   Typography,
 } from '../../../foundation'
+import DisabledOpacity from '../../../constants/DisabledOpacity'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
 import {
   erroredInputWrapperStyle,
@@ -19,6 +20,7 @@ interface WrapperProps extends WithInterpolation {
   focused: boolean
   hasError?: boolean
   bgColor: SemanticNames
+  disabled: boolean
 }
 
 const Wrapper = styled.div<WrapperProps>`
@@ -28,6 +30,7 @@ const Wrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
+  opacity: ${({ disabled }) => disabled && DisabledOpacity};
 
   ${({ focused }) => focused && focusedInputWrapperStyle}
 
@@ -41,6 +44,7 @@ const Wrapper = styled.div<WrapperProps>`
 `
 
 interface TextAreaAutoSizeBaseProps extends WithInterpolation{
+  disabled: boolean
   readOnly: boolean
 }
 
@@ -55,6 +59,7 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
   width: 100%;
   padding: 8px 12px;
   margin: 0;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'auto')};
   resize: none;
   background: none;
   border: none;

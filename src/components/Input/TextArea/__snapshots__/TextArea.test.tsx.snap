@@ -30,6 +30,7 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   width: 100%;
   padding: 8px 12px;
   margin: 0;
+  cursor: auto;
   resize: none;
   background: none;
   border: none;
