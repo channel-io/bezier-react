@@ -4,6 +4,7 @@ import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import ResizeObserver from '../../__mocks__/ResizeObserver'
+import disabledOpacity from '../../constants/DisabledOpacity'
 import { render } from '../../utils/testUtils'
 import { Text } from '../Text'
 import SegmentedControl, { SEGMENTED_CONTROL_TEST_ID } from './SegmentedControl'
@@ -36,5 +37,12 @@ describe('SegmentedControl', () => {
     const rendered = getByTestId(SEGMENTED_CONTROL_TEST_ID)
 
     expect(rendered).toMatchSnapshot()
+  })
+
+  it('should have correct disabled style', () => {
+    const { getByTestId } = renderComponent({ disabled: true })
+    const rendered = getByTestId(SEGMENTED_CONTROL_TEST_ID)
+
+    expect(rendered).toHaveStyle(`opacity: ${disabledOpacity};`)
   })
 })
