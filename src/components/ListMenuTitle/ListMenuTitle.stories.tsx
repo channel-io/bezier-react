@@ -13,7 +13,7 @@ export default {
 }
 
 const Template = ({
-  rightAction = (<div><Icon name="sent" size={IconSize.XS} /></div>),
+  rightAction = (<div><Icon name="send-forward" size={IconSize.XS} /></div>),
   ...otherListItemProps
 }) => (
   <div style={{ width: 240 }}>

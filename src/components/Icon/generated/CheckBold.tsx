@@ -14,7 +14,7 @@ function SvgCheckBold(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M10 14.264l7.425-7.425a1 1 0 011.414 0l.707.707a1 1 0 010 1.414L10 18.506 4.454 12.96a1 1 0 010-1.414l.707-.707a1 1 0 011.414 0L10 14.264z"
+        d="M10 14.063l7.071-7.07a1.5 1.5 0 112.121 2.12l-8.729 8.73a.655.655 0 01-.926 0l-4.73-4.73a1.5 1.5 0 112.122-2.12L10 14.062z"
       />
     </svg>
   )
