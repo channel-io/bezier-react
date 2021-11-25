@@ -5,7 +5,7 @@ import React from 'react'
 import DividerProps from './Divider.types'
 import * as Styled from './Divider.styled'
 
-const DIVIDER_TEST_ID = 'bezier-react-divider'
+export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
 function Divider({
   orientation = 'horizontal',
