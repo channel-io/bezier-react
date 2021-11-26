@@ -6,4 +6,4 @@ export default interface DividerProps extends UIComponentProps {
   withoutSideIndent?: boolean
 }
 
-export interface StyledDividerProps extends Pick<DividerProps, 'withoutSideIndent'> {}
+export interface StyledDividerProps extends Pick<DividerProps, 'withoutSideIndent' | 'interpolation'> {}

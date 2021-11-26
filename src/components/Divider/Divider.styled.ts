@@ -12,6 +12,8 @@ const BaseDivider = styled.hr<StyledDividerProps>`
   border: 0;
   border-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
   border-style: solid;
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const HorizontalDivider = styled(BaseDivider)`
