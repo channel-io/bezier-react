@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider > Snapshot > 1`] = `
+.c0 {
+  box-sizing: content-box;
+  margin: 6px;
+  border: 0;
+  border-color: #00000014;
+  border-style: solid;
+}
+
+.c1 {
+  width: calc(100% - 12px);
+  border-bottom-width: 1px;
+}
+
+<hr
+  aria-orientation="horizontal"
+  class="c0 c1"
+  data-testid="bezier-react-divider"
+/>
+`;
