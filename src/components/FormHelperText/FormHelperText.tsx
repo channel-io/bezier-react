@@ -8,8 +8,11 @@ import { isNotEmptyString } from '../../utils/stringUtils'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 
+export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
+
 function FormHelperText({
   id,
+  testId = FORM_HELPER_TEXT_TEST_ID,
   description,
   errorMessage,
   ...rest
@@ -46,6 +49,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
     <Styled.HelperText
       {...rest}
       id={id}
+      testId={testId}
       ref={forwardedRef}
       forwardedAs="p"
       marginTop={4}

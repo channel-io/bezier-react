@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider > Snapshot > 1`] = `
+.c0 {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 4px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: #00000066;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+.c1 {
+  padding: 0 2px;
+}
+
+<p
+  class="c0 c1"
+  color="txt-black-dark"
+  data-testid="bezier-react-form-helper-text"
+  id="test"
+>
+  Description
+</p>
+`;
