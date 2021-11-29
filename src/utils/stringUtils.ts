@@ -64,3 +64,7 @@ export function isNumberString(value?: any) {
   if (isString(value)) { return /^(?:-|\+|)?\d+(?:,\d{3})*(?:\.\d+)?$/.test(value) }
   return false
 }
+
+export function isNotEmptyString(value?: string): value is string {
+  return !isEmpty(value)
+}
