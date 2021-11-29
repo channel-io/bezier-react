@@ -32,6 +32,7 @@ export * from './components/Input/Select'
 export * from './components/Input/TextField'
 export * from './components/Input/TextArea'
 export * from './components/Input/constants/InputWrapperStyle'
+export * from './components/FormHelperText'
 export * from './components/KeyValueListItem'
 
 /* Layout */
