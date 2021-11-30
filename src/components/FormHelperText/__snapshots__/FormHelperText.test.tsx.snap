@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Divider > Snapshot > 1`] = `
+exports[`FormHelperText > Snapshot > 1`] = `
 .c0 {
   font-size: 13px;
   line-height: 18px;

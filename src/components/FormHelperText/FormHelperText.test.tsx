@@ -8,7 +8,7 @@ import { render } from '../../utils/testUtils'
 import FormHelperText, { FORM_HELPER_TEXT_TEST_ID } from './FormHelperText'
 import type FormHelperTextProps from './FormHelperText.types'
 
-describe('Divider >', () => {
+describe('FormHelperText >', () => {
   let props: FormHelperTextProps
   const description = 'Description'
   const errorMessage = 'Error'
