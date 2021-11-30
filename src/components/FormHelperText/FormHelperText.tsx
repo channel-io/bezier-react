@@ -22,7 +22,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
     color: SemanticNames
     content: React.ReactNode
   } | null>(() => {
-    if (!isNil(errorMessage) && !isEmpty(errorMessage)) {
+    if (!isEmpty(errorMessage)) {
       return {
         color: 'bgtxt-orange-normal',
         content: errorMessage,
