@@ -1,10 +1,9 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { isNil } from 'lodash-es'
+import { isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from '../../foundation'
-import { isNotEmptyString } from '../../utils/stringUtils'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 
@@ -13,32 +12,32 @@ export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 function FormHelperText({
   id,
   testId = FORM_HELPER_TEXT_TEST_ID,
-  description,
   errorMessage,
+  children,
   ...rest
 }: FormHelperTextProps,
 forwardedRef: React.Ref<HTMLParamElement>,
 ) {
   const helperTextProps = useMemo<{
     color: SemanticNames
-    content: string
+    content: React.ReactNode
   } | null>(() => {
-    if (isNotEmptyString(errorMessage)) {
+    if (!isNil(errorMessage) && !isEmpty(errorMessage)) {
       return {
         color: 'bgtxt-orange-normal',
         content: errorMessage,
       }
     }
-    if (isNotEmptyString(description)) {
+    if (!isEmpty(children)) {
       return {
         color: 'txt-black-dark',
-        content: description,
+        content: children,
       }
     }
     return null
   }, [
     errorMessage,
-    description,
+    children,
   ])
 
   if (isNil(helperTextProps)) { return null }

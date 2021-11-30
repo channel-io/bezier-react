@@ -16,7 +16,7 @@ describe('FormHelperText >', () => {
   beforeEach(() => {
     props = {
       id: 'test',
-      description,
+      children: description,
       errorMessage: '',
     }
   })
@@ -69,7 +69,7 @@ describe('FormHelperText >', () => {
   })
 
   it('renders nothing when description and errorMessage prop is empty', () => {
-    const { queryByTestId } = renderFormHelperText({ description: '', errorMessage: '' })
+    const { queryByTestId } = renderFormHelperText({ children: '', errorMessage: '' })
     const helperText = queryByTestId(FORM_HELPER_TEXT_TEST_ID)
 
     expect(helperText).toBeNull()

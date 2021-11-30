@@ -1,8 +1,7 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface FormHelperTextProps extends Omit<UIComponentProps, 'as'> {
+export default interface FormHelperTextProps extends Omit<ChildrenComponentProps, 'as'> {
   id: string
-  description?: string
   errorMessage?: string
 }
