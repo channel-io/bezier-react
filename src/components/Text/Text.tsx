@@ -29,11 +29,14 @@ function Text(
     className,
     children,
     onClick = noop,
+    /** To receive various HTMLElement attributes */
+    ...rest
   }: TextProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
   return (
     <TextView
+      {...rest}
       as={as}
       id={id}
       style={style}
