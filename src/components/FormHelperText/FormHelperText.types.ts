@@ -1,7 +1,6 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../types/ComponentProps'
+import { IdentifierProps, ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface FormHelperTextProps extends Omit<ChildrenComponentProps, 'as'> {
-  id: string
+export default interface FormHelperTextProps extends Omit<ChildrenComponentProps, 'as'>, Required<IdentifierProps> {
   errorMessage?: React.ReactNode
 }

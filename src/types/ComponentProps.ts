@@ -4,7 +4,7 @@ import React, { CSSProperties } from 'react'
 /* Internal dependencies */
 import type InjectedInterpolation from './InjectedInterpolation'
 
-interface IdentifierProps {
+export interface IdentifierProps {
   id?: string
 }
 
@@ -19,7 +19,7 @@ interface StylableComponentProps {
   interpolation?: InjectedInterpolation
 }
 
-export type UIComponentProps = RenderConfigProps & StylableComponentProps & IdentifierProps
+export type UIComponentProps = RenderConfigProps & StylableComponentProps
 
 export interface ContentComponentProps<Content = React.ReactNode> extends UIComponentProps {
   content?: Content
