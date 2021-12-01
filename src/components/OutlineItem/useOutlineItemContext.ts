@@ -6,8 +6,8 @@ import {
   defaultOutlineItemContext,
   OutlineItemContext,
   mergeOutlineItemContexts,
-} from '../contexts/OutlineItemContext'
-import type { OutlineItemContextProps } from '../contexts/OutlineItemContext'
+} from './OutlineItemContext'
+import type { OutlineItemContextProps } from './OutlineItemContext'
 
 const useOutlineItemContext = (props: Partial<Omit<OutlineItemContextProps, 'depth'>>, indent: number) => {
   const inheritedContext = useContext(OutlineItemContext) ?? defaultOutlineItemContext
