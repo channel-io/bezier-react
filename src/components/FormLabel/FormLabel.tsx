@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
@@ -16,29 +16,37 @@ function FormLabel({
   testId = FORM_LABEL_TEST_ID,
   htmlFor,
   help,
+  bold = true,
+  typo = Typography.Size13,
   children,
   ...rest
-}: FormLabelProps) {
+}: FormLabelProps,
+forwardedRef: React.Ref<HTMLLabelElement>,
+) {
   const LabelComponent = useMemo(() => {
     if (isEmpty(children)) { return null }
     return (
       <Text
         {...rest}
+        ref={forwardedRef}
         testId={testId}
         as="label"
         // @ts-ignore HTMLLabelElement Property
         htmlFor={htmlFor}
-        bold
-        typo={Typography.Size13}
+        bold={bold}
+        typo={typo}
       >
         { children }
       </Text>
     )
   }, [
     rest,
+    typo,
+    bold,
     testId,
     htmlFor,
     children,
+    forwardedRef,
   ])
 
   if (!LabelComponent) { return null }
@@ -64,4 +72,4 @@ function FormLabel({
     )
 }
 
-export default FormLabel
+export default forwardRef(FormLabel)
