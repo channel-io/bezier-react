@@ -23,7 +23,7 @@ function FormLabel({
       {...rest}
       testId={testId}
       as="label"
-      // @ts-ignore
+      // @ts-ignore HTMLLabelElement Property
       htmlFor={htmlFor}
       bold
       typo={Typography.Size13}
