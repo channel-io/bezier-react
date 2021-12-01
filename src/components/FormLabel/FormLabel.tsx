@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from '../../foundation'
 import { Text } from '../Text'
-import { IconSize } from '../Icon'
+import { Icon, IconSize } from '../Icon'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -49,10 +49,11 @@ function FormLabel({
     <Styled.Flex>
       { LabelComponent }
       <Styled.Tooltip content={help}>
-        <Styled.HelpIcon
+        <Icon
           name="help-filled"
           size={IconSize.XS}
           color="txt-black-dark"
+          hoverColor="txt-black-darkest"
         />
       </Styled.Tooltip>
     </Styled.Flex>
