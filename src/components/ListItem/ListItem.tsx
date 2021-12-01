@@ -15,12 +15,12 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useMergeRefs from '../../hooks/useMergeRefs'
-import useAdjacentElementBorderRadius from '../../hooks/useAdjacentElementBorderRadius'
 import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
 import { isIconName } from '../Icon/util'
 import { Typography } from '../../foundation'
+import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, {
   ListItemSize,
   ListItemColorVariant,

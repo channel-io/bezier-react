@@ -3,10 +3,10 @@ import React, { forwardRef, useMemo } from 'react'
 import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
-import useProgressiveImage from '../../../hooks/useProgressiveImage'
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import { Status } from '../../Status'
 import { smoothCornersStyle } from '../../../foundation'
+import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
