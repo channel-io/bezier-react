@@ -37,6 +37,8 @@ function FormLabel({
     children,
   ])
 
+  if (isEmpty(children)) { return null }
+
   if (isEmpty(help)) {
     return (
       <>
