@@ -5,10 +5,11 @@ module.exports = {
     '../src/**/*.stories.tsx',
   ],
   addons: [
+    '@storybook/addon-controls',
     '@storybook/addon-actions',
+    '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
     '@storybook/addon-docs',
-    '@storybook/addon-controls',
     '@storybook/addon-backgrounds',
   ],
   features: {
