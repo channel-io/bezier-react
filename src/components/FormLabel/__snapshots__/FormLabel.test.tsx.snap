@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLabel > Snapshot > 1`] = `
+.c0 {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+<label
+  class="c0"
+  data-testid="bezier-react-form-label"
+  id="test"
+>
+  label
+</label>
+`;

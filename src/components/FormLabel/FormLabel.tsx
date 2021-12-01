@@ -9,7 +9,8 @@ import { Icon, IconSize } from '../Icon'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
-const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
+export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
+export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
@@ -52,6 +53,7 @@ function FormLabel({
       { LabelComponent }
       <Styled.Tooltip content={help}>
         <Icon
+          testId={FORM_LABEL_HELP_TEST_ID}
           name="help-filled"
           size={IconSize.XS}
           color="txt-black-dark"
