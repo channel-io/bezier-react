@@ -11,6 +11,18 @@ import FormLabelProps from './FormLabel.types'
 export default {
   title: getTitle(base),
   component: FormLabel,
+  argTypes: {
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
+    help: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta
 
 const Template: Story<FormLabelProps> = props => <FormLabel {...props} />
