@@ -1,9 +1,8 @@
 /* Internal dependencies */
-import { styled, css, SemanticNames } from '../../foundation'
+import { styled, SemanticNames } from '../../foundation'
 
 interface IconStyledProps {
   color?: SemanticNames
-  hoverColor?: SemanticNames
   margintop: number
   marginright: number
   marginbottom: number
@@ -23,14 +22,7 @@ const Icon = styled.svg<IconStyledProps>`
   flex: 0 0 auto;
   margin: ${getMargin};
   color: ${({ foundation, color }) => (color && foundation?.theme?.[color]) || 'inherit'};
-
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')}
-
-  ${({ foundation, hoverColor }) => hoverColor && css`
-    &:hover {
-      color: ${foundation?.theme?.[hoverColor]};
-    }
-  `}
 `
 
 export default Icon

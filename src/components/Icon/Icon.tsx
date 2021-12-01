@@ -13,7 +13,6 @@ function Icon({
   name,
   className,
   color,
-  hoverColor,
   testId = ICON_TEST_ID,
   size = IconSize.Normal,
   marginTop = 0,
@@ -30,7 +29,6 @@ function Icon({
       className={className}
       data-testid={testId}
       color={color}
-      hoverColor={hoverColor}
       as={icons[name]}
       width={size}
       height={size}

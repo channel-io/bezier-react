@@ -19,7 +19,6 @@ export enum IconSize {
 export default interface IconProps extends Omit<UIComponentProps, 'as'> {
   name: IconName
   color?: SemanticNames
-  hoverColor?: SemanticNames
   size?: IconSize
   marginTop?: number
   marginRight?: number
