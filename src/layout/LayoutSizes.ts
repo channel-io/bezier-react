@@ -1,3 +1,5 @@
+export const GNB_WIDTH = 68
+
 export const CONTENT_MIN_WIDTH = 330
 
 export const SIDE_MIN_WIDTH = 320
