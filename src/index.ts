@@ -58,7 +58,6 @@ export { default as useSideViewHandler } from './layout/hooks/useSideViewHandler
 export { default as useHeader } from './layout/hooks/useHeader'
 
 /* Types */
-export type { default as BlocksParserContextType } from './types/BlocksParserContextType'
 export type { UIComponentProps } from './types/ComponentProps'
 export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
