@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import LayoutSideType from '../../../types/LayoutSideType'
+import LayoutSideType from '../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import SidePanelContentProps from './SidePanelContent.types'
 

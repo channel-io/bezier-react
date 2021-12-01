@@ -67,7 +67,7 @@ export type { WithInterpolation } from './types/InjectedInterpolation'
 export type { WithFoundation } from './types/WithFoundation'
 
 /* Types (Enum) */
-export { default as LayoutHeaderType } from './types/LayoutHeaderType'
+export { default as LayoutHeaderType } from './layout/types/LayoutHeaderType'
 
 /* Utils */
 export { getRootElement } from './utils/domUtils'

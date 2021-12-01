@@ -10,7 +10,7 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import ColumnType from '../../../types/ColumnType'
+import ColumnType from '../../types/ColumnType'
 import useResizingHandlers from '../../hooks/useResizingHandlers'
 import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import useLayoutState from '../../hooks/useLayoutState'

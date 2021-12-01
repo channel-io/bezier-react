@@ -3,7 +3,7 @@ import { omit } from 'lodash-es'
 
 /* Internal dependencies */
 import { insertItem, removeItem } from '../../utils/arrayUtils'
-import ColumnType from '../../types/ColumnType'
+import ColumnType from '../types/ColumnType'
 import AT from './LayoutActionTypes'
 import { ColumnRef, ColumnState, LayoutActionTypes } from './LayoutActions'
 
