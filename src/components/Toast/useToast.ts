@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 
 /* Internal dependencies */
-import ToastContext from '../contexts/ToastContext'
+import ToastContext from './ToastContext'
 
 export default function useToast() {
   const context = useContext(ToastContext)
