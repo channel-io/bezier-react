@@ -9,9 +9,7 @@ export const Flex = styled.div`
   justify-content: center;
 `
 
-export const HelpIcon = styled(Icon)`
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
-`
+export const HelpIcon = styled(Icon)``
 
 export const Tooltip = styled(BaseTooltip)`
   display: flex;
