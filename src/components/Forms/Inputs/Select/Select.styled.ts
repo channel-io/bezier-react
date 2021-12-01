@@ -10,7 +10,7 @@ import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
-} from '../constants/InputWrapperStyle'
+} from '../InputWrapperStyle'
 import { SelectSize } from './Select.types'
 
 interface ContainerProps {

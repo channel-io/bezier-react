@@ -11,7 +11,7 @@ import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
-} from '../constants/InputWrapperStyle'
+} from '../InputWrapperStyle'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {

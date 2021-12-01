@@ -31,7 +31,7 @@ export * from './components/Forms/SegmentedControl'
 export * from './components/Forms/Inputs/Select'
 export * from './components/Forms/Inputs/TextField'
 export * from './components/Forms/Inputs/TextArea'
-export * from './components/Forms/Inputs/constants/InputWrapperStyle'
+export * from './components/Forms/Inputs/InputWrapperStyle'
 export * from './components/Forms/FormHelperText'
 
 /* Hooks for Component */

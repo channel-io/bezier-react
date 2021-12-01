@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import { Typography } from '../../../../foundation/Typography'
-import TagBadgeVariant, { BadgeColorPreset, TagBadgeBgColorPreset } from '../constants/TagBadgeVariant'
-import TagBadgeSize from '../constants/TagBadgeSize'
-import { Rounding } from '../../../../foundation'
+import { SemanticNames } from '../../../foundation/Colors/Theme'
+import { Typography } from '../../../foundation/Typography'
+import { Rounding } from '../../../foundation'
+import TagBadgeVariant, { BadgeColorPreset, TagBadgeBgColorPreset } from './constants/TagBadgeVariant'
+import TagBadgeSize from './constants/TagBadgeSize'
 
 export function getProperTagBadgePadding(size: TagBadgeSize) {
   return {

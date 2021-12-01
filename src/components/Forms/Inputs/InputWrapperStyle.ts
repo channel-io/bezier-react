@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from '../../../../foundation'
+import { css } from '../../../foundation'
 
 export const inputWrapperStyle = css`
   box-shadow: 0 1px 2px ${({ foundation }) => foundation?.theme?.['bg-black-lightest']},

@@ -14,7 +14,7 @@ import {
   erroredInputWrapperStyle,
   focusedInputWrapperStyle,
   inputWrapperStyle,
-} from '../constants/InputWrapperStyle'
+} from '../InputWrapperStyle'
 
 interface WrapperProps extends WithInterpolation {
   focused: boolean

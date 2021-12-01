@@ -4,7 +4,7 @@ import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize } from '../Icon'
-import { isIconName } from '../Icon/util'
+import { isIconName } from '../Icon/utils'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
 import OutlineItemProps, {

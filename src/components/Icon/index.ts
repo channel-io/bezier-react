@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import Icon from './Icon'
 import { IconSize } from './Icon.types'
-import { isIconName } from './util'
+import { isIconName } from './utils'
 import type IconProps from './Icon.types'
 import type { IconName } from './generated'
 

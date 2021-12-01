@@ -18,7 +18,7 @@ import useMergeRefs from '../../hooks/useMergeRefs'
 import { mergeClassNames } from '../../utils/stringUtils'
 import { Text } from '../Text'
 import { IconSize } from '../Icon'
-import { isIconName } from '../Icon/util'
+import { isIconName } from '../Icon/utils'
 import { Typography } from '../../foundation'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, {

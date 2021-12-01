@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { OverlayPosition } from '../Overlay.types'
+import { OverlayPosition } from './Overlay.types'
 import {
   getOverlayPosition,
   getOverlayTranslation,
-} from './positionUtils'
+} from './utils'
 
 const MOCK_CONTAINER_RECT = {
   containerWidth: 500,
