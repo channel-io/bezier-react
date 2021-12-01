@@ -5,7 +5,7 @@ import React, { CSSProperties } from 'react'
 import type InjectedInterpolation from './InjectedInterpolation'
 
 export interface IdentifierProps {
-  id?: string
+  id: string
 }
 
 interface RenderConfigProps {
