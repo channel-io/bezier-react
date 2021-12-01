@@ -3,9 +3,9 @@ import { css } from 'styled-components'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../foundation'
-import { ChildrenComponentProps } from '../../types/ComponentProps'
+import { IdentifierProps, ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface TextProps extends ChildrenComponentProps {
+export default interface TextProps extends ChildrenComponentProps, Partial<IdentifierProps> {
   bold?: boolean
   italic?: boolean
   color?: SemanticNames

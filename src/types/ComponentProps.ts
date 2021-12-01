@@ -4,6 +4,10 @@ import React, { CSSProperties } from 'react'
 /* Internal dependencies */
 import type InjectedInterpolation from './InjectedInterpolation'
 
+export interface IdentifierProps {
+  id: string
+}
+
 interface RenderConfigProps {
   as?: React.ElementType
   testId?: string

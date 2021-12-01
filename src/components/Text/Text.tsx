@@ -25,6 +25,7 @@ function Text(
     marginHorizontal = 0,
     marginAll = 0,
     style,
+    id,
     className,
     children,
     onClick = noop,
@@ -34,6 +35,7 @@ function Text(
   return (
     <TextView
       as={as}
+      id={id}
       style={style}
       ref={forwardedRef}
       className={className}
