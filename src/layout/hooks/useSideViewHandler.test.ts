@@ -2,7 +2,7 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 
 /* Internal dependencies */
-import { LayoutProvider } from '../LayoutProvider'
+import LayoutProvider from '../LayoutProvider'
 import useSideViewHandler from './useSideViewHandler'
 
 describe('useSideViewHandler >', () => {

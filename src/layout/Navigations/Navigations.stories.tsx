@@ -10,7 +10,7 @@ import { styled } from '../../foundation'
 import { Icon } from '../../components/Icon'
 import { ListItem } from '../../components/ListItem'
 import { Header } from '../Header'
-import { LayoutProvider } from '../LayoutProvider'
+import LayoutProvider from '../LayoutProvider'
 import { NavigationContent } from './NavigationContent'
 import Navigations from './Navigations'
 

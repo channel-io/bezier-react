@@ -47,7 +47,7 @@ export * from './layout/Navigations'
 export * from './layout/Side/SidePanelContent'
 export * from './layout/Side/SideViewContent'
 export * from './layout/redux'
-export * from './layout/LayoutProvider'
+export { default as LayoutProvider } from './layout/LayoutProvider'
 
 /* Hooks for Layout */
 export { default as useLayoutDispatch } from './layout/hooks/useLayoutDispatch'

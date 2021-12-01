@@ -5,8 +5,8 @@ import React, { useReducer } from 'react'
 import {
   LayoutDispatchContext,
   LayoutStateContext,
-} from '../../contexts/LayoutContext'
-import LayoutReducer, { defaultState, LayoutState } from '../redux/LayoutReducer'
+} from './LayoutContext'
+import LayoutReducer, { defaultState, LayoutState } from './redux/LayoutReducer'
 
 interface LayoutProviderProps {
   children: React.ReactNode
