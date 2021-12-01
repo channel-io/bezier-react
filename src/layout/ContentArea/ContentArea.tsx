@@ -10,7 +10,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import useLayoutDispatch from '../hooks/useLayoutDispatch'
 import useMergeRefs from '../../hooks/useMergeRefs'
-import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
+import { CONTENT_MIN_WIDTH } from '../LayoutSizes'
 import ColumnType from '../../types/ColumnType'
 import LayoutActions from '../redux/LayoutActions'
 import ContentAreaProps from './ContentArea.types'

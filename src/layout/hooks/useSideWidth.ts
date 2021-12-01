@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 /* Internal dependencies */
-import { SIDE_FALLBACK_WIDTH } from '../../constants/LayoutSizes'
+import { SIDE_FALLBACK_WIDTH } from '../LayoutSizes'
 import LayoutActions from '../redux/LayoutActions'
 import useLayoutDispatch from './useLayoutDispatch'
 

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { CONTENT_MIN_WIDTH, HEADER_HEIGHT } from '../../constants/LayoutSizes'
+import { CONTENT_MIN_WIDTH, HEADER_HEIGHT } from '../LayoutSizes'
 import { styled } from '../../foundation'
 
 interface MainWrapperProps {
