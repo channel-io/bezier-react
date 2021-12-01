@@ -3,7 +3,7 @@ import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
 import { smoothCornersStyle, Typography } from '../../foundation'
-import { Text } from '../Text'
+import { Text } from '../../components/Text'
 import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 
