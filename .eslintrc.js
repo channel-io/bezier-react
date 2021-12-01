@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@channel.io/eslint-config'],
+  extends: ['@channel.io/eslint-config', 'plugin:storybook/recommended'],
   parserOptions: {
     project: ['./tsconfig.eslint.json'],
   },
