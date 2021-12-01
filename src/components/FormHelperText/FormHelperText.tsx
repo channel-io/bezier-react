@@ -12,6 +12,7 @@ export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 function FormHelperText({
   id,
   testId = FORM_HELPER_TEXT_TEST_ID,
+  as = 'p',
   hasError,
   children,
   ...rest
@@ -33,7 +34,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
       id={id}
       testId={testId}
       ref={forwardedRef}
-      forwardedAs="p"
+      forwardedAs={as}
       marginTop={4}
       typo={Typography.Size13}
       color={color}
