@@ -21,7 +21,6 @@ exports[`FormLabel > Snapshot > 1`] = `
 <label
   class="c0"
   data-testid="bezier-react-form-label"
-  id="test"
 >
   label
 </label>

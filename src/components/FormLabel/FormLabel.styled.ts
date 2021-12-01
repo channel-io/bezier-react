@@ -19,7 +19,7 @@ export const Tooltip = styled(BaseTooltip)`
 
   &:hover {
     > ${HelpIcon} {
-      color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+      color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
     }
   }
 `

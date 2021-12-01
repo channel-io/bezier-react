@@ -12,7 +12,6 @@ describe('FormLabel >', () => {
 
   beforeEach(() => {
     props = {
-      id: 'test',
       help: '',
       children: 'label',
     }
