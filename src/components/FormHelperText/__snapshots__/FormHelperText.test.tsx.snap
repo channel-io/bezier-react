@@ -28,6 +28,6 @@ exports[`FormHelperText > Snapshot > 1`] = `
   data-testid="bezier-react-form-helper-text"
   id="test"
 >
-  Description
+  Lorem ipsum
 </p>
 `;

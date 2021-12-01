@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { isNil, isEmpty } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from '../../foundation'
@@ -12,37 +12,20 @@ export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 function FormHelperText({
   id,
   testId = FORM_HELPER_TEXT_TEST_ID,
-  errorMessage,
+  hasError,
   children,
   ...rest
 }: FormHelperTextProps,
 forwardedRef: React.Ref<HTMLParamElement>,
 ) {
-  const helperTextProps = useMemo<{
-    color: SemanticNames
-    content: React.ReactNode
-  } | null>(() => {
-    if (!isEmpty(errorMessage)) {
-      return {
-        color: 'bgtxt-orange-normal',
-        content: errorMessage,
-      }
+  const color = useMemo<SemanticNames>(() => {
+    if (hasError) {
+      return 'bgtxt-orange-normal'
     }
-    if (!isEmpty(children)) {
-      return {
-        color: 'txt-black-dark',
-        content: children,
-      }
-    }
-    return null
-  }, [
-    errorMessage,
-    children,
-  ])
+    return 'txt-black-dark'
+  }, [hasError])
 
-  if (isNil(helperTextProps)) { return null }
-
-  const { color, content } = helperTextProps
+  if (isEmpty(children)) { return null }
 
   return (
     <Styled.HelperText
@@ -55,7 +38,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
       typo={Typography.Size13}
       color={color}
     >
-      { content }
+      { children }
     </Styled.HelperText>
   )
 }
