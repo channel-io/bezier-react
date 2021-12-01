@@ -19,48 +19,49 @@ function FormLabel({
   children,
   ...rest
 }: FormLabelProps) {
-  const LabelComponent = useMemo(() => (
-    <Text
-      {...rest}
-      testId={testId}
-      as="label"
-      // @ts-ignore HTMLLabelElement Property
-      htmlFor={htmlFor}
-      bold
-      typo={Typography.Size13}
-    >
-      { children }
-    </Text>
-  ), [
+  const LabelComponent = useMemo(() => {
+    if (isEmpty(children)) { return null }
+    return (
+      <Text
+        {...rest}
+        testId={testId}
+        as="label"
+        // @ts-ignore HTMLLabelElement Property
+        htmlFor={htmlFor}
+        bold
+        typo={Typography.Size13}
+      >
+        { children }
+      </Text>
+    )
+  }, [
     rest,
     testId,
     htmlFor,
     children,
   ])
 
-  if (isEmpty(children)) { return null }
+  if (!LabelComponent) { return null }
 
-  if (isEmpty(help)) {
-    return (
+  return isEmpty(help)
+    ? (
       <>
         { LabelComponent }
       </>
     )
-  }
-
-  return (
-    <Styled.Flex>
-      { LabelComponent }
-      <Styled.Tooltip content={help}>
-        <Styled.HelpIcon
-          testId={FORM_LABEL_HELP_TEST_ID}
-          name="help-filled"
-          size={IconSize.XS}
-          color="txt-black-dark"
-        />
-      </Styled.Tooltip>
-    </Styled.Flex>
-  )
+    : (
+      <Styled.Flex>
+        { LabelComponent }
+        <Styled.Tooltip content={help}>
+          <Styled.HelpIcon
+            testId={FORM_LABEL_HELP_TEST_ID}
+            name="help-filled"
+            size={IconSize.XS}
+            color="txt-black-dark"
+          />
+        </Styled.Tooltip>
+      </Styled.Flex>
+    )
 }
 
 export default FormLabel
