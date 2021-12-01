@@ -6,7 +6,7 @@ import {
 import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { window } from '../utils/domUtils'
+import { window } from '../../utils/domUtils'
 import useLayoutState from './useLayoutState'
 
 export default function useResizingHandlers() {

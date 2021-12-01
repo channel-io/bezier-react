@@ -10,8 +10,8 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import LayoutActions from '../../redux/LayoutActions'
-import useLayoutState from '../../../hooks/useLayoutState'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
+import useLayoutState from '../../hooks/useLayoutState'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
 import { mergeClassNames } from '../../../utils/stringUtils'
 import { Button, ButtonStyleVariant, ButtonColorVariant } from '../../../components/Forms/Button'
 import { NavigationArea } from '../NavigationArea'

@@ -11,10 +11,10 @@ import React, {
 
 /* Internal dependencies */
 import ColumnType from '../../../types/ColumnType'
-import useResizingHandlers from '../../../hooks/useResizingHandlers'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import useLayoutState from '../../../hooks/useLayoutState'
-import useThrottledCallback from '../../../hooks/useThrottledCallback'
+import useResizingHandlers from '../../hooks/useResizingHandlers'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import useLayoutState from '../../hooks/useLayoutState'
+import useThrottledCallback from '../../hooks/useThrottledCallback'
 import useEventHandler from '../../../hooks/useEventHandler'
 import useMergeRefs from '../../../hooks/useMergeRefs'
 import LayoutActions from '../../redux/LayoutActions'

@@ -4,8 +4,8 @@ import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 
 /* Internal dependencies */
-import useSideWidth from '../../../hooks/useSideWidth'
-import useSidePanelHandler from '../../../hooks/useSidePanelHandler'
+import useSideWidth from '../../hooks/useSideWidth'
+import useSidePanelHandler from '../../hooks/useSidePanelHandler'
 import { getTitle } from '../../../utils/storyUtils'
 import { styled, Typography } from '../../../foundation'
 import { Icon, IconSize } from '../../../components/Icon'

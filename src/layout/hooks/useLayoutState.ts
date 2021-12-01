@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 
 /* Internal dependencies */
-import { LayoutStateContext } from '../contexts/LayoutContext'
+import { LayoutStateContext } from '../../contexts/LayoutContext'
 
 function useLayoutState() {
   const state = useContext(LayoutStateContext)

@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import useLayoutState from '../../hooks/useLayoutState'
+import useLayoutState from '../hooks/useLayoutState'
 import { HeaderWrapper, ContentHeader, CoverableHeader } from './HeaderArea.styled'
 import HeaderAreaProps from './HeaderArea.types'
 

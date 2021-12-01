@@ -59,12 +59,12 @@ export type { WithFoundation } from './types/WithFoundation'
 export { default as LayoutHeaderType } from './types/LayoutHeaderType'
 
 /* Hooks */
-export { default as useLayoutDispatch } from './hooks/useLayoutDispatch'
-export { default as useLayoutState } from './hooks/useLayoutState'
-export { default as useSideWidth } from './hooks/useSideWidth'
-export { default as useSidePanelHandler } from './hooks/useSidePanelHandler'
-export { default as useSideViewHandler } from './hooks/useSideViewHandler'
-export { default as useHeader } from './hooks/useHeader'
+export { default as useLayoutDispatch } from './layout/hooks/useLayoutDispatch'
+export { default as useLayoutState } from './layout/hooks/useLayoutState'
+export { default as useSideWidth } from './layout/hooks/useSideWidth'
+export { default as useSidePanelHandler } from './layout/hooks/useSidePanelHandler'
+export { default as useSideViewHandler } from './layout/hooks/useSideViewHandler'
+export { default as useHeader } from './layout/hooks/useHeader'
 export { default as useToast } from './hooks/useToast'
 
 /* Utils */

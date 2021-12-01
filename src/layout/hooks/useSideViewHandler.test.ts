@@ -2,12 +2,12 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 
 /* Internal dependencies */
-import { LayoutProvider } from '../layout/LayoutProvider'
-import useSidePanelHandler from './useSidePanelHandler'
+import { LayoutProvider } from '../LayoutProvider'
+import useSideViewHandler from './useSideViewHandler'
 
-describe('useSidePanelHandler >', () => {
-  it('handleOpenSidePanel >', () => {
-    const { result, rerender } = renderHook(() => useSidePanelHandler(), { wrapper: LayoutProvider })
+describe('useSideViewHandler >', () => {
+  it('handleOpenSideView >', () => {
+    const { result, rerender } = renderHook(() => useSideViewHandler(), { wrapper: LayoutProvider })
 
     act(() => {
       result.current[1]()
@@ -17,8 +17,8 @@ describe('useSidePanelHandler >', () => {
     expect(result.current[0]).toBe(true)
   })
 
-  it('handleCloseSidePanel >', () => {
-    const { result, rerender } = renderHook(() => useSidePanelHandler(), { wrapper: LayoutProvider })
+  it('handleCloseSideView >', () => {
+    const { result, rerender } = renderHook(() => useSideViewHandler(), { wrapper: LayoutProvider })
 
     act(() => {
       result.current[1]()

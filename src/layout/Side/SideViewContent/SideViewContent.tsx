@@ -3,7 +3,7 @@ import React from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import useLayoutState from '../../../hooks/useLayoutState'
+import useLayoutState from '../../hooks/useLayoutState'
 import LayoutSideType from '../../../types/LayoutSideType'
 import { SideArea } from '../SideArea'
 import SideViewContentProps from './SideViewContent.types'

@@ -8,7 +8,7 @@ import React, {
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import useLayoutDispatch from '../hooks/useLayoutDispatch'
 import useMergeRefs from '../../hooks/useMergeRefs'
 import { CONTENT_MIN_WIDTH } from '../../constants/LayoutSizes'
 import ColumnType from '../../types/ColumnType'
