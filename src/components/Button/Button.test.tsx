@@ -7,9 +7,9 @@ import {
   RoundAbsoluteNumber,
   TypoAbsoluteNumber,
   LineHeightAbsoluteNumber,
-} from '../../../foundation'
-import DisabledOpacity from '../../../constants/DisabledOpacity'
-import { render } from '../../../utils/testUtils'
+} from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
+import { render } from '../../utils/testUtils'
 import Button, {
   BUTTON_TEST_ID,
   BUTTON_TEXT_TEST_ID,

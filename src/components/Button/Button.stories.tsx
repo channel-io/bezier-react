@@ -4,8 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import { Avatar } from '../../Avatars/Avatar'
+import { getTitle } from '../../utils/storyUtils'
+import { Avatar } from '../Avatars/Avatar'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,

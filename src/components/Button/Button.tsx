@@ -17,18 +17,18 @@ import {
 import {
   Icon,
   IconSize,
-} from '../../Icon'
-import { isIconName } from '../../Icon/utils'
-import { Text } from '../../Text'
+} from '../Icon'
+import { isIconName } from '../Icon/utils'
+import { Text } from '../Text'
 import {
   Spinner,
   SpinnerSize,
-} from '../../Spinner'
+} from '../Spinner'
 import {
   Typography,
   SemanticNames,
-} from '../../../foundation'
-import type { IconName } from '../../Icon'
+} from '../../foundation'
+import type { IconName } from '../Icon'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,

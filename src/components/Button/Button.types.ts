@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
-import type { IconName } from '../../Icon/generated'
+import { UIComponentProps } from '../../types/ComponentProps'
+import type { IconName } from '../Icon/generated'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

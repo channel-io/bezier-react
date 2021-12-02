@@ -6,8 +6,8 @@ import {
   styled,
   css,
   SemanticNames,
-} from '../../../foundation'
-import DisabledOpacity from '../../../constants/DisabledOpacity'
+} from '../../foundation'
+import DisabledOpacity from '../../constants/DisabledOpacity'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,

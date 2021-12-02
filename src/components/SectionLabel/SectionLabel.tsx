@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from '../../foundation'
-import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from '../Forms/Button'
+import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from '../Button'
 import { Icon, IconSize } from '../Icon'
 import { Tooltip } from '../Tooltip'
 import Styled from './SectionLabel.styled'

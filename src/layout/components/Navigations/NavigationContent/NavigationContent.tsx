@@ -13,7 +13,7 @@ import LayoutActions from '../../../redux/LayoutActions'
 import useLayoutState from '../../../hooks/useLayoutState'
 import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
 import { mergeClassNames } from '../../../../utils/stringUtils'
-import { Button, ButtonStyleVariant, ButtonColorVariant } from '../../../../components/Forms/Button'
+import { Button, ButtonStyleVariant, ButtonColorVariant } from '../../../../components/Button'
 import { NavigationArea } from '../NavigationArea'
 import {
   StyledContentWrapper,

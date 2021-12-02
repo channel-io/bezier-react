@@ -4,7 +4,7 @@ import { LightFoundation } from '../../foundation'
 
 /* Internal dependencies */
 import { render } from '../../utils/testUtils'
-import { BUTTON_TEST_ID } from '../Forms/Button/Button'
+import { BUTTON_TEST_ID } from '../Button/Button'
 import { ICON_TEST_ID } from '../Icon/Icon'
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
