@@ -22,13 +22,17 @@ export interface ContentComponentProps<Content = React.ReactNode> extends Bezier
   content?: Content
 }
 
-export interface ChildrenComponentProps<Children = React.ReactNode> extends BezierComponentProps {
-  children?: Children
-}
-
-export interface SideContentProps<LeftContent extends React.ReactNode, RightContent extends React.ReactNode> {
+export interface SideContentComponentProps<
+  Content = React.ReactNode,
+  LeftContent = React.ReactNode,
+  RightContent = React.ReactNode,
+> extends ContentComponentProps<Content> {
   leftContent?: LeftContent
   rightContent?: RightContent
+}
+
+export interface ChildrenComponentProps<Children = React.ReactNode> extends BezierComponentProps {
+  children?: Children
 }
 
 /* Component Additional Props */
@@ -55,7 +59,10 @@ type AdditionalComponentProps<
   Suffix extends string,
   PropType,
 > = {
-  [Key in `${ElementName extends string ? ElementName : ElementName[number]}${Capitalize<Suffix>}`]: PropType
+  [Key in `${ElementName extends string
+    ? ElementName
+    : ElementName[number]}${Capitalize<Suffix>}`
+  ]: PropType
 }
 
 type AdditionalClassNameProps<ElementName extends ElementNameType> =

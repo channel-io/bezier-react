@@ -8,8 +8,7 @@ import type {
   VariantProps,
   DisableProps,
   AdditionalStyleProps,
-  SideContentProps,
-  BezierComponentProps,
+  SideContentComponentProps,
 } from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
 
@@ -56,12 +55,11 @@ export interface TextFieldRef {
 }
 
 export interface TextFieldProps extends
-  BezierComponentProps,
+  Omit<SideContentComponentProps<never, TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>, 'content'>,
   DisableProps,
   TypeProps<TextFieldType>,
   VariantProps<TextFieldVariant>,
   AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
-  SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
   hasError?: boolean
   readOnly?: boolean
