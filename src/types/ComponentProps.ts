@@ -4,22 +4,7 @@ import React, { CSSProperties } from 'react'
 /* Internal dependencies */
 import type InjectedInterpolation from './InjectedInterpolation'
 
-export interface IdentifierProps {
-  id: string
-}
-
-export interface Type<ComponentType> {
-  type?: ComponentType
-}
-
-export interface Variant<ComponentVariant> {
-  variant?: ComponentVariant
-}
-
-export interface Disable {
-  disabled?: boolean
-}
-
+/* Component Base Props */
 interface RenderConfigProps {
   as?: React.ElementType
   testId?: string
@@ -29,6 +14,38 @@ interface StylableComponentProps {
   style?: CSSProperties
   className?: string
   interpolation?: InjectedInterpolation
+}
+
+export type UIComponentProps = RenderConfigProps & StylableComponentProps
+
+export interface ContentComponentProps<Content = React.ReactNode> extends UIComponentProps {
+  content?: Content
+}
+
+export interface ChildrenComponentProps<Children = React.ReactNode> extends UIComponentProps {
+  children?: Children
+}
+
+export interface SideContentProps<LeftContent extends React.ReactNode, RightContent extends React.ReactNode> {
+  leftContent?: LeftContent
+  rightContent?: RightContent
+}
+
+/* Component Additional Props */
+export interface IdentifierProps {
+  id: string
+}
+
+export interface TypeProps<Type> {
+  type?: Type
+}
+
+export interface VariantProps<Variant> {
+  variant?: Variant
+}
+
+export interface DisableProps {
+  disabled?: boolean
 }
 
 type ElementNameType = string | string[]
@@ -41,29 +58,14 @@ type AdditionalComponentProps<
   [Key in `${ElementName extends string ? ElementName : ElementName[number]}${Capitalize<Suffix>}`]: PropType
 }
 
-type AdditionalClassName<ElementName extends ElementNameType> =
+type AdditionalClassNameProps<ElementName extends ElementNameType> =
   AdditionalComponentProps<ElementName, 'className', string>
 
-type AdditionalInterpolation<ElementName extends ElementNameType> =
+type AdditionalInterpolationProps<ElementName extends ElementNameType> =
   AdditionalComponentProps<ElementName, 'interpolation', InjectedInterpolation>
 
-export type AdditionalStyle<ElementName extends ElementNameType> =
-  Partial<AdditionalClassName<ElementName> & AdditionalInterpolation<ElementName>>
+export type AdditionalStyleProps<ElementName extends ElementNameType> =
+  Partial<AdditionalClassNameProps<ElementName> & AdditionalInterpolationProps<ElementName>>
 
-export type AdditionalTestId<ElementName extends ElementNameType> =
+export type AdditionalTestIdProps<ElementName extends ElementNameType> =
   Partial<AdditionalComponentProps<ElementName, 'testId', InjectedInterpolation>>
-
-export interface AdditionalContent<LeftContent extends React.ReactNode, RightContent extends React.ReactNode> {
-  leftContent?: LeftContent
-  rightContent?: RightContent
-}
-
-export type UIComponentProps = RenderConfigProps & StylableComponentProps
-
-export interface ContentComponentProps<Content = React.ReactNode> extends UIComponentProps {
-  content?: Content
-}
-
-export interface ChildrenComponentProps<Children = React.ReactNode> extends UIComponentProps {
-  children?: Children
-}

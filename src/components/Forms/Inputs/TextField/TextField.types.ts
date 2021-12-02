@@ -3,7 +3,14 @@ import React from 'react'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import { Type, Variant, Disable, AdditionalStyle, AdditionalContent, UIComponentProps } from '../../../../types/ComponentProps'
+import type {
+  TypeProps,
+  VariantProps,
+  DisableProps,
+  AdditionalStyleProps,
+  SideContentProps,
+  UIComponentProps,
+} from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
 
 export enum TextFieldType {
@@ -50,11 +57,11 @@ export interface TextFieldRef {
 
 export interface TextFieldProps extends
   UIComponentProps,
-  Disable,
-  Type<TextFieldType>,
-  Variant<TextFieldVariant>,
-  AdditionalStyle<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
-  AdditionalContent<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
+  DisableProps,
+  TypeProps<TextFieldType>,
+  VariantProps<TextFieldVariant>,
+  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
   hasError?: boolean
   readOnly?: boolean
