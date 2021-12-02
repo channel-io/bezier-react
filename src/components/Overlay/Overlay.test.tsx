@@ -4,10 +4,9 @@ import { getWindow } from 'ssr-window'
 
 /* Internal dependencies */
 import { render } from '../../utils/testUtils'
-import OverlayProps, { ContainerRectAttr, TargetRectAttr } from './Overlay.types'
+import OverlayProps, { ContainerRectAttr, TargetRectAttr, OverlayPosition } from './Overlay.types'
 import Overlay, { OVERLAY_TEST_ID } from './Overlay'
-import { getOverlayTranslation } from './utils/positionUtils'
-import { OverlayPosition } from '.'
+import { getOverlayTranslation } from './utils'
 
 describe('Overlay test >', () => {
   let props: OverlayProps

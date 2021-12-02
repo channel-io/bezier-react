@@ -18,7 +18,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Icon, IconSize } from '../Icon'
 import { Typography } from '../../foundation'
-import { isIconName } from '../Icon/util'
+import { isIconName } from '../Icon/utils'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 import Styled from './KeyValueListItem.styled'
 

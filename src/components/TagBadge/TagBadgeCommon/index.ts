@@ -18,7 +18,7 @@ export {
   getProperTagBadgeRounding,
   getProperTagBadgePadding,
   getProperTagBadgeTypo,
-} from './utils/TagBadgeUtils'
+} from './utils'
 
 /* Components */
 export { TagBadgeText } from './TagBadgeText'

@@ -7,7 +7,7 @@ import { Typography } from '../../../foundation'
 import { Icon, IconSize } from '../../Icon'
 import { AvatarProps, AvatarSize } from '../Avatar'
 import { isLastIndex } from '../../../utils/arrayUtils'
-import { AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
+import { AVATAR_GROUP_DEFAULT_SPACING } from '../AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import {
   StyledAvatarGroup,

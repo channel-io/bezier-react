@@ -2,9 +2,9 @@
 import React, { useCallback } from 'react'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import useLayoutState from '../../../hooks/useLayoutState'
-import useSideViewHandler from '../../../hooks/useSideViewHandler'
+import useLayoutDispatch from '../../hooks/useLayoutDispatch'
+import useLayoutState from '../../hooks/useLayoutState'
+import useSideViewHandler from '../../hooks/useSideViewHandler'
 import { styled } from '../../../foundation'
 import { Text } from '../../../components/Text'
 import LayoutActions from '../../redux/LayoutActions'

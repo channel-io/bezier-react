@@ -9,7 +9,7 @@ import {
   iconList,
   getTitle,
 } from '../../utils/storyUtils'
-import useToast from '../../hooks/useToast'
+import useToast from './useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
 import { ToastAppearance, ToastPreset } from './Toast.types'

@@ -2,7 +2,7 @@
 import { ActionType, createAction } from 'typesafe-actions'
 
 /* Internal dependencies */
-import ColumnType from '../../types/ColumnType'
+import ColumnType from '../types/ColumnType'
 import AT from './LayoutActionTypes'
 
 export type ColumnRef = {
