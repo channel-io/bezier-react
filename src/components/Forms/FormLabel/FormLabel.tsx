@@ -58,7 +58,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       </>
     )
     : (
-      <Styled.Flex>
+      <Styled.Center>
         { LabelComponent }
         <Styled.Tooltip content={help}>
           <Styled.HelpIcon
@@ -68,7 +68,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
             color="txt-black-dark"
           />
         </Styled.Tooltip>
-      </Styled.Flex>
+      </Styled.Center>
     )
 }
 
