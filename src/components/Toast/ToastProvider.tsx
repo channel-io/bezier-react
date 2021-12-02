@@ -4,9 +4,9 @@ import { createPortal } from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import ToastContext from '../../contexts/ToastContext'
 import { css, TransitionDuration } from '../../foundation'
 import { getRootElement } from '../../utils/domUtils'
+import ToastContext from './ToastContext'
 import {
   OnDismissCallback,
   defaultOptions,

@@ -1,7 +1,7 @@
 /* Internal denpendencies */
 import { styled, smoothCorners, css } from '../../../foundation'
 import { WithInterpolation } from '../../../types/InjectedInterpolation'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from '../AvatarStyle'
 import { Text, TextProps } from '../../Text'
 import { AvatarSize } from '../Avatar/Avatar.types'
 

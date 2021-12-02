@@ -18,7 +18,7 @@ import {
   Icon,
   IconSize,
 } from '../Icon'
-import { isIconName } from '../Icon/util'
+import { isIconName } from '../Icon/utils'
 import { Text } from '../Text'
 import {
   Spinner,

@@ -2,7 +2,7 @@
 import { styled, css, smoothCorners, Foundation, SemanticNames } from '../../../foundation'
 import { enableSmoothCorners } from '../../../worklets/EnableCSSHoudini'
 import { Icon } from '../../Icon'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../constants/AvatarStyle'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '../AvatarStyle'
 import { AvatarSize } from '../Avatar/Avatar.types'
 import { AvatarImage } from '../Avatar/Avatar.styled'
 import { InjectedInterpolation, WithInterpolation } from '../../../types/InjectedInterpolation'

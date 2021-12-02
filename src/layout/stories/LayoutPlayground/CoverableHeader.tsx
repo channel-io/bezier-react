@@ -4,8 +4,8 @@ import React from 'react'
 /* Internal dependencies */
 import { styled } from '../../../foundation'
 import { Text } from '../../../components/Text'
-import useHeader from '../../../hooks/useHeader'
-import LayoutHeaderType from '../../../types/LayoutHeaderType'
+import useHeader from '../../hooks/useHeader'
+import LayoutHeaderType from '../../types/LayoutHeaderType'
 
 const Div = styled.div`
   display: flex;

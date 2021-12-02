@@ -5,7 +5,7 @@ import OverlayProps, {
   ContainerRectAttr,
   TargetRectAttr,
 } from './Overlay.types'
-import { getOverlayStyle } from './utils/positionUtils'
+import { getOverlayStyle } from './utils'
 
 interface StyledOverlayProps extends OverlayProps {
   show: boolean

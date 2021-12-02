@@ -13,7 +13,7 @@ import {
 import { Typography } from '../../foundation'
 import { Text } from '../Text'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
-import { getReplacement, getTooltipStyle } from './utils/positionUtils'
+import { getReplacement, getTooltipStyle } from './utils'
 import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
 
 // TODO: 테스트 코드 작성
