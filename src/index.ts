@@ -33,6 +33,7 @@ export * from './components/Forms/Inputs/TextField'
 export * from './components/Forms/Inputs/TextArea'
 export * from './components/Forms/Inputs/InputWrapperStyle'
 export * from './components/Forms/FormHelperText'
+export * from './components/Forms/FormLabel'
 
 /* Hooks for Component */
 export { default as useToast } from './components/Toast/useToast'
