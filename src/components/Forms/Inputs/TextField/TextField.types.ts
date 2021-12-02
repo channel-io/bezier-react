@@ -9,7 +9,7 @@ import type {
   DisableProps,
   AdditionalStyleProps,
   SideContentProps,
-  UIComponentProps,
+  BezierComponentProps,
 } from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
 
@@ -56,7 +56,7 @@ export interface TextFieldRef {
 }
 
 export interface TextFieldProps extends
-  UIComponentProps,
+  BezierComponentProps,
   DisableProps,
   TypeProps<TextFieldType>,
   VariantProps<TextFieldVariant>,

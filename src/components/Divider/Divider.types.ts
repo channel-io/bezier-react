@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from '../../types/ComponentProps'
 
-export default interface DividerProps extends UIComponentProps {
+export default interface DividerProps extends BezierComponentProps {
   orientation: 'horizontal' | 'vertical'
   withoutSideIndent?: boolean
 }

@@ -2,10 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from '../../types/ComponentProps'
 import { TabsSize } from '../Tabs/Tabs.types'
 
-export default interface TabActionProps extends Omit<UIComponentProps, 'children'> {
+export default interface TabActionProps extends Omit<BezierComponentProps, 'children'> {
   href?: string
   height?: TabsSize | number
   onClick?: () => void

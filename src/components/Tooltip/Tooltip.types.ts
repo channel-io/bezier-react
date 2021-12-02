@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
 
-export default interface TooltipProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
+export default interface TooltipProps extends BezierComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode
   contentClassName?: string
   placement?: TooltipPosition

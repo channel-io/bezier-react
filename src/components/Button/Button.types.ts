@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from '../../types/ComponentProps'
 import type { IconName } from '../Icon/generated'
 
 export enum ButtonStyleVariant {
@@ -33,7 +33,7 @@ export enum ButtonSize {
   XL = 'XL',
 }
 
-export default interface ButtonProps extends UIComponentProps {
+export default interface ButtonProps extends BezierComponentProps {
   type?: HTMLButtonElement['type']
   text?: string
   disabled?: boolean

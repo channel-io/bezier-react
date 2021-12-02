@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
+import { BezierComponentProps } from '../../../types/ComponentProps'
 
-export default interface HeaderAreaProps extends UIComponentProps {
+export default interface HeaderAreaProps extends BezierComponentProps {
   hasHeader: boolean
   ContentHeaderComponent: React.ComponentType
   CoverableHeaderComponent?: React.ComponentType

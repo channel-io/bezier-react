@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps } from '../../../../types/ComponentProps'
+import { BezierComponentProps } from '../../../../types/ComponentProps'
 import InjectedInterpolation from '../../../../types/InjectedInterpolation'
 
 export enum TextAreaHeight {
@@ -17,7 +17,7 @@ export enum TextAreaHeight {
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
 
 export default interface TextAreaProps
-  extends UIComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
+  extends BezierComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
   minRows?: TextAreaHeight
   maxRows?: TextAreaHeight
   autoFocus?: boolean

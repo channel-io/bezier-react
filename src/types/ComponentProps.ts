@@ -16,13 +16,13 @@ interface StylableComponentProps {
   interpolation?: InjectedInterpolation
 }
 
-export type UIComponentProps = RenderConfigProps & StylableComponentProps
+export type BezierComponentProps = RenderConfigProps & StylableComponentProps
 
-export interface ContentComponentProps<Content = React.ReactNode> extends UIComponentProps {
+export interface ContentComponentProps<Content = React.ReactNode> extends BezierComponentProps {
   content?: Content
 }
 
-export interface ChildrenComponentProps<Children = React.ReactNode> extends UIComponentProps {
+export interface ChildrenComponentProps<Children = React.ReactNode> extends BezierComponentProps {
   children?: Children
 }
 

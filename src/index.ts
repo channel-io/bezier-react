@@ -59,7 +59,7 @@ export { default as useSideViewHandler } from './layout/hooks/useSideViewHandler
 export { default as useHeader } from './layout/hooks/useHeader'
 
 /* Types */
-export type { UIComponentProps } from './types/ComponentProps'
+export type { BezierComponentProps as UIComponentProps } from './types/ComponentProps'
 export type { ContentComponentProps } from './types/ComponentProps'
 export type { ChildrenComponentProps } from './types/ComponentProps'
 export type { default as InjectedInterpolation } from './types/InjectedInterpolation'

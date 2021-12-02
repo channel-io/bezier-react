@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../foundation'
-import { UIComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from '../../types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
@@ -16,7 +16,7 @@ export enum IconSize {
   XXXS = 10,
 }
 
-export default interface IconProps extends Omit<UIComponentProps, 'as'> {
+export default interface IconProps extends Omit<BezierComponentProps, 'as'> {
   name: IconName
   color?: SemanticNames
   size?: IconSize

@@ -3,7 +3,7 @@ import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { UIComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from '../../types/ComponentProps'
 import { IconName } from '../Icon'
 import { TransitionDuration } from '../../foundation/Transition'
 import { css } from '../../foundation'
@@ -40,7 +40,7 @@ export interface ToastPresetType {
   iconName: IconName
 }
 
-export default interface ToastElementProps extends UIComponentProps {
+export default interface ToastElementProps extends BezierComponentProps {
   preset?: ToastPreset
   appearance?: ToastAppearance
   iconName?: IconName
