@@ -3,8 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import { UIComponentProps } from '../../../../types/ComponentProps'
-import type InjectedInterpolation from '../../../../types/InjectedInterpolation'
+import { Type, Variant, Disable, AdditionalStyle, AdditionalContent, UIComponentProps } from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
 
 export enum TextFieldType {
@@ -49,28 +48,21 @@ export interface TextFieldRef {
   getDOMNode(): Element | Text | null
 }
 
-export interface TextFieldProps
-  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
-  leftContent?: TextFieldItemProps
-  rightContent?: TextFieldItemProps | TextFieldItemProps[]
-  variant?: TextFieldVariant
-  type?: TextFieldType
+export interface TextFieldProps extends
+  UIComponentProps,
+  Disable,
+  Type<TextFieldType>,
+  Variant<TextFieldVariant>,
+  AdditionalStyle<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  AdditionalContent<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
   hasError?: boolean
   readOnly?: boolean
-  disabled?: boolean
   allowClear?: boolean
   selectAllOnInit?: boolean
   selectAllOnFocus?: boolean
   withoutLeftContentWrapper?: boolean
   withoutRightContentWrapper?: boolean
-  inputClassName?: string
-  inputInterpolation?: InjectedInterpolation
-  wrapperClassName?: string
-  wrapperInterpolation?: InjectedInterpolation
-  leftWrapperClassName?: string
-  leftWrapperInterpolation?: InjectedInterpolation
-  rightWrapperClassName?: string
-  rightWrapperInterpolation?: InjectedInterpolation
   onFocus?: React.ChangeEventHandler<HTMLInputElement>
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
