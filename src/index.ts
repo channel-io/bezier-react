@@ -59,12 +59,24 @@ export { default as useSideViewHandler } from './layout/hooks/useSideViewHandler
 export { default as useHeader } from './layout/hooks/useHeader'
 
 /* Types */
-export type { BezierComponentProps as UIComponentProps } from './types/ComponentProps'
-export type { ContentComponentProps } from './types/ComponentProps'
-export type { ChildrenComponentProps } from './types/ComponentProps'
-export type { default as InjectedInterpolation } from './types/InjectedInterpolation'
-export type { WithInterpolation } from './types/InjectedInterpolation'
-export type { WithFoundation } from './types/WithFoundation'
+export type {
+  BezierComponentProps,
+  ContentComponentProps,
+  ChildrenComponentProps,
+  ActivatableProps,
+  AdditionalStyleProps,
+  AdditionalTestIdProps,
+  IdentifierProps,
+  VariantProps,
+  DisableProps,
+  OptionItemProps,
+  OptionItemHostProps,
+} from './types/ComponentProps'
+export type {
+  WithFoundation,
+  WithInterpolation,
+  InjectedInterpolation,
+} from './types/Foundation'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from './layout/types/LayoutHeaderType'

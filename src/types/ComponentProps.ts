@@ -52,6 +52,15 @@ export interface DisableProps {
   disabled?: boolean
 }
 
+export interface OptionItemProps {
+  optionKey?: string
+}
+
+export interface OptionItemHostProps<OptionKeyType = string> {
+  selectedOptionIndex?: number
+  onChangeOption?: (optionIndex: number, optionKey?: OptionKeyType) => void
+}
+
 type ElementNameType = string | string[]
 
 type AdditionalComponentProps<
@@ -76,3 +85,8 @@ export type AdditionalStyleProps<ElementName extends ElementNameType> =
 
 export type AdditionalTestIdProps<ElementName extends ElementNameType> =
   Partial<AdditionalComponentProps<ElementName, 'testId', InjectedInterpolation>>
+
+export interface ActivatableProps extends AdditionalStyleProps<'active'> {
+  active?: boolean
+  allowActive?: boolean
+}
