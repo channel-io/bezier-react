@@ -21,6 +21,7 @@
     "paths": {
       "Components/*": ["src/components/*"],
       "Constants/*": ["src/constants/*"],
+      "Foundation": ["src/foundation"],
       "Foundation/*": ["src/foundation/*"],
       "Hooks/*": ["src/hooks/*"],
       "Layout/*": ["src/layout/*"],
