@@ -40,10 +40,6 @@ export interface IdentifierProps {
   id: string
 }
 
-export interface TypeProps<Type> {
-  type?: Type
-}
-
 export interface VariantProps<Variant> {
   variant?: Variant
 }

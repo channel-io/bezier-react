@@ -4,7 +4,6 @@ import React from 'react'
 /* Internal dependencies */
 import { SemanticNames } from '../../../../foundation/Colors/Theme'
 import type {
-  TypeProps,
   VariantProps,
   DisableProps,
   AdditionalStyleProps,
@@ -54,13 +53,8 @@ export interface TextFieldRef {
   getDOMNode(): Element | Text | null
 }
 
-export interface TextFieldProps extends
-  Omit<SideContentComponentProps<never, TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>, 'content'>,
-  DisableProps,
-  TypeProps<TextFieldType>,
-  VariantProps<TextFieldVariant>,
-  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
-  Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
+interface TextFieldOptions {
+  type?: TextFieldType
   hasError?: boolean
   readOnly?: boolean
   allowClear?: boolean
@@ -73,3 +67,13 @@ export interface TextFieldProps extends
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>
 }
+
+type OmittedInputHTMLAttributes = 'type' | 'readOnly' | 'disabled' | 'onFocus'
+
+export interface TextFieldProps extends
+  DisableProps,
+  VariantProps<TextFieldVariant>,
+  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  Omit<SideContentComponentProps<never, TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>, 'content'>,
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
+  TextFieldOptions {}
