@@ -57,30 +57,30 @@ export interface OptionItemHostProps<OptionKeyType = string> {
   onChangeOption?: (optionIndex: number, optionKey?: OptionKeyType) => void
 }
 
-type ElementNameType = string | string[]
+type PropNameType = string | string[]
 
-type AdditionalComponentProps<
-  ElementName extends ElementNameType,
+type AdditionalProps<
+  PropName extends PropNameType,
   Suffix extends string,
   PropType,
 > = {
-  [Key in `${ElementName extends string
-    ? ElementName
-    : ElementName[number]
+  [Key in `${PropName extends string
+    ? PropName
+    : PropName[number]
   }${Capitalize<Suffix>}`]: PropType
 }
 
-type AdditionalClassNameProps<ElementName extends ElementNameType> =
-  AdditionalComponentProps<ElementName, 'className', string>
+type AdditionalClassNameProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'className', string>
 
-type AdditionalInterpolationProps<ElementName extends ElementNameType> =
-  AdditionalComponentProps<ElementName, 'interpolation', InjectedInterpolation>
+type AdditionalInterpolationProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'interpolation', InjectedInterpolation>
 
-export type AdditionalStyleProps<ElementName extends ElementNameType> =
+export type AdditionalStyleProps<ElementName extends PropNameType> =
   Partial<AdditionalClassNameProps<ElementName> & AdditionalInterpolationProps<ElementName>>
 
-export type AdditionalTestIdProps<ElementName extends ElementNameType> =
-  Partial<AdditionalComponentProps<ElementName, 'testId', InjectedInterpolation>>
+export type AdditionalTestIdProps<ElementName extends PropNameType> =
+  Partial<AdditionalProps<ElementName, 'testId', InjectedInterpolation>>
 
 export interface ActivatableProps extends AdditionalStyleProps<'active'> {
   active?: boolean
