@@ -2,18 +2,21 @@
 import React, { useState } from 'react'
 import base from 'paths.macro'
 import _ from 'lodash-es'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { css, Typography } from '../../foundation'
 import { getTitle } from '../../utils/storyUtils'
 import { ListItem } from '../ListItem'
 import { Text } from '../Text'
+import type { ListItemProps } from '../ListItem'
 import SectionLabel from './SectionLabel'
+import SectionLabelProps from './SectionLabel.types'
 
 export default {
   title: getTitle(base),
   component: SectionLabel,
-}
+} as Meta
 
 const testNumberLabel = (
   <div
@@ -35,7 +38,10 @@ const testWrapperInterpolation = css`
   background-color: red;
 `
 
-const Template = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
+const Template: Story<SectionLabelProps & {
+  listItemProps: ListItemProps
+  wrapperWidth: number
+}> = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
   const [open, setOpen] = useState(true)
   const toggle = () => setOpen(v => !v)
 
@@ -127,9 +133,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   content: 'Teams • 6',
   divider: false,
-  listItemProps: {
-    paddingLeft: 6,
-  },
+  listItemProps: {},
   wrapperWidth: 200,
 }
 

@@ -1,12 +1,13 @@
 /* External dependencies */
 import React, { useState, useCallback } from 'react'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/storyUtils'
 import { styled } from '../../foundation'
 import Tooltip from './Tooltip'
-import { TooltipPosition } from './Tooltip.types'
+import TooltipProps, { TooltipPosition } from './Tooltip.types'
 
 export default {
   title: getTitle(base),
@@ -61,19 +62,19 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const Target = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100px;
   height: 40px;
   background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
   border-radius: 4px;
 `
 
-const Template = (props) => {
+const Template: Story<TooltipProps> = (props) => {
   const [showTarget, setShowTarget] = useState(true)
 
   const handleClick = useCallback(() => {

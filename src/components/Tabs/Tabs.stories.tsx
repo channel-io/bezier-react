@@ -2,7 +2,8 @@
 import React from 'react'
 import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-import { range } from 'lodash-es'
+import { range, noop } from 'lodash-es'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import {
@@ -12,7 +13,7 @@ import {
 import { TabItem } from '../TabItem'
 import { TabAction } from '../TabAction'
 import Tabs from './Tabs'
-import { TabsSize } from './Tabs.types'
+import TabsProps, { TabsSize } from './Tabs.types'
 
 export default {
   title: getTitle(base),
@@ -42,9 +43,13 @@ export default {
       },
     },
   },
+} as Meta
+
+interface TabCount {
+  tabCount: number
 }
 
-const Template = ({ tabCount, ...otherProps }) => (
+const Template: Story<TabsProps & TabCount> = ({ tabCount, ...otherProps }) => (
   <Tabs {...otherProps}>
     { range(0, tabCount).map((n) => (
       <TabItem optionKey={`tab-item-${n}`}>
@@ -64,8 +69,11 @@ Primary.args = {
   tabCount: 8,
 }
 
-/* eslint-disable react/button-has-type */
-export const WithAction = ({ onClickTabAction, tabCount, ...otherProps }) => (
+interface TabActionHandler {
+  onClickTabAction: React.MouseEventHandler
+}
+
+export const WithAction: Story<TabsProps & TabCount & TabActionHandler> = ({ onClickTabAction, tabCount, ...otherProps }) => (
   <Tabs {...otherProps} style={{ width: '768px' }}>
     { range(0, tabCount).map((n) => (
       <TabItem
@@ -80,10 +88,12 @@ export const WithAction = ({ onClickTabAction, tabCount, ...otherProps }) => (
     <TabAction onClick={onClickTabAction}>Sub 2</TabAction>
   </Tabs>
 )
+
 WithAction.args = {
   disabled: false,
   withIndicator: true,
   indicatorThickness: 3,
   height: TabsSize.Normal,
   tabCount: 8,
+  onClickTabAction: noop,
 }

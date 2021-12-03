@@ -7,14 +7,14 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   flex: 0 0 auto;
   margin: 0px 0px 0px 6px;
   color: #00000099;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c3 {
@@ -24,14 +24,14 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   font-style: normal;
   font-weight: normal;
   color: #000000D9;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c0 {
@@ -64,14 +64,14 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   -ms-user-select: none;
   user-select: none;
   background-color: #FCFCFC;
-  -webkit-transition-property: background-color,box-shadow;
-  transition-property: background-color,box-shadow;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
 }
 
 .c1:hover {

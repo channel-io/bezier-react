@@ -1,16 +1,18 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal depependencies */
 import { styled, Typography } from '../../../foundation'
 import { getTitle } from '../../../utils/storyUtils'
 import Header from './Header'
+import HeaderProps from './Header.types'
 
 export default {
   title: getTitle(base),
   component: Header,
-}
+} as Meta
 
 const Container = styled.div`
   width: 600px;
@@ -18,11 +20,9 @@ const Container = styled.div`
   border: 1px solid grey;
 `
 
-const Template = ({ ...otherProps }) => (
+const Template: Story<HeaderProps> = (args) => (
   <Container>
-    <Header
-      {...otherProps}
-    />
+    <Header {...args} />
   </Container>
 )
 

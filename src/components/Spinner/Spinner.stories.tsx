@@ -1,11 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/storyUtils'
 import Spinner from './Spinner'
-import { SpinnerSize } from './Spinner.types'
+import SpinnerProps, { SpinnerSize } from './Spinner.types'
 
 export default {
   title: getTitle(base),
@@ -24,12 +25,9 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ ...args }) => (
-  <Spinner {...args} />
-
-)
+const Template: Story<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

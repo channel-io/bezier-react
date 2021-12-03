@@ -5,10 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/storyUtils'
-import {
-  TagBadgeSize,
-  TagBadgeVariant,
-} from '../TagBadgeCommon'
+import { TagBadgeSize, TagBadgeVariant } from '../TagBadgeCommon'
 import Tag from './Tag'
 import TagProps from './Tag.types'
 
@@ -31,20 +28,15 @@ export default {
   },
 } as Meta
 
-const Template: Story<TagProps> = ({
-  text,
-  ...otherProps
-}) => (
-  <Tag
-    {...otherProps}
-  >
-    { text }
+const Template: Story<TagProps> = ({ children, ...otherProps }) => (
+  <Tag {...otherProps}>
+    { children }
   </Tag>
 )
 
 export const Primary: Story<TagProps> = Template.bind({})
 Primary.args = {
-  text: 'Design',
+  children: 'Design',
   size: TagBadgeSize.M,
   variant: TagBadgeVariant.Default,
   // eslint-disable-next-line no-console

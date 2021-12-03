@@ -1,10 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/storyUtils'
 import Checkbox from './Checkbox'
+import CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
 
 export default {
@@ -23,11 +25,11 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ text, ...otherCheckboxProps }) => (
+const Template: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => (
   <Checkbox {...otherCheckboxProps}>
-    Check Me!
+    { children }
   </Checkbox>
 )
 
@@ -35,4 +37,5 @@ export const Primary = Template.bind({})
 Primary.args = {
   checked: CheckType.True,
   disabled: false,
+  children: 'Check Me!',
 }

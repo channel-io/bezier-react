@@ -1,10 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/storyUtils'
 import GlobalHeader from './GlobalHeader'
+import GlobalHeaderProps from './GlobalHeader.types'
 
 export default {
   title: getTitle(base),
@@ -12,9 +14,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-}
+} as Meta
 
-const Template = (args) => (
+const Template: Story<GlobalHeaderProps> = (args) => (
   <GlobalHeader {...args}>
     GlobalHeader
   </GlobalHeader>

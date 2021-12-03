@@ -26,10 +26,10 @@ function getBorder(width: number, color: any, option: GetBorderOption = defaultG
   }
 
   return css`
-    border-width: ${width}px;
-    border-style: ${getBorderStyle(top)} ${getBorderStyle(right)} ${getBorderStyle(bottom)} ${getBorderStyle(left)};
-    border-color: ${color};
     box-sizing: border-box;
+    border-color: ${color};
+    border-style: ${getBorderStyle(top)} ${getBorderStyle(right)} ${getBorderStyle(bottom)} ${getBorderStyle(left)};
+    border-width: ${width}px;
   `
 }
 

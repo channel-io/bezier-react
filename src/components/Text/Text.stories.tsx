@@ -1,10 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/storyUtils'
 import Text from './Text'
+import TextProps from './Text.types'
 
 export default {
   title: getTitle(base),
@@ -21,7 +23,7 @@ export default {
       control: {
         type: 'select',
         options: [
-          null,
+          undefined,
           'h1',
           'h2',
           'button',
@@ -31,24 +33,21 @@ export default {
 
     style: { control: 'object' },
   },
-}
+} as Meta
 
-const Template = ({
-  text,
-  ...otherTextProps
-}) => (
+const Template: Story<TextProps> = ({ children, ...otherTextProps }) => (
   <Text {...otherTextProps}>
-    { text }
+    { children }
   </Text>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  as: null,
+  as: undefined,
   bold: false,
   italic: false,
   style: { color: 'gray' },
-  text: 'hello',
+  children: 'hello',
   marginTop: 0,
   marginRight: 0,
   marginBottom: 0,

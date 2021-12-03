@@ -1,12 +1,13 @@
 /* External dependencies */
 import React, { useEffect, useRef, useState } from 'react'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../utils/storyUtils'
 import { styled } from '../../foundation'
 import Overlay from './Overlay'
-import { OverlayPosition } from './Overlay.types'
+import OverlayProps, { OverlayPosition } from './Overlay.types'
 
 export default {
   title: getTitle(base),
@@ -68,7 +69,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 interface ContainerProps {
   width?: number
@@ -118,18 +119,14 @@ const ScrollContent = styled.div`
   color: white;
 `
 
-const Template = ({
-  containerWidth,
-  containerHeight,
-  ...props
-}) => {
+const Template: Story<OverlayProps & ContainerProps> = ({ width, height, ...overlayProps }) => {
   const targetRef = useRef<any>()
   const containerRef = useRef<any>()
 
   return (
     <Container
-      width={containerWidth}
-      height={containerHeight}
+      width={width}
+      height={height}
       ref={containerRef}
     >
       <Wrapper>
@@ -137,7 +134,7 @@ const Template = ({
           target
         </Target>
         <Overlay
-          {...props}
+          {...overlayProps}
           target={targetRef.current}
           container={containerRef.current}
         >
@@ -170,11 +167,9 @@ Primary.args = {
   marginY: 0,
   keepInContainer: false,
   withTransition: false,
-  containerHeight: 500,
-  containerWidth: 600,
 }
 
-const StressTestTemplate = (props) => {
+const StressTestTemplate: Story<OverlayProps> = (props) => {
   const targetRef = useRef<any>()
   const containerRef = useRef<any>()
   const [, reload] = useState(0)

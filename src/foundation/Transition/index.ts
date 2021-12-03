@@ -21,10 +21,10 @@ function getTransitionsCSS(
   )
 
   return css`
-    transition-property: ${properties};
-    transition-duration: ${duration}ms;
-    transition-timing-function: ${TransitionEasing};
     transition-delay: ${delay}ms;
+    transition-timing-function: ${TransitionEasing};
+    transition-duration: ${duration}ms;
+    transition-property: ${properties};
   `
 }
 

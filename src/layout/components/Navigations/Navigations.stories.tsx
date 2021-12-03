@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import Client from '../Client/Client'
@@ -17,7 +18,7 @@ import Navigations from './Navigations'
 export default {
   title: getTitle(base),
   component: Navigations,
-}
+} as Meta
 
 const Container = styled.div`
   width: 700px;
@@ -32,7 +33,11 @@ const StyledIcon = styled(Icon)`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
-const Template = ({ onChangeWidth }) => {
+interface TemplateProps {
+  onChangeWidth: () => void
+}
+
+const Template = ({ onChangeWidth }: TemplateProps) => {
   const DummyActions = useMemo(() => (
     <>
       <StyledIcon name="search" marginRight={10} />
@@ -95,13 +100,11 @@ const Template = ({ onChangeWidth }) => {
   )
 }
 
-function LayoutProvidedTemplate(props) {
-  return (
-    <LayoutProvider initialState={undefined}>
-      <Template {...props} />
-    </LayoutProvider>
-  )
-}
+const LayoutProvidedTemplate: Story<TemplateProps> = (args) => (
+  <LayoutProvider initialState={{}}>
+    <Template {...args} />
+  </LayoutProvider>
+)
 
 export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {

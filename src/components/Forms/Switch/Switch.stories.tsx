@@ -1,10 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/storyUtils'
 import Switch from './Switch'
+import SwitchProps from './Switch.types'
 
 export default {
   title: getTitle(base),
@@ -12,9 +14,9 @@ export default {
   argTypes: {
     onClick: { action: 'onClick' },
   },
-}
+} as Meta
 
-const Template = ({ ...otherSwitchProps }) => <Switch {...otherSwitchProps} />
+const Template: Story<SwitchProps> = ({ ...otherSwitchProps }) => <Switch {...otherSwitchProps} />
 
 export const Primary = Template.bind({})
 Primary.args = {

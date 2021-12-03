@@ -1,6 +1,7 @@
 /* External dependencies */
 import React, { useCallback, useState, useMemo } from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '../index'
@@ -21,14 +22,14 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const ElementWrapper = styled.div`
   position: relative;
-  border: 1px solid red;
   width: 300px;
   height: 300px;
   overflow: hidden;
+  border: 1px solid red;
 `
 
 interface ElementProps {
@@ -62,7 +63,7 @@ const Element = styled.div.attrs<ElementProps>(({
   )};
 `
 
-const Template = (args) => {
+const Template: Story<{ property: keyof ElementProps }> = (args) => {
   const [isEntered, setIsEntered] = useState(false)
 
   const handleClick = useCallback(() => setIsEntered(prevEntered => !prevEntered), [])

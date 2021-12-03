@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '../../../utils/storyUtils'
@@ -12,7 +13,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-}
+} as Meta
 
 interface ColorProps {
   color: string
@@ -20,36 +21,36 @@ interface ColorProps {
 
 const ColorChipArtBoard = styled.div`
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
 `
 
 const ColorChip = styled.div`
-  margin: 10px;
-  width: 80px;
-  min-height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80px;
+  min-height: 80px;
+  margin: 10px;
 `
 
 const Color = styled.div<ColorProps>`
-  margin-bottom: 5px;
   width: 50px;
   height: 50px;
-  ${({ foundation }) => foundation?.elevation?.ev3()};
+  margin-bottom: 5px;
   background-color: ${({ color }) => color};
+  ${({ foundation }) => foundation?.elevation?.ev3()};
   ${({ foundation }) => foundation?.rounding?.round16};
 `
 
 const ColorName = styled.span`
   width: 100%;
-  word-break: break-all;
   color: rgba(131, 131, 131, 0.609);
   text-align: center;
+  word-break: break-all;
 `
 
-const Template = ({ color }) => (
+const Template: Story<{ color: ReturnType<typeof Themes['createThemes']> }> = ({ color }) => (
   <ColorChipArtBoard>
     {
       Object.keys(color).map(colorKey => (

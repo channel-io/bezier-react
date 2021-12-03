@@ -1,13 +1,7 @@
 /* External dependencies */
-import React, {
-  useCallback,
-  useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 import base from 'paths.macro'
-import {
-  Story,
-  Meta,
-} from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -15,9 +9,7 @@ import { getTitle } from '../../utils/storyUtils'
 import { IconSize } from '../Icon'
 import { Avatar, AvatarSize } from '../Avatars/Avatar'
 import OutlineItem from './OutlineItem'
-import OutlineItemProps, {
-  ChevronIconType,
-} from './OutlineItem.types'
+import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
 
 export default {
   title: getTitle(base),
@@ -31,7 +23,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
+const Template: Story<OutlineItemProps> = (args) => {
   const [open, setOpen] = useState(true)
   const [idx, setIdx] = useState(null)
 
@@ -41,7 +33,7 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
     // setIdx(0)
   }, [])
 
-  const handleClickGroup = useCallback((name: string) => {
+  const handleClickGroup = useCallback((_e, name?: string) => {
     // eslint-disable-next-line no-console
     console.log(name)
     handleToggle()
@@ -68,13 +60,14 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
           onClick={handleClickGroup}
           onClickArrow={handleToggle}
           onChangeOption={handleClickItem}
-          {...otherOutlineItemProps}
+          {...args}
         >
           <OutlineItem
             content="product"
             open
             leftContent={(
               <Avatar
+                name="avatar"
                 size={AvatarSize.Size20}
               />
           )}
@@ -135,7 +128,6 @@ const Template: Story<OutlineItemProps> = ({ ...otherOutlineItemProps }) => {
         <OutlineItem
           content="보안"
           leftIcon="security"
-          leftIconColor=""
         />
       </div>
 
@@ -152,5 +144,4 @@ Primary.args = {
   chevronIconSize: IconSize.XS,
   leftIcon: 'dot',
   leftIconColor: 'bgtxt-pink-normal',
-  selectedOptionIndex: null,
 }

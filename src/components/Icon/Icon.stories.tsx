@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import {
@@ -11,7 +12,7 @@ import {
 import { Text } from '../Text'
 import { styled } from '../../foundation'
 import Icon from './Icon'
-import { IconSize } from './Icon.types'
+import IconProps, { IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),
@@ -24,7 +25,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const IconInfo = styled.div`
   display: inline-flex;
@@ -57,7 +58,7 @@ AllIcons.args = {
   color: 'bgtxt-olive-dark',
 }
 
-const Template = (args) => <Icon {...args} />
+const Template: Story<IconProps> = (args) => <Icon {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
@@ -70,9 +71,8 @@ Primary.args = {
   marginLeft: 0,
 }
 
-export const WithText = ({
+export const WithText: Story<IconProps> = ({
   color,
-  text,
   name,
   ...otherIconProps
 }) => (

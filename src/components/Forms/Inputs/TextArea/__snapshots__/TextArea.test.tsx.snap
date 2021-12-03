@@ -15,14 +15,14 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   background-color: #FCFCFC;
   overflow: hidden;
   border-radius: 8px;
-  -webkit-transition-property: border-color,box-shadow;
-  transition-property: border-color,box-shadow;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: border-color,box-shadow;
+  transition-property: border-color,box-shadow;
 }
 
 .c1 {

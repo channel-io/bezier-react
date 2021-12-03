@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import useSideWidth from '../../hooks/useSideWidth'
@@ -25,7 +26,7 @@ import CoverableHeader from './CoverableHeader'
 
 export default {
   title: getTitle(base),
-}
+} as Meta
 
 const Container = styled.div`
   position: absolute;
@@ -69,7 +70,11 @@ enum RouteKeys {
   Setting = 'setting',
 }
 
-function TeamChatSidePanel({ onChangeWidth }) {
+interface TemplateProps {
+  onChangeWidth: () => void
+}
+
+function TeamChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
   const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
 
@@ -93,7 +98,7 @@ function TeamChatSidePanel({ onChangeWidth }) {
   )
 }
 
-function UserChatSidePanel({ onChangeWidth }) {
+function UserChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
   const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
 
@@ -117,7 +122,7 @@ function UserChatSidePanel({ onChangeWidth }) {
   )
 }
 
-function SideViewRoute({ onChangeWidth }) {
+function SideViewRoute({ onChangeWidth }: TemplateProps) {
   const [state, setState] = useState(Math.random() * 100)
 
   return (
@@ -130,7 +135,7 @@ function SideViewRoute({ onChangeWidth }) {
   )
 }
 
-const Template = ({ onChangeWidth }) => {
+const Template = ({ onChangeWidth }: TemplateProps) => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
@@ -340,18 +345,16 @@ const Template = ({ onChangeWidth }) => {
   )
 }
 
-function LayoutProvidedTemplate(props) {
-  return (
-    <LayoutProvider initialState={{
-      showingHidableNavigations: new Set([
-        RouteKeys.TeamChat,
-        RouteKeys.UserChat,
-      ]) }}
-    >
-      <Template {...props} />
-    </LayoutProvider>
-  )
-}
+const LayoutProvidedTemplate: Story<TemplateProps> = (args) => (
+  <LayoutProvider initialState={{
+    showingHidableNavigations: new Set([
+      RouteKeys.TeamChat,
+      RouteKeys.UserChat,
+    ]) }}
+  >
+    <Template {...args} />
+  </LayoutProvider>
+)
 
 export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {

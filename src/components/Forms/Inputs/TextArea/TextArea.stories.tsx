@@ -4,11 +4,12 @@ import React, {
   useState,
 } from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from '../../../../utils/storyUtils'
 import TextArea from './TextArea'
-import { TextAreaHeight } from './TextArea.types'
+import TextAreaProps, { TextAreaHeight } from './TextArea.types'
 
 export default {
   title: getTitle(base),
@@ -27,9 +28,9 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ ...otherProps }) => {
+const Template: Story<TextAreaProps> = (args) => {
   const [value, setValue] = useState('12345')
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -43,7 +44,7 @@ const Template = ({ ...otherProps }) => {
       <TextArea
         value={value}
         onChange={handleChange}
-        {...otherProps}
+        {...args}
       />
     </div>
   )
