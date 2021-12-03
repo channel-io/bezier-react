@@ -37,6 +37,5 @@
   "exclude": [
     "node_modules",
     "build",
-    "src/**/*.stories.tsx",
   ]
 }
