@@ -1,7 +1,7 @@
 /* External dependencies */
 import React from 'react'
 
-/* Internel dependencies */
+/* Internal dependencies */
 import {
   FoundationProvider,
   LightFoundation,
