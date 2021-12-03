@@ -13,14 +13,14 @@ const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
 
 const aliasPlugin = alias({
   entries: [
-    { find: 'Components', replacement: './src/components' },
-    { find: 'Constants', replacement: './src/constants' },
-    { find: 'Foundation', replacement: './src/foundation' },
-    { find: 'Hooks', replacement: './src/hooks' },
-    { find: 'Layout', replacement: './src/layout' },
-    { find: 'Types', replacement: './src/types' },
-    { find: 'Utils', replacement: './src/utils' },
-    { find: 'Worklets', replacement: './src/worklets' },
+    { find: 'Components/*', replacement: './src/components/*' },
+    { find: 'Constants/*', replacement: './src/constants/*' },
+    { find: 'Foundation/*', replacement: './src/foundation/*' },
+    { find: 'Hooks/*', replacement: './src/hooks/*' },
+    { find: 'Layout/*', replacement: './src/layout/*' },
+    { find: 'Types/*', replacement: './src/types/*' },
+    { find: 'Utils/*', replacement: './src/utils/*' },
+    { find: 'Worklets/*', replacement: './src/worklets/*' },
   ],
 })
 
