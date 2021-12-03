@@ -5,11 +5,11 @@ import React from 'react'
 import { SemanticNames } from '../../../../foundation/Colors/Theme'
 import type {
   VariantProps,
-  DisableProps,
   AdditionalStyleProps,
   SideContentComponentProps,
 } from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
+import type { FormComponentProps } from '../../Form.types'
 
 export enum TextFieldType {
   Search = 'search',
@@ -39,7 +39,7 @@ export enum TextFieldVariant {
 export type TextFieldItemProps = {
   icon: IconName
   iconColor?: SemanticNames
-  onClick?: (event: React.MouseEvent) => void
+  onClick?: React.MouseEventHandler
 } | React.ReactElement
 
 export interface TextFieldRef {
@@ -55,8 +55,6 @@ export interface TextFieldRef {
 
 interface TextFieldOptions {
   type?: TextFieldType
-  hasError?: boolean
-  readOnly?: boolean
   allowClear?: boolean
   selectAllOnInit?: boolean
   selectAllOnFocus?: boolean
@@ -71,9 +69,9 @@ interface TextFieldOptions {
 type OmittedInputHTMLAttributes = 'type' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
-  DisableProps,
   VariantProps<TextFieldVariant>,
   AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   Omit<SideContentComponentProps<never, TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>, 'content'>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
+  FormComponentProps,
   TextFieldOptions {}

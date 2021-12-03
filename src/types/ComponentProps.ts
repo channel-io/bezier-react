@@ -66,8 +66,8 @@ type AdditionalComponentProps<
 > = {
   [Key in `${ElementName extends string
     ? ElementName
-    : ElementName[number]}${Capitalize<Suffix>}`
-  ]: PropType
+    : ElementName[number]
+  }${Capitalize<Suffix>}`]: PropType
 }
 
 type AdditionalClassNameProps<ElementName extends ElementNameType> =
