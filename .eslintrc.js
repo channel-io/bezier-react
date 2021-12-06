@@ -4,7 +4,6 @@ module.exports = {
     project: ['./tsconfig.eslint.json'],
   },
   rules: {
-    'no-restricted-modules': 'off',
     'react/jsx-props-no-spreading': 'off',
     'max-classes-per-file': 'off',
     'import/order': [
