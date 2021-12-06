@@ -17,6 +17,7 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     'Components/(.*)$': '<rootDir>/src/components/$1',
     'Constants/(.*)$': '<rootDir>/src/constants/$1',
+    '^Foundation$': '<rootDir>/src/foundation',
     'Foundation/(.*)$': '<rootDir>/src/foundation/$1',
     'Hooks/(.*)$': '<rootDir>/src/hooks/$1',
     'Layout/(.*)$': '<rootDir>/src/layout/$1',
