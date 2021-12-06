@@ -3,8 +3,8 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
-import { render } from '../../../../utils/testUtils'
-import { LightFoundation } from '../../../../foundation'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
 import { TextFieldProps, TextFieldVariant } from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'

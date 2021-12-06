@@ -1,18 +1,8 @@
 /* Internal dependencies */
-import disabledOpacity from '../../constants/DisabledOpacity'
-import {
-  css,
-  ellipsis,
-  LineHeightAbsoluteNumber,
-  styled,
-  TransitionDuration,
-} from '../../foundation'
-import { SemanticNames } from '../../foundation/Colors/Theme'
-import { Icon } from '../Icon'
-import {
-  ListItemColorVariant,
-  ListItemSize,
-} from './ListItem.types'
+import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from 'Foundation'
+import disabledOpacity from 'Constants/DisabledOpacity'
+import { Icon } from 'Components/Icon'
+import { ListItemColorVariant, ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
 interface StyledWrapperProps {

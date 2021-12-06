@@ -5,7 +5,7 @@ import { noop, isNumber } from 'lodash-es'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
-import useMergeRefs from '../../../hooks/useMergeRefs'
+import useMergeRefs from 'Hooks/useMergeRefs'
 import SegmentedControlProps from './SegmentedControl.types'
 import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
 

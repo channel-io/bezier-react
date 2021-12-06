@@ -4,9 +4,9 @@ import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from '../../foundation'
-import { getTitle } from '../../utils/storyUtils'
-import { ListItem } from '../ListItem'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
+import { ListItem } from 'Components/ListItem'
 import Divider from './Divider'
 import DividerProps from './Divider.types'
 

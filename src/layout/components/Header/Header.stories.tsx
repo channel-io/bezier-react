@@ -4,8 +4,8 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal depependencies */
-import { styled, Typography } from '../../../foundation'
-import { getTitle } from '../../../utils/storyUtils'
+import { styled, Typography } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 import Header from './Header'
 import HeaderProps from './Header.types'
 

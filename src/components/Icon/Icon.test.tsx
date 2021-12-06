@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
-import { LightFoundation } from '../../foundation'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import Icon, { ICON_TEST_ID } from './Icon'
 import IconProps from './Icon.types'
 

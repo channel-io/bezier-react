@@ -1,4 +1,5 @@
 /* Internal dependencies */
+// eslint-disable-next-line no-restricted-imports
 import { css } from '../FoundationStyledComponent'
 
 const defaultInnerShadowStyle = 'inset 0 0 2px 0'

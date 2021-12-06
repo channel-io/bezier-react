@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../../utils/storyUtils'
+import { getTitle } from 'Utils/storyUtils'
 import TagBadgeText from './TagBadgeText'
 import TagBadgeTextProps from './TagBadgeText.types'
 

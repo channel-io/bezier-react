@@ -1,24 +1,11 @@
 /* External dependencies */
-import React, {
-  Ref,
-  forwardRef,
-  useState,
-  useEffect,
-  useMemo,
-  useCallback,
-} from 'react'
+import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import {
-  noop,
-  isNumber,
-  isEmpty,
-  get,
-  identity,
-} from 'lodash-es'
+import { noop, isNumber, isEmpty, get, identity } from 'lodash-es'
 
 /* Internal dependencies */
-import { isTabItem } from '../TabItem'
-import { isTabAction } from '../TabAction'
+import { isTabItem } from 'Components/TabItem'
+import { isTabAction } from 'Components/TabAction'
 import TabsProps from './Tabs.types'
 import { Wrapper, TabItemWrapper, TabActions } from './Tabs.styled'
 

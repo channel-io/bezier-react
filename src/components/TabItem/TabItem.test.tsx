@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
+import { render } from 'Utils/testUtils'
 import TabItem, { TAB_ITEM_TEST_ID } from './TabItem'
 import TabItemProps from './TabItem.types'
 

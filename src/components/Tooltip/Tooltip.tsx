@@ -4,14 +4,11 @@ import ReactDOM from 'react-dom'
 import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
-import useMergeRefs from '../../hooks/useMergeRefs'
-import useEventHandler from '../../hooks/useEventHandler'
-import {
-  window,
-  getRootElement,
-} from '../../utils/domUtils'
-import { Typography } from '../../foundation'
-import { Text } from '../Text'
+import { Typography } from 'Foundation'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import useEventHandler from 'Hooks/useEventHandler'
+import { window, getRootElement } from 'Utils/domUtils'
+import { Text } from 'Components/Text'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils'
 import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'

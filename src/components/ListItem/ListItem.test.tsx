@@ -2,10 +2,10 @@
 import React from 'react'
 import { getWindow, getDocument } from 'ssr-window'
 import { v4 as uuid } from 'uuid'
-import { LightFoundation } from '../../foundation'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
 import ListItemProps, { ListItemColorVariant, ListItemSize } from './ListItem.types'
 

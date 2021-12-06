@@ -4,9 +4,8 @@ import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
-import { Icon } from '../Icon'
-import { IconSize } from '../Icon/Icon.types'
+import { getTitle } from 'Utils/storyUtils'
+import { Icon, IconSize } from 'Components/Icon'
 import ListMenuTitle from './ListMenuTitle'
 import ListMenuTitleProps from './ListMenuTitle.types'
 

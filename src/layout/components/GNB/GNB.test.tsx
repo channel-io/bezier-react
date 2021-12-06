@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../../utils/testUtils'
+import { render } from 'Utils/testUtils'
 import GNB from './GNB'
 import GNBProps from './GNB.types'
 

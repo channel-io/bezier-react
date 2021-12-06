@@ -5,11 +5,11 @@ import _ from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { css, Typography } from '../../foundation'
-import { getTitle } from '../../utils/storyUtils'
-import { ListItem } from '../ListItem'
-import { Text } from '../Text'
-import type { ListItemProps } from '../ListItem'
+import { css, Typography } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
+import { ListItem } from 'Components/ListItem'
+import { Text } from 'Components/Text'
+import type { ListItemProps } from 'Components/ListItem'
 import SectionLabel from './SectionLabel'
 import SectionLabelProps from './SectionLabel.types'
 

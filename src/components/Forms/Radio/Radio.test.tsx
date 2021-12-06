@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../../utils/testUtils'
-import { Themes } from '../../../foundation'
+import { Themes } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import Radio, { RADIO_TEST_ID, RADIO_HANDLE_TEST_ID } from './Radio'
 import RadioProps from './Radio.types'
 

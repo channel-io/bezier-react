@@ -2,8 +2,8 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps } from '../../../../types/ComponentProps'
-import InjectedInterpolation from '../../../../types/InjectedInterpolation'
+import { UIComponentProps } from 'Types/ComponentProps'
+import InjectedInterpolation from 'Types/InjectedInterpolation'
 
 export enum TextAreaHeight {
   Row3 = 3,

@@ -2,12 +2,12 @@
 import React, { useCallback } from 'react'
 
 /* Internal dependencies */
-import useLayoutDispatch from '../../hooks/useLayoutDispatch'
-import useLayoutState from '../../hooks/useLayoutState'
-import useSideViewHandler from '../../hooks/useSideViewHandler'
-import { styled } from '../../../foundation'
-import { Text } from '../../../components/Text'
-import LayoutActions from '../../redux/LayoutActions'
+import { styled } from 'Foundation'
+import { Text } from 'Components/Text'
+import { LayoutActions } from 'Layout/redux'
+import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
+import useLayoutState from 'Layout/hooks/useLayoutState'
+import useSideViewHandler from 'Layout/hooks/useSideViewHandler'
 
 const Div = styled.div`
   display: flex;

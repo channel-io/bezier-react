@@ -4,11 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '../../utils/storyUtils'
-import { TabsSize } from '../Tabs/Tabs.types'
+import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
+import { TabsSize } from 'Components/Tabs'
 import TabItem from './TabItem'
 import TabItemProps from './TabItem.types'
 

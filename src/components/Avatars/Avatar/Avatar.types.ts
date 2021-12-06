@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
-import { StatusType } from '../../Status'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
+import InjectedInterpolation from 'Types/InjectedInterpolation'
+import { StatusType } from 'Components/Status'
 
 export enum AvatarSize {
   Size20 = 20,

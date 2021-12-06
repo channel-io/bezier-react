@@ -4,8 +4,8 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
-import { styled } from '../../foundation'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 import Tooltip from './Tooltip'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
 

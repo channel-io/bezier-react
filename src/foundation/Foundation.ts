@@ -1,11 +1,5 @@
 /* Internal dependencies */
-import {
-  Theme,
-  Transition,
-  Rounding,
-  Elevation,
-  Border,
-} from './index'
+import { Theme, Transition, Rounding, Elevation, Border } from './index'
 
 export interface Foundation {
   theme: Theme

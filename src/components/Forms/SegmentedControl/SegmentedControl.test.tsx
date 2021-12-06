@@ -3,15 +3,12 @@ import React from 'react'
 import { range } from 'lodash-es'
 
 /* Internal dependencies */
-import ResizeObserver from '../../../__mocks__/ResizeObserver'
-import disabledOpacity from '../../../constants/DisabledOpacity'
-import { LightFoundation } from '../../../foundation'
-import { render } from '../../../utils/testUtils'
-import { Text } from '../../Text'
-import SegmentedControl, {
-  SEGMENTED_CONTROL_TEST_ID,
-  segmentedControlOptionItemTestId,
-} from './SegmentedControl'
+import { LightFoundation } from 'Foundation'
+import disabledOpacity from 'Constants/DisabledOpacity'
+import { render } from 'Utils/testUtils'
+import { Text } from 'Components/Text'
+import ResizeObserver from './__mocks__/ResizeObserver'
+import SegmentedControl, { SEGMENTED_CONTROL_TEST_ID, segmentedControlOptionItemTestId } from './SegmentedControl'
 import type SegmentedControlProps from './SegmentedControl.types'
 
 describe('SegmentedControl', () => {

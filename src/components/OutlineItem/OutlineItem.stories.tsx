@@ -5,9 +5,9 @@ import { Story, Meta } from '@storybook/react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
-import { IconSize } from '../Icon'
-import { Avatar, AvatarSize } from '../Avatars/Avatar'
+import { getTitle } from 'Utils/storyUtils'
+import { IconSize } from 'Components/Icon'
+import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
 import OutlineItem from './OutlineItem'
 import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
 

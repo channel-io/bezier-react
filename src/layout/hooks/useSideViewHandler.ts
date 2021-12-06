@@ -2,7 +2,7 @@
 import { useCallback } from 'react'
 
 /* Internal dependencies */
-import { LayoutActions } from '../redux'
+import { LayoutActions } from 'Layout/redux'
 import useLayoutDispatch from './useLayoutDispatch'
 import useLayoutState from './useLayoutState'
 

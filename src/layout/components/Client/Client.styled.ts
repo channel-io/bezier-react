@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { styled } from 'Foundation'
 
 export const ClientWrapper = styled.div`
   display: flex;

@@ -3,11 +3,11 @@ import React, { forwardRef, useCallback, useMemo } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal denpendencies */
-import { Typography } from '../../../foundation'
-import { Icon, IconSize } from '../../Icon'
-import { AvatarProps, AvatarSize } from '../Avatar'
-import { isLastIndex } from '../../../utils/arrayUtils'
-import { AVATAR_GROUP_DEFAULT_SPACING } from '../AvatarStyle'
+import { Typography } from 'Foundation'
+import { isLastIndex } from 'Utils/arrayUtils'
+import { Icon, IconSize } from 'Components/Icon'
+import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
+import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import {
   StyledAvatarGroup,

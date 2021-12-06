@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 import CheckType from './CheckType'
 
 export default interface CheckboxProps extends ChildrenComponentProps {

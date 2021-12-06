@@ -1,11 +1,11 @@
 /* External dependencies */
 import { fireEvent } from '@testing-library/dom'
 import React from 'react'
-import disabledOpacity from '../../../../constants/DisabledOpacity'
-import { Palette } from '../../../../foundation/Colors/Palette'
 
 /* Internal dependencies */
-import { render } from '../../../../utils/testUtils'
+import { Palette } from 'Foundation/Colors/Palette'
+import disabledOpacity from 'Constants/DisabledOpacity'
+import { render } from 'Utils/testUtils'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
 import TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'

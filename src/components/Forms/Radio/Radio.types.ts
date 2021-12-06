@@ -2,7 +2,7 @@
 import { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 
 export default interface RadioProps extends ChildrenComponentProps {
   handleTestId?: string

@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import React from 'react'
-import ActivableElement from '../../types/ActivatableElement'
-import { ContentComponentProps } from '../../types/ComponentProps'
-import OptionItem from '../../types/OptionItem'
-import { IconName } from '../Icon'
+import ActivableElement from 'Types/ActivatableElement'
+import { ContentComponentProps } from 'Types/ComponentProps'
+import OptionItem from 'Types/OptionItem'
+import { IconName } from 'Components/Icon'
 
 export enum ListItemSize {
   S = 's',

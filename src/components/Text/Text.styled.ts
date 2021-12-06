@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { SemanticNames, styled } from '../../foundation'
+import { styled, SemanticNames } from 'Foundation'
 import TextProps from './Text.types'
 
 interface TextStyledProps {

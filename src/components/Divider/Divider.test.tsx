@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
+import { render } from 'Utils/testUtils'
 import Divider, { DIVIDER_TEST_ID } from './Divider'
 import type DividerProps from './Divider.types'
 

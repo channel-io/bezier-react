@@ -4,9 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import { styled } from '../../index'
-import { Themes } from '../index'
+import { styled, Themes } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 
 export default {
   title: getTitle(base),
@@ -38,9 +37,9 @@ const Color = styled.div<ColorProps>`
   width: 50px;
   height: 50px;
   margin-bottom: 5px;
-  background-color: ${({ color }) => color};
   ${({ foundation }) => foundation?.elevation?.ev3()};
   ${({ foundation }) => foundation?.rounding?.round16};
+  background-color: ${({ color }) => color};
 `
 
 const ColorName = styled.span`
@@ -50,25 +49,23 @@ const ColorName = styled.span`
   word-break: break-all;
 `
 
-const Template: Story<{ color: ReturnType<typeof Themes['createThemes']> }> = ({ color }) => (
+const Template: Story<{ theme: ReturnType<typeof Themes['createThemes']> }> = ({ theme }) => (
   <ColorChipArtBoard>
-    {
-      Object.keys(color).map(colorKey => (
-        <ColorChip>
-          <Color color={color[colorKey]} />
-          <ColorName>{ colorKey }</ColorName>
-        </ColorChip>
-      ))
-    }
+    { Object.keys(theme).map(semanticName => (
+      <ColorChip key={semanticName}>
+        <Color color={theme[semanticName]} />
+        <ColorName>{ semanticName }</ColorName>
+      </ColorChip>
+    )) }
   </ColorChipArtBoard>
 )
 
 export const LightTheme = Template.bind({})
 LightTheme.args = {
-  color: Themes.LightTheme,
+  theme: Themes.LightTheme,
 }
 
 export const DarkTheme = Template.bind({})
 DarkTheme.args = {
-  color: Themes.DarkTheme,
+  theme: Themes.DarkTheme,
 }

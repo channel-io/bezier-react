@@ -4,10 +4,7 @@
  */
 
 /* Internal dependencies */
-import BasePaletteKey, {
-  BaseMonoPaletteKey,
-  BaseColorfulPaletteKey,
-} from './BasePaletteKey'
+import BasePaletteKey, { BaseMonoPaletteKey, BaseColorfulPaletteKey } from './BasePaletteKey'
 import { getAlphaHex } from './alphaUtils'
 
 type BaseColorfulPaletteKey300 = `${BaseColorfulPaletteKey}300`

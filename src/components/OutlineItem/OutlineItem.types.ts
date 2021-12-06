@@ -1,15 +1,9 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../foundation/Colors/Theme'
-import {
-  ChildrenComponentProps,
-  ContentComponentProps,
-} from '../../types/ComponentProps'
-import InjectedInterpolation from '../../types/InjectedInterpolation'
-import OptionItem from '../../types/OptionItem'
-import {
-  IconName,
-  IconSize,
-} from '../Icon'
+import { SemanticNames } from 'Foundation'
+import { ChildrenComponentProps, ContentComponentProps } from 'Types/ComponentProps'
+import InjectedInterpolation from 'Types/InjectedInterpolation'
+import OptionItem from 'Types/OptionItem'
+import { IconName, IconSize } from 'Components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',

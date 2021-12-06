@@ -2,7 +2,7 @@
 import { css } from 'styled-components'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 
 export default interface HeaderProps extends Omit<ChildrenComponentProps, 'as'> {
   title: string

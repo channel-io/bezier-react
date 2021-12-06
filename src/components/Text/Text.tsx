@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
+import { Typography } from 'Foundation'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 

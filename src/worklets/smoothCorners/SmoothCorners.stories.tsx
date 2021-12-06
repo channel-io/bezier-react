@@ -3,7 +3,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, smoothCorners, smoothCornersStyle } from '../../foundation'
+import { styled, smoothCorners, smoothCornersStyle } from 'Foundation'
 
 export default {
   title: 'SmoothCorners',

@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
+import { getTitle } from 'Utils/storyUtils'
 import Checkbox from './Checkbox'
 import CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'

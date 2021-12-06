@@ -1,4 +1,5 @@
 /* Internal dependencies */
+// eslint-disable-next-line no-restricted-imports
 import { css } from '../FoundationStyledComponent'
 
 const DefaultRoundStyle = css`

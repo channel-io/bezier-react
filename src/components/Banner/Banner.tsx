@@ -6,21 +6,11 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
-import { Text } from '../Text'
-import {
-  Icon,
-  IconSize,
-} from '../Icon'
-import {
-  DEFAULT_ICON_COLORS,
-  TEXT_COLORS,
-} from './Banner.const'
-import {
-  BannerColorVariant,
-  BannerProps,
-  RenderLinkFunc,
-} from './Banner.types'
+import { Typography } from 'Foundation'
+import { Text } from 'Components/Text'
+import { Icon, IconSize } from 'Components/Icon'
+import { DEFAULT_ICON_COLORS, TEXT_COLORS } from './Banner.const'
+import { BannerColorVariant, BannerProps, RenderLinkFunc } from './Banner.types'
 import Styled from './Banner.styled'
 
 const BANNER_TEST_ID = 'bezier-react-banner'

@@ -1,6 +1,6 @@
 /* External dependencies */
 import React from 'react'
-import { render } from '../../utils/testUtils'
+import { render } from 'Utils/testUtils'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueListItem, { KEY_VALUE_LIST_ITEM_TEST_ID } from './KeyValueListItem'
 

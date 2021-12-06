@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../../utils/testUtils'
+import { render } from 'Utils/testUtils'
 import Avatar, { AVATAR_TEST_ID } from './Avatar'
 import AvatarProps from './Avatar.types'
 

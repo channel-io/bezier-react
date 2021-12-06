@@ -5,11 +5,8 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal depependencies */
-import { styled } from '../../foundation'
-import {
-  iconList,
-  getTitle,
-} from '../../utils/storyUtils'
+import { styled } from 'Foundation'
+import { iconList, getTitle } from 'Utils/storyUtils'
 import useToast from './useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'

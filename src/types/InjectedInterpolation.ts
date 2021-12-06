@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { css } from '../foundation'
+import type { css } from 'Foundation'
 
 export type InjectedInterpolation = ReturnType<typeof css>
 

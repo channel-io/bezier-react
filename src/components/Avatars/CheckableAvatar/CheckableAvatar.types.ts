@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../../foundation'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
-import { AvatarProps } from '../Avatar'
+import { SemanticNames } from 'Foundation'
+import InjectedInterpolation from 'Types/InjectedInterpolation'
+import { AvatarProps } from 'Components/Avatars/Avatar'
 
 export default interface CheckableAvatarProps extends AvatarProps {
   isChecked?: boolean

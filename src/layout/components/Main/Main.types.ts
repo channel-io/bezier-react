@@ -1,8 +1,5 @@
 /* Internal dependencies */
-import {
-  ChildrenComponentProps,
-  ContentComponentProps,
-} from '../../../types/ComponentProps'
+import { ChildrenComponentProps, ContentComponentProps } from 'Types/ComponentProps'
 
 export default interface MainProps extends ChildrenComponentProps, ContentComponentProps {
   ContentHeaderComponent: React.ComponentType
