@@ -40,7 +40,7 @@ export interface IdentifierProps {
   id: string
 }
 
-export interface VariantProps<Variant> {
+export interface VariantProps<Variant extends string | number> {
   variant?: Variant
 }
 
