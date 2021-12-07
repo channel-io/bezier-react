@@ -3,11 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import type {
-  VariantProps,
-  AdditionalStyleProps,
-  SideContentComponentProps,
-} from '../../../../types/ComponentProps'
+import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStyleProps } from '../../../../types/ComponentProps'
 import type { IconName } from '../../../Icon'
 import type { FormComponentProps } from '../../Form.types'
 
@@ -69,9 +65,10 @@ interface TextFieldOptions {
 type OmittedInputHTMLAttributes = 'type' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
-  VariantProps<TextFieldVariant>,
-  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
-  Omit<SideContentComponentProps<never, TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>, 'content'>,
-  Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
   FormComponentProps,
+  BezierComponentProps,
+  VariantProps<TextFieldVariant>,
+  SideContentProps<TextFieldItemProps, TextFieldItemProps[]>,
+  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
   TextFieldOptions {}

@@ -18,19 +18,12 @@ interface StylableComponentProps {
 
 export type BezierComponentProps = RenderConfigProps & StylableComponentProps
 
+/** @deprecated FIXME 삭제 예정 */
 export interface ContentComponentProps<Content = React.ReactNode> extends BezierComponentProps {
   content?: Content
 }
 
-export interface SideContentComponentProps<
-  Content = React.ReactNode,
-  LeftContent = React.ReactNode,
-  RightContent = React.ReactNode,
-> extends ContentComponentProps<Content> {
-  leftContent?: LeftContent
-  rightContent?: RightContent
-}
-
+/** @deprecated FIXME 삭제 예정 */
 export interface ChildrenComponentProps<Children = React.ReactNode> extends BezierComponentProps {
   children?: Children
 }
@@ -40,12 +33,24 @@ export interface IdentifierProps {
   id: string
 }
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// @ts-ignore FIXME 실제 사용되면 제거
+interface ContentProps<Content = React.ReactNode> {
+  content?: Content
+}
+/* eslint-enable @typescript-eslint/no-unused-vars */
+
 export interface VariantProps<Variant extends string | number> {
   variant?: Variant
 }
 
 export interface DisableProps {
   disabled?: boolean
+}
+
+export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
+  leftContent?: LeftContent
+  rightContent?: RightContent
 }
 
 export interface OptionItemProps {
@@ -59,11 +64,7 @@ export interface OptionItemHostProps<OptionKeyType = string> {
 
 type PropNameType = string | string[]
 
-type AdditionalProps<
-  PropName extends PropNameType,
-  Suffix extends string,
-  PropType,
-> = {
+type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropType> = {
   [Key in `${PropName extends string
     ? PropName
     : PropName[number]
