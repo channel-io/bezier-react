@@ -6,22 +6,27 @@ import commonjs from '@rollup/plugin-commonjs'
 import alias from '@rollup/plugin-alias'
 import babel from '@rollup/plugin-babel'
 import { visualizer } from 'rollup-plugin-visualizer'
+import path from 'path'
 
 import packageJson from './package.json'
 
 const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
 
+const rootDir = path.resolve(__dirname)
+
+const getPathByDirName = (dirName) => path.resolve(rootDir, 'src', dirName)
+
 const aliasPlugin = alias({
-  entries: [
-    { find: 'Components/*', replacement: './src/components/*' },
-    { find: 'Constants/*', replacement: './src/constants/*' },
-    { find: 'Foundation/*', replacement: './src/foundation/*' },
-    { find: 'Hooks/*', replacement: './src/hooks/*' },
-    { find: 'Layout/*', replacement: './src/layout/*' },
-    { find: 'Types/*', replacement: './src/types/*' },
-    { find: 'Utils/*', replacement: './src/utils/*' },
-    { find: 'Worklets/*', replacement: './src/worklets/*' },
-  ],
+  entries: {
+    Components: getPathByDirName('components'),
+    Constants: getPathByDirName('constants'),
+    Foundation: getPathByDirName('foundation'),
+    Hooks: getPathByDirName('hooks'),
+    Layout: getPathByDirName('layout'),
+    Types: getPathByDirName('types'),
+    Utils: getPathByDirName('utils'),
+    Worklets: getPathByDirName('worklets'),
+  },
 })
 
 const commonPlugins = [
