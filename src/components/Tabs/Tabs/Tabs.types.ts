@@ -1,12 +1,7 @@
 /* Internal dependencies */
 import { ChildrenComponentProps } from 'Types/ComponentProps'
 import OptionItemHost from 'Types/OptionItemHost'
-
-export enum TabsSize {
-  L = 53,
-  Normal = 45,
-  XS = 33,
-}
+import TabsSize from 'Components/Tabs/TabsSize'
 
 export default interface TabsProps extends ChildrenComponentProps, OptionItemHost {
   height?: TabsSize | number

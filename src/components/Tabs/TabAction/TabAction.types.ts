@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { UIComponentProps } from 'Types/ComponentProps'
-import { TabsSize } from 'Components/Tabs'
+import TabsSize from 'Components/Tabs/TabsSize'
 
 export default interface TabActionProps extends Omit<UIComponentProps, 'children'> {
   href?: string

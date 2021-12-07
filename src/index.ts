@@ -7,9 +7,9 @@ export * from 'Components/Button'
 export * from 'Components/Banner'
 export * from 'Components/Divider'
 export * from 'Components/Text'
-export * from 'Components/Tabs'
-export * from 'Components/TabItem'
-export * from 'Components/TabAction'
+export * from 'Components/Tabs/Tabs'
+export * from 'Components/Tabs/TabItem'
+export * from 'Components/Tabs/TabAction'
 export * from 'Components/ListMenuTitle'
 export * from 'Components/Spinner'
 export * from 'Components/OutlineItem'
@@ -68,6 +68,7 @@ export type { WithFoundation } from 'Types/WithFoundation'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'
+export { default as TabsSize } from 'Components/Tabs/TabsSize'
 
 /* Utils */
 export { getRootElement } from 'Utils/domUtils'

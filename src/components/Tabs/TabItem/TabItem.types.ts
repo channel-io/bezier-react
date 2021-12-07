@@ -5,7 +5,7 @@ import React from 'react'
 import { ChildrenComponentProps, UIComponentProps } from 'Types/ComponentProps'
 import OptionItem from 'Types/OptionItem'
 import ActivatableElement from 'Types/ActivatableElement'
-import { TabsSize } from 'Components/Tabs'
+import TabsSize from 'Components/Tabs/TabsSize'
 
 export default interface TabItemProps extends ChildrenComponentProps, OptionItem, ActivatableElement {
   height?: TabsSize | number

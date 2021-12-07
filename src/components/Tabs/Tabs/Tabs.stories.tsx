@@ -7,10 +7,11 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import { TabItem } from 'Components/TabItem'
-import { TabAction } from 'Components/TabAction'
+import { TabItem } from 'Components/Tabs/TabItem'
+import { TabAction } from 'Components/Tabs/TabAction'
+import TabsSize from 'Components/Tabs/TabsSize'
 import Tabs from './Tabs'
-import TabsProps, { TabsSize } from './Tabs.types'
+import TabsProps from './Tabs.types'
 
 export default {
   title: getTitle(base),

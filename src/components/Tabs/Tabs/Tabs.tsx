@@ -4,8 +4,8 @@ import { v4 as uuid } from 'uuid'
 import { noop, isNumber, isEmpty, get, identity } from 'lodash-es'
 
 /* Internal dependencies */
-import { isTabItem } from 'Components/TabItem'
-import { isTabAction } from 'Components/TabAction'
+import { isTabItem } from 'Components/Tabs/TabItem'
+import { isTabAction } from 'Components/Tabs/TabAction'
 import TabsProps from './Tabs.types'
 import { Wrapper, TabItemWrapper, TabActions } from './Tabs.styled'
 

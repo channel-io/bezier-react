@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import { TabsSize } from 'Components/Tabs'
+import TabsSize from 'Components/Tabs/TabsSize'
 import TabItem from './TabItem'
 import TabItemProps from './TabItem.types'
 

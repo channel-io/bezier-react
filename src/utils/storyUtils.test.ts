@@ -3,7 +3,7 @@ import { isArray } from 'lodash'
 
 /* Internal dependencies */
 import { IconName } from 'Components/Icon'
-import { TabsSize } from 'Components/Tabs'
+import TabsSize from 'Components/Tabs/TabsSize'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
 describe('storyUtils Test >', () => {
