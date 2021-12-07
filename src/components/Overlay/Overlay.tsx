@@ -19,12 +19,10 @@ import { window, document, getRootElement } from 'Utils/domUtils'
 import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 
-// TODO: 테스트 코드 작성
-const CONTAINER_TEST_ID = 'bezier-react-container'
-const WRAPPER_TEST_ID = 'bezier-react-wrapper'
+export const CONTAINER_TEST_ID = 'bezier-react-container'
+export const WRAPPER_TEST_ID = 'bezier-react-wrapper'
 export const OVERLAY_TEST_ID = 'bezier-react-overlay'
-
-const ESCAPE_KEY = 'Escape'
+export const ESCAPE_KEY = 'Escape'
 
 function Overlay(
   {
@@ -147,7 +145,7 @@ function Overlay(
   }, [onHide])
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
-  useEventHandler(document, 'keyup', handleKeydown, show)
+  useEventHandler(document, 'keydown', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
   const Content = useMemo(() => (
