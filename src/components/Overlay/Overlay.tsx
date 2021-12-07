@@ -1,5 +1,14 @@
 /* External dependencies */
-import React, { useReducer, useState, useMemo, useRef, useCallback, useEffect, Ref, forwardRef } from 'react'
+import React, {
+  useReducer,
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  Ref,
+  forwardRef,
+  useMemo,
+} from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
 
@@ -43,25 +52,76 @@ function Overlay(
 ) {
   // NOTE: DOM render 가 필요한지 여부를 결정하는 state
   const [shouldRender, setShouldRender] = useState(false)
-
   // NOTE: 화면에 실제 표현해야 하는지 여부를 결정하는 state
   const [shouldShow, setShouldShow] = useState(false)
+  const containerRect = useRef<ContainerRectAttr | null>(null)
+  const targetRect = useRef<TargetRectAttr | null>(null)
 
   const [dummy, forceUpdate] = useReducer(x => !x, true)
 
-  const overlayRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
+
+  const handleOverlayForceUpdate = useCallback(() => {
+    forceUpdate()
+  }, [])
+
+  const handleContainerRect = useCallback(() => {
+    const containerElement = container || getRootElement() as HTMLElement
+
+    const {
+      width: containerWidth,
+      height: containerHeight,
+      top: containerTop,
+      left: containerLeft,
+    } = containerElement.getBoundingClientRect()
+
+    containerRect.current = {
+      containerWidth,
+      containerHeight,
+      containerTop,
+      containerLeft,
+      scrollTop: container ? container.scrollTop : 0,
+      scrollLeft: container ? container.scrollLeft : 0,
+    }
+  }, [container])
+
+  React.useLayoutEffect(function initContainerRect() {
+    handleContainerRect()
+  }, [handleContainerRect])
+
+  const handleTargetRect = useCallback(() => {
+    if (!target) {
+      return
+    }
+    const {
+      width: targetWidth,
+      height: targetHeight,
+      top: targetTop,
+      left: targetLeft,
+    } = target.getBoundingClientRect()
+    const { clientTop, clientLeft } = target
+
+    targetRect.current = {
+      targetWidth,
+      targetHeight,
+      targetTop,
+      targetLeft,
+      clientTop,
+      clientLeft,
+    }
+  }, [target])
+
+  React.useLayoutEffect(function initTargetRect() {
+    handleTargetRect()
+  }, [handleTargetRect])
 
   const handleTransitionEnd = useCallback(() => {
     if (!show) {
       setShouldRender(false)
     }
   }, [show])
-
-  const handleOverlayForceUpdate = useCallback(() => {
-    forceUpdate()
-  }, [])
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
@@ -86,57 +146,6 @@ function Overlay(
     }
   }, [onHide])
 
-  const containerRect: () => ContainerRectAttr = useCallback(() => {
-    const containerElement = container || getRootElement() as HTMLElement
-
-    const {
-      width: containerWidth,
-      height: containerHeight,
-      top: containerTop,
-      left: containerLeft,
-    } = containerElement.getBoundingClientRect()
-
-    return {
-      containerWidth,
-      containerHeight,
-      containerTop,
-      containerLeft,
-      scrollTop: container ? container.scrollTop : 0,
-      scrollLeft: container ? container.scrollLeft : 0,
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    container,
-    children,
-  ])
-
-  const targetRect: () => TargetRectAttr | null = useCallback(() => {
-    if (!target) {
-      return null
-    }
-
-    const {
-      width: targetWidth,
-      height: targetHeight,
-      top: targetTop,
-      left: targetLeft,
-    } = target.getBoundingClientRect()
-    const { clientTop, clientLeft } = target
-
-    return {
-      targetWidth,
-      targetHeight,
-      targetTop,
-      targetLeft,
-      clientTop,
-      clientLeft,
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    target,
-    children,
-  ])
-
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keyup', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
@@ -150,8 +159,8 @@ function Overlay(
       withTransition={withTransition}
       style={style}
       data-testid={testId}
-      containerRect={containerRect()}
-      targetRect={targetRect()}
+      containerRect={containerRect.current}
+      targetRect={targetRect.current}
       overlay={overlayRef.current}
       position={position}
       marginX={marginX}
