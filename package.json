@@ -24,6 +24,8 @@
     "test": "npm run lint && npm run typecheck && npm run jest",
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
+    "cleanBuild": "npx rimraf build",
+    "prebuild": "npm run cleanBuild && npm run typecheck",
     "build": "npm run build:icon && npm run build:rollup",
     "build:rollup": "cross-env BABEL_ENV=build rollup -c",
     "build:storybook": "build-storybook",
