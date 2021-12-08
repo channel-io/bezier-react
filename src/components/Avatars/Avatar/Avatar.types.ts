@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, DisableProps, AdditionalStyleProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, DisableProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import { StatusType } from 'Components/Status'
 
 export enum AvatarSize {
@@ -31,5 +31,5 @@ export default interface AvatarProps extends
   BezierComponentProps,
   ChildrenProps,
   DisableProps,
-  AdditionalStyleProps<'wrapper'>,
+  AdditionalStylableProps<'wrapper'>,
   AvatarOptions {}

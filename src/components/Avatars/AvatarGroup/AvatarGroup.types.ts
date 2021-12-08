@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, AdditionalStyleProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import { AvatarSize } from 'Components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {
@@ -21,5 +21,5 @@ interface AvatarGroupOptions {
 export default interface AvatarGroupProps extends
   BezierComponentProps,
   ChildrenProps,
-  AdditionalStyleProps<'ellipsis'>,
+  AdditionalStylableProps<'ellipsis'>,
   AvatarGroupOptions {}

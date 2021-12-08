@@ -8,7 +8,7 @@ import type {
   ActivatableProps,
   OptionItemProps,
   SideContentProps,
-  AdditionalStyleProps,
+  AdditionalStylableProps,
 } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
@@ -54,5 +54,5 @@ export default interface ListItemProps extends
   DisableProps,
   ActivatableProps,
   OptionItemProps,
-  AdditionalStyleProps<['icon', 'content']>,
+  AdditionalStylableProps<['icon', 'content']>,
   ListItemOptions {}

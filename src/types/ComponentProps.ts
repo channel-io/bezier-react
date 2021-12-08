@@ -69,8 +69,11 @@ type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropT
   [Key in `${PropName extends string
     ? PropName
     : PropName[number]
-  }${Capitalize<Suffix>}`]: PropType
+  }${Capitalize<Suffix>}`]?: PropType
 }
+
+type AdditionalStyleProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'style', CSSProperties>
 
 type AdditionalClassNameProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'className', string>
@@ -78,13 +81,15 @@ type AdditionalClassNameProps<ElementName extends PropNameType> =
 type AdditionalInterpolationProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'interpolation', InjectedInterpolation>
 
-export type AdditionalStyleProps<ElementName extends PropNameType> =
-  Partial<AdditionalClassNameProps<ElementName> & AdditionalInterpolationProps<ElementName>>
+export type AdditionalStylableProps<ElementName extends PropNameType> =
+  AdditionalStyleProps<ElementName> &
+  AdditionalClassNameProps<ElementName> &
+  AdditionalInterpolationProps<ElementName>
 
 export type AdditionalTestIdProps<ElementName extends PropNameType> =
-  Partial<AdditionalProps<ElementName, 'testId', InjectedInterpolation>>
+  AdditionalProps<ElementName, 'testId', string>
 
-export interface ActivatableProps extends AdditionalStyleProps<'active'> {
+export interface ActivatableProps extends AdditionalStylableProps<'active'> {
   active?: boolean
   allowActive?: boolean
 }

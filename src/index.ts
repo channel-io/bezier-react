@@ -64,7 +64,7 @@ export type {
   ContentComponentProps,
   ChildrenComponentProps,
   ActivatableProps,
-  AdditionalStyleProps,
+  AdditionalStylableProps,
   AdditionalTestIdProps,
   IdentifierProps,
   VariantProps,
