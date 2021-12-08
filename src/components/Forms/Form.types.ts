@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { DisableProps } from '../../types/ComponentProps'
+import type { DisableProps } from 'Types/ComponentProps'
 
 export interface FormComponentProps extends DisableProps {
   hasError?: boolean

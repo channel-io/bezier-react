@@ -1,34 +1,18 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useCallback,
-  useRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef, useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'react'
 
 /* Internal dependencies */
-import ColumnType from '../../../types/ColumnType'
-import useResizingHandlers from '../../../hooks/useResizingHandlers'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import useLayoutState from '../../../hooks/useLayoutState'
-import useThrottledCallback from '../../../hooks/useThrottledCallback'
-import useEventHandler from '../../../../hooks/useEventHandler'
-import useMergeRefs from '../../../../hooks/useMergeRefs'
-import LayoutActions from '../../../redux/LayoutActions'
-import {
-  window,
-  document,
-} from '../../../../utils/domUtils'
+import useEventHandler from 'Hooks/useEventHandler'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import { window, document } from 'Utils/domUtils'
+import { LayoutActions } from 'Layout/redux'
+import useResizingHandlers from 'Layout/hooks/useResizingHandlers'
+import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
+import useLayoutState from 'Layout/hooks/useLayoutState'
+import useThrottledCallback from 'Layout/hooks/useThrottledCallback'
+import ColumnType from 'Layout/types/ColumnType'
 import NavigationProps from './NavigationArea.types'
-import {
-  ResizeBar,
-  NavigationContainer,
-  NavigationPositioner,
-  NavigationPresenter,
-} from './NavigationArea.styled'
+import { ResizeBar, NavigationContainer, NavigationPositioner, NavigationPresenter } from './NavigationArea.styled'
 
 const MAX_NAV_Z_INDEX = 100
 

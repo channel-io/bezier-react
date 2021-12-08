@@ -4,7 +4,7 @@ import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
+import { getTitle } from 'Utils/storyUtils'
 import FormHelperText from './FormHelperText'
 import FormHelperTextProps from './FormHelperText.types'
 

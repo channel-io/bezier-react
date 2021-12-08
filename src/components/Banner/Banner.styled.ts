@@ -1,13 +1,9 @@
 /* Internal dependencies */
-import type { InjectedInterpolation } from '../..'
-import { styled } from '../../foundation'
-import { Icon } from '../Icon'
-import { Text } from '../Text'
-import {
-  BACKGROUND_COLORS,
-  TEXT_COLORS,
-  ELEVATIONS,
-} from './Banner.const'
+import { styled } from 'Foundation'
+import type { InjectedInterpolation } from 'Types/Foundation'
+import { Icon } from 'Components/Icon'
+import { Text } from 'Components/Text'
+import { BACKGROUND_COLORS, TEXT_COLORS, ELEVATIONS } from './Banner.const'
 import type { BannerColorVariant } from './Banner.types'
 
 const BannerIcon = styled(Icon)``

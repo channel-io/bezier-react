@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../../foundation'
+import { styled } from 'Foundation'
 
 interface WrapperProps {
   horizontalPadding: number

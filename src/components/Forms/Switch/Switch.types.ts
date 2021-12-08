@@ -2,7 +2,7 @@
 import { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps } from '../../../types/ComponentProps'
+import { BezierComponentProps } from 'Types/ComponentProps'
 
 export default interface SwitchProps extends BezierComponentProps {
   size?: number

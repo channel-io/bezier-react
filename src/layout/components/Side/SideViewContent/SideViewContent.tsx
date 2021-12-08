@@ -3,9 +3,9 @@ import React from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import useLayoutState from '../../../hooks/useLayoutState'
-import LayoutSideType from '../../../types/LayoutSideType'
-import { SideArea } from '../SideArea'
+import useLayoutState from 'Layout/hooks/useLayoutState'
+import LayoutSideType from 'Layout/types/LayoutSideType'
+import { SideArea } from 'Layout/components/Side/SideArea'
 import SideViewContentProps from './SideViewContent.types'
 
 // TODO: 테스트 코드 작성

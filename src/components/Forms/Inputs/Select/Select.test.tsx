@@ -3,8 +3,8 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { LightFoundation } from '../../../../foundation'
-import { render } from '../../../../utils/testUtils'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import Select, {
   SELECT_CONTAINER_TEST_ID,
   SELECT_TRIGGER_TEST_ID,

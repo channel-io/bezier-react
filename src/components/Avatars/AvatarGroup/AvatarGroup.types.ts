@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
-import InjectedInterpolation from '../../../types/InjectedInterpolation'
-import { AvatarSize } from '../Avatar'
+import type { ChildrenComponentProps } from 'Types/ComponentProps'
+import type { InjectedInterpolation } from 'Types/Foundation'
+import { AvatarSize } from 'Components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {
   Icon = 'Icon',

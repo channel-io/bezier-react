@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ContentComponentProps, BezierComponentProps } from '../../types/ComponentProps'
+import { ContentComponentProps, BezierComponentProps } from 'Types/ComponentProps'
 
 export default interface ListMenuTitleProps extends ContentComponentProps {
   rightAction?: React.ReactNode

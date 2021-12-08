@@ -1,16 +1,8 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  Ref,
-  useRef,
-  useCallback,
-  useState,
-  useLayoutEffect,
-  useMemo,
-} from 'react'
+import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect, useMemo } from 'react'
 
 /* Internal dependencies */
-import useMergeRefs from '../../../../hooks/useMergeRefs'
+import useMergeRefs from 'Hooks/useMergeRefs'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'

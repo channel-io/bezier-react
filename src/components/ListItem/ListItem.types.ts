@@ -1,9 +1,7 @@
 /* Internal dependencies */
 import React from 'react'
-import ActivableElement from '../../types/ActivatableElement'
-import { ContentComponentProps } from '../../types/ComponentProps'
-import OptionItem from '../../types/OptionItem'
-import { IconName } from '../Icon'
+import type { ContentComponentProps, ActivatableProps, OptionItemProps } from 'Types/ComponentProps'
+import type { IconName } from 'Components/Icon'
 
 export enum ListItemSize {
   S = 's',
@@ -20,7 +18,7 @@ export enum ListItemColorVariant {
   Monochrome = 'monochrome',
 }
 
-export default interface ListItemProps extends ContentComponentProps, ActivableElement, OptionItem {
+export default interface ListItemProps extends ContentComponentProps, ActivatableProps, OptionItemProps {
   iconClassName?: string
   contentClassName?: string
   size?: ListItemSize

@@ -27,7 +27,7 @@ import styled, {
 } from 'styled-components'
 
 /* Internal dependencies */
-import EnableCSSHoudini from '../worklets/EnableCSSHoudini'
+import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
 import { Foundation } from './index'
 

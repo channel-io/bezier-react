@@ -1,21 +1,19 @@
 /* External dependencies */
 import React, { useRef, useCallback, useState } from 'react'
 import base from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  getTitle,
-  getObjectFromEnum,
-} from '../../../../utils/storyUtils'
+import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
 import TextField from './TextField'
-import { TextFieldRef, TextFieldSize, TextFieldVariant } from './TextField.types'
+import { TextFieldRef, TextFieldSize, TextFieldVariant, TextFieldProps } from './TextField.types'
 
 export default {
   title: getTitle(base),
   component: TextField,
-}
+} as Meta
 
-const PrimaryTemplate = ({ wrapperWidth, ...otherProps }) => {
+const PrimaryTemplate: Story<TextFieldProps> = ({ ...otherProps }) => {
   const inputRef = useRef<TextFieldRef>(null)
   const [value, setValue] = useState('12345')
 
@@ -24,7 +22,7 @@ const PrimaryTemplate = ({ wrapperWidth, ...otherProps }) => {
   }, [])
 
   const handleClickLeftIcon = useCallback(() => {
-    inputRef.current.selectAll()
+    inputRef.current?.selectAll()
   }, [])
 
   return (

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps } from '../../types/ComponentProps'
+import { BezierComponentProps } from 'Types/ComponentProps'
 
 export default interface DividerProps extends BezierComponentProps {
   orientation: 'horizontal' | 'vertical'

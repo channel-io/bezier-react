@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { styled, Transition } from '../../../foundation'
-import disabledOpacity from '../../../constants/DisabledOpacity'
-import { BezierComponentProps } from '../../../types/ComponentProps'
-import { toLength } from '../../../utils/styleUtils'
-import { SegmentedControlItemProps } from './SegmentedControl.types'
+import { styled, Transition } from 'Foundation'
+import disabledOpacity from 'Constants/DisabledOpacity'
+import { toLength } from 'Utils/styleUtils'
+import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { SegmentedControlItemProps } from './SegmentedControl.types'
 
 interface StyledWrapperProps extends BezierComponentProps {
   disabled?: boolean

@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import type InjectedInterpolation from './InjectedInterpolation'
+import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
 interface RenderConfigProps {

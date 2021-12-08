@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
-import { Tooltip as BaseTooltip } from '../../Tooltip'
-import { Icon } from '../../Icon'
+import { styled } from 'Foundation'
+import { Tooltip as BaseTooltip } from 'Components/Tooltip'
+import { Icon } from 'Components/Icon'
 
-export const Flex = styled.div`
+export const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

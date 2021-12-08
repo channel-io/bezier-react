@@ -2,9 +2,9 @@
 import type { ReactNode } from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from '../../foundation'
-import type { BezierComponentProps } from '../../types/ComponentProps'
-import type { IconName } from '../Icon/generated'
+import type { SemanticNames } from 'Foundation'
+import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { IconName } from 'Components/Icon'
 
 export enum BannerColorVariant {
   Default = 'default',

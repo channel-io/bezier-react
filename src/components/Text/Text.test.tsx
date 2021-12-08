@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
-import { Typography } from '../../foundation'
+import { Typography } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import Text, { TEXT_TEST_ID } from './Text'
 import TextProps from './Text.types'
 

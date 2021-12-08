@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps } from '../../types/ComponentProps'
-import type { IconName } from '../Icon/generated'
+import { BezierComponentProps } from 'Types/ComponentProps'
+import type { IconName } from 'Components/Icon'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

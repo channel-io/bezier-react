@@ -3,7 +3,7 @@ import React, { forwardRef, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography, SemanticNames } from '../../../foundation'
+import { Typography, SemanticNames } from 'Foundation'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 

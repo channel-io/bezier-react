@@ -4,11 +4,8 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import {
-  TagBadgeSize,
-  TagBadgeVariant,
-} from '../TagBadgeCommon'
+import { getTitle } from 'Utils/storyUtils'
+import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 import Badge from './Badge'
 import BadgeProps from './Badge.types'
 
@@ -32,20 +29,18 @@ export default {
 } as Meta
 
 const Template: Story<BadgeProps> = ({
-  text,
-  ...otherProps
+  children,
+  ...badgeProps
 }) => (
-  <Badge
-    {...otherProps}
-  >
-    { text }
+  <Badge {...badgeProps}>
+    { children }
   </Badge>
 )
 
 export const Primary: Story<BadgeProps> = Template.bind({})
 Primary.args = {
-  text: 'Design',
+  children: 'Design',
   size: TagBadgeSize.M,
   iconName: 'apple',
-  variant: TagBadgeVariant.Important,
+  variant: TagBadgeVariant.Default,
 }

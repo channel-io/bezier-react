@@ -4,10 +4,10 @@ import { isNil, isArray, isEmpty, isString, isNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
-import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from '../Button'
-import { Icon, IconSize } from '../Icon'
-import { Tooltip } from '../Tooltip'
+import { Typography } from 'Foundation'
+import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
+import { Icon, IconSize } from 'Components/Icon'
+import { Tooltip } from 'Components/Tooltip'
 import Styled from './SectionLabel.styled'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
 

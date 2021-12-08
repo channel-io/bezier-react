@@ -1,20 +1,11 @@
 /* External dependencies */
-import React, {
-  Ref,
-  forwardRef,
-  useState,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useCallback,
-  useMemo,
-} from 'react'
+import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
 import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { window } from '../../../../utils/domUtils'
-import { Icon, IconSize } from '../../../Icon'
+import { window } from 'Utils/domUtils'
+import { Icon, IconSize } from 'Components/Icon'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,

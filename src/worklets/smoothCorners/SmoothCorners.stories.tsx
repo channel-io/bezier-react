@@ -1,8 +1,9 @@
 /* External dependencies */
 import React from 'react'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, smoothCorners } from '../../foundation'
+import { styled, smoothCorners, smoothCornersStyle } from 'Foundation'
 
 export default {
   title: 'SmoothCorners',
@@ -25,18 +26,20 @@ export default {
     },
   },
   decorators: [
-    Story => (
+    story => (
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        { Story() }
+        { story() }
       </div>
     ),
   ],
-}
+} as Meta
 
 interface DivProps {
   width: number
   height: number
 }
+
+const IMAGE_URL = 'https://picsum.photos/200/300.jpg'
 
 const WithSmooth = styled.div<DivProps>`
   box-sizing: content-box;
@@ -46,7 +49,6 @@ const WithSmooth = styled.div<DivProps>`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   background-color: white;
-  background-image: url('https://picsum.photos/200/300.jpg');
   border-radius: 42%;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
@@ -54,7 +56,6 @@ const WithSmooth = styled.div<DivProps>`
   ${smoothCorners({
     shadow: '0 0 0px 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5)',
     backgroundColor: 'white',
-    backgroundImage: 'https://picsum.photos/200/300.jpg',
     shadowBlur: 15,
     borderRadius: '42%',
   })};
@@ -67,7 +68,7 @@ const WithoutSmooth = styled.div<DivProps>`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   background-color: white;
-  background-image: url('https://picsum.photos/200/300.jpg');
+  background-image: url(IMAGE_URL);
   background-position: center;
   background-size: contain;
   border-radius: 42%;
@@ -75,14 +76,13 @@ const WithoutSmooth = styled.div<DivProps>`
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
 `
 
-const Template = (args) => (
+const Template: Story<DivProps> = (args) => (
   <>
     <WithSmooth
+      style={smoothCornersStyle({ imageUrl: IMAGE_URL })}
       {...args}
     />
-    <WithoutSmooth
-      {...args}
-    />
+    <WithoutSmooth {...args} />
   </>
 )
 

@@ -61,7 +61,7 @@ jobs:
       - *attach_workspace
       - run: npm run jest
       - codecov/upload:
-          file: './coverage/clover.xml'
+          file: './coverage/lcov.info'
           token: $CODECOV_TOKEN
 
   release:

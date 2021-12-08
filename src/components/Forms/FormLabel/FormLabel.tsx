@@ -3,9 +3,9 @@ import React, { forwardRef, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from '../../../foundation'
-import { Text } from '../../Text'
-import { IconSize } from '../../Icon'
+import { Typography } from 'Foundation'
+import { Text } from 'Components/Text'
+import { IconSize } from 'Components/Icon'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -58,7 +58,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       </>
     )
     : (
-      <Styled.Flex>
+      <Styled.Center>
         { LabelComponent }
         <Styled.Tooltip content={help}>
           <Styled.HelpIcon
@@ -68,7 +68,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
             color="txt-black-dark"
           />
         </Styled.Tooltip>
-      </Styled.Flex>
+      </Styled.Center>
     )
 }
 

@@ -8,7 +8,7 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
+import { getTitle } from 'Utils/storyUtils'
 import Banner from './Banner'
 import {
   BannerColorVariant,

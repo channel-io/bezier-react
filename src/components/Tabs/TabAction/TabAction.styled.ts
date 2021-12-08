@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { BezierComponentProps } from '../../types/ComponentProps'
-import { styled, css } from '../../foundation'
-import { Icon } from '../Icon'
+import { styled, css } from 'Foundation'
+import type { BezierComponentProps } from 'Types/ComponentProps'
+import { Icon } from 'Components/Icon'
 
 interface StyledWrapperProps {
   height: number

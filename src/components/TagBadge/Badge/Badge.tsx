@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react'
 
 /* Internal dependencies */
-import { Icon } from '../../Icon'
+import { Icon } from 'Components/Icon'
 import {
   TagBadgeText,
   TagBadgeSize,
@@ -15,7 +15,7 @@ import {
   getProperTagBadgeRounding,
   getProperTagBadgeTypo,
   TagBadgeStyled,
-} from '../TagBadgeCommon'
+} from 'Components/TagBadge/TagBadgeCommon'
 import BadgeProps from './Badge.types'
 
 // TODO: 테스트 코드 작성

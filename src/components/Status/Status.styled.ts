@@ -1,7 +1,6 @@
 /* Internal denpendencies */
-import { styled, absoluteCenter } from '../../foundation'
-import { SemanticNames } from '../../foundation/Colors/Theme'
-import { Icon } from '../Icon'
+import { styled, absoluteCenter, SemanticNames } from 'Foundation'
+import { Icon } from 'Components/Icon'
 
 const STATUS_CIRCLE_SIZE = 8
 const STATUS_CIRCLE_BORDER_WIDTH = 2

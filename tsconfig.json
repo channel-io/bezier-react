@@ -17,6 +17,18 @@
     "useUnknownInCatchVariables": false,
     "allowJs": true,
     "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "Components/*": ["src/components/*"],
+      "Constants/*": ["src/constants/*"],
+      "Foundation": ["src/foundation"],
+      "Foundation/*": ["src/foundation/*"],
+      "Hooks/*": ["src/hooks/*"],
+      "Layout/*": ["src/layout/*"],
+      "Types/*": ["src/types/*"],
+      "Utils/*": ["src/utils/*"],
+      "Worklets/*": ["src/worklets/*"],
+    }
   },
   "types": ["react", "jest"],
   "include": [
@@ -25,6 +37,5 @@
   "exclude": [
     "node_modules",
     "build",
-    "src/**/*.stories.tsx",
   ]
 }

@@ -1,23 +1,12 @@
 /* Internal dependencies */
-import {
-  styled,
-  css,
-} from '../../../../foundation'
-import DisabledOpacity from '../../../../constants/DisabledOpacity'
-import InjectedInterpolation, { WithInterpolation } from '../../../../types/InjectedInterpolation'
-import { Overlay } from '../../../Overlay'
-import {
-  inputWrapperStyle,
-  focusedInputWrapperStyle,
-  erroredInputWrapperStyle,
-} from '../InputWrapperStyle'
+import { styled, css } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
+import type { WithInterpolation } from 'Types/Foundation'
+import { Overlay } from 'Components/Overlay'
+import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
 import { SelectSize } from './Select.types'
 
-interface ContainerProps {
-  interpolation?: InjectedInterpolation
-}
-
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<WithInterpolation>`
   position: relative;
 
   ${({ interpolation }) => interpolation};

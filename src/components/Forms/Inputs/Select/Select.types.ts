@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../../../foundation'
-import { ChildrenComponentProps } from '../../../../types/ComponentProps'
-import InjectedInterpolation from '../../../../types/InjectedInterpolation'
-import { OverlayProps } from '../../../Overlay'
-import { IconName } from '../../../Icon'
+import type { SemanticNames } from 'Foundation'
+import type { ChildrenComponentProps } from 'Types/ComponentProps'
+import type { InjectedInterpolation } from 'Types/Foundation'
+import type { OverlayProps } from 'Components/Overlay'
+import type { IconName } from 'Components/Icon'
 
 export enum SelectSize {
   XL = 'XL',

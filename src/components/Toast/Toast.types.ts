@@ -3,10 +3,9 @@ import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { BezierComponentProps } from '../../types/ComponentProps'
-import { IconName } from '../Icon'
-import { TransitionDuration } from '../../foundation/Transition'
-import { css } from '../../foundation'
+import { css, TransitionDuration } from 'Foundation'
+import { BezierComponentProps } from 'Types/ComponentProps'
+import { IconName } from 'Components/Icon'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',

@@ -1,10 +1,6 @@
 /* Internal dependencies */
-import { css } from '../../foundation'
-import {
-  OverlayPosition,
-  ContainerRectAttr,
-  TargetRectAttr,
-} from './Overlay.types'
+import { css } from 'Foundation'
+import { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 
 const TOP_POSITION_OFFSET = 10
 

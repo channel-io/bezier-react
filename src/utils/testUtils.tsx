@@ -3,11 +3,8 @@ import React, { ReactElement } from 'react'
 import { render as baseRender, RenderOptions } from '@testing-library/react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../types/ComponentProps'
-import {
-  FoundationProvider,
-  LightFoundation,
-} from '../foundation'
+import { FoundationProvider, LightFoundation } from 'Foundation'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 
 function TestProviders({ children }: ChildrenComponentProps) {
   return (

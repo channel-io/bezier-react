@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 
 export interface ContainerRectAttr {
   containerWidth: number

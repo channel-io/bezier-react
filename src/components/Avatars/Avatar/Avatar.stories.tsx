@@ -4,9 +4,9 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from '../../../foundation'
-import { getTitle } from '../../../utils/storyUtils'
-import { StatusType } from '../../Status'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
+import { StatusType } from 'Components/Status'
 import Avatar from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 

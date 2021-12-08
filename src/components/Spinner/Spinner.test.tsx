@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation } from '../../foundation'
-import { render } from '../../utils/testUtils'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
 import SpinnerProps, { SpinnerSize } from './Spinner.types'
 

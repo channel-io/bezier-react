@@ -1,12 +1,8 @@
 /* External dependencies */
 import React from 'react'
 
-/* Internel dependencies */
-import {
-  FoundationProvider,
-  LightFoundation,
-  DarkFoundation,
-} from '../src/foundation'
+/* Internal dependencies */
+import { FoundationProvider, LightFoundation, DarkFoundation } from 'Foundation'
 
 const FoundationKeyword = {
   Light: 'light',

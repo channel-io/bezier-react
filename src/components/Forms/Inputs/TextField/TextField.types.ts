@@ -2,10 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStyleProps } from '../../../../types/ComponentProps'
-import type { IconName } from '../../../Icon'
-import type { FormComponentProps } from '../../Form.types'
+import type { SemanticNames } from 'Foundation'
+import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStyleProps } from 'Types/ComponentProps'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
+import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

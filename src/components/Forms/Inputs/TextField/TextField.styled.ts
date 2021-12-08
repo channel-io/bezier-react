@@ -2,16 +2,11 @@
 import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
-import { css, styled, Typography } from '../../../../foundation'
-import DisabledOpacity from '../../../../constants/DisabledOpacity'
-import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import { Icon } from '../../../Icon'
-import { WithInterpolation } from '../../../../types/InjectedInterpolation'
-import {
-  inputWrapperStyle,
-  focusedInputWrapperStyle,
-  erroredInputWrapperStyle,
-} from '../InputWrapperStyle'
+import { css, styled, Typography, SemanticNames } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
+import { WithInterpolation } from 'Types/Foundation'
+import { Icon } from 'Components/Icon'
+import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {

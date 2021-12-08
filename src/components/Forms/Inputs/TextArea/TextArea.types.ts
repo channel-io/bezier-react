@@ -2,8 +2,8 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps } from '../../../../types/ComponentProps'
-import InjectedInterpolation from '../../../../types/InjectedInterpolation'
+import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { InjectedInterpolation } from 'Types/Foundation'
 
 export enum TextAreaHeight {
   Row3 = 3,

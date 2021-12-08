@@ -1,4 +1,5 @@
 /* Internal dependencies */
+// eslint-disable-next-line no-restricted-imports
 import { css } from '../FoundationStyledComponent'
 
 export enum TransitionDuration {
@@ -21,10 +22,10 @@ function getTransitionsCSS(
   )
 
   return css`
-    transition-property: ${properties};
-    transition-duration: ${duration}ms;
-    transition-timing-function: ${TransitionEasing};
     transition-delay: ${delay}ms;
+    transition-timing-function: ${TransitionEasing};
+    transition-duration: ${duration}ms;
+    transition-property: ${properties};
   `
 }
 

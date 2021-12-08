@@ -1,18 +1,12 @@
 /* External dependencies */
-import React, {
-  Ref,
-  forwardRef,
-  useMemo,
-  useCallback,
-  useState,
-} from 'react'
+import React, { Ref, forwardRef, useMemo, useCallback, useState } from 'react'
 import { get, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Text } from '../Text'
-import { mergeClassNames } from '../../utils/stringUtils'
-import { Typography } from '../../foundation'
-import { TabsSize } from '../Tabs/Tabs.types'
+import { Typography } from 'Foundation'
+import { mergeClassNames } from 'Utils/stringUtils'
+import { Text } from 'Components/Text'
+import TabsSize from 'Components/Tabs/TabsSize'
 import TabItemProps from './TabItem.types'
 import { Wrapper, Background } from './TabItem.styled'
 

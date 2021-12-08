@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../foundation'
-import { BezierComponentProps } from '../../types/ComponentProps'
+import { SemanticNames } from 'Foundation'
+import { BezierComponentProps } from 'Types/ComponentProps'
 
 export enum SpinnerSize {
   XL = 50,

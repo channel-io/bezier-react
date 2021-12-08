@@ -2,11 +2,11 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, ellipsis, SemanticNames, styled } from '../../foundation'
-import { WithInterpolation } from '../../types/InjectedInterpolation'
-import { Icon } from '../Icon'
-import { Tooltip } from '../Tooltip'
-import { Text } from '../Text'
+import { css, ellipsis, SemanticNames, styled } from 'Foundation'
+import { WithInterpolation } from 'Types/Foundation'
+import { Icon } from 'Components/Icon'
+import { Tooltip } from 'Components/Tooltip'
+import { Text } from 'Components/Text'
 
 const alignRight = css`
   margin-left: auto;

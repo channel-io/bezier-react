@@ -1,5 +1,4 @@
 import Tabs from './Tabs'
-import { TabsSize } from './Tabs.types'
 import type TabsProps from './Tabs.types'
 
 export type {
@@ -8,5 +7,4 @@ export type {
 
 export {
   Tabs,
-  TabsSize,
 }

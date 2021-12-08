@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { TextProps } from '../../Text'
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { TextProps } from 'Components/Text'
 
 export default interface FormLabelProps extends Omit<ChildrenComponentProps, 'as'>, TextProps {
   htmlFor?: string

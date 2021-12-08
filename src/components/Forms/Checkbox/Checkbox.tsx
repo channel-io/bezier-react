@@ -1,13 +1,9 @@
 /* External dependencies */
-import React, {
-  Ref,
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { Ref, forwardRef, useMemo } from 'react'
 import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize, IconProps } from '../../Icon'
+import { IconSize, IconProps } from 'Components/Icon'
 import { Wrapper, Checker, Icon, Content } from './Checkbox.styled'
 import CheckType from './CheckType'
 import type CheckboxProps from './Checkbox.types'
