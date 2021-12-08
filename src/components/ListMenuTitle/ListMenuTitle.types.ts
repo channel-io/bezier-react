@@ -1,12 +1,20 @@
-/* Internal dependencies */
-import { ContentComponentProps, BezierComponentProps } from 'Types/ComponentProps'
+/* External dependencies */
+import React from 'react'
 
-export default interface ListMenuTitleProps extends ContentComponentProps {
+/* Internal dependencies */
+import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
+
+interface ListMenuTitleOptions {
   rightAction?: React.ReactNode
   hide?: boolean
-  onClick?: () => void
+  onClick?: React.MouseEventHandler
   onClickAction?: () => void
 }
+
+export default interface ListMenuTitleProps extends
+  BezierComponentProps,
+  ContentProps,
+  ListMenuTitleOptions {}
 
 export interface StyledWrapperProps extends BezierComponentProps {}
 
