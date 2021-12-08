@@ -1,6 +1,15 @@
 /* Internal dependencies */
 import React from 'react'
-import type { ContentComponentProps, ActivatableProps, OptionItemProps } from 'Types/ComponentProps'
+import type {
+  BezierComponentProps,
+  ContentProps,
+  VariantProps,
+  DisableProps,
+  ActivatableProps,
+  OptionItemProps,
+  SideContentProps,
+  AdditionalStyleProps,
+} from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
 export enum ListItemSize {
@@ -10,7 +19,7 @@ export enum ListItemSize {
   XL = 'xl',
 }
 
-export enum ListItemColorVariant {
+export enum ListItemVariant {
   Blue = 'blue',
   Red = 'red',
   Green = 'green',
@@ -18,26 +27,32 @@ export enum ListItemColorVariant {
   Monochrome = 'monochrome',
 }
 
-export default interface ListItemProps extends ContentComponentProps, ActivatableProps, OptionItemProps {
-  iconClassName?: string
-  contentClassName?: string
+type MouseHandler = React.MouseEventHandler
+
+interface ListItemOptions {
   size?: ListItemSize
   name?: string
   href?: string
   hide?: boolean
   nested?: boolean
-  leftContent?: React.ReactNode
   leftIcon?: IconName
-  colorVariant?: ListItemColorVariant
   focused?: boolean
-  disabled?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number
-  content?: React.ReactNode
   description?: React.ReactNode
-  rightContent?: React.ReactNode
   onClick?: (e: React.MouseEvent, name?: string) => void
-  onMouseDown?: (e: React.MouseEvent) => void
-  onMouseEnter?: (e: React.MouseEvent) => void
-  onMouseLeave?: (e: React.MouseEvent) => void
+  onMouseDown?: MouseHandler
+  onMouseEnter?: MouseHandler
+  onMouseLeave?: MouseHandler
 }
+
+export default interface ListItemProps extends
+  BezierComponentProps,
+  ContentProps,
+  SideContentProps,
+  VariantProps<ListItemVariant>,
+  DisableProps,
+  ActivatableProps,
+  OptionItemProps,
+  AdditionalStyleProps<['icon', 'content']>,
+  ListItemOptions {}

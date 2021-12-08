@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
-import ListItemProps, { ListItemColorVariant, ListItemSize } from './ListItem.types'
+import ListItemProps, { ListItemVariant, ListItemSize } from './ListItem.types'
 
 describe('ListItem', () => {
   let props: ListItemProps
@@ -59,65 +59,65 @@ describe('ListItem', () => {
     expect(rendered).not.toBeInTheDocument()
   })
 
-  describe('should have correct style of "colorVariant"', () => {
+  describe('should have correct style of "variant"', () => {
     it('red', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Red })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Red })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-red-normal']}`)
     })
 
     it('blue', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Blue })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Blue })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
     })
 
     it('green', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Green })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Green })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']}`)
     })
 
     it('cobalt', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Cobalt })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Cobalt })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-cobalt-normal']}`)
     })
 
     it('monoChrome', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Monochrome })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Monochrome })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['txt-black-darkest']}`)
     })
   })
 
-  describe('should have correct style of "colorVariant" and "active" ', () => {
+  describe('should have correct style of "variant" and "active" ', () => {
     it('red', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Red, active: true })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Red, active: true })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-red-normal']}`)
     })
 
     it('blue', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Blue, active: true })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Blue, active: true })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
     })
 
     it('green', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Green, active: true })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Green, active: true })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']}`)
     })
 
     it('cobalt', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Cobalt, active: true })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Cobalt, active: true })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-cobalt-normal']}`)
     })
 
     it('monoChrome', () => {
-      const { getByTestId } = renderComponent({ colorVariant: ListItemColorVariant.Monochrome, active: true })
+      const { getByTestId } = renderComponent({ variant: ListItemVariant.Monochrome, active: true })
       const rendered = getByTestId(LIST_ITEM_TEST_ID)
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
     })
