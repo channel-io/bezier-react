@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import { styled, css, SemanticNames } from 'Foundation'
-import type { WithInterpolation, WithFoundation } from 'Types/Foundation'
+import type { InterpolationProps, FoundationProps } from 'Types/Foundation'
 import { TAGBADGE_VERTICAL_PADDING } from './constants/TagBadgeStyle'
 
-interface CommonTagBadgeStyleProps extends WithInterpolation {
+interface CommonTagBadgeStyleProps extends InterpolationProps {
   rounding: ReturnType<typeof css>
   horizontalPadding: number
   color?: SemanticNames
@@ -15,7 +15,7 @@ const Wrapper = styled.div.attrs(({
   bgColor,
   color = 'txt-black-darkest',
   horizontalPadding,
-}: CommonTagBadgeStyleProps & WithFoundation) => ({
+}: CommonTagBadgeStyleProps & FoundationProps) => ({
   style: {
     padding: `${TAGBADGE_VERTICAL_PADDING}px ${horizontalPadding}px`,
     color: foundation?.theme?.[color],

@@ -3,7 +3,7 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { css, ellipsis, SemanticNames, styled } from 'Foundation'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import { Tooltip } from 'Components/Tooltip'
 import { Text } from 'Components/Text'
@@ -12,7 +12,7 @@ const alignRight = css`
   margin-left: auto;
 `
 
-interface WrapperProps extends WithInterpolation {
+interface WrapperProps extends InterpolationProps {
   multiline: boolean
 }
 
@@ -41,7 +41,7 @@ const KeyText = styled(Text)`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 `
 
-interface KeyContentWrapperProps extends WithInterpolation {}
+interface KeyContentWrapperProps extends InterpolationProps {}
 
 const KeyContentWrapper = styled.div<KeyContentWrapperProps>`
   display: flex;
@@ -52,7 +52,7 @@ const KeyContentWrapper = styled.div<KeyContentWrapperProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface ValueWrapperProps extends WithInterpolation {}
+interface ValueWrapperProps extends InterpolationProps {}
 
 const ValueWrapper = styled.div<ValueWrapperProps>`
   min-width: 0;

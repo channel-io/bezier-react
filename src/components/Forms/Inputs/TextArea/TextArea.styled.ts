@@ -4,10 +4,10 @@ import TextareaAutosize from 'react-textarea-autosize'
 /* Internal dependencies */
 import { hideScrollbars, SemanticNames, styled, Typography } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { erroredInputWrapperStyle, focusedInputWrapperStyle, inputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
 
-interface WrapperProps extends WithInterpolation {
+interface WrapperProps extends InterpolationProps {
   focused: boolean
   hasError?: boolean
   bgColor: SemanticNames
@@ -34,7 +34,7 @@ const Wrapper = styled.div<WrapperProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface TextAreaAutoSizeBaseProps extends WithInterpolation{
+interface TextAreaAutoSizeBaseProps extends InterpolationProps{
   disabled: boolean
   readOnly: boolean
 }

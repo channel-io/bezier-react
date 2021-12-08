@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 
@@ -18,7 +18,7 @@ const LeftIcon = styled(Icon)<ClickableElementProps>`
   ${({ clickable }) => clickableElementStyle(clickable)}
 `
 
-const LeftContentWrapper = styled.div<WithInterpolation>`
+const LeftContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   padding-left: 6px;
@@ -33,7 +33,7 @@ const ContentText = styled(Text)`
   white-space: nowrap;
 `
 
-const ContentWrapper = styled.div<WithInterpolation>`
+const ContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   padding-left: 6px;
@@ -48,7 +48,7 @@ const HelpIconWrapper = styled.div`
   margin-left: 8px;
 `
 
-const RightContentWrapper = styled.div<WithInterpolation>`
+const RightContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   padding-left: 6px;
@@ -71,7 +71,7 @@ const ChildrenWrapper = styled.div<{ show: boolean }>`
   display: ${({ show }) => (show ? 'unset' : 'none')};
 `
 
-const Wrapper = styled.div<ClickableElementProps & WithInterpolation>`
+const Wrapper = styled.div<ClickableElementProps & InterpolationProps>`
   display: flex;
   align-items: center;
   height: 28px;

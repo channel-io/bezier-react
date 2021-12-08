@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
-import type { WithInterpolation } from 'Types/Foundation'
+import type { InterpolationProps } from 'Types/Foundation'
 import type { VariantProps } from 'Types/ComponentProps'
 import { Icon } from 'Components/Icon'
 import { Text } from 'Components/Text'
@@ -32,7 +32,7 @@ const Link = styled(Text)`
   cursor: pointer;
 `
 
-const Wrapper = styled.div<BannerVariantProps & WithInterpolation>`
+const Wrapper = styled.div<BannerVariantProps & InterpolationProps>`
   display: flex;
   min-width: 200px;
   padding: 12px;

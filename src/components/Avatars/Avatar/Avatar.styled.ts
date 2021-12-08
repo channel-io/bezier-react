@@ -1,16 +1,16 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners } from 'Foundation'
 import { enableSmoothCorners } from 'Worklets/EnableCSSHoudini'
-import type { WithInterpolation } from 'Types/Foundation'
+import type { InterpolationProps } from 'Types/Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { AVATAR_STATUS_GAP, AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
 import { AvatarSize } from './Avatar.types'
 
-interface AvatarWrapperProps extends WithInterpolation {
+interface AvatarWrapperProps extends InterpolationProps {
   disabled: boolean
 }
 
-interface AvatarProps extends WithInterpolation {
+interface AvatarProps extends InterpolationProps {
   size: AvatarSize
   showBorder: boolean
 }

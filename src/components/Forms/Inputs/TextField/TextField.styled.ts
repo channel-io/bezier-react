@@ -4,7 +4,7 @@ import { FlattenSimpleInterpolation } from 'styled-components'
 /* Internal dependencies */
 import { css, styled, Typography, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
@@ -17,7 +17,7 @@ const clickableElementStyle = css`
   cursor: pointer;
 `
 
-const Input = styled.input<WithInterpolation>`
+const Input = styled.input<InterpolationProps>`
   width: 100%;
   height: 100%;
   ${Typography.Size14}
@@ -42,7 +42,7 @@ const LeftIcon = styled(Icon)<ClickableElementProps>`
   ${({ clickable }) => clickable && clickableElementStyle}
 `
 
-const LeftContentWrapper = styled.div<WithInterpolation>`
+const LeftContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   padding-right: 6px;
@@ -50,7 +50,7 @@ const LeftContentWrapper = styled.div<WithInterpolation>`
   ${({ interpolation }) => interpolation}
 `
 
-const RightContentWrapper = styled.div<WithInterpolation>`
+const RightContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   padding-right: 2px;
@@ -58,7 +58,7 @@ const RightContentWrapper = styled.div<WithInterpolation>`
   ${({ interpolation }) => interpolation}
 `
 
-const RightItemWrapper = styled.div<ClickableElementProps & WithInterpolation>`
+const RightItemWrapper = styled.div<ClickableElementProps & InterpolationProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +97,7 @@ interface WrapperProps {
   disabled?: boolean
 }
 
-const Wrapper = styled.div<WrapperProps & WithInterpolation>`
+const Wrapper = styled.div<WrapperProps & InterpolationProps>`
   position: relative;
   box-sizing: border-box;
   display: flex;

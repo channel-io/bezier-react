@@ -3,11 +3,11 @@ import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled, css, ellipsis, SemanticNames } from 'Foundation'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import OutlineItemProps from './OutlineItem.types'
 
-interface WrapperProps extends WithInterpolation {
+interface WrapperProps extends InterpolationProps {
   active: boolean
   focused: boolean
   paddingLeft: number
@@ -65,7 +65,7 @@ export const LeftContentWrapper = styled.div`
   margin-right: 8px;
 `
 
-interface StyledIconProps extends WithInterpolation {
+interface StyledIconProps extends InterpolationProps {
   color?: SemanticNames
 }
 
@@ -78,7 +78,7 @@ export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 
   ${({ interpolation }) => interpolation}
 `
 
-export const ContentWrapper = styled.div<WithInterpolation>`
+export const ContentWrapper = styled.div<InterpolationProps>`
   flex: 1;
 
   ${ellipsis()}

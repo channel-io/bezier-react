@@ -73,8 +73,8 @@ export type {
   OptionItemHostProps,
 } from 'Types/ComponentProps'
 export type {
-  WithFoundation,
-  WithInterpolation,
+  FoundationProps,
+  InterpolationProps,
   InjectedInterpolation,
 } from 'Types/Foundation'
 

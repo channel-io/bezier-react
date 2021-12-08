@@ -1,6 +1,6 @@
 /* Internal denpendencies */
 import { styled, smoothCorners, css } from 'Foundation'
-import { WithInterpolation } from 'Types/Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
 import { Text, TextProps } from 'Components/Text'
 import { AvatarSize } from 'Components/Avatars/Avatar'
@@ -15,7 +15,7 @@ interface AvatarGroupProps {
 
 interface AvatarEllipsisCountWrapperProps extends AvatarSizeProps, AvatarGroupProps { }
 
-interface AvatarEllipsisCountProps extends AvatarSizeProps, TextProps, WithInterpolation { }
+interface AvatarEllipsisCountProps extends AvatarSizeProps, TextProps, InterpolationProps { }
 
 // TODO: 올바른 페어의 패딩 사이즈를 지정해줘야함
 function getProperEllipsisCountPaddingRight(avatarSize: AvatarSize) {
@@ -49,7 +49,7 @@ export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
   }
 `
 
-export const AvatarEllipsisIconWrapper = styled.div<WithInterpolation>`
+export const AvatarEllipsisIconWrapper = styled.div<InterpolationProps>`
   position: relative;
 
   ${({ interpolation }) => interpolation}
