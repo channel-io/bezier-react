@@ -3,37 +3,41 @@ import type React from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { ChildrenComponentProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type {
+  BezierComponentProps,
+  ContentProps,
+  ChildrenProps,
+  SideContentProps,
+  AdditionalStylableProps,
+} from 'Types/ComponentProps'
 import type { IconName, IconSize } from 'Components/Icon'
 
-type SectionLabelHelpProps = {
-  icon?: IconName
-  iconSize?: IconSize
+interface IconInfo {
+  icon: IconName
   iconColor?: SemanticNames
+}
+
+interface SectionLabelHelpProps extends Partial<IconInfo> {
+  iconSize?: IconSize
   tooltipContent: React.ReactNode
 }
 
-export type SectionLabelItemProps = {
-  icon: IconName
-  iconColor?: SemanticNames
-  onClick?(e: React.MouseEvent): void
-} | React.ReactElement
+export type SectionLabelItemProps = (IconInfo & {
+  onClick?: React.MouseEventHandler
+}) | React.ReactElement
 
-export default interface SectionLabelProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  content?: React.ReactNode
+interface SectionLabelOptions {
   open?: boolean
   divider?: boolean
   help?: SectionLabelHelpProps
-  leftContent?: SectionLabelItemProps
-  rightContent?: SectionLabelItemProps | SectionLabelItemProps[]
-  wrapperClassName?: string
-  wrapperInterpolation?: InjectedInterpolation
-  contentWrapperClassName?: string
-  contentWrapperInterpolation?: InjectedInterpolation
-  leftWrapperClassName?: string
-  leftWrapperInterpolation?: InjectedInterpolation
-  rightWrapperClassName?: string
-  rightWrapperInterpolation?: InjectedInterpolation
-  onClick?: (e: React.MouseEvent) => void
+  onClick?: React.MouseEventHandler
 }
+
+export default interface SectionLabelProps extends
+  BezierComponentProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'>,
+  ContentProps,
+  ChildrenProps,
+  SideContentProps<SectionLabelItemProps, SectionLabelItemProps | SectionLabelItemProps[]>,
+  AdditionalStylableProps<['wrapper', 'contentWrapper', 'leftWrapper', 'rightWrapper']>,
+  SectionLabelOptions {}
