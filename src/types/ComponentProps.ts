@@ -41,6 +41,10 @@ export interface VariantProps<Variant extends string | number> {
   variant?: Variant
 }
 
+export interface SizeProps<Size extends string | number> {
+  size?: Size
+}
+
 export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
   leftContent?: LeftContent
   rightContent?: RightContent

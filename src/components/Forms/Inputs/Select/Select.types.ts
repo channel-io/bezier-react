@@ -3,6 +3,7 @@ import type { SemanticNames } from 'Foundation'
 import type {
   BezierComponentProps,
   ChildrenProps,
+  SizeProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
 } from 'Types/ComponentProps'
@@ -24,7 +25,6 @@ export interface SelectRef {
 }
 
 interface SelelctOptions {
-  size?: SelectSize
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
@@ -45,6 +45,7 @@ interface SelelctOptions {
 interface SelectProps extends
   BezierComponentProps,
   ChildrenProps,
+  SizeProps<SelectSize>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AdditionalStylableProps<'dropdown'>,
   FormComponentProps,

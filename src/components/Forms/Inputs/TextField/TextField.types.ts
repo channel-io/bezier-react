@@ -3,7 +3,13 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import type {
+  BezierComponentProps,
+  VariantProps,
+  SizeProps,
+  SideContentProps,
+  AdditionalStylableProps,
+} from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 import type { IconName } from 'Components/Icon'
 
@@ -65,11 +71,12 @@ interface TextFieldOptions {
   onKeyUp?: KeyboardEventHandler
 }
 
-type OmittedInputHTMLAttributes = 'type' | 'readOnly' | 'disabled' | 'onFocus'
+type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
   FormComponentProps,
   BezierComponentProps,
+  SizeProps<TextFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps[]>,
   AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,

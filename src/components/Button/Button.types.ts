@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps, DisableProps, SideContentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
 export enum ButtonStyleVariant {
@@ -42,7 +42,6 @@ interface ButtonOptions {
   text?: string
   loading?: boolean
   active?: boolean
-  size?: ButtonSize
   styleVariant?: ButtonStyleVariant
   colorVariant?: ButtonColorVariant
   onClick?: MouseEventHandler
@@ -53,6 +52,7 @@ interface ButtonOptions {
 
 export default interface ButtonProps extends
   BezierComponentProps,
+  SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,
   ButtonOptions {}

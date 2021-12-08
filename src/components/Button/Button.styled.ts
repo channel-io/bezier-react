@@ -6,10 +6,7 @@ import { styled, css, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 
-interface GetSizeCSSFromButtonSizeArgs {
-  size?: ButtonSize
-  text?: string
-}
+interface GetSizeCSSFromButtonSizeArgs extends Pick<ButtonProps, 'size' | 'text'> {}
 
 function getSizeCSSFromButtonSize({ size, text }: GetSizeCSSFromButtonSizeArgs) {
   switch (size) {
@@ -163,9 +160,9 @@ const MONOCHROME_DARK_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticN
 
 function getColorCSS(
   semanticNames: Record<ButtonStyleVariant, ButtonSemanticNames>,
-  styleVariant: ButtonStyleVariant,
-  disabled?: boolean,
-  active?: boolean,
+  styleVariant: NonNullable<ButtonProps['styleVariant']>,
+  disabled?: ButtonProps['disabled'],
+  active?: ButtonProps['active'],
 ) {
   const colorCSS = (color?: SemanticNames) => {
     if (!color) { return css`` }
@@ -209,7 +206,7 @@ function getColorCSS(
   `
 }
 
-function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: ButtonSize) {
+function getEffectCSSFromVariant(styleVariant?: ButtonProps['styleVariant'], size?: ButtonProps['size']) {
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
@@ -247,13 +244,7 @@ function getEffectCSSFromVariant(styleVariant?: ButtonStyleVariant, size?: Butto
   }
 }
 
-interface GetCSSFromVariantArgs {
-  colorVariant?: ButtonColorVariant
-  styleVariant?: ButtonStyleVariant
-  size?: ButtonSize
-  disabled?: boolean
-  active?: boolean
-}
+interface GetCSSFromVariantArgs extends Pick<ButtonProps, 'colorVariant' | 'styleVariant' | 'size' | 'disabled' | 'active'> {}
 
 function getCSSFromVariant({
   colorVariant = ButtonColorVariant.Blue,

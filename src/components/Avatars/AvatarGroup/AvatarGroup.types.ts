@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, SizeProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import { AvatarSize } from 'Components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {
@@ -11,7 +11,6 @@ type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
 
 interface AvatarGroupOptions {
   max: number
-  size?: AvatarSize
   spacing?: number
   ellipsisType?: AvatarGroupEllipsisType
   onMouseEnterEllipsis?: MouseEventHandler
@@ -21,5 +20,6 @@ interface AvatarGroupOptions {
 export default interface AvatarGroupProps extends
   BezierComponentProps,
   ChildrenProps,
+  SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
   AvatarGroupOptions {}

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, DisableProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, DisableProps, SizeProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import { StatusType } from 'Components/Status'
 
 export enum AvatarSize {
@@ -19,7 +19,6 @@ interface AvatarOptions {
   name: string
   avatarUrl?: string
   fallbackUrl?: string
-  size?: AvatarSize
   status?: StatusType
   showBorder?: boolean
   onClick?: MouseEventHandler
@@ -30,6 +29,7 @@ interface AvatarOptions {
 export default interface AvatarProps extends
   BezierComponentProps,
   ChildrenProps,
+  SizeProps<AvatarSize>,
   DisableProps,
   AdditionalStylableProps<'wrapper'>,
   AvatarOptions {}
