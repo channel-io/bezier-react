@@ -4,6 +4,7 @@ import React, {
   useState,
   useRef,
   useCallback,
+  useLayoutEffect,
   useEffect,
   Ref,
   forwardRef,
@@ -85,7 +86,7 @@ function Overlay(
     }
   }, [container])
 
-  React.useLayoutEffect(function initContainerRect() {
+  useLayoutEffect(function initContainerRect() {
     handleContainerRect()
   }, [handleContainerRect])
 
@@ -111,7 +112,7 @@ function Overlay(
     }
   }, [target])
 
-  React.useLayoutEffect(function initTargetRect() {
+  useLayoutEffect(function initTargetRect() {
     handleTargetRect()
   }, [handleTargetRect])
 
