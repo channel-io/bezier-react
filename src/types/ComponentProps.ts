@@ -93,3 +93,7 @@ export interface ActivatableProps extends AdditionalStylableProps<'active'> {
   active?: boolean
   allowActive?: boolean
 }
+
+export interface LinkProps {
+  href?: string
+}

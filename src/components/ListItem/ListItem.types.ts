@@ -4,6 +4,7 @@ import type {
   BezierComponentProps,
   ContentProps,
   VariantProps,
+  LinkProps,
   DisableProps,
   ActivatableProps,
   OptionItemProps,
@@ -32,7 +33,6 @@ type MouseEventHandler = React.MouseEventHandler
 interface ListItemOptions {
   size?: ListItemSize
   name?: string
-  href?: string
   hide?: boolean
   nested?: boolean
   leftIcon?: IconName
@@ -51,6 +51,7 @@ export default interface ListItemProps extends
   ContentProps,
   SideContentProps,
   VariantProps<ListItemVariant>,
+  LinkProps,
   DisableProps,
   ActivatableProps,
   OptionItemProps,
