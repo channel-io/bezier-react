@@ -1,12 +1,15 @@
 /* Internal dependencies */
 import { SemanticNames } from 'Foundation'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type { AdditionalStyleProps } from 'Types/ComponentProps'
 import type { AvatarProps } from 'Components/Avatars/Avatar'
 
-export default interface CheckableAvatarProps extends AvatarProps {
+interface CheckableAvatarPropsOptions {
   isChecked?: boolean
   isCheckable?: boolean
   checkedBackgroundColor?: SemanticNames
-  checkableWrapperClassName?: string
-  checkableWrapperInterpolation?: InjectedInterpolation
 }
+
+export default interface CheckableAvatarProps extends
+  AvatarProps,
+  AdditionalStyleProps<'checkableWrapper'>,
+  CheckableAvatarPropsOptions {}

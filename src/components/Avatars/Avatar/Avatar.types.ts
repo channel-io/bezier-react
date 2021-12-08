@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import type { ChildrenComponentProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type { BezierComponentProps, ChildrenProps, DisableProps, AdditionalStyleProps } from 'Types/ComponentProps'
 import { StatusType } from 'Components/Status'
 
 export enum AvatarSize {
@@ -14,17 +13,23 @@ export enum AvatarSize {
   Size120 = 120,
 }
 
-export default interface AvatarProps extends ChildrenComponentProps {
+type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
+
+interface AvatarOptions {
+  name: string
   avatarUrl?: string
   fallbackUrl?: string
-  name: string
   size?: AvatarSize
-  showBorder?: boolean
   status?: StatusType
-  disabled?: boolean
-  wrapperClassName?: string
-  wrapperInterpolation?: InjectedInterpolation
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void
+  showBorder?: boolean
+  onClick?: MouseEventHandler
+  onMouseEnter?: MouseEventHandler
+  onMouseLeave?: MouseEventHandler
 }
+
+export default interface AvatarProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  AdditionalStyleProps<'wrapper'>,
+  AvatarOptions {}
