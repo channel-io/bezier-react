@@ -29,28 +29,29 @@ export interface ChildrenComponentProps<Children = React.ReactNode> extends Bezi
 }
 
 /* Component Additional Props */
-export interface IdentifierProps {
-  id: string
-}
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// @ts-ignore FIXME 실제 사용되면 제거
-interface ContentProps<Content = React.ReactNode> {
+export interface ContentProps<Content = React.ReactNode> {
   content?: Content
 }
-/* eslint-enable @typescript-eslint/no-unused-vars */
+
+export interface ChildrenProps<Children = React.ReactNode> {
+  children?: Children
+}
 
 export interface VariantProps<Variant extends string | number> {
   variant?: Variant
+}
+
+export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
+  leftContent?: LeftContent
+  rightContent?: RightContent
 }
 
 export interface DisableProps {
   disabled?: boolean
 }
 
-export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
-  leftContent?: LeftContent
-  rightContent?: RightContent
+export interface IdentifierProps {
+  id: string
 }
 
 export interface OptionItemProps {
