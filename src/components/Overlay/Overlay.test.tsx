@@ -318,7 +318,7 @@ describe('Overlay test >', () => {
     })
 
     describe('Event', () => {
-      describe('keyup', () => {
+      describe('keydown', () => {
         document.onkeydown = jest.fn()
         const onHide = jest.fn()
 
