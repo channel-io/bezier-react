@@ -1,17 +1,20 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type { WithInterpolation } from 'Types/Foundation'
+import type { VariantProps } from 'Types/ComponentProps'
 import { Icon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { BACKGROUND_COLORS, TEXT_COLORS, ELEVATIONS } from './Banner.const'
-import type { BannerColorVariant } from './Banner.types'
+import type { BannerVariant } from './Banner.types'
+
+type BannerVariantProps = Required<VariantProps<BannerVariant>>
 
 const BannerIcon = styled(Icon)``
-const ContentWrapper = styled.div<{
-  colorVariant: BannerColorVariant
-}>`
-  color: ${({ foundation, colorVariant }) => foundation?.theme?.[TEXT_COLORS[colorVariant]]};
+
+const ContentWrapper = styled.div<BannerVariantProps>`
+  color: ${({ foundation, variant }) => foundation?.theme?.[TEXT_COLORS[variant]]};
 `
+
 const Dismiss = styled.div`
   display: flex;
   width: 20px;
@@ -29,17 +32,14 @@ const Link = styled(Text)`
   cursor: pointer;
 `
 
-const Wrapper = styled.div<{
-  colorVariant: BannerColorVariant
-  interpolation?: InjectedInterpolation
-}>`
+const Wrapper = styled.div<BannerVariantProps & WithInterpolation>`
   display: flex;
   min-width: 200px;
   padding: 12px;
-  background-color: ${({ foundation, colorVariant }) => foundation?.theme?.[BACKGROUND_COLORS[colorVariant]]};
+  background-color: ${({ foundation, variant }) => foundation?.theme?.[BACKGROUND_COLORS[variant]]};
 
   ${({ foundation }) => foundation?.rounding?.round12}
-  ${({ colorVariant }) => ELEVATIONS[colorVariant]}
+  ${({ variant }) => ELEVATIONS[variant]}
 
   ${({ interpolation }) => interpolation}
 
