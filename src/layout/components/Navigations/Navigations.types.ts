@@ -1,4 +1,6 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 
-export default interface NavigationsProps extends ChildrenComponentProps {}
+export default interface NavigationsProps extends
+  BezierComponentProps,
+  ChildrenProps {}

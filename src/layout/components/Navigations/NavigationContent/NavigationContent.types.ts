@@ -1,18 +1,23 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 import { ColumnState } from 'Layout/redux/LayoutActions'
 
-export default interface NavigationContentProps extends ChildrenComponentProps {
+interface NavigationContentOptions {
   header?: React.ReactElement | null
   fixedHeader?: boolean
   stickyFooter?: React.ReactElement | null
   scrollRef?: React.Ref<HTMLDivElement>
   scrollClassName?: string
   withScroll?: boolean
-  onScroll?: () => void
+  onScroll?: React.UIEventHandler
   onChangeWidth?: (width: number) => void
 
   /* LayoutState Prop */
   navigationKey: string
   layoutOption: ColumnState
 }
+
+export default interface NavigationContentProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  NavigationContentOptions {}

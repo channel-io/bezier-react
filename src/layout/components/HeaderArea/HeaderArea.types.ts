@@ -1,8 +1,12 @@
 /* Internal dependencies */
 import { BezierComponentProps } from 'Types/ComponentProps'
 
-export default interface HeaderAreaProps extends BezierComponentProps {
+interface HeaderAreaOptions {
   hasHeader: boolean
   ContentHeaderComponent: React.ComponentType
   CoverableHeaderComponent?: React.ComponentType
 }
+
+export default interface HeaderAreaProps extends
+  BezierComponentProps,
+  HeaderAreaOptions {}

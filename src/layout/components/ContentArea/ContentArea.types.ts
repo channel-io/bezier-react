@@ -1,7 +1,14 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 
-export default interface ContentAreaProps extends ChildrenComponentProps {
-  onFocus?: (e: React.FocusEvent<HTMLDivElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLDivElement>) => void
+type FocusEventHandler = React.FocusEventHandler<HTMLDivElement>
+
+interface ContentAreaOptions {
+  onFocus?: FocusEventHandler
+  onBlur?: FocusEventHandler
 }
+
+export default interface ContentAreaProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  ContentAreaOptions {}

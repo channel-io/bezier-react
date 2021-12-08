@@ -1,8 +1,11 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import SideCommonProps from 'Layout/components/Side/Side.types'
 import LayoutSideType from 'Layout/types/LayoutSideType'
 
-export default interface SideAreaProps extends ChildrenComponentProps {
+interface SideAreaOptions {
   sideType: LayoutSideType
-  onChangeSideWidth?: (width: number) => void
 }
+
+export default interface SideAreaProps extends
+  SideCommonProps,
+  SideAreaOptions {}
