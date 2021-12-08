@@ -1,11 +1,17 @@
 /* Internal dependencies */
-import type { ChildrenComponentProps, OptionItemHostProps } from 'Types/ComponentProps'
-import TabsSize from 'Components/Tabs/TabsSize'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  OptionItemHostProps,
+  AdditionalStylableProps,
+} from 'Types/ComponentProps'
+import type TabsOptions from 'Components/Tabs/TabsOptions'
 
-export default interface TabsProps extends ChildrenComponentProps, OptionItemHostProps {
-  height?: TabsSize | number
-  disabled?: boolean
-  optionsWrapperClassName?: string
-  withIndicator?: boolean
-  indicatorThickness?: number
-}
+export default interface TabsProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  OptionItemHostProps,
+  AdditionalStylableProps<'optionsWrapper'>,
+  TabsOptions {}

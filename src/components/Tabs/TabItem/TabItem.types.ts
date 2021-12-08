@@ -2,18 +2,22 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps, BezierComponentProps, OptionItemProps, ActivatableProps } from 'Types/ComponentProps'
-import TabsSize from 'Components/Tabs/TabsSize'
+import { BezierComponentProps, DisableProps, ChildrenProps, OptionItemProps, ActivatableProps } from 'Types/ComponentProps'
+import type TabsOptions from 'Components/Tabs/TabsOptions'
 
-export default interface TabItemProps extends ChildrenComponentProps, OptionItemProps, ActivatableProps {
-  height?: TabsSize | number
-  withIndicator?: boolean
-  indicatorThickness?: number
-  disabled?: boolean
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
+type TabItemBaseProps = BezierComponentProps & OptionItemProps & ActivatableProps
+
+interface TabItemOptions {
+  onClick?: React.MouseEventHandler
 }
 
-export interface StyledWrapperProps extends BezierComponentProps, OptionItemProps, ActivatableProps {
-  withIndicator?: boolean
-  indicatorThickness?: number
-}
+export default interface TabItemProps extends
+  TabItemBaseProps,
+  ChildrenProps,
+  DisableProps,
+  TabsOptions,
+  TabItemOptions {}
+
+export interface StyledWrapperProps extends
+  TabItemBaseProps,
+  Omit<TabsOptions, 'height'> {}
