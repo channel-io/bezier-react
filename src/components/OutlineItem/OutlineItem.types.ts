@@ -1,7 +1,16 @@
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { ChildrenComponentProps, ContentComponentProps, OptionItemProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  ContentProps,
+  SideContentProps,
+  LinkProps,
+  ActivatableProps,
+  OptionItemProps,
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
+} from 'Types/ComponentProps'
 import { IconName, IconSize } from 'Components/Icon'
 
 export enum ChevronIconType {
@@ -9,22 +18,12 @@ export enum ChevronIconType {
   Small = 'chevron-small',
 }
 
-export default interface OutlineItemProps extends ContentComponentProps, ChildrenComponentProps, OptionItemProps {
-  leftIconTestId?: string
-  chevronClassName?: string
-  chevronInterpolation?: InjectedInterpolation
-  contentClassName?: string
-  contentInterpolation?: InjectedInterpolation
-  iconClassName?: string
-  iconInterpolation?: InjectedInterpolation
+interface OutlineItemOptions {
   open?: boolean
   active?: boolean
   focused?: boolean
-  content?: React.ReactNode
-  leftContent?: React.ReactNode
   leftIcon?: IconName
   leftIconColor?: SemanticNames
-  rightContent?: React.ReactNode
   hide?: boolean
   disableIconActive?: boolean
   disableChevron?: boolean
@@ -32,7 +31,6 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   chevronIconSize?: IconSize
   paddingLeft?: number
   name?: string
-  href?: string
   onOpen?: (name?: string) => void
   onClick?: (e?: React.MouseEvent, name?: string) => void
   onClickArrow?: (name?: string) => void
@@ -40,3 +38,15 @@ export default interface OutlineItemProps extends ContentComponentProps, Childre
   selectedOutlineItemIndex?: number | null
   onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
 }
+
+export default interface OutlineItemProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  LinkProps,
+  ContentProps,
+  SideContentProps,
+  AdditionalStylableProps<['chevron', 'content', 'icon']>,
+  AdditionalTestIdProps<'leftIcon'>,
+  Pick<ActivatableProps, 'active'>,
+  OptionItemProps,
+  OutlineItemOptions {}
