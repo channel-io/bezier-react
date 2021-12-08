@@ -27,7 +27,7 @@ export enum ListItemVariant {
   Monochrome = 'monochrome',
 }
 
-type MouseHandler = React.MouseEventHandler
+type MouseEventHandler = React.MouseEventHandler
 
 interface ListItemOptions {
   size?: ListItemSize
@@ -41,9 +41,9 @@ interface ListItemOptions {
   descriptionMaxLines?: number
   description?: React.ReactNode
   onClick?: (e: React.MouseEvent, name?: string) => void
-  onMouseDown?: MouseHandler
-  onMouseEnter?: MouseHandler
-  onMouseLeave?: MouseHandler
+  onMouseDown?: MouseEventHandler
+  onMouseEnter?: MouseEventHandler
+  onMouseLeave?: MouseEventHandler
 }
 
 export default interface ListItemProps extends
