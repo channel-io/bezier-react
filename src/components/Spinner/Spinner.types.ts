@@ -16,12 +16,15 @@ export enum SpinnerThickness {
   Light = 2,
 }
 
-export default interface SpinnerProps extends BezierComponentProps {
+interface SpinnerOptions {
   size?: SpinnerSize
   color?: SemanticNames
 }
 
+export default interface SpinnerProps extends
+  BezierComponentProps,
+  SpinnerOptions {}
+
 export interface StyledSpinnerProps extends SpinnerProps {
-  size: SpinnerSize
-  color?: SemanticNames
+  size: NonNullable<SpinnerOptions['size']>
 }
