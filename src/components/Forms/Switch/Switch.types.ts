@@ -2,22 +2,23 @@
 import { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, DisableProps } from 'Types/ComponentProps'
 
-export default interface SwitchProps extends BezierComponentProps {
+interface SwitchOptions {
   size?: number
   checked?: boolean
-  disabled?: boolean
   onClick?: (checked: boolean, event: MouseEvent) => void
 }
 
-export interface WrapperProps {
-  size: number
-  checked: boolean
-  disabled: boolean
-}
+export default interface SwitchProps extends
+  BezierComponentProps,
+  DisableProps,
+  SwitchOptions {}
 
-export interface ContentProps {
-  size: number
-  checked: boolean
-}
+type StyledSwitchProps = Required<Omit<SwitchOptions, 'onClick'>>
+
+export interface WrapperProps extends
+  StyledSwitchProps,
+  Required<DisableProps> {}
+
+export interface ContentProps extends StyledSwitchProps {}

@@ -1,8 +1,14 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 import { TextProps } from 'Components/Text'
 
-export default interface FormLabelProps extends Omit<ChildrenComponentProps, 'as'>, TextProps {
+interface FormLabelOptions {
   htmlFor?: string
   help?: React.ReactNode
 }
+
+export default interface FormLabelProps extends
+  Omit<BezierComponentProps, 'as'>,
+  ChildrenProps,
+  TextProps,
+  FormLabelOptions {}

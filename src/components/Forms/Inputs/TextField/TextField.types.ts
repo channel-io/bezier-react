@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStyleProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, VariantProps, SideContentProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 import type { IconName } from 'Components/Icon'
 
@@ -49,6 +49,9 @@ export interface TextFieldRef {
   getDOMNode(): Element | Text | null
 }
 
+type ChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>
+type KeyboardEventHandler = React.KeyboardEventHandler<HTMLInputElement>
+
 interface TextFieldOptions {
   type?: TextFieldType
   allowClear?: boolean
@@ -56,10 +59,10 @@ interface TextFieldOptions {
   selectAllOnFocus?: boolean
   withoutLeftContentWrapper?: boolean
   withoutRightContentWrapper?: boolean
-  onFocus?: React.ChangeEventHandler<HTMLInputElement>
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
-  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
-  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>
+  onFocus?: ChangeEventHandler
+  onChange?: ChangeEventHandler
+  onKeyDown?: KeyboardEventHandler
+  onKeyUp?: KeyboardEventHandler
 }
 
 type OmittedInputHTMLAttributes = 'type' | 'readOnly' | 'disabled' | 'onFocus'
@@ -69,6 +72,6 @@ export interface TextFieldProps extends
   BezierComponentProps,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps[]>,
-  AdditionalStyleProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
   TextFieldOptions {}

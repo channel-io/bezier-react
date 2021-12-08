@@ -1,11 +1,22 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import {
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
+} from 'Types/ComponentProps'
 import CheckType from './CheckType'
 
-export default interface CheckboxProps extends ChildrenComponentProps {
-  checkerTestId?: string
-  contentClassName?: string
-  disabled?: boolean
+interface CheckboxOptions {
   checked?: boolean | CheckType
-  onClick?: () => void
+  onClick?: React.MouseEventHandler
 }
+
+export default interface CheckboxProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  AdditionalStylableProps<'content'>,
+  AdditionalTestIdProps<'checker'>,
+  CheckboxOptions {}

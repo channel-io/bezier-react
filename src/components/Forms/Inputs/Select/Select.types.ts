@@ -1,7 +1,12 @@
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { ChildrenComponentProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
+} from 'Types/ComponentProps'
+import { FormComponentProps } from 'Components/Forms/Form.types'
 import type { OverlayProps } from 'Components/Overlay'
 import type { IconName } from 'Components/Icon'
 
@@ -18,12 +23,8 @@ export interface SelectRef {
   getDOMNode(): Element | Text | null
 }
 
-interface SelectProps extends ChildrenComponentProps {
-  triggerTestId?: string
-  triggerTextTestId?: string
-  dropdownTestId?: string
+interface SelelctOptions {
   size?: SelectSize
-  disabled?: boolean
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
@@ -37,11 +38,16 @@ interface SelectProps extends ChildrenComponentProps {
   dropdownMarginY?: OverlayProps['marginY']
   dropdownZIndex?: number
   dropdownPosition?: OverlayProps['position']
-  dropdownStyle?: OverlayProps['containerStyle']
-  dropdownInterpolation?: InjectedInterpolation
-  hasError?: boolean
-  onClickTrigger?: (event: React.MouseEvent) => void
+  onClickTrigger?: React.MouseEventHandler
   onHideDropdown?: () => void
 }
+
+interface SelectProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
+  AdditionalStylableProps<'dropdown'>,
+  FormComponentProps,
+  SelelctOptions {}
 
 export default SelectProps

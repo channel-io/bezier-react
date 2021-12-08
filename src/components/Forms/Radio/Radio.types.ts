@@ -2,19 +2,29 @@
 import { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import {
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  AdditionalTestIdProps,
+  AdditionalStylableProps,
+} from 'Types/ComponentProps'
 
-export default interface RadioProps extends ChildrenComponentProps {
-  handleTestId?: string
-  dotClassName?: string
-  watchingValue?: any
-  disabled?: boolean
+interface RadioOptions {
   value?: any
+  watchingValue?: any
   onClick?: (value: any, e: MouseEvent) => void
 }
 
-export interface StyledRadioHandleProps {
+export default interface RadioProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  AdditionalStylableProps<'dot'>,
+  AdditionalTestIdProps<'handle'>,
+  RadioOptions {}
+
+export interface StyledRadioHandleProps extends DisableProps {
   checked: boolean
-  disabled: boolean
   hovered: boolean
 }

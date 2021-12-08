@@ -1,9 +1,9 @@
 /* External dependencies */
-import React, { CSSProperties } from 'react'
+import React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type { BezierComponentProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import { FormComponentProps } from 'Components/Forms/Form.types'
 
 export enum TextAreaHeight {
   Row3 = 3,
@@ -16,18 +16,20 @@ export enum TextAreaHeight {
 
 type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
 
-export default interface TextAreaProps
-  extends BezierComponentProps, Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'readOnly' | 'disabled'> {
+interface TextAreaOptions {
   minRows?: TextAreaHeight
   maxRows?: TextAreaHeight
   autoFocus?: boolean
-  hasError?: boolean
-  readOnly?: boolean
-  disabled?: boolean
-  wrapperInterpolation?: InjectedInterpolation
-  wrapperStyle?: CSSProperties
-  wrapperClassName?: string
   onFocus?: TextAreaChangeEventHandler
   onBlur?: TextAreaChangeEventHandler
   onChange?: TextAreaChangeEventHandler
 }
+
+type OmittedTextareaHTMLAttributes = keyof FormComponentProps | 'onFocus' | 'onBlur'
+
+export default interface TextAreaProps extends
+  BezierComponentProps,
+  FormComponentProps,
+  Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, OmittedTextareaHTMLAttributes>,
+  AdditionalStylableProps<'wrapper'>,
+  TextAreaOptions {}
