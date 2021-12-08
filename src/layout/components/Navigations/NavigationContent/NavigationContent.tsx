@@ -107,7 +107,7 @@ function NavigationContent({
   const showNavigationToggleButtonElement = useMemo(() => (
     // TODO: Tooltip 추가
     <Button
-      leftComponent={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
+      leftContent={`chevron-${isShowingNavigation ? 'left' : 'right'}-double` as const}
       styleVariant={ButtonStyleVariant.Tertiary}
       colorVariant={ButtonColorVariant.MonochromeLight}
       onClick={handleClickChevron}
