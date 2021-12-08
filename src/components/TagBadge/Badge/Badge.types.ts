@@ -1,12 +1,18 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps } from 'Types/ComponentProps'
 import { IconName } from 'Components/Icon'
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
-interface BadgeProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  size?: TagBadgeSize
-  variant?: TagBadgeVariant
+interface BadgeOptions {
   iconName?: IconName
 }
+
+interface BadgeProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
+  SizeProps<TagBadgeSize>,
+  VariantProps<TagBadgeVariant>,
+  BadgeOptions {}
 
 export default BadgeProps

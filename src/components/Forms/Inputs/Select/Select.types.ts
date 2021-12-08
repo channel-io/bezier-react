@@ -1,10 +1,10 @@
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
 import type {
   BezierComponentProps,
   ChildrenProps,
   SizeProps,
   AdditionalStylableProps,
+  AdditionalColorProps,
   AdditionalTestIdProps,
 } from 'Types/ComponentProps'
 import { FormComponentProps } from 'Components/Forms/Form.types'
@@ -28,11 +28,8 @@ interface SelelctOptions {
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
-  iconColor?: SemanticNames
   text?: string
-  textColor?: SemanticNames
   withoutChevron?: boolean
-  chevronColor?: SemanticNames
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
@@ -48,6 +45,7 @@ interface SelectProps extends
   SizeProps<SelectSize>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AdditionalStylableProps<'dropdown'>,
+  AdditionalColorProps<['icon', 'text', 'chevron']>,
   FormComponentProps,
   SelelctOptions {}
 

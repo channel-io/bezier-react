@@ -2,6 +2,7 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
+import type { SemanticNames } from 'Foundation'
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
@@ -54,6 +55,10 @@ export interface DisableProps {
   disabled?: boolean
 }
 
+export interface ColorProps {
+  color?: SemanticNames
+}
+
 export interface IdentifierProps {
   id: string
 }
@@ -92,6 +97,9 @@ export type AdditionalStylableProps<ElementName extends PropNameType> =
 
 export type AdditionalTestIdProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'testId', string>
+
+export type AdditionalColorProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'color', SemanticNames>
 
 export interface ActivatableProps extends AdditionalStylableProps<'active'> {
   active?: boolean

@@ -1,8 +1,8 @@
 /* Internal dependencies */
-import { styled, SemanticNames } from 'Foundation'
+import { styled } from 'Foundation'
+import { ColorProps } from 'Types/ComponentProps'
 
-interface IconStyledProps {
-  color?: SemanticNames
+interface IconStyledProps extends ColorProps {
   margintop: number
   marginright: number
   marginbottom: number

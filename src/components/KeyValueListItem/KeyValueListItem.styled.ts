@@ -2,8 +2,9 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, ellipsis, SemanticNames, styled } from 'Foundation'
+import { css, ellipsis, styled } from 'Foundation'
 import { InterpolationProps } from 'Types/Foundation'
+import { AdditionalColorProps } from 'Types/ComponentProps'
 import { Icon } from 'Components/Icon'
 import { Tooltip } from 'Components/Tooltip'
 import { Text } from 'Components/Text'
@@ -79,9 +80,7 @@ const MultiValueRow = styled.div`
 
 const ActionIcon = styled(Icon)``
 
-interface ActionWrapperProps {
-  hoverBackgroundColor?: SemanticNames
-  hoverIconColor?: SemanticNames
+interface ActionWrapperProps extends AdditionalColorProps<['hoverBackground', 'hoverIcon']> {
   show: boolean
 }
 

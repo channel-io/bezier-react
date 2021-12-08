@@ -2,8 +2,9 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled, css, ellipsis, SemanticNames } from 'Foundation'
+import { styled, css, ellipsis } from 'Foundation'
 import { InterpolationProps } from 'Types/Foundation'
+import { ColorProps } from 'Types/ComponentProps'
 import { Icon } from 'Components/Icon'
 import OutlineItemProps from './OutlineItem.types'
 
@@ -65,9 +66,7 @@ export const LeftContentWrapper = styled.div`
   margin-right: 8px;
 `
 
-interface StyledIconProps extends InterpolationProps {
-  color?: SemanticNames
-}
+interface StyledIconProps extends InterpolationProps, ColorProps {}
 
 export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
   color: ${props => {

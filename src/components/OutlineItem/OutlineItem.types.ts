@@ -1,5 +1,4 @@
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
 import type {
   BezierComponentProps,
   ChildrenProps,
@@ -10,6 +9,7 @@ import type {
   OptionItemProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
+  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import { IconName, IconSize } from 'Components/Icon'
 
@@ -23,7 +23,6 @@ interface OutlineItemOptions {
   active?: boolean
   focused?: boolean
   leftIcon?: IconName
-  leftIconColor?: SemanticNames
   hide?: boolean
   disableIconActive?: boolean
   disableChevron?: boolean
@@ -46,6 +45,7 @@ export default interface OutlineItemProps extends
   ContentProps,
   SideContentProps,
   AdditionalStylableProps<['chevron', 'content', 'icon']>,
+  AdditionalColorProps<'leftIcon'>,
   AdditionalTestIdProps<'leftIcon'>,
   Pick<ActivatableProps, 'active'>,
   OptionItemProps,

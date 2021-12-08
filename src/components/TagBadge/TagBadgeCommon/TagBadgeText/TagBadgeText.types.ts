@@ -1,10 +1,14 @@
 /* Internal dependencies */
-import { css } from 'Foundation'
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { InjectedInterpolation } from 'Types/Foundation'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 
-interface TagBadgeTextProps extends Omit<ChildrenComponentProps, 'style' | 'className' | 'interpolation'>{
-  typo: ReturnType<typeof css>
+interface TagBadgeTextOptions {
+  typo: InjectedInterpolation
   horizontalPadding: number
 }
+interface TagBadgeTextProps extends
+  Omit<BezierComponentProps, 'style' | 'className' | 'interpolation'>,
+  ChildrenProps,
+  TagBadgeTextOptions {}
 
 export default TagBadgeTextProps

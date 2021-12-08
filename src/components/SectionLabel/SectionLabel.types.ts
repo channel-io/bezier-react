@@ -2,19 +2,18 @@
 import type React from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
 import type {
   BezierComponentProps,
   ContentProps,
   ChildrenProps,
   SideContentProps,
   AdditionalStylableProps,
+  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import type { IconName, IconSize } from 'Components/Icon'
 
-interface IconInfo {
+interface IconInfo extends AdditionalColorProps<'icon'> {
   icon: IconName
-  iconColor?: SemanticNames
 }
 
 interface SectionLabelHelpProps extends Partial<IconInfo> {

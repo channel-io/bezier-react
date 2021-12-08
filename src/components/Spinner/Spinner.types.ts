@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { BezierComponentProps, SizeProps } from 'Types/ComponentProps'
+import { BezierComponentProps, SizeProps, ColorProps } from 'Types/ComponentProps'
 
 export enum SpinnerSize {
   XL = 50,
@@ -16,14 +15,10 @@ export enum SpinnerThickness {
   Light = 2,
 }
 
-interface SpinnerOptions {
-  color?: SemanticNames
-}
-
 export default interface SpinnerProps extends
   BezierComponentProps,
   SizeProps<SpinnerSize>,
-  SpinnerOptions {}
+  ColorProps {}
 
 export interface StyledSpinnerProps extends SpinnerProps {
   size: NonNullable<SpinnerProps['size']>

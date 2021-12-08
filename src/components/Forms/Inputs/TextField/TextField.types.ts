@@ -2,13 +2,13 @@
 import React from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
 import type {
   BezierComponentProps,
   VariantProps,
   SizeProps,
   SideContentProps,
   AdditionalStylableProps,
+  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 import type { IconName } from 'Components/Icon'
@@ -40,9 +40,8 @@ export enum TextFieldVariant {
 
 export type TextFieldItemProps = {
   icon: IconName
-  iconColor?: SemanticNames
   onClick?: React.MouseEventHandler
-} | React.ReactElement
+} & AdditionalColorProps<'icon'> | React.ReactElement
 
 export interface TextFieldRef {
   focus(options?: FocusOptions): void

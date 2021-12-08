@@ -2,19 +2,15 @@
 import React from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
-import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps, AdditionalColorProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
 export type KeyValueActionProps = {
   icon: IconName
-  iconColor?: SemanticNames
-  hoverBackgroundColor?: SemanticNames
-  hoverIconColor?: SemanticNames
   tooltip?: string
   show?: boolean
   onClick?: React.MouseEventHandler<HTMLDivElement>
-} | React.ReactElement
+} & AdditionalColorProps<['icon', 'hoverBackground', 'hoverIcon']> | React.ReactElement
 
 interface KeyValueListItemOptions {
   multiline?: boolean

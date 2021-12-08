@@ -1,14 +1,18 @@
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps, ColorProps } from 'Types/ComponentProps'
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
-interface TagProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  size?: TagBadgeSize
-  variant?: TagBadgeVariant
-  color?: SemanticNames
-  // Handlers
-  onDelete?: (e: React.MouseEvent) => void
+interface TagOptions {
+  onDelete?: React.MouseEventHandler
 }
+
+interface TagProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
+  SizeProps<TagBadgeSize>,
+  VariantProps<TagBadgeVariant>,
+  ColorProps,
+  TagOptions {}
 
 export default TagProps
