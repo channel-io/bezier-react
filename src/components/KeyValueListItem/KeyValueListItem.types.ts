@@ -3,8 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import type { ChildrenComponentProps } from 'Types/ComponentProps'
-import type { InjectedInterpolation } from 'Types/Foundation'
+import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
 export type KeyValueActionProps = {
@@ -14,15 +13,19 @@ export type KeyValueActionProps = {
   hoverIconColor?: SemanticNames
   tooltip?: string
   show?: boolean
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 } | React.ReactElement
 
-export interface KeyValueListItemProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
+interface KeyValueListItemOptions {
   multiline?: boolean
   keyIcon?: IconName | React.ReactNode
   keyContent?: React.ReactNode
   actions?: KeyValueActionProps | KeyValueActionProps[]
-  className?: string
-  valueWrapperInterpolation?: InjectedInterpolation
-  keyWrapperInterpolation?: InjectedInterpolation
 }
+
+export interface KeyValueListItemProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  React.HTMLAttributes<HTMLDivElement>,
+  AdditionalStylableProps<['valueWrapper', 'keyWrapper']>,
+  KeyValueListItemOptions {}
