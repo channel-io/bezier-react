@@ -2,11 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
-import Banner, {
-  BANNER_DISMISS_TEST_ID,
-  BANNER_LINK_TEST_ID,
-} from './Banner'
+import { render } from 'Utils/testUtils'
+import Banner, { BANNER_DISMISS_TEST_ID, BANNER_LINK_TEST_ID } from './Banner'
 import type { BannerProps } from './Banner.types'
 
 describe('Banner >', () => {

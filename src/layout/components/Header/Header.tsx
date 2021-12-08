@@ -2,8 +2,8 @@
 import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
-import { smoothCornersStyle, Typography } from '../../../foundation'
-import { Text } from '../../../components/Text'
+import { smoothCornersStyle, Typography } from 'Foundation'
+import { Text } from 'Components/Text'
 import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 

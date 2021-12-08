@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import LayoutSideType from '../../../types/LayoutSideType'
-import { ChildrenComponentProps } from '../../../../types/ComponentProps'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
+import LayoutSideType from 'Layout/types/LayoutSideType'
 
 export default interface SideAreaProps extends ChildrenComponentProps {
   sideType: LayoutSideType

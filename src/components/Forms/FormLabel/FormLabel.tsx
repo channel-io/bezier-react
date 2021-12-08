@@ -3,9 +3,9 @@ import React, { forwardRef, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from '../../../foundation'
-import { Text } from '../../Text'
-import { IconSize } from '../../Icon'
+import { Typography } from 'Foundation'
+import { Text } from 'Components/Text'
+import { IconSize } from 'Components/Icon'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 

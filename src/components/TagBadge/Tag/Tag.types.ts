@@ -1,10 +1,7 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../../foundation/Colors/Theme'
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
-import {
-  TagBadgeSize,
-  TagBadgeVariant,
-} from '../TagBadgeCommon'
+import { SemanticNames } from 'Foundation'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
 interface TagProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   size?: TagBadgeSize

@@ -1,30 +1,13 @@
 /* External dependencies */
-import React, {
-  useReducer,
-  useState,
-  useMemo,
-  useRef,
-  useCallback,
-  useEffect,
-  Ref,
-  forwardRef,
-} from 'react'
+import React, { useReducer, useState, useMemo, useRef, useCallback, useEffect, Ref, forwardRef } from 'react'
 import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import {
-  window,
-  document,
-  getRootElement,
-} from '../../utils/domUtils'
-import useEventHandler from '../../hooks/useEventHandler'
-import useMergeRefs from '../../hooks/useMergeRefs'
-import OverlayProps, {
-  OverlayPosition,
-  ContainerRectAttr,
-  TargetRectAttr,
-} from './Overlay.types'
+import useEventHandler from 'Hooks/useEventHandler'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import { window, document, getRootElement } from 'Utils/domUtils'
+import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 
 // TODO: 테스트 코드 작성

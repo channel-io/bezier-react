@@ -1,39 +1,14 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
-import {
-  flattenDeep,
-  fromPairs,
-  isArray,
-  noop,
-  values,
-} from 'lodash-es'
+import React, { forwardRef, useCallback, useMemo, useState } from 'react'
+import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 
 /* Internal dependencies */
-import {
-  Icon,
-  IconSize,
-} from '../Icon'
-import { isIconName } from '../Icon/utils'
-import { Text } from '../Text'
-import {
-  Spinner,
-  SpinnerSize,
-} from '../Spinner'
-import {
-  Typography,
-  SemanticNames,
-} from '../../foundation'
-import type { IconName } from '../Icon'
-import ButtonProps, {
-  ButtonSize,
-  ButtonStyleVariant,
-  ButtonColorVariant,
-} from './Button.types'
+import { Typography, SemanticNames } from 'Foundation'
+import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Text } from 'Components/Text'
+import { Spinner, SpinnerSize } from 'Components/Spinner'
+import type { IconName } from 'Components/Icon'
+import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'

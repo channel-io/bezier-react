@@ -3,9 +3,9 @@ import React from 'react'
 import _ from 'lodash'
 
 /* Internal dependencies */
-import { css, TransitionDuration } from '../../foundation'
-import { DarkTheme } from '../../foundation/Colors/Theme'
-import { render } from '../../utils/testUtils'
+import { css, TransitionDuration } from 'Foundation'
+import { DarkTheme } from 'Foundation/Colors/Theme'
+import { render } from 'Utils/testUtils'
 import ToastElementProps, { ToastAppearance, ToastPlacement, ToastPreset } from './Toast.types'
 import ToastElement, { TOAST_TEST_ID } from './ToastElement'
 

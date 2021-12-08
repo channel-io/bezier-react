@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { Avatar, AvatarSize } from '../Avatar'
+import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './CheckableAvatar.styled'
 

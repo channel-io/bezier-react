@@ -1,8 +1,8 @@
 /* Internal dependencies */
-import { styled, Transition } from '../../../foundation'
-import disabledOpacity from '../../../constants/DisabledOpacity'
-import { UIComponentProps } from '../../../types/ComponentProps'
-import { toLength } from '../../../utils/styleUtils'
+import { styled, Transition } from 'Foundation'
+import disabledOpacity from 'Constants/DisabledOpacity'
+import { UIComponentProps } from 'Types/ComponentProps'
+import { toLength } from 'Utils/styleUtils'
 import { SegmentedControlItemProps } from './SegmentedControl.types'
 
 interface StyledWrapperProps extends UIComponentProps {

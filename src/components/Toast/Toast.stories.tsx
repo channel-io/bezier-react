@@ -2,17 +2,15 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal depependencies */
-import { styled } from '../../foundation'
-import {
-  iconList,
-  getTitle,
-} from '../../utils/storyUtils'
+import { styled } from 'Foundation'
+import { iconList, getTitle } from 'Utils/storyUtils'
 import useToast from './useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import { ToastAppearance, ToastPreset } from './Toast.types'
+import ToastProps, { ToastAppearance, ToastPreset } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -56,7 +54,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const Container = styled.div`
   position: relative;
@@ -66,11 +64,7 @@ const Container = styled.div`
   border: 1px solid grey;
 `
 
-const Template = (args) => (
-  <ToastElement
-    {...args}
-  />
-)
+const Template: Story<ToastProps> = (args) => <ToastElement {...args} />
 
 export const Primary = Template.bind({})
 
@@ -137,7 +131,11 @@ function Div({
   )
 }
 
-export const WithAction = ({
+interface WithActionProps {
+  autoDismissTimeout: number
+}
+
+export const WithAction: Story<ToastProps & WithActionProps> = ({
   autoDismissTimeout,
   content,
   preset,
@@ -195,10 +193,10 @@ const Box = styled.div`
   z-index: 2000;
   width: 100vw;
   height: 200px;
-  background-color: ${({ foundation }) => foundation.theme['bgtxt-orange-lighter']};
+  background-color: ${({ foundation }) => foundation?.theme['bgtxt-orange-lighter']};
 `
 
-export const WithZIndex = () => (
+export const WithZIndex: Story<ToastProps> = () => (
   <Container id="story-wrapper">
     <ToastProvider>
       <ZIndexController />

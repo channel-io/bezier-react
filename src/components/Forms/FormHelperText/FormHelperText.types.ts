@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { IdentifierProps, ChildrenComponentProps } from '../../../types/ComponentProps'
+import { IdentifierProps, ChildrenComponentProps } from 'Types/ComponentProps'
 
 export default interface FormHelperTextProps extends ChildrenComponentProps, IdentifierProps {
   hasError?: boolean

@@ -2,10 +2,10 @@
 import type React from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from '../../foundation/Colors/Theme'
-import type { ChildrenComponentProps } from '../../types/ComponentProps'
-import type InjectedInterpolation from '../../types/InjectedInterpolation'
-import type { IconName, IconSize } from '../Icon'
+import type { SemanticNames } from 'Foundation'
+import type { ChildrenComponentProps } from 'Types/ComponentProps'
+import type InjectedInterpolation from 'Types/InjectedInterpolation'
+import type { IconName, IconSize } from 'Components/Icon'
 
 type SectionLabelHelpProps = {
   icon?: IconName

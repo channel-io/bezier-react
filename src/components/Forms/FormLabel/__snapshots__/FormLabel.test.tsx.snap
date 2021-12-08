@@ -8,14 +8,14 @@ exports[`FormLabel > Snapshot > 1`] = `
   font-style: normal;
   font-weight: bold;
   color: inherit;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 <label

@@ -3,8 +3,8 @@ import React, { forwardRef, Ref } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import LayoutSideType from '../../../types/LayoutSideType'
-import { SideArea } from '../SideArea'
+import LayoutSideType from 'Layout/types/LayoutSideType'
+import { SideArea } from 'Layout/components/Side/SideArea'
 import SidePanelContentProps from './SidePanelContent.types'
 
 // TODO: 테스트 코드 작성

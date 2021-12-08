@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, SemanticNames } from '../../foundation'
+import { styled, SemanticNames } from 'Foundation'
 
 interface IconStyledProps {
   color?: SemanticNames

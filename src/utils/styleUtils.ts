@@ -15,7 +15,7 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '../types/CSS'
+import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [

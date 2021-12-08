@@ -1,10 +1,11 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
-import { styled } from '../index'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 
 export default {
   title: getTitle(base),
@@ -24,7 +25,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 interface RoundingChipProps {
   round: string
@@ -37,9 +38,7 @@ const RoundingChip = styled.div<RoundingChipProps>`
   ${({ foundation }) => foundation?.elevation?.ev3()};
 `
 
-const Template = (args) => (
-  <RoundingChip {...args} />
-)
+const Template: Story<RoundingChipProps> = (args) => <RoundingChip {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

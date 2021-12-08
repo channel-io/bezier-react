@@ -2,10 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { SemanticNames } from '../../../../foundation/Colors/Theme'
-import { UIComponentProps } from '../../../../types/ComponentProps'
-import type InjectedInterpolation from '../../../../types/InjectedInterpolation'
-import type { IconName } from '../../../Icon'
+import { SemanticNames } from 'Foundation'
+import { UIComponentProps } from 'Types/ComponentProps'
+import type InjectedInterpolation from 'Types/InjectedInterpolation'
+import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

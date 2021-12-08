@@ -2,12 +2,9 @@
 import { isArray } from 'lodash'
 
 /* Internal dependencies */
-import { IconName } from '../components/Icon'
-import { TabsSize } from '../components/Tabs/Tabs.types'
-import {
-  getObjectFromEnum,
-  getTitle, iconList,
-} from './storyUtils'
+import { IconName } from 'Components/Icon'
+import TabsSize from 'Components/Tabs/TabsSize'
+import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
 describe('storyUtils Test >', () => {
   describe('getTitle Test >', () => {

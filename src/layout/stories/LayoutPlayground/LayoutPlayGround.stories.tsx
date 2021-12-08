@@ -2,30 +2,31 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import useSideWidth from '../../hooks/useSideWidth'
-import useSidePanelHandler from '../../hooks/useSidePanelHandler'
-import { getTitle } from '../../../utils/storyUtils'
-import { styled, Typography } from '../../../foundation'
-import { Icon, IconSize } from '../../../components/Icon'
-import { ListItem } from '../../../components/ListItem'
-import LayoutProvider from '../../LayoutProvider'
-import { Client } from '../../components/Client'
-import { Main } from '../../components/Main'
-import { GNB } from '../../components/GNB'
-import { Header } from '../../components/Header'
-import { Navigations } from '../../components/Navigations'
-import { SidePanelContent } from '../../components/Side/SidePanelContent'
-import { SideViewContent } from '../../components/Side/SideViewContent'
-import { NavigationContent } from '../../components/Navigations/NavigationContent'
+import { styled, Typography } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
+import { Icon, IconSize } from 'Components/Icon'
+import { ListItem } from 'Components/ListItem'
+import useSideWidth from 'Layout/hooks/useSideWidth'
+import useSidePanelHandler from 'Layout/hooks/useSidePanelHandler'
+import LayoutProvider from 'Layout/LayoutProvider'
+import { Client } from 'Layout/components/Client'
+import { Main } from 'Layout/components/Main'
+import { GNB } from 'Layout/components/GNB'
+import { Header } from 'Layout/components/Header'
+import { Navigations } from 'Layout/components/Navigations'
+import { SidePanelContent } from 'Layout/components/Side/SidePanelContent'
+import { SideViewContent } from 'Layout/components/Side/SideViewContent'
+import { NavigationContent } from 'Layout/components/Navigations/NavigationContent'
 import Content from './Content'
 import ContentHeader from './ContentHeader'
 import CoverableHeader from './CoverableHeader'
 
 export default {
   title: getTitle(base),
-}
+} as Meta
 
 const Container = styled.div`
   position: absolute;
@@ -69,7 +70,11 @@ enum RouteKeys {
   Setting = 'setting',
 }
 
-function TeamChatSidePanel({ onChangeWidth }) {
+interface TemplateProps {
+  onChangeWidth: () => void
+}
+
+function TeamChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
   const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
 
@@ -93,7 +98,7 @@ function TeamChatSidePanel({ onChangeWidth }) {
   )
 }
 
-function UserChatSidePanel({ onChangeWidth }) {
+function UserChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
   const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
 
@@ -117,7 +122,7 @@ function UserChatSidePanel({ onChangeWidth }) {
   )
 }
 
-function SideViewRoute({ onChangeWidth }) {
+function SideViewRoute({ onChangeWidth }: TemplateProps) {
   const [state, setState] = useState(Math.random() * 100)
 
   return (
@@ -130,7 +135,7 @@ function SideViewRoute({ onChangeWidth }) {
   )
 }
 
-const Template = ({ onChangeWidth }) => {
+const Template = ({ onChangeWidth }: TemplateProps) => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
@@ -340,18 +345,16 @@ const Template = ({ onChangeWidth }) => {
   )
 }
 
-function LayoutProvidedTemplate(props) {
-  return (
-    <LayoutProvider initialState={{
-      showingHidableNavigations: new Set([
-        RouteKeys.TeamChat,
-        RouteKeys.UserChat,
-      ]) }}
-    >
-      <Template {...props} />
-    </LayoutProvider>
-  )
-}
+const LayoutProvidedTemplate: Story<TemplateProps> = (args) => (
+  <LayoutProvider initialState={{
+    showingHidableNavigations: new Set([
+      RouteKeys.TeamChat,
+      RouteKeys.UserChat,
+    ]) }}
+  >
+    <Template {...args} />
+  </LayoutProvider>
+)
 
 export const Primary = LayoutProvidedTemplate.bind({})
 Primary.args = {

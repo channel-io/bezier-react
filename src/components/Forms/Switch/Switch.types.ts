@@ -2,7 +2,7 @@
 import { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
+import { UIComponentProps } from 'Types/ComponentProps'
 
 export default interface SwitchProps extends UIComponentProps {
   size?: number

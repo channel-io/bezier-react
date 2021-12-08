@@ -2,13 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import {
-  ChildrenComponentProps,
-  UIComponentProps,
-} from '../../types/ComponentProps'
-import OptionItem from '../../types/OptionItem'
-import ActivatableElement from '../../types/ActivatableElement'
-import { TabsSize } from '../Tabs/Tabs.types'
+import { ChildrenComponentProps, UIComponentProps } from 'Types/ComponentProps'
+import OptionItem from 'Types/OptionItem'
+import ActivatableElement from 'Types/ActivatableElement'
+import TabsSize from 'Components/Tabs/TabsSize'
 
 export default interface TabItemProps extends ChildrenComponentProps, OptionItem, ActivatableElement {
   height?: TabsSize | number

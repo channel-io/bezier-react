@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { Palette } from '../../Palette'
-import ThemeType from '../types/ThemeType'
+import { Palette } from 'Foundation/Colors/Palette'
+import { ThemeType } from 'Foundation/Colors/Theme'
 
 const DarkTheme: ThemeType = {
   // Elevation Background

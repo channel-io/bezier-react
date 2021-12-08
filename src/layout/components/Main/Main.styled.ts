@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { CONTENT_MIN_WIDTH, HEADER_HEIGHT } from '../../LayoutSizes'
-import { styled } from '../../../foundation'
+import { styled } from 'Foundation'
+import { CONTENT_MIN_WIDTH, HEADER_HEIGHT } from 'Layout/LayoutSizes'
 
 interface MainWrapperProps {
   hasSide: boolean

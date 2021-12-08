@@ -1,10 +1,6 @@
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
-import OverlayProps, {
-  OverlayPosition,
-  ContainerRectAttr,
-  TargetRectAttr,
-} from './Overlay.types'
+import { styled, css } from 'Foundation'
+import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import { getOverlayStyle } from './utils'
 
 interface StyledOverlayProps extends OverlayProps {

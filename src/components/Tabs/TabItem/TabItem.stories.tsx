@@ -1,14 +1,13 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '../../utils/storyUtils'
-import { TabsSize } from '../Tabs/Tabs.types'
+import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
+import TabsSize from 'Components/Tabs/TabsSize'
 import TabItem from './TabItem'
+import TabItemProps from './TabItem.types'
 
 export default {
   title: getTitle(base),
@@ -27,10 +26,10 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = ({ ...otherProps }) => (
-  <TabItem {...otherProps}>
+const Template: Story<TabItemProps> = (args) => (
+  <TabItem {...args}>
     Tab Item
   </TabItem>
 )

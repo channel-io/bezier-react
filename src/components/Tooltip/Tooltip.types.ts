@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { UIComponentProps, ChildrenComponentProps } from '../../types/ComponentProps'
+import { UIComponentProps, ChildrenComponentProps } from 'Types/ComponentProps'
 
 export default interface TooltipProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
   content?: React.ReactNode

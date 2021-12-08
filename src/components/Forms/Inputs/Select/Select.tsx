@@ -1,31 +1,13 @@
 /* External dependencies */
-import React, {
-  useState,
-  useCallback,
-  useMemo,
-  useRef,
-  forwardRef,
-  Ref,
-  useImperativeHandle,
-} from 'react'
-import {
-  isEmpty,
-  noop,
-} from 'lodash-es'
+import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useImperativeHandle } from 'react'
+import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import {
-  Icon,
-  IconSize,
-  isIconName,
-} from '../../../Icon'
-import { Text } from '../../../Text'
-import { OverlayPosition } from '../../../Overlay'
-import { Typography } from '../../../../foundation'
-import SelectProps, {
-  SelectRef,
-  SelectSize,
-} from './Select.types'
+import { Typography } from 'Foundation'
+import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Text } from 'Components/Text'
+import { OverlayPosition } from 'Components/Overlay'
+import SelectProps, { SelectRef, SelectSize } from './Select.types'
 import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'

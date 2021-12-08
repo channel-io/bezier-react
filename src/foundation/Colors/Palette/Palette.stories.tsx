@@ -3,8 +3,8 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import { styled } from '../../index'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 import { Palette } from './index'
 
 export default {

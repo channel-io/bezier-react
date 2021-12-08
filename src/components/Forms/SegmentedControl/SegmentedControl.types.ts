@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from '../../../types/ComponentProps'
-import OptionItemHost from '../../../types/OptionItemHost'
-import { ExplicitDefaulting, BoxSizingUnit } from '../../../types/CSS'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
+import OptionItemHost from 'Types/OptionItemHost'
+import { ExplicitDefaulting, BoxSizingUnit } from 'Types/CSS'
 
 export default interface SegmentedControlProps extends ChildrenComponentProps, OptionItemHost<number> {
   width?: number | string | ExplicitDefaulting | BoxSizingUnit

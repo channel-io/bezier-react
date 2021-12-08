@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ellipsis, Foundation, styled, Transition } from '../../foundation'
+import { ellipsis, Foundation, styled, Transition } from 'Foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 

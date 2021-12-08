@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
-import { Icon } from '../../Icon'
+import { styled } from 'Foundation'
+import { Icon } from 'Components/Icon'
 
 const CloseIcon = styled(Icon)`
   cursor: pointer;

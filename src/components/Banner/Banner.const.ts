@@ -1,9 +1,6 @@
 /* Internal dependencies */
-import type { InjectedInterpolation } from '../..'
-import {
-  css,
-  SemanticNames,
-} from '../../foundation'
+import { css, SemanticNames } from 'Foundation'
+import type { InjectedInterpolation } from 'Types/InjectedInterpolation'
 import { BannerColorVariant } from './Banner.types'
 
 export const BACKGROUND_COLORS: Record<BannerColorVariant, SemanticNames> = {

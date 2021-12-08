@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation } from '../../../foundation'
-import { render } from '../../../utils/testUtils'
+import { LightFoundation } from 'Foundation'
+import { render } from 'Utils/testUtils'
 import FormHelperText, { FORM_HELPER_TEXT_TEST_ID } from './FormHelperText'
 import type FormHelperTextProps from './FormHelperText.types'
 

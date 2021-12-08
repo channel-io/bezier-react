@@ -1,18 +1,18 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import { styled } from '../../index'
-import { Themes } from '../index'
+import { styled, Themes } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 
 export default {
   title: getTitle(base),
   parameters: {
     layout: 'fullscreen',
   },
-}
+} as Meta
 
 interface ColorProps {
   color: string
@@ -20,54 +20,52 @@ interface ColorProps {
 
 const ColorChipArtBoard = styled.div`
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
 `
 
 const ColorChip = styled.div`
-  margin: 10px;
-  width: 80px;
-  min-height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80px;
+  min-height: 80px;
+  margin: 10px;
 `
 
 const Color = styled.div<ColorProps>`
-  margin-bottom: 5px;
   width: 50px;
   height: 50px;
+  margin-bottom: 5px;
   ${({ foundation }) => foundation?.elevation?.ev3()};
-  background-color: ${({ color }) => color};
   ${({ foundation }) => foundation?.rounding?.round16};
+  background-color: ${({ color }) => color};
 `
 
 const ColorName = styled.span`
   width: 100%;
-  word-break: break-all;
   color: rgba(131, 131, 131, 0.609);
   text-align: center;
+  word-break: break-all;
 `
 
-const Template = ({ color }) => (
+const Template: Story<{ theme: ReturnType<typeof Themes['createThemes']> }> = ({ theme }) => (
   <ColorChipArtBoard>
-    {
-      Object.keys(color).map(colorKey => (
-        <ColorChip>
-          <Color color={color[colorKey]} />
-          <ColorName>{ colorKey }</ColorName>
-        </ColorChip>
-      ))
-    }
+    { Object.keys(theme).map(semanticName => (
+      <ColorChip key={semanticName}>
+        <Color color={theme[semanticName]} />
+        <ColorName>{ semanticName }</ColorName>
+      </ColorChip>
+    )) }
   </ColorChipArtBoard>
 )
 
 export const LightTheme = Template.bind({})
 LightTheme.args = {
-  color: Themes.LightTheme,
+  theme: Themes.LightTheme,
 }
 
 export const DarkTheme = Template.bind({})
 DarkTheme.args = {
-  color: Themes.DarkTheme,
+  theme: Themes.DarkTheme,
 }

@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { SemanticNames } from '../../foundation'
-import { UIComponentProps } from '../../types/ComponentProps'
+import { SemanticNames } from 'Foundation'
+import { UIComponentProps } from 'Types/ComponentProps'
 
 export enum SpinnerSize {
   XL = 50,

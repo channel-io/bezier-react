@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, css } from '../../foundation'
+import { styled, css } from 'Foundation'
 import { StyledDividerProps } from './Divider.types'
 
 const DIVIDER_THICKNESS = 1

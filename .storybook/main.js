@@ -1,4 +1,5 @@
 const path = require('path')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
   stories: [
@@ -16,6 +17,9 @@ module.exports = {
     postcss: false,
   },
   webpackFinal: async (config) => {
+    // Apply tsconfig alias path
+    config.resolve.plugins.push(new TsconfigPathsPlugin({}))
+
     config.module.rules.push({
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'],

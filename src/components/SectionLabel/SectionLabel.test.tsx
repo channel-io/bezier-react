@@ -1,11 +1,11 @@
 /* External dependencies */
 import React from 'react'
-import { LightFoundation } from '../../foundation'
+import { LightFoundation } from 'Foundation'
 
 /* Internal dependencies */
-import { render } from '../../utils/testUtils'
-import { BUTTON_TEST_ID } from '../Button/Button'
-import { ICON_TEST_ID } from '../Icon/Icon'
+import { render } from 'Utils/testUtils'
+import { BUTTON_TEST_ID } from 'Components/Button/Button'
+import { ICON_TEST_ID } from 'Components/Icon/Icon'
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
   SECTION_LABEL_TEST_LEFT_CONTENT_ID,

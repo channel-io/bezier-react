@@ -1,25 +1,16 @@
 /* External dependencies */
-import React, {
-  useState,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-} from 'react'
+import React, { useState, useCallback, useLayoutEffect, useMemo } from 'react'
 import { isArray, noop, compact } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import LayoutActions from '../../../redux/LayoutActions'
-import useLayoutState from '../../../hooks/useLayoutState'
-import useLayoutDispatch from '../../../hooks/useLayoutDispatch'
-import { mergeClassNames } from '../../../../utils/stringUtils'
-import { Button, ButtonStyleVariant, ButtonColorVariant } from '../../../../components/Button'
-import { NavigationArea } from '../NavigationArea'
-import {
-  StyledContentWrapper,
-  StyledFooterWrapper,
-  StyledTitleWrapper,
-} from './NavigationContent.styled'
+import { mergeClassNames } from 'Utils/stringUtils'
+import { LayoutActions } from 'Layout/redux'
+import useLayoutState from 'Layout/hooks/useLayoutState'
+import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
+import { NavigationArea } from 'Layout/components/Navigations/NavigationArea'
+import { Button, ButtonStyleVariant, ButtonColorVariant } from 'Components/Button'
+import { StyledContentWrapper, StyledFooterWrapper, StyledTitleWrapper } from './NavigationContent.styled'
 import NavigationContentProps from './NavigationContent.types'
 
 // TODO: 테스트 코드 작성

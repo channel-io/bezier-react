@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../../utils/storyUtils'
+import { getTitle } from 'Utils/storyUtils'
 import TagBadgeText from './TagBadgeText'
 import TagBadgeTextProps from './TagBadgeText.types'
 
@@ -29,19 +29,14 @@ export default {
   },
 } as Meta
 
-const Template: Story<TagBadgeTextProps> = ({
-  text,
-  ...otherProps
-}) => (
-  <TagBadgeText
-    {...otherProps}
-  >
-    { text }
+const Template: Story<TagBadgeTextProps> = ({ children, ...otherProps }) => (
+  <TagBadgeText {...otherProps}>
+    { children }
   </TagBadgeText>
 )
 
 export const Primary: Story<TagBadgeTextProps> = Template.bind({})
 Primary.args = {
-  text: 'hello',
+  children: 'hello',
   horizontalPadding: 4,
 }

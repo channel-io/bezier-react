@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { IconSize } from '../Icon'
+import { IconSize } from 'Components/Icon'
 import { StatusType, StatusProps } from './Status.types'
 import { StatusCircle, LockIcon } from './Status.styled'
 

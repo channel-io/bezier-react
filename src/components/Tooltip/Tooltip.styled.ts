@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '../../foundation'
+import { styled, css, ellipsis, LineHeightAbsoluteNumber } from 'Foundation'
 
 interface ContentWrapperProps {
   disabled: boolean

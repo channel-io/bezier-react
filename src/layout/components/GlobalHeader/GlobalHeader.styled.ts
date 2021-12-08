@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { styled } from 'Foundation'
 import GlobalHeaderProps from './GlobalHeader.types'
 
 export const StyledGlobalHeader = styled.div<GlobalHeaderProps>`

@@ -1,10 +1,11 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../utils/storyUtils'
-import { styled } from '../index'
+import { styled } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
 
 export default {
   title: getTitle(base),
@@ -23,7 +24,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 interface BorderChipProps {
   width: number
@@ -35,17 +36,15 @@ interface BorderChipProps {
 }
 
 const BorderChip = styled.div<BorderChipProps>`
+  box-sizing: border-box;
   width: 100px;
   height: 100px;
   background-color: white;
   ${({ foundation, width, color, top, right, bottom, left }) =>
     foundation?.border?.getBorder(width, color, { top, right, bottom, left })};
-  box-sizing: border-box;
 `
 
-const Template = (args) => (
-  <BorderChip {...args} />
-)
+const Template: Story<BorderChipProps> = (args) => <BorderChip {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

@@ -1,11 +1,13 @@
 /* External dependencies */
 import React, { useState, useMemo } from 'react'
 import { base } from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from '../../../utils/storyUtils'
-import { Text } from '../../Text'
-import { Typography } from '../../../foundation'
+import { Typography } from 'Foundation'
+import { getTitle } from 'Utils/storyUtils'
+import { Text } from 'Components/Text'
+import RadioProps from './Radio.types'
 import Radio from './Radio'
 
 export default {
@@ -14,15 +16,15 @@ export default {
   argTypes: {
     onClick: { action: 'onClick' },
   },
-}
+} as Meta
 
-const Template = ({
-  text,
+const Template: Story<RadioProps> = ({
+  children,
   ...otherRadioProps
 }) => (
   <Radio {...otherRadioProps}>
     <Text>
-      { text }
+      { children }
     </Text>
   </Radio>
 )
@@ -32,7 +34,7 @@ Primary.args = {
   value: 1,
   watchingValue: 1,
   disabled: false,
-  text: 'hello, world!',
+  children: 'hello, world!',
 }
 
 export const MultiRadio = ({
@@ -41,7 +43,7 @@ export const MultiRadio = ({
 }) => {
   const [selected, setSelected] = useState(1)
 
-  const options = useMemo(() => [...Array(optionsRange).keys()], [optionsRange])
+  const options = useMemo(() => Array.from(Array(optionsRange).keys()), [optionsRange])
 
   return (
     <>

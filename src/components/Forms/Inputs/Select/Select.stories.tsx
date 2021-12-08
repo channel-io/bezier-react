@@ -1,14 +1,12 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '../../../../utils/storyUtils'
+import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
 import Select from './Select'
-import { SelectSize } from './Select.types'
+import SelectProps, { SelectSize } from './Select.types'
 
 export default {
   title: getTitle(base),
@@ -21,11 +19,9 @@ export default {
       },
     },
   },
-}
+} as Meta
 
-const Template = (args) => (
-  <Select {...args} />
-)
+const Template: Story<SelectProps> = (args) => <Select {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

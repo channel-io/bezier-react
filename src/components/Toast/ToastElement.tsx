@@ -3,20 +3,12 @@ import React, { Fragment, forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from '../../foundation'
-import { Icon, IconSize } from '../Icon'
-import { Text } from '../Text'
-import ToastProps, { ToastPreset } from './Toast.types'
-import {
-  Element,
-  IconWrapper,
-  Close,
-  ActionContent,
-  NormalContent,
-  Content,
-  EllipsisableContent,
-} from './Toast.styled'
+import { Typography } from 'Foundation'
+import { Icon, IconSize } from 'Components/Icon'
+import { Text } from 'Components/Text'
 import { getToastPreset } from './utils'
+import ToastProps, { ToastPreset } from './Toast.types'
+import { Element, IconWrapper, Close, ActionContent, NormalContent, Content, EllipsisableContent } from './Toast.styled'
 
 export const TOAST_TEST_ID = 'bezier-react-toast'
 

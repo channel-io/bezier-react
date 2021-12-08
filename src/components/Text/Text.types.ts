@@ -2,8 +2,8 @@
 import { css } from 'styled-components'
 
 /* Internal dependencies */
-import { SemanticNames } from '../../foundation'
-import { IdentifierProps, ChildrenComponentProps } from '../../types/ComponentProps'
+import { SemanticNames } from 'Foundation'
+import { IdentifierProps, ChildrenComponentProps } from 'Types/ComponentProps'
 
 export default interface TextProps extends ChildrenComponentProps, Partial<IdentifierProps> {
   bold?: boolean

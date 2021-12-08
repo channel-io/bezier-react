@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, smoothCorners } from '../../../foundation'
+import { styled, smoothCorners } from 'Foundation'
 
 interface ContainerProps {
   isHover?: boolean

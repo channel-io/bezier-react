@@ -2,17 +2,9 @@
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import {
-  styled,
-  css,
-  SemanticNames,
-} from '../../foundation'
-import DisabledOpacity from '../../constants/DisabledOpacity'
-import ButtonProps, {
-  ButtonSize,
-  ButtonStyleVariant,
-  ButtonColorVariant,
-} from './Button.types'
+import { styled, css, SemanticNames } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
+import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 
 interface GetSizeCSSFromButtonSizeArgs {
   size?: ButtonSize

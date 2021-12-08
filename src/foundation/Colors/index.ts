@@ -1,10 +1,5 @@
 /* Internal dependencies */
-import {
-  LightTheme,
-  DarkTheme,
-  ThemeType,
-  SemanticNames,
-} from './Theme'
+import { LightTheme, DarkTheme, ThemeType, SemanticNames } from './Theme'
 
 const LIGHT_KEYWORD = 'light'
 const DARK_KEYWORD = 'dark'

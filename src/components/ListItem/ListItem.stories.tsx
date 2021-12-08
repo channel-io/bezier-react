@@ -1,54 +1,24 @@
 /* External dependencies */
-import React, {
-  useState,
-  useMemo,
-} from 'react'
+import React, { useState, useMemo } from 'react'
 import base from 'paths.macro'
+import { Meta, Story } from '@storybook/react'
 import { compact } from 'lodash-es'
 
 /* Internal dependencies */
-import {
-  iconList,
-  getTitle,
-} from '../../utils/storyUtils'
+import { iconList, getTitle } from 'Utils/storyUtils'
 import ListItem from './ListItem'
-import {
-  ListItemSize,
-  ListItemColorVariant,
-} from './ListItem.types'
+import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
 
 export default {
   title: getTitle(base),
   component: ListItem,
-  argTypes: {
-    width: {
-      control: {
-        type: 'range',
-        min: 50,
-        max: 500,
-        step: 1,
-      },
-    },
-    disabled: { control: { type: 'boolean' } },
-    colorVariant: {
-      control: {
-        type: 'radio',
-        options: [
-          ...Object.values(ListItemColorVariant),
-        ],
-      },
-    },
-    active: { control: { type: 'boolean' } },
-    leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
-    size: { control: { type: 'select', options: ListItemSize } },
-  },
-}
+} as Meta
 
-const Template = ({ width, ...otherListItemProps }) => (
+const Template: Story<ListItemProps & { width: number }> = ({ width, ...listItemProps }) => (
   <div style={{ width }}>
     <ListItem
       optionKey="menu-item-0"
-      {...otherListItemProps}
+      {...listItemProps}
     />
   </div>
 )
@@ -69,11 +39,36 @@ Primary.args = {
   href: '',
 }
 
-export const MultiListItem = ({
-  listRange,
-}: { listRange: number }) => {
+Primary.argTypes = {
+  width: {
+    control: {
+      type: 'range',
+      min: 50,
+      max: 500,
+      step: 1,
+    },
+  },
+  disabled: { control: { type: 'boolean' } },
+  colorVariant: {
+    control: {
+      type: 'radio',
+      options: [
+        ...Object.values(ListItemColorVariant),
+      ],
+    },
+  },
+  active: { control: { type: 'boolean' } },
+  leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
+  size: { control: { type: 'select', options: ListItemSize } },
+}
+
+interface CompositionProps {
+  listRange: number
+}
+
+const CompositionTemplate = ({ listRange }: CompositionProps) => {
   const [activeIndex, setActiveIndex] = useState<Set<number>>(() => {
-    const randomActiveIndex = [...Array(listRange).keys()].map((index) => (Math.random() < 0.5 ? index : null))
+    const randomActiveIndex = Array.from(Array(listRange).keys()).map((index) => (Math.random() < 0.5 ? index : null))
     return new Set(compact([...randomActiveIndex]))
   })
 
@@ -82,19 +77,19 @@ export const MultiListItem = ({
   const toggleActive = (index: number) => setActiveIndex((prevSet) => {
     if (prevSet.has(index)) {
       prevSet.delete(index)
-      return new Set([...prevSet])
+      return new Set(Array.from(prevSet))
     }
-    return new Set([...prevSet.add(index)])
+    return new Set(Array.from(prevSet.add(index)))
   })
 
-  const list = useMemo(() => [...Array(listRange).keys()], [listRange])
+  const list = useMemo(() => Array.from(Array(listRange).keys()), [listRange])
 
   return (
     <div>
       { list.map((index) => (
         <ListItem
           key={index}
-          className={isActive(index) && 'active'}
+          className={isActive(index) ? 'active' : undefined}
           optionKey={`menu-item-${index}`}
           active={isActive(index)}
           onClick={() => toggleActive(index)}
@@ -105,11 +100,13 @@ export const MultiListItem = ({
   )
 }
 
-MultiListItem.args = {
+export const Composition: Story<CompositionProps> = CompositionTemplate.bind({})
+
+Composition.args = {
   listRange: 10,
 }
 
-MultiListItem.argTypes = {
+Composition.argTypes = {
   listRange: {
     control: {
       type: 'range',

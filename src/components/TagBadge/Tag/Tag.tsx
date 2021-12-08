@@ -14,7 +14,7 @@ import {
   getProperTagBadgePadding,
   getProperTagBadgeTypo,
   getProperTagBadgeRounding,
-} from '../TagBadgeCommon'
+} from 'Components/TagBadge/TagBadgeCommon'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { UIComponentProps } from '../../../types/ComponentProps'
+import { UIComponentProps } from 'Types/ComponentProps'
 
 export default interface HeaderAreaProps extends UIComponentProps {
   hasHeader: boolean

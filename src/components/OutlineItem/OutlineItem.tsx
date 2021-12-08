@@ -3,20 +3,11 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize } from '../Icon'
-import { isIconName } from '../Icon/utils'
+import { IconSize, isIconName } from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
-import OutlineItemProps, {
-  ChevronIconType,
-} from './OutlineItem.types'
-import {
-  GroupItemWrapper,
-  StyledIcon,
-  ContentWrapper,
-  ChevronWrapper,
-  LeftContentWrapper,
-} from './OutlineItem.styled'
+import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
+import { GroupItemWrapper, StyledIcon, ContentWrapper, ChevronWrapper, LeftContentWrapper } from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
 

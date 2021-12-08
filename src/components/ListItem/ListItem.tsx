@@ -1,30 +1,16 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  useState,
-  useCallback,
-  useMemo,
-} from 'react'
-import {
-  noop,
-  isNil,
-  isEmpty,
-  isString,
-} from 'lodash-es'
+import React, { forwardRef, useState, useCallback, useMemo } from 'react'
+import { noop, isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import useMergeRefs from '../../hooks/useMergeRefs'
-import { mergeClassNames } from '../../utils/stringUtils'
-import { Text } from '../Text'
-import { IconSize } from '../Icon'
-import { isIconName } from '../Icon/utils'
-import { Typography } from '../../foundation'
+import { Typography } from 'Foundation'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import { mergeClassNames } from 'Utils/stringUtils'
+import { Text } from 'Components/Text'
+import { IconSize, isIconName } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
-import ListItemProps, {
-  ListItemSize,
-  ListItemColorVariant,
-} from './ListItem.types'
+import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,

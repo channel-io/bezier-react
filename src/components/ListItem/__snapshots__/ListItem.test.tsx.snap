@@ -8,14 +8,14 @@ exports[`ListItem Snapshot > 1`] = `
   font-style: normal;
   font-weight: normal;
   color: inherit;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c2 {
@@ -32,14 +32,14 @@ exports[`ListItem Snapshot > 1`] = `
 }
 
 .c2 span {
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c3 {
@@ -71,14 +71,14 @@ exports[`ListItem Snapshot > 1`] = `
   text-decoration: none;
   cursor: pointer;
   opacity: 1;
-  -webkit-transition-property: background-color;
-  transition-property: background-color;
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
 }
 
 .c0:hover {

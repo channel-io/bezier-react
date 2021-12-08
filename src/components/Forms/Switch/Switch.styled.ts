@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '../../../foundation'
+import { styled } from 'Foundation'
 import { WrapperProps, ContentProps } from './Switch.types'
 
 const PADDING = 4

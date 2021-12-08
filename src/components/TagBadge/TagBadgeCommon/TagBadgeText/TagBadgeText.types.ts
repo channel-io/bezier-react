@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { css } from '../../../../foundation/FoundationStyledComponent'
-import { ChildrenComponentProps } from '../../../../types/ComponentProps'
+import { css } from 'Foundation'
+import { ChildrenComponentProps } from 'Types/ComponentProps'
 
 interface TagBadgeTextProps extends Omit<ChildrenComponentProps, 'style' | 'className' | 'interpolation'>{
   typo: ReturnType<typeof css>
