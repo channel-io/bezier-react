@@ -4,9 +4,9 @@ import { render as baseRender, RenderOptions } from '@testing-library/react'
 
 /* Internal dependencies */
 import { FoundationProvider, LightFoundation } from 'Foundation'
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { ChildrenProps } from 'Types/ComponentProps'
 
-function TestProviders({ children }: ChildrenComponentProps) {
+function TestProviders({ children }: ChildrenProps) {
   return (
     <FoundationProvider foundation={LightFoundation}>
       { children }

@@ -19,16 +19,6 @@ interface StylableComponentProps {
 
 export type BezierComponentProps = RenderConfigProps & StylableComponentProps
 
-/** @deprecated FIXME 삭제 예정 */
-export interface ContentComponentProps<Content = React.ReactNode> extends BezierComponentProps {
-  content?: Content
-}
-
-/** @deprecated FIXME 삭제 예정 */
-export interface ChildrenComponentProps<Children = React.ReactNode> extends BezierComponentProps {
-  children?: Children
-}
-
 /* Component Additional Props */
 export interface ContentProps<Content = React.ReactNode> {
   content?: Content

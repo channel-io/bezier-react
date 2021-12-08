@@ -61,8 +61,6 @@ export { default as useHeader } from 'Layout/hooks/useHeader'
 /* Types */
 export type {
   BezierComponentProps,
-  ContentComponentProps,
-  ChildrenComponentProps,
   ActivatableProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
