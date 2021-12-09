@@ -32,8 +32,9 @@ export * from 'Components/Forms/Inputs/Select'
 export * from 'Components/Forms/Inputs/TextField'
 export * from 'Components/Forms/Inputs/TextArea'
 export * from 'Components/Forms/Inputs/InputWrapperStyle'
-export * from 'Components/Forms/FormHelperText'
+export * from 'Components/Forms/FormControl'
 export * from 'Components/Forms/FormLabel'
+export * from 'Components/Forms/FormHelperText'
 
 /* Hooks for Component */
 export { default as useToast } from 'Components/Toast/useToast'
