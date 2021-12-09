@@ -9,6 +9,7 @@ export enum TypoAbsoluteNumber {
   Typo15 = 15,
   Typo16 = 16,
   Typo18 = 18,
+  Typo22 = 22,
   Typo24 = 24,
 }
 
@@ -18,6 +19,7 @@ export enum LineHeightAbsoluteNumber {
   Lh20 = 20,
   Lh22 = 22,
   Lh24 = 24,
+  Lh28 = 28,
   Lh32 = 32,
 }
 
@@ -58,6 +60,12 @@ const Size18 = css`
   line-height: ${LineHeightAbsoluteNumber.Lh24}px;
 `
 
+const Size22 = css`
+  font-size: ${TypoAbsoluteNumber.Typo22}px;
+  line-height: ${LineHeightAbsoluteNumber.Lh28}px;
+  letter-spacing: -0.4px;
+`
+
 const Size24 = css`
   font-size: ${TypoAbsoluteNumber.Typo24}px;
   line-height: ${LineHeightAbsoluteNumber.Lh32}px;
@@ -74,5 +82,6 @@ export const Typography = {
   Size15,
   Size16,
   Size18,
+  Size22,
   Size24,
 }
