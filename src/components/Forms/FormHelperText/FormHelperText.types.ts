@@ -5,5 +5,5 @@ import { FormComponentProps } from 'Components/Forms/Form.types'
 export default interface FormHelperTextProps extends
   BezierComponentProps,
   ChildrenProps,
-  IdentifierProps,
+  Partial<IdentifierProps>,
   FormComponentProps {}

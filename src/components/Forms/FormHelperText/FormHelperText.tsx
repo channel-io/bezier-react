@@ -1,9 +1,11 @@
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, { forwardRef, useMemo, useCallback } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography, SemanticNames } from 'Foundation'
+import { Typography } from 'Foundation'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import useFormControlContext from 'Components/Forms/useFormControlContext'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 
@@ -13,31 +15,48 @@ function FormHelperText({
   id,
   testId = FORM_HELPER_TEXT_TEST_ID,
   as = 'p',
-  hasError,
+  hasError: hasErrorProps,
   children,
   ...rest
 }: FormHelperTextProps,
 forwardedRef: React.Ref<HTMLParamElement>,
 ) {
-  const color = useMemo<SemanticNames>(() => {
-    if (hasError) {
-      return 'bgtxt-orange-normal'
-    }
-    return 'txt-black-dark'
-  }, [hasError])
+  const contextValue = useFormControlContext()
+
+  const setIsRendered = useCallback((node: HTMLElement) => {
+    if (!node) { return }
+    contextValue?.setHasHelperText(true)
+  }, [contextValue])
+
+  const mergedRef = useMergeRefs<HTMLElement>(setIsRendered, forwardedRef)
+
+  const mergedProps = useMemo(() => {
+    const hasError = hasErrorProps ?? contextValue?.hasError
+    return {
+      id: id ?? contextValue?.helperTextId,
+      color: hasError
+        ? 'bgtxt-orange-normal'
+        : 'txt-black-dark',
+      'aria-live': hasError ? 'polite' : undefined,
+    } as const
+  }, [
+    id,
+    hasErrorProps,
+    contextValue?.helperTextId,
+    contextValue?.hasError,
+  ])
 
   if (isEmpty(children)) { return null }
 
   return (
     <Styled.HelperText
       {...rest}
-      id={id}
+      {...mergedProps}
       testId={testId}
-      ref={forwardedRef}
+      ref={mergedRef}
       forwardedAs={as}
       marginTop={4}
       typo={Typography.Size13}
-      color={color}
     >
       { children }
     </Styled.HelperText>
