@@ -67,10 +67,6 @@ function Overlay(
   }, [])
 
   const handleContainerRect = useCallback(() => {
-    if (!show) {
-      return
-    }
-
     const containerElement = container || getRootElement() as HTMLElement
 
     const {
@@ -88,17 +84,19 @@ function Overlay(
       scrollTop: container ? container.scrollTop : 0,
       scrollLeft: container ? container.scrollLeft : 0,
     }
-  }, [
-    container,
-    show,
-  ])
+  }, [container])
 
   useLayoutEffect(function initContainerRect() {
-    handleContainerRect()
-  }, [handleContainerRect])
+    if (show) {
+      handleContainerRect()
+    }
+  }, [
+    show,
+    handleContainerRect,
+  ])
 
   const handleTargetRect = useCallback(() => {
-    if (!target || !show) {
+    if (!target) {
       return
     }
     const {
@@ -117,14 +115,16 @@ function Overlay(
       clientTop,
       clientLeft,
     }
-  }, [
-    target,
-    show,
-  ])
+  }, [target])
 
   useLayoutEffect(function initTargetRect() {
-    handleTargetRect()
-  }, [handleTargetRect])
+    if (show) {
+      handleTargetRect()
+    }
+  }, [
+    show,
+    handleTargetRect,
+  ])
 
   const handleTransitionEnd = useCallback(() => {
     if (!show) {
