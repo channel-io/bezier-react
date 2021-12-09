@@ -16,6 +16,7 @@ function FormLabel({
   testId = FORM_LABEL_TEST_ID,
   htmlFor,
   help,
+  as = 'label',
   bold = true,
   typo = Typography.Size13,
   children,
@@ -30,7 +31,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
         {...rest}
         ref={forwardedRef}
         testId={testId}
-        as="label"
+        as={as}
         // @ts-ignore HTMLLabelElement Property
         htmlFor={htmlFor}
         bold={bold}
@@ -40,6 +41,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       </Text>
     )
   }, [
+    as,
     rest,
     typo,
     bold,
