@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 import type { FormLabelProps } from 'Components/Forms/FormLabel'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 
@@ -11,9 +11,10 @@ interface FormControlOptions {
   errorMessage?: string
 }
 
+type FormFieldType = React.ReactElement<FormComponentProps> | React.ReactElement<FormComponentProps>[]
+
 export default interface FormControlProps extends
   BezierComponentProps,
-  ChildrenProps,
-  IdentifierProps,
+  ChildrenProps<FormFieldType>,
   FormComponentProps,
   FormControlOptions {}
