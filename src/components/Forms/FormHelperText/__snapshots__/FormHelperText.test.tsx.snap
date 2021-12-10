@@ -19,7 +19,9 @@ exports[`FormHelperText > Snapshot > 1`] = `
 }
 
 .c1 {
+  display: block;
   padding: 0 2px;
+  text-align: left;
 }
 
 <p

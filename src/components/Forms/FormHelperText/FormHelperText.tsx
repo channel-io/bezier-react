@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash-es'
 import { Typography } from 'Foundation'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
+import type { TextProps } from 'Components/Text'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 
@@ -16,6 +17,8 @@ function FormHelperText({
   testId = FORM_HELPER_TEXT_TEST_ID,
   as = 'p',
   hasError: hasErrorProps,
+  typo = Typography.Size13,
+  marginTop = 4,
   children,
   ...rest
 }: FormHelperTextProps,
@@ -30,7 +33,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
 
   const mergedRef = useMergeRefs<HTMLElement>(setIsRendered, forwardedRef)
 
-  const mergedProps = useMemo(() => {
+  const mergedProps = useMemo<TextProps>(() => {
     const hasError = hasErrorProps ?? contextValue?.hasError
     return {
       id: id ?? contextValue?.helperTextId,
@@ -38,7 +41,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
         ? 'bgtxt-orange-normal'
         : 'txt-black-dark',
       'aria-live': hasError ? 'polite' : undefined,
-    } as const
+    }
   }, [
     id,
     hasErrorProps,
@@ -55,8 +58,8 @@ forwardedRef: React.Ref<HTMLParamElement>,
       testId={testId}
       ref={mergedRef}
       forwardedAs={as}
-      marginTop={4}
-      typo={Typography.Size13}
+      marginTop={marginTop}
+      typo={typo}
     >
       { children }
     </Styled.HelperText>
