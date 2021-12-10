@@ -1,9 +1,14 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
-import { FormComponentProps } from 'Components/Forms/Form.types'
+import type { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
+import type { FormLabelProps } from 'Components/Forms/FormLabel'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
 
 interface FormControlOptions {
-  labelPosition: 'top' | 'left'
+  label?: string
+  labelPosition?: 'top' | 'left'
+  help?: FormLabelProps['help']
+  helperText?: string
+  errorMessage?: string
 }
 
 export default interface FormControlProps extends
@@ -12,13 +17,3 @@ export default interface FormControlProps extends
   IdentifierProps,
   FormComponentProps,
   FormControlOptions {}
-
-export interface FormControlContextValue extends
-  FormComponentProps,
-  FormControlOptions {
-  fieldId: string
-  labelId: string
-  helperTextId: string
-  hasHelperText: boolean
-  setHasHelperText: React.Dispatch<React.SetStateAction<boolean>>
-}

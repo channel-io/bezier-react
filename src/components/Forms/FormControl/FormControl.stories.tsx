@@ -5,8 +5,6 @@ import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { FormLabel, FormLabelProps } from 'Components/Forms/FormLabel'
-import { FormHelperText } from 'Components/Forms/FormHelperText'
 import { TextField } from 'Components/Forms/Inputs/TextField'
 import FormControl from './FormControl'
 import FormControlProps from './FormControl.types'
@@ -16,20 +14,18 @@ export default {
   component: FormControl,
 } as Meta
 
-const Template: Story<FormControlProps & FormLabelProps> = ({ help, hasError, ...args }) => (
-  <FormControl
-    {...args}
-    hasError={hasError}
-  >
-    <FormLabel help={help}>Label</FormLabel>
+const Template: Story<FormControlProps> = (args) => (
+  <FormControl {...args}>
     <TextField />
-    <FormHelperText>{ hasError ? 'Error!' : 'Helper' }</FormHelperText>
   </FormControl>
 )
 
-export const Primary: Story<FormControlProps & FormLabelProps> = Template.bind({})
+export const Primary: Story<FormControlProps> = Template.bind({})
 Primary.args = {
   id: 'form',
+  label: '123',
   help: 'Lorem Ipsum',
   hasError: false,
+  helperText: 'Helper',
+  errorMessage: 'Error!',
 }
