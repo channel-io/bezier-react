@@ -18,8 +18,13 @@ exports[`FormLabel > Snapshot > 1`] = `
   transition-property: color;
 }
 
+.c1 {
+  display: block;
+  text-align: left;
+}
+
 <label
-  class="c0"
+  class="c0 c1"
   data-testid="bezier-react-form-label"
 >
   label
