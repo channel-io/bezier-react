@@ -16,7 +16,7 @@ export default function EnableCSSHoudini({
   if (typeof CSS === 'undefined') { return }
 
   if ('paintWorklet' in CSS) {
-    if (smoothCorners) {
+    if (smoothCorners && !enableSmoothCorners.current) {
       const workletURL = URL.createObjectURL(new Blob([SmoothCornersScript], { type: 'application/javascript' }))
       // @ts-ignore
       CSS.paintWorklet.addModule(workletURL)
