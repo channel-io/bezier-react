@@ -2,73 +2,73 @@
 import { css } from './FoundationStyledComponent'
 
 export enum TypoAbsoluteNumber {
-  Typo11 = 11,
-  Typo12 = 12,
-  Typo13 = 13,
-  Typo14 = 14,
-  Typo15 = 15,
-  Typo16 = 16,
-  Typo18 = 18,
-  Typo22 = 22,
-  Typo24 = 24,
+  Typo11 = 1.1,
+  Typo12 = 1.2,
+  Typo13 = 1.3,
+  Typo14 = 1.4,
+  Typo15 = 1.5,
+  Typo16 = 1.6,
+  Typo18 = 1.8,
+  Typo22 = 2.2,
+  Typo24 = 2.4,
 }
 
 export enum LineHeightAbsoluteNumber {
-  Lh16 = 16,
-  Lh18 = 18,
-  Lh20 = 20,
-  Lh22 = 22,
-  Lh24 = 24,
-  Lh28 = 28,
-  Lh32 = 32,
+  Lh16 = 1.6,
+  Lh18 = 1.8,
+  Lh20 = 2.0,
+  Lh22 = 2.2,
+  Lh24 = 2.4,
+  Lh28 = 2.8,
+  Lh32 = 3.2,
 }
 
 const Size11 = css`
-  font-size: ${TypoAbsoluteNumber.Typo11}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh16}px;
+  font-size: ${TypoAbsoluteNumber.Typo11}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh16}rem;
 `
 
 const Size12 = css`
-  font-size: ${TypoAbsoluteNumber.Typo12}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh16}px;
+  font-size: ${TypoAbsoluteNumber.Typo12}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh16}rem;
 `
 
 const Size13 = css`
-  font-size: ${TypoAbsoluteNumber.Typo13}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh18}px;
+  font-size: ${TypoAbsoluteNumber.Typo13}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh18}rem;
 `
 
 const Size14 = css`
-  font-size: ${TypoAbsoluteNumber.Typo14}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh18}px;
+  font-size: ${TypoAbsoluteNumber.Typo14}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh18}rem;
 `
 
 const Size15 = css`
-  font-size: ${TypoAbsoluteNumber.Typo15}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh20}px;
+  font-size: ${TypoAbsoluteNumber.Typo15}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh20}rem;
   letter-spacing: -0.1px;
 `
 
 const Size16 = css`
-  font-size: ${TypoAbsoluteNumber.Typo16}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh22}px;
+  font-size: ${TypoAbsoluteNumber.Typo16}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh22}rem;
   letter-spacing: -0.1px;
 `
 
 const Size18 = css`
-  font-size: ${TypoAbsoluteNumber.Typo18}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh24}px;
+  font-size: ${TypoAbsoluteNumber.Typo18}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh24}rem;
 `
 
 const Size22 = css`
-  font-size: ${TypoAbsoluteNumber.Typo22}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh28}px;
+  font-size: ${TypoAbsoluteNumber.Typo22}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh28}rem;
   letter-spacing: -0.4px;
 `
 
 const Size24 = css`
-  font-size: ${TypoAbsoluteNumber.Typo24}px;
-  line-height: ${LineHeightAbsoluteNumber.Lh32}px;
+  font-size: ${TypoAbsoluteNumber.Typo24}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh32}rem;
   letter-spacing: -0.4px;
 `
 
