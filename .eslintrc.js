@@ -22,6 +22,11 @@ module.exports = {
             position: 'before',
           },
           {
+            pattern: 'Providers/**',
+            group: 'internal',
+            position: 'before',
+          },
+          {
             pattern: 'Hooks/**',
             group: 'internal',
             position: 'before',

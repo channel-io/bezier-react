@@ -3,14 +3,15 @@ import React, { ReactElement } from 'react'
 import { render as baseRender, RenderOptions } from '@testing-library/react'
 
 /* Internal dependencies */
-import { FoundationProvider, LightFoundation } from 'Foundation'
+import { LightFoundation } from 'Foundation'
+import BezierProvider from 'Providers/BezierProvider'
 import { ChildrenProps } from 'Types/ComponentProps'
 
 function TestProviders({ children }: ChildrenProps) {
   return (
-    <FoundationProvider foundation={LightFoundation}>
+    <BezierProvider foundation={LightFoundation}>
       { children }
-    </FoundationProvider>
+    </BezierProvider>
   )
 }
 
