@@ -1,9 +1,8 @@
 /* External dependencies */
-import { createGlobalStyle } from 'styled-components'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Foundation } from './Foundation'
+import { createGlobalStyle } from './FoundationStyledComponent'
 
 type ThemeRecord = Record<string, string>
 
@@ -16,11 +15,9 @@ function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
   }), {} as ThemeRecord)
 }
 
-const ThemeVars = createGlobalStyle<{ foundation?: Foundation }>`
+export const ThemeVars = createGlobalStyle`
   :root {
     ${({ foundation }) => generateCSSVar(foundation?.theme)}
     ${({ foundation }) => generateCSSVar(foundation?.subTheme, 'inverted')}
   }
 `
-
-export default ThemeVars

@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Foundation, FoundationProvider, GlobalStyle, GlobalStyleProp } from 'Foundation'
+import { Foundation, FoundationProvider, GlobalStyle, GlobalStyleProp, ThemeVars } from 'Foundation'
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 
 interface BezierProviderProps {
@@ -19,6 +19,7 @@ function BezierProvider({
   return (
     <FoundationProvider foundation={foundation}>
       <GlobalStyle foundation={foundation} />
+      <ThemeVars foundation={foundation} />
       { children }
     </FoundationProvider>
   )
