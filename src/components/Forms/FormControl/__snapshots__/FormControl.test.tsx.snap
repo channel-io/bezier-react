@@ -9,8 +9,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #000000D9;
 }
 
@@ -114,8 +114,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 }
 
 .c2 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
@@ -131,8 +131,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 }
 
 .c9 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -284,8 +284,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #000000D9;
 }
 
@@ -422,8 +422,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 }
 
 .c3 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
@@ -439,8 +439,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 }
 
 .c12 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -593,8 +593,8 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #000000D9;
 }
 
@@ -656,8 +656,8 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 }
 
 .c2 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
@@ -673,8 +673,8 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 }
 
 .c7 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -754,8 +754,8 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #000000D9;
 }
 
@@ -845,8 +845,8 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 }
 
 .c3 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
@@ -862,8 +862,8 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 }
 
 .c9 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;

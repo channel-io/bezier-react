@@ -23,7 +23,7 @@ describe('Text test >', () => {
 
     const renderedText = getByTestId(TEXT_TEST_ID)
 
-    expect(renderedText).toHaveStyle('font-size: 15px;')
+    expect(renderedText).toHaveStyle('font-size: 1.5rem;')
     expect(renderedText).toHaveStyle('font-weight: normal;')
     expect(renderedText).toHaveStyle('font-style: normal;')
     expect(renderedText).toHaveStyle('color: inherit;')
@@ -58,7 +58,7 @@ describe('Text test >', () => {
 
     const renderedText = getByTestId(TEXT_TEST_ID)
 
-    expect(renderedText).toHaveStyle('font-size: 24px;')
-    expect(renderedText).toHaveStyle('line-height: 32px;')
+    expect(renderedText).toHaveStyle('font-size: 2.4rem;')
+    expect(renderedText).toHaveStyle('line-height: 3.2rem;')
   })
 })

@@ -2,8 +2,8 @@
 
 exports[`ListItem Snapshot > 1`] = `
 .c4 {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;

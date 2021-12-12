@@ -2,8 +2,8 @@
 
 exports[`FormLabel > Snapshot > 1`] = `
 .c0 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
