@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./build/src"
+  },
+  "exclude": [
+    "./src/index.ts",
+    "./src/components/Icon/generated/**/*",
+    "./src/layout/stories/**/*",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "./src/__mocks__/**/*",
+    "./src/utils/storyUtils.ts",
+    "./src/utils/testUtils.tsx",
+  ],
+  "files": [
+    "./src/index.ts"
+  ]
+}

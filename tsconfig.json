@@ -2,7 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./build",
-    "emitDeclarationOnly": true,
+    "noEmit": true,
     "module": "esnext",
     "target": "es5",
     "lib": ["dom", "ESNext"],
