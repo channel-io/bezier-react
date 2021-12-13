@@ -1,3 +1,3 @@
 export { default as Banner } from './Banner'
-export { BannerColorVariant } from './Banner.types'
+export { BannerVariant } from './Banner.types'
 export type { BannerProps } from './Banner.types'

@@ -1,9 +1,8 @@
 /* External dependencies */
-import { MouseEventHandler } from 'react'
+import React from 'react'
 
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { UIComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, SizeProps, ColorProps } from 'Types/ComponentProps'
 import { IconName } from './generated'
 
 export enum IconSize {
@@ -16,14 +15,20 @@ export enum IconSize {
   XXXS = 10,
 }
 
-export default interface IconProps extends Omit<UIComponentProps, 'as'> {
+type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
+
+interface IconOptions {
   name: IconName
-  color?: SemanticNames
-  size?: IconSize
   marginTop?: number
   marginRight?: number
   marginBottom?: number
   marginLeft?: number
-  onClick?: MouseEventHandler<SVGSVGElement>
-  onMouseDown?: MouseEventHandler<SVGSVGElement>
+  onClick?: MouseEventHandler
+  onMouseDown?: MouseEventHandler
 }
+
+export default interface IconProps extends
+  Omit<BezierComponentProps, 'as'>,
+  SizeProps<IconSize>,
+  ColorProps,
+  IconOptions {}

@@ -49,8 +49,8 @@ Primary.args = {
   disabled: false,
   active: false,
   loading: false,
-  leftComponent: 'plus',
-  rightComponent: 'arrow-right',
+  leftContent: 'plus',
+  rightContent: 'arrow-right',
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,
@@ -59,7 +59,7 @@ Primary.args = {
 export const WithCustomComponent: Story<ButtonProps> = Template.bind({})
 WithCustomComponent.args = {
   text: 'Set Manager',
-  leftComponent: <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />,
+  leftContent: <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />,
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,

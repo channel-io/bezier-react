@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import { styled, SemanticNames } from 'Foundation'
+import { styled } from 'Foundation'
+import { ColorProps } from 'Types/ComponentProps'
 import TextProps from './Text.types'
 
-interface TextStyledProps {
-  color?: SemanticNames
+interface TextStyledProps extends ColorProps {
   margintop: number
   marginright: number
   marginbottom: number

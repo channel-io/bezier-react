@@ -1,9 +1,15 @@
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { ChildrenComponentProps } from 'Types/ComponentProps'
-import InjectedInterpolation from 'Types/InjectedInterpolation'
-import { OverlayProps } from 'Components/Overlay'
-import { IconName } from 'Components/Icon'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  SizeProps,
+  AdditionalStylableProps,
+  AdditionalColorProps,
+  AdditionalTestIdProps,
+} from 'Types/ComponentProps'
+import { FormComponentProps } from 'Components/Forms/Form.types'
+import type { OverlayProps } from 'Components/Overlay'
+import type { IconName } from 'Components/Icon'
 
 export enum SelectSize {
   XL = 'XL',
@@ -18,30 +24,29 @@ export interface SelectRef {
   getDOMNode(): Element | Text | null
 }
 
-interface SelectProps extends ChildrenComponentProps {
-  triggerTestId?: string
-  triggerTextTestId?: string
-  dropdownTestId?: string
-  size?: SelectSize
-  disabled?: boolean
+interface SelelctOptions {
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
-  iconColor?: SemanticNames
   text?: string
-  textColor?: SemanticNames
   withoutChevron?: boolean
-  chevronColor?: SemanticNames
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
   dropdownZIndex?: number
   dropdownPosition?: OverlayProps['position']
-  dropdownStyle?: OverlayProps['containerStyle']
-  dropdownInterpolation?: InjectedInterpolation
-  hasError?: boolean
-  onClickTrigger?: (event: React.MouseEvent) => void
+  onClickTrigger?: React.MouseEventHandler
   onHideDropdown?: () => void
 }
+
+interface SelectProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  SizeProps<SelectSize>,
+  AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
+  AdditionalStylableProps<'dropdown'>,
+  AdditionalColorProps<['icon', 'text', 'chevron']>,
+  FormComponentProps,
+  SelelctOptions {}
 
 export default SelectProps

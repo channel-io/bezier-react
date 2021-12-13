@@ -11,7 +11,7 @@ import {
 import { getTitle } from 'Utils/storyUtils'
 import Banner from './Banner'
 import {
-  BannerColorVariant,
+  BannerVariant,
   BannerProps,
 } from './Banner.types'
 
@@ -22,7 +22,7 @@ export default {
     colorVariant: {
       control: {
         type: 'radio',
-        options: values(BannerColorVariant),
+        options: values(BannerVariant),
       },
     },
     dismissible: {
@@ -52,7 +52,7 @@ const Template: Story<BannerProps> = props => <Banner {...props} />
 
 export const Primary: Story<BannerProps> = Template.bind({})
 Primary.args = {
-  colorVariant: BannerColorVariant.Default,
+  variant: BannerVariant.Default,
   icon: 'lightbulb',
   content: 'Information here.',
   dismissible: true,

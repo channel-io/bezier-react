@@ -2,7 +2,7 @@
 import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
 import { Icon } from 'Components/Icon'
-import { ListItemColorVariant, ListItemSize } from './ListItem.types'
+import { ListItemVariant, ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
 interface StyledWrapperProps {
@@ -10,21 +10,21 @@ interface StyledWrapperProps {
   active?: boolean
   focused?: boolean
   disabled?: boolean
-  colorVariant: ListItemColorVariant
+  variant: ListItemVariant
 }
 
 const getColorFromColorVariantWithDefaultValue = (
-  colorVariant: ListItemColorVariant,
+  variant: ListItemVariant,
   defaultValue: SemanticNames,
 ): SemanticNames => {
-  switch (colorVariant) {
-    case (ListItemColorVariant.Blue):
+  switch (variant) {
+    case (ListItemVariant.Blue):
       return 'bgtxt-blue-normal'
-    case (ListItemColorVariant.Red):
+    case (ListItemVariant.Red):
       return 'bgtxt-red-normal'
-    case (ListItemColorVariant.Green):
+    case (ListItemVariant.Green):
       return 'bgtxt-green-normal'
-    case (ListItemColorVariant.Cobalt):
+    case (ListItemVariant.Cobalt):
       return 'bgtxt-cobalt-normal'
     default:
       return defaultValue
@@ -36,17 +36,17 @@ const FocusedItemStyle = css<StyledWrapperProps>`
 `
 
 const FocusedIconStyle = css<StyledWrapperProps>`
-  color: ${({ foundation, active, colorVariant }) => (
+  color: ${({ foundation, active, variant }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(
-      colorVariant,
+      variant,
       active ? 'bgtxt-blue-normal' : 'txt-black-dark',
     )]
   )};
 `
 
 const ActiveItemStyle = css<StyledWrapperProps>`
-  color: ${({ foundation, colorVariant }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'bgtxt-blue-normal')]
+  color: ${({ foundation, variant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, 'bgtxt-blue-normal')]
   )};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
@@ -92,13 +92,13 @@ export const Description = styled.div<DescriptionProps>`
 `
 
 interface IconWrapperProps {
-  colorVariant: ListItemColorVariant
+  variant: ListItemVariant
   active?: boolean
 }
 
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
-  color: ${({ foundation, colorVariant, active }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
+  color: ${({ foundation, variant, active }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
   
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
@@ -123,8 +123,8 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   align-items: center;
   ${({ size }) => getStyleOfSize(size)}
 
-  color: ${({ foundation, colorVariant }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(colorVariant, 'txt-black-darkest')]
+  color: ${({ foundation, variant }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, 'txt-black-darkest')]
   )};
   
   text-decoration: none;

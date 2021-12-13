@@ -2,9 +2,15 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { UIComponentProps } from 'Types/ComponentProps'
-import type InjectedInterpolation from 'Types/InjectedInterpolation'
+import type {
+  BezierComponentProps,
+  VariantProps,
+  SizeProps,
+  SideContentProps,
+  AdditionalStylableProps,
+  AdditionalColorProps,
+} from 'Types/ComponentProps'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
 import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
@@ -34,9 +40,8 @@ export enum TextFieldVariant {
 
 export type TextFieldItemProps = {
   icon: IconName
-  iconColor?: SemanticNames
-  onClick?: (event: React.MouseEvent) => void
-} | React.ReactElement
+  onClick?: React.MouseEventHandler
+} & AdditionalColorProps<'icon'> | React.ReactElement
 
 export interface TextFieldRef {
   focus(options?: FocusOptions): void
@@ -49,30 +54,30 @@ export interface TextFieldRef {
   getDOMNode(): Element | Text | null
 }
 
-export interface TextFieldProps
-  extends UIComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'readOnly' | 'disabled'> {
-  leftContent?: TextFieldItemProps
-  rightContent?: TextFieldItemProps | TextFieldItemProps[]
-  variant?: TextFieldVariant
+type ChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>
+type KeyboardEventHandler = React.KeyboardEventHandler<HTMLInputElement>
+
+interface TextFieldOptions {
   type?: TextFieldType
-  hasError?: boolean
-  readOnly?: boolean
-  disabled?: boolean
   allowClear?: boolean
   selectAllOnInit?: boolean
   selectAllOnFocus?: boolean
   withoutLeftContentWrapper?: boolean
   withoutRightContentWrapper?: boolean
-  inputClassName?: string
-  inputInterpolation?: InjectedInterpolation
-  wrapperClassName?: string
-  wrapperInterpolation?: InjectedInterpolation
-  leftWrapperClassName?: string
-  leftWrapperInterpolation?: InjectedInterpolation
-  rightWrapperClassName?: string
-  rightWrapperInterpolation?: InjectedInterpolation
-  onFocus?: React.ChangeEventHandler<HTMLInputElement>
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
-  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>
-  onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>
+  onFocus?: ChangeEventHandler
+  onChange?: ChangeEventHandler
+  onKeyDown?: KeyboardEventHandler
+  onKeyUp?: KeyboardEventHandler
 }
+
+type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
+
+export interface TextFieldProps extends
+  FormComponentProps,
+  BezierComponentProps,
+  SizeProps<TextFieldSize>,
+  VariantProps<TextFieldVariant>,
+  SideContentProps<TextFieldItemProps, TextFieldItemProps[]>,
+  AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
+  TextFieldOptions {}

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { UIComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
 export enum ButtonStyleVariant {
@@ -33,19 +33,26 @@ export enum ButtonSize {
   XL = 'XL',
 }
 
-export default interface ButtonProps extends UIComponentProps {
+export type SideContent = IconName | React.ReactNode
+
+type MouseEventHandler = React.MouseEventHandler
+
+interface ButtonOptions {
   type?: HTMLButtonElement['type']
   text?: string
-  disabled?: boolean
   loading?: boolean
   active?: boolean
-  size?: ButtonSize
   styleVariant?: ButtonStyleVariant
   colorVariant?: ButtonColorVariant
-  leftComponent?: IconName | React.ReactNode
-  rightComponent?: IconName | React.ReactNode
-  onClick?: (event: React.MouseEvent) => void
-  onMouseEnter?: (event: React.MouseEvent) => void
-  onMouseLeave?: (event: React.MouseEvent) => void
-  onBlur?: (event: React.MouseEvent) => void
+  onClick?: MouseEventHandler
+  onMouseEnter?: MouseEventHandler
+  onMouseLeave?: MouseEventHandler
+  onBlur?: MouseEventHandler
 }
+
+export default interface ButtonProps extends
+  BezierComponentProps,
+  SizeProps<ButtonSize>,
+  DisableProps,
+  SideContentProps<SideContent, SideContent>,
+  ButtonOptions {}

@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
-import { UIComponentProps } from 'Types/ComponentProps'
+import type { BezierComponentProps } from 'Types/ComponentProps'
 import { Icon } from 'Components/Icon'
 
 interface StyledWrapperProps {
@@ -13,7 +13,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   height: ${({ height }) => height}px;
 `
 
-interface BackgroundProps extends UIComponentProps {
+interface BackgroundProps extends BezierComponentProps {
   padding?: number
   borderRadius?: number
   disabled?: boolean

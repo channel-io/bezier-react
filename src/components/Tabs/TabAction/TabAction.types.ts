@@ -2,13 +2,17 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { UIComponentProps } from 'Types/ComponentProps'
-import TabsSize from 'Components/Tabs/TabsSize'
+import { BezierComponentProps, DisableProps, LinkProps } from 'Types/ComponentProps'
+import type TabsOptions from 'Components/Tabs/Tabs.types'
 
-export default interface TabActionProps extends Omit<UIComponentProps, 'children'> {
-  href?: string
-  height?: TabsSize | number
-  onClick?: React.MouseEventHandler
+interface TabActionOptions {
   children: React.ReactNode | ((args: { disabled: boolean }) => React.ReactNode)
-  disabled?: boolean
+  onClick?: React.MouseEventHandler
 }
+
+export default interface TabActionProps extends
+  BezierComponentProps,
+  LinkProps,
+  DisableProps,
+  Pick<TabsOptions, 'height'>,
+  TabActionOptions {}

@@ -1,6 +1,5 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
-import InjectedInterpolation from 'Types/InjectedInterpolation'
+import type { BezierComponentProps, ChildrenProps, SizeProps, AdditionalStylableProps } from 'Types/ComponentProps'
 import { AvatarSize } from 'Components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {
@@ -8,12 +7,19 @@ export enum AvatarGroupEllipsisType {
   Count = 'Count',
 }
 
-export default interface AvatarGroupProps extends ChildrenComponentProps {
+type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
+
+interface AvatarGroupOptions {
   max: number
-  size?: AvatarSize
   spacing?: number
   ellipsisType?: AvatarGroupEllipsisType
-  onMouseEnterEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
-  onMouseLeaveEllipsis?: (event: React.MouseEvent<HTMLDivElement>) => void
-  ellipsisInterpolation?: InjectedInterpolation
+  onMouseEnterEllipsis?: MouseEventHandler
+  onMouseLeaveEllipsis?: MouseEventHandler
 }
+
+export default interface AvatarGroupProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  SizeProps<AvatarSize>,
+  AdditionalStylableProps<'ellipsis'>,
+  AvatarGroupOptions {}

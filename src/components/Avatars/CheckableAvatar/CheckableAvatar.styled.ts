@@ -1,13 +1,13 @@
 /* Internal denpendencies */
 import { styled, css, smoothCorners, Foundation, SemanticNames } from 'Foundation'
 import { enableSmoothCorners } from 'Worklets/EnableCSSHoudini'
-import { InjectedInterpolation, WithInterpolation } from 'Types/InjectedInterpolation'
+import type { InjectedInterpolation, InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
 import { AvatarSize } from 'Components/Avatars/Avatar'
 import { AvatarImage } from 'Components/Avatars/Avatar/Avatar.styled'
 
-interface CheckableAvatarWrapperProps extends WithInterpolation {
+interface CheckableAvatarWrapperProps extends InterpolationProps {
   isChecked: boolean
   isCheckable: boolean
 }

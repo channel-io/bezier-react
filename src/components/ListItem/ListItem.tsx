@@ -10,7 +10,7 @@ import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'
 import { IconSize, isIconName } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
-import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
+import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
@@ -46,13 +46,13 @@ function ListItem({
   name,
   leftContent,
   leftIcon,
-  colorVariant = ListItemColorVariant.Monochrome,
+  variant = ListItemVariant.Monochrome,
   href = '',
   hide = false,
   rightContent = null,
   /* OptionItem Props */
   optionKey,
-  /* Activable Element Props */
+  /* Activatable Element Props */
   active,
   activeClassName,
   focused = false,
@@ -136,7 +136,7 @@ forwardedRef: React.Ref<ListItemRef>,
             name={leftIcon}
             size={IconSize.S}
             active={isActive}
-            colorVariant={colorVariant}
+            variant={variant}
           />
         </LeftContentWrapper>
       )
@@ -148,7 +148,7 @@ forwardedRef: React.Ref<ListItemRef>,
     iconClassName,
     leftContent,
     leftIcon,
-    colorVariant,
+    variant,
   ])
 
   const titleComponent = useMemo(() => (
@@ -232,7 +232,7 @@ forwardedRef: React.Ref<ListItemRef>,
     active: isActive,
     focused,
     disabled,
-    colorVariant,
+    variant,
     ...otherProps,
   }), [
     mergedRef,
@@ -245,7 +245,7 @@ forwardedRef: React.Ref<ListItemRef>,
     isActive,
     focused,
     disabled,
-    colorVariant,
+    variant,
     otherProps,
   ])
 

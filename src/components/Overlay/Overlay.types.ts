@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, AdditionalStylableProps, AdditionalTestIdProps } from 'Types/ComponentProps'
 
 export interface ContainerRectAttr {
   containerWidth: number
@@ -20,23 +20,6 @@ export interface TargetRectAttr {
   targetLeft: number
   clientTop: number
   clientLeft: number
-}
-
-export default interface OverlayProps extends ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  containerTestId?: string
-  wrapperTestId?: string
-  show?: boolean
-  containerClassName?: string
-  containerStyle?: React.CSSProperties
-  container?: HTMLElement | null
-  target?: HTMLElement | null
-  position?: OverlayPosition
-  marginX?: number
-  marginY?: number
-  keepInContainer?: boolean
-  withTransition?: boolean
-  enableClickOutside?: boolean
-  onHide?: () => void
 }
 
 export enum OverlayPosition {
@@ -57,3 +40,24 @@ export enum OverlayPosition {
   InnerRightTop = 'innerRightTop',
   InnerRightBottom = 'innerRightBottom',
 }
+
+interface OverlayOptions {
+  show?: boolean
+  container?: HTMLElement | null
+  target?: HTMLElement | null
+  position?: OverlayPosition
+  marginX?: number
+  marginY?: number
+  keepInContainer?: boolean
+  withTransition?: boolean
+  enableClickOutside?: boolean
+  onHide?: () => void
+}
+
+export default interface OverlayProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  React.HTMLAttributes<HTMLDivElement>,
+  AdditionalStylableProps<'container'>,
+  AdditionalTestIdProps<['container', 'wrapper']>,
+  OverlayOptions {}

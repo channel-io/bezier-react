@@ -1,11 +1,11 @@
 /* Internal dependencies */
 import { styled, Transition } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
-import { UIComponentProps } from 'Types/ComponentProps'
 import { toLength } from 'Utils/styleUtils'
-import { SegmentedControlItemProps } from './SegmentedControl.types'
+import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { SegmentedControlItemProps } from './SegmentedControl.types'
 
-interface StyledWrapperProps extends UIComponentProps {
+interface StyledWrapperProps extends BezierComponentProps {
   disabled?: boolean
   wrapperWidth: number | string
   wrapperHeight: number | string

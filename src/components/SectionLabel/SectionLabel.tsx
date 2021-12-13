@@ -48,10 +48,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
       size={ButtonSize.XS}
       styleVariant={ButtonStyleVariant.Tertiary}
       colorVariant={ButtonColorVariant.Monochrome}
-      leftComponent={icon}
-      // FIXME: Button의 onClick event 타입이 React.MouseEvent가 아니라 MouseEvent로 되어 있어 ts-ignore 함.
-      // 올바르게 변경 이후 ts-ignore 삭제.
-      // @ts-ignore
+      leftContent={icon}
       onClick={onClick}
     />
   )
@@ -170,13 +167,13 @@ function SectionLabel({
 
   return (
     <div>
+      { /* FIXME: Bezier Divider로 변경 */ }
       { divider && <Styled.Divider /> }
       <Styled.Wrapper
         className={wrapperClassName}
         clickable={!isNil(onClick)}
         onClick={onClick}
         interpolation={wrapperInterpolation}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
         { leftComponent }

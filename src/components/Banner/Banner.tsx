@@ -10,7 +10,7 @@ import { Typography } from 'Foundation'
 import { Text } from 'Components/Text'
 import { Icon, IconSize } from 'Components/Icon'
 import { DEFAULT_ICON_COLORS, TEXT_COLORS } from './Banner.const'
-import { BannerColorVariant, BannerProps, RenderLinkFunc } from './Banner.types'
+import { BannerVariant, BannerProps, RenderLinkFunc } from './Banner.types'
 import Styled from './Banner.styled'
 
 const BANNER_TEST_ID = 'bezier-react-banner'
@@ -32,7 +32,7 @@ const externalLinkRenderer: RenderLinkFunc = ({
 )
 
 function Link({
-  colorVariant = BannerColorVariant.Default,
+  variant = BannerVariant.Default,
   hasLink = false,
   linkText,
   linkTo,
@@ -44,7 +44,7 @@ function Link({
     content: (
       <Styled.Link
         typo={Typography.Size14}
-        color={TEXT_COLORS[colorVariant]}
+        color={TEXT_COLORS[variant]}
         bold
       >
         { linkText }
@@ -55,7 +55,7 @@ function Link({
 }
 
 function DismissButton({
-  colorVariant = BannerColorVariant.Default,
+  variant = BannerVariant.Default,
   dismissible,
   onDismiss,
 }: BannerProps) {
@@ -69,7 +69,7 @@ function DismissButton({
       <Icon
         name="cancel"
         size={IconSize.XS}
-        color={DEFAULT_ICON_COLORS[colorVariant]}
+        color={DEFAULT_ICON_COLORS[variant]}
         onClick={onDismiss}
       />
     </Styled.Dismiss>
@@ -83,7 +83,7 @@ function Banner(
   const {
     className,
     interpolation,
-    colorVariant = BannerColorVariant.Default,
+    variant = BannerVariant.Default,
     icon,
     iconColor,
     content,
@@ -95,22 +95,22 @@ function Banner(
       ref={forwardedRef}
       data-testid={testId}
       className={className}
-      colorVariant={colorVariant}
+      variant={variant}
       interpolation={interpolation}
     >
       { !isNil(icon) && (
         <Styled.BannerIcon
           name={icon}
-          color={iconColor ?? DEFAULT_ICON_COLORS[colorVariant]}
+          color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
           size={IconSize.S}
         />
       ) }
 
-      <Styled.ContentWrapper colorVariant={colorVariant}>
+      <Styled.ContentWrapper variant={variant}>
         { isString(content) ? (
           <Text
             typo={Typography.Size14}
-            color={TEXT_COLORS[colorVariant]}
+            color={TEXT_COLORS[variant]}
           >
             { content }
             <Link {...props} />

@@ -85,7 +85,7 @@ const ToastElement = (
             </NormalContent>
             { ' ' }
             { actionContent && onClick && (
-              <ActionContent onClick={() => onClick()}>
+              <ActionContent onClick={onClick}>
                 { actionContent }
               </ActionContent>
             ) }

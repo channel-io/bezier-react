@@ -1,18 +1,21 @@
-/* External dependencies */
-import { css } from 'styled-components'
-
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { InjectedInterpolation } from 'Types/Foundation'
 
-export default interface HeaderProps extends Omit<ChildrenComponentProps, 'as'> {
+interface HeaderOptions {
   title: string
-  titleSize?: ReturnType<typeof css>
+  titleSize?: InjectedInterpolation
   titleClassName?: string
   titleImageUrl?: string
   titleImageSize?: number
   actions?: Array<React.ReactNode> | React.ReactNode
-  onClickTitle?: () => void
+  onClickTitle?: React.MouseEventHandler
   onClickActions?: Array<Function>
   /* Navigation cloneElement Props */
   isHover?: boolean
 }
+
+export default interface HeaderProps extends
+  Omit<BezierComponentProps, 'as'>,
+  ChildrenProps,
+  HeaderOptions {}

@@ -2,11 +2,10 @@
 import type { ReactNode } from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
-import type { UIComponentProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
 
-export enum BannerColorVariant {
+export enum BannerVariant {
   Default = 'default',
   Blue = 'blue',
   Cobalt = 'cobalt',
@@ -21,11 +20,8 @@ export type RenderLinkFunc = (props: {
   linkTo?: string
 }) => JSX.Element
 
-export interface BannerProps extends UIComponentProps {
-  colorVariant?: BannerColorVariant
+interface BannerOptions {
   icon: IconName | null
-  iconColor?: SemanticNames
-  content: string | ReactNode
 
   hasLink?: boolean
   linkText?: string
@@ -35,3 +31,10 @@ export interface BannerProps extends UIComponentProps {
   dismissible?: boolean
   onDismiss?: () => void
 }
+
+export interface BannerProps extends
+  BezierComponentProps,
+  VariantProps<BannerVariant>,
+  ContentProps<string | ReactNode>,
+  AdditionalColorProps<'icon'>,
+  BannerOptions {}

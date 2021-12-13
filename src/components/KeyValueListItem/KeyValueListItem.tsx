@@ -113,7 +113,6 @@ function KeyValueListItem(
       className={className}
       data-testid={testId}
       multiline={multiline}
-      // eslint-disable-next-line react/jsx-props-no-multi-spaces
       {...props}
     >
       <Styled.Row>

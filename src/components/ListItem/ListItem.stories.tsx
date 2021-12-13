@@ -7,7 +7,7 @@ import { compact } from 'lodash-es'
 /* Internal dependencies */
 import { iconList, getTitle } from 'Utils/storyUtils'
 import ListItem from './ListItem'
-import ListItemProps, { ListItemSize, ListItemColorVariant } from './ListItem.types'
+import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 
 export default {
   title: getTitle(base),
@@ -49,11 +49,11 @@ Primary.argTypes = {
     },
   },
   disabled: { control: { type: 'boolean' } },
-  colorVariant: {
+  variant: {
     control: {
       type: 'radio',
       options: [
-        ...Object.values(ListItemColorVariant),
+        ...Object.values(ListItemVariant),
       ],
     },
   },

@@ -3,8 +3,9 @@ import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, TransitionDuration } from 'Foundation'
-import { UIComponentProps } from 'Types/ComponentProps'
+import { TransitionDuration } from 'Foundation'
+import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
+import { InjectedInterpolation } from 'Types/Foundation'
 import { IconName } from 'Components/Icon'
 
 export enum ToastPlacement {
@@ -39,19 +40,23 @@ export interface ToastPresetType {
   iconName: IconName
 }
 
-export default interface ToastElementProps extends UIComponentProps {
+interface ToastElementOptions {
   preset?: ToastPreset
   appearance?: ToastAppearance
   iconName?: IconName
-  content: string
   actionContent?: string
-  onClick?: () => void
-  onDismiss: () => void
   transitionDuration: TransitionDuration
-  transform: ReturnType<typeof css>
+  transform: InjectedInterpolation
   placement: ToastPlacement
   zIndex?: number
+  onClick?: React.MouseEventHandler
+  onDismiss: React.MouseEventHandler
 }
+
+export default interface ToastElementProps extends
+  BezierComponentProps,
+  Required<ContentProps<string>>,
+  ToastElementOptions {}
 
 export interface ToastProviderProps {
   autoDismissTimeout?: number
@@ -67,11 +72,11 @@ export type ToastOptions = {
   iconName?: IconName
   appearance?: ToastAppearance
   actionContent?: string
-  onClick?: () => void
   autoDismiss?: boolean
-  onDismiss?: OnDismissCallback
   rightSide?: boolean
   zIndex?: number
+  onClick?: React.MouseEventHandler
+  onDismiss?: OnDismissCallback
 }
 
 export const defaultOptions: ToastOptions = {

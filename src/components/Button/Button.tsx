@@ -7,8 +7,7 @@ import { Typography, SemanticNames } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
-import type { IconName } from 'Components/Icon'
-import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
+import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
@@ -97,8 +96,8 @@ function Button(
     size = ButtonSize.M,
     styleVariant = ButtonStyleVariant.Primary,
     colorVariant = ButtonColorVariant.Blue,
-    leftComponent,
-    rightComponent,
+    leftContent,
+    rightContent,
     onClick = noop,
     onMouseEnter = noop,
     onMouseLeave = noop,
@@ -202,6 +201,7 @@ function Button(
     setIsHovered(true)
     onMouseEnter(e)
   }, [onMouseEnter])
+
   const handleMouseLeave = useCallback((e: React.MouseEvent) => {
     setIsHovered(false)
     onMouseLeave(e)
@@ -215,11 +215,11 @@ function Button(
     disabled,
   ])
 
-  const renderSideComponent = useCallback((component?: IconName | React.ReactNode, isRightIcon?: boolean) => {
-    if (isIconName(component)) {
+  const renderSideContent = useCallback((content?: SideContent, isRightIcon?: boolean) => {
+    if (isIconName(content)) {
       return (
         <Icon
-          name={component}
+          name={content}
           size={iconSize}
           marginRight={(text && !isRightIcon) ? iconMargin : 0}
           marginLeft={(text && isRightIcon) ? iconMargin : 0}
@@ -228,7 +228,7 @@ function Button(
       )
     }
 
-    return component
+    return content
   }, [
     text,
     iconSize,
@@ -257,7 +257,7 @@ function Button(
       onBlur={onBlur}
     >
       <Styled.ButtonContents visible={!loading}>
-        { renderSideComponent(leftComponent, false) }
+        { renderSideContent(leftContent, false) }
 
         { text && (
           <Text
@@ -272,7 +272,7 @@ function Button(
           </Text>
         ) }
 
-        { renderSideComponent(rightComponent, true) }
+        { renderSideContent(rightContent, true) }
       </Styled.ButtonContents>
 
       { loading && (

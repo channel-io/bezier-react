@@ -1,15 +1,27 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
-import OptionItemHost from 'Types/OptionItemHost'
-import { ExplicitDefaulting, BoxSizingUnit } from 'Types/CSS'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  DisableProps,
+  ActivatableProps,
+  OptionItemHostProps,
+} from 'Types/ComponentProps'
+import type { ExplicitDefaulting, BoxSizingUnit } from 'Types/CSS'
 
-export default interface SegmentedControlProps extends ChildrenComponentProps, OptionItemHost<number> {
-  width?: number | string | ExplicitDefaulting | BoxSizingUnit
-  height?: number | string | ExplicitDefaulting | BoxSizingUnit
-  disabled?: boolean
+type SegmentedControlBaseProps = BezierComponentProps & ChildrenProps & DisableProps
+
+type CSSSizingProperty = number | string | ExplicitDefaulting | BoxSizingUnit
+
+interface SegmentedControlOptions {
+  width?: CSSSizingProperty
+  height?: CSSSizingProperty
 }
 
-export interface SegmentedControlItemProps extends ChildrenComponentProps {
-  active?: boolean
-  disabled?: boolean
-}
+export default interface SegmentedControlProps extends
+  SegmentedControlBaseProps,
+  OptionItemHostProps<number>,
+  SegmentedControlOptions {}
+
+export interface SegmentedControlItemProps extends
+  SegmentedControlBaseProps,
+  Pick<ActivatableProps, 'active'> {}

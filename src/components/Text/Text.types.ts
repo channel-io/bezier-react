@@ -2,13 +2,11 @@
 import { css } from 'styled-components'
 
 /* Internal dependencies */
-import { SemanticNames } from 'Foundation'
-import { IdentifierProps, ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from 'Types/ComponentProps'
 
-export default interface TextProps extends ChildrenComponentProps, Partial<IdentifierProps> {
+interface TextOptions {
   bold?: boolean
   italic?: boolean
-  color?: SemanticNames
   typo?: ReturnType<typeof css>
   marginTop?: number
   marginRight?: number
@@ -17,5 +15,12 @@ export default interface TextProps extends ChildrenComponentProps, Partial<Ident
   marginVertical?: number
   marginHorizontal?: number
   marginAll?: number
-  onClick?: () => void
+  onClick?: React.MouseEventHandler
 }
+
+export default interface TextProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  ColorProps,
+  Partial<IdentifierProps>,
+  TextOptions {}

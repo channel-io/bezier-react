@@ -1,16 +1,12 @@
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
-import InjectedInterpolation, { WithInterpolation } from 'Types/InjectedInterpolation'
+import type { InterpolationProps } from 'Types/Foundation'
 import { Overlay } from 'Components/Overlay'
 import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
 import { SelectSize } from './Select.types'
 
-interface ContainerProps {
-  interpolation?: InjectedInterpolation
-}
-
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<InterpolationProps>`
   position: relative;
 
   ${({ interpolation }) => interpolation};
@@ -82,7 +78,7 @@ export const MainContentWrapper = styled.div`
   align-items: center;
 `
 
-interface DropdownProps extends WithInterpolation {
+interface DropdownProps extends InterpolationProps {
   zIndex: number
 }
 

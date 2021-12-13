@@ -1,23 +1,29 @@
 /* Internal dependencies */
-import { UIComponentProps, ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, ContentProps, DisableProps, AdditionalStylableProps } from 'Types/ComponentProps'
 
-export default interface TooltipProps extends UIComponentProps, ChildrenComponentProps, React.HTMLAttributes<HTMLDivElement> {
-  content?: React.ReactNode
-  contentClassName?: string
+interface TooltipOptions {
   placement?: TooltipPosition
   offset?: number
-  disabled?: boolean
   keepInContainer?: boolean
   allowHover?: boolean
   delayShow?: number
   delayHide?: number
 }
 
-export interface GetTooltipStyle extends Required<Pick<TooltipProps, 'placement' | 'offset' | 'allowHover'>> {
+export default interface TooltipProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  ContentProps,
+  DisableProps,
+  AdditionalStylableProps<'content'>,
+  React.HTMLAttributes<HTMLDivElement>,
+  TooltipOptions {}
+
+export interface GetTooltipStyle extends Required<Pick<TooltipOptions, 'placement' | 'offset' | 'allowHover'>> {
   tooltipContainer: HTMLDivElement
 }
 
-export interface GetReplacement extends Required<Pick<TooltipProps, 'placement' | 'keepInContainer'>> {
+export interface GetReplacement extends Required<Pick<TooltipOptions, 'placement' | 'keepInContainer'>> {
   tooltip: HTMLDivElement
 }
 

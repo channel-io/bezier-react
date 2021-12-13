@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 
-export default interface NavigationProps extends Omit<ChildrenComponentProps, 'as'> {
+interface NavigationOptions {
   currentKey?: string
   hidable?: boolean
   disableResize?: boolean
@@ -12,3 +12,8 @@ export default interface NavigationProps extends Omit<ChildrenComponentProps, 'a
   setIsHoveringOnPresenter?: any
   showNavigation?: boolean
 }
+
+export default interface NavigationProps extends
+  Omit<BezierComponentProps, 'as'>,
+  ChildrenProps,
+  NavigationOptions {}

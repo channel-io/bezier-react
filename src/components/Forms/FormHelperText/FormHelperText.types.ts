@@ -1,6 +1,9 @@
 /* Internal dependencies */
-import { IdentifierProps, ChildrenComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
+import { FormComponentProps } from 'Components/Forms/Form.types'
 
-export default interface FormHelperTextProps extends ChildrenComponentProps, IdentifierProps {
-  hasError?: boolean
-}
+export default interface FormHelperTextProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  IdentifierProps,
+  FormComponentProps {}
