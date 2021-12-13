@@ -12,18 +12,23 @@ export const TopLabelWrapper = styled.div`
   margin-bottom: 4px;
 `
 
-export const HelperTextWrapper = styled.div`
+export const TopHelperTextWrapper = styled.div`
   padding: 0 2px;
   margin-top: 4px;
 `
 
-export const Flex = styled(Box)`
-  display: flex;
+export const Grid = styled(Box)`
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 12px;
   align-items: center;
-  justify-content: space-between;
 `
 
-// FIXME: Stack 컴포넌트를 사용한 방식으로 변경
 export const LeftLabelWrapper = styled.div`
-  margin-right: 12px;
+  grid-row: 1;
+`
+
+export const LeftHelperTextWrapper = styled(TopHelperTextWrapper)`
+  grid-column: 2;
 `

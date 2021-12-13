@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, HTMLAttributes } from 'react'
 import { isEmpty } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
@@ -62,76 +62,69 @@ function FormControl({
     helperTextId,
   ])
 
-  const LabelComponent = useMemo(() => (
-    <FormLabel
-      id={`${id}-label`}
-      htmlFor={id}
-      help={help}
-    >
-      { label }
-    </FormLabel>
-  ), [
-    id,
-    help,
-    label,
-  ])
+  const renderFormControlComponent = useCallback((
+    Wrapper: React.FunctionComponent<HTMLAttributes<HTMLDivElement>>,
+    LabelWrapper: React.FunctionComponent,
+    HelperTextWrapper: React.FunctionComponent,
+  ) => (
+    <Wrapper role="group" {...rest}>
+      { !isEmpty(label) && (
+        <LabelWrapper>
+          <FormLabel
+            id={`${id}-label`}
+            htmlFor={id}
+            help={help}
+          >
+            { label }
+          </FormLabel>
+        </LabelWrapper>
+      ) }
 
-  const HelperTextComponent = useMemo(() => (
-    <FormHelperText
-      id={helperTextId}
-      hasError={hasError}
-    >
-      { displayedHelperText }
-    </FormHelperText>
-  ), [
-    helperTextId,
-    hasError,
-    displayedHelperText,
-  ])
-
-  switch (labelPosition) {
-    case 'top': return (
-      <Styled.Box role="group" {...rest}>
-        { !isEmpty(label) && (
-          <Styled.TopLabelWrapper>
-            { LabelComponent }
-          </Styled.TopLabelWrapper>
-        ) }
-
+      <div role="group">
         { children && (
           React.Children.map(children, renderField)
         ) }
+      </div>
 
-        { hasHelperText && (
-          <Styled.HelperTextWrapper>
-            { HelperTextComponent }
-          </Styled.HelperTextWrapper>
+      { hasHelperText && (
+        <HelperTextWrapper>
+          <FormHelperText
+            id={helperTextId}
+            hasError={hasError}
+          >
+            { displayedHelperText }
+          </FormHelperText>
+        </HelperTextWrapper>
+      ) }
+    </Wrapper>
+  ), [
+    children,
+    rest,
+    id,
+    help,
+    label,
+    hasError,
+    hasHelperText,
+    helperTextId,
+    displayedHelperText,
+    renderField,
+  ])
+
+  return (
+    <>
+      { labelPosition === 'top'
+        ? renderFormControlComponent(
+          Styled.Box,
+          Styled.TopLabelWrapper,
+          Styled.TopHelperTextWrapper,
+        )
+        : renderFormControlComponent(
+          Styled.Grid,
+          Styled.LeftLabelWrapper,
+          Styled.LeftHelperTextWrapper,
         ) }
-      </Styled.Box>
-    )
-
-    case 'left': return (
-      <Styled.Flex role="group" {...rest}>
-        { !isEmpty(label) && (
-          <Styled.LeftLabelWrapper>
-            { LabelComponent }
-          </Styled.LeftLabelWrapper>
-        ) }
-
-        <div>
-          { children && (
-            React.Children.map(children, renderField)
-          ) }
-
-          { hasHelperText && (
-            <Styled.HelperTextWrapper>
-              { HelperTextComponent }
-            </Styled.HelperTextWrapper>
-          ) }
-        </div>
-      </Styled.Flex>
-    )
-  }
+    </>
+  )
 }
 
 export default FormControl
