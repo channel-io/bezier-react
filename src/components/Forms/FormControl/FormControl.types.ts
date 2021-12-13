@@ -11,10 +11,18 @@ interface FormControlOptions {
   errorMessage?: string
 }
 
-type FormFieldType = React.ReactElement<FormComponentProps> | React.ReactElement<FormComponentProps>[]
+export interface FormContextValue {
+  id: string
+  labelId: string
+  helperTextId: string
+}
+
+type FormComponent = React.ReactElement<FormComponentProps>
+
+type FormField = FormComponent | ((value: FormContextValue) => FormComponent)
 
 export default interface FormControlProps extends
   BezierComponentProps,
-  ChildrenProps<FormFieldType>,
-  FormComponentProps,
+  ChildrenProps<FormField>,
+  Omit<FormComponentProps, 'aria-describedby'>,
   FormControlOptions {}

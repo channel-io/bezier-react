@@ -1,14 +1,16 @@
 /* External dependencies */
-import React, { useMemo, useCallback, HTMLAttributes } from 'react'
-import { isEmpty } from 'lodash-es'
+import React, { createContext, useMemo, useCallback, HTMLAttributes } from 'react'
+import { isEmpty, isFunction } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { FormLabel } from 'Components/Forms/FormLabel'
 import { FormHelperText } from 'Components/Forms/FormHelperText'
 import { FormComponentProps } from 'Components/Forms/Form.types'
-import FormControlProps from './FormControl.types'
+import FormControlProps, { FormContextValue } from './FormControl.types'
 import * as Styled from './FormControl.styled'
+
+const FormControlContext = createContext<FormContextValue | undefined>(undefined)
 
 function FormControl({
   id: idProps,
@@ -25,7 +27,18 @@ function FormControl({
   ...rest
 }: FormControlProps) {
   const id = useMemo(() => idProps ?? uuid(), [idProps])
+  const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
+
+  const contextValue = useMemo<FormContextValue>(() => ({
+    id,
+    labelId,
+    helperTextId,
+  }), [
+    id,
+    labelId,
+    helperTextId,
+  ])
 
   const { hasHelperText, displayedHelperText } = useMemo(() => (
     hasError
@@ -43,7 +56,7 @@ function FormControl({
     errorMessage,
   ])
 
-  const renderField = useCallback((field: React.ReactElement<FormComponentProps>) => (
+  const renderSingleField = useCallback((field: React.ReactElement<FormComponentProps>) => (
     React.cloneElement(field, {
       id: field.props.id ?? id,
       hasError: field.props.hasError ?? hasError,
@@ -71,7 +84,7 @@ function FormControl({
       { !isEmpty(label) && (
         <LabelWrapper>
           <FormLabel
-            id={`${id}-label`}
+            id={labelId}
             htmlFor={id}
             help={help}
           >
@@ -80,10 +93,10 @@ function FormControl({
         </LabelWrapper>
       ) }
 
-      <div role="group">
-        { children && (
-          React.Children.map(children, renderField)
-        ) }
+      <div>
+        { !isFunction(children)
+          ? React.Children.map(children!, renderSingleField)
+          : children!(contextValue) }
       </div>
 
       { hasHelperText && (
@@ -103,15 +116,19 @@ function FormControl({
     id,
     help,
     label,
+    labelId,
     hasError,
     hasHelperText,
     helperTextId,
     displayedHelperText,
-    renderField,
+    contextValue,
+    renderSingleField,
   ])
 
+  if (!children) { return null }
+
   return (
-    <>
+    <FormControlContext.Provider value={contextValue}>
       { labelPosition === 'top'
         ? renderFormControlComponent(
           Styled.Box,
@@ -123,7 +140,7 @@ function FormControl({
           Styled.LeftLabelWrapper,
           Styled.LeftHelperTextWrapper,
         ) }
-    </>
+    </FormControlContext.Provider>
   )
 }
 
