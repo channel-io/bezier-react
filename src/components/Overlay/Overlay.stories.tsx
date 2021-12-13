@@ -119,14 +119,19 @@ const ScrollContent = styled.div`
   color: white;
 `
 
-const Template: Story<OverlayProps & ContainerProps> = ({ width, height, ...overlayProps }) => {
-  const targetRef = useRef<any>()
-  const containerRef = useRef<any>()
+const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
+  children,
+  width: containerWidth,
+  height: containerHeight,
+  ...rests
+}) => {
+  const containerRef = useRef<any>(null)
+  const targetRef = useRef<any>(null)
 
   return (
     <Container
-      width={width}
-      height={height}
+      width={containerWidth}
+      height={containerHeight}
       ref={containerRef}
     >
       <Wrapper>
@@ -134,30 +139,36 @@ const Template: Story<OverlayProps & ContainerProps> = ({ width, height, ...over
           target
         </Target>
         <Overlay
-          {...overlayProps}
+          {...rests}
           target={targetRef.current}
           container={containerRef.current}
         >
-          <Children>
-            <ScrollContent>
-              {
-                `Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book. It has survived not
-                only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum passages,
-                and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.`
-              }
-            </ScrollContent>
-          </Children>
+          { children }
         </Overlay>
       </Wrapper>
     </Container>
   )
 }
+
+const Template: Story = (props) => (
+  <OverlayTemplate {...props}>
+    <Children>
+      <ScrollContent>
+        {
+          `Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book. It has survived not
+          only five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s
+          with the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.`
+        }
+      </ScrollContent>
+    </Children>
+  </OverlayTemplate>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {
@@ -181,45 +192,69 @@ const StressTestTemplate: Story<OverlayProps> = (props) => {
   }, [])
 
   return (
-    <Container ref={containerRef}>
-      <Wrapper>
-        <Target ref={targetRef}>
-          target
-        </Target>
-        <Overlay
-          {...props}
-          // 실제 값은 변하지 않지만, 100ms의 매 렌더링마다 참조가 변하고 있다.
-          containerStyle={{ opacity: 1 }}
-          target={targetRef.current}
-          container={containerRef.current}
-        >
-          <Children>
-            <ScrollContent>
-              {
-                `Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book. It has survived not
-                only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum passages,
-                and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.`
-              }
-            </ScrollContent>
-          </Children>
-        </Overlay>
-      </Wrapper>
-    </Container>
+    <OverlayTemplate
+      {...props}
+      // 실제 값은 변하지 않지만, 100ms의 매 렌더링마다 참조가 변하고 있다.
+      containerStyle={{ opacity: 1 }}
+      target={targetRef.current}
+      container={containerRef.current}
+    >
+      <Children>
+        <ScrollContent>
+          {
+            `Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus PageMaker
+            including versions of Lorem Ipsum.`
+          }
+        </ScrollContent>
+      </Children>
+    </OverlayTemplate>
   )
 }
 
 export const StressTest = StressTestTemplate.bind({})
 StressTest.args = {
+  enableClickOutside: false,
+}
+
+const ChangeableChildrenTemplate: Story<OverlayProps> = (props) => {
+  const [items, setItems] = useState<number[]>([])
+
+  const addItem = React.useCallback(() => {
+    setItems([...items, Math.random()])
+  }, [items])
+
+  return (
+    <>
+      <button type="button" onClick={addItem}>Add</button>
+      <div>
+        <OverlayTemplate {...props}>
+          <Children>
+            { items.map((item) => (
+              <div key={item}>
+                { item }
+              </div>
+            )) }
+          </Children>
+        </OverlayTemplate>
+      </div>
+    </>
+  )
+}
+
+export const ChangeableChildren = ChangeableChildrenTemplate.bind({})
+ChangeableChildren.args = {
   show: false,
   position: OverlayPosition.BottomCenter,
   marginX: 0,
   marginY: 0,
   keepInContainer: false,
   withTransition: false,
+  enableClickOutside: true,
 }
