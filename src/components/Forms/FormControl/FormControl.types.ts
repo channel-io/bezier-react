@@ -19,10 +19,10 @@ export interface FormContextValue {
 
 type FormComponent = React.ReactElement<FormComponentProps>
 
-type FormField = FormComponent | ((value: FormContextValue) => FormComponent)
+type FormControlChildren = FormComponent | ((value: FormContextValue) => FormComponent)
 
 export default interface FormControlProps extends
   BezierComponentProps,
-  ChildrenProps<FormField>,
+  ChildrenProps<FormControlChildren>,
   Omit<FormComponentProps, 'aria-describedby'>,
   FormControlOptions {}
