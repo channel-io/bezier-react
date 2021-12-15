@@ -2,10 +2,11 @@
 import React, { forwardRef, useMemo } from 'react'
 import { noop, isEmpty } from 'lodash-es'
 
-/* Internal denpendencies */
+/* Internal dependencies */
 import { smoothCornersStyle } from 'Foundation'
-import defaultAvatarUrl from 'Components/Avatars/assets/defaultAvatar.svg'
 import { Status } from 'Components/Status'
+// eslint-disable-next-line no-restricted-imports
+import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
