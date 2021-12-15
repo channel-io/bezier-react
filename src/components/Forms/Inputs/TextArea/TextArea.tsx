@@ -3,35 +3,45 @@ import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect,
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
+import useFormControlContext from 'Components/Forms/useFormControlContext'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 
-function TextArea(
-  {
-    interpolation,
-    wrapperInterpolation,
-    className,
-    wrapperClassName,
-    style,
-    wrapperStyle,
-    testId = TEXT_AREA_TEST_ID,
-    autoFocus = false,
+function TextArea({
+  interpolation,
+  wrapperInterpolation,
+  className,
+  wrapperClassName,
+  style,
+  wrapperStyle,
+  testId = TEXT_AREA_TEST_ID,
+  minRows = TextAreaHeight.Row6,
+  maxRows = TextAreaHeight.Row6,
+  autoFocus = false,
+  value = '',
+  onFocus,
+  onBlur,
+  onChange,
+  ...rest
+}: TextAreaProps,
+forwardedRef: Ref<HTMLTextAreaElement>,
+) {
+  const contextValue = useFormControlContext()
+
+  const {
     disabled = false,
     readOnly = false,
-    value = '',
     hasError = false,
-    minRows = TextAreaHeight.Row6,
-    maxRows = TextAreaHeight.Row6,
-    onFocus,
-    onBlur,
-    onChange,
-    ...props
-  }: TextAreaProps,
-  forwardedRef: Ref<HTMLTextAreaElement>,
-) {
+    Wrapper,
+    ...ownProps
+  } = contextValue?.getFieldProps(rest) ?? {
+    ...rest,
+    Wrapper: React.Fragment,
+  }
+
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)
 
@@ -79,28 +89,30 @@ function TextArea(
   }, [])
 
   return (
-    <Styled.Wrapper
-      className={className}
-      interpolation={interpolation}
-      focused={focused}
-      hasError={hasError}
-      disabled={disabled}
-      bgColor={bgColorSemanticName}
-      data-testid={testId}
-    >
-      <Styled.TextAreaAutoSizeBase
-        ref={mergedInputRef}
-        value={value}
+    <Wrapper>
+      <Styled.Wrapper
+        className={className}
+        interpolation={interpolation}
+        focused={focused}
+        hasError={hasError}
         disabled={disabled}
-        readOnly={readOnly}
-        maxRows={maxRows}
-        minRows={minRows}
-        onChange={onChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        {...props}
-      />
-    </Styled.Wrapper>
+        bgColor={bgColorSemanticName}
+        data-testid={testId}
+      >
+        <Styled.TextAreaAutoSizeBase
+          {...ownProps}
+          ref={mergedInputRef}
+          value={value}
+          disabled={disabled}
+          readOnly={readOnly}
+          maxRows={maxRows}
+          minRows={minRows}
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
+      </Styled.Wrapper>
+    </Wrapper>
   )
 }
 
