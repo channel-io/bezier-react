@@ -6,8 +6,9 @@ import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
+import useFormControlContext from 'Components/Forms/useFormControlContext'
 import SegmentedControlProps from './SegmentedControl.types'
-import { Wrapper, OptionItemWrapper, Indicator, IndicatorBox } from './SegmentedControl.styled'
+import * as Styled from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
 const SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX = 'bezier-react-segmented-control-option-item'
@@ -16,9 +17,7 @@ export const segmentedControlOptionItemTestId = (index: number) =>
 
 function SegmentedControl(
   {
-    as,
     testId = SEGMENTED_CONTROL_TEST_ID,
-    disabled = false,
     width = '100%',
     height = 36,
     /* OptionItemHost props */
@@ -26,9 +25,21 @@ function SegmentedControl(
     onChangeOption = noop,
     /* HTMLAttribute props */
     children,
+    ...rest
   }: SegmentedControlProps,
   forwardedRef: Ref<any>,
 ) {
+  const contextValue = useFormControlContext()
+
+  const {
+    disabled = false,
+    Wrapper,
+    ...ownProps
+  } = contextValue?.getFieldProps(rest) ?? {
+    ...rest,
+    Wrapper: React.Fragment,
+  }
+
   const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)
   const [wrapperHeight, setWrapperHeight] = useState<number>(0)
   const [wrapperWidth, setWrapperWidth] = useState<number>(0)
@@ -57,7 +68,7 @@ function SegmentedControl(
   }, [onChangeOption])
 
   const renderOption = useCallback((Element: React.ReactNode, index: number) => (
-    <OptionItemWrapper
+    <Styled.OptionItemWrapper
       key={uuid()}
       data-testid={segmentedControlOptionItemTestId(index)}
       disabled={disabled}
@@ -70,7 +81,7 @@ function SegmentedControl(
       onClick={() => (disabled ? noop : handleClickOptionItem(index))}
     >
       { Element }
-    </OptionItemWrapper>
+    </Styled.OptionItemWrapper>
   ), [
     disabled,
     currentIndex,
@@ -87,15 +98,15 @@ function SegmentedControl(
   ])
 
   const IndicatorComponent = useMemo(() => (
-    <Indicator
+    <Styled.Indicator
       style={{
         width: optionItemWidth,
         height: wrapperHeight,
         transform: `translateX(${optionItemWidth * currentIndex}px)`,
       }}
     >
-      <IndicatorBox />
-    </Indicator>
+      <Styled.IndicatorBox />
+    </Styled.Indicator>
   ), [
     currentIndex,
     wrapperHeight,
@@ -103,16 +114,18 @@ function SegmentedControl(
   ])
 
   return (
-    <Wrapper
-      ref={wrapperRef}
-      as={as}
-      disabled={disabled}
-      wrapperWidth={width}
-      wrapperHeight={height}
-      data-testid={testId}
-    >
-      { IndicatorComponent }
-      { Content }
+    <Wrapper>
+      <Styled.Wrapper
+        {...ownProps}
+        ref={wrapperRef}
+        disabled={disabled}
+        wrapperWidth={width}
+        wrapperHeight={height}
+        data-testid={testId}
+      >
+        { IndicatorComponent }
+        { Content }
+      </Styled.Wrapper>
     </Wrapper>
   )
 }
