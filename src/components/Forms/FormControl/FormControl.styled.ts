@@ -7,12 +7,12 @@ export const Box = styled.div<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const TopLabelWrapper = styled.div`
+export const TopLabelWrapper = styled(Box)`
   padding: 0 2px;
   margin-bottom: 4px;
 `
 
-export const TopHelperTextWrapper = styled.div`
+export const TopHelperTextWrapper = styled(Box)`
   padding: 0 2px;
   margin-top: 4px;
 `
@@ -25,10 +25,18 @@ export const Grid = styled(Box)`
   align-items: center;
 `
 
-export const LeftLabelWrapper = styled.div`
-  grid-row: 1;
+// TODO: row, column을 자동으로 할당해주도록 구현
+export const FieldWrapper = styled(Box)`
+  grid-row: 1 / 1;
+  grid-column: 2;
+`
+
+export const LeftLabelWrapper = styled(Box)`
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
 `
 
 export const LeftHelperTextWrapper = styled(TopHelperTextWrapper)`
+  grid-row: 2 / 2;
   grid-column: 2;
 `

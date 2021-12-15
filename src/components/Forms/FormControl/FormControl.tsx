@@ -1,128 +1,95 @@
 /* External dependencies */
-import React, { createContext, useMemo, useCallback, HTMLAttributes } from 'react'
-import { isEmpty, isFunction } from 'lodash-es'
-import { v4 as uuid } from 'uuid'
+import React, { useState, useCallback, useMemo } from 'react'
 
 /* Internal dependencies */
-import { FormLabel } from 'Components/Forms/FormLabel'
-import { FormHelperText } from 'Components/Forms/FormHelperText'
-import { FormComponentProps } from 'Components/Forms/Form.types'
-import FormControlProps, { FormContextValue } from './FormControl.types'
+import useId from 'Hooks/useId'
+import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
+import FormControlContext from './FormControlContext'
+import FormControlProps, { FieldPropsGetter, LabelPropsGetter, HelperTextPropsGetter } from './FormControl.types'
 import * as Styled from './FormControl.styled'
-
-const FormControlContext = createContext<FormContextValue | undefined>(undefined)
 
 function FormControl({
   id: idProps,
   testId,
-  hasError,
-  disabled,
-  readOnly,
-  label,
   labelPosition = 'top',
-  help,
-  helperText,
-  errorMessage,
   children,
   ...rest
 }: FormControlProps) {
-  const id = useMemo(() => idProps ?? uuid(), [idProps])
+  const [hasHelperText, setHasHelperText] = useState(false)
+
+  const uuid = useId()
+  const id = idProps ?? `field-${uuid}`
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
 
-  const contextValue = useMemo<FormContextValue>(() => ({
+  const bezierProps = pickBezierComponentProps(rest)
+  const formCommonProps = omitBezierComponentProps(rest)
+
+  const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
+    id: labelId,
+    htmlFor: id,
+    Wrapper: labelPosition === 'top'
+      ? Styled.TopLabelWrapper
+      : Styled.LeftLabelWrapper,
+    ...formCommonProps,
+    ...ownProps,
+  }), [
+    id,
+    labelId,
+    labelPosition,
+    formCommonProps,
+  ])
+
+  const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
+    id,
+    'aria-describedby': hasHelperText
+      ? helperTextId
+      : undefined,
+    Wrapper: Styled.FieldWrapper,
+    ...formCommonProps,
+    ...ownProps,
+  }), [
+    id,
+    helperTextId,
+    hasHelperText,
+    formCommonProps,
+  ])
+
+  const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
+    id: helperTextId,
+    setHasHelperText,
+    Wrapper: labelPosition === 'top'
+      ? Styled.TopHelperTextWrapper
+      : Styled.LeftHelperTextWrapper,
+    ...formCommonProps,
+    ...ownProps,
+  }), [
+    helperTextId,
+    labelPosition,
+    formCommonProps,
+  ])
+
+  const rootProps = useMemo(() => ({
+    role: 'group',
+    ...bezierProps,
+  }), [bezierProps])
+
+  const contextValue = useMemo(() => ({
     id,
     labelId,
     helperTextId,
+    getLabelProps,
+    getFieldProps,
+    getHelperTextProps,
+    ...formCommonProps,
   }), [
     id,
     labelId,
     helperTextId,
-  ])
-
-  const { hasHelperText, displayedHelperText } = useMemo(() => (
-    hasError
-      ? {
-        hasHelperText: !isEmpty(errorMessage),
-        displayedHelperText: errorMessage,
-      }
-      : {
-        hasHelperText: !isEmpty(helperText),
-        displayedHelperText: helperText,
-      }
-  ), [
-    hasError,
-    helperText,
-    errorMessage,
-  ])
-
-  const renderSingleField = useCallback((field: React.ReactElement<FormComponentProps>) => (
-    React.cloneElement(field, {
-      id: field.props.id ?? id,
-      hasError: field.props.hasError ?? hasError,
-      disabled: field.props.disabled ?? disabled,
-      readOnly: field.props.readOnly ?? readOnly,
-      'aria-describedby': field.props['aria-describedby'] ?? hasHelperText
-        ? helperTextId
-        : undefined,
-    })
-  ), [
-    id,
-    hasError,
-    disabled,
-    readOnly,
-    hasHelperText,
-    helperTextId,
-  ])
-
-  const renderFormControlComponent = useCallback((
-    Wrapper: React.FunctionComponent<HTMLAttributes<HTMLDivElement>>,
-    LabelWrapper: React.FunctionComponent,
-    HelperTextWrapper: React.FunctionComponent,
-  ) => (
-    <Wrapper role="group" {...rest}>
-      { !isEmpty(label) && (
-        <LabelWrapper>
-          <FormLabel
-            id={labelId}
-            htmlFor={id}
-            help={help}
-          >
-            { label }
-          </FormLabel>
-        </LabelWrapper>
-      ) }
-
-      <div>
-        { !isFunction(children)
-          ? React.Children.map(children!, renderSingleField)
-          : children!(contextValue) }
-      </div>
-
-      { hasHelperText && (
-        <HelperTextWrapper>
-          <FormHelperText
-            id={helperTextId}
-            hasError={hasError}
-          >
-            { displayedHelperText }
-          </FormHelperText>
-        </HelperTextWrapper>
-      ) }
-    </Wrapper>
-  ), [
-    children,
-    rest,
-    id,
-    help,
-    label,
-    labelId,
-    hasError,
-    hasHelperText,
-    helperTextId,
-    displayedHelperText,
-    contextValue,
-    renderSingleField,
+    getLabelProps,
+    getFieldProps,
+    getHelperTextProps,
+    formCommonProps,
   ])
 
   if (!children) { return null }
@@ -130,15 +97,15 @@ function FormControl({
   return (
     <FormControlContext.Provider value={contextValue}>
       { labelPosition === 'top'
-        ? renderFormControlComponent(
-          Styled.Box,
-          Styled.TopLabelWrapper,
-          Styled.TopHelperTextWrapper,
+        ? (
+          <Styled.Box {...rootProps}>
+            { children }
+          </Styled.Box>
         )
-        : renderFormControlComponent(
-          Styled.Grid,
-          Styled.LeftLabelWrapper,
-          Styled.LeftHelperTextWrapper,
+        : (
+          <Styled.Grid {...rootProps}>
+            { children }
+          </Styled.Grid>
         ) }
     </FormControlContext.Provider>
   )

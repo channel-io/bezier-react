@@ -60,22 +60,8 @@ export { default as useSideViewHandler } from 'Layout/hooks/useSideViewHandler'
 export { default as useHeader } from 'Layout/hooks/useHeader'
 
 /* Types */
-export type {
-  BezierComponentProps,
-  ActivatableProps,
-  AdditionalStylableProps,
-  AdditionalTestIdProps,
-  IdentifierProps,
-  VariantProps,
-  DisableProps,
-  OptionItemProps,
-  OptionItemHostProps,
-} from 'Types/ComponentProps'
-export type {
-  FoundationProps,
-  InterpolationProps,
-  InjectedInterpolation,
-} from 'Types/Foundation'
+export * from 'Types/ComponentProps'
+export * from 'Types/Foundation'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'
