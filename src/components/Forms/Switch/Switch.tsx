@@ -7,23 +7,32 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
+import useFormControlContext from 'Components/Forms/useFormControlContext'
 import SwitchProps from './Switch.types'
-import { Wrapper, Content } from './Switch.styled'
+import * as Styled from './Switch.styled'
 
 // TODO: 테스트 코드 작성 필요
 function Switch(
   {
-    as,
     testId,
-    className,
-    style,
     checked = false,
-    disabled = false,
     size = 16,
     onClick,
+    ...rest
   }: SwitchProps,
   forwardedRef: React.Ref<any>,
 ): ReactElement {
+  const contextValue = useFormControlContext()
+
+  const {
+    disabled = false,
+    Wrapper,
+    ...ownProps
+  } = contextValue?.getFieldProps(rest) ?? {
+    ...rest,
+    Wrapper: React.Fragment,
+  }
+
   const handleClick = useCallback((event: MouseEvent) => {
     if (!disabled && onClick) {
       onClick(!checked, event)
@@ -35,21 +44,21 @@ function Switch(
   ])
 
   return (
-    <Wrapper
-      ref={forwardedRef}
-      as={as}
-      className={className}
-      size={size}
-      checked={checked}
-      disabled={disabled}
-      style={style}
-      onClick={handleClick}
-      data-testid={testId}
-    >
-      <Content
+    <Wrapper>
+      <Styled.Wrapper
+        {...ownProps}
+        ref={forwardedRef}
         size={size}
         checked={checked}
-      />
+        disabled={disabled}
+        onClick={handleClick}
+        data-testid={testId}
+      >
+        <Styled.Content
+          size={size}
+          checked={checked}
+        />
+      </Styled.Wrapper>
     </Wrapper>
   )
 }
