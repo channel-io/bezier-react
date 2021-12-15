@@ -7,6 +7,7 @@ import DisabledOpacity from 'Constants/DisabledOpacity'
 import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
 import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
+import { inputPlaceholderStyle } from 'Components/Forms/Inputs/InputStyle'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
@@ -31,9 +32,7 @@ const Input = styled.input<InterpolationProps>`
   border: none;
   outline: none;
 
-  &::placeholder {
-    color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
-  }
+  ${inputPlaceholderStyle}
 
   ${({ interpolation }) => interpolation}
 `

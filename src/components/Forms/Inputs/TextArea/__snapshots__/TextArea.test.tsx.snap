@@ -45,6 +45,22 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 }
 
 .c1::-webkit-input-placeholder {
+  color: #00000066;
+}
+
+.c1::-moz-placeholder {
+  color: #00000066;
+}
+
+.c1:-ms-input-placeholder {
+  color: #00000066;
+}
+
+.c1::placeholder {
+  color: #00000066;
+}
+
+.c1::-webkit-input-placeholder {
   font-size: 14px;
   line-height: 18px;
 }
