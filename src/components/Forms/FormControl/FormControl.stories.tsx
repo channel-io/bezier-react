@@ -16,11 +16,15 @@ export default {
   component: FormControl,
 } as Meta
 
-const Template: Story<FormControlProps> = (args) => (
-  <FormControl {...args}>
+const Template: Story<FormControlProps> = ({ hasError, ...args }) => (
+  <FormControl
+    {...args}
+    style={{ width: 400 }}
+    hasError={hasError}
+  >
     <FormLabel help="Lorem Ipsum">Label</FormLabel>
     <TextField placeholder="Placeholder" />
-    <FormHelperText>Helper</FormHelperText>
+    <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
   </FormControl>
 )
 
