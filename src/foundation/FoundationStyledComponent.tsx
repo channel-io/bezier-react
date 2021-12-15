@@ -156,7 +156,7 @@ interface CreateFoundationGlobalStyle {
     ...interpolations: Array<Interpolation<ThemedStyledProps<P & { foundation?: FoundationWithGlobalStyle }, Foundation>>>
   ): GlobalStyleComponent<
   P & { foundation: FoundationWithGlobalStyle },
-  ThemedStyledProps<P & { foundation: FoundationWithGlobalStyle }, FoundationWithGlobalStyle>
+  ThemedStyledProps<P & { foundation: FoundationWithGlobalStyle }, Foundation>
   >
 }
 
