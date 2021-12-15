@@ -151,8 +151,8 @@ describe('Button Test >', () => {
         expect(lButton).toHaveStyle('padding: 12px 10px;')
 
         // Typograpy.Size14
-        expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}px;`)
-        expect(lButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}px;`)
+        expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo15}px;`)
+        expect(lButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh20}px;`)
       })
 
       it('Size XL', () => {
@@ -165,8 +165,8 @@ describe('Button Test >', () => {
         expect(xlButton).toHaveStyle('padding: 15px 14px;')
 
         // Typograpy.Size16
-        expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo16}px;`)
-        expect(xlButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh22}px;`)
+        expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo18}px;`)
+        expect(xlButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh24}px;`)
       })
     })
 
