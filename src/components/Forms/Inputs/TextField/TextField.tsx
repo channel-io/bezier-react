@@ -21,42 +21,39 @@ import type { TextFieldProps } from './TextField.types'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 
-function TextFieldComponent(
-  props: TextFieldProps,
-  forwardedRef: Ref<TextFieldRef>,
+function TextFieldComponent({
+  name,
+  type,
+  size = TextFieldSize.M,
+  testId = TEXT_INPUT_TEST_ID,
+  autoFocus,
+  autoComplete = 'off',
+  variant = TextFieldVariant.Primary,
+  allowClear = false,
+  selectAllOnInit = false,
+  selectAllOnFocus = false,
+  leftContent,
+  rightContent,
+  withoutLeftContentWrapper = false,
+  withoutRightContentWrapper = false,
+  inputClassName,
+  inputInterpolation,
+  wrapperClassName,
+  wrapperInterpolation,
+  leftWrapperClassName,
+  leftWrapperInterpolation,
+  rightWrapperClassName,
+  rightWrapperInterpolation,
+  value,
+  onBlur,
+  onFocus,
+  onChange,
+  onKeyDown,
+  onKeyUp,
+  ...rest
+}: TextFieldProps,
+forwardedRef: Ref<TextFieldRef>,
 ) {
-  const {
-    name,
-    type,
-    size = TextFieldSize.M,
-    testId = TEXT_INPUT_TEST_ID,
-    autoFocus,
-    autoComplete = 'off',
-    variant = TextFieldVariant.Primary,
-    allowClear = false,
-    selectAllOnInit = false,
-    selectAllOnFocus = false,
-    leftContent,
-    rightContent,
-    withoutLeftContentWrapper = false,
-    withoutRightContentWrapper = false,
-    inputClassName,
-    inputInterpolation,
-    wrapperClassName,
-    wrapperInterpolation,
-    leftWrapperClassName,
-    leftWrapperInterpolation,
-    rightWrapperClassName,
-    rightWrapperInterpolation,
-    value,
-    onBlur,
-    onFocus,
-    onChange,
-    onKeyDown,
-    onKeyUp,
-    ...rest
-  } = props
-
   const contextValue = useFormControlContext()
 
   const {
