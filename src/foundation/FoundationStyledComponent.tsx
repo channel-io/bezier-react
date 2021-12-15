@@ -136,10 +136,7 @@ interface FoundationCSSInterface {
 }
 
 /* eslint-disable-next-line func-names */
-const FoundationCSS: FoundationCSSInterface = function (...args) {
-  /* @ts-ignore */
-  return baseCSS(...args)
-}
+const FoundationCSS: FoundationCSSInterface = baseCSS
 
 function useFoundation() {
   return useContext(FoundationContext)
@@ -164,10 +161,7 @@ interface CreateFoundationGlobalStyle {
 }
 
 /* eslint-disable-next-line func-names */ /* @ts-ignore */
-const createFoundationGlobalStyle: CreateFoundationGlobalStyle = function (...args) {
-  /* @ts-ignore */
-  return baseCreateGlobalStyle(...args)
-}
+const createFoundationGlobalStyle: CreateFoundationGlobalStyle = baseCreateGlobalStyle
 
 export type {
   GlobalStyleProp,
