@@ -61,6 +61,7 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
   ${Typography.Size14}
 
   &::placeholder {
+    color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
     ${Typography.Size14}
   }
 
