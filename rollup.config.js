@@ -72,7 +72,7 @@ const configGenerator = ({
 })
 
 export default [
-  // // CommonJS
+  // CommonJS
   configGenerator({
     output: {
       file: packageJson.main,
@@ -98,7 +98,6 @@ export default [
         extensions,
       }),
       typescriptPlugin,
-      // aliasPlugin,
     ],
   }),
 ]
