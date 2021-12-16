@@ -81,12 +81,6 @@ const Wrapper = styled.div<ClickableElementProps & InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-const Divider = styled.div`
-  height: 1px;
-  margin: 0 6px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bdr-grey-light']};
-`
-
 export default {
   LeftIcon,
   LeftContentWrapper,
@@ -97,5 +91,4 @@ export default {
   RightItemWrapper,
   ChildrenWrapper,
   Wrapper,
-  Divider,
 }

@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid'
 import { Typography } from 'Foundation'
 import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
 import { Icon, IconSize } from 'Components/Icon'
+import { Divider } from 'Components/Divider'
 import { Tooltip } from 'Components/Tooltip'
 import Styled from './SectionLabel.styled'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
@@ -167,8 +168,7 @@ function SectionLabel({
 
   return (
     <div>
-      { /* FIXME: Bezier Divider로 변경 */ }
-      { divider && <Styled.Divider /> }
+      { divider && <Divider orientation="horizontal" /> }
       <Styled.Wrapper
         className={wrapperClassName}
         clickable={!isNil(onClick)}
