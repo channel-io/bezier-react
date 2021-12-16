@@ -2,9 +2,11 @@
 import TextareaAutosize from 'react-textarea-autosize'
 
 /* Internal dependencies */
+import { hideScrollbars, SemanticNames, styled, Typography } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { InterpolationProps } from 'Types/Foundation'
 import {
+  inputTextStyle,
   erroredInputWrapperStyle,
   focusedInputWrapperStyle,
   inputWrapperStyle,
@@ -63,6 +65,8 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
   ${hideScrollbars()}
 
   ${Typography.Size14}
+
+  ${inputTextStyle}
 
   ${inputPlaceholderStyle}
 
