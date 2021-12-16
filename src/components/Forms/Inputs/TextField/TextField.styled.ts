@@ -6,8 +6,13 @@ import { css, styled, Typography, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { InterpolationProps } from 'Types/Foundation'
 import { Icon } from 'Components/Icon'
-import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
-import { inputPlaceholderStyle } from 'Components/Forms/Inputs/InputStyle'
+import {
+  inputTextStyle,
+  inputPlaceholderStyle,
+  inputWrapperStyle,
+  focusedInputWrapperStyle,
+  erroredInputWrapperStyle,
+} from 'Components/Forms/Inputs/mixins'
 import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
@@ -21,16 +26,15 @@ const clickableElementStyle = css`
 const Input = styled.input<InterpolationProps>`
   width: 100%;
   height: 100%;
-  ${Typography.Size14}
   padding: 0;
-
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'auto')};
-
   background-color: transparent;
   border: none;
   outline: none;
+
+  ${Typography.Size14}
+
+  ${inputTextStyle}
 
   ${inputPlaceholderStyle}
 
