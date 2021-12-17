@@ -1,10 +1,9 @@
 /* External dependencies */
-import React, { forwardRef, useCallback } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import type FormHelperTextProps from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
@@ -33,14 +32,16 @@ forwardedRef: React.Ref<HTMLParamElement>,
     Wrapper: React.Fragment,
   }
 
-  const setHelperTextRef = useCallback((node: HTMLElement) => {
-    if (!node) { return }
-    setHasHelperText?.(true)
-  }, [setHasHelperText])
+  const shouldRendered = !isEmpty(children)
 
-  const mergedRef = useMergeRefs(setHelperTextRef, forwardedRef)
+  useEffect(() => {
+    setHasHelperText?.(shouldRendered)
+  }, [
+    shouldRendered,
+    setHasHelperText,
+  ])
 
-  if (isEmpty(children)) { return null }
+  if (!shouldRendered) { return null }
 
   return (
     <Wrapper>
@@ -49,7 +50,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
         aria-live={hasError ? 'polite' : undefined}
         color={hasError ? 'bgtxt-orange-normal' : 'txt-black-dark'}
         testId={testId}
-        ref={mergedRef}
+        ref={forwardedRef}
         forwardedAs={as}
         typo={typo}
       >
