@@ -77,7 +77,7 @@ export interface TextFieldProps extends
   BezierComponentProps,
   SizeProps<TextFieldSize>,
   VariantProps<TextFieldVariant>,
-  SideContentProps<TextFieldItemProps, TextFieldItemProps[]>,
+  SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
   AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
   TextFieldOptions {}
