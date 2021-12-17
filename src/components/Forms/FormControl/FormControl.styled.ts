@@ -2,6 +2,8 @@
 import { styled } from 'Foundation'
 import { InterpolationProps } from 'Types/Foundation'
 
+const LEFT_LABEL_MIN_WIDTH = 150
+
 export const Box = styled.div<InterpolationProps>`
   position: relative;
   ${({ interpolation }) => interpolation}
@@ -20,7 +22,7 @@ export const TopHelperTextWrapper = styled(Box)`
 export const Grid = styled(Box)`
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: minmax(${LEFT_LABEL_MIN_WIDTH}px, auto) 1fr;
   grid-column-gap: 12px;
   align-items: center;
 `
