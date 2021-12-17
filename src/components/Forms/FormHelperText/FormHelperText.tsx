@@ -41,6 +41,10 @@ forwardedRef: React.Ref<HTMLParamElement>,
     setHasHelperText,
   ])
 
+  useEffect(() => function cleanUp() {
+    setHasHelperText?.(false)
+  }, [setHasHelperText])
+
   if (!shouldRendered) { return null }
 
   return (
