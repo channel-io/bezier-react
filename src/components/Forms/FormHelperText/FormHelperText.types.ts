@@ -7,5 +7,5 @@ export default interface FormHelperTextProps extends
   BezierComponentProps,
   ChildrenProps,
   Partial<IdentifierProps>,
-  FormComponentProps,
+  Pick<FormComponentProps, 'hasError'>,
   TextProps {}

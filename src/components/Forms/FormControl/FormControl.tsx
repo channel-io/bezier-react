@@ -32,13 +32,11 @@ function FormControl({
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : Styled.LeftLabelWrapper,
-    ...formCommonProps,
     ...ownProps,
   }), [
     id,
     labelId,
     labelPosition,
-    formCommonProps,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
@@ -59,10 +57,10 @@ function FormControl({
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
     id: helperTextId,
     setHasHelperText,
+    hasError: formCommonProps?.hasError,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
-    ...formCommonProps,
     ...ownProps,
   }), [
     helperTextId,
