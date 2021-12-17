@@ -11,18 +11,15 @@ import * as Styled from './FormHelperText.styled'
 
 export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 
-function FormHelperText(
-  props: FormHelperTextProps,
-  forwardedRef: React.Ref<HTMLParamElement>,
+function FormHelperText({
+  testId = FORM_HELPER_TEXT_TEST_ID,
+  as = 'p',
+  typo = Typography.Size13,
+  children,
+  ...rest
+}: FormHelperTextProps,
+forwardedRef: React.Ref<HTMLParamElement>,
 ) {
-  const {
-    testId = FORM_HELPER_TEXT_TEST_ID,
-    as = 'p',
-    typo = Typography.Size13,
-    children,
-    ...rest
-  } = props
-
   const contextValue = useFormControlContext()
 
   const {

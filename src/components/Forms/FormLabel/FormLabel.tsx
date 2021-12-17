@@ -12,20 +12,17 @@ import * as Styled from './FormLabel.styled'
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 
-function FormLabel(
-  props: FormLabelProps,
-  forwardedRef: React.Ref<HTMLLabelElement>,
+function FormLabel({
+  testId = FORM_LABEL_TEST_ID,
+  help,
+  as = 'label',
+  bold = true,
+  typo = Typography.Size13,
+  children,
+  ...rest
+}: FormLabelProps,
+forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
-  const {
-    testId = FORM_LABEL_TEST_ID,
-    help,
-    as = 'label',
-    bold = true,
-    typo = Typography.Size13,
-    children,
-    ...rest
-  } = props
-
   const contextValue = useFormControlContext()
 
   const { Wrapper, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
