@@ -6,7 +6,7 @@ interface FormControlOptions {
   labelPosition?: 'top' | 'left'
 }
 
-interface FormControlContextCommonValue extends IdentifierProps {
+export interface FormControlContextCommonValue extends IdentifierProps {
   Wrapper: React.FunctionComponent
 }
 
@@ -23,7 +23,7 @@ export type HelperTextPropsGetter = PropsGetter<{
   setHasHelperText: React.Dispatch<React.SetStateAction<boolean>>
 }>
 
-export interface FormContextValue extends FormComponentProps {
+export interface FormControlContextValue extends FormComponentProps {
   id: string
   labelId: string
   helperTextId: string

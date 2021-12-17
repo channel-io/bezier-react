@@ -2,8 +2,8 @@
 import { createContext } from 'react'
 
 /* Internal dependencies */
-import { FormContextValue } from 'Components/Forms/FormControl'
+import { FormControlContextValue } from 'Components/Forms/FormControl'
 
-const FormControlContext = createContext<FormContextValue | undefined>(undefined)
+const FormControlContext = createContext<FormControlContextValue | undefined>(undefined)
 
 export default FormControlContext
