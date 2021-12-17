@@ -3,7 +3,7 @@ import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect,
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'
@@ -29,18 +29,13 @@ function TextArea({
 }: TextAreaProps,
 forwardedRef: Ref<HTMLTextAreaElement>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
-    readOnly = false,
-    hasError = false,
+    disabled,
+    readOnly,
+    hasError,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)

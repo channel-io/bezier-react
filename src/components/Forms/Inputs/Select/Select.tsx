@@ -7,7 +7,7 @@ import { Typography } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { OverlayPosition } from 'Components/Overlay'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
 import * as Styled from './Select.styled'
@@ -50,17 +50,12 @@ function Select({
 }: SelectProps,
 forwardedRef: Ref<SelectRef>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
-    hasError = false,
+    disabled,
+    hasError,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)

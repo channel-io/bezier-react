@@ -6,7 +6,7 @@ import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import SegmentedControlProps from './SegmentedControl.types'
 import * as Styled from './SegmentedControl.styled'
 
@@ -29,16 +29,11 @@ function SegmentedControl(
   }: SegmentedControlProps,
   forwardedRef: Ref<any>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
+    disabled,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)
   const [wrapperHeight, setWrapperHeight] = useState<number>(0)

@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import SwitchProps from './Switch.types'
 import * as Styled from './Switch.styled'
 
@@ -22,16 +22,11 @@ function Switch(
   }: SwitchProps,
   forwardedRef: React.Ref<any>,
 ): ReactElement {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
+    disabled,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const handleClick = useCallback((event: MouseEvent) => {
     if (!disabled && onClick) {

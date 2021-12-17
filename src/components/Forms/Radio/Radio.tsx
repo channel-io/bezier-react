@@ -9,7 +9,7 @@ import React, {
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,
   StyledRadioHandle,
@@ -33,16 +33,11 @@ function Radio(
   }: RadioProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
+    disabled,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const [hovered, setHovered] = useState(false)
 

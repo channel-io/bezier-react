@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
 import { Icon, IconSize } from 'Components/Icon'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,
@@ -54,18 +54,13 @@ function TextFieldComponent({
 }: TextFieldProps,
 forwardedRef: Ref<TextFieldRef>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
-    readOnly = false,
-    hasError = false,
+    disabled,
+    readOnly,
+    hasError,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const [focused, setFocused] = useState(false)
   const [hovered, setHovered] = useState(false)
@@ -363,16 +358,16 @@ forwardedRef: Ref<TextFieldRef>,
       >
         { leftComponent }
         <Styled.Input
+          type={type}
           className={inputClassName}
           interpolation={inputInterpolation}
           ref={inputRef}
+          value={normalizedValue}
           name={name}
           size={size}
           autoComplete={autoComplete}
-          type={type}
           readOnly={readOnly}
           disabled={disabled}
-          value={normalizedValue}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}

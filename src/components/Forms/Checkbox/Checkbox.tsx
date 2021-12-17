@@ -4,7 +4,7 @@ import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize, IconProps } from 'Components/Icon'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
 import * as Styled from './Checkbox.styled'
@@ -31,16 +31,11 @@ function Checkbox(
   }: CheckboxProps,
   forwardedRef: Ref<any>,
 ) {
-  const contextValue = useFormControlContext()
-
   const {
-    disabled = false,
+    disabled,
     Wrapper,
     ...ownProps
-  } = contextValue?.getFieldProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  } = useFormFieldProps(rest)
 
   const checkStatus = useMemo(() => {
     if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
