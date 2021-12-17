@@ -23,8 +23,8 @@ function FormControl({
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
 
-  const bezierProps = pickBezierComponentProps(rest)
-  const formCommonProps = omitBezierComponentProps(rest)
+  const bezierProps = useMemo(() => pickBezierComponentProps(rest), [rest])
+  const formCommonProps = useMemo(() => omitBezierComponentProps(rest), [rest])
 
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
