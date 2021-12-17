@@ -93,19 +93,19 @@ function FormControl({
 
   if (!children) { return null }
 
+  const Container = {
+    top: Styled.Box,
+    left: Styled.Grid,
+  }[labelPosition]
+
   return (
     <FormControlContext.Provider value={contextValue}>
-      { labelPosition === 'top'
-        ? (
-          <Styled.Box {...rootProps}>
-            { children }
-          </Styled.Box>
-        )
-        : (
-          <Styled.Grid {...rootProps}>
-            { children }
-          </Styled.Grid>
-        ) }
+      <Container
+        data-testid={testId}
+        {...rootProps}
+      >
+        { children }
+      </Container>
     </FormControlContext.Provider>
   )
 }
