@@ -3,8 +3,8 @@ import type { IdentifierProps, DisableProps } from 'Types/ComponentProps'
 
 interface FormComponentOptions {
   hasError?: boolean
+  required?: boolean
   readOnly?: boolean
-  ['aria-describedby']?: string
 }
 
 export interface FormComponentProps extends
