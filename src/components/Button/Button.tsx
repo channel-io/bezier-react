@@ -107,6 +107,7 @@ function Button(
 ) {
   const [isHovered, setIsHovered] = useState(false)
 
+  // TODO(@ed): Text에 Padding 속성을 열어주고, M 이상인 경우 상하 1px 패딩 추가
   const textMargin = useMemo(() => {
     switch (size) {
       case ButtonSize.S:
@@ -125,9 +126,10 @@ function Button(
       case ButtonSize.XS:
       case ButtonSize.S:
         return Typography.Size13
-      case ButtonSize.XL:
-        return Typography.Size16
       case ButtonSize.L:
+        return Typography.Size15
+      case ButtonSize.XL:
+        return Typography.Size18
       case ButtonSize.M:
       default:
         return Typography.Size14
@@ -166,6 +168,7 @@ function Button(
       case ButtonSize.XS:
         return IconSize.XS
       case ButtonSize.XL:
+        return IconSize.Normal
       case ButtonSize.L:
       case ButtonSize.M:
       default:
