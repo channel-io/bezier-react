@@ -75,6 +75,7 @@ export type {
   InterpolationProps,
   InjectedInterpolation,
 } from 'Types/Foundation'
+export * from 'Types/Utils'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'
