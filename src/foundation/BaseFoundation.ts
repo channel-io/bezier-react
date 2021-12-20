@@ -1,12 +1,14 @@
 /* Internal dependencies */
 import { Foundation } from './Foundation'
 import { Themes } from './Colors'
+import { Spacing } from './Spacing'
 import { Transition } from './Transition'
 import { Rounding } from './Rounding'
 import { Elevation } from './Elevation'
 import { Border } from './Border'
 
 const BaseFoundation = {
+  spacing: Spacing,
   transition: Transition,
   rounding: Rounding,
   elevation: Elevation,

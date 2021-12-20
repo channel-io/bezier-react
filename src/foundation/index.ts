@@ -2,6 +2,7 @@
 export * from './BaseFoundation'
 
 // Foundations
+export * from './Spacing'
 export * from './Elevation'
 export * from './Colors'
 export * from './Rounding'
