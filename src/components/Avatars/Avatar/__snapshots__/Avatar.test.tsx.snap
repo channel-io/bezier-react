@@ -54,3 +54,203 @@ exports[`Avatar test > Snapshot 1`] = `
   style="--background-image: url(https://www.google.com);"
 />
 `;
+
+exports[`Avatar test > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 2px;
+  position: relative;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="8"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="8"
+  />
+</div>
+`;
+
+exports[`Avatar test > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 2px;
+  position: relative;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="8"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="8"
+  />
+</div>
+`;
+
+exports[`Avatar test > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 3px;
+  position: relative;
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="14"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="14"
+  />
+</div>
+`;
+
+exports[`Avatar test > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 3px;
+  position: relative;
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="14"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="14"
+  />
+</div>
+`;
