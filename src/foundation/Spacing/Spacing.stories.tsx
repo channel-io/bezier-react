@@ -62,7 +62,7 @@ const Template: Story<SpacingRectProps> = () => (
         <Text bold>Pixels</Text>
       </Cell>
     </Row>
-    { (Object.entries(Spacing) as unknown as Entries<typeof Spacing>).map(([key, value]) => (
+    { (Object.entries(Spacing) as Entries<typeof Spacing>).map(([key, value]) => (
       <Row key={key}>
         <Cell>
           <Text>{ key }</Text>
