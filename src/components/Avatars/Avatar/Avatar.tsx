@@ -4,7 +4,7 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { smoothCornersStyle } from 'Foundation'
-import { Status } from 'Components/Status'
+import { Status, StatusSize } from 'Components/Status'
 // eslint-disable-next-line no-restricted-imports
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
@@ -14,6 +14,7 @@ import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from '.
 // TODO: 테스트 코드 작성
 const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
+export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
 function Avatar({
   avatarUrl = '',
@@ -45,11 +46,15 @@ forwardedRef: React.Ref<HTMLDivElement>,
       return null
     }
 
+    const statusSize = size >= AvatarSize.Size90 ? StatusSize.L : StatusSize.M
     const Contents = (() => {
       if (children) { return children }
       if (status) {
         return (
-          <Status type={status} />
+          <Status
+            type={status}
+            size={statusSize}
+          />
         )
       }
       return null
@@ -57,6 +62,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
     return (
       <StatusWrapper
+        data-testid={STATUS_WRAPPER_TEST_ID}
+        size={statusSize}
         showBorder={showBorder}
       >
         { Contents }
@@ -64,6 +71,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     )
   }, [
     status,
+    size,
     showBorder,
     children,
   ])

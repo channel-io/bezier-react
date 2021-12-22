@@ -1,5 +1,5 @@
 import Status from './Status'
-import { StatusType } from './Status.types'
+import { StatusType, StatusSize } from './Status.types'
 import type { StatusProps } from './Status.types'
 
 export type {
@@ -9,4 +9,5 @@ export type {
 export {
   Status,
   StatusType,
+  StatusSize,
 }

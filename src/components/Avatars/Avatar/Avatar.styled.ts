@@ -3,7 +3,8 @@ import { styled, css, smoothCorners } from 'Foundation'
 import { enableSmoothCorners } from 'Worklets/EnableCSSHoudini'
 import type { InterpolationProps } from 'Types/Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
-import { AVATAR_STATUS_GAP, AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
+import { StatusSize } from 'Components/Status'
+import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
 import { AvatarSize } from './Avatar.types'
 
 interface AvatarWrapperProps extends InterpolationProps {
@@ -15,10 +16,16 @@ interface AvatarProps extends InterpolationProps {
   showBorder: boolean
 }
 
-function calcStatusGap(showBorder: boolean) {
-  return `${showBorder && enableSmoothCorners.current
-    ? (AVATAR_BORDER_WIDTH * 2) - AVATAR_STATUS_GAP
-    : -AVATAR_STATUS_GAP}px`
+interface StatusWrapperProps extends Pick<AvatarProps, 'showBorder'> {
+  size: StatusSize
+}
+
+function calcStatusGap({ showBorder, size }: StatusWrapperProps) {
+  let gap = (size >= StatusSize.L ? 4 : -2)
+  if (showBorder && enableSmoothCorners.current) {
+    gap += AVATAR_BORDER_WIDTH * 2
+  }
+  return gap
 }
 
 const disabledStyle = css`
@@ -81,8 +88,8 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const StatusWrapper = styled.div<Pick<AvatarProps, 'showBorder'>>`
+export const StatusWrapper = styled.div<StatusWrapperProps>`
   position: absolute;
-  right: ${({ showBorder }) => calcStatusGap(showBorder)};
-  bottom: ${({ showBorder }) => calcStatusGap(showBorder)};
+  right: ${calcStatusGap}px;
+  bottom: ${calcStatusGap}px;
 `
