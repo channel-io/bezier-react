@@ -13,8 +13,7 @@ import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils'
 import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
 
-// TODO: 테스트 코드 작성
-const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
+export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
 
 function Tooltip(
   {
@@ -216,6 +215,7 @@ function Tooltip(
   return (
     <Container
       ref={tooltipContainerRef}
+      data-testid={testId}
       className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
