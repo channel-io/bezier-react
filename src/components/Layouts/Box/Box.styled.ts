@@ -1,85 +1,13 @@
 /* External dependencies */
 import { CSSObject } from 'styled-components'
-import { isNil, isNumber, isString, omit } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled, Foundation } from 'Foundation'
+import { styled } from 'Foundation'
+import { sanitizeInvalidCSSProps, convertColorProps, convertSizingProps } from './utils'
 import { BoxProps } from './Box.types'
 
-const customProps: Array<keyof BoxProps | 'data-testid'> = [
-  // Bezier Props
-  'as',
-  'data-testid',
-  'className',
-  'children',
-  // Custom Style Props
-  'p',
-  'pv',
-  'paddingVertical',
-  'ph',
-  'paddingHorizontal',
-  'pt',
-  'pr',
-  'pb',
-  'pl',
-  'm',
-  'mv',
-  'marginVertical',
-  'mh',
-  'marginHorizontal',
-  'mt',
-  'mr',
-  'mb',
-  'ml',
-  'w',
-  'width',
-  'maxW',
-  'minW',
-  'h',
-  'height',
-  'maxH',
-  'minH',
-  'bg',
-  'backgroundColor',
-  'color',
-  'typo',
-  'bold',
-  'italic',
-  'truncated',
-]
-
-function convertColorProps(foundation?: Foundation, ...values: unknown[]) {
-  for (const index in values) {
-    if (Object.prototype.hasOwnProperty.call(values, index)) {
-      const eachValue = values[index]
-      if (!isNil(eachValue)) {
-        if (isNumber(eachValue)) { return eachValue }
-        if (isString(eachValue)) { return foundation?.theme?.[eachValue] ?? eachValue }
-      }
-    }
-  }
-  return undefined
-}
-
-function convertSizingProps(foundation?: Foundation, ...values: unknown[]) {
-  for (const index in values) {
-    if (Object.prototype.hasOwnProperty.call(values, index)) {
-      const eachValue = values[index]
-      if (!isNil(eachValue)) {
-        if (isNumber(eachValue)) { return eachValue }
-        if (isString(eachValue)) { return foundation?.spacing?.[eachValue] ?? eachValue }
-      }
-    }
-  }
-  return undefined
-}
-
-/** NOTE(@ed):
- * - cf. https://styled-components.com/docs/advanced#style-objects
- * - Style Objects를 받는 방식으로만 구현 시, Interpolation을 적용하기 어려워 styled HOC를 사용하여 한 번 더 extend 했습니다.
- * - Style Objects로 prop을 전달받으면서 불필요한 prop도 함께 섞여들어옵니다. 이를 삭제합니다.
- */
-const BaseBox = styled.div<CSSObject>(props => omit(props, customProps))
+// NOTE(@ed): Style Object를 받는 방식으로만 구현 시, Interpolation을 적용하기 어려워 styled HOC를 사용하여 한 번 더 extend 했습니다.
+const BaseBox = styled.div<CSSObject>(sanitizeInvalidCSSProps)
 
 export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
   /* Margin */
