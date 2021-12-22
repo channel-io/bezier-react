@@ -10,11 +10,11 @@ import { BoxProps } from './Box.types'
 const BaseBox = styled.div<CSSObject>(sanitizeInvalidCSSProps)
 
 export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
-  /* Margin */
-  margin-top: ${({ foundation, mt, mh, m }) => convertSizingProps(foundation, mt, mh, m)};
-  margin-right: ${({ foundation, mr, mv, m }) => convertSizingProps(foundation, mr, mv, m)};
-  margin-bottom: ${({ foundation, mb, mh, m }) => convertSizingProps(foundation, mb, mh, m)};
-  margin-left: ${({ foundation, ml, mv, m }) => convertSizingProps(foundation, ml, mv, m)};
+  /* Position */
+  top: ${({ foundation, t, top }) => convertSizingProps(foundation, t, top)};
+  right: ${({ foundation, r, right }) => convertSizingProps(foundation, r, right)};
+  bottom: ${({ foundation, b, bottom }) => convertSizingProps(foundation, b, bottom)};
+  left: ${({ foundation, l, left }) => convertSizingProps(foundation, l, left)};
 
   /* Padding */
   padding-top: ${({ foundation, pt, ph, p }) => convertSizingProps(foundation, pt, ph, p)};
@@ -22,13 +22,19 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
   padding-bottom: ${({ foundation, pb, ph, p }) => convertSizingProps(foundation, pb, ph, p)};
   padding-left: ${({ foundation, pl, pv, p }) => convertSizingProps(foundation, pl, pv, p)};
 
+  /* Margin */
+  margin-top: ${({ foundation, mt, mh, m }) => convertSizingProps(foundation, mt, mh, m)};
+  margin-right: ${({ foundation, mr, mv, m }) => convertSizingProps(foundation, mr, mv, m)};
+  margin-bottom: ${({ foundation, mb, mh, m }) => convertSizingProps(foundation, mb, mh, m)};
+  margin-left: ${({ foundation, ml, mv, m }) => convertSizingProps(foundation, ml, mv, m)};
+
   /* Width & Height */
   width: ${({ foundation, w, width }) => convertSizingProps(foundation, w, width)};
-  max-width: ${({ foundation, maxW }) => convertSizingProps(foundation, maxW)};
-  min-width: ${({ foundation, minW }) => convertSizingProps(foundation, minW)};
+  max-width: ${({ foundation, maxW, maxWidth }) => convertSizingProps(foundation, maxW, maxWidth)};
+  min-width: ${({ foundation, minW, minWidth }) => convertSizingProps(foundation, minW, minWidth)};
   height: ${({ foundation, h, height }) => convertSizingProps(foundation, h, height)};
-  max-height: ${({ foundation, maxH }) => convertSizingProps(foundation, maxH)};
-  min-height: ${({ foundation, minH }) => convertSizingProps(foundation, minH)};
+  max-height: ${({ foundation, maxH, maxHeight }) => convertSizingProps(foundation, maxH, maxHeight)};
+  min-height: ${({ foundation, minH, minHeight }) => convertSizingProps(foundation, minH, minHeight)};
 
   /* Color */
   background-color: ${({ foundation, bg, backgroundColor }) => convertColorProps(foundation, bg, backgroundColor)};

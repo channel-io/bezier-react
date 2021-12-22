@@ -1,0 +1,60 @@
+/* Internal dependencies */
+import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { BoxProps } from './Box.types'
+
+const bezierPropKeys: Array<keyof BezierComponentProps | keyof ChildrenProps | 'data-testid'> = [
+  'as',
+  'data-testid',
+  'className',
+  'children',
+]
+
+const customStylePropKeys: Array<keyof BoxProps> = [
+  't',
+  'top',
+  'r',
+  'right',
+  'b',
+  'bottom',
+  'l',
+  'left',
+  'p',
+  'pv',
+  'paddingVertical',
+  'ph',
+  'paddingHorizontal',
+  'pt',
+  'pr',
+  'pb',
+  'pl',
+  'm',
+  'mv',
+  'marginVertical',
+  'mh',
+  'marginHorizontal',
+  'mt',
+  'mr',
+  'mb',
+  'ml',
+  'w',
+  'width',
+  'maxW',
+  'maxWidth',
+  'minW',
+  'minWidth',
+  'h',
+  'height',
+  'maxH',
+  'maxHeight',
+  'minH',
+  'minHeight',
+  'bg',
+  'backgroundColor',
+  'color',
+  'typo',
+  'bold',
+  'italic',
+  'truncated',
+]
+
+export const omittedPropKeys = [...bezierPropKeys, ...customStylePropKeys]

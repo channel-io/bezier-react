@@ -4,53 +4,7 @@ import { isNil, isNumber, isString, omit } from 'lodash-es'
 
 /* Internal dependencies */
 import { Foundation } from 'Foundation'
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { BoxProps } from './Box.types'
-
-const bezierPropKeys: Array<keyof BezierComponentProps | keyof ChildrenProps | 'data-testid'> = [
-  'as',
-  'data-testid',
-  'className',
-  'children',
-]
-
-const customStylePropKeys: Array<keyof BoxProps> = [
-  'p',
-  'pv',
-  'paddingVertical',
-  'ph',
-  'paddingHorizontal',
-  'pt',
-  'pr',
-  'pb',
-  'pl',
-  'm',
-  'mv',
-  'marginVertical',
-  'mh',
-  'marginHorizontal',
-  'mt',
-  'mr',
-  'mb',
-  'ml',
-  'w',
-  'width',
-  'maxW',
-  'minW',
-  'h',
-  'height',
-  'maxH',
-  'minH',
-  'bg',
-  'backgroundColor',
-  'color',
-  'typo',
-  'bold',
-  'italic',
-  'truncated',
-]
-
-const omittedPropKeys = [...bezierPropKeys, ...customStylePropKeys]
+import { omittedPropKeys } from './const'
 
 /**
  * @link https://styled-components.com/docs/advanced#style-objects

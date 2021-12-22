@@ -5,6 +5,16 @@ import type { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 type CSSPropsAndSemanticNames<Key extends keyof React.CSSProperties> = SemanticNames | React.CSSProperties[Key]
 
 interface BoxOptions extends React.CSSProperties {
+  // Position
+  t?: React.CSSProperties['top']
+  top?: React.CSSProperties['top']
+  r?: React.CSSProperties['right']
+  right?: React.CSSProperties['right']
+  b?: React.CSSProperties['bottom']
+  bottom?: React.CSSProperties['bottom']
+  l?: React.CSSProperties['left']
+  left?: React.CSSProperties['left']
+
   // Padding
   p?: React.CSSProperties['padding']
   pv?: string | number
@@ -31,11 +41,15 @@ interface BoxOptions extends React.CSSProperties {
   w?: React.CSSProperties['width']
   width?: React.CSSProperties['width']
   maxW?: React.CSSProperties['maxWidth']
+  maxWidth?: React.CSSProperties['maxWidth']
   minW?: React.CSSProperties['minWidth']
+  minWidth?: React.CSSProperties['maxWidth']
   h?: React.CSSProperties['height']
   height?: React.CSSProperties['height']
   maxH?: React.CSSProperties['maxHeight']
+  maxHeight?: React.CSSProperties['maxWidth']
   minH?: React.CSSProperties['minHeight']
+  minHeight?: React.CSSProperties['minHeight']
 
   // Color
   bg?: CSSPropsAndSemanticNames<'backgroundColor'>
