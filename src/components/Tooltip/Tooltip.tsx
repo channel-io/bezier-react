@@ -22,6 +22,7 @@ function Tooltip(
     testId = TOOLTIP_TEST_ID,
     className,
     contentClassName,
+    contentInterpolation,
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
@@ -159,6 +160,7 @@ function Tooltip(
         as={as}
         data-testid={testId}
         className={contentClassName}
+        interpolation={contentInterpolation}
         ref={mergedRef}
       >
         <EllipsisableContent>
@@ -171,6 +173,7 @@ function Tooltip(
     as,
     content,
     contentClassName,
+    contentInterpolation,
     contentWrapperStyle,
     disabled,
     keepInContainer,

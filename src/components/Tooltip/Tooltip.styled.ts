@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { styled, css, ellipsis, LineHeightAbsoluteNumber } from 'Foundation'
+import type { InterpolationProps } from 'Types/Foundation'
 
 interface ContentWrapperProps {
   disabled: boolean
@@ -24,7 +25,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   `}
 `
 
-export const Content = styled.div`
+export const Content = styled.div<InterpolationProps>`
   box-sizing: border-box;
   width: max-content;
   max-width: 260px;
@@ -34,6 +35,8 @@ export const Content = styled.div`
   word-break: break-all;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
   ${({ foundation }) => foundation?.rounding?.round8};
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const EllipsisableContent = styled.div`
