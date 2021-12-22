@@ -14,13 +14,16 @@ interface StatusCircleProps {
 }
 
 export const StatusCircle = styled.div<StatusCircleProps>`
-  ${({ foundation, size }) => foundation?.border?.getBorder(getStatusCircleBorderSize(size), foundation?.theme?.['bdr-white'])};
+  ${({ foundation, size }) => foundation?.border?.getBorder(
+    getStatusCircleBorderSize(size),
+    foundation?.theme?.['bg-white-high'],
+  )};
 
   position: relative;
   box-sizing: content-box;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
   border-radius: 50%;
 
   &::after {
@@ -31,7 +34,7 @@ export const StatusCircle = styled.div<StatusCircleProps>`
     width: ${({ size }) => size}px;
     height: ${({ size }) => size}px;
     content: '';
-    background-color: ${({ foundation, color = 'bg-white-normal' }) => foundation?.theme?.[color]};
+    background-color: ${({ foundation, color = 'bg-white-high' }) => foundation?.theme?.[color]};
     border-radius: 50%;
   }
 `
