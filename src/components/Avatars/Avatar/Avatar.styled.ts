@@ -20,12 +20,12 @@ interface StatusWrapperProps extends Pick<AvatarProps, 'showBorder'> {
   size: StatusSize
 }
 
-function calcStatusGap(props: StatusWrapperProps) {
-  let size = (props.size >= StatusSize.L ? 4 : -2)
-  if (props.showBorder && enableSmoothCorners.current) {
-    size += AVATAR_BORDER_WIDTH * 2
+function calcStatusGap({ showBorder, size }: StatusWrapperProps) {
+  let gap = (size >= StatusSize.L ? 4 : -2)
+  if (showBorder && enableSmoothCorners.current) {
+    gap += AVATAR_BORDER_WIDTH * 2
   }
-  return size
+  return gap
 }
 
 const disabledStyle = css`
@@ -90,6 +90,6 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
 
 export const StatusWrapper = styled.div<StatusWrapperProps>`
   position: absolute;
-  right: ${props => calcStatusGap(props)}px;
-  bottom: ${props => calcStatusGap(props)}px;
+  right: ${calcStatusGap}px;
+  bottom: ${calcStatusGap}px;
 `
