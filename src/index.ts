@@ -2,6 +2,7 @@
 export * from 'Foundation'
 
 /* Components */
+export * from 'Components/Layouts/Box'
 export * from 'Components/Icon'
 export * from 'Components/Button'
 export * from 'Components/Banner'
