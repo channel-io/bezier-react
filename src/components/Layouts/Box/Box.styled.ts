@@ -78,26 +78,19 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
 
   /* Width & Height */
   ${({
-    foundation,
     w,
-    width,
     maxW,
-    maxWidth,
     minW,
-    minWidth,
     h,
-    height,
     maxH,
-    maxHeight,
     minH,
-    minHeight,
   }) => css`
-    width: ${convertSizingProps(foundation, w, width)};
-    max-width: ${convertSizingProps(foundation, maxW, maxWidth)};
-    min-width: ${convertSizingProps(foundation, minW, minWidth)};
-    height: ${convertSizingProps(foundation, h, height)};
-    max-height: ${convertSizingProps(foundation, maxH, maxHeight)};
-    min-height: ${convertSizingProps(foundation, minH, minHeight)};
+    width: ${w};
+    max-width: ${maxW};
+    min-width: ${minW};
+    height: ${h};
+    max-height: ${maxH};
+    min-height: ${minH};
   `}
 
   /* Color */
