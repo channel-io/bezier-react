@@ -10,7 +10,7 @@ import { omittedPropKeys } from './const'
  * @link https://styled-components.com/docs/advanced#style-objects
  * @description Style Objects로 prop을 전달받으면서 불필요한 prop도 함께 섞여 들어옵니다. 이를 삭제합니다.
  */
-export function sanitizeInvalidCSSProps(props: CSSObject) {
+export function getSanitizedCSSObject(props: CSSObject) {
   return omit(props, omittedPropKeys)
 }
 

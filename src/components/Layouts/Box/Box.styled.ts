@@ -3,11 +3,11 @@ import { CSSObject } from 'styled-components'
 
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
-import { sanitizeInvalidCSSProps, convertColorProps, convertSizingProps } from './utils'
+import { getSanitizedCSSObject, convertColorProps, convertSizingProps } from './utils'
 import { BoxProps } from './Box.types'
 
 // NOTE(@ed): Style Object를 받는 방식으로만 구현 시, Interpolation을 적용하기 어려워 styled HOC를 사용하여 한 번 더 extend 했습니다.
-const BaseBox = styled.div<CSSObject>(sanitizeInvalidCSSProps)
+const BaseBox = styled.div<CSSObject>(getSanitizedCSSObject)
 
 export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
   /* Position */
