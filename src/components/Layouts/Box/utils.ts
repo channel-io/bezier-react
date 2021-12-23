@@ -4,6 +4,7 @@ import { isNil, isNumber, isString, omit } from 'lodash-es'
 
 /* Internal dependencies */
 import { Foundation } from 'Foundation'
+import { formatCSSNumber } from 'Utils/styleUtils'
 import { omittedPropKeys } from './const'
 
 /**
@@ -26,10 +27,6 @@ export function convertThemeProps(foundation?: Foundation, ...values: unknown[])
     }
   }
   return undefined
-}
-
-function formatCSSNumber(value: number) {
-  return value === 0 ? value : `${value}px`
 }
 
 export function convertSpacingProps(foundation?: Foundation, ...values: unknown[]) {

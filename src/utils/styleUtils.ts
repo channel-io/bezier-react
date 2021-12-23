@@ -81,3 +81,7 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
   return defaultValue
 }
 /* eslint-enable max-len */
+
+export function formatCSSNumber(value: number) {
+  return value === 0 ? value : `${value}px`
+}
