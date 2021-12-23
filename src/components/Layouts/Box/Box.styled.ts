@@ -122,8 +122,8 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
     italic,
   }) => css`
     ${typo}
-    font-style: ${italic ? 'italic' : 'normal'};
-    font-weight: ${bold ? 'bold' : 'normal'};
+    ${bold && css`font-weight: bold;`}
+    ${italic && css`font-style: italic;`}
   `}
 
   /* Interpolation */
