@@ -14,7 +14,7 @@ export function getSanitizedCSSObject(props: CSSObject) {
   return omit(props, omittedPropKeys)
 }
 
-export function convertColorProps(foundation?: Foundation, ...values: unknown[]) {
+export function convertThemeProps(foundation?: Foundation, ...values: unknown[]) {
   for (const index in values) {
     if (Object.prototype.hasOwnProperty.call(values, index)) {
       const eachValue = values[index]
@@ -28,7 +28,7 @@ export function convertColorProps(foundation?: Foundation, ...values: unknown[])
   return undefined
 }
 
-export function convertSizingProps(foundation?: Foundation, ...values: unknown[]) {
+export function convertSpacingProps(foundation?: Foundation, ...values: unknown[]) {
   for (const index in values) {
     if (Object.prototype.hasOwnProperty.call(values, index)) {
       const eachValue = values[index]

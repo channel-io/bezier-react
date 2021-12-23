@@ -3,7 +3,7 @@ import { CSSObject } from 'styled-components'
 
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
-import { getSanitizedCSSObject, convertColorProps, convertSizingProps } from './utils'
+import { getSanitizedCSSObject, convertThemeProps, convertSpacingProps } from './utils'
 import { BoxProps } from './Box.types'
 
 // NOTE(@ed): Style Object를 받는 방식으로만 구현 시, Interpolation을 적용하기 어려워 styled HOC를 사용하여 한 번 더 extend 했습니다.
@@ -22,10 +22,10 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
     l,
     left,
   }) => css`
-    top: ${convertSizingProps(foundation, t, top)};
-    right: ${convertSizingProps(foundation, r, right)};
-    bottom: ${convertSizingProps(foundation, b, bottom)};
-    left: ${convertSizingProps(foundation, l, left)};
+    top: ${convertSpacingProps(foundation, t, top)};
+    right: ${convertSpacingProps(foundation, r, right)};
+    bottom: ${convertSpacingProps(foundation, b, bottom)};
+    left: ${convertSpacingProps(foundation, l, left)};
   `}
 
   /* Padding */
@@ -46,10 +46,10 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
     pl,
     paddingLeft,
   }) => css`
-    padding-top: ${convertSizingProps(foundation, pt, paddingTop, ph, paddingHorizontal, p, padding)};
-    padding-right: ${convertSizingProps(foundation, pr, paddingRight, pv, paddingVertical, p, padding)};
-    padding-bottom: ${convertSizingProps(foundation, pb, paddingBottom, ph, paddingHorizontal, p, padding)};
-    padding-left: ${convertSizingProps(foundation, pl, paddingLeft, pv, paddingVertical, p, padding)};
+    padding-top: ${convertSpacingProps(foundation, pt, paddingTop, ph, paddingHorizontal, p, padding)};
+    padding-right: ${convertSpacingProps(foundation, pr, paddingRight, pv, paddingVertical, p, padding)};
+    padding-bottom: ${convertSpacingProps(foundation, pb, paddingBottom, ph, paddingHorizontal, p, padding)};
+    padding-left: ${convertSpacingProps(foundation, pl, paddingLeft, pv, paddingVertical, p, padding)};
   `}
 
   /* Margin */
@@ -70,10 +70,10 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
     ml,
     marginLeft,
   }) => css`
-    margin-top: ${convertSizingProps(foundation, mt, marginTop, mh, marginHorizontal, m, margin)};
-    margin-right: ${convertSizingProps(foundation, mr, marginRight, mv, marginVertical, m, margin)};
-    margin-bottom: ${convertSizingProps(foundation, mb, marginBottom, mh, marginHorizontal, m, margin)};
-    margin-left: ${convertSizingProps(foundation, ml, marginLeft, mv, marginVertical, m, margin)};
+    margin-top: ${convertSpacingProps(foundation, mt, marginTop, mh, marginHorizontal, m, margin)};
+    margin-right: ${convertSpacingProps(foundation, mr, marginRight, mv, marginVertical, m, margin)};
+    margin-bottom: ${convertSpacingProps(foundation, mb, marginBottom, mh, marginHorizontal, m, margin)};
+    margin-left: ${convertSpacingProps(foundation, ml, marginLeft, mv, marginVertical, m, margin)};
   `}
 
   /* Width & Height */
@@ -100,8 +100,8 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
     backgroundColor,
     color,
   }) => css`
-    background-color: ${convertColorProps(foundation, bg, backgroundColor)};
-    color: ${convertColorProps(foundation, color)};
+    background-color: ${convertThemeProps(foundation, bg, backgroundColor)};
+    color: ${convertThemeProps(foundation, color)};
   `}
 
   /* Font */
