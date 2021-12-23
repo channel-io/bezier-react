@@ -49,11 +49,17 @@ interface BoxOptions extends React.CSSProperties {
 
   // Width & Height
   w?: React.CSSProperties['width']
+  width?: React.CSSProperties['width']
   maxW?: React.CSSProperties['maxWidth']
+  maxWidth?: React.CSSProperties['maxWidth']
   minW?: React.CSSProperties['minWidth']
+  minWidth?: React.CSSProperties['maxWidth']
   h?: React.CSSProperties['height']
+  height?: React.CSSProperties['height']
   maxH?: React.CSSProperties['maxHeight']
+  maxHeight?: React.CSSProperties['maxWidth']
   minH?: React.CSSProperties['minHeight']
+  minHeight?: React.CSSProperties['minHeight']
 
   // Color
   bg?: CSSPropsAndSemanticNames<'backgroundColor'>

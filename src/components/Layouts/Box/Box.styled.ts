@@ -3,7 +3,12 @@ import { CSSObject } from 'styled-components'
 
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
-import { getSanitizedCSSObject, convertThemeProps, convertSpacingProps } from './utils'
+import {
+  getSanitizedCSSObject,
+  convertThemeProps,
+  convertSpacingProps,
+  convertSizingProps,
+} from './utils'
 import { BoxProps } from './Box.types'
 
 // NOTE(@ed): Style Object를 받는 방식으로만 구현 시, Interpolation을 적용하기 어려워 styled HOC를 사용하여 한 번 더 extend 했습니다.
@@ -79,18 +84,24 @@ export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
   /* Width & Height */
   ${({
     w,
+    width,
     maxW,
+    maxWidth,
     minW,
+    minWidth,
     h,
+    height,
     maxH,
+    maxHeight,
     minH,
+    minHeight,
   }) => css`
-    width: ${w};
-    max-width: ${maxW};
-    min-width: ${minW};
-    height: ${h};
-    max-height: ${maxH};
-    min-height: ${minH};
+    width: ${convertSizingProps(w, width)};
+    max-width: ${convertSizingProps(maxW, maxWidth)};
+    min-width: ${convertSizingProps(minW, minWidth)};
+    height: ${convertSizingProps(h, height)};
+    max-height: ${convertSizingProps(maxH, maxHeight)};
+    min-height: ${convertSizingProps(minH, minHeight)};
   `}
 
   /* Color */

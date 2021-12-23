@@ -28,16 +28,38 @@ export function convertThemeProps(foundation?: Foundation, ...values: unknown[])
   return undefined
 }
 
+function formatCSSNumber(value: number) {
+  return value === 0 ? value : `${value}px`
+}
+
 export function convertSpacingProps(foundation?: Foundation, ...values: unknown[]) {
   for (const index in values) {
     if (Object.prototype.hasOwnProperty.call(values, index)) {
       const eachValue = values[index]
       if (!isNil(eachValue)) {
         if (isNumber(eachValue)) {
-          return eachValue === 0 ? eachValue : `${eachValue}px`
+          return formatCSSNumber(eachValue)
         }
         if (isString(eachValue)) {
           return foundation?.spacing?.[eachValue] ?? eachValue
+        }
+      }
+    }
+  }
+  return undefined
+}
+
+export function convertSizingProps(...values: unknown[]) {
+  for (const index in values) {
+    if (Object.prototype.hasOwnProperty.call(values, index)) {
+      const eachValue = values[index]
+      if (!isNil(eachValue)) {
+        if (isNumber(eachValue)) {
+          return formatCSSNumber(eachValue)
+        }
+        // NOTE(@ed): box-sizing 관련 Foundation이 추가된다면, 여기에 추가할 수 있습니다.
+        if (isString(eachValue)) {
+          return eachValue
         }
       }
     }
