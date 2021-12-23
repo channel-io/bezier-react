@@ -31,7 +31,7 @@ export * from 'Components/Forms/SegmentedControl'
 export * from 'Components/Forms/Inputs/Select'
 export * from 'Components/Forms/Inputs/TextField'
 export * from 'Components/Forms/Inputs/TextArea'
-export * from 'Components/Forms/Inputs/InputWrapperStyle'
+export * from 'Components/Forms/Inputs/mixins'
 export * from 'Components/Forms/FormControl'
 export * from 'Components/Forms/FormLabel'
 export * from 'Components/Forms/FormHelperText'
@@ -62,6 +62,7 @@ export { default as useHeader } from 'Layout/hooks/useHeader'
 /* Types */
 export * from 'Types/ComponentProps'
 export * from 'Types/Foundation'
+export * from 'Types/Utils'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'

@@ -5,8 +5,13 @@ import TextareaAutosize from 'react-textarea-autosize'
 import { hideScrollbars, SemanticNames, styled, Typography } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { InterpolationProps } from 'Types/Foundation'
-import { erroredInputWrapperStyle, focusedInputWrapperStyle, inputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
-import { inputPlaceholderStyle } from 'Components/Forms/Inputs/InputStyle'
+import {
+  inputTextStyle,
+  erroredInputWrapperStyle,
+  focusedInputWrapperStyle,
+  inputWrapperStyle,
+  inputPlaceholderStyle,
+} from 'Components/Forms/Inputs/mixins'
 
 interface WrapperProps extends InterpolationProps {
   focused: boolean
@@ -60,6 +65,8 @@ const TextAreaAutoSizeBase = styled(TextareaAutosize.default ?? TextareaAutosize
   ${hideScrollbars()}
 
   ${Typography.Size14}
+
+  ${inputTextStyle}
 
   ${inputPlaceholderStyle}
 

@@ -3,7 +3,12 @@ import { styled, css } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import type { InterpolationProps } from 'Types/Foundation'
 import { Overlay } from 'Components/Overlay'
-import { inputWrapperStyle, focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/InputWrapperStyle'
+import {
+  inputTextStyle,
+  inputWrapperStyle,
+  focusedInputWrapperStyle,
+  erroredInputWrapperStyle,
+} from 'Components/Forms/Inputs/mixins'
 import { SelectSize } from './Select.types'
 
 export const Container = styled.div<InterpolationProps>`
@@ -46,20 +51,20 @@ export const Trigger = styled.div<TriggerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ size }) => selectSizeConverter(size)};
   padding: 8px 12px;
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
-  ${({ foundation }) => foundation?.rounding?.round8};
-  ${inputWrapperStyle};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
+  ${inputTextStyle}
 
-  &:hover {
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
-  }
+  ${inputWrapperStyle};
+
+  ${({ size }) => selectSizeConverter(size)};
+
+  ${({ foundation }) => foundation?.rounding?.round8};
+  
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
   ${({ focus }) => focus && css`
     ${focusedInputWrapperStyle};
@@ -71,6 +76,10 @@ export const Trigger = styled.div<TriggerProps>`
   ${({ disabled }) => disabled && css`
     opacity: ${DisabledOpacity};
   `};
+
+  &:hover {
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
+  }
 `
 
 export const MainContentWrapper = styled.div`

@@ -1,22 +1,29 @@
-/* Internal denpendencies */
+/* Internal dependencies */
 import { styled, absoluteCenter, SemanticNames } from 'Foundation'
 import { Icon } from 'Components/Icon'
+import { StatusSize } from './Status.types'
 
-const STATUS_CIRCLE_SIZE = 8
-const STATUS_CIRCLE_BORDER_WIDTH = 2
+function getStatusCircleBorderSize(size: StatusSize) {
+  if (size >= StatusSize.L) { return 3 }
+  return 2
+}
 
 interface StatusCircleProps {
   color: SemanticNames
+  size: StatusSize
 }
 
 export const StatusCircle = styled.div<StatusCircleProps>`
-  ${({ foundation }) => foundation?.border?.getBorder(STATUS_CIRCLE_BORDER_WIDTH, foundation?.theme?.['bdr-white'])};
+  ${({ foundation, size }) => foundation?.border?.getBorder(
+    getStatusCircleBorderSize(size),
+    foundation?.theme?.['bg-white-high'],
+  )};
 
   position: relative;
   box-sizing: content-box;
-  width: ${STATUS_CIRCLE_SIZE}px;
-  height: ${STATUS_CIRCLE_SIZE}px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-normal']};
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
   border-radius: 50%;
 
   &::after {
@@ -24,10 +31,10 @@ export const StatusCircle = styled.div<StatusCircleProps>`
     top: 0;
     left: 0;
     display: block;
-    width: ${STATUS_CIRCLE_SIZE}px;
-    height: ${STATUS_CIRCLE_SIZE}px;
+    width: ${({ size }) => size}px;
+    height: ${({ size }) => size}px;
     content: '';
-    background-color: ${({ foundation, color = 'bg-white-normal' }) => foundation?.theme?.[color]};
+    background-color: ${({ foundation, color = 'bg-white-high' }) => foundation?.theme?.[color]};
     border-radius: 50%;
   }
 `

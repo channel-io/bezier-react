@@ -38,6 +38,7 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   -ms-overflow-style: none;
   font-size: 14px;
   line-height: 18px;
+  color: #000000D9;
 }
 
 .c1::-webkit-scrollbar {

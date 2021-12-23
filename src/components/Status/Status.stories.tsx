@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import { StatusProps, StatusType } from './Status.types'
+import { StatusProps, StatusSize, StatusType } from './Status.types'
 import Status from './Status'
 
 export default {
@@ -40,4 +40,5 @@ const Template: Story<StatusProps> = (args) => (
 export const Primary: Story<StatusProps> = Template.bind({})
 Primary.args = {
   type: StatusType.Online,
+  size: StatusSize.M,
 }
