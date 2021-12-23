@@ -2,13 +2,13 @@
 import type {
   BezierComponentProps,
   ChildrenProps,
-  DisableProps,
   ActivatableProps,
   OptionItemHostProps,
 } from 'Types/ComponentProps'
 import type { ExplicitDefaulting, BoxSizingUnit } from 'Types/CSS'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
 
-type SegmentedControlBaseProps = BezierComponentProps & ChildrenProps & DisableProps
+type SegmentedControlBaseProps = BezierComponentProps & ChildrenProps & FormComponentProps
 
 type CSSSizingProperty = number | string | ExplicitDefaulting | BoxSizingUnit
 

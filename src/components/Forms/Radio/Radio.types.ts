@@ -9,6 +9,7 @@ import {
   AdditionalTestIdProps,
   AdditionalStylableProps,
 } from 'Types/ComponentProps'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
 
 interface RadioOptions {
   value?: any
@@ -19,7 +20,7 @@ interface RadioOptions {
 export default interface RadioProps extends
   BezierComponentProps,
   ChildrenProps,
-  DisableProps,
+  FormComponentProps,
   AdditionalStylableProps<'dot'>,
   AdditionalTestIdProps<'handle'>,
   RadioOptions {}

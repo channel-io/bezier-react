@@ -2,10 +2,10 @@
 import {
   BezierComponentProps,
   ChildrenProps,
-  DisableProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
 } from 'Types/ComponentProps'
+import type { FormComponentProps } from 'Components/Forms/Form.types'
 import CheckType from './CheckType'
 
 interface CheckboxOptions {
@@ -16,7 +16,7 @@ interface CheckboxOptions {
 export default interface CheckboxProps extends
   BezierComponentProps,
   ChildrenProps,
-  DisableProps,
+  FormComponentProps,
   AdditionalStylableProps<'content'>,
   AdditionalTestIdProps<'checker'>,
   CheckboxOptions {}

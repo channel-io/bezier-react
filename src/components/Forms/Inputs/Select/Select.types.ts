@@ -24,7 +24,7 @@ export interface SelectRef {
   getDOMNode(): Element | Text | null
 }
 
-interface SelelctOptions {
+interface SelectOptions {
   defaultFocus?: boolean
   placeholder?: string
   iconComponent?: IconName | React.ReactNode
@@ -47,6 +47,6 @@ interface SelectProps extends
   AdditionalStylableProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text', 'chevron']>,
   FormComponentProps,
-  SelelctOptions {}
+  SelectOptions {}
 
 export default SelectProps

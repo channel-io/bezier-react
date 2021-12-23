@@ -6,12 +6,12 @@ import type { SemanticNames } from 'Foundation'
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
-interface RenderConfigProps {
+export interface RenderConfigProps {
   as?: React.ElementType
   testId?: string
 }
 
-interface StylableComponentProps {
+export interface StylableComponentProps {
   style?: CSSProperties
   className?: string
   interpolation?: InjectedInterpolation

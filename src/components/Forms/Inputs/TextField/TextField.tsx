@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
 import { Icon, IconSize } from 'Components/Icon'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,
@@ -27,10 +28,7 @@ function TextFieldComponent({
   testId = TEXT_INPUT_TEST_ID,
   autoFocus,
   autoComplete = 'off',
-  disabled = false,
-  readOnly = false,
   variant = TextFieldVariant.Primary,
-  hasError = false,
   allowClear = false,
   selectAllOnInit = false,
   selectAllOnFocus = false,
@@ -46,16 +44,24 @@ function TextFieldComponent({
   leftWrapperInterpolation,
   rightWrapperClassName,
   rightWrapperInterpolation,
-  maxLength,
   value,
-  placeholder,
   onBlur,
   onFocus,
   onChange,
   onKeyDown,
   onKeyUp,
-  ...otherProps
-}: TextFieldProps, forwardedRef: Ref<TextFieldRef>) {
+  ...rest
+}: TextFieldProps,
+forwardedRef: Ref<TextFieldRef>,
+) {
+  const {
+    disabled,
+    readOnly,
+    hasError,
+    Wrapper,
+    ...ownProps
+  } = useFormFieldProps(rest)
+
   const [focused, setFocused] = useState(false)
   const [hovered, setHovered] = useState(false)
 
@@ -334,45 +340,45 @@ function TextFieldComponent({
   ])
 
   return (
-    <Styled.Wrapper
-      className={wrapperClassName}
-      variant={variant}
-      size={size}
-      bgColor={wrapperBgColorSemanticName}
-      borderRadius={wrapperBorderRadius}
-      hasError={hasError}
-      disabled={disabled}
-      focused={focused}
-      interpolation={wrapperInterpolation}
-      data-testid={testId}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onMouseDown={focus}
-    >
-      { leftComponent }
-      <Styled.Input
-        className={inputClassName}
-        interpolation={inputInterpolation}
-        ref={inputRef}
-        name={name}
+    <Wrapper>
+      <Styled.Wrapper
+        className={wrapperClassName}
+        variant={variant}
         size={size}
-        autoComplete={autoComplete}
-        type={type}
-        readOnly={readOnly}
+        bgColor={wrapperBgColorSemanticName}
+        borderRadius={wrapperBorderRadius}
+        hasError={hasError}
         disabled={disabled}
-        value={normalizedValue}
-        placeholder={placeholder}
-        maxLength={maxLength}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-        {...otherProps}
-      />
-      { activeClear && clearComponent }
-      { rightComponent }
-    </Styled.Wrapper>
+        focused={focused}
+        interpolation={wrapperInterpolation}
+        data-testid={testId}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseDown={focus}
+      >
+        { leftComponent }
+        <Styled.Input
+          type={type}
+          className={inputClassName}
+          interpolation={inputInterpolation}
+          ref={inputRef}
+          value={normalizedValue}
+          name={name}
+          size={size}
+          autoComplete={autoComplete}
+          readOnly={readOnly}
+          disabled={disabled}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
+          {...ownProps}
+        />
+        { activeClear && clearComponent }
+        { rightComponent }
+      </Styled.Wrapper>
+    </Wrapper>
   )
 }
 

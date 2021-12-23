@@ -29,20 +29,6 @@ describe('FormHelperText >', () => {
     expect(helperText).toMatchSnapshot()
   })
 
-  it('has vertical padding', () => {
-    const { getByTestId } = renderFormHelperText()
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
-    expect(helperText).toHaveStyle('padding: 0 2px')
-  })
-
-  it('has top margin', () => {
-    const { getByTestId } = renderFormHelperText()
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
-    expect(helperText).toHaveStyle('margin-top: 4px')
-  })
-
   it('renders text with correct style when children prop is not empty', () => {
     const { getByTestId } = renderFormHelperText()
     const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)

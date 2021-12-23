@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
 import { TextProps } from 'Components/Text'
 
 interface FormLabelOptions {
@@ -8,7 +8,8 @@ interface FormLabelOptions {
 }
 
 export default interface FormLabelProps extends
-  Omit<BezierComponentProps, 'as'>,
+  BezierComponentProps,
   ChildrenProps,
   TextProps,
+  Partial<IdentifierProps>,
   FormLabelOptions {}

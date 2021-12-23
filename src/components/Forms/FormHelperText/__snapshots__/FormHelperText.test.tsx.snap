@@ -4,7 +4,7 @@ exports[`FormHelperText > Snapshot > 1`] = `
 .c0 {
   font-size: 13px;
   line-height: 18px;
-  margin: 4px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
   color: #00000066;
@@ -19,7 +19,8 @@ exports[`FormHelperText > Snapshot > 1`] = `
 }
 
 .c1 {
-  padding: 0 2px;
+  display: block;
+  text-align: left;
 }
 
 <p

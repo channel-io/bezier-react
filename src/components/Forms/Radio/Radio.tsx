@@ -9,6 +9,7 @@ import React, {
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,
   StyledRadioHandle,
@@ -23,18 +24,21 @@ function Radio(
     as,
     testId = RADIO_TEST_ID,
     handleTestId = RADIO_HANDLE_TEST_ID,
-    className,
-    style,
     dotClassName,
     watchingValue,
     value,
     onClick,
-    disabled = false,
     children,
-    ...otherProps
+    ...rest
   }: RadioProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const {
+    disabled,
+    Wrapper,
+    ...ownProps
+  } = useFormFieldProps(rest)
+
   const [hovered, setHovered] = useState(false)
 
   const handleClick = useCallback((e: MouseEvent) => {
@@ -60,27 +64,27 @@ function Radio(
   ])
 
   return (
-    <StyledRadioWrapper
-      ref={forwardedRef}
-      data-testid={testId}
-      className={className}
-      style={style}
-      disabled={disabled}
-      onClick={handleClick}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-      {...otherProps}
-    >
-      <StyledRadioHandle
-        as={as}
-        data-testid={handleTestId}
-        className={dotClassName}
-        checked={checked}
+    <Wrapper>
+      <StyledRadioWrapper
+        ref={forwardedRef}
+        data-testid={testId}
         disabled={disabled}
-        hovered={hovered}
-      />
-      { children }
-    </StyledRadioWrapper>
+        onClick={handleClick}
+        onMouseEnter={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+        {...ownProps}
+      >
+        <StyledRadioHandle
+          as={as}
+          data-testid={handleTestId}
+          className={dotClassName}
+          checked={checked}
+          disabled={disabled}
+          hovered={hovered}
+        />
+        { children }
+      </StyledRadioWrapper>
+    </Wrapper>
   )
 }
 

@@ -1,12 +1,17 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { Tooltip as BaseTooltip } from 'Components/Tooltip'
+import { Text } from 'Components/Text'
 import { Icon } from 'Components/Icon'
 
-export const Center = styled.div`
+export const Label = styled(Text)`
+  display: block;
+  text-align: left;
+`
+
+export const Box = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
 `
 
 export const HelpIcon = styled(Icon)``

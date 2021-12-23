@@ -1,7 +1,13 @@
 /* Internal dependencies */
-import type { DisableProps } from 'Types/ComponentProps'
+import type { IdentifierProps, DisableProps } from 'Types/ComponentProps'
 
-export interface FormComponentProps extends DisableProps {
+interface FormComponentOptions {
   hasError?: boolean
+  required?: boolean
   readOnly?: boolean
 }
+
+export interface FormComponentProps extends
+  DisableProps,
+  Partial<IdentifierProps>,
+  FormComponentOptions {}
