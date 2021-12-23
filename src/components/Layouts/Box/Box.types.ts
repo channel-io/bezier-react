@@ -17,25 +17,35 @@ interface BoxOptions extends React.CSSProperties {
 
   // Padding
   p?: React.CSSProperties['padding']
+  padding?: React.CSSProperties['padding']
   pv?: string | number
   paddingVertical?: string | number
   ph?: string | number
   paddingHorizontal?: string | number
   pt?: React.CSSProperties['paddingTop']
+  paddingTop?: React.CSSProperties['paddingTop']
   pr?: React.CSSProperties['paddingRight']
+  paddingRight?: React.CSSProperties['paddingRight']
   pb?: React.CSSProperties['paddingBottom']
+  paddingBottom?: React.CSSProperties['paddingBottom']
   pl?: React.CSSProperties['paddingLeft']
+  paddingLeft?: React.CSSProperties['paddingLeft']
 
   // Margin
   m?: React.CSSProperties['margin']
+  margin?: React.CSSProperties['margin']
   mv?: string | number
   marginVertical?: string | number
   mh?: string | number
   marginHorizontal?: string | number
   mt?: React.CSSProperties['marginTop']
+  marginTop?: React.CSSProperties['marginTop']
   mr?: React.CSSProperties['marginRight']
+  marginRight?: React.CSSProperties['marginRight']
   mb?: React.CSSProperties['marginBottom']
+  marginBottom?: React.CSSProperties['marginBottom']
   ml?: React.CSSProperties['marginLeft']
+  marginLeft?: React.CSSProperties['marginLeft']
 
   // Width & Height
   w?: React.CSSProperties['width']

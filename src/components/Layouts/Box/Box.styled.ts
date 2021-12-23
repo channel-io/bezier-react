@@ -2,7 +2,7 @@
 import { CSSObject } from 'styled-components'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled, css } from 'Foundation'
 import { sanitizeInvalidCSSProps, convertColorProps, convertSizingProps } from './utils'
 import { BoxProps } from './Box.types'
 
@@ -11,39 +11,116 @@ const BaseBox = styled.div<CSSObject>(sanitizeInvalidCSSProps)
 
 export const Box = styled<(props: BoxProps) => React.ReactElement>(BaseBox)`
   /* Position */
-  top: ${({ foundation, t, top }) => convertSizingProps(foundation, t, top)};
-  right: ${({ foundation, r, right }) => convertSizingProps(foundation, r, right)};
-  bottom: ${({ foundation, b, bottom }) => convertSizingProps(foundation, b, bottom)};
-  left: ${({ foundation, l, left }) => convertSizingProps(foundation, l, left)};
+  ${({
+    foundation,
+    t,
+    top,
+    r,
+    right,
+    b,
+    bottom,
+    l,
+    left,
+  }) => css`
+    top: ${convertSizingProps(foundation, t, top)};
+    right: ${convertSizingProps(foundation, r, right)};
+    bottom: ${convertSizingProps(foundation, b, bottom)};
+    left: ${convertSizingProps(foundation, l, left)};
+  `}
 
   /* Padding */
-  padding-top: ${({ foundation, pt, ph, p }) => convertSizingProps(foundation, pt, ph, p)};
-  padding-right: ${({ foundation, pr, pv, p }) => convertSizingProps(foundation, pr, pv, p)};
-  padding-bottom: ${({ foundation, pb, ph, p }) => convertSizingProps(foundation, pb, ph, p)};
-  padding-left: ${({ foundation, pl, pv, p }) => convertSizingProps(foundation, pl, pv, p)};
+  ${({
+    foundation,
+    p,
+    padding,
+    pv,
+    paddingVertical,
+    ph,
+    paddingHorizontal,
+    pt,
+    paddingTop,
+    pr,
+    paddingRight,
+    pb,
+    paddingBottom,
+    pl,
+    paddingLeft,
+  }) => css`
+    padding-top: ${convertSizingProps(foundation, pt, paddingTop, ph, paddingHorizontal, p, padding)};
+    padding-right: ${convertSizingProps(foundation, pr, paddingRight, pv, paddingVertical, p, padding)};
+    padding-bottom: ${convertSizingProps(foundation, pb, paddingBottom, ph, paddingHorizontal, p, padding)};
+    padding-left: ${convertSizingProps(foundation, pl, paddingLeft, pv, paddingVertical, p, padding)};
+  `}
 
   /* Margin */
-  margin-top: ${({ foundation, mt, mh, m }) => convertSizingProps(foundation, mt, mh, m)};
-  margin-right: ${({ foundation, mr, mv, m }) => convertSizingProps(foundation, mr, mv, m)};
-  margin-bottom: ${({ foundation, mb, mh, m }) => convertSizingProps(foundation, mb, mh, m)};
-  margin-left: ${({ foundation, ml, mv, m }) => convertSizingProps(foundation, ml, mv, m)};
+  ${({
+    foundation,
+    m,
+    margin,
+    mv,
+    marginVertical,
+    mh,
+    marginHorizontal,
+    mt,
+    marginTop,
+    mr,
+    marginRight,
+    mb,
+    marginBottom,
+    ml,
+    marginLeft,
+  }) => css`
+    margin-top: ${convertSizingProps(foundation, mt, marginTop, mh, marginHorizontal, m, margin)};
+    margin-right: ${convertSizingProps(foundation, mr, marginRight, mv, marginVertical, m, margin)};
+    margin-bottom: ${convertSizingProps(foundation, mb, marginBottom, mh, marginHorizontal, m, margin)};
+    margin-left: ${convertSizingProps(foundation, ml, marginLeft, mv, marginVertical, m, margin)};
+  `}
 
   /* Width & Height */
-  width: ${({ foundation, w, width }) => convertSizingProps(foundation, w, width)};
-  max-width: ${({ foundation, maxW, maxWidth }) => convertSizingProps(foundation, maxW, maxWidth)};
-  min-width: ${({ foundation, minW, minWidth }) => convertSizingProps(foundation, minW, minWidth)};
-  height: ${({ foundation, h, height }) => convertSizingProps(foundation, h, height)};
-  max-height: ${({ foundation, maxH, maxHeight }) => convertSizingProps(foundation, maxH, maxHeight)};
-  min-height: ${({ foundation, minH, minHeight }) => convertSizingProps(foundation, minH, minHeight)};
+  ${({
+    foundation,
+    w,
+    width,
+    maxW,
+    maxWidth,
+    minW,
+    minWidth,
+    h,
+    height,
+    maxH,
+    maxHeight,
+    minH,
+    minHeight,
+  }) => css`
+    width: ${convertSizingProps(foundation, w, width)};
+    max-width: ${convertSizingProps(foundation, maxW, maxWidth)};
+    min-width: ${convertSizingProps(foundation, minW, minWidth)};
+    height: ${convertSizingProps(foundation, h, height)};
+    max-height: ${convertSizingProps(foundation, maxH, maxHeight)};
+    min-height: ${convertSizingProps(foundation, minH, minHeight)};
+  `}
 
   /* Color */
-  background-color: ${({ foundation, bg, backgroundColor }) => convertColorProps(foundation, bg, backgroundColor)};
-  color: ${({ foundation, color }) => convertColorProps(foundation, color)};
+  ${({
+    foundation,
+    bg,
+    backgroundColor,
+    color,
+  }) => css`
+    background-color: ${convertColorProps(foundation, bg, backgroundColor)};
+    color: ${convertColorProps(foundation, color)};
+  `}
 
   /* Font */
-  ${({ typo }) => typo}
-  font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
-  font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
+  ${({
+    typo,
+    bold,
+    italic,
+  }) => css`
+    ${typo}
+    font-style: ${italic ? 'italic' : 'normal'};
+    font-weight: ${bold ? 'bold' : 'normal'};
+  `}
 
   /* Interpolation */
   ${({ interpolation }) => interpolation}
