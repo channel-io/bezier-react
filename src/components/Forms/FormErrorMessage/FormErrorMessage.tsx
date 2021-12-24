@@ -1,8 +1,8 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { FormHelperText } from 'Components/Forms/FormHelperText'
+import { BaseHelperText } from 'Components/Forms/BaseHelperText'
 import FormErrorMessageProps from './FormErrorMessage.types'
 
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
@@ -12,17 +12,21 @@ function FormErrorMessage({
   color = 'bgtxt-orange-normal',
   children,
   ...rest
-}: FormErrorMessageProps) {
+}: FormErrorMessageProps,
+forwardedRef: React.Ref<HTMLParamElement>,
+) {
   return (
-    <FormHelperText
+    <BaseHelperText
       {...rest}
+      ref={forwardedRef}
+      type="error"
       testId={testId}
       aria-live="polite"
       color={color}
     >
       { children }
-    </FormHelperText>
+    </BaseHelperText>
   )
 }
 
-export default FormErrorMessage
+export default forwardRef(FormErrorMessage)

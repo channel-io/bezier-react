@@ -1,4 +1,4 @@
 /* Internal dependencies */
-import { FormHelperTextProps } from 'Components/Forms/FormHelperText'
+import { BaseHelperTextProps } from 'Components/Forms/BaseHelperText'
 
-export default interface FormErrorMessageProps extends FormHelperTextProps {}
+export default interface FormErrorMessageProps extends Omit<BaseHelperTextProps, 'type'> {}
