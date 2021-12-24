@@ -23,7 +23,7 @@ export default {
   component: FormControl,
 } as Meta
 
-const Template: Story<FormControlProps> = (...args) => (
+const Template: Story<FormControlProps> = (args) => (
   <FormControl style={{ width: 400 }} {...args}>
     <FormLabel help="Lorem Ipsum">Label</FormLabel>
     <TextField placeholder="Placeholder" />
@@ -55,7 +55,8 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
     >
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <TextField placeholder="Placeholder" />
-      <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
     <FormControl
       {...args}
@@ -64,7 +65,8 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
     >
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <TextArea placeholder="Placeholder" />
-      <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
     <FormControl
       {...args}
@@ -85,7 +87,8 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
           <Text key={item} bold>{ item }</Text>
         )) }
       </SegmentedControl>
-      <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
     <FormControl
       {...args}
@@ -94,7 +97,8 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
     >
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <Checkbox>Option</Checkbox>
-      <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
     <FormControl
       {...args}
@@ -103,7 +107,8 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
     >
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <Radio>Option</Radio>
-      <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
   </div>
 )
