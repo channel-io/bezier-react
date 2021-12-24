@@ -190,7 +190,8 @@ function Tooltip(
   }, [disabled])
 
   useEffect(() => {
-    if (show && tooltipRef.current) {
+    if (show) {
+      if (!tooltipRef.current) { return }
       const newPlacement = getReplacement({
         tooltip: tooltipRef.current,
         keepInContainer,
