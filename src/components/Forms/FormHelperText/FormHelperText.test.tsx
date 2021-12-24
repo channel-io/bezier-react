@@ -14,7 +14,6 @@ describe('FormHelperText >', () => {
   beforeEach(() => {
     props = {
       id: 'test',
-      hasError: false,
       children: text,
     }
   })
@@ -34,13 +33,6 @@ describe('FormHelperText >', () => {
     const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
 
     expect(helperText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
-  })
-
-  it('renders error style text with correct style when hasError prop is true', () => {
-    const { getByTestId } = renderFormHelperText({ hasError: true })
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
-    expect(helperText).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-orange-normal']}`)
   })
 
   it('renders nothing when children prop is empty', () => {

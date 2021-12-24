@@ -14,6 +14,7 @@ import { TextField } from 'Components/Forms/Inputs/TextField'
 import { TextArea } from 'Components/Forms/Inputs/TextArea'
 import { Select } from 'Components/Forms/Inputs/Select'
 import { FormHelperText } from 'Components/Forms/FormHelperText'
+import { FormErrorMessage } from 'Components/Forms/FormErrorMessage'
 import FormControl from './FormControl'
 import FormControlProps from './FormControl.types'
 
@@ -30,7 +31,8 @@ const Template: Story<FormControlProps> = ({ hasError, ...args }) => (
   >
     <FormLabel help="Lorem Ipsum">Label</FormLabel>
     <TextField placeholder="Placeholder" />
-    <FormHelperText>{ hasError ? 'Error!' : 'Description' }</FormHelperText>
+    <FormHelperText>Description</FormHelperText>
+    <FormErrorMessage>Error!</FormErrorMessage>
   </FormControl>
 )
 

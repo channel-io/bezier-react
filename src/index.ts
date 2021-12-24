@@ -35,6 +35,7 @@ export * from 'Components/Forms/Inputs/mixins'
 export * from 'Components/Forms/FormControl'
 export * from 'Components/Forms/FormLabel'
 export * from 'Components/Forms/FormHelperText'
+export * from 'Components/Forms/FormErrorMessage'
 
 /* Hooks for Component */
 export { default as useToast } from 'Components/Toast/useToast'

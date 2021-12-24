@@ -18,6 +18,5 @@ const Template: Story<FormHelperTextProps> = props => <FormHelperText {...props}
 export const Primary: Story<FormHelperTextProps> = Template.bind({})
 Primary.args = {
   id: 'test',
-  hasError: false,
   children: 'Description',
 }

@@ -14,6 +14,7 @@ function FormHelperText({
   testId = FORM_HELPER_TEXT_TEST_ID,
   as = 'p',
   typo = Typography.Size13,
+  color = 'txt-black-dark',
   children,
   ...rest
 }: FormHelperTextProps,
@@ -22,7 +23,6 @@ forwardedRef: React.Ref<HTMLParamElement>,
   const contextValue = useFormControlContext()
 
   const {
-    hasError,
     setHasHelperText,
     Wrapper,
     ...ownProps
@@ -51,8 +51,7 @@ forwardedRef: React.Ref<HTMLParamElement>,
     <Wrapper>
       <Styled.HelperText
         {...ownProps}
-        aria-live={hasError ? 'polite' : undefined}
-        color={hasError ? 'bgtxt-orange-normal' : 'txt-black-dark'}
+        color={color}
         testId={testId}
         ref={forwardedRef}
         forwardedAs={as}
