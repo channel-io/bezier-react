@@ -11,5 +11,5 @@ export enum StatusSize {
 
 export interface StatusProps {
   type: StatusType
-  size: StatusSize
+  size?: StatusSize
 }
