@@ -1,2 +1,2 @@
-export { default as FormHelperText } from './FormHelperText'
-export type { default as FormHelperTextProps } from './FormHelperText.types'
+export { FormHelperText, FormErrorMessage } from './FormHelperText'
+export type { FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'

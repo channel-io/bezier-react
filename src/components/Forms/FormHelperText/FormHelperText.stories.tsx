@@ -5,8 +5,8 @@ import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import FormHelperText from './FormHelperText'
-import FormHelperTextProps from './FormHelperText.types'
+import { FormHelperText, FormErrorMessage } from './FormHelperText'
+import { FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 
 export default {
   title: getTitle(base),
@@ -19,4 +19,12 @@ export const Primary: Story<FormHelperTextProps> = Template.bind({})
 Primary.args = {
   id: 'test',
   children: 'Description',
+}
+
+const ErrorMessageTemplate: Story<FormErrorMessageProps> = props => <FormErrorMessage {...props} />
+
+export const ErrorMessage: Story<FormErrorMessageProps> = ErrorMessageTemplate.bind({})
+ErrorMessage.args = {
+  id: 'test',
+  children: 'Error!',
 }
