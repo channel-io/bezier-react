@@ -30,6 +30,7 @@ export interface FormControlContextValue extends FormComponentProps {
   id: string
   labelId: string
   helperTextId: string
+  errorMessageId: string
   getLabelProps: LabelPropsGetter
   getFieldProps: FieldPropsGetter
   getHelperTextProps: HelperTextPropsGetter
