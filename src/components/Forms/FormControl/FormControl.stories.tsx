@@ -40,7 +40,7 @@ Primary.args = {
   readOnly: false,
 }
 
-const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) => (
+const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
   <div style={{
     display: 'flex',
     flexDirection: 'column',
@@ -48,38 +48,26 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
     width: 500,
   }}
   >
-    <FormControl
-      {...args}
-      hasError={hasError}
-    >
+    <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <TextField placeholder="Placeholder" />
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
-    <FormControl
-      {...args}
-      id={`${args.id}-1`}
-      hasError={hasError}
-    >
+
+    <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <TextArea placeholder="Placeholder" />
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
-    <FormControl
-      {...args}
-      id={`${args.id}-2`}
-      hasError={hasError}
-    >
+
+    <FormControl {...args}>
       <FormLabel>Label</FormLabel>
       <Select />
     </FormControl>
-    <FormControl
-      {...args}
-      id={`${args.id}-3`}
-      hasError={hasError}
-    >
+
+    <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <SegmentedControl>
         { ['Open', 'Snoozed', 'Closed'].map((item) => (
@@ -89,21 +77,15 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
-    <FormControl
-      {...args}
-      id={`${args.id}-4`}
-      hasError={hasError}
-    >
+
+    <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <Checkbox>Option</Checkbox>
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
-    <FormControl
-      {...args}
-      id={`${args.id}-5`}
-      hasError={hasError}
-    >
+
+    <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <Radio>Option</Radio>
       <FormHelperText>Description</FormHelperText>
@@ -114,7 +96,6 @@ const WithMultiFormTemplate: Story<FormControlProps> = ({ hasError, ...args }) =
 
 export const WithMultiForm: Story<FormControlProps> = WithMultiFormTemplate.bind({})
 WithMultiForm.args = {
-  id: 'form',
   labelPosition: 'top',
   hasError: false,
   disabled: false,
