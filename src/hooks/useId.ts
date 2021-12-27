@@ -1,9 +1,27 @@
 /* External dependencies */
 import { useMemo } from 'react'
-import { v4 as uuid } from 'uuid'
 
-function useId() {
-  return useMemo(() => uuid(), [])
+const id = Object.seal({ current: 0 })
+
+interface UseIdProps {
+  idProp?: string
+  prefix?: string
+}
+
+function useId({
+  idProp,
+  prefix,
+}: UseIdProps) {
+  return useMemo(() => {
+    if (idProp) { return idProp }
+    id.current += 1
+    return prefix
+      ? `${prefix}-${id.current}`
+      : `${id.current}`
+  }, [
+    idProp,
+    prefix,
+  ])
 }
 
 export default useId

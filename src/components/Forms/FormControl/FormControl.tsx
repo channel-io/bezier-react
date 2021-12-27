@@ -18,7 +18,7 @@ import * as Styled from './FormControl.styled'
 const FORM_CONTROL_TEXT_TEST_ID = 'bezier-react-form-control'
 
 function FormControl({
-  id: idProps,
+  id: idProp,
   testId = FORM_CONTROL_TEXT_TEST_ID,
   labelPosition = 'top',
   children,
@@ -27,8 +27,7 @@ function FormControl({
   const [hasHelperText, setHasHelperText] = useState(false)
   const [hasErrorMessage, setHasErrorMessage] = useState(false)
 
-  const uuid = useId()
-  const id = idProps ?? `field-${uuid}`
+  const id = useId({ idProp, prefix: 'field' })
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
