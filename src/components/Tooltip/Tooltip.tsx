@@ -13,8 +13,7 @@ import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils'
 import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
 
-// TODO: 테스트 코드 작성
-const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
+export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
 
 function Tooltip(
   {
@@ -22,6 +21,7 @@ function Tooltip(
     testId = TOOLTIP_TEST_ID,
     className,
     contentClassName,
+    contentInterpolation,
     content = null,
     placement = TooltipPosition.BottomCenter,
     disabled = false,
@@ -159,6 +159,7 @@ function Tooltip(
         as={as}
         data-testid={testId}
         className={contentClassName}
+        interpolation={contentInterpolation}
         ref={mergedRef}
       >
         <EllipsisableContent>
@@ -171,6 +172,7 @@ function Tooltip(
     as,
     content,
     contentClassName,
+    contentInterpolation,
     contentWrapperStyle,
     disabled,
     keepInContainer,
@@ -188,7 +190,8 @@ function Tooltip(
   }, [disabled])
 
   useEffect(() => {
-    if (show && tooltipRef.current) {
+    if (show) {
+      if (!tooltipRef.current) { return }
       const newPlacement = getReplacement({
         tooltip: tooltipRef.current,
         keepInContainer,
@@ -213,6 +216,7 @@ function Tooltip(
   return (
     <Container
       ref={tooltipContainerRef}
+      data-testid={testId}
       className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

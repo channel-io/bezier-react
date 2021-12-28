@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
+.c4 {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000000000;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 260px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 8px 14px;
+  color: #FFFFFFE6;
+  word-break: break-all;
+  background-color: #313234;
+  box-shadow: inset 0 0 2px 0 #FFFFFF14, 0 0 2px 1px #00000014, 0 2px 6px #00000026;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: black;
+}
+
+.c3 {
+  display: -webkit-box;
+  max-height: 360px;
+  overflow: hidden;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 20;
+}
+
+<div
+  data-testid="container"
+  id="main"
+>
+  <div
+    class="c0"
+    data-testid="bezier-react-tooltip"
+  >
+    Text
+  </div>
+  <div
+    class="c1"
+    style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
+  >
+    <div
+      class="c2"
+      data-testid="bezier-react-tooltip"
+    >
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+          data-testid="bezier-react-text"
+        >
+          Hovered
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip test > Tooltip with default props 1`] = `
+.c4 {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000000000;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 260px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 8px 14px;
+  color: #FFFFFFE6;
+  word-break: break-all;
+  background-color: #313234;
+  box-shadow: inset 0 0 2px 0 #FFFFFF14, 0 0 2px 1px #00000014, 0 2px 6px #00000026;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.c3 {
+  display: -webkit-box;
+  max-height: 360px;
+  overflow: hidden;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 20;
+}
+
+<div
+  data-testid="container"
+  id="main"
+>
+  <div
+    class="c0"
+    data-testid="bezier-react-tooltip"
+  >
+    Text
+  </div>
+  <div
+    class="c1"
+    style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
+  >
+    <div
+      class="c2"
+      data-testid="bezier-react-tooltip"
+    >
+      <div
+        class="c3"
+      >
+        <span
+          class="c4"
+          data-testid="bezier-react-text"
+        >
+          Hovered
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
