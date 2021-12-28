@@ -3,8 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import { StatusType } from 'Components/Status'
-import Avatar, { AVATAR_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
+import Avatar, { AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 
 jest.mock('Worklets/EnableCSSHoudini', () => ({
@@ -13,8 +15,7 @@ jest.mock('Worklets/EnableCSSHoudini', () => ({
   enableSmoothCorners: { current: true },
 }))
 
-// TODO: 테스트 코드 보강
-describe('Avatar test >', () => {
+describe('Avatar >', () => {
   let props: AvatarProps
 
   const mockAvatarUrl = 'https://bit.ly/dan-abramov'
@@ -39,9 +40,38 @@ describe('Avatar test >', () => {
 
   it('Snapshot', () => {
     const { getByTestId } = renderAvatar()
-    const avatar = getByTestId(AVATAR_TEST_ID)
+    const img = getByTestId(AVATAR_TEST_ID)
 
-    expect(avatar).toMatchSnapshot()
+    expect(img).toMatchSnapshot()
+  })
+
+  it('renders image with correct style', () => {
+    const { getByTestId } = renderAvatar()
+    const img = getByTestId(AVATAR_TEST_ID)
+
+    expect(img).toHaveStyle('position: relative')
+    expect(img).toHaveStyle('box-sizing: content-box')
+    expect(img).toHaveStyle('display: flex')
+    expect(img).toHaveStyle('outline: none')
+    expect(img).toHaveStyle('background-image: var(--background-image)')
+    expect(img).toHaveStyle(`--background-image: url(${mockFallbackUrl})`)
+    expect(img).toHaveStyle('background-size: cover')
+    expect(img).toHaveStyle(`border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%`)
+  })
+
+  it('renders disabled style', () => {
+    const { getByTestId } = renderAvatar({ disabled: true })
+    const wrapper = getByTestId(AVATAR_WRAPPER_TEST_ID)
+
+    expect(wrapper).toHaveStyle(`opacity: ${DisabledOpacity}`)
+  })
+
+  it('renders border style', () => {
+    const { getByTestId } = renderAvatar({ showBorder: true })
+    const img = getByTestId(AVATAR_TEST_ID)
+
+    // NOTE(@ed): psuedo element 스타일 테스트가 어려워, 스냅샷 테스트로 대체
+    expect(img).toMatchSnapshot()
   })
 
   it('should have right -2px, bottom -2px style on StatusWrapper', () => {

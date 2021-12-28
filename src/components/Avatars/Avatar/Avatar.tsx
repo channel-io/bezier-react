@@ -11,8 +11,7 @@ import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
-// TODO: 테스트 코드 작성
-const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
+export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
