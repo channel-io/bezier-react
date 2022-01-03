@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmojiAvatar Test > snapshot 1`] = `
+.c0 {
+  position: relative;
+  top: calc(50% - 24px/2);
+  left: calc(50% - 24px/2);
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: overflow:hidden;
+  border-radius: 4px;
+  -webkit-transition: transition-delay:0ms;
+  transition: transition-delay:0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+}
+
+.c0:hover {
+  background-color: #00000014;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  background-image: url(undefined);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px,24px;
+  background-clip: content-box;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-emoji-avatar"
+>
+  <div
+    class="c1"
+    size="24"
+    style="background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);"
+  />
+</div>
+`;
