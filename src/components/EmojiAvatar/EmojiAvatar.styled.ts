@@ -56,7 +56,7 @@ export const EmojiIcon = styled.div<IconProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const PrivateChatLock = styled.div`
+export const StatusWrapper = styled.div`
   position: absolute;
   right: -${AVATAR_STATUS_GAP}px;
   bottom: -${AVATAR_STATUS_GAP}px;

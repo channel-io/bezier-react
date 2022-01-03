@@ -6,7 +6,7 @@ import { noop, isEmpty } from 'lodash-es'
 import { Status } from 'Components/Status'
 import EmojiAvatarProps, { EmojiAvatarSize } from './EmojiAvatar.types'
 import {
-  PrivateChatLock,
+  StatusWrapper,
   Wrapper,
   EmojiIcon,
 } from './EmojiAvatar.styled'
@@ -52,9 +52,9 @@ function EmojiAvatar({
     })()
 
     return (
-      <PrivateChatLock>
+      <StatusWrapper>
         { Contents }
-      </PrivateChatLock>
+      </StatusWrapper>
     )
   }, [
     status,
