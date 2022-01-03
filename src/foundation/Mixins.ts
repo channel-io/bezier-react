@@ -12,6 +12,14 @@ export const absoluteCenter = (otherTransforms: any) => `
   transform: translate(-50%, -50%) ${otherTransforms};
 `
 
+export const centeredBackgroundImage = (width?: number, height?: number, imageUrl?: string) => `
+  background-image: url(${imageUrl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: ${width}px, ${height}px;
+  background-clip: content-box;
+`
+
 export const disableAutoMinimum = css`
   min-width: 0;
   min-height: 0;
