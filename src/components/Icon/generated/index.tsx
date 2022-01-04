@@ -52,6 +52,7 @@ import BrowserIe from './BrowserIe'
 import BrowserSafari from './BrowserSafari'
 import Bullet from './Bullet'
 import Bus from './Bus'
+import BusinessGuy from './BusinessGuy'
 import ButtonRoute from './ButtonRoute'
 import Calendar from './Calendar'
 import CallMissed from './CallMissed'
@@ -144,6 +145,7 @@ import DialogDown from './DialogDown'
 import DialogUp from './DialogUp'
 import Dot from './Dot'
 import Download from './Download'
+import DragableSmall from './DragableSmall'
 import Dragable from './Dragable'
 import Edit from './Edit'
 import EmailFilled from './EmailFilled'
@@ -302,6 +304,7 @@ import Point from './Point'
 import Power from './Power'
 import Print from './Print'
 import Profile from './Profile'
+import QrCode from './QrCode'
 import Realtime from './Realtime'
 import Receipt from './Receipt'
 import Recipe from './Recipe'
@@ -328,6 +331,7 @@ import Shuffle from './Shuffle'
 import SingleNode from './SingleNode'
 import Siren from './Siren'
 import SmsFilled from './SmsFilled'
+import SmsUnsubscribed from './SmsUnsubscribed'
 import Sms from './Sms'
 import Snooze from './Snooze'
 import Soccerball from './Soccerball'
@@ -469,6 +473,7 @@ const icons = {
   'browser-safari': BrowserSafari,
   'bullet': Bullet,
   'bus': Bus,
+  'business-guy': BusinessGuy,
   'button-route': ButtonRoute,
   'calendar': Calendar,
   'call-missed': CallMissed,
@@ -561,6 +566,7 @@ const icons = {
   'dialog-up': DialogUp,
   'dot': Dot,
   'download': Download,
+  'dragable-small': DragableSmall,
   'dragable': Dragable,
   'edit': Edit,
   'email-filled': EmailFilled,
@@ -719,6 +725,7 @@ const icons = {
   'power': Power,
   'print': Print,
   'profile': Profile,
+  'qr-code': QrCode,
   'realtime': Realtime,
   'receipt': Receipt,
   'recipe': Recipe,
@@ -745,6 +752,7 @@ const icons = {
   'single-node': SingleNode,
   'siren': Siren,
   'sms-filled': SmsFilled,
+  'sms-unsubscribed': SmsUnsubscribed,
   'sms': Sms,
   'snooze': Snooze,
   'soccerball': Soccerball,
