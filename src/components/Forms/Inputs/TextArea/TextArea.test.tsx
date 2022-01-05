@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/dom'
 import React from 'react'
 
 /* Internal dependencies */
-import { Palette } from 'Foundation/Colors/Palette'
+import { LightFoundation } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
@@ -71,7 +71,8 @@ describe('TextArea 테스트 >', () => {
     textareaElement.focus()
 
     jest.advanceTimersByTime(1000)
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${Palette.blue400_20}, inset 0 0 0 1px ${Palette.blue400}`)
+    // eslint-disable-next-line max-len
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']}`)
   })
 
   it('error 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {
@@ -80,7 +81,8 @@ describe('TextArea 테스트 >', () => {
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
 
     jest.advanceTimersByTime(1000)
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${Palette.orange400_20}, inset 0 0 0 1px ${Palette.orange400}`)
+    // eslint-disable-next-line max-len
+    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']}`)
   })
 
   describe('onFocus 테스트 >', () => {
