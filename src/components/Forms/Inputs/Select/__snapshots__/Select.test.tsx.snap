@@ -60,7 +60,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   user-select: none;
   background-color: #FCFCFC;
   color: #000000D9;
-  box-shadow: 0 1px 2px #00000008, inset 0 0 0 1px #0000000D;
+  box-shadow: 0 1px 2px #0000000D, inset 0 0 0 1px #00000026;
   height: 36px;
   overflow: hidden;
   border-radius: 8px;
