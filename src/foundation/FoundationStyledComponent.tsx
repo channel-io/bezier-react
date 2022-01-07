@@ -28,6 +28,7 @@ import styled, {
 
 /* Internal dependencies */
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
+import ThemeVars, { BEZIER_ROOT_CLASSNAME } from './ThemeVars'
 import domElements from './utils/domElements'
 import { Foundation } from './index'
 
@@ -43,7 +44,14 @@ function FoundationProvider({
   children,
 }: FoundationProviderProps) {
   EnableCSSHoudini({ smoothCorners: true })
-  return <FoundationContext.Provider value={foundation}>{ children }</FoundationContext.Provider>
+  return (
+    <FoundationContext.Provider value={foundation}>
+      <div className={BEZIER_ROOT_CLASSNAME}>
+        <ThemeVars />
+        { children }
+      </div>
+    </FoundationContext.Provider>
+  )
 }
 
 /**

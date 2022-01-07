@@ -90,46 +90,50 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 }
 
 <div
-  class="c0"
-  data-testid="bezier-react-select-container"
+  class="bezier-react-root"
 >
   <div
-    class="c1"
-    data-testid="bezier-react-select-trigger"
+    class="c0"
+    data-testid="bezier-react-select-container"
   >
     <div
-      class="c2"
+      class="c1"
+      data-testid="bezier-react-select-trigger"
     >
-      <span
-        class="c3"
-        color="txt-black-darkest"
-        data-testid="bezier-react-select-trigger-text"
+      <div
+        class="c2"
       >
-        foo
-      </span>
+        <span
+          class="c3"
+          color="txt-black-darkest"
+          data-testid="bezier-react-select-trigger-text"
+        >
+          foo
+        </span>
+      </div>
+      <svg
+        class="c4"
+        color="txt-black-darker"
+        data-testid="bezier-react-icon"
+        fill="none"
+        foundation="[object Object]"
+        height="16"
+        marginbottom="0"
+        marginleft="6"
+        marginright="0"
+        margintop="0"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M19.707 8.793a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 011.414-1.414L12 15.086l6.293-6.293a1 1 0 011.414 0z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
     </div>
-    <svg
-      class="c4"
-      color="txt-black-darker"
-      data-testid="bezier-react-icon"
-      fill="none"
-      foundation="[object Object]"
-      height="16"
-      marginbottom="0"
-      marginleft="6"
-      marginright="0"
-      margintop="0"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M19.707 8.793a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 011.414-1.414L12 15.086l6.293-6.293a1 1 0 011.414 0z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
   </div>
 </div>
 `;

@@ -82,12 +82,16 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 }
 
 <div
-  class="c0"
-  data-testid="bezier-react-text-area"
+  class="bezier-react-root"
 >
-  <textarea
-    class="c1"
-    foundation="[object Object]"
-  />
+  <div
+    class="c0"
+    data-testid="bezier-react-text-area"
+  >
+    <textarea
+      class="c1"
+      foundation="[object Object]"
+    />
+  </div>
 </div>
 `;
