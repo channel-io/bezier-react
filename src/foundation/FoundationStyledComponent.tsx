@@ -8,7 +8,7 @@
  */
 
 /* External dependencies */
-import React, { createContext, useContext, forwardRef } from 'react'
+import React, { createContext, useContext, useMemo, forwardRef } from 'react'
 import styled, {
   css as baseCSS,
   ThemedStyledFunction,
@@ -28,7 +28,8 @@ import styled, {
 
 /* Internal dependencies */
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
-import ThemeVars, { BEZIER_ROOT_CLASSNAME } from './ThemeVars'
+import { DarkFoundation } from './BaseFoundation'
+import ThemeVars, { BEZIER_ROOT_CLASSNAME, THEME_CLASSNAMES } from './ThemeVars'
 import domElements from './utils/domElements'
 import { Foundation } from './index'
 
@@ -43,10 +44,24 @@ function FoundationProvider({
   foundation,
   children,
 }: FoundationProviderProps) {
+  // TODO: 테마 스위칭 로직 구현을 bezier-react 내부로 이동하고, Hook을 통해 사용처에서 쉽게 가져다가 사용할 수 있도록 개선
+  const rootClassName = useMemo(() => {
+    const themeClassName = (() => {
+      switch (foundation) {
+        case DarkFoundation:
+          return THEME_CLASSNAMES.DARK
+        default:
+          return ''
+      }
+    })()
+    return [BEZIER_ROOT_CLASSNAME, themeClassName].join(' ').trim()
+  }, [foundation])
+
   EnableCSSHoudini({ smoothCorners: true })
+
   return (
     <FoundationContext.Provider value={foundation}>
-      <div className={BEZIER_ROOT_CLASSNAME}>
+      <div className={rootClassName}>
         <ThemeVars />
         { children }
       </div>
