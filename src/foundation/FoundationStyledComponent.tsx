@@ -29,7 +29,7 @@ import styled, {
 /* Internal dependencies */
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
-import ThemeVars, { BEZIER_ROOT_CLASSNAME } from './ThemeVars'
+import ThemeVars from './ThemeVars'
 import { Foundation } from './index'
 
 const FoundationContext = createContext<Foundation | null>(null)
@@ -48,10 +48,8 @@ function FoundationProvider({
   // TODO: 테마 스위칭 로직 구현을 bezier-react 내부로 이동하고, Hook을 통해 사용처에서 쉽게 가져다가 사용할 수 있도록 개선
   return (
     <FoundationContext.Provider value={foundation}>
-      <div className={BEZIER_ROOT_CLASSNAME}>
-        <ThemeVars foundation={foundation} />
-        { children }
-      </div>
+      <ThemeVars foundation={foundation} />
+      { children }
     </FoundationContext.Provider>
   )
 }
