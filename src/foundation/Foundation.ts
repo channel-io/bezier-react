@@ -1,12 +1,10 @@
 /* Internal dependencies */
-import {
-  Theme,
-  Transition,
-  Rounding,
-  Elevation,
-  Border,
-  Spacing,
-} from './index'
+import { Theme } from './Colors'
+import { Spacing } from './Spacing'
+import { Transition } from './Transition'
+import { Rounding } from './Rounding'
+import { Elevation } from './Elevation'
+import { Border } from './Border'
 
 export interface Foundation {
   theme: Theme

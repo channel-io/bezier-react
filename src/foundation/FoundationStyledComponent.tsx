@@ -29,7 +29,8 @@ import styled, {
 /* Internal dependencies */
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
-import { Foundation } from './index'
+import ThemeVars from './ThemeVars'
+import { Foundation } from './Foundation'
 
 const FoundationContext = createContext<Foundation | null>(null)
 
@@ -43,7 +44,14 @@ function FoundationProvider({
   children,
 }: FoundationProviderProps) {
   EnableCSSHoudini({ smoothCorners: true })
-  return <FoundationContext.Provider value={foundation}>{ children }</FoundationContext.Provider>
+
+  // TODO: 테마 스위칭 로직 구현을 bezier-react 내부로 이동하고, Hook을 통해 사용처에서 쉽게 가져다가 사용할 수 있도록 개선
+  return (
+    <FoundationContext.Provider value={foundation}>
+      <ThemeVars foundation={foundation} />
+      { children }
+    </FoundationContext.Provider>
+  )
 }
 
 /**
