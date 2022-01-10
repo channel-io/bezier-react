@@ -52,6 +52,7 @@ forwardedRef: Ref<SelectRef>,
 ) {
   const {
     disabled,
+    readOnly,
     hasError,
     Wrapper,
     ...ownProps
@@ -81,12 +82,13 @@ forwardedRef: Ref<SelectRef>,
   ])
 
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       setIsDropdownOpened(prevState => !prevState)
       onClickTrigger(event)
     }
   }, [
     disabled,
+    readOnly,
     onClickTrigger,
   ])
 
@@ -123,6 +125,7 @@ forwardedRef: Ref<SelectRef>,
           focus={isDropdownOpened && !disabled}
           error={hasError}
           disabled={disabled}
+          readOnly={readOnly}
           onClick={handleClickTrigger}
         >
           <Styled.MainContentWrapper>
