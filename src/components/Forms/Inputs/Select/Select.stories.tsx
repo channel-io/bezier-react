@@ -29,6 +29,7 @@ Primary.args = {
   text: 'hello',
   iconComponent: 'calendar',
   disabled: false,
+  readOnly: false,
   withoutChevron: false,
   hasError: false,
   size: SelectSize.M,
