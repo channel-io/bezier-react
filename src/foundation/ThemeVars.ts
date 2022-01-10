@@ -2,7 +2,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 /* Internal dependencies */
-import { Foundation } from './index'
+import { Foundation } from './Foundation'
 
 type ThemeRecord = Record<string, string>
 

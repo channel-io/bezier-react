@@ -30,7 +30,7 @@ import styled, {
 import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
 import ThemeVars from './ThemeVars'
-import { Foundation } from './index'
+import { Foundation } from './Foundation'
 
 const FoundationContext = createContext<Foundation | null>(null)
 
