@@ -247,5 +247,12 @@ describe('Select Test >', () => {
 
       expect(trigger).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
     })
+
+    it('should have chevron with txt-black-dark color', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger.children.item(1)).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
+    })
   })
 })
