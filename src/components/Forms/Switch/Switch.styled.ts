@@ -14,7 +14,7 @@ export const Wrapper = styled.div<WrapperProps>`
     ${props => (
       props.checked
         ? props.foundation?.theme?.['bgtxt-green-normal']
-        : props.foundation?.theme?.['bg-black-light']
+        : props.foundation?.theme?.['bg-black-dark']
     )};
   border-radius: ${props => (props.size + PADDING) / 2}px;
   opacity: ${props => (props.disabled ? '.2' : 'initial')};
@@ -25,21 +25,22 @@ export const Wrapper = styled.div<WrapperProps>`
       ${props => (
         props.checked
           ? props.foundation?.theme?.['bgtxt-green-dark']
-          : props.foundation?.theme?.['bg-black-normal']
+          : props.foundation?.theme?.['bg-black-dark']
       )};
   }
 `
 /* eslint-enable @typescript-eslint/indent */
 
 export const Content = styled.div<ContentProps>`
+  ${({ foundation }) => foundation?.elevation?.ev2()};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
+
   position: absolute;
   top: ${PADDING / 2}px;
   left: ${PADDING / 2}px;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  background-color: ${props => props.foundation?.theme?.['bgtxt-absolute-white-normal']};
+  background-color: ${props => props.foundation?.theme?.['bgtxt-absolute-white-dark']};
   border-radius: 50%;
-  ${({ foundation }) => foundation?.elevation?.ev2()};
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
   transform: ${props => (props.checked ? `translateX(${props.size - PADDING}px)` : 'initial')};
 `

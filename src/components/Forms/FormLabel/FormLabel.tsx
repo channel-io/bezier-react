@@ -18,6 +18,7 @@ function FormLabel({
   as = 'label',
   bold = true,
   typo = Typography.Size13,
+  color = 'txt-black-darkest',
   children,
   ...rest
 }: FormLabelProps,
@@ -38,6 +39,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       forwardedAs={as}
       bold={bold}
       typo={typo}
+      color={color}
     >
       { children }
     </Styled.Label>
@@ -45,6 +47,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     as,
     typo,
     bold,
+    color,
     testId,
     children,
     forwardedRef,
