@@ -81,9 +81,9 @@ export const Indicator = styled.div`
 `
 
 export const IndicatorBox = styled.div`
+  ${({ foundation }) => foundation?.elevation?.ev1()};
   width: 100%;
   height: 100%;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
   border-radius: 6px;
-  ${({ foundation }) => foundation?.elevation?.ev1()};
 `
