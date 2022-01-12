@@ -7,7 +7,7 @@ exports[`FormLabel > Snapshot > 1`] = `
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
-  color: inherit;
+  color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -25,6 +25,7 @@ exports[`FormLabel > Snapshot > 1`] = `
 
 <label
   class="c0 c1"
+  color="txt-black-darkest"
   data-testid="bezier-react-form-label"
 >
   label
