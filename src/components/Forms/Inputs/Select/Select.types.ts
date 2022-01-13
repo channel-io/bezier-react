@@ -3,6 +3,7 @@ import type {
   BezierComponentProps,
   ChildrenProps,
   SizeProps,
+  SideContentProps,
   AdditionalStylableProps,
   AdditionalColorProps,
   AdditionalTestIdProps,
@@ -27,7 +28,6 @@ export interface SelectRef {
 interface SelectOptions {
   defaultFocus?: boolean
   placeholder?: string
-  iconComponent?: IconName | React.ReactNode
   text?: string
   withoutChevron?: boolean
   dropdownContainer?: HTMLElement | null
@@ -43,6 +43,7 @@ interface SelectProps extends
   BezierComponentProps,
   ChildrenProps,
   SizeProps<SelectSize>,
+  SideContentProps<IconName | React.ReactNode, IconName | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AdditionalStylableProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text', 'chevron']>,

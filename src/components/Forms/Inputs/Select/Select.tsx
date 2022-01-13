@@ -30,7 +30,8 @@ function Select({
   size = SelectSize.M,
   defaultFocus = false,
   placeholder = '',
-  iconComponent,
+  leftContent,
+  rightContent,
   iconColor = 'txt-black-dark',
   text,
   textColor = 'txt-black-darkest',
@@ -63,10 +64,10 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(defaultFocus)
 
   const LeftComponent = useMemo(() => {
-    if (isIconName(iconComponent)) {
+    if (isIconName(leftContent)) {
       return (
         <Icon
-          name={iconComponent}
+          name={leftContent}
           size={IconSize.XS}
           color={iconColor}
           marginRight={6}
@@ -74,9 +75,27 @@ forwardedRef: Ref<SelectRef>,
       )
     }
 
-    return iconComponent
+    return leftContent
   }, [
-    iconComponent,
+    leftContent,
+    iconColor,
+  ])
+
+  const RightComponent = useMemo(() => {
+    if (isIconName(rightContent)) {
+      return (
+        <Icon
+          name={rightContent}
+          size={IconSize.XS}
+          color={iconColor}
+          marginRight={6}
+        />
+      )
+    }
+
+    return rightContent
+  }, [
+    rightContent,
     iconColor,
   ])
 
@@ -134,6 +153,7 @@ forwardedRef: Ref<SelectRef>,
             >
               { hasContent ? text : placeholder }
             </Text>
+            { RightComponent }
           </Styled.MainContentWrapper>
           { !withoutChevron && (
           <Icon
