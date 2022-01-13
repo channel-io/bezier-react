@@ -34,7 +34,7 @@ const disabledStyle = css`
 
 const smoothCornersFallbackBorderStyle = css`
   &::after {
-    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bgtxt-absolute-white-dark'])};
+    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bg-white-high'])};
 
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
@@ -64,7 +64,7 @@ export const AvatarImage = styled.div<AvatarProps>`
   ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
 
   ${({ foundation, showBorder }) => smoothCorners({
-    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bgtxt-absolute-white-dark']}` : undefined,
+    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-high']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
     backgroundColor: foundation?.theme?.['bgtxt-absolute-white-dark'],
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,

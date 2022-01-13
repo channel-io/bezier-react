@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar test > Snapshot 1`] = `
+exports[`Avatar > Snapshot 1`] = `
 .c0 {
   position: relative;
   box-sizing: content-box;
@@ -55,7 +55,62 @@ exports[`Avatar test > Snapshot 1`] = `
 />
 `;
 
-exports[`Avatar test > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
+exports[`Avatar > renders border style 1`] = `
+.c0 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  margin: 0px;
+  background-color: #FFFFFF;
+  background-image: var(--background-image);
+  background-size: cover;
+  border-radius: 42%;
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c0 {
+    padding: 4px;
+    margin: -4px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    box-shadow: none;
+    border-image-source: var(--background-image);
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 2px #FFFFFF;
+    --smooth-corners-bg-color: #FFFFFF;
+    --smooth-corners-padding: 4;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+<div
+  aria-label="Name"
+  class="c0"
+  data-testid="bezier-react-avatar"
+  role="img"
+  size="24"
+  style="--background-image: url(https://www.google.com);"
+/>
+`;
+
+exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
 .c1 {
   box-sizing: border-box;
   border-color: #FFFFFF;
@@ -105,7 +160,7 @@ exports[`Avatar test > should have right -2px, bottom -2px style on StatusWrappe
 </div>
 `;
 
-exports[`Avatar test > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
+exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
 .c1 {
   box-sizing: border-box;
   border-color: #FFFFFF;
@@ -155,7 +210,7 @@ exports[`Avatar test > should have right 2px, bottom 2px style on StatusWrapper 
 </div>
 `;
 
-exports[`Avatar test > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
+exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
 .c1 {
   box-sizing: border-box;
   border-color: #FFFFFF;
@@ -205,7 +260,7 @@ exports[`Avatar test > should have right 4px, bottom 4px style on StatusWrapper 
 </div>
 `;
 
-exports[`Avatar test > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
+exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
 .c1 {
   box-sizing: border-box;
   border-color: #FFFFFF;
