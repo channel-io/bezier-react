@@ -172,4 +172,11 @@ describe('Select Test >', () => {
       expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
     })
   })
+
+  describe('rightContent >', () => {
+    it('Snapshot >', () => {
+      const { container } = renderSelect({ text: 'lorem ipsum', rightContent: (<div>가나다</div>) })
+      expect(container.firstChild).toMatchSnapshot()
+    })
+  })
 })
