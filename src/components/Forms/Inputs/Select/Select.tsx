@@ -155,12 +155,12 @@ forwardedRef: Ref<SelectRef>,
             { RightComponent }
           </Styled.MainContentWrapper>
           { !withoutChevron && (
-          <Icon
-            name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
-            size={IconSize.XS}
-            color={chevronColor}
-            marginLeft={6}
-          />
+            <Icon
+              name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
+              size={IconSize.XS}
+              color={chevronColor}
+              marginLeft={6}
+            />
           ) }
         </Styled.Trigger>
 
