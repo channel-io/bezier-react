@@ -5,7 +5,6 @@ import { isEmpty, noop } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
-import { Text } from 'Components/Text'
 import { OverlayPosition } from 'Components/Overlay'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
@@ -146,13 +145,13 @@ forwardedRef: Ref<SelectRef>,
         >
           <Styled.MainContentWrapper>
             { LeftComponent }
-            <Text
+            <Styled.TextContainer
               testId={triggerTextTestId}
               typo={Typography.Size14}
               color={hasContent ? textColor : 'txt-black-dark'}
             >
               { hasContent ? text : placeholder }
-            </Text>
+            </Styled.TextContainer>
             { RightComponent }
           </Styled.MainContentWrapper>
           { !withoutChevron && (

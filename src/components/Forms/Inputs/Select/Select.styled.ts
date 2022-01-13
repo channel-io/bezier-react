@@ -1,8 +1,9 @@
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
+import { styled, css, ellipsis } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import type { InterpolationProps } from 'Types/Foundation'
 import { Overlay } from 'Components/Overlay'
+import { Text } from 'Components/Text'
 import {
   inputTextStyle,
   inputWrapperStyle,
@@ -63,7 +64,7 @@ export const Trigger = styled.div<TriggerProps>`
   ${({ size }) => selectSizeConverter(size)};
 
   ${({ foundation }) => foundation?.rounding?.round8};
-  
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
   ${({ focus }) => focus && css`
@@ -85,6 +86,11 @@ export const Trigger = styled.div<TriggerProps>`
 export const MainContentWrapper = styled.div`
   display: flex;
   align-items: center;
+  overflow: hidden;
+`
+
+export const TextContainer = styled(Text)`
+  ${ellipsis()}
 `
 
 interface DropdownProps extends InterpolationProps {
