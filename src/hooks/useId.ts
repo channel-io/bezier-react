@@ -1,7 +1,12 @@
+/* @see https://github.com/chakra-ui/chakra-ui/blob/fa474bea3dcbdd4bbf2a26925f938d6e75a50c6d/packages/hooks/src/use-id.ts */
 /* External dependencies */
-import { useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { compact } from 'lodash-es'
 
-const id = Object.seal({ current: 0 })
+const idRef = Object.seal({ current: 0 })
+
+// eslint-disable-next-line no-plusplus
+const generateId = () => idRef.current++
 
 interface UseIdProps {
   idProp?: string
@@ -12,15 +17,18 @@ function useId({
   idProp,
   prefix,
 }: UseIdProps) {
-  return useMemo(() => {
-    if (idProp) { return idProp }
-    id.current += 1
-    return prefix
-      ? `${prefix}-${id.current}`
-      : `${id.current}`
-  }, [
+  const [id, setId] = useState(idRef.current)
+
+  useEffect(() => {
+    setId(generateId())
+  }, [setId])
+
+  return useMemo(() => (
+    idProp || compact([prefix, id]).join('-')
+  ), [
     idProp,
     prefix,
+    id,
   ])
 }
 
