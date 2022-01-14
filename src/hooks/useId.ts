@@ -3,25 +3,18 @@
 import { useState, useEffect, useMemo } from 'react'
 import { compact } from 'lodash-es'
 
-const idRef = Object.seal({ current: 0 })
+const idRef = Object.seal({ current: 1 })
 
 // eslint-disable-next-line no-plusplus
 const generateId = () => idRef.current++
 
-interface UseIdProps {
-  idProp?: string
-  prefix?: string
-}
-
-function useId({
-  idProp,
-  prefix,
-}: UseIdProps) {
+function useId(idProp?: string, prefix?: string) {
   const [id, setId] = useState(idRef.current)
 
   useEffect(() => {
+    if (idProp) { return }
     setId(generateId())
-  }, [setId])
+  }, [idProp])
 
   return useMemo(() => (
     idProp || compact([prefix, id]).join('-')

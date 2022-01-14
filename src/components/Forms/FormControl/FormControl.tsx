@@ -27,7 +27,7 @@ function FormControl({
   const [hasHelperText, setHasHelperText] = useState(false)
   const [hasErrorMessage, setHasErrorMessage] = useState(false)
 
-  const id = useId({ idProp, prefix: 'field' })
+  const id = useId(idProp, 'field')
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
