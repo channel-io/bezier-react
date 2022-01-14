@@ -45,7 +45,7 @@ const smoothCornersFallbackBorderStyle = css`
     width: 100%;
     height: 100%;
     content: '';
-    background-color: ${({ foundation }) => `${foundation?.theme?.['bgtxt-absolute-white-dark']}`};
+    background-color: ${({ foundation }) => `${foundation?.theme?.['bg-white-normal']}`};
     border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
   }
 `
@@ -66,7 +66,7 @@ export const AvatarImage = styled.div<AvatarProps>`
   ${({ foundation, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-high']}` : undefined,
     shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: foundation?.theme?.['bgtxt-absolute-white-dark'],
+    backgroundColor: foundation?.theme?.['bg-white-normal'],
     borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
     hasBackgroundImage: true,
   })};
