@@ -17,8 +17,7 @@ import {
   AvatarEllipsisCount,
 } from './AvatarGroup.styled'
 
-// TODO: 테스트 코드 작성
-const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
+export const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
 
 const MAX_AVATAR_LIST_COUNT = 99
 
@@ -68,13 +67,15 @@ function AvatarGroup({
 }: AvatarGroupProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const renderAvatarElement = useCallback((avatar: React.ReactElement<AvatarProps>) => (
-    React.cloneElement(avatar, {
-      key: avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`,
-      size,
-      showBorder: avatar.props.showBorder || spacing < 0,
-    })
-  ), [
+  const renderAvatarElement = useCallback((
+    avatar: React.ReactElement<AvatarProps>,
+    avatarListCount: number,
+  ) => {
+    const key = avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`
+    const shouldShowBorder = avatarListCount > 1 && spacing < 0
+    const showBorder = avatar.props.showBorder || shouldShowBorder
+    return React.cloneElement(avatar, { key, size, showBorder })
+  }, [
     size,
     spacing,
   ])
@@ -86,7 +87,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const AvatarListComponent = useMemo(() => {
     if (avatarListCount <= max) {
       return React.Children.map(children, (avatar) => (
-        React.isValidElement(avatar) && renderAvatarElement(avatar)
+        React.isValidElement(avatar) && renderAvatarElement(avatar, avatarListCount)
       ))
     }
 
@@ -96,7 +97,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
     return slicedAvatarList.map((avatar, index, arr) => {
       if (!React.isValidElement(avatar)) { return null }
 
-      if (!isLastIndex(arr, index)) { return renderAvatarElement(avatar) }
+      const AvatarElement = renderAvatarElement(avatar, slicedAvatarList.length)
+
+      if (!isLastIndex(arr, index)) {
+        return AvatarElement
+      }
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
@@ -113,7 +118,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
                 color="bgtxt-absolute-white-dark"
               />
             </AvatarEllipsisIcon>
-            { renderAvatarElement(avatar) }
+            { AvatarElement }
           </AvatarEllipsisIconWrapper>
         )
       }
@@ -123,7 +128,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
           <React.Fragment
             key="ellipsis"
           >
-            { renderAvatarElement(avatar) }
+            { AvatarElement }
             <AvatarEllipsisCountWrapper
               size={size}
               spacing={spacing}
