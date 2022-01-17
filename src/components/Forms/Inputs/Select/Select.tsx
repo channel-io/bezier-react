@@ -35,7 +35,6 @@ function Select({
   text,
   textColor = 'txt-black-darkest',
   withoutChevron = false,
-  chevronColor = 'txt-black-darker',
   dropdownStyle,
   dropdownClassName,
   dropdownContainer,
@@ -52,6 +51,7 @@ forwardedRef: Ref<SelectRef>,
 ) {
   const {
     disabled,
+    readOnly,
     hasError,
     Wrapper,
     ...ownProps
@@ -81,12 +81,13 @@ forwardedRef: Ref<SelectRef>,
   ])
 
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       setIsDropdownOpened(prevState => !prevState)
       onClickTrigger(event)
     }
   }, [
     disabled,
+    readOnly,
     onClickTrigger,
   ])
 
@@ -123,6 +124,7 @@ forwardedRef: Ref<SelectRef>,
           focus={isDropdownOpened && !disabled}
           error={hasError}
           disabled={disabled}
+          readOnly={readOnly}
           onClick={handleClickTrigger}
         >
           <Styled.MainContentWrapper>
@@ -139,7 +141,7 @@ forwardedRef: Ref<SelectRef>,
           <Icon
             name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
             size={IconSize.XS}
-            color={chevronColor}
+            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
             marginLeft={6}
           />
           ) }

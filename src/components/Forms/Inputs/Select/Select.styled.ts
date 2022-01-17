@@ -21,6 +21,7 @@ interface TriggerProps {
   focus: boolean
   error: boolean
   disabled: boolean
+  readOnly: boolean
   size: SelectSize
 }
 
@@ -52,7 +53,11 @@ export const Trigger = styled.div<TriggerProps>`
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ disabled, readOnly }) => {
+    if (disabled) { return 'not-allowed' }
+    if (readOnly) { return 'initial' }
+    return 'pointer'
+  }};
   user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 
@@ -63,7 +68,7 @@ export const Trigger = styled.div<TriggerProps>`
   ${({ size }) => selectSizeConverter(size)};
 
   ${({ foundation }) => foundation?.rounding?.round8};
-  
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 
   ${({ focus }) => focus && css`
@@ -77,9 +82,11 @@ export const Trigger = styled.div<TriggerProps>`
     opacity: ${DisabledOpacity};
   `};
 
-  &:hover {
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
-  }
+  ${({ disabled, readOnly }) => !disabled && !readOnly && css`
+    &:hover {
+      background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
+    }
+  `}
 `
 
 export const MainContentWrapper = styled.div`
