@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarGroup > Snapshot > 1`] = `
+.c6 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 0px;
+  color: #FFFFFF;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c3 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  margin: 0px;
+  background-color: #FFFFFF;
+  background-image: var(--background-image);
+  background-size: cover;
+  border-radius: 42%;
+}
+
+.c2 {
+  position: relative;
+  z-index: 1;
+}
+
+.c1 {
+  position: relative;
+  z-index: 0;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 > * + * {
+  margin-left: 4px;
+}
+
+.c4 {
+  position: relative;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin: 0px;
+  background-color: #00000066;
+  border-radius: 42%;
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c3 {
+    padding: 0px;
+    margin: 0px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    box-shadow: none;
+    border-image-source: var(--background-image);
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 0 transparent;
+    --smooth-corners-bg-color: #FFFFFF;
+    --smooth-corners-padding: 0;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c5 {
+    padding: 0px;
+    margin: 0px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    box-shadow: none;
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 0 transparent;
+    --smooth-corners-bg-color: #00000066;
+    --smooth-corners-padding: 0;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-avatar-group"
+  spacing="4"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Christian Nwamba"
+        class="c3"
+        data-testid="AVATAR"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Kola Tioluwani"
+        class="c3"
+        data-testid="AVATAR"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Kent Dodds"
+        class="c3"
+        data-testid="AVATAR"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c4"
+  >
+    <div
+      class="c5"
+    >
+      <svg
+        class="c6"
+        color="bgtxt-absolute-white-dark"
+        data-testid="bezier-react-icon"
+        fill="none"
+        foundation="[object Object]"
+        height="16"
+        marginbottom="0"
+        marginleft="0"
+        marginright="0"
+        margintop="0"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M4.5 14.5A2.507 2.507 0 012 12c0-1.375 1.125-2.5 2.5-2.5S7 10.625 7 12s-1.125 2.5-2.5 2.5zm7.5 0A2.507 2.507 0 019.5 12c0-1.375 1.125-2.5 2.5-2.5s2.5 1.125 2.5 2.5-1.125 2.5-2.5 2.5zm5-2.5c0 1.375 1.125 2.5 2.5 2.5S22 13.375 22 12s-1.125-2.5-2.5-2.5A2.507 2.507 0 0017 12z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="c1"
+      data-testid="bezier-react-avatar-wrapper"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          aria-label="Ryan Florence"
+          class="c3"
+          data-testid="AVATAR"
+          role="img"
+          size="24"
+          style="--background-image: url(https://www.google.com);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

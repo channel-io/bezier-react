@@ -17,8 +17,7 @@ import {
   AvatarEllipsisCount,
 } from './AvatarGroup.styled'
 
-// TODO: 테스트 코드 작성
-const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
+export const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
 
 const MAX_AVATAR_LIST_COUNT = 99
 
