@@ -5,7 +5,6 @@ import { isEmpty, noop } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
-import { Text } from 'Components/Text'
 import { OverlayPosition } from 'Components/Overlay'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
@@ -30,7 +29,8 @@ function Select({
   size = SelectSize.M,
   defaultFocus = false,
   placeholder = '',
-  iconComponent,
+  leftContent,
+  rightContent,
   iconColor = 'txt-black-dark',
   text,
   textColor = 'txt-black-darkest',
@@ -63,10 +63,10 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(defaultFocus)
 
   const LeftComponent = useMemo(() => {
-    if (isIconName(iconComponent)) {
+    if (isIconName(leftContent)) {
       return (
         <Icon
-          name={iconComponent}
+          name={leftContent}
           size={IconSize.XS}
           color={iconColor}
           marginRight={6}
@@ -74,9 +74,27 @@ forwardedRef: Ref<SelectRef>,
       )
     }
 
-    return iconComponent
+    return leftContent
   }, [
-    iconComponent,
+    leftContent,
+    iconColor,
+  ])
+
+  const RightComponent = useMemo(() => {
+    if (isIconName(rightContent)) {
+      return (
+        <Icon
+          name={rightContent}
+          size={IconSize.XS}
+          color={iconColor}
+          marginRight={6}
+        />
+      )
+    }
+
+    return rightContent
+  }, [
+    rightContent,
     iconColor,
   ])
 
@@ -129,21 +147,22 @@ forwardedRef: Ref<SelectRef>,
         >
           <Styled.MainContentWrapper>
             { LeftComponent }
-            <Text
+            <Styled.TextContainer
               testId={triggerTextTestId}
               typo={Typography.Size14}
               color={hasContent ? textColor : 'txt-black-dark'}
             >
               { hasContent ? text : placeholder }
-            </Text>
+            </Styled.TextContainer>
+            { RightComponent }
           </Styled.MainContentWrapper>
           { !withoutChevron && (
-          <Icon
-            name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
-            size={IconSize.XS}
-            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-            marginLeft={6}
-          />
+            <Icon
+              name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
+              size={IconSize.XS}
+              color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+              marginLeft={6}
+            />
           ) }
         </Styled.Trigger>
 
