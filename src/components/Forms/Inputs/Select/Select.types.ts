@@ -46,7 +46,7 @@ interface SelectProps extends
   SideContentProps<IconName | React.ReactNode, IconName | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AdditionalStylableProps<'dropdown'>,
-  AdditionalColorProps<['icon', 'text', 'chevron']>,
+  AdditionalColorProps<['icon', 'text']>,
   FormComponentProps,
   SelectOptions {}
 

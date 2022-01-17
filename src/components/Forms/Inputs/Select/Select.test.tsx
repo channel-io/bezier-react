@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
@@ -170,6 +171,88 @@ describe('Select Test >', () => {
       const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
 
       expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+    })
+  })
+
+  describe('Disabled style', () => {
+    it('should have dimmed opacity', () => {
+      const { getByTestId } = renderSelect({ disabled: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger).toHaveStyle('opacity: 0.4')
+    })
+
+    it('should have not-allowed cursor style', () => {
+      const { getByTestId } = renderSelect({ disabled: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger).toHaveStyle('cursor: not-allowed')
+    })
+
+    it('should not show dropdown when clicked', () => {
+      const { getByTestId } = renderSelect({ disabled: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      userEvent.click(trigger)
+
+      expect(() => getByTestId(SELECT_DROPDOWN_TEST_ID)).toThrow() // element should not exist
+    })
+
+    it('should not update style when hovered', () => {
+      const { getByTestId } = renderSelect({ disabled: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      fireEvent.mouseOver(trigger)
+
+      expect(trigger).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
+    })
+
+    it('overrides read-only style', () => {
+      const { getByTestId } = renderSelect({ readOnly: true, disabled: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger).toHaveStyle('opacity: 0.4')
+    })
+  })
+
+  describe('Read-only style', () => {
+    it('should have regular opacity', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger).not.toHaveStyle('opacity: 0.4')
+    })
+
+    it('should have initial cursor style', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger).toHaveStyle('cursor: initial')
+    })
+
+    it('should not show dropdown when clicked', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      userEvent.click(trigger)
+
+      expect(() => getByTestId(SELECT_DROPDOWN_TEST_ID)).toThrow() // element should not exist
+    })
+
+    it('should not update style when hovered', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      fireEvent.mouseOver(trigger)
+
+      expect(trigger).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
+    })
+
+    it('should have chevron with txt-black-dark color', () => {
+      const { getByTestId } = renderSelect({ readOnly: true })
+      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      expect(trigger.children.item(1)).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
     })
   })
 

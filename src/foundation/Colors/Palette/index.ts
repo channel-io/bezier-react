@@ -121,6 +121,7 @@ type AlphaGreyKey =
 
 type AlphaWhiteKey =
   | `${BasePaletteKey.White}_90`
+  | `${BasePaletteKey.White}_80`
   | `${BasePaletteKey.White}_60`
   | `${BasePaletteKey.White}_40`
   | `${BasePaletteKey.White}_20`
@@ -253,6 +254,7 @@ export const Palette: PaletteType = {
 
   // Alpha White
   white_90: getAlphaHex(PaletteWithoutAlpha.white, 90),
+  white_80: getAlphaHex(PaletteWithoutAlpha.white, 80),
   white_60: getAlphaHex(PaletteWithoutAlpha.white, 60),
   white_40: getAlphaHex(PaletteWithoutAlpha.white, 40),
   white_20: getAlphaHex(PaletteWithoutAlpha.white, 20),

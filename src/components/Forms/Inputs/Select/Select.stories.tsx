@@ -41,6 +41,7 @@ Primary.args = {
   leftContent: 'calendar',
   rightContent: (<Text marginLeft={4}>일</Text>),
   disabled: false,
+  readOnly: false,
   withoutChevron: false,
   hasError: false,
   size: SelectSize.M,
