@@ -5,8 +5,11 @@ import { compact } from 'lodash-es'
 
 const idRef = Object.seal({ current: 1 })
 
-// eslint-disable-next-line no-plusplus
-const generateId = () => idRef.current++
+const generateId = () => {
+  const id = idRef.current
+  idRef.current += 1
+  return id
+}
 
 function useId(idProp?: string, prefix?: string) {
   const [id, setId] = useState(idRef.current)
