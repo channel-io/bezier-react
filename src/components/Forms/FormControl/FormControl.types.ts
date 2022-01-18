@@ -20,16 +20,21 @@ export type FieldPropsGetter = PropsGetter<{
 }>
 
 export type HelperTextPropsGetter = PropsGetter<{
-  setHasHelperText: React.Dispatch<React.SetStateAction<boolean>>
+  visible: boolean
+  setIsRendered: React.Dispatch<React.SetStateAction<boolean>>
 }>
+
+export type ErrorMessagePropsGetter = HelperTextPropsGetter
 
 export interface FormControlContextValue extends FormComponentProps {
   id: string
   labelId: string
   helperTextId: string
+  errorMessageId: string
   getLabelProps: LabelPropsGetter
   getFieldProps: FieldPropsGetter
   getHelperTextProps: HelperTextPropsGetter
+  getErrorMessageProps: ErrorMessagePropsGetter
 }
 
 export default interface FormControlProps extends

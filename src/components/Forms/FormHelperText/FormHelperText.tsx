@@ -1,49 +1,61 @@
 /* External dependencies */
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef, useEffect, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
-import type FormHelperTextProps from './FormHelperText.types'
+import type { BaseHelperTextProps, FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 
-export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
+type ForwardedRef = React.Ref<HTMLParamElement>
 
-function FormHelperText({
-  testId = FORM_HELPER_TEXT_TEST_ID,
+export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
+export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
+
+const BaseHelperText = forwardRef(({
   as = 'p',
+  type,
   typo = Typography.Size13,
   children,
   ...rest
-}: FormHelperTextProps,
-forwardedRef: React.Ref<HTMLParamElement>,
-) {
+}: BaseHelperTextProps,
+forwardedRef: ForwardedRef,
+) => {
   const contextValue = useFormControlContext()
+  const getProps = type === 'info'
+    ? contextValue?.getHelperTextProps
+    : contextValue?.getErrorMessageProps
 
   const {
-    hasError,
-    setHasHelperText,
+    visible,
+    setIsRendered,
     Wrapper,
     ...ownProps
-  } = contextValue?.getHelperTextProps(rest) ?? {
+  } = getProps?.(rest) ?? {
     ...rest,
-    setHasHelperText: undefined,
+    visible: true,
+    setIsRendered: undefined,
     Wrapper: React.Fragment,
   }
 
-  const shouldRendered = !isEmpty(children)
+  const shouldRendered = useMemo(() => (
+    !isEmpty(children) && visible
+  ), [
+    visible,
+    children,
+  ])
 
   useEffect(() => {
-    setHasHelperText?.(shouldRendered)
+    setIsRendered?.(shouldRendered)
   }, [
     shouldRendered,
-    setHasHelperText,
+    setIsRendered,
   ])
 
   useEffect(() => function cleanUp() {
-    setHasHelperText?.(false)
-  }, [setHasHelperText])
+    setIsRendered?.(false)
+  }, [setIsRendered])
 
   if (!shouldRendered) { return null }
 
@@ -51,9 +63,6 @@ forwardedRef: React.Ref<HTMLParamElement>,
     <Wrapper>
       <Styled.HelperText
         {...ownProps}
-        aria-live={hasError ? 'polite' : undefined}
-        color={hasError ? 'bgtxt-orange-normal' : 'txt-black-dark'}
-        testId={testId}
         ref={forwardedRef}
         forwardedAs={as}
         typo={typo}
@@ -62,6 +71,43 @@ forwardedRef: React.Ref<HTMLParamElement>,
       </Styled.HelperText>
     </Wrapper>
   )
-}
+})
 
-export default forwardRef(FormHelperText)
+export const FormHelperText = forwardRef(({
+  testId = FORM_HELPER_TEXT_TEST_ID,
+  color = 'txt-black-dark',
+  children,
+  ...rest
+}: FormHelperTextProps,
+forwardedRef: ForwardedRef,
+) => (
+  <BaseHelperText
+    {...rest}
+    type="info"
+    ref={forwardedRef}
+    testId={testId}
+    color={color}
+  >
+    { children }
+  </BaseHelperText>
+))
+
+export const FormErrorMessage = forwardRef(({
+  testId = FORM_ERROR_MESSAGE_TEST_ID,
+  color = 'bgtxt-orange-normal',
+  children,
+  ...rest
+}: FormErrorMessageProps,
+forwardedRef: ForwardedRef,
+) => (
+  <BaseHelperText
+    {...rest}
+    aria-live="polite"
+    type="error"
+    ref={forwardedRef}
+    testId={testId}
+    color={color}
+  >
+    { children }
+  </BaseHelperText>
+))

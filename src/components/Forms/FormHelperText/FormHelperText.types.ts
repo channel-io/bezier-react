@@ -1,11 +1,18 @@
 /* Internal dependencies */
 import { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
 import { TextProps } from 'Components/Text'
-import { FormComponentProps } from 'Components/Forms/Form.types'
 
-export default interface FormHelperTextProps extends
+interface BaseHelperTextOptions {
+  type: 'info' | 'error'
+}
+
+export interface BaseHelperTextProps extends
   BezierComponentProps,
   ChildrenProps,
   Partial<IdentifierProps>,
-  Pick<FormComponentProps, 'hasError'>,
-  TextProps {}
+  TextProps,
+  BaseHelperTextOptions {}
+
+export interface FormHelperTextProps extends Omit<BaseHelperTextProps, 'type'> {}
+
+export interface FormErrorMessageProps extends FormHelperTextProps {}

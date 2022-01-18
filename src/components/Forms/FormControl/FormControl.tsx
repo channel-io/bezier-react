@@ -1,29 +1,47 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo } from 'react'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
 import FormControlContext from './FormControlContext'
-import FormControlProps, { FieldPropsGetter, LabelPropsGetter, HelperTextPropsGetter } from './FormControl.types'
+import FormControlProps, {
+  FieldPropsGetter,
+  LabelPropsGetter,
+  HelperTextPropsGetter,
+  ErrorMessagePropsGetter,
+} from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
 // TODO: 테스트 작성
 const FORM_CONTROL_TEXT_TEST_ID = 'bezier-react-form-control'
 
 function FormControl({
-  id: idProps,
+  id: idProp,
   testId = FORM_CONTROL_TEXT_TEST_ID,
   labelPosition = 'top',
   children,
   ...rest
 }: FormControlProps) {
   const [hasHelperText, setHasHelperText] = useState(false)
+  const [hasErrorMessage, setHasErrorMessage] = useState(false)
 
-  const uuid = useId()
-  const id = idProps ?? `field-${uuid}`
+  const id = useId(idProp, 'field')
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
+  const errorMessageId = `${id}-error-message`
+
+  const fieldLabelId = useMemo(() => {
+    if (hasErrorMessage) { return errorMessageId }
+    if (hasHelperText) { return helperTextId }
+    return undefined
+  }, [
+    hasErrorMessage,
+    hasHelperText,
+    errorMessageId,
+    helperTextId,
+  ])
 
   const bezierProps = useMemo(() => pickBezierComponentProps(rest), [rest])
   const formCommonProps = useMemo(() => omitBezierComponentProps(rest), [rest])
@@ -43,29 +61,40 @@ function FormControl({
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id,
-    'aria-describedby': hasHelperText
-      ? helperTextId
-      : undefined,
+    'aria-describedby': fieldLabelId,
     Wrapper: Styled.FieldWrapper,
     ...formCommonProps,
     ...ownProps,
   }), [
     id,
-    helperTextId,
-    hasHelperText,
+    fieldLabelId,
     formCommonProps,
   ])
 
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
     id: helperTextId,
-    setHasHelperText,
-    hasError: formCommonProps?.hasError,
+    visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
+    setIsRendered: setHasHelperText,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
     ...ownProps,
   }), [
     helperTextId,
+    labelPosition,
+    formCommonProps,
+  ])
+
+  const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(ownProps => ({
+    id: errorMessageId,
+    visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
+    setIsRendered: setHasErrorMessage,
+    Wrapper: labelPosition === 'top'
+      ? Styled.TopHelperTextWrapper
+      : Styled.LeftHelperTextWrapper,
+    ...ownProps,
+  }), [
+    errorMessageId,
     labelPosition,
     formCommonProps,
   ])
@@ -79,17 +108,21 @@ function FormControl({
     id,
     labelId,
     helperTextId,
+    errorMessageId,
     getLabelProps,
     getFieldProps,
     getHelperTextProps,
+    getErrorMessageProps,
     ...formCommonProps,
   }), [
     id,
     labelId,
     helperTextId,
+    errorMessageId,
     getLabelProps,
     getFieldProps,
     getHelperTextProps,
+    getErrorMessageProps,
     formCommonProps,
   ])
 
