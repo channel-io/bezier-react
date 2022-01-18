@@ -53,7 +53,7 @@ function withFoundationProvider(Story, context) {
     <div
       style={{
         backgroundColor,
-        padding: 100,
+        padding: 16,
         fontFamily: 'Inter',
       }}
     >
