@@ -91,7 +91,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
   height: 100%;
   outline: none;
   margin: 0px;
-  background-color: #00000066;
+  background-color: #00000033;
   border-radius: 42%;
 }
 
@@ -120,7 +120,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
     box-shadow: none;
     --smooth-corners: 42%;
     --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #00000066;
+    --smooth-corners-bg-color: #00000033;
     --smooth-corners-padding: 0;
     --smooth-corners-radius-unit: string;
   }
