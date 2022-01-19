@@ -16,8 +16,7 @@ import FormControlProps, {
 } from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
-// TODO: 테스트 작성
-const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
+export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
 function FormControl({
   id: idProp,
