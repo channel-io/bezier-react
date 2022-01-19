@@ -26,10 +26,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
   const contextValue = useFormControlContext()
 
-  const { Wrapper, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
-    ...rest,
-    Wrapper: React.Fragment,
-  }
+  const { Wrapper, ...ownProps } = contextValue?.getLabelProps(rest) ?? { Wrapper: React.Fragment }
 
   const LabelComponent = useMemo(() => (
     <Styled.Label

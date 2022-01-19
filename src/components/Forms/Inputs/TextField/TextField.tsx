@@ -58,7 +58,6 @@ forwardedRef: Ref<TextFieldRef>,
     disabled,
     readOnly,
     hasError,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -340,45 +339,43 @@ forwardedRef: Ref<TextFieldRef>,
   ])
 
   return (
-    <Wrapper>
-      <Styled.Wrapper
-        className={wrapperClassName}
-        variant={variant}
+    <Styled.Wrapper
+      className={wrapperClassName}
+      variant={variant}
+      size={size}
+      bgColor={wrapperBgColorSemanticName}
+      borderRadius={wrapperBorderRadius}
+      hasError={hasError}
+      disabled={disabled}
+      focused={focused}
+      interpolation={wrapperInterpolation}
+      data-testid={testId}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onMouseDown={focus}
+    >
+      { leftComponent }
+      <Styled.Input
+        type={type}
+        className={inputClassName}
+        interpolation={inputInterpolation}
+        ref={inputRef}
+        value={normalizedValue}
+        name={name}
         size={size}
-        bgColor={wrapperBgColorSemanticName}
-        borderRadius={wrapperBorderRadius}
-        hasError={hasError}
+        autoComplete={autoComplete}
+        readOnly={readOnly}
         disabled={disabled}
-        focused={focused}
-        interpolation={wrapperInterpolation}
-        data-testid={testId}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseDown={focus}
-      >
-        { leftComponent }
-        <Styled.Input
-          type={type}
-          className={inputClassName}
-          interpolation={inputInterpolation}
-          ref={inputRef}
-          value={normalizedValue}
-          name={name}
-          size={size}
-          autoComplete={autoComplete}
-          readOnly={readOnly}
-          disabled={disabled}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
-          {...ownProps}
-        />
-        { activeClear && clearComponent }
-        { rightComponent }
-      </Styled.Wrapper>
-    </Wrapper>
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
+        {...ownProps}
+      />
+      { activeClear && clearComponent }
+      { rightComponent }
+    </Styled.Wrapper>
   )
 }
 

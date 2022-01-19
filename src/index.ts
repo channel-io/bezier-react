@@ -33,6 +33,7 @@ export * from 'Components/Forms/Inputs/TextField'
 export * from 'Components/Forms/Inputs/TextArea'
 export * from 'Components/Forms/Inputs/mixins'
 export * from 'Components/Forms/FormControl'
+export * from 'Components/Forms/FormGroup'
 export * from 'Components/Forms/FormLabel'
 export * from 'Components/Forms/FormHelperText'
 

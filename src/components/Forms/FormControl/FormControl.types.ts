@@ -4,24 +4,34 @@ import type { FormComponentProps } from 'Components/Forms/Form.types'
 
 interface FormControlOptions {
   labelPosition?: 'top' | 'left'
+  leftLabelWrapperHeight?: number
 }
 
-export interface FormControlContextCommonValue extends IdentifierProps {
+export interface FormControlContextCommonValue extends IdentifierProps {}
+
+export interface FormControlAriaProps {
+  'aria-labelledby'?: string
+  'aria-describedby'?: string
+}
+
+interface WrapperProps {
   Wrapper: React.FunctionComponent
 }
 
-type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props)
-  => Props & FormControlContextCommonValue & ExtraReturnType
-
-export type LabelPropsGetter = PropsGetter
-
-export type FieldPropsGetter = PropsGetter<{
-  'aria-describedby'?: string
-}>
-
-export type HelperTextPropsGetter = PropsGetter<{
-  visible: boolean
+interface SetRenderedProps {
   setIsRendered: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & FormControlContextCommonValue & ExtraReturnType
+
+export type GroupPropsGetter = PropsGetter<SetRenderedProps & FormControlAriaProps>
+
+export type LabelPropsGetter = PropsGetter<WrapperProps>
+
+export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
+
+export type HelperTextPropsGetter = PropsGetter<WrapperProps & SetRenderedProps & {
+  visible: boolean
 }>
 
 export type ErrorMessagePropsGetter = HelperTextPropsGetter
@@ -31,6 +41,7 @@ export interface FormControlContextValue extends FormComponentProps {
   labelId: string
   helperTextId: string
   errorMessageId: string
+  getGroupProps: GroupPropsGetter
   getLabelProps: LabelPropsGetter
   getFieldProps: FieldPropsGetter
   getHelperTextProps: HelperTextPropsGetter
@@ -40,5 +51,5 @@ export interface FormControlContextValue extends FormComponentProps {
 export default interface FormControlProps extends
   BezierComponentProps,
   ChildrenProps,
-  Omit<FormComponentProps, 'aria-describedby'>,
+  FormComponentProps,
   FormControlOptions {}

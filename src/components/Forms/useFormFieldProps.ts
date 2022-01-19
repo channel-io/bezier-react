@@ -1,5 +1,5 @@
 /* External dependencies */
-import { Fragment, useMemo } from 'react'
+import { useMemo } from 'react'
 
 /* Internal dependencies */
 import { ariaAttr } from 'Utils/domUtils'
@@ -10,10 +10,7 @@ function useFormFieldProps<Props extends FormComponentProps>(props?: Props) {
   const contextValue = useFormControlContext()
 
   const formFieldProps = useMemo(() => {
-    const mergedProps = contextValue?.getFieldProps(props) ?? {
-      ...props,
-      Wrapper: Fragment,
-    }
+    const mergedProps = contextValue?.getFieldProps(props) ?? { ...props }
 
     const {
       disabled = false,

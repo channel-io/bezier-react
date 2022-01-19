@@ -5,8 +5,10 @@ import { isNil } from 'lodash-es'
 /* Internal dependencies */
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
+import { TextFieldSize } from 'Components/Forms/Inputs/TextField'
 import FormControlContext from './FormControlContext'
 import FormControlProps, {
+  GroupPropsGetter,
   FieldPropsGetter,
   LabelPropsGetter,
   HelperTextPropsGetter,
@@ -21,13 +23,16 @@ function FormControl({
   id: idProp,
   testId = FORM_CONTROL_TEXT_TEST_ID,
   labelPosition = 'top',
+  leftLabelWrapperHeight = TextFieldSize.M,
   children,
   ...rest
 }: FormControlProps) {
+  const [hasMultipleFields, setHasMultipleFields] = useState(false)
   const [hasHelperText, setHasHelperText] = useState(false)
   const [hasErrorMessage, setHasErrorMessage] = useState(false)
 
   const id = useId(idProp, 'field')
+  const groupId = `${id}-group`
   const labelId = `${id}-label`
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
@@ -43,26 +48,50 @@ function FormControl({
     helperTextId,
   ])
 
+  const labelHtmlFor = useMemo(() => (
+    hasMultipleFields ? undefined : id
+  ), [
+    id,
+    hasMultipleFields,
+  ])
+
   const bezierProps = useMemo(() => pickBezierComponentProps(rest), [rest])
   const formCommonProps = useMemo(() => omitBezierComponentProps(rest), [rest])
 
-  const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
-    id: labelId,
-    htmlFor: id,
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopLabelWrapper
-      : Styled.LeftLabelWrapper,
+  const getGroupProps = useCallback<GroupPropsGetter>(ownProps => ({
+    id: groupId,
+    'aria-labelledby': labelId,
+    'aria-describedby': fieldLabelId,
+    setIsRendered: setHasMultipleFields,
     ...ownProps,
   }), [
-    id,
+    groupId,
+    labelId,
+    fieldLabelId,
+    setHasMultipleFields,
+  ])
+
+  const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
+    id: labelId,
+    htmlFor: labelHtmlFor,
+    Wrapper: labelPosition === 'top'
+      ? Styled.TopLabelWrapper
+      : (({ children: labelElement }) => (
+        <Styled.LeftLabelWrapper height={leftLabelWrapperHeight}>
+          { labelElement }
+        </Styled.LeftLabelWrapper>
+      )),
+    ...ownProps,
+  }), [
+    labelHtmlFor,
     labelId,
     labelPosition,
+    leftLabelWrapperHeight,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id,
     'aria-describedby': fieldLabelId,
-    Wrapper: Styled.FieldWrapper,
     ...formCommonProps,
     ...ownProps,
   }), [
@@ -99,16 +128,12 @@ function FormControl({
     formCommonProps,
   ])
 
-  const rootProps = useMemo(() => ({
-    role: 'group',
-    ...bezierProps,
-  }), [bezierProps])
-
   const contextValue = useMemo(() => ({
     id,
     labelId,
     helperTextId,
     errorMessageId,
+    getGroupProps,
     getLabelProps,
     getFieldProps,
     getHelperTextProps,
@@ -119,6 +144,7 @@ function FormControl({
     labelId,
     helperTextId,
     errorMessageId,
+    getGroupProps,
     getLabelProps,
     getFieldProps,
     getHelperTextProps,
@@ -137,7 +163,7 @@ function FormControl({
     <FormControlContext.Provider value={contextValue}>
       <Container
         data-testid={testId}
-        {...rootProps}
+        {...bezierProps}
       >
         { children }
       </Container>

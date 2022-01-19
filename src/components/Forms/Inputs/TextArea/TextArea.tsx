@@ -33,7 +33,6 @@ forwardedRef: Ref<HTMLTextAreaElement>,
     disabled,
     readOnly,
     hasError,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -84,30 +83,28 @@ forwardedRef: Ref<HTMLTextAreaElement>,
   }, [])
 
   return (
-    <Wrapper>
-      <Styled.Wrapper
-        className={className}
-        interpolation={interpolation}
-        focused={focused}
-        hasError={hasError}
+    <Styled.Wrapper
+      className={className}
+      interpolation={interpolation}
+      focused={focused}
+      hasError={hasError}
+      disabled={disabled}
+      bgColor={bgColorSemanticName}
+      data-testid={testId}
+    >
+      <Styled.TextAreaAutoSizeBase
+        {...ownProps}
+        ref={mergedInputRef}
+        value={value}
         disabled={disabled}
-        bgColor={bgColorSemanticName}
-        data-testid={testId}
-      >
-        <Styled.TextAreaAutoSizeBase
-          {...ownProps}
-          ref={mergedInputRef}
-          value={value}
-          disabled={disabled}
-          readOnly={readOnly}
-          maxRows={maxRows}
-          minRows={minRows}
-          onChange={onChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-      </Styled.Wrapper>
-    </Wrapper>
+        readOnly={readOnly}
+        maxRows={maxRows}
+        minRows={minRows}
+        onChange={onChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+    </Styled.Wrapper>
   )
 }
 

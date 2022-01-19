@@ -31,7 +31,6 @@ function SegmentedControl(
 ) {
   const {
     disabled,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -109,19 +108,17 @@ function SegmentedControl(
   ])
 
   return (
-    <Wrapper>
-      <Styled.Wrapper
-        {...ownProps}
-        ref={wrapperRef}
-        disabled={disabled}
-        wrapperWidth={width}
-        wrapperHeight={height}
-        data-testid={testId}
-      >
-        { IndicatorComponent }
-        { Content }
-      </Styled.Wrapper>
-    </Wrapper>
+    <Styled.Wrapper
+      {...ownProps}
+      ref={wrapperRef}
+      disabled={disabled}
+      wrapperWidth={width}
+      wrapperHeight={height}
+      data-testid={testId}
+    >
+      { IndicatorComponent }
+      { Content }
+    </Styled.Wrapper>
   )
 }
 
