@@ -48,13 +48,6 @@ function FormControl({
     helperTextId,
   ])
 
-  const labelHtmlFor = useMemo(() => (
-    hasMultipleFields ? undefined : id
-  ), [
-    id,
-    hasMultipleFields,
-  ])
-
   const bezierProps = useMemo(() => pickBezierComponentProps(rest), [rest])
   const formCommonProps = useMemo(() => omitBezierComponentProps(rest), [rest])
 
@@ -73,7 +66,7 @@ function FormControl({
 
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
-    htmlFor: labelHtmlFor,
+    htmlFor: hasMultipleFields ? undefined : id,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : (({ children: labelElement }) => (
@@ -83,21 +76,23 @@ function FormControl({
       )),
     ...ownProps,
   }), [
-    labelHtmlFor,
+    id,
     labelId,
     labelPosition,
     leftLabelWrapperHeight,
+    hasMultipleFields,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id,
-    'aria-describedby': fieldLabelId,
+    'aria-describedby': hasMultipleFields ? undefined : fieldLabelId,
     ...formCommonProps,
     ...ownProps,
   }), [
     id,
     fieldLabelId,
     formCommonProps,
+    hasMultipleFields,
   ])
 
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
