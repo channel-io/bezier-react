@@ -17,11 +17,11 @@ import FormControlProps, {
 import * as Styled from './FormControl.styled'
 
 // TODO: 테스트 작성
-const FORM_CONTROL_TEXT_TEST_ID = 'bezier-react-form-control'
+const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
 function FormControl({
   id: idProp,
-  testId = FORM_CONTROL_TEXT_TEST_ID,
+  testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
   leftLabelWrapperHeight = TextFieldSize.M,
   children,
