@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGroup > Snapshot > 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@supports not(gap:6px) {
+  .c0 {
+    margin-top: -6px;
+    margin-left: -6px;
+  }
+
+  .c0 > * {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-form-group"
+  direction="column"
+  role="group"
+/>
+`;
