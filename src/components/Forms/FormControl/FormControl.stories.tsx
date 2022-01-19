@@ -9,6 +9,7 @@ import { SegmentedControl } from 'Components/Forms/SegmentedControl'
 import { Radio } from 'Components/Forms/Radio'
 import { Checkbox } from 'Components/Forms/Checkbox'
 import { Text } from 'Components/Text'
+import { FormGroup } from 'Components/Forms/FormGroup'
 import { FormLabel } from 'Components/Forms/FormLabel'
 import { TextField } from 'Components/Forms/Inputs/TextField'
 import { TextArea } from 'Components/Forms/Inputs/TextArea'
@@ -35,6 +36,7 @@ export const Primary: Story<FormControlProps> = Template.bind({})
 Primary.args = {
   id: 'form',
   labelPosition: 'top',
+  leftLabelWrapperHeight: undefined,
   hasError: false,
   disabled: false,
   readOnly: false,
@@ -80,14 +82,42 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
 
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <Checkbox>Option</Checkbox>
+      <FormGroup direction="row" gap={10}>
+        <Checkbox>Option</Checkbox>
+        <Checkbox>Option</Checkbox>
+        <Checkbox>Option</Checkbox>
+        <Checkbox>Option</Checkbox>
+      </FormGroup>
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
 
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <Radio>Option</Radio>
+      <FormGroup direction="row" gap={20}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+          }}
+        >
+          <Radio>Immediately</Radio>
+          <Radio>Year(s)</Radio>
+          <Radio>Seasons</Radio>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+          }}
+        >
+          <Radio>Hour(s)</Radio>
+          <Radio>Day(s)</Radio>
+          <Radio>Minute(s)</Radio>
+        </div>
+      </FormGroup>
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
@@ -97,6 +127,7 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
 export const WithMultiForm: Story<FormControlProps> = WithMultiFormTemplate.bind({})
 WithMultiForm.args = {
   labelPosition: 'top',
+  leftLabelWrapperHeight: undefined,
   hasError: false,
   disabled: false,
   readOnly: false,
