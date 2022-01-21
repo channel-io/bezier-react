@@ -247,7 +247,7 @@ forwardedRef: Ref<TextFieldRef>,
       ) : item
   ), [])
 
-  const leftComponent = useMemo(() => {
+  const LeftComponent = useMemo(() => {
     if (isNil(leftContent)) {
       return null
     }
@@ -291,7 +291,7 @@ forwardedRef: Ref<TextFieldRef>,
     )
   ), [])
 
-  const rightComponent = useMemo(() => {
+  const RightComponent = useMemo(() => {
     if (isNil(rightContent) || isEmpty(rightContent)) {
       return null
     }
@@ -318,7 +318,7 @@ forwardedRef: Ref<TextFieldRef>,
     renderRightItem,
   ])
 
-  const clearComponent = useMemo(() => (
+  const ClearComponent = useMemo(() => (
     <Styled.ClearIconWrapper
       onClick={handleClear}
     >
@@ -354,7 +354,7 @@ forwardedRef: Ref<TextFieldRef>,
       onMouseLeave={() => setHovered(false)}
       onMouseDown={focus}
     >
-      { leftComponent }
+      { LeftComponent }
       <Styled.Input
         type={type}
         className={inputClassName}
@@ -373,8 +373,8 @@ forwardedRef: Ref<TextFieldRef>,
         onKeyUp={handleKeyUp}
         {...ownProps}
       />
-      { activeClear && clearComponent }
-      { rightComponent }
+      { activeClear && ClearComponent }
+      { RightComponent }
     </Styled.Wrapper>
   )
 }
