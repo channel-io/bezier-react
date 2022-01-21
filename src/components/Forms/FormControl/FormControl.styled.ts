@@ -27,15 +27,17 @@ export const Grid = styled(Box)`
   align-items: center;
 `
 
-// TODO: row, column을 자동으로 할당해주도록 구현
-export const FieldWrapper = styled(Box)`
-  grid-row: 1 / 1;
-  grid-column: 2;
-`
+interface LeftLabelWrapperProps {
+  height: number
+}
 
-export const LeftLabelWrapper = styled(Box)`
+export const LeftLabelWrapper = styled(Box)<LeftLabelWrapperProps>`
+  display: flex;
   grid-row: 1 / 1;
   grid-column: 1 / 1;
+  align-items: center;
+  align-self: start;
+  height: ${({ height }) => height}px;
 `
 
 export const LeftHelperTextWrapper = styled(TopHelperTextWrapper)`

@@ -53,7 +53,6 @@ forwardedRef: Ref<SelectRef>,
     disabled,
     readOnly,
     hasError,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -128,63 +127,61 @@ forwardedRef: Ref<SelectRef>,
 
   // TODO: 접근성을 지키도록 개선
   return (
-    <Wrapper>
-      <Styled.Container
-        data-testid={testId}
-        ref={containerRef}
-        {...ownProps}
+    <Styled.Container
+      data-testid={testId}
+      ref={containerRef}
+      {...ownProps}
+    >
+      <Styled.Trigger
+        data-testid={triggerTestId}
+        as={as}
+        ref={triggerRef}
+        size={size}
+        focus={isDropdownOpened && !disabled}
+        error={hasError}
+        disabled={disabled}
+        readOnly={readOnly}
+        onClick={handleClickTrigger}
       >
-        <Styled.Trigger
-          data-testid={triggerTestId}
-          as={as}
-          ref={triggerRef}
-          size={size}
-          focus={isDropdownOpened && !disabled}
-          error={hasError}
-          disabled={disabled}
-          readOnly={readOnly}
-          onClick={handleClickTrigger}
-        >
-          <Styled.MainContentWrapper>
-            { LeftComponent }
-            <Styled.TextContainer
-              testId={triggerTextTestId}
-              typo={Typography.Size14}
-              color={hasContent ? textColor : 'txt-black-dark'}
-            >
-              { hasContent ? text : placeholder }
-            </Styled.TextContainer>
-            { RightComponent }
-          </Styled.MainContentWrapper>
-          { !withoutChevron && (
-            <Icon
-              name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
-              size={IconSize.XS}
-              color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-              marginLeft={6}
-            />
-          ) }
-        </Styled.Trigger>
+        <Styled.MainContentWrapper>
+          { LeftComponent }
+          <Styled.TextContainer
+            testId={triggerTextTestId}
+            typo={Typography.Size14}
+            color={hasContent ? textColor : 'txt-black-dark'}
+          >
+            { hasContent ? text : placeholder }
+          </Styled.TextContainer>
+          { RightComponent }
+        </Styled.MainContentWrapper>
+        { !withoutChevron && (
+        <Icon
+          name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
+          size={IconSize.XS}
+          color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+          marginLeft={6}
+        />
+        ) }
+      </Styled.Trigger>
 
-        <Styled.Dropdown
-          style={dropdownStyle}
-          className={dropdownClassName}
-          testId={dropdownTestId}
-          withTransition
-          show={isDropdownOpened && !disabled}
-          zIndex={dropdownZIndex}
-          marginX={dropdownMarginX}
-          marginY={dropdownMarginY}
-          target={triggerRef.current}
-          container={dropdownContainer || containerRef.current}
-          position={dropdownPosition}
-          interpolation={dropdownInterpolation}
-          onHide={handleHideDropdown}
-        >
-          { children }
-        </Styled.Dropdown>
-      </Styled.Container>
-    </Wrapper>
+      <Styled.Dropdown
+        style={dropdownStyle}
+        className={dropdownClassName}
+        testId={dropdownTestId}
+        withTransition
+        show={isDropdownOpened && !disabled}
+        zIndex={dropdownZIndex}
+        marginX={dropdownMarginX}
+        marginY={dropdownMarginY}
+        target={triggerRef.current}
+        container={dropdownContainer || containerRef.current}
+        position={dropdownPosition}
+        interpolation={dropdownInterpolation}
+        onHide={handleHideDropdown}
+      >
+        { children }
+      </Styled.Dropdown>
+    </Styled.Container>
   )
 }
 

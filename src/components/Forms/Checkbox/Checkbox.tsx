@@ -33,7 +33,6 @@ function Checkbox(
 ) {
   const {
     disabled,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -66,28 +65,26 @@ function Checkbox(
   }, [checkStatus])
 
   return (
-    <Wrapper>
-      <Styled.Wrapper
-        ref={forwardedRef}
+    <Styled.Wrapper
+      ref={forwardedRef}
+      disabled={disabled}
+      onClick={disabled ? noop : onClick}
+      data-testid={testId}
+      {...ownProps}
+    >
+      <Styled.Checker
         disabled={disabled}
-        onClick={disabled ? noop : onClick}
-        data-testid={testId}
-        {...ownProps}
+        checkStatus={checkStatus}
+        data-testid={checkerTestId}
       >
-        <Styled.Checker
-          disabled={disabled}
-          checkStatus={checkStatus}
-          data-testid={checkerTestId}
-        >
-          { CheckIcon }
-        </Styled.Checker>
-        { !isEmpty(children) ? (
-          <Styled.Content className={contentClassName}>
-            { children }
-          </Styled.Content>
-        ) : null }
-      </Styled.Wrapper>
-    </Wrapper>
+        { CheckIcon }
+      </Styled.Checker>
+      { !isEmpty(children) ? (
+        <Styled.Content className={contentClassName}>
+          { children }
+        </Styled.Content>
+      ) : null }
+    </Styled.Wrapper>
   )
 }
 

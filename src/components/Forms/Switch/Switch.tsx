@@ -24,7 +24,6 @@ function Switch(
 ): ReactElement {
   const {
     disabled,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -39,22 +38,20 @@ function Switch(
   ])
 
   return (
-    <Wrapper>
-      <Styled.Wrapper
-        {...ownProps}
-        ref={forwardedRef}
+    <Styled.Wrapper
+      {...ownProps}
+      ref={forwardedRef}
+      size={size}
+      checked={checked}
+      disabled={disabled}
+      onClick={handleClick}
+      data-testid={testId}
+    >
+      <Styled.Content
         size={size}
         checked={checked}
-        disabled={disabled}
-        onClick={handleClick}
-        data-testid={testId}
-      >
-        <Styled.Content
-          size={size}
-          checked={checked}
-        />
-      </Styled.Wrapper>
-    </Wrapper>
+      />
+    </Styled.Wrapper>
   )
 }
 

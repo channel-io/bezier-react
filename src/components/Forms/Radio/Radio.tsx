@@ -35,7 +35,6 @@ function Radio(
 ) {
   const {
     disabled,
-    Wrapper,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -64,27 +63,25 @@ function Radio(
   ])
 
   return (
-    <Wrapper>
-      <StyledRadioWrapper
-        ref={forwardedRef}
-        data-testid={testId}
+    <StyledRadioWrapper
+      ref={forwardedRef}
+      data-testid={testId}
+      disabled={disabled}
+      onClick={handleClick}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      {...ownProps}
+    >
+      <StyledRadioHandle
+        as={as}
+        data-testid={handleTestId}
+        className={dotClassName}
+        checked={checked}
         disabled={disabled}
-        onClick={handleClick}
-        onMouseEnter={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-        {...ownProps}
-      >
-        <StyledRadioHandle
-          as={as}
-          data-testid={handleTestId}
-          className={dotClassName}
-          checked={checked}
-          disabled={disabled}
-          hovered={hovered}
-        />
-        { children }
-      </StyledRadioWrapper>
-    </Wrapper>
+        hovered={hovered}
+      />
+      { children }
+    </StyledRadioWrapper>
   )
 }
 
