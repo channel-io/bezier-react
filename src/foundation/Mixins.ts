@@ -1,11 +1,12 @@
 /* External dependencies */
 import type { CSSProperties } from 'react'
 import { isNil } from 'lodash-es'
+import type { SimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
 import { css } from './FoundationStyledComponent'
 
-export const absoluteCenter = (otherTransforms: any) => `
+export const absoluteCenter = (otherTransforms: SimpleInterpolation) => `
   position: absolute;
   top: 50%;
   left: 50%;
