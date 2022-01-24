@@ -68,6 +68,7 @@ function EmojiAvatar({
       onClick={handleClickIcon}
     >
       <EmojiIcon
+        role="img"
         style={{ backgroundImage: `url('${emojiUrl}')` }}
         size={size}
         className={className}

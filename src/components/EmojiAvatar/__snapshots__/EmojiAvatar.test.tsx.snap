@@ -62,6 +62,7 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
 >
   <div
     class="c1"
+    role="img"
     size="24"
     style="background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);"
   />
