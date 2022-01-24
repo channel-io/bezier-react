@@ -23,6 +23,7 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
   justify-content: center;
   width: 24px;
   height: 24px;
+  cursor: pointer;
   border-radius: overflow:hidden;
   border-radius: 4px;
   -webkit-transition: transition-delay:0ms;

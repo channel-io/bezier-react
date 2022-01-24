@@ -11,7 +11,7 @@ import { EmojiAvatarSize } from './EmojiAvatar.types'
 const AVATAR_STATUS_GAP = 2
 const WRAPPER_SIZE = 24
 
-interface WraaperProps {
+interface WrapperProps {
   unClickable?: boolean
 }
 
@@ -20,7 +20,7 @@ interface IconProps extends InterpolationProps {
   privateChat?: boolean
 }
 
-export const Wrapper = styled.div<WraaperProps>`
+export const Wrapper = styled.div<WrapperProps>`
   position: relative;
   top: calc(50% - ${WRAPPER_SIZE}px/2);
   left: calc(50% - ${WRAPPER_SIZE}px/2);
@@ -31,15 +31,16 @@ export const Wrapper = styled.div<WraaperProps>`
   justify-content: center;
   width: ${WRAPPER_SIZE}px;
   height: ${WRAPPER_SIZE}px;
+  cursor: pointer;
   border-radius: ${({ foundation }) => foundation?.rounding.round4};
   transition: ${({ foundation }) => foundation?.transition.getTransitionsCSS('background-color')};
-  
+
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme['bg-black-light']};
   }
 
   ${({ unClickable }) => unClickable && css`
-    pointer-events: none;
+    cursor: initial;
   `}
 `
 
