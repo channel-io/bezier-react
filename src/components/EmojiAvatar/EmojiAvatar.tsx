@@ -24,7 +24,7 @@ function EmojiAvatar({
   onClick = noop,
   children,
 }: EmojiAvatarProps) {
-  const handleClickIcon = useCallback((event) => {
+  const handleClickIcon = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     if (clickable && onClick) {
       onClick(event)
     }
