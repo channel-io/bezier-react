@@ -10,6 +10,7 @@ import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
   SECTION_LABEL_TEST_LEFT_CONTENT_ID,
   SECTION_LABEL_TEST_RIGHT_CONTENT_ID,
+  SECTION_LABEL_TEST_HELP_CONTENT_ID,
 } from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 
@@ -83,6 +84,38 @@ describe('SectionLabel', () => {
 
     const leftIcon = leftContent.children.item(0)
     expect(leftIcon?.id).toBe('foo')
+  })
+
+  it('renders help content with default color if the help prop exists', () => {
+    const { getByTestId } = renderComponent({
+      help: {
+        tooltipContent: <div>happy</div>,
+      },
+    })
+    const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
+
+    expect(helpContent.children.length).toBe(1)
+
+    const helpIcon = helpContent.children.item(0)
+    expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
+    expect(helpIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+  })
+
+  it('renders help content with specified icon and icon color', () => {
+    const { getByTestId } = renderComponent({
+      help: {
+        icon: 'weather-snow',
+        tooltipContent: <div>happy</div>,
+        iconColor: 'txt-white-normal',
+      },
+    })
+    const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
+
+    expect(helpContent.children.length).toBe(1)
+
+    const helpIcon = helpContent.children.item(0)
+    expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
+    expect(helpIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-white-normal']};`)
   })
 
   it('does not render right content if given null', () => {

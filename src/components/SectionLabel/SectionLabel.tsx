@@ -15,6 +15,7 @@ import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
 export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
 export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
 export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
+export const SECTION_LABEL_TEST_HELP_CONTENT_ID = 'bezier-react-section-label-help-content'
 
 function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string): React.ReactElement {
   if (!('icon' in props)) {
@@ -156,7 +157,7 @@ function SectionLabel({
 
   const helpContent = useMemo(() => !isNil(help) && (
     <Tooltip content={help.tooltipContent}>
-      <Styled.HelpIconWrapper>
+      <Styled.HelpIconWrapper data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
         <Icon
           name={help.icon ?? 'help-filled'}
           size={IconSize.XS}
