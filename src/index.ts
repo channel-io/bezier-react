@@ -66,6 +66,7 @@ export { default as useHeader } from 'Layout/hooks/useHeader'
 export * from 'Types/ComponentProps'
 export * from 'Types/Foundation'
 export * from 'Types/Utils'
+export * from 'Components/Forms/Form.types'
 
 /* Types (Enum) */
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'
