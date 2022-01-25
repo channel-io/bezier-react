@@ -12,6 +12,7 @@ import { Tooltip } from 'Components/Tooltip'
 import Styled from './SectionLabel.styled'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
 
+export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
 export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
 export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
 export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
@@ -168,7 +169,7 @@ function SectionLabel({
   ), [help])
 
   return (
-    <div>
+    <div data-testid={SECTION_LABEL_TEST_ID}>
       { divider && <Divider orientation="horizontal" /> }
       <Styled.Wrapper
         className={wrapperClassName}
