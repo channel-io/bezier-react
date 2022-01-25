@@ -106,7 +106,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 20px;')
         expect(xsButton).toHaveStyle('height: 20px;')
-        expect(xsButton).toHaveStyle('padding: 2px;')
+        expect(xsButton).toHaveStyle('padding: 0 1px 0 1px;')
 
         // Typograpy.Size13
         expect(xsButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
@@ -120,7 +120,7 @@ describe('Button Test >', () => {
 
         expect(sButton).toHaveStyle('min-width: 24px;')
         expect(sButton).toHaveStyle('height: 24px;')
-        expect(sButton).toHaveStyle('padding: 3px 4px;')
+        expect(sButton).toHaveStyle('padding: 0 4px 0 4px;')
 
         // Typograpy.Size13
         expect(sButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
@@ -134,7 +134,7 @@ describe('Button Test >', () => {
 
         expect(mButton).toHaveStyle('min-width: 36px;')
         expect(mButton).toHaveStyle('height: 36px;')
-        expect(mButton).toHaveStyle('padding: 8px 10px;')
+        expect(mButton).toHaveStyle('padding: 0 10px 0 10px;')
 
         // Typograpy.Size14
         expect(mButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
@@ -148,7 +148,7 @@ describe('Button Test >', () => {
 
         expect(lButton).toHaveStyle('min-width: 44px;')
         expect(lButton).toHaveStyle('height: 44px;')
-        expect(lButton).toHaveStyle('padding: 12px 10px;')
+        expect(lButton).toHaveStyle('padding: 0 10px 0 10px;')
 
         // Typography.Size15
         expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo15}rem;`)
@@ -162,7 +162,7 @@ describe('Button Test >', () => {
 
         expect(xlButton).toHaveStyle('min-width: 54px;')
         expect(xlButton).toHaveStyle('height: 54px;')
-        expect(xlButton).toHaveStyle('padding: 15px 14px;')
+        expect(xlButton).toHaveStyle('padding: 0 14px 0 14px;')
 
         // Typography.Size18
         expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo18}rem;`)
@@ -177,7 +177,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 20px;')
         expect(xsButton).toHaveStyle('height: 20px;')
-        expect(xsButton).toHaveStyle('padding: 2px;')
+        expect(xsButton).toHaveStyle('padding: 0px;')
       })
 
       it('Size S', () => {
@@ -186,7 +186,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 24px;')
         expect(xsButton).toHaveStyle('height: 24px;')
-        expect(xsButton).toHaveStyle('padding: 3px 3px;')
+        expect(xsButton).toHaveStyle('padding: 0;')
       })
 
       it('Size M', () => {
@@ -195,7 +195,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 36px;')
         expect(xsButton).toHaveStyle('height: 36px;')
-        expect(xsButton).toHaveStyle('padding: 8px 8px;')
+        expect(xsButton).toHaveStyle('padding: 0;')
       })
 
       it('Size L', () => {
@@ -204,7 +204,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 44px;')
         expect(xsButton).toHaveStyle('height: 44px;')
-        expect(xsButton).toHaveStyle('padding: 12px 12px;')
+        expect(xsButton).toHaveStyle('padding: 0;')
       })
 
       it('Size XL', () => {
@@ -213,7 +213,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 54px;')
         expect(xsButton).toHaveStyle('height: 54px;')
-        expect(xsButton).toHaveStyle('padding: 15px 15px;')
+        expect(xsButton).toHaveStyle('padding: 0;')
       })
     })
   })
