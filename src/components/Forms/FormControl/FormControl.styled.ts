@@ -4,6 +4,7 @@ import { InterpolationProps } from 'Types/Foundation'
 
 const LEFT_LABEL_MIN_WIDTH = 150
 
+// FIXME(@ed): Top Position일 때, Stack 컴포넌트를 통해 Label, HelperText 간격을 주도록 변경
 export const Box = styled.div<InterpolationProps>`
   position: relative;
   ${({ interpolation }) => interpolation}
