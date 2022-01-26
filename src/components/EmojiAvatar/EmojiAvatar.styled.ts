@@ -11,16 +11,13 @@ import { EmojiAvatarSize } from './EmojiAvatar.types'
 const AVATAR_STATUS_GAP = 2
 const WRAPPER_SIZE = 24
 
-interface WrapperProps {
-  unClickable?: boolean
-}
-
 interface IconProps extends InterpolationProps {
+  unClickable?: boolean
   size?: EmojiAvatarSize
   privateChat?: boolean
 }
 
-export const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.div`
   position: relative;
   top: calc(50% - ${WRAPPER_SIZE}px/2);
   left: calc(50% - ${WRAPPER_SIZE}px/2);
@@ -31,6 +28,11 @@ export const Wrapper = styled.div<WrapperProps>`
   justify-content: center;
   width: ${WRAPPER_SIZE}px;
   height: ${WRAPPER_SIZE}px;
+`
+
+export const EmojiIcon = styled.div<IconProps>`
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   cursor: pointer;
   border-radius: ${({ foundation }) => foundation?.rounding.round4};
   transition: ${({ foundation }) => foundation?.transition.getTransitionsCSS('background-color')};
@@ -42,11 +44,6 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ unClickable }) => unClickable && css`
     cursor: initial;
   `}
-`
-
-export const EmojiIcon = styled.div<IconProps>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
 
   ${absoluteCenter('')}
 

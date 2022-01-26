@@ -23,6 +23,11 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
   justify-content: center;
   width: 24px;
   height: 24px;
+}
+
+.c1 {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   border-radius: overflow:hidden;
   border-radius: 4px;
@@ -34,15 +39,6 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: background-color;
   transition-property: background-color;
-}
-
-.c0:hover {
-  background-color: #00000014;
-}
-
-.c1 {
-  width: 24px;
-  height: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -54,6 +50,10 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
   background-repeat: no-repeat;
   background-size: 24px,24px;
   background-clip: content-box;
+}
+
+.c1:hover {
+  background-color: #00000014;
 }
 
 <div

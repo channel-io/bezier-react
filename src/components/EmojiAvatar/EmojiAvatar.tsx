@@ -63,7 +63,6 @@ function EmojiAvatar({
 
   return (
     <Wrapper
-      unClickable={!clickable || !onClick}
       data-testid={testId}
       onClick={handleClickIcon}
     >
@@ -73,6 +72,7 @@ function EmojiAvatar({
         size={size}
         className={className}
         interpolation={interpolation}
+        unClickable={!clickable || !onClick}
       >
         { StatusElement }
       </EmojiIcon>

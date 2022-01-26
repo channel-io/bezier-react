@@ -33,7 +33,6 @@ describe('EmojiAvatar Test >', () => {
     expect(emojiAvatar).toHaveStyle('height: 24px')
     expect(emojiAvatar).toHaveStyle('left: calc(50% - 24px/2)')
     expect(emojiAvatar).toHaveStyle('top: calc(50% - 24px/2)')
-    expect(emojiAvatar).toHaveStyle('border-radius: 4px')
   })
 
   it('should render Icon style', () => {
@@ -42,8 +41,6 @@ describe('EmojiAvatar Test >', () => {
 
     expect(emojiAvatar.children.length).toBe(1)
 
-    expect(emojiAvatar.children.item(0)).toHaveStyle('width: 24px')
-    expect(emojiAvatar.children.item(0)).toHaveStyle('height: 24px')
     expect(emojiAvatar.children.item(0)).toHaveStyle('position: absolute')
     expect(emojiAvatar.children.item(0)).toHaveStyle('top: 50%')
     expect(emojiAvatar.children.item(0)).toHaveStyle('left: 50%')
