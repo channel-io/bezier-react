@@ -41,6 +41,20 @@ describe('Divider >', () => {
     expect(divider).toHaveStyle('margin: 6px')
   })
 
+  it('renders with an aria attribute for web accessibility - horizontal', () => {
+    const { getByTestId } = renderDivider()
+    const divider = getByTestId(DIVIDER_TEST_ID)
+
+    expect(divider).toHaveAttribute('aria-orientation', 'horizontal')
+  })
+
+  it('renders with an aria attribute for web accessibility - vertical', () => {
+    const { getByTestId } = renderDivider({ orientation: 'vertical' })
+    const divider = getByTestId(DIVIDER_TEST_ID)
+
+    expect(divider).toHaveAttribute('aria-orientation', 'vertical')
+  })
+
   it('renders horizontal divider with correct style', () => {
     const { getByTestId } = renderDivider()
     const divider = getByTestId(DIVIDER_TEST_ID)

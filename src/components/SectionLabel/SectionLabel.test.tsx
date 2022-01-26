@@ -6,10 +6,13 @@ import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import { BUTTON_TEST_ID } from 'Components/Button/Button'
 import { ICON_TEST_ID } from 'Components/Icon/Icon'
+import { DIVIDER_TEST_ID } from 'Components/Divider/Divider'
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
   SECTION_LABEL_TEST_LEFT_CONTENT_ID,
   SECTION_LABEL_TEST_RIGHT_CONTENT_ID,
+  SECTION_LABEL_TEST_ID,
+  SECTION_LABEL_TEST_HELP_CONTENT_ID,
 } from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 
@@ -85,6 +88,38 @@ describe('SectionLabel', () => {
     expect(leftIcon?.id).toBe('foo')
   })
 
+  it('renders help content with default color if the help prop exists', () => {
+    const { getByTestId } = renderComponent({
+      help: {
+        tooltipContent: <div>happy</div>,
+      },
+    })
+    const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
+
+    expect(helpContent.children.length).toBe(1)
+
+    const helpIcon = helpContent.children.item(0)
+    expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
+    expect(helpIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+  })
+
+  it('renders help content with specified icon and icon color', () => {
+    const { getByTestId } = renderComponent({
+      help: {
+        icon: 'weather-snow',
+        tooltipContent: <div>happy</div>,
+        iconColor: 'txt-white-normal',
+      },
+    })
+    const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
+
+    expect(helpContent.children.length).toBe(1)
+
+    const helpIcon = helpContent.children.item(0)
+    expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
+    expect(helpIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-white-normal']};`)
+  })
+
   it('does not render right content if given null', () => {
     const { getByTestId } = renderComponent()
     expect(() => getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)).toThrowError()
@@ -138,5 +173,15 @@ describe('SectionLabel', () => {
     expect(rightContent.children.item(0)?.id).toBe('foo')
     expect(rightContent.children.item(1)?.id).toBe('bar')
     expect(rightContent.children.item(2)?.id).toBe('foobar')
+  })
+
+  it('renders with divider if the divider prop is true', () => {
+    const { getByTestId } = renderComponent({
+      divider: true,
+    })
+
+    const content = getByTestId(SECTION_LABEL_TEST_ID)
+
+    expect(content.children.item(0)).toHaveAttribute('data-testid', DIVIDER_TEST_ID)
   })
 })
