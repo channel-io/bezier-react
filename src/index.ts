@@ -70,6 +70,11 @@ export * from 'Types/Utils'
 export { default as LayoutHeaderType } from 'Layout/types/LayoutHeaderType'
 export { default as TabsSize } from 'Components/Tabs/TabsSize'
 
+/* Hooks */
+export { default as useEventHandler } from 'Hooks/useEventHandler'
+export { default as useMergeRefs } from 'Hooks/useMergeRefs'
+export { default as useId } from 'Hooks/useId'
+
 /* Utils */
 export { getRootElement } from 'Utils/domUtils'
 export * as StyleUtils from 'Utils/styleUtils'
