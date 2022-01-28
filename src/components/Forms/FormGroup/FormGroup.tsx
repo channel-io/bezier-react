@@ -22,7 +22,10 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const {
     setIsRendered,
     ...ownProps
-  } = contextValue?.getGroupProps(rest) ?? { setIsRendered: undefined }
+  } = contextValue?.getGroupProps(rest) ?? {
+    setIsRendered: undefined,
+    ...rest,
+  }
 
   useEffect(() => {
     setIsRendered?.(true)

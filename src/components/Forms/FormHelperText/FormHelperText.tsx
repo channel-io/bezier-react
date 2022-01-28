@@ -33,10 +33,10 @@ forwardedRef: ForwardedRef,
     Wrapper,
     ...ownProps
   } = getProps?.(rest) ?? {
-    ...rest,
     visible: true,
     setIsRendered: undefined,
     Wrapper: React.Fragment,
+    ...rest,
   }
 
   const shouldRendered = useMemo(() => (
