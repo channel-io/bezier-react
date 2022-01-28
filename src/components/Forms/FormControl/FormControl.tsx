@@ -83,7 +83,7 @@ function FormControl({
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
-    id,
+    id: hasMultipleFields ? undefined : id,
     'aria-describedby': hasMultipleFields ? undefined : fieldLabelId,
     ...formCommonProps,
     ...ownProps,
