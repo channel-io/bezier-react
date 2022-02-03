@@ -21,6 +21,8 @@ import {
 export const EMOJI_AVATAR_TEST_ID = 'bezier-react-emoji-avatar'
 
 function EmojiAvatar({
+  as,
+  style,
   emojiUrl,
   className,
   interpolation,
@@ -66,11 +68,13 @@ function EmojiAvatar({
 
   return (
     <Wrapper
+      as={as}
       data-testid={testId}
       onClick={handleClickIcon}
     >
       <EmojiIcon
         role="img"
+        style={style}
         imageUrl={emojiUrl}
         size={size}
         className={className}
