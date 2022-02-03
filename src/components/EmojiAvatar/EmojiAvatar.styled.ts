@@ -38,19 +38,19 @@ export const EmojiIcon = styled.div<IconProps>`
   border-radius: ${({ foundation }) => foundation?.rounding.round4};
   transition: ${({ foundation }) => foundation?.transition.getTransitionsCSS('background-color')};
 
-  &:hover {
-    background-color: ${({ foundation }) => foundation?.theme['bg-black-light']};
-  }
-
-  ${({ unClickable }) => unClickable && css`
-    cursor: initial;
-  `}
-
   ${absoluteCenter('')}
 
   ${({ size, imageUrl }) => css`
     ${centeredBackgroundImage<EmojiAvatarSize>(imageUrl, size)}
   `}
+
+  ${({ unClickable }) => (unClickable ? css`
+    cursor: initial;
+  ` : css`
+    &:hover {
+      background-color: ${({ foundation }) => foundation?.theme['bg-black-light']};
+    }
+  `)}
 
   ${({ interpolation }) => interpolation}
 `

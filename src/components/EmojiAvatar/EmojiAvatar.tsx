@@ -3,11 +3,7 @@ import React, {
   useCallback,
   useMemo,
 } from 'react'
-import {
-  noop,
-  isEmpty,
-  isNil,
-} from 'lodash-es'
+import { isEmpty, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Status } from 'Components/Status'
@@ -29,7 +25,7 @@ function EmojiAvatar({
   status,
   size = EmojiAvatarSize.Size24,
   testId = EMOJI_AVATAR_TEST_ID,
-  onClick = noop,
+  onClick,
   children,
 }: EmojiAvatarProps) {
   const handleClickIcon = useCallback((event: React.MouseEvent<HTMLDivElement>) => {

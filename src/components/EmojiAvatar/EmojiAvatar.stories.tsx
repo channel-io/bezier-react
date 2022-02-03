@@ -1,6 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
+import { noop } from 'lodash'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
@@ -37,4 +38,13 @@ WithStatus.args = {
   emojiUrl: MOCK_EMOJI_URL,
   size: EmojiAvatarSize.Size30,
   status: StatusType.Online,
+}
+
+export const WithOnClick = Template.bind({})
+
+WithOnClick.args = {
+  emojiUrl: MOCK_EMOJI_URL,
+  size: EmojiAvatarSize.Size30,
+  status: StatusType.Online,
+  onClick: noop,
 }

@@ -18,7 +18,6 @@ export enum EmojiAvatarSize {
 
 interface EmojiAvatarOptions {
   emojiUrl: string
-  clickable?: boolean
   status?: StatusType
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }

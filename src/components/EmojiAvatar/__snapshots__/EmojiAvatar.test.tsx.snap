@@ -50,10 +50,7 @@ exports[`EmojiAvatar Test > snapshot 1`] = `
   background-repeat: no-repeat;
   background-size: 24px,24px;
   background-clip: content-box;
-}
-
-.c1:hover {
-  background-color: #00000014;
+  cursor: initial;
 }
 
 <div
