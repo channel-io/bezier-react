@@ -6,20 +6,25 @@ import type { SimpleInterpolation } from 'styled-components'
 /* Internal dependencies */
 import { css } from './FoundationStyledComponent'
 
-export const absoluteCenter = (otherTransforms: SimpleInterpolation) => `
+export const absoluteCenter = (otherTransforms?: SimpleInterpolation) => css`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) ${otherTransforms};
 `
 
-export const centeredBackgroundImage = (width?: number, height?: number, imageUrl?: string) => `
-  background-image: url(${imageUrl});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: ${width}px, ${height}px;
-  background-clip: content-box;
-`
+// eslint-disable-next-line max-len
+export const centeredBackgroundImage = <Type extends number | string>(imageUrl: string, ...sizes: [Type] | [Type, Type]): ReturnType<typeof css> => {
+  const [width, height = width] = sizes
+
+  return css`
+    background-image: url(${imageUrl});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: ${width}px, ${height}px;
+    background-clip: content-box;
+  `
+}
 
 export const disableAutoMinimum = css`
   min-width: 0;

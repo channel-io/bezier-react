@@ -13,8 +13,9 @@ const WRAPPER_SIZE = 24
 
 interface IconProps extends InterpolationProps {
   unClickable?: boolean
-  size?: EmojiAvatarSize
+  size: EmojiAvatarSize
   privateChat?: boolean
+  imageUrl: string
 }
 
 export const Wrapper = styled.div`
@@ -47,8 +48,8 @@ export const EmojiIcon = styled.div<IconProps>`
 
   ${absoluteCenter('')}
 
-  ${({ size }) => css`
-    ${centeredBackgroundImage(size, size)}
+  ${({ size, imageUrl }) => css`
+    ${centeredBackgroundImage<EmojiAvatarSize>(imageUrl, size)}
   `}
 
   ${({ interpolation }) => interpolation}
