@@ -36,7 +36,14 @@ function FormControl({
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
 
-  const fieldLabelId = useMemo(() => {
+  const fieldId = useMemo(() => (
+    hasMultipleFields ? undefined : id
+  ), [
+    id,
+    hasMultipleFields,
+  ])
+
+  const describerId = useMemo(() => {
     if (hasErrorMessage) { return errorMessageId }
     if (hasHelperText) { return helperTextId }
     return undefined
@@ -53,19 +60,19 @@ function FormControl({
   const getGroupProps = useCallback<GroupPropsGetter>(ownProps => ({
     id: groupId,
     'aria-labelledby': labelId,
-    'aria-describedby': fieldLabelId,
+    'aria-describedby': describerId,
     setIsRendered: setHasMultipleFields,
     ...ownProps,
   }), [
     groupId,
     labelId,
-    fieldLabelId,
+    describerId,
     setHasMultipleFields,
   ])
 
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
-    htmlFor: hasMultipleFields ? undefined : id,
+    htmlFor: fieldId,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : (({ children: labelElement }) => (
@@ -75,21 +82,20 @@ function FormControl({
       )),
     ...ownProps,
   }), [
-    id,
+    fieldId,
     labelId,
     labelPosition,
     leftLabelWrapperHeight,
-    hasMultipleFields,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
-    id: hasMultipleFields ? undefined : id,
-    'aria-describedby': hasMultipleFields ? undefined : fieldLabelId,
+    id: fieldId,
+    'aria-describedby': hasMultipleFields ? undefined : describerId,
     ...formCommonProps,
     ...ownProps,
   }), [
-    id,
-    fieldLabelId,
+    fieldId,
+    describerId,
     formCommonProps,
     hasMultipleFields,
   ])
