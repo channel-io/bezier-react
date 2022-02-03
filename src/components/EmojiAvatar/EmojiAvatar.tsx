@@ -1,6 +1,13 @@
 /* External dependencies */
-import React, { useCallback, useMemo } from 'react'
-import { noop, isEmpty } from 'lodash-es'
+import React, {
+  useCallback,
+  useMemo,
+} from 'react'
+import {
+  noop,
+  isEmpty,
+  isNil,
+} from 'lodash-es'
 
 /* Internal dependencies */
 import { Status } from 'Components/Status'
@@ -19,19 +26,15 @@ function EmojiAvatar({
   interpolation,
   status,
   size = EmojiAvatarSize.Size24,
-  clickable = true,
   testId = EMOJI_AVATAR_TEST_ID,
   onClick = noop,
   children,
 }: EmojiAvatarProps) {
   const handleClickIcon = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-    if (clickable && onClick) {
+    if (!isNil(onClick)) {
       onClick(event)
     }
-  }, [
-    clickable,
-    onClick,
-  ])
+  }, [onClick])
 
   const StatusElement = useMemo(() => {
     if (
@@ -68,11 +71,11 @@ function EmojiAvatar({
     >
       <EmojiIcon
         role="img"
-        style={{ backgroundImage: `url('${emojiUrl}')` }}
+        imageUrl={emojiUrl}
         size={size}
         className={className}
         interpolation={interpolation}
-        unClickable={!clickable || !onClick}
+        unClickable={isNil(onClick)}
       >
         { StatusElement }
       </EmojiIcon>
