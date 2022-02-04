@@ -36,12 +36,7 @@ function FormControl({
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
 
-  const fieldId = useMemo(() => (
-    hasMultipleFields ? undefined : id
-  ), [
-    id,
-    hasMultipleFields,
-  ])
+  const fieldId = hasMultipleFields ? undefined : id
 
   const describerId = useMemo(() => {
     if (hasErrorMessage) { return errorMessageId }
