@@ -12,20 +12,20 @@ import { Meta } from '@storybook/addon-docs'
 
 # Component: Directory Structure
 
-`bezier-react`의 컴포넌트들이 구성된 디렉토리 구조를 설명하는 문서입니다.
+`bezier-react`의 컴포넌트들이 구성된 directory 구조를 설명하는 문서입니다.
 
 ## Overall structure
 
-- 📌 `src/components` 아래에 모든 컴포넌트에 대한 디렉토리가 위치합니다.
-- 📌 개별 컴포넌트는 디렉토리 하나를 구성합니다.
-- 📌 연관된 컴포넌트는 중첩된 디렉토리 내에 묶여있을 수 있습니다.
+- 📌 `src/components` 아래에 모든 컴포넌트에 대한 directory가 위치합니다.
+- 📌 개별 컴포넌트는 directory 하나를 구성합니다.
+- 📌 연관된 컴포넌트는 중첩된 directory 내에 묶여있을 수 있습니다.
 
 ```
-src/components/          // `src/components` 아래에 모든 컴포넌트에 대한 디렉토리가 위치합니다.
-├── Buttons/             // 개별 컴포넌트는 디렉토리 하나를 구성합니다.
+src/components/          // `src/components` 아래에 모든 컴포넌트에 대한 directory가 위치합니다.
+├── Buttons/             // 개별 컴포넌트는 directory 하나를 구성합니다.
 ├── Banner/
 │   ...
-├── Forms/               // 연관된 컴포넌트는 중첩된 디렉토리 내에 묶여있을 수 있습니다.
+├── Forms/               // 연관된 컴포넌트는 중첩된 directory 내에 묶여있을 수 있습니다.
 │   ├── Checkbox/
 │   ├── FormControl/
 │   │   ...
@@ -41,20 +41,20 @@ src/components/          // `src/components` 아래에 모든 컴포넌트에 �
 - 📌 `src/components/**/index.ts` -> 각 컴포넌트의 루트 export 파일입니다.
   - `index.ts`에서는 외부에 노출하고 싶은 값만 export하는 것을 권장합니다.
   - 컴포넌트의 directory 밖에서는 컴포넌트 import 시 `index.ts`에서 export 하는 값만 접근해야 합니다.
-  - ✅ **DO**: 디렉토리 밖에서 접근 시, 루트 export 파일에서 import합니다.
+  - ✅ **DO**: Directory 밖에서 접근 시, 루트 export 파일에서 import합니다.
   ```tsx
   import { ButtonProps } from 'Components/Button'
   ```
-  - 🚫 **DO NOT**: 디렉토리 밖에서 접근 시, 컴포넌트 내부 파일에서 import합니다.
+  - 🚫 **DO NOT**: Directory 밖에서 접근 시, 컴포넌트 내부 파일에서 import합니다.
   ```tsx
   import { ButtonProps } from 'Components/Button/Button.types'
   ```
   - 컴포넌트의 directory 내부에서는 이 파일에서 import해서는 안 됩니다. (**Circular dependency 예방**)
-  - ✅ **DO**: 디렉토리 내부에서 접근 시, 개별 파일에서 import합니다.
+  - ✅ **DO**: Directory 내부에서 접근 시, 개별 파일에서 import합니다.
   ```tsx
   import { ButtonProps } from './Button.types'
   ```
-  - 🚫 **DO NOT**: 디렉토리 내부에서 접근 시, `index` 파일에서 import합니다.
+  - 🚫 **DO NOT**: Directory 내부에서 접근 시, `index` 파일에서 import합니다.
   ```tsx
   import { ButtonProps } from '.'
   ```
