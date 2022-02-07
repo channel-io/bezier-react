@@ -12,6 +12,7 @@ function FormGroup({
   testId = FORM_GROUP_TEST_ID,
   gap = 6,
   direction = 'column',
+  role = 'group',
   children,
   ...rest
 }: FormGroupProps,
@@ -22,7 +23,10 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const {
     setIsRendered,
     ...ownProps
-  } = contextValue?.getGroupProps(rest) ?? { setIsRendered: undefined }
+  } = contextValue?.getGroupProps(rest) ?? {
+    setIsRendered: undefined,
+    ...rest,
+  }
 
   useEffect(() => {
     setIsRendered?.(true)
@@ -38,7 +42,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       ref={forwardedRef}
       gap={gap}
       direction={direction}
-      role="group"
+      role={role}
     >
       { children }
     </Styled.Stack>

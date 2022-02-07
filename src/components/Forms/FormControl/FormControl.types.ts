@@ -7,7 +7,7 @@ interface FormControlOptions {
   leftLabelWrapperHeight?: number
 }
 
-export interface FormControlContextCommonValue extends IdentifierProps {}
+export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}
 
 export interface FormControlAriaProps {
   'aria-labelledby'?: string
