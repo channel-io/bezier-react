@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem Test > Snapshot >  1`] = `
+.c1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 28px;
+  padding-right: 6px;
+  padding-left: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000D9;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.c0:hover {
+  background-color: #0000000D;
+}
+
+.c0 .sc-hKFxyN {
+  visibility: hidden;
+}
+
+.c0:hover .sc-hKFxyN {
+  visibility: visible;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-nav-item"
+>
+  <div
+    class="c1"
+  >
+    test-content
+  </div>
+</div>
+`;
