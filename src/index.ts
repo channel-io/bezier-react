@@ -1,3 +1,6 @@
+/* Provider */
+export { default as BezierProvider } from 'Providers/BezierProvider'
+
 /* Foundation */
 export * from 'Foundation'
 

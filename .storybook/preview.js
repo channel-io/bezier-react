@@ -2,7 +2,11 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { FoundationProvider, LightFoundation, DarkFoundation } from 'Foundation'
+import {
+  LightFoundation,
+  DarkFoundation,
+} from 'Foundation'
+import BezierProvider from 'Providers/BezierProvider'
 
 const FoundationKeyword = {
   Light: 'light',
@@ -49,6 +53,16 @@ function withFoundationProvider(Story, context) {
     ? DarkFoundation.theme['bg-white-normal']
     : LightFoundation.theme['bg-white-normal']
 
+  const foundation = {
+    ...Foundation,
+    // You can inject custom global CSS
+    // global: {
+    //   html: {
+    //     fontSize: '20px',
+    //   }
+    // }
+  }
+
   return (
     <div
       style={{
@@ -57,9 +71,9 @@ function withFoundationProvider(Story, context) {
         fontFamily: 'Inter',
       }}
     >
-      <FoundationProvider foundation={Foundation}>
+      <BezierProvider foundation={foundation}>
         { Story(context) }
-      </FoundationProvider>
+      </BezierProvider>
     </div>
   )
 }

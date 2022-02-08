@@ -36,8 +36,8 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   border: none;
   outline: none;
   -ms-overflow-style: none;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #000000D9;
 }
 
@@ -62,23 +62,23 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 }
 
 .c1::-webkit-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 
 .c1::-moz-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 
 .c1:-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 
 .c1::placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 
 <div

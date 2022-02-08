@@ -25,6 +25,7 @@
       "Foundation/*": ["src/foundation/*"],
       "Hooks/*": ["src/hooks/*"],
       "Layout/*": ["src/layout/*"],
+      "Providers/*": ["src/providers/*"],
       "Types/*": ["src/types/*"],
       "Utils/*": ["src/utils/*"],
       "Worklets/*": ["src/worklets/*"],

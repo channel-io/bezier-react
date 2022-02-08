@@ -10,6 +10,7 @@
 /* External dependencies */
 import React, { createContext, useContext, forwardRef } from 'react'
 import styled, {
+  createGlobalStyle as baseCreateGlobalStyle,
   css as baseCSS,
   ThemedStyledFunction,
   ThemedStyledProps,
@@ -24,12 +25,11 @@ import styled, {
   SimpleInterpolation,
   CSSObject,
   keyframes,
+  GlobalStyleComponent,
 } from 'styled-components'
 
 /* Internal dependencies */
-import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
 import domElements from './utils/domElements'
-import ThemeVars from './ThemeVars'
 import { Foundation } from './Foundation'
 
 const FoundationContext = createContext<Foundation | null>(null)
@@ -43,12 +43,8 @@ function FoundationProvider({
   foundation,
   children,
 }: FoundationProviderProps) {
-  EnableCSSHoudini({ smoothCorners: true })
-
-  // TODO: 테마 스위칭 로직 구현을 bezier-react 내부로 이동하고, Hook을 통해 사용처에서 쉽게 가져다가 사용할 수 있도록 개선
   return (
     <FoundationContext.Provider value={foundation}>
-      <ThemeVars foundation={foundation} />
       { children }
     </FoundationContext.Provider>
   )
@@ -140,16 +136,39 @@ interface FoundationCSSInterface {
 }
 
 /* eslint-disable-next-line func-names */
-const FoundationCSS: FoundationCSSInterface = function (...args) {
-  /* @ts-ignore */
-  return baseCSS(...args)
-}
+const FoundationCSS: FoundationCSSInterface = baseCSS
 
 function useFoundation() {
   return useContext(FoundationContext)
 }
 
+type GlobalStyleProp = {
+  global?: CSSObject
+}
+
+type FoundationWithGlobalStyle = Foundation & GlobalStyleProp
+interface CreateFoundationGlobalStyle {
+  <P extends object>(
+    first:
+    | TemplateStringsArray
+    | CSSObject
+    | InterpolationFunction<ThemedStyledProps<P & { foundation?: FoundationWithGlobalStyle }, Foundation>>,
+    ...interpolations: Array<Interpolation<ThemedStyledProps<P & { foundation?: FoundationWithGlobalStyle }, Foundation>>>
+  ): GlobalStyleComponent<
+  P & { foundation: FoundationWithGlobalStyle },
+  ThemedStyledProps<P & { foundation: FoundationWithGlobalStyle }, Foundation>
+  >
+}
+
+/* eslint-disable-next-line func-names */ /* @ts-ignore */
+const createFoundationGlobalStyle: CreateFoundationGlobalStyle = baseCreateGlobalStyle
+
+export type {
+  GlobalStyleProp,
+}
+
 export {
+  createFoundationGlobalStyle as createGlobalStyle,
   FoundationStyled as styled,
   FoundationCSS as css,
   FoundationProvider,
