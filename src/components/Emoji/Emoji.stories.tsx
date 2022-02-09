@@ -31,7 +31,10 @@ Primary.args = {
   imageUrl: MOCK_EMOJI_URL,
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
+  padding: 0;
+  background: transparent;
+  border: 0;
   border-radius: ${({ foundation }) => foundation?.rounding.round4};
   display: flex;
   justify-content: center;
