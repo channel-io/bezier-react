@@ -2,6 +2,24 @@
 
 exports[`NavItem Test > Snapshot >  1`] = `
 .c1 {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c2 {
+  color: #000000D9;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -19,12 +37,8 @@ exports[`NavItem Test > Snapshot >  1`] = `
   height: 28px;
   padding-right: 6px;
   padding-left: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #000000D9;
-  -webkit-text-decoration: none;
-  text-decoration: none;
   cursor: pointer;
+  overflow: hidden;
   border-radius: 6px;
 }
 
@@ -32,11 +46,11 @@ exports[`NavItem Test > Snapshot >  1`] = `
   background-color: #0000000D;
 }
 
-.c0 .sc-hKFxyN {
+.c0 .sc-eCApnc {
   visibility: hidden;
 }
 
-.c0:hover .sc-hKFxyN {
+.c0:hover .sc-eCApnc {
   visibility: visible;
 }
 
@@ -44,10 +58,11 @@ exports[`NavItem Test > Snapshot >  1`] = `
   class="c0"
   data-testid="bezier-react-nav-item"
 >
-  <div
-    class="c1"
+  <span
+    class="c1 c2"
+    data-testid="bezier-react-text"
   >
     test-content
-  </div>
+  </span>
 </div>
 `;
