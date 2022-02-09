@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { noop } from 'lodash'
 
 /* Internal dependencies */
 import EmojiProps, { EmojiSize } from './Emoji.types'
@@ -15,7 +16,7 @@ function Emoji({
   interpolation,
   size = EmojiSize.Size24,
   testId = EMOJI_TEST_ID,
-  onClick,
+  onClick = noop,
 }: EmojiProps) {
   return (
     <Icon
