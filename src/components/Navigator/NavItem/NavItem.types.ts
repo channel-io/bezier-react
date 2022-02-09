@@ -1,7 +1,6 @@
 /* Internal dependencies */
 import type {
   BezierComponentProps,
-  ChildrenProps,
   ContentProps,
   SideContentProps,
   ActivatableProps,
@@ -10,16 +9,13 @@ import type {
 import { IconName } from 'Components/Icon'
 
 interface NavItemOptions {
-  open?: boolean
   leftIcon?: IconName
-  name?: string
-  indent?: number
+  name: string
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
 export default interface NavItemProps extends
   BezierComponentProps,
-  ChildrenProps,
   ContentProps,
   Pick<SideContentProps, 'rightContent'>,
   AdditionalColorProps<'leftIcon'>,

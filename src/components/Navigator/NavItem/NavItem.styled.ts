@@ -5,26 +5,17 @@ import { Text } from 'Components/Text'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean
-  open: boolean
-  paddingLeft: number
 }
 
 export const LeftIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  width: 20px;
+  margin-right: 8px;
 `
 
 export const ContentWrapper = styled(Text)`
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
   ${ellipsis()}
-`
-
-export const ChevronWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2px;
 `
 
 export const RightContentWrapper = styled.div`
@@ -45,29 +36,15 @@ const nonActiveItemStyle = css`
   }
 `
 
-const closedItemStyle = css`
-  ${ChevronWrapper} {
-    visibility: hidden;
-  }
-
-  &:hover {
-    ${ChevronWrapper} {
-      visibility: visible;
-    }
-  }
-`
-
 export const ItemWrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   height: 28px;
-  padding-right: 6px;
-  padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
+  padding: 0 6px;
   cursor: pointer;
   ${({ foundation }) => foundation?.rounding?.round6}
 
   ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}
-  ${({ open }) => (open ? null : closedItemStyle)}
 
   ${({ interpolation }) => interpolation}
 `

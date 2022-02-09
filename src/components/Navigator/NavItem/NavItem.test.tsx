@@ -11,6 +11,7 @@ describe('NavItem Test >', () => {
 
   beforeEach(() => {
     props = {
+      name: 'general',
       content: 'test-content',
     }
   })
