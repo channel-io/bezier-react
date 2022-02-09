@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, css, ellipsis } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
-import { Icon } from 'Components/Icon'
+import type { InterpolationProps } from 'Types/Foundation'
+import { Text } from 'Components/Text'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean
@@ -15,7 +15,8 @@ export const LeftIconWrapper = styled.div`
   margin-right: 10px;
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled(Text)`
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
   ${ellipsis()}
 `
 
@@ -23,10 +24,8 @@ export const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 3px;
+  margin-left: 2px;
 `
-
-export const StyledIcon = styled(Icon)``
 
 export const RightContentWrapper = styled.div`
   display: flex;
@@ -35,18 +34,18 @@ export const RightContentWrapper = styled.div`
   margin-left: auto;
 `
 
-const ActiveItemStyle = css`
+const activeItemStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
 `
 
-const NonActiveItemStyle = css`
+const nonActiveItemStyle = css`
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
 `
 
-const ClosedItemStyle = css`
+const closedItemStyle = css`
   ${ChevronWrapper} {
     visibility: hidden;
   }
@@ -64,15 +63,11 @@ export const ItemWrapper = styled.div<WrapperProps>`
   height: 28px;
   padding-right: 6px;
   padding-left: ${({ paddingLeft }) => `${paddingLeft}px`};
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
-  text-decoration: none;
   cursor: pointer;
-  border-radius: 6px;
+  ${({ foundation }) => foundation?.rounding?.round6}
 
-  ${({ active }) => (active ? ActiveItemStyle : NonActiveItemStyle)}
-  ${({ open }) => (open ? null : ClosedItemStyle)}
+  ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}
+  ${({ open }) => (open ? null : closedItemStyle)}
 
   ${({ interpolation }) => interpolation}
 `
