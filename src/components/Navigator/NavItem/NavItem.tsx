@@ -7,7 +7,8 @@ import { Typography } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
 import type NavItemProps from './NavItem.types'
 import {
-  ItemWrapper,
+  Item,
+  Wrapper,
   ContentWrapper,
   RightContentWrapper,
   LeftIconWrapper,
@@ -39,8 +40,10 @@ function NavItem({
   const showLeftIcon = isIconName(leftIcon)
 
   return (
-    <>
-      <ItemWrapper
+    <Wrapper
+      role="menuitem"
+    >
+      <Item
         as={as}
         active={active}
         style={style}
@@ -68,8 +71,8 @@ function NavItem({
             { rightContent }
           </RightContentWrapper>
         ) }
-      </ItemWrapper>
-    </>
+      </Item>
+    </Wrapper>
   )
 }
 

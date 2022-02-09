@@ -7,7 +7,9 @@ import { Typography } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
-  ItemWrapper,
+  Item,
+  Wrapper,
+  ChildrenWrapper,
   LeftIconWrapper,
   ChevronWrapper,
   ContentWrapper,
@@ -38,13 +40,18 @@ function NavGroup({
     onClick,
   ])
 
-  const showChevron = !isNil(children)
+  const hasChildren = !isNil(children)
   const chevronIconName = open ? 'chevron-small-down' : 'chevron-small-right'
   const showLeftIcon = isIconName(leftIcon)
 
   return (
-    <>
-      <ItemWrapper
+    <Wrapper
+      role="menuitem"
+      aria-haspopup={hasChildren}
+      aria-expanded={open}
+      aria-controls={name}
+    >
+      <Item
         as={as}
         open={open}
         style={style}
@@ -67,7 +74,7 @@ function NavGroup({
           { content }
         </ContentWrapper>
 
-        { showChevron && (
+        { hasChildren && (
           <ChevronWrapper>
             <Icon
               name={chevronIconName}
@@ -82,10 +89,17 @@ function NavGroup({
             { rightContent }
           </RightContentWrapper>
         ) }
-      </ItemWrapper>
+      </Item>
 
-      { open && children }
-    </>
+      { open && (
+        <ChildrenWrapper
+          role="menu"
+          id={name}
+        >
+          { open && children }
+        </ChildrenWrapper>
+      ) }
+    </Wrapper>
   )
 }
 

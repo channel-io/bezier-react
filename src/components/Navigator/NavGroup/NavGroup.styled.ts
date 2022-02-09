@@ -45,7 +45,7 @@ const closedItemStyle = css`
   }
 `
 
-export const ItemWrapper = styled.div<WrapperProps>`
+export const Item = styled.a<WrapperProps>`
   display: flex;
   align-items: center;
   height: 28px;
@@ -60,4 +60,13 @@ export const ItemWrapper = styled.div<WrapperProps>`
   ${({ open }) => (open ? null : closedItemStyle)}
 
   ${({ interpolation }) => interpolation}
+`
+
+export const ChildrenWrapper = styled.ul`
+  padding: 0;
+  margin: 0;
+`
+
+export const Wrapper = styled.li`
+  display: block;
 `

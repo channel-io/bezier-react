@@ -36,7 +36,7 @@ const nonActiveItemStyle = css`
   }
 `
 
-export const ItemWrapper = styled.div<WrapperProps>`
+export const Item = styled.a<WrapperProps>`
   display: flex;
   align-items: center;
   height: 28px;
@@ -47,4 +47,8 @@ export const ItemWrapper = styled.div<WrapperProps>`
   ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}
 
   ${({ interpolation }) => interpolation}
+`
+
+export const Wrapper = styled.li`
+  display: block;
 `

@@ -16,18 +16,24 @@ export default {
 } as Meta
 
 const Template: Story<NavGroupProps> = (args) => (
-  <div style={{ width: '240px', padding: '6px' }}>
-    <NavGroup {...args}>
-      <NavItem
-        name="profile"
-        content="채널 프로필"
-      />
-      <NavItem
-        name="btn"
-        content="버튼 설치 및 설정"
-      />
-    </NavGroup>
-  </div>
+  <nav
+    style={{ width: '240px', padding: '6px' }}
+    role="navigation"
+    aria-label="navgroup storybook"
+  >
+    <ul style={{ margin: '0', padding: '0' }} role="menubar">
+      <NavGroup {...args}>
+        <NavItem
+          name="profile"
+          content="채널 프로필"
+        />
+        <NavItem
+          name="btn"
+          content="버튼 설치 및 설정"
+        />
+      </NavGroup>
+    </ul>
+  </nav>
 )
 
 export const Primary: Story<NavGroupProps> = Template.bind({})
