@@ -121,11 +121,11 @@ export const smoothCorners = ({
   }
 `
 
-interface SmoothCornersElementOptions {
+interface BackgroundImageVariableOptions {
   imageUrl: string
 }
 
-export const smoothCornersStyle = ({ imageUrl }: SmoothCornersElementOptions): CSSProperties => ({
+export const backgroundImageVariable = ({ imageUrl }: BackgroundImageVariableOptions): CSSProperties => ({
   // @ts-ignore
   '--background-image': `url(${imageUrl})`,
 })
