@@ -13,7 +13,7 @@ export enum EmojiSize {
 
 interface EmojiOptions {
   imageUrl: string
-  onClick?: React.MouseEventHandler<HTMLDivElement>
+  onClick?: React.MouseEventHandler
 }
 
 export default interface EmojiProps extends
