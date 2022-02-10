@@ -24,6 +24,8 @@ function NavItem({
   className,
   interpolation,
   content,
+  href,
+  target = '_self',
   rightContent,
   leftIcon,
   leftIconColor = 'txt-black-dark',
@@ -51,6 +53,8 @@ function NavItem({
         interpolation={interpolation}
         onClick={handleClickItem}
         data-testid={testId}
+        href={href}
+        target={target}
       >
         <LeftIconWrapper>
           { showLeftIcon && (

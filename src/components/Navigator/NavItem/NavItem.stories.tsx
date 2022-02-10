@@ -26,6 +26,7 @@ Primary.args = {
   active: false,
   name: 'general',
   content: '일반 설정',
+  href: 'https://google.com',
   leftIcon: undefined,
   leftIconColor: 'txt-black-dark',
   rightContent: <Icon name="error-filled" size={IconSize.XS} color="bgtxt-orange-normal" />,

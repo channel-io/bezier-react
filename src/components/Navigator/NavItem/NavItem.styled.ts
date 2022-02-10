@@ -31,6 +31,8 @@ const activeItemStyle = css`
 `
 
 const nonActiveItemStyle = css`
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
@@ -41,6 +43,7 @@ export const Item = styled.a<WrapperProps>`
   align-items: center;
   height: 28px;
   padding: 0 6px;
+  text-decoration: none;
   cursor: pointer;
   ${({ foundation }) => foundation?.rounding?.round6}
 

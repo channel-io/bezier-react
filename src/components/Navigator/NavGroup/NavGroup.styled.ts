@@ -45,7 +45,7 @@ const closedItemStyle = css`
   }
 `
 
-export const Item = styled.a<WrapperProps>`
+export const Item = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   height: 28px;

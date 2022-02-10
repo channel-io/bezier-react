@@ -82,7 +82,7 @@ exports[`NavItem Test > Snapshot >  1`] = `
   visibility: visible;
 }
 
-<a
+<div
   class="c0"
   data-testid="bezier-react-nav-group"
 >
@@ -118,5 +118,5 @@ exports[`NavItem Test > Snapshot >  1`] = `
   >
     test-content
   </span>
-</a>
+</div>
 `;

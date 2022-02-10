@@ -48,9 +48,12 @@ exports[`NavItem Test > Snapshot >  1`] = `
   align-items: center;
   height: 28px;
   padding: 0 6px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   border-radius: 6px;
+  color: #000000D9;
 }
 
 .c0:hover {
@@ -60,6 +63,7 @@ exports[`NavItem Test > Snapshot >  1`] = `
 <a
   class="c0"
   data-testid="bezier-react-nav-item"
+  target="_self"
 >
   <div
     class="c1"

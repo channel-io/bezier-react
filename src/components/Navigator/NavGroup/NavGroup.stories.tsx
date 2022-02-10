@@ -26,10 +26,14 @@ const Template: Story<NavGroupProps> = (args) => (
         <NavItem
           name="profile"
           content="채널 프로필"
+          href="https://naver.com"
+          target="_parent"
         />
         <NavItem
           name="btn"
           content="버튼 설치 및 설정"
+          href="https://google.com"
+          target="_self"
         />
       </NavGroup>
     </ul>
