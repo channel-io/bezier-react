@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta
+  title="Guide/Component/Directory Structure"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Component: Directory Structure
+
+`bezier-react`의 컴포넌트들이 구성된 directory 구조를 설명하는 문서입니다.
+
+## Overall structure
+
+- 📌 `src/components` 아래에 모든 컴포넌트에 대한 directory가 위치합니다.
+- 📌 개별 컴포넌트는 directory 하나를 구성합니다.
+- 📌 연관된 컴포넌트는 중첩된 directory 내에 묶여있을 수 있습니다.
+
+```
+src/components/          // `src/components` 아래에 모든 컴포넌트에 대한 directory가 위치합니다.
+├── Buttons/             // 개별 컴포넌트는 directory 하나를 구성합니다.
+├── Banner/
+│   ...
+├── Forms/               // 연관된 컴포넌트는 중첩된 directory 내에 묶여있을 수 있습니다.
+│   ├── Checkbox/
+│   ├── FormControl/
+│   │   ...
+│   ├── Inputs/
+│       ├── Select/
+│       ├── TextArea/
+│       ├── TextField/
+│   ...
+```
+
+## How to import from component modules
+
+- 📌 `src/components/**/index.ts` -> 각 컴포넌트의 루트 export 파일입니다.
+  - `index.ts`에서는 외부에 노출하고 싶은 값만 export하는 것을 권장합니다.
+  - 컴포넌트의 directory 밖에서는 컴포넌트 import 시 `index.ts`에서 export 하는 값만 접근해야 합니다.
+  - ✅ **DO**: Directory 밖에서 접근 시, 루트 export 파일에서 import합니다.
+  ```tsx
+  import { ButtonProps } from 'Components/Button'
+  ```
+  - 🚫 **DO NOT**: Directory 밖에서 접근 시, 컴포넌트 내부 파일에서 import합니다.
+  ```tsx
+  import { ButtonProps } from 'Components/Button/Button.types'
+  ```
+  - 컴포넌트의 directory 내부에서는 이 파일에서 import해서는 안 됩니다. (**Circular dependency 예방**)
+  - ✅ **DO**: Directory 내부에서 접근 시, 개별 파일에서 import합니다.
+  ```tsx
+  import { ButtonProps } from './Button.types'
+  ```
+  - 🚫 **DO NOT**: Directory 내부에서 접근 시, `index` 파일에서 import합니다.
+  ```tsx
+  import { ButtonProps } from '.'
+  ```
+
+## A component module
+
+```
+// example: Button
+src/components/Button/
+├── Button.stories.tsx
+├── Button.styled.ts
+├── Button.test.tsx
+├── Button.tsx
+├── Button.types.ts
+└── index.ts
+
+// example: Toast
+src/components/Toast
+├── index.ts
+├── Toast.stories.tsx
+├── Toast.styled.ts
+├── Toast.test.tsx
+├── Toast.types.ts
+├── ToastContainer.tsx
+├── ToastContext.ts
+├── ToastController.tsx
+├── ToastElement.tsx
+├── ToastProvider.tsx
+├── ToastService.ts
+├── useToast.ts
+└── index.ts
+```
+
+다음은 파일 이름 컨벤션입니다.
+
+- 📌 `<ComponentName>.tsx` -> 리액트 컴포넌트 소스를 포함하는 파일입니다.
+  - 이 파일의 default export로 컴포넌트를 지정합니다. (e.g. `Button`)
+- 📌 `<ComponentName>.types.ts` -> 컴포넌트에 필요한 interface, type, enum 등을 정의하는 파일입니다.
+  - 이 파일의 default export로 컴포넌트의 prop interface를 지정합니다. (e.g. `ButtonProps`)
+- 📌 `<ComponentName>.styled.ts` -> `styled-components`를 사용하여 스타일링한 컴포넌트 소스를 포함하는 파일입니다.
+- 📌 `<ComponentName>.stories.tsx` -> Storybook을 위한 story 작성 파일입니다. [스토리북 작성 컨벤션](/story/guide-component-stories--page)을 참고하세요.
+- 📌 `<ComponentName>.test.tsx` -> 테스트 파일입니다. [테스트 작성 컨벤션](/story/guide-component-testing--page)을 참고하세요.
+
+
+- 👏 **ENCOURAGE**: 파일을 책임과 문맥에 따라 적절히 분리하세요.
+  - 컴포넌트, 함수 하나가 너무 길어지거나, 한 파일이 너무 많은 로직을 담고 있으면 코드를 읽기 어려워집니다.
+  - `Toast` 컴포넌트의 예시를 봅시다. 일반적인 파일명 컨벤션을 따르는 파일들도 있지만, `Toast` 컴포넌트를 사용하기 위해 주위에 사용되는 `ToastController`, `ToastProvider`와 같은 ecosystem 모듈 각각에 대해 파일을 분리했습니다.
+  - 유틸리티 함수를 작성하는 파일을 분리하는 것도 권장합니다.

@@ -1,0 +1,276 @@
+import { Canvas, Story, Meta } from '@storybook/addon-docs'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { Tooltip } from 'Components/Tooltip'
+import { css } from 'Foundation'
+
+<Meta
+  title="Guide/Component/Stories"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Component: Stories
+
+## Goals
+
+**스토리북은 bezier-react 라이브러리의 documentation입니다.**
+
+새로운 컴포넌트를 작성하거나, 수정하는 경우 스토리북도 그에 맞게 최신 스펙으로 업데이트 되어야 합니다.
+
+bezier-react를 사용하는 사람들은 스토리북을 통해 다음과 같은 요구사항을 해결할 수 있어야 합니다.
+
+- 📌 **컴포넌트가 어떠한 usecase에 사용되는지 알아낼 수 있어야 합니다.**
+  스토리북은 해당 컴포넌트의 외형과 예시 variant, 소스코드에서의 사용 예시를 제시해야 합니다.
+- 📌 **컴포넌트의 props interface에 대한 documentation을 확인할 수 있어야 합니다.**
+  bezier-react 프로젝트를 열어 `***.types.ts` 파일을 확인하는 일이 없도록, 컴포넌트에 주입할 수 있는 모든 props를 나열해야 합니다.
+  각 prop의 이름, 타입, 설명을 제시하고, enum인 경우 어떤 값이 들어갈 수 있는지 나열해야 합니다.
+  설명만으로 충분히 behavior를 제시할 수 없는 경우, 부가적으로 story를 활용하여 prop의 사용례를 제시해야 합니다.
+- 📌 **컴포넌트의 prop을 조작할 수 있는 interactive canvas를 활용할 수 있어야 합니다.**
+  props interface에 대한 설명에 더해, 스토리북을 사용하는 사람이 직접 조작해볼 수 있도록 환경을 제공해야 합니다.
+  스토리북의 controls add-on을 활용하여 컴포넌트의 스토리를 작성할 수 있습니다.
+- 📌 **컴포넌트의 버전 히스토리를 확인할 수 있어야 합니다.**
+  이전 버전의 bezier-react를 사용하는 사람이 혼란을 겪지 않도록, 새로 추가된 컴포넌트나 props는 그것이 사용될 수 있는 최소 버전을 명시해야 합니다.
+  deprecated된 컴포넌트나 props는 그것이 deprecate되었다는 것을 표현해야 합니다.
+
+## How to write Stories for Components
+
+- 📌 **`.mdx` 파일로 작성하는 것을 권장합니다.**
+  `.mdx` 파일 내에서는 TypeScript로 작성할 story와 markdown 문법을 동시에 활용하여 rich documentation을 작성할 수 있습니다.
+  `.mdx` 파일 syntax highlighting을 위해 [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx) 을 사용하는 것을 권장합니다.
+
+### Overview
+
+- 📌 **Overview section은 해당 컴포넌트의 역할을 기술합니다.** 보통 어떤 컴포넌트와 함께 사용되는지, 비슷한 컴포넌트가 있다면 어떠한 차이가 있는지 설명합니다.
+  디자인 팀의 의도를 추가로 서술할 수 있습니다.
+- 📌 Overview section에는 컴포넌트의 가장 일반적인 usecase에 대한 스토리를 추가해야 합니다.
+  bezier-react Figma를 참고하여 usecase를 작성하면 좋습니다.
+
+```mdx
+// example: Button.stories.mdx
+
+# Button
+
+**`Button` 컴포넌트는 사용자의 클릭을 통해 액션을 유발하는 컴포넌트입니다.**
+사용자는 버튼을 클릭하면 select, modal이 켜지거나, 요청을 보내거나, 새로운 페이지로 이동하는 등의 동작을 기대할 수 있습니다.
+사용 가능한 상태의 버튼은 버튼을 클릭하면 무엇인가 일어날 것임을 사용자에게 시각적으로 전달해야 합니다. (이것은 hover 상태의 스타일 변화나 커서의 변화를 통해 전달됩니다.)
+버튼이 유발하는 액션은 버튼 내부의 아이콘, 텍스트를 통해 표현되며, 추가로 툴팁 등을 이용하여 자세히 설명하는 것도 가능합니다.
+
+<Canvas>
+  <Story name="Button">
+    <Button text="Confirm" colorVariant={ButtonColorVariant.Green} />
+  </Story>
+  <Story name="Button:Overview.Cancel">
+    <Button text="Cancel" styleVariant={ButtonStyleVariant.Secondary} colorVariant={ButtonColorVariant.Red} />
+  </Story>
+  <Story name="Button:Overview.CopyLink">
+    <Button text="Copy Link" leftContent="link" styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
+  </Story>
+  <Story name="Button:Overview.Jump">
+    <Button text="Jump" leftContent="arrow-right-up" styleVariant={ButtonStyleVariant.Floating} />
+  </Story>
+</Canvas>
+```
+
+> 예시 스토리
+
+# Button
+
+**`Button` 컴포넌트는 사용자의 클릭을 통해 액션을 유발하는 컴포넌트입니다.**
+사용자는 버튼을 클릭하면 select, modal이 켜지거나, 요청을 보내거나, 새로운 페이지로 이동하는 등의 동작을 기대할 수 있습니다.
+사용 가능한 상태의 버튼은 버튼을 클릭하면 무엇인가 일어날 것임을 사용자에게 시각적으로 전달해야 합니다. (이것은 hover 상태의 스타일 변화나 커서의 변화를 통해 전달됩니다.)
+버튼이 유발하는 액션은 버튼 내부의 아이콘, 텍스트를 통해 표현되며, 추가로 툴팁 등을 이용하여 자세히 설명하는 것도 가능합니다.
+
+<Canvas>
+  <Story name="Button">
+    <Button text="Confirm" colorVariant={ButtonColorVariant.Green} />
+  </Story>
+  <Story name="Button:Overview.Cancel">
+    <Button text="Cancel" styleVariant={ButtonStyleVariant.Secondary} colorVariant={ButtonColorVariant.Red} />
+  </Story>
+  <Story name="Button:Overview.CopyLink">
+    <Button text="Copy Link" leftContent="link" styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
+  </Story>
+  <Story name="Button:Overview.Jump">
+    <Button text="Jump" leftContent="arrow-right-up" styleVariant={ButtonStyleVariant.Floating} />
+  </Story>
+</Canvas>
+
+### Usage examples
+
+- 📌 Overview보다 더 구체적인 사용례에 대해 여러 가지 스토리를 제시합니다.
+- 📌 다른 컴포넌트와 함께 활용되는 예시를 서술할 수 있습니다.
+    bezier-react Figma를 참고하여 usecase를 작성하면 좋습니다.
+
+```mdx
+// example: Button.stories.mdx
+
+## Button Group
+
+Modal 등, 여러 가지 액션의 선택지가 주어지는 곳에서 여러 개의 버튼을 동시에 활용할 수 있습니다.
+CTA를 명확하게 유도할 수 있도록 Primary 버튼은 그룹 안에서 1개만 사용되는 것이 일반적입니다.
+버튼 간의 간격은 0 또는 6으로 합니다.
+
+<Canvas>
+  <Story name="Button:ButtonGroup.Modal">
+    <Button text="Cancel" colorVariant={ButtonColorVariant.MonochromeLight} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button text="Publish" colorVariant={ButtonColorVariant.Green} styleVariant={ButtonStyleVariant.Primary} interpolation={css`
+      margin-left: 6px;
+    `} />
+  </Story>
+  <Story name="Button:ButtonGroup.Actions">
+    <Button leftContent="face-smile-add" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="comment" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="edit" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="more-vertical" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button active leftContent="split-right" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+  </Story>
+</Canvas>
+```
+
+> 예시 스토리
+
+## Button Group
+
+Modal 등, 여러 가지 액션의 선택지가 주어지는 곳에서 여러 개의 버튼을 동시에 활용할 수 있습니다.
+CTA를 명확하게 유도할 수 있도록 Primary 버튼은 그룹 안에서 1개만 사용되는 것이 일반적입니다.
+버튼 간의 간격은 0 또는 6으로 합니다.
+
+<Canvas>
+  <Story name="Button:ButtonGroup.Modal">
+    <Button text="Cancel" colorVariant={ButtonColorVariant.MonochromeLight} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button text="Publish" colorVariant={ButtonColorVariant.Green} styleVariant={ButtonStyleVariant.Primary} interpolation={css`
+      margin-left: 6px;
+    `} />
+  </Story>
+  <Story name="Button:ButtonGroup.Actions">
+    <Button leftContent="face-smile-add" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="comment" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="edit" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent="more-vertical" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button active leftContent="split-right" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+  </Story>
+</Canvas>
+
+### Component API
+
+- ✅ **DO**: 스토리에 컴포넌트의 **모든** props에 대한 **type**, **description**, **defaultValue**를 작성하세요.
+  완성된 컴포넌트 스토리에 해당 내용이 나타나게 됩니다.
+
+  - 📌 `argTypes.description` 옵션을 통해, description을 작성할 수 있습니다.
+  - 📌 `argTypes.<prop-name>.table` 옵션을 통해, type, default value에 대한 설명을 추가할 수 있습니다.
+  - 📌 Story Example (`.tsx`)
+  ```tsx
+  // <my-component>.stories.tsx
+
+  export default {
+    ...
+    argTypes: {
+      size: {
+        description: 'Size of this component.',     // prop의 description 작성
+        table: {
+          type: {
+            summary: 'MyComponentSize',             // enum의 이름을 명시
+            detail: Object.keys(MyComponentSize)    // 각 enum 값을 명시
+              .map(key => `MyComponentSize.${key}`)
+              .join('\n')
+          },
+          defaultValue: { summary: 'MyComponentSize.M' },
+        }
+      }
+    }
+  }
+  ```
+  - 📌 Story Example (`.mdx`)
+  ```mdx
+  // <my-components>.stories.mdx
+
+  import { Meta } from '@storybook/addon-docs'
+
+  <Meta
+    ...
+    argTypes={{
+      ...
+      size: {
+        description: 'Size of this component.',     // prop의 description 작성
+        table: {
+          type: {
+            summary: 'MyComponentSize',             // enum의 이름을 명시
+            detail: Object.keys(MyComponentSize)    // 각 enum 값을 명시
+              .map(key => `MyComponentSize.${key}`)
+              .join('\n')
+          },
+          defaultValue: { summary: 'MyComponentSize.M' },
+        }
+      }
+    }}
+  />
+  ```
+
+- ✅ **DO**: 스토리에 컴포넌트의 **모든** props에 대한 **control**을 추가하세요.
+  스토리북의 사용자는 control을 통해 interactive하게 prop을 조정하면서 컴포넌트의 변화를 관찰할 수 있게 됩니다.
+
+  - 📌 기본적으로 스토리북에서 prop의 type을 분석하여 적당한 control을 붙여줍니다.
+  - 📌 enum 의 경우 `radio` control을 사용하고, enum의 값을 각 item으로 지정할 수 있습니다.
+  - 📌 커스터마이징이 필요할 경우, [Storybook Docs - Control](https://storybook.js.org/docs/react/essentials/controls) 을 참고할 수 있습니다.
+  - 📌 Story Example (`.tsx`)
+  ```tsx
+  // <my-component>.stories.tsx
+
+  export default {
+    ...
+    argTypes: {
+      size: {
+        ...
+        control: {
+          type: 'radio',
+          options: Object.values(MyComponentSize),
+        },
+      }
+    }
+  }
+  ```
+  - 📌 Story Example (`.mdx`)
+  ```mdx
+  // <my-components>.stories.mdx
+
+  import { Meta } from '@storybook/addon-docs'
+
+  <Meta
+    ...
+    argTypes={{
+      ...
+      size: {
+        control: {
+          type: 'radio',
+          options: Object.values(MyComponentSize),
+        },
+      }
+    }}
+  />
+  ```
+- 👏 **ENCOURAGE**: **description**은 해당 prop이 어떤 경우에 사용되어야 하는지 상세하게 기술해야 합니다.
+  스토리북을 보는 사람은 해당 prop을 조작하여 어떤 결과를 얻는지 기대할 수 있어야 합니다.
+  ```tsx
+  // example: "size" prop
+
+  description: 'Size of the button.' // 👎
+
+  description: `Size of the button.
+  This prop controls the width, height, and the padding of the content elements.
+  The inner element paddings are also adjusted by the existence and type of the side content.` // 👏
+  ```
+- ✅ **DO**: prop을 추가한 경우, 해당 prop이 추가된 버전을 description에 기록합니다.
+- ✅ **DO**: prop을 `@deprecate` 한 경우, 해당 prop이 deprecated된 버전을 description에 기록합니다.
+
+### Versioning
+
+- ✅ **DO**: 새로 추가된 컴포넌트의 경우, 사용 가능한 최소 버전을 기록합니다.
+  ```mdx
+  ## Version
+
+  - Supported since `1.0.0-next-v1.90`.
+  ```

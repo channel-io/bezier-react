@@ -1,0 +1,188 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta
+  title="Guide/Component/Testing"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Component: Testing
+
+**테스트 코드의 중요성은 다시 강조하지 않아도 인지하고 있을 것이라고 기대합니다!**
+
+bezier-react에서는 `@testing-library` 를 사용하여 React component, hook 및 styling에 대한 테스트를 수행하고 있습니다.
+
+### Test Coverage Policy
+
+bezier-react repository에 PR을 생성하면, 변경사항이 적용되었을 때 test coverage의 변화를 CI를 통해 측정합니다.
+**Test coverage가 증가하는 PR만 머지될 수 있습니다.** Test coverage가 감소하는 경우, 테스트를 추가로 작성해야 합니다.
+이것은 test coverage가 시간이 흐름에 따라 단조증가하여 결과적으로 높은 수치에 도달하게 하기 위한 정책입니다.
+
+## The `render` util
+
+`@testing-library/react` 에서는 `render` 라는 API를 제공합니다. 보통 이 함수를 이용하여 컴포넌트를 렌더링하고, 그 결과로부터 스타일을 테스트하거나 이벤트를 발생시켜 컴포넌트가 기대한 대로 동작하는지 점검합니다.
+
+`bezier-react` 컴포넌트를 사용하기 위해서는 `Foundation`을 context로 주입하는 `FoundationProvider`가 필요합니다.
+따라서, `@testing-library/react`의 `render`를 한 번 wrapping 하여 `Foundation`에 접근할 수 있도록 한 유틸을 `Utils/testUtils` 에서 제공합니다.
+`Utils/testUtils` 에서 `render`를 import 하여, `@testing-library/react`의 `render`처럼 사용합니다.
+
+```tsx
+describe('MyComponent Test', () => {
+  const renderComponent = (props?: Partial<MyComponentProps>) => render(<MyComponent {...props} />)
+
+  it('should render', () => {
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID', ... })
+    const element = getByTestId('TEST_ID')
+
+    // test stuff
+  })
+})
+```
+
+See also: https://testing-library.com/docs/react-testing-library/intro/
+
+## Snapshot Tests
+
+jest의 snapshot testing을 활용하면, 특정 결과가 이전에 실행한 스냅샷과 정확하게 일치하는지 점검할 수 있습니다.
+이를 활용하여 컴포넌트를 렌더링했을 때 원하는 dom 구조가 나오는지 정확하게 테스트할 수 있습니다.
+
+```tsx
+it('should equal the snapshot', () => {
+  const { getByTestId } = renderComponent({ testId: 'TEST_ID', ... })
+  const element = getByTestId('TEST_ID')
+
+  expect(element).toMatchSnapshot()
+})
+```
+
+**스냅샷을 추가하면**, 해당 directory 내에 `__snapshot__` directory가 생성되고 그 안에 snapshot들이 보관됩니다. **해당 파일 또한 stage하여 VCS에서 관리하도록 해야 합니다.**
+
+스펙 변경에 의해 구현이 변경될 경우, 기존의 스냅샷과 일치하지 않기 때문에 테스트가 실패합니다. 따라서, **스냅샷을 변경해야 합니다.**
+`npm update-snapshot` 스크립트를 통해 모든 컴포넌트의 스냅샷을 업데이트할 수 있습니다. 해당 스크립트를 실행한 후, 변경사항을 함께 커밋합니다.
+
+See also: https://jestjs.io/docs/snapshot-testing
+
+## Testing with different props
+
+컴포넌트에 주어진 prop에 따라 서로 다른 content를 렌더링하거나, behavior를 가지게 됩니다.
+분기를 테스트하기 위해 여러 가지 prop을 주입해보면서 각 경우에 기대한 결과가 나오는지 테스트를 작성해야 합니다.
+
+Test coverage에서 "partially covered" 수치가 높게 나오는 경우 보통 prop에 따른 분기 중 일부분만 테스트했기 때문입니다.
+Partially covered branch는 test coverage를 감소시키는 원인이 됩니다. 테스트하지 않은 분기에 대한 테스트 케이스를 추가로 작성하여 test coverage를 높일 수 있습니다.
+
+```tsx
+describe('Button : styleVariant', () => {     // Button 컴포넌트의 styleVariant prop에 대한 테스트
+  test('Unspecified', () => {                 // styleVariant를 명시하지 않은 경우, default value에 대한 테스트
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID' })
+    const button = getByTestId('TEST_ID')
+
+    ...
+  })
+
+  test('ButtonStyleVariant.Primary', () => {  // styleVariant = ButtonStyleVariant.Primary인 경우
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID', styleVariant: ButtonStyleVariant.Primary })
+    const button = getByTestId('TEST_ID')
+
+    ...
+  })
+
+  test('ButtonStyleVariant.Secondary', () => {  // styleVariant = ButtonStyleVariant.Secondary인 경우
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID', styleVariant: ButtonStyleVariant.Secondary })
+    const button = getByTestId('TEST_ID')
+
+    ...
+  })
+
+  test('ButtonStyleVariant.Tertiary', () => {  // styleVariant = ButtonStyleVariant.Tertiary인 경우
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID', styleVariant: ButtonStyleVariant.Tertiary })
+    const button = getByTestId('TEST_ID')
+
+    ...
+  })
+
+  test('ButtonStyleVariant.Floating', () => {  // styleVariant = ButtonStyleVariant.Floating인 경우
+    const { getByTestId } = renderComponent({ testId: 'TEST_ID', styleVariant: ButtonStyleVariant.Floating })
+    const button = getByTestId('TEST_ID')
+
+    ...
+  })
+})
+```
+
+## Style Tests
+
+`@testing-library/jest-dom` 에서 제공하는 `toHaveStyle` matcher를 활용하여, DOM element가 특정 스타일을 가지고 있는지 테스트할 수 있습니다.
+
+```tsx
+test('ButtonStyleVariant.Primary', () => {  // styleVariant = ButtonStyleVariant.Primary인 경우
+  const { getByTestId } = renderComponent({ testId: 'TEST_ID', styleVariant: ButtonStyleVariant.Primary })
+  const button = getByTestId('TEST_ID')
+
+  expect(button).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
+})
+```
+
+- 📌 `Utils/testUtils` 에서 제공하는 `render` 유틸은 기본적으로 light theme을 제공합니다.
+  따라서, 색상 스타일을 테스트하는 경우 LightFoundation을 import하여 색상을 테스트할 수 있습니다.
+- 📌 Prop의 값에 따라 스타일이 분기되는 경우를 테스트하고 싶다면, 기대하는 스타일을 위주로 matcher를 작성하는 것이 좋습니다.
+  하지만, **변하면 안 되는 스타일이 그대로 유지되는지** 테스트하는 것 또한 중요합니다.
+
+See also: https://github.com/testing-library/jest-dom#tohavestyle
+
+## Event Tests
+
+`@testing-library/user-event` 에서 제공하는 event emitter를 사용하여 hover, click, drag 등 사용자가 발생시키는 이벤트를 모사하여, 이에 따른 컴포넌트의 **스타일 변화**와 **callback의 실행** 여부를 테스트할 수 있습니다.
+
+```tsx
+// EXAMPLE: 버튼을 클릭하면, onClick prop으로 제공한 함수가 실행되어야 한다.
+import { userEvent } from '@testing-library/user-event'
+
+it('should fire onClick handler', () => {
+  const onClick = jest.fn() // mocked function
+  const { getByTestId } = renderComponent({ testId: 'TEST_ID', onClick })
+  const button = getByTestId('TEST_ID')
+
+  userEvent.click(button)
+
+  expect(onClick).toBeCalled()
+  expect(onClick).toBeCalledTimes(1)
+})
+
+// EXAMPLE: disabled=true 인 버튼을 클릭하면, onclick prop으로 제공한 함수가 실행되지 않아야 한다.
+import { userEvent } from '@testing-library/user-event'
+
+it('should not fire onClick handler if button is disabled', () => {
+  const onClick = jest.fn() // mocked function
+  const { getByTestId } = renderComponent({ testId: 'TEST_ID', onClick, disabled: true })
+  const button = getByTestId('TEST_ID')
+
+  userEvent.click(button)
+
+  expect(onClick).not.toBeCalled()
+})
+
+// EXAMPLE: 버튼에 호버하면, 커서가 "pointer"로 변해야 한다.
+import { userEvent } from '@testing-library/user-event'
+
+it('should change background color when hovered', () => {
+  const { getByTestId } = renderComponent({ testId: 'TEST_ID' })
+  const button = getByTestId('TEST_ID')
+
+  userEvent.hover(button)
+
+  expect(button).toHaveStyle('cursor: pointer')
+})
+```
+
+See also: https://testing-library.com/docs/ecosystem-user-event
+
+## Remarks
+
+- 📌 모든 경우를 대비하여 테스트를 작성해야 한다는 것은 아닙니다.
+- 📌 하지만, 개발자가 생각하는 통상적인 케이스와 엣지 케이스에 대해 테스트를 작성하는 것은 분명히 필요합니다.
+- 📌 테스트 코드는 다른 개발자가 컴포넌트의 작동 방식을 이해하는 데도 도움이 됩니다.
+- 📌 테스트 코드를 작성하는 데 소요된 시간보다, 이후 다른 개발자가 테스트 코드로 인해 절약할 수 있는 시간이 훨씬 많습니다. 따라서 테스트 코드는 다다익선입니다.
