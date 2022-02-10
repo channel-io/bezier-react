@@ -20,7 +20,9 @@ function SegmentedControl(
     testId = SEGMENTED_CONTROL_TEST_ID,
     width = '100%',
     height = 36,
-    /* OptionItemHost props */
+    /*
+    * OptionItemHost props
+    */
     selectedOptionIndex = 0,
     onChangeOption = noop,
     /* HTMLAttribute props */

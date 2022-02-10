@@ -1,0 +1,37 @@
+import { Canvas, Story, Meta, Props, ArgsTable } from '@storybook/addon-docs'
+import { SegmentedControl } from '../SegmentedControl'
+import { Primary } from './SegmentedControl.stories'
+
+<Meta
+  title="Components/Forms/SegmentedControl/SegmentedControl"
+  parameters={{
+    viewMode: 'docs',
+  }}
+  component={SegmentedControl}
+/>
+
+# SegmentedControl
+[Source Code](https://github.com/channel-io/bezier-react/tree/next-v1/src/components/Forms/SegmentedControl)
+
+## Table of Contents
+- [Overview](#overview)
+- [Component API](#component-api)
+- [Usages](#usages)
+- [Accessibilities](#accessibilities)
+
+## Overview
+세그먼트 컨트롤은 라디오 + 버튼을 조합한 형태의 요소입니다. 탭을 대신해서 사용하거나, 모달안에 입력요소로 들어갈 수 있습니다.
+버튼은 안의 내용에 상관없이 균등한 너비를 가집니다. 만약 내부의 항목이 5개를 넘어가면, 드롭다운 같은 다른 요소를 사용해야 합니다.
+
+<Canvas>
+  <Story story={Primary} />
+</Canvas>
+
+
+## Component API
+<!-- FIXME: Currently not working -->
+<Props of={SegmentedControl} />
+
+## Usages
+
+## Accessibilities
