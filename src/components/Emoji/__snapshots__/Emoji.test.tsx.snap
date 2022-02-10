@@ -33,5 +33,6 @@ exports[`Emoji Test > snapshot 1`] = `
   data-testid="bezier-react-emoji"
   role="img"
   size="24"
+  style="--background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);"
 />
 `;

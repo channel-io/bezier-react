@@ -1,8 +1,9 @@
 /* External dependencies */
-import React from 'react'
+import React, { useMemo } from 'react'
 import { noop } from 'lodash'
 
 /* Internal dependencies */
+import { backgroundImageVariable } from 'Foundation'
 import EmojiProps, { EmojiSize } from './Emoji.types'
 import { Icon } from './Emoji.styled'
 
@@ -18,12 +19,20 @@ function Emoji({
   testId = EMOJI_TEST_ID,
   onClick = noop,
 }: EmojiProps) {
+  const mergedStyle = useMemo(() => ({
+    ...backgroundImageVariable({ imageUrl }),
+    ...style,
+  }), [
+    style,
+    imageUrl,
+  ])
+
   return (
     <Icon
       as={as}
       data-testid={testId}
       role="img"
-      style={style}
+      style={mergedStyle}
       size={size}
       className={className}
       interpolation={interpolation}

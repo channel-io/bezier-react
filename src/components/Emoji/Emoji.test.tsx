@@ -42,7 +42,7 @@ describe('Emoji Test >', () => {
     expect(emoji).toHaveStyle(`background-image: url(${MOCK_EMOJI_URL})`)
   })
 
-  it('should render emoji icon with size prop - size20', () => {
+  it('should render emoji icon with size prop - size16', () => {
     const { getByTestId } = renderComponent({ size: EmojiSize.Size16 })
     const emoji = getByTestId(EMOJI_TEST_ID)
 
