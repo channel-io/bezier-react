@@ -16,7 +16,6 @@ export const LeftIconWrapper = styled.div`
 `
 
 export const ContentWrapper = styled(Text)`
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
   ${ellipsis()}
 `
 

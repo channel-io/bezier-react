@@ -70,7 +70,10 @@ function NavGroup({
           ) }
         </LeftIconWrapper>
 
-        <ContentWrapper typo={Typography.Size14}>
+        <ContentWrapper
+          typo={Typography.Size14}
+          color="txt-black-darkest"
+        >
           { content }
         </ContentWrapper>
 

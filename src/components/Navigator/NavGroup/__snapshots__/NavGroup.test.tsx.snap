@@ -23,7 +23,7 @@ exports[`NavItem Test > Snapshot >  1`] = `
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
-  color: inherit;
+  color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -49,7 +49,6 @@ exports[`NavItem Test > Snapshot >  1`] = `
 }
 
 .c4 {
-  color: #000000D9;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -124,6 +123,7 @@ exports[`NavItem Test > Snapshot >  1`] = `
   </div>
   <span
     class="c3 c4"
+    color="txt-black-darkest"
     data-testid="bezier-react-text"
   >
     test-content
