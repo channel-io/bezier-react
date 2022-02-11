@@ -43,7 +43,8 @@ exports[`NavItem Test > Snapshot >  1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
   margin-right: 8px;
 }
 
@@ -63,14 +64,19 @@ exports[`NavItem Test > Snapshot >  1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
   height: 28px;
   padding: 0 6px;
   cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
   overflow: hidden;
   border-radius: 6px;
 }
 
-.c0:hover {
+.c0:hover,
+.c0:focus-visible {
   background-color: #0000000D;
 }
 
@@ -78,13 +84,17 @@ exports[`NavItem Test > Snapshot >  1`] = `
   visibility: hidden;
 }
 
-.c0:hover .sc-eCApnc {
+.c0:hover .sc-eCApnc,
+.c0:focus-visible .sc-eCApnc {
   visibility: visible;
 }
 
-<div
+<button
+  aria-controls="generalMenu"
+  aria-haspopup="false"
   class="c0"
   data-testid="bezier-react-nav-group"
+  role="menuitem"
 >
   <div
     class="c1"
@@ -118,5 +128,5 @@ exports[`NavItem Test > Snapshot >  1`] = `
   >
     test-content
   </span>
-</div>
+</button>
 `;

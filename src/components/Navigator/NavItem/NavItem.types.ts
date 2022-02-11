@@ -12,7 +12,7 @@ import { IconName } from 'Components/Icon'
 interface NavItemOptions {
   leftIcon?: IconName
   name: string
-  target?: string
+  target?: HTMLAnchorElement['target']
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 

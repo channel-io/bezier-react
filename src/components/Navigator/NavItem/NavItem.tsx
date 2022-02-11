@@ -42,9 +42,7 @@ function NavItem({
   const showLeftIcon = isIconName(leftIcon)
 
   return (
-    <Wrapper
-      role="menuitem"
-    >
+    <Wrapper role="none">
       <Item
         as={as}
         active={active}
@@ -55,6 +53,7 @@ function NavItem({
         data-testid={testId}
         href={href}
         target={target}
+        role="menuitem"
       >
         <LeftIconWrapper>
           { showLeftIcon && (

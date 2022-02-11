@@ -18,7 +18,6 @@ export default {
 const Template: Story<NavGroupProps> = (args) => (
   <nav
     style={{ width: '240px', padding: '6px' }}
-    role="navigation"
     aria-label="navgroup storybook"
   >
     <ul style={{ margin: '0', padding: '0' }} role="menubar">

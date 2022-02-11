@@ -27,7 +27,8 @@ exports[`NavItem Test > Snapshot >  1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
   margin-right: 8px;
 }
 
@@ -50,19 +51,21 @@ exports[`NavItem Test > Snapshot >  1`] = `
   padding: 0 6px;
   -webkit-text-decoration: none;
   text-decoration: none;
-  cursor: pointer;
+  outline: 0;
   overflow: hidden;
   border-radius: 6px;
   color: #000000D9;
 }
 
-.c0:hover {
+.c0:hover,
+.c0:focus-visible {
   background-color: #0000000D;
 }
 
 <a
   class="c0"
   data-testid="bezier-react-nav-item"
+  role="menuitem"
   target="_self"
 >
   <div

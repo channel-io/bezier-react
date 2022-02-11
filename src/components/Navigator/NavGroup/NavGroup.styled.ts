@@ -10,7 +10,8 @@ interface WrapperProps extends InterpolationProps {
 export const LeftIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
   margin-right: 8px;
 `
 
@@ -38,22 +39,28 @@ const closedItemStyle = css`
     visibility: hidden;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     ${ChevronWrapper} {
       visibility: visible;
     }
   }
 `
 
-export const Item = styled.div<WrapperProps>`
+export const Item = styled.button<WrapperProps>`
   display: flex;
   align-items: center;
+  width: 100%;
   height: 28px;
   padding: 0 6px;
   cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
   ${({ foundation }) => foundation?.rounding?.round6}
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
 

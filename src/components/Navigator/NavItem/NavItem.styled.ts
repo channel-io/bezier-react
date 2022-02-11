@@ -10,7 +10,8 @@ interface WrapperProps extends InterpolationProps {
 export const LeftIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
   margin-right: 8px;
 `
 
@@ -33,7 +34,8 @@ const activeItemStyle = css`
 const nonActiveItemStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
 `
@@ -44,7 +46,7 @@ export const Item = styled.a<WrapperProps>`
   height: 28px;
   padding: 0 6px;
   text-decoration: none;
-  cursor: pointer;
+  outline: 0;
   ${({ foundation }) => foundation?.rounding?.round6}
 
   ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}

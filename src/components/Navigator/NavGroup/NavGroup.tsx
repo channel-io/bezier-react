@@ -43,14 +43,10 @@ function NavGroup({
   const hasChildren = !isNil(children)
   const chevronIconName = open ? 'chevron-small-down' : 'chevron-small-right'
   const showLeftIcon = isIconName(leftIcon)
+  const ariaName = `${name}Menu`
 
   return (
-    <Wrapper
-      role="menuitem"
-      aria-haspopup={hasChildren}
-      aria-expanded={open}
-      aria-controls={name}
-    >
+    <Wrapper role="none">
       <Item
         as={as}
         open={open}
@@ -59,6 +55,10 @@ function NavGroup({
         interpolation={interpolation}
         onClick={handleClickItem}
         data-testid={testId}
+        role="menuitem"
+        aria-haspopup={hasChildren}
+        aria-expanded={open}
+        aria-controls={ariaName}
       >
         <LeftIconWrapper>
           { showLeftIcon && (
@@ -94,7 +94,7 @@ function NavGroup({
       { open && (
         <ChildrenWrapper
           role="menu"
-          id={name}
+          id={ariaName}
         >
           { open && children }
         </ChildrenWrapper>
