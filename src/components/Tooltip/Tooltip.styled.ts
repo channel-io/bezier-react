@@ -4,7 +4,6 @@ import type { InterpolationProps } from 'Types/Foundation'
 
 interface ContentWrapperProps {
   disabled: boolean
-  isHidden: boolean
 }
 
 export const Container = styled.div`
@@ -18,10 +17,6 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 
   ${({ disabled }) => disabled && css`
     display: none;
-  `}
-
-  ${({ isHidden }) => isHidden && css`
-    visibility: hidden;
   `}
 `
 
