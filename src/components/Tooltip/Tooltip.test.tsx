@@ -1,11 +1,12 @@
 /* External dependencies */
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
 import { css } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import Tooltip, { TOOLTIP_TEST_ID } from './Tooltip'
+import Tooltip, { TOOLTIP_TEST_ID, TOOLTIP_CONTENT_TEST_ID } from './Tooltip'
 import TooltipProps from './Tooltip.types'
 
 const ROOT_TESTID = 'container'
@@ -41,26 +42,50 @@ describe('Tooltip test >', () => {
   )
 
   it('Tooltip with default props', () => {
-    const { getByTestId } = renderTooltip()
-    const rendered = getByTestId(ROOT_TESTID)
+    act(() => {
+      const { getByTestId } = renderTooltip()
+      const rendered = getByTestId(ROOT_TESTID)
 
-    fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
+      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
 
-    jest.runAllTimers()
+      jest.runAllTimers()
 
-    expect(rendered).toMatchSnapshot()
+      expect(rendered).toMatchSnapshot()
+    })
   })
 
   it('Tooltip with contentInterpolation prop', async () => {
-    const { getByTestId } = renderTooltip({
-      contentInterpolation: css`background-color: black;`,
+    act(() => {
+      const { getByTestId } = renderTooltip({
+        contentInterpolation: css`background-color: black;`,
+      })
+      const rendered = getByTestId(ROOT_TESTID)
+
+      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
+
+      jest.runAllTimers()
+
+      expect(rendered).toMatchSnapshot()
     })
-    const rendered = getByTestId(ROOT_TESTID)
+  })
 
-    fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
+  it('TooltipContent not rendered at first', async () => {
+    act(() => {
+      const { container } = renderTooltip()
 
-    jest.runAllTimers()
+      expect(container.querySelector(`[data-testid="${TOOLTIP_CONTENT_TEST_ID}"]`)).toBeNull()
+    })
+  })
 
-    expect(rendered).toMatchSnapshot()
+  it('TooltipContent rendered after mouseover', async () => {
+    act(() => {
+      const { container, getByTestId } = renderTooltip()
+
+      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
+
+      jest.runAllTimers()
+
+      expect(container.querySelector(`[data-testid="${TOOLTIP_CONTENT_TEST_ID}"]`)).toBeVisible()
+    })
   })
 })
