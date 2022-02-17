@@ -1,28 +1,25 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useEffect } from 'react'
-import ReactDOM from 'react-dom'
-import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useMergeRefs from 'Hooks/useMergeRefs'
-import useEventHandler from 'Hooks/useEventHandler'
-import { window, getRootElement } from 'Utils/domUtils'
-import { Text } from 'Components/Text'
+import { window } from 'Utils/domUtils'
+import TooltipContent from './TooltipContent'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
-import { getReplacement, getTooltipStyle } from './utils'
-import { Container, ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
+import { Container } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
+export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
 
 function Tooltip(
   {
     as,
     testId = TOOLTIP_TEST_ID,
+    contentTestId = TOOLTIP_CONTENT_TEST_ID,
     className,
     contentClassName,
     contentInterpolation,
     content = null,
+    lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
     placement = TooltipPosition.BottomCenter,
     disabled = false,
     offset = 4,
@@ -36,14 +33,20 @@ function Tooltip(
   forwardedRef: Ref<any>,
 ) {
   const [show, setShow] = useState(false)
-  const [replacement, setReplacement] = useState(placement)
-  const [replaced, setReplaced] = useState(false)
+  const [didMount, setDidMount] = useState(show)
 
-  const tooltipRef = useRef<HTMLDivElement>(null)
-  const tooltipWrapperRef = useRef<HTMLDivElement>(null)
   const tooltipContainerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<ReturnType<Window['setTimeout']>>()
-  const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
+
+  useEffect(() => {
+    if (disabled) {
+      setShow(false)
+    }
+  }, [disabled])
+
+  useEffect(function updateDidMount() {
+    setDidMount((prev) => prev || show)
+  }, [show])
 
   const handleMouseEnter = useCallback(() => {
     if (disabled) {
@@ -79,134 +82,41 @@ function Tooltip(
     disabled,
   ])
 
-  const contentWrapperStyle = useMemo(() => {
-    if (show && tooltipContainerRef.current) {
-      return getTooltipStyle({
-        tooltipContainer: tooltipContainerRef.current,
-        placement: replacement,
-        offset,
-        allowHover,
-      })
-    }
-
-    return {}
-  }, [
-    show,
-    replacement,
-    offset,
-    allowHover,
-  ])
-
-  const getNewLineComponent = useCallback((strContent: string) => (
-    strContent.split('\n').map((str, index) => {
-      if (index === 0) {
-        return (
-          <Text key={str} typo={Typography.Size14}>
-            { str }
-          </Text>
-        )
-      }
-
+  const TooltipComponent = useMemo(() => {
+    if (!lazy || didMount) {
       return (
-        <>
-          <br />
-          <Text key={str} typo={Typography.Size14}>
-            { str }
-          </Text>
-        </>
+        <TooltipContent
+          as={as}
+          content={content}
+          contentClassName={contentClassName}
+          contentInterpolation={contentInterpolation}
+          disabled={disabled}
+          placement={placement}
+          offset={offset}
+          allowHover={allowHover}
+          keepInContainer={keepInContainer}
+          tooltipContainer={tooltipContainerRef.current}
+          forwardedRef={forwardedRef}
+          testId={contentTestId}
+        />
       )
-    })
-  ), [])
-
-  const handleClickTooltip = useCallback((event: HTMLElementEventMap['click']) => {
-    event.stopPropagation()
-  }, [])
-
-  const ContentComponent = useMemo(() => {
-    if (!show) {
-      return null
     }
 
-    if (isArray(content)) {
-      return content.map(item => {
-        if (isString(item)) {
-          return getNewLineComponent(item)
-        }
-
-        return item
-      })
-    }
-
-    if (isString(content)) {
-      return getNewLineComponent(content)
-    }
-
-    return content
+    return null
   }, [
-    show,
-    content,
-    getNewLineComponent,
-  ])
-
-  const TooltipComponent = useMemo(() => (
-    <ContentWrapper
-      ref={tooltipWrapperRef}
-      disabled={disabled || isEmpty(content)}
-      isHidden={keepInContainer && !replaced}
-      style={contentWrapperStyle}
-    >
-      <Content
-        as={as}
-        data-testid={testId}
-        className={contentClassName}
-        interpolation={contentInterpolation}
-        ref={mergedRef}
-      >
-        <EllipsisableContent>
-          { ContentComponent }
-        </EllipsisableContent>
-      </Content>
-    </ContentWrapper>
-  ), [
-    ContentComponent,
+    lazy,
+    didMount,
     as,
     content,
     contentClassName,
     contentInterpolation,
-    contentWrapperStyle,
     disabled,
-    keepInContainer,
-    replaced,
-    mergedRef,
-    testId,
-  ])
-
-  useEventHandler(tooltipRef.current, 'click', handleClickTooltip, show)
-
-  useEffect(() => {
-    if (disabled) {
-      setShow(false)
-    }
-  }, [disabled])
-
-  useEffect(() => {
-    if (show) {
-      if (!tooltipRef.current) { return }
-      const newPlacement = getReplacement({
-        tooltip: tooltipRef.current,
-        keepInContainer,
-        placement,
-      })
-      setReplacement(newPlacement)
-      setReplaced(true)
-      return
-    }
-    setReplacement(placement)
-    setReplaced(false)
-  }, [
-    show,
-    keepInContainer,
     placement,
+    offset,
+    allowHover,
+    keepInContainer,
+    forwardedRef,
+    contentTestId,
   ])
 
   if (!children) {
@@ -223,9 +133,9 @@ function Tooltip(
       {...otherProps}
     >
       { children }
-      { show && ReactDOM.createPortal(TooltipComponent, getRootElement()) }
+      { show && TooltipComponent }
     </Container>
   )
 }
 
-export default forwardRef(Tooltip)
+export default React.memo(forwardRef(Tooltip))

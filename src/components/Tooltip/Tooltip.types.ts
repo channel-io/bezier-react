@@ -1,5 +1,14 @@
+/* External dependencies */
+import { Ref } from 'react'
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, ContentProps, DisableProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import {
+  BezierComponentProps,
+  RenderConfigProps,
+  ChildrenProps,
+  ContentProps,
+  DisableProps,
+  AdditionalStylableProps,
+} from 'Types/ComponentProps'
 
 interface TooltipOptions {
   placement?: TooltipPosition
@@ -17,7 +26,25 @@ export default interface TooltipProps extends
   DisableProps,
   AdditionalStylableProps<'content'>,
   React.HTMLAttributes<HTMLDivElement>,
-  TooltipOptions {}
+  TooltipOptions {
+  contentTestId?: string
+  lazy?: boolean
+}
+
+export interface TooltipContentProps extends Pick<
+TooltipOptions,
+'keepInContainer' |
+'placement' |
+'offset' |
+'allowHover'
+>,
+  RenderConfigProps,
+  ContentProps,
+  AdditionalStylableProps<'content'>,
+  DisableProps {
+  tooltipContainer: HTMLDivElement | null
+  forwardedRef: Ref<any>
+}
 
 export interface GetTooltipStyle extends Required<Pick<TooltipOptions, 'placement' | 'offset' | 'allowHover'>> {
   tooltipContainer: HTMLDivElement
