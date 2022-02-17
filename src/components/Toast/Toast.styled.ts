@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ellipsis, Foundation, styled, Transition } from 'Foundation'
+import { ellipsis, Foundation, LineHeightAbsoluteNumber, styled, Transition } from 'Foundation'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 
@@ -101,7 +101,7 @@ export const Content = styled.div<Pick<ToastElementProps, 'actionContent' | 'onC
 `
 
 export const EllipsisableContent = styled.div`
-  ${ellipsis(5, 18)};
+  ${ellipsis(5, LineHeightAbsoluteNumber.Lh18)};
 
   overflow: visible;
   word-break: break-word;
