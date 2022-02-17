@@ -48,9 +48,9 @@ export function ellipsis(line?: number, lineHeight?: number): ReturnType<typeof 
   /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
   return css`
       display: -webkit-box;
-      max-height: ${(line * lineHeight)}px;
+      max-height: ${(line * lineHeight)}rem;
       overflow: hidden;
-      line-height: ${lineHeight}px;
+      line-height: ${lineHeight}rem;
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: ${line};

@@ -50,9 +50,9 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
 
 .c3 {
   display: -webkit-box;
-  max-height: 36px;
+  max-height: 36rem;
   overflow: hidden;
-  line-height: 1.8px;
+  line-height: 1.8rem;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 20;
@@ -140,9 +140,9 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
 
 .c3 {
   display: -webkit-box;
-  max-height: 36px;
+  max-height: 36rem;
   overflow: hidden;
-  line-height: 1.8px;
+  line-height: 1.8rem;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 20;
