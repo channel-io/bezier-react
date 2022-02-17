@@ -44,9 +44,9 @@ describe('Mixin test >', () => {
       const renderedComponent = getByTestId(ELLIPSIS_TEST_ID)
       expect(renderedComponent).toHaveStyle(`
         display: -webkit-box;
-        max-height: 50px;
+        max-height: 50rem;
         overflow: hidden;
-        line-height: 10px;
+        line-height: 10rem;
         text-overflow: ellipsis;
       `)
     })
