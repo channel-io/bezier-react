@@ -17,8 +17,8 @@ export const Icon = styled.div<IconProps>`
   justify-content: center;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
-  
-  ${({ imageUrl, size }) => centeredBackgroundImage<EmojiSize>(imageUrl, size)}
+
+  ${({ size }) => centeredBackgroundImage<EmojiSize>(size)}
 
   ${({ interpolation }) => interpolation}
 `

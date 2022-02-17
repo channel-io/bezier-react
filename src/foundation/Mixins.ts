@@ -14,11 +14,11 @@ export const absoluteCenter = (otherTransforms?: SimpleInterpolation) => css`
 `
 
 // eslint-disable-next-line max-len
-export const centeredBackgroundImage = <Type extends number | string>(imageUrl: string, ...sizes: [Type] | [Type, Type]): ReturnType<typeof css> => {
+export const centeredBackgroundImage = <Type extends number | string>(...sizes: [Type] | [Type, Type]): ReturnType<typeof css> => {
   const [width, height = width] = sizes
 
   return css`
-    background-image: url(${imageUrl});
+    background-image: var(--background-image);
     background-position: center;
     background-repeat: no-repeat;
     background-size: ${width}px, ${height}px;
