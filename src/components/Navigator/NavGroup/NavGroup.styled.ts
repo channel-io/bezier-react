@@ -69,7 +69,7 @@ export const Item = styled.button<WrapperProps>`
 `
 
 export const ChildrenWrapper = styled.ul`
-  padding: 0;
+  padding: 0 0 8px;
   margin: 0;
 `
 
