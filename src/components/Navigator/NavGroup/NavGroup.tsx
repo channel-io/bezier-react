@@ -31,6 +31,7 @@ function NavGroup({
   leftIcon,
   leftIconColor = 'txt-black-dark',
   open,
+  active,
   onClick = noop,
 }: NavGroupProps) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
@@ -49,6 +50,7 @@ function NavGroup({
     <Wrapper role="none">
       <Item
         as={as}
+        active={active}
         open={open}
         style={style}
         className={className}
@@ -70,10 +72,7 @@ function NavGroup({
           ) }
         </LeftIconWrapper>
 
-        <ContentWrapper
-          typo={Typography.Size14}
-          color="txt-black-darkest"
-        >
+        <ContentWrapper typo={Typography.Size14}>
           { content }
         </ContentWrapper>
 

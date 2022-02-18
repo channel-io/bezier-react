@@ -43,6 +43,7 @@ export const Primary: Story<NavGroupProps> = Template.bind({})
 
 Primary.args = {
   open: true,
+  active: false,
   name: 'general',
   content: '일반 설정',
   leftIcon: 'settings',

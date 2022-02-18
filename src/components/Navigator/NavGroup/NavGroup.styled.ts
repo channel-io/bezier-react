@@ -5,6 +5,7 @@ import { Text } from 'Components/Text'
 
 interface WrapperProps extends InterpolationProps {
   open: boolean
+  active: boolean
 }
 
 export const LeftIconWrapper = styled.div`
@@ -46,6 +47,20 @@ const closedItemStyle = css`
   }
 `
 
+const activeItemStyle = css`
+  color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
+`
+
+const nonActiveItemStyle = css`
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+
+  &:hover,
+  &:focus-visible {
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+  }
+`
+
 export const Item = styled.button<WrapperProps>`
   display: flex;
   align-items: center;
@@ -58,11 +73,7 @@ export const Item = styled.button<WrapperProps>`
   outline: 0;
   ${({ foundation }) => foundation?.rounding?.round6}
 
-  &:hover,
-  &:focus-visible {
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
-  }
-
+  ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}
   ${({ open }) => (open ? null : closedItemStyle)}
 
   ${({ interpolation }) => interpolation}
