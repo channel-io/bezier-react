@@ -39,6 +39,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 }
 
 .c1 {
+  all: unset;
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -74,7 +75,17 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   transition-property: background-color,box-shadow;
 }
 
-.c1:hover {
+.c1:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.c1:not(:disabled):focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  background-color: #F7F7F8;
+}
+
+.c1:not(:disabled):hover {
   background-color: #F7F7F8;
 }
 
@@ -100,7 +111,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   class="c0"
   data-testid="bezier-react-select-container"
 >
-  <div
+  <button
     class="c1"
     data-testid="bezier-react-select-trigger"
   >
@@ -137,7 +148,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-  </div>
+  </button>
 </div>
 `;
 
@@ -180,6 +191,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
 }
 
 .c1 {
+  all: unset;
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -215,7 +227,17 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
   transition-property: background-color,box-shadow;
 }
 
-.c1:hover {
+.c1:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.c1:not(:disabled):focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  background-color: #F7F7F8;
+}
+
+.c1:not(:disabled):hover {
   background-color: #F7F7F8;
 }
 
@@ -241,7 +263,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
   class="c0"
   data-testid="bezier-react-select-container"
 >
-  <div
+  <button
     class="c1"
     data-testid="bezier-react-select-trigger"
   >
@@ -281,6 +303,6 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-  </div>
+  </button>
 </div>
 `;

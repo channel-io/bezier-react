@@ -239,15 +239,6 @@ describe('Select Test >', () => {
       expect(() => getByTestId(SELECT_DROPDOWN_TEST_ID)).toThrow() // element should not exist
     })
 
-    it('should not update style when hovered', () => {
-      const { getByTestId } = renderSelect({ readOnly: true })
-      const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
-
-      fireEvent.mouseOver(trigger)
-
-      expect(trigger).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
-    })
-
     it('should have chevron with txt-black-dark color', () => {
       const { getByTestId } = renderSelect({ readOnly: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)

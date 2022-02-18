@@ -137,10 +137,10 @@ forwardedRef: Ref<SelectRef>,
         as={as}
         ref={triggerRef}
         size={size}
-        focus={isDropdownOpened && !disabled}
-        error={hasError}
+        hasError={hasError}
         disabled={disabled}
         readOnly={readOnly}
+        active={isDropdownOpened}
         onClick={handleClickTrigger}
       >
         <Styled.MainContentWrapper>
