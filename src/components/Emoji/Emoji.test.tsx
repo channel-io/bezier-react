@@ -10,7 +10,7 @@ import { EmojiSize } from './Emoji.types'
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/a.png'
 
 describe('Emoji Test >', () => {
-  const defaultProps: EmojiProps = { imageUrl: MOCK_EMOJI_URL }
+  const defaultProps: EmojiProps = { imageUrl: MOCK_EMOJI_URL, name: 'a' }
 
   const renderComponent = (props?: Partial<EmojiProps>) => render(
     <Emoji {...defaultProps} {...props} />,
@@ -39,7 +39,7 @@ describe('Emoji Test >', () => {
     const { getByTestId } = renderComponent()
     const emoji = getByTestId(EMOJI_TEST_ID)
 
-    expect(emoji).toHaveStyle(`background-image: url(${MOCK_EMOJI_URL})`)
+    expect(emoji).toHaveStyle('background-image: var(--background-image)')
   })
 
   it('should render emoji icon with size prop - size16', () => {

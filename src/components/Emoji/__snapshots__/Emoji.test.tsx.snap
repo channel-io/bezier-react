@@ -21,7 +21,7 @@ exports[`Emoji Test > snapshot 1`] = `
   justify-content: center;
   width: 24px;
   height: 24px;
-  background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);
+  background-image: var(--background-image);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 24px,24px;
@@ -29,6 +29,7 @@ exports[`Emoji Test > snapshot 1`] = `
 }
 
 <div
+  aria-label="a"
   class="c0"
   data-testid="bezier-react-emoji"
   role="img"

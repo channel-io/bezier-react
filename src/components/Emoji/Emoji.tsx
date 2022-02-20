@@ -4,7 +4,8 @@ import { noop } from 'lodash'
 
 /* Internal dependencies */
 import { backgroundImageVariable } from 'Foundation'
-import EmojiProps, { EmojiSize } from './Emoji.types'
+import type EmojiProps from './Emoji.types'
+import { EmojiSize } from './Emoji.types'
 import { Icon } from './Emoji.styled'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
@@ -14,6 +15,7 @@ function Emoji({
   style,
   imageUrl,
   className,
+  name,
   interpolation,
   size = EmojiSize.Size24,
   testId = EMOJI_TEST_ID,
@@ -32,6 +34,7 @@ function Emoji({
       as={as}
       data-testid={testId}
       role="img"
+      aria-label={name}
       style={mergedStyle}
       size={size}
       className={className}
