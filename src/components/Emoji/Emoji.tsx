@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { useMemo, forwardRef } from 'react'
 import { noop } from 'lodash'
 
 /* Internal dependencies */
@@ -10,17 +10,20 @@ import { Icon } from './Emoji.styled'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
-function Emoji({
-  as,
-  style,
-  imageUrl,
-  className,
-  name,
-  interpolation,
-  size = EmojiSize.Size24,
-  testId = EMOJI_TEST_ID,
-  onClick = noop,
-}: EmojiProps) {
+function Emoji(
+  {
+    as,
+    style,
+    imageUrl,
+    className,
+    name,
+    interpolation,
+    size = EmojiSize.Size24,
+    testId = EMOJI_TEST_ID,
+    onClick = noop,
+  }: EmojiProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const mergedStyle = useMemo(() => ({
     ...backgroundImageVariable({ imageUrl }),
     ...style,
@@ -32,6 +35,7 @@ function Emoji({
   return (
     <Icon
       as={as}
+      ref={forwardedRef}
       data-testid={testId}
       role="img"
       aria-label={name}
@@ -45,4 +49,4 @@ function Emoji({
   )
 }
 
-export default Emoji
+export default forwardRef(Emoji)
