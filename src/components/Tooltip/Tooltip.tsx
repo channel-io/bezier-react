@@ -38,7 +38,7 @@ function Tooltip(
   const tooltipContainerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<ReturnType<Window['setTimeout']>>()
 
-  useEffect(() => {
+  useEffect(function hideTooltipContentWhenDisabled() {
     if (disabled) {
       setShow(false)
     }
