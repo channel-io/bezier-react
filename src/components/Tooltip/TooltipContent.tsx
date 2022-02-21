@@ -25,12 +25,12 @@ function getNewLineComponent(strContent: string) {
       }
 
       return (
-        <>
+        <React.Fragment key={str}>
           <br />
-          <Text key={str} typo={Typography.Size14}>
+          <Text typo={Typography.Size14}>
             { str }
           </Text>
-        </>
+        </React.Fragment>
       )
     })
   )
