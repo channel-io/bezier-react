@@ -17,6 +17,8 @@ interface TooltipOptions {
   allowHover?: boolean
   delayShow?: number
   delayHide?: number
+  contentTestId?: string
+  lazy?: boolean
 }
 
 export default interface TooltipProps extends
@@ -27,8 +29,6 @@ export default interface TooltipProps extends
   AdditionalStylableProps<'content'>,
   React.HTMLAttributes<HTMLDivElement>,
   TooltipOptions {
-  contentTestId?: string
-  lazy?: boolean
 }
 
 export interface TooltipContentProps extends Pick<
@@ -43,7 +43,7 @@ TooltipOptions,
   AdditionalStylableProps<'content'>,
   DisableProps {
   tooltipContainer: HTMLDivElement | null
-  forwardedRef: Ref<any>
+  forwardedRef: Ref<HTMLDivElement>
 }
 
 export interface GetTooltipStyle extends Required<Pick<TooltipOptions, 'placement' | 'offset' | 'allowHover'>> {
