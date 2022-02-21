@@ -42,50 +42,48 @@ describe('Tooltip test >', () => {
   )
 
   it('Tooltip with default props', () => {
-    act(() => {
-      const { getByTestId } = renderTooltip()
-      const rendered = getByTestId(ROOT_TESTID)
+    const { getByTestId } = renderTooltip()
+    const rendered = getByTestId(ROOT_TESTID)
 
+    act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
 
       jest.runAllTimers()
-
-      expect(rendered).toMatchSnapshot()
     })
+
+    expect(rendered).toMatchSnapshot()
   })
 
   it('Tooltip with contentInterpolation prop', async () => {
-    act(() => {
-      const { getByTestId } = renderTooltip({
-        contentInterpolation: css`background-color: black;`,
-      })
-      const rendered = getByTestId(ROOT_TESTID)
+    const { getByTestId } = renderTooltip({
+      contentInterpolation: css`background-color: black;`,
+    })
+    const rendered = getByTestId(ROOT_TESTID)
 
+    act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
 
       jest.runAllTimers()
-
-      expect(rendered).toMatchSnapshot()
     })
+
+    expect(rendered).toMatchSnapshot()
   })
 
   it('TooltipContent not rendered at first', async () => {
-    act(() => {
-      const { container } = renderTooltip()
+    const { queryByTestId } = renderTooltip()
 
-      expect(container.querySelector(`[data-testid="${TOOLTIP_CONTENT_TEST_ID}"]`)).toBeNull()
-    })
+    expect(queryByTestId(TOOLTIP_CONTENT_TEST_ID)).toBeNull()
   })
 
   it('TooltipContent rendered after mouseover', async () => {
     act(() => {
-      const { container, getByTestId } = renderTooltip()
+      const { getByTestId, queryByTestId } = renderTooltip()
 
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
 
       jest.runAllTimers()
 
-      expect(container.querySelector(`[data-testid="${TOOLTIP_CONTENT_TEST_ID}"]`)).toBeVisible()
+      expect(queryByTestId(TOOLTIP_CONTENT_TEST_ID)).toBeVisible()
     })
   })
 })
