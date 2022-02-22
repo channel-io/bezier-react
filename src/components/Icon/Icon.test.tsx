@@ -4,7 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import Icon, { ICON_TEST_ID } from './Icon'
+import Icon, { ICON_TEST_ID } from './LegacyIcon'
 import IconProps from './Icon.types'
 
 describe('Icon test >', () => {
