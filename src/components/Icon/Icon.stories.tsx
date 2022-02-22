@@ -8,7 +8,8 @@ import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
 import LegacyIcon from './LegacyIcon'
-import IconProps, { IconSize } from './Icon.types'
+import { AllIcon } from './generated'
+import LegacyIconProps, { IconProps, IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),
@@ -36,7 +37,14 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const AllIcons = (args) => (
+export const Primary: Story<IconProps> = (args) => (<AllIcon {...args} />)
+
+Primary.args = {
+  size: IconSize.Normal,
+  color: 'bgtxt-olive-dark',
+}
+
+export const LegacyAllIcons = (args) => (
   <>
     { iconList.map((iconName) => (
       <IconInfo key={iconName}>
@@ -49,15 +57,16 @@ export const AllIcons = (args) => (
     )) }
   </>
 )
-AllIcons.args = {
+
+LegacyAllIcons.args = {
   size: IconSize.Normal,
   color: 'bgtxt-olive-dark',
 }
 
-const Template: Story<IconProps> = (args) => <LegacyIcon {...args} />
+const Template: Story<LegacyIconProps> = (args) => <LegacyIcon {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const LegacyPrimary = Template.bind({})
+LegacyPrimary.args = {
   name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
@@ -67,7 +76,7 @@ Primary.args = {
   marginLeft: 0,
 }
 
-export const WithText: Story<IconProps> = ({
+export const LegacyWithText: Story<LegacyIconProps> = ({
   color,
   name,
   ...otherIconProps
@@ -80,7 +89,8 @@ export const WithText: Story<IconProps> = ({
     Hello World!
   </Text>
 )
-WithText.args = {
+
+LegacyWithText.args = {
   name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
