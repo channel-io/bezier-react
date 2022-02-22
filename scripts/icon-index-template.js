@@ -16,6 +16,7 @@ function deleteIconSuffix(basename) {
 function defaultIndexTemplate(filePaths) {
   const importEntries = []
   const mappedFies = []
+  const exportEntries = []
 
   filePaths.forEach(filePath => {
     const basename = path.basename(filePath, path.extname(filePath))
@@ -27,6 +28,7 @@ function defaultIndexTemplate(filePaths) {
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     importEntries.push(`import ${exportName} from './${basename}'`)
     mappedFies.push(`  '${_.kebabCase(deleteIconSuffix(basename))}': ${exportName},`)
+    exportEntries.push(`  ${exportName},`)
   })
 
   const icons = `/* eslint-disable */
@@ -40,6 +42,10 @@ ${mappedFies.join('\n')}
 ${importEntries.join('\n')}
 ${icons}
 export type IconName = keyof typeof icons
+
+export {
+${exportEntries.join('\n')}
+} 
 
 /* eslint-enable */
 export default icons
