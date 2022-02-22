@@ -19,10 +19,10 @@ export const Container = styled.div<InterpolationProps>`
 `
 
 interface TriggerProps {
-  focus: boolean
-  error: boolean
+  hasError: boolean
   disabled: boolean
   readOnly: boolean
+  active: boolean
   size: SelectSize
 }
 
@@ -48,43 +48,52 @@ function selectSizeConverter(size: SelectSize) {
   }
 }
 
-export const Trigger = styled.div<TriggerProps>`
+const focusedStyle = css`
+  ${focusedInputWrapperStyle};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
+`
+
+export const Trigger = styled.button<TriggerProps>`
+  all: unset;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  cursor: ${({ disabled, readOnly }) => {
-    if (disabled) { return 'not-allowed' }
-    if (readOnly) { return 'initial' }
-    return 'pointer'
-  }};
+  cursor: pointer;
   user-select: none;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
 
   ${inputTextStyle}
 
-  ${inputWrapperStyle};
+  ${inputWrapperStyle}
 
-  ${({ size }) => selectSizeConverter(size)};
+  ${({ size }) => selectSizeConverter(size)}
 
-  ${({ foundation }) => foundation?.rounding?.round8};
+  ${({ foundation }) => foundation?.rounding?.round8}
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])}
 
-  ${({ focus }) => focus && css`
-    ${focusedInputWrapperStyle};
+  ${({ active }) => active && focusedStyle}
+
+  ${({ hasError }) => hasError && erroredInputWrapperStyle}
+
+  ${({ readOnly }) => readOnly && css`
+    cursor: initial;
     background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
-  `};
+  `}
 
-  ${({ error }) => error && erroredInputWrapperStyle};
-
-  ${({ disabled }) => disabled && css`
+  &:disabled {
+    cursor: not-allowed;
     opacity: ${DisabledOpacity};
-  `};
+  }
 
-  ${({ disabled, readOnly }) => !disabled && !readOnly && css`
-    &:hover {
+  &:not(:disabled):focus {
+    ${focusedStyle}
+  }
+
+  ${({ readOnly }) => !readOnly && css`
+    &:not(:disabled):hover {
       background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
     }
   `}

@@ -1,8 +1,13 @@
 /* Internal dependencies */
 import { css } from 'Foundation'
+import { FormComponentProps } from 'Components/Forms/Form.types'
 
 export const inputTextStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
+
+  ${(props: FormComponentProps) => props?.readOnly && css`
+    color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+  `}
 `
 
 export const inputPlaceholderStyle = css`
