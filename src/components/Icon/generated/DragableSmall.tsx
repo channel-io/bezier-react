@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgDragableSmall(props: React.SVGProps<SVGSVGElement>) {
+function SvgDragableSmall(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgDragableSmall(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M9 8a2 2 0 100-4 2 2 0 000 4zm0 6a2 2 0 100-4 2 2 0 000 4zm2 4a2 2 0 11-4 0 2 2 0 014 0zm4-10a2 2 0 100-4 2 2 0 000 4zm2 4a2 2 0 11-4 0 2 2 0 014 0zm-2 8a2 2 0 100-4 2 2 0 000 4z"
+        d="M9 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4-10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
       />
     </svg>
   )

@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgTrendingUp(props: React.SVGProps<SVGSVGElement>) {
+function SvgTrendingUp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgTrendingUp(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M11.634 6.152l-5.166 5.166a.4.4 0 00.283.683H10V17.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V12h3.25a.4.4 0 00.282-.682l-5.165-5.166a.518.518 0 00-.732 0z"
+        d="m11.634 6.152-5.166 5.166a.4.4 0 0 0 .283.683H10V17.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V12h3.25a.4.4 0 0 0 .282-.682l-5.165-5.166a.518.518 0 0 0-.732 0Z"
       />
     </svg>
   )

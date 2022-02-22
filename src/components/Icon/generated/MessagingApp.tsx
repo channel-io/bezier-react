@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgMessagingApp(props: React.SVGProps<SVGSVGElement>) {
+function SvgMessagingApp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgMessagingApp(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6 2a4 4 0 00-4 4v12a4 4 0 004 4h12a4 4 0 004-4V6a4 4 0 00-4-4H6zm13 9.527c0 3.314-3.134 6-7 6-.58 0-1.145-.06-1.684-.175-1.122.88-2.382 1.258-3.09 1.412-.212.046-.358-.19-.242-.375.282-.45.687-1.18.934-1.987C6.151 15.313 5 13.535 5 11.527c0-3.313 3.134-6 7-6s7 2.687 7 6z"
+        d="M6 2a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4H6Zm13 9.527c0 3.314-3.134 6-7 6-.58 0-1.145-.06-1.684-.175-1.122.88-2.382 1.258-3.09 1.412-.212.046-.358-.19-.242-.375.282-.45.687-1.18.934-1.987C6.151 15.313 5 13.535 5 11.527c0-3.313 3.134-6 7-6s7 2.687 7 6Z"
       />
     </svg>
   )

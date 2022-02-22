@@ -144,7 +144,7 @@ exports[`NavItem Test > Snapshot > active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 11-10 0 5 5 0 0110 0z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -176,7 +176,7 @@ exports[`NavItem Test > Snapshot > active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 11-10 0 5 5 0 0110 0z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -333,7 +333,7 @@ exports[`NavItem Test > Snapshot > not active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 11-10 0 5 5 0 0110 0z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -365,7 +365,7 @@ exports[`NavItem Test > Snapshot > not active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 11-10 0 5 5 0 0110 0z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
         fill="currentColor"
         fill-rule="evenodd"
       />

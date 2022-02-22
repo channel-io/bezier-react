@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgChevronLeftDouble(props: React.SVGProps<SVGSVGElement>) {
+function SvgChevronLeftDouble(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -12,11 +13,11 @@ function SvgChevronLeftDouble(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M17.24 19.65a1 1 0 101.52-1.3L13.316 12l5.442-6.35a1 1 0 10-1.518-1.3l-6 7a1 1 0 000 1.3l6 7z"
+        d="M17.24 19.65a1 1 0 1 0 1.52-1.3L13.316 12l5.442-6.35a1 1 0 1 0-1.518-1.3l-6 7a1 1 0 0 0 0 1.3l6 7Z"
       />
       <path
         fill="currentColor"
-        d="M9.24 19.65a1 1 0 101.52-1.3L5.316 12l5.442-6.35a1 1 0 10-1.518-1.3l-6 7a1 1 0 000 1.3l6 7z"
+        d="M9.24 19.65a1 1 0 1 0 1.52-1.3L5.316 12l5.442-6.35a1 1 0 1 0-1.518-1.3l-6 7a1 1 0 0 0 0 1.3l6 7Z"
       />
     </svg>
   )

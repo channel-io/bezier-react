@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgPlay(props: React.SVGProps<SVGSVGElement>) {
+function SvgPlay(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgPlay(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M20.146 11.39a.75.75 0 010 1.22l-11.96 8.543A.75.75 0 017 20.543V3.457a.75.75 0 011.186-.61l11.96 8.543z"
+        d="M20.146 11.39a.75.75 0 0 1 0 1.22l-11.96 8.543A.75.75 0 0 1 7 20.543V3.457a.75.75 0 0 1 1.186-.61l11.96 8.543Z"
       />
     </svg>
   )

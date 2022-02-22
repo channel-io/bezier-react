@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgSiren(props: React.SVGProps<SVGSVGElement>) {
+function SvgSiren(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgSiren(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M11.007 1v3h2V1h-2zM3.3 4.707l2 2 1.414-1.414-2-2L3.3 4.707zM12.007 5a7 7 0 00-7 7v8h-1v2h16v-2h-1v-8a7 7 0 00-7-7zm5.293.293l2-2 1.414 1.414-2 2L17.3 5.293zM9 10a1 1 0 00-1 1v6a1 1 0 102 0v-6a1 1 0 00-1-1z"
+        d="M11.007 1v3h2V1h-2ZM3.3 4.707l2 2 1.414-1.414-2-2L3.3 4.707ZM12.007 5a7 7 0 0 0-7 7v8h-1v2h16v-2h-1v-8a7 7 0 0 0-7-7Zm5.293.293 2-2 1.414 1.414-2 2L17.3 5.293ZM9 10a1 1 0 0 0-1 1v6a1 1 0 1 0 2 0v-6a1 1 0 0 0-1-1Z"
       />
     </svg>
   )

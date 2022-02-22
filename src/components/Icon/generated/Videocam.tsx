@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgVideocam(props: React.SVGProps<SVGSVGElement>) {
+function SvgVideocam(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgVideocam(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M13.998 6H4.002a2 2 0 00-2 2v8a2 2 0 002 2h9.996a2 2 0 002-2V8a2 2 0 00-2-2zm7.19 11.35l-4-3.2a.5.5 0 01-.187-.39v-3.52a.5.5 0 01.187-.39l4-3.2a.5.5 0 01.812.39v9.92a.5.5 0 01-.812.39z"
+        d="M13.998 6H4.002a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.996a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm7.19 11.35-4-3.2a.5.5 0 0 1-.187-.39v-3.52a.5.5 0 0 1 .187-.39l4-3.2a.5.5 0 0 1 .812.39v9.92a.5.5 0 0 1-.812.39Z"
       />
     </svg>
   )

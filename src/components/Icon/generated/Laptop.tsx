@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgLaptop(props: React.SVGProps<SVGSVGElement>) {
+function SvgLaptop(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgLaptop(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M4 17h16V7H4v10zm18 0V6.5c0-.827-.673-1.5-1.5-1.5h-17C2.673 5 2 5.673 2 6.5V17H0v2h24v-2h-2z"
+        d="M4 17h16V7H4v10Zm18 0V6.5c0-.827-.673-1.5-1.5-1.5h-17C2.673 5 2 5.673 2 6.5V17H0v2h24v-2h-2Z"
       />
     </svg>
   )

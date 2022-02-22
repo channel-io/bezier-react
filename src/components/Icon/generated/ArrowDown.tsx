@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgArrowDown(props: React.SVGProps<SVGSVGElement>) {
+function SvgArrowDown(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgArrowDown(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M2.6 12.892l1.37-1.457L11 18.04V3h2v15.067l7.057-6.633 1.37 1.458-8.386 7.881a1.5 1.5 0 01-2.055 0L2.6 12.892z"
+        d="m2.6 12.892 1.37-1.457L11 18.04V3h2v15.067l7.057-6.633 1.37 1.458-8.386 7.881a1.5 1.5 0 0 1-2.055 0L2.6 12.892Z"
       />
     </svg>
   )

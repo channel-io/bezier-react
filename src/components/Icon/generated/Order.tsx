@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgOrder(props: React.SVGProps<SVGSVGElement>) {
+function SvgOrder(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgOrder(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M2 6h20V4H2v2zm3 7h14v-2H5v2zm11 7H8v-2h8v2z"
+        d="M2 6h20V4H2v2Zm3 7h14v-2H5v2Zm11 7H8v-2h8v2Z"
       />
     </svg>
   )

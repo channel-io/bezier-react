@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgMenuFold(props: React.SVGProps<SVGSVGElement>) {
+function SvgMenuFold(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgMenuFold(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M3.016 6h18V4h-18v2zM3 13h9v-2H3v2zm9.016 7h-9v-2h9v2z"
+        d="M3.016 6h18V4h-18v2ZM3 13h9v-2H3v2Zm9.016 7h-9v-2h9v2Z"
       />
     </svg>
   )

@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgFullscreen(props: React.SVGProps<SVGSVGElement>) {
+function SvgFullscreen(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgFullscreen(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M19 10h2V4.5c0-.827-.673-1.5-1.5-1.5H14v2h5v5zm-5 11h5.5c.827 0 1.5-.673 1.5-1.5V14h-2v5h-5v2zm-4 0H4.5c-.827 0-1.5-.673-1.5-1.5V14h2v5h5v2zM3 10h2V5h5V3H4.5C3.673 3 3 3.673 3 4.5V10z"
+        d="M19 10h2V4.5c0-.827-.673-1.5-1.5-1.5H14v2h5v5Zm-5 11h5.5c.827 0 1.5-.673 1.5-1.5V14h-2v5h-5v2Zm-4 0H4.5c-.827 0-1.5-.673-1.5-1.5V14h2v5h5v2ZM3 10h2V5h5V3H4.5C3.673 3 3 3.673 3 4.5V10Z"
       />
     </svg>
   )

@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgBookmarkFilled(props: React.SVGProps<SVGSVGElement>) {
+function SvgBookmarkFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgBookmarkFilled(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18.072 2H6a1 1 0 00-1 1v18.715l7.036-5.875 7.036 5.875V3a1 1 0 00-1-1z"
+        d="M18.072 2H6a1 1 0 0 0-1 1v18.715l7.036-5.875 7.036 5.875V3a1 1 0 0 0-1-1Z"
       />
     </svg>
   )

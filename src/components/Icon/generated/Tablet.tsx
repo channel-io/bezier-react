@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgTablet(props: React.SVGProps<SVGSVGElement>) {
+function SvgTablet(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -12,11 +13,11 @@ function SvgTablet(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M7 2a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2v-8l-2 2v5H7V5h12V4a2 2 0 00-2-2H7z"
+        d="M7 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8l-2 2v5H7V5h12V4a2 2 0 0 0-2-2H7Z"
       />
       <path
         fill="currentColor"
-        d="M10.412 17H9v-1.413l7.475-7.475 1.413 1.412L10.412 17zM17.182 7.405l1.412 1.413 1.414-1.413a1 1 0 00-1.414-1.413l-1.412 1.413z"
+        d="M10.412 17H9v-1.413l7.475-7.475 1.413 1.412L10.412 17ZM17.182 7.405l1.412 1.413 1.414-1.413a1 1 0 0 0-1.414-1.413l-1.412 1.413Z"
       />
     </svg>
   )

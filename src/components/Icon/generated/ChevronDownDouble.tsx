@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgChevronDownDouble(props: React.SVGProps<SVGSVGElement>) {
+function SvgChevronDownDouble(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -12,11 +13,11 @@ function SvgChevronDownDouble(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M19.65 6.76a1 1 0 10-1.3-1.52L12 10.684 5.65 5.241a1 1 0 10-1.3 1.518l7 6a1 1 0 001.3 0l7-6z"
+        d="M19.65 6.76a1 1 0 1 0-1.3-1.52L12 10.684 5.65 5.241a1 1 0 1 0-1.3 1.518l7 6a1 1 0 0 0 1.3 0l7-6Z"
       />
       <path
         fill="currentColor"
-        d="M19.65 14.76a1 1 0 10-1.3-1.52L12 18.684l-6.35-5.442a1 1 0 00-1.3 1.518l7 6a1 1 0 001.3 0l7-6z"
+        d="M19.65 14.76a1 1 0 1 0-1.3-1.52L12 18.684l-6.35-5.442a1 1 0 0 0-1.3 1.518l7 6a1 1 0 0 0 1.3 0l7-6Z"
       />
     </svg>
   )

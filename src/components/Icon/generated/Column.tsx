@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgColumn(props: React.SVGProps<SVGSVGElement>) {
+function SvgColumn(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgColumn(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M14 6h-4v12h4V6zm2 0v12h3a1 1 0 001-1V7a1 1 0 00-1-1h-3zM5 6h3v12H5a1 1 0 01-1-1V7a1 1 0 011-1zm0-2a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3H5z"
+        d="M14 6h-4v12h4V6Zm2 0v12h3a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-3ZM5 6h3v12H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm0-2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H5Z"
       />
     </svg>
   )

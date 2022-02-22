@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgTriangleUpdown(props: React.SVGProps<SVGSVGElement>) {
+function SvgTriangleUpdown(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -12,7 +13,7 @@ function SvgTriangleUpdown(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M12.378 4.436a.5.5 0 00-.756 0l-4.46 5.15a.25.25 0 00.19.414h9.297a.25.25 0 00.189-.414l-4.46-5.15zM12.378 19.564a.5.5 0 01-.756 0l-4.46-5.15a.25.25 0 01.19-.414h9.297a.25.25 0 01.189.414l-4.46 5.15z"
+        d="M12.378 4.436a.5.5 0 0 0-.756 0l-4.46 5.15a.25.25 0 0 0 .19.414h9.297a.25.25 0 0 0 .189-.414l-4.46-5.15ZM12.378 19.564a.5.5 0 0 1-.756 0l-4.46-5.15a.25.25 0 0 1 .19-.414h9.297a.25.25 0 0 1 .189.414l-4.46 5.15Z"
       />
     </svg>
   )

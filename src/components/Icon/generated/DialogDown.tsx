@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgDialogDown(props: React.SVGProps<SVGSVGElement>) {
+function SvgDialogDown(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,11 +15,11 @@ function SvgDialogDown(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18 18a1 1 0 001-1V5a1 1 0 112 0v12a3 3 0 01-3 3H6a3 3 0 01-3-3V5a1 1 0 112 0v12a1 1 0 001 1h12z"
+        d="M18 18a1 1 0 0 0 1-1V5a1 1 0 1 1 2 0v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V5a1 1 0 1 1 2 0v12a1 1 0 0 0 1 1h12Z"
       />
       <path
         fill="currentColor"
-        d="M18 16a1 1 0 01-1 1H7a1 1 0 01-1-1v-4a1 1 0 011-1h10a1 1 0 011 1v4z"
+        d="M18 16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v4Z"
       />
     </svg>
   )

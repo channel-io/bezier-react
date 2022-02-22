@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgWindowsMinimize(props: React.SVGProps<SVGSVGElement>) {
+function SvgWindowsMinimize(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"

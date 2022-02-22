@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgArrowTurnLeftUp(props: React.SVGProps<SVGSVGElement>) {
+function SvgArrowTurnLeftUp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgArrowTurnLeftUp(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6.793 14.207a1 1 0 001.414-1.414L5.414 10H14a5 5 0 015 5v4a1 1 0 102 0v-4a7 7 0 00-7-7H5.414l2.793-2.793a1 1 0 00-1.414-1.414l-4.5 4.5a1 1 0 000 1.414l4.5 4.5z"
+        d="M6.793 14.207a1 1 0 0 0 1.414-1.414L5.414 10H14a5 5 0 0 1 5 5v4a1 1 0 1 0 2 0v-4a7 7 0 0 0-7-7H5.414l2.793-2.793a1 1 0 0 0-1.414-1.414l-4.5 4.5a1 1 0 0 0 0 1.414l4.5 4.5Z"
       />
     </svg>
   )

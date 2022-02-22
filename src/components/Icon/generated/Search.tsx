@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgSearch(props: React.SVGProps<SVGSVGElement>) {
+function SvgSearch(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgSearch(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18 10a8 8 0 10-3.094 6.32L21 22.414 22.414 21l-6.094-6.094A7.965 7.965 0 0018 10zm-2 0a6 6 0 11-12 0 6 6 0 0112 0z"
+        d="M18 10a8 8 0 1 0-3.094 6.32L21 22.414 22.414 21l-6.094-6.094A7.965 7.965 0 0 0 18 10Zm-2 0a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
       />
     </svg>
   )

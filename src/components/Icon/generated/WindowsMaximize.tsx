@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgWindowsMaximize(props: React.SVGProps<SVGSVGElement>) {
+function SvgWindowsMaximize(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgWindowsMaximize(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M16 8H8v8h8V8zM7 7v10h10V7H7z"
+        d="M16 8H8v8h8V8ZM7 7v10h10V7H7Z"
       />
     </svg>
   )

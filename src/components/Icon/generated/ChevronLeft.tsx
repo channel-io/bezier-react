@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgChevronLeft(props: React.SVGProps<SVGSVGElement>) {
+function SvgChevronLeft(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgChevronLeft(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M15.207 19.707a1 1 0 01-1.414 0l-7-7a1 1 0 010-1.414l7-7a1 1 0 111.414 1.414L8.914 12l6.293 6.293a1 1 0 010 1.414z"
+        d="M15.207 19.707a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 1 1 1.414 1.414L8.914 12l6.293 6.293a1 1 0 0 1 0 1.414Z"
       />
     </svg>
   )

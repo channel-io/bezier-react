@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgTypography(props: React.SVGProps<SVGSVGElement>) {
+function SvgTypography(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgTypography(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M3 3v5h2V6a1 1 0 011-1h3a1 1 0 011 1v12a1 1 0 01-1 1H7v2h10v-2h-2a1 1 0 01-1-1V6a1 1 0 011-1h3a1 1 0 011 1v2h2V3H3z"
+        d="M3 3v5h2V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H7v2h10v-2h-2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2h2V3H3Z"
       />
     </svg>
   )

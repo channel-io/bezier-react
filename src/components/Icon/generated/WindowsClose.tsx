@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgWindowsClose(props: React.SVGProps<SVGSVGElement>) {
+function SvgWindowsClose(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgWindowsClose(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M7.404 6.697l-.707.707L11.293 12l-4.596 4.596.707.707L12 12.707l4.596 4.596.707-.707L12.707 12l4.596-4.596-.707-.707L12 11.293 7.404 6.697z"
+        d="m7.404 6.697-.707.707L11.293 12l-4.596 4.596.707.707L12 12.707l4.596 4.596.707-.707L12.707 12l4.596-4.596-.707-.707L12 11.293 7.404 6.697Z"
       />
     </svg>
   )

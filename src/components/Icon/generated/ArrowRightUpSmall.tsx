@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgArrowRightUpSmall(props: React.SVGProps<SVGSVGElement>) {
+function SvgArrowRightUpSmall(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgArrowRightUpSmall(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M14.59 8l-8.9 8.9 1.415 1.414 8.892-8.893v7.58h2V7.5a1.5 1.5 0 00-1.5-1.5h-9.5v2h7.593z"
+        d="m14.59 8-8.9 8.9 1.415 1.414 8.892-8.893v7.58h2V7.5a1.5 1.5 0 0 0-1.5-1.5h-9.5v2h7.593Z"
       />
     </svg>
   )

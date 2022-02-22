@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgSurvey(props: React.SVGProps<SVGSVGElement>) {
+function SvgSurvey(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgSurvey(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M8 3a1 1 0 011-1h6a1 1 0 011 1h1a3 3 0 013 3v13a3 3 0 01-3 3H7a3 3 0 01-3-3V6a3 3 0 013-3h1zm1 3a1 1 0 01-1-1H7a1 1 0 00-1 1v13a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1h-1a1 1 0 01-1 1H9zm-1 6h8v-2H8v2zm0 4h8v-2H8v2z"
+        d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h1a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h1Zm1 3a1 1 0 0 1-1-1H7a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-1a1 1 0 0 1-1 1H9Zm-1 6h8v-2H8v2Zm0 4h8v-2H8v2Z"
       />
     </svg>
   )

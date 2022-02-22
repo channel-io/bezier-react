@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgHeading(props: React.SVGProps<SVGSVGElement>) {
+function SvgHeading(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -10,7 +11,7 @@ function SvgHeading(props: React.SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path fill="currentColor" d="M5 3h3v7.5h8V3h3v18h-3v-7.5H8V21H5V3z" />
+      <path fill="currentColor" d="M5 3h3v7.5h8V3h3v18h-3v-7.5H8V21H5V3Z" />
     </svg>
   )
 }

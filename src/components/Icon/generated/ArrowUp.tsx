@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgArrowUp(props: React.SVGProps<SVGSVGElement>) {
+function SvgArrowUp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgArrowUp(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M2.6 11.108l1.37 1.457L11 5.96V21h2V5.933l7.057 6.632 1.37-1.457-8.386-7.881a1.5 1.5 0 00-2.055 0L2.6 11.108z"
+        d="m2.6 11.108 1.37 1.457L11 5.96V21h2V5.933l7.057 6.632 1.37-1.457-8.386-7.881a1.5 1.5 0 0 0-2.055 0L2.6 11.108Z"
       />
     </svg>
   )

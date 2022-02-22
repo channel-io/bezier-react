@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgSquaresFilled(props: React.SVGProps<SVGSVGElement>) {
+function SvgSquaresFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgSquaresFilled(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M8.5 16h12a.5.5 0 00.5-.5v-12a.5.5 0 00-.5-.5h-12a.5.5 0 00-.5.5v12a.5.5 0 00.5.5zm-5 5h13a.5.5 0 00.5-.5V18H6V7H3.5a.5.5 0 00-.5.5v13a.5.5 0 00.5.5z"
+        d="M8.5 16h12a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5h-12a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5Zm-5 5h13a.5.5 0 0 0 .5-.5V18H6V7H3.5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5Z"
       />
     </svg>
   )

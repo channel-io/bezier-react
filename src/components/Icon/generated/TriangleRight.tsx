@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgTriangleRight(props: React.SVGProps<SVGSVGElement>) {
+function SvgTriangleRight(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgTriangleRight(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M16.37 11.923l-6.735 5.612A.387.387 0 019 17.24V6.013c0-.327.382-.506.635-.298l6.735 5.614a.386.386 0 010 .594z"
+        d="m16.37 11.923-6.735 5.612A.387.387 0 0 1 9 17.24V6.013c0-.327.382-.506.635-.298l6.735 5.614a.386.386 0 0 1 0 .594Z"
       />
     </svg>
   )

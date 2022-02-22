@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgHyphenBold(props: React.SVGProps<SVGSVGElement>) {
+function SvgHyphenBold(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -12,7 +13,7 @@ function SvgHyphenBold(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M5 12a1.5 1.5 0 011.5-1.5h11a1.5 1.5 0 010 3h-11A1.5 1.5 0 015 12z"
+        d="M5 12a1.5 1.5 0 0 1 1.5-1.5h11a1.5 1.5 0 0 1 0 3h-11A1.5 1.5 0 0 1 5 12Z"
       />
     </svg>
   )

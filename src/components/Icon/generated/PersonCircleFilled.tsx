@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgPersonCircleFilled(props: React.SVGProps<SVGSVGElement>) {
+function SvgPersonCircleFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgPersonCircleFilled(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2a8 8 0 015.736 13.577c-.656-2.454-2.985-4.281-5.736-4.281s-5.08 1.827-5.736 4.281A8 8 0 0112 4zm0 8.302a2.551 2.551 0 100-5.103 2.551 2.551 0 000 5.103z"
+        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 2a8 8 0 0 1 5.736 13.577c-.656-2.454-2.985-4.281-5.736-4.281s-5.08 1.827-5.736 4.281A8 8 0 0 1 12 4Zm0 8.302a2.551 2.551 0 1 0 0-5.103 2.551 2.551 0 0 0 0 5.103Z"
       />
     </svg>
   )

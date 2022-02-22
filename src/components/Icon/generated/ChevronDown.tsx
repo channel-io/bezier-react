@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgChevronDown(props: React.SVGProps<SVGSVGElement>) {
+function SvgChevronDown(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgChevronDown(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M19.707 8.793a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 011.414-1.414L12 15.086l6.293-6.293a1 1 0 011.414 0z"
+        d="M19.707 8.793a1 1 0 0 1 0 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 1.414-1.414L12 15.086l6.293-6.293a1 1 0 0 1 1.414 0Z"
       />
     </svg>
   )

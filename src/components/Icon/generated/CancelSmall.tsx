@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgCancelSmall(props: React.SVGProps<SVGSVGElement>) {
+function SvgCancelSmall(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgCancelSmall(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.657 7.757l-1.414-1.414L12 10.586 7.758 6.343 6.344 7.757 10.586 12l-4.242 4.242 1.414 1.414L12 13.414l4.243 4.242 1.414-1.414L13.414 12l4.243-4.243z"
+        d="m17.657 7.757-1.414-1.414L12 10.586 7.758 6.343 6.344 7.757 10.586 12l-4.242 4.242 1.414 1.414L12 13.414l4.243 4.242 1.414-1.414L13.414 12l4.243-4.243Z"
       />
     </svg>
   )

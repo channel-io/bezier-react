@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgPersonAdd(props: React.SVGProps<SVGSVGElement>) {
+function SvgPersonAdd(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgPersonAdd(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.998 6V3h2v3h3v2h-3v3h-2V8h-3V6h3zm-3.384 2.6a3.6 3.6 0 11-7.2 0 3.6 3.6 0 017.2 0zM3.031 20.476a8 8 0 0115.966 0 .504.504 0 01-.506.524H3.537a.504.504 0 01-.506-.524z"
+        d="M17.998 6V3h2v3h3v2h-3v3h-2V8h-3V6h3Zm-3.384 2.6a3.6 3.6 0 1 1-7.2 0 3.6 3.6 0 0 1 7.2 0ZM3.031 20.476a8 8 0 0 1 15.966 0 .504.504 0 0 1-.506.524H3.537a.504.504 0 0 1-.506-.524Z"
       />
     </svg>
   )

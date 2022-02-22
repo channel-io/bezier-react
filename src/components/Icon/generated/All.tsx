@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgAll(props: React.SVGProps<SVGSVGElement>) {
+function SvgAll(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgAll(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M19.5 17a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H18V7.5a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h3zm-5 0a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H13V7.5a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h3zm-5 0a.5.5 0 00.5-.5V9a2 2 0 00-2-2H6a2 2 0 00-2 2v7.5a.5.5 0 00.5.5h1a.5.5 0 00.5-.5V14h2v2.5a.5.5 0 00.5.5h1zM4 5h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2zm2.5 4h1a.5.5 0 01.5.5V12H6V9.5a.5.5 0 01.5-.5z"
+        d="M19.5 17a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H18V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h3Zm-5 0a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H13V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h3Zm-5 0a.5.5 0 0 0 .5-.5V9a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V14h2v2.5a.5.5 0 0 0 .5.5h1ZM4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2.5 4h1a.5.5 0 0 1 .5.5V12H6V9.5a.5.5 0 0 1 .5-.5Z"
       />
     </svg>
   )

@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgPlusSmall(props: React.SVGProps<SVGSVGElement>) {
+function SvgPlusSmall(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgPlusSmall(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M12 5a1 1 0 00-1 1v5H6a1 1 0 100 2h5v5a1 1 0 102 0v-5h5a1 1 0 100-2h-5V6a1 1 0 00-1-1z"
+        d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1Z"
       />
     </svg>
   )

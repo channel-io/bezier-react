@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgPlus(props: React.SVGProps<SVGSVGElement>) {
+function SvgPlus(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgPlus(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M13 3h-2v8H3v2h8v8h2v-8h8v-2h-8V3z"
+        d="M13 3h-2v8H3v2h8v8h2v-8h8v-2h-8V3Z"
       />
     </svg>
   )

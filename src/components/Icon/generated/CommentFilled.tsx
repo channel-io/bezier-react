@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgCommentFilled(props: React.SVGProps<SVGSVGElement>) {
+function SvgCommentFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgCommentFilled(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M9 19h10.5a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0019.5 3h-15A1.5 1.5 0 003 4.5v17.365a1 1 0 001.64.768L9 19zM7 8h10v2H7V8zm10 4H7v2h10v-2z"
+        d="M9 19h10.5a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 19.5 3h-15A1.5 1.5 0 0 0 3 4.5v17.365a1 1 0 0 0 1.64.768L9 19ZM7 8h10v2H7V8Zm10 4H7v2h10v-2Z"
       />
     </svg>
   )

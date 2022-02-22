@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgBullet(props: React.SVGProps<SVGSVGElement>) {
+function SvgBullet(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgBullet(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M14 12a2 2 0 11-4 0 2 2 0 014 0z"
+        d="M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
       />
     </svg>
   )

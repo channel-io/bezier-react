@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgWindowsRestore(props: React.SVGProps<SVGSVGElement>) {
+function SvgWindowsRestore(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgWindowsRestore(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M16 8h-6v1h5v5h1V8zm-1 7v2H7V9h2V7h8v8h-2zm-7-5h6v6H8v-6z"
+        d="M16 8h-6v1h5v5h1V8Zm-1 7v2H7V9h2V7h8v8h-2Zm-7-5h6v6H8v-6Z"
       />
     </svg>
   )

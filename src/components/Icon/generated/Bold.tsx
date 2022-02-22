@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgBold(props: React.SVGProps<SVGSVGElement>) {
+function SvgBold(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgBold(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5 3h8.5a5.5 5.5 0 014.672 8.405A5.5 5.5 0 0114.5 21H5V3zm4 14v-3h5.5a1.5 1.5 0 010 3H9zM9 7v3h4.5a1.5 1.5 0 100-3H9z"
+        d="M5 3h8.5a5.5 5.5 0 0 1 4.672 8.405A5.5 5.5 0 0 1 14.5 21H5V3Zm4 14v-3h5.5a1.5 1.5 0 0 1 0 3H9ZM9 7v3h4.5a1.5 1.5 0 1 0 0-3H9Z"
       />
     </svg>
   )

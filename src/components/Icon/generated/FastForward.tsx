@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
+import { SVGProps } from 'react'
 
-function SvgFastForward(props: React.SVGProps<SVGSVGElement>) {
+function SvgFastForward(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -14,7 +15,7 @@ function SvgFastForward(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M12 13.034l-8.834 5.885A.75.75 0 012 18.294V5.707a.75.75 0 011.166-.625L12 10.967V5.706a.75.75 0 011.166-.625l9.448 6.295a.75.75 0 010 1.248l-9.448 6.295A.75.75 0 0112 18.294v-5.26z"
+        d="m12 13.034-8.834 5.885A.75.75 0 0 1 2 18.294V5.707a.75.75 0 0 1 1.166-.625L12 10.967V5.706a.75.75 0 0 1 1.166-.625l9.448 6.295a.75.75 0 0 1 0 1.248l-9.448 6.295A.75.75 0 0 1 12 18.294v-5.26Z"
       />
     </svg>
   )
