@@ -1,16 +1,16 @@
 const _ = require('lodash')
 const path = require('path')
 
-const ICON_POSTFIX = "Icon"
-const POSTFIX_REGEX = new RegExp(`(${ICON_POSTFIX})`, 'g')
-const POSTFIX_LENGTH = ICON_POSTFIX.length
+const ICON_SUFFIX = "Icon"
+const SUFFIX_REGEX = new RegExp(`(${ICON_SUFFIX})`, 'g')
+const SUFFIX_LENGTH = ICON_SUFFIX.length
 
 function hasValidFileName(basename) {
-  return basename.search(POSTFIX_REGEX) !== -1
+  return basename.search(SUFFIX_REGEX) !== -1
 }
 
-function deleteIconPostfix(basename) {
-  return basename.slice(0, basename.length - POSTFIX_LENGTH)
+function deleteIconSuffix(basename) {
+  return basename.slice(0, basename.length - SUFFIX_LENGTH)
 }
 
 function defaultIndexTemplate(filePaths) {
@@ -26,7 +26,7 @@ function defaultIndexTemplate(filePaths) {
 
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     importEntries.push(`import ${exportName} from './${basename}'`)
-    mappedFies.push(`  '${_.kebabCase(deleteIconPostfix(basename))}': ${exportName},`)
+    mappedFies.push(`  '${_.kebabCase(deleteIconSuffix(basename))}': ${exportName},`)
   })
 
   const icons = `/* eslint-disable */
