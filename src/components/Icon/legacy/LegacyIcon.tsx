@@ -2,8 +2,8 @@
 import React, { memo } from 'react'
 
 /* Internal dependencies */
-import type LegacyIconProps from './Icon.types'
-import icons from './generated'
+import icons from 'Components/Icon/generated'
+import type LegacyIconProps from './LegacyIcon.types'
 
 function LegacyIcon({
   name,

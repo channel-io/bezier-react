@@ -4,8 +4,8 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { BezierComponentProps } from 'Types/ComponentProps'
-import type { IconProps } from './Icon.types'
 import { IconSize } from './Icon.types'
+import type IconProps from './Icon.types'
 import Styled from './Icon.styled'
 
 export const ICON_TEST_ID = 'bezier-react-icon'

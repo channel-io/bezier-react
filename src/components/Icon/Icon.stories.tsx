@@ -7,9 +7,9 @@ import { Meta, Story } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
-import LegacyIcon from './LegacyIcon'
+import { LegacyIcon, LegacyIconProps } from './legacy'
 import { AllIcon } from './generated'
-import LegacyIconProps, { IconProps, IconSize } from './Icon.types'
+import IconProps, { IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),

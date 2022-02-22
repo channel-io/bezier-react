@@ -3,7 +3,6 @@ import React from 'react'
 
 /* Internal dependencies */
 import { BezierComponentProps, SizeProps, ColorProps } from 'Types/ComponentProps'
-import { IconName } from './generated'
 
 export enum IconSize {
   XL = 44,
@@ -26,16 +25,8 @@ interface IconOptions {
   onMouseDown?: MouseEventHandler
 }
 
-export interface IconProps extends
+export default interface IconProps extends
   Omit<BezierComponentProps, 'as'>,
   SizeProps<IconSize>,
   ColorProps,
   IconOptions {}
-
-interface LegacyIconOptions extends IconOptions {
-  name: IconName
-}
-
-export default interface LegacyIconProps extends
-  Omit<IconProps, 'as'>,
-  LegacyIconOptions {}

@@ -5,7 +5,7 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import Icon, { ICON_TEST_ID } from './Icon'
-import IconProps from './Icon.types'
+import { LegacyIconProps as IconProps } from './legacy'
 
 describe('Icon test >', () => {
   let props: IconProps
