@@ -76,14 +76,26 @@ describe('Tooltip test >', () => {
   })
 
   it('TooltipContent rendered after mouseover', async () => {
-    act(() => {
-      const { getByTestId, queryByTestId } = renderTooltip()
+    const { getByTestId, queryByTestId } = renderTooltip()
 
+    act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
 
       jest.runAllTimers()
-
-      expect(queryByTestId(TOOLTIP_CONTENT_TEST_ID)).toBeVisible()
     })
+
+    expect(queryByTestId(TOOLTIP_CONTENT_TEST_ID)).toBeVisible()
+  })
+
+  it('Tooltip with disabled prop not rendered even after mouseover', async () => {
+    const { getByTestId, queryByTestId } = renderTooltip({ disabled: true })
+
+    act(() => {
+      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
+
+      jest.runAllTimers()
+    })
+
+    expect(queryByTestId(TOOLTIP_CONTENT_TEST_ID)).toBeNull()
   })
 })
