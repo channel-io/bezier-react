@@ -7,12 +7,12 @@ import { Meta, Story } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
-import Icon from './LegacyIcon'
+import LegacyIcon from './LegacyIcon'
 import IconProps, { IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),
-  component: Icon,
+  component: LegacyIcon,
   argTypes: {
     size: {
       control: {
@@ -40,7 +40,7 @@ export const AllIcons = (args) => (
   <>
     { iconList.map((iconName) => (
       <IconInfo key={iconName}>
-        <Icon
+        <LegacyIcon
           name={iconName}
           {...args}
         />
@@ -54,7 +54,7 @@ AllIcons.args = {
   color: 'bgtxt-olive-dark',
 }
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />
+const Template: Story<IconProps> = (args) => <LegacyIcon {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
@@ -73,7 +73,7 @@ export const WithText: Story<IconProps> = ({
   ...otherIconProps
 }) => (
   <Text style={{ color }}>
-    <Icon
+    <LegacyIcon
       name={name}
       {...otherIconProps}
     />
