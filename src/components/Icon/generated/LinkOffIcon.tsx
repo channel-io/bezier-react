@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgLinkOffIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -21,4 +22,4 @@ function SvgLinkOffIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgLinkOffIcon
+export default createIcon(SvgLinkOffIcon)

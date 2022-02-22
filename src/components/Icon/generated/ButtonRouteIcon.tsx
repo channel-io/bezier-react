@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgButtonRouteIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -19,4 +20,4 @@ function SvgButtonRouteIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgButtonRouteIcon
+export default createIcon(SvgButtonRouteIcon)

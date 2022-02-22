@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgHourglass2Icon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -21,4 +22,4 @@ function SvgHourglass2Icon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgHourglass2Icon
+export default createIcon(SvgHourglass2Icon)

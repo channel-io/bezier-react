@@ -2,26 +2,18 @@
 import React, { memo } from 'react'
 
 /* Internal dependencies */
-import Icon from './Icon'
-import LegacyIconProps from './Icon.types'
+import type LegacyIconProps from './Icon.types'
 import icons from './generated'
-
-export const ICON_TEST_ID = 'bezier-react-icon'
 
 function LegacyIcon({
   name,
-  testId = ICON_TEST_ID,
   ...rest
 }: LegacyIconProps) {
-  if (!icons[name]) { return null }
+  const GeneratedIcon = icons[name]
 
-  return (
-    <Icon
-      data-testid={testId}
-      as={icons[name]}
-      {...rest}
-    />
-  )
+  if (!GeneratedIcon) { return null }
+
+  return (<GeneratedIcon {...rest} />)
 }
 
 export default memo(LegacyIcon)

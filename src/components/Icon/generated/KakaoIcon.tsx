@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgKakaoIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -35,4 +36,4 @@ function SvgKakaoIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgKakaoIcon
+export default createIcon(SvgKakaoIcon)

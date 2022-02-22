@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgChannelBtnIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -27,4 +28,4 @@ function SvgChannelBtnIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgChannelBtnIcon
+export default createIcon(SvgChannelBtnIcon)

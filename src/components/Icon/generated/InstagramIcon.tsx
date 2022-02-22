@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgInstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -31,4 +32,4 @@ function SvgInstagramIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgInstagramIcon
+export default createIcon(SvgInstagramIcon)

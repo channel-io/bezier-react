@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgHyphenIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -16,4 +17,4 @@ function SvgHyphenIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgHyphenIcon
+export default createIcon(SvgHyphenIcon)

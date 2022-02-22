@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgHandWaveIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -29,4 +30,4 @@ function SvgHandWaveIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgHandWaveIcon
+export default createIcon(SvgHandWaveIcon)

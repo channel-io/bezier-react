@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgBaseballIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -21,4 +22,4 @@ function SvgBaseballIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgBaseballIcon
+export default createIcon(SvgBaseballIcon)

@@ -1,6 +1,7 @@
 function iconTemplate({ imports, componentName, props, jsx }, { tpl }) {
   return tpl`
   ${imports}
+  import createIcon from 'Components/Icon/createIcon'
 
   function ${componentName}(${props}) {
     return (
@@ -8,7 +9,7 @@ function iconTemplate({ imports, componentName, props, jsx }, { tpl }) {
     )
   }
   
-  export default ${componentName}
+  export default createIcon(${componentName})
 `
 }
 

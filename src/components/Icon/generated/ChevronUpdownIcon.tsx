@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgChevronUpdownIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -19,4 +20,4 @@ function SvgChevronUpdownIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgChevronUpdownIcon
+export default createIcon(SvgChevronUpdownIcon)

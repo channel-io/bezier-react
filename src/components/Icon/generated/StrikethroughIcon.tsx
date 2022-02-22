@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgStrikethroughIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -19,4 +20,4 @@ function SvgStrikethroughIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgStrikethroughIcon
+export default createIcon(SvgStrikethroughIcon)

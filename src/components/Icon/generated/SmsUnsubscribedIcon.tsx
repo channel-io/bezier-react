@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgSmsUnsubscribedIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -25,4 +26,4 @@ function SvgSmsUnsubscribedIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgSmsUnsubscribedIcon
+export default createIcon(SvgSmsUnsubscribedIcon)

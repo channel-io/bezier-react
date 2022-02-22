@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgCallPullIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -21,4 +22,4 @@ function SvgCallPullIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgCallPullIcon
+export default createIcon(SvgCallPullIcon)

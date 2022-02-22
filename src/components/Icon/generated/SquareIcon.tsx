@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
+import createIcon from 'Components/Icon/createIcon'
 
 function SvgSquareIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -16,4 +17,4 @@ function SvgSquareIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SvgSquareIcon
+export default createIcon(SvgSquareIcon)
