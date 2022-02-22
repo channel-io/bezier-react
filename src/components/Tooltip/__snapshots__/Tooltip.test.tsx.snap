@@ -74,7 +74,7 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
   >
     <div
       class="c2"
-      data-testid="bezier-react-tooltip"
+      data-testid="bezier-react-tooltip-content"
     >
       <div
         class="c3"
@@ -164,7 +164,7 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
   >
     <div
       class="c2"
-      data-testid="bezier-react-tooltip"
+      data-testid="bezier-react-tooltip-content"
     >
       <div
         class="c3"
