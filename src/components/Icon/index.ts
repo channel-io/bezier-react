@@ -2,9 +2,7 @@
 import { IconSize } from './Icon.types'
 import { isIconName } from './utils'
 import type IconProps from './Icon.types'
-/**
- * @depreacted
- */
+
 import { LegacyIcon } from './legacy'
 import type { LegacyIconProps } from './legacy'
 

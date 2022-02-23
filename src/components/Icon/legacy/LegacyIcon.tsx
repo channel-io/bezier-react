@@ -5,15 +5,22 @@ import React, { memo } from 'react'
 import icons from 'Components/Icon/generated'
 import type LegacyIconProps from './LegacyIcon.types'
 
-function LegacyIcon({
+/**
+ * @deprecated Please import and use individual icons.
+ * @example <caption>Migration Tip: Change the IconName to Pascal Case and attach the 'Icon' suffix.</caption>
+ * import { AllIcon } from '@channel.io/bezier-react'
+ * // truncated...
+ * return (<AllIcon color="bg-black-dark" />)
+ */
+const LegacyIcon = memo(({
   name,
   ...rest
-}: LegacyIconProps) {
+}: LegacyIconProps) => {
   const GeneratedIcon = icons[name]
 
   if (!GeneratedIcon) { return null }
 
   return (<GeneratedIcon {...rest} />)
-}
+})
 
-export default memo(LegacyIcon)
+export default LegacyIcon
