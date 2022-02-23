@@ -15,7 +15,7 @@ export default {
   title: getTitle(base),
   component: Emoji,
   argTypes: {
-    avatarUrl: {
+    imageUrl: {
       control: {
         type: 'text',
       },
@@ -55,5 +55,31 @@ const HoverTemplate: Story<EmojiProps> = (args) => (
 export const WithHover = HoverTemplate.bind({})
 
 WithHover.args = {
+  imageUrl: MOCK_EMOJI_URL,
+}
+
+const MultipleTemplate: Story<EmojiProps> = (args) => (
+  <>
+    <Wrapper>
+      <Emoji {...args} />
+    </Wrapper>
+    <Wrapper>
+      <Emoji {...args} />
+    </Wrapper>
+    <Wrapper>
+      <Emoji {...args} />
+    </Wrapper>
+    <Wrapper>
+      <Emoji {...args} />
+    </Wrapper>
+    <Wrapper>
+      <Emoji {...args} />
+    </Wrapper>
+  </>
+)
+
+export const WithMultipleEmoji = MultipleTemplate.bind({})
+
+WithMultipleEmoji.args = {
   imageUrl: MOCK_EMOJI_URL,
 }
