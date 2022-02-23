@@ -2,11 +2,10 @@ const _ = require('lodash')
 const path = require('path')
 
 const ICON_SUFFIX = "Icon"
-const SUFFIX_REGEX = new RegExp(`(${ICON_SUFFIX})`, 'g')
 const SUFFIX_LENGTH = ICON_SUFFIX.length
 
 function hasValidFileName(basename) {
-  return basename.search(SUFFIX_REGEX) !== -1
+  return basename.endsWith(ICON_SUFFIX)
 }
 
 function deleteIconSuffix(basename) {
