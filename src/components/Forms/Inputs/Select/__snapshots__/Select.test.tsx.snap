@@ -53,6 +53,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  width: 100%;
   padding: 8px 12px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -205,6 +206,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  width: 100%;
   padding: 8px 12px;
   cursor: pointer;
   -webkit-user-select: none;
