@@ -4,8 +4,8 @@ import React from 'react'
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import Icon, { ICON_TEST_ID } from './Icon'
-import IconProps from './Icon.types'
+import BaseIcon, { ICON_TEST_ID } from './BaseIcon'
+import { LegacyIconProps as IconProps } from './legacy'
 
 describe('Icon test >', () => {
   let props: IconProps
@@ -17,7 +17,7 @@ describe('Icon test >', () => {
   })
 
   const renderIcon = (optionProps?: IconProps) => render(
-    <Icon {...props} {...optionProps} />,
+    <BaseIcon {...props} {...optionProps} />,
   )
 
   it('Icon inherits fill color', () => {

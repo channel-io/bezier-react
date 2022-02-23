@@ -3,7 +3,6 @@ import React from 'react'
 
 /* Internal dependencies */
 import { BezierComponentProps, SizeProps, ColorProps } from 'Types/ComponentProps'
-import { IconName } from './generated'
 
 export enum IconSize {
   XL = 44,
@@ -18,7 +17,6 @@ export enum IconSize {
 type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
 
 interface IconOptions {
-  name: IconName
   marginTop?: number
   marginRight?: number
   marginBottom?: number
@@ -27,8 +25,11 @@ interface IconOptions {
   onMouseDown?: MouseEventHandler
 }
 
-export default interface IconProps extends
-  Omit<BezierComponentProps, 'as'>,
+export interface BaseIconProps extends
+  BezierComponentProps,
   SizeProps<IconSize>,
   ColorProps,
   IconOptions {}
+
+export default interface IconProps extends
+  Omit<BaseIconProps, 'as'> {}

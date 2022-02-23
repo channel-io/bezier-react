@@ -7,12 +7,13 @@ import { Meta, Story } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
-import Icon from './Icon'
+import { LegacyIcon, LegacyIconProps } from './legacy'
+import { AllIcon } from './generated'
 import IconProps, { IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),
-  component: Icon,
+  component: LegacyIcon,
   argTypes: {
     size: {
       control: {
@@ -36,11 +37,18 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const AllIcons = (args) => (
+export const Primary: Story<IconProps> = (args) => (<AllIcon {...args} />)
+
+Primary.args = {
+  size: IconSize.Normal,
+  color: 'bgtxt-olive-dark',
+}
+
+export const LegacyAllIcons = (args) => (
   <>
     { iconList.map((iconName) => (
       <IconInfo key={iconName}>
-        <Icon
+        <LegacyIcon
           name={iconName}
           {...args}
         />
@@ -49,15 +57,16 @@ export const AllIcons = (args) => (
     )) }
   </>
 )
-AllIcons.args = {
+
+LegacyAllIcons.args = {
   size: IconSize.Normal,
   color: 'bgtxt-olive-dark',
 }
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />
+const Template: Story<LegacyIconProps> = (args) => <LegacyIcon {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const LegacyPrimary = Template.bind({})
+LegacyPrimary.args = {
   name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
@@ -67,20 +76,21 @@ Primary.args = {
   marginLeft: 0,
 }
 
-export const WithText: Story<IconProps> = ({
+export const LegacyWithText: Story<LegacyIconProps> = ({
   color,
   name,
   ...otherIconProps
 }) => (
   <Text style={{ color }}>
-    <Icon
+    <LegacyIcon
       name={name}
       {...otherIconProps}
     />
     Hello World!
   </Text>
 )
-WithText.args = {
+
+LegacyWithText.args = {
   name: 'channel',
   color: 'bgtxt-olive-dark',
   size: IconSize.Normal,
