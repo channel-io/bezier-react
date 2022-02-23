@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Emoji Test > snapshot 1`] = `
+.c0 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-image: var(--background-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px,24px;
+  background-clip: content-box;
+}
+
+<div
+  aria-label="a"
+  class="c0"
+  data-testid="bezier-react-emoji"
+  role="img"
+  size="24"
+  style="--background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);"
+/>
+`;

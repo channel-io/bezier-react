@@ -2,11 +2,10 @@
 import React, { forwardRef, useMemo } from 'react'
 import { noop, isEmpty } from 'lodash-es'
 
-/* Internal dependencies */
-import { smoothCornersStyle } from 'Foundation'
+/* Internal denpendencies */
+import { backgroundImageVariable } from 'Foundation'
+import defaultAvatarUrl from 'Components/Avatars/assets/defaultAvatar.svg'
 import { Status, StatusSize } from 'Components/Status'
-// eslint-disable-next-line no-restricted-imports
-import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
@@ -84,7 +83,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     >
       <AvatarImageWrapper>
         <AvatarImage
-          style={smoothCornersStyle({ imageUrl: loadedAvatarUrl })}
+          style={backgroundImageVariable({ imageUrl: loadedAvatarUrl })}
           className={className}
           interpolation={interpolation}
           ref={forwardedRef}

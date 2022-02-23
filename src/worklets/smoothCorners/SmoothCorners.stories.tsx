@@ -3,7 +3,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, smoothCorners, smoothCornersStyle } from 'Foundation'
+import { styled, smoothCorners, backgroundImageVariable } from 'Foundation'
 
 export default {
   title: 'SmoothCorners',
@@ -79,7 +79,7 @@ const WithoutSmooth = styled.div<DivProps>`
 const Template: Story<DivProps> = (args) => (
   <>
     <WithSmooth
-      style={smoothCornersStyle({ imageUrl: IMAGE_URL })}
+      style={backgroundImageVariable({ imageUrl: IMAGE_URL })}
       {...args}
     />
     <WithoutSmooth {...args} />
