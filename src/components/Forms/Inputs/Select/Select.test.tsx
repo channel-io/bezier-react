@@ -48,6 +48,7 @@ describe('Select Test >', () => {
 
       expect(defaultSelectTrigger).toHaveStyle('display: flex;')
       expect(defaultSelectTrigger).toHaveStyle('align-items: center;')
+      expect(defaultSelectTrigger).toHaveStyle('width: 100%;')
       expect(defaultSelectTrigger).toHaveStyle('justify-content: space-between;')
       expect(defaultSelectTrigger).toHaveStyle('padding: 8px 12px;')
       expect(defaultSelectTrigger).toHaveStyle('cursor: pointer;')
@@ -244,6 +245,33 @@ describe('Select Test >', () => {
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
       expect(trigger.children.item(1)).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
+    })
+  })
+
+  describe('defaultFocus >', () => {
+    it('should not show dropdown when the first time If the defaultFocus is false >', () => {
+      const { queryByTestId } = renderSelect({ defaultFocus: false })
+      const dropdown = queryByTestId(SELECT_DROPDOWN_TEST_ID)
+
+      expect(dropdown).toBeNull()
+    })
+
+    it('should show dropdown when the first time If the defaultFocus is true >', () => {
+      const { getByTestId } = renderSelect({ defaultFocus: true })
+      const dropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
+
+      expect(dropdown).toBeVisible()
+    })
+
+    it('should disappear dropdown when the other elements clicked >', () => {
+      const { body } = document
+
+      const { getByTestId } = renderSelect({ defaultFocus: true })
+      const dropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
+
+      userEvent.click(body)
+
+      expect(dropdown).not.toBeVisible()
     })
   })
 
