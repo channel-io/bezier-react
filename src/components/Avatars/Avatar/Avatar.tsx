@@ -4,8 +4,9 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from 'Foundation'
-import defaultAvatarUrl from 'Components/Avatars/assets/defaultAvatar.svg'
 import { Status, StatusSize } from 'Components/Status'
+// eslint-disable-next-line no-restricted-imports
+import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
