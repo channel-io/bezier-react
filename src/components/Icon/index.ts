@@ -10,6 +10,7 @@ export * from './generated'
 
 export type {
   LegacyIconProps as IconProps,
+  // TODO: Change the name to IconProps
   IconProps as GeneratedIconProps,
 }
 

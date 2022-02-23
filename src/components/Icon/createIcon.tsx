@@ -2,12 +2,12 @@
 import React from 'react'
 
 /* Internal dependencies */
-import Icon from './Icon'
+import BaseIcon from './BaseIcon'
 import type IconProps from './Icon.types'
 
 function createIcon(iconFn: (props: React.SVGProps<SVGSVGElement>) => JSX.Element) {
   return ((props: IconProps) => (
-    <Icon
+    <BaseIcon
       as={iconFn}
       {...props}
     />

@@ -25,8 +25,11 @@ interface IconOptions {
   onMouseDown?: MouseEventHandler
 }
 
-export default interface IconProps extends
-  Omit<BezierComponentProps, 'as'>,
+export interface BaseIconProps extends
+  BezierComponentProps,
   SizeProps<IconSize>,
   ColorProps,
   IconOptions {}
+
+export default interface IconProps extends
+  Omit<BaseIconProps, 'as'> {}

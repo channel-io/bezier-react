@@ -7,5 +7,5 @@ interface LegacyIconOptions {
 }
 
 export default interface LegacyIconProps extends
-  Omit<IconProps, 'as'>,
+  IconProps,
   LegacyIconOptions {}
