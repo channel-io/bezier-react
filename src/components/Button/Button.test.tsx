@@ -106,7 +106,7 @@ describe('Button Test >', () => {
 
         expect(xsButton).toHaveStyle('min-width: 20px;')
         expect(xsButton).toHaveStyle('height: 20px;')
-        expect(xsButton).toHaveStyle('padding: 0 1px 0 1px;')
+        expect(xsButton).toHaveStyle('padding: 0 4px 0 4px;')
 
         // Typograpy.Size13
         expect(xsButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
