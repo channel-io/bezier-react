@@ -4,6 +4,8 @@ import { isEmpty } from 'lodash-es'
 /* Internal dependencies */
 import { styled, css, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
+import { gap } from 'Utils/styleUtils'
+import { Text } from 'Components/Text'
 import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 
 // NOTE: ButtonSize 에 따른 버튼의 min-width, height
@@ -30,7 +32,7 @@ function getSizeCSSFromButtonSize({
 }
 
 // NOTE: ButtonSize에 따른 버튼 내 텍스트의 margin
-export const TEXT_MARGIN_VALUE: Record<ButtonSize, number> = {
+const TEXT_PADDING_VALUE: Record<ButtonSize, number> = {
   [ButtonSize.XS]: 3,
   [ButtonSize.S]: 3,
   [ButtonSize.M]: 4,
@@ -38,82 +40,74 @@ export const TEXT_MARGIN_VALUE: Record<ButtonSize, number> = {
   [ButtonSize.XL]: 4,
 }
 
-// NOTE: 버튼의 padding 값을 결정하는 경우 4가지 중 위의 3가지 key
-// 1. 해당 사이드에 텍스트가 있을 경우 - textSide
-// 2. 해당 사이드에 텍스트가 아닌 컨텐트가 있을 경우 (ex. 아이콘) - contentSide
-// 3. styleVariant 가 Floating 인 경우 - floating
-// 4. 버튼에 텍스트 없이 컨텐트만 있을 경우 => buttonSize 에 관계없이 padding 이 0 이라 이 경우만 따로 분기 처리
-type ButtonPaddingVariantKey = 'textSide' | 'contentSide' | 'floating'
-
-function getButtonPaddingVariantKey(styleVariant: ButtonStyleVariant, hasContent: boolean): ButtonPaddingVariantKey {
-  if (styleVariant === ButtonStyleVariant.Floating) {
-    return 'floating'
-  }
-  if (hasContent) {
-    return 'contentSide'
-  }
-  return 'textSide'
+const BUTTON_CONTENT_GAP_VALUE: Record<ButtonSize, number> = {
+  [ButtonSize.XS]: 0,
+  [ButtonSize.S]: 0,
+  [ButtonSize.M]: 2,
+  [ButtonSize.L]: 2,
+  [ButtonSize.XL]: 2,
 }
+
+// NOTE: 버튼의 padding 값을 결정하는 경우 4가지 중 위의 3가지 key
+// 1. 기본
+// 2. styleVariant 가 Floating 인 경우 - floating
+// 3. 버튼에 텍스트 없이 컨텐트만 있을 경우 => buttonSize 에 관계없이 padding 이 0 이라 이 경우만 따로 분기 처리
+type ButtonPaddingVariantKey = 'default' | 'floating'
 
 // NOTE: textSide엔 Text에 자체 margin 이 있어 TEXT_MARGIN_VALUE[ButtonSize.XS] 을 원래 스펙에서 빼줌
 // NOTE: floating 은 padding 이 버튼의 size value 의 절반에서 Text margin 값 만큼 빼줘야 스펙과 일치
 const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVariantKey, number>> = {
   [ButtonSize.XS]: {
-    textSide: 4 - TEXT_MARGIN_VALUE[ButtonSize.XS],
-    contentSide: 2,
-    floating: (BUTTON_SIZE_VALUE[ButtonSize.XS] / 2) - TEXT_MARGIN_VALUE[ButtonSize.XS],
+    default: 4,
+    floating: (BUTTON_SIZE_VALUE[ButtonSize.XS] / 2) - TEXT_PADDING_VALUE[ButtonSize.XS],
   },
   [ButtonSize.S]: {
-    textSide: 7 - TEXT_MARGIN_VALUE[ButtonSize.S],
-    contentSide: 4,
-    floating: (BUTTON_SIZE_VALUE[ButtonSize.S] / 2) - TEXT_MARGIN_VALUE[ButtonSize.S],
+    default: 4,
+    floating: (BUTTON_SIZE_VALUE[ButtonSize.S] / 2) - TEXT_PADDING_VALUE[ButtonSize.S],
   },
   [ButtonSize.M]: {
-    textSide: 14 - TEXT_MARGIN_VALUE[ButtonSize.M],
-    contentSide: 10,
-    floating: (BUTTON_SIZE_VALUE[ButtonSize.M] / 2) - TEXT_MARGIN_VALUE[ButtonSize.M],
+    default: 10,
+    floating: (BUTTON_SIZE_VALUE[ButtonSize.M] / 2) - TEXT_PADDING_VALUE[ButtonSize.M],
   },
   [ButtonSize.L]: {
-    textSide: 14 - TEXT_MARGIN_VALUE[ButtonSize.L],
-    contentSide: 10,
-    floating: (BUTTON_SIZE_VALUE[ButtonSize.L] / 2) - TEXT_MARGIN_VALUE[ButtonSize.L],
+    default: 10,
+    floating: (BUTTON_SIZE_VALUE[ButtonSize.L] / 2) - TEXT_PADDING_VALUE[ButtonSize.L],
   },
   [ButtonSize.XL]: {
-    textSide: 18 - TEXT_MARGIN_VALUE[ButtonSize.XL],
-    contentSide: 14,
-    floating: (BUTTON_SIZE_VALUE[ButtonSize.XL] / 2) - TEXT_MARGIN_VALUE[ButtonSize.XL],
+    default: 14,
+    floating: (BUTTON_SIZE_VALUE[ButtonSize.XL] / 2) - TEXT_PADDING_VALUE[ButtonSize.XL],
   },
 }
 
 interface GetPaddingCSSFromSizeAndContentsArgs extends Pick<
-ButtonWrapperProps,
-'styleVariant' | 'text' | 'size' | 'hasLeftContent' | 'hasRightContent'
+ButtonProps,
+'styleVariant' | 'text' | 'size'
 > {}
 
 function getPaddingCSSFromSizeAndContents({
   styleVariant = ButtonStyleVariant.Primary,
   text,
   size = ButtonSize.M,
-  hasLeftContent,
-  hasRightContent,
 }: GetPaddingCSSFromSizeAndContentsArgs) {
   const hasOnlyContent = isEmpty(text)
 
-  // NOTE: text 가 없는 버튼의 경우 padding 이 0
+  // NOTE: text 가 없는 경우 버튼은 정사각형이기에 padding 이 0
   if (hasOnlyContent) {
     return css`
       padding: 0;
     `
   }
 
-  const paddingRightValue = BUTTON_HORIZONTAL_PADDING_VALUE[size][getButtonPaddingVariantKey(styleVariant, hasRightContent)]
-  const paddingLeftValue = BUTTON_HORIZONTAL_PADDING_VALUE[size][getButtonPaddingVariantKey(styleVariant, hasLeftContent)]
+  const paddingVariant = styleVariant !== ButtonStyleVariant.Floating ? 'default' : 'floating'
+
+  const paddingValue = BUTTON_HORIZONTAL_PADDING_VALUE[size][paddingVariant]
+
   return css`
     padding:
       0
-      ${paddingRightValue}px
+      ${paddingValue}px
       0
-      ${paddingLeftValue}px;
+      ${paddingValue}px;
   `
 }
 
@@ -351,6 +345,7 @@ function getCSSFromVariant({
 
 interface ButtonContentsProps {
   visible?: boolean
+  buttonSize: ButtonSize
 }
 
 export const ButtonContents = styled.div<ButtonContentsProps>`
@@ -358,6 +353,7 @@ export const ButtonContents = styled.div<ButtonContentsProps>`
   align-items: center;
   justify-content: center;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  ${({ buttonSize }) => gap(BUTTON_CONTENT_GAP_VALUE[buttonSize])}
 `
 
 export const ButtonLoader = styled.div`
@@ -371,12 +367,7 @@ export const ButtonLoader = styled.div`
   justify-content: center;
 `
 
-interface ButtonWrapperProps extends ButtonProps {
-  hasLeftContent: boolean
-  hasRightContent: boolean
-}
-
-export const ButtonWrapper = styled.button<ButtonWrapperProps>`
+export const ButtonWrapper = styled.button<ButtonProps>`
   position: relative;
   box-sizing: border-box;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -391,4 +382,12 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${getCSSFromVariant}
 
   ${({ interpolation }) => interpolation}
+`
+
+interface ContentTextProps {
+  buttonSize: ButtonSize
+}
+
+export const ContentText = styled(Text)<ContentTextProps>`
+  padding: 0 ${({ buttonSize }) => TEXT_PADDING_VALUE[buttonSize]}px;
 `

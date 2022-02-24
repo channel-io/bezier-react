@@ -5,7 +5,6 @@ import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
-import { Text } from 'Components/Text'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'
@@ -107,19 +106,15 @@ function Button(
 ) {
   const [isHovered, setIsHovered] = useState(false)
 
-  // TODO(@ed): Text에 Padding 속성을 열어주고, M 이상인 경우 상하 1px 패딩 추가
-  const textMargin = Styled.TEXT_MARGIN_VALUE[size]
-
   const typography = useMemo(() => {
     switch (size) {
       case ButtonSize.XS:
       case ButtonSize.S:
         return Typography.Size13
-      case ButtonSize.L:
-        return Typography.Size15
       case ButtonSize.XL:
         return Typography.Size18
       case ButtonSize.M:
+      case ButtonSize.L:
       default:
         return Typography.Size14
     }
@@ -153,13 +148,12 @@ function Button(
 
   const iconSize = useMemo(() => {
     switch (size) {
-      case ButtonSize.S:
       case ButtonSize.XS:
+      case ButtonSize.S:
         return IconSize.XS
-      case ButtonSize.XL:
-        return IconSize.Normal
-      case ButtonSize.L:
       case ButtonSize.M:
+      case ButtonSize.L:
+      case ButtonSize.XL:
       default:
         return IconSize.S
     }
@@ -241,8 +235,6 @@ function Button(
       active={active}
       styleVariant={styleVariant}
       colorVariant={colorVariant}
-      hasLeftContent={!!leftContent}
-      hasRightContent={!!rightContent}
       text={text}
       data-testid={testId}
       onClick={handleClick}
@@ -250,20 +242,22 @@ function Button(
       onMouseLeave={handleMouseLeave}
       onBlur={onBlur}
     >
-      <Styled.ButtonContents visible={!loading}>
+      <Styled.ButtonContents
+        visible={!loading}
+        buttonSize={size}
+      >
         { renderSideContent(leftContent, false) }
 
         { text && (
-          <Text
+          <Styled.ContentText
             testId={BUTTON_TEXT_TEST_ID}
             typo={typography}
             bold
             color={overridedTextColor}
-            marginRight={textMargin}
-            marginLeft={textMargin}
+            buttonSize={size}
           >
             { text }
-          </Text>
+          </Styled.ContentText>
         ) }
 
         { renderSideContent(rightContent, true) }
