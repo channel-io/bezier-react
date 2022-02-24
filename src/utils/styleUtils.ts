@@ -15,7 +15,9 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
+import { css } from 'Foundation'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
+import { InjectedInterpolation } from 'Types/Foundation'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
@@ -81,3 +83,19 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
   return defaultValue
 }
 /* eslint-enable max-len */
+
+export function gap(spacing: number): InjectedInterpolation {
+  return css`
+    gap: ${spacing}px;
+
+    @supports not(gap: ${spacing}px) {
+      margin-top: ${-spacing}px;
+      margin-left: ${-spacing}px;
+
+      > * {
+        margin-top: ${spacing}px;
+        margin-left: ${spacing}px;
+      }
+    }
+  `
+}
