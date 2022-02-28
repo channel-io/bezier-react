@@ -59,6 +59,7 @@ export const Trigger = styled.button<TriggerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 8px 12px;
   cursor: pointer;
   user-select: none;

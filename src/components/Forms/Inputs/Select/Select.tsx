@@ -1,5 +1,14 @@
 /* External dependencies */
-import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useImperativeHandle } from 'react'
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  forwardRef,
+  Ref,
+  useImperativeHandle,
+  useEffect,
+} from 'react'
 import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -59,7 +68,7 @@ forwardedRef: Ref<SelectRef>,
   const containerRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
 
-  const [isDropdownOpened, setIsDropdownOpened] = useState(defaultFocus)
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const LeftComponent = useMemo(() => {
     if (isIconName(leftContent)) {
@@ -119,6 +128,16 @@ forwardedRef: Ref<SelectRef>,
     handleClickTrigger,
     handleHideDropdown,
     getDOMNode,
+  ])
+
+  useEffect(() => {
+    if (defaultFocus && !disabled && !readOnly) {
+      setIsDropdownOpened(true)
+    }
+  }, [
+    defaultFocus,
+    disabled,
+    readOnly,
   ])
 
   useImperativeHandle(forwardedRef, () => handle)
