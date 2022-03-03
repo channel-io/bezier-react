@@ -29,6 +29,32 @@ describe('Select Test >', () => {
 
   const renderSelect = (optionProps?: Partial<SelectProps>) => render(<Select {...props} {...optionProps} />)
 
+  describe('Event >', () => {
+    const renderFormWithSelect = (onSubmit: React.FormEventHandler) => render(
+      <form onSubmit={onSubmit}>
+        <Select {...props} />
+      </form>,
+    )
+
+    it('should fire click event when clicking the trigger button', () => {
+      const onClick = jest.fn()
+      const { getByTestId } = renderSelect({ onClickTrigger: onClick })
+      const rendered = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      fireEvent.click(rendered)
+      expect(onClick).toHaveBeenCalled()
+    })
+
+    it('should not fire submit event when clicking the trigger button', () => {
+      const onSubmit = jest.fn()
+      const { getByTestId } = renderFormWithSelect(onSubmit)
+      const rendered = getByTestId(SELECT_TRIGGER_TEST_ID)
+
+      fireEvent.click(rendered)
+      expect(onSubmit).not.toHaveBeenCalled()
+    })
+  })
+
   describe('Default Style >', () => {
     it('Snapshot >', () => {
       const { container } = renderSelect({ text: 'foo' })
