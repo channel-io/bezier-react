@@ -152,6 +152,7 @@ forwardedRef: Ref<SelectRef>,
       {...ownProps}
     >
       <Styled.Trigger
+        type="button"
         data-testid={triggerTestId}
         as={as}
         ref={triggerRef}

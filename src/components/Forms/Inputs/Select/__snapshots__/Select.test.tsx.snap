@@ -115,6 +115,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
   <button
     class="c1"
     data-testid="bezier-react-select-trigger"
+    type="button"
   >
     <div
       class="c2"
@@ -268,6 +269,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
   <button
     class="c1"
     data-testid="bezier-react-select-trigger"
+    type="button"
   >
     <div
       class="c2"
