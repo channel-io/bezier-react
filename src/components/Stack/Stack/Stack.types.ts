@@ -42,6 +42,10 @@ interface StackOptions {
    * `marginBefore` and `marginAfter` prop given to child `StackItem` component
    * overrides the default spacing.
    *
+   * @remarks
+   * `spacing` could be enumerated in later design, if bezier design system
+   * decides to define a guideline for linear layout.
+   *
    * @default 0
    */
   spacing?: number
