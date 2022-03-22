@@ -68,6 +68,7 @@ function FormControl({
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
+    labelPosition,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : (({ children: labelElement }) => (
