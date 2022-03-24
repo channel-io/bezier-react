@@ -3,6 +3,7 @@ import React, { useState, useCallback, useMemo } from 'react'
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
+import { Typography } from 'Foundation'
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
 import { TextFieldSize } from 'Components/Forms/Inputs/TextField'
@@ -65,10 +66,10 @@ function FormControl({
     setHasMultipleFields,
   ])
 
-  const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
+  const getLabelProps = useCallback<LabelPropsGetter>((ownProps) => ({
     id: labelId,
     htmlFor: fieldId,
-    labelPosition,
+    typo: labelPosition === 'left' ? Typography.Size14 : Typography.Size13,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : (({ children: labelElement }) => (

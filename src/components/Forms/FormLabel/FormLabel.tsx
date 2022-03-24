@@ -17,7 +17,6 @@ function FormLabel({
   help,
   as = 'label',
   bold = true,
-  typo,
   color = 'txt-black-darkest',
   children,
   ...rest
@@ -26,14 +25,11 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
   const contextValue = useFormControlContext()
 
-  const { Wrapper, labelPosition, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
+  const { Wrapper, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
     Wrapper: React.Fragment,
-    labelPosition: undefined,
+    typo: Typography.Size13,
     ...rest,
   }
-
-  const defaultTypo = labelPosition === 'left' ? Typography.Size14 : Typography.Size13
-  const labelTypo = typo ?? defaultTypo
 
   const LabelComponent = useMemo(() => (
     <Styled.Label
@@ -42,14 +38,14 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       testId={testId}
       forwardedAs={as}
       bold={bold}
-      typo={labelTypo}
+      typo={typo}
       color={color}
     >
       { children }
     </Styled.Label>
   ), [
     as,
-    labelTypo,
+    typo,
     bold,
     color,
     testId,

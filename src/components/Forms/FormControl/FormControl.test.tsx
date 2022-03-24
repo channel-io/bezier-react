@@ -4,7 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import { SingleFieldForm, MultipleFieldForm, MOCK_CONSTS } from './__mocks__/forms'
+import { SingleFieldForm, MultipleFieldForm, SingleFieldFormWithLabelFont, MOCK_CONSTS } from './__mocks__/forms'
 import FormControl, { FORM_CONTROL_TEST_ID } from './FormControl'
 import type FormControlProps from './FormControl.types'
 
@@ -95,6 +95,44 @@ describe('FormControl >', () => {
 
       expect(labelNode).toHaveAttribute('for', inputId)
       expect(labelNode.id).toBe(`${inputId}-label`)
+    })
+
+    it('The FormLabel component should have the correct style it depends on top label position', () => {
+      const { getByText } = renderComponent({
+        children: SingleFieldForm,
+      })
+
+      const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
+
+      expect(labelNode).toHaveStyle({
+        'font-size': '1.3rem',
+      })
+    })
+
+    it('The FormLabel component should have the correct style it depends on left label position', () => {
+      const { getByText } = renderComponent({
+        labelPosition: 'left',
+        children: SingleFieldForm,
+      })
+
+      const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
+
+      expect(labelNode).toHaveStyle({
+        'font-size': '1.4rem',
+      })
+    })
+
+    it('The FormLabel component should have the correct style with own typo props', () => {
+      const { getByText } = renderComponent({
+        labelPosition: 'left',
+        children: SingleFieldFormWithLabelFont,
+      })
+
+      const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
+
+      expect(labelNode).toHaveStyle({
+        'font-size': '1.8rem',
+      })
     })
 
     it('The Field(Input) component should have the correct attribute', () => {

@@ -2,10 +2,8 @@
 import type { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 
-type LabelPositionType = 'top' | 'left'
-
 interface FormControlOptions {
-  labelPosition?: LabelPositionType
+  labelPosition?: 'top' | 'left'
   leftLabelWrapperHeight?: number
 }
 
@@ -24,15 +22,11 @@ interface SetRenderedProps {
   setIsRendered: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-interface LabelProps {
-  labelPosition?: LabelPositionType
-}
-
 type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & FormControlContextCommonValue & ExtraReturnType
 
 export type GroupPropsGetter = PropsGetter<SetRenderedProps & FormControlAriaProps>
 
-export type LabelPropsGetter = PropsGetter<WrapperProps & LabelProps>
+export type LabelPropsGetter = PropsGetter<WrapperProps>
 
 export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
 
