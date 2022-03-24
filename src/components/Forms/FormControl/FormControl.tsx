@@ -66,7 +66,7 @@ function FormControl({
     setHasMultipleFields,
   ])
 
-  const getLabelProps = useCallback<LabelPropsGetter>((ownProps) => ({
+  const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
     typo: labelPosition === 'left' ? Typography.Size14 : Typography.Size13,
