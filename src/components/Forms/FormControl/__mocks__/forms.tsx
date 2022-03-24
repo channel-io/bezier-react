@@ -2,6 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
+import { Typography } from 'Foundation'
 import { FormControl } from 'Components/Forms/FormControl'
 import { FormGroup } from 'Components/Forms/FormGroup'
 import { FormLabel } from 'Components/Forms/FormLabel'
@@ -20,6 +21,15 @@ export const MOCK_CONSTS = {
 export const SingleFieldForm = (
   <>
     <FormLabel>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
+    <TextField />
+    <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
+    <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>
+  </>
+)
+
+export const SingleFieldFormWithLabelFont = (
+  <>
+    <FormLabel typo={Typography.Size18}>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
     <TextField />
     <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
     <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>

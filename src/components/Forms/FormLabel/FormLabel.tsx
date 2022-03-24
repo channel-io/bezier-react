@@ -17,7 +17,6 @@ function FormLabel({
   help,
   as = 'label',
   bold = true,
-  typo = Typography.Size13,
   color = 'txt-black-darkest',
   children,
   ...rest
@@ -26,8 +25,9 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
   const contextValue = useFormControlContext()
 
-  const { Wrapper, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
+  const { Wrapper, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
     Wrapper: React.Fragment,
+    typo: Typography.Size13,
     ...rest,
   }
 
