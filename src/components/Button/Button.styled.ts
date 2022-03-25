@@ -32,7 +32,7 @@ function getSizeCSSFromButtonSize({
 }
 
 // NOTE: ButtonSize에 따른 버튼 내 텍스트의 margin
-const TEXT_PADDING_VALUE: Record<ButtonSize, number> = {
+export const TEXT_PADDING_VALUE: Record<ButtonSize, number> = {
   [ButtonSize.XS]: 3,
   [ButtonSize.S]: 3,
   [ButtonSize.M]: 4,

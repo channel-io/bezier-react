@@ -7,7 +7,7 @@ import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import Button, { BUTTON_TEST_ID, BUTTON_TEXT_TEST_ID } from './Button'
 import { ButtonStyleVariant, ButtonSize } from './Button.types'
-import { BUTTON_HORIZONTAL_PADDING_VALUE } from './Button.styled'
+import { BUTTON_HORIZONTAL_PADDING_VALUE, TEXT_PADDING_VALUE } from './Button.styled'
 import type ButtonProps from './Button.types'
 
 describe('Button Test >', () => {
@@ -68,12 +68,16 @@ describe('Button Test >', () => {
     it('Floating', () => {
       const { getByTestId } = renderButton({ styleVariant: ButtonStyleVariant.Floating })
       const floatingButton = getByTestId(BUTTON_TEST_ID)
+      const mButtonPaddingFloating = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.M].floating
 
       // Colors
       expect(floatingButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-absolute-white-dark']}`)
       expect(floatingButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
       expect(floatingButton).toHaveStyle('border-radius: 1000px;')
       expect(floatingButton).toHaveStyle('overflow: hidden;')
+
+      // Padding
+      expect(floatingButton).toHaveStyle(`padding: 0 ${mButtonPaddingFloating}px 0 ${mButtonPaddingFloating}px;`)
     })
   })
 
@@ -112,6 +116,9 @@ describe('Button Test >', () => {
         // Typograpy.Size13
         expect(xsButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
         expect(xsButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+
+        // Text padding value by ButtonSize
+        expect(xsButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.XS]}px;`)
       })
 
       it('Size S', () => {
@@ -126,6 +133,9 @@ describe('Button Test >', () => {
         // Typograpy.Size13
         expect(sButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
         expect(sButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+
+        // Text padding value by ButtonSize
+        expect(sButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.S]}px;`)
       })
 
       it('Size M', () => {
@@ -142,6 +152,9 @@ describe('Button Test >', () => {
         // Typograpy.Size14
         expect(mButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
         expect(mButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+
+        // Text padding value by ButtonSize
+        expect(mButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.M]}px;`)
       })
 
       it('Size L', () => {
@@ -157,6 +170,9 @@ describe('Button Test >', () => {
         // Typography.Size15
         expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo15}rem;`)
         expect(lButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh20}rem;`)
+
+        // Text padding value by ButtonSize
+        expect(lButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.L]}px;`)
       })
 
       it('Size XL', () => {
@@ -172,6 +188,9 @@ describe('Button Test >', () => {
         // Typography.Size18
         expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo18}rem;`)
         expect(xlButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh24}rem;`)
+
+        // Text padding value by ButtonSize
+        expect(xlButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.XL]}px;`)
       })
     })
 
