@@ -7,6 +7,7 @@ import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import Button, { BUTTON_TEST_ID, BUTTON_TEXT_TEST_ID } from './Button'
 import { ButtonStyleVariant, ButtonSize } from './Button.types'
+import { BUTTON_HORIZONTAL_PADDING_VALUE } from './Button.styled'
 import type ButtonProps from './Button.types'
 
 describe('Button Test >', () => {
@@ -38,7 +39,7 @@ describe('Button Test >', () => {
       // Colors
       expect(primaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-absolute-white-dark']}`)
       expect(primaryButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
-      expect(primaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
+      expect(primaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
       expect(primaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -49,7 +50,7 @@ describe('Button Test >', () => {
       // Colors
       expect(secondaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
       expect(secondaryButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']}`)
-      expect(secondaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
+      expect(secondaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
       expect(secondaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -60,7 +61,7 @@ describe('Button Test >', () => {
       // Colors
       expect(tertiaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
       expect(tertiaryButton).toHaveStyle('background-color: transparent')
-      expect(tertiaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
+      expect(tertiaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
       expect(tertiaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -131,10 +132,12 @@ describe('Button Test >', () => {
         const { getByTestId } = renderButton({ size: ButtonSize.M })
         const mButton = getByTestId(BUTTON_TEST_ID)
         const mButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const mButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.M].default
 
         expect(mButton).toHaveStyle('min-width: 36px;')
         expect(mButton).toHaveStyle('height: 36px;')
-        expect(mButton).toHaveStyle('padding: 0 10px 0 10px;')
+        // eslint-disable-next-line max-len
+        expect(mButton).toHaveStyle(`padding: 0 ${mButtonPaddingDefault}px 0 ${mButtonPaddingDefault}px;`)
 
         // Typograpy.Size14
         expect(mButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
@@ -145,10 +148,11 @@ describe('Button Test >', () => {
         const { getByTestId } = renderButton({ size: ButtonSize.L })
         const lButton = getByTestId(BUTTON_TEST_ID)
         const lButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const lButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.L].default
 
         expect(lButton).toHaveStyle('min-width: 44px;')
         expect(lButton).toHaveStyle('height: 44px;')
-        expect(lButton).toHaveStyle('padding: 0 10px 0 10px;')
+        expect(lButton).toHaveStyle(`padding: 0 ${lButtonPaddingDefault}px 0 ${lButtonPaddingDefault}px;`)
 
         // Typography.Size15
         expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo15}rem;`)
@@ -159,10 +163,11 @@ describe('Button Test >', () => {
         const { getByTestId } = renderButton({ size: ButtonSize.XL })
         const xlButton = getByTestId(BUTTON_TEST_ID)
         const xlButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const xlButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.XL].default
 
         expect(xlButton).toHaveStyle('min-width: 54px;')
         expect(xlButton).toHaveStyle('height: 54px;')
-        expect(xlButton).toHaveStyle('padding: 0 14px 0 14px;')
+        expect(xlButton).toHaveStyle(`padding: 0 ${xlButtonPaddingDefault}px 0 ${xlButtonPaddingDefault}px;`)
 
         // Typography.Size18
         expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo18}rem;`)
