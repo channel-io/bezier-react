@@ -111,25 +111,13 @@ function Button(
       case ButtonSize.XS:
       case ButtonSize.S:
         return Typography.Size13
+      case ButtonSize.L:
+        return Typography.Size15
       case ButtonSize.XL:
         return Typography.Size18
       case ButtonSize.M:
-      case ButtonSize.L:
       default:
         return Typography.Size14
-    }
-  }, [size])
-
-  const iconMargin = useMemo(() => {
-    switch (size) {
-      case ButtonSize.S:
-      case ButtonSize.XS:
-        return 0
-      case ButtonSize.XL:
-      case ButtonSize.L:
-      case ButtonSize.M:
-      default:
-        return 2
     }
   }, [size])
 
@@ -151,9 +139,10 @@ function Button(
       case ButtonSize.XS:
       case ButtonSize.S:
         return IconSize.XS
+      case ButtonSize.XL:
+        return IconSize.Normal
       case ButtonSize.M:
       case ButtonSize.L:
-      case ButtonSize.XL:
       default:
         return IconSize.S
     }
@@ -201,14 +190,12 @@ function Button(
     disabled,
   ])
 
-  const renderSideContent = useCallback((content?: SideContent, isRightIcon?: boolean) => {
+  const renderSideContent = useCallback((content?: SideContent) => {
     if (isIconName(content)) {
       return (
         <Icon
           name={content}
           size={iconSize}
-          marginRight={(text && !isRightIcon) ? iconMargin : 0}
-          marginLeft={(text && isRightIcon) ? iconMargin : 0}
           color={overridedIconAndSpinnerColor}
         />
       )
@@ -216,9 +203,7 @@ function Button(
 
     return content
   }, [
-    text,
     iconSize,
-    iconMargin,
     overridedIconAndSpinnerColor,
   ])
 
@@ -246,7 +231,7 @@ function Button(
         visible={!loading}
         buttonSize={size}
       >
-        { renderSideContent(leftContent, false) }
+        { renderSideContent(leftContent) }
 
         { text && (
           <Styled.ContentText
@@ -260,7 +245,7 @@ function Button(
           </Styled.ContentText>
         ) }
 
-        { renderSideContent(rightContent, true) }
+        { renderSideContent(rightContent) }
       </Styled.ButtonContents>
 
       { loading && (

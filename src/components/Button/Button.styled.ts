@@ -54,9 +54,8 @@ const BUTTON_CONTENT_GAP_VALUE: Record<ButtonSize, number> = {
 // 3. 버튼에 텍스트 없이 컨텐트만 있을 경우 => buttonSize 에 관계없이 padding 이 0 이라 이 경우만 따로 분기 처리
 type ButtonPaddingVariantKey = 'default' | 'floating'
 
-// NOTE: textSide엔 Text에 자체 margin 이 있어 TEXT_MARGIN_VALUE[ButtonSize.XS] 을 원래 스펙에서 빼줌
-// NOTE: floating 은 padding 이 버튼의 size value 의 절반에서 Text margin 값 만큼 빼줘야 스펙과 일치
-const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVariantKey, number>> = {
+// NOTE: floating 은 padding 이 버튼의 size value 의 절반에서 Text padding 값 만큼 빼줘야 스펙과 일치
+export const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVariantKey, number>> = {
   [ButtonSize.XS]: {
     default: 4,
     floating: (BUTTON_SIZE_VALUE[ButtonSize.XS] / 2) - TEXT_PADDING_VALUE[ButtonSize.XS],
@@ -70,11 +69,11 @@ const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVa
     floating: (BUTTON_SIZE_VALUE[ButtonSize.M] / 2) - TEXT_PADDING_VALUE[ButtonSize.M],
   },
   [ButtonSize.L]: {
-    default: 10,
+    default: 12,
     floating: (BUTTON_SIZE_VALUE[ButtonSize.L] / 2) - TEXT_PADDING_VALUE[ButtonSize.L],
   },
   [ButtonSize.XL]: {
-    default: 14,
+    default: 20,
     floating: (BUTTON_SIZE_VALUE[ButtonSize.XL] / 2) - TEXT_PADDING_VALUE[ButtonSize.XL],
   },
 }
@@ -295,16 +294,19 @@ function getEffectCSSFromVariant(styleVariant?: ButtonProps['styleVariant'], siz
           return css`
             ${({ foundation }) => foundation?.rounding?.round6};
           `
+        case ButtonSize.L:
+          return css`
+            ${({ foundation }) => foundation?.rounding?.round12};
+          `
         case ButtonSize.XL:
           return css`
             ${({ foundation }) => foundation?.rounding?.round12};
           `
         case ButtonSize.S:
-        case ButtonSize.L:
         case ButtonSize.M:
         default:
           return css`
-            ${({ foundation }) => foundation?.rounding?.round8};
+            ${({ foundation }) => foundation?.rounding?.round16};
           `
       }
     }
