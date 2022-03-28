@@ -39,7 +39,7 @@ describe('Button Test >', () => {
       // Colors
       expect(primaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-absolute-white-dark']}`)
       expect(primaryButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
-      expect(primaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
+      expect(primaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
       expect(primaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -50,7 +50,7 @@ describe('Button Test >', () => {
       // Colors
       expect(secondaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
       expect(secondaryButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-lightest']}`)
-      expect(secondaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
+      expect(secondaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
       expect(secondaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -61,7 +61,7 @@ describe('Button Test >', () => {
       // Colors
       expect(tertiaryButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
       expect(tertiaryButton).toHaveStyle('background-color: transparent')
-      expect(tertiaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R16}px;`)
+      expect(tertiaryButton).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R8}px;`)
       expect(tertiaryButton).toHaveStyle('overflow: hidden;')
     })
 
@@ -104,14 +104,34 @@ describe('Button Test >', () => {
 
   describe('Size Test >', () => {
     describe('with text >', () => {
+      it('size prop not given, default size is Size M', () => {
+        const { getByTestId } = renderButton()
+        const defaultButton = getByTestId(BUTTON_TEST_ID)
+        const defaultButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const defaultButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.M].default
+
+        expect(defaultButton).toHaveStyle('min-width: 36px;')
+        expect(defaultButton).toHaveStyle('height: 36px;')
+        // eslint-disable-next-line max-len
+        expect(defaultButton).toHaveStyle(`padding: 0 ${defaultButtonPaddingDefault}px 0 ${defaultButtonPaddingDefault}px;`)
+
+        // Typograpy.Size14
+        expect(defaultButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}px;`)
+        expect(defaultButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}px;`)
+
+        // Text padding value by ButtonSize
+        expect(defaultButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.M]}px;`)
+      })
+
       it('Size XS', () => {
         const { getByTestId } = renderButton({ size: ButtonSize.XS })
         const xsButton = getByTestId(BUTTON_TEST_ID)
         const xsButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const xsButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.XS].default
 
         expect(xsButton).toHaveStyle('min-width: 20px;')
         expect(xsButton).toHaveStyle('height: 20px;')
-        expect(xsButton).toHaveStyle('padding: 0 4px 0 4px;')
+        expect(xsButton).toHaveStyle(`padding: 0 ${xsButtonPaddingDefault}px 0 ${xsButtonPaddingDefault}px;`)
 
         // Typograpy.Size13
         expect(xsButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
@@ -125,10 +145,11 @@ describe('Button Test >', () => {
         const { getByTestId } = renderButton({ size: ButtonSize.S })
         const sButton = getByTestId(BUTTON_TEST_ID)
         const sButtonText = getByTestId(BUTTON_TEXT_TEST_ID)
+        const sButtonPaddingDefault = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.S].default
 
         expect(sButton).toHaveStyle('min-width: 24px;')
         expect(sButton).toHaveStyle('height: 24px;')
-        expect(sButton).toHaveStyle('padding: 0 4px 0 4px;')
+        expect(sButton).toHaveStyle(`padding: 0 ${sButtonPaddingDefault}px 0 ${sButtonPaddingDefault}px;`)
 
         // Typograpy.Size13
         expect(sButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
