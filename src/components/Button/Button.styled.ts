@@ -300,13 +300,13 @@ function getEffectCSSFromVariant(styleVariant?: ButtonProps['styleVariant'], siz
           `
         case ButtonSize.XL:
           return css`
-            ${({ foundation }) => foundation?.rounding?.round12};
+            ${({ foundation }) => foundation?.rounding?.round16};
           `
         case ButtonSize.S:
         case ButtonSize.M:
         default:
           return css`
-            ${({ foundation }) => foundation?.rounding?.round16};
+            ${({ foundation }) => foundation?.rounding?.round8};
           `
       }
     }
