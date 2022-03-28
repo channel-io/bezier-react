@@ -17,13 +17,12 @@ const BUTTON_SIZE_VALUE = {
   [ButtonSize.XL]: 54,
 }
 
-interface GetSizeCSSFromButtonSizeArgs extends Pick<
-ButtonProps,
-'size'
-> {}
+interface GetSizeCSSFromButtonSizeArgs {
+  size: ButtonSize
+}
 
 function getSizeCSSFromButtonSize({
-  size = ButtonSize.M,
+  size,
 }: GetSizeCSSFromButtonSizeArgs) {
   return css`
     min-width: ${BUTTON_SIZE_VALUE[size]}px;
@@ -78,15 +77,15 @@ export const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPa
   },
 }
 
-interface GetPaddingCSSFromSizeAndContentsArgs extends Pick<
-ButtonProps,
-'styleVariant' | 'text' | 'size'
-> {}
+interface GetPaddingCSSFromSizeAndContentsArgs extends Pick<ButtonProps, 'text'>{
+  styleVariant: ButtonStyleVariant
+  size: ButtonSize
+}
 
 function getPaddingCSSFromSizeAndContents({
-  styleVariant = ButtonStyleVariant.Primary,
+  styleVariant,
   text,
-  size = ButtonSize.M,
+  size,
 }: GetPaddingCSSFromSizeAndContentsArgs) {
   const hasOnlyContent = isEmpty(text)
 
@@ -272,7 +271,7 @@ function getColorCSS(
   `
 }
 
-function getEffectCSSFromVariant(styleVariant?: ButtonProps['styleVariant'], size?: ButtonProps['size']) {
+function getEffectCSSFromVariant(styleVariant: ButtonProps['styleVariant'], size: ButtonProps['size']) {
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
@@ -313,11 +312,15 @@ function getEffectCSSFromVariant(styleVariant?: ButtonProps['styleVariant'], siz
   }
 }
 
-interface GetCSSFromVariantArgs extends Pick<ButtonProps, 'colorVariant' | 'styleVariant' | 'size' | 'disabled' | 'active'> {}
+interface GetCSSFromVariantArgs extends Pick<ButtonProps, 'disabled' | 'active'> {
+  size: ButtonSize
+  styleVariant: ButtonStyleVariant
+  colorVariant: ButtonColorVariant
+}
 
 function getCSSFromVariant({
-  colorVariant = ButtonColorVariant.Blue,
-  styleVariant = ButtonStyleVariant.Primary,
+  colorVariant,
+  styleVariant,
   size,
   disabled,
   active,
@@ -369,7 +372,16 @@ export const ButtonLoader = styled.div`
   justify-content: center;
 `
 
-export const ButtonWrapper = styled.button<ButtonProps>`
+interface ButtonWrapperProps extends Pick<
+ButtonProps,
+'as' | 'interpolation' | 'disabled' | 'active' | 'text'
+>{
+  size: ButtonSize
+  styleVariant: ButtonStyleVariant
+  colorVariant: ButtonColorVariant
+}
+
+export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   position: relative;
   box-sizing: border-box;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
