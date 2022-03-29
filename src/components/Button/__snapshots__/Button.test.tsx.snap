@@ -1,0 +1,2316 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Test > Active Test > Active prop change Button to hover style 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+  background-color: #4E40C9;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: not-allowed;
+  border: none;
+  outline: none;
+  opacity: 0.4;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  disabled=""
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Loading Test > Active prop change Button to hover style 1`] = `
+.c5 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: transparent;
+  border-right-color: inherit;
+  border-bottom-color: inherit;
+  border-left-color: inherit;
+  border-radius: 50%;
+  -webkit-animation: epmXAj 1s infinite linear;
+  animation: epmXAj 1s infinite linear;
+}
+
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: hidden;
+  gap: 2px;
+}
+
+.c4 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+  <div
+    class="c4"
+  >
+    <div
+      class="c5"
+      data-testid="bezier-react-spinner"
+      size="16"
+    />
+  </div>
+</button>
+`;
+
+exports[`Button Test > Reset CSS 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1`] = `
+.c2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 18px 0 18px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size L 1`] = `
+.c2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px 0 12px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 14px 0 14px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size M 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1`] = `
+.c2 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 9px 0 9px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 3px;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size S 1`] = `
+.c2 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 4px 0 4px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 3px;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 1`] = `
+.c2 {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 54px;
+  height: 54px;
+  padding: 0 23px 0 23px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size XL 1`] = `
+.c2 {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 54px;
+  height: 54px;
+  padding: 0 20px 0 20px;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 1`] = `
+.c2 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 7px 0 7px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 3px;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > Size XS 1`] = `
+.c2 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px 0 4px;
+  overflow: hidden;
+  border-radius: 6px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 3px;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > with text > size prop not given, default size is Size M 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > without text > Size L 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > without text > Size M 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > without text > Size S 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 24px;
+  height: 24px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > without text > Size XL 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 54px;
+  height: 54px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    
+  </div>
+</button>
+`;
+
+exports[`Button Test > Size Test > without text > Size XS 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 0px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 20px;
+  height: 20px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+@supports not(gap:0px) {
+  .c1 {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .c1 > * {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    
+  </div>
+</button>
+`;
+
+exports[`Button Test > StyleVariant Test > Floating 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 14px 0 14px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  overflow: hidden;
+  border-radius: 1000px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > StyleVariant Test > Primary 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > StyleVariant Test > Secondary 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #5E56F0;
+  background-color: #5E56F01A;
+}
+
+.c0:hover {
+  background-color: #5E56F033;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #5E56F0;
+  background-color: transparent;
+}
+
+.c0:hover {
+  color: #4E40C9;
+  background-color: #5E56F01A;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;

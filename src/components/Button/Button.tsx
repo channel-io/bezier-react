@@ -10,6 +10,7 @@ import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVa
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
+export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
 type VariantTuple = `${ButtonColorVariant},${ButtonStyleVariant},${ButtonSize}`
@@ -228,6 +229,7 @@ function Button(
       onBlur={onBlur}
     >
       <Styled.ButtonContents
+        data-testid={BUTTON_INNER_CONTENT_TEST_ID}
         visible={!loading}
         buttonSize={size}
       >
