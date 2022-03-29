@@ -304,6 +304,7 @@ import PowerIcon from './PowerIcon'
 import PrintIcon from './PrintIcon'
 import ProfileIcon from './ProfileIcon'
 import QrCodeIcon from './QrCodeIcon'
+import RadioFilledIcon from './RadioFilledIcon'
 import RealtimeIcon from './RealtimeIcon'
 import ReceiptIcon from './ReceiptIcon'
 import RecipeIcon from './RecipeIcon'
@@ -354,6 +355,7 @@ import TabletIcon from './TabletIcon'
 import TagIcon from './TagIcon'
 import TargetIcon from './TargetIcon'
 import TemplateIcon from './TemplateIcon'
+import TextfieldIcon from './TextfieldIcon'
 import TimeElapsedIcon from './TimeElapsedIcon'
 import ToolIcon from './ToolIcon'
 import TransferDisabledIcon from './TransferDisabledIcon'
@@ -725,6 +727,7 @@ const icons = {
   print: PrintIcon,
   profile: ProfileIcon,
   'qr-code': QrCodeIcon,
+  'radio-filled': RadioFilledIcon,
   realtime: RealtimeIcon,
   receipt: ReceiptIcon,
   recipe: RecipeIcon,
@@ -775,6 +778,7 @@ const icons = {
   tag: TagIcon,
   target: TargetIcon,
   template: TemplateIcon,
+  textfield: TextfieldIcon,
   'time-elapsed': TimeElapsedIcon,
   tool: ToolIcon,
   'transfer-disabled': TransferDisabledIcon,
@@ -1148,6 +1152,7 @@ export {
   PrintIcon,
   ProfileIcon,
   QrCodeIcon,
+  RadioFilledIcon,
   RealtimeIcon,
   ReceiptIcon,
   RecipeIcon,
@@ -1198,6 +1203,7 @@ export {
   TagIcon,
   TargetIcon,
   TemplateIcon,
+  TextfieldIcon,
   TimeElapsedIcon,
   ToolIcon,
   TransferDisabledIcon,
