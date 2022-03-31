@@ -5,12 +5,12 @@ import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
 import { Icon, IconSize, isIconName } from 'Components/Icon'
-import { Text } from 'Components/Text'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
+export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
 type VariantTuple = `${ButtonColorVariant},${ButtonStyleVariant},${ButtonSize}`
@@ -107,20 +107,6 @@ function Button(
 ) {
   const [isHovered, setIsHovered] = useState(false)
 
-  // TODO(@ed): Text에 Padding 속성을 열어주고, M 이상인 경우 상하 1px 패딩 추가
-  const textMargin = useMemo(() => {
-    switch (size) {
-      case ButtonSize.S:
-      case ButtonSize.XS:
-        return 3
-      case ButtonSize.XL:
-      case ButtonSize.L:
-      case ButtonSize.M:
-      default:
-        return 4
-    }
-  }, [size])
-
   const typography = useMemo(() => {
     switch (size) {
       case ButtonSize.XS:
@@ -133,19 +119,6 @@ function Button(
       case ButtonSize.M:
       default:
         return Typography.Size14
-    }
-  }, [size])
-
-  const iconMargin = useMemo(() => {
-    switch (size) {
-      case ButtonSize.S:
-      case ButtonSize.XS:
-        return 0
-      case ButtonSize.XL:
-      case ButtonSize.L:
-      case ButtonSize.M:
-      default:
-        return 2
     }
   }, [size])
 
@@ -164,13 +137,13 @@ function Button(
 
   const iconSize = useMemo(() => {
     switch (size) {
-      case ButtonSize.S:
       case ButtonSize.XS:
+      case ButtonSize.S:
         return IconSize.XS
       case ButtonSize.XL:
         return IconSize.Normal
-      case ButtonSize.L:
       case ButtonSize.M:
+      case ButtonSize.L:
       default:
         return IconSize.S
     }
@@ -218,14 +191,12 @@ function Button(
     disabled,
   ])
 
-  const renderSideContent = useCallback((content?: SideContent, isRightIcon?: boolean) => {
+  const renderSideContent = useCallback((content?: SideContent) => {
     if (isIconName(content)) {
       return (
         <Icon
           name={content}
           size={iconSize}
-          marginRight={(text && !isRightIcon) ? iconMargin : 0}
-          marginLeft={(text && isRightIcon) ? iconMargin : 0}
           color={overridedIconAndSpinnerColor}
         />
       )
@@ -233,9 +204,7 @@ function Button(
 
     return content
   }, [
-    text,
     iconSize,
-    iconMargin,
     overridedIconAndSpinnerColor,
   ])
 
@@ -259,23 +228,26 @@ function Button(
       onMouseLeave={handleMouseLeave}
       onBlur={onBlur}
     >
-      <Styled.ButtonContents visible={!loading}>
-        { renderSideContent(leftContent, false) }
+      <Styled.ButtonContents
+        data-testid={BUTTON_INNER_CONTENT_TEST_ID}
+        visible={!loading}
+        buttonSize={size}
+      >
+        { renderSideContent(leftContent) }
 
         { text && (
-          <Text
+          <Styled.ContentText
             testId={BUTTON_TEXT_TEST_ID}
             typo={typography}
             bold
             color={overridedTextColor}
-            marginRight={textMargin}
-            marginLeft={textMargin}
+            buttonSize={size}
           >
             { text }
-          </Text>
+          </Styled.ContentText>
         ) }
 
-        { renderSideContent(rightContent, true) }
+        { renderSideContent(rightContent) }
       </Styled.ButtonContents>
 
       { loading && (
