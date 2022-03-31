@@ -292,7 +292,10 @@ exports[`NavItem Test > Snapshot > not active 1`] = `
   color: #000000D9;
 }
 
-.c0:hover,
+.c0:hover {
+  background-color: #0000000D;
+}
+
 .c0:focus-visible {
   background-color: #0000000D;
 }
