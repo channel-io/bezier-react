@@ -31,7 +31,7 @@ describe('Banner >', () => {
 
     expect(bannerLink.tagName).toBe('A')
     expect(bannerLink.children.item(0)).toHaveStyle('text-decoration: underline;')
-    expect(bannerLink.children.item(0)).toHaveStyle('font-weight: bold;')
+    expect(bannerLink.children.item(0)).toHaveStyle('font-weight: 600;')
     expect(bannerLink.children.item(0)).toHaveStyle('font-size: 1.4rem;')
   })
 
