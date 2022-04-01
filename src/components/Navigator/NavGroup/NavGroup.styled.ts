@@ -55,7 +55,15 @@ const activeItemStyle = css`
 const nonActiveItemStyle = css`
   color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
 
-  &:hover,
+  &:hover {
+    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
+  }
+  
+  /*
+    ':focus-visible' Pseudo class는 Safari 15.4 이후 지원하기 때문에,
+    이를 ':hover' 와 ',' 연산자로 연결할 경우 hover, focus-visible 모두 작동하지 않는 이슈가 있음.
+    https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible#browser_compatibility
+  */
   &:focus-visible {
     background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
   }
