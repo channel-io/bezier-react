@@ -146,6 +146,7 @@ import DotIcon from './DotIcon'
 import DownloadIcon from './DownloadIcon'
 import DragableIcon from './DragableIcon'
 import DragableSmallIcon from './DragableSmallIcon'
+import DropdownIcon from './DropdownIcon'
 import EditIcon from './EditIcon'
 import EmailFilledIcon from './EmailFilledIcon'
 import EmailIcon from './EmailIcon'
@@ -569,6 +570,7 @@ const icons = {
   download: DownloadIcon,
   dragable: DragableIcon,
   'dragable-small': DragableSmallIcon,
+  dropdown: DropdownIcon,
   edit: EditIcon,
   'email-filled': EmailFilledIcon,
   email: EmailIcon,
@@ -994,6 +996,7 @@ export {
   DownloadIcon,
   DragableIcon,
   DragableSmallIcon,
+  DropdownIcon,
   EditIcon,
   EmailFilledIcon,
   EmailIcon,
