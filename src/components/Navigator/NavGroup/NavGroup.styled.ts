@@ -24,14 +24,17 @@ export const ChevronWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 20px;
+  max-width: 20px;
   margin-left: 2px;
 `
 
 export const RightContentWrapper = styled.div`
   display: flex;
+  flex: 1 0 auto;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
+  justify-content: flex-end;
+  margin-left: 8px;
 `
 
 const closedItemStyle = css`

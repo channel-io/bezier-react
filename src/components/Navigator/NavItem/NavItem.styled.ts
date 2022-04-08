@@ -21,9 +21,10 @@ export const ContentWrapper = styled(Text)`
 
 export const RightContentWrapper = styled.div`
   display: flex;
+  flex: 1 0 auto;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
+  justify-content: flex-end;
+  margin-left: 8px;
 `
 
 const activeItemStyle = css`
