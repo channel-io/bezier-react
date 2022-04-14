@@ -76,38 +76,33 @@ interface FoundationStyledInterface extends FoundationStyledComponentFactories {
   ): ThemedStyledFunction<C, Foundation, { foundation?: Foundation }>
 }
 
+function templateFunctionGenerator(BaseComponentGenerator: ThemedStyledFunction<any, any, object, string | number | symbol>) {
+  const customTemplateFn = (...args: TemplateStringsArray) => {
+    // @ts-ignore
+    const BaseComponent = BaseComponentGenerator(...args)
+    const BaseRefComponent = forwardRef((props, ref) => {
+      const currentFoundation = useContext(FoundationContext)
+      return (
+        <BaseComponent
+          ref={ref}
+          key={args.toString()}
+          foundation={currentFoundation}
+          {...props}
+        />
+      )
+    })
+    BaseRefComponent.toString = BaseComponent.toString
+    return BaseRefComponent
+  }
+  customTemplateFn.attrs = (attrs) => templateFunctionGenerator(BaseComponentGenerator.attrs(attrs))
+  customTemplateFn.withConfig = (config) => templateFunctionGenerator(BaseComponentGenerator.withConfig(config))
+  return customTemplateFn
+}
+
 /* eslint-disable-next-line func-names */ /* @ts-ignore */
 const FoundationStyled: FoundationStyledInterface = (tag) => {
   const tagTemplate = styled(tag)
-
-  function templateFunctionGenerator(BaseComponentGenerator) {
-    return function customTemplateFunction(...args: TemplateStringsArray) {
-      const BaseComponent = BaseComponentGenerator(...args)
-
-      const BaseRefComponent = forwardRef((props, ref) => {
-        const currentFoundation = useContext(FoundationContext)
-        return (
-          <BaseComponent
-            ref={ref}
-            key={args.toString()}
-            foundation={currentFoundation}
-            {...props}
-          />
-        )
-      })
-      BaseRefComponent.toString = BaseComponent.toString
-
-      return BaseRefComponent
-    }
-  }
-
-  const wrappedTemplateFunction = templateFunctionGenerator(tagTemplate)
-  // @ts-ignore
-  wrappedTemplateFunction.attrs = attrs => templateFunctionGenerator(tagTemplate.attrs(attrs))
-  // @ts-ignore
-  wrappedTemplateFunction.withConfig = config => templateFunctionGenerator(tagTemplate.withConfig(config))
-
-  return wrappedTemplateFunction
+  return templateFunctionGenerator(tagTemplate)
 };
 
 (domElements as Array<AnyStyledComponent>).forEach(element => {
