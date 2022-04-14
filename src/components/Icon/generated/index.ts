@@ -179,6 +179,7 @@ import FunnelIcon from './FunnelIcon'
 import GhostFilledIcon from './GhostFilledIcon'
 import GhostIcon from './GhostIcon'
 import GifIcon from './GifIcon'
+import GiftIcon from './GiftIcon'
 import GlobeIcon from './GlobeIcon'
 import GoalIcon from './GoalIcon'
 import GoogleIcon from './GoogleIcon'
@@ -603,6 +604,7 @@ const icons = {
   'ghost-filled': GhostFilledIcon,
   ghost: GhostIcon,
   gif: GifIcon,
+  gift: GiftIcon,
   globe: GlobeIcon,
   goal: GoalIcon,
   google: GoogleIcon,
@@ -1029,6 +1031,7 @@ export {
   GhostFilledIcon,
   GhostIcon,
   GifIcon,
+  GiftIcon,
   GlobeIcon,
   GoalIcon,
   GoogleIcon,
