@@ -17,6 +17,7 @@ function TagBadgeText({
   children,
 }: TagBadgeTextProps) {
   const hasChildren = useMemo(() => !isEmpty(children), [children])
+
   return (
     <>
       { hasChildren && (
