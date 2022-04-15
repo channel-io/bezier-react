@@ -1,5 +1,5 @@
-name: "버그 리포트"
-description: "버그 리포트 템플릿"
+name: "버그 제보"
+description: "버그 제보를 위한 템플릿"
 labels: ["bug"]
 body:
   - type: "markdown"
@@ -10,10 +10,10 @@ body:
   - type: "input"
     id: "description"
     attributes:
-      label: "설명"
-      description: "이슈에 대해서 설명해주세요."
+      label: "요약"
+      description: "버그에 대해서 한 줄로 요약해주세요."
       placeholder: |
-        이슈를 입력해주세요.
+        입력해주세요.
     validations:
       required: true
   - type: "textarea"
