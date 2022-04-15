@@ -1,6 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
+import React from 'react'
 
 /* Internal dependencies */
 import { Text } from 'Components/Text'
@@ -16,21 +15,15 @@ function TagBadgeText({
   horizontalPadding,
   children,
 }: TagBadgeTextProps) {
-  const hasChildren = useMemo(() => !isEmpty(children), [children])
-
   return (
-    <>
-      { hasChildren && (
-        <Styled.Wrapper
-          data-testid={testId}
-          horizontalPadding={horizontalPadding}
-        >
-          <Text typo={typo}>
-            { children }
-          </Text>
-        </Styled.Wrapper>
-      ) }
-    </>
+    <Styled.Wrapper
+      data-testid={testId}
+      horizontalPadding={horizontalPadding}
+    >
+      <Text typo={typo}>
+        { children }
+      </Text>
+    </Styled.Wrapper>
   )
 }
 

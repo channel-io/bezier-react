@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
-import { isNil } from 'lodash-es'
+import { isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -33,6 +33,8 @@ function Tag({
   testId = TAG_TEST_ID,
   ...props
 }: TagProps) {
+  const hasChildren = useMemo(() => !isEmpty(children), [children])
+
   const bgSemanticName = useMemo(() => (
     givenColor || getProperTagBadgeBgColor(variant)
   ), [
@@ -59,12 +61,14 @@ function Tag({
       rounding={getProperTagBadgeRounding(size)}
       bgColor={bgSemanticName}
     >
-      <TagBadgeText
-        horizontalPadding={TAG_TEXT_HORIZONTAL_PADDING}
-        typo={getProperTagBadgeTypo(size)}
-      >
-        { children }
-      </TagBadgeText>
+      { hasChildren && (
+        <TagBadgeText
+          horizontalPadding={TAG_TEXT_HORIZONTAL_PADDING}
+          typo={getProperTagBadgeTypo(size)}
+        >
+            { children }
+        </TagBadgeText>
+      ) }
 
       { CloseIconComponent }
     </TagBadgeStyled.Wrapper>

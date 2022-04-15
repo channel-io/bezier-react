@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
+import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Icon } from 'Components/Icon'
@@ -31,6 +32,8 @@ function Badge({
   testId = BADGE_TEST_ID,
   ...props
 }: BadgeProps) {
+  const hasChildren = useMemo(() => !isEmpty(children), [children])
+
   const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
   const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
 
@@ -58,12 +61,14 @@ function Badge({
     >
       { IconComponent }
 
-      <TagBadgeText
-        horizontalPadding={BADGE_TEXT_HORIZONTAL_PADDING}
-        typo={getProperTagBadgeTypo(size)}
-      >
-        { children }
-      </TagBadgeText>
+      { hasChildren && (
+        <TagBadgeText
+          horizontalPadding={BADGE_TEXT_HORIZONTAL_PADDING}
+          typo={getProperTagBadgeTypo(size)}
+        >
+            { children }
+        </TagBadgeText>
+      ) }
     </TagBadgeStyled.Wrapper>
   )
 }
