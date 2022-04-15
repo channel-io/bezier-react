@@ -1,0 +1,56 @@
+name: "버그 리포트!"
+description: "버그 리포트"
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        버그 리포트 이전에 먼저 이슈를 검색해주세요!
+  - type: "input"
+    id: "description"
+    attributes:
+      label: "설명"
+      description: "이슈에 대해서 설명해주세요."
+      placeholder: |
+        이슈를 입력해주세요.
+    validations:
+      required: true
+  - type: "textarea"
+    id: "step"
+    attributes:
+      label: "재현 과정"
+      description: |
+        버그가 발생하는 과정에 대해 자세히 설명해주세요.
+      value: |
+        1. ...
+        2. ...
+        3. ...
+        4. ...
+  - type: "input"
+    id: "version"
+    attributes:
+      label: "bezier-react 버전"
+      description: "사용한 bezier-react 버전을 알려주세요."
+      placeholder: "1.0.1"
+    validations:
+      required: true
+  - type: "input"
+    id: "browser"
+    attributes:
+      label: "브라우저"
+      description: "에러가 발생한 브라우저에 대해 알려주세요."
+      placeholder: "Google Chrome 93"
+  - type: "checkboxes"
+    id: "operating-system"
+    attributes:
+      label: "운영체제"
+      description: "에러가 발생한 운영체제에 대해 알려주세요."
+      options:
+        - label: "macOS"
+        - label: "Windows"
+        - label: "Linux"
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "추가 정보"
+      description: |
+        버그에 관련된 추가 정보에 대해 자유롭게 입력해주세요.
