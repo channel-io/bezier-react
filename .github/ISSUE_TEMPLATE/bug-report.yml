@@ -1,10 +1,12 @@
-name: "버그 리포트!"
-description: "버그 리포트"
+name: "버그 리포트"
+description: "버그 리포트 템플릿"
+labels: ["bug"]
 body:
   - type: "markdown"
     attributes:
       value: |
-        버그 리포트 이전에 먼저 이슈를 검색해주세요!
+        이슈를 작성해주셔서 감사드립니다.
+        작성하시기 이전에, 같은 이슈가 있는지 먼저 검색해주세요!
   - type: "input"
     id: "description"
     attributes:
@@ -19,7 +21,7 @@ body:
     attributes:
       label: "재현 과정"
       description: |
-        버그가 발생하는 과정에 대해 자세히 설명해주세요.
+        버그가 발생한 과정에 대해 자세히 설명해주세요.
       value: |
         1. ...
         2. ...
@@ -29,7 +31,7 @@ body:
     id: "version"
     attributes:
       label: "bezier-react 버전"
-      description: "사용한 bezier-react 버전을 알려주세요."
+      description: "버그가 발생한 bezier-react 버전에 대해 알려주세요."
       placeholder: "1.0.1"
     validations:
       required: true
@@ -37,13 +39,13 @@ body:
     id: "browser"
     attributes:
       label: "브라우저"
-      description: "에러가 발생한 브라우저에 대해 알려주세요."
+      description: "버그가 발생한 브라우저에 대해 알려주세요."
       placeholder: "Google Chrome 93"
   - type: "checkboxes"
     id: "operating-system"
     attributes:
       label: "운영체제"
-      description: "에러가 발생한 운영체제에 대해 알려주세요."
+      description: "버그가 발생한 운영체제에 대해 알려주세요."
       options:
         - label: "macOS"
         - label: "Windows"
@@ -53,4 +55,4 @@ body:
     attributes:
       label: "추가 정보"
       description: |
-        버그에 관련된 추가 정보에 대해 자유롭게 입력해주세요.
+        버그와 관련된 추가 정보(스크린샷 등)에 대해 자유롭게 입력해주세요.
