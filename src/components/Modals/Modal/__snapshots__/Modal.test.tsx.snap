@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal When "show" is true should equal the snapshot 1`] = `
+.c0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 40px 0;
+  -webkit-animation-name: jgQpwH;
+  animation-name: jgQpwH;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #00000066;
+}
+
+.c2 {
+  position: relative;
+  z-index: 1;
+  min-width: 360px;
+  max-height: 100%;
+  overflow-y: auto;
+  color: #242428;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  -webkit-animation-name: gUeayS;
+  animation-name: gUeayS;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+}
+
+.c3 {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px 24px 16px;
+}
+
+<div
+  class="c0"
+  data-testid="BaseModal"
+  style="z-index: 10000000;"
+>
+  <div
+    class="c1"
+    data-testid="BaseModal__Background"
+  />
+  <div
+    class="c2 Modal__Contests__Test"
+    data-testid="BaseModal__Children"
+    tabindex="-1"
+  >
+    <div
+      class="c3"
+      data-testid="Modal__Contents"
+    />
+  </div>
+</div>
+`;
