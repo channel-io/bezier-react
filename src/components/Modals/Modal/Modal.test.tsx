@@ -236,7 +236,6 @@ describe('Modal', () => {
             it('Styles', async () => {
               const target = await renderResult.findByTestId('Modal__Contents__Title__CloseButton')
               expect(target).toHaveStyle('display: inline-block;')
-              expect(target).toHaveStyle('padding: 8px 8px;')
               expect(target).toHaveStyle('background-color: transparent;')
               expect(target).toHaveStyle('margin-top: -6px;')
               expect(target).toHaveStyle('margin-right: -6px;')
