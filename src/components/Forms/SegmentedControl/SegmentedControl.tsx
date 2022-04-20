@@ -1,13 +1,17 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import { noop, isNumber } from 'lodash-es'
+import { noop, isNumber, range } from 'lodash-es'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import SegmentedControlProps from './SegmentedControl.types'
+import {
+  DIVIDER_WIDTH,
+  SIZE_TO_PADDING,
+} from './SegmentedControl.const'
+import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
 import * as Styled from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
@@ -15,11 +19,28 @@ const SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX = 'bezier-react-segmented-con
 export const segmentedControlOptionItemTestId = (index: number) =>
   [SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX, index.toString()].join('-')
 
+const itemWidth = (width: number, numItems: number, size: SegmentedControlSize): number =>
+  (width - (2 * SIZE_TO_PADDING[size]) - ((numItems - 1) * DIVIDER_WIDTH)) / Math.max(1, numItems)
+
+const itemLeft = (width: number, numItems: number, size: SegmentedControlSize) =>
+  (index: number): number => (
+    SIZE_TO_PADDING[size]
+      + (itemWidth(width, numItems, size) * index)
+      + (DIVIDER_WIDTH * index)
+  )
+
+const dividerLeft = (width: number, numItems: number, size: SegmentedControlSize) =>
+  (index: number): number => (
+    SIZE_TO_PADDING[size]
+      + (itemWidth(width, numItems, size) * index)
+      + (DIVIDER_WIDTH * (index - 1))
+  )
+
 function SegmentedControl(
   {
     testId = SEGMENTED_CONTROL_TEST_ID,
     width = '100%',
-    height = 36,
+    size = SegmentedControlSize.M,
     /* OptionItemHost props */
     selectedOptionIndex = 0,
     onChangeOption = noop,
@@ -35,15 +56,28 @@ function SegmentedControl(
   } = useFormFieldProps(rest)
 
   const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)
-  const [wrapperHeight, setWrapperHeight] = useState<number>(0)
   const [wrapperWidth, setWrapperWidth] = useState<number>(0)
 
   const numItems = useMemo(() => React.Children.count(children), [children])
-  const optionItemWidth = wrapperWidth / Math.max(1, numItems)
 
-  const updateDimensions = useCallback((_width?: number, _height?: number) => {
+  const optionItemWidth = itemWidth(wrapperWidth, numItems, size)
+  const optionItemLeft = useMemo(() => (
+    itemLeft(wrapperWidth, numItems, size)
+  ), [
+    wrapperWidth,
+    numItems,
+    size,
+  ])
+  const dividerItemLeft = useMemo(() => (
+    dividerLeft(wrapperWidth, numItems, size)
+  ), [
+    wrapperWidth,
+    numItems,
+    size,
+  ])
+
+  const updateDimensions = useCallback((_width?: number) => {
     if (isNumber(_width)) { setWrapperWidth(_width) }
-    if (isNumber(_height)) { setWrapperHeight(_height) }
   }, [])
 
   const { ref: resizeDetectorRef } = useResizeDetector({ onResize: updateDimensions })
@@ -67,10 +101,10 @@ function SegmentedControl(
       data-testid={segmentedControlOptionItemTestId(index)}
       disabled={disabled}
       active={index === currentIndex}
+      size={size}
       style={{
         width: optionItemWidth,
-        height: wrapperHeight,
-        left: optionItemWidth * index,
+        left: optionItemLeft(index),
       }}
       onClick={() => (disabled ? noop : handleClickOptionItem(index))}
     >
@@ -78,9 +112,10 @@ function SegmentedControl(
     </Styled.OptionItemWrapper>
   ), [
     disabled,
+    size,
     currentIndex,
-    wrapperHeight,
     optionItemWidth,
+    optionItemLeft,
     handleClickOptionItem,
   ])
 
@@ -91,20 +126,41 @@ function SegmentedControl(
     renderOption,
   ])
 
+  const Dividers = useMemo(() => (
+    range(1, numItems)
+      .map(index => (
+        <Styled.Divider
+          key={`divider-${index.toString(36)}`}
+          size={size}
+          hidden={index === currentIndex || index === currentIndex + 1}
+          style={{
+            width: DIVIDER_WIDTH,
+            left: dividerItemLeft(index),
+          }}
+        />
+      ))
+  ), [
+    size,
+    numItems,
+    currentIndex,
+    dividerItemLeft,
+  ])
+
   const IndicatorComponent = useMemo(() => (
     <Styled.Indicator
+      size={size}
       style={{
         width: optionItemWidth,
-        height: wrapperHeight,
-        transform: `translateX(${optionItemWidth * currentIndex}px)`,
+        transform: `translateX(${optionItemLeft(currentIndex)}px)`,
       }}
     >
       <Styled.IndicatorBox />
     </Styled.Indicator>
   ), [
+    size,
     currentIndex,
-    wrapperHeight,
     optionItemWidth,
+    optionItemLeft,
   ])
 
   return (
@@ -112,12 +168,13 @@ function SegmentedControl(
       {...ownProps}
       ref={wrapperRef}
       disabled={disabled}
+      size={size}
       wrapperWidth={width}
-      wrapperHeight={height}
       data-testid={testId}
     >
       { IndicatorComponent }
       { Content }
+      { Dividers }
     </Styled.Wrapper>
   )
 }

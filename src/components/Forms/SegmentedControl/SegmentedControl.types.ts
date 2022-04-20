@@ -21,7 +21,13 @@ export enum SegmentedControlSize {
 
 interface SegmentedControlOptions {
   width?: CSSSizingProperty
-  height?: CSSSizingProperty
+
+  /**
+   * Size variant of this SegmentedControl.
+   *
+   * @default SegmentedControlSize.M
+   */
+  size?: SegmentedControlSize
 }
 
 export default interface SegmentedControlProps extends

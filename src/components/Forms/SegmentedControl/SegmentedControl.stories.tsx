@@ -10,7 +10,7 @@ import { getTitle } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
 import { Icon } from 'Components/Icon'
 import SegmentedControl from './SegmentedControl'
-import SegmentedControlProps from './SegmentedControl.types'
+import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
 
 export default {
   title: getTitle(base),
@@ -21,9 +21,10 @@ export default {
         type: 'text',
       },
     },
-    height: {
+    size: {
       control: {
-        type: 'text',
+        type: 'radio',
+        options: [...Object.values(SegmentedControlSize)],
       },
     },
   },
@@ -110,10 +111,10 @@ const Input = styled.input`
   }
 `
 
-const PrimaryStory: Story<SegmentedControlProps> = ({ width, height, selectedOptionIndex, ...otherProps }) => (
+const PrimaryStory: Story<SegmentedControlProps> = ({ size, width, selectedOptionIndex, ...otherProps }) => (
   <SegmentedControl
+    size={size}
     width={width}
-    height={height}
     selectedOptionIndex={selectedOptionIndex}
     {...otherProps}
   >
@@ -123,7 +124,7 @@ const PrimaryStory: Story<SegmentedControlProps> = ({ width, height, selectedOpt
   </SegmentedControl>
 )
 
-const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...otherProps }) => {
+const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherProps }) => {
   const inputWrapper = useRef<HTMLInputElement>(null)
 
   const [items, setItems] = useState<any>(range(0, 5) as any[])
@@ -166,8 +167,8 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ width, height, ...other
   return (
     <Wrapper>
       <SegmentedControl
+        size={size}
         width={width}
-        height={height}
         selectedOptionIndex={currentIndex}
         onChangeOption={handleChangeOption}
         {...otherProps}
@@ -214,13 +215,13 @@ export const Playground = PlaygroundStory.bind({})
 
 Primary.args = {
   disabled: false,
+  size: SegmentedControlSize.M,
   width: '400px',
-  height: '36px',
   selectedOptionIndex: 0,
 }
 
 Playground.args = {
   disabled: false,
+  size: SegmentedControlSize.M,
   width: '400px',
-  height: '36px',
 }
