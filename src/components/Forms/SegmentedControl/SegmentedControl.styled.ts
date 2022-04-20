@@ -55,9 +55,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   width: ${({ wrapperWidth }) => toLength(wrapperWidth, '100%')};
   min-width: 50px;
   overflow: hidden;
-  /* font-size: 14px;
-  font-weight: bold;
-  line-height: 18px; */
   background-color: ${props => props.foundation?.theme?.['bg-black-lighter']};
   ${({ disabled }) => disabled && `
     opacity: ${disabledOpacity};
@@ -76,11 +73,7 @@ export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* padding: 0 4px; */
   overflow: hidden;
-  /* font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit; */
   color: ${props => (
     props.active
       ? props.foundation?.theme?.['txt-black-darkest']

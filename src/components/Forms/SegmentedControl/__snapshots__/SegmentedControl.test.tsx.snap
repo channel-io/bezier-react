@@ -2,6 +2,23 @@
 
 exports[`SegmentedControl Snapshot 1`] = `
 .c4 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c5 {
   font-size: 1.5rem;
   line-height: 2rem;
   -webkit-letter-spacing: -0.1px;
@@ -95,7 +112,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   background-color: #0000000D;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   box-sizing: border-box;
   display: -webkit-box;
@@ -175,7 +192,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   background-color: #FFFFFF;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   top: 8px;
   bottom: 8px;
@@ -183,7 +200,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   visibility: hidden;
 }
 
-.c7 {
+.c8 {
   position: absolute;
   top: 8px;
   bottom: 8px;
@@ -211,11 +228,16 @@ exports[`SegmentedControl Snapshot 1`] = `
       class="c4"
       data-testid="bezier-react-text"
     >
-      0
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        0
+      </span>
     </span>
   </div>
   <div
-    class="c5"
+    class="c6"
     data-testid="bezier-react-segmented-control-option-item-1"
     style="width: -1.75px; left: 1.25px;"
   >
@@ -223,7 +245,12 @@ exports[`SegmentedControl Snapshot 1`] = `
       class="c4"
       data-testid="bezier-react-text"
     >
-      1
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        1
+      </span>
     </span>
   </div>
   <div
@@ -235,7 +262,12 @@ exports[`SegmentedControl Snapshot 1`] = `
       class="c4"
       data-testid="bezier-react-text"
     >
-      2
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        2
+      </span>
     </span>
   </div>
   <div
@@ -247,21 +279,26 @@ exports[`SegmentedControl Snapshot 1`] = `
       class="c4"
       data-testid="bezier-react-text"
     >
-      3
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        3
+      </span>
     </span>
   </div>
   <div
-    class="c6"
+    class="c7"
     hidden=""
     style="width: 1px; left: 0.25px;"
   />
   <div
-    class="c6"
+    class="c7"
     hidden=""
     style="width: 1px; left: -0.5px;"
   />
   <div
-    class="c7"
+    class="c8"
     style="width: 1px; left: -1.25px;"
   />
 </div>

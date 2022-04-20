@@ -118,9 +118,7 @@ const PrimaryStory: Story<SegmentedControlProps> = ({ size, width, selectedOptio
     selectedOptionIndex={selectedOptionIndex}
     {...otherProps}
   >
-    { ['Open', 'Snoozed', 'Closed'].map((item) => (
-      <Text key={item} bold>{ item }</Text>
-    )) }
+    { ['Open', 'Snoozed', 'Closed'] }
   </SegmentedControl>
 )
 
@@ -173,9 +171,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
         onChangeOption={handleChangeOption}
         {...otherProps}
       >
-        { items.map((n) => (
-          <Text key={`span-${n}`} bold>{ n }</Text>
-        )) }
+        { items }
       </SegmentedControl>
 
       <ItemList>

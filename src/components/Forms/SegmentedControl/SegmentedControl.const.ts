@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { css, Typography } from 'Foundation'
 import { SegmentedControlSize } from './SegmentedControl.types'
 
 export const SIZE_TO_HEIGHT: Record<SegmentedControlSize, number> = {
@@ -22,4 +23,11 @@ export const SIZE_TO_DIVIDER_VERTICAL_MARGIN: Record<SegmentedControlSize, numbe
   [SegmentedControlSize.S]: 8,
   [SegmentedControlSize.M]: 8,
   [SegmentedControlSize.L]: 10,
+}
+
+export const SIZE_TO_OPTION_TYPOGRAPHY: Record<SegmentedControlSize, ReturnType<typeof css>> = {
+  [SegmentedControlSize.XS]: Typography.Size13,
+  [SegmentedControlSize.S]: Typography.Size14,
+  [SegmentedControlSize.M]: Typography.Size14,
+  [SegmentedControlSize.L]: Typography.Size14,
 }

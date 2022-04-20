@@ -7,8 +7,10 @@ import { useResizeDetector } from 'react-resize-detector'
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import { Text } from 'Components/Text'
 import {
   DIVIDER_WIDTH,
+  SIZE_TO_OPTION_TYPOGRAPHY,
   SIZE_TO_PADDING,
 } from './SegmentedControl.const'
 import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
@@ -108,7 +110,12 @@ function SegmentedControl(
       }}
       onClick={() => (disabled ? noop : handleClickOptionItem(index))}
     >
-      { Element }
+      <Text
+        typo={SIZE_TO_OPTION_TYPOGRAPHY[size]}
+        bold
+      >
+        { Element }
+      </Text>
     </Styled.OptionItemWrapper>
   ), [
     disabled,
