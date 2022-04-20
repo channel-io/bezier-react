@@ -38,12 +38,30 @@ const verticalPaddingStyle = css<{ size: SegmentedControlSize }>`
   padding: ${({ size }) => SIZE_TO_PADDING[size]}px 0;
 `
 
-const roundingStyle = css<{ size: SegmentedControlSize }>`
+const wrapperRoundingStyle = css<{ size: SegmentedControlSize }>`
   ${({ foundation, size }) => ({
     [SegmentedControlSize.XS]: foundation?.rounding.round6,
     [SegmentedControlSize.S]: foundation?.rounding.round8,
     [SegmentedControlSize.M]: foundation?.rounding.round8,
     [SegmentedControlSize.L]: foundation?.rounding.round12,
+  })[size]}
+`
+
+const itemRoundingStyle = css<{ size: SegmentedControlSize }>`
+  ${({ foundation, size }) => ({
+    [SegmentedControlSize.XS]: foundation?.rounding.round4,
+    [SegmentedControlSize.S]: foundation?.rounding.round6,
+    [SegmentedControlSize.M]: foundation?.rounding.round6,
+    [SegmentedControlSize.L]: foundation?.rounding.round6,
+  })[size]}
+`
+
+const indicatorRoundingStyle = css<{ size: SegmentedControlSize }>`
+  ${({ foundation, size }) => ({
+    [SegmentedControlSize.XS]: foundation?.rounding.round4,
+    [SegmentedControlSize.S]: foundation?.rounding.round6,
+    [SegmentedControlSize.M]: foundation?.rounding.round6,
+    [SegmentedControlSize.L]: foundation?.rounding.round8,
   })[size]}
 `
 
@@ -62,7 +80,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 
   ${heightStyle}
-  ${roundingStyle}
+  ${wrapperRoundingStyle}
   ${verticalPaddingStyle}
 `
 
@@ -94,7 +112,7 @@ export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
   }
 
   ${heightStyle}
-  ${roundingStyle}
+  ${itemRoundingStyle}
 `
 
 export const Indicator = styled.div<StyledIndicatorProps>`
@@ -111,7 +129,7 @@ export const Indicator = styled.div<StyledIndicatorProps>`
   will-change: transform;
 
   ${heightStyle}
-  ${roundingStyle}
+  ${indicatorRoundingStyle}
 `
 
 export const IndicatorBox = styled.div`

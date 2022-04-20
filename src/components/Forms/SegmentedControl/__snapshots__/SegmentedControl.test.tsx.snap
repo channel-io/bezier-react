@@ -105,7 +105,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   user-select: none;
   height: 32px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .c3:hover {
@@ -147,7 +147,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   user-select: none;
   height: 32px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .c1 {
@@ -181,7 +181,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   will-change: transform;
   height: 32px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .c2 {
