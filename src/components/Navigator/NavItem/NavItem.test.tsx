@@ -16,11 +16,19 @@ describe('NavItem Test >', () => {
     }
   })
 
-  const renderNavItem = (optionProps?: NavItemProps) =>
+  const renderNavItem = (optionProps?: Partial<NavItemProps>) =>
     render(<NavItem {...props} {...optionProps} />)
 
-  it('Snapshot > ', () => {
-    const { getByTestId } = renderNavItem()
+  it('Snapshot > active', () => {
+    const { getByTestId } = renderNavItem({ active: true })
+
+    const rendered = getByTestId(NAV_ITEM_TEST_ID)
+
+    expect(rendered).toMatchSnapshot()
+  })
+
+  it('Snapshot > not active', () => {
+    const { getByTestId } = renderNavItem({ active: false })
 
     const rendered = getByTestId(NAV_ITEM_TEST_ID)
 

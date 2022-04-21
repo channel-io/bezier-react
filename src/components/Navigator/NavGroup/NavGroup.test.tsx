@@ -7,7 +7,7 @@ import { Icon, IconSize } from 'Components/Icon'
 import NavGroup, { NAV_GROUP_TEST_ID } from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
 
-describe('NavItem Test >', () => {
+describe('NavGroup Test >', () => {
   let props: NavGroupProps
 
   beforeEach(() => {

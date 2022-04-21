@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavItem Test > Snapshot > active 1`] = `
+exports[`NavGroup Test > Snapshot > active 1`] = `
 .c2 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -188,7 +188,7 @@ exports[`NavItem Test > Snapshot > active 1`] = `
 </button>
 `;
 
-exports[`NavItem Test > Snapshot > not active 1`] = `
+exports[`NavGroup Test > Snapshot > not active 1`] = `
 .c2 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
