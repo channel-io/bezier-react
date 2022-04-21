@@ -60,7 +60,7 @@ function NavItem({
             <Icon
               name={leftIcon}
               size={IconSize.S}
-              color={leftIconColor}
+              color={active ? undefined : leftIconColor}
             />
           ) }
         </LeftIconWrapper>
