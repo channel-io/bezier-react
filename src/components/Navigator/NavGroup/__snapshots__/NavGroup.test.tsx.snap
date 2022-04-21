@@ -6,7 +6,7 @@ exports[`NavItem Test > Snapshot > active 1`] = `
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0px 0px 0px 0px;
-  color: #00000066;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -132,7 +132,6 @@ exports[`NavItem Test > Snapshot > active 1`] = `
   >
     <svg
       class="c2"
-      color="txt-black-dark"
       data-testid="bezier-react-icon"
       fill="none"
       foundation="[object Object]"

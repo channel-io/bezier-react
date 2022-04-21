@@ -67,7 +67,7 @@ function NavGroup({
             <Icon
               name={leftIcon}
               size={IconSize.S}
-              color={leftIconColor}
+              color={active ? undefined : leftIconColor}
             />
           ) }
         </LeftIconWrapper>
