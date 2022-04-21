@@ -5,7 +5,6 @@ import type {
   LinkProps,
   SideContentProps,
   ActivatableProps,
-  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import { IconName } from 'Components/Icon'
 
@@ -21,6 +20,5 @@ export default interface NavItemProps extends
   ContentProps,
   LinkProps,
   Pick<SideContentProps, 'rightContent'>,
-  AdditionalColorProps<'leftIcon'>,
   Pick<ActivatableProps, 'active'>,
   NavItemOptions {}

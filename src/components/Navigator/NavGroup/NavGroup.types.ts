@@ -5,7 +5,6 @@ import type {
   ContentProps,
   SideContentProps,
   ActivatableProps,
-  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import { IconName } from 'Components/Icon'
 
@@ -21,6 +20,5 @@ export default interface NavGroupProps extends
   ChildrenProps,
   ContentProps,
   Pick<SideContentProps, 'rightContent'>,
-  AdditionalColorProps<'leftIcon'>,
   Pick<ActivatableProps, 'active'>,
   NavGroupOptions {}

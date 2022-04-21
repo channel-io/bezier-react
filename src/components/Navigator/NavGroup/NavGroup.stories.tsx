@@ -47,6 +47,5 @@ Primary.args = {
   name: 'general',
   content: '일반 설정',
   leftIcon: 'settings',
-  leftIconColor: 'txt-black-dark',
   rightContent: <Icon name="dot" size={IconSize.XS} color="bgtxt-orange-normal" />,
 }
