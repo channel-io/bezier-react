@@ -29,7 +29,6 @@ function NavGroup({
   content,
   rightContent,
   leftIcon,
-  leftIconColor = 'txt-black-dark',
   open,
   active,
   onClick = noop,
@@ -67,7 +66,7 @@ function NavGroup({
             <Icon
               name={leftIcon}
               size={IconSize.S}
-              color={active ? undefined : leftIconColor}
+              color={active ? undefined : 'txt-black-dark'}
             />
           ) }
         </LeftIconWrapper>

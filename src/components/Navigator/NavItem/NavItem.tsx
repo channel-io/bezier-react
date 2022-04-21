@@ -28,7 +28,6 @@ function NavItem({
   target = '_self',
   rightContent,
   leftIcon,
-  leftIconColor = 'txt-black-dark',
   active,
   onClick = noop,
 }: NavItemProps) {
@@ -60,7 +59,7 @@ function NavItem({
             <Icon
               name={leftIcon}
               size={IconSize.S}
-              color={active ? undefined : leftIconColor}
+              color={active ? undefined : 'txt-black-dark'}
             />
           ) }
         </LeftIconWrapper>
