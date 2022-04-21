@@ -51,7 +51,6 @@ function NavGroup({
       <Item
         as={as}
         active={active}
-        open={open}
         style={style}
         className={className}
         interpolation={interpolation}
