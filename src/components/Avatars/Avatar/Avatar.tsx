@@ -62,7 +62,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     return (
       <StatusWrapper
         data-testid={STATUS_WRAPPER_TEST_ID}
-        size={statusSize}
+        size={size}
         showBorder={showBorder}
       >
         { Contents }
