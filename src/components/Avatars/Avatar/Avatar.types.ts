@@ -9,6 +9,7 @@ export enum AvatarSize {
   Size36 = 36,
   Size42 = 42,
   Size48 = 48,
+  Size72 = 72,
   Size90 = 90,
   Size120 = 120,
 }

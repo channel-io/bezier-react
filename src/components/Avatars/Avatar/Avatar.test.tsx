@@ -88,6 +88,20 @@ describe('Avatar >', () => {
     expect(statusWrapper).toMatchSnapshot()
   })
 
+  it('should have right 4px, bottom 4px style on StatusWrapper when size grater then 72', () => {
+    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: AvatarSize.Size72 })
+    const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
+
+    expect(statusWrapper).toMatchSnapshot()
+  })
+
+  it('should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border', () => {
+    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: AvatarSize.Size72, showBorder: true })
+    const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
+
+    expect(statusWrapper).toMatchSnapshot()
+  })
+
   it('should have right 4px, bottom 4px style on StatusWrapper when size grater then 90', () => {
     const { getByTestId } = renderAvatar({ status: StatusType.Online, size: AvatarSize.Size90 })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)

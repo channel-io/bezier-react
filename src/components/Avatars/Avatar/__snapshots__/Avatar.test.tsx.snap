@@ -149,7 +149,7 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="8"
+  size="24"
 >
   <div
     class="c1"
@@ -199,7 +199,57 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="8"
+  size="24"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="8"
+  />
+</div>
+`;
+
+exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 72 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 2px;
+  position: relative;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="72"
 >
   <div
     class="c1"
@@ -249,13 +299,63 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="14"
+  size="90"
 >
   <div
     class="c1"
     color="bgtxt-green-normal"
     data-testid="bezier-react-status"
     size="14"
+  />
+</div>
+`;
+
+exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border 1`] = `
+.c1 {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 2px;
+  position: relative;
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.c1::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #31A552;
+  border-radius: 50%;
+}
+
+.c0 {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+@supports (background:paint(smooth-corners)) {
+
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-status-wrapper"
+  size="72"
+>
+  <div
+    class="c1"
+    color="bgtxt-green-normal"
+    data-testid="bezier-react-status"
+    size="8"
   />
 </div>
 `;
@@ -299,7 +399,7 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="14"
+  size="90"
 >
   <div
     class="c1"
