@@ -4,7 +4,6 @@ import type { InterpolationProps } from 'Types/Foundation'
 import { Text } from 'Components/Text'
 
 interface WrapperProps extends InterpolationProps {
-  open: boolean
   active: boolean
 }
 
@@ -35,19 +34,6 @@ export const RightContentWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-left: 8px;
-`
-
-const closedItemStyle = css`
-  ${ChevronWrapper} {
-    visibility: hidden;
-  }
-
-  &:hover,
-  &:focus-visible {
-    ${ChevronWrapper} {
-      visibility: visible;
-    }
-  }
 `
 
 const activeItemStyle = css`
@@ -85,7 +71,6 @@ export const Item = styled.button<WrapperProps>`
   ${({ foundation }) => foundation?.rounding?.round6}
 
   ${({ active }) => (active ? activeItemStyle : nonActiveItemStyle)}
-  ${({ open }) => (open ? null : closedItemStyle)}
 
   ${({ interpolation }) => interpolation}
 `

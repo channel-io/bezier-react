@@ -111,15 +111,6 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   background-color: #5E56F01A;
 }
 
-.c0 .sc-eCApnc {
-  visibility: hidden;
-}
-
-.c0:hover .sc-eCApnc,
-.c0:focus-visible .sc-eCApnc {
-  visibility: visible;
-}
-
 <button
   aria-controls="generalMenu"
   aria-haspopup="false"
@@ -304,15 +295,6 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
 
 .c0:focus-visible {
   background-color: #0000000D;
-}
-
-.c0 .sc-eCApnc {
-  visibility: hidden;
-}
-
-.c0:hover .sc-eCApnc,
-.c0:focus-visible .sc-eCApnc {
-  visibility: visible;
 }
 
 <button
