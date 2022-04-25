@@ -15,6 +15,7 @@ import {
 } from './NavItem.styled'
 
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
+export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
 
 function NavItem({
   as,
@@ -28,7 +29,6 @@ function NavItem({
   target = '_self',
   rightContent,
   leftIcon,
-  leftIconColor = 'txt-black-dark',
   active,
   onClick = noop,
 }: NavItemProps) {
@@ -58,9 +58,10 @@ function NavItem({
         <LeftIconWrapper>
           { showLeftIcon && (
             <Icon
+              testId={NAV_ITEM_LEFT_ICON_TEST_ID}
               name={leftIcon}
               size={IconSize.S}
-              color={leftIconColor}
+              color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
           ) }
         </LeftIconWrapper>

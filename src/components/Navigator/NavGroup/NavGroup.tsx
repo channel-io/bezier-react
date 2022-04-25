@@ -17,6 +17,7 @@ import {
 } from './NavGroup.styled'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
+export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
 
 function NavGroup({
   as,
@@ -29,7 +30,6 @@ function NavGroup({
   content,
   rightContent,
   leftIcon,
-  leftIconColor = 'txt-black-dark',
   open,
   active,
   onClick = noop,
@@ -65,9 +65,10 @@ function NavGroup({
         <LeftIconWrapper>
           { showLeftIcon && (
             <Icon
+              testId={NAV_GROUP_LEFT_ICON_TEST_ID}
               name={leftIcon}
               size={IconSize.S}
-              color={leftIconColor}
+              color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
           ) }
         </LeftIconWrapper>

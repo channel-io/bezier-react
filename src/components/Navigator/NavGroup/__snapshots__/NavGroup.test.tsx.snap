@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavItem Test > Snapshot > active 1`] = `
+exports[`NavGroup Test > Snapshot > Active 1`] = `
 .c2 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0px 0px 0px 0px;
-  color: #00000066;
+  color: #5E56F0;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -132,8 +132,8 @@ exports[`NavItem Test > Snapshot > active 1`] = `
   >
     <svg
       class="c2"
-      color="txt-black-dark"
-      data-testid="bezier-react-icon"
+      color="bgtxt-blue-normal"
+      data-testid="bezier-react-nav-group-left-icon"
       fill="none"
       foundation="[object Object]"
       height="20"
@@ -188,7 +188,7 @@ exports[`NavItem Test > Snapshot > active 1`] = `
 </button>
 `;
 
-exports[`NavItem Test > Snapshot > not active 1`] = `
+exports[`NavGroup Test > Snapshot > Not active 1`] = `
 .c2 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -328,7 +328,7 @@ exports[`NavItem Test > Snapshot > not active 1`] = `
     <svg
       class="c2"
       color="txt-black-dark"
-      data-testid="bezier-react-icon"
+      data-testid="bezier-react-nav-group-left-icon"
       fill="none"
       foundation="[object Object]"
       height="20"
