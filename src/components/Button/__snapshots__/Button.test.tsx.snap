@@ -6,7 +6,7 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -105,7 +105,7 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -215,7 +215,7 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -342,7 +342,7 @@ exports[`Button Test > Reset CSS 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -444,7 +444,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
   letter-spacing: -0.1px;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -553,7 +553,7 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
   letter-spacing: -0.1px;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -651,7 +651,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -756,7 +756,7 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -854,7 +854,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -959,7 +959,7 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1057,7 +1057,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
   line-height: 2.4rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1162,7 +1162,7 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
   line-height: 2.4rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1260,7 +1260,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1365,7 +1365,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1463,7 +1463,7 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -1921,7 +1921,7 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -2026,7 +2026,7 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -2124,7 +2124,7 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -2222,7 +2222,7 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;

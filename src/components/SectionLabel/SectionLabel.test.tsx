@@ -28,7 +28,7 @@ describe('SectionLabel', () => {
     const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
 
     expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
+    expect(content.children.item(0)).toHaveStyle('font-weight: 600;')
     expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
   })
 
@@ -37,7 +37,7 @@ describe('SectionLabel', () => {
     const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
 
     expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
+    expect(content.children.item(0)).toHaveStyle('font-weight: 600;')
     expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
   })
 

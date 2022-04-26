@@ -34,7 +34,7 @@ describe('Text test >', () => {
 
     const renderedText = getByTestId(TEXT_TEST_ID)
 
-    expect(renderedText).toHaveStyle('font-weight: bold;')
+    expect(renderedText).toHaveStyle('font-weight: 600;')
   })
 
   it('Text receives bold style', () => {

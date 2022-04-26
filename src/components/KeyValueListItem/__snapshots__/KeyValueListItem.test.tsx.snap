@@ -22,7 +22,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   line-height: 1.6rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
