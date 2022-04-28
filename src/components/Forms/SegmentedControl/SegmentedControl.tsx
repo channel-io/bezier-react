@@ -6,6 +6,7 @@ import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
+import { Divider } from 'Components/Divider'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { Text } from 'Components/Text'
 import {
@@ -36,6 +37,7 @@ const dividerLeft = (width: number, numItems: number, size: SegmentedControlSize
     SIZE_TO_PADDING[size]
       + (itemWidth(width, numItems, size) * index)
       + (DIVIDER_WIDTH * (index - 1))
+      - 6 // Side margin of divider component.
   )
 
 function SegmentedControl(
@@ -136,15 +138,16 @@ function SegmentedControl(
   const Dividers = useMemo(() => (
     range(1, numItems)
       .map(index => (
-        <Styled.Divider
+        <Styled.DividerContainer
           key={`divider-${index.toString(36)}`}
           size={size}
           hidden={index === currentIndex || index === currentIndex + 1}
           style={{
-            width: DIVIDER_WIDTH,
             left: dividerItemLeft(index),
           }}
-        />
+        >
+          <Divider orientation="vertical" />
+        </Styled.DividerContainer>
       ))
   ), [
     size,

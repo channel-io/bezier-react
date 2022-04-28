@@ -19,10 +19,10 @@ export const SIZE_TO_PADDING: Record<SegmentedControlSize, number> = {
 export const DIVIDER_WIDTH = 1
 
 export const SIZE_TO_DIVIDER_VERTICAL_MARGIN: Record<SegmentedControlSize, number> = {
-  [SegmentedControlSize.XS]: 7,
-  [SegmentedControlSize.S]: 8,
-  [SegmentedControlSize.M]: 8,
-  [SegmentedControlSize.L]: 10,
+  [SegmentedControlSize.XS]: 1,
+  [SegmentedControlSize.S]: 2,
+  [SegmentedControlSize.M]: 2,
+  [SegmentedControlSize.L]: 4,
 }
 
 export const SIZE_TO_OPTION_TYPOGRAPHY: Record<SegmentedControlSize, ReturnType<typeof css>> = {

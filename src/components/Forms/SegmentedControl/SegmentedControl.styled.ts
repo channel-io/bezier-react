@@ -139,11 +139,10 @@ export const IndicatorBox = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
 `
 
-export const Divider = styled.div<StyledDividerProps>`
+export const DividerContainer = styled.div<StyledDividerProps>`
   position: absolute;
   top: ${({ size }) => SIZE_TO_DIVIDER_VERTICAL_MARGIN[size]}px;
   bottom: ${({ size }) => SIZE_TO_DIVIDER_VERTICAL_MARGIN[size]}px;
-  background-color: ${({ foundation }) => foundation?.theme['bg-black-light']};
 
   ${({ hidden }) => hidden && `
     visibility: hidden;

@@ -39,6 +39,19 @@ exports[`SegmentedControl Snapshot 1`] = `
   transition-property: color;
 }
 
+.c8 {
+  box-sizing: content-box;
+  margin: 6px;
+  border: 0;
+  border-color: #00000014;
+  border-style: solid;
+}
+
+.c9 {
+  height: calc(100% - 12px);
+  border-left-width: 1px;
+}
+
 .c0 {
   position: relative;
   display: -webkit-inline-box;
@@ -194,17 +207,15 @@ exports[`SegmentedControl Snapshot 1`] = `
 
 .c7 {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  background-color: #00000014;
+  top: 2px;
+  bottom: 2px;
   visibility: hidden;
 }
 
-.c8 {
+.c10 {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  background-color: #00000014;
+  top: 2px;
+  bottom: 2px;
 }
 
 <div
@@ -290,16 +301,34 @@ exports[`SegmentedControl Snapshot 1`] = `
   <div
     class="c7"
     hidden=""
-    style="width: 1px; left: 0.25px;"
-  />
+    style="left: -5.75px;"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="c8 c9"
+      data-testid="bezier-react-divider"
+    />
+  </div>
   <div
     class="c7"
     hidden=""
-    style="width: 1px; left: -0.5px;"
-  />
+    style="left: -6.5px;"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="c8 c9"
+      data-testid="bezier-react-divider"
+    />
+  </div>
   <div
-    class="c8"
-    style="width: 1px; left: -1.25px;"
-  />
+    class="c10"
+    style="left: -7.25px;"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="c8 c9"
+      data-testid="bezier-react-divider"
+    />
+  </div>
 </div>
 `;
