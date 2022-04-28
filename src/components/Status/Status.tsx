@@ -21,6 +21,7 @@ function Status({
         size={size}
       >
         <LockIcon
+          name="lock"
           size={IconSize.XXS}
           color="txt-black-darker"
         />
