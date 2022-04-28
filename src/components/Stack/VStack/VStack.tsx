@@ -13,7 +13,7 @@ function VStack(
   props: VStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
-  return (<Stack ref={forwardedRef} direction="horizontal" {...props} />)
+  return (<Stack ref={forwardedRef} direction="vertical" {...props} />)
 }
 
 export default forwardRef(VStack)
