@@ -17,6 +17,7 @@ export const SIZE_TO_PADDING: Record<SegmentedControlSize, number> = {
 }
 
 export const DIVIDER_WIDTH = 1
+export const DIVIDER_SIDE_MARGIN = 6
 
 export const SIZE_TO_DIVIDER_VERTICAL_MARGIN: Record<SegmentedControlSize, number> = {
   [SegmentedControlSize.XS]: 1,

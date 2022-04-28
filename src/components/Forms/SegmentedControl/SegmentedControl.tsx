@@ -11,6 +11,7 @@ import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { Text } from 'Components/Text'
 import {
   DIVIDER_WIDTH,
+  DIVIDER_SIDE_MARGIN,
   SIZE_TO_OPTION_TYPOGRAPHY,
   SIZE_TO_PADDING,
 } from './SegmentedControl.const'
@@ -37,7 +38,7 @@ const dividerLeft = (width: number, numItems: number, size: SegmentedControlSize
     SIZE_TO_PADDING[size]
       + (itemWidth(width, numItems, size) * index)
       + (DIVIDER_WIDTH * (index - 1))
-      - 6 // Side margin of divider component.
+      - DIVIDER_SIDE_MARGIN
   )
 
 function SegmentedControl(
