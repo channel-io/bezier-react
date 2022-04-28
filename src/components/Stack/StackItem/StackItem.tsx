@@ -35,8 +35,8 @@ function StackItem(
     interpolation,
     children,
     direction,
-    mainAxis,
-    crossAxis,
+    justify,
+    align,
     size,
     weight = 0,
     grow = false,
@@ -62,8 +62,8 @@ function StackItem(
       className={className}
       interpolation={interpolation}
       direction={direction}
-      mainAxis={mainAxis}
-      crossAxis={crossAxis}
+      justify={justify}
+      align={align}
     >
       { children }
     </Styled.Container>

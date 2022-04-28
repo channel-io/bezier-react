@@ -7,7 +7,7 @@ import { flex } from 'Components/Stack/util'
 import type StackProps from './Stack.types'
 
 interface ContainerProps extends
-  Required<Pick<StackProps, 'interpolation' | 'direction' | 'mainAxis' | 'crossAxis'>> {}
+  Required<Pick<StackProps, 'interpolation' | 'direction' | 'justify' | 'align'>> {}
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
@@ -18,12 +18,12 @@ export const Container = styled.div<ContainerProps>`
     flex-direction: ${direction === 'horizontal' ? 'row' : 'column'};
   `}
 
-  ${({ mainAxis }) => css`
-    justify-content: ${flex(mainAxis)};
+  ${({ justify }) => css`
+    justify-content: ${flex(justify)};
   `}
 
-  ${({ crossAxis }) => css`
-    align-items: ${flex(crossAxis)};
+  ${({ align }) => css`
+    align-items: ${flex(align)};
   `}
 
   ${({ interpolation }) => interpolation}

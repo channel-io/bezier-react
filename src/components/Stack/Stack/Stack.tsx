@@ -38,8 +38,8 @@ function Stack(
     interpolation,
     children,
     direction,
-    mainAxis = 'start',
-    crossAxis = 'start',
+    justify = 'start',
+    align = 'start',
     spacing = 0,
   }: StackProps,
   forwardedRef: Ref<HTMLElement>,
@@ -53,8 +53,8 @@ function Stack(
       className={className}
       interpolation={interpolation}
       direction={direction}
-      mainAxis={mainAxis}
-      crossAxis={crossAxis}
+      justify={justify}
+      align={align}
     >
       { Children.map(
         children,

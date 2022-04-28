@@ -19,22 +19,22 @@ interface StackOptions {
   /**
    * Determines the default aligning of children along the main axis.
    *
-   * The `mainAxis` prop given to child `StackItem` component
+   * The `justify` prop given to child `StackItem` component
    * overrides the default alignment.
    *
    * @default start
    */
-  mainAxis?: AxisAlignment
+  justify?: AxisAlignment
 
   /**
    * Determines the default aligning of children along the cross axis.
    *
-   * The `crossAxis` prop given to child `StackItem` component
+   * The `align` prop given to child `StackItem` component
    * overrides the default alignment.
    *
    * @default start
    */
-  crossAxis?: AxisAlignment
+  align?: AxisAlignment
 
   /**
    * Default spacing between children, in pixels.

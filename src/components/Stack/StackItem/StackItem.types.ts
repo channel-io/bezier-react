@@ -21,14 +21,14 @@ interface StackItemOptions {
    *
    * This overrides the default alignment of parent `Stack`.
    */
-  mainAxis?: AxisAlignment
+  justify?: AxisAlignment
 
   /**
    * Determines the aligning of this item along the cross axis.
    *
    * This overrides the default alignment of parent `Stack`.
    */
-  crossAxis?: AxisAlignment
+  align?: AxisAlignment
 
   /**
    * Idle size of this component along the main axis, in pixels.

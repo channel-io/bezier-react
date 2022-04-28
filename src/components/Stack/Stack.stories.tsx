@@ -37,13 +37,13 @@ export default {
         options: ['horizontal', 'vertical'],
       },
     },
-    mainAxis: {
+    justify: {
       control: {
         type: 'radio',
         options: ['start', 'center', 'end', 'stretch'],
       },
     },
-    crossAxis: {
+    align: {
       control: {
         type: 'radio',
         options: ['start', 'center', 'end', 'stretch'],
@@ -71,13 +71,13 @@ const Item = ({
   direction: 'horizontal' | 'vertical'
 }) => {
   const [color] = useState(() => randomColor())
-  const [crossAxisSize] = useState(() => randomSize())
+  const [alignSize] = useState(() => randomSize())
 
   return (
     <div
       style={{
-        width: (fixedSize && direction === 'vertical') ? crossAxisSize : '100%',
-        height: (fixedSize && direction === 'horizontal') ? crossAxisSize : '100%',
+        width: (fixedSize && direction === 'vertical') ? alignSize : '100%',
+        height: (fixedSize && direction === 'horizontal') ? alignSize : '100%',
         backgroundColor: color,
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
@@ -91,13 +91,13 @@ interface StackPreviewProps {
 
   /* Stack Props */
   direction: 'horizontal' | 'vertical'
-  mainAxis: AxisAlignment
-  crossAxis: AxisAlignment
+  justify: AxisAlignment
+  align: AxisAlignment
   spacing: number
 
   /* Item Props */
-  itemMainAxes: (AxisAlignment | undefined)[]
-  itemCrossAxes: (AxisAlignment | undefined)[]
+  itemJustifies: (AxisAlignment | undefined)[]
+  itemAligns: (AxisAlignment | undefined)[]
   itemSizes: (number | undefined)[]
   itemWeights: (number | undefined)[]
   itemGrows: (boolean | undefined)[]
@@ -110,12 +110,12 @@ const Template: Story<StackPreviewProps> = ({
   containerSize,
 
   direction,
-  mainAxis,
-  crossAxis,
+  justify,
+  align,
   spacing,
 
-  itemMainAxes,
-  itemCrossAxes,
+  itemJustifies,
+  itemAligns,
   itemSizes,
   itemWeights,
   itemGrows,
@@ -137,16 +137,16 @@ const Template: Story<StackPreviewProps> = ({
     >
       <Stack
         direction={direction}
-        mainAxis={mainAxis}
-        crossAxis={crossAxis}
+        justify={justify}
+        align={align}
         spacing={spacing}
       >
         { range(4)
           .map(i => (
             <StackItem
               key={`item-${i}`}
-              mainAxis={itemMainAxes[i]}
-              crossAxis={itemCrossAxes[i]}
+              justify={itemJustifies[i]}
+              align={itemAligns[i]}
               size={itemSizes[i]}
               weight={itemWeights[i]}
               grow={itemGrows[i]}
@@ -154,7 +154,7 @@ const Template: Story<StackPreviewProps> = ({
               marginBefore={itemMarginBefores[i]}
               marginAfter={itemMarginAfters[i]}
             >
-              <Item direction={direction} fixedSize={(crossAxis ?? itemCrossAxes[i]) !== 'stretch'} />
+              <Item direction={direction} fixedSize={(align ?? itemAligns[i]) !== 'stretch'} />
             </StackItem>
           )) }
       </Stack>
@@ -167,12 +167,12 @@ Primary.args = {
   containerSize: 800,
 
   direction: 'horizontal',
-  mainAxis: 'start',
-  crossAxis: 'start',
+  justify: 'start',
+  align: 'start',
   spacing: 0,
 
-  itemMainAxes: [],
-  itemCrossAxes: [],
+  itemJustifies: [],
+  itemAligns: [],
   itemSizes: [120, 240, 180, 120],
   itemWeights: [],
   itemGrows: [],

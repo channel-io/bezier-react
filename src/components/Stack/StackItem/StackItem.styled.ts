@@ -13,17 +13,17 @@ interface ContainerProps extends
   Required<Pick<
   StackItemProps,
   | 'direction'
-  | 'mainAxis'
-  | 'crossAxis'
+  | 'justify'
+  | 'align'
   | 'interpolation'>> {}
 
 export const Container = styled.div<ContainerProps>`
-  ${({ mainAxis }) => !isNil(mainAxis) && css`
-    justify-self: ${flex(mainAxis)};
+  ${({ justify }) => !isNil(justify) && css`
+    justify-self: ${flex(justify)};
   `}
 
-  ${({ crossAxis }) => !isNil(crossAxis) && css`
-    align-self: ${flex(crossAxis)};
+  ${({ align }) => !isNil(align) && css`
+    align-self: ${flex(align)};
   `}
 
   flex-basis: var(--main-axis-size);
