@@ -15,7 +15,7 @@ export interface FormControlAriaProps {
 }
 
 interface WrapperProps {
-  Wrapper: React.FunctionComponent
+  Wrapper: React.FunctionComponent<ChildrenProps>
 }
 
 interface SetRenderedProps {
