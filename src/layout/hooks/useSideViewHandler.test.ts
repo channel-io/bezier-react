@@ -1,5 +1,5 @@
 /* External dependencies */
-import { act } from '@testing-library/react-hooks'
+import { act } from '@testing-library/react'
 
 /* Internal dependencies */
 import { renderHook } from 'Utils/testUtils'
