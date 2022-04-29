@@ -80,11 +80,12 @@ describe('Select Test >', () => {
       expect(defaultSelectTrigger).toHaveStyle('cursor: pointer;')
     })
 
-    it('Dropdown >', () => {
+    it('Dropdown >', async () => {
+      const user = userEvent.setup()
       const { getByTestId } = renderSelect()
 
       const defaultSelectTrigger = getByTestId(SELECT_TRIGGER_TEST_ID)
-      userEvent.click(defaultSelectTrigger)
+      await user.click(defaultSelectTrigger)
 
       const defaultSelectDropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
 
@@ -96,7 +97,8 @@ describe('Select Test >', () => {
   })
 
   describe('SelectSize >', () => {
-    it('Size only effects to trigger style >', () => {
+    it('Size only effects to trigger style >', async () => {
+      const user = userEvent.setup()
       const XL_CONTAINER_TEST_ID = `${SELECT_CONTAINER_TEST_ID}_XL`
       const XL_TRIGGER_TEST_ID = `${SELECT_TRIGGER_TEST_ID}_XL`
       const XL_DROPDOWN_TEST_ID = `${SELECT_DROPDOWN_TEST_ID}_XL`
@@ -121,10 +123,10 @@ describe('Select Test >', () => {
       const xlSelectContainer = getByTestIdForXL(XL_CONTAINER_TEST_ID)
       const xlSelectTrigger = getByTestIdForXL(XL_TRIGGER_TEST_ID)
       // Open Dropdown
-      userEvent.click(xlSelectTrigger)
+      await user.click(xlSelectTrigger)
       const xlSelectDropdown = getByTestIdForXL(XL_DROPDOWN_TEST_ID)
       // Close Dropdown
-      userEvent.click(xlSelectTrigger)
+      await user.click(xlSelectTrigger)
       const xlContainerStyle = window.getComputedStyle(xlSelectContainer)
       const xlDropdownStyle = window.getComputedStyle(xlSelectDropdown)
 
@@ -132,10 +134,10 @@ describe('Select Test >', () => {
       const lSelectContainer = getByTestIdForL(L_CONTAINER_TEST_ID)
       const lSelectTrigger = getByTestIdForL(L_TRIGGER_TEST_ID)
       // Open Dropdown
-      userEvent.click(lSelectTrigger)
+      await user.click(lSelectTrigger)
       const lSelectDropdown = getByTestIdForL(L_DROPDOWN_TEST_ID)
       // Close Dropdown
-      userEvent.click(lSelectTrigger)
+      await user.click(lSelectTrigger)
       const lContainerStyle = window.getComputedStyle(lSelectContainer)
       const lDropdownStyle = window.getComputedStyle(lSelectDropdown)
 
@@ -216,11 +218,12 @@ describe('Select Test >', () => {
       expect(trigger).toHaveStyle('cursor: not-allowed')
     })
 
-    it('should not show dropdown when clicked', () => {
+    it('should not show dropdown when clicked', async () => {
+      const user = userEvent.setup()
       const { getByTestId } = renderSelect({ disabled: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      userEvent.click(trigger)
+      await user.click(trigger)
 
       expect(() => getByTestId(SELECT_DROPDOWN_TEST_ID)).toThrow() // element should not exist
     })
@@ -257,11 +260,12 @@ describe('Select Test >', () => {
       expect(trigger).toHaveStyle('cursor: initial')
     })
 
-    it('should not show dropdown when clicked', () => {
+    it('should not show dropdown when clicked', async () => {
+      const user = userEvent.setup()
       const { getByTestId } = renderSelect({ readOnly: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      userEvent.click(trigger)
+      await user.click(trigger)
 
       expect(() => getByTestId(SELECT_DROPDOWN_TEST_ID)).toThrow() // element should not exist
     })
@@ -289,13 +293,14 @@ describe('Select Test >', () => {
       expect(dropdown).toBeVisible()
     })
 
-    it('should disappear dropdown when the other elements clicked >', () => {
+    it('should disappear dropdown when the other elements clicked >', async () => {
       const { body } = document
+      const user = userEvent.setup()
 
       const { getByTestId } = renderSelect({ defaultFocus: true })
       const dropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
 
-      userEvent.click(body)
+      await user.click(body)
 
       expect(dropdown).not.toBeVisible()
     })
