@@ -1621,9 +1621,7 @@ exports[`Button Test > Size Test > without text > Size L 1`] = `
   <div
     class="c1"
     data-testid="bezier-react-button-inner-content"
-  >
-    
-  </div>
+  />
 </button>
 `;
 
@@ -1693,9 +1691,7 @@ exports[`Button Test > Size Test > without text > Size M 1`] = `
   <div
     class="c1"
     data-testid="bezier-react-button-inner-content"
-  >
-    
-  </div>
+  />
 </button>
 `;
 
@@ -1765,9 +1761,7 @@ exports[`Button Test > Size Test > without text > Size S 1`] = `
   <div
     class="c1"
     data-testid="bezier-react-button-inner-content"
-  >
-    
-  </div>
+  />
 </button>
 `;
 
@@ -1837,9 +1831,7 @@ exports[`Button Test > Size Test > without text > Size XL 1`] = `
   <div
     class="c1"
     data-testid="bezier-react-button-inner-content"
-  >
-    
-  </div>
+  />
 </button>
 `;
 
@@ -1909,9 +1901,7 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
   <div
     class="c1"
     data-testid="bezier-react-button-inner-content"
-  >
-    
-  </div>
+  />
 </button>
 `;
 
