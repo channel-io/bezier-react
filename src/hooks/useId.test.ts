@@ -1,7 +1,5 @@
-/* External dependencies */
-import { renderHook } from '@testing-library/react-hooks'
-
 /* Internal dependencies */
+import { renderHook } from 'Utils/testUtils'
 import useId from './useId'
 
 describe('useId >', () => {

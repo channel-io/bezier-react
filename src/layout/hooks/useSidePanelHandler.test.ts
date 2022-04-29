@@ -1,7 +1,9 @@
 /* External dependencies */
-import { renderHook, act } from '@testing-library/react-hooks'
+import { act } from '@testing-library/react'
 
 /* Internal dependencies */
+import { renderHook } from 'Utils/testUtils'
+
 import LayoutProvider from 'Layout/LayoutProvider'
 import useSidePanelHandler from './useSidePanelHandler'
 
