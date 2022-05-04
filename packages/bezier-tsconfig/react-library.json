@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./build/src",
     "noEmit": true,
     "module": "esnext",
     "target": "es5",

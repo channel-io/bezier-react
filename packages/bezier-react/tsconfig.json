@@ -1,6 +1,8 @@
 {
   "extends": "@bezier/tsconfig/react-library.json",
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./build/src",
     "baseUrl": "./",
     "paths": {
       "Components/*": ["src/components/*"],
