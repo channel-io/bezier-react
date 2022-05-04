@@ -15,6 +15,7 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "husky": "^6.0.0",
+    "ts-node": "^8.10.2",
     "turbo": "^1.2.6"
   },
   "engines": {
