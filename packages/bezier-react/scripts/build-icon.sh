@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./node_modules/@svgr/cli/bin/svgr \
+npx @svgr/cli \
   -d ./src/components/Icon/generated \
   --template ./scripts/icon-template.js \
   --index-template ./scripts/icon-index-template.js \
