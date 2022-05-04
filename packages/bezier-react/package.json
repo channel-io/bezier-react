@@ -63,7 +63,6 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
-    "@channel.io/eslint-config": "^1.2.0",
     "@channel.io/eslint-plugin": "^1.1.1",
     "@channel.io/stylelint-config": "^1.2.0",
     "@commitlint/cli": "^13.1.0",

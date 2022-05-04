@@ -1,11 +1,10 @@
 module.exports = {
-  extends: ['@channel.io/eslint-config', 'plugin:storybook/recommended'],
+  root: true,
+  extends: ['bezier'],
   parserOptions: {
     project: ['./tsconfig.eslint.json'],
   },
   rules: {
-    'react/jsx-props-no-spreading': 'off',
-    'max-classes-per-file': 'off',
     'import/order': [
       'error',
       {
