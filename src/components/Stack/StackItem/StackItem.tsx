@@ -53,7 +53,7 @@ function StackItem(
       data-testid={testId}
       style={{
         ...style,
-        '--main-axis-size': isNil(size) ? undefined : `${size}px`,
+        '--main-axis-size': isNil(size) ? 'initial' : `${size}px`,
         '--grow-weight': grow ? sanitizeWeight(weight) : '0',
         '--shrink-weight': shrink ? sanitizeWeight(weight) : '0',
         '--margin-before': `${marginBefore}px`,

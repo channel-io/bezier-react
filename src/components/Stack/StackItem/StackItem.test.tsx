@@ -113,4 +113,32 @@ describe('StackItem', () => {
     expect(getByTestId('item-end')).toHaveStyle({ 'align-self': 'flex-end' })
     expect(getByTestId('item-stretch')).toHaveStyle({ 'align-self': 'stretch' })
   })
+
+  describe('dimensions', () => {
+    it('should set all of customizable css variables', () => {
+      const REQUIRED_CSS_VARS = [
+        '--main-axis-size',
+        '--grow-weight',
+        '--shrink-weight',
+        '--margin-before',
+        '--margin-after',
+      ]
+
+      const TEST_IDS = ['one', 'two', 'three', 'four']
+
+      const { getByTestId } = render(
+        <Stack direction="horizontal">
+          <StackItem testId="one" />
+          <StackItem testId="two" grow shrink weight={1} />
+          <StackItem testId="three" marginBefore={16} shrink weight={2} />
+          <StackItem testId="four" style={{ color: 'red' }} marginAfter={20} size={32} />
+        </Stack>,
+      )
+
+      TEST_IDS
+        .map(id => getByTestId(id))
+        .forEach(el => REQUIRED_CSS_VARS
+          .forEach(field => expect(el.style.getPropertyValue(field)).not.toBe('')))
+    })
+  })
 })
