@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "@bezier/tsconfig/react-library.json",
   "include": [
     "src/**/*",
     ".eslintrc.js",
