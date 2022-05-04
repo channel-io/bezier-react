@@ -1,4 +1,5 @@
 /* External dependencies */
+import { act } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 import React from 'react'
 
@@ -68,7 +69,9 @@ describe('TextArea 테스트 >', () => {
     const { getByTestId } = renderComponent({ onFocus })
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
     const textareaElement = rendered.getElementsByTagName('textarea')[0]
-    textareaElement.focus()
+    act(() => {
+      textareaElement.focus()
+    })
 
     jest.advanceTimersByTime(1000)
     // eslint-disable-next-line max-len
@@ -91,7 +94,9 @@ describe('TextArea 테스트 >', () => {
       const { getByTestId } = renderComponent({ onFocus, readOnly: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      textareaElement.focus()
+      act(() => {
+        textareaElement.focus()
+      })
 
       expect(onFocus).not.toBeCalled()
     })
@@ -101,7 +106,9 @@ describe('TextArea 테스트 >', () => {
       const { getByTestId } = renderComponent({ onFocus, disabled: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      textareaElement.focus()
+      act(() => {
+        textareaElement.focus()
+      })
 
       expect(onFocus).not.toBeCalled()
     })
@@ -111,7 +118,9 @@ describe('TextArea 테스트 >', () => {
       const { getByTestId } = renderComponent({ onFocus, disabled: true, readOnly: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      textareaElement.focus()
+      act(() => {
+        textareaElement.focus()
+      })
 
       expect(onFocus).not.toBeCalled()
     })
@@ -121,7 +130,9 @@ describe('TextArea 테스트 >', () => {
       const { getByTestId } = renderComponent({ onFocus })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      textareaElement.focus()
+      act(() => {
+        textareaElement.focus()
+      })
 
       expect(onFocus).toBeCalled()
     })
@@ -134,7 +145,10 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
 
-      fireEvent.change(textareaElement, { target: { value: 'test' } })
+      act(() => {
+        fireEvent.change(textareaElement, { target: { value: 'test' } })
+      })
+
       expect(onChange).toBeCalled()
     })
   })
@@ -145,8 +159,10 @@ describe('TextArea 테스트 >', () => {
       const { getByTestId } = renderComponent({ onBlur })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      textareaElement.focus()
-      textareaElement.blur()
+      act(() => {
+        textareaElement.focus()
+        textareaElement.blur()
+      })
       expect(onBlur).toBeCalled()
     })
   })

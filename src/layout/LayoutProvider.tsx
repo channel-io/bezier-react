@@ -10,7 +10,7 @@ import LayoutReducer, { defaultState, LayoutState } from './redux/LayoutReducer'
 
 interface LayoutProviderProps {
   children: React.ReactNode
-  initialState: Partial<LayoutState>
+  initialState?: Partial<LayoutState>
 }
 
 function LayoutProvider({ children, initialState }: LayoutProviderProps) {

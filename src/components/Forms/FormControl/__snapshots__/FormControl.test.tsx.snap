@@ -206,8 +206,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             class="c2 c3"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
-            for="field-1"
-            id="field-1-label"
+            for="field-:r3:"
+            id="field-:r3:-label"
           >
             First Inner Label
           </label>
@@ -220,7 +220,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           <input
             autocomplete="off"
             class="c6"
-            id="field-1"
+            id="field-:r3:"
             size="36"
             value=""
           />
@@ -237,8 +237,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             class="c2 c3"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
-            for="field-2"
-            id="field-2-label"
+            for="field-:r4:"
+            id="field-:r4:-label"
           >
             Second Inner Label
           </label>
@@ -252,7 +252,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             aria-invalid="true"
             autocomplete="off"
             class="c6"
-            id="field-2"
+            id="field-:r4:"
             size="36"
             value=""
           />
@@ -532,8 +532,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="c7 c4"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
-            for="field-3"
-            id="field-3-label"
+            for="field-:r6:"
+            id="field-:r6:-label"
           >
             First Inner Label
           </label>
@@ -546,7 +546,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           <input
             autocomplete="off"
             class="c9"
-            id="field-3"
+            id="field-:r6:"
             size="36"
             value=""
           />
@@ -563,8 +563,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="c7 c4"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
-            for="field-4"
-            id="field-4-label"
+            for="field-:r7:"
+            id="field-:r7:-label"
           >
             Second Inner Label
           </label>
@@ -578,7 +578,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             aria-invalid="true"
             autocomplete="off"
             class="c9"
-            id="field-4"
+            id="field-:r7:"
             size="36"
             value=""
           />

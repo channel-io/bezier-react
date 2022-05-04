@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { act } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
@@ -107,7 +108,9 @@ describe('TextField', () => {
   it('should have focused style when "input" focused', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-    rendered.getElementsByTagName('input')[0].focus()
+    act(() => {
+      rendered.getElementsByTagName('input')[0].focus()
+    })
     expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
     // eslint-disable-next-line max-len
     expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']}`)
@@ -119,7 +122,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onFocus })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      input.focus()
+      act(() => {
+        input.focus()
+      })
       expect(onFocus).toBeCalled()
     })
 
@@ -128,7 +133,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.change(input, { target: { value: 'test' } })
+      act(() => {
+        fireEvent.change(input, { target: { value: 'test' } })
+      })
       expect(onChange).toBeCalled()
     })
 
@@ -137,7 +144,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyDown).toBeCalled()
     })
 
@@ -146,7 +155,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyUp).toBeCalled()
     })
   })
@@ -157,7 +168,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onFocus, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      input.focus()
+      act(() => {
+        input.focus()
+      })
       expect(onFocus).not.toBeCalled()
     })
 
@@ -166,7 +179,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onFocus, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      input.focus()
+      act(() => {
+        input.focus()
+      })
       expect(onFocus).not.toBeCalled()
     })
 
@@ -175,7 +190,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.change(input, { target: { value: 'test' } })
+      act(() => {
+        fireEvent.change(input, { target: { value: 'test' } })
+      })
       expect(onChange).not.toBeCalled()
     })
 
@@ -184,7 +201,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.change(input, { target: { value: 'test' } })
+      act(() => {
+        fireEvent.change(input, { target: { value: 'test' } })
+      })
       expect(onChange).not.toBeCalled()
     })
 
@@ -193,7 +212,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyDown).not.toBeCalled()
     })
 
@@ -202,7 +223,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyDown).not.toBeCalled()
     })
 
@@ -211,7 +234,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyUp).not.toBeCalled()
     })
 
@@ -220,7 +245,9 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      act(() => {
+        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
+      })
       expect(onKeyUp).not.toBeCalled()
     })
   })

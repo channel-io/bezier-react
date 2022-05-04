@@ -40,7 +40,7 @@ const Wrapper = styled.div<WrapperProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface TextAreaAutoSizeBaseProps extends InterpolationProps{
+interface TextAreaAutoSizeBaseProps extends InterpolationProps {
   disabled: boolean
   readOnly: boolean
 }

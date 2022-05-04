@@ -1,6 +1,6 @@
 /* External dependencies */
 import React from 'react'
-import { act } from 'react-dom/test-utils'
+import { act } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
