@@ -12,9 +12,22 @@ type SegmentedControlBaseProps = BezierComponentProps & ChildrenProps & FormComp
 
 type CSSSizingProperty = number | string | ExplicitDefaulting | BoxSizingUnit
 
+export enum SegmentedControlSize {
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+}
+
 interface SegmentedControlOptions {
   width?: CSSSizingProperty
-  height?: CSSSizingProperty
+
+  /**
+   * Size variant of this SegmentedControl.
+   *
+   * @default SegmentedControlSize.M
+   */
+  size?: SegmentedControlSize
 }
 
 export default interface SegmentedControlProps extends
