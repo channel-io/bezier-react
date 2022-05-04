@@ -14,7 +14,6 @@
     "build"
   ],
   "scripts": {
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
     "storybook": "start-storybook -p 4101",
     "lint-staged": "lint-staged",
     "lint": "npm run eslint-all && npm run stylelint-all",
@@ -33,7 +32,6 @@
     "build:icon": "./scripts/build-icon.sh",
     "prepublishOnly": "npm run build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "prepare": "husky install",
     "semantic-release": "semantic-release",
     "update-snapshot": "jest --updateSnapshot"
   },
@@ -120,7 +118,6 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-storybook": "^0.5.11",
-    "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.4",
