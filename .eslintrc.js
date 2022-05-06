@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
   extends: [
-    '@channel.io/eslint-config', 
-    'plugin:storybook/recommended'
+    '@channel.io/eslint-config',
+    'plugin:storybook/recommended',
   ],
   parserOptions: {
     project: './tsconfig.json',
@@ -12,12 +12,12 @@ module.exports = {
     'max-classes-per-file': 'off',
     // FIXME: Delete the below rules after migration
     'react/destructuring-assignment': 'off',
-    "react/jsx-key": 'off',
+    'react/jsx-key': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
   },
   overrides: [
     {
-      files: ["bezier-react/**/*"],
+      files: ['bezier-react/**/*'],
       rules: {
         'import/order': [
           'error',
@@ -65,4 +65,4 @@ module.exports = {
       },
     },
   ],
-};
+}
