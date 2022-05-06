@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag test > Snapshot > 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-tag"
+  style="padding: 1px 4px; color: rgba(0, 0, 0, 0.851); background-color: rgba(0, 0, 0, 0.051);"
+/>
+`;
