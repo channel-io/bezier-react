@@ -1,8 +1,23 @@
 {
-  "extends": "@bezier/tsconfig/react-library.json",
   "compilerOptions": {
+    "composite": true,
     "declaration": true,
     "declarationDir": "./build/src",
+    "noEmit": true,
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["dom", "ESNext"],
+    "sourceMap": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "allowJs": true,
+    "noImplicitAny": false,
     "baseUrl": "./",
     "paths": {
       "Components/*": ["src/components/*"],
@@ -17,6 +32,7 @@
       "Worklets/*": ["src/worklets/*"]
     }
   },
+  "types": ["react", "jest"],
   "include": [
     "src/**/*"
   ],
