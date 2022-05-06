@@ -150,6 +150,7 @@ interface CreateFoundationGlobalStyle {
     | InterpolationFunction<ThemedStyledProps<P & { foundation?: FoundationWithGlobalStyle }, Foundation>>,
     ...interpolations: Array<Interpolation<ThemedStyledProps<P & { foundation?: FoundationWithGlobalStyle }, Foundation>>>
   ): GlobalStyleComponent<
+  // @ts-ignore
   P & { foundation: FoundationWithGlobalStyle },
   ThemedStyledProps<P & { foundation: FoundationWithGlobalStyle }, Foundation>
   >
