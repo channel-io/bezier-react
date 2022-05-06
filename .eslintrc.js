@@ -5,7 +5,7 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
   },
   rules: {
     'react/jsx-props-no-spreading': 'off',
