@@ -20,7 +20,7 @@ import {
 import BadgeProps from './Badge.types'
 
 // TODO: 테스트 코드 작성
-const BADGE_TEST_ID = 'bezier-react-badge'
+export const BADGE_TEST_ID = 'bezier-react-badge'
 
 function Badge({
   size = TagBadgeSize.M,
@@ -32,7 +32,7 @@ function Badge({
   testId = BADGE_TEST_ID,
   ...props
 }: BadgeProps) {
-  const hasChildren = useMemo(() => !isEmpty(children), [children])
+  const hasChildren = !isEmpty(children)
 
   const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
   const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
