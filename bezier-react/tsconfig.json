@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "composite": true,
+    "rootDir": ".",
     "declaration": true,
-    "declarationDir": "./build/src",
+    "declarationDir": "build",
     "noEmit": true,
     "module": "esnext",
     "target": "es5",

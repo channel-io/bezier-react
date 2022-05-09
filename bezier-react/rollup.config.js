@@ -22,7 +22,6 @@ const typescriptPlugin = typescript({
   typescript: require('ttypescript'),
   tsconfig: './tsconfig.json',
   useTsconfigDeclarationDir: true,
-  declarationDir: './build/src',
   transformers: [
     () => ({
       before: [styledComponentsTransformer],
