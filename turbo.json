@@ -11,10 +11,15 @@
       ]
     },
     "test": {
-      "outputs": [],
-      "dependsOn": []
+      "outputs": []
     },
     "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "jest": {
       "outputs": []
     },
     "dev": {
@@ -22,6 +27,15 @@
     },
     "clean": {
       "cache": false
+    },
+    "release": {
+      "dependsOn": [
+        "build", 
+        "test", 
+        "lint", 
+        "typecheck"
+      ],
+      "outputs": []
     }
   }
 }

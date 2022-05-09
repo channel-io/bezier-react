@@ -68,7 +68,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: npm run semantic-release
+      - run: npm run release
 
 workflows:
   version: 2

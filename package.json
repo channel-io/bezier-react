@@ -6,10 +6,13 @@
   "scripts": {
     "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
     "build": "turbo run build",
-    "dev": "turbo run dev --no-cache --parallel --continue",
+    "dev": "turbo run dev --no-cache --parallel",
     "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "jest": "turbo run jest",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
+    "release": "turbo run release",
     "prepare": "husky install"
   },
   "devDependencies": {
