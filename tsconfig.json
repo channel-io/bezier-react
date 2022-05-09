@@ -1,6 +1,6 @@
 {
   "files": [],
   "references": [
-    {"path": "./bezier-react"},
+    {"path": "./packages/bezier-react"},
   ]
 }

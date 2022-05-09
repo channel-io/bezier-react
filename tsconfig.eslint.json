@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "include": [
     ".eslintrc.js",
-    "bezier-react/src/**/*",
-    "bezier-react/*.js",
-    "bezier-react/*.ts",
+    "packages/**/src/**/*",
+    "packages/**/*.js",
+    "packages/**/*.ts",
   ]
 }
