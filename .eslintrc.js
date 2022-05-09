@@ -5,6 +5,7 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   parserOptions: {
+    tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
   rules: {
