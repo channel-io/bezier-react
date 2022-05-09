@@ -99,6 +99,7 @@ export default [
       dir: 'build',
       format: 'esm',
       preserveModules: true,
+      preserveModulesRoot: '.',
     },
     plugins: [
       nodeResolve({
