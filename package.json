@@ -1,7 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
