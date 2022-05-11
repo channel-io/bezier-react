@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "packages/bezier-react"
+    "apps/*"
   ],
   "scripts": {
     "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",

@@ -21,7 +21,7 @@
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "test": "npm run lint && npm run typecheck && npm run jest",
     "release": "npm run semantic-release",
-    "clean": "rm -rf node_modules",
+    "clean": "rm -rf node_modules .turbo",
     "storybook": "start-storybook -p 4101",
     "lint-staged": "lint-staged",
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",

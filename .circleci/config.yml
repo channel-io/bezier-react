@@ -61,7 +61,7 @@ jobs:
       - *attach_workspace
       - run: npm run jest
       - codecov/upload:
-          file: './packages/bezier-react/coverage/lcov.info'
+          file: './apps/bezier-react/coverage/lcov.info'
           token: $CODECOV_TOKEN
 
   release:

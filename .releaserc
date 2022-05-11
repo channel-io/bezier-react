@@ -12,7 +12,7 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/npm", {
-      "pkgRoot": "./packages/bezier-react"
+      "pkgRoot": "./apps/bezier-react"
     }],
     [
       "@semantic-release/git",
