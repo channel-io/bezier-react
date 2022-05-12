@@ -1,0 +1,22 @@
+{
+  "name": "@channel.io/bezier-react-text",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sungik-choi/bezier-react/issues"
+  },
+  "homepage": "https://github.com/sungik-choi/bezier-react#readme",
+  "dependencies": {
+    "@channel.io/bezier-react-foundation": "*"
+  }
+}
