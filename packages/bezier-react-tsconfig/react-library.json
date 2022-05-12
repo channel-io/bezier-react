@@ -1,0 +1,13 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "declarationDir": "build",
+    "noEmit": true,
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["dom", "ESNext"],
+    "jsx": "react"
+  },
+  "types": ["react", "jest"]
+}

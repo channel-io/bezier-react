@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "useUnknownInCatchVariables": false,
+    "strict": true,
+    "allowJs": true,
+    "noImplicitAny": false
+  },
+  "exclude": ["node_modules"]
+}
