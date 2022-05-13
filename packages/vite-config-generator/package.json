@@ -1,6 +1,7 @@
 {
   "name": "vite-config-generator",
   "version": "0.0.0",
+<<<<<<< Updated upstream
   "main": "index.js",
   "files": [
     "react-library.js"
@@ -8,6 +9,10 @@
   "devDependencies": {
     "lodash": "^4.17.21"
   },
+=======
+  "description": "",
+  "main": "index.js",
+>>>>>>> Stashed changes
   "peerDependencies": {
     "vite": "^2.0.0"
   }

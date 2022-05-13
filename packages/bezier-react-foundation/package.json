@@ -1,12 +1,14 @@
 {
   "name": "@channel.io/bezier-react-foundation",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "index.ts",
+  "devDependencies": {
+    "vite-config-generator": "^0.0.0",
+    "vite": "^2.9.9"
+  },
   "scripts": {
-    "build": "echo \"Error: no test specified\" && exit 1",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
