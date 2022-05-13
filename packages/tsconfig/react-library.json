@@ -7,5 +7,6 @@
     "lib": ["dom", "ESNext"],
     "jsx": "react"
   },
-  "types": ["react", "jest"]
+  "types": ["react", "jest"],
+  "exclude": ["dist",  "node_modules"]
 }

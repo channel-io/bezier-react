@@ -22,7 +22,7 @@ function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
 
 export const ThemeVars = createGlobalStyle<ThemeVarsAdditionalType>`
   ${({ scope }) => scope ?? ':root'} {
-    ${({ foundation }) => generateCSSVar(foundation?.theme)}
-    ${({ foundation }) => generateCSSVar(foundation?.subTheme, 'inverted')}
+    ${({ foundation }) => generateCSSVar(foundation?.theme as ThemeRecord)}
+    ${({ foundation }) => generateCSSVar(foundation?.subTheme! as ThemeRecord, 'inverted')}
   }
 `

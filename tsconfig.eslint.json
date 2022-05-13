@@ -1,11 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "include": [
-<<<<<<< Updated upstream
-=======
-    "*.js",
-    "*.ts",
->>>>>>> Stashed changes
     ".*.js",
     ".*.ts",
     "apps/**/src/**/*",

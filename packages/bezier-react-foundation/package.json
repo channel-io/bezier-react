@@ -2,19 +2,25 @@
   "name": "@channel.io/bezier-react-foundation",
   "version": "0.0.0",
   "description": "",
-  "main": "index.ts",
-  "devDependencies": {},
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "tsup": "^5.12.7",
+    "tsconfig": "*"
+  },
   "scripts": {
-    "build": ""
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "clean": "rm -rf .turbo node_modules"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+    "url": "git+https://github.com/channel.io/bezier-react.git"
   },
-  "author": "",
+  "author": "Channel Corp.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sungik-choi/bezier-react/issues"
+    "url": "https://github.com/channel.io/bezier-react/issues"
   },
-  "homepage": "https://github.com/sungik-choi/bezier-react#readme"
+  "homepage": "https://github.com/channel.io/bezier-react#readme"
 }
