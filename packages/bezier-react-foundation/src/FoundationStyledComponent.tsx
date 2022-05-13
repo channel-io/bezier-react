@@ -7,6 +7,7 @@
  * 동작에는 문제가 없으며, type checking 도 올바르게 됩니다.
  */
 
+/** FIXME(@ed): 순환 참조 문제 해결 후 styled 패키지 분리 */
 /* External dependencies */
 import React, { createContext, useContext, forwardRef } from 'react'
 import styled, {
