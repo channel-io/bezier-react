@@ -1,4 +1,4 @@
-const { merge } = require('lodash')
+const { mergeConfig } = require('./utils')
 const { defineConfig } = require('vite')
 
 const defaultConfig = defineConfig({
@@ -20,7 +20,4 @@ const defaultConfig = defineConfig({
   },
 })
 
-/**
- * @param {Parameters<typeof defineConfig>[0]} config
- */
-module.exports = (config) => defineConfig(merge(defaultConfig, config))
+module.exports = mergeConfig(defaultConfig)
