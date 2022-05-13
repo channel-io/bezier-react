@@ -1,22 +1,27 @@
 {
   "name": "@channel.io/bezier-react-text",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@channel.io/bezier-react-foundation": "^0.0.0",
+    "tsup": "^5.12.7",
+    "tsconfig": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "clean": "rm -rf .turbo node_modules"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+    "url": "git+https://github.com/channel.io/bezier-react.git"
   },
-  "author": "",
+  "author": "Channel Corp.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sungik-choi/bezier-react/issues"
+    "url": "https://github.com/channel.io/bezier-react/issues"
   },
-  "homepage": "https://github.com/sungik-choi/bezier-react#readme",
-  "dependencies": {
-    "@channel.io/bezier-react-foundation": "*"
-  }
+  "homepage": "https://github.com/channel.io/bezier-react#readme"
 }

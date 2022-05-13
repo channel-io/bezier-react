@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled } from '@channel.io/bezier-react-foundation'
 // import { ColorProps } from 'Types/ComponentProps'
 import TextProps from './Text.types'
 

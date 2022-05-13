@@ -1,8 +1,8 @@
 /* External dependencies */
 import React from 'react'
+import { Typography } from '@channel.io/bezier-react-foundation'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import Text, { TEXT_TEST_ID } from './Text'
 import TextProps from './Text.types'

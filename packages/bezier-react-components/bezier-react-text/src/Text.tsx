@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
 import { noop } from 'lodash-es'
+import { Typography } from '@channel.io/bezier-react-foundation'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
