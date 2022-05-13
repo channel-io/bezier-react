@@ -1,8 +1,6 @@
 /* External dependencies */
 import { css } from 'styled-components'
-
-/* Internal dependencies */
-// import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from '@channel.io/bezier-react-system'
 
 interface TextOptions {
   bold?: boolean
@@ -19,4 +17,8 @@ interface TextOptions {
 }
 
 export default interface TextProps extends
-  TextOptions {}
+  TextOptions,
+  BezierComponentProps,
+  ChildrenProps,
+  ColorProps,
+  IdentifierProps {}

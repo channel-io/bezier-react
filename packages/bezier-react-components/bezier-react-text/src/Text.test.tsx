@@ -3,6 +3,7 @@ import React from 'react'
 import { Typography } from '@channel.io/bezier-react-foundation'
 
 /* Internal dependencies */
+// TODO(@ed): 유틸 분리
 import { render } from 'Utils/testUtils'
 import Text, { TEXT_TEST_ID } from './Text'
 import TextProps from './Text.types'

@@ -1,9 +1,11 @@
-/* Internal dependencies */
+/* External dependencies */
 import { styled } from '@channel.io/bezier-react-foundation'
-// import { ColorProps } from 'Types/ComponentProps'
+import { ColorProps } from '@channel.io/bezier-react-system'
+
+/* Internal dependencies */
 import TextProps from './Text.types'
 
-interface TextStyledProps {
+interface TextStyledProps extends ColorProps {
   margintop: number
   marginright: number
   marginbottom: number

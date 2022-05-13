@@ -7,6 +7,7 @@
   "types": "./dist/index.d.ts",
   "devDependencies": {
     "@channel.io/bezier-react-foundation": "^0.0.0",
+    "@channel.io/bezier-react-system": "^0.0.0",
     "tsup": "^5.12.7",
     "tsconfig": "*"
   },
