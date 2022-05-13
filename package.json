@@ -1,113 +1,29 @@
 {
-  "name": "@channel.io/bezier-react",
-  "version": "1.0.0-next-v1.123",
-  "description": "React components from Bezier Design System",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/channel-io/bezier-react"
-  },
-  "main": "build/index.cjs.js",
-  "module": "build/src/index.js",
-  "types": "build/src/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "build"
+  "private": true,
+  "workspaces": [
+    "apps/*"
   ],
   "scripts": {
     "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
-    "storybook": "start-storybook -p 4101",
-    "lint-staged": "lint-staged",
-    "lint": "npm run eslint-all && npm run stylelint-all",
-    "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
-    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
-    "typecheck": "ts-prune -e -p tsconfig.prune.json && tsc",
-    "test": "npm run lint && npm run typecheck && npm run jest",
-    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
-    "jest:watch": "cross-env BABEL_ENV=test jest --watch",
-    "cleanBuild": "npx rimraf build",
-    "compile": "tsc -p tsconfig.compile.json",
-    "prebuild": "npm run cleanBuild",
-    "build": "npm run build:icon && npm run build:rollup",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
-    "build:storybook": "build-storybook",
-    "build:icon": "./scripts/build-icon.sh",
-    "prepublishOnly": "npm run build",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "prepare": "husky install",
-    "semantic-release": "semantic-release",
-    "update-snapshot": "jest --updateSnapshot"
+    "build": "turbo run build",
+    "dev": "turbo run dev --no-cache --parallel",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "jest": "turbo run jest",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "release": "turbo run release",
+    "prepare": "husky install"
   },
-  "lint-staged": {
-    "src/**/*.styled.{js,ts}": [
-      "stylelint"
-    ],
-    "src/**/*.(js|ts)?(x)": [
-      "eslint"
-    ]
-  },
-  "engines": {
-    "node": "16.2.0",
-    "npm": "7.13.0"
-  },
-  "keywords": [
-    "design",
-    "react",
-    "channel"
-  ],
-  "author": "Channel Corp.",
-  "license": "ISC",
-  "browserslist": [
-    "ie >= 11",
-    "> 1% in KR",
-    "> 1% in JP",
-    "> 1% in US"
-  ],
   "devDependencies": {
-    "@babel/core": "^7.14.2",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/preset-typescript": "^7.12.7",
     "@channel.io/eslint-config": "^1.2.0",
     "@channel.io/eslint-plugin": "^1.1.1",
     "@channel.io/stylelint-config": "^1.2.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@mdx-js/react": "^1.6.22",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-url": "^6.0.0",
     "@semantic-release/git": "^9.0.0",
-    "@storybook/addon-a11y": "^6.5.0-beta.1",
-    "@storybook/addon-actions": "^6.5.0-beta.1",
-    "@storybook/addon-backgrounds": "^6.5.0-beta.1",
-    "@storybook/addon-controls": "^6.5.0-beta.1",
-    "@storybook/addon-docs": "^6.5.0-beta.1",
-    "@storybook/addon-toolbars": "^6.5.0-beta.1",
-    "@storybook/react": "^6.5.0-beta.1",
-    "@storybook/storybook-deployer": "^2.8.11",
-    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
-    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
-    "@svgr/cli": "^6.2.1",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^13.1.1",
-    "@testing-library/user-event": "^14.1.1",
-    "@types/jest": "^25.2.3",
-    "@types/lodash-es": "^4.17.4",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
-    "@types/styled-components": "^5.1.5",
-    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "babel-eslint": "^8.2.6",
-    "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.2",
-    "babel-preset-react-app": "^10.0.0",
-    "core-js": "^3.8.1",
-    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
@@ -121,43 +37,14 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-storybook": "^0.5.11",
     "husky": "^6.0.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "jest-styled-components": "^7.0.4",
-    "lint-staged": "^11.0.0",
-    "paths.macro": "^3.0.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "regenerator-runtime": "^0.13.7",
-    "rollup": "^2.50.5",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "rollup-plugin-visualizer": "^5.5.2",
     "semantic-release": "^17.4.3",
-    "styled-components": "^5.3.5",
-    "stylelint": "^13.8.0",
     "ts-node": "^8.10.2",
-    "ts-prune": "^0.9.1",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "tslib": "^2.3.1",
-    "ttypescript": "^1.5.13",
-    "typescript": "^4.4.3",
-    "typescript-plugin-styled-components": "^2.0.0",
-    "typescript-transform-paths": "^3.3.1"
+    "turbo": "^1.2.6",
+    "typescript": "^4.4.3"
   },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": ">=5"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.12.13",
-    "lodash-es": "^4.17.15",
-    "react-resize-detector": "^6.7.4",
-    "react-textarea-autosize": "^8.3.3",
-    "ssr-window": "^3.0.0",
-    "typesafe-actions": "^5.1.0",
-    "uuid": "^8.3.2"
+  "engines": {
+    "node": "16.2.0",
+    "npm": "7.13.0"
   },
   "config": {
     "commitizen": {

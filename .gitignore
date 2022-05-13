@@ -196,3 +196,6 @@ storybook-static/
 
 # Rollup Plugin Visualizer
 stats.html
+
+# Turborepo Cache
+.turbo

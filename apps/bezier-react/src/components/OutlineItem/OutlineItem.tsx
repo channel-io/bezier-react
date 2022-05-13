@@ -214,6 +214,7 @@ function OutlineItem(
         return element
       }
 
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       const passedContext = {
         ...context,
         active: currentOutlineItemIndex === index,

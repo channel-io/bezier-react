@@ -22,7 +22,6 @@ const typescriptPlugin = typescript({
   typescript: require('ttypescript'),
   tsconfig: './tsconfig.json',
   useTsconfigDeclarationDir: true,
-  declarationDir: './build/src',
   transformers: [
     () => ({
       before: [styledComponentsTransformer],
@@ -100,6 +99,7 @@ export default [
       dir: 'build',
       format: 'esm',
       preserveModules: true,
+      preserveModulesRoot: '.',
     },
     plugins: [
       nodeResolve({

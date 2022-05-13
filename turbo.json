@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/next-v1",
+  "pipeline": {
+    "build": {
+      "outputs": [
+        "build/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test": {
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "jest": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "release": {
+      "dependsOn": [
+        "build", 
+        "test", 
+        "lint", 
+        "typecheck"
+      ],
+      "outputs": []
+    }
+  }
+}
