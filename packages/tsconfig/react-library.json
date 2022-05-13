@@ -1,9 +1,7 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "declarationDir": "build",
-    "noEmit": true,
+    "emitDeclarationOnly": true,
     "module": "esnext",
     "target": "es5",
     "lib": ["dom", "ESNext"],
