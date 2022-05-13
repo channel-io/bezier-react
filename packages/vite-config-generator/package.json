@@ -1,0 +1,14 @@
+{
+  "name": "vite-config-generator",
+  "version": "0.0.0",
+  "main": "index.js",
+  "files": [
+    "react-library.js"
+  ],
+  "devDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0"
+  }
+}
