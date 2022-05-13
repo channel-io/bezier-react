@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "devDependencies": {
     "@channel.io/bezier-react-foundation": "^0.0.0",
     "@channel.io/bezier-react-system": "^0.0.0",
