@@ -9,8 +9,9 @@
   "devDependencies": {
     "@channel.io/bezier-react-foundation": "^0.0.0",
     "@channel.io/bezier-react-system": "^0.0.0",
-    "tsup": "^5.12.7",
-    "tsconfig": "*"
+    "eslint-config-bezier-react": "*",
+    "tsconfig": "*",
+    "tsup": "^5.12.7"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --external react",
