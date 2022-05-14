@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/channel.io/bezier-react.git"
+    "url": "git+https://github.com/channel-io/bezier-react.git"
   },
   "author": "Channel Corp.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/channel.io/bezier-react/issues"
+    "url": "https://github.com/channel-io/bezier-react/issues"
   },
-  "homepage": "https://github.com/channel.io/bezier-react#readme"
+  "homepage": "https://github.com/channel-io/bezier-react#readme"
 }
