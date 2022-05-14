@@ -29,12 +29,6 @@
       "cache": false
     },
     "release": {
-      "dependsOn": [
-        "build", 
-        "test", 
-        "lint", 
-        "typecheck"
-      ],
       "outputs": []
     }
   }
