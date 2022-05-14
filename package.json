@@ -6,16 +6,21 @@
     "packages/bezier-react-components/*"
   ],
   "scripts": {
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
     "build": "turbo run build",
-    "dev": "turbo run dev --no-cache --parallel",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
-    "jest": "turbo run jest",
-    "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
+    "dev": "turbo run dev --no-cache --parallel",
+    "jest": "turbo run jest",
+    "lint": "turbo run lint",
+    "prepare": "husky install",
     "release": "turbo run release",
-    "prepare": "husky install"
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "devDependencies": {
     "@channel.io/eslint-config": "^1.2.0",
@@ -47,10 +52,5 @@
   "engines": {
     "node": "v16.2.0",
     "npm": "7.13.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

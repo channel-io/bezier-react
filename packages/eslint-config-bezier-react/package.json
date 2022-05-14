@@ -1,9 +1,9 @@
 {
   "name": "eslint-config-bezier-react",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "description": "",
   "main": "index.js",
-  "private": true,
   "dependencies": {
     "@channel.io/eslint-config": "^1.3.1",
     "@channel.io/eslint-plugin": "^1.1.1",
