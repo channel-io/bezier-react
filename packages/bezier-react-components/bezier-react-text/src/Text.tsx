@@ -4,7 +4,7 @@ import { noop } from 'lodash-es'
 import { Typography } from '@channel.io/bezier-react-foundation'
 
 /* Internal dependencies */
-import TextProps from './Text.types'
+import type TextProps from './Text.types'
 import TextView from './Text.styled'
 
 export const TEXT_TEST_ID = 'bezier-react-text'

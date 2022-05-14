@@ -1,11 +1,16 @@
 /* External dependencies */
-import { css } from 'styled-components'
-import type { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from '@channel.io/bezier-react-system'
+import type {
+  InjectedInterpolation,
+  BezierComponentProps,
+  ChildrenProps,
+  ColorProps,
+  IdentifierProps,
+} from '@channel.io/bezier-react-system'
 
 interface TextOptions {
   bold?: boolean
   italic?: boolean
-  typo?: ReturnType<typeof css>
+  typo?: InjectedInterpolation
   marginTop?: number
   marginRight?: number
   marginBottom?: number

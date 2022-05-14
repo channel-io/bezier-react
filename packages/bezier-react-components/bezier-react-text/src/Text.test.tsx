@@ -6,7 +6,7 @@ import { Typography } from '@channel.io/bezier-react-foundation'
 // TODO(@ed): 유틸 분리
 import { render } from 'Utils/testUtils'
 import Text, { TEXT_TEST_ID } from './Text'
-import TextProps from './Text.types'
+import type TextProps from './Text.types'
 
 describe('Text test >', () => {
   let props: TextProps
