@@ -1,27 +1,40 @@
 {
   "name": "@channel.io/bezier-react-foundation",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "devDependencies": {
-    "tsup": "^5.12.7",
-    "tsconfig": "*"
-  },
-  "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "clean": "rm -rf .turbo node_modules"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/channel-io/bezier-react.git"
-  },
-  "author": "Channel Corp.",
-  "license": "ISC",
+  "homepage": "https://github.com/channel-io/bezier-react#readme",
   "bugs": {
     "url": "https://github.com/channel-io/bezier-react/issues"
   },
-  "homepage": "https://github.com/channel-io/bezier-react#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/channel-io/bezier-react.git",
+    "directory": "packages/bezier-react-foundation"
+  },
+  "license": "ISC",
+  "author": "Channel Corp.",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.15"
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "styled-components": "^5.3.5",
+    "tsconfig": "*",
+    "tsup": "^5.12.7"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": ">=5"
+  }
 }

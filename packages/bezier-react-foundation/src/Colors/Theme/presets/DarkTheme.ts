@@ -1,5 +1,4 @@
 /* Internal dependencies */
-/* Internal dependencies */
 import { ThemeType } from '../types'
 import { Palette } from '../../Palette'
 

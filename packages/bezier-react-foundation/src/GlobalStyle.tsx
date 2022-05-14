@@ -6,7 +6,7 @@ import { createGlobalStyle, css } from './FoundationStyledComponent'
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    font-size: 62.5%; // 10/16 = 0.625
+    font-size: 62.5%; /* 10/16 = 0.625 */
   }
 
   ${({ foundation }) => {
