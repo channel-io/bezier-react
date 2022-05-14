@@ -1,0 +1,4 @@
+.eslintrc.js
+
+# Build output
+**/dist/**/*
