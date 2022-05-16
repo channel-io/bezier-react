@@ -18,10 +18,11 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts --format esm,cjs --onSuccess \"tsc\"",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {

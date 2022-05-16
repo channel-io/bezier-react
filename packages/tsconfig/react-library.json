@@ -3,7 +3,7 @@
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "module": "esnext",
-    "target": "es2020",
+    "target": "es5",
     "lib": ["dom", "ESNext"],
     "jsx": "react"
   }
