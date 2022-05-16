@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@channel.io/bezier-react-foundation": "^0.1.0",
+    "eslint-config-bezier-react": "*",
     "react": "^18.1.0",
     "tsconfig": "*",
     "tsup": "^5.12.7"
