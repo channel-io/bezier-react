@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { Foundation, css } from '@channel.io/bezier-react-foundation'
+import type { Foundation, css } from '@channel.io/bezier-react-foundation'
 
 export interface FoundationProps {
   foundation?: Foundation

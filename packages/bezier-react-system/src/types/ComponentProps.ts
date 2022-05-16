@@ -1,5 +1,6 @@
 /* External dependencies */
-import React, { CSSProperties } from 'react'
+import type React from 'react'
+import type { CSSProperties } from 'react'
 import type { SemanticNames } from '@channel.io/bezier-react-foundation'
 
 /* Internal dependencies */
