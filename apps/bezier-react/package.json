@@ -14,6 +14,7 @@
     "build"
   ],
   "scripts": {
+    "build": "npm run build:icon && npm run build:rollup",
     "dev": "npm run storybook",
     "lint": "npm run eslint-all && npm run stylelint-all",
     "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
