@@ -22,7 +22,7 @@
     "src"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --onSuccess \"tsc\"",
+    "build": "tsup src/index.ts --format esm,cjs --minify --onSuccess \"tsc\"",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
