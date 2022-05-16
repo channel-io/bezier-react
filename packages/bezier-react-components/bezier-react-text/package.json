@@ -28,7 +28,12 @@
     "@channel.io/bezier-react-foundation": "^0.1.0",
     "@channel.io/bezier-react-system": "^0.1.0",
     "eslint-config-bezier-react": "*",
+    "react": "^18.1.0",
     "tsconfig": "*",
     "tsup": "^5.12.7"
+  },
+  "peerDependencies": {
+    "@channel.io/bezier-react-foundation": ">=0.1.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   }
 }
