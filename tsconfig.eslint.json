@@ -2,10 +2,8 @@
   "extends": "./tsconfig.json",
   "include": [
     ".*.js",
-    ".*.ts",
     "apps/**/src/**/*",
     "apps/**/*.js",
     "apps/**/*.ts",
-    "packages/**/*",
   ]
 }
