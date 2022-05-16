@@ -10,9 +10,7 @@
 /** FIXME(@ed): 순환 참조 문제 해결 후 styled 패키지 분리 */
 /* External dependencies */
 import React, { createContext, useContext, forwardRef } from 'react'
-import styled, {
-  createGlobalStyle as baseCreateGlobalStyle,
-  css as baseCSS,
+import type {
   ThemedStyledFunction,
   ThemedStyledProps,
   AnyStyledComponent,
@@ -25,13 +23,17 @@ import styled, {
   FlattenInterpolation,
   SimpleInterpolation,
   CSSObject,
-  keyframes,
   GlobalStyleComponent,
+} from 'styled-components'
+import styled, {
+  createGlobalStyle as baseCreateGlobalStyle,
+  css as baseCSS,
+  keyframes,
 } from 'styled-components'
 
 /* Internal dependencies */
 import domElements from './utils/domElements'
-import { Foundation } from './Foundation'
+import type { Foundation } from './Foundation'
 
 const FoundationContext = createContext<Foundation | null>(null)
 

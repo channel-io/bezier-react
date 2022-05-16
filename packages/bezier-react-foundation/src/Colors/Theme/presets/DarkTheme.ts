@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ThemeType } from '../types'
+import type { ThemeType } from '../types'
 import { Palette } from '../../Palette'
 
 const DarkTheme: ThemeType = {

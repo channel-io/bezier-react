@@ -1,6 +1,6 @@
 /* External dependencies */
 import { isEmpty } from 'lodash-es'
-import { AnyStyledComponent } from 'styled-components'
+import type { AnyStyledComponent } from 'styled-components'
 
 /* Internal dependencies */
 import { createGlobalStyle } from './FoundationStyledComponent'
