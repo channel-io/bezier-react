@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "clean": "rm -rf .turbo node_modules"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "lodash-es": "^4.17.15"
