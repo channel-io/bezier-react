@@ -16,7 +16,7 @@ const generateId = () => {
 
 const joinId = (...args: unknown[]) => compact(args).join('-')
 
-function useIdLegacy(idProp?: string, prefix?: string) {
+export function useIdLegacy(idProp?: string, prefix?: string) {
   const [id, setId] = useState(idRef.current)
 
   useEffect(() => {
