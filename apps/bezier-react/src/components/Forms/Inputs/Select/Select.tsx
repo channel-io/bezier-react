@@ -34,6 +34,9 @@ function Select({
   triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
   dropdownTestId = SELECT_DROPDOWN_TEST_ID,
   as,
+  style,
+  className,
+  interpolation,
   dropdownInterpolation,
   size = SelectSize.M,
   defaultFocus = false,
@@ -144,12 +147,13 @@ forwardedRef: Ref<SelectRef>,
 
   const hasContent = !isEmpty(text)
 
-  // TODO: 접근성을 지키도록 개선
   return (
     <Styled.Container
       data-testid={testId}
       ref={containerRef}
-      {...ownProps}
+      style={style}
+      className={className}
+      interpolation={interpolation}
     >
       <Styled.Trigger
         type="button"
@@ -162,6 +166,7 @@ forwardedRef: Ref<SelectRef>,
         readOnly={readOnly}
         active={isDropdownOpened}
         onClick={handleClickTrigger}
+        {...ownProps}
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
