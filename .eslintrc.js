@@ -18,7 +18,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./apps/bezier-react/**/*'],
+      files: ['./packages/bezier-react/**/*'],
       rules: {
         'import/order': [
           'error',
