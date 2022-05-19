@@ -6,7 +6,8 @@ import { isNil } from 'lodash-es'
 import { Typography } from 'Foundation'
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
-import { FormFieldSize } from 'Components/Forms'
+// eslint-disable-next-line no-restricted-imports
+import FormFieldSize from '../FormFieldSize'
 import FormControlContext from './FormControlContext'
 import FormControlProps, {
   GroupPropsGetter,
