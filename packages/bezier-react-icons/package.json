@@ -1,0 +1,29 @@
+{
+  "name": "@bezier-react/icons",
+  "version": "0.0.0",
+  "description": "Bezier design system icons",
+  "private": true,
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
+    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
+    "@svgr/cli": "^6.2.1",
+    "tsup": "^5.12.8"
+  },
+  "scripts": {
+    "build": "./scripts/build-icon.sh && tsup src/index.ts --format esm,cjs --dts --external react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+  },
+  "author": "Channel Corp.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sungik-choi/bezier-react/issues"
+  },
+  "homepage": "https://github.com/sungik-choi/bezier-react#readme"
+}
