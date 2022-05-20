@@ -1,12 +1,31 @@
 /* External dependencies */
-import { useId as useIdentifier, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { compact } from 'lodash-es'
 
-function useId(idProp?: string, prefix?: string) {
-  const id = useIdentifier()
+/* Internal dependencies */
+import { getReactVersion } from 'Utils/reactUtils'
+
+/* @see https://github.com/chakra-ui/chakra-ui/blob/fa474bea3dcbdd4bbf2a26925f938d6e75a50c6d/packages/hooks/src/use-id.ts */
+const idRef = Object.seal({ current: 1 })
+
+const generateId = () => {
+  const id = idRef.current
+  idRef.current += 1
+  return id
+}
+
+const joinId = (...args: unknown[]) => compact(args).join('-')
+
+export function useIdLegacy(idProp?: string, prefix?: string) {
+  const [id, setId] = useState(idRef.current)
+
+  useEffect(() => {
+    if (idProp) { return }
+    setId(generateId())
+  }, [idProp])
 
   return useMemo(() => (
-    idProp || compact([prefix, id]).join('-')
+    idProp || joinId(prefix, id)
   ), [
     idProp,
     prefix,
@@ -14,4 +33,18 @@ function useId(idProp?: string, prefix?: string) {
   ])
 }
 
-export default useId
+function useId(idProp?: string, prefix?: string) {
+  const id = React.useId()
+
+  return useMemo(() => (
+    idProp || joinId(prefix, id)
+  ), [
+    idProp,
+    prefix,
+    id,
+  ])
+}
+
+const isReactUnderV18 = getReactVersion().major < 18
+
+export default isReactUnderV18 ? useIdLegacy : useId
