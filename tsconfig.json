@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
-    {"path": "./packages/bezier-react"},
+    { "path": "./packages/bezier-react" },
+    { "path": "./packages/bezier-react-icons" },
   ]
 }
