@@ -1,0 +1,19 @@
+const BEZIER_ICON_SYMBOL = Symbol('$$bezier.isBezierIcon')
+
+export type IconSource = (props: React.SVGProps<SVGSVGElement>) => React.ReactNode
+
+export type BezierIcon = IconSource & { [BEZIER_ICON_SYMBOL]: true }
+
+export function isBezierIcon(arg: unknown): arg is BezierIcon {
+  return (
+    typeof arg === 'function' &&
+    arg[BEZIER_ICON_SYMBOL] === true
+  )
+}
+
+function createBezierIcon(source: IconSource): BezierIcon {
+  source[BEZIER_ICON_SYMBOL] = true
+  return source as BezierIcon
+}
+
+export default createBezierIcon
