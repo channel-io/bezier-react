@@ -44,7 +44,7 @@ export type IconName = keyof typeof icons
 
 export {
 ${exportEntries.join('\n')}
-} 
+}
 
 /* eslint-enable */
 export default icons
