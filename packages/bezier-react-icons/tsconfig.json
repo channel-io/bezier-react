@@ -5,9 +5,7 @@
     "rootDir": ".",
     "declarationDir": "dist",
   },
+  "types": ["react", "jest"],
   "include": ["src/**/*"],
-  "exclude": [
-    "dist",  
-    "node_modules",
-  ]
+  "exclude": ["dist", "node_modules"]
 }

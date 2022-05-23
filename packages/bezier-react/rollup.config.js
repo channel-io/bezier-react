@@ -96,7 +96,7 @@ export default [
   // ESModules
   configGenerator({
     output: {
-      dir: 'build',
+      dir: 'dist',
       format: 'esm',
       preserveModules: true,
       preserveModulesRoot: '.',
