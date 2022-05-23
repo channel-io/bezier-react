@@ -2,13 +2,14 @@
 import React from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
+import { AllIcon } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
 import { LegacyIcon, LegacyIconProps } from './legacy'
-import { AllIcon } from './generated'
+import Icon from './Icon'
 import IconProps, { IconSize } from './Icon.types'
 
 export default {
@@ -37,7 +38,7 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const Primary: Story<IconProps> = (args) => (<AllIcon {...args} />)
+export const Primary: Story<IconProps> = (args) => (<Icon as={AllIcon} {...args} />)
 
 Primary.args = {
   size: IconSize.Normal,

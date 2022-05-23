@@ -1,5 +1,5 @@
-/* Internal dependencies */
-import Icons, { IconName } from 'Components/Icon/generated'
+/* External dependencies */
+import { icons, IconName } from '@bezier-react/icons'
 
 export const getTitle = (baseDir: string) => {
   const filePath = baseDir.split('/')
@@ -7,7 +7,7 @@ export const getTitle = (baseDir: string) => {
   return filePath.slice(2, filePath.length - 1).join('/')
 }
 
-export const iconList: IconName[] = Object.keys(Icons) as IconName[]
+export const iconList: IconName[] = Object.keys(icons) as IconName[]
 
 interface Enum {
   [id: string]: string | number

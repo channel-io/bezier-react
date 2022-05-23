@@ -17,7 +17,7 @@ function defaultIndexTemplate(filePaths) {
 
   const icons = `/* eslint-disable */
 
-const icons = {
+export const icons = {
 ${mappedFies.join('\n')}
 }
 `
@@ -30,9 +30,6 @@ export type IconName = keyof typeof icons
 export {
 ${exportEntries.join('\n')}
 } 
-
-/* eslint-enable */
-export default icons
 `
 }
 

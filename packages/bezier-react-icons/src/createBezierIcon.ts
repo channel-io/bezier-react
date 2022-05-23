@@ -1,6 +1,6 @@
 const BEZIER_ICON_SYMBOL = Symbol('$$bezier.isBezierIcon')
 
-export type IconSource = (props: React.SVGProps<SVGSVGElement>) => React.ReactNode
+export type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 
 export type BezierIcon = IconSource & { [BEZIER_ICON_SYMBOL]: true }
 

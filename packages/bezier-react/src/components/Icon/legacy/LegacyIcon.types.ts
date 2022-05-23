@@ -1,11 +1,13 @@
+/* External dependencies */
+import { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import type IconProps from 'Components/Icon/Icon.types'
-import { IconName } from 'Components/Icon/generated'
 
 interface LegacyIconOptions {
   name: IconName
 }
 
 export default interface LegacyIconProps extends
-  IconProps,
+  Omit<IconProps, 'as'>,
   LegacyIconOptions {}
