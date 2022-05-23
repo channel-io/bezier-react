@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useMemo, forwardRef } from 'react'
-import { noop } from 'lodash'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { backgroundImageVariable } from 'Foundation'

@@ -1,4 +1,4 @@
-const _ = require('lodash')
+const _ = require('lodash-es')
 const path = require('path')
 
 const ICON_SUFFIX = "Icon"
@@ -44,7 +44,7 @@ export type IconName = keyof typeof icons
 
 export {
 ${exportEntries.join('\n')}
-} 
+}
 
 /* eslint-enable */
 export default icons

@@ -1,5 +1,5 @@
 /* External dependencies */
-import { isArray } from 'lodash'
+import { isArray } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconName } from 'Components/Icon'

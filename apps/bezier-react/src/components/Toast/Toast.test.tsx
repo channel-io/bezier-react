@@ -1,6 +1,6 @@
 /* External dependencies */
 import React from 'react'
-import _ from 'lodash'
+import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { css, TransitionDuration } from 'Foundation'
