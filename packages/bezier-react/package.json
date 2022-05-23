@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "build": "npm run build:icon && npm run build:rollup",
+    "build": "cross-env BABEL_ENV=build rollup -c",
     "dev": "npm run storybook",
     "lint": "npm run eslint-all && npm run stylelint-all",
     "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
@@ -29,9 +29,7 @@
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
     "cleanBuild": "npx rimraf build",
     "prebuild": "npm run cleanBuild",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
     "build:storybook": "build-storybook",
-    "build:icon": "./scripts/build-icon.sh",
     "prepublishOnly": "npm run build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "semantic-release": "semantic-release",
@@ -60,9 +58,6 @@
     "@storybook/addon-toolbars": "^6.5.0",
     "@storybook/react": "^6.5.0",
     "@storybook/storybook-deployer": "^2.8.11",
-    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
-    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
-    "@svgr/cli": "^6.2.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
