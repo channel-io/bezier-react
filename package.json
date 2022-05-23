@@ -4,17 +4,30 @@
     "packages/*"
   ],
   "scripts": {
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts",
     "build": "turbo run build",
-    "dev": "turbo run dev --no-cache --parallel",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
-    "jest": "turbo run jest",
-    "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
-    "release": "turbo run release",
+    "dev": "turbo run dev --no-cache --parallel",
+    "jest": "turbo run jest",
+    "lint": "turbo run lint",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "turbo run release",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-npm-version.ts"
+  },
+  "lint-staged": {
+    "packages/*/src/**/*.styled.{js,ts}": [
+      "stylelint"
+    ],
+    "packages/*/src/**/*.(js|ts)?(x)": [
+      "eslint"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
@@ -75,18 +88,5 @@
   "engines": {
     "node": "16.2.0",
     "npm": "7.13.0"
-  },
-  "lint-staged": {
-    "packages/*/src/**/*.styled.{js,ts}": [
-      "stylelint"
-    ],
-    "packages/*/src/**/*.(js|ts)?(x)": [
-      "eslint"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

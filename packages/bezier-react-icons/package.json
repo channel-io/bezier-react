@@ -1,8 +1,18 @@
 {
   "name": "@bezier-react/icons",
   "version": "0.0.0",
-  "description": "Bezier design system icons",
   "private": true,
+  "description": "Bezier design system icons",
+  "homepage": "https://github.com/sungik-choi/bezier-react#readme",
+  "bugs": {
+    "url": "https://github.com/sungik-choi/bezier-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+  },
+  "license": "ISC",
+  "author": "Channel Corp.",
   "sideEffects": false,
   "main": "dist/index.cjs.js",
   "module": "dist/src/index.js",
@@ -11,31 +21,22 @@
     "dist",
     "src"
   ],
-  "devDependencies": {
-    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
-    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
-    "@svgr/cli": "^6.2.1",
-    "react": "^18.1.0",
-    "tsconfig": "*"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.12.13"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
   "scripts": {
     "build": "./scripts/build-icon.sh && cross-env BABEL_ENV=build rollup -c",
     "clean": "rm -rf node_modules .turbo dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sungik-choi/bezier-react.git"
+  "dependencies": {
+    "@babel/runtime": "^7.12.13"
   },
-  "author": "Channel Corp.",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sungik-choi/bezier-react/issues"
+  "devDependencies": {
+    "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
+    "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
+    "@svgr/cli": "^6.2.1",
+    "@types/react": "^18.0.8",
+    "react": "^18.1.0",
+    "tsconfig": "*"
   },
-  "homepage": "https://github.com/sungik-choi/bezier-react#readme"
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  }
 }
