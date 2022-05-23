@@ -1,0 +1,12 @@
+node_modules
+
+# Build output
+dist
+
+# Generated bezier-icons
+generated
+
+# Test coverage
+coverage
+
+.eslintrc.js
