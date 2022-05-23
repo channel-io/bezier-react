@@ -1,9 +1,9 @@
 /* External dependencies */
 import type { ReactNode } from 'react'
+import type { IconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
 
 export enum BannerVariant {
   Default = 'default',

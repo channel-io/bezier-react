@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import type { IconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import type {
@@ -11,7 +12,6 @@ import type {
   AdditionalColorProps,
 } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
-import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

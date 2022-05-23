@@ -1,3 +1,6 @@
+/* External dependencies */
+import { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import type {
   BezierComponentProps,
@@ -11,7 +14,7 @@ import type {
   AdditionalTestIdProps,
   AdditionalColorProps,
 } from 'Types/ComponentProps'
-import { IconName, IconSize } from 'Components/Icon'
+import { IconSize } from 'Components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',

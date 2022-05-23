@@ -1,5 +1,8 @@
-/* Internal dependencies */
+/* External dependencies */
 import React from 'react'
+import type { IconName } from '@bezier-react/icons'
+
+/* Internal dependencies */
 import type {
   BezierComponentProps,
   ContentProps,
@@ -12,7 +15,6 @@ import type {
   SideContentProps,
   AdditionalStylableProps,
 } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
 
 export enum ListItemSize {
   S = 's',

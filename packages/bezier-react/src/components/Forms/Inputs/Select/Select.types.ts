@@ -1,3 +1,6 @@
+/* External dependencies */
+import type { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import type {
   BezierComponentProps,
@@ -10,7 +13,6 @@ import type {
 } from 'Types/ComponentProps'
 import { FormComponentProps } from 'Components/Forms/Form.types'
 import type { OverlayProps } from 'Components/Overlay'
-import type { IconName } from 'Components/Icon'
 
 export enum SelectSize {
   XL = 'XL',

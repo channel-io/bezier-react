@@ -1,9 +1,10 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
 import { noop, isNil } from 'lodash-es'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
-import { IconSize, isIconName } from 'Components/Icon'
+import { IconSize } from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
 import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
