@@ -1,12 +1,12 @@
 /* External dependencies */
 import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
+import { IconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { TransitionDuration } from 'Foundation'
 import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
 import { InjectedInterpolation } from 'Types/Foundation'
-import { IconName } from 'Components/Icon'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',

@@ -449,7 +449,7 @@ import ZoomIn from './ZoomIn'
 import ZoomOut from './ZoomOut'
 /* eslint-disable */
 
-const icons = {
+export const icons = {
   all: All,
   android: Android,
   api: Api,
@@ -1354,6 +1354,3 @@ export {
   ZoomIn as ZoomInIcon,
   ZoomOut as ZoomOutIcon,
 }
-
-/* eslint-enable */
-export default icons

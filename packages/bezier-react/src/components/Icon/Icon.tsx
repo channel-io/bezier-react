@@ -4,12 +4,12 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize } from './Icon.types'
-import type { BaseIconProps } from './Icon.types'
+import type IconProps from './Icon.types'
 import Styled from './Icon.styled'
 
 export const ICON_TEST_ID = 'bezier-react-icon'
 
-function BaseIcon({
+function Icon({
   as,
   className,
   color,
@@ -21,7 +21,7 @@ function BaseIcon({
   marginLeft = 0,
   onClick = noop,
   onMouseDown = noop,
-}: BaseIconProps) {
+}: IconProps) {
   return (
     <Styled
       as={as}
@@ -40,4 +40,4 @@ function BaseIcon({
   )
 }
 
-export default memo(BaseIcon)
+export default memo(Icon)
