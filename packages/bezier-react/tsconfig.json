@@ -3,8 +3,7 @@
   "compilerOptions": {
     "composite": true,
     "rootDir": ".",
-    "outDir": "dist",
-    "declarationDir": "build",
+    "declarationDir": "dist",
     "baseUrl": "./",
     "paths": {
       "Components/*": ["src/components/*"],
@@ -20,11 +19,6 @@
     }
   },
   "types": ["react", "jest"],
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
 }
