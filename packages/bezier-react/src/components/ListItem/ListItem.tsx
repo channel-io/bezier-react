@@ -2,13 +2,14 @@
 import React, { forwardRef, useState, useCallback, useMemo } from 'react'
 import { noop, isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'
-import { IconSize, isIconName } from 'Components/Icon'
+import { IconSize } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {

@@ -1,3 +1,6 @@
+/* External dependencies */
+import { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import type {
   BezierComponentProps,
@@ -6,7 +9,6 @@ import type {
   SideContentProps,
   ActivatableProps,
 } from 'Types/ComponentProps'
-import { IconName } from 'Components/Icon'
 
 interface NavItemOptions {
   leftIcon?: IconName

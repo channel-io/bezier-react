@@ -1,5 +1,6 @@
 /* External dependencies */
 import type React from 'react'
+import { IconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import type {
@@ -10,7 +11,7 @@ import type {
   AdditionalStylableProps,
   AdditionalColorProps,
 } from 'Types/ComponentProps'
-import type { IconName, IconSize } from 'Components/Icon'
+import type { IconSize } from 'Components/Icon'
 
 interface IconInfo extends AdditionalColorProps<'icon'> {
   icon: IconName

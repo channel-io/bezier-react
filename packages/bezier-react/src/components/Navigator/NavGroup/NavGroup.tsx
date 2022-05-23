@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
 import { noop, isNil } from 'lodash-es'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Icon, IconSize } from 'Components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
   Item,
