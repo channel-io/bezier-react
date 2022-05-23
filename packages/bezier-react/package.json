@@ -2,52 +2,63 @@
   "name": "@channel.io/bezier-react",
   "version": "1.0.0-next-v1.135",
   "description": "React components from Bezier Design System",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/channel-io/bezier-react"
-  },
-  "main": "dist/index.cjs.js",
-  "module": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "dist",
-    "src"
-  ],
-  "scripts": {
-    "build": "cross-env BABEL_ENV=build rollup -c",
-    "dev": "npm run storybook",
-    "lint": "npm run eslint-all && npm run stylelint-all",
-    "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
-    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
-    "test": "npm run lint && npm run typecheck && npm run jest",
-    "release": "npm run semantic-release",
-    "clean": "rm -rf node_modules .turbo && npm run cleanBuild",
-    "storybook": "start-storybook -p 4101",
-    "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
-    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
-    "jest:watch": "cross-env BABEL_ENV=test jest --watch",
-    "cleanBuild": "npx rimraf build",
-    "prebuild": "npm run cleanBuild",
-    "build:storybook": "build-storybook",
-    "prepublishOnly": "npm run build",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "semantic-release": "semantic-release",
-    "update-snapshot": "jest --updateSnapshot"
-  },
   "keywords": [
     "design",
     "react",
     "channel"
   ],
-  "author": "Channel Corp.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react"
+  },
   "license": "ISC",
+  "author": "Channel Corp.",
+  "sideEffects": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "prebuild": "npm run cleanBuild",
+    "build": "cross-env BABEL_ENV=build rollup -c",
+    "build:storybook": "build-storybook",
+    "clean": "rm -rf node_modules .turbo && npm run cleanBuild",
+    "clean:build": "rm -rf dist",
+    "cleanBuild": "npx rimraf build",
+    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "dev": "npm run storybook",
+    "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
+    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
+    "jest:watch": "cross-env BABEL_ENV=test jest --watch",
+    "lint": "npm run eslint-all && npm run stylelint-all",
+    "prepublishOnly": "npm run build",
+    "release": "npm run semantic-release",
+    "semantic-release": "semantic-release",
+    "storybook": "start-storybook -p 4101",
+    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
+    "test": "npm run lint && npm run typecheck && npm run jest",
+    "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
+    "update-snapshot": "jest --updateSnapshot"
+  },
   "browserslist": [
     "ie >= 11",
     "> 1% in KR",
     "> 1% in JP",
     "> 1% in US"
   ],
+  "dependencies": {
+    "@babel/runtime": "^7.12.13",
+    "@bezier-react/icons": "*",
+    "lodash-es": "^4.17.15",
+    "react-resize-detector": "^7.1.1",
+    "react-textarea-autosize": "^8.3.4",
+    "ssr-window": "^3.0.0",
+    "typesafe-actions": "^5.1.0",
+    "uuid": "^8.3.2"
+  },
   "devDependencies": {
     "@mdx-js/react": "^1.6.22",
     "@storybook/addon-a11y": "^6.5.0",
@@ -81,15 +92,5 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "styled-components": ">=5"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.12.13",
-    "@bezier-react/icons": "*",
-    "lodash-es": "^4.17.15",
-    "react-resize-detector": "^7.1.1",
-    "react-textarea-autosize": "^8.3.4",
-    "ssr-window": "^3.0.0",
-    "typesafe-actions": "^5.1.0",
-    "uuid": "^8.3.2"
   }
 }
