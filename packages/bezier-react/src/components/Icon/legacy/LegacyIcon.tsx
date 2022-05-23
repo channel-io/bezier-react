@@ -1,8 +1,10 @@
 /* External dependencies */
 import React, { memo } from 'react'
+import { icons } from '@bezier-react/icons'
 
 /* Internal dependencies */
-import icons from 'Components/Icon/generated'
+// eslint-disable-next-line no-restricted-imports
+import Icon from '../Icon'
 import type LegacyIconProps from './LegacyIcon.types'
 
 /**
@@ -16,11 +18,11 @@ const LegacyIcon = memo(({
   name,
   ...rest
 }: LegacyIconProps) => {
-  const GeneratedIcon = icons[name]
+  const IconSource = icons[name]
 
-  if (!GeneratedIcon) { return null }
+  if (!IconSource) { return null }
 
-  return (<GeneratedIcon {...rest} />)
+  return (<Icon as={IconSource} {...rest} />)
 })
 
 export default LegacyIcon

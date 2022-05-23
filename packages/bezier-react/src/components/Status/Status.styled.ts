@@ -1,6 +1,9 @@
+/* External dependencies */
+import { LockIcon as BaseLockIcon, MoonFilledIcon as BaseMoonFilledIcon } from '@channel.io/bezier-react-icons'
+
 /* Internal dependencies */
 import { styled, absoluteCenter, SemanticNames } from 'Foundation'
-import { LockIcon as BaseLockIcon, MoonFilledIcon as BaseMoonFilledIcon } from 'Components/Icon/generated'
+import { BaseIcon } from 'Components/Icon'
 import { StatusSize } from './Status.types'
 
 function getStatusCircleBorderSize(size: StatusSize) {
@@ -39,7 +42,9 @@ export const StatusCircle = styled.div<StatusCircleProps>`
   }
 `
 
-export const LockIcon = styled(BaseLockIcon)`
+export const LockIcon = styled(BaseIcon).attrs({
+  as: BaseLockIcon,
+})`
   ${absoluteCenter('')}
   z-index: 1;
 `
