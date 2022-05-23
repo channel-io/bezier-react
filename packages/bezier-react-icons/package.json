@@ -11,10 +11,12 @@
     "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
     "@svgr/cli": "^6.2.1",
-    "tsup": "^5.12.8"
+    "tsup": "^5.12.8",
+    "tsconfig": "*"
   },
   "scripts": {
-    "build": "./scripts/build-icon.sh && tsup src/index.ts --format esm,cjs --dts --external react"
+    "build": "./scripts/build-icon.sh && tsup src/index.ts --format esm,cjs --dts --external react",
+    "clean": "rm -rf node_modules .turbo dist"
   },
   "repository": {
     "type": "git",
