@@ -1,8 +1,6 @@
 /* Internal dependencies */
 import { IconSize } from './Icon.types'
-import { isIconName } from './utils'
 import type IconProps from './Icon.types'
-
 import { LegacyIcon } from './legacy'
 import type { LegacyIconProps } from './legacy'
 
@@ -15,5 +13,4 @@ export type {
 export {
   LegacyIcon as Icon,
   IconSize,
-  isIconName,
 }
