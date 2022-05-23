@@ -1,6 +1,8 @@
+/* Extenral dependencies */
+import type { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

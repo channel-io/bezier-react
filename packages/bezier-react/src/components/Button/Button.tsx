@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
 import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Icon, IconSize } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'

@@ -2,10 +2,11 @@
 import React, { forwardRef, Ref, useCallback, useMemo } from 'react'
 import { noop, isNil, isEmpty, isArray, isBoolean, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Icon, IconSize } from 'Components/Icon'
 import { KeyValueActionProps, KeyValueListItemProps } from './KeyValueListItem.types'
 import Styled from './KeyValueListItem.styled'
 

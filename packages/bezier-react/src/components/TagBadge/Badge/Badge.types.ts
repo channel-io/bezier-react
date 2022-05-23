@@ -1,6 +1,8 @@
+/* External dependencies */
+import { IconName } from '@bezier-react/icons'
+
 /* Internal dependencies */
 import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps } from 'Types/ComponentProps'
-import { IconName } from 'Components/Icon'
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
 interface BadgeOptions {

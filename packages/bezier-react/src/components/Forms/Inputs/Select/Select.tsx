@@ -10,10 +10,11 @@ import React, {
   useEffect,
 } from 'react'
 import { isEmpty, noop } from 'lodash-es'
+import { isIconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Icon, IconSize } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 

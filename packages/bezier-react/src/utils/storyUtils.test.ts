@@ -1,8 +1,8 @@
 /* External dependencies */
 import { isArray } from 'lodash-es'
+import { IconName } from '@bezier-react/icons'
 
 /* Internal dependencies */
-import { IconName } from 'Components/Icon'
 import TabsSize from 'Components/Tabs/TabsSize'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
