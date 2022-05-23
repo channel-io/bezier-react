@@ -2,7 +2,12 @@
   "extends": "tsconfig/react-library.json",
   "compilerOptions": {
     "composite": true,
-    "outDir": "dist",
+    "rootDir": ".",
+    "declarationDir": "dist",
   },
-  "exclude": ["dist",  "node_modules"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "dist",  
+    "node_modules",
+  ]
 }
