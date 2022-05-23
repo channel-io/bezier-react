@@ -1,0 +1,11 @@
+{
+  "name": "tsconfig",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Typescript configuration",
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "react-library.json"
+  ]
+}
