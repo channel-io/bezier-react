@@ -6,7 +6,10 @@ module.exports = {
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: './tsconfig.eslint.json',
+    project: [
+      './tsconfig.eslint.json',
+      './packages/*/tsconfig.json',
+    ],
   },
   rules: {
     'react/jsx-props-no-spreading': 'off',
@@ -18,7 +21,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./packages/bezier-react/**/*'],
+      files: ['packages/bezier-react/**/*'],
       rules: {
         'import/order': [
           'error',

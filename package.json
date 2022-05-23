@@ -39,6 +39,7 @@
     "husky": "^6.0.0",
     "semantic-release": "^17.4.3",
     "ts-node": "^8.10.2",
+    "tsconfig": "*",
     "turbo": "^1.2.6",
     "typescript": "^4.6.4"
   },
