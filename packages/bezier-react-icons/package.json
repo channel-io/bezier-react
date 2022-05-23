@@ -15,7 +15,14 @@
     "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
     "@svgr/cli": "^6.2.1",
+    "react": "^18.1.0",
     "tsconfig": "*"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.13"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "scripts": {
     "build": "./scripts/build-icon.sh && cross-env BABEL_ENV=build rollup -c",
