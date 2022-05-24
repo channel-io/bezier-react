@@ -51,7 +51,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.13",
-    "@bezier-react/icons": "*",
+    "@channel.io/bezier-react-icons": "*",
     "lodash-es": "^4.17.15",
     "react-resize-detector": "^7.1.1",
     "react-textarea-autosize": "^8.3.4",
