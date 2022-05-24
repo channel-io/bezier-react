@@ -3,10 +3,10 @@ import { css, Typography } from 'Foundation'
 import { SegmentedControlSize } from './SegmentedControl.types'
 
 export const SIZE_TO_HEIGHT: Record<SegmentedControlSize, number> = {
-  [SegmentedControlSize.XS]: 22,
-  [SegmentedControlSize.S]: 24,
-  [SegmentedControlSize.M]: 32,
-  [SegmentedControlSize.L]: 36,
+  [SegmentedControlSize.XS]: 24,
+  [SegmentedControlSize.S]: 28,
+  [SegmentedControlSize.M]: 36,
+  [SegmentedControlSize.L]: 44,
 }
 
 export const SIZE_TO_PADDING: Record<SegmentedControlSize, number> = {

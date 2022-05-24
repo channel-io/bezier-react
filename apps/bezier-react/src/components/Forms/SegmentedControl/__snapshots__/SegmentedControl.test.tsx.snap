@@ -54,6 +54,7 @@ exports[`SegmentedControl Snapshot 1`] = `
 
 .c0 {
   position: relative;
+  box-sizing: border-box;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -77,7 +78,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: background-color;
   transition-property: background-color;
-  height: 32px;
+  height: 36px;
   overflow: hidden;
   border-radius: 8px;
   padding: 2px 0;
@@ -85,7 +86,6 @@ exports[`SegmentedControl Snapshot 1`] = `
 
 .c3 {
   position: absolute;
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -116,7 +116,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  height: 32px;
+  height: 36px;
   overflow: hidden;
   border-radius: 6px;
 }
@@ -127,7 +127,6 @@ exports[`SegmentedControl Snapshot 1`] = `
 
 .c6 {
   position: absolute;
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -158,14 +157,13 @@ exports[`SegmentedControl Snapshot 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  height: 32px;
+  height: 36px;
   overflow: hidden;
   border-radius: 6px;
 }
 
 .c1 {
   position: absolute;
-  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
