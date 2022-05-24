@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
 import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
-import { isIconName } from '@bezier-react/icons'
+import { isIconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'

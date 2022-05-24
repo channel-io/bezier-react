@@ -1,5 +1,5 @@
 /* External dependencies */
-import { icons, IconName } from '@bezier-react/icons'
+import { icons, IconName } from '@channel.io/bezier-react-icons'
 
 export const getTitle = (baseDir: string) => {
   const filePath = baseDir.split('/')

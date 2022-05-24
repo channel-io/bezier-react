@@ -2,7 +2,7 @@
 import React, { forwardRef, Ref, useCallback, useMemo } from 'react'
 import { noop, isNil, isEmpty, isArray, isBoolean, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
-import { isIconName } from '@bezier-react/icons'
+import { isIconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'

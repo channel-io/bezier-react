@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
 import { noop, isNil } from 'lodash-es'
-import { isIconName } from '@bezier-react/icons'
+import { isIconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { IconSize } from 'Components/Icon'

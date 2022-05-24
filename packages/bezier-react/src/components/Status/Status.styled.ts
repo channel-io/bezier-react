@@ -1,5 +1,5 @@
 /* External dependencies */
-import { LockIcon as BaseLockIcon } from '@bezier-react/icons'
+import { LockIcon as BaseLockIcon } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { styled, absoluteCenter, SemanticNames } from 'Foundation'

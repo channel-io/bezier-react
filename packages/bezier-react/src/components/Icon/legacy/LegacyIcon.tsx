@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { memo } from 'react'
-import { icons } from '@bezier-react/icons'
+import { icons } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 // eslint-disable-next-line no-restricted-imports
