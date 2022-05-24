@@ -2,7 +2,7 @@
 import React from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import { AllIcon } from '@bezier-react/icons'
+import { AllIcon } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'

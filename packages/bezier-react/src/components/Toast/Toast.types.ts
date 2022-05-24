@@ -1,7 +1,7 @@
 /* External dependencies */
 import { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
-import { IconName } from '@bezier-react/icons'
+import { IconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { TransitionDuration } from 'Foundation'

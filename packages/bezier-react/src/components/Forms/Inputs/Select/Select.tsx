@@ -10,7 +10,7 @@ import React, {
   useEffect,
 } from 'react'
 import { isEmpty, noop } from 'lodash-es'
-import { isIconName } from '@bezier-react/icons'
+import { isIconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'

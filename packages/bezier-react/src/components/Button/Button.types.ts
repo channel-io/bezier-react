@@ -1,5 +1,5 @@
 /* Extenral dependencies */
-import type { IconName } from '@bezier-react/icons'
+import type { IconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from 'Types/ComponentProps'

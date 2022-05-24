@@ -1,5 +1,5 @@
 /* Icons */
-export * from '@bezier-react/icons'
+export * from '@channel.io/bezier-react-icons'
 
 /* Provider */
 export { default as BezierProvider } from 'Providers/BezierProvider'

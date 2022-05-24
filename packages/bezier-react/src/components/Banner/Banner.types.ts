@@ -1,6 +1,6 @@
 /* External dependencies */
 import type { ReactNode } from 'react'
-import type { IconName } from '@bezier-react/icons'
+import type { IconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from 'Types/ComponentProps'
