@@ -85,7 +85,8 @@
     "styled-components": "^5.3.5",
     "stylelint": "^13.8.0",
     "ts-prune": "^0.10.3",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
