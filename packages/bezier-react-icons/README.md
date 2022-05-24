@@ -1,1 +1,1 @@
-# @bezier-react/icons
+# @channel.io/bezier-react-icons

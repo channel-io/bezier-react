@@ -1,6 +1,6 @@
 /* External dependencies */
 import { isArray } from 'lodash-es'
-import { IconName } from '@bezier-react/icons'
+import { IconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import TabsSize from 'Components/Tabs/TabsSize'

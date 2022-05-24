@@ -1,8 +1,7 @@
 {
-  "name": "@bezier-react/icons",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Bezier design system icons",
+  "name": "@channel.io/bezier-react-icons",
+  "version": "1.0.0",
+  "description": "React icon components for bezier-react",
   "homepage": "https://github.com/sungik-choi/bezier-react#readme",
   "bugs": {
     "url": "https://github.com/sungik-choi/bezier-react/issues"

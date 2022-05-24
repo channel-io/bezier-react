@@ -1,6 +1,6 @@
 /* External dependencies */
 import type React from 'react'
-import { IconName } from '@bezier-react/icons'
+import { IconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import type {
