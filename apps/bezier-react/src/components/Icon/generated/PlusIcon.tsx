@@ -14,9 +14,7 @@ function SvgPlusIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M13 3h-2v8H3v2h8v8h2v-8h8v-2h-8V3Z"
+        d="M12 3a1 1 0 0 0-1 1v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4a1 1 0 0 0-1-1Z"
       />
     </svg>
   )

@@ -16,7 +16,7 @@ function SvgTrashIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M14 4h-4v1h4V4Zm2 1h4v2h-1v13.5c0 .811-.636 1.5-1.462 1.5H6.461c-.825 0-1.46-.689-1.46-1.5V7H4V5h4V3.5A1.5 1.5 0 0 1 9.5 2h5A1.5 1.5 0 0 1 16 3.5V5ZM7 20V7h10v13H7Zm2-10v7h2v-7H9Zm4 7v-7h2v7h-2Z"
+        d="M14 4h-4v1h4V4Zm2 1h4v2h-1v11a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V7H4V5h4V3.5A1.5 1.5 0 0 1 9.5 2h5A1.5 1.5 0 0 1 16 3.5V5ZM7 18V7h10v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2Zm2-8v7h2v-7H9Zm4 7v-7h2v7h-2Z"
       />
     </svg>
   )

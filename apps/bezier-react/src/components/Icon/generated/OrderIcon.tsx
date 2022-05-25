@@ -14,9 +14,7 @@ function SvgOrderIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M2 6h20V4H2v2Zm3 7h14v-2H5v2Zm11 7H8v-2h8v2Z"
+        d="M2 5a1 1 0 0 0 1 1h18a1 1 0 1 0 0-2H3a1 1 0 0 0-1 1ZM5 12a1 1 0 0 0 1 1h12a1 1 0 1 0 0-2H6a1 1 0 0 0-1 1ZM16 19a1 1 0 0 1-1 1H9a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1Z"
       />
     </svg>
   )

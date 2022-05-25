@@ -16,7 +16,7 @@ function SvgTypographyIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M3 3v5h2V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H7v2h10v-2h-2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2h2V3H3Z"
+        d="M4 3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-1a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1H4Z"
       />
     </svg>
   )

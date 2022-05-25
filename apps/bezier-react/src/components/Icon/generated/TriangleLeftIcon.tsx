@@ -16,7 +16,7 @@ function SvgTriangleLeftIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="m7.63 11.923 6.735 5.612c.253.21.635.031.635-.296V6.013a.388.388 0 0 0-.635-.298L7.63 11.33a.386.386 0 0 0 0 .594Z"
+        d="m7.63 11.923 6.735 5.612c.253.21.635.031.635-.296V6.013a.388.388 0 0 0-.635-.298L7.63 11.33a.386.386 0 0 0 0 .594"
       />
     </svg>
   )

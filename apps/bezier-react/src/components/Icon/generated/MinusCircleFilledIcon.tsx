@@ -16,7 +16,7 @@ function SvgMinusCircleFilledIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6.14 13h11.72v-2H6.14v2ZM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Z"
+        d="M6 13h12v-2H6v2Zm6-11C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Z"
       />
     </svg>
   )

@@ -16,7 +16,7 @@ function SvgCommentFilledIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M9 19h10.5a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 19.5 3h-15A1.5 1.5 0 0 0 3 4.5v17.365a1 1 0 0 0 1.64.768L9 19ZM7 8h10v2H7V8Zm10 4H7v2h10v-2Z"
+        d="M7 3a4 4 0 0 0-4 4v13.96c0 1.257 1.455 1.957 2.437 1.171l3.366-2.693a2 2 0 0 1 1.25-.438H17a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm0 6a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Z"
       />
     </svg>
   )

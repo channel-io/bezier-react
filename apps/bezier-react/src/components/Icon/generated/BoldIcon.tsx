@@ -16,7 +16,7 @@ function SvgBoldIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5 3h8.5a5.5 5.5 0 0 1 4.672 8.405A5.5 5.5 0 0 1 14.5 21H5V3Zm4 14v-3h5.5a1.5 1.5 0 0 1 0 3H9ZM9 7v3h4.5a1.5 1.5 0 1 0 0-3H9Z"
+        d="M6 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8a5.5 5.5 0 0 0 3.377-9.842A5 5 0 0 0 13.5 3H6Zm7.5 7a2 2 0 1 0 0-4H8v4h5.5ZM8 13v5h6a2.5 2.5 0 0 0 0-5H8Z"
       />
     </svg>
   )

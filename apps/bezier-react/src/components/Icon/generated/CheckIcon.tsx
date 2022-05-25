@@ -16,7 +16,7 @@ function SvgCheckIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="m9.071 16.142-5.657-5.657L2 11.899l7.071 7.071L21.553 6.487 20.14 5.073 9.071 16.142Z"
+        d="m9.071 16.142-4.95-4.95a1 1 0 1 0-1.414 1.414l5.657 5.657a1 1 0 0 0 1.414 0L20.846 7.194a1 1 0 1 0-1.414-1.414L9.071 16.142Z"
       />
     </svg>
   )

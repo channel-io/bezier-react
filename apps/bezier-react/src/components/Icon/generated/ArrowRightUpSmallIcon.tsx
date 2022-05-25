@@ -14,9 +14,7 @@ function SvgArrowRightUpSmallIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="m14.59 8-8.9 8.9 1.415 1.414 8.892-8.893v7.58h2V7.5a1.5 1.5 0 0 0-1.5-1.5h-9.5v2h7.593Z"
+        d="M7.05 16.95a1 1 0 0 0 1.414 0l6.779-6.778v5.364a1 1 0 0 0 2 0V7.757a1 1 0 0 0-1-1H8.464a1 1 0 1 0 0 2h5.364L7.05 15.536a1 1 0 0 0 0 1.414Z"
       />
     </svg>
   )

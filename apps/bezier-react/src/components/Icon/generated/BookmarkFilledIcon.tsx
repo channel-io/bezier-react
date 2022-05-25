@@ -16,7 +16,7 @@ function SvgBookmarkFilledIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18.072 2H6a1 1 0 0 0-1 1v18.715l7.036-5.875 7.036 5.875V3a1 1 0 0 0-1-1Z"
+        d="M18.072 2H6a1 1 0 0 0-1 1v18.715l7.036-5.875 7.036 5.875V3a1 1 0 0 0-1-1"
       />
     </svg>
   )

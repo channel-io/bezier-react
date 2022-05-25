@@ -14,7 +14,9 @@ function SvgUnderlineIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M5 3v8.5a7 7 0 1 0 14 0V3h-3v8.5a4 4 0 0 1-8 0V3H5ZM21 21v-2H3v2h18Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 4a1 1 0 0 0-2 0v7a7 7 0 1 0 14 0V4a1 1 0 1 0-2 0v7a5 5 0 0 1-10 0V4ZM4 19a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
       />
     </svg>
   )

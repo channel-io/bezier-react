@@ -16,7 +16,7 @@ function SvgArrowRightUpIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.997 7.414 4.704 20.707 3.29 19.293 16.583 6H3.997V4h14.5a1.5 1.5 0 0 1 1.5 1.5V20h-2V7.414Z"
+        d="M17.997 6Zm0 1.414L5.411 20a1 1 0 1 1-1.414-1.414L16.583 6H4.997a1 1 0 1 1 0-2h13.5a1.5 1.5 0 0 1 1.5 1.5V19a1 1 0 1 1-2 0V7.414Z"
       />
     </svg>
   )

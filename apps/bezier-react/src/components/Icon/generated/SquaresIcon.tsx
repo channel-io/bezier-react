@@ -16,11 +16,7 @@ function SvgSquaresIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M7.5 17h13a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-13a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5ZM19 15H9V5h10v10Z"
-      />
-      <path
-        fill="currentColor"
-        d="M3.5 21h13a.5.5 0 0 0 .5-.5V19H5V7H3.5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5Z"
+        d="M10 5h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1ZM7 7V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-1v1a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3h1Zm8 10v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h1v5a3 3 0 0 0 3 3h5Z"
       />
     </svg>
   )

@@ -16,7 +16,7 @@ function SvgSearchIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M18 10a8 8 0 1 0-3.094 6.32L21 22.414 22.414 21l-6.094-6.094A7.965 7.965 0 0 0 18 10Zm-2 0a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
+        d="M18 10a8 8 0 1 0-3.094 6.32l5.387 5.387a1 1 0 0 0 1.414-1.414l-5.387-5.387A7.965 7.965 0 0 0 18 10Zm-2 0a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
       />
     </svg>
   )

@@ -14,9 +14,7 @@ function SvgMenuIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M3 6h18V4H3v2Zm0 7h18v-2H3v2Zm18 7H3v-2h18v2Z"
+        d="M3 5a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1ZM3 12a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1ZM21 19a1 1 0 0 1-1 1H4a1 1 0 1 1 0-2h16a1 1 0 0 1 1 1Z"
       />
     </svg>
   )

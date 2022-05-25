@@ -7,20 +7,20 @@ function SvgTextfieldIcon(props: SVGProps<SVGSVGElement>) {
     <svg
       width="1em"
       height="1em"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
-        d="M4 5.333A.667.667 0 0 0 3.333 6v4a.667.667 0 1 0 1.334 0V6A.667.667 0 0 0 4 5.333Z"
+        d="M6 8a1 1 0 0 0-1 1v6a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1Z"
       />
       <path
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M2.667 3.333a2 2 0 0 0-2 2v5.334a2 2 0 0 0 2 2h10.666a2 2 0 0 0 2-2V5.333a2 2 0 0 0-2-2H2.667Zm10.666 1.334H2.667A.667.667 0 0 0 2 5.333v5.334c0 .368.299.666.667.666h10.666a.667.667 0 0 0 .667-.666V5.333a.667.667 0 0 0-.667-.666Z"
+        d="M4 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H4Zm16 2H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Z"
       />
     </svg>
   )
