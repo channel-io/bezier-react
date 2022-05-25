@@ -16,7 +16,7 @@ function SvgPeopleListIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5 7A2 2 0 1 0 5 3 2 2 0 0 0 5 7Zm-2 9h1v5h2v-5h1V8H3v8ZM21 6H10V4h11v2Zm-11 7h11v-2H10v2Zm11 7H10v-2h11v2Z"
+        d="M5 7A2 2 0 1 0 5 3 2 2 0 0 0 5 7Zm-2 9h1v4a1 1 0 1 0 2 0v-4h1V9a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v7Zm7-11a1 1 0 0 0 1 1h9a1 1 0 1 0 0-2h-9a1 1 0 0 0-1 1Zm0 7a1 1 0 0 0 1 1h9a1 1 0 1 0 0-2h-9a1 1 0 0 0-1 1Zm1 8a1 1 0 1 1 0-2h9a1 1 0 1 1 0 2h-9Z"
       />
     </svg>
   )

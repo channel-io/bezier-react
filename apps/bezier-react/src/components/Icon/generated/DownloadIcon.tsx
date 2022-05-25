@@ -14,9 +14,7 @@ function SvgDownloadIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="m16.121 9.672-3.12 3.12V2h-2v10.793L7.877 9.672l-1.414 1.414 4.475 4.475a1.5 1.5 0 0 0 2.121 0l4.475-4.475-1.414-1.414ZM4.001 12v8h16v-8h2v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9h2Z"
+        d="M11 4a1 1 0 1 1 2 0v9.586l3.793-3.793a1 1 0 1 1 1.414 1.414l-5.5 5.5a1 1 0 0 1-1.414 0l-5.5-5.5a1 1 0 0 1 1.414-1.414L11 13.586V4ZM3 20a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
       />
     </svg>
   )

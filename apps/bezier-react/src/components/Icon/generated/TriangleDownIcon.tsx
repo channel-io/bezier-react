@@ -16,7 +16,7 @@ function SvgTriangleDownIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M11.703 16.37 6.09 9.635A.387.387 0 0 1 6.387 9h11.226c.327 0 .506.382.297.635l-5.613 6.735a.386.386 0 0 1-.594 0Z"
+        d="M11.703 16.37 6.09 9.635A.387.387 0 0 1 6.387 9h11.226c.327 0 .506.382.297.635l-5.613 6.735a.386.386 0 0 1-.594 0"
       />
     </svg>
   )

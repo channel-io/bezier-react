@@ -10,13 +10,17 @@ import AppsFilledIcon from './AppsFilledIcon'
 import AppsIcon from './AppsIcon'
 import ArchiveIcon from './ArchiveIcon'
 import ArrowDownIcon from './ArrowDownIcon'
+import ArrowDownSmallIcon from './ArrowDownSmallIcon'
 import ArrowHookLeftDownIcon from './ArrowHookLeftDownIcon'
 import ArrowHookLeftUpIcon from './ArrowHookLeftUpIcon'
 import ArrowHookRightDownIcon from './ArrowHookRightDownIcon'
 import ArrowHookRightUpIcon from './ArrowHookRightUpIcon'
 import ArrowLeftCircleFilledIcon from './ArrowLeftCircleFilledIcon'
+import ArrowLeftDownSmallIcon from './ArrowLeftDownSmallIcon'
 import ArrowLeftIcon from './ArrowLeftIcon'
 import ArrowLeftUpIcon from './ArrowLeftUpIcon'
+import ArrowLeftUpSmallIcon from './ArrowLeftUpSmallIcon'
+import ArrowRightDownSmallIcon from './ArrowRightDownSmallIcon'
 import ArrowRightIcon from './ArrowRightIcon'
 import ArrowRightUpIcon from './ArrowRightUpIcon'
 import ArrowRightUpSmallIcon from './ArrowRightUpSmallIcon'
@@ -25,7 +29,10 @@ import ArrowTurnLeftUpIcon from './ArrowTurnLeftUpIcon'
 import ArrowTurnRightDownIcon from './ArrowTurnRightDownIcon'
 import ArrowTurnRightUpIcon from './ArrowTurnRightUpIcon'
 import ArrowUpIcon from './ArrowUpIcon'
+import AssignToMeIcon from './AssignToMeIcon'
 import AssigneeIcon from './AssigneeIcon'
+import AsteriskIcon from './AsteriskIcon'
+import AsteriskSmallIcon from './AsteriskSmallIcon'
 import AtomIcon from './AtomIcon'
 import BadgeIcon from './BadgeIcon'
 import BankIcon from './BankIcon'
@@ -33,6 +40,7 @@ import BaseballIcon from './BaseballIcon'
 import BasketballIcon from './BasketballIcon'
 import BearFilledIcon from './BearFilledIcon'
 import BearIcon from './BearIcon'
+import BetaIcon from './BetaIcon'
 import BlockIcon from './BlockIcon'
 import BoldIcon from './BoldIcon'
 import BookCoverIcon from './BookCoverIcon'
@@ -44,6 +52,8 @@ import BotFilledIcon from './BotFilledIcon'
 import BotIcon from './BotIcon'
 import BreaktimeIcon from './BreaktimeIcon'
 import BriefcaseIcon from './BriefcaseIcon'
+import BroadcastAltIcon from './BroadcastAltIcon'
+import BroadcastIcon from './BroadcastIcon'
 import BrowserChromeIcon from './BrowserChromeIcon'
 import BrowserEdgeIcon from './BrowserEdgeIcon'
 import BrowserFirefoxIcon from './BrowserFirefoxIcon'
@@ -55,6 +65,8 @@ import BusinessGuyIcon from './BusinessGuyIcon'
 import ButtonRouteIcon from './ButtonRouteIcon'
 import CalendarIcon from './CalendarIcon'
 import CallIcon from './CallIcon'
+import CallInProgressIcon from './CallInProgressIcon'
+import CallIncomingIcon from './CallIncomingIcon'
 import CallMissedIcon from './CallMissedIcon'
 import CallOffIcon from './CallOffIcon'
 import CallOutgoingIcon from './CallOutgoingIcon'
@@ -102,6 +114,7 @@ import CheckBoldIcon from './CheckBoldIcon'
 import CheckCircleFilledIcon from './CheckCircleFilledIcon'
 import CheckCircleIcon from './CheckCircleIcon'
 import CheckIcon from './CheckIcon'
+import CheckVerificationFilledIcon from './CheckVerificationFilledIcon'
 import CheckboxFilledIcon from './CheckboxFilledIcon'
 import CheckboxIcon from './CheckboxIcon'
 import ChevronDownDoubleIcon from './ChevronDownDoubleIcon'
@@ -122,6 +135,7 @@ import ClipIcon from './ClipIcon'
 import ClockIcon from './ClockIcon'
 import CloudDownloadIcon from './CloudDownloadIcon'
 import CloudUploadIcon from './CloudUploadIcon'
+import CodeBlockIcon from './CodeBlockIcon'
 import CodeIcon from './CodeIcon'
 import CoinIcon from './CoinIcon'
 import CoinRecurringIcon from './CoinRecurringIcon'
@@ -145,7 +159,6 @@ import DialogUpIcon from './DialogUpIcon'
 import DotIcon from './DotIcon'
 import DownloadIcon from './DownloadIcon'
 import DragableIcon from './DragableIcon'
-import DragableSmallIcon from './DragableSmallIcon'
 import DropdownIcon from './DropdownIcon'
 import EditIcon from './EditIcon'
 import EmailFilledIcon from './EmailFilledIcon'
@@ -155,10 +168,12 @@ import EmailUnsubscribedIcon from './EmailUnsubscribedIcon'
 import ErrorFilledIcon from './ErrorFilledIcon'
 import ErrorIcon from './ErrorIcon'
 import ErrorTriangleFilledIcon from './ErrorTriangleFilledIcon'
+import ErrorTriangleIcon from './ErrorTriangleIcon'
 import EventIcon from './EventIcon'
 import ExpandIcon from './ExpandIcon'
 import FaceAngryIcon from './FaceAngryIcon'
 import FaceGrinningIcon from './FaceGrinningIcon'
+import FaceIdIcon from './FaceIdIcon'
 import FaceNomouthIcon from './FaceNomouthIcon'
 import FaceSadIcon from './FaceSadIcon'
 import FaceSmileAddIcon from './FaceSmileAddIcon'
@@ -168,6 +183,7 @@ import FaceWowIcon from './FaceWowIcon'
 import FacebookIcon from './FacebookIcon'
 import FastForwardIcon from './FastForwardIcon'
 import FastRewindIcon from './FastRewindIcon'
+import FingerPrintIcon from './FingerPrintIcon'
 import FireIcon from './FireIcon'
 import FlagFilledIcon from './FlagFilledIcon'
 import FlashlightIcon from './FlashlightIcon'
@@ -176,6 +192,7 @@ import FolderIcon from './FolderIcon'
 import FullscreenExitIcon from './FullscreenExitIcon'
 import FullscreenIcon from './FullscreenIcon'
 import FunnelIcon from './FunnelIcon'
+import FunnelRemoveIcon from './FunnelRemoveIcon'
 import GhostFilledIcon from './GhostFilledIcon'
 import GhostIcon from './GhostIcon'
 import GifIcon from './GifIcon'
@@ -186,6 +203,7 @@ import GoogleIcon from './GoogleIcon'
 import GraphIcon from './GraphIcon'
 import GroupFilledIcon from './GroupFilledIcon'
 import GroupIcon from './GroupIcon'
+import GroupRemoveIcon from './GroupRemoveIcon'
 import HandIcon from './HandIcon'
 import HandLoveIcon from './HandLoveIcon'
 import HandPointIcon from './HandPointIcon'
@@ -240,6 +258,7 @@ import LinkIcon from './LinkIcon'
 import LinkOffIcon from './LinkOffIcon'
 import LinkedinIcon from './LinkedinIcon'
 import ListIcon from './ListIcon'
+import ListNumberIcon from './ListNumberIcon'
 import LockIcon from './LockIcon'
 import LockOpenIcon from './LockOpenIcon'
 import MapPinIcon from './MapPinIcon'
@@ -269,6 +288,7 @@ import NaverIcon from './NaverIcon'
 import NewIcon from './NewIcon'
 import NoteIcon from './NoteIcon'
 import NoteLogoIcon from './NoteLogoIcon'
+import NotificationFilledIcon from './NotificationFilledIcon'
 import NotificationIcon from './NotificationIcon'
 import NotificationImportantIcon from './NotificationImportantIcon'
 import NotificationOffIcon from './NotificationOffIcon'
@@ -277,6 +297,7 @@ import OfficeIcon from './OfficeIcon'
 import OpenInNewIcon from './OpenInNewIcon'
 import OrderIcon from './OrderIcon'
 import OutIcon from './OutIcon'
+import PackageIcon from './PackageIcon'
 import PageDownloadIcon from './PageDownloadIcon'
 import PageIcon from './PageIcon'
 import PageZipIcon from './PageZipIcon'
@@ -293,6 +314,7 @@ import PersonFilledIcon from './PersonFilledIcon'
 import PersonIcon from './PersonIcon'
 import PersonRemoveIcon from './PersonRemoveIcon'
 import PieChartIcon from './PieChartIcon'
+import PinFilledIcon from './PinFilledIcon'
 import PinIcon from './PinIcon'
 import PinOffIcon from './PinOffIcon'
 import PlaneIcon from './PlaneIcon'
@@ -310,6 +332,7 @@ import RadioFilledIcon from './RadioFilledIcon'
 import RealtimeIcon from './RealtimeIcon'
 import ReceiptIcon from './ReceiptIcon'
 import RecipeIcon from './RecipeIcon'
+import RecordIcon from './RecordIcon'
 import RefreshCircleFilledIcon from './RefreshCircleFilledIcon'
 import RefreshIcon from './RefreshIcon'
 import RepeatIcon from './RepeatIcon'
@@ -330,8 +353,11 @@ import ShapeIcon from './ShapeIcon'
 import ShineIcon from './ShineIcon'
 import ShoppingIcon from './ShoppingIcon'
 import ShuffleIcon from './ShuffleIcon'
+import SignalIcon from './SignalIcon'
+import SignalLockedIcon from './SignalLockedIcon'
 import SingleNodeIcon from './SingleNodeIcon'
 import SirenIcon from './SirenIcon'
+import SkipIcon from './SkipIcon'
 import SmsFilledIcon from './SmsFilledIcon'
 import SmsIcon from './SmsIcon'
 import SmsUnsubscribedIcon from './SmsUnsubscribedIcon'
@@ -352,6 +378,7 @@ import StrikethroughIcon from './StrikethroughIcon'
 import StringIcon from './StringIcon'
 import SurveyCheckIcon from './SurveyCheckIcon'
 import SurveyIcon from './SurveyIcon'
+import SwitchIcon from './SwitchIcon'
 import SyncIcon from './SyncIcon'
 import TabletIcon from './TabletIcon'
 import TagIcon from './TagIcon'
@@ -435,13 +462,17 @@ const icons = {
   apps: AppsIcon,
   archive: ArchiveIcon,
   'arrow-down': ArrowDownIcon,
+  'arrow-down-small': ArrowDownSmallIcon,
   'arrow-hook-left-down': ArrowHookLeftDownIcon,
   'arrow-hook-left-up': ArrowHookLeftUpIcon,
   'arrow-hook-right-down': ArrowHookRightDownIcon,
   'arrow-hook-right-up': ArrowHookRightUpIcon,
   'arrow-left-circle-filled': ArrowLeftCircleFilledIcon,
+  'arrow-left-down-small': ArrowLeftDownSmallIcon,
   'arrow-left': ArrowLeftIcon,
   'arrow-left-up': ArrowLeftUpIcon,
+  'arrow-left-up-small': ArrowLeftUpSmallIcon,
+  'arrow-right-down-small': ArrowRightDownSmallIcon,
   'arrow-right': ArrowRightIcon,
   'arrow-right-up': ArrowRightUpIcon,
   'arrow-right-up-small': ArrowRightUpSmallIcon,
@@ -450,7 +481,10 @@ const icons = {
   'arrow-turn-right-down': ArrowTurnRightDownIcon,
   'arrow-turn-right-up': ArrowTurnRightUpIcon,
   'arrow-up': ArrowUpIcon,
+  'assign-to-me': AssignToMeIcon,
   assignee: AssigneeIcon,
+  asterisk: AsteriskIcon,
+  'asterisk-small': AsteriskSmallIcon,
   atom: AtomIcon,
   badge: BadgeIcon,
   bank: BankIcon,
@@ -458,6 +492,7 @@ const icons = {
   basketball: BasketballIcon,
   'bear-filled': BearFilledIcon,
   bear: BearIcon,
+  beta: BetaIcon,
   block: BlockIcon,
   bold: BoldIcon,
   'book-cover': BookCoverIcon,
@@ -469,6 +504,8 @@ const icons = {
   bot: BotIcon,
   breaktime: BreaktimeIcon,
   briefcase: BriefcaseIcon,
+  'broadcast-alt': BroadcastAltIcon,
+  broadcast: BroadcastIcon,
   'browser-chrome': BrowserChromeIcon,
   'browser-edge': BrowserEdgeIcon,
   'browser-firefox': BrowserFirefoxIcon,
@@ -480,6 +517,8 @@ const icons = {
   'button-route': ButtonRouteIcon,
   calendar: CalendarIcon,
   call: CallIcon,
+  'call-in-progress': CallInProgressIcon,
+  'call-incoming': CallIncomingIcon,
   'call-missed': CallMissedIcon,
   'call-off': CallOffIcon,
   'call-outgoing': CallOutgoingIcon,
@@ -527,6 +566,7 @@ const icons = {
   'check-circle-filled': CheckCircleFilledIcon,
   'check-circle': CheckCircleIcon,
   check: CheckIcon,
+  'check-verification-filled': CheckVerificationFilledIcon,
   'checkbox-filled': CheckboxFilledIcon,
   checkbox: CheckboxIcon,
   'chevron-down-double': ChevronDownDoubleIcon,
@@ -547,6 +587,7 @@ const icons = {
   clock: ClockIcon,
   'cloud-download': CloudDownloadIcon,
   'cloud-upload': CloudUploadIcon,
+  'code-block': CodeBlockIcon,
   code: CodeIcon,
   coin: CoinIcon,
   'coin-recurring': CoinRecurringIcon,
@@ -570,7 +611,6 @@ const icons = {
   dot: DotIcon,
   download: DownloadIcon,
   dragable: DragableIcon,
-  'dragable-small': DragableSmallIcon,
   dropdown: DropdownIcon,
   edit: EditIcon,
   'email-filled': EmailFilledIcon,
@@ -580,10 +620,12 @@ const icons = {
   'error-filled': ErrorFilledIcon,
   error: ErrorIcon,
   'error-triangle-filled': ErrorTriangleFilledIcon,
+  'error-triangle': ErrorTriangleIcon,
   event: EventIcon,
   expand: ExpandIcon,
   'face-angry': FaceAngryIcon,
   'face-grinning': FaceGrinningIcon,
+  'face-id': FaceIdIcon,
   'face-nomouth': FaceNomouthIcon,
   'face-sad': FaceSadIcon,
   'face-smile-add': FaceSmileAddIcon,
@@ -593,6 +635,7 @@ const icons = {
   facebook: FacebookIcon,
   'fast-forward': FastForwardIcon,
   'fast-rewind': FastRewindIcon,
+  'finger-print': FingerPrintIcon,
   fire: FireIcon,
   'flag-filled': FlagFilledIcon,
   flashlight: FlashlightIcon,
@@ -601,6 +644,7 @@ const icons = {
   'fullscreen-exit': FullscreenExitIcon,
   fullscreen: FullscreenIcon,
   funnel: FunnelIcon,
+  'funnel-remove': FunnelRemoveIcon,
   'ghost-filled': GhostFilledIcon,
   ghost: GhostIcon,
   gif: GifIcon,
@@ -611,6 +655,7 @@ const icons = {
   graph: GraphIcon,
   'group-filled': GroupFilledIcon,
   group: GroupIcon,
+  'group-remove': GroupRemoveIcon,
   hand: HandIcon,
   'hand-love': HandLoveIcon,
   'hand-point': HandPointIcon,
@@ -665,6 +710,7 @@ const icons = {
   'link-off': LinkOffIcon,
   linkedin: LinkedinIcon,
   list: ListIcon,
+  'list-number': ListNumberIcon,
   lock: LockIcon,
   'lock-open': LockOpenIcon,
   'map-pin': MapPinIcon,
@@ -694,6 +740,7 @@ const icons = {
   new: NewIcon,
   note: NoteIcon,
   'note-logo': NoteLogoIcon,
+  'notification-filled': NotificationFilledIcon,
   notification: NotificationIcon,
   'notification-important': NotificationImportantIcon,
   'notification-off': NotificationOffIcon,
@@ -702,6 +749,7 @@ const icons = {
   'open-in-new': OpenInNewIcon,
   order: OrderIcon,
   out: OutIcon,
+  package: PackageIcon,
   'page-download': PageDownloadIcon,
   page: PageIcon,
   'page-zip': PageZipIcon,
@@ -718,6 +766,7 @@ const icons = {
   person: PersonIcon,
   'person-remove': PersonRemoveIcon,
   'pie-chart': PieChartIcon,
+  'pin-filled': PinFilledIcon,
   pin: PinIcon,
   'pin-off': PinOffIcon,
   plane: PlaneIcon,
@@ -735,6 +784,7 @@ const icons = {
   realtime: RealtimeIcon,
   receipt: ReceiptIcon,
   recipe: RecipeIcon,
+  record: RecordIcon,
   'refresh-circle-filled': RefreshCircleFilledIcon,
   refresh: RefreshIcon,
   repeat: RepeatIcon,
@@ -755,8 +805,11 @@ const icons = {
   shine: ShineIcon,
   shopping: ShoppingIcon,
   shuffle: ShuffleIcon,
+  signal: SignalIcon,
+  'signal-locked': SignalLockedIcon,
   'single-node': SingleNodeIcon,
   siren: SirenIcon,
+  skip: SkipIcon,
   'sms-filled': SmsFilledIcon,
   sms: SmsIcon,
   'sms-unsubscribed': SmsUnsubscribedIcon,
@@ -777,6 +830,7 @@ const icons = {
   string: StringIcon,
   'survey-check': SurveyCheckIcon,
   survey: SurveyIcon,
+  switch: SwitchIcon,
   sync: SyncIcon,
   tablet: TabletIcon,
   tag: TagIcon,
@@ -862,13 +916,17 @@ export {
   AppsIcon,
   ArchiveIcon,
   ArrowDownIcon,
+  ArrowDownSmallIcon,
   ArrowHookLeftDownIcon,
   ArrowHookLeftUpIcon,
   ArrowHookRightDownIcon,
   ArrowHookRightUpIcon,
   ArrowLeftCircleFilledIcon,
+  ArrowLeftDownSmallIcon,
   ArrowLeftIcon,
   ArrowLeftUpIcon,
+  ArrowLeftUpSmallIcon,
+  ArrowRightDownSmallIcon,
   ArrowRightIcon,
   ArrowRightUpIcon,
   ArrowRightUpSmallIcon,
@@ -877,7 +935,10 @@ export {
   ArrowTurnRightDownIcon,
   ArrowTurnRightUpIcon,
   ArrowUpIcon,
+  AssignToMeIcon,
   AssigneeIcon,
+  AsteriskIcon,
+  AsteriskSmallIcon,
   AtomIcon,
   BadgeIcon,
   BankIcon,
@@ -885,6 +946,7 @@ export {
   BasketballIcon,
   BearFilledIcon,
   BearIcon,
+  BetaIcon,
   BlockIcon,
   BoldIcon,
   BookCoverIcon,
@@ -896,6 +958,8 @@ export {
   BotIcon,
   BreaktimeIcon,
   BriefcaseIcon,
+  BroadcastAltIcon,
+  BroadcastIcon,
   BrowserChromeIcon,
   BrowserEdgeIcon,
   BrowserFirefoxIcon,
@@ -907,6 +971,8 @@ export {
   ButtonRouteIcon,
   CalendarIcon,
   CallIcon,
+  CallInProgressIcon,
+  CallIncomingIcon,
   CallMissedIcon,
   CallOffIcon,
   CallOutgoingIcon,
@@ -954,6 +1020,7 @@ export {
   CheckCircleFilledIcon,
   CheckCircleIcon,
   CheckIcon,
+  CheckVerificationFilledIcon,
   CheckboxFilledIcon,
   CheckboxIcon,
   ChevronDownDoubleIcon,
@@ -974,6 +1041,7 @@ export {
   ClockIcon,
   CloudDownloadIcon,
   CloudUploadIcon,
+  CodeBlockIcon,
   CodeIcon,
   CoinIcon,
   CoinRecurringIcon,
@@ -997,7 +1065,6 @@ export {
   DotIcon,
   DownloadIcon,
   DragableIcon,
-  DragableSmallIcon,
   DropdownIcon,
   EditIcon,
   EmailFilledIcon,
@@ -1007,10 +1074,12 @@ export {
   ErrorFilledIcon,
   ErrorIcon,
   ErrorTriangleFilledIcon,
+  ErrorTriangleIcon,
   EventIcon,
   ExpandIcon,
   FaceAngryIcon,
   FaceGrinningIcon,
+  FaceIdIcon,
   FaceNomouthIcon,
   FaceSadIcon,
   FaceSmileAddIcon,
@@ -1020,6 +1089,7 @@ export {
   FacebookIcon,
   FastForwardIcon,
   FastRewindIcon,
+  FingerPrintIcon,
   FireIcon,
   FlagFilledIcon,
   FlashlightIcon,
@@ -1028,6 +1098,7 @@ export {
   FullscreenExitIcon,
   FullscreenIcon,
   FunnelIcon,
+  FunnelRemoveIcon,
   GhostFilledIcon,
   GhostIcon,
   GifIcon,
@@ -1038,6 +1109,7 @@ export {
   GraphIcon,
   GroupFilledIcon,
   GroupIcon,
+  GroupRemoveIcon,
   HandIcon,
   HandLoveIcon,
   HandPointIcon,
@@ -1092,6 +1164,7 @@ export {
   LinkOffIcon,
   LinkedinIcon,
   ListIcon,
+  ListNumberIcon,
   LockIcon,
   LockOpenIcon,
   MapPinIcon,
@@ -1121,6 +1194,7 @@ export {
   NewIcon,
   NoteIcon,
   NoteLogoIcon,
+  NotificationFilledIcon,
   NotificationIcon,
   NotificationImportantIcon,
   NotificationOffIcon,
@@ -1129,6 +1203,7 @@ export {
   OpenInNewIcon,
   OrderIcon,
   OutIcon,
+  PackageIcon,
   PageDownloadIcon,
   PageIcon,
   PageZipIcon,
@@ -1145,6 +1220,7 @@ export {
   PersonIcon,
   PersonRemoveIcon,
   PieChartIcon,
+  PinFilledIcon,
   PinIcon,
   PinOffIcon,
   PlaneIcon,
@@ -1162,6 +1238,7 @@ export {
   RealtimeIcon,
   ReceiptIcon,
   RecipeIcon,
+  RecordIcon,
   RefreshCircleFilledIcon,
   RefreshIcon,
   RepeatIcon,
@@ -1182,8 +1259,11 @@ export {
   ShineIcon,
   ShoppingIcon,
   ShuffleIcon,
+  SignalIcon,
+  SignalLockedIcon,
   SingleNodeIcon,
   SirenIcon,
+  SkipIcon,
   SmsFilledIcon,
   SmsIcon,
   SmsUnsubscribedIcon,
@@ -1204,6 +1284,7 @@ export {
   StringIcon,
   SurveyCheckIcon,
   SurveyIcon,
+  SwitchIcon,
   SyncIcon,
   TabletIcon,
   TagIcon,

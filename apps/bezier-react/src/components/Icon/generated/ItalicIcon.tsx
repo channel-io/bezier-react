@@ -14,7 +14,9 @@ function SvgItalicIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M14 6.5A1.75 1.75 0 1 0 14 3a1.75 1.75 0 0 0 0 3.5ZM10 8h5l-3.294 10.706A1 1 0 0 0 12.662 20H13v1H8l3.294-10.706A1 1 0 0 0 10.338 9H10V8Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.978 3H10a1 1 0 0 0 0 2h2.72l-3.5 14H6a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-2.72l3.5-14H18a1 1 0 1 0 0-2h-4.022Z"
       />
     </svg>
   )

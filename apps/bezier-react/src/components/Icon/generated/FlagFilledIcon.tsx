@@ -16,7 +16,7 @@ function SvgFlagFilledIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6 3H4v19h2V3Zm15.191 0H7v12h14.191a.5.5 0 0 0 .447-.724L19 9l2.638-5.276A.5.5 0 0 0 21.191 3Z"
+        d="M5 3a1 1 0 0 0-1 1v17a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1Zm3 0a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12.382a1 1 0 0 0 .894-1.447L19 9l2.276-4.553A1 1 0 0 0 20.382 3H8Z"
       />
     </svg>
   )

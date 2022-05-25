@@ -14,9 +14,11 @@ function SvgOutIcon(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="m18.793 13-3.121 3.121 1.414 1.414 4.475-4.475a1.5 1.5 0 0 0 0-2.121l-4.475-4.475-1.414 1.414L18.794 11H8v2h10.793ZM4 4h8V2H3a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h9v-2H4V4Z"
+        d="m18.793 13-2.414 2.414a1 1 0 0 0 1.414 1.414l3.768-3.768a1.5 1.5 0 0 0 0-2.121l-3.768-3.768a1 1 0 1 0-1.414 1.414L18.794 11H9a1 1 0 1 0 0 2h9.793Z"
+      />
+      <path
+        fill="currentColor"
+        d="M2 6a4 4 0 0 1 4-4h5a1 1 0 1 1 0 2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5a1 1 0 1 1 0 2H6a4 4 0 0 1-4-4V6Z"
       />
     </svg>
   )

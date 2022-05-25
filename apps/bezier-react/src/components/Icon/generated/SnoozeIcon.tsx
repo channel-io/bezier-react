@@ -7,7 +7,7 @@ function SvgSnoozeIcon(props: SVGProps<SVGSVGElement>) {
     <svg
       width="1em"
       height="1em"
-      viewBox="0 0 24 25"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -16,7 +16,7 @@ function SvgSnoozeIcon(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M7.05 2.393 2.808 6.636 1.393 5.222 5.636.979 7.05 2.393ZM18.364.98l4.243 4.243-1.415 1.414-4.242-4.243L18.364.98ZM4 13a8 8 0 1 0 16 0 8 8 0 0 0-16 0Zm8-10C6.477 3 2 7.477 2 13s4.477 10 10 10 10-4.477 10-10S17.523 3 12 3Zm-1 10.538V7h2v5.316l3.53 1.807-.912 1.78L11 13.538Z"
+        d="M7.05 1.414 2.808 5.657 1.393 4.243 5.636 0 7.05 1.414ZM18.364 0l4.243 4.243-1.415 1.414-4.242-4.243L18.364 0ZM4 12.02a8 8 0 1 0 16 0 8 8 0 0 0-16 0Zm8-10c-5.523 0-10 4.478-10 10 0 5.524 4.477 10 10 10s10-4.476 10-10c0-5.522-4.477-10-10-10Zm-1 10.54V6.02h2v5.316l3.53 1.808-.912 1.78L11 12.559Z"
       />
     </svg>
   )
