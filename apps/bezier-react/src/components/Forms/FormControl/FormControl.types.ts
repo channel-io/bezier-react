@@ -1,10 +1,10 @@
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms/Form.types'
+import type { FormComponentProps, FormFieldSize } from 'Components/Forms'
 
 interface FormControlOptions {
   labelPosition?: 'top' | 'left'
-  leftLabelWrapperHeight?: number
+  leftLabelWrapperHeight?: FormFieldSize
 }
 
 export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}

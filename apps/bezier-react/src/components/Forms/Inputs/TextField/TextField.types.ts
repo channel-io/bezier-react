@@ -10,7 +10,8 @@ import type {
   AdditionalStylableProps,
   AdditionalColorProps,
 } from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms/Form.types'
+import type { FormComponentProps } from 'Components/Forms'
+import { FormFieldSize } from 'Components/Forms'
 import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
@@ -25,10 +26,10 @@ export enum TextFieldType {
 }
 
 export enum TextFieldSize {
-  XL = 56,
-  L = 44,
-  M = 36,
-  XS = 28,
+  XL = FormFieldSize.XL,
+  L = FormFieldSize.L,
+  M = FormFieldSize.M,
+  XS = FormFieldSize.XS,
 }
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'

@@ -8,15 +8,16 @@ import type {
   AdditionalColorProps,
   AdditionalTestIdProps,
 } from 'Types/ComponentProps'
-import { FormComponentProps } from 'Components/Forms/Form.types'
+import type { FormComponentProps } from 'Components/Forms'
+import { FormFieldSize } from 'Components/Forms'
 import type { OverlayProps } from 'Components/Overlay'
 import type { IconName } from 'Components/Icon'
 
 export enum SelectSize {
-  XL = 'XL',
-  L = 'L',
-  M = 'M',
-  S = 'S',
+  XL = FormFieldSize.XL,
+  L = FormFieldSize.L,
+  M = FormFieldSize.M,
+  S = FormFieldSize.XS,
 }
 
 export interface SelectRef {

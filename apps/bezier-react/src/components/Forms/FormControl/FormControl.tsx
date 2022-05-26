@@ -6,7 +6,8 @@ import { isNil } from 'lodash-es'
 import { Typography } from 'Foundation'
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
-import { TextFieldSize } from 'Components/Forms/Inputs/TextField'
+// eslint-disable-next-line no-restricted-imports
+import FormFieldSize from '../FormFieldSize'
 import FormControlContext from './FormControlContext'
 import FormControlProps, {
   GroupPropsGetter,
@@ -23,7 +24,7 @@ function FormControl({
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
-  leftLabelWrapperHeight = TextFieldSize.M,
+  leftLabelWrapperHeight = FormFieldSize.M,
   children,
   ...rest
 }: FormControlProps) {

@@ -26,28 +26,6 @@ interface TriggerProps {
   size: SelectSize
 }
 
-function selectSizeConverter(size: SelectSize) {
-  switch (size) {
-    case SelectSize.XL:
-      return css`
-        height: 54px;
-      `
-    case SelectSize.L:
-      return css`
-        height: 44px;
-      `
-    case SelectSize.S:
-      return css`
-        height: 28px;
-      `
-    case SelectSize.M:
-    default:
-      return css`
-        height: 36px;
-      `
-  }
-}
-
 const focusedStyle = css`
   ${focusedInputWrapperStyle};
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
@@ -60,6 +38,7 @@ export const Trigger = styled.button<TriggerProps>`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: ${({ size }) => size}px;
   padding: 8px 12px;
   cursor: pointer;
   user-select: none;
@@ -68,8 +47,6 @@ export const Trigger = styled.button<TriggerProps>`
   ${inputTextStyle}
 
   ${inputWrapperStyle}
-
-  ${({ size }) => selectSizeConverter(size)}
 
   ${({ foundation }) => foundation?.rounding?.round8}
 
