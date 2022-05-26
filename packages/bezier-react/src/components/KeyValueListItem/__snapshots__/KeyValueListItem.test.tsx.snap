@@ -1,7 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`KeyValueListItem Snapshot > 1`] = `
-.c2 {
+.c7 {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: 600;
+  color: #00000066;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -17,35 +34,49 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   transition-property: color;
 }
 
-.c5 {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: 600;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c0 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  min-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c8 {
+  margin-left: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 {
   overflow: hidden;
   border-radius: 6px;
   -webkit-transition-delay: 0ms;
@@ -58,18 +89,8 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   transition-property: background-color,color;
 }
 
-.c0:hover {
-  background-color: #0000000D;
-}
-
-.c6 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #00000066;
-}
-
-.c4 {
+.c2 {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -78,16 +99,9 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-width: 118px;
-  padding-left: 8px;
-}
-
-.c8 {
-  min-width: 0;
-}
-
-.c3 ~ .c7 {
-  margin-left: 8px;
+  padding: 4px 6px;
+  overflow: hidden;
+  border-radius: 6px;
 }
 
 .c1 {
@@ -99,52 +113,84 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 4px 6px;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
   data-testid="bezier-react-key-value-list-item"
 >
   <div
-    class="c1"
+    class="c2 c3"
   >
-    <svg
-      class="c2"
-      color="txt-black-dark"
-      data-testid="bezier-react-icon"
-      fill="none"
-      foundation="[object Object]"
-      height="20"
-      marginbottom="0"
-      marginleft="0"
-      marginright="0"
-      margintop="0"
-      viewBox="0 0 24 24"
-      width="20"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M15.832 1s.272 1.628-1.033 3.197c-1.394 1.675-2.979 1.4-2.979 1.4s-.297-1.317.872-2.857C14.006 1.01 15.832 1 15.832 1Zm3.637 6.81s-2.163 1.105-2.163 3.789c0 3.027 2.694 4.07 2.694 4.07s-1.883 5.302-4.427 5.302c-.577 0-1.09-.192-1.611-.387-.534-.2-1.075-.401-1.698-.401-.695 0-1.388.25-2.005.475-.497.18-.945.342-1.306.342-2.322 0-5.257-5.03-5.257-9.071 0-3.977 2.484-6.063 4.814-6.063.88 0 1.646.295 2.288.542.462.178.86.33 1.19.33.264 0 .618-.142 1.047-.315.669-.27 1.522-.613 2.517-.613 2.81 0 3.917 2 3.917 2Z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
     <div
-      class="c3 c4"
+      class="c4 c5"
+      data-testid="bezier-react-key-value-list-item-key-item"
+      direction="horizontal"
     >
-      <span
-        class="c5 c6"
-        data-testid="bezier-react-text"
+      <svg
+        class="c6"
+        color="txt-black-dark"
+        data-testid="bezier-react-icon"
+        fill="none"
+        foundation="[object Object]"
+        height="20"
+        marginbottom="0"
+        marginleft="0"
+        marginright="0"
+        margintop="0"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        key
-      </span>
+        <path
+          clip-rule="evenodd"
+          d="M15.832 1s.272 1.628-1.033 3.197c-1.394 1.675-2.979 1.4-2.979 1.4s-.297-1.317.872-2.857C14.006 1.01 15.832 1 15.832 1Zm3.637 6.81s-2.163 1.105-2.163 3.789c0 3.027 2.694 4.07 2.694 4.07s-1.883 5.302-4.427 5.302c-.577 0-1.09-.192-1.611-.387-.534-.2-1.075-.401-1.698-.401-.695 0-1.388.25-2.005.475-.497.18-.945.342-1.306.342-2.322 0-5.257-5.03-5.257-9.071 0-3.977 2.484-6.063 4.814-6.063.88 0 1.646.295 2.288.542.462.178.86.33 1.19.33.264 0 .618-.142 1.047-.315.669-.27 1.522-.613 2.517-.613 2.81 0 3.917 2 3.917 2Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="c7 c8"
+        color="txt-black-dark"
+        data-testid="bezier-react-text"
+        direction="horizontal"
+      >
+        Key
+      </div>
     </div>
+  </div>
+  <div
+    class="c2 c9"
+  >
     <div
-      class="c7 c8"
+      class="c10"
+      data-testid="bezier-react-key-value-list-item-value-item"
     >
-      thisiscontent
+      Value
     </div>
   </div>
 </div>

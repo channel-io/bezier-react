@@ -2,12 +2,12 @@
 import React, { forwardRef, Ref } from 'react'
 
 /* Internal dependencies */
-import { ItemAction, KeyItem, ValueItem } from './common'
+import { ValueItem, ItemAction, KeyItem } from './common'
 import { TEST_ID_MAP } from './KeyValueListItem.const'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
-import * as Styled from './KeyValueListItem.styled'
+import * as Styled from './KeyValueMultiLineListItem.styled'
 
-function KeyValueListItem(
+function KeyValueMultiLineListItem(
   {
     className,
     interpolation,
@@ -16,7 +16,7 @@ function KeyValueListItem(
     keyIcon,
     keyContent,
     actions,
-    testId = TEST_ID_MAP.ROOT,
+    testId = TEST_ID_MAP.MULTILINE_ROOT,
     children,
     onClickKey,
     onClickValue,
@@ -39,15 +39,15 @@ function KeyValueListItem(
         >
           { keyContent }
         </KeyItem>
+        <ItemAction actions={actions} />
       </Styled.KeyItemContainer>
       <Styled.ValueItemContainer onClick={onClickValue}>
-        <ValueItem interpolation={valueWrapperInterpolation}>
+        <ValueItem interpolation={valueWrapperInterpolation} multiline>
           { children }
         </ValueItem>
-        <ItemAction actions={actions} />
       </Styled.ValueItemContainer>
     </Styled.Wrapper>
   )
 }
 
-export default forwardRef(KeyValueListItem)
+export default forwardRef(KeyValueMultiLineListItem)
