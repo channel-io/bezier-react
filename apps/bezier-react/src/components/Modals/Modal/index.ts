@@ -7,6 +7,7 @@ import type {
   ModalActionProps,
   ModalContentProps,
   ModalContextValue,
+  ModalTitleSize,
 } from './Modal.types'
 
 export type {
@@ -14,6 +15,7 @@ export type {
   ModalActionProps,
   ModalContentProps,
   ModalContextValue,
+  ModalTitleSize,
 }
 export {
   Modal,
