@@ -34,6 +34,10 @@ const heightStyle = css<{ size: SegmentedControlSize }>`
   height: ${({ size }) => SIZE_TO_HEIGHT[size]}px;
 `
 
+const indicatorHeightStyle = css<{ size: SegmentedControlSize }>`
+  height: ${({ size }) => SIZE_TO_HEIGHT[size] - (SIZE_TO_PADDING[size] * 2)}px;
+`
+
 const verticalPaddingStyle = css<{ size: SegmentedControlSize }>`
   padding: ${({ size }) => SIZE_TO_PADDING[size]}px 0;
 `
@@ -67,6 +71,7 @@ const indicatorRoundingStyle = css<{ size: SegmentedControlSize }>`
 
 export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;
+  box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -86,7 +91,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
 export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
   position: absolute;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -117,7 +121,6 @@ export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
 
 export const Indicator = styled.div<StyledIndicatorProps>`
   position: absolute;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -128,7 +131,7 @@ export const Indicator = styled.div<StyledIndicatorProps>`
   )};
   will-change: transform;
 
-  ${heightStyle}
+  ${indicatorHeightStyle}
   ${indicatorRoundingStyle}
 `
 
