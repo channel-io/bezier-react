@@ -7,7 +7,8 @@ import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import { StyledProgressBarWrapper, StyledProgressBarActive } from './ProgressBar.styled'
 
-const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
+export const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
+export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
 
 function ProgressBar({
   size = ProgressBarSize.M,
@@ -15,6 +16,7 @@ function ProgressBar({
   width = 36,
   percentage = 0,
   testId = PROGRESS_BAR_TEST_ID,
+  activeTestId = PROGRESS_BAR_ACTIVE_TEST_ID,
 }: ProgressBarProps) {
   const clampedPercentage = clamp(percentage, 0, 100)
 
@@ -27,6 +29,7 @@ function ProgressBar({
       <StyledProgressBarActive
         variant={variant}
         percentage={clampedPercentage}
+        data-testid={activeTestId}
       />
     </StyledProgressBarWrapper>
   )

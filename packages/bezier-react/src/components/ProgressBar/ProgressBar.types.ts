@@ -3,6 +3,7 @@ import type {
   BezierComponentProps,
   SizeProps,
   VariantProps,
+  AdditionalTestIdProps,
 } from 'Types/ComponentProps'
 
 export enum ProgressBarSize {
@@ -24,4 +25,5 @@ export default interface ProgressBarProps extends
   BezierComponentProps,
   SizeProps<ProgressBarSize>,
   VariantProps<ProgressBarVariant>,
+  AdditionalTestIdProps<'active'>,
   ProgressBarOptions {}
