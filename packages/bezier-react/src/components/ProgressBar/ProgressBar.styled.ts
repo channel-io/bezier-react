@@ -4,4 +4,5 @@ import { styled } from 'Foundation'
 export const StyledProgressBarWrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
 `
