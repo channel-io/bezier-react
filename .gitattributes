@@ -1,2 +1,2 @@
-packages/bezier-react-icons/src/generated linguist-generated=true
-packages/bezier-react-icons/src/assets linguist-generated=true
+packages/bezier-react-icons/src/generated/*.tsx linguist-generated=true
+packages/bezier-react-icons/src/assets/*.svg linguist-generated=true
