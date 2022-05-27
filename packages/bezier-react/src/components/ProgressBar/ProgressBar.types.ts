@@ -15,8 +15,9 @@ export enum ProgressBarVariant {
   Monochrome = 'monochrome',
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface ProgressBarOptions {}
+interface ProgressBarOptions {
+  percentage?: number
+}
 
 export default interface ProgressBarProps extends
   BezierComponentProps,

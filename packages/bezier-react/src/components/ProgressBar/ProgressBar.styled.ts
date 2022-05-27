@@ -61,13 +61,13 @@ export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps
   ${({ interpolation }) => interpolation}
 `
 
-// FIXME: width
 interface StyledProgressBarActiveProps extends ProgressBarProps {
   variant: NonNullable<ProgressBarProps['variant']>
+  percentage: NonNullable<ProgressBarProps['percentage']>
 }
 
 export const StyledProgressBarActive = styled.div<StyledProgressBarActiveProps>`
-  width: 30px;
+  width: ${({ percentage }) => percentage}%;
   height: 100%;
 
   ${getProgressBarActiveGradient}
