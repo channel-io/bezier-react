@@ -25,6 +25,11 @@ export default {
         options: getObjectFromEnum(ProgressBarVariant),
       },
     },
+    width: {
+      control: {
+        type: 'number',
+      },
+    },
     percentage: {
       control: {
         type: 'range',
@@ -42,5 +47,6 @@ export const Primary: Story<ProgressBarProps> = Template.bind({})
 Primary.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
+  width: 36,
   percentage: 50,
 }

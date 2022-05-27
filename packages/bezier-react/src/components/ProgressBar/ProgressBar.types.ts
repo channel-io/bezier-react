@@ -16,6 +16,7 @@ export enum ProgressBarVariant {
 }
 
 interface ProgressBarOptions {
+  width?: number
   percentage?: number
 }
 

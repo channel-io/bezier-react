@@ -48,11 +48,11 @@ const getProgressBarActiveGradient = ({
 
 interface StyledProgressBarWrapperProps extends ProgressBarProps {
   size: NonNullable<ProgressBarProps['size']>
+  width: NonNullable<ProgressBarProps['width']>
 }
 
-// FIXME: width
 export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps>`
-  width: 50px;
+  width: ${({ width }) => width}px;
   height: ${({ size }) => PROGRESS_BAR_HEIGHT[size]}px;
 
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};

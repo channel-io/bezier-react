@@ -12,6 +12,7 @@ const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
 function ProgressBar({
   size = ProgressBarSize.M,
   variant = ProgressBarVariant.Green,
+  width = 36,
   percentage = 0,
   testId = PROGRESS_BAR_TEST_ID,
 }: ProgressBarProps) {
@@ -20,6 +21,7 @@ function ProgressBar({
   return (
     <StyledProgressBarWrapper
       size={size}
+      width={width}
       data-testid={testId}
     >
       <StyledProgressBarActive
