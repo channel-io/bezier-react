@@ -3,13 +3,17 @@ import React, { memo } from 'react'
 
 /* Internal dependencies */
 import type ProgressBarProps from './ProgressBar.types'
+import { StyledProgressBarWrapper } from './ProgressBar.styled'
 
-export const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
+const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
 
-// eslint-disable-next-line no-empty-pattern
-function ProgressBar({}: ProgressBarProps) {
+function ProgressBar({
+  testId = PROGRESS_BAR_TEST_ID,
+}: ProgressBarProps) {
   return (
-    <></>
+    <StyledProgressBarWrapper
+      data-testid={testId}
+    />
   )
 }
 

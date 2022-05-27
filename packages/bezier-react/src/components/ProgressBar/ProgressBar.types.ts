@@ -1,4 +1,13 @@
 /* Internal dependencies */
-import type { BezierComponentProps } from 'Types/ComponentProps'
+import type {
+  BezierComponentProps,
+  SizeProps,
+  VariantProps,
+} from 'Types/ComponentProps'
+import ProgressBarSize from './ProgressBarSize'
+import ProgressBarVariant from './ProgressBarVariant'
 
-export default interface ProgressBarProps extends BezierComponentProps {}
+export default interface ProgressBarProps extends
+  BezierComponentProps,
+  SizeProps<ProgressBarSize>,
+  VariantProps<ProgressBarVariant> {}
