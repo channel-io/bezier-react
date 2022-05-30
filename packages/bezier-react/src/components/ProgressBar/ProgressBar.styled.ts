@@ -59,6 +59,8 @@ export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
   border-radius: ${PROGRESS_BAR_BORDER_RADIUS}px;
 
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('width')};
+
   ${({ interpolation }) => interpolation}
 `
 
@@ -73,6 +75,8 @@ export const StyledProgressBarActive = styled.div<StyledProgressBarActiveProps>`
 
   ${getProgressBarActiveGradient}
   border-radius: ${PROGRESS_BAR_BORDER_RADIUS}px;
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('width')};
 
   ${({ interpolation }) => interpolation}
 `
