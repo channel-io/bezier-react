@@ -1,0 +1,9 @@
+node_modules
+
+# Build output
+dist
+
+# Generated icons
+generated
+
+.eslintrc.js
