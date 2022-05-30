@@ -4,6 +4,7 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
+import { styled } from 'Foundation'
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
 import ProgressBar from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
@@ -27,7 +28,7 @@ export default {
     },
     width: {
       control: {
-        type: 'number',
+        type: 'text',
       },
     },
     percentage: {
@@ -41,12 +42,25 @@ export default {
   },
 } as Meta
 
-const Template: Story<ProgressBarProps> = (args) => <ProgressBar {...args} />
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 720px;
+  padding: 16px;
+  border: 1px solid ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
+`
+
+const Template: Story<ProgressBarProps> = (args) => (
+  <Wrapper>
+    <ProgressBar {...args} />
+  </Wrapper>
+)
 
 export const Primary: Story<ProgressBarProps> = Template.bind({})
 Primary.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
-  width: 36,
+  width: '36',
   percentage: 50,
 }
