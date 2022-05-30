@@ -19,7 +19,7 @@ function ProgressBar(
     size = ProgressBarSize.M,
     variant = ProgressBarVariant.Green,
     width = 36,
-    percentage = 0,
+    value = 0,
     testId = PROGRESS_BAR_TEST_ID,
     activeClassName,
     activeInterpolation,
@@ -29,7 +29,7 @@ function ProgressBar(
   }: ProgressBarProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  const clampedPercentage = clamp(percentage, 0, 100)
+  const clampedValue = clamp(value, 0, 1)
 
   return (
     <StyledProgressBarWrapper
@@ -41,7 +41,7 @@ function ProgressBar(
     >
       <StyledProgressBarActive
         variant={variant}
-        percentage={clampedPercentage}
+        value={clampedValue}
         className={activeClassName}
         interpolation={activeInterpolation}
         style={activeStyle}

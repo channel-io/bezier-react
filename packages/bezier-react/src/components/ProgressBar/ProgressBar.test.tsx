@@ -101,27 +101,27 @@ describe('ProgressBar', () => {
   })
 
   describe('specify percentage props', () => {
-    it('should render ProgressBarActive with given percentage props', () => {
+    it('should render ProgressBarActive with given value props', () => {
       const { getByTestId } = renderComponent({
-        percentage: 75,
+        value: 0.75,
       })
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
       expect(progressBarActive).toHaveStyle('width: 75%')
     })
 
-    it('should render ProgressBarActive with 0% width when percentage is smaller than 0', () => {
+    it('should render ProgressBarActive with 0% width when value is smaller than 0', () => {
       const { getByTestId } = renderComponent({
-        percentage: -5,
+        value: -0.5,
       })
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
       expect(progressBarActive).toHaveStyle('width: 0%')
     })
 
-    it('should render ProgressBarActive with 100% width when percentage is bigger than 100', () => {
+    it('should render ProgressBarActive with 100% width when value is bigger than 1', () => {
       const { getByTestId } = renderComponent({
-        percentage: 120,
+        value: 1.2,
       })
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 

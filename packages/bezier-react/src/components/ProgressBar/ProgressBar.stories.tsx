@@ -31,12 +31,12 @@ export default {
         type: 'text',
       },
     },
-    percentage: {
+    value: {
       control: {
         type: 'range',
         min: 0,
-        max: 100,
-        step: 1,
+        max: 1,
+        step: 0.01,
       },
     },
   },
@@ -62,5 +62,5 @@ Primary.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
   width: '36',
-  percentage: 50,
+  value: 0.5,
 }

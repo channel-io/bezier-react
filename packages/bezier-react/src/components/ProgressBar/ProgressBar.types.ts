@@ -28,11 +28,11 @@ interface ProgressBarOptions {
   width?: number | string
 
   /**
-   * Progress value in percent (between 0 and 100, inclusive).
+   * Progress value in floating point number (between 0 and 1, inclusive).
    *
    * @default 0
    */
-  percentage?: number
+  value?: number
 }
 
 export default interface ProgressBarProps extends

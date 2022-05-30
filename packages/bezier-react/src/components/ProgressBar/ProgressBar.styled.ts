@@ -66,11 +66,11 @@ export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps
 
 interface StyledProgressBarActiveProps extends ProgressBarProps {
   variant: NonNullable<ProgressBarProps['variant']>
-  percentage: NonNullable<ProgressBarProps['percentage']>
+  value: NonNullable<ProgressBarProps['value']>
 }
 
 export const StyledProgressBarActive = styled.div<StyledProgressBarActiveProps>`
-  width: ${({ percentage }) => percentage}%;
+  width: ${({ value }) => value * 100}%;
   height: 100%;
 
   ${getProgressBarActiveGradient}
