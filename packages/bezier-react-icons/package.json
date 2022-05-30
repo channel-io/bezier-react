@@ -24,7 +24,7 @@
     "build": "./scripts/build-icon.sh && cross-env BABEL_ENV=build rollup -c",
     "clean": "rm -rf node_modules .turbo && npm run clean:build",
     "clean:build": "rm -rf dist",
-    "lint": "eslint 'src/**/*.+(js|ts)?(x)' --ignore-pattern src/generated/",
+    "lint": "eslint 'src/**/*.+(js|ts)?(x)'",
     "test": "npm run lint"
   },
   "dependencies": {
