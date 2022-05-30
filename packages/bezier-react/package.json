@@ -22,12 +22,11 @@
     "src"
   ],
   "scripts": {
-    "prebuild": "npm run cleanBuild",
+    "prebuild": "npm run clean:build",
     "build": "cross-env BABEL_ENV=build rollup -c",
     "build:storybook": "build-storybook",
-    "clean": "rm -rf node_modules .turbo && npm run cleanBuild",
+    "clean": "rm -rf node_modules .turbo && npm run clean:build",
     "clean:build": "rm -rf dist",
-    "cleanBuild": "npx rimraf build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "dev": "npm run storybook",
     "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
