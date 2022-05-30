@@ -3,6 +3,7 @@ import type {
   BezierComponentProps,
   SizeProps,
   VariantProps,
+  AdditionalStylableProps,
   AdditionalTestIdProps,
 } from 'Types/ComponentProps'
 
@@ -25,5 +26,6 @@ export default interface ProgressBarProps extends
   BezierComponentProps,
   SizeProps<ProgressBarSize>,
   VariantProps<ProgressBarVariant>,
+  AdditionalStylableProps<'active'>,
   AdditionalTestIdProps<'active'>,
   ProgressBarOptions {}
