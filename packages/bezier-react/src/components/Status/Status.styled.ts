@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { styled, absoluteCenter, SemanticNames } from 'Foundation'
-import { LockIcon as BaseLockIcon } from 'Components/Icon/generated'
+import { LockIcon as BaseLockIcon, MoonFilledIcon as BaseMoonFilledIcon } from 'Components/Icon/generated'
 import { StatusSize } from './Status.types'
 
 function getStatusCircleBorderSize(size: StatusSize) {
@@ -40,6 +40,11 @@ export const StatusCircle = styled.div<StatusCircleProps>`
 `
 
 export const LockIcon = styled(BaseLockIcon)`
+  ${absoluteCenter('')}
+  z-index: 1;
+`
+
+export const MoonFilledIcon = styled(BaseMoonFilledIcon)`
   ${absoluteCenter('')}
   z-index: 1;
 `

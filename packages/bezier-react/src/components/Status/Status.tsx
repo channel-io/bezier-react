@@ -1,29 +1,53 @@
 /* External dependencies */
-import React from 'react'
+import React, { memo } from 'react'
 
-/* Internal denpendencies */
+/* Internal dependencies */
+import type { SemanticNames } from 'Foundation'
 import { IconSize } from 'Components/Icon'
-import { StatusType, StatusSize, StatusProps } from './Status.types'
-import { StatusCircle, LockIcon } from './Status.styled'
+import { StatusProps, StatusSize, StatusType } from './Status.types'
+import { LockIcon, MoonFilledIcon, StatusCircle } from './Status.styled'
 
 // TODO: 테스트 코드 작성
 const STATUS_TEST_ID = 'bezier-react-status'
+
+const statusWithIcon: Readonly<StatusType[]> = [
+  StatusType.OnlineCrescent,
+  StatusType.OfflineCrescent,
+  StatusType.Lock,
+]
+
+const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
+  [StatusType.Online]: 'bgtxt-green-normal',
+  [StatusType.Offline]: 'bg-black-dark',
+  [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
+  [StatusType.OfflineCrescent]: 'bgtxt-orange-normal',
+  [StatusType.Lock]: 'txt-black-darker',
+}
 
 function Status({
   type,
   size = StatusSize.M,
 }: StatusProps) {
-  if (type === StatusType.Lock) {
+  if (statusWithIcon.includes(type)) {
+    const iconSize = (size <= StatusSize.M) ? IconSize.XXS : IconSize.XS
+
     return (
       <StatusCircle
         data-testid={STATUS_TEST_ID}
         color="bg-white-normal"
         size={size}
       >
-        <LockIcon
-          size={IconSize.XXS}
-          color="txt-black-darker"
-        />
+        { (type === StatusType.Lock) ? (
+          <LockIcon
+            size={iconSize}
+            color={statusColor[type]}
+          />
+        ) : (
+          <MoonFilledIcon
+            size={iconSize}
+            color={statusColor[type]}
+          />
+        ) }
       </StatusCircle>
     )
   }
@@ -31,10 +55,10 @@ function Status({
   return (
     <StatusCircle
       data-testid={STATUS_TEST_ID}
-      color={type === StatusType.Online ? 'bgtxt-green-normal' : 'bg-black-dark'}
+      color={statusColor[type] ?? 'bg-black-dark'}
       size={size}
     />
   )
 }
 
-export default Status
+export default memo(Status)
