@@ -2,6 +2,7 @@
 import React, { memo } from 'react'
 
 /* Internal dependencies */
+import type { SemanticNames } from 'Foundation'
 import { IconSize } from 'Components/Icon'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
 import { LockIcon, MoonFilledIcon, StatusCircle } from './Status.styled'
@@ -14,6 +15,14 @@ const statusWithIcon: Readonly<StatusType[]> = [
   StatusType.OfflineCrescent,
   StatusType.Lock,
 ]
+
+const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
+  [StatusType.Online]: 'bgtxt-green-normal',
+  [StatusType.Offline]: 'bg-black-dark',
+  [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
+  [StatusType.OfflineCrescent]: 'bgtxt-orange-normal',
+  [StatusType.Lock]: 'txt-black-darker',
+}
 
 function Status({
   type,
@@ -28,22 +37,17 @@ function Status({
         color="bg-white-normal"
         size={size}
       >
-        { (() => {
-          if (type === StatusType.Lock) {
-            return (
-              <LockIcon
-                size={iconSize}
-                color="txt-black-darker"
-              />
-            )
-          }
-          return (
-            <MoonFilledIcon
-              size={iconSize}
-              color={type === StatusType.OnlineCrescent ? 'bgtxt-green-normal' : 'bgtxt-orange-normal'}
-            />
-          )
-        })() }
+        { (type === StatusType.Lock) ? (
+          <LockIcon
+            size={iconSize}
+            color={statusColor[type]}
+          />
+        ) : (
+          <MoonFilledIcon
+            size={iconSize}
+            color={statusColor[type]}
+          />
+        ) }
       </StatusCircle>
     )
   }
@@ -51,7 +55,7 @@ function Status({
   return (
     <StatusCircle
       data-testid={STATUS_TEST_ID}
-      color={type === StatusType.Online ? 'bgtxt-green-normal' : 'bg-black-dark'}
+      color={statusColor[type] ?? 'bg-black-dark'}
       size={size}
     />
   )
