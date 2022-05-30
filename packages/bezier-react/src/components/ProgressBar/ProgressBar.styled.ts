@@ -4,6 +4,7 @@ import {
   css,
   type Foundation,
 } from 'Foundation'
+import { toLength } from 'Utils/styleUtils'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 
@@ -52,7 +53,7 @@ interface StyledProgressBarWrapperProps extends ProgressBarProps {
 }
 
 export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps>`
-  width: ${({ width }) => width}px;
+  width: ${({ width }) => toLength(width, '36px')};
   height: ${({ size }) => PROGRESS_BAR_HEIGHT[size]}px;
 
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
