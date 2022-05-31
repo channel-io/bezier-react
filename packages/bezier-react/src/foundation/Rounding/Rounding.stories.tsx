@@ -14,6 +14,7 @@ export default {
       control: {
         type: 'radio',
         options: [
+          'round3',
           'round4',
           'round6',
           'round8',
