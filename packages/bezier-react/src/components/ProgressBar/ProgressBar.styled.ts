@@ -8,8 +8,6 @@ import { toLength } from 'Utils/styleUtils'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 
-const PROGRESS_BAR_BORDER_RADIUS = 3
-
 const PROGRESS_BAR_HEIGHT: Record<ProgressBarSize, number> = {
   [ProgressBarSize.S]: 4,
   [ProgressBarSize.M]: 6,
@@ -57,7 +55,7 @@ export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps
   height: ${({ size }) => PROGRESS_BAR_HEIGHT[size]}px;
 
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-  border-radius: ${PROGRESS_BAR_BORDER_RADIUS}px;
+  ${({ foundation }) => foundation?.rounding?.round3}
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('width')};
 
@@ -74,7 +72,7 @@ export const StyledProgressBarActive = styled.div<StyledProgressBarActiveProps>`
   height: 100%;
 
   ${getProgressBarActiveGradient}
-  border-radius: ${PROGRESS_BAR_BORDER_RADIUS}px;
+  ${({ foundation }) => foundation?.rounding?.round3}
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('width')};
 
