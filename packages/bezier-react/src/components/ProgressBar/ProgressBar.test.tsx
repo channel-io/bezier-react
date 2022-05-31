@@ -4,10 +4,7 @@ import React from 'react'
 /* Interanal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import ProgressBar, {
-  PROGRESS_BAR_TEST_ID,
-  PROGRESS_BAR_ACTIVE_TEST_ID,
-} from './ProgressBar'
+import ProgressBar, { PROGRESS_BAR_ACTIVE_TEST_ID } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 
@@ -18,8 +15,8 @@ describe('ProgressBar', () => {
 
   describe('no props specified', () => {
     it('should render default ProgressBar', () => {
-      const { getByTestId } = renderComponent()
-      const progressBar = getByTestId(PROGRESS_BAR_TEST_ID)
+      const { getByRole, getByTestId } = renderComponent()
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
       expect(progressBar).toHaveStyle('width: 36px')
@@ -39,10 +36,10 @@ describe('ProgressBar', () => {
 
   describe('specify size props', () => {
     it('should render ProgressBar with size M', () => {
-      const { getByTestId } = renderComponent({
+      const { getByRole, getByTestId } = renderComponent({
         size: ProgressBarSize.M,
       })
-      const progressBar = getByTestId(PROGRESS_BAR_TEST_ID)
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
       expect(progressBar).toHaveStyle('height: 6px')
@@ -50,10 +47,10 @@ describe('ProgressBar', () => {
     })
 
     it('should render ProgressBar with size S', () => {
-      const { getByTestId } = renderComponent({
+      const { getByRole, getByTestId } = renderComponent({
         size: ProgressBarSize.S,
       })
-      const progressBar = getByTestId(PROGRESS_BAR_TEST_ID)
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
       expect(progressBar).toHaveStyle('height: 4px')
@@ -91,10 +88,10 @@ describe('ProgressBar', () => {
 
   describe('specify width props', () => {
     it('should render ProgressBar with given width props', () => {
-      const { getByTestId } = renderComponent({
+      const { getByRole } = renderComponent({
         width: 500,
       })
-      const progressBar = getByTestId(PROGRESS_BAR_TEST_ID)
+      const progressBar = getByRole('progressbar')
 
       expect(progressBar).toHaveStyle('width: 500px')
     })

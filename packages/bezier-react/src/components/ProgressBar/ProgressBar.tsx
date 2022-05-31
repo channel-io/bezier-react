@@ -11,7 +11,6 @@ import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import { StyledProgressBarWrapper, StyledProgressBarActive } from './ProgressBar.styled'
 
-export const PROGRESS_BAR_TEST_ID = 'bezier-react-progress-bar'
 export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
 
 function ProgressBar(
@@ -20,7 +19,6 @@ function ProgressBar(
     variant = ProgressBarVariant.Green,
     width = 36,
     value = 0,
-    testId = PROGRESS_BAR_TEST_ID,
     activeClassName,
     activeInterpolation,
     activeStyle,
@@ -36,7 +34,10 @@ function ProgressBar(
       ref={forwardedRef}
       size={size}
       width={width}
-      data-testid={testId}
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="1"
+      aria-valuenow={clampedValue}
       {...rest}
     >
       <StyledProgressBarActive
