@@ -20,7 +20,7 @@ export const DEFAULT_ICON_COLORS: Record<BannerVariant, SemanticNames> = {
   [BannerVariant.Green]: 'bgtxt-green-normal',
   [BannerVariant.Orange]: 'bgtxt-orange-normal',
   [BannerVariant.Red]: 'bgtxt-red-normal',
-  [BannerVariant.Alt]: 'txt-black-darker',
+  [BannerVariant.Alt]: 'bgtxt-red-normal',
 }
 
 export const TEXT_COLORS: Record<BannerVariant, SemanticNames> = {
