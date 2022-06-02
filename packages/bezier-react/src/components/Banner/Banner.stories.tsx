@@ -1,7 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story } from '@storybook/react'
+import type { Meta, Story } from '@storybook/react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -43,7 +43,7 @@ export default {
       },
     },
   },
-}
+} as Meta<BannerProps>
 
 const Template: Story<BannerProps> = props => <Banner {...props} />
 
