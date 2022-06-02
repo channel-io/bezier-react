@@ -1,5 +1,5 @@
 /* External dependencies */
-import { LockIcon as BaseLockIcon, MoonFilledIcon as BaseMoonFilledIcon } from '@channel.io/bezier-react-icons'
+import { LockIcon as LockIconSource, MoonFilledIcon as MoonFilledIconSource } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { styled, absoluteCenter, SemanticNames } from 'Foundation'
@@ -43,13 +43,15 @@ export const StatusCircle = styled.div<StatusCircleProps>`
 `
 
 export const LockIcon = styled(BaseIcon).attrs({
-  as: BaseLockIcon,
+  as: LockIconSource,
 })`
   ${absoluteCenter('')}
   z-index: 1;
 `
 
-export const MoonFilledIcon = styled(BaseMoonFilledIcon)`
+export const MoonFilledIcon = styled(BaseIcon).attrs({
+  as: MoonFilledIconSource,
+})`
   ${absoluteCenter('')}
   z-index: 1;
 `

@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useMemo } from 'react'
 import { isString } from 'lodash-es'
+import { isIconName } from '@channel.io/bezier-react-icons'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { Icon, IconSize } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { KeyItemProps } from './KeyItem.types'
 import * as Styled from './KeyItem.styled'
