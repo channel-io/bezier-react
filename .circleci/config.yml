@@ -28,6 +28,9 @@ filter_only_tagged: &filter_only_tagged
 jobs:
   install:
     <<: *defaults
+    environment:
+      TURBO_TOKEN: $TURBO_TOKEN
+      TURBO_TEAM: $TURBO_TEAM
     steps:
       - checkout
       - restore_cache:
