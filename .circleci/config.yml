@@ -33,7 +33,12 @@ jobs:
       - restore_cache:
           keys:
           - bezier-react-dependencies-{{ checksum "package.json" }}
-      - run: npm ci
+      - run: 
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Build icon package
+          command: npm run build:icon
       - save_cache:
           paths:
             - node_modules
