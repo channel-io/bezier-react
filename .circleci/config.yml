@@ -40,8 +40,8 @@ jobs:
           name: Install dependencies
           command: npm ci
       - run:
-          name: Build icon package
-          command: npm run build:icon
+          name: Build packages
+          command: npm run build:ci
       - save_cache:
           paths:
             - node_modules
