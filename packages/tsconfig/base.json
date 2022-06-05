@@ -7,7 +7,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "useUnknownInCatchVariables": false,
     "strict": true,
     "allowJs": true,
     "noImplicitAny": false
