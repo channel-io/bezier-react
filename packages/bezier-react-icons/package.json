@@ -13,15 +13,16 @@
   "license": "ISC",
   "author": "Channel Corp.",
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/cjs/src/index.js",
+  "module": "dist/esm/src/index.js",
+  "types": "dist/types/src/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
     "build": "npm run generate && npm run clean:build && rollup -c",
+    "build:ci": "tsc --build tsconfig.build.json",
     "clean": "rm -rf node_modules .turbo && npm run clean:build",
     "clean:build": "rm -rf dist",
     "generate": "./scripts/generate-icon.sh",

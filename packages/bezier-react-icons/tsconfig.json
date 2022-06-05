@@ -3,7 +3,7 @@
   "compilerOptions": {
     "composite": true,
     "rootDir": ".",
-    "declarationDir": "dist",
+    "declarationDir": "dist/types",
   },
   "types": ["react", "jest"],
   "include": ["src/**/*"],
