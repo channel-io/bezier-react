@@ -6,46 +6,14 @@ import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
 import { visualizer } from 'rollup-plugin-visualizer'
 import typescript from 'rollup-plugin-typescript2'
-import createStyledComponentsTransformer from 'typescript-plugin-styled-components'
 
 import packageJson from './package.json'
 
 const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
 
-const styledComponentsTransformer = createStyledComponentsTransformer({
-  displayName: true,
-})
-
-// Order Matters, must after rollup-plugin-node-resolve
-// See Also: https://www.npmjs.com/package/rollup-plugin-typescript2
 const typescriptPlugin = typescript({
-  typescript: require('ttypescript'),
   tsconfig: './tsconfig.json',
   useTsconfigDeclarationDir: true,
-  transformers: [
-    () => ({
-      before: [styledComponentsTransformer],
-    }),
-  ],
-  tsconfigDefaults: {
-    noEmit: false,
-    emitDeclarationOnly: true,
-    compilerOptions: {
-      plugins: [
-        { transform: 'typescript-transform-paths' },
-        { transform: 'typescript-transform-paths', afterDeclarations: true },
-      ],
-    },
-    exclude: [
-      './src/layout/stories/**/*',
-      '**/__mocks__/*',
-      '**/*.stories.tsx',
-      '**/*.test.ts',
-      '**/*.test.tsx',
-      './src/utils/storyUtils.ts',
-      './src/utils/testUtils.tsx',
-    ],
-  },
 })
 
 const commonPlugins = [

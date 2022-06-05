@@ -21,9 +21,10 @@
     "src"
   ],
   "scripts": {
-    "build": "./scripts/build-icon.sh && cross-env BABEL_ENV=build rollup -c",
+    "build": "npm run generate && npm run clean:build && rollup -c",
     "clean": "rm -rf node_modules .turbo && npm run clean:build",
     "clean:build": "rm -rf dist",
+    "generate": "./scripts/generate-icon.sh",
     "lint": "eslint 'src/**/*.+(js|ts)?(x)'",
     "test": "npm run lint"
   },
