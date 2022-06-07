@@ -29,7 +29,7 @@ function Status({
   size = StatusSize.M,
 }: StatusProps) {
   if (statusWithIcon.includes(type)) {
-    const iconSize = (size <= StatusSize.M) ? IconSize.XXS : IconSize.XS
+    const iconSize = (size <= StatusSize.M) ? IconSize.XXXS : IconSize.XS
 
     return (
       <StatusCircle
