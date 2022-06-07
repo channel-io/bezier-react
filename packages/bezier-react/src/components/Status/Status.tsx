@@ -20,7 +20,7 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
   [StatusType.Online]: 'bgtxt-green-normal',
   [StatusType.Offline]: 'bg-black-dark',
   [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
-  [StatusType.OfflineCrescent]: 'bgtxt-orange-normal',
+  [StatusType.OfflineCrescent]: 'bgtxt-yellow-normal',
   [StatusType.Lock]: 'txt-black-darker',
 }
 
@@ -29,7 +29,7 @@ function Status({
   size = StatusSize.M,
 }: StatusProps) {
   if (statusWithIcon.includes(type)) {
-    const iconSize = (size <= StatusSize.M) ? IconSize.XXS : IconSize.XS
+    const iconSize = (size <= StatusSize.M) ? IconSize.XXXS : IconSize.XS
 
     return (
       <StatusCircle
