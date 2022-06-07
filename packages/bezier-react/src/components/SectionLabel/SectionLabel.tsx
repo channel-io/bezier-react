@@ -157,7 +157,10 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <Tooltip content={help.tooltipContent}>
+    <Tooltip
+      content={help.tooltipContent}
+      allowHover
+    >
       <Styled.HelpIconWrapper data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
         <Icon
           name={help.icon ?? 'help-filled'}
