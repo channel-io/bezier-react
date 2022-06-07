@@ -178,9 +178,9 @@ Stack은 flex layout을 제공하는 컴포넌트입니다.
 
 ### Alignment
 
-Flex container의 **주 방향** (HStack은 가로, VStack은 세로) 의 배열과 **보조 방향** (HStack은 세로, VStack은 가로) 의 배열을 조절할 수 있습니다. CSS에서 주 방향과 보조 방향은 각각 `justify`와 `align` property에 해당합니다. Stack 컴포넌트에서도 `justify`, `align` prop을 통해 주 방향과 보조 방향 배열을 결정합니다.
+Flex container의 **주 방향** (`HStack`은 가로, `VStack`은 세로) 의 배열과 **보조 방향** (`HStack`은 세로, `VStack`은 가로) 의 배열을 조절할 수 있습니다. CSS에서 주 방향과 보조 방향은 각각 `justify`와 `align` property에 해당합니다. `Stack` 컴포넌트에서도 `justify`, `align` prop을 통해 주 방향과 보조 방향 배열을 결정합니다.
 
-기본적으로, Stack container에 지정하는 prop이 모든 child의 기본값이 됩니다. 각 StackItem에도 `justify`, `align` prop을 지정하여 parent Stack의 기본값을 overriding할 수 있습니다.
+기본적으로, `Stack` container에 지정하는 prop이 모든 child의 기본값이 됩니다. 각 `StackItem`에도 `justify`, `align` prop을 지정하여 parent `Stack`의 기본값을 overriding할 수 있습니다.
 
 <Story name="Stack:Alignment.Justify">
   <VStack align="stretch" spacing={8}>
@@ -537,7 +537,7 @@ Flex layout의 특징은, container의 크기에 맞춰 item의 크기가 적절
   </Story>
 </Canvas>
 
-- CSS의 `justify-content: space-between`과 같이, item 사이에 공간을 두고자 하는 경우가 있습니다. 이 경우에는 `<Spacer />` 컴포넌트를 활용합니다. Spacer는 기본적으로 `grow shrink weight={1}` 을 가진 빈 StackItem입니다.
+- CSS의 `justify-content: space-between`과 같이, item 사이에 공간을 두고자 하는 경우가 있습니다. 이 경우에는 `<Spacer />` 컴포넌트를 활용합니다. `Spacer`는 기본적으로 `grow shrink weight={1}` 을 가진 빈 `StackItem`입니다.
 
 <Canvas>
   <Story name="Stack:Weight.Spacer">
