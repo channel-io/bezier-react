@@ -1,14 +1,11 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story } from '@storybook/react'
-import {
-  noop,
-  values,
-} from 'lodash-es'
+import type { Meta, Story } from '@storybook/react'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
 import Banner from './Banner'
 import {
   BannerVariant,
@@ -19,10 +16,10 @@ export default {
   title: getTitle(base),
   component: Banner,
   argTypes: {
-    colorVariant: {
+    variant: {
       control: {
         type: 'radio',
-        options: values(BannerVariant),
+        options: getObjectFromEnum(BannerVariant),
       },
     },
     dismissible: {
@@ -46,7 +43,7 @@ export default {
       },
     },
   },
-}
+} as Meta<BannerProps>
 
 const Template: Story<BannerProps> = props => <Banner {...props} />
 
