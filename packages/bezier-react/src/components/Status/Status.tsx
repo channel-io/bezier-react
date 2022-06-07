@@ -20,7 +20,7 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
   [StatusType.Online]: 'bgtxt-green-normal',
   [StatusType.Offline]: 'bg-black-dark',
   [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
-  [StatusType.OfflineCrescent]: 'bgtxt-orange-normal',
+  [StatusType.OfflineCrescent]: 'bgtxt-yellow-normal',
   [StatusType.Lock]: 'txt-black-darker',
 }
 
