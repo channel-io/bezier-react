@@ -45,15 +45,15 @@ function KeyItem(
   }, [children])
 
   return (
-    <Styled.KeyContentStack
-      testId={testId}
+    <Styled.KeyContent
+      data-testid={testId}
       {...props}
       ref={forwardedRef}
       interpolation={interpolation}
     >
       { KeyIcon }
       { KeyText }
-    </Styled.KeyContentStack>
+    </Styled.KeyContent>
   )
 }
 

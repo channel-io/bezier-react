@@ -1,14 +1,14 @@
 /* Internal dependencies */
 import { ellipsis, styled } from 'Foundation'
+import { InterpolationProps } from 'Types/Foundation'
 import { Text } from 'Components/Text'
-import { Stack } from 'Components/Stack'
 
-export const KeyContentStack = styled(Stack).attrs({
-  direction: 'horizontal',
-  align: 'center',
-})`
+export const KeyContent = styled.div<InterpolationProps>`
+  display: flex;
+  align-items: center;
   min-width: 100px;
   ${ellipsis()};
+  ${({ interpolation }) => interpolation}
 `
 
 export const KeyText = styled(Text).attrs({
