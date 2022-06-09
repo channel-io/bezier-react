@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:icon": "turbo run build --filter=\"@channel.io/bezier-react-icons\"",
+    "build:ci": "turbo run build:ci",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel",
     "jest": "turbo run jest",

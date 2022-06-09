@@ -28,12 +28,20 @@ filter_only_tagged: &filter_only_tagged
 jobs:
   install:
     <<: *defaults
+    environment:
+      TURBO_TOKEN: $TURBO_TOKEN
+      TURBO_TEAM: $TURBO_TEAM
     steps:
       - checkout
       - restore_cache:
           keys:
           - bezier-react-dependencies-{{ checksum "package.json" }}
-      - run: npm ci
+      - run: 
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Build packages
+          command: npm run build:ci
       - save_cache:
           paths:
             - node_modules
