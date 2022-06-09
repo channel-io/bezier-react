@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`KeyValueListItem Snapshot > 1`] = `
-.c7 {
+.c6 {
   font-size: 1.2rem;
   line-height: 1.6rem;
   margin: 0px 0px 0px 0px;
@@ -18,7 +18,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   transition-property: color;
 }
 
-.c6 {
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -39,36 +39,24 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c5 {
   min-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c8 {
+.c7 {
   margin-left: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c10 {
+.c9 {
   font-size: 1.4rem;
   line-height: 1.8rem;
   overflow: hidden;
@@ -125,7 +113,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   white-space: nowrap;
 }
 
-.c9 {
+.c8 {
   -webkit-flex: 2;
   -ms-flex: 2;
   flex: 2;
@@ -147,12 +135,11 @@ exports[`KeyValueListItem Snapshot > 1`] = `
     class="c2 c3"
   >
     <div
-      class="c4 c5"
+      class="c4"
       data-testid="bezier-react-key-value-list-item-key-item"
-      direction="horizontal"
     >
       <svg
-        class="c6"
+        class="c5"
         color="txt-black-dark"
         data-testid="bezier-react-icon"
         fill="none"
@@ -174,20 +161,19 @@ exports[`KeyValueListItem Snapshot > 1`] = `
         />
       </svg>
       <div
-        class="c7 c8"
+        class="c6 c7"
         color="txt-black-dark"
         data-testid="bezier-react-text"
-        direction="horizontal"
       >
         Key
       </div>
     </div>
   </div>
   <div
-    class="c2 c9"
+    class="c2 c8"
   >
     <div
-      class="c10"
+      class="c9"
       data-testid="bezier-react-key-value-list-item-value-item"
     >
       Value

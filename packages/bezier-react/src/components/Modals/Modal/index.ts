@@ -1,13 +1,12 @@
 import Modal from './Modal'
 import ModalContent from './ModalContent'
 import ModalAction from './ModalAction'
-
-import type {
-  ModalProps,
-  ModalActionProps,
-  ModalContentProps,
-  ModalContextValue,
+import {
   ModalTitleSize,
+  type ModalProps,
+  type ModalActionProps,
+  type ModalContentProps,
+  type ModalContextValue,
 } from './Modal.types'
 
 export type {
@@ -15,10 +14,10 @@ export type {
   ModalActionProps,
   ModalContentProps,
   ModalContextValue,
-  ModalTitleSize,
 }
 export {
   Modal,
   ModalContent,
   ModalAction,
+  ModalTitleSize,
 }
