@@ -34,7 +34,7 @@ function Status({
     return (
       <StatusCircle
         data-testid={STATUS_TEST_ID}
-        color="bg-white-normal"
+        color="bg-white-high"
         size={size}
       >
         { (type === StatusType.Lock) ? (
