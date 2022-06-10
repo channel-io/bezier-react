@@ -1,21 +1,11 @@
-/* Internal dependencies */
-import { IconSize } from './Icon.types'
-import { isIconName } from './utils'
-import type IconProps from './Icon.types'
-
-import { LegacyIcon } from './legacy'
-import type { LegacyIconProps } from './legacy'
-
 export * from './generated'
+export * from './createBezierIcon'
 
-export type {
-  LegacyIconProps as IconProps,
-  // TODO: Change the name to IconProps
-  IconProps as GeneratedIconProps,
-}
+export { default as Icon } from './Icon'
+export type { default as IconProps } from './Icon.types'
+export { IconSize } from './Icon.types'
 
-export {
-  LegacyIcon as Icon,
-  IconSize,
-  isIconName,
-}
+/**
+ * @deprecated
+ */
+export * from './LegacyIcon'

@@ -2,18 +2,18 @@
 import React from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
+import { camelCase } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
-import { Text } from 'Components/Text'
-import { LegacyIcon, LegacyIconProps } from './legacy'
-import { AllIcon } from './generated'
+import icons, { ChannelIcon } from './generated'
+import Icon from './Icon'
 import IconProps, { IconSize } from './Icon.types'
 
 export default {
   title: getTitle(base),
-  component: LegacyIcon,
+  component: Icon,
   argTypes: {
     size: {
       control: {
@@ -37,61 +37,31 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const Primary: Story<IconProps> = (args) => (<AllIcon {...args} />)
+export const Primary: Story<IconProps> = (args) => (<Icon {...args} />)
 
 Primary.args = {
+  as: ChannelIcon,
   size: IconSize.Normal,
-  color: 'bgtxt-olive-dark',
+  color: 'bg-black-darkest',
 }
 
-export const LegacyAllIcons = (args) => (
+const pascalCase = (str: string) => camelCase(str).replace(/^./, (char) => char.toUpperCase())
+
+export const AllIcons: Story<Omit<IconProps, 'as'>> = (args) => (
   <>
     { iconList.map((iconName) => (
       <IconInfo key={iconName}>
-        <LegacyIcon
-          name={iconName}
+        <Icon
+          as={icons[iconName]}
           {...args}
         />
-        <Name>{ iconName }</Name>
+        <Name>{ pascalCase(iconName) }</Name>
       </IconInfo>
     )) }
   </>
 )
 
-LegacyAllIcons.args = {
+AllIcons.args = {
   size: IconSize.Normal,
-  color: 'bgtxt-olive-dark',
-}
-
-const Template: Story<LegacyIconProps> = (args) => <LegacyIcon {...args} />
-
-export const LegacyPrimary = Template.bind({})
-LegacyPrimary.args = {
-  name: 'channel',
-  color: 'bgtxt-olive-dark',
-  size: IconSize.Normal,
-  marginTop: 0,
-  marginRight: 0,
-  marginBottom: 0,
-  marginLeft: 0,
-}
-
-export const LegacyWithText: Story<LegacyIconProps> = ({
-  color,
-  name,
-  ...otherIconProps
-}) => (
-  <Text style={{ color }}>
-    <LegacyIcon
-      name={name}
-      {...otherIconProps}
-    />
-    Hello World!
-  </Text>
-)
-
-LegacyWithText.args = {
-  name: 'channel',
-  color: 'bgtxt-olive-dark',
-  size: IconSize.Normal,
+  color: 'bg-black-darkest',
 }

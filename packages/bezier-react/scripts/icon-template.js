@@ -1,7 +1,7 @@
 function iconTemplate({ imports, componentName, props, jsx }, { tpl }) {
   return tpl`
   ${imports}
-  import createIcon from 'Components/Icon/createIcon'
+  import createBezierIcon from '../createBezierIcon'
 
   function ${componentName}(${props}) {
     return (
@@ -9,7 +9,7 @@ function iconTemplate({ imports, componentName, props, jsx }, { tpl }) {
     )
   }
   
-  export default createIcon(${componentName})
+  export default createBezierIcon(${componentName})
 `
 }
 
