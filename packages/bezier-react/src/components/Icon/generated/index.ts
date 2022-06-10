@@ -905,7 +905,7 @@ const icons = {
  * @deprecated Please import and use individual icons.
  * @example
  * import { Icon, AllIcon, type IconProps } from '@channel.io/bezier-react'
- * <Icon as={AllIcon} color="bg-black-dark" />
+ * <Icon source={AllIcon} color="bg-black-dark" />
  * @example <caption>How to validate the bezier icon source</caption>
  * import { isBezierIcon, AllIcon } from '@channel.io/bezier-react'
  * isBezierIcon(AllIcon) // true

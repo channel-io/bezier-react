@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
-import createBezierIcon from '../createBezierIcon'
+import { createBezierIcon } from '../utils'
 
 function SvgHourglass3(props: SVGProps<SVGSVGElement>) {
   return (
