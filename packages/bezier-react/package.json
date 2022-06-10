@@ -53,7 +53,6 @@
   "author": "Channel Corp.",
   "license": "ISC",
   "browserslist": [
-    "ie >= 11",
     "> 1% in KR",
     "> 1% in JP",
     "> 1% in US"
