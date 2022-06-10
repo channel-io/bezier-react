@@ -1,7 +1,7 @@
 function iconTemplate({ imports, componentName, props, jsx }, { tpl }) {
   return tpl`
   ${imports}
-  import createBezierIcon from '../createBezierIcon'
+  import { createBezierIcon } from '../utils'
 
   function ${componentName}(${props}) {
     return (

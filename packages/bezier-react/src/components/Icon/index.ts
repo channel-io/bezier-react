@@ -1,5 +1,5 @@
 export * from './generated'
-export * from './createBezierIcon'
+export * from './utils'
 
 export { default as Icon } from './Icon'
 export type { default as IconProps } from './Icon.types'
