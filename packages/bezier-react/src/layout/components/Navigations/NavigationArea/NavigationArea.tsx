@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'react'
+import React, { forwardRef, useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react'
 
 /* Internal dependencies */
 import useEventHandler from 'Hooks/useEventHandler'
@@ -41,20 +41,17 @@ function NavigationArea(
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => (
+  const hidable = (
     columnState
       ? columnState.hidable
       : false
-  ), [columnState])
+  )
 
-  const disableResize = useMemo(() => (
+  const disableResize = (
     !showNavigation ||
     columnState?.disableResize ||
     false
-  ), [
-    showNavigation,
-    columnState,
-  ])
+  )
 
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
