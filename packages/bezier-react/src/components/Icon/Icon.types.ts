@@ -17,7 +17,7 @@ export enum IconSize {
 type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
 
 interface IconOptions {
-  as: React.ElementType<React.SVGProps<SVGSVGElement>>
+  source: React.ElementType<React.SVGProps<SVGSVGElement>>
   marginTop?: number
   marginRight?: number
   marginBottom?: number

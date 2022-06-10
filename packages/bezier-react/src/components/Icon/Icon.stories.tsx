@@ -40,19 +40,19 @@ const Name = styled.p`
 export const Primary: Story<IconProps> = (args) => (<Icon {...args} />)
 
 Primary.args = {
-  as: ChannelIcon,
+  source: ChannelIcon,
   size: IconSize.Normal,
   color: 'bg-black-darkest',
 }
 
 const pascalCase = (str: string) => camelCase(str).replace(/^./, (char) => char.toUpperCase())
 
-export const AllIcons: Story<Omit<IconProps, 'as'>> = (args) => (
+export const AllIcons: Story<Omit<IconProps, 'source'>> = (args) => (
   <>
     { iconList.map((iconName) => (
       <IconInfo key={iconName}>
         <Icon
-          as={icons[iconName]}
+          source={icons[iconName]}
           {...args}
         />
         <Name>{ pascalCase(iconName) }</Name>

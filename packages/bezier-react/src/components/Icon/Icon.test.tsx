@@ -13,7 +13,7 @@ describe('Icon test >', () => {
 
   beforeEach(() => {
     props = {
-      as: AllIcon,
+      source: AllIcon,
     }
   })
 
@@ -30,7 +30,7 @@ describe('Icon test >', () => {
   })
 
   it('Icon receives custom color Theme Key', () => {
-    const { getByTestId } = renderIcon({ as: AllIcon, color: 'bgtxt-olive-dark' })
+    const { getByTestId } = renderIcon({ source: AllIcon, color: 'bgtxt-olive-dark' })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 

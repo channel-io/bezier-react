@@ -12,7 +12,7 @@ import type LegacyIconProps from './LegacyIcon.types'
  * @deprecated Please import and use individual icons.
  * @example
  * import { Icon, AllIcon, type IconProps } from '@channel.io/bezier-react'
- * <Icon as={AllIcon} color="bg-black-dark" />
+ * <Icon source={AllIcon} color="bg-black-dark" />
  * @example <caption>How to validate the bezier icon source</caption>
  * import { isBezierIcon, AllIcon } from '@channel.io/bezier-react'
  * isBezierIcon(AllIcon) // true
@@ -29,7 +29,7 @@ const LegacyIcon = memo(({
 
   if (!IconSource) { return null }
 
-  return (<Icon as={IconSource} {...rest} />)
+  return (<Icon source={IconSource} {...rest} />)
 })
 
 export default LegacyIcon

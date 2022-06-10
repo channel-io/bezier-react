@@ -10,7 +10,7 @@ import Styled from './Icon.styled'
 export const ICON_TEST_ID = 'bezier-react-icon'
 
 function Icon({
-  as,
+  source,
   className,
   color,
   testId = ICON_TEST_ID,
@@ -24,7 +24,7 @@ function Icon({
 }: IconProps) {
   return (
     <Styled
-      as={as}
+      as={source}
       className={className}
       data-testid={testId}
       color={color}
