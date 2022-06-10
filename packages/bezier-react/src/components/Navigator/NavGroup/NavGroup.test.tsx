@@ -4,7 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { LightTheme } from 'Foundation/Colors/Theme'
 import { render } from 'Utils/testUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, IconSize, DotIcon } from 'Components/Icon'
 import NavGroup, { NAV_GROUP_TEST_ID, NAV_GROUP_LEFT_ICON_TEST_ID } from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
 
@@ -16,7 +16,7 @@ describe('NavGroup Test >', () => {
       leftIcon: 'dot',
       name: 'general',
       content: 'test-content',
-      rightContent: <Icon name="dot" size={IconSize.XS} color="bgtxt-orange-normal" />,
+      rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
     }
   })
 

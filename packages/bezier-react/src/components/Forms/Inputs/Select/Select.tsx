@@ -13,7 +13,7 @@ import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
@@ -76,7 +76,7 @@ forwardedRef: Ref<SelectRef>,
   const LeftComponent = useMemo(() => {
     if (isIconName(leftContent)) {
       return (
-        <Icon
+        <LegacyIcon
           name={leftContent}
           size={IconSize.XS}
           color={iconColor}
@@ -94,7 +94,7 @@ forwardedRef: Ref<SelectRef>,
   const RightComponent = useMemo(() => {
     if (isIconName(rightContent)) {
       return (
-        <Icon
+        <LegacyIcon
           name={rightContent}
           size={IconSize.XS}
           color={iconColor}
@@ -181,7 +181,7 @@ forwardedRef: Ref<SelectRef>,
         </Styled.MainContentWrapper>
         { !withoutChevron && (
         <Icon
-          name={`chevron-${isDropdownOpened ? 'up' : 'down'}` as const}
+          source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
           size={IconSize.XS}
           color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
           marginLeft={6}

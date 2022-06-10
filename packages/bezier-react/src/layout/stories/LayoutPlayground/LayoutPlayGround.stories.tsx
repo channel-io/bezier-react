@@ -7,7 +7,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled, Typography } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, IconSize, SearchIcon, TriangleUpdownIcon } from 'Components/Icon'
 import { ListItem } from 'Components/ListItem'
 import useSideWidth from 'Layout/hooks/useSideWidth'
 import useSidePanelHandler from 'Layout/hooks/useSidePanelHandler'
@@ -144,8 +144,8 @@ const Template = ({ onChangeWidth }: TemplateProps) => {
 
   const DummyActions = useMemo(() => (
     <>
-      <StyledIcon name="search" marginRight={10} />
-      <StyledIcon name="triangle-updown" />
+      <StyledIcon source={SearchIcon} marginRight={10} />
+      <StyledIcon source={TriangleUpdownIcon} />
     </>
   ), [])
 
@@ -189,7 +189,7 @@ const Template = ({ onChangeWidth }: TemplateProps) => {
                 actions={[(
                   <HeaderActionIconWrapper>
                     <Icon
-                      name="search"
+                      source={SearchIcon}
                       color="txt-black-darkest"
                       size={IconSize.S}
                     />

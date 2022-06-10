@@ -4,7 +4,7 @@ import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { KeyItemProps } from './KeyItem.types'
 import * as Styled from './KeyItem.styled'
@@ -23,7 +23,7 @@ function KeyItem(
   const KeyIcon = useMemo(() => {
     if (isIconName(keyIcon)) {
       return (
-        <Icon
+        <LegacyIcon
           name={keyIcon}
           size={IconSize.S}
           color="txt-black-dark"

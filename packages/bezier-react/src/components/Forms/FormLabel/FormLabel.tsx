@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { IconSize } from 'Components/Icon'
+import { IconSize, HelpFilledIcon } from 'Components/Icon'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
@@ -64,9 +64,9 @@ forwardedRef: React.Ref<HTMLLabelElement>,
           <Styled.Box>
             { LabelComponent }
             <Styled.Tooltip content={help}>
-              <Styled.HelpIcon
+              <Styled.Icon
                 testId={FORM_LABEL_HELP_TEST_ID}
-                name="help-filled"
+                source={HelpFilledIcon}
                 size={IconSize.XS}
                 color="txt-black-dark"
               />

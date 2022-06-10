@@ -5,7 +5,7 @@ import { noop } from 'lodash-es'
 /* Internal denpendencies */
 import { Typography } from 'Foundation'
 import { isLastIndex } from 'Utils/arrayUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, IconSize, MoreIcon } from 'Components/Icon'
 import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
@@ -113,8 +113,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
           >
             <AvatarEllipsisIcon>
               <Icon
+                source={MoreIcon}
                 size={getProperIconSize(size)}
-                name="more"
                 color="bgtxt-absolute-white-dark"
               />
             </AvatarEllipsisIcon>

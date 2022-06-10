@@ -5,7 +5,7 @@ import { LightFoundation } from 'Foundation'
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
 import { BUTTON_TEST_ID } from 'Components/Button/Button'
-import { ICON_TEST_ID } from 'Components/Icon/BaseIcon'
+import { ICON_TEST_ID } from 'Components/Icon/Icon'
 import { DIVIDER_TEST_ID } from 'Components/Divider/Divider'
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,

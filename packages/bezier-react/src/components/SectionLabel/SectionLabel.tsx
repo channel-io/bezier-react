@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
-import { Icon, IconSize } from 'Components/Icon'
+import { LegacyIcon, IconSize } from 'Components/Icon'
 import { Divider } from 'Components/Divider'
 import { Tooltip } from 'Components/Tooltip'
 import Styled from './SectionLabel.styled'
@@ -36,7 +36,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
         clickable={!isNil(onClick)}
         onClick={onClick}
       >
-        <Icon
+        <LegacyIcon
           name={icon}
           size={IconSize.XS}
           color={iconColor}
@@ -162,7 +162,7 @@ function SectionLabel({
       allowHover
     >
       <Styled.HelpIconWrapper data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
-        <Icon
+        <LegacyIcon
           name={help.icon ?? 'help-filled'}
           size={IconSize.XS}
           color={help.iconColor ?? 'txt-black-dark'}

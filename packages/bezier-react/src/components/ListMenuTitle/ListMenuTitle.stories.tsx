@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { LegacyIcon, IconSize } from 'Components/Icon'
 import ListMenuTitle from './ListMenuTitle'
 import ListMenuTitleProps from './ListMenuTitle.types'
 
@@ -14,7 +14,7 @@ export default {
 } as Meta
 
 const Template: Story<ListMenuTitleProps> = ({
-  rightAction = (<div><Icon name="send-forward" size={IconSize.XS} /></div>),
+  rightAction = (<div><LegacyIcon name="send-forward" size={IconSize.XS} /></div>),
   ...otherListItemProps
 }) => (
   <div style={{ width: 240 }}>

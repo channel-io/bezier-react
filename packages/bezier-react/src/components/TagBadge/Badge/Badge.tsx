@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Icon } from 'Components/Icon'
+import { LegacyIcon } from 'Components/Icon'
 import {
   TagBadgeText,
   TagBadgeSize,
@@ -38,7 +38,7 @@ function Badge({
   const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
 
   const IconComponent = useMemo(() => (iconName && (
-    <Icon
+    <LegacyIcon
       name={iconName}
       size={TAG_BADGE_ICON_SIZE}
       color={textSemanticName}

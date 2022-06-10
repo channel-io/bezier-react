@@ -5,14 +5,14 @@ import {
   HStack,
   StackItem as BaseStackItem,
 } from 'Components/Stack'
-import { Icon } from 'Components/Icon'
+import { LegacyIcon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { BACKGROUND_COLORS, TEXT_COLORS, ELEVATIONS } from './Banner.const'
 import type { BannerVariant } from './Banner.types'
 
 type BannerVariantProps = Required<VariantProps<BannerVariant>>
 
-const BannerIcon = styled(Icon)``
+const BannerIcon = styled(LegacyIcon)``
 
 const ContentWrapper = styled.div<BannerVariantProps>`
   color: ${({ foundation, variant }) => foundation?.theme?.[TEXT_COLORS[variant]]};

@@ -2,7 +2,7 @@
 import { styled } from 'Foundation'
 import { Tooltip as BaseTooltip } from 'Components/Tooltip'
 import { Text } from 'Components/Text'
-import { Icon } from 'Components/Icon'
+import { Icon as BaseIcon } from 'Components/Icon'
 
 export const Label = styled(Text)`
   display: block;
@@ -14,7 +14,7 @@ export const Box = styled.div`
   align-items: center;
 `
 
-export const HelpIcon = styled(Icon)``
+export const Icon = styled(BaseIcon)``
 
 export const Tooltip = styled(BaseTooltip)`
   display: flex;
@@ -23,7 +23,7 @@ export const Tooltip = styled(BaseTooltip)`
   margin-left: 6px;
 
   &:hover {
-    > ${HelpIcon} {
+    > ${Icon} {
       color: ${({ foundation }) => foundation?.theme?.['txt-black-darkest']};
     }
   }

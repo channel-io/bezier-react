@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { InterpolationProps } from 'Types/Foundation'
-import { Icon } from 'Components/Icon'
+import { LegacyIcon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 
 interface ClickableElementProps {
@@ -14,7 +14,7 @@ function clickableElementStyle(clickable: boolean): string | false {
   `
 }
 
-const LeftIcon = styled(Icon)<ClickableElementProps>`
+const LeftIcon = styled(LegacyIcon)<ClickableElementProps>`
   ${({ clickable }) => clickableElementStyle(clickable)}
 `
 

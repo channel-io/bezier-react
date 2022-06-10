@@ -4,7 +4,7 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import type NavItemProps from './NavItem.types'
 import {
   Item,
@@ -57,7 +57,7 @@ function NavItem({
       >
         <LeftIconWrapper>
           { showLeftIcon && (
-            <Icon
+            <LegacyIcon
               testId={NAV_ITEM_LEFT_ICON_TEST_ID}
               name={leftIcon}
               size={IconSize.S}

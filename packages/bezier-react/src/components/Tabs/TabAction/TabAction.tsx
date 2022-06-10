@@ -5,7 +5,7 @@ import { get, isNil, noop } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { Text } from 'Components/Text'
-import { IconSize } from 'Components/Icon'
+import { IconSize, OpenInNewIcon } from 'Components/Icon'
 import TabsSize from 'Components/Tabs/TabsSize'
 import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
@@ -108,7 +108,10 @@ function TabActionComponent(
           { children }
         </Text>
         { !isNil(href) && (
-          <LinkIcon name="open-in-new" size={iconSize} />
+          <LinkIcon
+            source={OpenInNewIcon}
+            size={iconSize}
+          />
         ) }
       </BackgroundWithProps>
     </Wrapper>

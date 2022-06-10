@@ -8,7 +8,7 @@ import { Story, Meta } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
-import { Icon } from 'Components/Icon'
+import { Icon, CancelIcon, PlusIcon } from 'Components/Icon'
 import SegmentedControl from './SegmentedControl'
 import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
 
@@ -180,7 +180,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
             <CurrentItem selected={currentIndex === index} />
             <ItemText>{ item }</ItemText>
             <ItemIcon
-              name="cancel"
+              source={CancelIcon}
               color="txt-white-normal"
               disabled={allItems.length === 1}
               onClick={clickRemoveIconHandlerFactory(index)}
@@ -195,7 +195,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
             onKeyUp={handleDownEnter}
           />
           <ItemIcon
-            name="plus"
+            source={PlusIcon}
             color="txt-white-normal"
             onClick={handleClickAddIcon}
           />

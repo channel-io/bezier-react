@@ -3,7 +3,7 @@ import React, { Ref, forwardRef, useMemo } from 'react'
 import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize, IconProps } from 'Components/Icon'
+import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
@@ -47,14 +47,14 @@ function Checkbox(
       case CheckType.True:
         return (
           <Styled.Icon
-            name="check-bold"
+            source={CheckBoldIcon}
             {...checkIconCommonProps}
           />
         )
       case CheckType.Partial:
         return (
           <Styled.Icon
-            name="hyphen-bold"
+            source={HyphenBoldIcon}
             {...checkIconCommonProps}
 
           />

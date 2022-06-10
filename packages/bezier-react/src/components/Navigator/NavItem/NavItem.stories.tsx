@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, IconSize, ErrorFilledIcon } from 'Components/Icon'
 import NavItem from './NavItem'
 import type NavItemProps from './NavItem.types'
 
@@ -28,5 +28,5 @@ Primary.args = {
   content: '일반 설정',
   href: 'https://google.com',
   leftIcon: undefined,
-  rightContent: <Icon name="error-filled" size={IconSize.XS} color="bgtxt-orange-normal" />,
+  rightContent: <Icon source={ErrorFilledIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
 }
