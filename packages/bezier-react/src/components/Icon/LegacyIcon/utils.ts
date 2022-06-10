@@ -15,4 +15,4 @@ import icons, { IconName } from '../generated'
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
-export const isIconName = (name: string): name is IconName => Object.keys(icons).includes(name)
+export const isIconName = (name: any): name is IconName => Object.keys(icons).includes(name)
