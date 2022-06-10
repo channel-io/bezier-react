@@ -3,6 +3,7 @@
     "composite": true,
     "rootDir": ".",
     "declaration": true,
+    "declarationMap": true,
     "declarationDir": "build",
     "noEmit": true,
     "module": "esnext",

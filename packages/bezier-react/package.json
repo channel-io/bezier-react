@@ -11,7 +11,8 @@
   "types": "build/src/index.d.ts",
   "sideEffects": false,
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "scripts": {
     "build": "npm run build:icon && npm run build:rollup",
