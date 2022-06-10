@@ -37,26 +37,23 @@ function NavigationArea(
 ) {
   const dispatch = useLayoutDispatch()
   const { columnStates, orderedColumnKeys } = useLayoutState()
+  const columnState = columnStates[currentKey]
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
   const hidable = useMemo(() => (
-    columnStates[currentKey]
-      ? columnStates[currentKey].hidable
+    columnState
+      ? columnState.hidable
       : false
-  ), [
-    columnStates,
-    currentKey,
-  ])
+  ), [columnState])
 
   const disableResize = useMemo(() => (
     !showNavigation ||
-    columnStates[currentKey]?.disableResize ||
+    columnState?.disableResize ||
     false
   ), [
     showNavigation,
-    columnStates,
-    currentKey,
+    columnState,
   ])
 
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -125,15 +122,15 @@ function NavigationArea(
 
   useLayoutEffect(() => {
     if (presenterRef.current) {
-      presenterRef.current.style.width = `${columnStates[currentKey]?.initialWidth}px`
+      presenterRef.current.style.width = `${columnState?.initialWidth}px`
 
       const payload = {
         key: currentKey,
         ref: {
           target: presenterRef.current,
-          minWidth: columnStates[currentKey]?.minWidth,
-          maxWidth: columnStates[currentKey]?.maxWidth,
-          initialWidth: columnStates[currentKey]?.initialWidth,
+          minWidth: columnState?.minWidth,
+          maxWidth: columnState?.maxWidth,
+          initialWidth: columnState?.initialWidth,
         },
         columnType: ColumnType.Nav,
       }
@@ -151,7 +148,7 @@ function NavigationArea(
   }, [
     dispatch,
     currentKey,
-    columnStates,
+    columnState,
   ])
 
   useLayoutEffect(() => {
