@@ -6,7 +6,7 @@
     "declarationDir": "build",
     "noEmit": true,
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "ESNext"],
     "sourceMap": true,
     "jsx": "react",
