@@ -133,15 +133,13 @@ function NavigationArea(
       }
 
       dispatch(LayoutActions.addColumnRef(payload))
-    }
 
-    return function cleanUp() {
-      const payload = {
-        key: currentKey,
+      return function cleanUp() {
+        dispatch(LayoutActions.removeColumnRef({ key: currentKey }))
       }
-
-      dispatch(LayoutActions.removeColumnRef(payload))
     }
+
+    return function noop() {}
   }, [
     dispatch,
     currentKey,
