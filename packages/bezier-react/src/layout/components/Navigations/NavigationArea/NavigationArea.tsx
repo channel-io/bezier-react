@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'react'
+import React, { forwardRef, useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react'
 
 /* Internal dependencies */
 import useEventHandler from 'Hooks/useEventHandler'
@@ -37,27 +37,21 @@ function NavigationArea(
 ) {
   const dispatch = useLayoutDispatch()
   const { columnStates, orderedColumnKeys } = useLayoutState()
+  const columnState = columnStates[currentKey]
 
   const { handleResizeStart, handleResizing } = useResizingHandlers()
 
-  const hidable = useMemo(() => (
-    columnStates[currentKey]
-      ? columnStates[currentKey].hidable
+  const hidable = (
+    columnState
+      ? columnState.hidable
       : false
-  ), [
-    columnStates,
-    currentKey,
-  ])
+  )
 
-  const disableResize = useMemo(() => (
+  const disableResize = (
     !showNavigation ||
-    columnStates[currentKey]?.disableResize ||
+    columnState?.disableResize ||
     false
-  ), [
-    showNavigation,
-    columnStates,
-    currentKey,
-  ])
+  )
 
   const containerRef = useRef<HTMLDivElement | null>(null)
   const presenterRef = useRef<HTMLDivElement | null>(null)
@@ -125,33 +119,31 @@ function NavigationArea(
 
   useLayoutEffect(() => {
     if (presenterRef.current) {
-      presenterRef.current.style.width = `${columnStates[currentKey]?.initialWidth}px`
+      presenterRef.current.style.width = `${columnState?.initialWidth}px`
 
       const payload = {
         key: currentKey,
         ref: {
           target: presenterRef.current,
-          minWidth: columnStates[currentKey]?.minWidth,
-          maxWidth: columnStates[currentKey]?.maxWidth,
-          initialWidth: columnStates[currentKey]?.initialWidth,
+          minWidth: columnState?.minWidth,
+          maxWidth: columnState?.maxWidth,
+          initialWidth: columnState?.initialWidth,
         },
         columnType: ColumnType.Nav,
       }
 
       dispatch(LayoutActions.addColumnRef(payload))
-    }
 
-    return function cleanUp() {
-      const payload = {
-        key: currentKey,
+      return function cleanUp() {
+        dispatch(LayoutActions.removeColumnRef({ key: currentKey }))
       }
-
-      dispatch(LayoutActions.removeColumnRef(payload))
     }
+
+    return function noop() {}
   }, [
     dispatch,
     currentKey,
-    columnStates,
+    columnState,
   ])
 
   useLayoutEffect(() => {
