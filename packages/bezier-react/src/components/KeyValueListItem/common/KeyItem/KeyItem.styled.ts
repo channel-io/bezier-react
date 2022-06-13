@@ -6,7 +6,6 @@ import { Text } from 'Components/Text'
 export const KeyContent = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
-  min-width: 100px;
   ${ellipsis()};
   ${({ interpolation }) => interpolation}
 `
