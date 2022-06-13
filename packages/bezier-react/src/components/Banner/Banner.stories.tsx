@@ -52,6 +52,6 @@ Primary.args = {
   variant: BannerVariant.Default,
   icon: 'lightbulb',
   content: 'Information here.',
-  dismissible: true,
-  onDismiss: noop,
+  actionIcon: 'cancel-small',
+  onClickAction: noop,
 }

@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { css, SemanticNames } from 'Foundation'
 import type { InjectedInterpolation } from 'Types/Foundation'
+import { ButtonColorVariant } from 'Components/Button'
 import { BannerVariant } from './Banner.types'
 
 export const BACKGROUND_COLORS: Record<BannerVariant, SemanticNames> = {
@@ -21,6 +22,16 @@ export const DEFAULT_ICON_COLORS: Record<BannerVariant, SemanticNames> = {
   [BannerVariant.Orange]: 'bgtxt-orange-normal',
   [BannerVariant.Red]: 'bgtxt-red-normal',
   [BannerVariant.Alt]: 'bgtxt-red-normal',
+}
+
+export const ACTION_BUTTON_COLOR_VARIANTS: Record<BannerVariant, ButtonColorVariant> = {
+  [BannerVariant.Default]: ButtonColorVariant.MonochromeDark,
+  [BannerVariant.Blue]: ButtonColorVariant.Blue,
+  [BannerVariant.Cobalt]: ButtonColorVariant.Cobalt,
+  [BannerVariant.Green]: ButtonColorVariant.Green,
+  [BannerVariant.Orange]: ButtonColorVariant.Orange,
+  [BannerVariant.Red]: ButtonColorVariant.Red,
+  [BannerVariant.Alt]: ButtonColorVariant.MonochromeDark,
 }
 
 export const TEXT_COLORS: Record<BannerVariant, SemanticNames> = {

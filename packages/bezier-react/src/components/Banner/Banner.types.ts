@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 /* Internal dependencies */
 import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from 'Types/ComponentProps'
 import type { IconName } from 'Components/Icon'
+import type { ButtonProps } from 'Components/Button'
 
 export enum BannerVariant {
   Default = 'default',
@@ -28,8 +29,11 @@ interface BannerOptions {
   linkTo?: string
   renderLink?: RenderLinkFunc
 
-  dismissible?: boolean
-  onDismiss?: () => void
+  /**
+   * FIXME(@ed): 새로운 아이콘 방식으로 변경
+   */
+  actionIcon?: IconName
+  onClickAction?: ButtonProps['onClick']
 }
 
 export interface BannerProps extends
