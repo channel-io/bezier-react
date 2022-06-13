@@ -8,14 +8,15 @@ import {
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { Text } from 'Components/Text'
-import { Icon, IconSize } from 'Components/Icon'
-import { DEFAULT_ICON_COLORS, TEXT_COLORS } from './Banner.const'
+import { IconSize } from 'Components/Icon'
+import { StackItem } from 'Components/Stack'
+import { Button, ButtonSize, ButtonStyleVariant } from 'Components/Button'
+import { DEFAULT_ICON_COLORS, TEXT_COLORS, ACTION_BUTTON_COLOR_VARIANTS } from './Banner.const'
 import { BannerVariant, BannerProps, RenderLinkFunc } from './Banner.types'
 import Styled from './Banner.styled'
 
 const BANNER_TEST_ID = 'bezier-react-banner'
 export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'
-export const BANNER_DISMISS_TEST_ID = 'bezier-react-banner-dismiss'
 
 const externalLinkRenderer: RenderLinkFunc = ({
   content,
@@ -54,28 +55,6 @@ function Link({
   })
 }
 
-function DismissButton({
-  variant = BannerVariant.Default,
-  dismissible,
-  onDismiss,
-}: BannerProps) {
-  if (!dismissible) { return null }
-
-  return (
-    <Styled.Dismiss
-      data-testid={BANNER_DISMISS_TEST_ID}
-      onClick={onDismiss}
-    >
-      <Icon
-        name="cancel"
-        size={IconSize.XS}
-        color={DEFAULT_ICON_COLORS[variant]}
-        onClick={onDismiss}
-      />
-    </Styled.Dismiss>
-  )
-}
-
 function Banner(
   props: BannerProps,
   forwardedRef: React.Ref<HTMLDivElement>,
@@ -87,39 +66,57 @@ function Banner(
     icon,
     iconColor,
     content,
+    actionIcon,
+    onClickAction,
     testId = BANNER_TEST_ID,
   } = props
 
   return (
-    <Styled.Wrapper
+    <Styled.Stack
       ref={forwardedRef}
       data-testid={testId}
       className={className}
-      variant={variant}
       interpolation={interpolation}
+      variant={variant}
+      spacing={6}
+      align="center"
     >
       { !isNil(icon) && (
-        <Styled.BannerIcon
-          name={icon}
-          color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
-          size={IconSize.S}
-        />
+        <StackItem>
+          <Styled.BannerIcon
+            name={icon}
+            color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+            size={IconSize.S}
+          />
+        </StackItem>
       ) }
 
-      <Styled.ContentWrapper variant={variant}>
-        { isString(content) ? (
-          <Text
-            typo={Typography.Size14}
-            color={TEXT_COLORS[variant]}
-          >
-            { content }
-            <Link {...props} />
-          </Text>
-        ) : content }
-      </Styled.ContentWrapper>
+      <StackItem grow weight={1}>
+        <Styled.ContentWrapper variant={variant}>
+          { isString(content) ? (
+            <Text
+              typo={Typography.Size14}
+              color={TEXT_COLORS[variant]}
+            >
+              { content }
+              <Link {...props} />
+            </Text>
+          ) : content }
+        </Styled.ContentWrapper>
+      </StackItem>
 
-      <DismissButton {...props} />
-    </Styled.Wrapper>
+      { !isNil(actionIcon) && (
+        <StackItem>
+          <Button
+            size={ButtonSize.XS}
+            colorVariant={ACTION_BUTTON_COLOR_VARIANTS[variant]}
+            styleVariant={ButtonStyleVariant.Tertiary}
+            leftContent={actionIcon}
+            onClick={onClickAction}
+          />
+        </StackItem>
+      ) }
+    </Styled.Stack>
   )
 }
 

@@ -1,9 +1,10 @@
 /* External dependencies */
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import Banner, { BANNER_DISMISS_TEST_ID, BANNER_LINK_TEST_ID } from './Banner'
+import Banner, { BANNER_LINK_TEST_ID } from './Banner'
 import type { BannerProps } from './Banner.types'
 
 describe('Banner >', () => {
@@ -14,7 +15,6 @@ describe('Banner >', () => {
       icon: 'info',
       content: 'Lorem ipsum dolor amet.',
       hasLink: false,
-      dismissible: false,
     }
   })
 
@@ -35,8 +35,19 @@ describe('Banner >', () => {
     expect(bannerLink.children.item(0)).toHaveStyle('font-size: 1.4rem;')
   })
 
-  it('does not render dismiss button if dismissible = false', () => {
-    const { queryByTestId } = renderBanner()
-    expect(queryByTestId(BANNER_DISMISS_TEST_ID)).toBeNull()
+  it('renders action button if actionIcon is correct value', () => {
+    const onClickAction = jest.fn()
+    const { getByRole } = renderBanner({ actionIcon: 'all', onClickAction })
+    const actionButton = getByRole('button')
+
+    fireEvent.click(actionButton)
+    expect(onClickAction).toHaveBeenCalled()
+  })
+
+  it('does not render action button if actionIcon is nil', () => {
+    const { queryByRole } = renderBanner()
+    const actionButton = queryByRole('button')
+
+    expect(actionButton).toBeNull()
   })
 })
