@@ -79,7 +79,7 @@ function Banner(
       interpolation={interpolation}
       variant={variant}
       spacing={6}
-      align="center"
+      align="start"
     >
       { !isNil(icon) && (
         <StackItem>
@@ -91,7 +91,12 @@ function Banner(
         </StackItem>
       ) }
 
-      <StackItem grow weight={1}>
+      <StackItem
+        grow
+        shrink
+        weight={1}
+        align="center"
+      >
         <Styled.ContentWrapper variant={variant}>
           { isString(content) ? (
             <Text
