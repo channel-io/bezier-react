@@ -22,7 +22,9 @@ const Link = styled(Text)`
 `
 
 const Stack = styled(HStack)<BannerVariantProps>`
+  width: auto;
   min-width: 200px;
+  height: auto;
   padding: 12px;
   background-color: ${({ foundation, variant }) => foundation?.theme?.[BACKGROUND_COLORS[variant]]};
 
