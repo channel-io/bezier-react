@@ -7,6 +7,7 @@ export function insertItem<T>(array: T[], data: T, index: number = -1) {
 }
 
 export function removeItem(array: any[], index: number) {
+  if (index < 0 || index >= array.length) { return array }
   return [...array.slice(0, index), ...array.slice(index + 1)]
 }
 
