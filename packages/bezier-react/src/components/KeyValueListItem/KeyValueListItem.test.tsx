@@ -325,7 +325,6 @@ describe('KeyValueListItem', () => {
         const rendered = getByTestId(TEST_ID_MAP.KEY_ITEM)
         expect(rendered).toHaveStyle('display: flex;')
         expect(rendered).toHaveStyle('align-items: center;')
-        expect(rendered).toHaveStyle('min-width: 100px;')
 
         const keyItemText = rendered?.lastChild
         expect(keyItemText).toHaveStyle('color: rgba(0, 0, 0, 0.4);')
