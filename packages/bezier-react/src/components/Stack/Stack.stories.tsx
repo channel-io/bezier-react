@@ -18,12 +18,12 @@ import {
   Typography,
 } from 'Foundation'
 import { LightTheme } from 'Foundation/Colors/Theme'
+import { getTitle } from 'Utils/storyUtils'
 import {
   Button,
   ButtonSize,
 } from 'Components/Button'
 import { Text } from 'Components/Text'
-import { getTitle } from 'Utils/storyUtils'
 import { HStack } from './HStack'
 import { Spacer } from './Spacer'
 import { Stack } from './Stack'
