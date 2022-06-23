@@ -22,6 +22,9 @@
     "jest": {
       "outputs": []
     },
+    "update-snapshot": {
+      "outputs": []
+    },
     "dev": {
       "cache": false
     },

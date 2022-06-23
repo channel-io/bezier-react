@@ -10,6 +10,7 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "jest": "turbo run jest",
+    "update-snapshot": "turbo run update-snapshot",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "release": "turbo run release",
