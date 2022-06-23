@@ -82,13 +82,13 @@ function Banner(
       align="start"
     >
       { !isNil(icon) && (
-        <StackItem>
+        <Styled.StackItem>
           <Styled.BannerIcon
             name={icon}
             color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
             size={IconSize.S}
           />
-        </StackItem>
+        </Styled.StackItem>
       ) }
 
       <StackItem
@@ -111,7 +111,7 @@ function Banner(
       </StackItem>
 
       { !isNil(actionIcon) && (
-        <StackItem>
+        <Styled.StackItem>
           <Button
             size={ButtonSize.XS}
             colorVariant={ACTION_BUTTON_COLOR_VARIANTS[variant]}
@@ -119,7 +119,7 @@ function Banner(
             leftContent={actionIcon}
             onClick={onClickAction}
           />
-        </StackItem>
+        </Styled.StackItem>
       ) }
     </Styled.Stack>
   )

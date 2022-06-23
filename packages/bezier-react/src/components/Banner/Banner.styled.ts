@@ -1,7 +1,10 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import type { VariantProps } from 'Types/ComponentProps'
-import { HStack } from 'Components/Stack'
+import {
+  HStack,
+  StackItem as BaseStackItem,
+} from 'Components/Stack'
 import { Icon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { BACKGROUND_COLORS, TEXT_COLORS, ELEVATIONS } from './Banner.const'
@@ -36,9 +39,14 @@ const Stack = styled(HStack)<BannerVariantProps>`
   }
 `
 
+const StackItem = styled(BaseStackItem)`
+  height: 20px;
+`
+
 export default {
   BannerIcon,
   ContentWrapper,
   Link,
   Stack,
+  StackItem,
 }
