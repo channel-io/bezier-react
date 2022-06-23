@@ -23,6 +23,17 @@ import {
 import {
   Typography,
 } from 'Foundation'
+import {
+  AlignmentAlign,
+  AlignmentJustify,
+  DirectionHorizontal,
+  DirectionVertical,
+  Expanded,
+  Spacing,
+  Overview,
+  WeightFixed,
+  WeightSpacer,
+} from './Stack.stories'
 
 <Meta
   title={getTitle(base)}
@@ -40,50 +51,7 @@ Stack은 flex layout을 제공하는 컴포넌트입니다.
 가로 방향의 flex container인 `HStack`, 세로 방향의 flex container인 `VStack`이 container 역할을 합니다. Flexbox 내의 각 item을 `StackItem`으로 구성합니다. Flex layout 내에서 각 item의 weight, base size, item 간의 spacing을 컨트롤할 수 있습니다.
 
 <Canvas>
-  <Story name="Stack:Overview">
-    <VStack
-      style={{ width: '400px' }}
-      spacing="16"
-      align="stretch"
-    >
-      <StackItem>
-        <Text
-          as="h3"
-          style={{
-            border: '1px solid #ccc',
-          }}
-          typo={Typography.Size24}
-          bold
-        >
-          스택에 대해 더 자세히 알아보세요.
-        </Text>
-      </StackItem>
-      <StackItem>
-        <Text
-          as="p"
-          style={{
-            border: '1px solid #ccc',
-          }}
-          typo={Typography.Size13}
-          color="txt-black-darker"
-        >
-          스택은 flex layout을 서술하는 컴포넌트입니다. 스택과 함께라면 뭐든지 만들 수 있어요. 누가 만들었는지는 모르겠지만, 정말 잘 만든 컴포넌트에요. FormControl과 함께 싸드세요!
-        </Text>
-      </StackItem>
-      <StackItem>
-        <div
-          style={{
-            border: '1px solid #ccc',
-          }}
-        >
-          <Button
-            size={ButtonSize.L}
-            text="스택에 대해 더 자세히 알아보기"
-          />
-        </div>
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={Overview} />
 </Canvas>
 
 ## Usage
@@ -108,72 +76,12 @@ Stack은 flex layout을 제공하는 컴포넌트입니다.
 기본 컴포넌트인 `Stack`에 `direction` prop을 사용하여 방향을 결정할 수 있으나, 방향이 고정된 경우에는 `HStack`과 `VStack`을 바로 이용하는 것이 좋습니다.
 
 <Canvas>
-  <Story name="Stack:Direction.Horizontal">
-    <HStack
-      style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-      align="stretch"
-    >
-      <StackItem
-        size={120}
-        style={{ backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ backgroundColor: '#eee' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ backgroundColor: '#888' }}
-      >
-        <Text typo={Typography.Size18}>Item 3</Text>
-      </StackItem>
-      <StackItem
-        size={80}
-        style={{ backgroundColor: '#aaa' }}
-      >
-        <Text typo={Typography.Size18}>Item 4</Text>
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={DirectionHorizontal} />
 </Canvas>
 
 
 <Canvas>
-  <Story name="Stack:Direction.Vertical">
-    <VStack
-      style={{ width: '200px', height: '600px', border: '1px solid #ffc0c0' }}
-      align="start"
-    >
-      <StackItem
-        size={120}
-        style={{ width: '80px', backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ width: '150px', backgroundColor: '#eee' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ width: '200px', backgroundColor: '#888' }}
-      >
-        <Text typo={Typography.Size18}>Item 3</Text>
-      </StackItem>
-      <StackItem
-        size={80}
-        style={{ width: '120px', backgroundColor: '#aaa' }}
-      >
-        <Text typo={Typography.Size18}>Item 4</Text>
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={DirectionVertical} />
 </Canvas>
 
 ### Alignment
@@ -182,314 +90,16 @@ Flex container의 **주 방향** (`HStack`은 가로, `VStack`은 세로) 의 �
 
 기본적으로, `Stack` container에 지정하는 prop이 모든 child의 기본값이 됩니다. 각 `StackItem`에도 `justify`, `align` prop을 지정하여 parent `Stack`의 기본값을 overriding할 수 있습니다.
 
-<Story name="Stack:Alignment.Justify">
-  <VStack align="stretch" spacing={8}>
-    <StackItem>
-      <Text typo={Typography.Size14}>
-        justify = "start"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        justify = "center"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="center"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        justify = "end"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="end"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-</Story>
+<Story story={AlignmentJustify} />
 
-<Story name="Stack:Alignment.Align">
-  <VStack align="stretch" spacing={8}>
-    <StackItem>
-      <Text typo={Typography.Size14}>
-        align = "start"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="start"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = "center"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="center"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = "end"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="end"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = "stretch"
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-</Story>
+<Story story={AlignmentAlign} />
 
 ### Spacing
 
 `Stack` 컴포넌트의 `spacing` prop으로 item 간의 기본 간격을 조정합니다. `StackItem`에 `marginBefore`, `marginAfter` prop으로 기본 간격을 오버라이딩할 수 있습니다.
 
 <Canvas>
-  <Story name="Stack:Spacing">
-    <HStack
-      style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-      justify="start"
-      align="stretch"
-      spacing={16}
-    >
-      <StackItem
-        size={120}
-        style={{ backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ backgroundColor: '#eee' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ backgroundColor: '#888' }}
-      >
-        <Text typo={Typography.Size18}>Item 3</Text>
-      </StackItem>
-      <StackItem
-        size={80}
-        style={{ backgroundColor: '#aaa' }}
-        marginBefore={40}
-      >
-        <Text typo={Typography.Size18}>Item 4</Text>
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={Spacing} />
 </Canvas>
 
 ### Weight
@@ -501,93 +111,20 @@ Flex layout의 특징은, container의 크기에 맞춰 item의 크기가 적절
 - Item 하나가 container의 여유 공간을 모두 차지하는 경우입니다. 이 경우, 해당 item에게 `grow shrink weight={1}` prop을 지정합니다.
 
 <Canvas>
-  <Story name="Stack:Weight.Expanded">
-    <HStack
-      style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-      justify="start"
-      align="stretch"
-    >
-      <StackItem
-        size={120}
-        style={{ backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <StackItem
-        size={180}
-        style={{ backgroundColor: '#eee' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-      <StackItem
-        grow
-        shrink
-        weight={1}
-        style={{ backgroundColor: '#ffa0a0' }}
-      >
-        <Text typo={Typography.Size18}>Item 3 (Expanded)</Text>
-      </StackItem>
-      <StackItem
-        size={80}
-        style={{ backgroundColor: '#aaa' }}
-      >
-        <Text typo={Typography.Size18}>Item 4</Text>
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={Expanded} />
 </Canvas>
 
 - CSS의 `justify-content: space-between`과 같이, item 사이에 공간을 두고자 하는 경우가 있습니다. 이 경우에는 `<Spacer />` 컴포넌트를 활용합니다. `Spacer`는 기본적으로 `grow shrink weight={1}` 을 가진 빈 `StackItem`입니다.
 
 <Canvas>
-  <Story name="Stack:Weight.Spacer">
-    <HStack
-      style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-      justify="start"
-      align="stretch"
-    >
-      <StackItem
-        size={120}
-        style={{ backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <Spacer />
-      <StackItem
-        size={80}
-        style={{ backgroundColor: '#aaa' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={WeightSpacer} />
 </Canvas>
 
 - Item이 container의 크기와 무관하게 (특히, container 크기가 충분하지 않은 경우) 일정한 크기를 차지하고자 하는 경우, 기본값인 `grow={false} shrink={false} weight={0}` prop을 지정합니다. 그리고, 의도하는 크기를 `size` prop으로 지정합니다.
 
 
 <Canvas>
-  <Story name="Stack:Weight.Fixed">
-    <HStack
-      style={{ width: '100px', height: '80px', border: '1px solid #ffc0c0' }}
-      justify="start"
-      align="stretch"
-    >
-      <StackItem
-        size={80}
-        style={{ backgroundColor: '#ccc' }}
-      >
-        <Text typo={Typography.Size18}>Item 1</Text>
-      </StackItem>
-      <Spacer />
-      <StackItem
-        size={80}
-        style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
-      >
-        <Text typo={Typography.Size18}>Item 2</Text>
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={WeightFixed} />
 </Canvas>
 
 ## API
