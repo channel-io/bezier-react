@@ -37,7 +37,7 @@ import {
           variant={BannerVariant.Default}
           icon="lightbulb"
           content="Information here."
-          dismissible
+          actionIcon="cancel"
         />
       </StackItem>
       <StackItem>
@@ -148,7 +148,7 @@ import {
           content="아래 내용을 입력해주세요."
           hasLink
           linkText="사용안내"
-          dismissible
+          actionIcon="cancel"
         />
       </StackItem>
     </VStack>
@@ -181,7 +181,7 @@ import {
       content="아래 내용을 입력해주세요."
       hasLink
       linkText="사용안내"
-      dismissible
+      actionIcon="cancel"
     />
   </Story>
 </Canvas>
@@ -198,7 +198,7 @@ import {
       hasLink
       linkText="사용안내"
       linkTo="https://channel.io"
-      dismissible
+      actionIcon="cancel"
     />
   </Story>
 </Canvas>
@@ -288,17 +288,14 @@ interface BannerProps {
   }) => JSX.Element
 
   /**
-   * Whether to display close button at the top right of the banner.
-   *
-   * The close button itself does not hides the banner when clicked.
-   * Use `onDismiss` handler to control the visibility of the banner.
+   * Specifies which icon button to display at the top right of the banner.
    */
-  dismissible?: boolean
+  actionIcon?: IconName
 
   /**
-   * Handler to be executed when the close button is clicked.
+   * Handler to be executed when the action icon button is clicked.
    */
-  onDismiss?: () => void
+  onClickAction?: ButtonProps['onClick']
 }
 ```
 </details>
