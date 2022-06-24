@@ -15,6 +15,15 @@ import {
   StackItem,
   VStack,
 } from 'Components/Stack'
+import {
+  Overview,
+  UsageConsecutive,
+  UsageLink,
+  UsageLinkTo,
+  UsageMinWidth,
+  UsageMaxWidth,
+  UsageNoIcon,
+} from './Banner.stories'
 
 <Meta
   title={getTitle(base)}
@@ -30,60 +39,7 @@ import {
 안내, 경고, 추천 등의 다양한 정보를 잘 전달하고 싶을 때 사용합니다.
 
 <Canvas>
-  <Story name="Banner:Overview">
-    <VStack spacing={6} align="stretch">
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Default}
-          icon="lightbulb"
-          content="Information here."
-          actionIcon="cancel"
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Blue}
-          icon="lightbulb"
-          content="Information here."
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Cobalt}
-          icon="info"
-          content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Green}
-          icon="check-circle-filled"
-          content="Now Running..."
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Orange}
-          icon="error-triangle-filled"
-          content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Red}
-          icon="block"
-          content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Alt}
-          icon="hourglass-3"
-          content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
-        />
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={Overview} />
 </Canvas>
 
 ## Usage
@@ -91,81 +47,25 @@ import {
 - 최소 너비는 200px입니다.
 
 <Canvas>
-  <Story name="Banner:Usage.MinWidth">
-    <VStack spacing={6} align="start">
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Orange}
-          icon="error-triangle-filled"
-          content="네."
-        />
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={UsageMinWidth} />
 </Canvas>
 
 - 최대 너비는 없으나, Banner의 텍스트 영역은 좌측 상단에 위치합니다.
 
 <Canvas>
-  <Story name="Banner:Usage.MaxWidth">
-    <VStack spacing={6} align="start">
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Cobalt}
-          icon="info"
-          content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis laoreet felis. Fusce sit amet blandit sem. Aliquam erat volutpat. Pellentesque tempor arcu non scelerisque rutrum. Proin placerat imperdiet gravida. In efficitur augue ut maximus placerat. Quisque vitae pellentesque urna. Sed sagittis enim quis laoreet dictum. Morbi fringilla, justo sit amet dapibus bibendum, nisl nisl suscipit dolor, eget venenatis urna velit in dolor.\n\n' + 'Nunc accumsan ligula sit amet interdum accumsan. Etiam gravida est risus, in interdum elit egestas ut. Aliquam sit amet lorem malesuada, commodo tortor eu, semper dui. Integer ultricies porta ex sed tincidunt. Sed accumsan orci eu arcu facilisis congue ac hendrerit lacus. Etiam erat velit, interdum auctor cursus at, interdum vel augue. Integer gravida, nibh vel lacinia blandit, ex quam dapibus lectus, at sollicitudin lorem purus vel nulla. Suspendisse ac tellus eget risus condimentum facilisis sed vitae turpis. Fusce fringilla commodo aliquam. Quisque eget justo purus. Suspendisse ut lobortis turpis, vitae fermentum augue. Donec viverra, orci ut lobortis euismod, est nibh iaculis metus, sit amet mattis ex elit eget tellus.'}
-        />
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={UsageMaxWidth} />
 </Canvas>
 
 - 연속으로 보여줘야 하는 경우, Banner 간의 간격은 6px 입니다.
 
 <Canvas>
-  <Story name="Banner:Usage.Consecutive">
-    <VStack spacing={6} align="stretch">
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Cobalt}
-          icon="info"
-          content="전화번호 설정하는 게 좋아요."
-          hasLink
-          linkText="설정하기"
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Orange}
-          icon="error-triangle-filled"
-          content="빠진 내용을 모두 입력해주세요."
-        />
-      </StackItem>
-      <StackItem>
-        <Banner
-          variant={BannerVariant.Default}
-          icon="info"
-          content="아래 내용을 입력해주세요."
-          hasLink
-          linkText="사용안내"
-          actionIcon="cancel"
-        />
-      </StackItem>
-    </VStack>
-  </Story>
+  <Story story={UsageConsecutive} />
 </Canvas>
 
 - 아이콘을 제거하여 사용할 수 있습니다.
 
 <Canvas>
-  <Story name="Banner:Usage.NoIcon">
-    <Banner
-      variant={BannerVariant.Green}
-      content="이제는 모든 기능을 사용할 수 있습니다."
-      hasLink
-      linkText="바로가기"
-    />
-  </Story>
+  <Story story={UsageNoIcon} />
 </Canvas>
 
 ### Link
@@ -174,33 +74,14 @@ import {
 - `hasLink={true}` prop을 통해 링크를 enable하고, `linkText` prop으로 링크의 텍스트를 설정할 수 있습니다.
 
 <Canvas>
-  <Story name="Banner:Usage.Link">
-    <Banner
-      variant={BannerVariant.Default}
-      icon="info"
-      content="아래 내용을 입력해주세요."
-      hasLink
-      linkText="사용안내"
-      actionIcon="cancel"
-    />
-  </Story>
+  <Story story={UsageLink} />
 </Canvas>
 
 - `linkTo` prop을 활용하면, 링크를 클릭했을 때 이동할 location을 지정할 수 있습니다.
 - 기본적으로, 링크를 클릭하면 새 탭으로 해당 location이 열리게 됩니다. (`<a>` 태그, `target="_blank"`, `rel="noopener noreferrer"` 를 기본으로 합니다.)
 
 <Canvas>
-  <Story name="Banner:Usage.LinkTo">
-    <Banner
-      variant={BannerVariant.Cobalt}
-      icon="channel"
-      content="채널톡 정말 좋은 서비스에요."
-      hasLink
-      linkText="사용안내"
-      linkTo="https://channel.io"
-      actionIcon="cancel"
-    />
-  </Story>
+  <Story story={UsageLinkTo} />
 </Canvas>
 
 - Default로 제공되는 링크 메커니즘을 이용할 수 없는 경우가 있습니다. (대표적인 usecase는, SPA에서 `react-router`와 같은 라이브러리가 제공하는 링크 컴포넌를 활용하는 경우입니다.) 이 경우, `renderLink` prop을 지정하여 링크를 어떤 컴포넌트로 렌더링할지 결정할 수 있습니다.
