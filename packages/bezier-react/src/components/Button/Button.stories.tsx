@@ -1,12 +1,53 @@
 /* External dependencies */
-import React from 'react'
+import React, {
+  useState,
+} from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  Meta,
+  Story,
+} from '@storybook/react'
+import {
+  entries,
+} from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import { Avatar } from 'Components/Avatars/Avatar'
-import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
+import {
+  styled,
+  Typography,
+} from 'Foundation'
+import {
+  getTitle,
+} from 'Utils/storyUtils'
+import {
+  Avatar,
+} from 'Components/Avatars/Avatar'
+import {
+  ListItem,
+} from 'Components/ListItem'
+import {
+  Overlay,
+  OverlayPosition,
+} from 'Components/Overlay'
+import {
+  SectionLabel,
+} from 'Components/SectionLabel'
+import {
+  HStack,
+  StackItem,
+  VStack,
+} from 'Components/Stack'
+import {
+  StatusType,
+} from 'Components/Status'
+import {
+  Text,
+} from 'Components/Text'
+import ButtonProps, {
+  ButtonSize,
+  ButtonStyleVariant,
+  ButtonColorVariant,
+} from './Button.types'
 import Button from './Button'
 
 export default {
@@ -64,3 +105,488 @@ WithCustomComponent.args = {
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,
 }
+
+export const OverviewCTA: Story<{}> = () => (
+  <HStack justify="center" spacing={6}>
+    <StackItem>
+      <Button
+        disabled
+        text="Cancel"
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="open-in-new"
+        text="Open link"
+        colorVariant={ButtonColorVariant.Blue}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="check"
+        text="Publish"
+        colorVariant={ButtonColorVariant.Green}
+        styleVariant={ButtonStyleVariant.Primary}
+      />
+    </StackItem>
+  </HStack>
+)
+
+export const OverviewFloating: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <Button
+        leftContent="chevron-down"
+        text="New messages"
+        colorVariant={ButtonColorVariant.Cobalt}
+        styleVariant={ButtonStyleVariant.Floating}
+      />
+    </StackItem>
+  </HStack>
+)
+
+export const UsageCTA: Story<{}> = () => (
+  <HStack justify="center" spacing={6}>
+    <StackItem>
+      <Button
+        text="취소"
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="play"
+        text="퍼블리시"
+        colorVariant={ButtonColorVariant.Green}
+        styleVariant={ButtonStyleVariant.Primary}
+      />
+    </StackItem>
+  </HStack>
+)
+
+export const UsageCTA2: Story<{}> = () => (
+  <HStack justify="center" spacing={6}>
+    <StackItem>
+      <Button
+        text="임시 저장 삭제"
+        disabled
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        text="임시 저장"
+        colorVariant={ButtonColorVariant.Blue}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="play"
+        text="퍼블리시"
+        colorVariant={ButtonColorVariant.Green}
+        styleVariant={ButtonStyleVariant.Primary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="cancel"
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Tertiary}
+      />
+    </StackItem>
+  </HStack>
+)
+
+export const UsageWebLinks: Story<{}> = () => (
+  <HStack justify="center" spacing={6}>
+    <StackItem>
+      <Button
+        leftContent="open-in-new"
+        text="See guide"
+        rightContent="arrow-right"
+        styleVariant={ButtonStyleVariant.Tertiary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        text="See guide"
+        rightContent="arrow-right"
+        styleVariant={ButtonStyleVariant.Tertiary}
+      />
+    </StackItem>
+    <StackItem>
+      <Button
+        leftContent="open-in-new"
+        text="See guide"
+        styleVariant={ButtonStyleVariant.Tertiary}
+      />
+    </StackItem>
+  </HStack>
+)
+
+const Card = styled.div`
+  width: 360px;
+  padding: 6px;
+  ${({ foundation }) => foundation?.elevation.ev3()}
+  ${({ foundation }) => foundation?.rounding.round12}
+`
+
+export const UsageComposite: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <Card>
+        <VStack align="stretch">
+          <StackItem>
+            <SectionLabel
+              leftContent={{ icon: 'people' }}
+              content="태그 ∙ 2"
+              rightContent={(
+                <Button
+                  size={ButtonSize.XS}
+                  leftContent="chevron-down"
+                  styleVariant={ButtonStyleVariant.Tertiary}
+                  colorVariant={ButtonColorVariant.MonochromeLight}
+                />
+              )}
+            />
+          </StackItem>
+          <StackItem>
+            <ListItem
+              leftIcon="tag"
+              content="KR/Product"
+              rightContent={(
+                <HStack>
+                  <StackItem>
+                    <Button
+                      size={ButtonSize.XS}
+                      leftContent="edit"
+                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant={ButtonColorVariant.MonochromeLight}
+                    />
+                  </StackItem>
+                  <StackItem>
+                    <Button
+                      size={ButtonSize.XS}
+                      leftContent="cancel"
+                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant={ButtonColorVariant.MonochromeLight}
+                    />
+                  </StackItem>
+                </HStack>
+              )}
+            />
+          </StackItem>
+          <StackItem>
+            <ListItem
+              leftIcon="tag"
+              content="KR/Design"
+              rightContent={(
+                <HStack>
+                  <StackItem>
+                    <Button
+                      size={ButtonSize.XS}
+                      leftContent="edit"
+                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant={ButtonColorVariant.MonochromeLight}
+                    />
+                  </StackItem>
+                  <StackItem>
+                    <Button
+                      size={ButtonSize.XS}
+                      leftContent="cancel"
+                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant={ButtonColorVariant.MonochromeLight}
+                    />
+                  </StackItem>
+                </HStack>
+              )}
+            />
+          </StackItem>
+        </VStack>
+      </Card>
+    </StackItem>
+  </HStack>
+)
+
+export const UsageVariousContentsComposite: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <Button
+        leftContent="play"
+        text="퍼블리시"
+        rightContent="arrow-right"
+        colorVariant={ButtonColorVariant.Green}
+      />
+    </StackItem>
+  </HStack>
+)
+
+export const UsageVariousContentsIconOnly: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <Button
+        leftContent="plus"
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Secondary}
+      />
+    </StackItem>
+  </HStack>
+)
+
+const AlertBadge = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bgtxt-red-dark);
+  border-radius: 50%;
+`
+
+export const UsageVariousContentsCustom: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <Button
+        leftContent={(
+          <Avatar
+            name="channel"
+            avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
+            status={StatusType.Online}
+          />
+        )}
+        text="New messages"
+        rightContent={(
+          <AlertBadge>
+            <Text typo={Typography.Size13} color="txt-white-normal">1</Text>
+          </AlertBadge>
+        )}
+        colorVariant={ButtonColorVariant.Red}
+        styleVariant={ButtonStyleVariant.Floating}
+      />
+    </StackItem>
+  </HStack>
+)
+
+const AsyncActionButton = () => {
+  const [isFetching, setFetching] = useState(false)
+  const handleClick = () => {
+    setFetching(true)
+    setTimeout(() => {
+      setFetching(false)
+    }, 1000)
+  }
+  return (
+    <Button
+      leftContent="play"
+      text="Click Me!"
+      colorVariant={ButtonColorVariant.Cobalt}
+      styleVariant={ButtonStyleVariant.Primary}
+      loading={isFetching}
+      disabled={isFetching}
+      onClick={handleClick}
+    />
+  )
+}
+
+export const UsageAsync: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <AsyncActionButton />
+    </StackItem>
+  </HStack>
+)
+
+const Dropdown = styled.div`
+  width: 200px;
+  padding: 6px;
+  ${({ foundation }) => foundation?.elevation.ev2()}
+  ${({ foundation }) => foundation?.rounding.round8}
+`
+
+const OpenDropdownButton = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [target, setTarget] = useState<HTMLElement | null>(null)
+  const [container, setContainer] = useState<HTMLElement | null>(null)
+  return (
+    <div style={{ position: 'relative' }} ref={setContainer}>
+      <Button
+        ref={setTarget}
+        text="Select"
+        rightContent="triangle-down"
+        active={isOpen}
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Tertiary}
+        onClick={() => setIsOpen(true)}
+      />
+      <Overlay
+        show={isOpen}
+        onHide={() => setIsOpen(false)}
+        target={target}
+        container={container}
+        position={OverlayPosition.BottomLeft}
+        marginY={6}
+      >
+        <Dropdown>
+          <Text typo={Typography.Size13} marginLeft={6}>Dropdown content</Text>
+        </Dropdown>
+      </Overlay>
+    </div>
+  )
+}
+
+export const UsageDropdown: Story<{}> = () => (
+  <HStack justify="center">
+    <StackItem>
+      <OpenDropdownButton />
+    </StackItem>
+  </HStack>
+)
+
+export const VariantsColor: Story<{}> = () => (
+  <VStack spacing={16} align="start">
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Blue</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="plus" text="Invite" colorVariant={ButtonColorVariant.Blue} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Red</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="trash" text="Remove" colorVariant={ButtonColorVariant.Red} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Green</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="play" text="Publish" colorVariant={ButtonColorVariant.Green} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Cobalt</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="videocam" text="Join" colorVariant={ButtonColorVariant.Cobalt} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Orange</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="heart-filled" text="Warn" colorVariant={ButtonColorVariant.Orange} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Pink</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="videocam" text="Pink" colorVariant={ButtonColorVariant.Pink} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Purple</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="videocam" text="Purple" colorVariant={ButtonColorVariant.Purple} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Monochrome Dark</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="lightning" text="Dark" colorVariant={ButtonColorVariant.MonochromeDark} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={24} align="center">
+        <StackItem size={80}>
+          <Text typo={Typography.Size13}>Monochrome Light</Text>
+        </StackItem>
+        <StackItem>
+          <Button leftContent="lightning" text="Light alpha" colorVariant={ButtonColorVariant.MonochromeLight} />
+        </StackItem>
+      </HStack>
+    </StackItem>
+  </VStack>
+)
+
+export const VariantsStyle: Story<{}> = () => (
+  <VStack spacing={16} align="start">
+    { entries(ButtonStyleVariant)
+      .map(([key, styleVariant]) => (
+        <StackItem key={styleVariant}>
+          <HStack spacing={24} align="center">
+            <StackItem size={80}>
+              <Text typo={Typography.Size13}>{ key }</Text>
+            </StackItem>
+            <StackItem>
+              <Button
+                leftContent="plus"
+                rightContent="chevron-right"
+                text="Invite"
+                colorVariant={ButtonColorVariant.Blue}
+                styleVariant={styleVariant}
+              />
+            </StackItem>
+          </HStack>
+        </StackItem>
+      )) }
+  </VStack>
+)
+
+export const VariantsSize: Story<{}> = () => (
+  <VStack spacing={16} align="start">
+    { entries(ButtonSize)
+      .map(([key, size]) => (
+        <StackItem key={key}>
+          <HStack spacing={24} align="center">
+            <StackItem size={80}>
+              <Text typo={Typography.Size13}>{ key }</Text>
+            </StackItem>
+            <StackItem>
+              <Button
+                leftContent="calendar"
+                rightContent="triangle-down"
+                text="Join"
+                size={size}
+                colorVariant={ButtonColorVariant.Blue}
+              />
+            </StackItem>
+          </HStack>
+        </StackItem>
+      )) }
+  </VStack>
+)

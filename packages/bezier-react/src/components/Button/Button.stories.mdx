@@ -44,6 +44,22 @@ import {
   styled,
   Typography,
 } from 'Foundation'
+import {
+  OverviewCTA,
+  OverviewFloating,
+  UsageAsync,
+  UsageComposite,
+  UsageCTA,
+  UsageCTA2,
+  UsageDropdown,
+  UsageVariousContentsComposite,
+  UsageVariousContentsCustom,
+  UsageVariousContentsIconOnly,
+  UsageWebLinks,
+  VariantsColor,
+  VariantsSize,
+  VariantsStyle,
+} from './Button.stories'
 
 <Meta
   title={getTitle(base)}
@@ -61,49 +77,11 @@ import {
 버튼은 크게 4가지 사이즈로 나뉩니다. 그 중 M이 가장 보편적이며, 공간 절약을 위해 S가 쓰입니다. List나 Input 등 액션이 필요할 때는 XS도 사용할 수 있습니다. 가입, 초대 UX 등 굉장히 강조해야 할 버튼의 경우, L, XL 사이즈를 사용할 수 있습니다.
 
 <Canvas>
-  <Story name="Button:Overview.CTA">
-    <HStack justify="center" spacing={6}>
-      <StackItem>
-        <Button
-          disabled
-          text="Cancel"
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="open-in-new"
-          text="Open link"
-          colorVariant={ButtonColorVariant.Blue}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="check"
-          text="Publish"
-          colorVariant={ButtonColorVariant.Green}
-          styleVariant={ButtonStyleVariant.Primary}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={OverviewCTA} />
 </Canvas>
 
 <Canvas>
-  <Story name="Button:Overview.Floating">
-    <HStack justify="center">
-      <StackItem>
-        <Button
-          leftContent="chevron-down"
-          text="New messages"
-          colorVariant={ButtonColorVariant.Cobalt}
-          styleVariant={ButtonStyleVariant.Floating}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={OverviewFloating} />
 </Canvas>
 
 ## Usage
@@ -114,63 +92,12 @@ import {
 - 버튼 사이의 간격은 0 또는 6으로 합니다.
 
 <Canvas>
-  <Story name="Button:Usage.CTA">
-    <HStack justify="center" spacing={6}>
-      <StackItem>
-        <Button
-          text="취소"
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="play"
-          text="퍼블리시"
-          colorVariant={ButtonColorVariant.Green}
-          styleVariant={ButtonStyleVariant.Primary}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageCTA} />
 </Canvas>
 
 
 <Canvas>
-  <Story name="Button:Usage.CTA2">
-    <HStack justify="center" spacing={6}>
-      <StackItem>
-        <Button
-          text="임시 저장 삭제"
-          disabled
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          text="임시 저장"
-          colorVariant={ButtonColorVariant.Blue}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="play"
-          text="퍼블리시"
-          colorVariant={ButtonColorVariant.Green}
-          styleVariant={ButtonStyleVariant.Primary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="cancel"
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Tertiary}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageCTA2} />
 </Canvas>
 
 ### Recipe: Web links
@@ -178,193 +105,33 @@ import {
 - 보통의 경우, tertiary button을 적절한 icon과 함께 사용합니다.
 
 <Canvas>
-  <Story name="Button:Usage.WebLinks">
-    <HStack justify="center" spacing={6}>
-      <StackItem>
-        <Button
-          leftContent="open-in-new"
-          text="See guide"
-          rightContent="arrow-right"
-          styleVariant={ButtonStyleVariant.Tertiary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          text="See guide"
-          rightContent="arrow-right"
-          styleVariant={ButtonStyleVariant.Tertiary}
-        />
-      </StackItem>
-      <StackItem>
-        <Button
-          leftContent="open-in-new"
-          text="See guide"
-          styleVariant={ButtonStyleVariant.Tertiary}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageWebLinks} />
 </Canvas>
 
 ### Recipe: Composite Usage
 
 - XS 크기의 버튼은 ListItem, SectionLabel 등 다른 컴포넌트에 함께 사용될 수 있습니다. 컴포넌트 좌우측에서 액션으로 사용됩니다.
 
-export const Card = styled.div`
-  width: 360px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev3()}
-  ${({ foundation }) => foundation?.rounding.round12}
-`
-
-<Story name="Button:Usage.Composite">
-  <HStack justify="center">
-    <StackItem>
-      <Card>
-        <VStack align="stretch">
-          <StackItem>
-            <SectionLabel
-              leftContent={{ icon: 'people' }}
-              content="태그 ∙ 2"
-              rightContent={(
-                <Button
-                  size={ButtonSize.XS}
-                  leftContent="chevron-down"
-                  styleVariant={ButtonStyleVariant.Tertiary}
-                  colorVariant={ButtonColorVariant.MonochromeLight}
-                />
-              )}
-            />
-          </StackItem>
-          <StackItem>
-            <ListItem
-              leftIcon="tag"
-              content="KR/Product"
-              rightContent={(
-                <HStack>
-                  <StackItem>
-                    <Button
-                      size={ButtonSize.XS}
-                      leftContent="edit"
-                      styleVariant={ButtonStyleVariant.Tertiary}
-                      colorVariant={ButtonColorVariant.MonochromeLight}
-                    />
-                  </StackItem>
-                  <StackItem>
-                    <Button
-                      size={ButtonSize.XS}
-                      leftContent="cancel"
-                      styleVariant={ButtonStyleVariant.Tertiary}
-                      colorVariant={ButtonColorVariant.MonochromeLight}
-                    />
-                  </StackItem>
-                </HStack>
-              )}
-            />
-          </StackItem>
-          <StackItem>
-            <ListItem
-              leftIcon="tag"
-              content="KR/Design"
-              rightContent={(
-                <HStack>
-                  <StackItem>
-                    <Button
-                      size={ButtonSize.XS}
-                      leftContent="edit"
-                      styleVariant={ButtonStyleVariant.Tertiary}
-                      colorVariant={ButtonColorVariant.MonochromeLight}
-                    />
-                  </StackItem>
-                  <StackItem>
-                    <Button
-                      size={ButtonSize.XS}
-                      leftContent="cancel"
-                      styleVariant={ButtonStyleVariant.Tertiary}
-                      colorVariant={ButtonColorVariant.MonochromeLight}
-                    />
-                  </StackItem>
-                </HStack>
-              )}
-            />
-          </StackItem>
-        </VStack>
-      </Card>
-    </StackItem>
-  </HStack>
-</Story>
+<Story story={UsageComposite} />
 
 ### Recipe: Button with various contents
 
 - 기본적으로 `leftContent`, `rightContent` prop에 icon name에 해당하는 string을 지정하여 좌우측에 아이콘이 들어가는 형태를 표현합니다.
 
 <Canvas>
-  <Story name="Butotn:Usage.VariousContents.Composite">
-    <HStack justify="center">
-      <StackItem>
-        <Button
-          leftContent="play"
-          text="퍼블리시"
-          rightContent="arrow-right"
-          colorVariant={ButtonColorVariant.Green}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageVariousContentsComposite} />
 </Canvas>
 
 - 아이콘만 들어가는 버튼의 경우, `leftContent` prop만 사용합니다.
 
 <Canvas>
-  <Story name="Butotn:Usage.VariousContents.IconOnly">
-    <HStack justify="center">
-      <StackItem>
-        <Button
-          leftContent="plus"
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageVariousContentsIconOnly} />
 </Canvas>
 
 - 아이콘 이외에 커스텀 컴포넌트가 들어가야 하는 상황에는, `leftContent`, `rightContent` prop에 `JSX.Element` 값을 지정할 수 있습니다.
 
-export const AlertBadge = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background-color: var(--bgtxt-red-dark);
-  border-radius: 50%;
-`
-
 <Canvas>
-  <Story name="Butotn:Usage.VariousContents.Custom">
-    <HStack justify="center">
-      <StackItem>
-        <Button
-          leftContent={(
-            <Avatar
-              name="channel"
-              avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
-              status={StatusType.Online}
-            />
-          )}
-          text="New messages"
-          rightContent={(
-            <AlertBadge>
-              <Text typo={Typography.Size13} color="txt-white-normal">1</Text>
-            </AlertBadge>
-          )}
-          colorVariant={ButtonColorVariant.Red}
-          styleVariant={ButtonStyleVariant.Floating}
-        />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageVariousContentsCustom} />
 </Canvas>
 
 ### Recipe: Button with asynchronous actions
@@ -394,37 +161,8 @@ const AsyncActionButton = () => {
 }
 ```
 
-export const AsyncActionButton = () => {
-  const [isFetching, setFetching] = useState(false)
-  const handleClick = () => {
-    setFetching(true)
-    setTimeout(() => {
-      setFetching(false)
-    }, 1000)
-  }
-  return (
-    <Button
-      leftContent="play"
-      text="Click Me!"
-      colorVariant={ButtonColorVariant.Cobalt}
-      styleVariant={ButtonStyleVariant.Primary}
-      loading={isFetching}
-      disabled={isFetching}
-      onClick={handleClick}
-    />
-  )
-}
-
 <Canvas>
-  <Story
-    name="Button:Usage.Async"
-  >
-    <HStack justify="center">
-      <StackItem>
-        <AsyncActionButton />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageAsync} />
 </Canvas>
 
 ### Recipe: Button with dropdown
@@ -453,52 +191,8 @@ const OpenDropdownButton = () => {
 }
 ```
 
-export const Dropdown = styled.div`
-  width: 200px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev2()}
-  ${({ foundation }) => foundation?.rounding.round8}
-`
-
-export const OpenDropdownButton = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [target, setTarget] = useState(null)
-  const [container, setContainer] = useState(null)
-  return (
-    <div style={{ position: 'relative' }} ref={setContainer}>
-      <Button
-        ref={setTarget}
-        text="Select"
-        rightContent="triangle-down"
-        active={isOpen}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
-        onClick={() => setIsOpen(true)}
-      />
-      <Overlay
-        show={isOpen}
-        onHide={() => setIsOpen(false)}
-        target={target}
-        container={container}
-        position={OverlayPosition.BottomLeft}
-        marginY={6}
-      >
-        <Dropdown>
-          <Text typo={Typography.Size13} marginLeft={6}>Dropdown content</Text>
-        </Dropdown>
-      </Overlay>
-    </div>
-  )
-}
-
 <Canvas>
-  <Story name="Button:Usage.Dropdown">
-    <HStack justify="center">
-      <StackItem>
-        <OpenDropdownButton />
-      </StackItem>
-    </HStack>
-  </Story>
+  <Story story={UsageDropdown} />
 </Canvas>
 
 ## Variants
@@ -507,208 +201,19 @@ export const OpenDropdownButton = () => {
 
 - `ButtonColorVariant` enum을 통해 정의되며, `colorVariant` prop으로 지정할 수 있습니다.
 
-<Story name="Button:Variants.Color">
-  <VStack spacing={16} align="start">
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Blue</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="plus" text="Invite" colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Red</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="trash" text="Remove" colorVariant={ButtonColorVariant.Red} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Green</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="play" text="Publish" colorVariant={ButtonColorVariant.Green} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Cobalt</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="videocam" text="Join" colorVariant={ButtonColorVariant.Cobalt} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Orange</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="heart-filled" text="Warn" colorVariant={ButtonColorVariant.Orange} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Pink</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="videocam" text="Pink" colorVariant={ButtonColorVariant.Pink} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Purple</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="videocam" text="Purple" colorVariant={ButtonColorVariant.Purple} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Monochrome Dark</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="lightning" text="Dark" colorVariant={ButtonColorVariant.MonochromeDark} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Monochrome Light</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="lightning" text="Light alpha" colorVariant={ButtonColorVariant.MonochromeLight} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-</Story>
+<Story story={VariantsColor} />
 
 ### Style Variants
 
 - `ButtonStyleVariant` enum을 통해 정의되며, `styleVariant` prop으로 지정할 수 있습니다.
 
-<Story name="Button:Variants.Style">
-  <VStack spacing={16} align="start">
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Primary</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="plus" rightContent="chevron-right" text="Invite" colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Secondary</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="plus" rightContent="chevron-right" text="Invite" styleVariant={ButtonStyleVariant.Secondary} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Tertiary</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="plus" rightContent="chevron-right" text="Invite" styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>Floating</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="plus" rightContent="chevron-right" text="Invite" styleVariant={ButtonStyleVariant.Floating} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-</Story>
+<Story story={VariantsStyle} />
 
 ### Size
 
 - `ButtonSize` enum을 통해 정의되며, `size` prop으로 지정할 수 있습니다.
 
-<Story name="Button:Variants.Size">
-  <VStack spacing={16} align="start">
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>XS (20px)</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="calendar" rightContent="triangle-down" text="Join" size={ButtonSize.XS} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>S (24px)</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="calendar" rightContent="triangle-down" text="Join" size={ButtonSize.S} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>M (36px)</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="calendar" rightContent="triangle-down" text="Join" size={ButtonSize.M} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>L (44px)</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="calendar" rightContent="triangle-down" text="Join" size={ButtonSize.L} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={24} align="center">
-        <StackItem size={80}>
-          <Text typo={Typography.Size13}>XL (54px)</Text>
-        </StackItem>
-        <StackItem>
-          <Button leftContent="calendar" rightContent="triangle-down" text="Join" size={ButtonSize.XL} colorVariant={ButtonColorVariant.Blue} />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-</Story>
+<Story story={VariantsSize} />
 
 ## API
 
