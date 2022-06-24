@@ -127,6 +127,32 @@ export const UsageMinWidth: Story<{}> = () => (
   </VStack>
 )
 
+export const UsageFullWidth: Story<{}> = () => (
+  <VStack spacing={6} align="start">
+    <StackItem style={{ width: 360, border: '1px solid red' }}>
+      <Banner
+        variant={BannerVariant.Orange}
+        icon="error-triangle-filled"
+        content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
+      />
+    </StackItem>
+    <StackItem style={{ width: 480, border: '1px solid red' }}>
+      <Banner
+        variant={BannerVariant.Orange}
+        icon="error-triangle-filled"
+        content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
+      />
+    </StackItem>
+    <StackItem style={{ width: 720, border: '1px solid red' }}>
+      <Banner
+        variant={BannerVariant.Orange}
+        icon="error-triangle-filled"
+        content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
+      />
+    </StackItem>
+  </VStack>
+)
+
 export const UsageMaxWidth: Story<{}> = () => (
   <VStack spacing={6} align="start">
     <StackItem>

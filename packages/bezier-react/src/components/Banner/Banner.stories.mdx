@@ -18,6 +18,7 @@ import {
 import {
   Overview,
   UsageConsecutive,
+  UsageFullWidth,
   UsageLink,
   UsageLinkTo,
   UsageMinWidth,
@@ -48,6 +49,12 @@ import {
 
 <Canvas>
   <Story story={UsageMinWidth} />
+</Canvas>
+
+- Parent의 너비를 가득 채웁니다.
+
+<Canvas>
+  <Story story={UsageFullWidth} />
 </Canvas>
 
 - 최대 너비는 없으나, Banner의 텍스트 영역은 좌측 상단에 위치합니다.
