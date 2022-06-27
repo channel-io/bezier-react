@@ -26,8 +26,6 @@ export const TitleText = styled(Text).attrs(() => ({
 }))`
   box-sizing: border-box;
   width: 100%;
-
-  ${ellipsis()}
 `
 
 export const SubTitleText = styled(Text).attrs(() => ({
