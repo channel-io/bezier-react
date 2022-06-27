@@ -184,9 +184,6 @@ describe('Modal', () => {
               expect(target).toHaveStyle('box-sizing: border-box;')
               expect(target).toHaveStyle('display: block;')
               expect(target).toHaveStyle('width: 100%;')
-              expect(target).toHaveStyle('overflow: hidden;')
-              expect(target).toHaveStyle('text-overflow: ellipsis;')
-              expect(target).toHaveStyle('white-space: nowrap;')
             })
           })
 
