@@ -33,7 +33,8 @@
     "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
     "prepublishOnly": "npm run build",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "postpublish": "npm run deploy:storybook",
+    "deploy:storybook": "storybook-to-ghpages",
     "semantic-release": "semantic-release",
     "update-snapshot": "jest --updateSnapshot"
   },
