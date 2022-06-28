@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"],
+    "jsx": "react",
+    "strict": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "../../node_modules/@types",
+      "../../node_modules/@figma"
+    ]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
