@@ -1,5 +1,5 @@
 {
-  "name": "bezier-for-figma",
+  "name": "bezier-figma-plugin",
   "version": "1.0.0",
   "description": "Figma Plugin for Bezier Design System.",
   "scripts": {
