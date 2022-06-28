@@ -12,8 +12,8 @@ import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import SwitchProps from './Switch.types'
 import * as Styled from './Switch.styled'
 
-const SWITCH_TEST_ID = 'bezier-react-switch'
-const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
+export const SWITCH_TEST_ID = 'bezier-react-switch'
+export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
 function Switch(
   {
