@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -11,6 +12,13 @@ describe('Switch', () => {
   const renderComponent = (props?: Partial<SwitchProps>) => render(
     <Switch {...props} />,
   )
+
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+  afterEach(() => {
+    jest.useRealTimers()
+  })
 
   describe('no props specified', () => {
     it('should render default Switch', () => {
@@ -95,6 +103,31 @@ describe('Switch', () => {
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
       expect(switchComponent).toHaveStyle('opacity: .2')
+    })
+  })
+
+  describe('fire events', () => {
+    it('should fire onClick event when Switch is clicked', () => {
+      const onClick = jest.fn()
+      const { getByTestId } = renderComponent({
+        onClick,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      fireEvent.click(switchComponent)
+      expect(onClick).toHaveBeenCalled()
+    })
+
+    it('should not fire onClick event when disabled Switch is clicked', () => {
+      const onClick = jest.fn()
+      const { getByTestId } = renderComponent({
+        onClick,
+        disabled: true,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      fireEvent.click(switchComponent)
+      expect(onClick).not.toHaveBeenCalled()
     })
   })
 })
