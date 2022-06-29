@@ -13,6 +13,7 @@ import {
   FormHelperText,
   FormErrorMessage,
   TextField,
+  TextFieldType,
   Button,
   ButtonColorVariant,
   ButtonStyleVariant,
@@ -261,6 +262,7 @@ function IconExtract() {
                   Figma personal access token
                 </FormLabel>
                 <TextField
+                  type={TextFieldType.Password}
                   name="figmaToken"
                   placeholder="figd_..."
                   value={figmaToken}
@@ -274,6 +276,7 @@ function IconExtract() {
                   Github personal access token
                 </FormLabel>
                 <TextField
+                  type={TextFieldType.Password}
                   name="githubToken"
                   placeholder="ghp_..."
                   value={githubToken}
