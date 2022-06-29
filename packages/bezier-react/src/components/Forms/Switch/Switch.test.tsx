@@ -13,13 +13,6 @@ describe('Switch', () => {
     <Switch {...props} />,
   )
 
-  beforeEach(() => {
-    jest.useFakeTimers()
-  })
-  afterEach(() => {
-    jest.useRealTimers()
-  })
-
   describe('no props specified', () => {
     it('should render default Switch', () => {
       const { getByTestId } = renderComponent()
