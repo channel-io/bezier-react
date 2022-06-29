@@ -1,8 +1,8 @@
 /* External dependencies */
-import { MouseEvent } from 'react'
+import type { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, SizeProps, DisableProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, SizeProps, DisableProps, AdditionalTestIdProps } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
 
 interface SwitchOptions {
@@ -14,6 +14,7 @@ export default interface SwitchProps extends
   BezierComponentProps,
   SizeProps<number>,
   FormComponentProps,
+  AdditionalTestIdProps<'handle'>,
   SwitchOptions {}
 
 type StyledSwitchProps = Required<SizeProps<number> & Omit<SwitchOptions, 'onClick'>>
