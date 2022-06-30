@@ -8,9 +8,9 @@ interface UseGithubAPIProps {
   repo: string
 }
 
-type CreateBlobParmeters = RestEndpointMethodTypes['git']['createBlob']['parameters']
-type GetGitTreeParmeters = RestEndpointMethodTypes['git']['getTree']['parameters']
-type CreateGitTreeParmeters = RestEndpointMethodTypes['git']['createTree']['parameters']
+type CreateBlobParameters = RestEndpointMethodTypes['git']['createBlob']['parameters']
+type GetGitTreeParameters = RestEndpointMethodTypes['git']['getTree']['parameters']
+type CreateGitTreeParameters = RestEndpointMethodTypes['git']['createTree']['parameters']
 type CreateGitCommitParameters = RestEndpointMethodTypes['git']['createCommit']['parameters']
 type CreateGitRefParameters = RestEndpointMethodTypes['git']['createRef']['parameters']
 type CreatePullRequestParameters = RestEndpointMethodTypes['pulls']['create']['parameters']
@@ -46,7 +46,7 @@ function useGithubAPI({
     repo,
   ])
 
-  const getGitTree = useCallback(async (treeSha: GetGitTreeParmeters['tree_sha']) => {
+  const getGitTree = useCallback(async (treeSha: GetGitTreeParameters['tree_sha']) => {
     const { data } = await octokit.current.rest.git.getTree({
       owner,
       repo,
@@ -58,7 +58,7 @@ function useGithubAPI({
     repo,
   ])
 
-  const createGitBlob = useCallback(async (content: CreateBlobParmeters['content']) => {
+  const createGitBlob = useCallback(async (content: CreateBlobParameters['content']) => {
     const { data } = await octokit.current.rest.git.createBlob({
       owner,
       repo,
@@ -107,7 +107,7 @@ function useGithubAPI({
   const createGitTree = useCallback(async ({
     baseTreeSha,
     tree,
-  }: { baseTreeSha?: CreateGitTreeParmeters['base_tree'] } & Pick<CreateGitTreeParmeters, 'tree'>) => {
+  }: { baseTreeSha?: CreateGitTreeParameters['base_tree'] } & Pick<CreateGitTreeParameters, 'tree'>) => {
     const { data } = await octokit.current.rest.git.createTree({
       owner,
       repo,
