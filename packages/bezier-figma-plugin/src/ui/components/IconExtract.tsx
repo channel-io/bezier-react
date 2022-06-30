@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-restricted-imports */
 /* External dependencies */
 import React, {
   useState,
@@ -30,7 +28,7 @@ import useFigmaAPI from '../hooks/useFigmaAPI'
 import useGithubAPI from '../hooks/useGithubAPI'
 import { createSvgGitBlob } from '../utils'
 import config from '../../config'
-import { type PluginMessage } from '../../types/Message'
+import type { PluginMessage } from '../../types/Message'
 
 enum Step {
   Pending,

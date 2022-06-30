@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import { ExtractIconPluginMessage, GetTokenPluginMessage, UIMessage } from '../types/Message'
 import { flatten, findAllComponentNode } from './utils'
 
