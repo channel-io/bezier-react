@@ -62,7 +62,7 @@ it('should equal the snapshot', () => {
 **스냅샷을 추가하면**, 해당 directory 내에 `__snapshot__` directory가 생성되고 그 안에 snapshot들이 보관됩니다. **해당 파일 또한 stage하여 VCS에서 관리하도록 해야 합니다.**
 
 스펙 변경에 의해 구현이 변경될 경우, 기존의 스냅샷과 일치하지 않기 때문에 테스트가 실패합니다. 따라서, **스냅샷을 변경해야 합니다.**
-`npm update-snapshot` 스크립트를 통해 모든 컴포넌트의 스냅샷을 업데이트할 수 있습니다. 해당 스크립트를 실행한 후, 변경사항을 함께 커밋합니다.
+`yarn update-snapshot` 스크립트를 통해 모든 컴포넌트의 스냅샷을 업데이트할 수 있습니다. 해당 스크립트를 실행한 후, 변경사항을 함께 커밋합니다.
 
 See also: https://jestjs.io/docs/snapshot-testing
 
