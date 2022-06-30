@@ -1,3 +1,4 @@
+/* External dependencies */
 import { useRef, useCallback } from 'react'
 import { Octokit } from 'octokit'
 import { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods'

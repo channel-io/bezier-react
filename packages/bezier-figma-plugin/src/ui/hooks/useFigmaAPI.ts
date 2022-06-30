@@ -1,3 +1,4 @@
+/* External dependencies */
 import { useCallback, useRef } from 'react'
 
 const BASE_URL = 'https://api.figma.com/v1'

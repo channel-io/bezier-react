@@ -1,3 +1,4 @@
+/* Internal dependencies */
 import { ExtractIconPluginMessage, GetTokenPluginMessage, UIMessage } from '../types/Message'
 import { flatten, findAllComponentNode } from './utils'
 
