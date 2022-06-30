@@ -1,6 +1,7 @@
 {
   "name": "bezier-figma-plugin",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "description": "Figma Plugin for Bezier Design System.",
   "scripts": {
     "build": "webpack --mode=production",
