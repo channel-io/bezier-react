@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, LegacyIcon, CancelIcon, IconSize } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { getToastPreset } from './utils'
 import ToastProps, { ToastPreset } from './Toast.types'
@@ -64,7 +64,7 @@ const ToastElement = (
       <IconWrapper
         appearance={appearance ?? presetAppearance}
       >
-        <Icon
+        <LegacyIcon
           name={iconName ?? presetIconName}
           size={IconSize.S}
         />
@@ -94,7 +94,7 @@ const ToastElement = (
       </Content>
       <Close onClick={onDismiss}>
         <Icon
-          name="cancel"
+          source={CancelIcon}
           size={IconSize.XS}
         />
       </Close>

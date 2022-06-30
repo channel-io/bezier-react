@@ -4,7 +4,7 @@ import { isNil } from 'lodash-es'
 /* Internal dependencies */
 import { css, styled } from 'Foundation'
 import { AdditionalColorProps } from 'Types/ComponentProps'
-import { Icon } from 'Components/Icon'
+import { LegacyIcon } from 'Components/Icon'
 import { Tooltip } from 'Components/Tooltip'
 
 export const ItemActionWrapper = styled.div`
@@ -15,7 +15,7 @@ interface ActionWrapperProps extends AdditionalColorProps<['hoverBackground', 'h
   show: boolean
 }
 
-export const ActionIcon = styled(Icon)``
+export const ActionIcon = styled(LegacyIcon)``
 
 export const ActionIconWrapper = styled.div<ActionWrapperProps>`
   display: ${({ show }) => (show ? 'flex' : 'none')};

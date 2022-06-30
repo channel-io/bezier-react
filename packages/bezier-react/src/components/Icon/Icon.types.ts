@@ -17,6 +17,7 @@ export enum IconSize {
 type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
 
 interface IconOptions {
+  source: React.ElementType<React.SVGProps<SVGSVGElement>>
   marginTop?: number
   marginRight?: number
   marginBottom?: number
@@ -25,11 +26,9 @@ interface IconOptions {
   onMouseDown?: MouseEventHandler
 }
 
-export interface BaseIconProps extends
-  BezierComponentProps,
+export default interface IconProps extends
+  Omit<BezierComponentProps, 'as'>,
   SizeProps<IconSize>,
   ColorProps,
   IconOptions {}
 
-export default interface IconProps extends
-  Omit<BaseIconProps, 'as'> {}

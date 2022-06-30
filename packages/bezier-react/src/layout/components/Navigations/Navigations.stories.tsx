@@ -7,7 +7,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import { Icon } from 'Components/Icon'
+import { Icon, SearchIcon, TriangleUpdownIcon } from 'Components/Icon'
 import { ListItem } from 'Components/ListItem'
 import { Client } from 'Layout/components/Client'
 import { Header } from 'Layout/components/Header'
@@ -40,8 +40,8 @@ interface TemplateProps {
 const Template = ({ onChangeWidth }: TemplateProps) => {
   const DummyActions = useMemo(() => (
     <>
-      <StyledIcon name="search" marginRight={10} />
-      <StyledIcon name="triangle-updown" />
+      <StyledIcon source={SearchIcon} marginRight={10} />
+      <StyledIcon source={TriangleUpdownIcon} />
     </>
   ), [])
 

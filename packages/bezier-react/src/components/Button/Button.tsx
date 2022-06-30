@@ -4,7 +4,7 @@ import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 import * as Styled from './Button.styled'
@@ -194,7 +194,7 @@ function Button(
   const renderSideContent = useCallback((content?: SideContent) => {
     if (isIconName(content)) {
       return (
-        <Icon
+        <LegacyIcon
           name={content}
           size={iconSize}
           color={overridedIconAndSpinnerColor}

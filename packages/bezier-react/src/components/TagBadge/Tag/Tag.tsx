@@ -15,6 +15,7 @@ import {
   getProperTagBadgeTypo,
   getProperTagBadgeRounding,
 } from 'Components/TagBadge/TagBadgeCommon'
+import { CancelSmallIcon } from 'Components/Icon'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 
@@ -44,7 +45,7 @@ function Tag({
 
   const CloseIconComponent = useMemo(() => !isNil(onDelete) && (
     <Styled.CloseIcon
-      name="cancel-small"
+      source={CancelSmallIcon}
       size={TAG_BADGE_ICON_SIZE}
       color="txt-black-darker"
       onClick={onDelete}

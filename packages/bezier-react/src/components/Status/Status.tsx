@@ -3,9 +3,9 @@ import React, { memo } from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
-import { IconSize } from 'Components/Icon'
+import { IconSize, LockIcon, MoonFilledIcon } from 'Components/Icon'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
-import { LockIcon, MoonFilledIcon, StatusCircle } from './Status.styled'
+import { Icon, StatusCircle } from './Status.styled'
 
 // TODO: 테스트 코드 작성
 const STATUS_TEST_ID = 'bezier-react-status'
@@ -38,12 +38,14 @@ function Status({
         size={size}
       >
         { (type === StatusType.Lock) ? (
-          <LockIcon
+          <Icon
+            source={LockIcon}
             size={iconSize}
             color={statusColor[type]}
           />
         ) : (
-          <MoonFilledIcon
+          <Icon
+            source={MoonFilledIcon}
             size={iconSize}
             color={statusColor[type]}
           />

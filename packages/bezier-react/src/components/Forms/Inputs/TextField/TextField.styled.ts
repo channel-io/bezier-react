@@ -5,7 +5,7 @@ import { FlattenSimpleInterpolation } from 'styled-components'
 import { css, styled, Typography, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { InterpolationProps } from 'Types/Foundation'
-import { Icon } from 'Components/Icon'
+import { LegacyIcon } from 'Components/Icon'
 import {
   inputTextStyle,
   inputPlaceholderStyle,
@@ -41,7 +41,7 @@ const Input = styled.input<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-const LeftIcon = styled(Icon)<ClickableElementProps>`
+const LeftIcon = styled(LegacyIcon)<ClickableElementProps>`
   ${({ clickable }) => clickable && clickableElementStyle}
 `
 

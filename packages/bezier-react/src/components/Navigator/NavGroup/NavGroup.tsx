@@ -4,7 +4,7 @@ import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { Icon, IconSize, isIconName } from 'Components/Icon'
+import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from 'Components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
   Item,
@@ -42,7 +42,7 @@ function NavGroup({
   ])
 
   const hasChildren = !isNil(children)
-  const chevronIconName = open ? 'chevron-small-down' : 'chevron-small-right'
+  const chevronIconSource = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
   const showLeftIcon = isIconName(leftIcon)
   const ariaName = `${name}Menu`
 
@@ -63,7 +63,7 @@ function NavGroup({
       >
         <LeftIconWrapper>
           { showLeftIcon && (
-            <Icon
+            <LegacyIcon
               testId={NAV_GROUP_LEFT_ICON_TEST_ID}
               name={leftIcon}
               size={IconSize.S}
@@ -79,7 +79,7 @@ function NavGroup({
         { hasChildren && (
           <ChevronWrapper>
             <Icon
-              name={chevronIconName}
+              source={chevronIconSource}
               size={IconSize.S}
               color="txt-black-dark"
             />

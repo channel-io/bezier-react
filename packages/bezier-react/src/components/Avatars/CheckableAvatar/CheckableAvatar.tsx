@@ -31,7 +31,6 @@ function CheckableAvatar({
       interpolation={checkableWrapperInterpolation}
     >
       <CheckIcon
-        name="check"
         avatarSize={size}
         color="bgtxt-absolute-white-normal"
       />

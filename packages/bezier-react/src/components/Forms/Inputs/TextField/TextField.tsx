@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
 import {
@@ -279,7 +279,7 @@ forwardedRef: Ref<TextFieldRef>,
         clickable={!isNil(item.onClick)}
         onClick={item.onClick}
       >
-        <Icon
+        <LegacyIcon
           name={item.icon}
           size={IconSize.XS}
           color={item.iconColor ?? 'txt-black-dark'}
@@ -325,7 +325,7 @@ forwardedRef: Ref<TextFieldRef>,
       {
         getSize(normalizedValue) > 0 && (focused || hovered) && (
           <Icon
-            name="cancel-circle-filled"
+            source={CancelCircleFilledIcon}
             size={IconSize.XS}
           />
         )

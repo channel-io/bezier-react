@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { Icon, IconSize } from 'Components/Icon'
+import { Icon, IconSize, DotIcon } from 'Components/Icon'
 import { NavItem } from 'Components/Navigator/NavItem'
 import NavGroup from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
@@ -47,5 +47,5 @@ Primary.args = {
   name: 'general',
   content: '일반 설정',
   leftIcon: 'settings',
-  rightContent: <Icon name="dot" size={IconSize.XS} color="bgtxt-orange-normal" />,
+  rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
 }
