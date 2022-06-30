@@ -1,5 +1,5 @@
 /* External dependencies */
-import { useCallback, useRef } from 'react'
+import { useCallback, useMemo } from 'react'
 
 const BASE_URL = 'https://api.figma.com/v1'
 
@@ -10,7 +10,7 @@ interface UseFigmaAPIProps {
 function useFigmaAPI({
   token,
 }: UseFigmaAPIProps) {
-  const requestHeader = useRef<RequestInit['headers']>({ 'X-Figma-Token': token })
+  const headers = useMemo((): RequestInit['headers'] => ({ 'X-Figma-Token': token }), [token])
 
   const getSvg = useCallback(async (params: {
     fileKey: string
@@ -18,11 +18,11 @@ function useFigmaAPI({
   }) => {
     const { fileKey, ids } = params
     const response = await fetch(`${BASE_URL}/images/${fileKey}?ids=${ids}&format=svg`, {
-      headers: requestHeader.current,
+      headers,
     })
     // TODO: 타입 정의
     return response.json()
-  }, [])
+  }, [headers])
 
   return {
     getSvg,

@@ -1,5 +1,5 @@
 /* External dependencies */
-import { useRef, useCallback } from 'react'
+import { useMemo, useCallback } from 'react'
 import { Octokit } from 'octokit'
 import { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods'
 
@@ -21,46 +21,49 @@ function useGithubAPI({
   owner,
   repo,
 }: UseGithubAPIProps) {
-  const octokit = useRef(new Octokit({ auth }))
+  const octokit = useMemo(() => new Octokit({ auth }), [auth])
 
   const getGitCommit = useCallback(async (sha: string) => {
-    const { data } = await octokit.current.rest.git.getCommit({
+    const { data } = await octokit.rest.git.getCommit({
       owner,
       repo,
       commit_sha: sha,
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
 
   const getGitRef = useCallback(async (branchName: string) => {
-    const { data } = await octokit.current.rest.git.getRef({
+    const { data } = await octokit.rest.git.getRef({
       owner,
       repo,
       ref: `heads/${branchName}`,
     })
     return data.object
   }, [
+    octokit,
     owner,
     repo,
   ])
 
   const getGitTree = useCallback(async (treeSha: GetGitTreeParameters['tree_sha']) => {
-    const { data } = await octokit.current.rest.git.getTree({
+    const { data } = await octokit.rest.git.getTree({
       owner,
       repo,
       tree_sha: treeSha,
     })
     return data.tree
   }, [
+    octokit,
     owner,
     repo,
   ])
 
   const createGitBlob = useCallback(async (content: CreateBlobParameters['content']) => {
-    const { data } = await octokit.current.rest.git.createBlob({
+    const { data } = await octokit.rest.git.createBlob({
       owner,
       repo,
       content,
@@ -68,6 +71,7 @@ function useGithubAPI({
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
@@ -78,13 +82,14 @@ function useGithubAPI({
     parents: CreateGitCommitParameters['parents']
     tree: CreateGitCommitParameters['tree']
   }) => {
-    const { data } = await octokit.current.rest.git.createCommit({
+    const { data } = await octokit.rest.git.createCommit({
       owner,
       repo,
       ...params,
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
@@ -93,7 +98,7 @@ function useGithubAPI({
     branchName,
     sha,
   }: { branchName: CreateGitRefParameters['ref'] } & Pick<CreateGitRefParameters, 'sha'>) => {
-    const { data } = await octokit.current.rest.git.createRef({
+    const { data } = await octokit.rest.git.createRef({
       owner,
       repo,
       ref: `refs/heads/${branchName}`,
@@ -101,6 +106,7 @@ function useGithubAPI({
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
@@ -109,7 +115,7 @@ function useGithubAPI({
     baseTreeSha,
     tree,
   }: { baseTreeSha?: CreateGitTreeParameters['base_tree'] } & Pick<CreateGitTreeParameters, 'tree'>) => {
-    const { data } = await octokit.current.rest.git.createTree({
+    const { data } = await octokit.rest.git.createTree({
       owner,
       repo,
       base_tree: baseTreeSha,
@@ -117,6 +123,7 @@ function useGithubAPI({
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
@@ -127,13 +134,14 @@ function useGithubAPI({
     head: CreatePullRequestParameters['head']
     base: CreatePullRequestParameters['base']
   }) => {
-    const { data } = await octokit.current.rest.pulls.create({
+    const { data } = await octokit.rest.pulls.create({
       owner,
       repo,
       ...params,
     })
     return data
   }, [
+    octokit,
     owner,
     repo,
   ])
