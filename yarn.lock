@@ -1707,25 +1707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/bezier-react@npm:*":
-  version: 0.9.3
-  resolution: "@channel.io/bezier-react@npm:0.9.3"
-  dependencies:
-    "@babel/runtime": ^7.12.13
-    "@juggle/resize-observer": ^3.3.0
-    lodash-es: ^4.17.15
-    ssr-window: ^3.0.0
-    typesafe-actions: ^5.1.0
-    uuid: ^8.3.2
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    styled-components: ">=5"
-  checksum: 7bbb2dcd399424907367ea85f1fce87bf0fd20db83ceed0fb9c2b1cd63529174cc054a5441d42a245318666000dcde359bf9b257e65fdb6bfedd285718e289cb
-  languageName: node
-  linkType: hard
-
-"@channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@1.0.0-next-v1.150, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -2518,13 +2500,6 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
   checksum: b9537b9630ffb631aef9651a085fe361881cde1772cd482c257fe3c78c8fd5388d681f504a9c9fe1081b1c05e8f75edf55ee10fdb58d92bbaa8dbf6a7bd6b18c
-  languageName: node
-  linkType: hard
-
-"@juggle/resize-observer@npm:^3.3.0":
-  version: 3.3.1
-  resolution: "@juggle/resize-observer@npm:3.3.1"
-  checksum: ddabc4044276a2cb57d469c4917206c7e39f2463aa8e3430e33e4eda554412afe29c22afa40e6708b49dad5d56768dc83acd68a704b1dcd49a0906bb96b991b2
   languageName: node
   linkType: hard
 
@@ -6944,7 +6919,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-react": "*"
+    "@channel.io/bezier-react": 1.0.0-next-v1.150
     "@figma/plugin-typings": "*"
     "@types/react": ^18.0.9
     "@types/react-dom": ^18.0.5
