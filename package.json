@@ -45,11 +45,12 @@
   },
   "engines": {
     "node": "16.2.0",
-    "npm": "7.13.0"
+    "yarn": "3.2.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "packageManager": "yarn@3.2.1"
 }
