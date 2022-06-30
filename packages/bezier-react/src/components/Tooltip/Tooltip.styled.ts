@@ -27,7 +27,8 @@ export const Content = styled.div<InterpolationProps>`
   height: max-content;
   padding: 8px 14px;
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
-  word-break: break-all;
+  word-break: normal;
+  word-wrap: break-word;
   ${({ foundation }) => foundation?.elevation?.ev2(true)};
   ${({ foundation }) => foundation?.rounding?.round8};
 
