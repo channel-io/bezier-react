@@ -14,7 +14,7 @@
       "outputs": []
     },
     "lint": {
-      "outputs": []
+      "outputs": [".eslintcache"]
     },
     "typecheck": {
       "outputs": []
