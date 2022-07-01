@@ -35,7 +35,9 @@
     "build:icon": "./scripts/build-icon.sh",
     "prepublishOnly": "yarn build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "update-snapshot": "jest --updateSnapshot"
+    "semantic-release": "semantic-release",
+    "update-snapshot": "jest --updateSnapshot",
+    "chromatic": "npx chromatic"
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
@@ -95,6 +97,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
+    "chromatic": "^6.7.0",
     "core-js": "^3.8.1",
     "cross-env": "^7.0.3",
     "identity-obj-proxy": "^3.0.0",
