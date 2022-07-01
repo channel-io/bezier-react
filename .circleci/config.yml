@@ -69,7 +69,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: yarn workspace @channel.io/bezier-react chromatic --project-token={CHROMATIC_PROJECT_TOKEN} --skip 'dependabot/**'
+      - run: yarn workspace @channel.io/bezier-react chromatic --skip 'dependabot/**'
 
   release:
     <<: *defaults

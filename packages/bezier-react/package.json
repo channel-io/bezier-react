@@ -37,7 +37,7 @@
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "semantic-release": "semantic-release",
     "update-snapshot": "jest --updateSnapshot",
-    "chromatic": "npx chromatic"
+    "chromatic": "chromatic"
   },
   "lint-staged": {
     "src/**/*.styled.{js,ts}": [
