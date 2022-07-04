@@ -1,6 +1,6 @@
 # Bezier React
 
-[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://next-v1--62bead1508281287d3c94d25.chromatic.com) ![version](https://img.shields.io/github/package-json/v/channel-io/bezier-react?filename=packages%2Fbezier-react%2Fpackage.json) [![circleci](https://circleci.com/gh/channel-io/bezier-react/tree/next-v1.svg?style=svg)](https://app.circleci.com/pipelines/github/channel-io/bezier-react) [![codecov](https://img.shields.io/codecov/c/github/channel-io/bezier-react/next-v1)](https://app.codecov.io/gh/channel-io/bezier-react)
+[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://next-v1--62bead1508281287d3c94d25.chromatic.com) ![version](https://img.shields.io/github/package-json/v/channel-io/bezier-react?filename=packages%2Fbezier-react%2Fpackage.json) [![circleci](https://circleci.com/gh/channel-io/bezier-react/tree/next-v1.svg?style=svg)](https://app.circleci.com/pipelines/github/channel-io/bezier-react) [![codecov](https://codecov.io/gh/channel-io/bezier-react/branch/next-v1/graph/badge.svg?token=bwCtdh41fD)](https://app.codecov.io/gh/channel-io/bezier-react/branch/next-v1)
 
 > Monorepo for [bezier-react](packages/bezier-react) and related packages.
 
