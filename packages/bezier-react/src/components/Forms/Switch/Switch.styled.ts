@@ -23,35 +23,33 @@ const SWITCH_HANDLE_WIDTH_HEIGHT: Record<SwitchSize, number> = {
 
 interface WrapperProps extends Required<SwitchProps> {}
 
-/* eslint-disable @typescript-eslint/indent */
 export const Wrapper = styled.div<WrapperProps>`
   position: relative;
 
   width: ${({ size }) => SWITCH_WIDTH[size]}px;
   height: ${({ size }) => SWITCH_HEIGHT[size]}px;
 
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-  background-color: ${props => (
-    props.checked
-      ? props.foundation?.theme?.['bgtxt-green-normal']
-      : props.foundation?.theme?.['bg-black-dark']
+  background-color: ${({ checked, foundation }) => (
+    checked
+      ? foundation?.theme?.['bgtxt-green-normal']
+      : foundation?.theme?.['bg-black-dark']
   )};
 
   ${({ foundation }) => foundation?.rounding?.round12}
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
 
   &:hover {
-    background-color: ${props => (
-      props.checked
-        ? props.foundation?.theme?.['bgtxt-green-dark']
-        : props.foundation?.theme?.['bg-black-dark']
-    )};
+    background-color: ${({ checked, foundation }) => (
+    checked
+      ? foundation?.theme?.['bgtxt-green-dark']
+      : foundation?.theme?.['bg-black-dark']
+  )};
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 `
-/* eslint-enable @typescript-eslint/indent */
 
 interface ContentProps extends SwitchProps {
   size: NonNullable<SwitchProps['size']>
@@ -65,13 +63,13 @@ export const Content = styled.div<ContentProps>`
 
   width: ${({ size }) => SWITCH_HANDLE_WIDTH_HEIGHT[size]}px;
   height: ${({ size }) => SWITCH_HANDLE_WIDTH_HEIGHT[size]}px;
-  background-color: ${props => props.foundation?.theme?.['bgtxt-absolute-white-dark']};
+  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev2()};
   
-  transform: ${props => (
-    props.checked
-      ? `translateX(${SWITCH_WIDTH[props.size] - SWITCH_HANDLE_WIDTH_HEIGHT[props.size] - (PADDING * 2)}px)`
+  transform: ${({ checked, size }) => (
+    checked
+      ? `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`
       : 'initial'
   )};
 
