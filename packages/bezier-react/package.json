@@ -25,7 +25,7 @@
     "clean": "rm -rf node_modules .turbo",
     "storybook": "start-storybook -p 4101",
     "lint-staged": "lint-staged",
-    "eslint-all": "eslint 'src/**/*.+(js|ts)?(x)'",
+    "eslint-all": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
     "cleanBuild": "npx rimraf build",

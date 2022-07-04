@@ -65,5 +65,12 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ['./packages/bezier-figma-plugin/**/*'],
+      rules: {
+        'no-restricted-imports': 'off',
+        'no-restricted-globals': 'off',
+      },
+    },
   ],
 }
