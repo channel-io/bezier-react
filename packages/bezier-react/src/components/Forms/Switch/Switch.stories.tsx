@@ -4,15 +4,34 @@ import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
 import Switch from './Switch'
-import SwitchProps from './Switch.types'
+import type SwitchProps from './Switch.types'
+import { SwitchSize } from './Switch.types'
 
 export default {
   title: getTitle(base),
   component: Switch,
   argTypes: {
-    onClick: { action: 'onClick' },
+    size: {
+      control: {
+        type: 'radio',
+        options: getObjectFromEnum(SwitchSize),
+      },
+    },
+    checked: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    onClick: {
+      action: 'onClick',
+    },
   },
 } as Meta
 
@@ -20,7 +39,7 @@ const Template: Story<SwitchProps> = ({ ...otherSwitchProps }) => <Switch {...ot
 
 export const Primary = Template.bind({})
 Primary.args = {
-  size: 16,
+  size: SwitchSize.M,
   checked: true,
   disabled: false,
 }

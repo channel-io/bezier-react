@@ -9,7 +9,8 @@ import React, {
 
 /* Internal dependencies */
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import SwitchProps from './Switch.types'
+import type SwitchProps from './Switch.types'
+import { SwitchSize } from './Switch.types'
 import * as Styled from './Switch.styled'
 
 export const SWITCH_TEST_ID = 'bezier-react-switch'
@@ -20,7 +21,7 @@ function Switch(
     testId = SWITCH_TEST_ID,
     handleTestId = SWITCH_HANDLE_TEST_ID,
     checked = false,
-    size = 16,
+    size = SwitchSize.M,
     onClick,
     ...rest
   }: SwitchProps,

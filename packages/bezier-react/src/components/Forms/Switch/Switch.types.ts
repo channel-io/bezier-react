@@ -2,8 +2,13 @@
 import type { MouseEvent } from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, SizeProps, DisableProps, AdditionalTestIdProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, SizeProps, AdditionalTestIdProps } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms/Form.types'
+
+export enum SwitchSize {
+  M = 'm',
+  S = 's',
+}
 
 interface SwitchOptions {
   checked?: boolean
@@ -12,15 +17,7 @@ interface SwitchOptions {
 
 export default interface SwitchProps extends
   BezierComponentProps,
-  SizeProps<number>,
+  SizeProps<SwitchSize>,
   FormComponentProps,
   AdditionalTestIdProps<'handle'>,
   SwitchOptions {}
-
-type StyledSwitchProps = Required<SizeProps<number> & Omit<SwitchOptions, 'onClick'>>
-
-export interface WrapperProps extends
-  StyledSwitchProps,
-  Required<DisableProps> {}
-
-export interface ContentProps extends StyledSwitchProps {}
