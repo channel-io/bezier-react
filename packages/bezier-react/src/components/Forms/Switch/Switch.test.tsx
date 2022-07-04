@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import Switch, { SWITCH_TEST_ID, SWITCH_HANDLE_TEST_ID } from './Switch'
 import type SwitchProps from './Switch.types'
@@ -106,7 +107,7 @@ describe('Switch', () => {
       })
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
-      expect(switchComponent).toHaveStyle('opacity: .2')
+      expect(switchComponent).toHaveStyle(`opacity: ${DisabledOpacity}`)
     })
   })
 

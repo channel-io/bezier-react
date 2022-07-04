@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
@@ -38,7 +39,7 @@ export const Wrapper = styled.div<WrapperProps>`
   )};
 
   ${({ foundation }) => foundation?.rounding?.round12}
-  opacity: ${props => (props.disabled ? '.2' : 'initial')};
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
 
   &:hover {
     background-color: ${props => (
