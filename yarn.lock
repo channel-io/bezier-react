@@ -1742,6 +1742,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-url": ^6.0.0
+    "@semantic-release/git": ^10.0.1
     "@storybook/addon-a11y": ^6.5.0
     "@storybook/addon-actions": ^6.5.0
     "@storybook/addon-backgrounds": ^6.5.0
@@ -1783,6 +1784,7 @@ __metadata:
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
     rollup-plugin-visualizer: ^5.5.2
+    semantic-release: ^19.0.3
     ssr-window: ^3.0.0
     styled-components: ^5.3.5
     stylelint: ^13.8.0
@@ -18493,7 +18495,6 @@ __metadata:
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^13.1.0
     "@commitlint/config-conventional": ^13.1.0
-    "@semantic-release/git": ^10.0.1
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
     cz-conventional-changelog: ^3.3.0
@@ -18509,7 +18510,6 @@ __metadata:
     eslint-plugin-react-hooks: ^4.2.0
     eslint-plugin-storybook: ^0.5.11
     husky: ^6.0.0
-    semantic-release: ^19.0.3
     ts-node: ^8.10.2
     turbo: ^1.2.6
     typescript: ^4.6.4

@@ -35,7 +35,6 @@
     "build:icon": "./scripts/build-icon.sh",
     "prepublishOnly": "yarn build",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
-    "semantic-release": "semantic-release",
     "update-snapshot": "jest --updateSnapshot"
   },
   "lint-staged": {
@@ -71,6 +70,7 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-url": "^6.0.0",
+    "@semantic-release/git": "^10.0.1",
     "@storybook/addon-a11y": "^6.5.0",
     "@storybook/addon-actions": "^6.5.0",
     "@storybook/addon-backgrounds": "^6.5.0",
@@ -109,6 +109,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.31.1",
     "rollup-plugin-visualizer": "^5.5.2",
+    "semantic-release": "^19.0.3",
     "styled-components": "^5.3.5",
     "stylelint": "^13.8.0",
     "ts-prune": "^0.10.3",
