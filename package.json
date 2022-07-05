@@ -14,7 +14,6 @@
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
-    "changeset-init": "changeset pre enter next-v1",
     "prepare": "husky install"
   },
   "devDependencies": {
