@@ -19,9 +19,6 @@
     "typecheck": {
       "outputs": []
     },
-    "jest": {
-      "outputs": []
-    },
     "update-snapshot": {
       "outputs": []
     },
