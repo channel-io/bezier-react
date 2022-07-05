@@ -1942,26 +1942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/bezier-react@npm:1.0.0-next-v1.150":
-  version: 1.0.0-next-v1.150
-  resolution: "@channel.io/bezier-react@npm:1.0.0-next-v1.150"
-  dependencies:
-    "@babel/runtime": ^7.12.13
-    lodash-es: ^4.17.15
-    react-resize-detector: ^7.1.1
-    react-textarea-autosize: ^8.3.4
-    ssr-window: ^3.0.0
-    typesafe-actions: ^5.1.0
-    uuid: ^8.3.2
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    styled-components: ">=5"
-  checksum: 6940754f5c1fb6fa8e586dc98c1531c0f2816527823296bfad3e3d9f50267d86e393fbfb043afaebdad638d75ded2039b6be05a84ef05bf1efeb940ce0be00e0
-  languageName: node
-  linkType: hard
-
-"@channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@workspace:^, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -7234,7 +7215,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-react": 1.0.0-next-v1.150
+    "@channel.io/bezier-react": "workspace:^"
     "@figma/plugin-typings": "*"
     "@types/react": ^18.0.9
     "@types/react-dom": ^18.0.5
