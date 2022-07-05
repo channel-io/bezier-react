@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.23.0",
     "@channel.io/eslint-config": "^1.2.0",
     "@channel.io/eslint-plugin": "^1.1.1",
     "@channel.io/stylelint-config": "^1.2.0",
