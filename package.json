@@ -13,7 +13,8 @@
     "update-snapshot": "turbo run update-snapshot",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
-    "release": "turbo run release",
+    "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
+    "changeset": "changeset",
     "prepare": "husky install"
   },
   "devDependencies": {
