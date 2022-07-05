@@ -5,5 +5,8 @@
     "bezier-figma-plugin": "0.1.0",
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
-  "changesets": []
+  "changesets": [
+    "flat-jobs-smell",
+    "six-drinks-cheat"
+  ]
 }
