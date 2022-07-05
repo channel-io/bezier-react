@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "next-v1",
+  "tag": "next*",
   "initialVersions": {
     "bezier-figma-plugin": "0.1.0",
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
