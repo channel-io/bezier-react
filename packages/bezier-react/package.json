@@ -1,7 +1,7 @@
 {
   "name": "@channel.io/bezier-react",
   "version": "1.0.0-next-v1.154",
-  "description": "React components from Bezier Design System",
+  "description": "React components library that implements Bezier Design System.",
   "repository": {
     "type": "git",
     "url": "https://github.com/channel-io/bezier-react"
