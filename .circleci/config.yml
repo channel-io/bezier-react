@@ -65,15 +65,9 @@ jobs:
           file: './packages/bezier-react/coverage/lcov.info'
           token: $CODECOV_TOKEN
 
-  chromatic-deployment:
-    <<: *defaults
-    steps:
-      - *attach_workspace
-      - run: yarn workspace @channel.io/bezier-react chromatic --exit-zero-on-changes --skip 'dependabot/**'
-
 workflows:
   version: 2
-  test-n-deploy-chromatic:
+  lint_and_test:
     jobs:
       - install
       - lint:
@@ -85,7 +79,3 @@ workflows:
       - jest:
           requires:
             - install
-      - chromatic-deployment:
-          requires:
-            - lint
-            - typecheck
