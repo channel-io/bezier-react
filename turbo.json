@@ -19,20 +19,11 @@
     "typecheck": {
       "outputs": []
     },
-    "jest": {
-      "outputs": []
-    },
-    "update-snapshot": {
-      "outputs": []
-    },
     "dev": {
       "cache": false
     },
     "clean": {
       "cache": false
-    },
-    "release": {
-      "outputs": []
     }
   }
 }
