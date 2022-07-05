@@ -73,7 +73,7 @@ jobs:
 
 workflows:
   version: 2
-  Test & Deploy Chromatic:
+  test-n-deploy-chromatic:
     jobs:
       - install
       - lint:
