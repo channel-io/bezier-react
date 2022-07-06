@@ -7,8 +7,8 @@ Welcome to bezier-react. We want to make contributing to this project as easy an
 - Proposing new features
 - Becoming a maintainer
 
-## We Develop with Github
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+## We Develop with GitHub
+We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
 
 ## Make Pull request
 We actively welcome your pull requests:
@@ -37,7 +37,7 @@ In more detail, it follows the [AngularJS's commit message convention](https://g
 
 > Note that not all types make the resease start immediately. Only `BREAKING_CHANGE`, `feat`, `fix`, `perf` will be released immediately. See also: [semantic-release](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release)
 >
-## Report bugs using Github's [issues](https://github.com/channel-io/bezier-react/issues)
+## Report bugs using GitHub's [issues](https://github.com/channel-io/bezier-react/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/channel-io/bezier-react/issues/new/choose).
 
 # License
