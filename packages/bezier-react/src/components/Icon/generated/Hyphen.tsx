@@ -12,7 +12,10 @@ function SvgHyphen(props: SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path fill="currentColor" d="M7 11h10v2H7z" />
+      <path
+        fill="currentColor"
+        d="M7 12a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Z"
+      />
     </svg>
   )
 }
