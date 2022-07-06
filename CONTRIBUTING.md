@@ -17,14 +17,14 @@ We actively welcome your pull requests:
 2. If you've added code that should be tested, add tests.
 3. Ensure the test suite passes.
 4. Make sure your code lints.
-5. (Recommanded) Commit with 'commitizen(cz-cli)'. Just run command `npm i commitizen -g` and you're ready to go. Commit with 'git cz'.
+5. (Recommended) Commit with 'commitizen(cz-cli)'. Just run command `npm i commitizen -g` and you're ready to go. Commit with 'git cz'.
 See also: [cz-cli](https://github.com/commitizen/cz-cli).
 6. Push to your forked repository.
 7. Issue that pull request (from forked repository to origin).
 
 ## Commit Convention
-We are using commitzen as described above.
-In more detail, it follows the [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type). You will add what kind of commit belongs to using the commitzen, and the types are as follows.
+We are using commitizen as described above.
+In more detail, it follows the [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type). You will add what kind of commit belongs to using the commitizen, and the types are as follows.
 
 - feat: A new feature
 - fix: A bug fix
