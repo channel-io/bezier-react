@@ -17,8 +17,7 @@ We actively welcome your pull requests:
 2. If you've added code that should be tested, add tests.
 3. Ensure the test suite passes.
 4. Make sure your code lints.
-5. (Recommended) Commit with 'commitizen(cz-cli)'. Just run command `npm i commitizen -g` and you're ready to go. Commit with 'git cz'.
-See also: [cz-cli](https://github.com/commitizen/cz-cli).
+5. (Recommended) Commit with [commitizen(cz-cli)](https://github.com/commitizen/cz-cli). Install commitizen with `yarn global add commitizen` and commit with `git cz`. Or simply use `npx cz` instead of installing globally.
 6. Push to your forked repository.
 7. Issue that pull request (from forked repository to origin).
 
