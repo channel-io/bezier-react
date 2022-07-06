@@ -10,7 +10,6 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "author": "Channel.io",
-  "license": "ISC",
   "devDependencies": {
     "@figma/plugin-typings": "*",
     "@types/react": "^18.0.9",
