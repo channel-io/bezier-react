@@ -9,7 +9,8 @@
     "lint": "TIMING=1 eslint --cache .",
     "clean": "rm -rf .turbo node_modules dist"
   },
-  "author": "Channel.io",
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@figma/plugin-typings": "*",
     "@types/react": "^18.0.9",
