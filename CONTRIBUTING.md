@@ -19,22 +19,13 @@ We actively welcome your pull requests:
 4. Make sure your code lints.
 5. (Recommended) Commit with [commitizen(cz-cli)](https://github.com/commitizen/cz-cli).
     1. Install commitizen globally.
-        - npm
-            ```bash
-            npm install -g commitizen
-            ```
-        - yarn
-            ```bash
-            yarn global add commitizen
-            ```
+        ```bash
+        yarn global add commitizen
+        ```
     2. Commit with commitizen.
         ```bash
         git cz
         ```
-    Alternatively, if you are using npm 5.2+ you can use `npx` instead of installing globally:
-    ```bash
-    npx cz
-    ```
 6. Push to your forked repository.
 7. Issue that pull request (from forked repository to origin).
 
@@ -54,14 +45,9 @@ In more detail, it follows the [AngularJS's commit message convention](https://g
 ## Add a changeset
 We are using [changesets](https://github.com/changesets/changesets) as a tool to manage versioning and changelogs. If you think your changes should be released, [add a changeset](https://github.com/changesets/changesets/blob/7febb599167234ae071b5d223b80cbc8a9375709/docs/adding-a-changeset.md) which is a piece of information about your changes.
 
-- npm (5.2+)
-    ```bash
-    npx changeset
-    ```
-- yarn
-    ```bash
-    yarn changeset
-    ```
+```bash
+yarn changeset
+```
 
 ## Report bugs using GitHub's [issues](https://github.com/channel-io/bezier-react/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/channel-io/bezier-react/issues/new/choose).
