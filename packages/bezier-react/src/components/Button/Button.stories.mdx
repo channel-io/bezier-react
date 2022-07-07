@@ -1,0 +1,371 @@
+import {
+  useState,
+} from 'react'
+import {
+  Canvas,
+  Meta,
+  Story,
+} from '@storybook/addon-docs'
+import base from 'paths.macro'
+import {
+  getTitle,
+} from 'Utils/storyUtils'
+import {
+  Avatar,
+} from 'Components/Avatars/Avatar'
+import {
+  Button,
+  ButtonSize,
+  ButtonColorVariant,
+  ButtonStyleVariant,
+} from 'Components/Button'
+import {
+  ListItem,
+} from 'Components/ListItem'
+import {
+  Overlay,
+  OverlayPosition,
+} from 'Components/Overlay'
+import {
+  SectionLabel,
+} from 'Components/SectionLabel'
+import {
+  StackItem,
+  HStack,
+  VStack,
+} from 'Components/Stack'
+import {
+  StatusType,
+} from 'Components/Status'
+import {
+  Text,
+} from 'Components/Text'
+import {
+  styled,
+  Typography,
+} from 'Foundation'
+import {
+  OverviewCTA,
+  OverviewFloating,
+  UsageAsync,
+  UsageComposite,
+  UsageCTA,
+  UsageCTA2,
+  UsageDropdown,
+  UsageVariousContentsComposite,
+  UsageVariousContentsCustom,
+  UsageVariousContentsIconOnly,
+  UsageWebLinks,
+  VariantsColor,
+  VariantsSize,
+  VariantsStyle,
+} from './Button.stories'
+
+<Meta
+  title={getTitle(base)}
+  parameters={{
+    viewMode: 'docs',
+  }}
+/>
+
+# Button
+
+## Overview
+
+버튼은 클릭을 통해 사용자에게 액션을 제공하는 컴포넌트입니다.
+
+버튼은 크게 4가지 사이즈로 나뉩니다. 그 중 M이 가장 보편적이며, 공간 절약을 위해 S가 쓰입니다. List나 Input 등 액션이 필요할 때는 XS도 사용할 수 있습니다. 가입, 초대 UX 등 굉장히 강조해야 할 버튼의 경우, L, XL 사이즈를 사용할 수 있습니다.
+
+<Canvas>
+  <Story story={OverviewCTA} />
+</Canvas>
+
+<Canvas>
+  <Story story={OverviewFloating} />
+</Canvas>
+
+## Usage
+
+### Recipe: Call to action
+
+- 한 화면 내에서 CTA 버튼은 가능한 한, 가장 중요한 버튼 1개만 primary로 지정합니다. 후순위로 colored button을 같이 넣어야 할 경우에는 secondary로 넣습니다. 그 외에는 secondary, tetiary button을 조합하여 넣습니다.
+- 버튼 사이의 간격은 0 또는 6으로 합니다.
+
+<Canvas>
+  <Story story={UsageCTA} />
+</Canvas>
+
+
+<Canvas>
+  <Story story={UsageCTA2} />
+</Canvas>
+
+### Recipe: Web links
+
+- 보통의 경우, tertiary button을 적절한 icon과 함께 사용합니다.
+
+<Canvas>
+  <Story story={UsageWebLinks} />
+</Canvas>
+
+### Recipe: Composite Usage
+
+- XS 크기의 버튼은 ListItem, SectionLabel 등 다른 컴포넌트에 함께 사용될 수 있습니다. 컴포넌트 좌우측에서 액션으로 사용됩니다.
+
+<Story story={UsageComposite} />
+
+### Recipe: Button with various contents
+
+- 기본적으로 `leftContent`, `rightContent` prop에 icon name에 해당하는 string을 지정하여 좌우측에 아이콘이 들어가는 형태를 표현합니다.
+
+<Canvas>
+  <Story story={UsageVariousContentsComposite} />
+</Canvas>
+
+- 아이콘만 들어가는 버튼의 경우, `leftContent` prop만 사용합니다.
+
+<Canvas>
+  <Story story={UsageVariousContentsIconOnly} />
+</Canvas>
+
+- 아이콘 이외에 커스텀 컴포넌트가 들어가야 하는 상황에는, `leftContent`, `rightContent` prop에 `JSX.Element` 값을 지정할 수 있습니다.
+
+<Canvas>
+  <Story story={UsageVariousContentsCustom} />
+</Canvas>
+
+### Recipe: Button with asynchronous actions
+
+- 비동기적인 액션을 처리하는 경우, 액션이 처리중인 상태를 사용자에게 노출해야 하고, 액션이 처리중이라면 버튼을 비활성화하여 액션이 중복 처리되는 것을 막는 것이 보통의 경우입니다. `loading`, `disabled` prop을 통해 이 usecase를 구현할 수 있습니다.
+
+```tsx
+const AsyncActionButton = () => {
+  const [isFetching, setFetching] = useState(false)
+  const handleClick = () => {
+    setFetching(true)
+    setTimeout(() => {
+      setFetching(false)
+    }, 1000)
+  }
+  return (
+    <Button
+      leftContent="play"
+      text="Click Me!"
+      colorVariant={ButtonColorVariant.Cobalt}
+      styleVariant={ButtonStyleVariant.Primary}
+      loading={isFetching}
+      disabled={isFetching}
+      onClick={handleClick}
+    />
+  )
+}
+```
+
+<Canvas>
+  <Story story={UsageAsync} />
+</Canvas>
+
+### Recipe: Button with dropdown
+
+- 버튼을 눌러 dropdown, select 등 별도의 UI를 노출하는 경우, 해당 UI가 노출된 상태에서는 버튼이 "눌린 상태"를 유지하는 것이 자연스럽습니다.
+- `active` prop을 통해 버튼이 "눌린 상태" 임을 표현할 수 있습니다.
+
+```tsx
+const OpenDropdownButton = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div>
+      <Button
+        text="Select"
+        rightContent="triangle-down"
+        active={isOpen}
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Tertiary}
+        onClick={() => setIsOpen(true)}
+      />
+
+      { ... }
+    </div>
+  )
+}
+```
+
+<Canvas>
+  <Story story={UsageDropdown} />
+</Canvas>
+
+## Variants
+
+### Color Variants
+
+- `ButtonColorVariant` enum을 통해 정의되며, `colorVariant` prop으로 지정할 수 있습니다.
+
+<Story story={VariantsColor} />
+
+### Style Variants
+
+- `ButtonStyleVariant` enum을 통해 정의되며, `styleVariant` prop으로 지정할 수 있습니다.
+
+<Story story={VariantsStyle} />
+
+### Size
+
+- `ButtonSize` enum을 통해 정의되며, `size` prop으로 지정할 수 있습니다.
+
+<Story story={VariantsSize} />
+
+## API
+
+- `ButtonProps`는 `BezierComponentProps`를 지원합니다.
+
+<details>
+<summary><h3>ButtonSize</h3></summary>
+
+```ts
+enum ButtonSize {
+  XS,
+  S,
+  M,
+  L,
+  XL,
+}
+```
+</details>
+
+<details>
+<summary><h3>ButtonColorVariant</h3></summary>
+
+```ts
+enum ButtonColorVariant {
+  Blue,
+  Red,
+  Green,
+  Cobalt,
+  Orange,
+  Pink,
+  Purple,
+  MonochromeLight,
+  MonochromeDark,
+
+  // @deprecated
+  Monochrome,
+}
+```
+</details>
+
+<details>
+<summary><h3>ButtonStyleVariant</h3></summary>
+
+```ts
+enum ButtonStyleVariant {
+  Primary,
+  Secondary,
+  Tertiary,
+  Floating,
+}
+```
+</details>
+
+<details>
+<summary><h3>ButtonProps</h3></summary>
+
+```ts
+interface ButtonProps {
+  /**
+   * `type` attribute of typical HTML button.
+   *
+   * You may want to set `type` to `submit` to the button
+   * which is used as a submit button in `<form>` component.
+   *
+   * @default 'button'
+   */
+  type?: HTMLButtonElement['type']
+
+  /**
+   * The text content in the button.
+   *
+   * Do not pass `text` prop if it is an icon-only button.
+   */
+  text?: string
+
+  /**
+   * The content displayed at left of the text content in the button.
+   */
+  leftContent?: IconName | React.ReactNode
+
+  /**
+   * The content displayed at right of the text content in the button.
+   */
+  rightContent?: IconName | React.ReactNode
+
+  /**
+   * If `loading` is true, spinner will be shown, replacing the content.
+   *
+   * @default false
+   */
+  loading?: boolean
+
+  /**
+   * If `active` is true, the button will be styled as if it is hovered.
+   *
+   * You may want to use this prop for a button which opens dropdown, etc.
+   *
+   * @default false
+   */
+  active?: boolean
+
+  /**
+   * Whether the button is disabled, and unable to interact.
+   *
+   * @default false
+   */
+  disabled?: boolean
+
+  /**
+   * The style variant.
+   *
+   * @default ButtonStyleVariant.Primary
+   */
+  styleVariant?: ButtonStyleVariant
+
+  /**
+   * The color variant.
+   *
+   * @default ButtonColorVariant.Blue
+   */
+  colorVariant?: ButtonColorVariant
+
+  /**
+   * The size variant.
+   *
+   * @default ButtonSize.M
+   */
+  size?: ButtonSize
+
+  /**
+   * The handler to be executed when the button is clicked.
+   */
+  onClick?: React.MouseEventHandler
+
+  /**
+   * The handler to be executed when the mouse enters the button.
+   */
+  onMouseEnter?: React.MouseEventHandler
+
+  /**
+   * The handler to be executed when the mouse leaves the button.
+   */
+  onMouseLeave?: React.MouseEventHandler
+
+  /**
+   * The handler to be executed when the button is unfocused.
+   */
+  onBlur?: React.MouseEventHandler
+}
+```
+</details>
+
+## Version
+
+- Available since v0.3.28
