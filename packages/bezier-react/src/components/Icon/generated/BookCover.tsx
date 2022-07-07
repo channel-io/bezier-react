@@ -16,7 +16,7 @@ function SvgBookCover(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M10 20h9V4H9v16h1Zm-3 0H5V4h2v16ZM8.5 2h11c.827 0 1.5.673 1.5 1.5v17c0 .827-.673 1.5-1.5 1.5h-15c-.827 0-1.5-.673-1.5-1.5v-17C3 2.673 3.673 2 4.5 2h4ZM17 7h-6v2h6V7Z"
+        d="M3 6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V6Zm4-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2V4Zm10 16H9V4h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2ZM12 7a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z"
       />
     </svg>
   )

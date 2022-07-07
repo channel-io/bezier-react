@@ -44,6 +44,7 @@ import Beta from './Beta'
 import Block from './Block'
 import Bold from './Bold'
 import BookCover from './BookCover'
+import BookEditing from './BookEditing'
 import Book from './Book'
 import BookmarkFilled from './BookmarkFilled'
 import Bookmark from './Bookmark'
@@ -93,6 +94,7 @@ import ChannelUpFilled from './ChannelUpFilled'
 import ChannelUp from './ChannelUp'
 import Channel from './Channel'
 import ChannelsList from './ChannelsList'
+import ChatBubbleAlt from './ChatBubbleAlt'
 import ChatBubbleFilled from './ChatBubbleFilled'
 import ChatBubble from './ChatBubble'
 import ChatCancel from './ChatCancel'
@@ -156,11 +158,13 @@ import Desktop from './Desktop'
 import Devices from './Devices'
 import DialogDown from './DialogDown'
 import DialogUp from './DialogUp'
+import Distribute from './Distribute'
 import Dot from './Dot'
 import Download from './Download'
 import Dragable from './Dragable'
 import Dropdown from './Dropdown'
 import Edit from './Edit'
+import Education from './Education'
 import EmailFilled from './EmailFilled'
 import EmailUnread from './EmailUnread'
 import EmailUnsubscribed from './EmailUnsubscribed'
@@ -349,7 +353,6 @@ import SendForwardFilled from './SendForwardFilled'
 import SendForward from './SendForward'
 import Send from './Send'
 import Settings from './Settings'
-import Shape from './Shape'
 import Shine from './Shine'
 import Shopping from './Shopping'
 import Shuffle from './Shuffle'
@@ -496,6 +499,7 @@ const icons = {
   block: Block,
   bold: Bold,
   'book-cover': BookCover,
+  'book-editing': BookEditing,
   book: Book,
   'bookmark-filled': BookmarkFilled,
   bookmark: Bookmark,
@@ -545,6 +549,7 @@ const icons = {
   'channel-up': ChannelUp,
   channel: Channel,
   'channels-list': ChannelsList,
+  'chat-bubble-alt': ChatBubbleAlt,
   'chat-bubble-filled': ChatBubbleFilled,
   'chat-bubble': ChatBubble,
   'chat-cancel': ChatCancel,
@@ -608,11 +613,13 @@ const icons = {
   devices: Devices,
   'dialog-down': DialogDown,
   'dialog-up': DialogUp,
+  distribute: Distribute,
   dot: Dot,
   download: Download,
   dragable: Dragable,
   dropdown: Dropdown,
   edit: Edit,
+  education: Education,
   'email-filled': EmailFilled,
   'email-unread': EmailUnread,
   'email-unsubscribed': EmailUnsubscribed,
@@ -801,7 +808,6 @@ const icons = {
   'send-forward': SendForward,
   send: Send,
   settings: Settings,
-  shape: Shape,
   shine: Shine,
   shopping: Shopping,
   shuffle: Shuffle,
@@ -963,6 +969,7 @@ export {
   Block as BlockIcon,
   Bold as BoldIcon,
   BookCover as BookCoverIcon,
+  BookEditing as BookEditingIcon,
   Book as BookIcon,
   BookmarkFilled as BookmarkFilledIcon,
   Bookmark as BookmarkIcon,
@@ -1012,6 +1019,7 @@ export {
   ChannelUp as ChannelUpIcon,
   Channel as ChannelIcon,
   ChannelsList as ChannelsListIcon,
+  ChatBubbleAlt as ChatBubbleAltIcon,
   ChatBubbleFilled as ChatBubbleFilledIcon,
   ChatBubble as ChatBubbleIcon,
   ChatCancel as ChatCancelIcon,
@@ -1075,11 +1083,13 @@ export {
   Devices as DevicesIcon,
   DialogDown as DialogDownIcon,
   DialogUp as DialogUpIcon,
+  Distribute as DistributeIcon,
   Dot as DotIcon,
   Download as DownloadIcon,
   Dragable as DragableIcon,
   Dropdown as DropdownIcon,
   Edit as EditIcon,
+  Education as EducationIcon,
   EmailFilled as EmailFilledIcon,
   EmailUnread as EmailUnreadIcon,
   EmailUnsubscribed as EmailUnsubscribedIcon,
@@ -1268,7 +1278,6 @@ export {
   SendForward as SendForwardIcon,
   Send as SendIcon,
   Settings as SettingsIcon,
-  Shape as ShapeIcon,
   Shine as ShineIcon,
   Shopping as ShoppingIcon,
   Shuffle as ShuffleIcon,

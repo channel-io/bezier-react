@@ -16,7 +16,7 @@ function SvgTriangleRight(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="m16.37 11.923-6.735 5.612A.387.387 0 0 1 9 17.24V6.013c0-.327.382-.506.635-.298l6.735 5.614a.386.386 0 0 1 0 .594"
+        d="m16.37 11.923-6.735 5.612A.387.387 0 0 1 9 17.24V6.013c0-.327.382-.506.635-.298l6.735 5.614a.386.386 0 0 1 0 .594Z"
       />
     </svg>
   )
