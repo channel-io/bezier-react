@@ -19,6 +19,11 @@
     "test": {
       "outputs": [
         "coverage/**"
+      ],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "src/**/*.js"
       ]
     },
     "dev": {
