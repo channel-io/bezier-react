@@ -34,7 +34,7 @@ yarn build --filter=<workspace>
 ### Run Storybook
 
 ```bash
-yarn dev --filter=@channel.io/bezier-react
+yarn storybook
 ```
 
 ### Other Commands

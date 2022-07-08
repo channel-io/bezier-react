@@ -13,6 +13,7 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
+    "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
     "prepare": "husky install"
