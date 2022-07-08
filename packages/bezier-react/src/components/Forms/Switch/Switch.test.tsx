@@ -4,9 +4,11 @@ import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import Switch, { SWITCH_TEST_ID, SWITCH_HANDLE_TEST_ID } from './Switch'
 import type SwitchProps from './Switch.types'
+import { SwitchSize } from './Switch.types'
 
 describe('Switch', () => {
   const renderComponent = (props?: Partial<SwitchProps>) => render(
@@ -20,38 +22,48 @@ describe('Switch', () => {
       const switchHandleComponent = getByTestId(SWITCH_HANDLE_TEST_ID)
 
       expect(switchComponent).toHaveStyle('position: relative')
-      expect(switchComponent).toHaveStyle('width: 32px')
-      expect(switchComponent).toHaveStyle('height: 20px')
+      expect(switchComponent).toHaveStyle('width: 36px')
+      expect(switchComponent).toHaveStyle('height: 24px')
       expect(switchComponent).toHaveStyle('cursor: pointer')
       expect(switchComponent).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-dark']}`)
-      expect(switchComponent).toHaveStyle('border-radius: 10px')
+      expect(switchComponent).toHaveStyle('border-radius: 12px')
       expect(switchComponent).toHaveStyle('opacity: initial')
       expect(switchHandleComponent).toHaveStyle('position: absolute')
-      expect(switchHandleComponent).toHaveStyle('top: 2px')
-      expect(switchHandleComponent).toHaveStyle('left: 2px')
-      expect(switchHandleComponent).toHaveStyle('width: 16px')
-      expect(switchHandleComponent).toHaveStyle('height: 16px')
+      expect(switchHandleComponent).toHaveStyle('top: 3px')
+      expect(switchHandleComponent).toHaveStyle('left: 3px')
+      expect(switchHandleComponent).toHaveStyle('width: 18px')
+      expect(switchHandleComponent).toHaveStyle('height: 18px')
       expect(switchHandleComponent).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-absolute-white-dark']}`)
-      expect(switchHandleComponent).toHaveStyle('border-radius: 50%')
+      expect(switchHandleComponent).toHaveStyle('border-radius: 12px')
       expect(switchHandleComponent).toHaveStyle('transform: initial')
     })
   })
 
   describe('specify size props', () => {
-    it('should render Switch with given size', () => {
+    it('should render Switch with size M', () => {
       const { getByTestId } = renderComponent({
-        size: 16,
+        size: SwitchSize.M,
       })
       const switchComponent = getByTestId(SWITCH_TEST_ID)
       const switchHandleComponent = getByTestId(SWITCH_HANDLE_TEST_ID)
 
-      expect(switchComponent).toHaveStyle('width: 32px')
+      expect(switchComponent).toHaveStyle('width: 36px')
+      expect(switchComponent).toHaveStyle('height: 24px')
+      expect(switchHandleComponent).toHaveStyle('width: 18px')
+      expect(switchHandleComponent).toHaveStyle('height: 18px')
+    })
+
+    it('should render Switch with size S', () => {
+      const { getByTestId } = renderComponent({
+        size: SwitchSize.S,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+      const switchHandleComponent = getByTestId(SWITCH_HANDLE_TEST_ID)
+
+      expect(switchComponent).toHaveStyle('width: 30px')
       expect(switchComponent).toHaveStyle('height: 20px')
-      expect(switchComponent).toHaveStyle('border-radius: 10px')
-      expect(switchHandleComponent).toHaveStyle('top: 2px')
-      expect(switchHandleComponent).toHaveStyle('left: 2px')
-      expect(switchHandleComponent).toHaveStyle('width: 16px')
-      expect(switchHandleComponent).toHaveStyle('height: 16px')
+      expect(switchHandleComponent).toHaveStyle('width: 14px')
+      expect(switchHandleComponent).toHaveStyle('height: 14px')
     })
   })
 
@@ -95,7 +107,7 @@ describe('Switch', () => {
       })
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
-      expect(switchComponent).toHaveStyle('opacity: .2')
+      expect(switchComponent).toHaveStyle(`opacity: ${DisabledOpacity}`)
     })
   })
 
