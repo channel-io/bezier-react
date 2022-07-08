@@ -11,10 +11,14 @@
       ]
     },
     "lint": {
-      "outputs": [".eslintcache"]
+      "outputs": [
+        ".eslintcache"
+      ]
     },
     "test": {
-      "outputs": []
+      "outputs": [
+        "coverage/**"
+      ]
     },
     "dev": {
       "cache": false
