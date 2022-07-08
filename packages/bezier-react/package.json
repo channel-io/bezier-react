@@ -19,7 +19,7 @@
     "dev": "yarn storybook",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
-    "lint:style": "stylelint 'src/**/*.styled.{js,ts}'",
+    "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --cache",
     "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "test:watch": "cross-env BABEL_ENV=test jest --watch",
     "update-snapshot": "jest --updateSnapshot",

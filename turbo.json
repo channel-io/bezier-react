@@ -12,7 +12,8 @@
     },
     "lint": {
       "outputs": [
-        ".eslintcache"
+        ".eslintcache",
+        ".stylelintcache"
       ]
     },
     "test": {

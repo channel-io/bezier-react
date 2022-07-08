@@ -8,7 +8,7 @@
     "dev": "webpack --mode=development --watch",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
-    "lint:style": "stylelint 'src/**/*.styled.{js,ts}'",
+    "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --allow-empty-input --cache",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "author": "Channel Corp.",
