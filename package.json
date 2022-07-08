@@ -9,7 +9,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel",
     "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "yarn workspace @channel.io/bezier-react find-deadcode && tsc --build --verbose",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",

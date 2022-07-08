@@ -18,7 +18,7 @@
     "build": "yarn build:icon && yarn build:rollup",
     "dev": "yarn storybook",
     "lint": "yarn eslint-all && yarn stylelint-all",
-    "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
+    "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "test": "yarn lint && yarn typecheck && yarn jest",
     "clean": "rm -rf node_modules .turbo",

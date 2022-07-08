@@ -10,13 +10,10 @@
         "^build"
       ]
     },
-    "test": {
-      "outputs": []
-    },
     "lint": {
       "outputs": [".eslintcache"]
     },
-    "typecheck": {
+    "test": {
       "outputs": []
     },
     "dev": {
