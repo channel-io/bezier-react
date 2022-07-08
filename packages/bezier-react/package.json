@@ -32,6 +32,7 @@
     "prebuild": "yarn clean:build",
     "storybook": "start-storybook -p 4101",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "build-storybook": "build-storybook",
     "chromatic": "chromatic"
   },
   "keywords": [
