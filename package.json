@@ -14,8 +14,9 @@
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
     "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
+    "pre-commit": "run-s verify lint-staged typecheck test",
     "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts",
-    "pre-commit": "npx lint-staged && yarn typecheck && yarn test",
+    "lint-staged": "lint-staged",
     "changeset": "changeset",
     "prepare": "husky install"
   },
