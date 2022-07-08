@@ -23,7 +23,7 @@
     "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "test:watch": "cross-env BABEL_ENV=test jest --watch",
     "update-snapshot": "jest --updateSnapshot",
-    "clean": "rm -rf node_modules .turbo && yarn clean:build",
+    "clean": "rm -rf node_modules .turbo & yarn clean:build",
     "clean:build": "npx rimraf build",
     "prebuild": "yarn clean:build",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
