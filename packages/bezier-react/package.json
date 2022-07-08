@@ -15,7 +15,9 @@
     "src"
   ],
   "scripts": {
-    "build": "yarn build:icon && yarn build:rollup",
+    "build": "run-s 'build:*'",
+    "build:icon": "./scripts/build-icon.sh",
+    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
@@ -28,8 +30,6 @@
     "prebuild": "yarn clean:build",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "storybook": "start-storybook -p 4101",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
-    "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "chromatic": "chromatic"
   },
