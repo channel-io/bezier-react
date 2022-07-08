@@ -16,6 +16,13 @@
         ".stylelintcache"
       ]
     },
+    "typecheck": {
+      "outputs": [],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts"
+      ]
+    },
     "test": {
       "outputs": [
         "coverage/**"
