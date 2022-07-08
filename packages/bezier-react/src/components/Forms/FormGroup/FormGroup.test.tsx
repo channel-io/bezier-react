@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import FormGroup, { FORM_GROUP_TEST_ID } from './FormGroup'
+import FormGroup from './FormGroup'
 import type FormGroupProps from './FormGroup.types'
 
 describe('FormGroup >', () => {
@@ -11,16 +11,16 @@ describe('FormGroup >', () => {
 
   beforeEach(() => {
     props = {
-      gap: 6,
-      direction: 'column',
+      spacing: 6,
+      direction: 'vertical',
     }
   })
 
   const renderComponent = () => render(<FormGroup {...props} />)
 
   it('Snapshot >', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(FORM_GROUP_TEST_ID)
+    const { getByRole } = renderComponent()
+    const rendered = getByRole('group')
 
     expect(rendered).toMatchSnapshot()
   })
