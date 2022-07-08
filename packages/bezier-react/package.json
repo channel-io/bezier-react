@@ -50,7 +50,7 @@
     "channel"
   ],
   "author": "Channel Corp.",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "browserslist": [
     "> 1% in KR",
     "> 1% in JP",
