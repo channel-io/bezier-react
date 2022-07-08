@@ -11,13 +11,13 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "typecheck": "yarn workspace @channel.io/bezier-react find-deadcode && tsc --build",
-    "pre-commit": "turbo run lint & yarn typecheck & turbo run test",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
     "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts",
+    "pre-commit": "npx lint-staged && yarn typecheck && turbo run test",
     "changeset": "changeset",
-    "prepare": "husky install",
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
@@ -42,6 +42,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-storybook": "^0.5.11",
     "husky": "^6.0.0",
+    "lint-staged": "^13.0.3",
+    "stylelint": "^14.9.1",
     "ts-node": "^8.10.2",
     "turbo": "^1.2.6",
     "typescript": "^4.6.4"

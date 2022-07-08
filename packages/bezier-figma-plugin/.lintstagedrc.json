@@ -1,0 +1,4 @@
+{ 
+  "src/**/*.(js|ts)?(x)": "yarn lint:js",
+  "src/**/*.styled.{js,ts}": "yarn lint:style"
+}
