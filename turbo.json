@@ -18,7 +18,9 @@
       ]
     },
     "typecheck": {
-      "outputs": [],
+      "outputs": [
+        "tsconfig.tsbuildinfo"
+      ],
       "inputs": [
         "src/**/*.tsx",
         "src/**/*.ts"

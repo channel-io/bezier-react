@@ -22,7 +22,7 @@
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
     "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --cache",
-    "typecheck": "yarn find-deadcode && tsc",
+    "typecheck": "yarn find-deadcode && tsc --build --verbose",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "test:watch": "cross-env BABEL_ENV=test jest --watch",

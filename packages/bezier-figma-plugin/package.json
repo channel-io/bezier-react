@@ -9,7 +9,6 @@
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
     "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --allow-empty-input --cache",
-    "typecheck": "tsc --noEmit",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "author": "Channel Corp.",
