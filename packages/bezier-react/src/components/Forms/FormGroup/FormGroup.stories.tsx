@@ -13,7 +13,7 @@ export default {
   title: getTitle(base),
   component: FormGroup,
   argTypes: {
-    gap: {
+    spacing: {
       control: {
         type: 'number',
       },
@@ -21,7 +21,10 @@ export default {
     direction: {
       control: {
         type: 'radio',
-        options: ['column', 'row'],
+        options: [
+          'horizontal',
+          'vertical',
+        ],
       },
     },
   },
@@ -38,6 +41,6 @@ const Template: Story<FormGroupProps> = props => (
 
 export const Primary: Story<FormGroupProps> = Template.bind({})
 Primary.args = {
-  gap: 6,
-  direction: 'column',
+  spacing: 6,
+  direction: 'vertical',
 }
