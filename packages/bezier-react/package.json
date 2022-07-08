@@ -29,7 +29,6 @@
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "storybook": "start-storybook -p 4101",
     "build:rollup": "cross-env BABEL_ENV=build rollup -c",
-    "build:storybook": "build-storybook",
     "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "chromatic": "chromatic"
