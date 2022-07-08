@@ -31,13 +31,13 @@ export const Wrapper = styled.div<WrapperProps>`
 
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
+  ${({ foundation }) => foundation?.rounding?.round12}
   background-color: ${({ checked, foundation }) => (
     checked
       ? foundation?.theme?.['bgtxt-green-normal']
       : foundation?.theme?.['bg-black-dark']
   )};
 
-  ${({ foundation }) => foundation?.rounding?.round12}
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
 
   &:hover {
@@ -63,9 +63,9 @@ export const Content = styled.div<ContentProps>`
 
   width: ${({ size }) => SWITCH_HANDLE_WIDTH_HEIGHT[size]}px;
   height: ${({ size }) => SWITCH_HANDLE_WIDTH_HEIGHT[size]}px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev2()};
+  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
   
   transform: ${({ checked, size }) => (
     checked
