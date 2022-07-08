@@ -18,12 +18,10 @@
     "build": "yarn build:icon && yarn build:rollup",
     "dev": "yarn storybook",
     "lint": "yarn eslint-all && yarn stylelint-all",
-    "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
-    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
-    "test": "yarn lint && yarn typecheck && yarn jest",
+    "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
     "clean": "rm -rf node_modules .turbo",
+    "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "storybook": "start-storybook -p 4101",
-    "lint-staged": "lint-staged",
     "eslint-all": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
     "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
     "jest:watch": "cross-env BABEL_ENV=test jest --watch",
@@ -34,6 +32,7 @@
     "build:icon": "./scripts/build-icon.sh",
     "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "update-snapshot": "jest --updateSnapshot",
+    "lint-staged": "lint-staged",
     "chromatic": "chromatic"
   },
   "lint-staged": {

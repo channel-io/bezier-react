@@ -5,18 +5,19 @@
     "packages/*"
   ],
   "scripts": {
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts",
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel",
     "lint": "turbo run lint",
-    "typecheck": "yarn workspace @channel.io/bezier-react find-deadcode && tsc --build --verbose",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "typecheck": "yarn workspace @channel.io/bezier-react find-deadcode && tsc --build",
+    "pre-commit": "turbo run lint & yarn typecheck & turbo run test",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
     "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
