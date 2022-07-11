@@ -3,7 +3,11 @@ import type {
   BezierComponentProps,
 } from 'Types/ComponentProps'
 
-interface SliderProps extends
-  BezierComponentProps {}
+interface SliderOptions {
+  // TODO (@aru): add jsdoc
+  width?: number | string
+}
 
-export default SliderProps
+export default interface SliderProps extends
+  BezierComponentProps,
+  SliderOptions {}

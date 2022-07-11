@@ -3,16 +3,26 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import SliderProps from './Slider.types'
+import * as Styled from './Slider.styled'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-function Slider({
-  ...rest
-}: SliderProps,
-forwardedRef: React.Ref<HTMLDivElement>,
+function Slider(
+  {
+    width = 36,
+    ...rest
+  }: SliderProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   return (
-    <>Slider</>
+    <Styled.SliderWrapper
+      ref={forwardedRef}
+      width={width}
+      {...rest}
+    >
+      <Styled.SliderTrack>
+        <Styled.SliderRange />
+      </Styled.SliderTrack>
+      <Styled.SliderThumb />
+    </Styled.SliderWrapper>
   )
 }
 
