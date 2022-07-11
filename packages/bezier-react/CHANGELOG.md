@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.158
+
+### Patch Changes
+
+- [#867](https://github.com/channel-io/bezier-react/pull/867) [`5ada881b`](https://github.com/channel-io/bezier-react/commit/5ada881b4bb7c788a5d8259f8e47df615e0ca3e4) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Fix style bug: background color of switch handle is overridden by elevation css
+
 ## 1.0.0-next-v1.157
 
 ### Patch Changes
