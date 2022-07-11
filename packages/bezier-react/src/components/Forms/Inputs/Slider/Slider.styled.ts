@@ -9,6 +9,7 @@ import {
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
+import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import type SliderProps from './Slider.types'
 
 const SLIDER_TRACK_RANGE_HEIGHT = 6
@@ -63,8 +64,17 @@ export const SliderThumb = styled(ThumbPrimitive)<SliderThumbProps>`
   height: ${SLIDER_THUMB_SIZE}px;
 
   ${({ foundation }) => foundation?.rounding?.round12}
-  ${({ foundation }) => foundation?.elevation?.ev3()}
+  ${({ foundation }) => foundation?.elevation?.ev2()}
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
 
+  &:hover {
+    ${({ foundation }) => foundation?.elevation?.ev3()}
+    background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+  }
+  &:focus {
+    ${focusedInputWrapperStyle}
+  }
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])}
   ${({ interpolation }) => interpolation}
 `
