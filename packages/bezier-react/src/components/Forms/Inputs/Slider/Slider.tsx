@@ -2,7 +2,6 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
@@ -11,27 +10,19 @@ function Slider(
     width = 36,
     ...rest
   }: SliderProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
+  forwardedRef: React.Ref<any>, // TODO: resolve any
 ) {
-  const {
-    disabled,
-    ...ownProps
-  } = useFormFieldProps(rest)
-
   return (
-    <Styled.SliderWrapper
-      ref={forwardedRef}
+    <Styled.SliderRoot
       width={width}
-      disabled={disabled}
-      {...ownProps}
+      ref={forwardedRef}
+      {...rest}
     >
       <Styled.SliderTrack>
         <Styled.SliderRange />
       </Styled.SliderTrack>
-      <Styled.SliderThumb
-        disabled={disabled}
-      />
-    </Styled.SliderWrapper>
+      <Styled.SliderThumb />
+    </Styled.SliderRoot>
   )
 }
 
