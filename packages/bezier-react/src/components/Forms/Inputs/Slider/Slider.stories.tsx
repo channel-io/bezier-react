@@ -18,10 +18,17 @@ export default {
   component: Slider,
   argTypes: {
     onClick: { action: 'onClick' },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta
 
 const Template: Story<SliderProps> = (args) => <Slider {...args} />
 
 export const Primary: Story<SliderProps> = Template.bind({})
-Primary.args = {}
+Primary.args = {
+  disabled: false,
+}

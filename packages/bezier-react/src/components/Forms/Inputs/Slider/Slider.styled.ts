@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import type SliderProps from './Slider.types'
 
 const SLIDER_TRACK_RANGE_HEIGHT = 6
@@ -8,6 +9,7 @@ const SLIDER_THUMB_SIZE = 20
 
 interface SliderWrapperProps extends SliderProps {
   width: NonNullable<SliderProps['width']>
+  disabled: NonNullable<SliderProps['disabled']>
 }
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
@@ -18,6 +20,9 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
 
   width: ${({ width }) => toLength(width, '36px')};
 
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['opacity'])};
   ${({ interpolation }) => interpolation}
 `
 
@@ -45,7 +50,9 @@ export const SliderRange = styled.div<SliderRangeProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface SliderThumbProps extends SliderProps {}
+interface SliderThumbProps extends SliderProps {
+  disabled: NonNullable<SliderProps['disabled']>
+}
 
 export const SliderThumb = styled.div<SliderThumbProps>`
   position: absolute;
@@ -57,6 +64,8 @@ export const SliderThumb = styled.div<SliderThumbProps>`
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev3()}
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ interpolation }) => interpolation}
 `
