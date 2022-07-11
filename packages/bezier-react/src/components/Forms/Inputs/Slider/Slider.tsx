@@ -8,6 +8,13 @@ import * as Styled from './Slider.styled'
 function Slider(
   {
     width = 36,
+    defaultValue = [5],
+    value,
+    disabled = false,
+    min = 0,
+    max = 10,
+    step = 1,
+    onValueChange,
     ...rest
   }: SliderProps,
   forwardedRef: React.Ref<any>, // TODO: resolve any
@@ -15,6 +22,13 @@ function Slider(
   return (
     <Styled.SliderRoot
       width={width}
+      defaultValue={defaultValue}
+      value={value}
+      disabled={disabled}
+      min={min}
+      max={max}
+      step={step}
+      onValueChange={onValueChange}
       ref={forwardedRef}
       {...rest}
     >
