@@ -8,6 +8,9 @@ import * as Styled from './Slider.styled'
 function Slider(
   {
     width = 36,
+    guide = [5],
+    // TODO (@aru): Tooltip
+    // showTooltip = true,
     defaultValue = [5],
     value,
     disabled = false,
@@ -35,6 +38,13 @@ function Slider(
       <Styled.SliderTrack>
         <Styled.SliderRange />
       </Styled.SliderTrack>
+      { guide?.map((guideValue) => (
+        <Styled.SliderGuide
+          min={min}
+          max={max}
+          guideValue={guideValue}
+        />
+      )) }
       <Styled.SliderThumb />
     </Styled.SliderRoot>
   )

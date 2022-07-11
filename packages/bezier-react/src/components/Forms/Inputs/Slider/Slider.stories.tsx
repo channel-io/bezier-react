@@ -77,3 +77,14 @@ Controlled.args = {
   max: 10,
   step: 1,
 }
+
+export const WithGuide = Template.bind({})
+WithGuide.args = {
+  width: '285',
+  defaultValue: [5],
+  guide: [0, 1, 2, 3, 4, 5, 10],
+  disabled: false,
+  min: 0,
+  max: 10,
+  step: 1,
+}

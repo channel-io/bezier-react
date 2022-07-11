@@ -7,6 +7,7 @@ const DefaultRoundStyle = css`
 `
 
 export enum RoundAbsoluteNumber {
+  R1 = 1,
   R3 = 3,
   R4 = 4,
   R6 = 6,
@@ -16,6 +17,11 @@ export enum RoundAbsoluteNumber {
   R20 = 20,
   R32 = 32,
 }
+
+const round1 = css`
+  ${DefaultRoundStyle};
+  border-radius: ${RoundAbsoluteNumber.R1}px;
+`
 
 const round3 = css`
   ${DefaultRoundStyle};
@@ -59,6 +65,7 @@ const round32 = css`
 
 export const Rounding = {
   DefaultRoundStyle,
+  round1,
   round3,
   round4,
   round6,

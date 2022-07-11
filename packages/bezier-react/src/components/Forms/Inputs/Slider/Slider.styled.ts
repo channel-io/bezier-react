@@ -23,6 +23,9 @@ export const SliderRoot = styled(RootPrimitive)<SliderRootProps>`
   position: relative;
   display: flex;
   align-items: center;
+  user-select: none;
+  touch-action: none;
+
   width: ${({ width }) => toLength(width, '36px')};
   height: ${SLIDER_THUMB_SIZE}px;
 
@@ -50,6 +53,27 @@ export const SliderRange = styled(RangePrimitive)<SliderRangeProps>`
 
   ${({ foundation }) => foundation?.rounding?.round3}
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
+
+  ${({ interpolation }) => interpolation}
+`
+
+interface SliderGuideProps extends SliderProps {
+  min: NonNullable<SliderProps['min']>
+  max: NonNullable<SliderProps['max']>
+  guideValue: number
+}
+
+export const SliderGuide = styled.div<SliderGuideProps>`
+  position: absolute;
+  bottom: calc(8px + (8px / 2) + 3px);
+  // TODO (@aru): FIXME
+  left: calc(${({ min, max, guideValue }) => (guideValue / (max - min)) * 100}% - 1px + ${({ min, max, guideValue }) => (((((max + min) / 2) - guideValue)) * (SLIDER_THUMB_SIZE / ((max - min))))}px);
+
+  width: 2px;
+  height: 8px;
+
+  ${({ foundation }) => foundation?.rounding?.round1}
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
 
   ${({ interpolation }) => interpolation}
 `
