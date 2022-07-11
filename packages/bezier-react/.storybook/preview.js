@@ -7,6 +7,7 @@ import {
   DarkFoundation,
 } from 'Foundation'
 import BezierProvider from 'Providers/BezierProvider'
+import { Text } from 'Components/Text'
 
 const FoundationKeyword = {
   Light: 'light',
@@ -43,36 +44,99 @@ export const globalTypes = {
 };
 
 function getFoundation(keyword) {
-  if (keyword === FoundationKeyword.Light) return LightFoundation
-  return DarkFoundation
+  const isDarkFoundation = keyword === FoundationKeyword.Dark 
+  return {
+    isDarkFoundation,
+    foundation: isDarkFoundation ? DarkFoundation : LightFoundation,
+    invertedFoundation: isDarkFoundation ? LightFoundation : DarkFoundation,
+  }
+}
+
+const customGlobalStyle = {
+  // You can inject custom global CSS
+  // global: {
+  //   html: {
+  //     fontSize: '20px',
+  //   }
+  // }
+}
+
+const wrapperStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: 20,
+  width: '100%',
+  height: '100%',
+  fontFamily: 'Inter',
+}
+
+const storyWrapperStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: 20,
+  padding: 20,
+}
+
+const innerWrapperStyle = {
+  height: '100%',
+  padding: 40,
+  borderRadius: 20,
 }
 
 function withFoundationProvider(Story, context) {
-  const Foundation = getFoundation(context.globals.Foundation)
-  const backgroundColor = context.globals.Foundation === 'dark'
-    ? DarkFoundation.theme['bg-white-normal']
-    : LightFoundation.theme['bg-white-normal']
+  const { 
+    isDarkFoundation,
+    foundation: Foundation,
+    invertedFoundation: InvertedFoundation,
+   } = getFoundation(context.globals.Foundation)
+
+  const [backgroundColor, invertedBackgroundColor, themeName, invertedThemeName] = (() => {
+    const lightBackgroundColor = LightFoundation.theme['bg-white-normal']
+    const darkBackgroundColor = DarkFoundation.theme['bg-white-normal']
+    const lightThemeName = 'Light Theme'
+    const darkThemeName = 'Dark Theme'
+
+    return isDarkFoundation
+      ? [darkBackgroundColor, lightBackgroundColor, darkThemeName, lightThemeName]
+      : [lightBackgroundColor, darkBackgroundColor, lightThemeName, darkThemeName]
+  })()
 
   const foundation = {
     ...Foundation,
-    // You can inject custom global CSS
-    // global: {
-    //   html: {
-    //     fontSize: '20px',
-    //   }
-    // }
+    ...customGlobalStyle,
+  }
+
+  const invertedFoundation = {
+    ...InvertedFoundation,
+    ...customGlobalStyle,
   }
 
   return (
-    <div
-      style={{
-        backgroundColor,
-        padding: 16,
-        fontFamily: 'Inter',
-      }}
-    >
+    <div style={wrapperStyle}>
       <BezierProvider foundation={foundation}>
-        { Story(context) }
+        <div style={storyWrapperStyle}>
+          <div style={{ ...innerWrapperStyle, backgroundColor }}>
+            { Story(context) }
+          </div>
+          <Text bold color="bgtxt-absolute-black-light">
+            { themeName }
+          </Text>
+        </div>
+      </BezierProvider>
+      <BezierProvider foundation={invertedFoundation}>
+        <div style={storyWrapperStyle}>
+          <div style={{ ...innerWrapperStyle, backgroundColor: invertedBackgroundColor }}>
+            { Story(context) }
+          </div>
+          <Text bold color="bgtxt-absolute-black-light">
+            { invertedThemeName }
+          </Text>
+        </div>
       </BezierProvider>
     </div>
   )
