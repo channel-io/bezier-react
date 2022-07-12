@@ -7,19 +7,19 @@ import ButtonGroupProps from './ButtonGroup.types'
 
 function ButtonGroup(
   {
-    testId = 'bezier-react-button-group',
-    hasGap = true,
     children,
+    hasGap = true,
+    ...props
   }: ButtonGroupProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const SPACING = hasGap ? 6 : 0
+  const spacing = hasGap ? 6 : 0
 
   return (
     <HStack
-      spacing={SPACING}
+      spacing={spacing}
       ref={forwardedRef}
-      testId={testId}
+      {...props}
     >
       {
         Children.map(

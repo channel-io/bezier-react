@@ -1,9 +1,6 @@
-import type {
-  BezierComponentProps,
-  ChildrenProps,
-} from 'Types/ComponentProps'
+import { HStackProps } from 'Components/Stack'
 
-interface ButtonOptions {
+interface ButtonGroupOption {
   /**
    * Determines whether there is a 6px gap between the buttons.
    * @default true
@@ -12,6 +9,6 @@ interface ButtonOptions {
 }
 
 export default interface ButtonGroupProps extends
-  BezierComponentProps,
-  ButtonOptions,
-  ChildrenProps {}
+  HStackProps,
+  ButtonGroupOption
+{}
