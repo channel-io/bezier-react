@@ -11,23 +11,19 @@ function Divider({
   as,
   testId = DIVIDER_TEST_ID,
   orientation = 'horizontal',
-  withoutSideIndent = false,
+  decorative,
   ...rest
 }: DividerProps,
-forwardedRef: React.Ref<HTMLHRElement>,
+forwardedRef: React.Ref<typeof Styled.Divider>,
 ) {
-  const DividerComponent = orientation === 'horizontal'
-    ? Styled.HorizontalDivider
-    : Styled.VerticalDivider
-
   return (
-    <DividerComponent
+    <Styled.Divider
       {...rest}
       forwardedAs={as}
       ref={forwardedRef}
       data-testid={testId}
-      aria-orientation={orientation}
-      withoutSideIndent={withoutSideIndent}
+      orientation={orientation}
+      decorative={decorative}
     />
   )
 }

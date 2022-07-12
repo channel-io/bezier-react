@@ -1,14 +1,9 @@
-/* Internal dependencies */
-import { BezierComponentProps } from 'Types/ComponentProps'
+/* External dependencies */
+import type { SeparatorProps as SeparatorPrimitiveProps } from '@radix-ui/react-separator'
 
-interface DividerOptions {
-  orientation: 'horizontal' | 'vertical'
-  withoutSideIndent?: boolean
-}
+/* Internal dependencies */
+import type { BezierComponentProps } from 'Types/ComponentProps'
 
 export default interface DividerProps extends
   BezierComponentProps,
-  DividerOptions {}
-
-export interface StyledDividerProps extends
-  Pick<DividerProps, 'withoutSideIndent' | 'interpolation'> {}
+  SeparatorPrimitiveProps {}

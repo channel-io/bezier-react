@@ -44,7 +44,6 @@ const Template: Story<DividerProps> = props => (
 export const Primary: Story<DividerProps> = Template.bind({})
 Primary.args = {
   orientation: 'horizontal',
-  withoutSideIndent: false,
 }
 
 const CompositionTemplate: Story<DividerProps> = ({ orientation, ...rest }) => (
@@ -61,5 +60,4 @@ const CompositionTemplate: Story<DividerProps> = ({ orientation, ...rest }) => (
 export const Composition: Story<DividerProps> = CompositionTemplate.bind({})
 Composition.args = {
   orientation: 'horizontal',
-  withoutSideIndent: false,
 }
