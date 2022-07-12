@@ -3,6 +3,7 @@ import React, { Children, forwardRef } from 'react'
 
 /* Internal dependencies */
 import { HStack, StackItem } from 'Components/Stack'
+import { isButton } from 'Components/Button/Button'
 import ButtonGroupProps from './ButtonGroup.types'
 
 function ButtonGroup(
@@ -24,11 +25,19 @@ function ButtonGroup(
       {
         Children.map(
           children,
-          (element) => (
-            <StackItem>
-              { element }
-            </StackItem>
-          ),
+          // eslint-disable-next-line consistent-return
+          (element) => {
+            if (isButton(element)) {
+              return (
+                <StackItem>
+                  { element }
+                </StackItem>
+              )
+            }
+
+            // eslint-disable-next-line no-console
+            console.warn('There is a child of a ButtonGroup that is not a Button component')
+          },
         )
       }
     </HStack>
