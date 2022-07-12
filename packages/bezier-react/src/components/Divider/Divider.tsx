@@ -1,5 +1,10 @@
 /* External dependencies */
-import React, { forwardRef } from 'react'
+import React, {
+  forwardRef,
+  type Ref,
+  type ElementRef,
+} from 'react'
+import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
 /* Internal dependencies */
 import DividerProps from './Divider.types'
@@ -8,23 +13,23 @@ import * as Styled from './Divider.styled'
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
 function Divider({
-  as,
   testId = DIVIDER_TEST_ID,
   orientation = 'horizontal',
   decorative,
   ...rest
 }: DividerProps,
-forwardedRef: React.Ref<typeof Styled.Divider>,
+forwardedRef: Ref<ElementRef<typeof SeparatorPrimitive.Root>>,
 ) {
   return (
-    <Styled.Divider
-      {...rest}
-      forwardedAs={as}
-      ref={forwardedRef}
-      data-testid={testId}
-      orientation={orientation}
-      decorative={decorative}
-    />
+    <SeparatorPrimitive.Root asChild>
+      <Styled.Divider
+        ref={forwardedRef}
+        data-testid={testId}
+        orientation={orientation}
+        decorative={decorative}
+        {...rest}
+      />
+    </SeparatorPrimitive.Root>
   )
 }
 

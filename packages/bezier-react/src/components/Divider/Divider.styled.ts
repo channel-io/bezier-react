@@ -1,6 +1,3 @@
-/* External dependencies */
-import { Root as RootPrimitive } from '@radix-ui/react-separator'
-
 /* Internal dependencies */
 import { css, styled } from 'Foundation'
 import type DividerProps from './Divider.types'
@@ -17,7 +14,7 @@ const VerticalDividerCSS = css`
   height: 100%;
 `
 
-export const Divider = styled(RootPrimitive)<DividerProps>`
+export const Divider = styled.div<DividerProps>`
   ${({ foundation }) => foundation?.rounding?.round1}
   background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
 
