@@ -16,19 +16,25 @@ function Divider({
   testId = DIVIDER_TEST_ID,
   orientation = 'horizontal',
   decorative,
+  withoutSideIndent = false,
+  withoutParallelIndent = false,
   ...rest
 }: DividerProps,
 forwardedRef: Ref<ElementRef<typeof SeparatorPrimitive.Root>>,
 ) {
   return (
     <SeparatorPrimitive.Root asChild>
-      <Styled.Divider
+      <Styled.Wrapper
         ref={forwardedRef}
         data-testid={testId}
         orientation={orientation}
         decorative={decorative}
+        withoutSideIndent={withoutSideIndent}
+        withoutParallelIndent={withoutParallelIndent}
         {...rest}
-      />
+      >
+        <Styled.Divider />
+      </Styled.Wrapper>
     </SeparatorPrimitive.Root>
   )
 }
