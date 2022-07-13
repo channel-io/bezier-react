@@ -24,7 +24,7 @@ forwardedRef: Ref<ElementRef<typeof SeparatorPrimitive.Root>>,
 ) {
   return (
     <SeparatorPrimitive.Root asChild>
-      <Styled.Wrapper
+      <Styled.Divider
         ref={forwardedRef}
         data-testid={testId}
         orientation={orientation}
@@ -32,9 +32,7 @@ forwardedRef: Ref<ElementRef<typeof SeparatorPrimitive.Root>>,
         withoutSideIndent={withoutSideIndent}
         withoutParallelIndent={withoutParallelIndent}
         {...rest}
-      >
-        <Styled.Divider />
-      </Styled.Wrapper>
+      />
     </SeparatorPrimitive.Root>
   )
 }
