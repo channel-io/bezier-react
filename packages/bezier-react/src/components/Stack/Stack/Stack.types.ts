@@ -49,6 +49,13 @@ interface StackOptions {
    * @default 0
    */
   spacing?: number
+
+  /**
+   * Role attribute for accessibility
+   *
+   * @default undefined
+   */
+  role?: string
 }
 
 export default interface StackProps extends

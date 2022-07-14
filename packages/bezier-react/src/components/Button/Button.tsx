@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs, get, isArray, noop, values } from 'lodash-es'
+import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
@@ -12,13 +12,8 @@ import * as Styled from './Button.styled'
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
-const BUTTON_COMPONENT_NAME = 'Button'
 
 type VariantTuple = `${ButtonColorVariant},${ButtonStyleVariant},${ButtonSize}`
-
-export function isButton(element: any): element is React.ReactElement<ButtonProps> {
-  return React.isValidElement(element) && get(element, 'type.displayName') === BUTTON_COMPONENT_NAME
-}
 
 function tupleKey(...[colorVariant, styleVariant, size]: [ButtonColorVariant, ButtonStyleVariant, ButtonSize]): VariantTuple {
   return `${colorVariant},${styleVariant},${size}` as const
@@ -267,7 +262,4 @@ function Button(
   )
 }
 
-const _Button = forwardRef(Button)
-_Button.displayName = BUTTON_COMPONENT_NAME
-
-export default _Button
+export default forwardRef(Button)
