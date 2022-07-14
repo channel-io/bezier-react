@@ -19,7 +19,11 @@ const Divider = forwardRef((
   }: DividerProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) => (
-  <SeparatorPrimitive.Root asChild>
+  <SeparatorPrimitive.Root
+    asChild
+    orientation={orientation}
+    decorative={decorative}
+  >
     <Styled.Divider
       ref={forwardedRef}
       data-testid={testId}
