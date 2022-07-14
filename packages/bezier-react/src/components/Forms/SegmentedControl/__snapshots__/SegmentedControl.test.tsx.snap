@@ -40,16 +40,12 @@ exports[`SegmentedControl Snapshot 1`] = `
 }
 
 .c8 {
-  box-sizing: content-box;
-  margin: 6px;
-  border: 0;
-  border-color: #00000014;
-  border-style: solid;
-}
-
-.c9 {
+  overflow: hidden;
+  border-radius: 1px;
+  background-color: #00000014;
+  width: 1px;
   height: calc(100% - 12px);
-  border-left-width: 1px;
+  margin: 6px;
 }
 
 .c0 {
@@ -210,7 +206,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   visibility: hidden;
 }
 
-.c10 {
+.c9 {
   position: absolute;
   top: 2px;
   bottom: 2px;
@@ -301,10 +297,13 @@ exports[`SegmentedControl Snapshot 1`] = `
     hidden=""
     style="left: -5.75px;"
   >
-    <hr
+    <div
       aria-orientation="vertical"
-      class="c8 c9"
+      class="c8"
+      data-orientation="vertical"
       data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
     />
   </div>
   <div
@@ -312,20 +311,26 @@ exports[`SegmentedControl Snapshot 1`] = `
     hidden=""
     style="left: -6.5px;"
   >
-    <hr
+    <div
       aria-orientation="vertical"
-      class="c8 c9"
+      class="c8"
+      data-orientation="vertical"
       data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
     />
   </div>
   <div
-    class="c10"
+    class="c9"
     style="left: -7.25px;"
   >
-    <hr
+    <div
       aria-orientation="vertical"
-      class="c8 c9"
+      class="c8"
+      data-orientation="vertical"
       data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
     />
   </div>
 </div>
