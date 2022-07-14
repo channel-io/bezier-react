@@ -8,7 +8,7 @@ import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import { ListItem } from 'Components/ListItem'
 import Divider from './Divider'
-import DividerProps from './Divider.types'
+import type DividerProps from './Divider.types'
 
 export default {
   title: getTitle(base),
@@ -20,6 +20,16 @@ export default {
         options: ['horizontal', 'vertical'],
       },
     },
+    withoutSideIndent: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    withoutParallelIndent: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta
 
@@ -29,6 +39,7 @@ interface WrapperProps {
 
 const Wrapper = styled.div<WrapperProps>`
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-direction: ${({ direction = 'column' }) => direction};
   width: 200px;
