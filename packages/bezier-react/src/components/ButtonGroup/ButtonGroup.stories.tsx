@@ -30,7 +30,7 @@ const Template: Story<ButtonGroupProps> = (props) => (
   <Wrapper>
     <Spacer />
     <StackItem>
-      <ButtonGroup {...props} align="center">
+      <ButtonGroup {...props}>
         <Button
           text="취소"
           styleVariant={ButtonStyleVariant.Secondary}
@@ -54,7 +54,7 @@ const CompositionTemplate: Story<ButtonGroupProps> = (props) => (
   <Wrapper>
     <Spacer />
     <StackItem>
-      <ButtonGroup {...props} align="center">
+      <ButtonGroup {...props}>
         <Button
           text="취소"
           styleVariant={ButtonStyleVariant.Secondary}

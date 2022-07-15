@@ -18,6 +18,7 @@ function ButtonGroup(
   return (
     <HStack
       spacing={spacing}
+      justify="center"
       ref={forwardedRef}
       role="group"
       {...props}
