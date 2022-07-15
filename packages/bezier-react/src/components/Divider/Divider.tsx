@@ -15,6 +15,7 @@ const Divider = forwardRef((
     decorative,
     withoutSideIndent = false,
     withoutParallelIndent = false,
+    withoutIndent = false,
     ...rest
   }: DividerProps,
   forwardedRef: React.Ref<HTMLElement>,
@@ -31,6 +32,7 @@ const Divider = forwardRef((
       decorative={decorative}
       withoutSideIndent={withoutSideIndent}
       withoutParallelIndent={withoutParallelIndent}
+      withoutIndent={withoutIndent}
       {...rest}
     />
   </SeparatorPrimitive.Root>

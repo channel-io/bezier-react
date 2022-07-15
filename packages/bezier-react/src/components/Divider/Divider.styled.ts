@@ -9,13 +9,14 @@ interface StyledDividerProps extends DividerProps {
   orientation: NonNullable<DividerProps['orientation']>
   withoutSideIndent: NonNullable<DividerProps['withoutSideIndent']>
   withoutParallelIndent: NonNullable<DividerProps['withoutParallelIndent']>
+  withoutIndent: NonNullable<DividerProps['withoutIndent']>
 }
 
 export const Divider = styled.div<StyledDividerProps>`
   ${({ foundation }) => foundation?.rounding?.round1}
   background-color: ${({ foundation }) => foundation?.theme?.['bdr-black-light']};
 
-  ${({ orientation, withoutSideIndent, withoutParallelIndent }) => {
+  ${({ orientation, withoutSideIndent, withoutParallelIndent, withoutIndent }) => {
     switch (orientation) {
       case 'horizontal':
       default: {
@@ -24,6 +25,9 @@ export const Divider = styled.div<StyledDividerProps>`
           height: ${DIVIDER_THICKNESS}px;
 
           margin: ${DIVIDER_INDENT_SIZE}px;
+          ${withoutIndent && css`
+            margin: 0;
+          `}
           ${withoutSideIndent && css`
             margin-left: 0;
             margin-right: 0;
@@ -40,6 +44,9 @@ export const Divider = styled.div<StyledDividerProps>`
           height: ${withoutSideIndent ? '100%' : `calc(100% - ${DIVIDER_INDENT_SIZE * 2}px)`};
 
           margin: ${DIVIDER_INDENT_SIZE}px;
+          ${withoutIndent && css`
+            margin: 0;
+          `}
           ${withoutSideIndent && css`
             margin-top: 0;
             margin-bottom: 0;

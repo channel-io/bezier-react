@@ -22,6 +22,13 @@ interface DividerOptions {
    * @default false
    */
   withoutParallelIndent?: boolean
+
+  /**
+   * If true, the divider will be rendered without padding,
+   *
+   * @default false
+   */
+  withoutIndent?: boolean
 }
 
 export default interface DividerProps extends
