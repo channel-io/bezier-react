@@ -47,7 +47,7 @@ const Template: Story<ButtonGroupProps> = (props) => (
 
 export const Primary: Story<ButtonGroupProps> = Template.bind({})
 Primary.args = {
-  hasSpacing: true,
+  withoutSpacing: false,
 }
 
 const CompositionTemplate: Story<ButtonGroupProps> = (props) => (

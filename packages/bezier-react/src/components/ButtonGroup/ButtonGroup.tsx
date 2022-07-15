@@ -8,12 +8,12 @@ import ButtonGroupProps from './ButtonGroup.types'
 function ButtonGroup(
   {
     children,
-    hasSpacing = true,
+    withoutSpacing,
     ...props
   }: ButtonGroupProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const spacing = hasSpacing ? 6 : 0
+  const spacing = withoutSpacing ? 0 : 6
 
   return (
     <HStack

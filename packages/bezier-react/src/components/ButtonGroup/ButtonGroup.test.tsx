@@ -10,7 +10,7 @@ import ButtonGroupProps from './ButtonGroup.types'
 describe('ButtonGroup', () => {
   let props: ButtonGroupProps
 
-  it('creates a button group with gap', () => {
+  it('creates a button group with spacing', () => {
     const { getByRole } = render(
       <ButtonGroup
         {...props}
@@ -25,11 +25,11 @@ describe('ButtonGroup', () => {
     expect((buttonGroup.children[1] as HTMLElement).style.getPropertyValue('--margin-before')).toBe('6px')
   })
 
-  it('creates a button group without gap', () => {
+  it('creates a button group without spacing', () => {
     const { getByRole } = render(
       <ButtonGroup
         {...props}
-        hasSpacing={false}
+        withoutSpacing
         testId="button-group"
       >
         <Button text="button1" />
