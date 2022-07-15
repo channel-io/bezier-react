@@ -71,6 +71,16 @@ describe('Divider', () => {
         expect(divider).toHaveStyle('margin-left: 0')
         expect(divider).toHaveStyle('margin-right: 0')
       })
+
+      it('should not have margin when withoutIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+          withoutIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin: 0')
+      })
     })
 
     describe('vertical divider', () => {
@@ -117,6 +127,16 @@ describe('Divider', () => {
         expect(divider).toHaveStyle('margin-bottom: 0')
         expect(divider).toHaveStyle('margin-left: 0')
         expect(divider).toHaveStyle('margin-right: 0')
+      })
+
+      it('should not have margin when withoutIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+          withoutIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin: 0')
       })
     })
   })
