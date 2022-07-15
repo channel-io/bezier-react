@@ -30,6 +30,11 @@ export default {
         type: 'boolean',
       },
     },
+    withoutIndent: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta
 
