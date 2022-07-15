@@ -8,7 +8,7 @@ import ButtonGroupProps from './ButtonGroup.types'
 function ButtonGroup(
   {
     children,
-    withoutSpacing,
+    withoutSpacing = false,
     ...props
   }: ButtonGroupProps,
   forwardedRef: React.Ref<HTMLElement>,

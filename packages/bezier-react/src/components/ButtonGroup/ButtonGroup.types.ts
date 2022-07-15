@@ -3,7 +3,7 @@ import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 interface ButtonGroupOptions {
   /**
    * Determines whether there is a 6px gap between the buttons.
-   * @default undefined
+   * @default false
    */
   withoutSpacing?: boolean
 }
