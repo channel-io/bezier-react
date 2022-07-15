@@ -21,7 +21,7 @@ export const Divider = styled.div<StyledDividerProps>`
       case 'horizontal':
       default: {
         return css`
-          width: ${withoutSideIndent ? '100%' : `calc(100% - ${DIVIDER_INDENT_SIZE * 2}px)`};
+          width: ${(withoutSideIndent || withoutIndent) ? '100%' : `calc(100% - ${DIVIDER_INDENT_SIZE * 2}px)`};
           height: ${DIVIDER_THICKNESS}px;
 
           margin: ${DIVIDER_INDENT_SIZE}px;
@@ -41,7 +41,7 @@ export const Divider = styled.div<StyledDividerProps>`
       case 'vertical': {
         return css`
           width: ${DIVIDER_THICKNESS}px;
-          height: ${withoutSideIndent ? '100%' : `calc(100% - ${DIVIDER_INDENT_SIZE * 2}px)`};
+          height: ${(withoutSideIndent || withoutIndent) ? '100%' : `calc(100% - ${DIVIDER_INDENT_SIZE * 2}px)`};
 
           margin: ${DIVIDER_INDENT_SIZE}px;
           ${withoutIndent && css`
