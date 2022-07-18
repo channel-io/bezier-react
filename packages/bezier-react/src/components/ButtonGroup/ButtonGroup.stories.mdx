@@ -1,0 +1,49 @@
+import {
+  Meta,
+} from '@storybook/addon-docs'
+import {
+  Canvas,
+  Meta,
+  Story,
+} from '@storybook/addon-docs'
+import base from 'paths.macro'
+import {
+  Composition,
+} from './ButtonGroup.stories'
+
+<Meta
+  title={getTitle(base)}
+  parameters={{
+    viewMode: 'docs',
+  }}
+/>
+
+# ButtonGroup
+
+## Overview
+
+버튼 그룹은 버튼 사이의 간격을 지정해서 버튼을 모아두기 위한 컴포넌트입니다. 
+
+버튼 사이의 간격은 0px 혹은 6px 이며, 디폴트값은 6px 입니다.
+
+<Canvas>
+  <Story story={Composition} />
+</Canvas>
+
+## API
+
+- `ButtonGroupProps`는 `HStackProps`에 `ButtonGroupOption` 인터페이스를 추가로 갖습니다. `HStackProps`는 `Stack`문서에서 확인 가능합니다.
+
+<details>
+<summary><h3>ButtonGroupOption</h3></summary>
+
+```ts
+interface ButtonGroupOption {
+  /**
+   * Determines whether there is a 6px gap between the buttons.
+   * @default true
+   */
+  hasSpacing?: boolean
+}
+```
+</details>
