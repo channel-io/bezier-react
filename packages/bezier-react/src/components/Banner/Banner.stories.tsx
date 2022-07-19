@@ -15,10 +15,16 @@ import {
   BannerVariant,
   BannerProps,
 } from './Banner.types'
+import mdx from './Banner.mdx'
 
 export default {
   title: getTitle(base),
   component: Banner,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     variant: {
       control: {

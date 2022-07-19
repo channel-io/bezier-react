@@ -3,13 +3,8 @@ import {
 } from 'react'
 import {
   Canvas,
-  Meta,
   Story,
 } from '@storybook/addon-docs'
-import base from 'paths.macro'
-import {
-  getTitle,
-} from 'Utils/storyUtils'
 import {
   Avatar,
 } from 'Components/Avatars/Avatar'
@@ -61,13 +56,6 @@ import {
   VariantsStyle,
 } from './Button.stories'
 
-<Meta
-  title={getTitle(base)}
-  parameters={{
-    viewMode: 'docs',
-  }}
-/>
-
 # Button
 
 ## Overview
@@ -77,11 +65,11 @@ import {
 버튼은 크게 4가지 사이즈로 나뉩니다. 그 중 M이 가장 보편적이며, 공간 절약을 위해 S가 쓰입니다. List나 Input 등 액션이 필요할 때는 XS도 사용할 수 있습니다. 가입, 초대 UX 등 굉장히 강조해야 할 버튼의 경우, L, XL 사이즈를 사용할 수 있습니다.
 
 <Canvas>
-  <Story story={OverviewCTA} />
+  <Story id="components-button--overview-cta" />
 </Canvas>
 
 <Canvas>
-  <Story story={OverviewFloating} />
+  <Story id="components-button--overview-floating" />
 </Canvas>
 
 ## Usage
@@ -92,12 +80,12 @@ import {
 - 버튼 사이의 간격은 0 또는 6으로 합니다.
 
 <Canvas>
-  <Story story={UsageCTA} />
+  <Story id="components-button--usage-cta" />
 </Canvas>
 
 
 <Canvas>
-  <Story story={UsageCTA2} />
+  <Story id="components-button--usage-cta2" />
 </Canvas>
 
 ### Recipe: Web links
@@ -105,33 +93,33 @@ import {
 - 보통의 경우, tertiary button을 적절한 icon과 함께 사용합니다.
 
 <Canvas>
-  <Story story={UsageWebLinks} />
+  <Story id="components-button--usage-web-links" />
 </Canvas>
 
 ### Recipe: Composite Usage
 
 - XS 크기의 버튼은 ListItem, SectionLabel 등 다른 컴포넌트에 함께 사용될 수 있습니다. 컴포넌트 좌우측에서 액션으로 사용됩니다.
 
-<Story story={UsageComposite} />
+<Story id="components-button--usage-composite" />
 
 ### Recipe: Button with various contents
 
 - 기본적으로 `leftContent`, `rightContent` prop에 icon name에 해당하는 string을 지정하여 좌우측에 아이콘이 들어가는 형태를 표현합니다.
 
 <Canvas>
-  <Story story={UsageVariousContentsComposite} />
+  <Story id="components-button--usage-various-contents-composite" />
 </Canvas>
 
 - 아이콘만 들어가는 버튼의 경우, `leftContent` prop만 사용합니다.
 
 <Canvas>
-  <Story story={UsageVariousContentsIconOnly} />
+  <Story id="components-button--usage-various-contents-icon-only" />
 </Canvas>
 
 - 아이콘 이외에 커스텀 컴포넌트가 들어가야 하는 상황에는, `leftContent`, `rightContent` prop에 `JSX.Element` 값을 지정할 수 있습니다.
 
 <Canvas>
-  <Story story={UsageVariousContentsCustom} />
+  <Story id="components-button--usage-various-contents-custom" />
 </Canvas>
 
 ### Recipe: Button with asynchronous actions
@@ -162,7 +150,7 @@ const AsyncActionButton = () => {
 ```
 
 <Canvas>
-  <Story story={UsageAsync} />
+  <Story id="components-button--usage-async" />
 </Canvas>
 
 ### Recipe: Button with dropdown
@@ -192,7 +180,7 @@ const OpenDropdownButton = () => {
 ```
 
 <Canvas>
-  <Story story={UsageDropdown} />
+  <Story id="components-button--usage-dropdown" />
 </Canvas>
 
 ## Variants
@@ -201,19 +189,19 @@ const OpenDropdownButton = () => {
 
 - `ButtonColorVariant` enum을 통해 정의되며, `colorVariant` prop으로 지정할 수 있습니다.
 
-<Story story={VariantsColor} />
+<Story id="components-button--variants-color" />
 
 ### Style Variants
 
 - `ButtonStyleVariant` enum을 통해 정의되며, `styleVariant` prop으로 지정할 수 있습니다.
 
-<Story story={VariantsStyle} />
+<Story  id="components-button--variants-style" />
 
 ### Size
 
 - `ButtonSize` enum을 통해 정의되며, `size` prop으로 지정할 수 있습니다.
 
-<Story story={VariantsSize} />
+<Story id="components-button--variants-size" />
 
 ## API
 

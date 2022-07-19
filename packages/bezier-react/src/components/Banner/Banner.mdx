@@ -1,9 +1,7 @@
 import {
   Canvas,
-  Meta,
   Story,
 } from '@storybook/addon-docs'
-import base from 'paths.macro'
 import {
   getTitle,
 } from 'Utils/storyUtils'
@@ -15,23 +13,6 @@ import {
   StackItem,
   VStack,
 } from 'Components/Stack'
-import {
-  Overview,
-  UsageConsecutive,
-  UsageFullWidth,
-  UsageLink,
-  UsageLinkTo,
-  UsageMinWidth,
-  UsageMaxWidth,
-  UsageNoIcon,
-} from './Banner.stories'
-
-<Meta
-  title={getTitle(base)}
-  parameters={{
-    viewMode: 'docs',
-  }}
-/>
 
 # Banner
 
@@ -40,7 +21,7 @@ import {
 안내, 경고, 추천 등의 다양한 정보를 잘 전달하고 싶을 때 사용합니다.
 
 <Canvas>
-  <Story story={Overview} />
+  <Story id="components-banner--overview" />
 </Canvas>
 
 ## Usage
@@ -48,31 +29,31 @@ import {
 - 최소 너비는 200px입니다.
 
 <Canvas>
-  <Story story={UsageMinWidth} />
+  <Story id="components-banner--usage-min-width" />
 </Canvas>
 
 - Parent의 너비를 가득 채웁니다.
 
 <Canvas>
-  <Story story={UsageFullWidth} />
+  <Story id="components-banner--usage-full-width" />
 </Canvas>
 
 - 최대 너비는 없으나, Banner의 텍스트 영역은 좌측 상단에 위치합니다.
 
 <Canvas>
-  <Story story={UsageMaxWidth} />
+  <Story id="components-banner--usage-max-width" />
 </Canvas>
 
 - 연속으로 보여줘야 하는 경우, Banner 간의 간격은 6px 입니다.
 
 <Canvas>
-  <Story story={UsageConsecutive} />
+  <Story id="components-banner--usage-consecutive" />
 </Canvas>
 
 - 아이콘을 제거하여 사용할 수 있습니다.
 
 <Canvas>
-  <Story story={UsageNoIcon} />
+  <Story id="components-banner--usage-no-icon" />
 </Canvas>
 
 ### Link
@@ -81,14 +62,14 @@ import {
 - `hasLink={true}` prop을 통해 링크를 enable하고, `linkText` prop으로 링크의 텍스트를 설정할 수 있습니다.
 
 <Canvas>
-  <Story story={UsageLink} />
+  <Story id="components-banner--usage-link" />
 </Canvas>
 
 - `linkTo` prop을 활용하면, 링크를 클릭했을 때 이동할 location을 지정할 수 있습니다.
 - 기본적으로, 링크를 클릭하면 새 탭으로 해당 location이 열리게 됩니다. (`<a>` 태그, `target="_blank"`, `rel="noopener noreferrer"` 를 기본으로 합니다.)
 
 <Canvas>
-  <Story story={UsageLinkTo} />
+  <Story id="components-banner--usage-link-to" />
 </Canvas>
 
 - Default로 제공되는 링크 메커니즘을 이용할 수 없는 경우가 있습니다. (대표적인 usecase는, SPA에서 `react-router`와 같은 라이브러리가 제공하는 링크 컴포넌를 활용하는 경우입니다.) 이 경우, `renderLink` prop을 지정하여 링크를 어떤 컴포넌트로 렌더링할지 결정할 수 있습니다.

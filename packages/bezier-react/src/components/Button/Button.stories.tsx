@@ -49,10 +49,16 @@ import ButtonProps, {
   ButtonColorVariant,
 } from './Button.types'
 import Button from './Button'
+import mdx from './Button.mdx'
 
 export default {
   title: getTitle(base),
   component: Button,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     onClick: { action: 'onClick' },
     size: {

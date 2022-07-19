@@ -30,9 +30,15 @@ import { Stack } from './Stack'
 import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
+import mdx from './Stack.mdx'
 
 export default {
   title: getTitle(base),
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     containerSize: {
       control: {
