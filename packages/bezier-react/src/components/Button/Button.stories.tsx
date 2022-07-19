@@ -90,8 +90,9 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
-export const Primary: Story<ButtonProps> = Template.bind({})
-Primary.args = {
+export const Playground: Story<ButtonProps> = Template.bind({})
+
+Playground.args = {
   text: 'Invite',
   disabled: false,
   active: false,
@@ -104,6 +105,7 @@ Primary.args = {
 }
 
 export const WithCustomComponent: Story<ButtonProps> = Template.bind({})
+
 WithCustomComponent.args = {
   text: 'Set Manager',
   leftContent: <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />,
@@ -141,6 +143,8 @@ export const OverviewCTA: Story<{}> = () => (
   </HStack>
 )
 
+OverviewCTA.storyName = 'Overview (as CTA)'
+
 export const OverviewFloating: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -153,6 +157,8 @@ export const OverviewFloating: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+OverviewFloating.storyName = 'Overview (as floating button)'
 
 export const UsageCTA: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
@@ -173,6 +179,8 @@ export const UsageCTA: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageCTA.storyName = 'Usage (as CTA)'
 
 export const UsageCTA2: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
@@ -209,6 +217,8 @@ export const UsageCTA2: Story<{}> = () => (
   </HStack>
 )
 
+UsageCTA2.storyName = 'Usage 2 (as CTA)'
+
 export const UsageWebLinks: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
     <StackItem>
@@ -235,6 +245,8 @@ export const UsageWebLinks: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageWebLinks.storyName = 'Usage (as web link)'
 
 const Card = styled.div`
   width: 360px;
@@ -320,6 +332,8 @@ export const UsageComposite: Story<{}> = () => (
   </HStack>
 )
 
+UsageComposite.storyName = 'Usage (in composite components)'
+
 export const UsageVariousContentsComposite: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -333,6 +347,8 @@ export const UsageVariousContentsComposite: Story<{}> = () => (
   </HStack>
 )
 
+UsageVariousContentsComposite.storyName = 'Usage (with left/right contents)'
+
 export const UsageVariousContentsIconOnly: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -344,6 +360,8 @@ export const UsageVariousContentsIconOnly: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageVariousContentsIconOnly.storyName = 'Usage (icon only button)'
 
 const AlertBadge = styled.div`
   display: flex;
@@ -379,6 +397,8 @@ export const UsageVariousContentsCustom: Story<{}> = () => (
   </HStack>
 )
 
+UsageVariousContentsCustom.storyName = 'Usage (with custom contents)'
+
 const AsyncActionButton = () => {
   const [isFetching, setFetching] = useState(false)
   const handleClick = () => {
@@ -407,6 +427,8 @@ export const UsageAsync: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageAsync.storyName = 'Usage (with asyncrhonous actions)'
 
 const Dropdown = styled.div`
   width: 200px;
@@ -453,6 +475,8 @@ export const UsageDropdown: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageDropdown.storyName = 'Usage (with dropdown)'
 
 export const VariantsColor: Story<{}> = () => (
   <VStack spacing={16} align="start">
@@ -549,6 +573,8 @@ export const VariantsColor: Story<{}> = () => (
   </VStack>
 )
 
+VariantsColor.storyName = 'Color variants'
+
 export const VariantsStyle: Story<{}> = () => (
   <VStack spacing={16} align="start">
     { entries(ButtonStyleVariant)
@@ -573,6 +599,8 @@ export const VariantsStyle: Story<{}> = () => (
   </VStack>
 )
 
+VariantsStyle.storyName = 'Style variants'
+
 export const VariantsSize: Story<{}> = () => (
   <VStack spacing={16} align="start">
     { entries(ButtonSize)
@@ -596,3 +624,5 @@ export const VariantsSize: Story<{}> = () => (
       )) }
   </VStack>
 )
+
+VariantsSize.storyName = 'Size variants'

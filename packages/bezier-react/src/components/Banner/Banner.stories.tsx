@@ -55,10 +55,9 @@ export default {
   },
 } as Meta<BannerProps>
 
-const Template: Story<BannerProps> = props => <Banner {...props} />
+export const Playground: Story<BannerProps> = props => <Banner {...props} />
 
-export const Primary: Story<BannerProps> = Template.bind({})
-Primary.args = {
+Playground.args = {
   variant: BannerVariant.Default,
   icon: 'lightbulb',
   content: 'Information here.',
@@ -133,6 +132,8 @@ export const UsageMinWidth: Story<{}> = () => (
   </VStack>
 )
 
+UsageMinWidth.storyName = 'Usage (min width)'
+
 export const UsageFullWidth: Story<{}> = () => (
   <VStack spacing={6} align="start">
     <StackItem style={{ width: 360, border: '1px solid red' }}>
@@ -159,6 +160,8 @@ export const UsageFullWidth: Story<{}> = () => (
   </VStack>
 )
 
+UsageFullWidth.storyName = 'Usage (full width)'
+
 export const UsageMaxWidth: Story<{}> = () => (
   <VStack spacing={6} align="start">
     <StackItem>
@@ -171,6 +174,8 @@ export const UsageMaxWidth: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
+
+UsageMaxWidth.storyName = 'Usage (max width)'
 
 export const UsageConsecutive: Story<{}> = () => (
   <VStack spacing={6} align="stretch">
@@ -203,6 +208,8 @@ export const UsageConsecutive: Story<{}> = () => (
   </VStack>
 )
 
+UsageConsecutive.storyName = 'Usage (consecutive)'
+
 export const UsageNoIcon: Story<{}> = () => (
   <Banner
     icon={null}
@@ -212,6 +219,8 @@ export const UsageNoIcon: Story<{}> = () => (
     linkText="바로가기"
   />
 )
+
+UsageNoIcon.storyName = 'Usage (no icon)'
 
 export const UsageLink: Story<{}> = () => (
   <Banner
@@ -224,6 +233,8 @@ export const UsageLink: Story<{}> = () => (
   />
 )
 
+UsageLink.storyName = 'Usage (link)'
+
 export const UsageLinkTo: Story<{}> = () => (
   <Banner
     variant={BannerVariant.Cobalt}
@@ -235,3 +246,5 @@ export const UsageLinkTo: Story<{}> = () => (
     actionIcon="cancel"
   />
 )
+
+UsageLinkTo.storyName = 'Usage (link to external location)'
