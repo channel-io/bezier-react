@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   codecov: codecov/codecov@1.2.0
+  pr-comment: benjlevesque/pr-comment@0.1.9
 
 references:
   workspace_root: &workspace_root
@@ -65,9 +66,15 @@ jobs:
           file: './packages/bezier-react/coverage/lcov.info'
           token: $CODECOV_TOKEN
 
+  chromatic-deploy:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: yarn workspace @channel.io/bezier-react chromatic --exit-zero-on-changes --skip 'dependabot/**'
+
 workflows:
   version: 2
-  lint_and_test:
+  test_n_chromatic_deploy:
     jobs:
       - install
       - lint:
@@ -79,3 +86,7 @@ workflows:
       - test:
           requires:
             - install
+      - chromatic-deploy:
+          requires:
+            - lint
+            - typecheck
