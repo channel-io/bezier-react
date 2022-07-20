@@ -209,3 +209,6 @@ stats.html
 
 # Turborepo Cache
 .turbo
+
+# Stylelint cache
+.stylelintcache

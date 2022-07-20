@@ -15,34 +15,25 @@
     "src"
   ],
   "scripts": {
-    "build": "yarn build:icon && yarn build:rollup",
-    "dev": "yarn storybook",
-    "lint": "yarn eslint-all && yarn stylelint-all",
-    "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
-    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
-    "test": "yarn lint && yarn typecheck && yarn jest",
-    "clean": "rm -rf node_modules .turbo",
-    "storybook": "start-storybook -p 4101",
-    "lint-staged": "lint-staged",
-    "eslint-all": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
-    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
-    "jest:watch": "cross-env BABEL_ENV=test jest --watch",
-    "cleanBuild": "npx rimraf build",
-    "prebuild": "yarn cleanBuild",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
-    "build:storybook": "build-storybook",
+    "build": "run-s 'build:*'",
     "build:icon": "./scripts/build-icon.sh",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
+    "dev": "yarn storybook",
+    "lint": "run-p 'lint:*'",
+    "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
+    "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --cache",
+    "typecheck": "yarn find-deadcode && tsc --build --verbose",
+    "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
+    "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
+    "test:watch": "cross-env BABEL_ENV=test jest --watch",
     "update-snapshot": "jest --updateSnapshot",
+    "clean": "rm -rf node_modules .turbo & yarn clean:build",
+    "clean:build": "npx rimraf build",
+    "prebuild": "yarn clean:build",
+    "storybook": "start-storybook -p 4101",
+    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "build-storybook": "build-storybook",
     "chromatic": "chromatic"
-  },
-  "lint-staged": {
-    "src/**/*.styled.{js,ts}": [
-      "stylelint"
-    ],
-    "src/**/*.(js|ts)?(x)": [
-      "eslint"
-    ]
   },
   "keywords": [
     "design",
@@ -99,7 +90,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.4",
-    "lint-staged": "^11.0.0",
     "paths.macro": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -109,7 +99,6 @@
     "rollup-plugin-typescript2": "^0.31.1",
     "rollup-plugin-visualizer": "^5.5.2",
     "styled-components": "^5.3.5",
-    "stylelint": "^13.8.0",
     "ts-prune": "^0.10.3",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "tslib": "^2.3.1",

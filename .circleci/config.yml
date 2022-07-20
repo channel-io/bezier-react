@@ -56,11 +56,11 @@ jobs:
       - *attach_workspace
       - run: yarn typecheck
 
-  jest:
+  test:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: yarn workspace @channel.io/bezier-react jest
+      - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
           token: $CODECOV_TOKEN
@@ -76,6 +76,6 @@ workflows:
       - typecheck:
           requires:
             - install
-      - jest:
+      - test:
           requires:
             - install

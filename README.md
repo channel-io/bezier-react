@@ -34,15 +34,19 @@ yarn build --filter=<workspace>
 ### Run Storybook
 
 ```bash
-yarn dev --filter=@channel.io/bezier-react
+yarn storybook
 ```
 
 ### Other Commands
 
 | Command | Description |
 |---|---|
+| `yarn dev` | Runs Storybook and Builds Figma plugin in watch mode |
+| `yarn test` | Tests all workspaces |
 | `yarn lint` | Lints all workspaces |
+| `yarn typecheck` | Compiles `bezier-react` |
 | `yarn clean` | Remove generated files |
+| `yarn update-snapshot` | Update test snapshots of `bezier-react` |
 
 ## Contribute
 

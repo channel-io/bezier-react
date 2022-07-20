@@ -5,7 +5,6 @@
     "packages/*"
   ],
   "scripts": {
-    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts",
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel",
     "lint": "turbo run lint",
@@ -13,7 +12,11 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
+    "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
+    "pre-commit": "run-s verify lint-staged typecheck test",
+    "verify": "ts-node -P ./tsconfig.script.json scripts/check-yarn-version.ts",
+    "lint-staged": "lint-staged",
     "changeset": "changeset",
     "prepare": "husky install"
   },
@@ -40,6 +43,9 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-storybook": "^0.5.11",
     "husky": "^6.0.0",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "stylelint": "^13.8.0",
     "ts-node": "^8.10.2",
     "turbo": "^1.2.6",
     "typescript": "^4.6.4"
