@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   codecov: codecov/codecov@1.2.0
-  pr-comment: benjlevesque/pr-comment@0.1.9
+  github: interstellar/github@1.3.2
 
 references:
   workspace_root: &workspace_root
@@ -70,23 +70,44 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: yarn workspace @channel.io/bezier-react chromatic --exit-zero-on-changes --skip 'dependabot/**'
+      - run: 
+          name: Deploy to Chromatic and save the output to a file
+          command: yarn workspace @channel.io/bezier-react chromatic --exit-zero-on-changes --skip 'dependabot/**' 2>&1| tee chromatic_log.txt
+
+  comment:
+    <<: *defaults
+    docker:
+      - image: alpine:3.14
+    steps:
+      - *attach_workspace
+      # - TEST
+      - run: echo "{{ env.CIRCLE_COMPARE_URL }}" > chromatic_log.txt
+      - github/setup-gh-cli:
+          github-token-env-var: GITHUB_TOKEN
+          when: on_success
+      - github/post-pr-comment:
+          comment-file: chromatic_log.txt
+          comment-title: 🚀 Chromatic Deployment
+          when: on_success
 
 workflows:
   version: 2
   test_n_chromatic_deploy:
     jobs:
-      - install
-      - lint:
-          requires:
-            - install
-      - typecheck:
-          requires:
-            - install
-      - test:
-          requires:
-            - install
-      - chromatic-deploy:
-          requires:
-            - lint
-            - typecheck
+      # - install
+      # - lint:
+      #     requires:
+      #       - install
+      # - typecheck:
+      #     requires:
+      #       - install
+      # - test:
+      #     requires:
+      #       - install
+      # - chromatic-deploy:
+      #     requires:
+      #       - lint
+      #       - typecheck
+      - comment
+          # requires:
+          #   - install
