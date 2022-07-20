@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.159
+
+### Minor Changes
+
+- [#878](https://github.com/channel-io/bezier-react/pull/878) [`fa1e0d76`](https://github.com/channel-io/bezier-react/commit/fa1e0d7692204b8207911284e6c61c3c92860842) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add ButtonGroup component
+
+### Patch Changes
+
+- [#874](https://github.com/channel-io/bezier-react/pull/874) [`fa944351`](https://github.com/channel-io/bezier-react/commit/fa9443517bf105e9dc3082537ed42e9975902d0c) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Add keypad icon
+
 ## 1.0.0-next-v1.158
 
 ### Patch Changes

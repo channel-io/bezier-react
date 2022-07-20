@@ -6,8 +6,10 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "curly-swans-greet",
     "curvy-eagles-sparkle",
     "flat-jobs-smell",
+    "moody-frogs-rush",
     "old-olives-trade",
     "old-students-raise",
     "poor-brooms-arrive",
