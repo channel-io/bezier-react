@@ -252,6 +252,7 @@ import KakaoFilled from './KakaoFilled'
 import Kakao from './Kakao'
 import Key from './Key'
 import Keyboard from './Keyboard'
+import Keypad from './Keypad'
 import Lab from './Lab'
 import Laptop from './Laptop'
 import Lightbulb from './Lightbulb'
@@ -707,6 +708,7 @@ const icons = {
   kakao: Kakao,
   key: Key,
   keyboard: Keyboard,
+  keypad: Keypad,
   lab: Lab,
   laptop: Laptop,
   lightbulb: Lightbulb,
@@ -1177,6 +1179,7 @@ export {
   Kakao as KakaoIcon,
   Key as KeyIcon,
   Keyboard as KeyboardIcon,
+  Keypad as KeypadIcon,
   Lab as LabIcon,
   Laptop as LaptopIcon,
   Lightbulb as LightbulbIcon,
