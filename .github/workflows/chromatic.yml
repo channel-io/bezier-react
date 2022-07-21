@@ -2,8 +2,10 @@ name: Chromatic
 
 on: 
   push:
+    branches:
+      - 'next*'
   pull_request:
-    types: [opened, edited, reopened, synchronize]
+    types: [opened, reopened, synchronize]
 
 jobs:
   chromatic-deployment:
