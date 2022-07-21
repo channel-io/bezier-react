@@ -1,6 +1,6 @@
 name: Chromatic
 
-on: 
+on:
   push:
     branches:
       - 'next*'
@@ -34,8 +34,34 @@ jobs:
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
+        id: chromatic
         with:
           workingDir: packages/bezier-react
           exitZeroOnChanges: true
           skip: dependabot/**
           projectToken: 06157a6fbe6f
+
+      - name: Render template
+        id: template
+        uses: chuhlomin/render-template@v1.4
+        with:
+          template: .github/comment_template.md
+          vars: |
+            storybookUrl: ${{ steps.chromatic.outputs.storybookUrl }}
+            buildUrl: ${{ steps.chromatic.outputs.buildUrl }}
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Chromatic Report
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: ${{ steps.template.outputs.result }}
+          edit-mode: replace
