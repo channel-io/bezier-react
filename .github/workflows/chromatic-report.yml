@@ -1,0 +1,91 @@
+name: Chromatic Report
+
+on:
+  workflow_run:
+    workflows: ["Chromatic"]
+    types:
+      - completed
+
+jobs:
+  chromatic-report:
+    name: Chromatic Report
+    runs-on: ubuntu-latest
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: 'Download artifact'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{github.event.workflow_run.id }},
+            });
+
+            const matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "pr"
+            })[0];
+
+            const download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+
+            const fs = require('fs');
+            fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(download.data));
+
+      - name: 'Unzip artifact'
+        run: unzip pr.zip
+        
+      - uses: actions/github-script@v6
+        id: pr-number
+        with:
+          script: |
+            const fs = require('fs');
+            return Number(fs.readFileSync('./prNumber'));
+          result-encoding: number
+
+      - uses: actions/github-script@v6
+        id: storybook-url
+        with:
+          script: |
+            const fs = require('fs');
+            return fs.readFileSync('./storybookUrl');
+          result-encoding: string
+
+      - uses: actions/github-script@v6
+        id: build-url
+        with:
+          script: |
+            const fs = require('fs');
+            return fs.readFileSync('./buildUrl');
+          result-encoding: string
+
+      - name: Render template
+        id: template
+        uses: chuhlomin/render-template@v1.4
+        with:
+          template: .github/comment_template.md
+          vars: |
+            storybookUrl: ${{ steps.storybook-url.outputs.result }}
+            buildUrl: ${{ steps.build-url.outputs.buildUrl }}
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ steps.pr-number.outputs.result }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Chromatic Report
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ steps.pr-number.outputs.result }}
+          body: ${{ steps.template.outputs.result }}
+          edit-mode: replace
