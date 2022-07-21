@@ -217,7 +217,7 @@ export const UsageCTA2: Story<{}> = () => (
   </HStack>
 )
 
-UsageCTA2.storyName = 'Usage 2 (as CTA)'
+UsageCTA2.storyName = 'Usage (as CTA 2)'
 
 export const UsageWebLinks: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
