@@ -1,6 +1,9 @@
 name: Chromatic
 
-on: push
+on:
+  push:
+  repository_dispatch:
+    types: [deploy-chromatic]
 
 jobs:
   chromatic-deployment:
