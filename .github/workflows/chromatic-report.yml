@@ -47,7 +47,7 @@ jobs:
           script: |
             const fs = require('fs');
             return Number(fs.readFileSync('./prNumber'));
-          result-encoding: number
+          result-encoding: string
 
       - uses: actions/github-script@v6
         id: storybook-url
