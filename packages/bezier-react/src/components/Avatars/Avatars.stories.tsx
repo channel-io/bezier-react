@@ -442,7 +442,7 @@ export const UsageGroupSpacing: Story<{}> = () => (
 
     <StackItem>
       <AvatarGroup max={4} spacing={-8}>
-        { SAMPLE_AVATARS.map(meta => <Avatar showBorder {...meta} />) }
+        { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
       </AvatarGroup>
     </StackItem>
   </VStack>
