@@ -36,4 +36,4 @@ jobs:
           workingDir: packages/bezier-react
           exitZeroOnChanges: true
           skip: dependabot/**
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 06157a6fbe6f
