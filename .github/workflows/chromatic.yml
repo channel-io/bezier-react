@@ -1,6 +1,9 @@
 name: Chromatic
 
-on: push
+on: 
+  push:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   chromatic-deployment:
