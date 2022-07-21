@@ -23,6 +23,9 @@ import {
   Avatar,
 } from 'Components/Avatars/Avatar'
 import {
+  ButtonGroup,
+} from 'Components/ButtonGroup'
+import {
   ListItem,
 } from 'Components/ListItem'
 import {
@@ -161,60 +164,48 @@ export const OverviewFloating: Story<{}> = () => (
 OverviewFloating.storyName = 'Overview (as floating button)'
 
 export const UsageCTA: Story<{}> = () => (
-  <HStack justify="center" spacing={6}>
-    <StackItem>
-      <Button
-        text="취소"
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="play"
-        text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
-      />
-    </StackItem>
-  </HStack>
+  <ButtonGroup>
+    <Button
+      text="취소"
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      leftContent="play"
+      text="퍼블리시"
+      colorVariant={ButtonColorVariant.Green}
+      styleVariant={ButtonStyleVariant.Primary}
+    />
+  </ButtonGroup>
 )
 
 UsageCTA.storyName = 'Usage (as CTA)'
 
 export const UsageCTA2: Story<{}> = () => (
-  <HStack justify="center" spacing={6}>
-    <StackItem>
-      <Button
-        text="임시 저장 삭제"
-        disabled
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        text="임시 저장"
-        colorVariant={ButtonColorVariant.Blue}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="play"
-        text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="cancel"
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
-      />
-    </StackItem>
-  </HStack>
+  <ButtonGroup>
+    <Button
+      text="임시 저장 삭제"
+      disabled
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      text="임시 저장"
+      colorVariant={ButtonColorVariant.Blue}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      leftContent="play"
+      text="퍼블리시"
+      colorVariant={ButtonColorVariant.Green}
+      styleVariant={ButtonStyleVariant.Primary}
+    />
+    <Button
+      leftContent="cancel"
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Tertiary}
+    />
+  </ButtonGroup>
 )
 
 UsageCTA2.storyName = 'Usage (as CTA 2)'
