@@ -2,10 +2,12 @@ name: Chromatic
 
 on:
   push:
-    branches:
-      - 'next*'
   pull_request:
     types: [opened, reopened, synchronize]
+    paths:
+      - packages/bezier-react/src/**.jsx?
+      - packages/bezier-react/src/**.tsx?
+      - packages/bezier-react/.storybook/**
 
 jobs:
   chromatic-deployment:
@@ -47,7 +49,9 @@ jobs:
           echo ${{ github.event.pull_request.number }} > ./pr/prNumber
           echo ${{ steps.chromatic.outputs.storybookUrl }} > ./pr/storybookUrl
           echo ${{ steps.chromatic.outputs.buildUrl }} > ./pr/buildUrl
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
           name: pr
           path: pr/
