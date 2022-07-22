@@ -41,7 +41,7 @@ jobs:
       - name: Unzip artifact
         run: unzip pr.zip
         
-      - name: Get PR Number
+      - name: Get PR number
         uses: actions/github-script@v6
         id: pr-number
         with:
@@ -59,7 +59,7 @@ jobs:
             return fs.readFileSync('./storybookUrl');
           result-encoding: string
 
-      - name: Get Chromatic Build URL
+      - name: Get Chromatic build URL
         uses: actions/github-script@v6
         id: build-url
         with:
@@ -77,7 +77,7 @@ jobs:
             storybookUrl: ${{ steps.storybook-url.outputs.result }}
             buildUrl: ${{ steps.build-url.outputs.result }}
 
-      - name: Find Comment
+      - name: Find comment
         uses: peter-evans/find-comment@v2
         id: find-comment
         with:
