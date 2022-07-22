@@ -17,11 +17,12 @@ function HeaderArea(
     CoverableHeaderComponent,
     testId = HEADER_AREA_TEST_ID,
     hasHeader,
+    showSideView,
     ...otherProps
   }: HeaderAreaProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { sideWidth, showSideView } = useLayoutState()
+  const { sideWidth } = useLayoutState()
 
   return (
     <HeaderWrapper
