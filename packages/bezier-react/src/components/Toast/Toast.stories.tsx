@@ -94,14 +94,14 @@ function Div({
   }
 
   const handleClick = () => {
-    const curentContent = `${count}. ${content}`
+    const currentContent = `${count}. ${content}`
 
-    toast.addToast(curentContent, {
+    toast.addToast(currentContent, {
       preset,
       appearance,
       iconName,
       actionContent,
-      onClick: () => handleAction(curentContent),
+      onClick: () => handleAction(currentContent),
     })
 
     setCount(count + 1)
