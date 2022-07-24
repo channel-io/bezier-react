@@ -1,13 +1,19 @@
 /* External dependencies */
-import React, { CSSProperties } from 'react'
+import React, {
+  type CSSProperties,
+  type ElementType,
+  type JSXElementConstructor,
+  type ComponentPropsWithoutRef,
+  type ComponentPropsWithRef,
+} from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
-export interface RenderConfigProps {
-  as?: React.ElementType
+export interface RenderConfigProps<T extends ElementType> {
+  as?: T
   testId?: string
 }
 
@@ -17,7 +23,66 @@ export interface StylableComponentProps {
   interpolation?: InjectedInterpolation
 }
 
-export type BezierComponentProps = RenderConfigProps & StylableComponentProps
+type PropsOf<
+  C extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+> = JSX.LibraryManagedAttributes<C, ComponentPropsWithoutRef<C>>
+
+type ExtendableProps<
+  ExtendedProps = Record<string, unknown>,
+  OverrideProps = Record<string, unknown>,
+> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>
+
+type InheritableElementProps<
+  C extends ElementType,
+  Props = Record<string, unknown>,
+> = ExtendableProps<PropsOf<C>, Props>
+
+type PolymorphicComponentProps<
+  C extends ElementType,
+  Props = Record<string, unknown>,
+> = InheritableElementProps<C, Props & RenderConfigProps<C> & StylableComponentProps>
+
+type PolymorphicComponentRef<C extends ElementType> = ComponentPropsWithRef<C>['ref']
+
+type PolymorphicComponentPropsWithRef<
+  C extends ElementType,
+  Props = Record<string, unknown>,
+> = PolymorphicComponentProps<C, Props> & { ref?: PolymorphicComponentRef<C> }
+
+interface PolymorphicComponentWithRef<
+  DefaultTag extends ElementType,
+  Props = Record<string, unknown>,
+> {
+  <C extends ElementType = DefaultTag>(
+    props: PolymorphicComponentPropsWithRef<C, Props>
+  ): JSX.Element | null
+  propTypes?:
+  | React.WeakValidationMap<
+  PolymorphicComponentPropsWithRef<DefaultTag, Props>
+  >
+  | undefined
+  contextTypes?: React.ValidationMap<any> | undefined
+  defaultProps?:
+  | Partial<PolymorphicComponentPropsWithRef<DefaultTag, Props>>
+  | undefined
+  displayName?: string | undefined
+}
+
+export type BezierComponentProps = RenderConfigProps<'div'> & StylableComponentProps
+
+export type PolymorphicBezierComponent<
+  DefaultTag extends ElementType,
+  Props = Record<string, unknown>,
+> = PolymorphicComponentWithRef<DefaultTag, Props>
+
+export type PolymorphicBezierComponentProps<
+  DefaultTag extends ElementType,
+  Props = Record<string, unknown>,
+> = PolymorphicComponentProps<DefaultTag, Props>
+
+export type PolymorphicBezierComponentRef<
+  DefaultTag extends ElementType,
+> = PolymorphicComponentRef<DefaultTag>
 
 /* Component Additional Props */
 export interface ContentProps<Content = React.ReactNode> {
