@@ -1,6 +1,7 @@
 /* External dependencies */
-import React, { Fragment, forwardRef, Ref, useMemo } from 'react'
+import React, { forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
+import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -27,28 +28,20 @@ const ToastElement = (
   }: ToastProps,
   forwardedRef: Ref<any>,
 ) => {
-  const newLineComponent = useMemo(() => (
-    content.split('\n').map((str, index) => {
-      if (index === 0) {
-        return (
-          <Text key={uuid()} typo={Typography.Size14}>
-            { str }
-          </Text>
-        )
-      }
-
-      return (
-        <Fragment key={uuid()}>
-          <br />
+  const ToastContentComponent = useMemo(() => {
+    if (isString(content)) {
+      return content.split('\n').map((str) => (
+        <div key={uuid()}>
           <Text
             typo={Typography.Size14}
           >
             { str }
           </Text>
-        </Fragment>
-      )
-    })
-  ), [content])
+        </div>
+      ))
+    }
+    return content
+  }, [content])
 
   const {
     appearance: presetAppearance,
@@ -80,8 +73,10 @@ const ToastElement = (
               height: '18px',
             }}
           >
-            <NormalContent>
-              { newLineComponent }
+            <NormalContent
+              data-testid={`${TOAST_TEST_ID}-content`}
+            >
+              { ToastContentComponent }
             </NormalContent>
             { ' ' }
             { actionContent && onClick && (
@@ -92,7 +87,10 @@ const ToastElement = (
           </Text>
         </EllipsisableContent>
       </Content>
-      <Close onClick={onDismiss}>
+      <Close
+        onClick={onDismiss}
+        data-testid={`${TOAST_TEST_ID}-close`}
+      >
         <Icon
           source={CancelIcon}
           size={IconSize.XS}

@@ -7,10 +7,13 @@ import { Story, Meta } from '@storybook/react'
 /* Internal depependencies */
 import { styled } from 'Foundation'
 import { iconList, getTitle } from 'Utils/storyUtils'
+import { ProgressBar } from 'Components/ProgressBar'
+import { StackItem, VStack } from 'Components/Stack'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
 import useToast from './useToast'
 import ToastProvider from './ToastProvider'
 import ToastElement from './ToastElement'
-import ToastProps, { ToastAppearance, ToastPreset } from './Toast.types'
+import ToastProps, { ToastAppearance, ToastOptions, ToastPreset } from './Toast.types'
 
 export default {
   title: getTitle(base),
@@ -203,6 +206,56 @@ export const WithZIndex: Story<ToastProps> = () => (
       <Box>
         z-index: 2000
       </Box>
+    </ToastProvider>
+  </Container>
+)
+
+function CustomContentToastController() {
+  const toast = useToast()
+
+  const onClickCustomButtonInToast = useCallback(() => {
+    toast.removeAllToasts()
+  }, [toast])
+
+  const handleClick = useCallback((option?: ToastOptions) => {
+    toast.addToast((
+      <VStack spacing={6} align="stretch">
+        <StackItem>
+          <Button
+            text="눌러주세요. 모든 토스트가 사라집니다."
+            styleVariant={ButtonStyleVariant.Primary}
+            colorVariant={ButtonColorVariant.Blue}
+            onClick={onClickCustomButtonInToast}
+          />
+        </StackItem>
+        <StackItem>
+          <ProgressBar
+            width="100%"
+            value={Math.random()}
+          />
+        </StackItem>
+      </VStack>
+    ), {
+      preset: ToastPreset.Default,
+      ...option,
+    })
+  }, [
+    toast,
+    onClickCustomButtonInToast,
+  ])
+
+  return (
+    <div>
+      <button type="button" onClick={() => handleClick()}>default</button>
+      <button type="button" onClick={() => handleClick({ autoDismiss: false })}>never dismiss</button>
+    </div>
+  )
+}
+
+export const CustomContent: Story<ToastProps> = () => (
+  <Container id="story-wrapper">
+    <ToastProvider>
+      <CustomContentToastController />
     </ToastProvider>
   </Container>
 )

@@ -15,6 +15,7 @@ import {
   ToastId,
   ToastProviderProps,
   ToastType,
+  ToastContent,
 } from './Toast.types'
 import ToastContainer from './ToastContainer'
 import ToastController from './ToastController'
@@ -32,7 +33,7 @@ function ToastProvider({
   const [leftToasts, setLeftToasts] = useState<ToastType[]>([])
   const [rightToasts, setRightToasts] = useState<ToastType[]>([])
 
-  const add = useCallback((content: string, options: ToastOptions = defaultOptions) => {
+  const add = useCallback((content: ToastContent, options: ToastOptions = defaultOptions) => {
     let result = ''
     if (options.rightSide) {
       result = rightToastService.add(content, options)
