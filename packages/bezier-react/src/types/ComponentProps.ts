@@ -70,6 +70,10 @@ interface PolymorphicComponentWithRef<
 
 export type BezierComponentProps = RenderConfigProps<'div'> & StylableComponentProps
 
+/**
+ * Polymorphic Component Props
+ * NOTE: These implementations are experimental and may not be compatible with existing components.
+ */
 export type PolymorphicBezierComponent<
   DefaultTag extends ElementType,
   Props = Record<string, unknown>,
