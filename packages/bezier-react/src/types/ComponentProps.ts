@@ -68,7 +68,7 @@ interface PolymorphicComponentWithRef<
   displayName?: string | undefined
 }
 
-export type BezierComponentProps = RenderConfigProps<'div'> & StylableComponentProps
+export type BezierComponentProps = RenderConfigProps<ElementType> & StylableComponentProps
 
 /**
  * Polymorphic Component Props
