@@ -2,6 +2,9 @@ name: Chromatic
 
 on:
   push:
+    branches:
+      - master
+      - next*
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -44,9 +47,9 @@ jobs:
       - name: Save PR number and Chromatic build outputs
         run: |
           mkdir -p ./pr
-          echo ${{ github.event.pull_request.number }} > ./pr/prNumber
-          echo ${{ steps.chromatic.outputs.storybookUrl }} > ./pr/storybookUrl
-          echo ${{ steps.chromatic.outputs.buildUrl }} > ./pr/buildUrl
+          echo "${{ github.event.pull_request.number }}" > ./pr/prNumber
+          echo "${{ steps.chromatic.outputs.storybookUrl }}" > ./pr/storybookUrl
+          echo "${{ steps.chromatic.outputs.buildUrl }}" > ./pr/buildUrl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
