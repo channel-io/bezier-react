@@ -2,6 +2,9 @@ const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: [
     '../src/stories/Intro.stories.mdx',
     '../src/**/*.stories.(tsx|mdx)',
@@ -19,13 +22,10 @@ module.exports = {
   },
   webpackFinal: async (config) => {
     // Apply tsconfig alias path
-    config.resolve.plugins.push(new TsconfigPathsPlugin({}))
-
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
-    })
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({}),
+    ]
 
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -36,8 +36,6 @@ module.exports = {
     })
 
     config.resolve.extensions.push('.ts', '.tsx')
-
-    config.node = { fs: 'empty' }
 
     return config
   }

@@ -31,7 +31,6 @@
     "clean:build": "npx rimraf build",
     "prebuild": "yarn clean:build",
     "storybook": "start-storybook -p 4101",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --project-token=06157a6fbe6f"
   },
@@ -66,6 +65,8 @@
     "@storybook/addon-controls": "^6.5.0",
     "@storybook/addon-docs": "^6.5.0",
     "@storybook/addon-toolbars": "^6.5.0",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.0",
     "@storybook/storybook-deployer": "^2.8.11",
     "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
