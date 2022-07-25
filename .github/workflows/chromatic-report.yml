@@ -41,7 +41,7 @@ jobs:
 
       - name: Unzip artifact
         run: unzip pr.zip
-        
+
       - name: Get PR number
         uses: actions/github-script@v6
         id: pr-number
