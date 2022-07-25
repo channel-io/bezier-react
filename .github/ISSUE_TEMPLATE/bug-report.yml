@@ -1,27 +1,29 @@
-name: "버그 제보"
-description: "버그 제보를 위한 템플릿"
+name: "Bug report"
+description: "Template for bug reporting"
 labels: ["bug"]
 body:
   - type: "markdown"
     attributes:
       value: |
-        이슈를 작성해주셔서 감사드립니다.
-        작성하시기 이전에, 같은 이슈가 있는지 먼저 검색해주세요!
+        🙏 Please write the issue title in English!
+
+        Thank you for writing the issue.
+        Before you write, please search for the duplicate issue first!
   - type: "input"
     id: "description"
     attributes:
-      label: "요약"
-      description: "버그에 대해서 한 줄로 요약해주세요."
+      label: "Summary"
+      description: "Please summarize the bug in one line."
       placeholder: |
-        입력해주세요.
+        Please enter.
     validations:
       required: true
   - type: "textarea"
     id: "step"
     attributes:
-      label: "재현 과정"
+      label: "Reproduction process"
       description: |
-        버그가 발생한 과정에 대해 자세히 설명해주세요.
+        Please explain the process of the bug in detail.
       value: |
         1. ...
         2. ...
@@ -30,22 +32,22 @@ body:
   - type: "input"
     id: "version"
     attributes:
-      label: "bezier-react 버전"
-      description: "버그가 발생한 bezier-react 버전에 대해 알려주세요."
+      label: "Version of bezier-react"
+      description: "Please write the version of bezier-react that caused the bug."
       placeholder: "1.0.1"
     validations:
       required: true
   - type: "input"
     id: "browser"
     attributes:
-      label: "브라우저"
-      description: "버그가 발생한 브라우저에 대해 알려주세요."
+      label: "Browser"
+      description: "Please write about the browser where the bug occurred."
       placeholder: "Google Chrome 93"
   - type: "checkboxes"
     id: "operating-system"
     attributes:
-      label: "운영체제"
-      description: "버그가 발생한 운영체제에 대해 알려주세요."
+      label: "Operating system"
+      description: "Please write about the operating system where the bug occurred."
       options:
         - label: "macOS"
         - label: "Windows"
@@ -53,6 +55,6 @@ body:
   - type: "textarea"
     id: "additional-information"
     attributes:
-      label: "추가 정보"
+      label: "Additonal Information"
       description: |
-        버그와 관련된 추가 정보(스크린샷 등)에 대해 자유롭게 입력해주세요.
+        Please enter additional information (such as screenshots) related to bugs.

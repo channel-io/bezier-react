@@ -1,22 +1,35 @@
-<!-- Pull Request 를 작성하기 전, 충분히 로컬 환경에서 테스트 했는지 확인하세요. -->
-# Summary
-<!-- 수정 내용에 대한 요약  -->
+<!--
+  How to write a good PR title:
+  - Follow [the Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/).
+  - Give as much context as necessary and as little as possible
+  - Prefix it with [WIP] while it’s a work in progress
+-->
 
-# Details
-<!-- 수정 내역과 연관되는 문제의 자세한 설명 혹은 설명되어 있는 Issue  -->
+## Self Checklist
 
-## Browser Compatibility
-OS / Engine 호환성을 반드시 확인해주세요.
-### Windows
-- [ ] Chrome - Blink
-- [ ] Edge - Blink
-- [ ] Firefox - Gecko (Option)
-### macOS
-- [ ] Chrome - Blink
-- [ ] Edge - Blink
-- [ ] Safari - WebKit
-- [ ] Firefox - Gecko (Option)
+- [ ] I wrote a PR title in **English**.
+- [ ] I added an appropriate **label** to the PR.
+- [ ] I wrote a commit message in **English**.
+- [ ] I wrote a commit message according to [**the Conventional Commits specification**](https://www.conventionalcommits.org/en/v1.0.0/).
+- [ ] [I added the appropriate **changeset**](https://github.com/channel-io/bezier-react/blob/next-v1/CONTRIBUTING.md#add-a-changeset) for the changes.
+- [ ] I wrote **a unit test** about the implementation.
+- [ ] I wrote **a storybook document** about the implementation.
+- [ ] I tested the implementation in **various browsers**.
+  - Windows: Chrome, Edge, (Optional) Firefox
+  - macOS: Chrome, Edge, Safari, (Optional) Firefox
 
+## Related Issue
 
-# References
-<!-- - 해결 방법이 근거하고 있거나 리뷰어가 참고해야 하는 외부 문서 -->
+Fixes #0000 <!-- Please link to issue if one exists -->
+
+## Summary
+<!-- Please add a summary of the modification. -->
+
+## Details
+<!-- Please add a detailed description of the modification. (such as AS-IS/TO-DO)-->
+
+## Breaking change or not (Yes/No)
+<!-- If Yes, please describe the impact and migration path for users -->
+
+## References
+<!-- External documents based on workarounds or reviewers should refer to -->

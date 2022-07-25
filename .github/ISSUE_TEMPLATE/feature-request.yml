@@ -1,38 +1,40 @@
-name: "기능 추가 및 개선"
-description: "새로운 기능(컴포넌트 등) 추가 혹은 기존 기능의 개선 제안"
+name: "Feature request"
+description: "Suggest addition of new features (components, etc.) or improvement of existing features"
 labels: ["need triage"]
 body:
   - type: "markdown"
     attributes:
       value: |
-        이슈를 작성해주셔서 감사드립니다.
-        작성하시기 이전에, 같은 이슈가 있는지 먼저 검색해주세요!
+        🙏 Please write the issue title in English!
+
+        Thank you for writing the issue.
+        Before you write, please search for the duplicate issue first!
   - type: "textarea"
     id: "description"
     attributes:
-      label: "요약"
-      description: "제안하려는 내용에 대해 1~2줄 이내로 요약해주세요."
+      label: "Description"
+      description: "Please summarize the suggestion within 1 to 2 lines."
     validations:
       required: true
   - type: "textarea"
     id: "reason"
     attributes:
-      label: "제안 이유"
+      label: "Reasons for suggestion"
       description: |
-        해당 기능이 추가/개선되어야 하는 이유에 대해 자세히 설명해주세요.
+        Please explain in detail why this feature should be added/improved.
     validations:
       required: true
   - type: "textarea"
     id: "proposed-solution"
     attributes:
-      label: "개선 방안"
+      label: "Proposed solution"
       description: |
-        문제를 개선할 수 있는 구체적인 방안에 대해 알려주세요. 코드 조각 등을 더해주시면 더욱 좋습니다.
+        Please write the specific ways to improve the problem. It's even better if you add code snippets.
     validations:
       required: true
   - type: "textarea"
     id: "reference"
     attributes:
-      label: "레퍼런스"
+      label: "References"
       description: |
-        참고할만한 자료가 있다면 첨부해주세요.
+        Please write anything(such as an external link) for reference.
