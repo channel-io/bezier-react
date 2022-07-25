@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.160
+
+### Minor Changes
+
+- [#866](https://github.com/channel-io/bezier-react/pull/866) [`eceaa9e7`](https://github.com/channel-io/bezier-react/commit/eceaa9e7a26765e03a78a6fd97f50c8e1e112303) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change FormGroup implementation to use Stack internally
+
+  BREAKING CHANGE
+
+  - Change 'gap' prop to 'spacing' prop
+  - Change the allowable value of 'direction' prop to be the same as Stack
+
 ## 1.0.0-next-v1.159
 
 ### Minor Changes
