@@ -5,9 +5,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - packages/bezier-react/src/**.jsx?
-      - packages/bezier-react/src/**.tsx?
-      - packages/bezier-react/.storybook/**
+      - packages/bezier-react/**
 
 jobs:
   chromatic-deployment:
