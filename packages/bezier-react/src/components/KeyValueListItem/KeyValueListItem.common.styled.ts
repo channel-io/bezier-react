@@ -16,7 +16,7 @@ export interface KeyValueListItemContainerProps {
 export const KeyValueListItemContainer = styled.div<KeyValueListItemContainerProps>`
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 4px 6px;
 
   ${({ foundation }) => foundation?.rounding?.round6};

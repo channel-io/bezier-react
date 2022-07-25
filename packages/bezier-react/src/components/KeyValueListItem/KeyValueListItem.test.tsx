@@ -181,7 +181,7 @@ describe('KeyValueListItem', () => {
 
         await user.hover(keyItemContainer as Element)
         expect(keyItemContainer).toHaveStyle('display: flex;')
-        expect(keyItemContainer).toHaveStyle('align-items: center;')
+        expect(keyItemContainer).toHaveStyle('align-items: flex-start;')
         expect(keyItemContainer).toHaveStyle('padding: 4px 6px;')
         expect(keyItemContainer).not.toHaveStyle('cursor: pointer;')
         // NOTE(@sol): Hovered DOM style test is not working
@@ -200,7 +200,7 @@ describe('KeyValueListItem', () => {
 
         await user.hover(keyItemContainer as Element)
         expect(keyItemContainer).toHaveStyle('display: flex;')
-        expect(keyItemContainer).toHaveStyle('align-items: center;')
+        expect(keyItemContainer).toHaveStyle('align-items: flex-start;')
         expect(keyItemContainer).toHaveStyle('padding: 4px 6px;')
         expect(keyItemContainer).toHaveStyle('cursor: pointer;')
         // NOTE(@sol): Hovered DOM style test is not working
@@ -234,7 +234,7 @@ describe('KeyValueListItem', () => {
 
         await user.hover(valueItemContainer as Element)
         expect(valueItemContainer).toHaveStyle('display: flex;')
-        expect(valueItemContainer).toHaveStyle('align-items: center;')
+        expect(valueItemContainer).toHaveStyle('align-items: flex-start;')
         expect(valueItemContainer).toHaveStyle('padding: 4px 6px;')
         expect(valueItemContainer).not.toHaveStyle('cursor: pointer;')
         // NOTE(@sol): Hovered DOM style test is not working
@@ -253,7 +253,7 @@ describe('KeyValueListItem', () => {
 
         await user.hover(valueItemContainer as Element)
         expect(valueItemContainer).toHaveStyle('display: flex;')
-        expect(valueItemContainer).toHaveStyle('align-items: center;')
+        expect(valueItemContainer).toHaveStyle('align-items: flex-start;')
         expect(valueItemContainer).toHaveStyle('padding: 4px 6px;')
         expect(valueItemContainer).toHaveStyle('cursor: pointer;')
         // NOTE(@sol): Hovered DOM style test is not working
@@ -284,7 +284,7 @@ describe('KeyValueListItem', () => {
         const { getByTestId } = renderComponent()
         const rendered = getByTestId(TEST_ID_MAP.ROOT)
         expect(rendered).toHaveStyle('display: flex;')
-        expect(rendered).toHaveStyle('align-items: center;')
+        expect(rendered).toHaveStyle('align-items: flex-start;')
         expect(rendered).toHaveStyle('border-radius: 6px;')
         expect(rendered).toHaveStyle('transition-delay: 0ms;')
         expect(rendered).toHaveStyle('transition-timing-function: cubic-bezier(.3,0,0,1);')
@@ -294,13 +294,11 @@ describe('KeyValueListItem', () => {
         const rootKeyContainer = rendered.firstChild
         expect(rootKeyContainer).toHaveStyle('display: flex;')
         expect(rootKeyContainer).toHaveStyle('flex: 1;')
-        expect(rootKeyContainer).toHaveStyle('height: 28px;')
 
         const rootValueContainer = rendered.lastChild
         expect(rootValueContainer).toHaveStyle('display: flex;')
         expect(rootValueContainer).toHaveStyle('flex: 2;')
         expect(rootValueContainer).toHaveStyle('justify-content: space-between;')
-        expect(rootValueContainer).toHaveStyle('height: 28px;')
         expect(rootValueContainer).toHaveStyle('overflow: hidden;')
         expect(rootValueContainer).toHaveStyle('text-overflow: ellipsis;')
         expect(rootValueContainer).toHaveStyle('white-space: nowrap;')
