@@ -1,6 +1,11 @@
 name: Chromatic
 
-on: push
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - packages/bezier-react/**
 
 jobs:
   chromatic-deployment:
@@ -29,8 +34,22 @@ jobs:
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
+        id: chromatic
         with:
           workingDir: packages/bezier-react
           exitZeroOnChanges: true
           skip: dependabot/**
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: 06157a6fbe6f
+
+      - name: Save PR number and Chromatic build outputs
+        run: |
+          mkdir -p ./pr
+          echo ${{ github.event.pull_request.number }} > ./pr/prNumber
+          echo ${{ steps.chromatic.outputs.storybookUrl }} > ./pr/storybookUrl
+          echo ${{ steps.chromatic.outputs.buildUrl }} > ./pr/buildUrl
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: pr/
