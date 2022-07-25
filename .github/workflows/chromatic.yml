@@ -2,6 +2,9 @@ name: Chromatic
 
 on:
   push:
+    branches:
+      - master
+      - next*
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
