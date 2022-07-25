@@ -3,17 +3,9 @@ import {
   Meta,
   Story,
 } from '@storybook/addon-docs'
-import base from 'paths.macro'
 import {
   Composition,
 } from './ButtonGroup.stories'
-
-<Meta
-  title={getTitle(base)}
-  parameters={{
-    viewMode: 'docs',
-  }}
-/>
 
 # ButtonGroup
 
@@ -24,7 +16,7 @@ import {
 버튼 사이의 간격은 0px 혹은 6px 이며, 디폴트값은 6px 입니다.
 
 <Canvas>
-  <Story story={Composition} />
+  <Story id="components-buttongroup--composition" />
 </Canvas>
 
 ## API

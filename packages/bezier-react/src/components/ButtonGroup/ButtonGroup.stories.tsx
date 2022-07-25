@@ -11,11 +11,15 @@ import { ButtonStyleVariant } from 'Components/Button/Button.types'
 import { Spacer, StackItem } from 'Components/Stack'
 import ButtonGroup from './ButtonGroup'
 import ButtonGroupProps from './ButtonGroup.types'
+import mdx from './ButtonGroup.mdx'
 
 export default {
   title: getTitle(base),
   component: ButtonGroup,
-  argTypes: {
+  parameters: {
+    docs: {
+      page: mdx,
+    },
   },
 } as Meta
 
@@ -45,8 +49,8 @@ const Template: Story<ButtonGroupProps> = (props) => (
   </Wrapper>
 )
 
-export const Primary: Story<ButtonGroupProps> = Template.bind({})
-Primary.args = {
+export const Playground: Story<ButtonGroupProps> = Template.bind({})
+Playground.args = {
   withoutSpacing: false,
 }
 

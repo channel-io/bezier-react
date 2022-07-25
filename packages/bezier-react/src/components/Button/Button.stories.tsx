@@ -23,6 +23,9 @@ import {
   Avatar,
 } from 'Components/Avatars/Avatar'
 import {
+  ButtonGroup,
+} from 'Components/ButtonGroup'
+import {
   ListItem,
 } from 'Components/ListItem'
 import {
@@ -49,10 +52,16 @@ import ButtonProps, {
   ButtonColorVariant,
 } from './Button.types'
 import Button from './Button'
+import mdx from './Button.mdx'
 
 export default {
   title: getTitle(base),
   component: Button,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     onClick: { action: 'onClick' },
     size: {
@@ -84,8 +93,9 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
-export const Primary: Story<ButtonProps> = Template.bind({})
-Primary.args = {
+export const Playground: Story<ButtonProps> = Template.bind({})
+
+Playground.args = {
   text: 'Invite',
   disabled: false,
   active: false,
@@ -98,6 +108,7 @@ Primary.args = {
 }
 
 export const WithCustomComponent: Story<ButtonProps> = Template.bind({})
+
 WithCustomComponent.args = {
   text: 'Set Manager',
   leftContent: <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />,
@@ -135,6 +146,8 @@ export const OverviewCTA: Story<{}> = () => (
   </HStack>
 )
 
+OverviewCTA.storyName = 'Overview (as CTA)'
+
 export const OverviewFloating: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -148,60 +161,54 @@ export const OverviewFloating: Story<{}> = () => (
   </HStack>
 )
 
+OverviewFloating.storyName = 'Overview (as floating button)'
+
 export const UsageCTA: Story<{}> = () => (
-  <HStack justify="center" spacing={6}>
-    <StackItem>
-      <Button
-        text="취소"
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="play"
-        text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
-      />
-    </StackItem>
-  </HStack>
+  <ButtonGroup>
+    <Button
+      text="취소"
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      leftContent="play"
+      text="퍼블리시"
+      colorVariant={ButtonColorVariant.Green}
+      styleVariant={ButtonStyleVariant.Primary}
+    />
+  </ButtonGroup>
 )
 
+UsageCTA.storyName = 'Usage (as CTA)'
+
 export const UsageCTA2: Story<{}> = () => (
-  <HStack justify="center" spacing={6}>
-    <StackItem>
-      <Button
-        text="임시 저장 삭제"
-        disabled
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        text="임시 저장"
-        colorVariant={ButtonColorVariant.Blue}
-        styleVariant={ButtonStyleVariant.Secondary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="play"
-        text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
-      />
-    </StackItem>
-    <StackItem>
-      <Button
-        leftContent="cancel"
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
-      />
-    </StackItem>
-  </HStack>
+  <ButtonGroup>
+    <Button
+      text="임시 저장 삭제"
+      disabled
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      text="임시 저장"
+      colorVariant={ButtonColorVariant.Blue}
+      styleVariant={ButtonStyleVariant.Secondary}
+    />
+    <Button
+      leftContent="play"
+      text="퍼블리시"
+      colorVariant={ButtonColorVariant.Green}
+      styleVariant={ButtonStyleVariant.Primary}
+    />
+    <Button
+      leftContent="cancel"
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Tertiary}
+    />
+  </ButtonGroup>
 )
+
+UsageCTA2.storyName = 'Usage (as CTA 2)'
 
 export const UsageWebLinks: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
@@ -229,6 +236,8 @@ export const UsageWebLinks: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageWebLinks.storyName = 'Usage (as web link)'
 
 const Card = styled.div`
   width: 360px;
@@ -314,6 +323,8 @@ export const UsageComposite: Story<{}> = () => (
   </HStack>
 )
 
+UsageComposite.storyName = 'Usage (in composite components)'
+
 export const UsageVariousContentsComposite: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -327,6 +338,8 @@ export const UsageVariousContentsComposite: Story<{}> = () => (
   </HStack>
 )
 
+UsageVariousContentsComposite.storyName = 'Usage (with left/right contents)'
+
 export const UsageVariousContentsIconOnly: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
@@ -338,6 +351,8 @@ export const UsageVariousContentsIconOnly: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageVariousContentsIconOnly.storyName = 'Usage (icon only button)'
 
 const AlertBadge = styled.div`
   display: flex;
@@ -373,6 +388,8 @@ export const UsageVariousContentsCustom: Story<{}> = () => (
   </HStack>
 )
 
+UsageVariousContentsCustom.storyName = 'Usage (with custom contents)'
+
 const AsyncActionButton = () => {
   const [isFetching, setFetching] = useState(false)
   const handleClick = () => {
@@ -401,6 +418,8 @@ export const UsageAsync: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageAsync.storyName = 'Usage (with asyncrhonous actions)'
 
 const Dropdown = styled.div`
   width: 200px;
@@ -447,6 +466,8 @@ export const UsageDropdown: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+UsageDropdown.storyName = 'Usage (with dropdown)'
 
 export const VariantsColor: Story<{}> = () => (
   <VStack spacing={16} align="start">
@@ -543,6 +564,8 @@ export const VariantsColor: Story<{}> = () => (
   </VStack>
 )
 
+VariantsColor.storyName = 'Color variants'
+
 export const VariantsStyle: Story<{}> = () => (
   <VStack spacing={16} align="start">
     { entries(ButtonStyleVariant)
@@ -567,6 +590,8 @@ export const VariantsStyle: Story<{}> = () => (
   </VStack>
 )
 
+VariantsStyle.storyName = 'Style variants'
+
 export const VariantsSize: Story<{}> = () => (
   <VStack spacing={16} align="start">
     { entries(ButtonSize)
@@ -590,3 +615,5 @@ export const VariantsSize: Story<{}> = () => (
       )) }
   </VStack>
 )
+
+VariantsSize.storyName = 'Size variants'
