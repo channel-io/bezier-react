@@ -5,6 +5,8 @@ body:
   - type: "markdown"
     attributes:
       value: |
+        🙏 Please write the issue title in English!
+
         Thank you for writing the issue.
         Before you write, please search for the duplicate issue first!
   - type: "input"
