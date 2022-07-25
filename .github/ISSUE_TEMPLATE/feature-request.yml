@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Thank you for writing the issue.
-        Before you write, please search for the same issue first!
+        Before you write, please search for the duplicate issue first!
   - type: "textarea"
     id: "description"
     attributes:
