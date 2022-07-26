@@ -18,9 +18,11 @@ function ToastController({
   const [transform, setTransform] = useState(showedToastTranslateXStyle)
   const timer = useRef<ReturnType<Window['setTimeout']>>()
 
-  const handleDismiss = useCallback(() => {
+  const handleDismiss = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     setTransform(initPosition(placement))
-    timer.current = window.setTimeout(onDismiss, transitionDuration)
+    timer.current = window.setTimeout(() => {
+      onDismiss(e)
+    }, transitionDuration)
   }, [
     onDismiss,
     placement,

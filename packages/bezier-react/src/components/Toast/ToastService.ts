@@ -7,6 +7,7 @@ import {
   ToastOptions,
   ToastId,
   ToastType,
+  ToastContent,
 } from './Toast.types'
 
 /* ToastService를 사용하는 이유
@@ -29,7 +30,7 @@ class ToastService {
     return this.toasts.reduce((flag, cur) => (cur.id === id ? true : flag), false)
   }
 
-  add = (content: string, options: ToastOptions = defaultOptions) => {
+  add = (content: ToastContent, options: ToastOptions = defaultOptions) => {
     const newId: ToastId = uuid()
 
     if (this.has(newId)) {
