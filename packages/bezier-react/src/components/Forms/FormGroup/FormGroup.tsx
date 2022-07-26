@@ -41,6 +41,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
       {...ownProps}
       data-testid={testId}
       ref={forwardedRef}
+      justify="start"
+      align="stretch"
       spacing={spacing}
       direction={direction}
       role={role}
