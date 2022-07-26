@@ -4,18 +4,17 @@ import { KeyValueListItemWrapper, KeyValueListItemContainer } from './KeyValueLi
 
 export const Wrapper = styled(KeyValueListItemWrapper)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 `
 
 export const KeyItemContainer = styled(KeyValueListItemContainer)`
   flex: 1;
-  height: 28px;
   ${ellipsis()};
 `
 
 export const ValueItemContainer = styled(KeyValueListItemContainer)`
   flex: 2;
   justify-content: space-between;
-  height: 28px;
+  min-height: 28px;
   ${ellipsis()};
 `
