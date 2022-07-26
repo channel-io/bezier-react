@@ -222,7 +222,7 @@ function CustomContentToastController() {
       <VStack spacing={6} align="stretch">
         <StackItem>
           <Button
-            text="눌러주세요. 모든 토스트가 사라집니다."
+            text="Close All Toasts"
             styleVariant={ButtonStyleVariant.Primary}
             colorVariant={ButtonColorVariant.Blue}
             onClick={onClickCustomButtonInToast}
