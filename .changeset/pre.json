@@ -6,6 +6,7 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "cold-jars-clap",
     "curly-swans-greet",
     "curvy-eagles-sparkle",
     "flat-jobs-smell",
@@ -16,6 +17,8 @@
     "poor-brooms-arrive",
     "six-drinks-cheat",
     "spicy-spies-pull",
-    "wise-apricots-switch"
+    "thick-dryers-deliver",
+    "wise-apricots-switch",
+    "witty-bananas-return"
   ]
 }
