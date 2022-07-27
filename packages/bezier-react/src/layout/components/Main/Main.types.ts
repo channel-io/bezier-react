@@ -6,8 +6,8 @@ type FocusEventHandler = React.FocusEventHandler<HTMLDivElement>
 interface MainOptions {
   ContentHeaderComponent: React.ComponentType
   CoverableHeaderComponent?: React.ComponentType
-  SidePanelComponent: React.ComponentType
-  SideViewComponent: React.ComponentType
+  SidePanelComponent?: React.ComponentType
+  SideViewComponent?: React.ComponentType
   onChangeSideWidth?: (width: number) => void
   onFocusContentArea?: FocusEventHandler
   onBlurContentArea?: FocusEventHandler

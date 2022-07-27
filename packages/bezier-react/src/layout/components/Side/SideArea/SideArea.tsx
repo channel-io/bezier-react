@@ -27,7 +27,7 @@ function SideArea(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const dispatch = useLayoutDispatch()
-  const { sideWidth, showSideView, orderedColumnKeys, columnRefs } = useLayoutState()
+  const { sideWidth, orderedColumnKeys, columnRefs } = useLayoutState()
   const [isDragging, setIsDragging] = useState(false)
 
   const sideInitialWidth = useRef(0)
@@ -96,7 +96,6 @@ function SideArea(
       data-testid={testId}
       ref={forwardedRef}
       sideType={sideType}
-      showSideView={showSideView}
       {...otherProps}
     >
       <ScrollWrapper>

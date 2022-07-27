@@ -7,7 +7,6 @@ import { Text } from 'Components/Text'
 import { LayoutActions } from 'Layout/redux'
 import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
 import useLayoutState from 'Layout/hooks/useLayoutState'
-import useSideViewHandler from 'Layout/hooks/useSideViewHandler'
 
 const Div = styled.div`
   display: flex;
@@ -18,7 +17,19 @@ const Div = styled.div`
   height: 100%;
 `
 
-function Content() {
+interface ContentProps {
+  showSidePanel: boolean
+  showSideView: boolean
+  onOpenSideView: () => void
+  onCloseSideView: () => void
+}
+
+function Content({
+  showSidePanel,
+  showSideView,
+  onOpenSideView,
+  onCloseSideView,
+}: ContentProps) {
   const dispatch = useLayoutDispatch()
 
   const {
@@ -26,11 +37,7 @@ function Content() {
     showCoverableHeader,
     showNavigation,
     sideWidth,
-    showSideView,
-    showSidePanel,
   } = useLayoutState()
-
-  const [, handleOpenSideView, handleCloseSideView] = useSideViewHandler()
 
   const handleToggleNavigation = useCallback(() => {
     dispatch(LayoutActions.setShowNavigation(!showNavigation))
@@ -48,8 +55,8 @@ function Content() {
         <Text as="div">{ `showSideView: ${showSideView ? 'true' : 'false'}` }</Text>
         <Text as="div">{ `showSidePanel: ${showSidePanel ? 'true' : 'false'}` }</Text>
       </div>
-      <button type="button" onClick={handleOpenSideView}>사이드뷰 열기</button>
-      <button type="button" onClick={handleCloseSideView}>사이드뷰 닫기</button>
+      <button type="button" onClick={onOpenSideView}>사이드뷰 열기</button>
+      <button type="button" onClick={onCloseSideView}>사이드뷰 닫기</button>
       <button type="button" onClick={handleToggleNavigation}>네비게이션 토글</button>
     </Div>
   )

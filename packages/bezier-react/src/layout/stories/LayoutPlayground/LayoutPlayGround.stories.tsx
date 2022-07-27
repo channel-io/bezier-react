@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { range } from 'lodash-es'
 import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
@@ -10,7 +10,6 @@ import { getTitle } from 'Utils/storyUtils'
 import { Icon, IconSize, SearchIcon, TriangleUpdownIcon } from 'Components/Icon'
 import { ListItem } from 'Components/ListItem'
 import useSideWidth from 'Layout/hooks/useSideWidth'
-import useSidePanelHandler from 'Layout/hooks/useSidePanelHandler'
 import LayoutProvider from 'Layout/LayoutProvider'
 import { Client } from 'Layout/components/Client'
 import { Main } from 'Layout/components/Main'
@@ -76,16 +75,6 @@ interface TemplateProps {
 
 function TeamChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
-  const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
-
-  useEffect(function showSidePanelLayout() {
-    handleOpenSidePanel()
-
-    return function cleanup() {
-      handleCloseSidePanel()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <SidePanelContent
@@ -100,16 +89,6 @@ function TeamChatSidePanel({ onChangeWidth }: TemplateProps) {
 
 function UserChatSidePanel({ onChangeWidth }: TemplateProps) {
   useSideWidth(332)
-  const [, handleOpenSidePanel, handleCloseSidePanel] = useSidePanelHandler()
-
-  useEffect(function showSidePanelLayout() {
-    handleOpenSidePanel()
-
-    return function cleanup() {
-      handleCloseSidePanel()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <SidePanelContent
@@ -137,6 +116,10 @@ function SideViewRoute({ onChangeWidth }: TemplateProps) {
 
 const Template = ({ onChangeWidth }: TemplateProps) => {
   const [route, setRoute] = useState<RouteKeys>(RouteKeys.UserChat)
+  const [showSideView, setShowSideView] = useState(false)
+
+  const handleOpenSideView = useCallback(() => setShowSideView(true), [])
+  const handleCloseSideView = useCallback(() => setShowSideView(false), [])
 
   const handleChangeRoute = useCallback((e: React.MouseEvent) => {
     setRoute((e.target as HTMLButtonElement).value as RouteKeys)
@@ -298,6 +281,10 @@ const Template = ({ onChangeWidth }: TemplateProps) => {
     }
   }, [route])
 
+  const showSidePanel = useMemo(() => (
+    [RouteKeys.TeamChat, RouteKeys.UserChat].includes(route)
+  ), [route])
+
   const SidePanelRoute = useCallback(() => {
     switch (route) {
       case RouteKeys.TeamChat:
@@ -334,11 +321,16 @@ const Template = ({ onChangeWidth }: TemplateProps) => {
         <Main
           ContentHeaderComponent={ContentHeaderRoute}
           CoverableHeaderComponent={CoverableHeaderRoute}
-          SidePanelComponent={SidePanelRoute}
-          SideViewComponent={SideViewComponent}
+          SidePanelComponent={showSidePanel ? SidePanelRoute : undefined}
+          SideViewComponent={showSideView ? SideViewComponent : undefined}
           onChangeSideWidth={onChangeWidth}
         >
-          <Content />
+          <Content
+            showSidePanel={showSidePanel}
+            showSideView={showSideView}
+            onOpenSideView={handleOpenSideView}
+            onCloseSideView={handleCloseSideView}
+          />
         </Main>
       </Client>
     </Container>
