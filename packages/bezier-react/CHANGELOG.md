@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.162
+
+### Patch Changes
+
+- [#892](https://github.com/channel-io/bezier-react/pull/892) [`3040ea5d`](https://github.com/channel-io/bezier-react/commit/3040ea5d5538ece8350ca5f2860e0c4e97c0e69e) Thanks [@aooen](https://github.com/aooen)! - Manage visibility of sidePanel and sideView at main layout prop
+
+  BREAKING CHANGE
+
+  - No longer use useSidePanelHandler and useSideViewHandler. Use set Main prop SidePanelComponent, SideViewComponent to undefined instead.
+
 ## 1.0.0-next-v1.161
 
 ### Patch Changes
