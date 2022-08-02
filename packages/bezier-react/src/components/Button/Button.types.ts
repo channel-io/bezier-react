@@ -7,6 +7,7 @@ export enum ButtonStyleVariant {
   Secondary = 'secondary',
   Tertiary = 'tertiary',
   Floating = 'floating',
+  FloatingAlt = 'floating-alt',
 }
 
 export enum ButtonColorVariant {
