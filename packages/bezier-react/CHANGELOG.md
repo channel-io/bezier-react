@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.163
+
+### Patch Changes
+
+- [#907](https://github.com/channel-io/bezier-react/pull/907) [`af5cb6f8`](https://github.com/channel-io/bezier-react/commit/af5cb6f8c3947fb26e258016e540a20c576b6c61) Thanks [@guswnsxodlf](https://github.com/guswnsxodlf)! - Add floating-alt style variant in Button element
+
 ## 1.0.0-next-v1.162
 
 ### Patch Changes
