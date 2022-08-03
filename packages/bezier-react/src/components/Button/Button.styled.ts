@@ -297,21 +297,22 @@ function getEffectCSSFromVariant(styleVariant: ButtonProps['styleVariant'], size
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
-        ${({ foundation }) => foundation?.elevation?.ev3()};
+        ${({ foundation }) => foundation?.elevation?.ev2()};
         /* NOTE: height 기반의 100% border-radius 를 사용하기 위해, foundation rounding 을 무시한 hack */
         overflow: hidden;
         border-radius: 1000px;
 
         &:hover {
-          ${({ foundation }) => foundation?.elevation?.ev4()};
+          ${({ foundation }) => foundation?.elevation?.ev3()};
         }
       `
     case ButtonStyleVariant.FloatingAlt:
       return css`
+        ${({ foundation }) => foundation?.elevation?.ev2()};
         border-radius: 8px;
 
         &:hover {
-          ${({ foundation }) => foundation?.elevation?.ev4()};
+          ${({ foundation }) => foundation?.elevation?.ev3()};
         }
       `
     case ButtonStyleVariant.Tertiary:
