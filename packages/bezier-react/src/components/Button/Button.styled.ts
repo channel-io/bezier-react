@@ -309,7 +309,7 @@ function getEffectCSSFromVariant(styleVariant: ButtonProps['styleVariant'], size
     case ButtonStyleVariant.FloatingAlt:
       return css`
         ${({ foundation }) => foundation?.elevation?.ev2()};
-        border-radius: 8px;
+        ${({ foundation }) => foundation?.rounding?.round8};
 
         &:hover {
           ${({ foundation }) => foundation?.elevation?.ev3()};
