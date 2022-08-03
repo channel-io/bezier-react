@@ -1,5 +1,5 @@
 /* External dependencies */
-import { isEmpty } from 'lodash-es'
+import { isEmpty, includes } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled, css, SemanticNames } from 'Foundation'
@@ -96,7 +96,9 @@ function getPaddingCSSFromSizeAndContents({
     `
   }
 
-  const paddingVariant = styleVariant !== ButtonStyleVariant.Floating ? 'default' : 'floating'
+  const paddingVariant = includes([ButtonStyleVariant.Floating, ButtonStyleVariant.FloatingAlt], styleVariant)
+    ? 'floating'
+    : 'default'
 
   const paddingValue = BUTTON_HORIZONTAL_PADDING_VALUE[size][paddingVariant]
 
@@ -148,6 +150,12 @@ function defaultSemanticNames(colorVariant: ButtonColorVariant): Record<ButtonSt
       backgroundColor: `bgtxt-${colorVariant}-normal` as const,
       activeBackgroundColor: `bgtxt-${colorVariant}-dark` as const,
     },
+
+    [ButtonStyleVariant.FloatingAlt]: {
+      color: 'bgtxt-absolute-white-dark',
+      backgroundColor: `bgtxt-${colorVariant}-normal` as const,
+      activeBackgroundColor: `bgtxt-${colorVariant}-dark` as const,
+    },
   }
 }
 
@@ -171,6 +179,10 @@ const MONOCHROME_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames>
   },
 
   [ButtonStyleVariant.Floating]: {
+    color: 'txt-black-darkest',
+  },
+
+  [ButtonStyleVariant.FloatingAlt]: {
     color: 'txt-black-darkest',
   },
 }
@@ -197,6 +209,11 @@ const MONOCHROME_LIGHT_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemantic
     color: 'txt-black-darker',
     backgroundColor: 'bg-white-high',
   },
+
+  [ButtonStyleVariant.FloatingAlt]: {
+    color: 'txt-black-darker',
+    backgroundColor: 'bg-white-high',
+  },
 }
 
 const MONOCHROME_DARK_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames> = {
@@ -218,6 +235,11 @@ const MONOCHROME_DARK_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticN
   },
 
   [ButtonStyleVariant.Floating]: {
+    color: 'txt-black-darkest',
+    backgroundColor: 'bg-white-high',
+  },
+
+  [ButtonStyleVariant.FloatingAlt]: {
     color: 'txt-black-darkest',
     backgroundColor: 'bg-white-high',
   },
@@ -275,13 +297,22 @@ function getEffectCSSFromVariant(styleVariant: ButtonProps['styleVariant'], size
   switch (styleVariant) {
     case ButtonStyleVariant.Floating:
       return css`
-        ${({ foundation }) => foundation?.elevation?.ev3()};
+        ${({ foundation }) => foundation?.elevation?.ev2()};
         /* NOTE: height 기반의 100% border-radius 를 사용하기 위해, foundation rounding 을 무시한 hack */
         overflow: hidden;
         border-radius: 1000px;
 
         &:hover {
-          ${({ foundation }) => foundation?.elevation?.ev4()};
+          ${({ foundation }) => foundation?.elevation?.ev3()};
+        }
+      `
+    case ButtonStyleVariant.FloatingAlt:
+      return css`
+        ${({ foundation }) => foundation?.elevation?.ev2()};
+        ${({ foundation }) => foundation?.rounding?.round8};
+
+        &:hover {
+          ${({ foundation }) => foundation?.elevation?.ev3()};
         }
       `
     case ButtonStyleVariant.Tertiary:
