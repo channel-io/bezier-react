@@ -1,0 +1,108 @@
+import {
+  Story,
+} from '@storybook/addon-docs'
+
+# Typography
+
+## Overview
+
+**타이포그라피는 디자인 시스템을 구성하는 가장 기본적인 요소 중 하나입니다.**
+
+디자인 시스템에서 제공하는 컴포넌트를 구성하는 텍스트의 속성은 타이포그라피를 통해 정의되어야 합니다.
+또한, 디자인 시스템을 사용하는 어플리케이션의 텍스트 또한 타이포그라피의 규칙을 따라야 합니다.
+
+- `bezier-react`의 타이포그라피는 텍스트의 크기, Line height, Letter spacing을 조절합니다.
+- 텍스트의 font face, weight, line length 와 같은 property에는 영향을 미치지 않습니다.
+
+<Story id="foundation-typography--overview" />
+
+## Usage
+
+### Text
+
+보통의 경우, `Typography`를 직접 사용하지 않아도 됩니다.
+
+베지어 디자인 시스템의 typography를 제공하는 컴포넌트인, `Text`를 사용하여 UI를 구성합니다.
+`Text` 컴포넌트를 사용할 때는, `Typography`의 속성을 prop으로 전달합니다.
+
+<Story id="foundation-typography--usage-text" />
+
+```tsx
+import {
+  Text,
+  Typography,
+} from '@channel.io/bezier-react'
+
+<Text
+  as="p"
+  typo={Typography.Size15}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum elit erat, eu euismod odio tincidunt vel. Nulla non consequat ligula. Nulla quis justo at enim sodales aliquet. Proin placerat varius elit, et molestie erat ornare ut. Ut pharetra ultrices lacus. Morbi vehicula auctor lectus ac convallis. Etiam scelerisque feugiat lectus, nec gravida enim mollis eu. Cras ut urna imperdiet, blandit nisi nec, auctor ipsum. Aliquam eu nisl tellus. Phasellus non porta dui. Pellentesque fringilla enim ut volutpat commodo. In hac habitasse platea dictumst.
+</Text>
+```
+
+### Interpolation
+
+`Typography` export의 각 속성은 `FlattenedSimpleInterpolation` 타입을 가집니다.
+
+이는 원하는 `Typography`를 `styled-components`에서 사용할 수 있도록 합니다.
+
+<Story id="foundation-typography--usage-interpolation" />
+
+```tsx
+import {
+  Typography,
+} from '@channel.io/bezier-react'
+
+const Code = styled.code`
+  ${Typography.Size13}
+`
+
+<Code>
+  ...
+</Code>
+```
+
+### Global control
+
+`bezier-react`의 타이포그라피는 document 전체의 font size와 상대적으로 적용됩니다.
+
+보통의 경우, 이는 `font-size: 62.5%`로 지정되어 있습니다.
+즉, `bezier-react`에서 제공하는 global style을 따라가면 10px의 기본 크기를 가집니다.
+따라서, 각 `Typography`의 텍스트 크기는 이름과 동일한 값이 됩니다. (`Typography.Size15`가 정의하는 텍스트의 `font-size`는 `15px`)
+
+전체적으로 텍스트 크기의 조정을 원하는 경우, document 전체의 font size를 조절할 수 있습니다.
+
+```css
+/* Override global font size */
+html {
+  font-size: 16px;
+}
+```
+
+## API
+
+<details>
+<summary><h3>Typography</h3></summary>
+
+```ts
+import { type FlattenedSimpleInterpolation } from '@channel.io/bezier-react'
+
+declare const Typography: {
+  Size11: FlattenedSimpleInterpolation
+  Size12: FlattenedSimpleInterpolation
+  Size13: FlattenedSimpleInterpolation
+  Size14: FlattenedSimpleInterpolation
+  Size15: FlattenedSimpleInterpolation
+  Size16: FlattenedSimpleInterpolation
+  Size18: FlattenedSimpleInterpolation
+  Size22: FlattenedSimpleInterpolation
+  Size24: FlattenedSimpleInterpolation
+}
+```
+
+</details>
+
+## Version
+
+- Available since v0.1.0
