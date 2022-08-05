@@ -13,14 +13,15 @@ function ToastController({
   placement,
   component: ToastElement,
   onDismiss,
+  version = 0,
   ...props
 }: ToastControllerProps) {
   const [transform, setTransform] = useState(showedToastTranslateXStyle)
-  const timer = useRef<ReturnType<Window['setTimeout']>>()
+  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
 
   const handleDismiss = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     setTransform(initPosition(placement))
-    timer.current = window.setTimeout(() => {
+    dismissTimer.current = window.setTimeout(() => {
       onDismiss(e)
     }, transitionDuration)
   }, [
@@ -29,26 +30,30 @@ function ToastController({
     transitionDuration,
   ])
 
-  const startTimer = useCallback(() => {
-    timer.current = window.setTimeout(handleDismiss, autoDismissTimeout)
+  const startDismissTimer = useCallback(() => {
+    dismissTimer.current = window.setTimeout(handleDismiss, autoDismissTimeout)
   }, [
     autoDismissTimeout,
     handleDismiss,
   ])
 
-  const clearTimer = useCallback(() => {
-    if (autoDismiss) {
-      clearTimeout(timer.current)
+  const clearDismissTimer = useCallback(() => {
+    if (dismissTimer.current != null) {
+      clearTimeout(dismissTimer.current)
     }
-  }, [autoDismiss])
-
-  useEffect(() => {
-    if (autoDismiss) {
-      timer.current = window.setTimeout(startTimer, transitionDuration)
-    }
-    return clearTimer
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(function initStartDismissTimer() {
+    clearDismissTimer()
+    if (autoDismiss) {
+      dismissTimer.current = window.setTimeout(startDismissTimer, transitionDuration)
+    }
+    return clearDismissTimer
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    autoDismiss,
+    version,
+  ])
 
   return (
     <ToastElement

@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
@@ -256,6 +256,86 @@ export const CustomContent: Story<ToastProps> = () => (
   <Container id="story-wrapper">
     <ToastProvider>
       <CustomContentToastController />
+    </ToastProvider>
+  </Container>
+)
+
+function UpdateContentToastController() {
+  const toast = useToast()
+  const toastId = useRef('')
+
+  const onClickCustomButtonInToast = useCallback(() => {
+    toast.removeAllToasts()
+  }, [toast])
+
+  const handleOpenToast = useCallback((option?: ToastOptions) => {
+    toastId.current = toast.addToast((
+      <VStack spacing={6} align="stretch">
+        <StackItem>
+          <Button
+            text="Close All Toasts"
+            styleVariant={ButtonStyleVariant.Primary}
+            colorVariant={ButtonColorVariant.Blue}
+            onClick={onClickCustomButtonInToast}
+          />
+        </StackItem>
+        <StackItem>
+          <ProgressBar
+            width="100%"
+            value={Math.random()}
+          />
+        </StackItem>
+      </VStack>
+    ), {
+      preset: ToastPreset.Default,
+      ...option,
+    })
+  }, [
+    toast,
+    onClickCustomButtonInToast,
+  ])
+
+  const handleUpdateToast = useCallback((option?: ToastOptions) => {
+    if (toastId.current) {
+      toast.updateToast(toastId.current, (
+        <VStack spacing={6} align="stretch">
+          <StackItem>
+            <Button
+              text="Close All Toasts"
+              styleVariant={ButtonStyleVariant.Primary}
+              colorVariant={ButtonColorVariant.Blue}
+              onClick={onClickCustomButtonInToast}
+            />
+          </StackItem>
+          <StackItem>
+            <ProgressBar
+              width="100%"
+              value={Math.random()}
+            />
+          </StackItem>
+        </VStack>
+      ), {
+        preset: ToastPreset.Default,
+        ...option,
+      })
+    }
+  }, [
+    toast,
+    onClickCustomButtonInToast,
+  ])
+
+  return (
+    <div>
+      <button type="button" onClick={() => handleOpenToast({ autoDismiss: false })}>Add</button>
+      <button type="button" onClick={() => handleUpdateToast({ autoDismiss: true })}>Update</button>
+    </div>
+  )
+}
+
+export const UpdateContentToast: Story<ToastProps> = () => (
+  <Container id="story-wrapper">
+    <ToastProvider>
+      <UpdateContentToastController />
     </ToastProvider>
   </Container>
 )
