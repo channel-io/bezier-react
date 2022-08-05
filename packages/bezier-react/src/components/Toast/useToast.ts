@@ -13,6 +13,7 @@ export default function useToast() {
 
   return {
     addToast: context.add,
+    updateToast: context.update,
     removeToast: context.remove,
     removeAllToasts: context.removeAll,
     leftToasts: context.leftToasts,

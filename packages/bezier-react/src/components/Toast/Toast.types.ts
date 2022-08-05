@@ -92,10 +92,19 @@ export const defaultOptions: ToastOptions = {
   rightSide: false,
 }
 
-export type ToastType = ToastOptions & { id: ToastId, content: ToastContent }
+export type ToastType = ToastOptions & {
+  id: ToastId
+  content: ToastContent
+  /**
+   * Updated version
+   * @default 0
+   */
+  version?: number
+}
 
 export interface ToastContextType {
-  add: (content: ToastContent, options: ToastOptions) => ToastId
+  add: (content: ToastContent, options?: ToastOptions) => ToastId
+  update: (toastId: ToastId, content: ToastContent, options?: ToastOptions) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
   leftToasts: ToastType[]
@@ -111,4 +120,9 @@ export interface ToastControllerProps extends ToastElementProps {
   autoDismiss: boolean
   autoDismissTimeout: number
   component: ComponentType<ToastElementProps>
+  /**
+   * Updated toast version
+   * @default 0
+   */
+  version?: number
 }
