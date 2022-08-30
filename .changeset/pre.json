@@ -6,6 +6,7 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "big-dingos-compete",
     "cold-jars-clap",
     "cuddly-eagles-serve",
     "curly-swans-greet",
