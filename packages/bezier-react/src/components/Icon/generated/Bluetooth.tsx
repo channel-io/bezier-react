@@ -2,7 +2,7 @@ import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
 
-function SvgVolumeOffFilled(props: SVGProps<SVGSVGElement>) {
+function SvgBluetooth(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -16,10 +16,10 @@ function SvgVolumeOffFilled(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M21.546 19.425a1 1 0 1 1-1.414 1.414L3.162 3.868a1 1 0 1 1 1.413-1.414l3.78 3.779 3.938-3.94C12.481 2.106 12.735 2 13 2h1a1 1 0 0 1 1 1v9.879l6.546 6.546ZM2 8a1 1 0 0 1 1-1h1.88L15 17.121v3.88a1 1 0 0 1-1 1h-1a.997.997 0 0 1-.707-.294L7.586 17H3a1 1 0 0 1-1-1V8Z"
+        d="M11.553 2.106A1 1 0 0 1 12.6 2.2l6 4.5a1 1 0 0 1 0 1.6L13.667 12l4.933 3.7a1 1 0 0 1 0 1.6l-6 4.5A1 1 0 0 1 11 21v-7l-4.4 3.3a1 1 0 1 1-1.2-1.6l4.933-3.7L5.4 8.3a1 1 0 0 1 1.2-1.6L11 10V3a1 1 0 0 1 .553-.894ZM13 14l3.333 2.5L13 19v-5Zm0-4V5l3.333 2.5L13 10Z"
       />
     </svg>
   )
 }
 
-export default createBezierIcon(SvgVolumeOffFilled)
+export default createBezierIcon(SvgBluetooth)

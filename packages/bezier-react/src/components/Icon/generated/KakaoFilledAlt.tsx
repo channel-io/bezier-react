@@ -2,7 +2,7 @@ import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
 
-function SvgVolumeOffFilled(props: SVGProps<SVGSVGElement>) {
+function SvgKakaoFilledAlt(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -16,10 +16,10 @@ function SvgVolumeOffFilled(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M21.546 19.425a1 1 0 1 1-1.414 1.414L3.162 3.868a1 1 0 1 1 1.413-1.414l3.78 3.779 3.938-3.94C12.481 2.106 12.735 2 13 2h1a1 1 0 0 1 1 1v9.879l6.546 6.546ZM2 8a1 1 0 0 1 1-1h1.88L15 17.121v3.88a1 1 0 0 1-1 1h-1a.997.997 0 0 1-.707-.294L7.586 17H3a1 1 0 0 1-1-1V8Z"
+        d="M12 2C5.93 2 1 5.864 1 10.676c0 3.094 2.063 5.81 5.156 7.356l-.214.748c-.326 1.138-.875 3.05-.906 3.24a.289.289 0 0 0 .103.261.337.337 0 0 0 .261 0c.344-.048 4.015-2.626 4.647-3.073.647.092 1.3.138 1.953.138 6.078 0 11-3.878 11-8.67S18.07 2 12 2Z"
       />
     </svg>
   )
 }
 
-export default createBezierIcon(SvgVolumeOffFilled)
+export default createBezierIcon(SvgKakaoFilledAlt)
