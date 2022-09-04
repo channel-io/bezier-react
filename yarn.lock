@@ -1604,7 +1604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.6
   resolution: "@babel/runtime@npm:7.18.6"
   dependencies:
@@ -1975,6 +1975,7 @@ __metadata:
     "@babel/preset-typescript": ^7.12.7
     "@babel/runtime": ^7.12.13
     "@mdx-js/react": ^1.6.22
+    "@radix-ui/react-separator": 0.1.4
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^19.0.0
     "@rollup/plugin-node-resolve": ^13.0.0
@@ -3226,6 +3227,53 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-compose-refs@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@radix-ui/react-compose-refs@npm:0.1.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: d1455577b2afee141998e847890e8f5ba5cb17aa58ba699f9abe21c7948e2435bbda28f7f7efe825ca200c66bcaf095ff4b93553778d599cba3f611c97cd222e
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-primitive@npm:0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-primitive@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-slot": 0.1.2
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: e7b83dc51565a7a54dfd16296e2aa1639dafe32655e3a3974d29d28497f0e9ec9cdf0ee59bc54a88b2a51eeb307781f01f6fcacb4d6dc84a8e10631ddb6142e5
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-separator@npm:0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-separator@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 0.1.4
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: 9e9767966a02b1f7362115b651e03fcf915147b6f5ad0b4b52f7161c1d0a2ca9b786033f45dfd0d9da8ac2acf544fbe7f30f1e824e406fb529dd58a2d965fbd8
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-slot@npm:0.1.2":
+  version: 0.1.2
+  resolution: "@radix-ui/react-slot@npm:0.1.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-compose-refs": 0.1.0
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: 216927b9b1dae28328d630f6b2c91f1a424c0b00fb4efcebb7a109fdfc5bceda5cf878dfac5baa8aa441150d4c5263f5a914f2962bbce8375972ae076e4d3b65
   languageName: node
   linkType: hard
 

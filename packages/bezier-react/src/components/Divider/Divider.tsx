@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
+import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
 /* Internal dependencies */
 import DividerProps from './Divider.types'
@@ -7,29 +8,34 @@ import * as Styled from './Divider.styled'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
-function Divider({
-  as,
-  testId = DIVIDER_TEST_ID,
-  orientation = 'horizontal',
-  withoutSideIndent = false,
-  ...rest
-}: DividerProps,
-forwardedRef: React.Ref<HTMLHRElement>,
-) {
-  const DividerComponent = orientation === 'horizontal'
-    ? Styled.HorizontalDivider
-    : Styled.VerticalDivider
-
-  return (
-    <DividerComponent
-      {...rest}
-      forwardedAs={as}
+const Divider = forwardRef((
+  {
+    testId = DIVIDER_TEST_ID,
+    orientation = 'horizontal',
+    decorative,
+    withoutSideIndent = false,
+    withoutParallelIndent = false,
+    withoutIndent = false,
+    ...rest
+  }: DividerProps,
+  forwardedRef: React.Ref<HTMLElement>,
+) => (
+  <SeparatorPrimitive.Root
+    asChild
+    orientation={orientation}
+    decorative={decorative}
+  >
+    <Styled.Divider
       ref={forwardedRef}
       data-testid={testId}
-      aria-orientation={orientation}
+      orientation={orientation}
+      decorative={decorative}
       withoutSideIndent={withoutSideIndent}
+      withoutParallelIndent={withoutParallelIndent}
+      withoutIndent={withoutIndent}
+      {...rest}
     />
-  )
-}
+  </SeparatorPrimitive.Root>
+))
 
-export default forwardRef(Divider)
+export default Divider
