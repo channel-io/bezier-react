@@ -95,12 +95,16 @@ const getEllipsisColor = (
 )
 
 export const Content = styled.div<Pick<ToastElementProps, 'actionContent' | 'onClick'>>`
+  display: flex;
+  flex: 1;
   margin: 3px 6px;
   overflow: hidden;
   color: ${({ actionContent, onClick, foundation }) => getEllipsisColor(actionContent, onClick, foundation)};
 `
 
 export const EllipsisableContent = styled.div`
+  display: flex;
+  flex: 1;
   ${ellipsis(5, LineHeightAbsoluteNumber.Lh18)};
 
   overflow: visible;

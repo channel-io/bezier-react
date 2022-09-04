@@ -1,5 +1,5 @@
 /* External dependencies */
-import { ReactNode, ComponentType } from 'react'
+import React, { ReactNode, ComponentType } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
@@ -44,18 +44,23 @@ interface ToastElementOptions {
   preset?: ToastPreset
   appearance?: ToastAppearance
   iconName?: IconName
+  /**
+   * @deprecated use React.ReactNode content props instead.
+   */
   actionContent?: string
   transitionDuration: TransitionDuration
   transform: InjectedInterpolation
   placement: ToastPlacement
   zIndex?: number
   onClick?: React.MouseEventHandler
-  onDismiss: React.MouseEventHandler
+  onDismiss: React.MouseEventHandler<HTMLDivElement>
 }
+
+export type ToastContent = NonNullable<React.ReactNode>
 
 export default interface ToastElementProps extends
   BezierComponentProps,
-  Required<ContentProps<string>>,
+  Required<ContentProps<ToastContent>>,
   ToastElementOptions {}
 
 export interface ToastProviderProps {
@@ -87,10 +92,19 @@ export const defaultOptions: ToastOptions = {
   rightSide: false,
 }
 
-export type ToastType = ToastOptions & { id: ToastId, content: string }
+export type ToastType = ToastOptions & {
+  id: ToastId
+  content: ToastContent
+  /**
+   * Updated version
+   * @default 0
+   */
+  version?: number
+}
 
 export interface ToastContextType {
-  add: (content: string, options: ToastOptions) => ToastId
+  add: (content: ToastContent, options?: ToastOptions) => ToastId
+  update: (toastId: ToastId, content: ToastContent, options?: ToastOptions) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
   leftToasts: ToastType[]
@@ -102,8 +116,13 @@ export type ToastContainerProps = {
   placement: ToastPlacement
 }
 
-export type ToastControllerProps = ToastElementProps & {
+export interface ToastControllerProps extends ToastElementProps {
   autoDismiss: boolean
   autoDismissTimeout: number
   component: ComponentType<ToastElementProps>
+  /**
+   * Updated toast version
+   * @default 0
+   */
+  version?: number
 }

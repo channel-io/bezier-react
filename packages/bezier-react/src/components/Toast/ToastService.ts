@@ -7,6 +7,7 @@ import {
   ToastOptions,
   ToastId,
   ToastType,
+  ToastContent,
 } from './Toast.types'
 
 /* ToastService를 사용하는 이유
@@ -22,14 +23,14 @@ class ToastService {
     this.toasts = newToasts
   }
 
-  has = (id: string) => {
+  has = (toastId: ToastId) => {
     if (!this.toasts.length) {
       return false
     }
-    return this.toasts.reduce((flag, cur) => (cur.id === id ? true : flag), false)
+    return this.toasts.reduce((flag, toast) => (toast.id === toastId ? true : flag), false)
   }
 
-  add = (content: string, options: ToastOptions = defaultOptions) => {
+  add = (content: ToastContent, options: ToastOptions = defaultOptions) => {
     const newId: ToastId = uuid()
 
     if (this.has(newId)) {
@@ -39,11 +40,32 @@ class ToastService {
     const newToast: ToastType = {
       id: newId,
       content,
+      version: 0,
       ...options,
     }
     const newToasts: ToastType[] = [...this.toasts, newToast]
     this.setToasts(newToasts)
     return newId
+  }
+
+  update = (toastId: ToastId, content: ToastContent, options: ToastOptions = {}) => {
+    if (!this.has(toastId)) {
+      return ''
+    }
+
+    const newToasts: ToastType[] = this.toasts.map((toast) => {
+      if (toast.id === toastId) {
+        return {
+          ...toast,
+          ...options,
+          version: toast?.version != null ? toast.version + 1 : 0,
+          content,
+        }
+      }
+      return toast
+    })
+    this.setToasts(newToasts)
+    return toastId
   }
 
   remove = (id: ToastId): boolean => {

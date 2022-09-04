@@ -7,6 +7,7 @@ import { ToastContextType } from './Toast.types'
 
 const ToastContext = createContext<ToastContextType>({
   add: () => '',
+  update: () => '',
   remove: noop,
   removeAll: noop,
   leftToasts: [],

@@ -43,8 +43,6 @@ type RemoveColumnRefActionPayload = {
 const actions = {
   setShowContentHeader: createAction(AT.SET_SHOW_CONTENT_HEADER)<boolean>(),
   setShowCoverableHeader: createAction(AT.SET_SHOW_COVERABLE_HEADER)<boolean>(),
-  setShowSidePanel: createAction(AT.SET_SHOW_SIDE_PANEL)<boolean>(),
-  setShowSideView: createAction(AT.SET_SHOW_SIDE_VIEW)<boolean>(),
   setShowNavigation: createAction(AT.SET_SHOW_NAVIGATION)<boolean>(),
   setShowingHidableNavigations: createAction(AT.SET_SHOWING_HIDABLE_NAVIGATIONS)<Set<string>>(),
   addShowingHidableNavigation: createAction(AT.ADD_SHOWING_HIDABLE_NAVIGATION)<string>(),

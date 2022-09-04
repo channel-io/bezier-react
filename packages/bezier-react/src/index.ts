@@ -67,8 +67,6 @@ export { default as LayoutProvider } from 'Layout/LayoutProvider'
 export { default as useLayoutDispatch } from 'Layout/hooks/useLayoutDispatch'
 export { default as useLayoutState } from 'Layout/hooks/useLayoutState'
 export { default as useSideWidth } from 'Layout/hooks/useSideWidth'
-export { default as useSidePanelHandler } from 'Layout/hooks/useSidePanelHandler'
-export { default as useSideViewHandler } from 'Layout/hooks/useSideViewHandler'
 export { default as useHeader } from 'Layout/hooks/useHeader'
 
 /* Types */

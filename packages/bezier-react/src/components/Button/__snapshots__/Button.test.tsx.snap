@@ -492,7 +492,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
   height: 44px;
   padding: 0 18px 0 18px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -501,7 +501,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {
@@ -699,7 +699,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
   height: 36px;
   padding: 0 14px 0 14px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -708,7 +708,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {
@@ -902,7 +902,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
   height: 24px;
   padding: 0 9px 0 9px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -911,7 +911,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {
@@ -1105,7 +1105,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
   height: 54px;
   padding: 0 23px 0 23px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -1114,7 +1114,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {
@@ -1308,7 +1308,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
   height: 20px;
   padding: 0 7px 0 7px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -1317,7 +1317,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {
@@ -1959,7 +1959,7 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
   height: 36px;
   padding: 0 14px 0 14px;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
   overflow: hidden;
   border-radius: 1000px;
   color: #FFFFFF;
@@ -1968,7 +1968,112 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
 
 .c0:hover {
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
+}
+
+.c0:hover {
+  background-color: #4E40C9;
+}
+
+.c3 {
+  padding: 0 4px;
+}
+
+@supports not(gap:2px) {
+  .c1 {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+
+  .c1 > * {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+<button
+  class="c0"
+  data-testid="bezier-react-button"
+  type="button"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-button-inner-content"
+  >
+    <span
+      class="c2 c3"
+      data-testid="bezier-react-button-text"
+    >
+      Test Button
+    </span>
+  </div>
+</button>
+`;
+
+exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
+.c2 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: 600;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  visibility: visible;
+  gap: 2px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 1;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 14px 0 14px;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #5E56F0;
+}
+
+.c0:hover {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
 }
 
 .c0:hover {

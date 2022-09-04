@@ -3,7 +3,6 @@ import React from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import useLayoutState from 'Layout/hooks/useLayoutState'
 import LayoutSideType from 'Layout/types/LayoutSideType'
 import { SideArea } from 'Layout/components/Side/SideArea'
 import SideViewContentProps from './SideViewContent.types'
@@ -16,12 +15,6 @@ function SideViewContent({
   children,
   onChangeSideWidth = noop,
 }: SideViewContentProps) {
-  const { showSideView } = useLayoutState()
-
-  if (!showSideView) {
-    return null
-  }
-
   return (
     <SideArea
       data-testid={testId}

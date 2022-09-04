@@ -1,5 +1,53 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.166
+
+### Patch Changes
+
+- [#920](https://github.com/channel-io/bezier-react/pull/920) [`b559bd1d`](https://github.com/channel-io/bezier-react/commit/b559bd1d8a8fe4bac5a8931da7acd72cc59dcb9c) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+## 1.0.0-next-v1.165
+
+### Minor Changes
+
+- [#913](https://github.com/channel-io/bezier-react/pull/913) [`38aec7d6`](https://github.com/channel-io/bezier-react/commit/38aec7d6612b493439b41b358a54c947011a299e) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Add size17 option to Typography
+
+### Patch Changes
+
+- [#915](https://github.com/channel-io/bezier-react/pull/915) [`d581fb04`](https://github.com/channel-io/bezier-react/commit/d581fb04843aea1810aade3f8a174b3a1fac9532) Thanks [@Tanney-102](https://github.com/Tanney-102)! - Update icon size L from 34 to 36
+
+## 1.0.0-next-v1.164
+
+### Patch Changes
+
+- [#909](https://github.com/channel-io/bezier-react/pull/909) [`77859565`](https://github.com/channel-io/bezier-react/commit/77859565b9d5f11feedae1b90d3232f4c3001875) Thanks [@Seolhun](https://github.com/Seolhun)! - add toast update feature
+
+## 1.0.0-next-v1.163
+
+### Patch Changes
+
+- [#907](https://github.com/channel-io/bezier-react/pull/907) [`af5cb6f8`](https://github.com/channel-io/bezier-react/commit/af5cb6f8c3947fb26e258016e540a20c576b6c61) Thanks [@guswnsxodlf](https://github.com/guswnsxodlf)! - Add floating-alt style variant in Button element
+
+## 1.0.0-next-v1.162
+
+### Patch Changes
+
+- [#892](https://github.com/channel-io/bezier-react/pull/892) [`3040ea5d`](https://github.com/channel-io/bezier-react/commit/3040ea5d5538ece8350ca5f2860e0c4e97c0e69e) Thanks [@aooen](https://github.com/aooen)! - Manage visibility of sidePanel and sideView at main layout prop
+
+  BREAKING CHANGE
+
+  - No longer use useSidePanelHandler and useSideViewHandler. Use set Main prop SidePanelComponent, SideViewComponent to undefined instead.
+
+## 1.0.0-next-v1.161
+
+### Patch Changes
+
+- [#901](https://github.com/channel-io/bezier-react/pull/901) [`9be5d909`](https://github.com/channel-io/bezier-react/commit/9be5d9095b6fc753c42ba87fc88f530117f3ed8d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Apply CSS default value to the align, justify properties of FormGroup component.
+
+* [#896](https://github.com/channel-io/bezier-react/pull/896) [`6d07015f`](https://github.com/channel-io/bezier-react/commit/6d07015fd59590c17ef9a7e9a2961ed31ae518f5) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(key-value-list-item): change key and value component styles removed fixed height and given default color
+
+- [#894](https://github.com/channel-io/bezier-react/pull/894) [`ba49e2e8`](https://github.com/channel-io/bezier-react/commit/ba49e2e8123d85d4fbfae7bd462d28ca058fa1a0) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(toast): change toast content props "string" to "react-node"
+
 ## 1.0.0-next-v1.160
 
 ### Minor Changes

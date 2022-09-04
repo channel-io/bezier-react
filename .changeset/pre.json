@@ -6,16 +6,25 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "big-dingos-compete",
+    "cold-jars-clap",
+    "cuddly-eagles-serve",
     "curly-swans-greet",
     "curvy-eagles-sparkle",
     "flat-jobs-smell",
     "fresh-lamps-remain",
+    "heavy-jars-behave",
     "moody-frogs-rush",
     "old-olives-trade",
     "old-students-raise",
     "poor-brooms-arrive",
+    "shy-sloths-collect",
+    "silver-chefs-raise",
     "six-drinks-cheat",
     "spicy-spies-pull",
-    "wise-apricots-switch"
+    "strong-ducks-complain",
+    "thick-dryers-deliver",
+    "wise-apricots-switch",
+    "witty-bananas-return"
   ]
 }

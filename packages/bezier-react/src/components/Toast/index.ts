@@ -8,6 +8,7 @@ import ToastProps, {
   ToastOptions,
   ToastId,
   ToastType,
+  ToastContent,
 } from './Toast.types'
 
 export type {
@@ -15,6 +16,7 @@ export type {
   ToastOptions,
   ToastId,
   ToastType,
+  ToastContent,
 }
 
 export {

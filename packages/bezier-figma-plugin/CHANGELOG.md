@@ -1,5 +1,47 @@
 # bezier-figma-plugin
 
+## 0.1.1-next-v1.10
+
+### Patch Changes
+
+- Updated dependencies [[`b559bd1d`](https://github.com/channel-io/bezier-react/commit/b559bd1d8a8fe4bac5a8931da7acd72cc59dcb9c)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.166
+
+## 0.1.1-next-v1.9
+
+### Patch Changes
+
+- Updated dependencies [[`38aec7d6`](https://github.com/channel-io/bezier-react/commit/38aec7d6612b493439b41b358a54c947011a299e), [`d581fb04`](https://github.com/channel-io/bezier-react/commit/d581fb04843aea1810aade3f8a174b3a1fac9532)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.165
+
+## 0.1.1-next-v1.8
+
+### Patch Changes
+
+- Updated dependencies [[`77859565`](https://github.com/channel-io/bezier-react/commit/77859565b9d5f11feedae1b90d3232f4c3001875)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.164
+
+## 0.1.1-next-v1.7
+
+### Patch Changes
+
+- Updated dependencies [[`af5cb6f8`](https://github.com/channel-io/bezier-react/commit/af5cb6f8c3947fb26e258016e540a20c576b6c61)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.163
+
+## 0.1.1-next-v1.6
+
+### Patch Changes
+
+- Updated dependencies [[`3040ea5d`](https://github.com/channel-io/bezier-react/commit/3040ea5d5538ece8350ca5f2860e0c4e97c0e69e)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.162
+
+## 0.1.1-next-v1.5
+
+### Patch Changes
+
+- Updated dependencies [[`9be5d909`](https://github.com/channel-io/bezier-react/commit/9be5d9095b6fc753c42ba87fc88f530117f3ed8d), [`6d07015f`](https://github.com/channel-io/bezier-react/commit/6d07015fd59590c17ef9a7e9a2961ed31ae518f5), [`ba49e2e8`](https://github.com/channel-io/bezier-react/commit/ba49e2e8123d85d4fbfae7bd462d28ca058fa1a0)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.161
+
 ## 0.1.1-next-v1.4
 
 ### Patch Changes
