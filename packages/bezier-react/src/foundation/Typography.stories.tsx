@@ -106,6 +106,14 @@ export const Overview: Story<{}> = () => (
     </StackItem>
     <StackItem>
       <Text
+        typo={Typography.Size17}
+        color="txt-black-darkest"
+      >
+        17Aa한글 <b>17Aa한글</b>
+      </Text>
+    </StackItem>
+    <StackItem>
+      <Text
         typo={Typography.Size18}
         color="txt-black-darkest"
       >
