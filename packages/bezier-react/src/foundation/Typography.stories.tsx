@@ -155,6 +155,7 @@ UsageText.storyName = 'Usage (via Text)'
 
 const TypographicCode = styled.code`
   ${Typography.Size15}
+  color: ${({ foundation }) => foundation?.theme['txt-black-darkest']};
 `
 
 export const UsageInterpolation: Story<{}> = () => (
