@@ -1,19 +1,65 @@
 /* External dependencies */
-import React from 'react'
+import React, { useState } from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import { camelCase } from 'lodash-es'
+import {
+  camelCase,
+  keys,
+} from 'lodash-es'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import {
+  LightFoundation,
+  type SemanticNames,
+  styled,
+  Typography,
+} from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
-import icons, { ChannelIcon } from './generated'
+import {
+  ListItem,
+} from 'Components/ListItem'
+import {
+  HStack,
+  StackItem,
+  VStack,
+} from 'Components/Stack'
+import {
+  Select,
+} from 'Components/Forms/Inputs/Select'
+import {
+  Text,
+} from 'Components/Text'
+import icons, {
+  ArrowLeftIcon,
+  BookmarkFilledIcon,
+  CallInProgressIcon,
+  ChannelBtnSmileFilledIcon,
+  ChannelIcon,
+  CheckCircleIcon,
+  ChevronDownDoubleIcon,
+  ChevronRightIcon,
+  ClockIcon,
+  EditIcon,
+  EmailIcon,
+  ErrorTriangleFilledIcon,
+  InboxIcon,
+  InfoFilledIcon,
+  SendForwardFilledIcon,
+  SettingsIcon,
+  TrashIcon,
+} from './generated'
 import Icon from './Icon'
 import IconProps, { IconSize } from './Icon.types'
+import mdx from './Icon.mdx'
 
 export default {
   title: getTitle(base),
   component: Icon,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     size: {
       control: {
@@ -37,9 +83,9 @@ const Name = styled.p`
   text-align: center;
 `
 
-export const Primary: Story<IconProps> = (args) => (<Icon {...args} />)
+export const Playground: Story<IconProps> = (args) => (<Icon {...args} />)
 
-Primary.args = {
+Playground.args = {
   source: ChannelIcon,
   size: IconSize.Normal,
   color: 'bg-black-darkest',
@@ -65,3 +111,167 @@ AllIcons.args = {
   size: IconSize.Normal,
   color: 'bg-black-darkest',
 }
+
+export const Overview: Story<{}> = () => (
+  <VStack spacing={16}>
+    <StackItem>
+      <HStack spacing={8}>
+        {
+          [
+            ChannelBtnSmileFilledIcon,
+            CheckCircleIcon,
+            InfoFilledIcon,
+            ErrorTriangleFilledIcon,
+            SendForwardFilledIcon,
+            EmailIcon,
+            InboxIcon,
+            CallInProgressIcon,
+            EditIcon,
+            SettingsIcon,
+            TrashIcon,
+            ClockIcon,
+            ChevronRightIcon,
+            ArrowLeftIcon,
+            ChevronDownDoubleIcon,
+            BookmarkFilledIcon,
+          ]
+            .map((source, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <StackItem key={`item-${i}`}>
+                <Icon source={source} color="txt-black-darkest" />
+              </StackItem>
+            ))
+        }
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8}>
+        {
+          [
+            'txt-black-darkest' as const,
+            'bgtxt-blue-normal' as const,
+            'bgtxt-cobalt-normal' as const,
+            'bgtxt-teal-normal' as const,
+            'bgtxt-green-normal' as const,
+            'bgtxt-olive-normal' as const,
+            'bgtxt-yellow-normal' as const,
+            'bgtxt-orange-normal' as const,
+            'bgtxt-red-normal' as const,
+            'bgtxt-pink-normal' as const,
+            'bgtxt-purple-normal' as const,
+            'bgtxt-navy-normal' as const,
+          ]
+            .map(semanticName => (
+              <StackItem key={semanticName}>
+                <Icon source={ChannelBtnSmileFilledIcon} color={semanticName} size={IconSize.L} />
+              </StackItem>
+            ))
+        }
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8}>
+        {
+          [
+            IconSize.XXXS,
+            IconSize.XXS,
+            IconSize.XS,
+            IconSize.S,
+            IconSize.Normal,
+            IconSize.L,
+            IconSize.XL,
+          ]
+            .map(size => (
+              <StackItem key={size}>
+                <Icon source={ChannelBtnSmileFilledIcon} color="txt-black-darkest" size={size} />
+              </StackItem>
+            ))
+        }
+      </HStack>
+    </StackItem>
+  </VStack>
+)
+
+export const UsageColor: Story<{}> = () => {
+  const [color, setColor] = useState<SemanticNames>('bgtxt-blue-normal')
+
+  return (
+    <VStack spacing={16}>
+      <StackItem>
+        <Icon
+          source={ChannelBtnSmileFilledIcon}
+          color={color}
+          size={IconSize.L}
+        />
+      </StackItem>
+      <StackItem>
+        <Select text={color} style={{ width: 200 }}>
+          <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
+            { keys(LightFoundation.theme)
+              .map((semanticName) => (
+                <ListItem
+                  key={semanticName}
+                  content={semanticName}
+                  onClick={() => setColor(semanticName as SemanticNames)}
+                />
+              )) }
+          </div>
+        </Select>
+      </StackItem>
+    </VStack>
+  )
+}
+
+UsageColor.storyName = 'Usage (color)'
+
+export const UsageSize: Story<{}> = () => (
+  <VStack spacing={16}>
+    {
+      [
+        { label: 'XXXS', size: IconSize.XXXS },
+        { label: 'XXS', size: IconSize.XXS },
+        { label: 'XS', size: IconSize.XS },
+        { label: 'S', size: IconSize.S },
+        { label: 'Normal', size: IconSize.Normal },
+        { label: 'L', size: IconSize.L },
+        { label: 'XL', size: IconSize.XL },
+      ]
+        .map(({ label, size }) => (
+          <StackItem key={size}>
+            <HStack spacing={24}>
+              <StackItem size={100}>
+                <Text
+                  typo={Typography.Size13}
+                  color="txt-black-darkest"
+                >
+                  { `${label} (${size}x${size})` }
+                </Text>
+              </StackItem>
+              <StackItem>
+                <Icon
+                  source={ChannelBtnSmileFilledIcon}
+                  color="txt-black-darkest"
+                  size={size}
+                />
+              </StackItem>
+            </HStack>
+          </StackItem>
+        ))
+    }
+  </VStack>
+)
+
+export const TipsMargin: Story<{}> = () => (
+  <div style={{ border: '1px solid red' }}>
+    <Icon
+      source={ChannelBtnSmileFilledIcon}
+      color="bgtxt-blue-normal"
+      marginTop={16}
+      marginRight={24}
+      marginBottom={32}
+      marginLeft={40}
+    />
+  </div>
+)
+
+TipsMargin.storyName = 'Tips (margin)'
