@@ -6,3 +6,98 @@ import {
 # Tags & Badges
 
 ## Overview
+
+태그와 뱃지는 서로 유사한 패턴을 가진 컴포넌트입니다. <br />
+다만 태그의 글자 색은 `txt-black-darkest` 를 사용하며, 삭제 (X) 버튼이 옵션으로 생길 수 있습니다.
+
+뱃지는 크게 숫자를 나타내는 뱃지와 상태를 나타내는 뱃지로 활용할 수 있습니다. <br />
+숫자 뱃지의 경우 알림일 경우와 일반 카운트일 때 스타일이 다를 수 있습니다. <br />
+상태 뱃지는 상황에 따라 다양한 스타일이 있을 수 있습니다. 태그와 다르게 글자와 바탕 모두 같은 color톤을 유지합니다. <br />
+뱃지의 경우 바탕색을 제거하고 쓸 수 있습니다.
+
+> 💡 `bezier-react`의 `Badge` 컴포넌트는 위 설명 중 "상태 뱃지" 를 구현합니다.
+> "숫자 뱃지" 는 `bezier-react`에 구현되어있지 않습니다.
+
+<Story id="components-tagbadge--overview" />
+
+## Usage
+
+### Badge without text
+
+뱃지는 텍스트 없이 사용할 수 있습니다.
+
+<Story id="components-tagbadge--badge-without-text" />
+
+```tsx
+<Badge variant={TagBadgeVariant.Red} iconName="block" />
+```
+
+### Dismissible Tag
+
+태그 컴포넌트의 `onDelete` prop을 지정하면, 태그 우측에 삭제 버튼을 표시할 수 있습니다. <br />
+삭제 버튼을 눌렀을 때 지정한 `onDelete` handler가 실행됩니다.
+
+<Story id="components-tagbadge--dismissible-tag" />
+
+```tsx
+<Tag
+  onDelete={() => { ... }}
+>
+  { ... }
+</Tag>
+```
+
+### Multiple Tags / Badges
+
+태그나 뱃지의 width는 content의 길이에 따라 늘어나기 때문에,
+태그나 뱃지를 여러 개 사용할 때는 적절하게 정렬이 이루어져야 합니다.
+
+보통 flex-wrap 속성을 사용하여 각 줄이 container의 width를 넘지 않도록 합니다.
+이를 구현할 때는 `flex-wrap: wrap` CSS 속성을 사용합니다.
+각 요소 간의 간격을 조절할 때는 `bezier-react`에서 제공하는 `StyleUtils.gap` 유틸리티를 사용하는 것이 편리합니다.
+
+<Story id="components-tagbadge--gap" />
+
+```tsx
+import {
+  styled,
+  StyleUtils,
+} from '@channel.io/bezier-react'
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  ${StyleUtils.gap(4)}
+`
+
+<Container>
+  <Badge { ... }>{ ... }</Badge>
+  { ... }
+</Container>
+```
+
+## Variants
+
+### Size
+
+XS, S, M, L 4개의 size variant가 있습니다. 기본 variant는 M 입니다. <br />
+`Tag`와 `Badge` 컴포넌트는 `size` prop을 통해 size variant를 선택할 수 있으며,
+`TagBadgeSize` enum을 통해 variant를 공유합니다.
+
+<Story id="components-tagbadge--size-variant" />
+
+### Color variant
+
+`Tag`와 `Badge` 컴포넌트는 `variant` prop을 통해 색상 variant를 선택할 수 있으며,
+`TagBadgeVariant` enum을 통해 variant를 공유합니다. <br />
+기본 variant는 `TagBadgeVariant.Default` 입니다.
+
+<Story id="components-tagbadge--variant" />
+
+## API
+
+> ✏️ TODO (`react-docgen-typescript-plugin` 적용 이후 작성)
+
+## Version
+
+- Available since 0.3.22
