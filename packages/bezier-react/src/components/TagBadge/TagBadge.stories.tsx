@@ -11,6 +11,12 @@ import {
   styled,
 } from 'Foundation'
 import {
+  getTitle,
+} from 'Utils/storyUtils'
+import {
+  gap,
+} from 'Utils/styleUtils'
+import {
   HStack,
   StackItem,
   VStack,
@@ -21,12 +27,6 @@ import {
   TagBadgeSize,
   TagBadgeVariant,
 } from 'Components/TagBadge'
-import {
-  getTitle,
-} from 'Utils/storyUtils'
-import {
-  gap,
-} from 'Utils/styleUtils'
 import mdx from './TagBadge.mdx'
 
 export default {
