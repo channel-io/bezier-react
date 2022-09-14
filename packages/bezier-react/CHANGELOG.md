@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.167
+
+### Minor Changes
+
+- [#873](https://github.com/channel-io/bezier-react/pull/873) [`3b484673`](https://github.com/channel-io/bezier-react/commit/3b484673f37d1d46b1e6425379e34284b2386aee) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Add withoutIndent prop and apply Radix to Divider component
+
+  BREAKING_CHANGE: Divider is no longer HR, but DIV
+
+### Patch Changes
+
+- [#924](https://github.com/channel-io/bezier-react/pull/924) [`2050b668`](https://github.com/channel-io/bezier-react/commit/2050b6680aee060378c94f1409be3efd597fd45e) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Change word-break property of Modal content
+
+* [#927](https://github.com/channel-io/bezier-react/pull/927) [`ae5f5b6d`](https://github.com/channel-io/bezier-react/commit/ae5f5b6da051b76722aca0ae0697b3963eece463) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
 ## 1.0.0-next-v1.166
 
 ### Patch Changes
