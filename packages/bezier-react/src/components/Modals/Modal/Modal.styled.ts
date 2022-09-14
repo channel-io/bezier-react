@@ -45,7 +45,7 @@ export const CloseIconButton = styled(Button)`
 export const Description = styled.div`
   box-sizing: border-box;
   width: 100%;
-  word-break: break-all;
+  word-break: break-word;
 
   /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before, no-duplicate-selectors */
   ${Title} + & {
@@ -58,7 +58,7 @@ export const ChildrenContent = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-top: 12px;
-  word-break: break-all;
+  word-break: break-word;
 `
 
 export const DescriptionText = styled(Text).attrs(() => ({
