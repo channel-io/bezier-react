@@ -51,9 +51,11 @@ function Slider(
             guideValue={guideValue}
           />
         )) }
-        <SliderPrimitive.Thumb asChild>
-          <Styled.SliderThumb />
-        </SliderPrimitive.Thumb>
+        { defaultValue.map((v) => (
+          <SliderPrimitive.Thumb asChild key={`slider-thumb-${v}`}>
+            <Styled.SliderThumb />
+          </SliderPrimitive.Thumb>
+        )) }
       </Styled.SliderRoot>
     </SliderPrimitive.Root>
   )
