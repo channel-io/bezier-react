@@ -48,11 +48,12 @@ export const SliderRoot = styled.div<SliderRootProps>`
   position: relative;
   display: flex;
   align-items: center;
-  user-select: none;
-  touch-action: none;
 
   width: ${({ width }) => toLength(width, '36px')};
   height: ${SLIDER_THUMB_SIZE}px;
+
+  touch-action: none;
+  user-select: none;
 
   ${({ interpolation }) => interpolation}
 `
@@ -119,6 +120,7 @@ export const SliderThumb = styled.div<SliderThumbProps>`
     ${({ foundation }) => foundation?.elevation?.ev3()}
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
   }
+
   &:focus {
     ${focusedInputWrapperStyle}
   }
