@@ -53,8 +53,5 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "packageManager": "yarn@3.2.1",
-  "dependencies": {
-    "@radix-ui/react-slider": "0.1.4"
-  }
+  "packageManager": "yarn@3.2.1"
 }
