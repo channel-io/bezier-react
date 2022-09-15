@@ -56,6 +56,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
 }
 
 .c9 {
+  color: #000000D9;
   font-size: 1.4rem;
   line-height: 1.8rem;
   overflow: hidden;
@@ -82,10 +83,10 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   padding: 4px 6px;
   overflow: hidden;
   border-radius: 6px;
@@ -96,17 +97,16 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
 .c3 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  height: 28px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -120,7 +120,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  height: 28px;
+  min-height: 28px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

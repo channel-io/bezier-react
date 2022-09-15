@@ -42,6 +42,7 @@ import BearFilled from './BearFilled'
 import Bear from './Bear'
 import Beta from './Beta'
 import Block from './Block'
+import Bluetooth from './Bluetooth'
 import Bold from './Bold'
 import BookCover from './BookCover'
 import BookEditing from './BookEditing'
@@ -111,6 +112,7 @@ import ChatPush from './ChatPush'
 import ChatQuestionFilled from './ChatQuestionFilled'
 import ChatQuestion from './ChatQuestion'
 import ChatReady from './ChatReady'
+import ChatTeam from './ChatTeam'
 import CheckAll from './CheckAll'
 import CheckBold from './CheckBold'
 import CheckCircleFilled from './CheckCircleFilled'
@@ -166,6 +168,7 @@ import Dropdown from './Dropdown'
 import Edit from './Edit'
 import Education from './Education'
 import EmailFilled from './EmailFilled'
+import EmailForward from './EmailForward'
 import EmailUnread from './EmailUnread'
 import EmailUnsubscribed from './EmailUnsubscribed'
 import Email from './Email'
@@ -248,10 +251,12 @@ import IntoPage from './IntoPage'
 import Invert from './Invert'
 import Ios from './Ios'
 import Italic from './Italic'
+import KakaoFilledAlt from './KakaoFilledAlt'
 import KakaoFilled from './KakaoFilled'
 import Kakao from './Kakao'
 import Key from './Key'
 import Keyboard from './Keyboard'
+import Keypad from './Keypad'
 import Lab from './Lab'
 import Laptop from './Laptop'
 import Lightbulb from './Lightbulb'
@@ -389,6 +394,7 @@ import Target from './Target'
 import Template from './Template'
 import Textfield from './Textfield'
 import TimeElapsed from './TimeElapsed'
+import Timezone from './Timezone'
 import Tool from './Tool'
 import TransferDisabled from './TransferDisabled'
 import Transfer from './Transfer'
@@ -425,6 +431,7 @@ import VideocamOff from './VideocamOff'
 import Videocam from './Videocam'
 import ViewOff from './ViewOff'
 import View from './View'
+import VolumeBluetooth from './VolumeBluetooth'
 import VolumeDown from './VolumeDown'
 import VolumeOffFilled from './VolumeOffFilled'
 import VolumeOff from './VolumeOff'
@@ -440,6 +447,8 @@ import WeatherSun from './WeatherSun'
 import WeatherThunder from './WeatherThunder'
 import Webhook from './Webhook'
 import WifiOff from './WifiOff'
+import WifiPoor from './WifiPoor'
+import WifiWeak from './WifiWeak'
 import Wifi from './Wifi'
 import WindowsClose from './WindowsClose'
 import WindowsMaximize from './WindowsMaximize'
@@ -497,6 +506,7 @@ const icons = {
   bear: Bear,
   beta: Beta,
   block: Block,
+  bluetooth: Bluetooth,
   bold: Bold,
   'book-cover': BookCover,
   'book-editing': BookEditing,
@@ -566,6 +576,7 @@ const icons = {
   'chat-question-filled': ChatQuestionFilled,
   'chat-question': ChatQuestion,
   'chat-ready': ChatReady,
+  'chat-team': ChatTeam,
   'check-all': CheckAll,
   'check-bold': CheckBold,
   'check-circle-filled': CheckCircleFilled,
@@ -621,6 +632,7 @@ const icons = {
   edit: Edit,
   education: Education,
   'email-filled': EmailFilled,
+  'email-forward': EmailForward,
   'email-unread': EmailUnread,
   'email-unsubscribed': EmailUnsubscribed,
   email: Email,
@@ -703,10 +715,12 @@ const icons = {
   invert: Invert,
   ios: Ios,
   italic: Italic,
+  'kakao-filled-alt': KakaoFilledAlt,
   'kakao-filled': KakaoFilled,
   kakao: Kakao,
   key: Key,
   keyboard: Keyboard,
+  keypad: Keypad,
   lab: Lab,
   laptop: Laptop,
   lightbulb: Lightbulb,
@@ -844,6 +858,7 @@ const icons = {
   template: Template,
   textfield: Textfield,
   'time-elapsed': TimeElapsed,
+  timezone: Timezone,
   tool: Tool,
   'transfer-disabled': TransferDisabled,
   transfer: Transfer,
@@ -880,6 +895,7 @@ const icons = {
   videocam: Videocam,
   'view-off': ViewOff,
   view: View,
+  'volume-bluetooth': VolumeBluetooth,
   'volume-down': VolumeDown,
   'volume-off-filled': VolumeOffFilled,
   'volume-off': VolumeOff,
@@ -895,6 +911,8 @@ const icons = {
   'weather-thunder': WeatherThunder,
   webhook: Webhook,
   'wifi-off': WifiOff,
+  'wifi-poor': WifiPoor,
+  'wifi-weak': WifiWeak,
   wifi: Wifi,
   'windows-close': WindowsClose,
   'windows-maximize': WindowsMaximize,
@@ -967,6 +985,7 @@ export {
   Bear as BearIcon,
   Beta as BetaIcon,
   Block as BlockIcon,
+  Bluetooth as BluetoothIcon,
   Bold as BoldIcon,
   BookCover as BookCoverIcon,
   BookEditing as BookEditingIcon,
@@ -1036,6 +1055,7 @@ export {
   ChatQuestionFilled as ChatQuestionFilledIcon,
   ChatQuestion as ChatQuestionIcon,
   ChatReady as ChatReadyIcon,
+  ChatTeam as ChatTeamIcon,
   CheckAll as CheckAllIcon,
   CheckBold as CheckBoldIcon,
   CheckCircleFilled as CheckCircleFilledIcon,
@@ -1091,6 +1111,7 @@ export {
   Edit as EditIcon,
   Education as EducationIcon,
   EmailFilled as EmailFilledIcon,
+  EmailForward as EmailForwardIcon,
   EmailUnread as EmailUnreadIcon,
   EmailUnsubscribed as EmailUnsubscribedIcon,
   Email as EmailIcon,
@@ -1173,10 +1194,12 @@ export {
   Invert as InvertIcon,
   Ios as IosIcon,
   Italic as ItalicIcon,
+  KakaoFilledAlt as KakaoFilledAltIcon,
   KakaoFilled as KakaoFilledIcon,
   Kakao as KakaoIcon,
   Key as KeyIcon,
   Keyboard as KeyboardIcon,
+  Keypad as KeypadIcon,
   Lab as LabIcon,
   Laptop as LaptopIcon,
   Lightbulb as LightbulbIcon,
@@ -1314,6 +1337,7 @@ export {
   Template as TemplateIcon,
   Textfield as TextfieldIcon,
   TimeElapsed as TimeElapsedIcon,
+  Timezone as TimezoneIcon,
   Tool as ToolIcon,
   TransferDisabled as TransferDisabledIcon,
   Transfer as TransferIcon,
@@ -1350,6 +1374,7 @@ export {
   Videocam as VideocamIcon,
   ViewOff as ViewOffIcon,
   View as ViewIcon,
+  VolumeBluetooth as VolumeBluetoothIcon,
   VolumeDown as VolumeDownIcon,
   VolumeOffFilled as VolumeOffFilledIcon,
   VolumeOff as VolumeOffIcon,
@@ -1365,6 +1390,8 @@ export {
   WeatherThunder as WeatherThunderIcon,
   Webhook as WebhookIcon,
   WifiOff as WifiOffIcon,
+  WifiPoor as WifiPoorIcon,
+  WifiWeak as WifiWeakIcon,
   Wifi as WifiIcon,
   WindowsClose as WindowsCloseIcon,
   WindowsMaximize as WindowsMaximizeIcon,

@@ -6,6 +6,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
@@ -47,6 +48,14 @@ const SingleLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWi
       actions={Array.from(Array(2)).map(() => ({ icon: 'edit', onClick: console.log, tooltip: '수정하기' }))}
     />
     <KeyValueListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
+    <KeyValueListItem {...otherProps}>
+      <Button
+        leftContent="play"
+        text="높이 테스트"
+        colorVariant={ButtonColorVariant.Green}
+        styleVariant={ButtonStyleVariant.Primary}
+      />
+    </KeyValueListItem>
   </div>
 )
 

@@ -82,7 +82,7 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
 
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <FormGroup direction="row" gap={10}>
+      <FormGroup direction="horizontal" spacing={10}>
         <Checkbox>Option</Checkbox>
         <Checkbox>Option</Checkbox>
         <Checkbox>Option</Checkbox>
@@ -94,7 +94,7 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
 
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <FormGroup direction="row" gap={20}>
+      <FormGroup direction="horizontal" spacing={20}>
         <div
           style={{
             display: 'flex',

@@ -30,9 +30,15 @@ import { Stack } from './Stack'
 import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
+import mdx from './Stack.mdx'
 
 export default {
   title: getTitle(base),
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     containerSize: {
       control: {
@@ -269,6 +275,8 @@ export const DirectionHorizontal: Story<{}> = () => (
   </HStack>
 )
 
+DirectionHorizontal.storyName = 'Horizontal stack'
+
 export const DirectionVertical: Story<{}> = () => (
   <VStack
     style={{ width: '200px', height: '600px', border: '1px solid #ffc0c0' }}
@@ -300,6 +308,8 @@ export const DirectionVertical: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
+
+DirectionVertical.storyName = 'Vertical stack'
 
 export const AlignmentJustify: Story<{}> = () => (
   <VStack align="stretch" spacing={8}>
@@ -416,6 +426,8 @@ export const AlignmentJustify: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
+
+AlignmentJustify.storyName = 'Alignment (justify)'
 
 export const AlignmentAlign: Story<{}> = () => (
   <VStack align="stretch" spacing={8}>
@@ -570,6 +582,8 @@ export const AlignmentAlign: Story<{}> = () => (
   </VStack>
 )
 
+AlignmentAlign.storyName = 'Alignment (align)'
+
 export const Spacing: Story<{}> = () => (
   <HStack
     style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
@@ -662,6 +676,8 @@ export const WeightSpacer: Story<{}> = () => (
   </HStack>
 )
 
+WeightSpacer.storyName = 'Spacer'
+
 export const WeightFixed: Story<{}> = () => (
   <HStack
     style={{ width: '100px', height: '80px', border: '1px solid #ffc0c0' }}
@@ -683,3 +699,5 @@ export const WeightFixed: Story<{}> = () => (
     </StackItem>
   </HStack>
 )
+
+WeightFixed.storyName = 'Fix-sized item'

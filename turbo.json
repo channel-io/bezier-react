@@ -4,20 +4,35 @@
   "pipeline": {
     "build": {
       "outputs": [
-        "build/**"
+        "build/**",
+        "dist/**"
       ],
       "dependsOn": [
         "^build"
       ]
     },
-    "test": {
-      "outputs": []
-    },
     "lint": {
-      "outputs": [".eslintcache"]
+      "outputs": [
+        ".eslintcache",
+        ".stylelintcache"
+      ]
     },
     "typecheck": {
-      "outputs": []
+      "outputs": [],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts"
+      ]
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "src/**/*.js"
+      ]
     },
     "dev": {
       "cache": false

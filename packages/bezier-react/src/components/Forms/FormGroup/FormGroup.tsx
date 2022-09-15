@@ -2,16 +2,17 @@
 import React, { forwardRef, useEffect } from 'react'
 
 /* Internal dependencies */
+import { StackItem } from 'Components/Stack'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import type FormGroupProps from './FormGroup.types'
 import * as Styled from './FormGroup.styled'
 
-export const FORM_GROUP_TEST_ID = 'bezier-react-form-group'
+const FORM_GROUP_TEST_ID = 'bezier-react-form-group'
 
 function FormGroup({
   testId = FORM_GROUP_TEST_ID,
-  gap = 6,
-  direction = 'column',
+  spacing = 6,
+  direction = 'vertical',
   role = 'group',
   children,
   ...rest
@@ -40,11 +41,17 @@ forwardedRef: React.Ref<HTMLDivElement>,
       {...ownProps}
       data-testid={testId}
       ref={forwardedRef}
-      gap={gap}
+      justify="start"
+      align="stretch"
+      spacing={spacing}
       direction={direction}
       role={role}
     >
-      { children }
+      { React.Children.map(children, (child, index) => (
+        <StackItem key={(child as React.ReactElement)?.key ?? index}>
+          { child }
+        </StackItem>
+      )) }
     </Styled.Stack>
   )
 }

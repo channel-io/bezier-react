@@ -6,7 +6,7 @@ import { BezierComponentProps, SizeProps, ColorProps } from 'Types/ComponentProp
 
 export enum IconSize {
   XL = 44,
-  L = 34,
+  L = 36,
   Normal = 24,
   S = 20,
   XS = 16,

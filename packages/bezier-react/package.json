@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "1.0.0-next-v1.157",
+  "version": "1.0.0-next-v1.167",
   "description": "React components library that implements Bezier Design System.",
   "repository": {
     "type": "git",
@@ -15,34 +15,24 @@
     "src"
   ],
   "scripts": {
-    "build": "yarn build:icon && yarn build:rollup",
-    "dev": "yarn storybook",
-    "lint": "yarn eslint-all && yarn stylelint-all",
-    "typecheck": "ts-prune -e -p ./tsconfig.prune.json && tsc",
-    "jest": "cross-env BABEL_ENV=test jest --maxWorkers=2",
-    "test": "yarn lint && yarn typecheck && yarn jest",
-    "clean": "rm -rf node_modules .turbo",
-    "storybook": "start-storybook -p 4101",
-    "lint-staged": "lint-staged",
-    "eslint-all": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
-    "stylelint-all": "stylelint src/**/*.styled.{js,ts}",
-    "jest:watch": "cross-env BABEL_ENV=test jest --watch",
-    "cleanBuild": "npx rimraf build",
-    "prebuild": "yarn cleanBuild",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
-    "build:storybook": "build-storybook",
+    "build": "run-s 'build:*'",
     "build:icon": "./scripts/build-icon.sh",
-    "deploy:storybook": "storybook-to-ghpages --remote=upstream",
+    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
+    "dev": "yarn storybook",
+    "lint": "run-p 'lint:*'",
+    "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
+    "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --cache",
+    "typecheck": "yarn find-deadcode && tsc --build --verbose",
+    "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
+    "test": "cross-env BABEL_ENV=test jest --maxWorkers=2",
+    "test:watch": "cross-env BABEL_ENV=test jest --watch",
     "update-snapshot": "jest --updateSnapshot",
-    "chromatic": "chromatic"
-  },
-  "lint-staged": {
-    "src/**/*.styled.{js,ts}": [
-      "stylelint"
-    ],
-    "src/**/*.(js|ts)?(x)": [
-      "eslint"
-    ]
+    "clean": "rm -rf node_modules .turbo & yarn clean:build",
+    "clean:build": "npx rimraf build",
+    "prebuild": "yarn clean:build",
+    "storybook": "start-storybook -p 4101",
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --project-token=06157a6fbe6f"
   },
   "keywords": [
     "design",
@@ -75,6 +65,8 @@
     "@storybook/addon-controls": "^6.5.0",
     "@storybook/addon-docs": "^6.5.0",
     "@storybook/addon-toolbars": "^6.5.0",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.0",
     "@storybook/storybook-deployer": "^2.8.11",
     "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
@@ -82,6 +74,7 @@
     "@svgr/cli": "^6.2.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^13.1.1",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^25.2.3",
     "@types/lodash-es": "^4.17.4",
@@ -99,7 +92,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.4",
-    "lint-staged": "^11.0.0",
     "paths.macro": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -109,7 +101,6 @@
     "rollup-plugin-typescript2": "^0.31.1",
     "rollup-plugin-visualizer": "^5.5.2",
     "styled-components": "^5.3.5",
-    "stylelint": "^13.8.0",
     "ts-prune": "^0.10.3",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "tslib": "^2.3.1",
@@ -124,6 +115,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
+    "@radix-ui/react-separator": "0.1.4",
     "@radix-ui/react-slider": "^1.0.0",
     "lodash-es": "^4.17.15",
     "react-resize-detector": "^7.1.1",

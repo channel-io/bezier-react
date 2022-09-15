@@ -1,15 +1,15 @@
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import type { StackProps } from 'Components/Stack'
 
 interface FormGroupOptions {
-  gap?: number
-  direction?: 'column' | 'row'
   role?: string
 }
 
 interface FormGroupProps extends
   BezierComponentProps,
   ChildrenProps,
+  Partial<Pick<StackProps, 'direction' | 'spacing'>>,
   FormGroupOptions {}
 
 export default FormGroupProps

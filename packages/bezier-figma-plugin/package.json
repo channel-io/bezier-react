@@ -1,12 +1,14 @@
 {
   "name": "bezier-figma-plugin",
-  "version": "0.1.1-next-v1.1",
+  "version": "0.1.1-next-v1.11",
   "private": true,
   "description": "Figma plugin that helps build Bezier Design System and increase productivity.",
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack --mode=development --watch",
-    "lint": "TIMING=1 eslint --cache .",
+    "lint": "run-p 'lint:*'",
+    "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
+    "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --allow-empty-input --cache",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "author": "Channel Corp.",

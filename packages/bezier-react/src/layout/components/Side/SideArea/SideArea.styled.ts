@@ -1,10 +1,9 @@
 /* Internal dependencies */
-import { css, styled, disableAutoMinimum } from 'Foundation'
+import { styled, disableAutoMinimum } from 'Foundation'
 import LayoutSideType from 'Layout/types/LayoutSideType'
 
 interface SideAreaWrapperProps {
   sideType: LayoutSideType
-  showSideView: boolean
 }
 
 export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
@@ -12,9 +11,6 @@ export const SideAreaWrapper = styled.div<SideAreaWrapperProps>`
   grid-row: ${({ sideType }) => (sideType === LayoutSideType.SidePanel ? '2 / 3' : '1 / 3')};
   grid-column: 2;
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lightest']};
-  ${({ showSideView, sideType }) => showSideView && sideType === LayoutSideType.SidePanel && css`
-    display: none;
-  `}
 
   ${disableAutoMinimum}
 `

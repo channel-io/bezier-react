@@ -13,8 +13,6 @@ export interface LayoutState {
   showCoverableHeader: boolean
   /* Side related */
   sideWidth: number
-  showSideView: boolean
-  showSidePanel: boolean
   /* Navigations related */
   showNavigation: boolean
   showingHidableNavigations: Set<string>
@@ -28,8 +26,6 @@ export const defaultState: LayoutState = {
   showContentHeader: false,
   showCoverableHeader: false,
   sideWidth: 0,
-  showSideView: false,
-  showSidePanel: false,
   showNavigation: true,
   showingHidableNavigations: new Set(),
   orderedColumnKeys: [],
@@ -50,20 +46,6 @@ function LayoutReducer(state: LayoutState = defaultState, action: LayoutActionTy
       return {
         ...state,
         showCoverableHeader: action.payload,
-      }
-    }
-
-    case AT.SET_SHOW_SIDE_PANEL: {
-      return {
-        ...state,
-        showSidePanel: action.payload,
-      }
-    }
-
-    case AT.SET_SHOW_SIDE_VIEW: {
-      return {
-        ...state,
-        showSideView: action.payload,
       }
     }
 

@@ -41,6 +41,7 @@ function Stack(
     justify = 'start',
     align = 'start',
     spacing = 0,
+    ...rest
   }: StackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
@@ -55,6 +56,7 @@ function Stack(
       direction={direction}
       justify={justify}
       align={align}
+      {...rest}
     >
       { Children.map(
         children,

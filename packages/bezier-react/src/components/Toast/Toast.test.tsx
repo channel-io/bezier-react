@@ -22,13 +22,7 @@ describe('Toast test >', () => {
     }
   })
 
-  const renderToast = (optionProps?: Omit<ToastElementProps,
-  | 'content'
-  | 'onDismiss'
-  | 'transitionDuration'
-  | 'transform'
-  | 'placement'
-  >) => render(<ToastElement {...props} {...optionProps} />)
+  const renderToast = (optionProps?: Partial<ToastElementProps>) => render(<ToastElement {...props} {...optionProps} />)
 
   it('Reset CSS', () => {
     const { getByTestId } = renderToast()
@@ -102,6 +96,56 @@ describe('Toast test >', () => {
       const onlineToast = getByTestId(TOAST_TEST_ID)
 
       expect(onlineToast.firstChild).toHaveStyle(`color: ${DarkTheme['bgtxt-green-normal']}`)
+    })
+  })
+
+  describe('Props - onDismiss', () => {
+    it('onDismiss is called when click Close button,', () => {
+      const onDismiss = jest.fn()
+      const { getByTestId } = renderToast({
+        onDismiss,
+      })
+      const closeToast = getByTestId(`${TOAST_TEST_ID}-close`)
+      closeToast.click()
+      expect(onDismiss).toBeCalledTimes(1)
+    })
+  })
+
+  describe('Props - content', () => {
+    it('content is string', () => {
+      const onDismiss = jest.fn()
+      const { getByTestId } = renderToast({
+        onDismiss,
+        content: 'Hello',
+      })
+      const content = getByTestId(`${TOAST_TEST_ID}-content`)
+      expect(content).toBeInTheDocument()
+      expect(content.childNodes.length).toBe(1)
+    })
+
+    it('content is string with \n', () => {
+      const onDismiss = jest.fn()
+      const { getByTestId } = renderToast({
+        onDismiss,
+        content: 'Hello\nChannelTalk',
+      })
+      const content = getByTestId(`${TOAST_TEST_ID}-content`)
+      expect(content.childNodes.length).toBe(2)
+    })
+
+    it('content is ReactNode', () => {
+      const onDismiss = jest.fn()
+      const { getByTestId } = renderToast({
+        onDismiss,
+        content: (
+          <button type="button">
+            Hello
+          </button>
+        ),
+      })
+      const content = getByTestId(`${TOAST_TEST_ID}-content`)
+      expect(content).toBeInTheDocument()
+      expect(content.childNodes.length).toBe(1)
     })
   })
 

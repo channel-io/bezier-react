@@ -54,4 +54,5 @@ interface StackOptions {
 export default interface StackProps extends
   BezierComponentProps,
   ChildrenProps,
+  React.HTMLAttributes<HTMLElement>,
   StackOptions {}

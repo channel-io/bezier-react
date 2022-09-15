@@ -1,5 +1,94 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.167
+
+### Minor Changes
+
+- [#873](https://github.com/channel-io/bezier-react/pull/873) [`3b484673`](https://github.com/channel-io/bezier-react/commit/3b484673f37d1d46b1e6425379e34284b2386aee) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Add withoutIndent prop and apply Radix to Divider component
+
+  BREAKING_CHANGE: Divider is no longer HR, but DIV
+
+### Patch Changes
+
+- [#924](https://github.com/channel-io/bezier-react/pull/924) [`2050b668`](https://github.com/channel-io/bezier-react/commit/2050b6680aee060378c94f1409be3efd597fd45e) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Change word-break property of Modal content
+
+* [#927](https://github.com/channel-io/bezier-react/pull/927) [`ae5f5b6d`](https://github.com/channel-io/bezier-react/commit/ae5f5b6da051b76722aca0ae0697b3963eece463) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+## 1.0.0-next-v1.166
+
+### Patch Changes
+
+- [#920](https://github.com/channel-io/bezier-react/pull/920) [`b559bd1d`](https://github.com/channel-io/bezier-react/commit/b559bd1d8a8fe4bac5a8931da7acd72cc59dcb9c) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+## 1.0.0-next-v1.165
+
+### Minor Changes
+
+- [#913](https://github.com/channel-io/bezier-react/pull/913) [`38aec7d6`](https://github.com/channel-io/bezier-react/commit/38aec7d6612b493439b41b358a54c947011a299e) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Add size17 option to Typography
+
+### Patch Changes
+
+- [#915](https://github.com/channel-io/bezier-react/pull/915) [`d581fb04`](https://github.com/channel-io/bezier-react/commit/d581fb04843aea1810aade3f8a174b3a1fac9532) Thanks [@Tanney-102](https://github.com/Tanney-102)! - Update icon size L from 34 to 36
+
+## 1.0.0-next-v1.164
+
+### Patch Changes
+
+- [#909](https://github.com/channel-io/bezier-react/pull/909) [`77859565`](https://github.com/channel-io/bezier-react/commit/77859565b9d5f11feedae1b90d3232f4c3001875) Thanks [@Seolhun](https://github.com/Seolhun)! - add toast update feature
+
+## 1.0.0-next-v1.163
+
+### Patch Changes
+
+- [#907](https://github.com/channel-io/bezier-react/pull/907) [`af5cb6f8`](https://github.com/channel-io/bezier-react/commit/af5cb6f8c3947fb26e258016e540a20c576b6c61) Thanks [@guswnsxodlf](https://github.com/guswnsxodlf)! - Add floating-alt style variant in Button element
+
+## 1.0.0-next-v1.162
+
+### Patch Changes
+
+- [#892](https://github.com/channel-io/bezier-react/pull/892) [`3040ea5d`](https://github.com/channel-io/bezier-react/commit/3040ea5d5538ece8350ca5f2860e0c4e97c0e69e) Thanks [@aooen](https://github.com/aooen)! - Manage visibility of sidePanel and sideView at main layout prop
+
+  BREAKING CHANGE
+
+  - No longer use useSidePanelHandler and useSideViewHandler. Use set Main prop SidePanelComponent, SideViewComponent to undefined instead.
+
+## 1.0.0-next-v1.161
+
+### Patch Changes
+
+- [#901](https://github.com/channel-io/bezier-react/pull/901) [`9be5d909`](https://github.com/channel-io/bezier-react/commit/9be5d9095b6fc753c42ba87fc88f530117f3ed8d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Apply CSS default value to the align, justify properties of FormGroup component.
+
+* [#896](https://github.com/channel-io/bezier-react/pull/896) [`6d07015f`](https://github.com/channel-io/bezier-react/commit/6d07015fd59590c17ef9a7e9a2961ed31ae518f5) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(key-value-list-item): change key and value component styles removed fixed height and given default color
+
+- [#894](https://github.com/channel-io/bezier-react/pull/894) [`ba49e2e8`](https://github.com/channel-io/bezier-react/commit/ba49e2e8123d85d4fbfae7bd462d28ca058fa1a0) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(toast): change toast content props "string" to "react-node"
+
+## 1.0.0-next-v1.160
+
+### Minor Changes
+
+- [#866](https://github.com/channel-io/bezier-react/pull/866) [`eceaa9e7`](https://github.com/channel-io/bezier-react/commit/eceaa9e7a26765e03a78a6fd97f50c8e1e112303) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change FormGroup implementation to use Stack internally
+
+  BREAKING CHANGE
+
+  - Change 'gap' prop to 'spacing' prop
+  - Change the allowable value of 'direction' prop to be the same as Stack
+
+## 1.0.0-next-v1.159
+
+### Minor Changes
+
+- [#878](https://github.com/channel-io/bezier-react/pull/878) [`fa1e0d76`](https://github.com/channel-io/bezier-react/commit/fa1e0d7692204b8207911284e6c61c3c92860842) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add ButtonGroup component
+
+### Patch Changes
+
+- [#874](https://github.com/channel-io/bezier-react/pull/874) [`fa944351`](https://github.com/channel-io/bezier-react/commit/fa9443517bf105e9dc3082537ed42e9975902d0c) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Add keypad icon
+
+## 1.0.0-next-v1.158
+
+### Patch Changes
+
+- [#867](https://github.com/channel-io/bezier-react/pull/867) [`5ada881b`](https://github.com/channel-io/bezier-react/commit/5ada881b4bb7c788a5d8259f8e47df615e0ca3e4) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Fix style bug: background color of switch handle is overridden by elevation css
+
 ## 1.0.0-next-v1.157
 
 ### Patch Changes

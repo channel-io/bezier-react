@@ -2,88 +2,179 @@
 import React from 'react'
 
 /* Internal dependencies */
+import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import Divider, { DIVIDER_TEST_ID } from './Divider'
 import type DividerProps from './Divider.types'
 
-describe('Divider >', () => {
-  let props: DividerProps
+describe('Divider', () => {
+  const renderDivider = (props?: Partial<DividerProps>) => render(<Divider {...props} />)
 
-  beforeEach(() => {
-    props = {
-      orientation: 'horizontal',
-      withoutSideIndent: false,
-    }
+  describe('no props specified', () => {
+    it('should render default Divider', () => {
+      const { getByTestId } = renderDivider()
+      const divider = getByTestId(DIVIDER_TEST_ID)
+
+      expect(divider).toHaveStyle('width: calc(100% - 12px)')
+      expect(divider).toHaveStyle('height: 1px')
+      expect(divider).toHaveStyle('border-radius: 1px')
+      expect(divider).toHaveStyle(`background-color: ${LightFoundation.theme['bdr-black-light']}`)
+      expect(divider).toHaveStyle('margin: 6px')
+
+      expect(divider).toHaveAttribute('role', 'separator')
+    })
   })
 
-  const renderDivider = (otherProps?: Partial<DividerProps>) => render(<Divider {...props} {...otherProps} />)
+  describe('indent', () => {
+    describe('horizontal divider', () => {
+      it('should have margin by default', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderDivider()
-    const divider = getByTestId(DIVIDER_TEST_ID)
+        expect(divider).toHaveStyle('margin: 6px')
+      })
 
-    expect(divider).toMatchSnapshot()
+      it('should not have left, right margin when withoutSideIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+          withoutSideIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-left: 0')
+        expect(divider).toHaveStyle('margin-right: 0')
+      })
+
+      it('should not have top, bottom margin when withoutParallelIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+          withoutParallelIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-top: 0')
+        expect(divider).toHaveStyle('margin-bottom: 0')
+      })
+
+      it('should not have margin when both withoutSideIndent, withoutParallelIndent are true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+          withoutParallelIndent: true,
+          withoutSideIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-top: 0')
+        expect(divider).toHaveStyle('margin-bottom: 0')
+        expect(divider).toHaveStyle('margin-left: 0')
+        expect(divider).toHaveStyle('margin-right: 0')
+      })
+
+      it('should not have margin when withoutIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'horizontal',
+          withoutIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin: 0')
+      })
+    })
+
+    describe('vertical divider', () => {
+      it('should have margin by default', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin: 6px')
+      })
+
+      it('should not have top, bottom margin when withoutSideIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+          withoutSideIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-top: 0')
+        expect(divider).toHaveStyle('margin-bottom: 0')
+      })
+
+      it('should not have left, right margin when withoutParallelIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+          withoutParallelIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-left: 0')
+        expect(divider).toHaveStyle('margin-right: 0')
+      })
+
+      it('should not have margin when both withoutSideIndent, withoutParallelIndent are true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+          withoutParallelIndent: true,
+          withoutSideIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin-top: 0')
+        expect(divider).toHaveStyle('margin-bottom: 0')
+        expect(divider).toHaveStyle('margin-left: 0')
+        expect(divider).toHaveStyle('margin-right: 0')
+      })
+
+      it('should not have margin when withoutIndent is true', () => {
+        const { getByTestId } = renderDivider({
+          orientation: 'vertical',
+          withoutIndent: true,
+        })
+        const divider = getByTestId(DIVIDER_TEST_ID)
+
+        expect(divider).toHaveStyle('margin: 0')
+      })
+    })
   })
 
-  it('has reset css', () => {
-    const { getByTestId } = renderDivider()
-    const divider = getByTestId(DIVIDER_TEST_ID)
+  describe('accessibility', () => {
+    it('should render with an separator role', () => {
+      const { getByTestId } = renderDivider()
+      const divider = getByTestId(DIVIDER_TEST_ID)
 
-    expect(divider).toHaveStyle('box-sizing: content-box')
-    expect(divider).toHaveStyle('border: 0')
-    expect(divider).toHaveStyle('border-style: solid')
-  })
+      expect(divider).toHaveAttribute('role', 'separator')
+    })
 
-  it('has margin', () => {
-    const { getByTestId } = renderDivider()
-    const divider = getByTestId(DIVIDER_TEST_ID)
+    it('should render horizontal divider without aria-orientation attribute', () => {
+      const { getByTestId } = renderDivider({
+        orientation: 'horizontal',
+      })
+      const divider = getByTestId(DIVIDER_TEST_ID)
 
-    expect(divider).toHaveStyle('margin: 6px')
-  })
+      expect(divider).not.toHaveAttribute('aria-orientation')
+    })
 
-  it('renders with an aria attribute for web accessibility - horizontal', () => {
-    const { getByTestId } = renderDivider()
-    const divider = getByTestId(DIVIDER_TEST_ID)
+    it('should render vertical divider with aria-orientation attribute', () => {
+      const { getByTestId } = renderDivider({
+        orientation: 'vertical',
+      })
+      const divider = getByTestId(DIVIDER_TEST_ID)
 
-    expect(divider).toHaveAttribute('aria-orientation', 'horizontal')
-  })
+      expect(divider).toHaveAttribute('aria-orientation', 'vertical')
+    })
 
-  it('renders with an aria attribute for web accessibility - vertical', () => {
-    const { getByTestId } = renderDivider({ orientation: 'vertical' })
-    const divider = getByTestId(DIVIDER_TEST_ID)
+    it('should not have aria attributes when decorative is true', () => {
+      const { getByTestId } = renderDivider({
+        decorative: true,
+      })
+      const divider = getByTestId(DIVIDER_TEST_ID)
 
-    expect(divider).toHaveAttribute('aria-orientation', 'vertical')
-  })
-
-  it('renders horizontal divider with correct style', () => {
-    const { getByTestId } = renderDivider()
-    const divider = getByTestId(DIVIDER_TEST_ID)
-
-    expect(divider).toHaveStyle('width: calc(100% - 12px)')
-    expect(divider).toHaveStyle('border-bottom-width: 1px')
-  })
-
-  it('renders vertical divider with correct style', () => {
-    const { getByTestId } = renderDivider({ orientation: 'vertical' })
-    const divider = getByTestId(DIVIDER_TEST_ID)
-
-    expect(divider).toHaveStyle('height: calc(100% - 12px)')
-    expect(divider).toHaveStyle('border-left-width: 1px')
-  })
-
-  it('renders horizontal divider has not side indent when withoutSideIndent option is true', () => {
-    const { getByTestId } = renderDivider({ withoutSideIndent: true })
-    const divider = getByTestId(DIVIDER_TEST_ID)
-
-    expect(divider).toHaveStyle('margin-right: 0px')
-    expect(divider).toHaveStyle('margin-left: 0px')
-  })
-
-  it('renders vertical divider has not side indent when withoutSideIndent option is true', () => {
-    const { getByTestId } = renderDivider({ orientation: 'vertical', withoutSideIndent: true })
-    const divider = getByTestId(DIVIDER_TEST_ID)
-
-    expect(divider).toHaveStyle('margin-top: 0px')
-    expect(divider).toHaveStyle('margin-bottom: 0px')
+      expect(divider).toHaveAttribute('role', 'none')
+      expect(divider).not.toHaveAttribute('aria-orientation')
+    })
   })
 })

@@ -89,6 +89,22 @@ describe('Button Test >', () => {
 
       expect(floatingButton).toMatchSnapshot()
     })
+
+    it('FloatingAlt', () => {
+      const { getByTestId } = renderButton({ styleVariant: ButtonStyleVariant.FloatingAlt })
+      const floatingAltButton = getByTestId(BUTTON_TEST_ID)
+      const mButtonPaddingFloating = BUTTON_HORIZONTAL_PADDING_VALUE[ButtonSize.M].floating
+
+      // Colors
+      expect(floatingAltButton).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-absolute-white-dark']}`)
+      expect(floatingAltButton).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-blue-normal']}`)
+      expect(floatingAltButton).toHaveStyle('border-radius: 8px;')
+
+      // Padding
+      expect(floatingAltButton).toHaveStyle(`padding: 0 ${mButtonPaddingFloating}px 0 ${mButtonPaddingFloating}px;`)
+
+      expect(floatingAltButton).toMatchSnapshot()
+    })
   })
 
   describe('Disabled Test >', () => {

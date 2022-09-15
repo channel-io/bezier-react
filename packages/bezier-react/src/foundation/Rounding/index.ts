@@ -1,6 +1,5 @@
 /* Internal dependencies */
-// eslint-disable-next-line no-restricted-imports
-import { css } from '../FoundationStyledComponent'
+import { css } from 'Foundation/FoundationStyledComponent'
 
 const DefaultRoundStyle = css`
   overflow: hidden;
