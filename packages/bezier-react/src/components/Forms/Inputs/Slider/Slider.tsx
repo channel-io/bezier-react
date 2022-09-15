@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
+import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
 import SliderProps from './Slider.types'
@@ -8,9 +9,7 @@ import * as Styled from './Slider.styled'
 function Slider(
   {
     width = 36,
-    guide = [1, 2, 3],
-    // TODO (@aru): Tooltip
-    // showTooltip = true,
+    guide,
     defaultValue = [5],
     value,
     disabled = false,
@@ -23,8 +22,8 @@ function Slider(
   forwardedRef: React.Ref<any>, // TODO: resolve any
 ) {
   return (
-    <Styled.SliderRoot
-      width={width}
+    <SliderPrimitive.Root
+      asChild
       defaultValue={defaultValue}
       value={value}
       disabled={disabled}
@@ -32,21 +31,31 @@ function Slider(
       max={max}
       step={step}
       onValueChange={onValueChange}
-      ref={forwardedRef}
-      {...rest}
     >
-      <Styled.SliderTrack>
-        <Styled.SliderRange />
-      </Styled.SliderTrack>
-      { guide?.map((guideValue) => (
-        <Styled.SliderGuide
-          min={min}
-          max={max}
-          guideValue={guideValue}
-        />
-      )) }
-      <Styled.SliderThumb />
-    </Styled.SliderRoot>
+      <Styled.SliderRoot
+        width={width}
+        ref={forwardedRef}
+        {...rest}
+      >
+        <SliderPrimitive.Track asChild>
+          <Styled.SliderTrack>
+            <SliderPrimitive.Range asChild>
+              <Styled.SliderRange />
+            </SliderPrimitive.Range>
+          </Styled.SliderTrack>
+        </SliderPrimitive.Track>
+        { guide?.map((guideValue) => (
+          <Styled.SliderGuide
+            min={min}
+            max={max}
+            guideValue={guideValue}
+          />
+        )) }
+        <SliderPrimitive.Thumb asChild>
+          <Styled.SliderThumb />
+        </SliderPrimitive.Thumb>
+      </Styled.SliderRoot>
+    </SliderPrimitive.Root>
   )
 }
 

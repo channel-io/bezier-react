@@ -1,11 +1,3 @@
-/* External dependencies */
-import {
-  Root as RootPrimitive,
-  Track as TrackPrimitive,
-  Range as RangePrimitive,
-  Thumb as ThumbPrimitive,
-} from '@radix-ui/react-slider'
-
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
@@ -52,7 +44,7 @@ interface SliderRootProps extends SliderProps {
   width: NonNullable<SliderProps['width']>
 }
 
-export const SliderRoot = styled(RootPrimitive)<SliderRootProps>`
+export const SliderRoot = styled.div<SliderRootProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -67,7 +59,7 @@ export const SliderRoot = styled(RootPrimitive)<SliderRootProps>`
 
 interface SliderTrackProps extends SliderProps {}
 
-export const SliderTrack = styled(TrackPrimitive)<SliderTrackProps>`
+export const SliderTrack = styled.div<SliderTrackProps>`
   position: relative;
   flex: 1;
   height: ${SLIDER_TRACK_RANGE_HEIGHT}px;
@@ -80,7 +72,7 @@ export const SliderTrack = styled(TrackPrimitive)<SliderTrackProps>`
 
 interface SliderRangeProps extends SliderProps {}
 
-export const SliderRange = styled(RangePrimitive)<SliderRangeProps>`
+export const SliderRange = styled.div<SliderRangeProps>`
   position: absolute;
   height: 100%;
 
@@ -112,7 +104,7 @@ export const SliderGuide = styled.div<SliderGuideProps>`
 
 interface SliderThumbProps extends SliderProps {}
 
-export const SliderThumb = styled(ThumbPrimitive)<SliderThumbProps>`
+export const SliderThumb = styled.div<SliderThumbProps>`
   all: unset;
   display: block;
 
