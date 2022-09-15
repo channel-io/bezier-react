@@ -8,7 +8,7 @@ import * as Styled from './Slider.styled'
 function Slider(
   {
     width = 36,
-    guide = [5],
+    guide = [1, 2, 3],
     // TODO (@aru): Tooltip
     // showTooltip = true,
     defaultValue = [5],

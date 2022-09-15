@@ -7,13 +7,46 @@ import {
 } from '@radix-ui/react-slider'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled, css } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
 import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import type SliderProps from './Slider.types'
 
 const SLIDER_TRACK_RANGE_HEIGHT = 6
 const SLIDER_THUMB_SIZE = 20
+const SLIDER_GUIDE_WIDTH = 2
+const SLIDER_GUIDE_HEIGHT = 8
+
+interface CalculateGuideBottomPosition {
+  gap: number
+}
+
+function calculateGuideBottomPosition({
+  gap,
+}: CalculateGuideBottomPosition) {
+  return css`
+    bottom: calc(${SLIDER_GUIDE_HEIGHT}px + ${SLIDER_GUIDE_HEIGHT / 2}px + ${gap}px);
+  `
+}
+
+interface CalculateGuideLeftPosition {
+  min: number
+  max: number
+  guideValue: number
+}
+
+function calculateGuideLeftPosition({
+  min,
+  max,
+  guideValue,
+}: CalculateGuideLeftPosition) {
+  const relativePositionPercentage = (guideValue / (max - min)) * 100
+  const thumbOffsetPx = (((max + min) / 2) - guideValue) * (SLIDER_THUMB_SIZE / ((max - min)))
+
+  return css`
+    left: calc(${relativePositionPercentage}% - ${SLIDER_GUIDE_WIDTH / 2}px + ${thumbOffsetPx}px);
+  `
+}
 
 interface SliderRootProps extends SliderProps {
   width: NonNullable<SliderProps['width']>
@@ -65,12 +98,11 @@ interface SliderGuideProps extends SliderProps {
 
 export const SliderGuide = styled.div<SliderGuideProps>`
   position: absolute;
-  bottom: calc(8px + (8px / 2) + 3px);
-  // TODO (@aru): FIXME
-  left: calc(${({ min, max, guideValue }) => (guideValue / (max - min)) * 100}% - 1px + ${({ min, max, guideValue }) => (((((max + min) / 2) - guideValue)) * (SLIDER_THUMB_SIZE / ((max - min))))}px);
+  ${calculateGuideBottomPosition({ gap: 3 })}
+  ${({ min, max, guideValue }) => calculateGuideLeftPosition({ min, max, guideValue })}
 
-  width: 2px;
-  height: 8px;
+  width: ${SLIDER_GUIDE_WIDTH}px;
+  height: ${SLIDER_GUIDE_HEIGHT}px;
 
   ${({ foundation }) => foundation?.rounding?.round1}
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
