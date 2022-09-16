@@ -20,7 +20,7 @@ function Slider(
     minStepsBetweenThumbs = 0,
     ...rest
   }: SliderProps,
-  forwardedRef: React.Ref<any>, // TODO: resolve any
+  forwardedRef: React.Ref<HTMLElement>,
 ) {
   return (
     <SliderPrimitive.Root
