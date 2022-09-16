@@ -17,6 +17,7 @@ function Slider(
     max = 10,
     step = 1,
     onValueChange,
+    minStepsBetweenThumbs = 0,
     ...rest
   }: SliderProps,
   forwardedRef: React.Ref<any>, // TODO: resolve any
@@ -31,6 +32,7 @@ function Slider(
       max={max}
       step={step}
       onValueChange={onValueChange}
+      minStepsBetweenThumbs={minStepsBetweenThumbs}
     >
       <Styled.SliderRoot
         width={width}
