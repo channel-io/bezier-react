@@ -42,6 +42,11 @@ export default {
         type: 'number',
       },
     },
+    minStepsBetweenThumbs: {
+      control: {
+        type: 'number',
+      },
+    },
   },
 } as Meta
 
@@ -87,4 +92,15 @@ WithGuide.args = {
   min: 0,
   max: 10,
   step: 1,
+}
+
+export const MultipleThumbs = Template.bind({})
+MultipleThumbs.args = {
+  width: '285',
+  defaultValue: [3, 7],
+  disabled: false,
+  min: 0,
+  max: 10,
+  step: 1,
+  minStepsBetweenThumbs: 1,
 }
