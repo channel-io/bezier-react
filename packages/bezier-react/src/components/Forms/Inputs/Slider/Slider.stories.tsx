@@ -72,17 +72,6 @@ Uncontrolled.args = {
   step: 1,
 }
 
-export const Controlled = Template.bind({})
-Controlled.args = {
-  width: '285',
-  defaultValue: [5],
-  value: [5],
-  disabled: false,
-  min: 0,
-  max: 10,
-  step: 1,
-}
-
 export const WithGuide = Template.bind({})
 WithGuide.args = {
   width: '285',
