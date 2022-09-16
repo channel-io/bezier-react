@@ -6,6 +6,9 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
+export const SLIDER_TEST_ID = 'bezier-react-slider'
+export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
+
 function Slider(
   {
     width = 36,
@@ -37,6 +40,7 @@ function Slider(
       <Styled.SliderRoot
         width={width}
         ref={forwardedRef}
+        data-testid={SLIDER_TEST_ID}
         {...rest}
       >
         <SliderPrimitive.Track asChild>
@@ -55,7 +59,9 @@ function Slider(
         )) }
         { defaultValue.map((v) => (
           <SliderPrimitive.Thumb asChild key={`slider-thumb-${v}`}>
-            <Styled.SliderThumb />
+            <Styled.SliderThumb
+              data-testid={SLIDER_THUMB_TEST_ID}
+            />
           </SliderPrimitive.Thumb>
         )) }
       </Styled.SliderRoot>
