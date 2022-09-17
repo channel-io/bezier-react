@@ -36,9 +36,25 @@ describe('Slider', () => {
     })
   })
 
+  describe('width', () => {
+    it('should render Slider with given width (number)', () => {
+      const { getByTestId } = renderSlider({ width: 300 })
+      const slider = getByTestId(SLIDER_TEST_ID)
+
+      expect(slider).toHaveStyle('width: 300px')
+    })
+
+    it('should render Slider with given width (string)', () => {
+      const { getByTestId } = renderSlider({ width: '500px' })
+      const slider = getByTestId(SLIDER_TEST_ID)
+
+      expect(slider).toHaveStyle('width: 500px')
+    })
+  })
+
   describe('accessibility', () => {
     describe('role', () => {
-      it('should render thumb with an slider role', () => {
+      it('should render thumb with an "slider" role', () => {
         const { getAllByRole } = renderSlider()
         const sliderThumb = getAllByRole('slider')
 
