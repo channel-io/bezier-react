@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useCallback } from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
@@ -13,6 +13,8 @@ function Slider(
   {
     width = 36,
     guide,
+    onThumbDragStart,
+    onThumbDragEnd,
     defaultValue = [5],
     value,
     disabled = false,
@@ -25,6 +27,19 @@ function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
+  const handleDragStart: React.DragEventHandler<HTMLSpanElement> = useCallback(() => {
+    onThumbDragStart?.(value ?? [])
+  }, [
+    onThumbDragStart,
+    value,
+  ])
+  const handleDragEnd: React.DragEventHandler<HTMLSpanElement> = useCallback(() => {
+    onThumbDragEnd?.(value ?? [])
+  }, [
+    onThumbDragEnd,
+    value,
+  ])
+
   return (
     <SliderPrimitive.Root
       asChild
@@ -58,7 +73,12 @@ function Slider(
           />
         )) }
         { defaultValue.map((v) => (
-          <SliderPrimitive.Thumb asChild key={`slider-thumb-${v}`}>
+          <SliderPrimitive.Thumb
+            asChild
+            key={`slider-thumb-${v}`}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+          >
             <Styled.SliderThumb
               data-testid={SLIDER_THUMB_TEST_ID}
             />
