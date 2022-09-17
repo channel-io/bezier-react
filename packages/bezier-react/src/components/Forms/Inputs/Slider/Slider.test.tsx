@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -49,6 +50,26 @@ describe('Slider', () => {
       const slider = getByTestId(SLIDER_TEST_ID)
 
       expect(slider).toHaveStyle('width: 500px')
+    })
+  })
+
+  describe('guide', () => {
+    // TODO: add test
+  })
+
+  describe('onThumbDragStart, onThumbDragEnd', () => {
+    it('should called when starts drag and ends drag', () => {
+      const onThumbDragStart = jest.fn()
+      const onThumbDragEnd = jest.fn()
+
+      const { getAllByTestId } = renderSlider({ onThumbDragStart, onThumbDragEnd })
+      const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
+
+      fireEvent.dragStart(sliderThumb[0])
+      fireEvent.dragEnd(sliderThumb[0])
+
+      expect(onThumbDragStart).toBeCalledTimes(1)
+      expect(onThumbDragEnd).toBeCalledTimes(1)
     })
   })
 
