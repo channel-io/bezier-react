@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
 import Slider, {
   SLIDER_TEST_ID,
@@ -57,6 +58,22 @@ describe('Slider', () => {
     // TODO: add test
   })
 
+  describe('disabled', () => {
+    it('should render default Slider when disabled is false', () => {
+      const { getByTestId } = renderSlider({ disabled: false })
+      const slider = getByTestId(SLIDER_TEST_ID)
+
+      expect(slider).toHaveStyle('opacity: initial')
+    })
+
+    it('should render disabled Slider when disabled is true', () => {
+      const { getByTestId } = renderSlider({ disabled: true })
+      const slider = getByTestId(SLIDER_TEST_ID)
+
+      expect(slider).toHaveStyle(`opacity: ${DisabledOpacity}`)
+    })
+  })
+
   describe('onThumbDragStart, onThumbDragEnd', () => {
     it('should called when starts drag and ends drag', () => {
       const onThumbDragStart = jest.fn()
@@ -70,6 +87,24 @@ describe('Slider', () => {
 
       expect(onThumbDragStart).toBeCalledTimes(1)
       expect(onThumbDragEnd).toBeCalledTimes(1)
+    })
+
+    it('should not called when disabled is true', () => {
+      const onThumbDragStart = jest.fn()
+      const onThumbDragEnd = jest.fn()
+
+      const { getAllByTestId } = renderSlider({
+        onThumbDragStart,
+        onThumbDragEnd,
+        disabled: true,
+      })
+      const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
+
+      fireEvent.dragStart(sliderThumb[0])
+      fireEvent.dragEnd(sliderThumb[0])
+
+      expect(onThumbDragStart).not.toBeCalled()
+      expect(onThumbDragEnd).not.toBeCalled()
     })
   })
 
