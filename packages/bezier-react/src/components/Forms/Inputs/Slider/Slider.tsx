@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback } from 'react'
+import { isFunction } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
@@ -27,8 +28,8 @@ function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const handleDragStart: React.DragEventHandler<HTMLSpanElement> = useCallback(() => {
-    if (!disabled && onThumbDragStart) {
+  const handleDragStart: React.DragEventHandler<HTMLElement> = useCallback(() => {
+    if (!disabled && isFunction(onThumbDragStart)) {
       onThumbDragStart(value ?? [])
     }
   }, [
@@ -36,8 +37,8 @@ function Slider(
     onThumbDragStart,
     value,
   ])
-  const handleDragEnd: React.DragEventHandler<HTMLSpanElement> = useCallback(() => {
-    if (!disabled && onThumbDragEnd) {
+  const handleDragEnd: React.DragEventHandler<HTMLElement> = useCallback(() => {
+    if (!disabled && isFunction(onThumbDragEnd)) {
       onThumbDragEnd(value ?? [])
     }
   }, [

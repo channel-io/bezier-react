@@ -22,11 +22,6 @@ export default {
         type: 'text',
       },
     },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-    },
     min: {
       control: {
         type: 'number',
@@ -42,10 +37,8 @@ export default {
         type: 'number',
       },
     },
-    minStepsBetweenThumbs: {
-      control: {
-        type: 'number',
-      },
+    onValueChange: {
+      action: 'onValueChange',
     },
   },
 } as Meta
@@ -68,6 +61,16 @@ Uncontrolled.args = {
   min: 0,
   max: 10,
   step: 1,
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  width: '285',
+  defaultValue: [5],
+  min: 0,
+  max: 10,
+  step: 1,
+  disabled: true,
 }
 
 export const WithGuide = Template.bind({})
