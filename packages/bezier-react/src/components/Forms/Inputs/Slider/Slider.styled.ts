@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
+import DisabledOpacity from 'Constants/DisabledOpacity'
 import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import type SliderProps from './Slider.types'
 
@@ -53,8 +54,12 @@ export const SliderRoot = styled.div<SliderRootProps>`
   height: ${SLIDER_THUMB_SIZE}px;
 
   touch-action: none;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   user-select: none;
 
+  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
+  
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['opacity'])};
   ${({ interpolation }) => interpolation}
 `
 

@@ -56,7 +56,6 @@ export const Primary = Template.bind({})
 Primary.args = {
   width: '36',
   defaultValue: [5],
-  disabled: false,
   min: 0,
   max: 10,
   step: 1,
@@ -66,7 +65,6 @@ export const Uncontrolled = Template.bind({})
 Uncontrolled.args = {
   width: '285',
   defaultValue: [5],
-  disabled: false,
   min: 0,
   max: 10,
   step: 1,
@@ -77,7 +75,6 @@ WithGuide.args = {
   width: '285',
   defaultValue: [5],
   guide: [0, 1, 2, 3, 4, 5, 10],
-  disabled: false,
   min: 0,
   max: 10,
   step: 1,
@@ -87,7 +84,6 @@ export const MultipleThumbs = Template.bind({})
 MultipleThumbs.args = {
   width: '285',
   defaultValue: [3, 7],
-  disabled: false,
   min: 0,
   max: 10,
   step: 1,

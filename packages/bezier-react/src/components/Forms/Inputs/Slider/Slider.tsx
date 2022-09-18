@@ -3,6 +3,7 @@ import React, { forwardRef, useCallback } from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
@@ -17,7 +18,6 @@ function Slider(
     onThumbDragEnd,
     defaultValue = [5],
     value,
-    disabled = false,
     min = 0,
     max = 10,
     step = 1,
@@ -27,6 +27,11 @@ function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
+  const {
+    disabled,
+    ...ownProps
+  } = useFormFieldProps(rest)
+
   const handleDragStart: React.DragEventHandler<HTMLSpanElement> = useCallback(() => {
     onThumbDragStart?.(value ?? [])
   }, [
@@ -54,9 +59,10 @@ function Slider(
     >
       <Styled.SliderRoot
         width={width}
+        disabled={disabled}
         ref={forwardedRef}
         data-testid={SLIDER_TEST_ID}
-        {...rest}
+        {...ownProps}
       >
         <SliderPrimitive.Track asChild>
           <Styled.SliderTrack>
