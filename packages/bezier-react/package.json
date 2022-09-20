@@ -115,7 +115,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
-    "@radix-ui/react-separator": "0.1.4",
+    "@radix-ui/react-separator": "^1.0.0",
     "lodash-es": "^4.17.15",
     "react-resize-detector": "^7.1.1",
     "react-textarea-autosize": "^8.3.4",
