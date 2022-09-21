@@ -75,6 +75,7 @@ function Slider(
         </SliderPrimitive.Track>
         { guide?.map((guideValue) => (
           <Styled.SliderGuide
+            key={`slider-guide-${guideValue}`}
             min={min}
             max={max}
             guideValue={guideValue}
