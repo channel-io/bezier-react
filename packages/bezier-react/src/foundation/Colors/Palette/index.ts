@@ -114,9 +114,11 @@ type BaseColorfulPaletteKey300_20 = `${BaseColorfulPaletteKey300}_20`
 /* eslint-enable @typescript-eslint/naming-convention */
 
 type AlphaGreyKey =
+  | `${BasePaletteKey.Grey}900_90`
   | `${BasePaletteKey.Grey}800_80`
   | `${BasePaletteKey.Grey}700_80`
   | `${BasePaletteKey.Grey}200_80`
+  | `${BasePaletteKey.Grey}100_90`
   | `${BasePaletteKey.Grey}100_80`
 
 type AlphaWhiteKey =
@@ -247,9 +249,11 @@ export const Palette: PaletteType = {
   navy300_20: getAlphaHex(PaletteWithoutAlpha.navy300, 20),
 
   // Alpha Grey
+  grey900_90: getAlphaHex(PaletteWithoutAlpha.grey900, 90),
   grey800_80: getAlphaHex(PaletteWithoutAlpha.grey800, 80),
   grey700_80: getAlphaHex(PaletteWithoutAlpha.grey700, 80),
   grey200_80: getAlphaHex(PaletteWithoutAlpha.grey200, 80),
+  grey100_90: getAlphaHex(PaletteWithoutAlpha.grey100, 90),
   grey100_80: getAlphaHex(PaletteWithoutAlpha.grey100, 80),
 
   // Alpha White

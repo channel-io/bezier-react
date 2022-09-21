@@ -14,6 +14,7 @@ type LayoutBackgroundColor =
   | 'bg-navi'
   | 'bg-header'
   | 'bg-header-float'
+  | 'bg-lounge'
 
 type ElevationBackgroundColor =
   | 'bg-white-high'
