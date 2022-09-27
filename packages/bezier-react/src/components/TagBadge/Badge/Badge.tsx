@@ -22,7 +22,7 @@ import BadgeProps from './Badge.types'
 // TODO: 테스트 코드 작성
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
-function Badge({
+export const Badge = React.memo(function Badge({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
   iconName,
@@ -71,6 +71,4 @@ function Badge({
       ) }
     </TagBadgeStyled.Wrapper>
   )
-}
-
-export default React.memo(Badge)
+})

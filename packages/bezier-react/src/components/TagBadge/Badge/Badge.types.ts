@@ -4,6 +4,9 @@ import { IconName } from 'Components/Icon'
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
 interface BadgeOptions {
+  /**
+   * Icon to be shown on the left side of the badge.
+   */
   iconName?: IconName
 }
 

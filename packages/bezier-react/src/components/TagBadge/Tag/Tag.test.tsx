@@ -9,7 +9,7 @@ import {
   getProperTagBadgePadding,
 } from 'Components/TagBadge/TagBadgeCommon'
 import { TAGBADGE_VERTICAL_PADDING } from 'Components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
-import Tag, { TAG_TEST_ID } from './Tag'
+import { Tag, TAG_TEST_ID } from './Tag'
 import TagProps from './Tag.types'
 
 describe('Tag test >', () => {
