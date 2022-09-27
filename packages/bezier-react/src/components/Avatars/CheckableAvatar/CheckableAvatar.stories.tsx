@@ -7,8 +7,8 @@ import { Story, Meta } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
+import { CheckableAvatar } from './CheckableAvatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
-import CheckableAvatar from './CheckableAvatar'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 

@@ -1,4 +1,4 @@
-import CheckableAvatar from './CheckableAvatar'
+import { CheckableAvatar } from './CheckableAvatar'
 import type CheckableAvatarProps from './CheckableAvatar.types'
 
 export type {

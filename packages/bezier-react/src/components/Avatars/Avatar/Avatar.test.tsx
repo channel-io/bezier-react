@@ -6,7 +6,7 @@ import { render } from 'Utils/testUtils'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { StatusType } from 'Components/Status'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
-import Avatar, { AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
+import { Avatar, AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 
 jest.mock('Worklets/EnableCSSHoudini', () => ({

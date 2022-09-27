@@ -1,4 +1,4 @@
-import Avatar from './Avatar'
+import { Avatar } from './Avatar'
 import { AvatarSize } from './Avatar.types'
 import type AvatarProps from './Avatar.types'
 
