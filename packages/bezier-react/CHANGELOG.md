@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.168
+
+### Minor Changes
+
+- [#930](https://github.com/channel-io/bezier-react/pull/930) [`ee01d66d`](https://github.com/channel-io/bezier-react/commit/ee01d66dca77f95b09c72a45b26e96d54a993ad2) Thanks [@dinohan](https://github.com/dinohan)! - Add new semantic color 'bg-lounge'
+
+### Patch Changes
+
+- [#928](https://github.com/channel-io/bezier-react/pull/928) [`82c8d17b`](https://github.com/channel-io/bezier-react/commit/82c8d17b589bc1ed308da847f8c1a5f59e62ab1d) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Bump @radix-ui/react-separator to 1.0.0, Add ResizeObserver jest mock
+
 ## 1.0.0-next-v1.167
 
 ### Minor Changes
