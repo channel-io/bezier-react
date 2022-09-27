@@ -2054,6 +2054,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel-io/react-docgen-typescript-plugin@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@channel-io/react-docgen-typescript-plugin@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40channel-io%2Freact-docgen-typescript-plugin%2F1.0.0%2F1c27bcb6076104791b88b0a6cbc9ce59094335d0"
+  dependencies:
+    debug: ^4.1.1
+    endent: ^2.0.1
+    find-cache-dir: ^3.3.1
+    flat-cache: ^3.0.4
+    micromatch: ^4.0.2
+    react-docgen-typescript: ^2.0.0
+    tslib: ^2.0.0
+    webpack-sources: ^2.2.0
+  peerDependencies:
+    typescript: ">= 4.3.0"
+    webpack: ">= 4"
+  checksum: 1017805eb2f01a8bec6aa19d0d40ede82b32c563755c8719bf0825209b25a9dfb089d3632c30a5183ab202daa6cecf8d17eba6bd84450734127705fb79a29f86
+  languageName: node
+  linkType: hard
+
 "@channel.io/bezier-react@workspace:^, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
@@ -2065,6 +2084,7 @@ __metadata:
     "@babel/preset-react": ^7.12.10
     "@babel/preset-typescript": ^7.12.7
     "@babel/runtime": ^7.12.13
+    "@channel-io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
     "@radix-ui/react-separator": ^1.0.0
     "@radix-ui/react-slider": ^1.0.0
@@ -17987,7 +18007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^2.1.1":
+"react-docgen-typescript@npm:^2.0.0, react-docgen-typescript@npm:^2.1.1":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
   peerDependencies:
@@ -19515,7 +19535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-list-map@npm:^2.0.0":
+"source-list-map@npm:^2.0.0, source-list-map@npm:^2.0.1":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
   checksum: 806efc6f75e7cd31e4815e7a3aaf75a45c704871ea4075cb2eb49882c6fca28998f44fc5ac91adb6de03b2882ee6fb02f951fdc85e6a22b338c32bfe19557938
@@ -21995,6 +22015,16 @@ __metadata:
     source-list-map: ^2.0.0
     source-map: ~0.6.1
   checksum: 37463dad8d08114930f4bc4882a9602941f07c9f0efa9b6bc78738cd936275b990a596d801ef450d022bb005b109b9f451dd087db2f3c9baf53e8e22cf388f79
+  languageName: node
+  linkType: hard
+
+"webpack-sources@npm:^2.2.0":
+  version: 2.3.1
+  resolution: "webpack-sources@npm:2.3.1"
+  dependencies:
+    source-list-map: ^2.0.1
+    source-map: ^0.6.1
+  checksum: 6fd67f2274a84c5f51ad89767112ec8b47727134bf0f2ba0cff458c970f18966939a24128bdbddba621cd66eeb2bef0552642a9333cd8e54514f7b2a71776346
   languageName: node
   linkType: hard
 
