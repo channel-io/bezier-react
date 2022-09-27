@@ -7,13 +7,35 @@ import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
 export interface RenderConfigProps {
+  /**
+   * Specifies which HTML tag should be used to render this component.
+   *
+   * `as` prop directly comes from the polymorphic "as" prop of `styled-components`.
+   *
+   * @see https://styled-components.com/docs/api#as-polymorphic-prop
+   */
   as?: React.ElementType
+
+  /**
+   * The test id attribute compatible with `@testing-library/react`.
+   */
   testId?: string
 }
 
 export interface StylableComponentProps {
+  /**
+   * Customized inline CSS style for this component.
+   */
   style?: CSSProperties
+
+  /**
+   * Customized CSS classname for this component.
+   */
   className?: string
+
+  /**
+   * Customized style interpolation for this component.
+   */
   interpolation?: InjectedInterpolation
 }
 
