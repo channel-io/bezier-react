@@ -48,7 +48,9 @@ import icons, {
   SettingsIcon,
   TrashIcon,
 } from './generated'
-import Icon from './Icon'
+import {
+  Icon,
+} from './Icon'
 import IconProps, { IconSize } from './Icon.types'
 import mdx from './Icon.mdx'
 

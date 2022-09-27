@@ -9,7 +9,7 @@ import Styled from './Icon.styled'
 
 export const ICON_TEST_ID = 'bezier-react-icon'
 
-function Icon({
+export const Icon = memo(function Icon({
   source,
   className,
   color,
@@ -38,6 +38,4 @@ function Icon({
       onMouseDown={onMouseDown}
     />
   )
-}
-
-export default memo(Icon)
+})

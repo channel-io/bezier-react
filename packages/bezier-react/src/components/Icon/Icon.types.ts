@@ -17,12 +17,56 @@ export enum IconSize {
 type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
 
 interface IconOptions {
+  /**
+   * Controls which icon should be rendered.
+   *
+   * Use the icon components exported from bezier-react for this prop.
+   *
+   * @example
+   * ```tsx
+   * import { Icon, HeartFilledIcon } from '@channel.io/bezier-react'
+   *
+   * <Icon source={HeartFilledIcon} {...} />
+   * ```
+   */
   source: React.ElementType<React.SVGProps<SVGSVGElement>>
+
+  /**
+   * Top margin.
+   *
+   * @default 0
+   */
   marginTop?: number
+
+  /**
+   * Right margin.
+   *
+   * @default 0
+   */
   marginRight?: number
+
+  /**
+   * Bottom margin.
+   *
+   * @default 0
+   */
   marginBottom?: number
+
+  /**
+   * Left margin.
+   *
+   * @default 0
+   */
   marginLeft?: number
+
+  /**
+   * Handler to be called when the icon is clicked.
+   */
   onClick?: MouseEventHandler
+
+  /**
+   * Handler to be called when the mouse is pressed down at the icon.
+   */
   onMouseDown?: MouseEventHandler
 }
 
