@@ -55,7 +55,10 @@ module.exports = {
        * `react-docgen-typescript-plugin` introduces significant overhead
        * when HMR is enabled, so we enable it only in production.
        */
-      config.plugins.push(new ReactDocgenTypescriptPlugin())
+      config.plugins.push(new ReactDocgenTypescriptPlugin({
+        shouldExtractLiteralValuesFromEnum: true,
+        propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      }))
     }
 
     return config
