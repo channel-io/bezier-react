@@ -9,11 +9,9 @@ import type VStackProps from './VStack.types'
 /**
  * A container for vertical flex layout.
  */
-function VStack(
+export const VStack = forwardRef(function VStack(
   props: VStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (<Stack ref={forwardedRef} direction="vertical" {...props} />)
-}
-
-export default forwardRef(VStack)
+})

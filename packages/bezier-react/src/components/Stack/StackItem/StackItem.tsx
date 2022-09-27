@@ -26,7 +26,7 @@ const sanitizeWeight = (weight: number): number => {
  * be reminded to forward props in `StackItemProps` to `StackItem` component,
  * or manually implement the behavior compatible with `StackItem`.
  */
-function StackItem(
+export const StackItem = forwardRef(function StackItem(
   {
     as = 'div',
     testId = 'bezier-react-stack-item',
@@ -68,6 +68,4 @@ function StackItem(
       { children }
     </Styled.Container>
   )
-}
-
-export default forwardRef(StackItem)
+})

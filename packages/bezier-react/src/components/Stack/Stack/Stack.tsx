@@ -29,7 +29,7 @@ import type StackProps from './Stack.types'
  * </Stack>
  * ```
  */
-function Stack(
+export const Stack = forwardRef(function Stack(
   {
     as = 'div',
     testId = 'bezier-react-stack',
@@ -81,6 +81,4 @@ function Stack(
       ) }
     </Styled.Container>
   )
-}
-
-export default forwardRef(Stack)
+})

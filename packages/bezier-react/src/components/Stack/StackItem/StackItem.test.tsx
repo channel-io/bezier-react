@@ -5,7 +5,7 @@ import React from 'react'
 import { css } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import { Stack } from 'Components/Stack'
-import StackItem from './StackItem'
+import { StackItem } from './StackItem'
 
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {

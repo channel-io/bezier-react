@@ -4,7 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { css } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import Stack from './Stack'
+import { Stack } from './Stack'
 
 describe('Stack', () => {
   describe('Flex layout', () => {
