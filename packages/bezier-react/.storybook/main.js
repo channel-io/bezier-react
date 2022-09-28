@@ -1,4 +1,4 @@
-const ReactDocgenTypescriptPlugin = require('@channel-io/react-docgen-typescript-plugin').default
+const ReactDocgenTypescriptPlugin = require('@channel.io/react-docgen-typescript-plugin').default
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
