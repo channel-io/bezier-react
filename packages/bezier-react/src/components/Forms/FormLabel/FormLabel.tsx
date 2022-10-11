@@ -4,8 +4,8 @@ import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { IconSize, HelpFilledIcon } from 'Components/Icon'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
+import { FormLabelHelp } from 'Components/Forms/FormLabelHelp'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -15,6 +15,7 @@ export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
   help,
+  HelpTooltip,
   as = 'label',
   bold = true,
   color = 'txt-black-darkest',
@@ -54,23 +55,33 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     ownProps,
   ])
 
+  const HelpComponent = useMemo(() => {
+    if (HelpTooltip) {
+      return HelpTooltip
+    }
+
+    if (isEmpty(help)) { return null }
+
+    return (
+      <FormLabelHelp>
+        { help }
+      </FormLabelHelp>
+    )
+  }, [
+    HelpTooltip,
+    help,
+  ])
+
   if (isEmpty(children)) { return null }
 
   return (
     <Wrapper>
-      { isEmpty(help)
+      { !HelpComponent
         ? LabelComponent
         : (
           <Styled.Box>
             { LabelComponent }
-            <Styled.Tooltip content={help}>
-              <Styled.Icon
-                testId={FORM_LABEL_HELP_TEST_ID}
-                source={HelpFilledIcon}
-                size={IconSize.XS}
-                color="txt-black-dark"
-              />
-            </Styled.Tooltip>
+            { HelpComponent }
           </Styled.Box>
         ) }
     </Wrapper>
