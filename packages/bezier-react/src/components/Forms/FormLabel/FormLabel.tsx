@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
-import { FormLabelHelp } from 'Components/Forms/FormLabelHelp'
+import { Help } from 'Components/Help'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -62,9 +62,9 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     if (isEmpty(help)) { return null }
 
     return (
-      <FormLabelHelp>
+      <Help>
         { help }
-      </FormLabelHelp>
+      </Help>
     )
   }, [
     HelpTooltip,

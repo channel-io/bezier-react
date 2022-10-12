@@ -5,7 +5,7 @@ import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { FormLabelHelp } from 'Components/Forms/FormLabelHelp'
+import { Help } from 'Components/Help'
 import FormLabel from './FormLabel'
 import FormLabelProps from './FormLabel.types'
 
@@ -26,6 +26,6 @@ const Template: Story<FormLabelProps> = props => <FormLabel {...props} />
 export const Primary: Story<FormLabelProps> = Template.bind({})
 Primary.args = {
   htmlFor: 'test',
-  HelpTooltip: <FormLabelHelp delayHide={1000}> Lorem ipsum </FormLabelHelp>,
+  HelpTooltip: <Help delayHide={1000}> Lorem ipsum </Help>,
   children: 'Label',
 }

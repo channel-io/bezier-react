@@ -3,19 +3,19 @@ import React from 'react'
 
 /* Internal dependencies */
 import { IconSize, HelpFilledIcon } from 'Components/Icon'
-import type FormLabelHelpProps from './FormLabelHelp.types'
-import * as Styled from './FormLabelHelp.styled'
+import type FormLabelHelpProps from './Help.types'
+import * as Styled from './Help.styled'
 
-export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
+export const HELP_TEST_ID = 'bezier-react-help'
 
-function FormLabelHelp({
+function Help({
   children,
   ...rest
 }: FormLabelHelpProps) {
   return (
     <Styled.Tooltip {...rest} content={children}>
       <Styled.Icon
-        testId={FORM_LABEL_HELP_TEST_ID}
+        testId={HELP_TEST_ID}
         source={HelpFilledIcon}
         size={IconSize.XS}
         color="txt-black-dark"
@@ -24,4 +24,4 @@ function FormLabelHelp({
   )
 }
 
-export default FormLabelHelp
+export default Help
