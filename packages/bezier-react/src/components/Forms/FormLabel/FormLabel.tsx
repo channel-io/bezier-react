@@ -1,11 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
+import { get, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import { Help } from 'Components/Help'
+import { HELP_DISPLAY_NAME } from 'Components/Help/Help'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -56,7 +57,10 @@ forwardedRef: React.Ref<HTMLLabelElement>,
   const HelpComponent = useMemo(() => {
     if (isEmpty(help)) { return null }
 
-    if (React.isValidElement(help)) { return help }
+    if (React.isValidElement(help) &&
+      get(help, 'type.displayName') === HELP_DISPLAY_NAME) {
+      return help
+    }
 
     return (
       <Help>

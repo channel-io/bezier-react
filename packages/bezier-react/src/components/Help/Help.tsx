@@ -7,6 +7,7 @@ import type FormLabelHelpProps from './Help.types'
 import * as Styled from './Help.styled'
 
 export const HELP_TEST_ID = 'bezier-react-help'
+export const HELP_DISPLAY_NAME = 'Help'
 
 function Help({
   children,
@@ -23,5 +24,7 @@ function Help({
     </Styled.Tooltip>
   )
 }
+
+Help.displayName = HELP_DISPLAY_NAME
 
 export default Help
