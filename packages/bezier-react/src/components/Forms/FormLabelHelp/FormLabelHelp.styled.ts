@@ -10,7 +10,6 @@ export const Tooltip = styled(BaseTooltip)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 6px;
 
   &:hover {
     > ${Icon} {
