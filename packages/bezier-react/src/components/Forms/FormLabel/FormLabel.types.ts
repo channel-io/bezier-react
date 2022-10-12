@@ -4,9 +4,7 @@ import { TextProps } from 'Components/Text'
 
 interface FormLabelOptions {
   htmlFor?: string
-  /** @deprecated use HelpTooltip prop with FormLabelHelp component */
   help?: React.ReactNode
-  HelpTooltip?: React.ReactNode
 }
 
 export default interface FormLabelProps extends

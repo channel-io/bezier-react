@@ -14,7 +14,6 @@ export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
   help,
-  HelpTooltip,
   as = 'label',
   bold = true,
   color = 'txt-black-darkest',
@@ -55,21 +54,16 @@ forwardedRef: React.Ref<HTMLLabelElement>,
   ])
 
   const HelpComponent = useMemo(() => {
-    if (HelpTooltip) {
-      return HelpTooltip
-    }
-
     if (isEmpty(help)) { return null }
+
+    if (React.isValidElement(help)) { return help }
 
     return (
       <Help>
         { help }
       </Help>
     )
-  }, [
-    HelpTooltip,
-    help,
-  ])
+  }, [help])
 
   if (isEmpty(children)) { return null }
 

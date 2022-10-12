@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import FormLabelHelp, { HELP_TEST_ID } from 'Components/Help/Help'
+import Help, { HELP_TEST_ID } from 'Components/Help/Help'
 import FormLabel, { FORM_LABEL_TEST_ID } from './FormLabel'
 import type FormLabelProps from './FormLabel.types'
 
@@ -50,7 +50,7 @@ describe('FormLabel >', () => {
 
   it('renders help component when HelpTooltip is not empty', () => {
     const { getByTestId } = renderComponent({
-      HelpTooltip: <FormLabelHelp> test </FormLabelHelp>,
+      help: <Help> test </Help>,
     })
     const rendered = getByTestId(HELP_TEST_ID)
 
