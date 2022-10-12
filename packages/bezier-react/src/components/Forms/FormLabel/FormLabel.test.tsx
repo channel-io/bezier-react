@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import { FORM_LABEL_HELP_TEST_ID } from 'Components/Forms/FormLabelHelp/FormLabelHelp'
+import FormLabelHelp, { FORM_LABEL_HELP_TEST_ID } from 'Components/Forms/FormLabelHelp/FormLabelHelp'
 import FormLabel, { FORM_LABEL_TEST_ID } from './FormLabel'
 import type FormLabelProps from './FormLabel.types'
 
@@ -43,6 +43,15 @@ describe('FormLabel >', () => {
 
   it('renders help icon when help prop is not empty', () => {
     const { getByTestId } = renderComponent({ help: 'test' })
+    const rendered = getByTestId(FORM_LABEL_HELP_TEST_ID)
+
+    expect(rendered).toBeInTheDocument()
+  })
+
+  it('renders help component when HelpTooltip is not empty', () => {
+    const { getByTestId } = renderComponent({
+      HelpTooltip: <FormLabelHelp> test </FormLabelHelp>,
+    })
     const rendered = getByTestId(FORM_LABEL_HELP_TEST_ID)
 
     expect(rendered).toBeInTheDocument()
