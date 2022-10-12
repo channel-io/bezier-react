@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
-import { Text } from 'Components/Text'
 import { gap } from 'Utils/styleUtils'
+import { Text } from 'Components/Text'
 
 export const Label = styled(Text)`
   display: block;
