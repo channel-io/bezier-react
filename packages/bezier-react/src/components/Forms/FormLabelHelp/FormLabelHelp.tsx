@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 /* Internal dependencies */
 import { IconSize, HelpFilledIcon } from 'Components/Icon'
@@ -24,4 +24,4 @@ function FormLabelHelp({
   )
 }
 
-export default forwardRef(FormLabelHelp)
+export default FormLabelHelp
