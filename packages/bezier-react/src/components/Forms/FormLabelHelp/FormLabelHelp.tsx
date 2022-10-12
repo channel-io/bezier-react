@@ -6,7 +6,6 @@ import { IconSize, HelpFilledIcon } from 'Components/Icon'
 import type FormLabelHelpProps from './FormLabelHelp.types'
 import * as Styled from './FormLabelHelp.styled'
 
-export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 
 function FormLabelHelp({

@@ -10,7 +10,6 @@ import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
-export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
