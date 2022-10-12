@@ -2,5 +2,5 @@
 "@channel.io/bezier-react": minor
 ---
 
-feat(form-label): add new prop HelpTooltip, deprecate prop help
-feat(form-label-help): implements FormLabelHelp component
+feat(form-label): make prop help can recieve Help component
+feat(help): implements Help component
