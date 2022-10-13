@@ -7,6 +7,7 @@ import { Typography } from 'Foundation'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import { Help } from 'Components/Help'
 import { HELP_DISPLAY_NAME } from 'Components/Help/Help'
+import { HStack, StackItem } from 'Components/Stack'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
@@ -76,10 +77,14 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       { !HelpComponent
         ? LabelComponent
         : (
-          <Styled.Box>
-            { LabelComponent }
-            { HelpComponent }
-          </Styled.Box>
+          <HStack align="center" spacing={6}>
+            <StackItem>
+              { LabelComponent }
+            </StackItem>
+            <StackItem>
+              { HelpComponent }
+            </StackItem>
+          </HStack>
         ) }
     </Wrapper>
   )
