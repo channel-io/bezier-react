@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize, HelpFilledIcon } from 'Components/Icon'
@@ -13,6 +14,8 @@ function Help({
   children,
   ...rest
 }: HelpProps) {
+  if (isEmpty(children)) { return null }
+
   return (
     <Styled.Tooltip {...rest} content={children}>
       <Styled.Icon
