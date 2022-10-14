@@ -1,16 +1,17 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
+import { get, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { IconSize, HelpFilledIcon } from 'Components/Icon'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
+import { Help } from 'Components/Help'
+import { HELP_DISPLAY_NAME } from 'Components/Help/Help'
+import { HStack, StackItem } from 'Components/Stack'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
-export const FORM_LABEL_HELP_TEST_ID = 'bezier-react-form-label-help'
 
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
@@ -54,24 +55,36 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     ownProps,
   ])
 
+  const HelpComponent = useMemo(() => {
+    if (isEmpty(help)) { return null }
+
+    if (React.isValidElement(help) &&
+      get(help, 'type.displayName') === HELP_DISPLAY_NAME) {
+      return help
+    }
+
+    return (
+      <Help>
+        { help }
+      </Help>
+    )
+  }, [help])
+
   if (isEmpty(children)) { return null }
 
   return (
     <Wrapper>
-      { isEmpty(help)
+      { !HelpComponent
         ? LabelComponent
         : (
-          <Styled.Box>
-            { LabelComponent }
-            <Styled.Tooltip content={help}>
-              <Styled.Icon
-                testId={FORM_LABEL_HELP_TEST_ID}
-                source={HelpFilledIcon}
-                size={IconSize.XS}
-                color="txt-black-dark"
-              />
-            </Styled.Tooltip>
-          </Styled.Box>
+          <HStack align="center" spacing={6}>
+            <StackItem>
+              { LabelComponent }
+            </StackItem>
+            <StackItem>
+              { HelpComponent }
+            </StackItem>
+          </HStack>
         ) }
     </Wrapper>
   )
