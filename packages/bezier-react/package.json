@@ -17,7 +17,7 @@
   "scripts": {
     "build": "run-s 'build:*'",
     "build:icon": "./scripts/build-icon.sh",
-    "build:rollup": "cross-env BABEL_ENV=build rollup -c",
+    "build:rollup": "cross-env BABEL_ENV=production rollup -c",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",
@@ -85,6 +85,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^29.3.0",
     "babel-loader": "^9.1.0",
+    "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-react-app": "^10.0.0",
     "chromatic": "^6.11.4",
     "core-js": "^3.8.1",
@@ -105,7 +106,6 @@
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "tslib": "^2.3.1",
     "ttypescript": "^1.5.13",
-    "typescript-plugin-styled-components": "^2.0.0",
     "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
