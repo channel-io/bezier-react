@@ -155,6 +155,7 @@ import Cookie from './Cookie'
 import Coupon from './Coupon'
 import Credit from './Credit'
 import Creditcard from './Creditcard'
+import CrownFilled from './CrownFilled'
 import Data from './Data'
 import Desktop from './Desktop'
 import Devices from './Devices'
@@ -284,6 +285,7 @@ import MicrophoneOff from './MicrophoneOff'
 import Microphone from './Microphone'
 import MinusCircleFilled from './MinusCircleFilled'
 import MinusCircle from './MinusCircle'
+import Minus from './Minus'
 import MobileMessaging from './MobileMessaging'
 import Mobile from './Mobile'
 import MoonFilled from './MoonFilled'
@@ -619,6 +621,7 @@ const icons = {
   coupon: Coupon,
   credit: Credit,
   creditcard: Creditcard,
+  'crown-filled': CrownFilled,
   data: Data,
   desktop: Desktop,
   devices: Devices,
@@ -748,6 +751,7 @@ const icons = {
   microphone: Microphone,
   'minus-circle-filled': MinusCircleFilled,
   'minus-circle': MinusCircle,
+  minus: Minus,
   'mobile-messaging': MobileMessaging,
   mobile: Mobile,
   'moon-filled': MoonFilled,
@@ -1098,6 +1102,7 @@ export {
   Coupon as CouponIcon,
   Credit as CreditIcon,
   Creditcard as CreditcardIcon,
+  CrownFilled as CrownFilledIcon,
   Data as DataIcon,
   Desktop as DesktopIcon,
   Devices as DevicesIcon,
@@ -1227,6 +1232,7 @@ export {
   Microphone as MicrophoneIcon,
   MinusCircleFilled as MinusCircleFilledIcon,
   MinusCircle as MinusCircleIcon,
+  Minus as MinusIcon,
   MobileMessaging as MobileMessagingIcon,
   Mobile as MobileIcon,
   MoonFilled as MoonFilledIcon,
