@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useCallback } from 'react'
+import React, { forwardRef, useState, useCallback } from 'react'
 import { isFunction } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
@@ -14,8 +14,8 @@ function Slider(
   {
     width = 36,
     guide,
-    onThumbDragStart,
-    onThumbDragEnd,
+    onThumbPointerDown,
+    onThumbPointerUp,
     defaultValue = [5],
     value,
     disabled = false,
@@ -28,35 +28,43 @@ function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const handleDragStart: React.DragEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled && isFunction(onThumbDragStart)) {
-      onThumbDragStart(value ?? [])
+  const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
+
+  const handleValueChange: (value: number[]) => void = useCallback((_value) => {
+    setCurrentValue(_value)
+    if (isFunction(onValueChange)) {
+      onValueChange(_value)
+    }
+  }, [onValueChange])
+  const handlePointerDown: React.PointerEventHandler<HTMLElement> = useCallback(() => {
+    if (!disabled && isFunction(onThumbPointerDown)) {
+      onThumbPointerDown(currentValue)
     }
   }, [
     disabled,
-    onThumbDragStart,
-    value,
+    onThumbPointerDown,
+    currentValue,
   ])
-  const handleDragEnd: React.DragEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled && isFunction(onThumbDragEnd)) {
-      onThumbDragEnd(value ?? [])
+  const handlePointerUp: React.PointerEventHandler<HTMLElement> = useCallback(() => {
+    if (!disabled && isFunction(onThumbPointerUp)) {
+      onThumbPointerUp(currentValue)
     }
   }, [
     disabled,
-    onThumbDragEnd,
-    value,
+    onThumbPointerUp,
+    currentValue,
   ])
 
   return (
     <SliderPrimitive.Root
       asChild
       defaultValue={defaultValue}
-      value={value}
+      value={currentValue}
       disabled={disabled}
       min={min}
       max={max}
       step={step}
-      onValueChange={onValueChange}
+      onValueChange={handleValueChange}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
     >
       <Styled.SliderRoot
@@ -85,8 +93,8 @@ function Slider(
           <SliderPrimitive.Thumb
             asChild
             key={`slider-thumb-${v}`}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
           >
             <Styled.SliderThumb
               data-testid={SLIDER_THUMB_TEST_ID}

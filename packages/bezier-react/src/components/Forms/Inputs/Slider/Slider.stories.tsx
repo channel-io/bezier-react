@@ -40,6 +40,12 @@ export default {
     onValueChange: {
       action: 'onValueChange',
     },
+    onThumbPointerDown: {
+      action: 'onThumbPointerDown',
+    },
+    onThumbPointerUp: {
+      action: 'onThumbPointerUp',
+    },
   },
 } as Meta
 

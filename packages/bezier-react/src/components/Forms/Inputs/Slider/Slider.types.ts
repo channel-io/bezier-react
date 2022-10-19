@@ -20,14 +20,14 @@ interface SliderOptions {
   guide?: number[]
 
   /**
-   * Callback of slider thumb's `ondragstart` event.
+   * Callback of slider thumb's `onpointerdown` event.
    */
-  onThumbDragStart?: (value: number[]) => void
+  onThumbPointerDown?: (value: number[]) => void
 
   /**
-   * Callback of slider thumb's `ondragend` event.
+   * Callback of slider thumb's `onpointerup` event.
    */
-  onThumbDragEnd?: (value: number[]) => void
+  onThumbPointerUp?: (value: number[]) => void
 }
 
 export default interface SliderProps extends

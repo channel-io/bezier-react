@@ -74,37 +74,37 @@ describe('Slider', () => {
     })
   })
 
-  describe('onThumbDragStart, onThumbDragEnd', () => {
+  describe('onThumbPointerDown, onThumbPointerUp', () => {
     it('should called when starts drag and ends drag', () => {
-      const onThumbDragStart = jest.fn()
-      const onThumbDragEnd = jest.fn()
+      const onThumbPointerDown = jest.fn()
+      const onThumbPointerUp = jest.fn()
 
-      const { getAllByTestId } = renderSlider({ onThumbDragStart, onThumbDragEnd })
+      const { getAllByTestId } = renderSlider({ onThumbPointerDown, onThumbPointerUp })
       const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
 
-      fireEvent.dragStart(sliderThumb[0])
-      fireEvent.dragEnd(sliderThumb[0])
+      fireEvent.pointerDown(sliderThumb[0])
+      fireEvent.pointerUp(sliderThumb[0])
 
-      expect(onThumbDragStart).toBeCalledTimes(1)
-      expect(onThumbDragEnd).toBeCalledTimes(1)
+      expect(onThumbPointerDown).toBeCalledTimes(1)
+      expect(onThumbPointerUp).toBeCalledTimes(1)
     })
 
     it('should not called when disabled is true', () => {
-      const onThumbDragStart = jest.fn()
-      const onThumbDragEnd = jest.fn()
+      const onThumbPointerDown = jest.fn()
+      const onThumbPointerUp = jest.fn()
 
       const { getAllByTestId } = renderSlider({
-        onThumbDragStart,
-        onThumbDragEnd,
+        onThumbPointerDown,
+        onThumbPointerUp,
         disabled: true,
       })
       const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
 
-      fireEvent.dragStart(sliderThumb[0])
-      fireEvent.dragEnd(sliderThumb[0])
+      fireEvent.pointerDown(sliderThumb[0])
+      fireEvent.pointerUp(sliderThumb[0])
 
-      expect(onThumbDragStart).not.toBeCalled()
-      expect(onThumbDragEnd).not.toBeCalled()
+      expect(onThumbPointerDown).not.toBeCalled()
+      expect(onThumbPointerUp).not.toBeCalled()
     })
   })
 
