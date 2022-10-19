@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -71,40 +70,6 @@ describe('Slider', () => {
       const slider = getByTestId(SLIDER_TEST_ID)
 
       expect(slider).toHaveStyle(`opacity: ${DisabledOpacity}`)
-    })
-  })
-
-  describe('onThumbPointerDown, onThumbPointerUp', () => {
-    it('should called when starts drag and ends drag', () => {
-      const onThumbPointerDown = jest.fn()
-      const onThumbPointerUp = jest.fn()
-
-      const { getAllByTestId } = renderSlider({ onThumbPointerDown, onThumbPointerUp })
-      const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
-
-      fireEvent.pointerDown(sliderThumb[0])
-      fireEvent.pointerUp(sliderThumb[0])
-
-      expect(onThumbPointerDown).toBeCalledTimes(1)
-      expect(onThumbPointerUp).toBeCalledTimes(1)
-    })
-
-    it('should not called when disabled is true', () => {
-      const onThumbPointerDown = jest.fn()
-      const onThumbPointerUp = jest.fn()
-
-      const { getAllByTestId } = renderSlider({
-        onThumbPointerDown,
-        onThumbPointerUp,
-        disabled: true,
-      })
-      const sliderThumb = getAllByTestId(SLIDER_THUMB_TEST_ID)
-
-      fireEvent.pointerDown(sliderThumb[0])
-      fireEvent.pointerUp(sliderThumb[0])
-
-      expect(onThumbPointerDown).not.toBeCalled()
-      expect(onThumbPointerUp).not.toBeCalled()
     })
   })
 
