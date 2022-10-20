@@ -5,4 +5,5 @@ import { Text } from 'Components/Text'
 export const Label = styled(Text)`
   display: block;
   text-align: left;
+  word-break: break-all;
 `
