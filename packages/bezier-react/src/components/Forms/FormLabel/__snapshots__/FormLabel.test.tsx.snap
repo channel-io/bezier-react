@@ -21,6 +21,7 @@ exports[`FormLabel > Snapshot > 1`] = `
 .c1 {
   display: block;
   text-align: left;
+  word-break: break-all;
 }
 
 <label
