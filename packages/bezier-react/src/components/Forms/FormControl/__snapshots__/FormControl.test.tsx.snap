@@ -93,7 +93,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c3 {
   display: block;
   text-align: left;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .c8 {
@@ -448,7 +448,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 .c4 {
   display: block;
   text-align: left;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .c11 {
@@ -713,7 +713,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 .c3 {
   display: block;
   text-align: left;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .c5 {
@@ -903,7 +903,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c4 {
   display: block;
   text-align: left;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .c6 {
