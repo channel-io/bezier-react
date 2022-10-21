@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.171
+
+### Patch Changes
+
+- [#937](https://github.com/channel-io/bezier-react/pull/937) [`bb8a978d`](https://github.com/channel-io/bezier-react/commit/bb8a978d9b9cdce72bd776c96db9fa78e074ea2e) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - For avoiding text overflow, Change FormControl grid label cell size from flex to fixed.
+  - For avoiding text overflow, Add 'work-break: break-word' style to FormLabel.
+  - For avoiding text overflow, Add flex-shrink style to StackItem which is wrapping FormLabel when there is 'help'.
+
 ## 1.0.0-next-v1.170
 
 ### Patch Changes
