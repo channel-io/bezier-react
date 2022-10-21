@@ -93,6 +93,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c3 {
   display: block;
   text-align: left;
+  word-break: break-word;
 }
 
 .c8 {
@@ -322,7 +323,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 .c1 {
   display: grid;
   grid-template-rows: repeat(2,auto);
-  grid-template-columns: minmax(150px,auto) 1fr;
+  grid-template-columns: 150px 1fr;
   grid-column-gap: 12px;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -447,6 +448,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 .c4 {
   display: block;
   text-align: left;
+  word-break: break-word;
 }
 
 .c11 {
@@ -711,6 +713,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 .c3 {
   display: block;
   text-align: left;
+  word-break: break-word;
 }
 
 .c5 {
@@ -833,7 +836,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c1 {
   display: grid;
   grid-template-rows: repeat(2,auto);
-  grid-template-columns: minmax(150px,auto) 1fr;
+  grid-template-columns: 150px 1fr;
   grid-column-gap: 12px;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -900,6 +903,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c4 {
   display: block;
   text-align: left;
+  word-break: break-word;
 }
 
 .c6 {

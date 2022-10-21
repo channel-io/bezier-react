@@ -23,7 +23,7 @@ export const TopHelperTextWrapper = styled(Box)`
 export const Grid = styled(Box)`
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-template-columns: minmax(${LEFT_LABEL_MIN_WIDTH}px, auto) 1fr;
+  grid-template-columns: ${LEFT_LABEL_MIN_WIDTH}px 1fr;
   grid-column-gap: 12px;
   align-items: center;
 `

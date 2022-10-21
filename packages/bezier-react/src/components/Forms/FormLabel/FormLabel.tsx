@@ -78,7 +78,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
         ? LabelComponent
         : (
           <HStack align="center" spacing={6}>
-            <StackItem>
+            <StackItem shrink weight={1}>
               { LabelComponent }
             </StackItem>
             <StackItem>
