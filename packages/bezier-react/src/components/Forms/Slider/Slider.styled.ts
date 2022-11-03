@@ -58,7 +58,7 @@ export const SliderRoot = styled.div<SliderRootProps>`
   user-select: none;
 
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
-  
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['opacity'])};
   ${({ interpolation }) => interpolation}
 `
@@ -126,7 +126,7 @@ export const SliderThumb = styled.div<SliderThumbProps>`
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
   }
 
-  &:focus {
+  &:focus-visible {
     ${focusedInputWrapperStyle}
   }
 
