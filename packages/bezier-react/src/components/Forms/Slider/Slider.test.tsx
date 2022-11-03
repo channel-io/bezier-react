@@ -75,7 +75,7 @@ describe('Slider', () => {
 
   describe('accessibility', () => {
     describe('role', () => {
-      it('should render thumb with an "slider" role', () => {
+      it('should render thumb with "slider" role', () => {
         const { getAllByRole } = renderSlider()
         const sliderThumb = getAllByRole('slider')
 

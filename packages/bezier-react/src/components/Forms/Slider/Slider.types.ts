@@ -6,7 +6,7 @@ import type { BezierComponentProps } from 'Types/ComponentProps'
 
 interface SliderOptions {
   /**
-   * CSS Width of entier slider.
+   * CSS Width of entire slider.
    * If given value is number or doesn't end with proper unit, `defaultUnit` is suffixed to given value.
    *
    * @see /packages/bezier-react/src/utils/styleUtils.ts
