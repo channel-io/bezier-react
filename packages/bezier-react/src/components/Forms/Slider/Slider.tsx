@@ -10,7 +10,7 @@ import * as Styled from './Slider.styled'
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
-function Slider(
+export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
@@ -104,6 +104,4 @@ function Slider(
       </Styled.SliderRoot>
     </SliderPrimitive.Root>
   )
-}
-
-export default forwardRef(Slider)
+})

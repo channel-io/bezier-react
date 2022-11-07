@@ -5,7 +5,8 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
-import Slider, {
+import {
+  Slider,
   SLIDER_TEST_ID,
   SLIDER_THUMB_TEST_ID,
 } from './Slider'

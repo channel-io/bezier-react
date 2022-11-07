@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import Slider from './Slider'
+import { Slider } from './Slider'
 import type SliderProps from './Slider.types'
 
 export {
