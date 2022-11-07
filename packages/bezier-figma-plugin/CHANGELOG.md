@@ -1,5 +1,12 @@
 # bezier-figma-plugin
 
+## 0.1.1-next-v1.16
+
+### Patch Changes
+
+- Updated dependencies [[`29c4a62b`](https://github.com/channel-io/bezier-react/commit/29c4a62bcb92b5bc888b44bcbc00437fbccadca8)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.172
+
 ## 0.1.1-next-v1.15
 
 ### Patch Changes
