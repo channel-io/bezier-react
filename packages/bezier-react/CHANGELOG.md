@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.172
+
+### Minor Changes
+
+- [#871](https://github.com/channel-io/bezier-react/pull/871) [`29c4a62b`](https://github.com/channel-io/bezier-react/commit/29c4a62bcb92b5bc888b44bcbc00437fbccadca8) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Add Slider component
+
 ## 1.0.0-next-v1.171
 
 ### Patch Changes
