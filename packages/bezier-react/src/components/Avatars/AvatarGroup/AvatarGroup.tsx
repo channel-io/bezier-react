@@ -87,7 +87,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const AvatarListComponent = useMemo(() => {
     if (avatarListCount <= max) {
       return React.Children.map(children, (avatar) => (
-        React.isValidElement(avatar) && renderAvatarElement(avatar, avatarListCount)
+        React.isValidElement<AvatarProps>(avatar) && renderAvatarElement(avatar, avatarListCount)
       ))
     }
 
@@ -95,7 +95,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     const slicedAvatarList = React.Children.toArray(children).slice(0, sliceEndIndex)
 
     return slicedAvatarList.map((avatar, index, arr) => {
-      if (!React.isValidElement(avatar)) { return null }
+      if (!React.isValidElement<AvatarProps>(avatar)) { return null }
 
       const AvatarElement = renderAvatarElement(avatar, slicedAvatarList.length)
 
