@@ -71,7 +71,7 @@ jobs:
 
       - name: Render template
         id: template
-        uses: chuhlomin/render-template@v1.4
+        uses: chuhlomin/render-template@v1.6
         with:
           template: .github/comment_template.md
           vars: |
