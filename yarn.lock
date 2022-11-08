@@ -2170,7 +2170,7 @@ __metadata:
     "@storybook/builder-webpack5": ^6.5.9
     "@storybook/manager-webpack5": ^6.5.9
     "@storybook/react": ^6.5.0
-    "@storybook/storybook-deployer": ^2.8.11
+    "@storybook/storybook-deployer": ^2.8.16
     "@svgr/babel-plugin-add-jsx-attribute": ^6.0.0
     "@svgr/babel-plugin-remove-jsx-attribute": ^6.0.0
     "@svgr/cli": ^6.2.1
@@ -4808,11 +4808,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/storybook-deployer@npm:^2.8.11":
-  version: 2.8.11
-  resolution: "@storybook/storybook-deployer@npm:2.8.11"
+"@storybook/storybook-deployer@npm:^2.8.16":
+  version: 2.8.16
+  resolution: "@storybook/storybook-deployer@npm:2.8.16"
   dependencies:
-    git-url-parse: ^11.1.2
+    git-url-parse: ^12.0.0
     glob: ^7.1.3
     parse-repo: ^1.0.4
     shelljs: ^0.8.1
@@ -4820,7 +4820,7 @@ __metadata:
   bin:
     storybook-to-aws-s3: bin/storybook_to_aws_s3
     storybook-to-ghpages: bin/storybook_to_ghpages
-  checksum: 528fd76bd22448bcab44249014d81e9e8e5c6eb523558345b9e9406f69cf0c713ad37734e9a15932a8dd30ac1e9b3076909eb532b4942e5db6890eee9fdda551
+  checksum: 06d02d9da9e6242de89436973e0a0d8126bcac5a89e7356815b095073d7c3b8c5ec7e9216183b18a9ec9c120455634a08388ddf67b1192cda748577768f07bd2
   languageName: node
   linkType: hard
 
@@ -11219,13 +11219,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"filter-obj@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "filter-obj@npm:1.1.0"
-  checksum: cf2104a7c45ff48e7f505b78a3991c8f7f30f28bd8106ef582721f321f1c6277f7751aacd5d83026cb079d9d5091082f588d14a72e7c5d720ece79118fa61e10
-  languageName: node
-  linkType: hard
-
 "finalhandler@npm:1.2.0":
   version: 1.2.0
   resolution: "finalhandler@npm:1.2.0"
@@ -11787,22 +11780,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-up@npm:^4.0.0":
-  version: 4.0.5
-  resolution: "git-up@npm:4.0.5"
+"git-up@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "git-up@npm:6.0.0"
   dependencies:
-    is-ssh: ^1.3.0
-    parse-url: ^6.0.0
-  checksum: dd8f39a115ec0523b7da369cd4c6dc94a9b11fcc652e6fc9d011a93c287e27cc34e1d1c89cff8864f9ab11a1b2bea49786951d8eb3f1e5babd351afcc63f6135
+    is-ssh: ^1.4.0
+    parse-url: ^7.0.2
+  checksum: 145a1f546d7a078cdfc2616556e518e634d134e34a31c6bf2ed89e44158659cb525dbd451c338121f7107f55cef066d0b37a7bbf178555befc9304b3940b435e
   languageName: node
   linkType: hard
 
-"git-url-parse@npm:^11.1.2":
-  version: 11.6.0
-  resolution: "git-url-parse@npm:11.6.0"
+"git-url-parse@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "git-url-parse@npm:12.0.0"
   dependencies:
-    git-up: ^4.0.0
-  checksum: 18a7d0bbac76c55fe8a501d4bd4c6b5f5528883a4dadcfce1152b4902e3e5831df8e97f36ea3f564de633e9ab44d9ab09bb2f319e41af1b6e4f627af139d35d5
+    git-up: ^6.0.0
+  checksum: b4c8530b816202ecf9d4dabf755f785a314a096b56145018385b3d7171e862f9d0d9b38cce620c0af354b269750fe7b2d9aa95815c7150922090a11dac4ab1e6
   languageName: node
   linkType: hard
 
@@ -13366,7 +13359,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-ssh@npm:^1.3.0":
+"is-ssh@npm:^1.4.0":
   version: 1.4.0
   resolution: "is-ssh@npm:1.4.0"
   dependencies:
@@ -16669,15 +16662,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-path@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "parse-path@npm:4.0.4"
+"parse-path@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "parse-path@npm:5.0.0"
   dependencies:
-    is-ssh: ^1.3.0
-    protocols: ^1.4.0
-    qs: ^6.9.4
-    query-string: ^6.13.8
-  checksum: 909e628c35baebeb3bdcaa376e2c5a21632a9094079ac55e04b3311db28219b15e517e10987dd49a13a904f2605b747b6368b0092130e0f2ff9bc5ffc40ceb63
+    protocols: ^2.0.0
+  checksum: e9f670559cd8e535f39f548bf5d41ad96a220190ea98df33d0babd9dfaa7c3c70ee2e55394078517d5e7e93c6a39c8eac1261ed3f9e68033656614fc954262e8
   languageName: node
   linkType: hard
 
@@ -16688,15 +16678,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-url@npm:^6.0.0":
-  version: 6.0.2
-  resolution: "parse-url@npm:6.0.2"
+"parse-url@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "parse-url@npm:7.0.2"
   dependencies:
-    is-ssh: ^1.3.0
+    is-ssh: ^1.4.0
     normalize-url: ^6.1.0
-    parse-path: ^4.0.4
-    protocols: ^1.4.0
-  checksum: cbd11ad5e5100821aaee8ef2d05df339209e8bc87b2bdccc213bf27b85c0b50c5aee6ab96ad7401f18e0982ba913107c940bab30a8982db08337a056e667d917
+    parse-path: ^5.0.0
+    protocols: ^2.0.1
+  checksum: 3e26852706bebe9fac409909316716dee52883d2fb5c82d65577effba1507abb7bc42bb59ce0ba6c8659168fb99acf89000bd8fe096ed3ad7124fa85227436d7
   languageName: node
   linkType: hard
 
@@ -17494,14 +17484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protocols@npm:^1.4.0":
-  version: 1.4.8
-  resolution: "protocols@npm:1.4.8"
-  checksum: 2d555c013df0b05402970f67f7207c9955a92b1d13ffa503c814b5fe2f6dde7ac6a03320e0975c1f5832b0113327865e0b3b28bfcad023c25ddb54b53fab8684
-  languageName: node
-  linkType: hard
-
-"protocols@npm:^2.0.1":
+"protocols@npm:^2.0.0, protocols@npm:^2.0.1":
   version: 2.0.1
   resolution: "protocols@npm:2.0.1"
   checksum: 4a9bef6aa0449a0245ded319ac3cbfd032c3e76ebb562777037a3a832c99253d0e8bc2847f7be350236df620a11f7d4fe683ea7f59a2cc14c69f746b6259eda4
@@ -17621,24 +17604,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.10.0, qs@npm:^6.9.4":
+"qs@npm:^6.10.0":
   version: 6.11.0
   resolution: "qs@npm:6.11.0"
   dependencies:
     side-channel: ^1.0.4
   checksum: 6e1f29dd5385f7488ec74ac7b6c92f4d09a90408882d0c208414a34dd33badc1a621019d4c799a3df15ab9b1d0292f97c1dd71dc7c045e69f81a8064e5af7297
-  languageName: node
-  linkType: hard
-
-"query-string@npm:^6.13.8":
-  version: 6.14.1
-  resolution: "query-string@npm:6.14.1"
-  dependencies:
-    decode-uri-component: ^0.2.0
-    filter-obj: ^1.1.0
-    split-on-first: ^1.0.0
-    strict-uri-encode: ^2.0.0
-  checksum: f2c7347578fa0f3fd4eaace506470cb4e9dc52d409a7ddbd613f614b9a594d750877e193b5d5e843c7477b3b295b857ec328903c943957adc41a3efb6c929449
   languageName: node
   linkType: hard
 
@@ -19433,13 +19404,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"split-on-first@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "split-on-first@npm:1.1.0"
-  checksum: 16ff85b54ddcf17f9147210a4022529b343edbcbea4ce977c8f30e38408b8d6e0f25f92cd35b86a524d4797f455e29ab89eb8db787f3c10708e0b47ebf528d30
-  languageName: node
-  linkType: hard
-
 "split-string@npm:^3.0.1, split-string@npm:^3.0.2":
   version: 3.1.0
   resolution: "split-string@npm:3.1.0"
@@ -19599,13 +19563,6 @@ __metadata:
   dependencies:
     mixme: ^0.5.1
   checksum: 26ce872a6812d5c784fa1f042bfd403644bc1c019f64627b5012c4544830a5570bef98b47225b38120c5878b326f3d1a213cd999a2285c98b536e5e202ca5bdf
-  languageName: node
-  linkType: hard
-
-"strict-uri-encode@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "strict-uri-encode@npm:2.0.0"
-  checksum: eaac4cf978b6fbd480f1092cab8b233c9b949bcabfc9b598dd79a758f7243c28765ef7639c876fa72940dac687181b35486ea01ff7df3e65ce3848c64822c581
   languageName: node
   linkType: hard
 
