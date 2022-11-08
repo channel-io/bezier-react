@@ -8,7 +8,7 @@ on:
 
 jobs:
   chromatic-report:
-    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
+    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' && github.actor != 'dependabot[bot]'
     name: Chromatic Report
     runs-on: ubuntu-latest
     steps:
