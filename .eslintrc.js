@@ -13,6 +13,7 @@ module.exports = {
     'max-classes-per-file': 'off',
     'react/jsx-key': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/naming-convention': 'off',
   },
   overrides: [
     {
