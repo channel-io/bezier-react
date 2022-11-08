@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # Maintain dependencies for root of repository
+  # Maintain dependencies for npm packages
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -14,37 +14,6 @@ updates:
       include: "scope"
     labels:
       - "dependencies"
-
-  # Maintain dependencies for bezier-react package
-  - package-ecosystem: "npm"
-    directory: "/packages/bezier-react"
-    schedule:
-      interval: "daily"
-      time: "11:00"
-      timezone: "Asia/Seoul"
-    reviewers:
-      - "sungik-choi"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    labels:
-      - "dependencies"
-
-  # Maintain dependencies for bezier-figma-plugin package
-  - package-ecosystem: "npm"
-    directory: "/packages/bezier-figma-plugin"
-    schedule:
-      interval: "daily"
-      time: "11:00"
-      timezone: "Asia/Seoul"
-    reviewers:
-      - "sungik-choi"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    labels:
-      - "dependencies"
-      - "bezier-figma-plugin"
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
