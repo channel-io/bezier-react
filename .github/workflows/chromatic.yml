@@ -52,7 +52,7 @@ jobs:
           echo "${{ steps.chromatic.outputs.buildUrl }}" > ./pr/buildUrl
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pr
           path: pr/
