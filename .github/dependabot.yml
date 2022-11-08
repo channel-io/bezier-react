@@ -2,8 +2,6 @@ version: 2
 updates:
   # Maintain dependencies for root of repository
   - package-ecosystem: "npm"
-    # Raise pull requests to update vendored dependencies that are checked in to the repository
-    vendor: true
     directory: "/"
     schedule:
       interval: "daily"
