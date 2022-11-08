@@ -402,7 +402,7 @@ export const UsageGroupEllipsis: Story<{}> = () => (
 
         <StackItem>
           <AvatarGroup max={4} size={AvatarSize.Size36}>
-            { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
+            { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
           </AvatarGroup>
         </StackItem>
       </HStack>
@@ -416,7 +416,7 @@ export const UsageGroupEllipsis: Story<{}> = () => (
 
         <StackItem>
           <AvatarGroup max={4} size={AvatarSize.Size36} ellipsisType={AvatarGroupEllipsisType.Count}>
-            { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
+            { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
           </AvatarGroup>
         </StackItem>
       </HStack>
@@ -430,19 +430,19 @@ export const UsageGroupSpacing: Story<{}> = () => (
   <VStack spacing={16}>
     <StackItem>
       <AvatarGroup max={4} spacing={8}>
-        { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
+        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
       </AvatarGroup>
     </StackItem>
 
     <StackItem>
       <AvatarGroup max={4} spacing={2}>
-        { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
+        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
       </AvatarGroup>
     </StackItem>
 
     <StackItem>
       <AvatarGroup max={4} spacing={-8}>
-        { SAMPLE_AVATARS.map(meta => <Avatar {...meta} />) }
+        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
       </AvatarGroup>
     </StackItem>
   </VStack>

@@ -170,7 +170,7 @@ const Template = ({ onChangeWidth }: TemplateProps) => {
                 title="Inbox"
                 titleSize={Typography.Size24}
                 actions={[(
-                  <HeaderActionIconWrapper>
+                  <HeaderActionIconWrapper key="action">
                     <Icon
                       source={SearchIcon}
                       color="txt-black-darkest"

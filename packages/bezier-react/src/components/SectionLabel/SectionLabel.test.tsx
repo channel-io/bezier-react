@@ -161,9 +161,9 @@ describe('SectionLabel', () => {
   it('renders right content as it is', () => {
     const { getByTestId } = renderComponent({
       rightContent: [
-        <div id="foo" />,
-        <div id="bar" />,
-        <div id="foobar" />,
+        <div key="foo" id="foo" />,
+        <div key="bar" id="bar" />,
+        <div key="foobar" id="foobar" />,
       ],
     })
     const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)
