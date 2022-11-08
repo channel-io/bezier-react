@@ -122,6 +122,6 @@
     "react-textarea-autosize": "^8.3.4",
     "ssr-window": "^3.0.0",
     "typesafe-actions": "^5.1.0",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   }
 }
