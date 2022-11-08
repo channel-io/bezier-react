@@ -2017,7 +2017,7 @@ __metadata:
     babel-jest: ^26.6.3
     babel-loader: ^8.2.2
     babel-preset-react-app: ^10.0.0
-    chromatic: ^6.7.0
+    chromatic: ^6.11.4
     core-js: ^3.8.1
     cross-env: ^7.0.3
     identity-obj-proxy: ^3.0.0
@@ -2357,7 +2357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discoveryjs/json-ext@npm:^0.5.0, @discoveryjs/json-ext@npm:^0.5.3":
+"@discoveryjs/json-ext@npm:^0.5.0, @discoveryjs/json-ext@npm:^0.5.3, @discoveryjs/json-ext@npm:^0.5.7":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
   checksum: 2176d301cc258ea5c2324402997cf8134ebb212469c0d397591636cea8d3c02f2b3cf9fd58dcb748c7a0dade77ebdc1b10284fa63e608c033a1db52fddc69918
@@ -7948,16 +7948,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.7.0":
-  version: 6.7.0
-  resolution: "chromatic@npm:6.7.0"
+"chromatic@npm:^6.11.4":
+  version: 6.11.4
+  resolution: "chromatic@npm:6.11.4"
   dependencies:
+    "@discoveryjs/json-ext": ^0.5.7
     "@types/webpack-env": ^1.17.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 0e5ebc9d8c4f4d54a0dd256f7c509b375d76bfec08a78ca5cb7a18cea04d8c88071768a7d108b21f620143f7381819d66c32b8cc3828f9a2a04c032e3a460b57
+  checksum: 7af3302b410a42d7e4833be0c94830a4848ccd877920bbb32082554da7fd1bbf46af800bb9f66ee14fb24a124df2229102ddc5e5dc91237f6339dc7b1394fbe3
   languageName: node
   linkType: hard
 
