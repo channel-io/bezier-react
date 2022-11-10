@@ -7,8 +7,6 @@ updates:
       interval: "daily"
       time: "11:00"
       timezone: "Asia/Seoul"
-    reviewers:
-      - "sungik-choi"
     commit-message:
       prefix: "chore"
       include: "scope"
@@ -23,8 +21,6 @@ updates:
       interval: "weekly"
       time: "11:00"
       timezone: "Asia/Seoul"
-    reviewers:
-      - "sungik-choi"
     commit-message:
       prefix: "ci"
       include: "scope"
