@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -102,6 +103,7 @@ describe('Switch', () => {
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
       expect(switchComponent).toHaveStyle('opacity: initial')
+      expect(switchComponent).toHaveStyle('cursor: pointer')
     })
 
     it('should render disabled Switch when disabled is true', () => {
@@ -111,6 +113,84 @@ describe('Switch', () => {
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
       expect(switchComponent).toHaveStyle(`opacity: ${DisabledOpacity}`)
+      expect(switchComponent).toHaveStyle('cursor: not-allowed')
+    })
+  })
+
+  describe('user interactions', () => {
+    it('should change state when user clicks Switch', async () => {
+      const user = userEvent.setup()
+      const onClick = jest.fn()
+      const onCheckedChange = jest.fn()
+      const { getByTestId } = renderComponent({
+        defaultChecked: false,
+        onClick,
+        onCheckedChange,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      await user.click(switchComponent)
+      expect(switchComponent).toHaveAttribute('data-state', 'checked')
+      expect(onClick).toHaveBeenCalledTimes(1)
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
+      await user.click(switchComponent)
+      expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
+      expect(onClick).toHaveBeenCalledTimes(2)
+      expect(onCheckedChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('should change state when user enters Space key on Switch', async () => {
+      const user = userEvent.setup()
+      const onCheckedChange = jest.fn()
+      const { getByTestId } = renderComponent({
+        defaultChecked: false,
+        onCheckedChange,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      await user.tab()
+      await user.keyboard('[Space]')
+      expect(switchComponent).toHaveAttribute('data-state', 'checked')
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
+      await user.keyboard('[Space]')
+      expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
+      expect(onCheckedChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('should change state when user enters Enter key on Switch', async () => {
+      const user = userEvent.setup()
+      const onCheckedChange = jest.fn()
+      const { getByTestId } = renderComponent({
+        defaultChecked: false,
+        onCheckedChange,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      await user.tab()
+      await user.keyboard('[Enter]')
+      expect(switchComponent).toHaveAttribute('data-state', 'checked')
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
+      await user.keyboard('[Enter]')
+      expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
+      expect(onCheckedChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('should not change state when user clicks disabled Switch', async () => {
+      const user = userEvent.setup()
+      const onClick = jest.fn()
+      const onCheckedChange = jest.fn()
+      const { getByTestId } = renderComponent({
+        defaultChecked: false,
+        disabled: true,
+        onClick,
+        onCheckedChange,
+      })
+      const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+      await user.click(switchComponent)
+      expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
+      expect(onClick).not.toHaveBeenCalled()
+      expect(onCheckedChange).not.toHaveBeenCalled()
     })
   })
 
