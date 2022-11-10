@@ -1,12 +1,12 @@
-# root
+# Default owner
 
 * @sungik-choi
 
-# bezier-figma-plugin
+# Owner of bezier-figma-plugin
 
 /packages/bezier-figma-plugin/ @sungik-choi
 
-# bezier-react
+# Owner of bezier-react
 
 /packages/bezier-react/src/components/Avatars/ @sungik-choi
 /packages/bezier-react/src/components/Banner/ @sungik-choi
