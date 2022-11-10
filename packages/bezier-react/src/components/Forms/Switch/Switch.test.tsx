@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -115,28 +114,46 @@ describe('Switch', () => {
     })
   })
 
-  describe('fire events', () => {
-    it('should fire onClick event when Switch is clicked', () => {
-      const onClick = jest.fn()
-      const { getByTestId } = renderComponent({
-        onClick,
-      })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+  describe('accessibility', () => {
+    describe('role', () => {
+      it('should render switch with "switch" role', () => {
+        const { getAllByRole } = renderComponent()
+        const switchComponents = getAllByRole('switch')
 
-      fireEvent.click(switchComponent)
-      expect(onClick).toHaveBeenCalled()
+        expect(switchComponents).toHaveLength(1)
+        expect(switchComponents[0]).toBeInTheDocument()
+      })
     })
 
-    it('should not fire onClick event when disabled Switch is clicked', () => {
-      const onClick = jest.fn()
-      const { getByTestId } = renderComponent({
-        onClick,
-        disabled: true,
-      })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+    describe('aria-checked', () => {
+      it('should be "true" when state is "on"', () => {
+        const { getAllByRole } = renderComponent({
+          checked: true,
+        })
+        const switchComponents = getAllByRole('switch')
 
-      fireEvent.click(switchComponent)
-      expect(onClick).not.toHaveBeenCalled()
+        expect(switchComponents).toHaveLength(1)
+        expect(switchComponents[0]).toHaveAttribute('aria-checked', 'true')
+      })
+
+      it('should be "false" when state is "off"', () => {
+        const { getAllByRole } = renderComponent({
+          checked: false,
+        })
+        const switchComponents = getAllByRole('switch')
+
+        expect(switchComponents).toHaveLength(1)
+        expect(switchComponents[0]).toHaveAttribute('aria-checked', 'false')
+      })
+    })
+
+    describe('aria-disabled', () => {
+      it('should have "true" value on "aria-disabled" attribute when disabled prop is true', () => {
+        const { getByTestId } = renderComponent({ disabled: true })
+        const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+        expect(switchComponent).toHaveAttribute('aria-disabled', 'true')
+      })
     })
   })
 })
