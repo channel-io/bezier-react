@@ -37,12 +37,6 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
 
   ${({ foundation }) => foundation?.rounding?.round12}
 
-  opacity: initial;
-
-  &[data-disabled] {
-    opacity: ${DisabledOpacity};
-  }
-
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
 
   &[data-state='checked'] {
@@ -51,6 +45,12 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
     &:hover {
       background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-dark']};
     }
+  }
+
+  opacity: initial;
+
+  &[data-disabled] {
+    opacity: ${DisabledOpacity};
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
