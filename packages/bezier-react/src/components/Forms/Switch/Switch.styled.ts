@@ -73,7 +73,7 @@ export const SwitchThumb = styled.span<SwitchThumbProps>`
   ${({ foundation }) => foundation?.elevation?.ev2()};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
 
-  transform: 'initial';
+  transform: initial;
 
   &[data-state='checked'] {
     transform: ${({ size }) => `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`};
