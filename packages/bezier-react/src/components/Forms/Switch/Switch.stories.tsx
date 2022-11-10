@@ -43,3 +43,9 @@ Primary.args = {
   checked: true,
   disabled: false,
 }
+
+export const Uncontrolled = Template.bind({})
+Uncontrolled.args = {
+  size: SwitchSize.M,
+  disabled: false,
+}

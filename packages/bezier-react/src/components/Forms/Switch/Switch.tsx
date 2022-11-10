@@ -19,7 +19,8 @@ function Switch(
   {
     testId = SWITCH_TEST_ID,
     handleTestId = SWITCH_HANDLE_TEST_ID,
-    checked = false,
+    checked,
+    defaultChecked = false,
     onCheckedChange,
     size = SwitchSize.M,
     ...rest
@@ -36,23 +37,20 @@ function Switch(
     <SwitchPrimitive.Root
       asChild
       checked={checked}
+      defaultChecked={defaultChecked}
       onCheckedChange={onCheckedChange}
       disabled={disabled}
       required={required}
-      {...rest}
+      {...ownProps}
     >
       <Styled.SwitchRoot
-        {...ownProps}
         ref={forwardedRef}
         size={size}
-        checked={checked}
-        disabled={disabled}
         data-testid={testId}
       >
         <SwitchPrimitive.Thumb asChild>
           <Styled.SwitchThumb
             size={size}
-            checked={checked}
             data-testid={handleTestId}
           />
         </SwitchPrimitive.Thumb>

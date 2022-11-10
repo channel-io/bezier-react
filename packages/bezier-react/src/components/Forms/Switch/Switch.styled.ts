@@ -21,7 +21,9 @@ const SWITCH_HANDLE_WIDTH_HEIGHT: Record<SwitchSize, number> = {
   [SwitchSize.S]: 14,
 }
 
-interface SwitchRootProps extends Required<SwitchProps> {}
+interface SwitchRootProps extends SwitchProps {
+  size: NonNullable<SwitchProps['size']>
+}
 
 export const SwitchRoot = styled.button<SwitchRootProps>`
   all: unset;
@@ -34,20 +36,21 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ foundation }) => foundation?.rounding?.round12}
-  background-color: ${({ checked, foundation }) => (
-    checked
-      ? foundation?.theme?.['bgtxt-green-normal']
-      : foundation?.theme?.['bg-black-dark']
-  )};
 
-  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
+  opacity: initial;
 
-  &:hover {
-    background-color: ${({ checked, foundation }) => (
-    checked
-      ? foundation?.theme?.['bgtxt-green-dark']
-      : foundation?.theme?.['bg-black-dark']
-  )};
+  &[data-disabled] {
+    opacity: ${DisabledOpacity};
+  }
+
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
+
+  &[data-state='checked'] {
+    background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
+
+    &:hover {
+      background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-dark']};
+    }
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
@@ -55,7 +58,6 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
 
 interface SwitchThumbProps extends SwitchProps {
   size: NonNullable<SwitchProps['size']>
-  checked: NonNullable<SwitchProps['checked']>
 }
 
 export const SwitchThumb = styled.span<SwitchThumbProps>`
@@ -71,11 +73,11 @@ export const SwitchThumb = styled.span<SwitchThumbProps>`
   ${({ foundation }) => foundation?.elevation?.ev2()};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
 
-  transform: ${({ checked, size }) => (
-    checked
-      ? `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`
-      : 'initial'
-  )};
+  transform: 'initial';
+
+  &[data-state='checked'] {
+    transform: ${({ size }) => `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`};
+  }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
 `
