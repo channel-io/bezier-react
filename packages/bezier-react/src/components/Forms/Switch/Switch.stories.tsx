@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import Switch from './Switch'
+import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 

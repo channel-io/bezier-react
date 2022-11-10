@@ -15,7 +15,7 @@ import * as Styled from './Switch.styled'
 export const SWITCH_TEST_ID = 'bezier-react-switch'
 export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
-function Switch(
+export const Switch = forwardRef(function Switch(
   {
     testId = SWITCH_TEST_ID,
     handleTestId = SWITCH_HANDLE_TEST_ID,
@@ -57,6 +57,4 @@ function Switch(
       </Styled.SwitchRoot>
     </SwitchPrimitive.Root>
   )
-}
-
-export default forwardRef(Switch)
+})

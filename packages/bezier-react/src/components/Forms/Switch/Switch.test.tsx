@@ -6,7 +6,11 @@ import { fireEvent } from '@testing-library/react'
 import { LightFoundation } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
-import Switch, { SWITCH_TEST_ID, SWITCH_HANDLE_TEST_ID } from './Switch'
+import {
+  Switch,
+  SWITCH_TEST_ID,
+  SWITCH_HANDLE_TEST_ID,
+} from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
