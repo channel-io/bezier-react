@@ -24,7 +24,7 @@ function Switch(
     size = SwitchSize.M,
     ...rest
   }: SwitchProps,
-  forwardedRef: Ref<HTMLDivElement>,
+  forwardedRef: Ref<HTMLButtonElement>,
 ): ReactElement {
   const {
     disabled,
@@ -41,7 +41,7 @@ function Switch(
       required={required}
       {...rest}
     >
-      <Styled.Wrapper
+      <Styled.SwitchRoot
         {...ownProps}
         ref={forwardedRef}
         size={size}
@@ -50,13 +50,13 @@ function Switch(
         data-testid={testId}
       >
         <SwitchPrimitive.Thumb asChild>
-          <Styled.Content
+          <Styled.SwitchThumb
             size={size}
             checked={checked}
             data-testid={handleTestId}
           />
         </SwitchPrimitive.Thumb>
-      </Styled.Wrapper>
+      </Styled.SwitchRoot>
     </SwitchPrimitive.Root>
   )
 }

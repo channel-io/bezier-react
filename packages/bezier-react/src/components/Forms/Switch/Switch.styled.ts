@@ -21,9 +21,9 @@ const SWITCH_HANDLE_WIDTH_HEIGHT: Record<SwitchSize, number> = {
   [SwitchSize.S]: 14,
 }
 
-interface WrapperProps extends Required<SwitchProps> {}
+interface SwitchRootProps extends Required<SwitchProps> {}
 
-export const Wrapper = styled.div<WrapperProps>`
+export const SwitchRoot = styled.button<SwitchRootProps>`
   position: relative;
 
   width: ${({ size }) => SWITCH_WIDTH[size]}px;
@@ -51,12 +51,12 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 `
 
-interface ContentProps extends SwitchProps {
+interface SwitchThumbProps extends SwitchProps {
   size: NonNullable<SwitchProps['size']>
   checked: NonNullable<SwitchProps['checked']>
 }
 
-export const Content = styled.div<ContentProps>`
+export const SwitchThumb = styled.span<SwitchThumbProps>`
   position: absolute;
   top: ${PADDING}px;
   left: ${PADDING}px;
@@ -66,7 +66,7 @@ export const Content = styled.div<ContentProps>`
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev2()};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-  
+
   transform: ${({ checked, size }) => (
     checked
       ? `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`
