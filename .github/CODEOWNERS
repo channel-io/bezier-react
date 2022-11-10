@@ -1,0 +1,42 @@
+# Default owner
+
+* @sungik-choi
+
+# Owner of bezier-figma-plugin
+
+/packages/bezier-figma-plugin/ @sungik-choi
+
+# Owner of bezier-react
+
+/packages/bezier-react/src/components/Avatars/ @sungik-choi
+/packages/bezier-react/src/components/Banner/ @sungik-choi
+/packages/bezier-react/src/components/Button/ @sungik-choi
+/packages/bezier-react/src/components/ButtonGroup/ @yangwooseong
+/packages/bezier-react/src/components/Divider/ @sungik-choi
+/packages/bezier-react/src/components/Emoji/ @CHEWCHEWW
+/packages/bezier-react/src/components/Forms/ @sungik-choi
+/packages/bezier-react/src/components/Forms/Slider/
+/packages/bezier-react/src/components/Forms/Slider/ @Dogdriip
+/packages/bezier-react/src/components/Help/ @dinohan
+/packages/bezier-react/src/components/Icon/ @sungik-choi
+/packages/bezier-react/src/components/KeyValueListItem/ @sungik-choi
+/packages/bezier-react/src/components/ListItem/ @quino0627
+/packages/bezier-react/src/components/ListMenuTitle/ @quino0627
+/packages/bezier-react/src/components/Modals/ @sungik-choi
+/packages/bezier-react/src/components/Navigator/ @guswnsxodlf
+/packages/bezier-react/src/components/OutlineItem/ @quino0627
+/packages/bezier-react/src/components/Overlay/ @sungik-choi
+/packages/bezier-react/src/components/ProgressBar/ @Dogdriip
+/packages/bezier-react/src/components/SectionLabel/ @sungik-choi
+/packages/bezier-react/src/components/Spinner/ @quino0627
+/packages/bezier-react/src/components/Stack/ @sungik-choi
+/packages/bezier-react/src/components/Status/ @sungik-choi
+/packages/bezier-react/src/components/Tabs/ @sungik-choi
+/packages/bezier-react/src/components/TagBadge/ @quino0627
+/packages/bezier-react/src/components/Text/ @sungik-choi
+/packages/bezier-react/src/components/Toast/ @dinohan
+/packages/bezier-react/src/components/Tooltip/ @sungik-choi
+
+# FIXME - Should be deleted after <https://github.com/channel-io/bezier-react/issues/981> resolved
+
+/packages/bezier-react/src/layout/ @quino0627
