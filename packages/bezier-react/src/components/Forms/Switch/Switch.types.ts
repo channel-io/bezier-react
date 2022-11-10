@@ -1,5 +1,5 @@
 /* External dependencies */
-import type { MouseEvent } from 'react'
+import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch'
 
 /* Internal dependencies */
 import type { BezierComponentProps, SizeProps, AdditionalTestIdProps } from 'Types/ComponentProps'
@@ -10,14 +10,12 @@ export enum SwitchSize {
   S = 's',
 }
 
-interface SwitchOptions {
-  checked?: boolean
-  onClick?: (checked: boolean, event: MouseEvent) => void
-}
+interface SwitchOptions {}
 
 export default interface SwitchProps extends
   BezierComponentProps,
   SizeProps<SwitchSize>,
   FormComponentProps,
   AdditionalTestIdProps<'handle'>,
+  SwitchPrimitiveProps,
   SwitchOptions {}
