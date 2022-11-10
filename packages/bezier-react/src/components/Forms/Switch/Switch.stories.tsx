@@ -29,8 +29,8 @@ export default {
         type: 'boolean',
       },
     },
-    onClick: {
-      action: 'onClick',
+    onCheckedChange: {
+      action: 'onCheckedChange',
     },
   },
 } as Meta

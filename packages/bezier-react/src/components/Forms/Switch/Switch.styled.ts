@@ -24,6 +24,8 @@ const SWITCH_HANDLE_WIDTH_HEIGHT: Record<SwitchSize, number> = {
 interface SwitchRootProps extends Required<SwitchProps> {}
 
 export const SwitchRoot = styled.button<SwitchRootProps>`
+  all: unset;
+
   position: relative;
 
   width: ${({ size }) => SWITCH_WIDTH[size]}px;
@@ -57,6 +59,8 @@ interface SwitchThumbProps extends SwitchProps {
 }
 
 export const SwitchThumb = styled.span<SwitchThumbProps>`
+  all: unset;
+
   position: absolute;
   top: ${PADDING}px;
   left: ${PADDING}px;
