@@ -39,8 +39,8 @@ export const Switch = forwardRef(function Switch(
       checked={checked}
       defaultChecked={defaultChecked}
       onCheckedChange={onCheckedChange}
-      disabled={disabled}
       required={required}
+      disabled={disabled}
       {...ownProps}
     >
       <Styled.SwitchRoot

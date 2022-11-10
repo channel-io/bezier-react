@@ -33,7 +33,7 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
   width: ${({ size }) => SWITCH_WIDTH[size]}px;
   height: ${({ size }) => SWITCH_HEIGHT[size]}px;
 
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: pointer;
 
   ${({ foundation }) => foundation?.rounding?.round12}
 
@@ -49,7 +49,8 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
 
   opacity: initial;
 
-  &[data-disabled] {
+  &:disabled {
+    cursor: not-allowed;
     opacity: ${DisabledOpacity};
   }
 
