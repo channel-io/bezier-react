@@ -23,7 +23,7 @@ export function getProperTagBadgeRounding(size: TagBadgeSize) {
 
 export function getProperTagBadgeTypo(size: TagBadgeSize) {
   return {
-    [TagBadgeSize.XS]: Typography.Size12,
+    [TagBadgeSize.XS]: Typography.Size11,
     [TagBadgeSize.S]: Typography.Size13,
     [TagBadgeSize.M]: Typography.Size14,
     [TagBadgeSize.L]: Typography.Size15,
