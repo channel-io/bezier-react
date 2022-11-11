@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.173
+
+### Patch Changes
+
+- [#1001](https://github.com/channel-io/bezier-react/pull/1001) [`ca1c6145`](https://github.com/channel-io/bezier-react/commit/ca1c6145d9596a14264bd67b3acfdcdadb215e84) Thanks [@aooen](https://github.com/aooen)! - make xs tagbadge more smaller
+
 ## 1.0.0-next-v1.172
 
 ### Minor Changes
