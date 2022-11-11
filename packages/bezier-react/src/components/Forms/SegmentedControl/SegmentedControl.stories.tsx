@@ -176,7 +176,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
 
       <ItemList>
         { items.map((item, index, allItems) => (
-          <Item>
+          <Item key={index}>
             <CurrentItem selected={currentIndex === index} />
             <ItemText>{ item }</ItemText>
             <ItemIcon

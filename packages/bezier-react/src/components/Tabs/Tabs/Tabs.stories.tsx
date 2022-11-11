@@ -50,7 +50,7 @@ interface TabCount {
 const Template: Story<TabsProps & TabCount> = ({ tabCount, ...otherProps }) => (
   <Tabs {...otherProps}>
     { range(0, tabCount).map((n) => (
-      <TabItem optionKey={`tab-item-${n}`}>
+      <TabItem key={n} optionKey={`tab-item-${n}`}>
         Tab { n }
       </TabItem>
     )) }

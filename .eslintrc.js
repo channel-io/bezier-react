@@ -9,12 +9,11 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
-    'react/jsx-props-no-spreading': 'off',
     'max-classes-per-file': 'off',
-    // FIXME: Delete the below rules after migration
-    'react/destructuring-assignment': 'off',
-    'react/jsx-key': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-array-index-key': 'warn',
     '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/naming-convention': 'off',
   },
   overrides: [
     {

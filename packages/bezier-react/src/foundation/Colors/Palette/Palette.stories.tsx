@@ -53,7 +53,7 @@ const Template = () => (
   <PaletteChipArtBoard>
     {
       Object.keys(Palette).map(paletteKey => (
-        <PaletteChip>
+        <PaletteChip key={paletteKey}>
           <PaletteTile color={Palette[paletteKey]} />
           <PaletteName>
             { paletteKey }
