@@ -88,7 +88,7 @@ export const Playground: Story<IconProps> = (args) => (<Icon {...args} />)
 Playground.args = {
   source: ChannelIcon,
   size: IconSize.Normal,
-  color: 'bg-black-darkest',
+  color: 'bg-black-darker',
 }
 
 const pascalCase = (str: string) => camelCase(str).replace(/^./, (char) => char.toUpperCase())
@@ -109,7 +109,7 @@ export const AllIcons: Story<Omit<IconProps, 'source'>> = (args) => (
 
 AllIcons.args = {
   size: IconSize.Normal,
-  color: 'bg-black-darkest',
+  color: 'bg-black-darker',
 }
 
 export const Overview: Story<{}> = () => (
