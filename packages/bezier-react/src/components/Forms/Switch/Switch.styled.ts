@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
+import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
@@ -52,6 +53,10 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
   &:disabled {
     cursor: not-allowed;
     opacity: ${DisabledOpacity};
+  }
+
+  &:focus-visible {
+    ${focusedInputWrapperStyle}
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
