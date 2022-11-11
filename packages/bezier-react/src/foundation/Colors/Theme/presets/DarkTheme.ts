@@ -17,6 +17,7 @@ const DarkTheme: ThemeType = {
 
   // Mono Background
   'bg-black-darkest': Palette.white_40,
+  'bg-black-darker': Palette.white_40,
   'bg-black-dark': Palette.white_20,
   'bg-black-light': Palette.white_12,
   'bg-black-lighter': Palette.white_8,
