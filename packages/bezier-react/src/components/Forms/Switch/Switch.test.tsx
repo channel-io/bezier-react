@@ -117,6 +117,48 @@ describe('Switch', () => {
     })
   })
 
+  describe('data attribute', () => {
+    describe('data-state', () => {
+      it('should have data-state="checked" attribute when checked is true', () => {
+        const { getByTestId } = renderComponent({
+          checked: true,
+        })
+        const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+        expect(switchComponent).toHaveAttribute('data-state', 'checked')
+      })
+
+      it('should have data-state="unchecked" attribute when checked is false', () => {
+        const { getByTestId } = renderComponent({
+          checked: false,
+        })
+        const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+        expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
+      })
+    })
+
+    describe('data-disabled', () => {
+      it('should have data-disabled attribute when disabled is true', () => {
+        const { getByTestId } = renderComponent({
+          disabled: true,
+        })
+        const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+        expect(switchComponent).toHaveAttribute('data-disabled')
+      })
+
+      it('should not have data-disabled attribute when disabled is false', () => {
+        const { getByTestId } = renderComponent({
+          disabled: false,
+        })
+        const switchComponent = getByTestId(SWITCH_TEST_ID)
+
+        expect(switchComponent).not.toHaveAttribute('data-disabled')
+      })
+    })
+  })
+
   describe('user interactions', () => {
     it('should change state when user clicks Switch', async () => {
       const user = userEvent.setup()
