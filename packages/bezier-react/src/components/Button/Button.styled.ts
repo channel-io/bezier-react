@@ -190,7 +190,7 @@ const MONOCHROME_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames>
 const MONOCHROME_LIGHT_SEMANTIC_NAMES: Record<ButtonStyleVariant, ButtonSemanticNames> = {
   [ButtonStyleVariant.Primary]: {
     color: 'bgtxt-absolute-white-dark',
-    backgroundColor: 'bg-black-darkest',
+    backgroundColor: 'bg-black-darker',
   },
 
   [ButtonStyleVariant.Secondary]: {

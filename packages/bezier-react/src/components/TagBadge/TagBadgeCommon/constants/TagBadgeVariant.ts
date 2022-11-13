@@ -18,7 +18,7 @@ enum TagBadgeVariant {
 export const TagBadgeBgColorPreset = {
   [TagBadgeVariant.Default]: 'bg-black-lighter',
   [TagBadgeVariant.MonochromeLight]: 'bg-black-lighter',
-  [TagBadgeVariant.MonochromeDark]: 'bg-black-darkest',
+  [TagBadgeVariant.MonochromeDark]: 'bg-black-darker',
   [TagBadgeVariant.Blue]: 'bgtxt-blue-lighter',
   [TagBadgeVariant.Cobalt]: 'bgtxt-cobalt-lighter',
   [TagBadgeVariant.Teal]: 'bgtxt-teal-lighter',
