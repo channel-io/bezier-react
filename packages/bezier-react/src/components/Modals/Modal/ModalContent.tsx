@@ -22,7 +22,7 @@ function ModalTitleText({ children, titleSize, ...rests }: ModalTitleTextProps) 
   const textTypo = useMemo(() => {
     switch (titleSize) {
       case ModalTitleSize.M: {
-        return Typography.Size15
+        return Typography.Size16
       }
       default: {
         return Typography.Size24
