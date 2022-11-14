@@ -2073,7 +2073,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-url": ^6.0.0
     "@storybook/addon-a11y": ^6.5.0
-    "@storybook/addon-actions": ^6.5.0
+    "@storybook/addon-actions": ^6.5.13
     "@storybook/addon-backgrounds": ^6.5.0
     "@storybook/addon-controls": ^6.5.0
     "@storybook/addon-docs": ^6.5.0
@@ -3720,17 +3720,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:^6.5.0":
-  version: 6.5.9
-  resolution: "@storybook/addon-actions@npm:6.5.9"
+"@storybook/addon-actions@npm:^6.5.13":
+  version: 6.5.13
+  resolution: "@storybook/addon-actions@npm:6.5.13"
   dependencies:
-    "@storybook/addons": 6.5.9
-    "@storybook/api": 6.5.9
-    "@storybook/client-logger": 6.5.9
-    "@storybook/components": 6.5.9
-    "@storybook/core-events": 6.5.9
+    "@storybook/addons": 6.5.13
+    "@storybook/api": 6.5.13
+    "@storybook/client-logger": 6.5.13
+    "@storybook/components": 6.5.13
+    "@storybook/core-events": 6.5.13
     "@storybook/csf": 0.0.2--canary.4566f4d.1
-    "@storybook/theming": 6.5.9
+    "@storybook/theming": 6.5.13
     core-js: ^3.8.2
     fast-deep-equal: ^3.1.3
     global: ^4.4.0
@@ -3751,7 +3751,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 155b439ba2ab6fc6d367f7e4068bcacbdc8a8438948e99ed71acca84a33a81f3277a406a1378c79f6305b1f85325ede623e0242bdc588b44f97e2c1b2a8b61e3
+  checksum: 2679174b1467281860cd6f11fac5ba505e44629eb11ee90713d1c954569cfb54d80aa822a0ed1be2f92f11ca62889fec3dca96f61b89cf238503e0cea4b1db9a
   languageName: node
   linkType: hard
 
