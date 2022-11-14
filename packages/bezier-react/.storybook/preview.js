@@ -44,7 +44,7 @@ export const globalTypes = {
 };
 
 function getFoundation(keyword) {
-  const isDarkFoundation = keyword === FoundationKeyword.Dark 
+  const isDarkFoundation = keyword === FoundationKeyword.Dark
   return {
     isDarkFoundation,
     foundation: isDarkFoundation ? DarkFoundation : LightFoundation,
@@ -54,11 +54,11 @@ function getFoundation(keyword) {
 
 const customGlobalStyle = {
   // You can inject custom global CSS
-  // global: {
-  //   html: {
-  //     fontSize: '20px',
-  //   }
-  // }
+  global: {
+    html: {
+      fontFamily: 'Inter',
+    }
+  }
 }
 
 const wrapperStyle = {
@@ -70,7 +70,6 @@ const wrapperStyle = {
   gap: 20,
   width: '100%',
   height: '100%',
-  fontFamily: 'Inter',
 }
 
 const storyWrapperStyle = {
@@ -89,7 +88,7 @@ const innerWrapperStyle = {
 }
 
 function withFoundationProvider(Story, context) {
-  const { 
+  const {
     isDarkFoundation,
     foundation: Foundation,
     invertedFoundation: InvertedFoundation,
