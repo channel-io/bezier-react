@@ -23,7 +23,7 @@ const Text = styled.span<TextProps & TextStyledProps>`
   ${props => props.typo};
   margin: ${getMargin};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
-  font-weight: ${props => (props.bold ? 600 : 'normal')};
+  font-weight: ${props => (props.bold ? 'bold' : 'normal')};
   color: ${({ foundation, color }) => (color && foundation?.theme?.[color]) || 'inherit'};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')}

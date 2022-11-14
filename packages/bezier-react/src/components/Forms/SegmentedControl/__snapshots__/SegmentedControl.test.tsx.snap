@@ -6,7 +6,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;

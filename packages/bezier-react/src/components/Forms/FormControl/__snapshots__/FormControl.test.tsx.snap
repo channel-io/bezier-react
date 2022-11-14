@@ -61,7 +61,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -399,7 +399,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -416,7 +416,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -681,7 +681,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -871,7 +871,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
