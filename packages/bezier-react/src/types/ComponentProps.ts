@@ -12,7 +12,7 @@ import type { SemanticNames } from 'Foundation'
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */
-export interface RenderConfigProps<T extends ElementType> {
+export interface RenderConfigProps<T extends ElementType = any> {
   as?: T
   testId?: string
 }
