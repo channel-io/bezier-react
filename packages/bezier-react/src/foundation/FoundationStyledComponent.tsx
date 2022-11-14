@@ -18,6 +18,7 @@ import styled, {
   StyledComponentInnerComponent,
   StyledComponentInnerOtherProps,
   StyledComponentInnerAttrs,
+  ServerStyleSheet,
   FlattenSimpleInterpolation,
   Interpolation,
   InterpolationFunction,
@@ -170,4 +171,5 @@ export {
   FoundationProvider,
   useFoundation,
   keyframes,
+  ServerStyleSheet,
 }
