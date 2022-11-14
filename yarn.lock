@@ -2091,6 +2091,7 @@ __metadata:
     babel-eslint: ^10.1.0
     babel-jest: ^29.3.0
     babel-loader: ^9.1.0
+    babel-plugin-styled-components: ^2.0.7
     babel-preset-react-app: ^10.0.0
     chromatic: ^6.11.4
     core-js: ^3.8.1
@@ -2116,7 +2117,6 @@ __metadata:
     tslib: ^2.3.1
     ttypescript: ^1.5.13
     typesafe-actions: ^5.1.0
-    typescript-plugin-styled-components: ^2.0.0
     typescript-transform-paths: ^3.3.1
     uuid: ^9.0.0
   peerDependencies:
@@ -7720,7 +7720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-styled-components@npm:>= 1.12.0":
+"babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^2.0.7":
   version: 2.0.7
   resolution: "babel-plugin-styled-components@npm:2.0.7"
   dependencies:
@@ -21214,15 +21214,6 @@ __metadata:
   version: 5.1.0
   resolution: "typesafe-actions@npm:5.1.0"
   checksum: 63f973ca93fcd2a037bf994ec6b173a5bf2fe2eba04ea64d8ddc49f3fcac5506d4209d61e020ab07dd39a21539d9f03fbf7c9ed7a22244c3c6c0758e438f6ef5
-  languageName: node
-  linkType: hard
-
-"typescript-plugin-styled-components@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "typescript-plugin-styled-components@npm:2.0.0"
-  peerDependencies:
-    typescript: ^4.0
-  checksum: b4048b45e576ef01e0439f2f7fd6bddd96d83eb6fd91956b0952f56cfcbe952ab2a1330f1c46851b78f5bdf71821f43123145c0be1db6bb578257913a70ddd0b
   languageName: node
   linkType: hard
 

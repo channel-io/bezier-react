@@ -22,6 +22,11 @@ module.exports = {
         '@babel/plugin-transform-runtime',
         ['@babel/plugin-proposal-private-property-in-object', { loose: false }],
         ['@babel/plugin-proposal-class-properties', { loose: false }],
+        ['babel-plugin-styled-components', {
+          minify: true,
+          pure: true,
+          topLevelImportPaths: ['Foundation'],
+        }],
       ],
     },
   },
