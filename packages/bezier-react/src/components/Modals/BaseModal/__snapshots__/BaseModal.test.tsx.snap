@@ -24,6 +24,8 @@ exports[`BaseModal When "show" is true should equal the snapshot 1`] = `
   animation-name: jgQpwH;
   -webkit-animation-duration: 300ms;
   animation-duration: 300ms;
+  -webkit-animation-timing-function: cubic-bezier(0.3,0,0,1);
+  animation-timing-function: cubic-bezier(0.3,0,0,1);
 }
 
 .c1 {
@@ -44,10 +46,12 @@ exports[`BaseModal When "show" is true should equal the snapshot 1`] = `
   color: #242428;
   background-color: #FFFFFF;
   border-radius: 20px;
-  -webkit-animation-name: gUeayS;
-  animation-name: gUeayS;
+  -webkit-animation-name: cYIBgc;
+  animation-name: cYIBgc;
   -webkit-animation-duration: 300ms;
   animation-duration: 300ms;
+  -webkit-animation-timing-function: cubic-bezier(0.3,0,0,1);
+  animation-timing-function: cubic-bezier(0.3,0,0,1);
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 20px #00000038;
 }
