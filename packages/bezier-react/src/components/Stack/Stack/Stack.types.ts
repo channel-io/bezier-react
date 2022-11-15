@@ -32,7 +32,7 @@ interface StackOptions {
    * The `align` prop given to child `StackItem` component
    * overrides the default alignment.
    *
-   * @default start
+   * @default stretch
    */
   align?: AxisAlignment
 
