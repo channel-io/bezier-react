@@ -10,7 +10,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   margin-bottom: 4px;
 }
 
-.c10 {
+.c11 {
   padding: 0 2px;
   margin-top: 4px;
 }
@@ -73,7 +73,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-property: color;
 }
 
-.c11 {
+.c12 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -96,7 +96,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   word-break: break-word;
 }
 
-.c8 {
+.c9 {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -109,19 +109,19 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   color: #000000D9;
 }
 
-.c8::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #00000066;
 }
 
-.c8::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #00000066;
 }
 
-.c8:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #00000066;
 }
 
-.c8::placeholder {
+.c9::placeholder {
   color: #00000066;
 }
 
@@ -152,7 +152,12 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-property: border-color,box-shadow;
 }
 
-.c9 {
+.c7 .c8 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c10 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -180,7 +185,12 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-property: border-color,box-shadow;
 }
 
-.c12 {
+.c10 .c8 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c13 {
   display: block;
   text-align: left;
 }
@@ -241,9 +251,8 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           >
             <input
               autocomplete="off"
-              class="c8"
+              class="c8 c9"
               id="field-:r3:"
-              size="36"
               value=""
             />
           </div>
@@ -273,16 +282,15 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             </label>
           </div>
           <div
-            class="c9"
+            class="c10"
             data-testid="bezier-react-text-input"
             size="36"
           >
             <input
               aria-invalid="true"
               autocomplete="off"
-              class="c8"
+              class="c8 c9"
               id="field-:r4:"
-              size="36"
               value=""
             />
           </div>
@@ -290,10 +298,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       </div>
     </div>
     <div
-      class="c0 c10"
+      class="c0 c11"
     >
       <p
-        class="c11 c12"
+        class="c12 c13"
         color="txt-black-dark"
         data-testid="bezier-react-form-helper-text"
         id="form-help-text"
@@ -315,7 +323,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   margin-bottom: 4px;
 }
 
-.c13 {
+.c14 {
   padding: 0 2px;
   margin-top: 4px;
 }
@@ -348,7 +356,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   height: 36px;
 }
 
-.c14 {
+.c15 {
   grid-row: 2 / 2;
   grid-column: 2;
 }
@@ -428,7 +436,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: color;
 }
 
-.c15 {
+.c16 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -451,7 +459,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   word-break: break-word;
 }
 
-.c11 {
+.c12 {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -464,19 +472,19 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   color: #000000D9;
 }
 
-.c11::-webkit-input-placeholder {
+.c12::-webkit-input-placeholder {
   color: #00000066;
 }
 
-.c11::-moz-placeholder {
+.c12::-moz-placeholder {
   color: #00000066;
 }
 
-.c11:-ms-input-placeholder {
+.c12:-ms-input-placeholder {
   color: #00000066;
 }
 
-.c11::placeholder {
+.c12::placeholder {
   color: #00000066;
 }
 
@@ -507,7 +515,12 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: border-color,box-shadow;
 }
 
-.c12 {
+.c10 .c11 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c13 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -535,7 +548,12 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: border-color,box-shadow;
 }
 
-.c16 {
+.c13 .c11 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c17 {
   display: block;
   text-align: left;
 }
@@ -597,9 +615,8 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           >
             <input
               autocomplete="off"
-              class="c11"
+              class="c11 c12"
               id="field-:r6:"
-              size="36"
               value=""
             />
           </div>
@@ -629,16 +646,15 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             </label>
           </div>
           <div
-            class="c12"
+            class="c13"
             data-testid="bezier-react-text-input"
             size="36"
           >
             <input
               aria-invalid="true"
               autocomplete="off"
-              class="c11"
+              class="c11 c12"
               id="field-:r7:"
-              size="36"
               value=""
             />
           </div>
@@ -646,10 +662,10 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       </div>
     </div>
     <div
-      class="c0 c13 c14"
+      class="c0 c14 c15"
     >
       <p
-        class="c15 c16"
+        class="c16 c17"
         color="txt-black-dark"
         data-testid="bezier-react-form-helper-text"
         id="form-help-text"
@@ -671,7 +687,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   margin-bottom: 4px;
 }
 
-.c6 {
+.c7 {
   padding: 0 2px;
   margin-top: 4px;
 }
@@ -693,7 +709,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-property: color;
 }
 
-.c7 {
+.c8 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -711,196 +727,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 }
 
 .c3 {
-  display: block;
-  text-align: left;
-  word-break: break-word;
-}
-
-.c5 {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  cursor: auto;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  color: #000000D9;
-}
-
-.c5::-webkit-input-placeholder {
-  color: #00000066;
-}
-
-.c5::-moz-placeholder {
-  color: #00000066;
-}
-
-.c5:-ms-input-placeholder {
-  color: #00000066;
-}
-
-.c5::placeholder {
-  color: #00000066;
-}
-
-.c4 {
-  position: relative;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 36px;
-  padding: 0 12px;
-  background-color: #FCFCFC;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px #0000000D, inset 0 0 0 1px #00000026;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: border-color,box-shadow;
-  transition-property: border-color,box-shadow;
-}
-
-.c8 {
-  display: block;
-  text-align: left;
-}
-
-<div
-  class="c0"
-  data-testid="bezier-react-form-control"
->
-  <div
-    class="c0 c1"
-  >
-    <label
-      class="c2 c3"
-      color="txt-black-darkest"
-      data-testid="bezier-react-form-label"
-      for="form"
-      id="form-label"
-    >
-      Label
-    </label>
-  </div>
-  <div
-    class="c4"
-    data-testid="bezier-react-text-input"
-    size="36"
-  >
-    <input
-      aria-describedby="form-help-text"
-      autocomplete="off"
-      class="c5"
-      id="form"
-      size="36"
-      value=""
-    />
-  </div>
-  <div
-    class="c0 c6"
-  >
-    <p
-      class="c7 c8"
-      color="txt-black-dark"
-      data-testid="bezier-react-form-helper-text"
-      id="form-help-text"
-    >
-      Description
-    </p>
-  </div>
-</div>
-`;
-
-exports[`FormControl > Snapshot > With single field and left label position 1`] = `
-.c0 {
-  position: relative;
-}
-
-.c7 {
-  padding: 0 2px;
-  margin-top: 4px;
-}
-
-.c1 {
-  display: grid;
-  grid-template-rows: repeat(2,auto);
-  grid-template-columns: 150px 1fr;
-  grid-column-gap: 12px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-self: start;
-  -ms-flex-item-align: start;
-  align-self: start;
-  height: 36px;
-}
-
-.c8 {
-  grid-row: 2 / 2;
-  grid-column: 2;
-}
-
-.c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c9 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c4 {
   display: block;
   text-align: left;
   word-break: break-word;
@@ -935,6 +761,200 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   color: #00000066;
 }
 
+.c4 {
+  position: relative;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background-color: #FCFCFC;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px #0000000D, inset 0 0 0 1px #00000026;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: border-color,box-shadow;
+  transition-property: border-color,box-shadow;
+}
+
+.c4 .c5 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c9 {
+  display: block;
+  text-align: left;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-form-control"
+>
+  <div
+    class="c0 c1"
+  >
+    <label
+      class="c2 c3"
+      color="txt-black-darkest"
+      data-testid="bezier-react-form-label"
+      for="form"
+      id="form-label"
+    >
+      Label
+    </label>
+  </div>
+  <div
+    class="c4"
+    data-testid="bezier-react-text-input"
+    size="36"
+  >
+    <input
+      aria-describedby="form-help-text"
+      autocomplete="off"
+      class="c5 c6"
+      id="form"
+      value=""
+    />
+  </div>
+  <div
+    class="c0 c7"
+  >
+    <p
+      class="c8 c9"
+      color="txt-black-dark"
+      data-testid="bezier-react-form-helper-text"
+      id="form-help-text"
+    >
+      Description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`FormControl > Snapshot > With single field and left label position 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c8 {
+  padding: 0 2px;
+  margin-top: 4px;
+}
+
+.c1 {
+  display: grid;
+  grid-template-rows: repeat(2,auto);
+  grid-template-columns: 150px 1fr;
+  grid-column-gap: 12px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+  height: 36px;
+}
+
+.c9 {
+  grid-row: 2 / 2;
+  grid-column: 2;
+}
+
+.c3 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000D9;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c10 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: #00000066;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c4 {
+  display: block;
+  text-align: left;
+  word-break: break-word;
+}
+
+.c7 {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: auto;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #000000D9;
+}
+
+.c7::-webkit-input-placeholder {
+  color: #00000066;
+}
+
+.c7::-moz-placeholder {
+  color: #00000066;
+}
+
+.c7:-ms-input-placeholder {
+  color: #00000066;
+}
+
+.c7::placeholder {
+  color: #00000066;
+}
+
 .c5 {
   position: relative;
   box-sizing: border-box;
@@ -962,7 +982,12 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   transition-property: border-color,box-shadow;
 }
 
-.c10 {
+.c5 .c6 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.c11 {
   display: block;
   text-align: left;
 }
@@ -993,17 +1018,16 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     <input
       aria-describedby="form-help-text"
       autocomplete="off"
-      class="c6"
+      class="c6 c7"
       id="form"
-      size="36"
       value=""
     />
   </div>
   <div
-    class="c0 c7 c8"
+    class="c0 c8 c9"
   >
     <p
-      class="c9 c10"
+      class="c10 c11"
       color="txt-black-dark"
       data-testid="bezier-react-form-helper-text"
       id="form-help-text"
