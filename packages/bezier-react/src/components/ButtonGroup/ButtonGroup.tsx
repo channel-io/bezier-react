@@ -8,6 +8,7 @@ import ButtonGroupProps from './ButtonGroup.types'
 function ButtonGroup(
   {
     children,
+    justify = 'center',
     withoutSpacing = false,
     ...props
   }: ButtonGroupProps,
@@ -18,7 +19,7 @@ function ButtonGroup(
   return (
     <HStack
       spacing={spacing}
-      justify="center"
+      justify={justify}
       ref={forwardedRef}
       role="group"
       {...props}
