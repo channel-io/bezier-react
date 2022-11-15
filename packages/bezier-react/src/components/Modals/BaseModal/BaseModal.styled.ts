@@ -19,11 +19,13 @@ const visibleAnimation = keyframes`
 
 const translateAnimation = keyframes`
   from {
-    transform: translate(0, -122px);
+    opacity: 0;
+    transform: scale(0.95);
   }
 
   to {
-    transform: translate(0, 0);
+    opacity: 1;
+    transform: scale(1);
   }
 `
 
@@ -43,6 +45,7 @@ export const BaseModalWrapper = styled.div<{ padded?: boolean }>`
 
   animation-name: ${() => visibleAnimation};
   animation-duration: ${TransitionDuration.M}ms;
+  animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
 `
 
 export const BaseModalBackgroundOverlay = styled.div`
@@ -66,5 +69,7 @@ export const BaseModalChildrenScrollArea = styled.div`
 
   animation-name: ${() => translateAnimation};
   animation-duration: ${TransitionDuration.M}ms;
+  animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
+
   ${({ foundation }) => foundation?.elevation.ev4()};
 `
