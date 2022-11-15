@@ -108,7 +108,7 @@ function getInputTypography({ size }: Pick<WrapperProps, 'size'>) {
     case TextFieldSize.L:
       return Typography.Size16
     case TextFieldSize.XL:
-      return Typography.Size24
+      return Typography.Size18
     // NOTE: should never reach here
     default:
       return Typography.Size14
