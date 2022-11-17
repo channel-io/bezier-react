@@ -1,18 +1,24 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { VStack, StackItem } from 'Components/Stack'
 import { ProgressBar } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
+import mdx from './ProgressBar.mdx'
 
 export default {
   title: getTitle(base),
   component: ProgressBar,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     size: {
       control: {
@@ -40,27 +46,49 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta<ProgressBarProps>
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 720px;
-  padding: 16px;
-  border: 1px solid ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
-`
-
-const Template: Story<ProgressBarProps> = (args) => (
-  <Wrapper>
-    <ProgressBar {...args} />
-  </Wrapper>
-)
-
-export const Primary: Story<ProgressBarProps> = Template.bind({})
-Primary.args = {
+export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
+Playground.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
   width: '36',
   value: 0.5,
 }
+
+export const Overview: Story<{}> = () => (
+  <VStack spacing={6} align="stretch">
+    <StackItem>
+      <ProgressBar
+        size={ProgressBarSize.M}
+        variant={ProgressBarVariant.Green}
+        width={200}
+        value={0.8}
+      />
+    </StackItem>
+    <StackItem>
+      <ProgressBar
+        size={ProgressBarSize.M}
+        variant={ProgressBarVariant.Monochrome}
+        width={200}
+        value={0.8}
+      />
+    </StackItem>
+    <StackItem>
+      <ProgressBar
+        size={ProgressBarSize.S}
+        variant={ProgressBarVariant.Green}
+        width={200}
+        value={0.8}
+      />
+    </StackItem>
+    <StackItem>
+      <ProgressBar
+        size={ProgressBarSize.S}
+        variant={ProgressBarVariant.Monochrome}
+        width={200}
+        value={0.8}
+      />
+    </StackItem>
+  </VStack>
+)
