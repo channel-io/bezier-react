@@ -99,6 +99,148 @@ export const Overview: Story<{}> = () => (
   </VStack>
 )
 
+export const UsageWidth: Story<{}> = () => (
+  <VStack spacing={6} align="stretch">
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">36px (default)</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">80px</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={80}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">200px</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+  </VStack>
+)
+
+UsageWidth.storyName = 'Usage (width)'
+
+export const UsageValue: Story<{}> = () => (
+  <VStack spacing={6} align="stretch">
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">0 (default)</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">0.25</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={0.25}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">0.5</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">0.75</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={0.75}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">1</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={1}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">-1 (invalid value)</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={-1}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem style={{ width: 120 }}>
+          <Text color="txt-black-darkest">3 (invalid value)</Text>
+        </StackItem>
+        <StackItem grow shrink weight={1}>
+          <ProgressBar
+            width={200}
+            value={3}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+  </VStack>
+)
+
+UsageValue.storyName = 'Usage (value)'
+
 export const SizeVariant: Story<{}> = () => (
   <VStack spacing={16} align="stretch">
     <StackItem>
