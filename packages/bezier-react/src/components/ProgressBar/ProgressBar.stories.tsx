@@ -137,3 +137,42 @@ export const SizeVariant: Story<{}> = () => (
 )
 
 SizeVariant.storyName = 'Variant (size)'
+
+export const Variant: Story<{}> = () => (
+  <VStack spacing={16} align="stretch">
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem>
+          <Text color="txt-black-darkest">green</Text>
+        </StackItem>
+        <Spacer />
+        <StackItem>
+          <ProgressBar
+            size={ProgressBarSize.M}
+            variant={ProgressBarVariant.Green}
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem>
+          <Text color="txt-black-darkest">monochrome</Text>
+        </StackItem>
+        <Spacer />
+        <StackItem>
+          <ProgressBar
+            size={ProgressBarSize.M}
+            variant={ProgressBarVariant.Monochrome}
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+  </VStack>
+)
+
+Variant.storyName = 'Variant (color)'
