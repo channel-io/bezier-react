@@ -13,7 +13,7 @@ import { StyledProgressBarWrapper, StyledProgressBarActive } from './ProgressBar
 
 export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
 
-function ProgressBar(
+export const ProgressBar = memo(forwardRef(function ProgressBar(
   {
     size = ProgressBarSize.M,
     variant = ProgressBarVariant.Green,
@@ -50,6 +50,4 @@ function ProgressBar(
       />
     </StyledProgressBarWrapper>
   )
-}
-
-export default memo(forwardRef(ProgressBar))
+}))

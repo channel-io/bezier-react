@@ -4,7 +4,10 @@ import React from 'react'
 /* Interanal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import ProgressBar, { PROGRESS_BAR_ACTIVE_TEST_ID } from './ProgressBar'
+import {
+  ProgressBar,
+  PROGRESS_BAR_ACTIVE_TEST_ID,
+} from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 
