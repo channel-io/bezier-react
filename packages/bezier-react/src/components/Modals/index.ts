@@ -1,3 +1,3 @@
 export * from './BaseModal'
 export * from './ConfirmModal'
-export * from './LegacyModal'
+export * from './Modal'
