@@ -3,13 +3,13 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
+import { gap } from 'Utils/styleUtils'
 import {
   Button,
   ButtonSize,
   ButtonColorVariant,
   ButtonStyleVariant,
 } from 'Components/Button'
-import { gap } from 'Utils/styleUtils'
 import ModalAnimation from './ModalAnimation.styled'
 
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
