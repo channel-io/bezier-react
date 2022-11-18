@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
@@ -12,6 +12,7 @@ import {
   Spacer,
 } from 'Components/Stack'
 import { Text } from 'Components/Text'
+import { Button } from 'Components/Button'
 import { ProgressBar } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
@@ -62,42 +63,64 @@ Playground.args = {
   value: 0.5,
 }
 
-export const Overview: Story<{}> = () => (
-  <VStack spacing={6} align="stretch">
-    <StackItem>
-      <ProgressBar
-        size={ProgressBarSize.M}
-        variant={ProgressBarVariant.Green}
-        width={200}
-        value={0.8}
-      />
-    </StackItem>
-    <StackItem>
-      <ProgressBar
-        size={ProgressBarSize.M}
-        variant={ProgressBarVariant.Monochrome}
-        width={200}
-        value={0.8}
-      />
-    </StackItem>
-    <StackItem>
-      <ProgressBar
-        size={ProgressBarSize.S}
-        variant={ProgressBarVariant.Green}
-        width={200}
-        value={0.8}
-      />
-    </StackItem>
-    <StackItem>
-      <ProgressBar
-        size={ProgressBarSize.S}
-        variant={ProgressBarVariant.Monochrome}
-        width={200}
-        value={0.8}
-      />
-    </StackItem>
-  </VStack>
-)
+export const Overview: Story<{}> = () => {
+  const [values, setValues] = useState<number[]>([0, 0, 0, 0])
+
+  const handleSetRandomValues = () => {
+    setValues([...Array(4)].map(() => Math.random()))
+  }
+
+  useEffect(() => {
+    handleSetRandomValues()
+  }, [])
+
+  return (
+    <VStack spacing={12} align="center">
+      <StackItem>
+        <VStack spacing={6} align="stretch">
+          <StackItem>
+            <ProgressBar
+              size={ProgressBarSize.M}
+              variant={ProgressBarVariant.Green}
+              width={200}
+              value={values[0]}
+            />
+          </StackItem>
+          <StackItem>
+            <ProgressBar
+              size={ProgressBarSize.M}
+              variant={ProgressBarVariant.Monochrome}
+              width={200}
+              value={values[1]}
+            />
+          </StackItem>
+          <StackItem>
+            <ProgressBar
+              size={ProgressBarSize.S}
+              variant={ProgressBarVariant.Green}
+              width={200}
+              value={values[2]}
+            />
+          </StackItem>
+          <StackItem>
+            <ProgressBar
+              size={ProgressBarSize.S}
+              variant={ProgressBarVariant.Monochrome}
+              width={200}
+              value={values[3]}
+            />
+          </StackItem>
+        </VStack>
+      </StackItem>
+      <StackItem>
+        <Button
+          text="Set random values"
+          onClick={handleSetRandomValues}
+        />
+      </StackItem>
+    </VStack>
+  )
+}
 
 export const UsageWidth: Story<{}> = () => (
   <VStack spacing={6} align="stretch">
