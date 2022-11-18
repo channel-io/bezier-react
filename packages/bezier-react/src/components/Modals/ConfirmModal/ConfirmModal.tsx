@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import { Modal } from '../Modal'
+import { Modal } from '../LegacyModal'
 import type { ConfirmModalProps } from './ConfirmModal.types'
 
 function ConfirmModal(

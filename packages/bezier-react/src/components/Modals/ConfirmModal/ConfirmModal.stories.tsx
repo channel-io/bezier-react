@@ -11,8 +11,8 @@ import {
   ModalAction,
   ModalActionProps,
   ModalContentProps,
-} from '../Modal'
-import { ModalTitleSize } from '../Modal/Modal.types'
+} from '../LegacyModal'
+import { ModalTitleSize } from '../LegacyModal/Modal.types'
 import type { ConfirmModalProps } from './ConfirmModal.types'
 import ConfirmModal from './ConfirmModal'
 
