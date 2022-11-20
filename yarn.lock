@@ -2082,7 +2082,7 @@ __metadata:
     "@storybook/manager-webpack5": ^6.5.13
     "@storybook/react": ^6.5.13
     "@storybook/storybook-deployer": ^2.8.16
-    "@svgr/babel-plugin-add-jsx-attribute": ^6.0.0
+    "@svgr/babel-plugin-add-jsx-attribute": ^6.5.1
     "@svgr/babel-plugin-remove-jsx-attribute": ^6.0.0
     "@svgr/cli": ^6.2.1
     "@testing-library/jest-dom": ^5.11.6
@@ -5134,6 +5134,15 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 8200dfa2ee903a42a376fec73feb591414cced5674dbff646be85bf6f3587ff74ecbaffa14e2cc096d0b3325630d30872c3f350a8ac501e6672a8e7b1ff3e0f5
+  languageName: node
+  linkType: hard
+
+"@svgr/babel-plugin-add-jsx-attribute@npm:^6.5.1":
+  version: 6.5.1
+  resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.5.1"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: cab83832830a57735329ed68f67c03b57ca21fa037b0134847b0c5c0ef4beca89956d7dacfbf7b2a10fd901e7009e877512086db2ee918b8c69aee7742ae32c0
   languageName: node
   linkType: hard
 
