@@ -67,7 +67,7 @@
     "@storybook/addon-toolbars": "^6.5.0",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.13",
-    "@storybook/react": "^6.5.0",
+    "@storybook/react": "^6.5.13",
     "@storybook/storybook-deployer": "^2.8.16",
     "@svgr/babel-plugin-add-jsx-attribute": "^6.0.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
