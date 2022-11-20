@@ -1,4 +1,6 @@
+/* Internal dependencies */
 import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { HStackProps } from 'Components/Stack'
 
 interface ButtonGroupOptions {
   /**
@@ -11,5 +13,5 @@ interface ButtonGroupOptions {
 export default interface ButtonGroupProps extends
   BezierComponentProps,
   ChildrenProps,
-  ButtonGroupOptions
-{}
+  Pick<HStackProps, 'justify'>,
+  ButtonGroupOptions {}
