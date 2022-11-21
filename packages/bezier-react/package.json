@@ -100,7 +100,7 @@
     "rollup": "^2.50.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.31.1",
-    "rollup-plugin-visualizer": "^5.5.2",
+    "rollup-plugin-visualizer": "^5.8.3",
     "styled-components": "^5.3.5",
     "ts-prune": "^0.10.3",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
