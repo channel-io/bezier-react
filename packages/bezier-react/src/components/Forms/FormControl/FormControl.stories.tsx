@@ -15,6 +15,7 @@ import { TextField } from 'Components/Forms/Inputs/TextField'
 import { TextArea } from 'Components/Forms/Inputs/TextArea'
 import { Select } from 'Components/Forms/Inputs/Select'
 import { FormHelperText, FormErrorMessage } from 'Components/Forms/FormHelperText'
+import { Switch } from 'Components/Forms/Switch'
 import FormControl from './FormControl'
 import FormControlProps from './FormControl.types'
 
@@ -118,6 +119,13 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
           <Radio>Minute(s)</Radio>
         </div>
       </FormGroup>
+      <FormHelperText>Description</FormHelperText>
+      <FormErrorMessage>Error!</FormErrorMessage>
+    </FormControl>
+
+    <FormControl {...args}>
+      <FormLabel help="Lorem Ipsum">Label</FormLabel>
+      <Switch />
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
