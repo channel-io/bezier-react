@@ -28,7 +28,6 @@ function ModalComposition({
   subTitle,
   description,
   titleSize,
-  // TODO: Add all props
 }: ModalCompositionProps) {
   const [show, setShow] = useState(false)
 
@@ -97,6 +96,7 @@ export default {
     Modal,
     ModalContent,
     ModalHeader,
+    ModalBody,
     ModalFooter,
     ModalTrigger,
     ModalClose,
@@ -108,11 +108,6 @@ export default {
       },
     },
     height: {
-      control: {
-        type: 'text',
-      },
-    },
-    zIndex: {
       control: {
         type: 'text',
       },
