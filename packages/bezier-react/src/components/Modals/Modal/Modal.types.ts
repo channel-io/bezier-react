@@ -88,9 +88,7 @@ interface ModalFooterOptions extends
   SideContentProps<ModalFooterSideContent, ModalFooterSideContent> {}
 
 export interface ModalProps extends
-  BezierComponentProps,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
   ModalOptions {}
 
 export interface ModalContentProps extends
@@ -105,7 +103,9 @@ export interface ModalHeaderProps extends
   ModalHeaderOptions {}
 
 export interface ModalBodyProps extends
-  ChildrenProps {}
+  BezierComponentProps,
+  ChildrenProps,
+  React.HTMLAttributes<HTMLDivElement> {}
 
 export interface ModalFooterProps extends
   BezierComponentProps,

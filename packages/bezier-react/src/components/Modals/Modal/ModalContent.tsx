@@ -5,6 +5,7 @@ import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import { document } from 'Utils/domUtils'
+import { ModalClose } from './ModalHelpers'
 import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'
 import * as Styled from './Modal.styled'
@@ -55,9 +56,9 @@ export const ModalContent = forwardRef(function ModalContent({
 
             { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
             { showCloseIcon && (
-              <DialogPrimitive.Close asChild>
+              <ModalClose>
                 <Styled.CloseIconButton />
-              </DialogPrimitive.Close>
+              </ModalClose>
             ) }
           </Styled.Section>
         </Styled.Content>

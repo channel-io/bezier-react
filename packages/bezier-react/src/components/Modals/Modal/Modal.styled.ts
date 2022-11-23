@@ -4,12 +4,8 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { gap } from 'Utils/styleUtils'
-import {
-  Button,
-  ButtonSize,
-  ButtonColorVariant,
-  ButtonStyleVariant,
-} from 'Components/Button'
+import { Button, ButtonSize, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { ModalBodyProps, ModalContentProps, ModalFooterProps, ModalHeaderProps } from './Modal.types'
 import ModalAnimation from './ModalAnimation.styled'
 
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
@@ -26,7 +22,7 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   }
 `
 
-export const Content = styled.div`
+export const Content = styled.div<ModalContentProps>`
   ${({ foundation }) => foundation?.rounding.round20}
   ${({ foundation }) => foundation?.elevation.ev4()}
 
@@ -44,6 +40,7 @@ export const Content = styled.div`
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   color: var(--bg-grey-darkest);
+  word-break: break-word;
   transform: translate(-50%, -50%);
 
   &[data-state='open'] {
@@ -57,6 +54,8 @@ export const Content = styled.div`
   &:focus {
     outline: none;
   }
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const Section = styled.section`
@@ -68,11 +67,13 @@ export const Section = styled.section`
 
 const MODAL_PADDING = 24
 
-export const Header = styled.header`
+export const Header = styled.header<ModalHeaderProps>`
   display: flex;
   flex-direction: column;
   padding: ${MODAL_PADDING}px ${MODAL_PADDING}px 12px ${MODAL_PADDING}px;
   ${gap(12)}
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const TitleContainer = styled.div`
@@ -114,14 +115,18 @@ export const CloseIconButtonSpacer = styled(Button).attrs({
   visibility: hidden;
 `
 
-export const Body = styled.div`
+export const Body = styled.div<ModalBodyProps>`
   flex: 1;
   padding: 0 ${MODAL_PADDING}px;
+
+  ${({ interpolation }) => interpolation}
 `
 
-export const Footer = styled.footer`
+export const Footer = styled.footer<ModalFooterProps>`
   display: flex;
   padding: 16px ${MODAL_PADDING}px ${MODAL_PADDING}px;
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const FooterLeftContent = styled.div`

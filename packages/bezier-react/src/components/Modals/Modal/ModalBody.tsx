@@ -1,13 +1,20 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
+import { ModalBodyProps } from './Modal.types'
 import * as Styled from './Modal.styled'
 
-export function ModalBody({ children }) {
+export const ModalBody = forwardRef(function ModalBody({
+  children,
+  ...rest
+}: ModalBodyProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.Body>
+    <Styled.Body
+      ref={forwardedRef}
+      {...rest}
+    >
       { children }
     </Styled.Body>
   )
-}
+})

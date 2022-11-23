@@ -15,12 +15,7 @@ import { ModalHeader } from './ModalHeader'
 import { ModalBody } from './ModalBody'
 import { ModalFooter } from './ModalFooter'
 import { ModalTrigger, ModalClose } from './ModalHelpers'
-import {
-  ModalProps,
-  ModalContentProps,
-  ModalHeaderProps,
-  ModalTitleSize,
-} from './Modal.types'
+import { ModalProps, ModalContentProps, ModalHeaderProps, ModalTitleSize } from './Modal.types'
 
 type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
 
