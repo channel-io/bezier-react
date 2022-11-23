@@ -53,7 +53,8 @@ interface ModalContentOptions {
   /**
    * z-index of the modal content.
    * Rather than using this option, Please check modal is positioned in the proper stacking context.
-   * @default 1e7
+   * @deprecated
+   * @default 0
    */
   zIndex?: React.CSSProperties['zIndex']
 }

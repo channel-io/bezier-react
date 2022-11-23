@@ -16,7 +16,7 @@ export const ModalContent = forwardRef(function ModalContent({
   showCloseIcon = false,
   width = 'max-content',
   height = 'fit-content',
-  zIndex = 1e7,
+  zIndex = 0,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const contentStyle = useMemo((): React.CSSProperties & {
