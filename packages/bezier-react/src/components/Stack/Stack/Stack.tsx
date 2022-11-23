@@ -39,7 +39,7 @@ function Stack(
     children,
     direction,
     justify = 'start',
-    align = 'start',
+    align = 'stretch',
     spacing = 0,
     ...rest
   }: StackProps,
