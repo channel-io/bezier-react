@@ -138,6 +138,7 @@ import ChevronUpdown from './ChevronUpdown'
 import Clip from './Clip'
 import Clock from './Clock'
 import CloudDownload from './CloudDownload'
+import CloudOff from './CloudOff'
 import CloudUpload from './CloudUpload'
 import CodeBlock from './CodeBlock'
 import Code from './Code'
@@ -231,6 +232,7 @@ import HeartFilled from './HeartFilled'
 import Heart from './Heart'
 import HelpFilled from './HelpFilled'
 import Help from './Help'
+import HexahedronFilled from './HexahedronFilled'
 import Hexahedron from './Hexahedron'
 import History from './History'
 import HomeFilled from './HomeFilled'
@@ -350,6 +352,7 @@ import Repeat from './Repeat'
 import Rotate from './Rotate'
 import Row from './Row'
 import Ruler from './Ruler'
+import SearchBold from './SearchBold'
 import Search from './Search'
 import SecurityPerson from './SecurityPerson'
 import Security from './Security'
@@ -604,6 +607,7 @@ const icons = {
   clip: Clip,
   clock: Clock,
   'cloud-download': CloudDownload,
+  'cloud-off': CloudOff,
   'cloud-upload': CloudUpload,
   'code-block': CodeBlock,
   code: Code,
@@ -697,6 +701,7 @@ const icons = {
   heart: Heart,
   'help-filled': HelpFilled,
   help: Help,
+  'hexahedron-filled': HexahedronFilled,
   hexahedron: Hexahedron,
   history: History,
   'home-filled': HomeFilled,
@@ -816,6 +821,7 @@ const icons = {
   rotate: Rotate,
   row: Row,
   ruler: Ruler,
+  'search-bold': SearchBold,
   search: Search,
   'security-person': SecurityPerson,
   security: Security,
@@ -1085,6 +1091,7 @@ export {
   Clip as ClipIcon,
   Clock as ClockIcon,
   CloudDownload as CloudDownloadIcon,
+  CloudOff as CloudOffIcon,
   CloudUpload as CloudUploadIcon,
   CodeBlock as CodeBlockIcon,
   Code as CodeIcon,
@@ -1178,6 +1185,7 @@ export {
   Heart as HeartIcon,
   HelpFilled as HelpFilledIcon,
   Help as HelpIcon,
+  HexahedronFilled as HexahedronFilledIcon,
   Hexahedron as HexahedronIcon,
   History as HistoryIcon,
   HomeFilled as HomeFilledIcon,
@@ -1297,6 +1305,7 @@ export {
   Rotate as RotateIcon,
   Row as RowIcon,
   Ruler as RulerIcon,
+  SearchBold as SearchBoldIcon,
   Search as SearchIcon,
   SecurityPerson as SecurityPersonIcon,
   Security as SecurityIcon,
