@@ -6,6 +6,27 @@ import { noop } from 'lodash-es'
 /* Internal dependencies */
 import { ModalProps } from './Modal.types'
 
+/**
+ * `Modal` is a dialog that appears on top of the page.
+ *
+ * `Modal` is a context of the Modal-related components. It doesn't render any DOM node.
+ * It controls the visibility of the entire component and provides
+ * handlers and accessibility properties to Modal-related components.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Modal
+ * <Modal>
+ *  <ModalTrigger />
+ *  <ModalContent>
+ *    <ModalHeader />
+ *    <ModalBody />
+ *    <ModalFooter />
+ *  </ModalContent>
+ * </Modal>
+ * ```
+ */
 export function Modal({
   children,
   show,

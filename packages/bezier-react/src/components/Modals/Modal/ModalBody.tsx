@@ -5,6 +5,9 @@ import React, { forwardRef } from 'react'
 import { ModalBodyProps } from './Modal.types'
 import * as Styled from './Modal.styled'
 
+/**
+ * `ModalBody` is a simple wrapper of the main modal content.
+ */
 export const ModalBody = forwardRef(function ModalBody({
   children,
   ...rest

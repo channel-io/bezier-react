@@ -5,6 +5,10 @@ import React, { forwardRef } from 'react'
 import { ModalFooterProps } from './Modal.types'
 import * as Styled from './Modal.styled'
 
+/**
+ * `ModalFooter` is a simple wrapper of the footer of the modal content.
+ * Usually, it contains the action buttons of the modal.
+ */
 export const ModalFooter = forwardRef(function ModalFooter({
   leftContent,
   rightContent,

@@ -10,6 +10,11 @@ import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'
 import * as Styled from './Modal.styled'
 
+/**
+ * `ModalContent` is a container of the modal content.
+ * It creates a portal to render the modal content outside of the DOM tree
+ * and renders overlay behind the modal content too.
+ */
 export const ModalContent = forwardRef(function ModalContent({
   children,
   style,

@@ -20,6 +20,10 @@ function getTitleTypo(size: ModalTitleSize) {
   }
 }
 
+/**
+ * `ModalHeader` is a header of the modal content.
+ * It renders the accessible title and description of the modal.
+ */
 export const ModalHeader = forwardRef(function ModalHeader({
   title,
   subTitle,
