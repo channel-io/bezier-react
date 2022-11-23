@@ -93,11 +93,26 @@ const ClearIconWrapper = styled.div`
 interface WrapperProps {
   variant?: TextFieldVariant
   bgColor: SemanticNames
-  size?: TextFieldSize
+  size: TextFieldSize
   borderRadius?: FlattenSimpleInterpolation
   hasError?: boolean
   focused?: boolean
   disabled?: boolean
+}
+
+function getInputTypography({ size }: Pick<WrapperProps, 'size'>) {
+  switch (size) {
+    case TextFieldSize.XS:
+    case TextFieldSize.M:
+      return Typography.Size14
+    case TextFieldSize.L:
+      return Typography.Size16
+    case TextFieldSize.XL:
+      return Typography.Size18
+    // NOTE: should never reach here
+    default:
+      return Typography.Size14
+  }
 }
 
 const Wrapper = styled.div<WrapperProps & InterpolationProps>`
@@ -119,6 +134,10 @@ const Wrapper = styled.div<WrapperProps & InterpolationProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['border-color', 'box-shadow'])}
 
   ${({ interpolation }) => interpolation}
+
+  ${Input} {
+    ${getInputTypography}
+  }
 `
 
 export default {

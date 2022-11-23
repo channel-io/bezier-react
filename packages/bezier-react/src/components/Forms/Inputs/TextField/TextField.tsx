@@ -362,7 +362,6 @@ forwardedRef: Ref<TextFieldRef>,
         ref={inputRef}
         value={normalizedValue}
         name={name}
-        size={size}
         autoComplete={autoComplete}
         readOnly={readOnly}
         disabled={disabled}
