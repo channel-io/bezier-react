@@ -28,7 +28,7 @@ interface ModalOptions {
 interface ModalContentOptions {
   /**
    * Specify a container element to portal the content into.
-   * @default getRootElement()
+   * @default document.body
    */
   container?: HTMLElement | null
 

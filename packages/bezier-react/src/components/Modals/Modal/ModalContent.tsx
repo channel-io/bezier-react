@@ -4,7 +4,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
-import { getRootElement } from 'Utils/domUtils'
+import { document } from 'Utils/domUtils'
 import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'
 import * as Styled from './Modal.styled'
@@ -12,7 +12,7 @@ import * as Styled from './Modal.styled'
 export const ModalContent = forwardRef(function ModalContent({
   children,
   style,
-  container = getRootElement(),
+  container = document.body,
   showCloseIcon = false,
   width = 'max-content',
   height = 'fit-content',
