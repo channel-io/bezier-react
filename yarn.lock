@@ -2075,7 +2075,7 @@ __metadata:
     "@storybook/addon-a11y": ^6.5.0
     "@storybook/addon-actions": ^6.5.13
     "@storybook/addon-backgrounds": ^6.5.13
-    "@storybook/addon-controls": ^6.5.0
+    "@storybook/addon-controls": ^6.5.13
     "@storybook/addon-docs": ^6.5.13
     "@storybook/addon-toolbars": ^6.5.0
     "@storybook/builder-webpack5": ^6.5.9
@@ -3771,19 +3771,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-controls@npm:^6.5.0":
-  version: 6.5.9
-  resolution: "@storybook/addon-controls@npm:6.5.9"
+"@storybook/addon-controls@npm:^6.5.13":
+  version: 6.5.13
+  resolution: "@storybook/addon-controls@npm:6.5.13"
   dependencies:
-    "@storybook/addons": 6.5.9
-    "@storybook/api": 6.5.9
-    "@storybook/client-logger": 6.5.9
-    "@storybook/components": 6.5.9
-    "@storybook/core-common": 6.5.9
+    "@storybook/addons": 6.5.13
+    "@storybook/api": 6.5.13
+    "@storybook/client-logger": 6.5.13
+    "@storybook/components": 6.5.13
+    "@storybook/core-common": 6.5.13
     "@storybook/csf": 0.0.2--canary.4566f4d.1
-    "@storybook/node-logger": 6.5.9
-    "@storybook/store": 6.5.9
-    "@storybook/theming": 6.5.9
+    "@storybook/node-logger": 6.5.13
+    "@storybook/store": 6.5.13
+    "@storybook/theming": 6.5.13
     core-js: ^3.8.2
     lodash: ^4.17.21
     ts-dedent: ^2.0.0
@@ -3795,7 +3795,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: aa5deadb1a670c3ae3c7ca809a03530a58d2b2e37c1e58acbe96122edf80abef9afd4b954477dedaf4f83fad391e737e58c71deaf16990efe51b72992fdf595f
+  checksum: a4f86332686b5681366ad1f1eebb50cb9939ce3424ade64c0043b94827df15a34da0190101c8dc9a2b4b9af67fafd9d3fb50a5b98ff7a24fed6a37a2f8f37f27
   languageName: node
   linkType: hard
 
