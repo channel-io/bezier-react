@@ -36,7 +36,8 @@ export enum ButtonSize {
 
 export type SideContent = IconName | React.ReactNode
 
-type MouseEventHandler = React.MouseEventHandler
+export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
+export type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
 
 interface ButtonOptions {
   /**
@@ -104,7 +105,7 @@ interface ButtonOptions {
   /**
    * The handler to be executed when the button is unfocused.
    */
-  onBlur?: MouseEventHandler
+  onBlur?: FocusEventHandler
 }
 
 export default interface ButtonProps extends
@@ -112,4 +113,5 @@ export default interface ButtonProps extends
   SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,
+  React.HTMLAttributes<HTMLButtonElement>,
   ButtonOptions {}

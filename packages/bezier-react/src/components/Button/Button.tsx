@@ -6,7 +6,13 @@ import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 import { Typography, SemanticNames } from 'Foundation'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
-import ButtonProps, { SideContent, ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
+import ButtonProps, {
+  SideContent,
+  ButtonSize,
+  ButtonStyleVariant,
+  ButtonColorVariant,
+  MouseEventHandler,
+} from './Button.types'
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
@@ -102,6 +108,7 @@ export const Button = forwardRef(function Button(
     onMouseEnter = noop,
     onMouseLeave = noop,
     onBlur = noop,
+    ...rest
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
@@ -173,17 +180,17 @@ export const Button = forwardRef(function Button(
     isHovered,
   ])
 
-  const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+  const handleMouseEnter = useCallback<MouseEventHandler>((event) => {
     setIsHovered(true)
-    onMouseEnter(e)
+    onMouseEnter(event)
   }, [onMouseEnter])
 
-  const handleMouseLeave = useCallback((e: React.MouseEvent) => {
+  const handleMouseLeave = useCallback<MouseEventHandler>((event) => {
     setIsHovered(false)
-    onMouseLeave(e)
+    onMouseLeave(event)
   }, [onMouseLeave])
 
-  const handleClick = useCallback((event: React.MouseEvent) => {
+  const handleClick = useCallback<MouseEventHandler>((event) => {
     if (!disabled) { onClick(event) }
     return null
   }, [
@@ -227,6 +234,7 @@ export const Button = forwardRef(function Button(
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onBlur={onBlur}
+      {...rest}
     >
       <Styled.ButtonContents
         data-testid={BUTTON_INNER_CONTENT_TEST_ID}
