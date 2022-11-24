@@ -37,7 +37,7 @@ export enum ButtonSize {
 export type SideContent = IconName | React.ReactNode
 
 export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
-export type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
+type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
 
 interface ButtonOptions {
   /**
