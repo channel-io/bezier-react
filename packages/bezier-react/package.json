@@ -96,7 +96,7 @@
     "paths.macro": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "regenerator-runtime": "^0.13.7",
+    "regenerator-runtime": "^0.13.11",
     "rollup": "^2.50.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.31.1",
