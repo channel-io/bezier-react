@@ -50,6 +50,7 @@ export const ModalContent = forwardRef(function ModalContent({
       <Styled.DialogPrimitiveOverlay />
       <DialogPrimitive.Content asChild>
         <Styled.Content
+          aria-modal
           ref={forwardedRef}
           style={contentStyle}
           {...rest}
