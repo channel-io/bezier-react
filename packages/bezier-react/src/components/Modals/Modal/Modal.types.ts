@@ -8,9 +8,16 @@ export enum ModalTitleSize {
 
 interface ModalOptions {
   /**
-   * Whether the modal should be shown or not.
+   * The controlled open state of the modal.
+   * Must be used in conjunction with `onShow` and `onHide`.
    */
   show?: boolean
+
+  /**
+   * The open state of the modal when it is initially rendered.
+   * Use when you **do not need to control** its open state.
+   */
+  defaultShow?: boolean
 
   /**
    * Callback function to be called when the modal is opened.

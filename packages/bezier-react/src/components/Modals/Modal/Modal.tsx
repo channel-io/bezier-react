@@ -30,6 +30,7 @@ import { ModalProps } from './Modal.types'
 export function Modal({
   children,
   show,
+  defaultShow,
   onShow = noop,
   onHide = noop,
 }: ModalProps) {
@@ -44,6 +45,7 @@ export function Modal({
   return (
     <DialogPrimitive.Root
       open={show}
+      defaultOpen={defaultShow}
       onOpenChange={onOpenChange}
     >
       { children }
