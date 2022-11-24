@@ -25,7 +25,7 @@ function ModalComposition({
   width,
   height,
   title,
-  subTitle,
+  subtitle,
   description,
   titleSize,
 }: ModalCompositionProps) {
@@ -52,7 +52,7 @@ function ModalComposition({
       >
         <ModalHeader
           title={title}
-          subTitle={subTitle}
+          subtitle={subtitle}
           description={description}
           titleSize={titleSize}
         />
@@ -128,7 +128,7 @@ Composition.args = {
   show: false,
   showCloseIcon: false,
   title: 'Edit profile',
-  subTitle: 'Profile Settings',
+  subtitle: 'Profile Settings',
   description: 'Make changes to your profile here. Click save when you\'re done.',
   titleSize: ModalTitleSize.L,
 }

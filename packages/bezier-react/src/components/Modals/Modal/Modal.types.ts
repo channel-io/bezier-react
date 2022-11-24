@@ -68,7 +68,7 @@ interface ModalHeaderOptions {
   /**
    * An accessible subtitle to be announced when the modal is opened.
    */
-  subTitle?: React.ReactNode
+  subtitle?: React.ReactNode
 
   /**
    * An accessible description to be announced when the modal is opened.

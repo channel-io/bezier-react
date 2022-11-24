@@ -26,14 +26,14 @@ function getTitleTypo(size: ModalTitleSize) {
  */
 export const ModalHeader = forwardRef(function ModalHeader({
   title,
-  subTitle,
+  subtitle,
   description,
   titleSize = ModalTitleSize.L,
   ...rest
 }: ModalHeaderProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const { showCloseIcon } = useContext(ModalContentContext)
 
-  const hasTitleOrSubtitle = title || subTitle
+  const hasTitleOrSubtitle = title || subtitle
   const hasTitleArea = hasTitleOrSubtitle || showCloseIcon
 
   return (
@@ -45,7 +45,10 @@ export const ModalHeader = forwardRef(function ModalHeader({
         <Styled.TitleContainer>
           { hasTitleOrSubtitle && (
             <DialogPrimitive.Title asChild>
-              <Styled.HeadingGroup>
+              <Styled.HeadingGroup
+                role="group"
+                aria-roledescription="Heading group"
+              >
                 { title && (
                   <Text
                     as="h2"
@@ -57,14 +60,15 @@ export const ModalHeader = forwardRef(function ModalHeader({
                   </Text>
                 ) }
 
-                { subTitle && (
+                { subtitle && (
                   <Text
-                    as="h3"
+                    aria-roledescription="subtitle"
+                    as="p"
                     bold
                     color="txt-black-dark"
                     typo={Typography.Size13}
                   >
-                    { subTitle }
+                    { subtitle }
                   </Text>
                 ) }
               </Styled.HeadingGroup>
