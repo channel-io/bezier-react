@@ -8,7 +8,7 @@ import { getTitle } from 'Utils/storyUtils'
 import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
-import AvatarGroup from './AvatarGroup'
+import { AvatarGroup } from './AvatarGroup'
 
 const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)

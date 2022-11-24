@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
-import Tag from './Tag'
+import { Tag } from './Tag'
 import TagProps from './Tag.types'
 
 export default {

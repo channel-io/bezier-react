@@ -3,8 +3,8 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import Button from 'Components/Button/Button'
-import ButtonGroup from './ButtonGroup'
+import { Button } from 'Components/Button'
+import { ButtonGroup } from './ButtonGroup'
 import ButtonGroupProps from './ButtonGroup.types'
 
 describe('ButtonGroup', () => {

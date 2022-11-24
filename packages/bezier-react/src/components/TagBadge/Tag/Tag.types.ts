@@ -3,6 +3,11 @@ import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps, ColorProp
 import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
 
 interface TagOptions {
+  /**
+   * Handler to be called when the delete button is clicked.
+   *
+   * The delete button will be not shown if this prop is not provided.
+   */
   onDelete?: React.MouseEventHandler
 }
 

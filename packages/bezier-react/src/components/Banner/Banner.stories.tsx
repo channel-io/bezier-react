@@ -10,7 +10,9 @@ import {
   StackItem,
   VStack,
 } from 'Components/Stack'
-import Banner from './Banner'
+import {
+  Banner,
+} from './Banner'
 import {
   BannerVariant,
   BannerProps,

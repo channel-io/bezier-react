@@ -81,7 +81,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
   ),
 }
 
-function Button(
+export const Button = forwardRef(function Button(
   {
     as,
     className,
@@ -260,6 +260,4 @@ function Button(
       ) }
     </Styled.ButtonWrapper>
   )
-}
-
-export default forwardRef(Button)
+})

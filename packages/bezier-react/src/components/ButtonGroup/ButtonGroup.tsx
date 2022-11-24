@@ -5,7 +5,7 @@ import React, { Children, forwardRef } from 'react'
 import { HStack, StackItem } from 'Components/Stack'
 import ButtonGroupProps from './ButtonGroup.types'
 
-function ButtonGroup(
+export const ButtonGroup = forwardRef(function ButtonGroup(
   {
     children,
     justify = 'center',
@@ -36,7 +36,4 @@ function ButtonGroup(
       }
     </HStack>
   )
-}
-
-export default forwardRef(ButtonGroup)
-
+})

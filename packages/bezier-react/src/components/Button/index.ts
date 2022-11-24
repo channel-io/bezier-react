@@ -1,4 +1,6 @@
-import Button from './Button'
+import {
+  Button,
+} from './Button'
 import {
   ButtonSize,
   ButtonColorVariant,

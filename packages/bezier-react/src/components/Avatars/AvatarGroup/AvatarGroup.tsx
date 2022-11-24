@@ -54,7 +54,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
-function AvatarGroup({
+export const AvatarGroup = forwardRef(function AvatarGroup({
   max,
   size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
@@ -173,6 +173,4 @@ forwardedRef: React.Ref<HTMLDivElement>,
       { AvatarListComponent }
     </StyledAvatarGroup>
   )
-}
-
-export default forwardRef(AvatarGroup)
+})

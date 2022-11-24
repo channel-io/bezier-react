@@ -15,7 +15,7 @@ export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
-function Avatar({
+export const Avatar = forwardRef(function Avatar({
   avatarUrl = '',
   fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
@@ -102,6 +102,4 @@ forwardedRef: React.Ref<HTMLDivElement>,
       </AvatarImageWrapper>
     </AvatarWrapper>
   )
-}
-
-export default forwardRef(Avatar)
+})

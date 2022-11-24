@@ -6,10 +6,9 @@ import type { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import Button from 'Components/Button/Button'
-import { ButtonStyleVariant } from 'Components/Button/Button.types'
+import { Button, ButtonStyleVariant } from 'Components/Button'
 import { Spacer, StackItem } from 'Components/Stack'
-import ButtonGroup from './ButtonGroup'
+import { ButtonGroup } from './ButtonGroup'
 import ButtonGroupProps from './ButtonGroup.types'
 import mdx from './ButtonGroup.mdx'
 

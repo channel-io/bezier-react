@@ -5,7 +5,7 @@ import React from 'react'
 import { render } from 'Utils/testUtils'
 import { Avatar } from 'Components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
-import AvatarGroup, { AVATAR_GROUP_TEST_ID } from './AvatarGroup'
+import { AvatarGroup, AVATAR_GROUP_TEST_ID } from './AvatarGroup'
 import { AvatarGroupEllipsisType } from './AvatarGroup.types'
 import type AvatarGroupProps from './AvatarGroup.types'
 

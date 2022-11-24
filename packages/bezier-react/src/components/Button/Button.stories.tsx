@@ -51,7 +51,9 @@ import ButtonProps, {
   ButtonStyleVariant,
   ButtonColorVariant,
 } from './Button.types'
-import Button from './Button'
+import {
+  Button,
+} from './Button'
 import mdx from './Button.mdx'
 
 export default {

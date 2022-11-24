@@ -5,7 +5,7 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import { AllIcon } from './generated'
-import Icon, { ICON_TEST_ID } from './Icon'
+import { Icon, ICON_TEST_ID } from './Icon'
 import type IconProps from './Icon.types'
 
 describe('Icon test >', () => {

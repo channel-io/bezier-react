@@ -1,4 +1,5 @@
 import {
+  ArgsTable,
   Canvas,
   Story,
 } from '@storybook/addon-docs'
@@ -12,6 +13,7 @@ import {
 import {
   HStack,
   VStack,
+  Stack,
   StackItem,
   Spacer,
 } from 'Components/Stack'
@@ -122,174 +124,25 @@ Flex layout의 특징은, container의 크기에 맞춰 item의 크기가 적절
 
 ## API
 
-> Stack 컴포넌트군은 `BezierComponentProps`를 지원합니다.
-> 아래는 `BezierComponentProps`에서 지원하는 prop을 제외한 인터페이스입니다.
+### Stack
 
-<details>
-<summary><h3>Stack</h3></summary>
+<ArgsTable of={Stack} />
 
-```ts
-interface StackProps {
-  /**
-   * Direction of this stack.
-   *
-   * @remarks
-   *
-   * If you are directly using this prop in application code,
-   * consider using `HStack` or `VStack` instead.
-   */
-  direction: 'horizontal' | 'vertical'
+### HStack
 
-  /**
-   * Determines the default aligning of children along the main axis.
-   *
-   * The `justify` prop given to child `StackItem` component
-   * overrides the default alignment.
-   *
-   * @default start
-   */
-  justify?: 'start' | 'center' | 'end' | 'stretch'
+<ArgsTable of={HStack} />
 
-  /**
-   * Determines the default aligning of children along the cross axis.
-   *
-   * The `align` prop given to child `StackItem` component
-   * overrides the default alignment.
-   *
-   * @default start
-   */
-  align?: 'start' | 'center' | 'end' | 'stretch'
+### VStack
 
-  /**
-   * Default spacing between children, in pixels.
-   *
-   * `marginBefore` and `marginAfter` prop given to child `StackItem` component
-   * overrides the default spacing.
-   *
-   * @remarks
-   * `spacing` could be enumerated in later design, if bezier design system
-   * decides to define a guideline for linear layout.
-   *
-   * @default 0
-   */
-  spacing?: number
-}
-```
-</details>
+<ArgsTable of={VStack} />
 
-<details>
-<summary><h3>HStack</h3></summary>
+### StackItem
 
-```ts
-interface HStackProps extends Omit<StackProps, 'direction'> {}
-```
-</details>
+<ArgsTable of={StackItem} />
 
-<details>
-<summary><h3>VStack</h3></summary>
+### Spacer
 
-```ts
-interface VStackProps extends Omit<StackProps, 'direction'> {}
-```
-</details>
-
-<details>
-<summary><h3>StackItem</h3></summary>
-
-```ts
-interface StackItemProps {
-  /**
-   * Direction of this stack item.
-   *
-   * @remarks
-   *
-   * If you are directly using this prop in application code, don't.
-   * This prop will be provided from parent `Stack` component.
-   */
-  direction?: 'horizontal' | 'vertical'
-
-  /**
-   * Determines the aligning of this item along the main axis.
-   *
-   * This overrides the default alignment of parent `Stack`.
-   */
-  justify?: 'start' | 'center' | 'end' | 'stretch'
-
-  /**
-   * Determines the aligning of this item along the cross axis.
-   *
-   * This overrides the default alignment of parent `Stack`.
-   */
-  align?: 'start' | 'center' | 'end' | 'stretch'
-
-  /**
-   * Idle size of this component along the main axis, in pixels.
-   *
-   * @default auto
-   */
-  size?: number
-
-  /**
-   * Determines how the size of this child behaves
-   * when the main axis size of parent `Stack` expands or shrinks.
-   *
-   * Only non-negative integers are allowed for weight values.
-   *
-   * If the weight is larger, this child will be affected **more** from
-   * the parent size update.
-   *
-   * @default 0
-   */
-  weight?: number
-
-  /**
-   * Allows this component to grow as parent expands.
-   *
-   * You might want to use this prop together with `weight`.
-   *
-   * @default false
-   */
-  grow?: boolean
-
-  /**
-   * Allows this component to shrink as parent shrinks.
-   *
-   * You might want to use htis prop together with `weight`.
-   *
-   * @default false
-   */
-  shrink?: boolean
-
-  /**
-   * Margin between the previous item, in pixels.
-   *
-   * If you do not specify this, the margin will be determined
-   * by the default spacing of parent `Stack`.
-   *
-   * @default 0
-   */
-  marginBefore?: number
-
-  /**
-   * Margin after this item, in pixels.
-   *
-   * If you do not specify this, the margin will be determined
-   * by the default spacing of parent `Stack`.
-   *
-   * @default 0
-   */
-  marginAfter?: number
-}
-```
-</details>
-
-<details>
-<summary><h3>Spacer</h3></summary>
-
-```ts
-interface SpacerProps {}
-```
-</details>
+<ArgsTable of={Spacer} />
 
 ## Version
 

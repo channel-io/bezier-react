@@ -11,7 +11,7 @@ const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
 
 const CHECKED_DEFAULT_SEMANTIC_COLOR = 'bgtxt-green-normal'
 
-function CheckableAvatar({
+export function CheckableAvatar({
   size = AvatarSize.Size24,
   isChecked = false,
   isCheckable = true,
@@ -44,5 +44,3 @@ function CheckableAvatar({
     </CheckableAvatarWrapper>
   )
 }
-
-export default CheckableAvatar

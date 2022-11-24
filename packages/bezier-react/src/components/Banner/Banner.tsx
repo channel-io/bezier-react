@@ -55,7 +55,7 @@ function Link({
   })
 }
 
-function Banner(
+export const Banner = forwardRef(function Banner(
   props: BannerProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -123,6 +123,4 @@ function Banner(
       ) }
     </Styled.Stack>
   )
-}
-
-export default forwardRef(Banner)
+})

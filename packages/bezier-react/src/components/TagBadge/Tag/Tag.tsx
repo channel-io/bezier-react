@@ -22,7 +22,7 @@ import TagProps from './Tag.types'
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'
 
-function Tag({
+export const Tag = React.memo(function Tag({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
   color: givenColor,
@@ -74,6 +74,4 @@ function Tag({
       { CloseIconComponent }
     </TagBadgeStyled.Wrapper>
   )
-}
-
-export default React.memo(Tag)
+})

@@ -6,7 +6,7 @@ import type { Ref } from 'react'
 import { StackItem } from 'Components/Stack/StackItem'
 import type SpacerProps from './Spacer.types'
 
-function Spacer(
+export const Spacer = forwardRef(function Spacer(
   props: SpacerProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
@@ -20,6 +20,4 @@ function Spacer(
       {...props}
     />
   )
-}
-
-export default forwardRef(Spacer)
+})

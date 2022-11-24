@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import VStack from './VStack'
+import { VStack } from './VStack'
 
 describe('VStack', () => {
   it('creates a vertical flexbox', () => {

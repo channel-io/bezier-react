@@ -9,11 +9,9 @@ import type HStackProps from './HStack.types'
 /**
  * A container for horizontal flex layout.
  */
-function HStack(
+export const HStack = forwardRef(function HStack(
   props: HStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (<Stack ref={forwardedRef} direction="horizontal" {...props} />)
-}
-
-export default forwardRef(HStack)
+})

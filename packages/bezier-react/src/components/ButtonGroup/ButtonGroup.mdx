@@ -1,8 +1,12 @@
 import {
+  ArgsTable,
   Canvas,
   Meta,
   Story,
 } from '@storybook/addon-docs'
+import {
+  ButtonGroup,
+} from './ButtonGroup'
 import {
   Composition,
 } from './ButtonGroup.stories'
@@ -21,18 +25,8 @@ import {
 
 ## API
 
-- `ButtonGroupProps`는 `HStackProps`에 `ButtonGroupOption` 인터페이스를 추가로 갖습니다. `HStackProps`는 `Stack`문서에서 확인 가능합니다.
+<ArgsTable of={ButtonGroup} />
 
-<details>
-<summary><h3>ButtonGroupOption</h3></summary>
+## Version
 
-```ts
-interface ButtonGroupOption {
-  /**
-   * Determines whether there is no 6px gap between the buttons.
-   * @default false
-   */
-  withoutSpacing?: boolean
-}
-```
-</details>
+- Available since v1.0.0-next-v1.159
