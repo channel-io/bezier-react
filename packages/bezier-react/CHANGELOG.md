@@ -1,5 +1,21 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.175
+
+### Minor Changes
+
+- [#1030](https://github.com/channel-io/bezier-react/pull/1030) [`f407fca8`](https://github.com/channel-io/bezier-react/commit/f407fca865efeff8fe7f0fc0bba296c2731c41be) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the default value of the `Stack`'s `align` prop from `start` to `stretch`
+
+### Patch Changes
+
+- [#1029](https://github.com/channel-io/bezier-react/pull/1029) [`e5e5625a`](https://github.com/channel-io/bezier-react/commit/e5e5625aa68f4633e6b6a993e196a822bbe6391d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add justify prop to ButtonGroup component
+
+* [#1031](https://github.com/channel-io/bezier-react/pull/1031) [`1afab062`](https://github.com/channel-io/bezier-react/commit/1afab062d9919bc0d3b55fa0dcf12c0ed0090842) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
+
+- [#1028](https://github.com/channel-io/bezier-react/pull/1028) [`d6b28529`](https://github.com/channel-io/bezier-react/commit/d6b285296fc444dee7d0fd720d915a21b956f360) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Update the font-size of the TextField component per size
+
+* [#1020](https://github.com/channel-io/bezier-react/pull/1020) [`33baadb1`](https://github.com/channel-io/bezier-react/commit/33baadb17701fe9265179137eb69df4ab1bf836e) Thanks [@junbong](https://github.com/junbong)! - fix(ModalContent): invalid modal title size
+
 ## 1.0.0-next-v1.174
 
 ### Minor Changes
