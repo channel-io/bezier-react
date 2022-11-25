@@ -5,17 +5,13 @@ import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import Tooltip, { TOOLTIP_TEST_ID } from './Tooltip'
+import Tooltip, { TOOLTIP_TEST_ID, TOOLTIP_CONTENT_TEST_ID } from './Tooltip'
 import TooltipProps from './Tooltip.types'
 
-const ROOT_TESTID = 'container'
-
 const RootTooltip: React.FC<TooltipProps> = ({ children, ...rests }) => (
-  <div id="main" data-testid={ROOT_TESTID}>
-    <Tooltip {...rests}>
-      { children }
-    </Tooltip>
-  </div>
+  <Tooltip {...rests}>
+    { children }
+  </Tooltip>
 )
 
 describe('TooltipContent test >', () => {
@@ -51,7 +47,6 @@ describe('TooltipContent test >', () => {
 
   it('TooltipContent with plain text content >', () => {
     const { getByTestId, queryByText } = renderTooltip({ content: PLAIN_TEXT_CONTENT })
-    const rendered = getByTestId(ROOT_TESTID)
 
     act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
@@ -59,7 +54,7 @@ describe('TooltipContent test >', () => {
       jest.runAllTimers()
     })
 
-    expect(rendered).toContainElement(queryByText(PLAIN_TEXT_CONTENT))
+    expect(getByTestId(TOOLTIP_CONTENT_TEST_ID)).toContainElement(queryByText(PLAIN_TEXT_CONTENT))
   })
 
   it('TooltipContent with array of text contents >', () => {

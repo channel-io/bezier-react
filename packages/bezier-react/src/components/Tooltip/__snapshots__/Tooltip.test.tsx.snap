@@ -59,15 +59,14 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
   -webkit-line-clamp: 20;
 }
 
-<div
-  data-testid="container"
-  id="main"
->
-  <div
-    class="c0"
-    data-testid="bezier-react-tooltip"
-  >
-    Text
+<body>
+  <div>
+    <div
+      class="c0"
+      data-testid="bezier-react-tooltip"
+    >
+      Text
+    </div>
   </div>
   <div
     class="c1"
@@ -89,7 +88,7 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
       </div>
     </div>
   </div>
-</div>
+</body>
 `;
 
 exports[`Tooltip test > Tooltip with default props 1`] = `
@@ -150,15 +149,14 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
   -webkit-line-clamp: 20;
 }
 
-<div
-  data-testid="container"
-  id="main"
->
-  <div
-    class="c0"
-    data-testid="bezier-react-tooltip"
-  >
-    Text
+<body>
+  <div>
+    <div
+      class="c0"
+      data-testid="bezier-react-tooltip"
+    >
+      Text
+    </div>
   </div>
   <div
     class="c1"
@@ -180,5 +178,5 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
       </div>
     </div>
   </div>
-</div>
+</body>
 `;

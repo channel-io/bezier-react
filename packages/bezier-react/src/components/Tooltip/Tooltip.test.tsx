@@ -9,14 +9,10 @@ import { render } from 'Utils/testUtils'
 import Tooltip, { TOOLTIP_TEST_ID, TOOLTIP_CONTENT_TEST_ID } from './Tooltip'
 import TooltipProps from './Tooltip.types'
 
-const ROOT_TESTID = 'container'
-
 const RootTooltip: React.FC<TooltipProps> = ({ children, ...rests }) => (
-  <div id="main" data-testid={ROOT_TESTID}>
-    <Tooltip {...rests}>
-      { children }
-    </Tooltip>
-  </div>
+  <Tooltip {...rests}>
+    { children }
+  </Tooltip>
 )
 
 describe('Tooltip test >', () => {
@@ -42,8 +38,7 @@ describe('Tooltip test >', () => {
   )
 
   it('Tooltip with default props', () => {
-    const { getByTestId } = renderTooltip()
-    const rendered = getByTestId(ROOT_TESTID)
+    const { baseElement, getByTestId } = renderTooltip()
 
     act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
@@ -51,14 +46,13 @@ describe('Tooltip test >', () => {
       jest.runAllTimers()
     })
 
-    expect(rendered).toMatchSnapshot()
+    expect(baseElement).toMatchSnapshot()
   })
 
   it('Tooltip with contentInterpolation prop', async () => {
-    const { getByTestId } = renderTooltip({
+    const { baseElement, getByTestId } = renderTooltip({
       contentInterpolation: css`background-color: black;`,
     })
-    const rendered = getByTestId(ROOT_TESTID)
 
     act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
@@ -66,7 +60,7 @@ describe('Tooltip test >', () => {
       jest.runAllTimers()
     })
 
-    expect(rendered).toMatchSnapshot()
+    expect(baseElement).toMatchSnapshot()
   })
 
   it('TooltipContent not rendered at first', async () => {
