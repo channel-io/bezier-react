@@ -239,40 +239,39 @@ describe('Switch', () => {
   describe('accessibility', () => {
     describe('role', () => {
       it('should render switch with "switch" role', () => {
-        const { getAllByRole } = renderComponent()
-        const switchComponents = getAllByRole('switch')
+        const { getByRole } = renderComponent()
+        const switchComponent = getByRole('switch')
 
-        expect(switchComponents).toHaveLength(1)
-        expect(switchComponents[0]).toBeInTheDocument()
+        expect(switchComponent).toBeInTheDocument()
       })
     })
 
     describe('aria-checked', () => {
       it('should be "true" when state is "on"', () => {
-        const { getAllByRole } = renderComponent({
+        const { getByRole } = renderComponent({
           checked: true,
         })
-        const switchComponents = getAllByRole('switch')
+        const switchComponent = getByRole('switch')
 
-        expect(switchComponents).toHaveLength(1)
-        expect(switchComponents[0]).toHaveAttribute('aria-checked', 'true')
+        expect(switchComponent).toHaveAttribute('aria-checked', 'true')
       })
 
       it('should be "false" when state is "off"', () => {
-        const { getAllByRole } = renderComponent({
+        const { getByRole } = renderComponent({
           checked: false,
         })
-        const switchComponents = getAllByRole('switch')
+        const switchComponent = getByRole('switch')
 
-        expect(switchComponents).toHaveLength(1)
-        expect(switchComponents[0]).toHaveAttribute('aria-checked', 'false')
+        expect(switchComponent).toHaveAttribute('aria-checked', 'false')
       })
     })
 
     describe('aria-disabled', () => {
       it('should have "true" value on "aria-disabled" attribute when disabled prop is true', () => {
-        const { getByTestId } = renderComponent({ disabled: true })
-        const switchComponent = getByTestId(SWITCH_TEST_ID)
+        const { getByRole } = renderComponent({
+          disabled: true,
+        })
+        const switchComponent = getByRole('switch')
 
         expect(switchComponent).toHaveAttribute('aria-disabled', 'true')
       })
