@@ -1,0 +1,64 @@
+import {
+  ArgsTable,
+  Canvas,
+  Story,
+} from '@storybook/addon-docs'
+import { ProgressBar } from 'Components/ProgressBar'
+
+# ProgressBar
+
+## Overview
+
+진행도를 나타낼 때 사용합니다.
+
+<Canvas>
+  <Story id="components-progressbar--overview" />
+</Canvas>
+
+## Usage
+
+### Width
+
+`width` prop을 통해 ProgressBar의 너비를 지정할 수 있습니다. 기본값은 36px입니다.
+
+<Canvas>
+  <Story id="components-progressbar--usage-width" />
+</Canvas>
+
+### Value
+
+`value` prop을 통해 ProgressBar에 진행도를 표시할 수 있습니다. 기본값은 0입니다.
+
+진행도를 나타내는 `value`는 0보다 크거나 같고 1보다 작거나 같은 수입니다. 0보다 작은 값은 0으로, 1보다 큰 값은 1로 처리합니다.
+
+<Canvas>
+  <Story id="components-progressbar--usage-value" />
+</Canvas>
+
+## Variants
+
+### Size
+
+S, M 2개의 size가 있으며, 기본값은 M입니다.
+
+`size` prop을 통해 ProgressBar의 높이를 선택할 수 있으며, `ProgressBarSize` enum을 사용할 수 있습니다.
+
+<Story id="components-progressbar--size-variant" />
+
+### Color
+
+Green, Monochrome 2개의 color가 있으며, 기본값은 Green입니다.
+
+`variant` prop을 통해 ProgressBar의 active 부분 색상을 선택할 수 있으며, `ProgressBarVariant` enum을 사용할 수 있습니다.
+
+<Story id="components-progressbar--variant" />
+
+## API
+
+### ProgressBar
+
+<ArgsTable of={ProgressBar} />
+
+## Version
+
+- Available since v1.0.0-next-v1.156
