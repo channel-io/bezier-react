@@ -51,9 +51,6 @@ const ModalTestRender = ({
   </Modal>
 )
 
-const main = document.createElement('div')
-main.setAttribute('id', 'main')
-
 describe('Modal', () => {
   let renderResult: RenderResult
 
@@ -65,7 +62,7 @@ describe('Modal', () => {
           show={false}
         />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
@@ -86,7 +83,7 @@ describe('Modal', () => {
           className="Modal__Contests__Test"
         />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
@@ -110,7 +107,7 @@ describe('Modal', () => {
             rightContent="Right content"
           />,
           {
-            container: document.body.appendChild(main),
+            container: document.body,
           },
         )
       })
@@ -136,7 +133,7 @@ describe('Modal', () => {
                 showCloseIcon
               />,
               {
-                container: document.body.appendChild(main),
+                container: document.body,
               },
             )
           })
@@ -158,7 +155,7 @@ describe('Modal', () => {
               rightContent="Right content"
             />,
             {
-              container: document.body.appendChild(main),
+              container: document.body,
             },
           )
         })
@@ -214,7 +211,7 @@ describe('Modal', () => {
                   showCloseIcon
                 />,
                 {
-                  container: document.body.appendChild(main),
+                  container: document.body,
                 },
               )
             })
@@ -254,7 +251,7 @@ describe('Modal', () => {
               showCloseIcon
             />,
             {
-              container: document.body.appendChild(main),
+              container: document.body,
             },
           )
         })
@@ -276,7 +273,7 @@ describe('Modal', () => {
             rightContent="Right content"
           />,
           {
-            container: document.body.appendChild(main),
+            container: document.body,
 
           },
         )

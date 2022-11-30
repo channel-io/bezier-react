@@ -15,9 +15,6 @@ const DEFAULT_PROPS: BaseModalProps = {
   onHide: jest.fn(),
 }
 
-const main = document.createElement('div')
-main.setAttribute('id', 'main')
-
 describe('BaseModal', () => {
   let renderResult: RenderResult
 
@@ -26,7 +23,7 @@ describe('BaseModal', () => {
       renderResult = render(
         <BaseModal {...DEFAULT_PROPS} show={false} />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
@@ -44,7 +41,7 @@ describe('BaseModal', () => {
       renderResult = render(
         <BaseModal {...DEFAULT_PROPS} />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
@@ -87,7 +84,7 @@ describe('BaseModal', () => {
           autoFocus
         />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
@@ -105,7 +102,7 @@ describe('BaseModal', () => {
       renderResult = render(
         <BaseModal {...DEFAULT_PROPS} />,
         {
-          container: document.body.appendChild(main),
+          container: document.body,
         },
       )
     })
