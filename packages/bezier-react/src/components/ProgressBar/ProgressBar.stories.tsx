@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
@@ -64,15 +64,11 @@ Playground.args = {
 }
 
 export const Overview: Story<{}> = () => {
-  const [values, setValues] = useState<number[]>([0, 0, 0, 0])
+  const [values, setValues] = useState<number[]>([0.25, 0.5, 0.75, 1])
 
   const handleSetRandomValues = () => {
     setValues([...Array(4)].map(() => Math.random()))
   }
-
-  useEffect(() => {
-    handleSetRandomValues()
-  }, [])
 
   return (
     <VStack spacing={12} align="center">
