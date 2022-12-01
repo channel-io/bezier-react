@@ -31,8 +31,8 @@ function ModalHeaderTitle({
 
   return (
     <DialogPrimitive.Title asChild>
-      { hasSubtitle ?
-        (
+      { hasSubtitle
+        ? (
           <Styled.HeadingGroup
             role="group"
             aria-roledescription="Heading group"
