@@ -41,17 +41,15 @@ function ModalHeaderTitle({
               { children }
             </Styled.Title>
 
-            { subtitle && (
-              <Text
-                aria-roledescription="subtitle"
-                as="p"
-                bold
-                color="txt-black-dark"
-                typo={Typography.Size13}
-              >
-                { subtitle }
-              </Text>
-            ) }
+            <Text
+              aria-roledescription="subtitle"
+              as="p"
+              bold
+              color="txt-black-dark"
+              typo={Typography.Size13}
+            >
+              { subtitle }
+            </Text>
           </Styled.HeadingGroup>
         )
         : (
