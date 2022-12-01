@@ -11,7 +11,7 @@ import { ModalHeader } from './ModalHeader'
 import { ModalBody } from './ModalBody'
 import { ModalFooter } from './ModalFooter'
 import { ModalTrigger, ModalClose } from './ModalHelpers'
-import { ModalProps, ModalContentProps, ModalTitleSize } from './Modal.types'
+import { ModalProps, ModalContentProps, ModalHeaderProps, ModalTitleSize } from './Modal.types'
 
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'
@@ -23,21 +23,23 @@ describe('Modal', () => {
   const renderModal = ({
     modalProps,
     modalContentProps,
+    modalHeaderProps = {
+      title: TITLE_TEXT,
+      subtitle: SUBTITLE_TEXT,
+      description: DESCRIPTION_TEXT,
+      titleSize: ModalTitleSize.L,
+    },
   }: {
     modalProps?: ModalProps
     modalContentProps?: ModalContentProps
+    modalHeaderProps?: ModalHeaderProps
   } = {}) => render(
     <Modal {...modalProps}>
       <ModalTrigger>
         <button type="button">{ TRIGGER_TEXT }</button>
       </ModalTrigger>
       <ModalContent {...modalContentProps}>
-        <ModalHeader
-          title={TITLE_TEXT}
-          subtitle={SUBTITLE_TEXT}
-          description={DESCRIPTION_TEXT}
-          titleSize={ModalTitleSize.L}
-        />
+        <ModalHeader {...modalHeaderProps} />
         <ModalBody>
           <input type="text" />
         </ModalBody>
@@ -54,6 +56,7 @@ describe('Modal', () => {
   )
 
   let user: ReturnType<typeof userEvent.setup>
+  let renderOpenedModal: typeof renderModal
 
   beforeEach(() => {
     user = userEvent.setup({
@@ -64,6 +67,7 @@ describe('Modal', () => {
        */
       pointerEventsCheck: 0,
     })
+    renderOpenedModal = (props) => renderModal({ modalProps: { defaultShow: true }, ...props })
   })
 
   describe('Accessibility', () => {
@@ -122,50 +126,54 @@ describe('Modal', () => {
   })
 
   describe('ModalContent', () => {
-    let renderResult: ReturnType<typeof renderModal>
-
-    beforeEach(() => {
-      renderResult = renderModal({ modalProps: { defaultShow: true } })
-    })
-
     describe('ARIA', () => {
       it('should have \'role="dialog"\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('dialog')).toBeInTheDocument()
       })
 
       it('should have \'aria-modal="true"\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('dialog')).toHaveAttribute('aria-modal', 'true')
       })
 
       it('should have proper \'aria-labelledby\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('dialog', { name: `${TITLE_TEXT} ${SUBTITLE_TEXT}` })).toBeInTheDocument()
       })
 
+      it('should have proper \'aria-labelledby\' attribute (only title)', () => {
+        const { getByRole } = renderOpenedModal({ modalHeaderProps: { title: TITLE_TEXT, subtitle: null } })
+        expect(getByRole('dialog', { name: TITLE_TEXT })).toBeInTheDocument()
+      })
+
+      it('should have proper \'aria-labelledby\' attribute (hidden title)', () => {
+        const { getByRole } = renderOpenedModal({ modalHeaderProps: { title: TITLE_TEXT, subtitle: null, hidden: true } })
+        expect(getByRole('dialog', { name: TITLE_TEXT })).toBeInTheDocument()
+      })
+
       it('should have proper \'aria-describedby\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('dialog', { description: DESCRIPTION_TEXT })).toBeInTheDocument()
       })
     })
 
     describe('User Interactions', () => {
       it('should close the modal when the user clicks the outside of the modal', async () => {
-        const { queryByRole, container } = renderResult
+        const { queryByRole, container } = renderOpenedModal()
         await user.click(container)
         expect(queryByRole('dialog')).not.toBeInTheDocument()
       })
 
       it('should close the modal when the user clicks close icon button', async () => {
-        const { getAllByRole, queryByRole } = renderResult
+        const { getAllByRole, queryByRole } = renderOpenedModal()
         const [, closeIconButton] = getAllByRole('button')
         await user.click(closeIconButton)
         expect(queryByRole('dialog')).not.toBeInTheDocument()
       })
 
       it('should close the modal when the user presses the ESC key', async () => {
-        const { queryByRole } = renderResult
+        const { queryByRole } = renderOpenedModal()
         await user.keyboard('{Escape}')
         expect(queryByRole('dialog')).not.toBeInTheDocument()
       })
@@ -173,35 +181,41 @@ describe('Modal', () => {
 
     describe('Data Attributes', () => {
       it('should have proper \'data-state\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('dialog')).toHaveAttribute('data-state', 'open')
       })
     })
   })
 
   describe('ModalHeader', () => {
-    let renderResult: ReturnType<typeof renderModal>
-
-    beforeEach(() => {
-      renderResult = renderModal({ modalProps: { defaultShow: true } })
-    })
-
     describe('ARIA, Semantics', () => {
       it('the heading group(title and subtitle) should have group role and \'aria-roledescription\' attribute', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         const titleGroup = getByRole('group')
         expect(titleGroup).toHaveAttribute('aria-roledescription', 'Heading group')
       })
 
       it('the title should be an h2 element', () => {
-        const { getByRole } = renderResult
+        const { getByRole } = renderOpenedModal()
         expect(getByRole('heading', { name: TITLE_TEXT, level: 2 })).toBeInTheDocument()
       })
 
       it('the subtitle should have \'aria-roledescription="subtitle"\' attribute', () => {
-        const { getByText } = renderResult
+        const { getByText } = renderOpenedModal()
         const subtitle = getByText(SUBTITLE_TEXT)
         expect(subtitle).toHaveAttribute('aria-roledescription', 'subtitle')
+      })
+    })
+
+    describe('Visually Hidden', () => {
+      it('should be visible when the \'hidden\' prop is false', () => {
+        const { getByRole } = renderOpenedModal()
+        expect(getByRole('banner')).toBeInTheDocument() /* HTML5 header element */
+      })
+
+      it('should be visually hidden when the \'hidden\' prop is true', () => {
+        const { queryByRole } = renderOpenedModal({ modalHeaderProps: { title: TITLE_TEXT, hidden: true } })
+        expect(queryByRole('banner')).not.toBeInTheDocument() /* HTML5 header element */
       })
     })
   })
@@ -249,8 +263,7 @@ describe('Modal', () => {
   describe('ModalClose', () => {
     describe('User Interactions', () => {
       it('should close modal when clicked (Uncontrolled)', async () => {
-        const { getByRole, queryByRole } = renderModal()
-        await user.click(getByRole('button', { name: TRIGGER_TEXT }))
+        const { getByRole, queryByRole } = renderOpenedModal()
         await user.click(getByRole('button', { name: CLOSE_TEXT }))
         expect(queryByRole('dialog')).not.toBeInTheDocument()
       })
