@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { forwardRef, useContext } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import * as VisuallyHiddenPrimitive from '@radix-ui/react-visually-hidden'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -63,15 +63,15 @@ function ModalHeaderTitle({
   )
 }
 
-function Root({
+function VisuallyHidden({
   children,
   hidden,
 }: React.PropsWithChildren<Required<Pick<ModalHeaderProps, 'hidden'>>>) {
   return hidden
     ? (
-      <VisuallyHidden.Root asChild>
+      <VisuallyHiddenPrimitive.Root asChild>
         { children }
-      </VisuallyHidden.Root>
+      </VisuallyHiddenPrimitive.Root>
     )
     : (
       <>
@@ -97,7 +97,7 @@ export const ModalHeader = forwardRef(function ModalHeader({
   const hasTitleArea = title || showCloseIcon
 
   return (
-    <Root hidden={hidden}>
+    <VisuallyHidden hidden={hidden}>
       <Styled.Header
         ref={forwardedRef}
         hidden={hidden}
@@ -132,6 +132,6 @@ export const ModalHeader = forwardRef(function ModalHeader({
           </DialogPrimitive.Description>
         ) }
       </Styled.Header>
-    </Root>
+    </VisuallyHidden>
   )
 })
