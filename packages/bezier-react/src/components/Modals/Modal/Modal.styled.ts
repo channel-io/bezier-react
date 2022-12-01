@@ -2,8 +2,9 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled, css } from 'Foundation'
 import { gap } from 'Utils/styleUtils'
+import { Text } from 'Components/Text'
 import { Button, ButtonSize, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
 import { ModalBodyProps, ModalContentProps, ModalFooterProps, ModalHeaderProps } from './Modal.types'
 import ModalAnimation from './ModalAnimation.styled'
@@ -67,11 +68,24 @@ export const Section = styled.section`
 
 const MODAL_PADDING = 24
 
+export const Body = styled.div<ModalBodyProps>`
+  flex: 1;
+  padding: 12px ${MODAL_PADDING}px 0;
+
+  ${({ interpolation }) => interpolation}
+`
+
 export const Header = styled.header<ModalHeaderProps>`
   display: flex;
   flex-direction: column;
-  padding: ${MODAL_PADDING}px ${MODAL_PADDING}px 12px ${MODAL_PADDING}px;
+  padding: ${MODAL_PADDING}px ${MODAL_PADDING}px 0 ${MODAL_PADDING}px;
   ${gap(12)}
+
+  ${({ hidden }) => hidden && css`
+    & + ${Body} {
+      padding-top: ${MODAL_PADDING}px;
+    }
+  `}
 
   ${({ interpolation }) => interpolation}
 `
@@ -89,6 +103,12 @@ export const HeadingGroup = styled.hgroup`
   flex-direction: column-reverse;
   ${gap(4)}
 `
+
+export const Title = styled(Text).attrs({
+  forwardedAs: 'h2',
+  bold: true,
+  color: 'txt-black-darkest',
+})``
 
 const CLOSE_ICON_BUTTON_SIZE = ButtonSize.M
 const CLOSE_ICON_BUTTON_MARGIN_X = -6
@@ -113,13 +133,6 @@ export const CloseIconButtonSpacer = styled(Button).attrs({
   margin-right: ${CLOSE_ICON_BUTTON_MARGIN_Y}px;
   pointer-events: none;
   visibility: hidden;
-`
-
-export const Body = styled.div<ModalBodyProps>`
-  flex: 1;
-  padding: 0 ${MODAL_PADDING}px;
-
-  ${({ interpolation }) => interpolation}
 `
 
 export const Footer = styled.footer<ModalFooterProps>`

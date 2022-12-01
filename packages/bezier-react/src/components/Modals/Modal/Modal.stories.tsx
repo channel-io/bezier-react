@@ -28,6 +28,7 @@ function ModalComposition({
   subtitle,
   description,
   titleSize,
+  hidden,
 }: ModalCompositionProps) {
   const [show, setShow] = useState(false)
 
@@ -55,6 +56,7 @@ function ModalComposition({
           subtitle={subtitle}
           description={description}
           titleSize={titleSize}
+          hidden={hidden}
         />
 
         <ModalBody>
@@ -131,4 +133,5 @@ Composition.args = {
   subtitle: 'Profile Settings',
   description: 'Make changes to your profile here. Click save when you\'re done.',
   titleSize: ModalTitleSize.L,
+  hidden: false,
 }

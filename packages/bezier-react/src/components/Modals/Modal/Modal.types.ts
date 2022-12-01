@@ -70,7 +70,7 @@ interface ModalHeaderOptions {
   /**
    * An accessible title to be announced when the modal is opened.
    */
-  title?: React.ReactNode
+  title: React.ReactNode
 
   /**
    * An accessible subtitle to be announced when the modal is opened.
@@ -87,6 +87,12 @@ interface ModalHeaderOptions {
    * @default ModalTitleSize.L
    */
   titleSize?: ModalTitleSize
+
+  /**
+   * Hides content from the screen in an accessible way.
+   * @default false
+   */
+  hidden?: boolean
 }
 
 type ModalFooterSideContent = React.ReactNode
