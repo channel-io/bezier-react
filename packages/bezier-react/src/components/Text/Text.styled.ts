@@ -21,6 +21,7 @@ function getMargin({
 
 const Text = styled.span<TextProps & TextStyledProps>`
   ${props => props.typo};
+  ${props => props.interpolation};
   margin: ${getMargin};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
