@@ -67,10 +67,12 @@ export const Section = styled.section`
 `
 
 const MODAL_PADDING = 24
+const HEADER_BODY_GAP = 12
+const FOOTER_TOP_GAP = 16
 
 export const Body = styled.div<ModalBodyProps>`
   flex: 1;
-  padding: 12px ${MODAL_PADDING}px 0;
+  padding: ${MODAL_PADDING}px;
 
   ${({ interpolation }) => interpolation}
 `
@@ -81,11 +83,27 @@ export const Header = styled.header<ModalHeaderProps>`
   padding: ${MODAL_PADDING}px ${MODAL_PADDING}px 0 ${MODAL_PADDING}px;
   ${gap(12)}
 
-  ${({ hidden }) => hidden && css`
+  /* NOTE(@ed): Support when the ModalBody is used as stand-alone */
+  ${({ hidden }) => !hidden && css`
     & + ${Body} {
-      padding-top: ${MODAL_PADDING}px;
+      padding-top: ${HEADER_BODY_GAP}px;
     }
   `}
+
+  ${({ interpolation }) => interpolation}
+`
+
+export const Footer = styled.footer<ModalFooterProps>`
+  display: flex;
+  padding: ${FOOTER_TOP_GAP}px ${MODAL_PADDING}px ${MODAL_PADDING}px;
+
+  /* NOTE(@ed): Support when the ModalBody is used as stand-alone */
+  /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
+  ${Body} + & {
+    padding-top: 0;
+    margin-top: ${FOOTER_TOP_GAP - MODAL_PADDING}px;
+  }
+  /* stylelint-enable declaration-block-semicolon-newline-after, rule-empty-line-before */
 
   ${({ interpolation }) => interpolation}
 `
@@ -133,13 +151,6 @@ export const CloseIconButtonSpacer = styled(Button).attrs({
   margin-right: ${CLOSE_ICON_BUTTON_MARGIN_Y}px;
   pointer-events: none;
   visibility: hidden;
-`
-
-export const Footer = styled.footer<ModalFooterProps>`
-  display: flex;
-  padding: 16px ${MODAL_PADDING}px ${MODAL_PADDING}px;
-
-  ${({ interpolation }) => interpolation}
 `
 
 export const FooterLeftContent = styled.div`
