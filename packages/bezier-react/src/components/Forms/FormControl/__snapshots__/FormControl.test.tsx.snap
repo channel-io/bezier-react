@@ -253,6 +253,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
               autocomplete="off"
               class="c8 c9"
               id="field-:r3:"
+              size="36"
               value=""
             />
           </div>
@@ -291,6 +292,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
               autocomplete="off"
               class="c8 c9"
               id="field-:r4:"
+              size="36"
               value=""
             />
           </div>
@@ -617,6 +619,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
               autocomplete="off"
               class="c11 c12"
               id="field-:r6:"
+              size="36"
               value=""
             />
           </div>
@@ -655,6 +658,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
               autocomplete="off"
               class="c11 c12"
               id="field-:r7:"
+              size="36"
               value=""
             />
           </div>
@@ -825,6 +829,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
       autocomplete="off"
       class="c5 c6"
       id="form"
+      size="36"
       value=""
     />
   </div>
@@ -1020,6 +1025,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
       autocomplete="off"
       class="c6 c7"
       id="form"
+      size="36"
       value=""
     />
   </div>
