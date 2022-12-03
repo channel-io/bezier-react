@@ -2113,7 +2113,7 @@ __metadata:
     react-dom: ^18.1.0
     react-resize-detector: ^7.1.1
     react-textarea-autosize: ^8.3.4
-    regenerator-runtime: ^0.13.7
+    regenerator-runtime: ^0.13.11
     rollup: ^2.50.5
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
@@ -18401,6 +18401,13 @@ __metadata:
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
   checksum: 3317a09b2f802da8db09aa276e469b57a6c0dd818347e05b8862959c6193408242f150db5de83c12c3fa99091ad95fb42a6db2c3329bfaa12a0ea4cbbeb30cb0
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
   languageName: node
   linkType: hard
 
