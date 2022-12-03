@@ -2089,7 +2089,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.1.1
     "@testing-library/react-hooks": ^8.0.1
-    "@testing-library/user-event": ^14.1.1
+    "@testing-library/user-event": ^14.4.3
     "@types/jest": ^25.2.3
     "@types/lodash-es": ^4.17.4
     "@types/react": ^18.0.8
@@ -5380,12 +5380,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.1.1":
-  version: 14.2.1
-  resolution: "@testing-library/user-event@npm:14.2.1"
+"@testing-library/user-event@npm:^14.4.3":
+  version: 14.4.3
+  resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 661d61a52a3ec954fe21d799f8203f0eaa7c43ea4f2c1b5916f3bb34a3609a8d7ac3dfaff5247c4511aed7ce122883c297bf59e9ffe086e375f42c98596802b9
+  checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
   languageName: node
   linkType: hard
 
