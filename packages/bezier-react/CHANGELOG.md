@@ -1,5 +1,17 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.176
+
+### Minor Changes
+
+- [#1048](https://github.com/channel-io/bezier-react/pull/1048) [`fe9640b0`](https://github.com/channel-io/bezier-react/commit/fe9640b071fa98d903c9a2ddf1fc48c16741be0c) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change return value of `getRootElement()` from element with specific id to `document.body` element
+
+### Patch Changes
+
+- [#1018](https://github.com/channel-io/bezier-react/pull/1018) [`8635cd56`](https://github.com/channel-io/bezier-react/commit/8635cd560cb22a47f03615cda0e54899ce2d5575) Thanks [@junbong](https://github.com/junbong)! - fix(Text): add handling code for unhandled interpolation prop
+
+* [#1052](https://github.com/channel-io/bezier-react/pull/1052) [`278338ef`](https://github.com/channel-io/bezier-react/commit/278338ef8cb2ff79ddb23ae630e7f5c42ebdae67) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Revert the removed `size` property of the `TextField`'s internal `input` element.
+
 ## 1.0.0-next-v1.175
 
 ### Minor Changes
