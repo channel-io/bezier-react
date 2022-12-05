@@ -117,8 +117,11 @@ function withFoundationProvider(Story, context) {
 
   return (
     <div style={wrapperStyle}>
-      <BezierProvider foundation={foundation}>
-        <div style={storyWrapperStyle}>
+      <BezierProvider 
+        foundation={foundation}
+        themeVarsScope=".theme"
+      >
+        <div className="theme" style={storyWrapperStyle}>
           <div style={{ ...innerWrapperStyle, backgroundColor }}>
             { Story(context) }
           </div>
@@ -127,8 +130,11 @@ function withFoundationProvider(Story, context) {
           </Text>
         </div>
       </BezierProvider>
-      <BezierProvider foundation={invertedFoundation}>
-        <div style={storyWrapperStyle}>
+      <BezierProvider
+        foundation={invertedFoundation}
+        themeVarsScope=".inverted-theme"
+      >
+        <div className="inverted-theme" style={storyWrapperStyle}>
           <div style={{ ...innerWrapperStyle, backgroundColor: invertedBackgroundColor }}>
             { Story(context) }
           </div>
