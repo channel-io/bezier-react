@@ -1,4 +1,4 @@
-import Switch from './Switch'
+import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 

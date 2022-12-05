@@ -1,11 +1,10 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useCallback,
   type ReactElement,
-  type MouseEvent,
   type Ref,
 } from 'react'
+import * as SwitchPrimitive from '@radix-ui/react-switch'
 
 /* Internal dependencies */
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
@@ -16,49 +15,46 @@ import * as Styled from './Switch.styled'
 export const SWITCH_TEST_ID = 'bezier-react-switch'
 export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
-function Switch(
+export const Switch = forwardRef(function Switch(
   {
     testId = SWITCH_TEST_ID,
     handleTestId = SWITCH_HANDLE_TEST_ID,
-    checked = false,
+    checked,
+    defaultChecked = false,
+    onCheckedChange,
     size = SwitchSize.M,
-    onClick,
     ...rest
   }: SwitchProps,
-  forwardedRef: Ref<HTMLDivElement>,
+  forwardedRef: Ref<HTMLButtonElement>,
 ): ReactElement {
   const {
     disabled,
+    required,
     ...ownProps
   } = useFormFieldProps(rest)
 
-  const handleClick = useCallback((event: MouseEvent) => {
-    if (!disabled && onClick) {
-      onClick(!checked, event)
-    }
-  }, [
-    onClick,
-    checked,
-    disabled,
-  ])
-
   return (
-    <Styled.Wrapper
-      {...ownProps}
-      ref={forwardedRef}
-      size={size}
+    <SwitchPrimitive.Root
+      asChild
       checked={checked}
+      defaultChecked={defaultChecked}
+      onCheckedChange={onCheckedChange}
+      required={required}
       disabled={disabled}
-      onClick={handleClick}
-      data-testid={testId}
+      {...ownProps}
     >
-      <Styled.Content
+      <Styled.SwitchRoot
+        ref={forwardedRef}
         size={size}
-        checked={checked}
-        data-testid={handleTestId}
-      />
-    </Styled.Wrapper>
+        data-testid={testId}
+      >
+        <SwitchPrimitive.Thumb asChild>
+          <Styled.SwitchThumb
+            size={size}
+            data-testid={handleTestId}
+          />
+        </SwitchPrimitive.Thumb>
+      </Styled.SwitchRoot>
+    </SwitchPrimitive.Root>
   )
-}
-
-export default forwardRef(Switch)
+})

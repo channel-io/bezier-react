@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
+import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
@@ -21,42 +22,53 @@ const SWITCH_HANDLE_WIDTH_HEIGHT: Record<SwitchSize, number> = {
   [SwitchSize.S]: 14,
 }
 
-interface WrapperProps extends Required<SwitchProps> {}
+interface SwitchRootProps extends SwitchProps {
+  size: NonNullable<SwitchProps['size']>
+}
 
-export const Wrapper = styled.div<WrapperProps>`
+export const SwitchRoot = styled.button<SwitchRootProps>`
+  all: unset;
+
   position: relative;
 
   width: ${({ size }) => SWITCH_WIDTH[size]}px;
   height: ${({ size }) => SWITCH_HEIGHT[size]}px;
 
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: pointer;
 
   ${({ foundation }) => foundation?.rounding?.round12}
-  background-color: ${({ checked, foundation }) => (
-    checked
-      ? foundation?.theme?.['bgtxt-green-normal']
-      : foundation?.theme?.['bg-black-dark']
-  )};
 
-  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
+  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
 
-  &:hover {
-    background-color: ${({ checked, foundation }) => (
-    checked
-      ? foundation?.theme?.['bgtxt-green-dark']
-      : foundation?.theme?.['bg-black-dark']
-  )};
+  &[data-state='checked'] {
+    background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
+
+    &:hover {
+      background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-dark']};
+    }
+  }
+
+  opacity: initial;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: ${DisabledOpacity};
+  }
+
+  &:focus-visible {
+    ${focusedInputWrapperStyle}
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
 `
 
-interface ContentProps extends SwitchProps {
+interface SwitchThumbProps extends SwitchProps {
   size: NonNullable<SwitchProps['size']>
-  checked: NonNullable<SwitchProps['checked']>
 }
 
-export const Content = styled.div<ContentProps>`
+export const SwitchThumb = styled.span<SwitchThumbProps>`
+  all: unset;
+
   position: absolute;
   top: ${PADDING}px;
   left: ${PADDING}px;
@@ -66,12 +78,12 @@ export const Content = styled.div<ContentProps>`
   ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev2()};
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
-  
-  transform: ${({ checked, size }) => (
-    checked
-      ? `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`
-      : 'initial'
-  )};
+
+  transform: initial;
+
+  &[data-state='checked'] {
+    transform: ${({ size }) => `translateX(${SWITCH_WIDTH[size] - SWITCH_HANDLE_WIDTH_HEIGHT[size] - (PADDING * 2)}px)`};
+  }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
 `

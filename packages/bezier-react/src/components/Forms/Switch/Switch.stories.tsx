@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import Switch from './Switch'
+import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
@@ -29,8 +29,8 @@ export default {
         type: 'boolean',
       },
     },
-    onClick: {
-      action: 'onClick',
+    onCheckedChange: {
+      action: 'onCheckedChange',
     },
   },
 } as Meta
@@ -41,5 +41,11 @@ export const Primary = Template.bind({})
 Primary.args = {
   size: SwitchSize.M,
   checked: true,
+  disabled: false,
+}
+
+export const Uncontrolled = Template.bind({})
+Uncontrolled.args = {
+  size: SwitchSize.M,
   disabled: false,
 }
