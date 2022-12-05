@@ -28,7 +28,8 @@ function getPaddingStyle({ height }: { height: TabsSize }) {
   }
 }
 
-export const Background = styled.div<BackgroundProps>`
+export const Background = styled.button<BackgroundProps>`
+  all: unset;
   position: relative;
   display: flex;
   align-items: center;
