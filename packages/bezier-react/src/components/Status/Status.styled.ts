@@ -4,6 +4,7 @@ import { Icon as BaseIcon } from 'Components/Icon'
 
 export const Circle = styled.div`
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
   width: var(--bezier-status-size);
   height: var(--bezier-status-size);
