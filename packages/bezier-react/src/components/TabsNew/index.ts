@@ -1,7 +1,7 @@
 import { Tabs } from './Tabs'
 import TabAction from './TabAction'
 import TabItem from './TabItem'
-import TabsList from './TabsList'
+import { TabsList } from './TabsList'
 import { TabsSize } from './Tabs.types'
 import type {
   TabsProps,
@@ -10,6 +10,9 @@ import type {
   TabActionProps,
 } from './Tabs.types'
 
+export { TabsContent } from './TabsContent'
+
+// TODO: Legacy Tab component 삭제 후 New suffix 삭제
 export {
   Tabs as TabsNew,
   TabAction as TabActionNew,

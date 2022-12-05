@@ -5,6 +5,7 @@ import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { TabsProps } from 'Components/TabsNew/Tabs.types'
+import * as Styled from './Tabs.styled'
 
 /**
  * `Tabs` is a set of layered section of content
@@ -37,7 +38,9 @@ export function Tabs({
       onValueChange={onValueChange}
       asChild
     >
-      { children }
+      <Styled.Tabs>
+        { children }
+      </Styled.Tabs>
     </TabsPrimitive.Root>
   )
 }

@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import React from 'react'
 import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from 'Types/ComponentProps'
 
 export enum TabsSize {
@@ -47,6 +48,13 @@ interface TabItemOptions {
   value: string
 }
 
+interface TabContentOptions {
+  /**
+   * A unique value that associates the trigger with a content.
+   */
+  value: string
+}
+
 export interface TabItemProps extends
   ChildrenProps,
   BezierComponentProps,
@@ -60,7 +68,7 @@ export interface TabsListProps extends
   TabsOptions {}
 
 export interface TabsProps extends
-  ChildrenProps,
+  ChildrenProps<React.ReactNode[]>,
   TabsOptions {}
 
 export interface TabActionProps extends
@@ -69,3 +77,8 @@ export interface TabActionProps extends
   LinkProps,
   DisableProps,
   TabActionOptions {}
+
+export interface TabContentProps extends
+  ChildrenProps,
+  BezierComponentProps,
+  TabContentOptions {}
