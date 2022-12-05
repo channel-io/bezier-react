@@ -10840,16 +10840,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:^0.5.11":
-  version: 0.5.13
-  resolution: "eslint-plugin-storybook@npm:0.5.13"
+"eslint-plugin-storybook@npm:^0.6.7":
+  version: 0.6.7
+  resolution: "eslint-plugin-storybook@npm:0.6.7"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/experimental-utils": ^5.3.0
     requireindex: ^1.1.0
+    ts-dedent: ^2.2.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 78a74daff68394e080aeff52250c5a6a3a6779f2867366c7db93ce36afd6e3113c3190b4a1d68c6a220b2511b3a3747aeab3d43bdce87fc6a63464847b9576fa
+  checksum: ca1af54acbe21708e3afe3f4a82523e6d9ade06e6c88ae980f7abaf56c894da7a9388812c3cd8109944fffeb029ed08e49bce5a661612b780f9604cd02eba337
   languageName: node
   linkType: hard
 
@@ -18939,7 +18940,7 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.4.1
     eslint-plugin-react: ^7.26.1
     eslint-plugin-react-hooks: ^4.2.0
-    eslint-plugin-storybook: ^0.5.11
+    eslint-plugin-storybook: ^0.6.7
     husky: ^6.0.0
     lint-staged: ^13.0.3
     npm-run-all: ^4.1.5
@@ -20787,7 +20788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-dedent@npm:^2.0.0":
+"ts-dedent@npm:^2.0.0, ts-dedent@npm:^2.2.0":
   version: 2.2.0
   resolution: "ts-dedent@npm:2.2.0"
   checksum: 93ed8f7878b6d5ed3c08d99b740010eede6bccfe64bce61c5a4da06a2c17d6ddbb80a8c49c2d15251de7594a4f93ffa21dd10e7be75ef66a4dc9951b4a94e2af
