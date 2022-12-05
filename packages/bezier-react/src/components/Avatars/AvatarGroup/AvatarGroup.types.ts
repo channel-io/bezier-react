@@ -49,4 +49,5 @@ export default interface AvatarGroupProps extends
   ChildrenProps,
   SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
+  React.HTMLAttributes<HTMLDivElement>,
   AvatarGroupOptions {}
