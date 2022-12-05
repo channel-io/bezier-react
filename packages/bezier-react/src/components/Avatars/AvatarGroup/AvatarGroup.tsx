@@ -9,13 +9,7 @@ import { Icon, IconSize, MoreIcon } from 'Components/Icon'
 import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
 import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
-import {
-  StyledAvatarGroup,
-  AvatarEllipsisIconWrapper,
-  AvatarEllipsisCountWrapper,
-  AvatarEllipsisIcon,
-  AvatarEllipsisCount,
-} from './AvatarGroup.styled'
+import * as Styled from './AvatarGroup.styled'
 
 const MAX_AVATAR_LIST_COUNT = 99
 
@@ -121,47 +115,47 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
-          <AvatarEllipsisIconWrapper
+          <Styled.AvatarEllipsisIconWrapper
             data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
-            <AvatarEllipsisIcon>
+            <Styled.AvatarEllipsisIcon>
               <Icon
                 source={MoreIcon}
                 size={getProperIconSize(size)}
                 color="bgtxt-absolute-white-dark"
               />
-            </AvatarEllipsisIcon>
+            </Styled.AvatarEllipsisIcon>
             { AvatarElement }
-          </AvatarEllipsisIconWrapper>
+          </Styled.AvatarEllipsisIconWrapper>
         )
       }
 
       if (ellipsisType === AvatarGroupEllipsisType.Count) {
         return (
-          <React.Fragment
-            key="ellipsis"
-          >
+          <React.Fragment key="ellipsis">
             { AvatarElement }
-            <AvatarEllipsisCountWrapper
+            <Styled.AvatarEllipsisCountWrapper
               style={{
-                '--margin-right': `${getProperEllipsisCountMarginRight(size)}px`,
-                '--margin-left': `${spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING}px`,
+                '--bezier-avatar-group-ellipsis-mr': `${getProperEllipsisCountMarginRight(size)}px`,
+                '--bezier-avatar-group-ellipsis-ml': `${spacing > AVATAR_GROUP_DEFAULT_SPACING
+                  ? spacing
+                  : AVATAR_GROUP_DEFAULT_SPACING}px`,
               } as React.CSSProperties}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
-              <AvatarEllipsisCount
+              <Styled.AvatarEllipsisCount
                 forwardedAs="span"
                 interpolation={ellipsisInterpolation}
                 typo={getProperTypoSize(size)}
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
-              </AvatarEllipsisCount>
-            </AvatarEllipsisCountWrapper>
+              </Styled.AvatarEllipsisCount>
+            </Styled.AvatarEllipsisCountWrapper>
           </React.Fragment>
         )
       }
@@ -182,18 +176,18 @@ forwardedRef: React.Ref<HTMLDivElement>,
   ])
 
   return (
-    <StyledAvatarGroup
+    <Styled.AvatarGroup
       role="group"
       ref={forwardedRef}
       className={className}
       style={{
         ...style,
-        '--avatar-group-spacing': `${spacing}px`,
-        '--avatar-group-size': `${size}px`,
+        '--bezier-avatar-group-spacing': `${spacing}px`,
+        '--bezier-avatar-group-size': `${size}px`,
       } as React.CSSProperties}
       {...rest}
     >
       { AvatarListComponent }
-    </StyledAvatarGroup>
+    </Styled.AvatarGroup>
   )
 })
