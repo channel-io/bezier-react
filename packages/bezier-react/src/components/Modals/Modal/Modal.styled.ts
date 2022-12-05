@@ -31,13 +31,13 @@ export const Content = styled.div<ModalContentProps>`
   inset: 0;
   top: 50%;
   left: 50%;
-  z-index: var(--z-index);
+  z-index: var(--bezier-modal-z-index);
 
   box-sizing: border-box;
-  width: var(--width);
+  width: var(--bezier-modal-width);
   min-width: 360px;
   max-width: 100vw;
-  height: var(--height);
+  height: var(--bezier-modal-height);
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   color: var(--bg-grey-darkest);

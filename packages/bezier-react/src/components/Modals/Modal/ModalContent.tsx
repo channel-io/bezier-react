@@ -26,14 +26,14 @@ export const ModalContent = forwardRef(function ModalContent({
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const contentStyle = useMemo((): React.CSSProperties & {
-    '--width': ModalContentProps['width']
-    '--height': ModalContentProps['height']
-    '--z-index': ModalContentProps['zIndex']
+    '--bezier-modal-width': ModalContentProps['width']
+    '--bezier-modal-height': ModalContentProps['height']
+    '--bezier-modal-z-index': ModalContentProps['zIndex']
   } => ({
     ...style,
-    '--width': isNumber(width) ? `${width}px` : width,
-    '--height': isNumber(height) ? `${height}px` : height,
-    '--z-index': zIndex,
+    '--bezier-modal-width': isNumber(width) ? `${width}px` : width,
+    '--bezier-modal-height': isNumber(height) ? `${height}px` : height,
+    '--bezier-modal-z-index': zIndex,
   }), [
     style,
     width,
