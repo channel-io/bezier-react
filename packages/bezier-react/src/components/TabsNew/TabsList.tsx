@@ -9,7 +9,7 @@ import TabsListContext from './TabsListContext'
 import { isTabItem } from './TabItem'
 import { isTabAction } from './TabAction'
 
-export function TabsList({
+export default function TabsList({
   children,
   height = TabsSize.Normal,
 }: TabsListProps) {

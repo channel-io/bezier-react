@@ -7,9 +7,9 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import { TabActionProps, TabsContentProps, TabsListProps, TabsProps, TabsSize } from './Tabs.types'
+import { TabActionProps, TabsListProps, TabsProps, TabsSize } from './Tabs.types'
 import { Tabs } from './Tabs'
-import { TabsList } from './TabsList'
+import TabsList from './TabsList'
 import TabItem from './TabItem'
 import TabAction from './TabAction'
 
@@ -17,7 +17,6 @@ type TabsCompositionProps =
   & TabsProps
   & TabsListProps
   & TabActionProps
-  & TabsContentProps
 
 const Wrapper = styled.div`
   display: flex;

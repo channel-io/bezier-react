@@ -24,7 +24,7 @@ export function isTabItem(element: any): element is React.ReactElement<TabItemPr
     get(element, 'type.displayName') === TAB_ITEM_DISPLAY_NAME
 }
 
-export const getButtonSizeBy = (height: TabsSize) => {
+const getButtonSizeBy = (height: TabsSize) => {
   switch (height) {
     case TabsSize.L:
       return ButtonSize.L

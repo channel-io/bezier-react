@@ -7,7 +7,7 @@ interface BackgroundProps {
   height: TabsSize
 }
 
-export function getPaddingStyle({ height }: { height: TabsSize }) {
+function getPaddingStyle({ height }: { height: TabsSize }) {
   switch (height) {
     case TabsSize.L:
       return css`
@@ -45,19 +45,6 @@ export const Background = styled.div<BackgroundProps>`
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
   }
-`
-
-interface ListProps {
-  height: TabsSize
-}
-
-export const List = styled.div<ListProps>`
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  justify-content: space-between;
-  height: ${props => props.height}px;
-  box-shadow: 0 -1px 0 0 ${props => props.foundation?.theme?.['bg-black-light']} inset;
 `
 
 export const Wrapper = styled.div`

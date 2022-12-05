@@ -11,7 +11,7 @@ export interface TabsListContextValue {
   height: TabsSize
 }
 
-export interface TabsOptions {
+interface TabsOptions {
   /**
    * Use when you do not need to control the state of the component.
    */
@@ -26,7 +26,7 @@ export interface TabsOptions {
   onValueChange?: (value: string) => void
 }
 
-export interface TabsListOptions {
+interface TabsListOptions {
   /**
    * Tab size whose value is TabsSize enum.
    */
@@ -40,14 +40,7 @@ export interface TabActionOptions {
   onClick?: React.MouseEventHandler
 }
 
-export interface TabsContentOptions {
-  /**
-   * A unique value that associates the content with a trigger.
-   */
-  value: string
-}
-
-export interface TabItemOptions {
+interface TabItemOptions {
   /**
    * A unique value that associates the trigger with a content.
    */
@@ -76,7 +69,3 @@ export interface TabActionProps extends
   LinkProps,
   DisableProps,
   TabActionOptions {}
-
-export interface TabsContentProps extends
-  ChildrenProps,
-  TabsContentOptions {}
