@@ -1,3 +1,6 @@
+/* Internal dependencies */
+import type { BezierComponentProps, SizeProps } from 'Types/ComponentProps'
+
 export enum StatusType {
   Online = 'Online',
   Offline = 'Offline',
@@ -11,7 +14,12 @@ export enum StatusSize {
   L = 14,
 }
 
-export interface StatusProps {
+interface StatusOptions {
   type: StatusType
-  size?: StatusSize
 }
+
+export interface StatusProps extends
+  BezierComponentProps,
+  SizeProps<StatusSize>,
+  React.HTMLAttributes<HTMLDivElement>,
+  StatusOptions {}
