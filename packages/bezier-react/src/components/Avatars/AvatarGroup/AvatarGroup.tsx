@@ -19,6 +19,8 @@ import {
 
 const MAX_AVATAR_LIST_COUNT = 99
 
+export const AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID = 'bezier-react-avatar-group-ellipsis-icon'
+
 function getRestAvatarListCountText(count: number, max: number) {
   const restCount = count - max
   return `+${restCount > MAX_AVATAR_LIST_COUNT ? MAX_AVATAR_LIST_COUNT : restCount}`
@@ -120,6 +122,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
           <AvatarEllipsisIconWrapper
+            data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}

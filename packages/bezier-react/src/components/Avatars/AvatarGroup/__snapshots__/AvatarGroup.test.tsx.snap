@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AvatarGroup > Snapshot > 1`] = `
+exports[`AvatarGroup Snapshot 1`] = `
 .c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -56,6 +56,8 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 }
 
 .c0 {
+  position: relative;
+  z-index: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -63,7 +65,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 }
 
 .c0 > * + * {
-  margin-left: 4px;
+  margin-left: var(--avatar-group-spacing);
 }
 
 .c4 {
@@ -128,8 +130,8 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 
 <div
   class="c0"
-  data-testid="bezier-react-avatar-group"
-  spacing="4"
+  role="group"
+  style="--avatar-group-spacing: 4px; --avatar-group-size: 24px;"
 >
   <div
     class="c1"
@@ -141,7 +143,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Christian Nwamba"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -158,7 +160,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Kola Tioluwani"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -175,7 +177,41 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Kent Dodds"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Ryan Florence"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Dan Abrahmov"
+        class="c3"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -184,6 +220,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
   </div>
   <div
     class="c4"
+    data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
       class="c5"
@@ -219,9 +256,9 @@ exports[`AvatarGroup > Snapshot > 1`] = `
         class="c2"
       >
         <div
-          aria-label="Ryan Florence"
+          aria-label="Prosper Otemuyiwa"
           class="c3"
-          data-testid="AVATAR"
+          data-testid="bezier-react-avatar"
           role="img"
           size="24"
           style="--background-image: url(https://www.google.com);"
