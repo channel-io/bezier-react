@@ -2,7 +2,7 @@
 import React, { forwardRef, useCallback, useMemo } from 'react'
 import { noop } from 'lodash-es'
 
-/* Internal denpendencies */
+/* Internal dependencies */
 import { Typography } from 'Foundation'
 import { isLastIndex } from 'Utils/arrayUtils'
 import { Icon, IconSize, MoreIcon } from 'Components/Icon'
