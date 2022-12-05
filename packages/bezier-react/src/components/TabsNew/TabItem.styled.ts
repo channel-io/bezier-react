@@ -1,29 +1,23 @@
 /* Internal dependencies */
-import { css, styled } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
+import { styled } from 'Foundation'
 import { Button as BaseButton, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
-import { TabItemProps } from './Tabs.types'
 
-export const Wrapper = styled.button<TabItemProps>`
-  all: unset;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
-  cursor: pointer;
-  user-select: none;
+export const Button = styled(BaseButton).attrs({
+  colorVariant: ButtonColorVariant.MonochromeLight,
+  styleVariant: ButtonStyleVariant.Tertiary,
+})`
+  top: 4px;
+  color: inherit;
 
   &::after {
     position: absolute;
     right: 1px;
-    bottom: 0;
+    bottom: -5px;
     left: 1px;
     height: 3px;
     content: '';
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
     border-radius: 1.5px;
-    transform: translateY(100%);
 
     ${({ foundation }) => (foundation?.transition?.getTransitionsCSS(['transform', 'background-color']))};
 
@@ -32,6 +26,10 @@ export const Wrapper = styled.button<TabItemProps>`
 
   &[data-state="inactive"] {
     color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+
+    &::after {
+      display: none;
+    }
   }
   
   &[data-state="inactive"]:hover {
@@ -39,31 +37,11 @@ export const Wrapper = styled.button<TabItemProps>`
   }
 
   &[data-state="active"] {
+    overflow: visible;
     color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
-    pointer-events: none;
-
-    &::after {
-      transform: translateY(0);
+    
+    &:hover {
+      background-color: inherit;
     }
   }
-
-  ${({ disabled }) => disabled && css`
-    cursor: not-allowed;
-    pointer-events: all;
-    opacity: ${DisabledOpacity};
-  `}
-
-  &:hover > button {
-    background-color: ${({ foundation }) => foundation?.theme?.['bg-black-lighter']};
-  }
-`
-
-export const Button = styled(BaseButton).attrs({
-  colorVariant: ButtonColorVariant.MonochromeLight,
-  styleVariant: ButtonStyleVariant.Tertiary,
-})`
-  margin-top: 4px;
-  color: inherit;
-
-  pointer-events: none;
 `

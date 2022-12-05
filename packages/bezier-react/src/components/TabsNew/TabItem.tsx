@@ -48,19 +48,15 @@ function _TabItem({
   }
 
   return (
-    <Styled.Wrapper
+    <Styled.Button
+      disabled={disabled}
+      text={children}
+      size={getButtonSizeBy(height)}
+      colorVariant={ButtonColorVariant.MonochromeLight}
+      styleVariant={ButtonStyleVariant.Tertiary}
       ref={forwardedRef}
-      height={height}
       {...rest}
-    >
-      <Styled.Button
-        disabled={disabled}
-        text={children}
-        size={getButtonSizeBy(height)}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
-      />
-    </Styled.Wrapper>
+    />
   )
 }
 
