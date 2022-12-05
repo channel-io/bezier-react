@@ -21,7 +21,7 @@ export const inputWrapperStyle = css`
     inset 0 0 0 1px ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
 `
 
-export const focusedInputWrapperStyle = css`
+export const ckafocusedInputWrapperStyle = css`
   box-shadow: 0 0 0 3px ${({ foundation }) => foundation?.theme?.['bgtxt-blue-light']},
     inset 0 0 0 1px ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
 `
