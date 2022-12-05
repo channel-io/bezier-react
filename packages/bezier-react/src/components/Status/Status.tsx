@@ -7,9 +7,6 @@ import { IconSize, LockIcon, MoonFilledIcon } from 'Components/Icon'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
 import * as Styled from './Status.styled'
 
-// TODO: 테스트 코드 작성
-const STATUS_TEST_ID = 'bezier-react-status'
-
 const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.OnlineCrescent,
   StatusType.OfflineCrescent,
@@ -40,7 +37,6 @@ export const Status = memo(forwardRef(function Status({
 
   return (
     <Styled.Circle
-      data-testid={STATUS_TEST_ID}
       ref={forwardedRef}
       style={{
         ...style,
