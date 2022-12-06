@@ -90,7 +90,7 @@ export const ModalHeader = forwardRef(function ModalHeader({
   titleSize = ModalTitleSize.L,
   hidden = false,
   ...rest
-}: ModalHeaderProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}: ModalHeaderProps, forwardedRef: React.Ref<HTMLElement>) {
   const { showCloseIcon } = useContext(ModalContentContext)
   const hasTitleArea = title || showCloseIcon
 

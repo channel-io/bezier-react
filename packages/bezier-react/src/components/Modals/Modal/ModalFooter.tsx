@@ -13,7 +13,7 @@ export const ModalFooter = forwardRef(function ModalFooter({
   leftContent,
   rightContent,
   ...rest
-}: ModalFooterProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}: ModalFooterProps, forwardedRef: React.Ref<HTMLElement>) {
   return (
     <Styled.Footer
       ref={forwardedRef}

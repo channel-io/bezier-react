@@ -112,7 +112,7 @@ export interface ModalContentProps extends
 
 export interface ModalHeaderProps extends
   BezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ModalHeaderOptions>,
+  Omit<React.HTMLAttributes<HTMLElement>, keyof ModalHeaderOptions>,
   ModalHeaderOptions {}
 
 export interface ModalBodyProps extends
@@ -122,7 +122,7 @@ export interface ModalBodyProps extends
 
 export interface ModalFooterProps extends
   BezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  React.HTMLAttributes<HTMLElement>,
   ModalFooterOptions {}
 
 export interface ModalTriggerProps extends
