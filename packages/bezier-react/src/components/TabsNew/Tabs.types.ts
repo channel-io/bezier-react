@@ -68,7 +68,7 @@ export interface TabListProps extends
   TabsOptions {}
 
 export interface TabsProps extends
-  ChildrenProps<React.ReactNode[]>,
+  ChildrenProps,
   TabsOptions {}
 
 export interface TabActionProps extends
