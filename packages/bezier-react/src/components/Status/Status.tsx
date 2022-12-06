@@ -1,16 +1,13 @@
 /* External dependencies */
-import React, { memo } from 'react'
+import React, { memo, forwardRef } from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from 'Foundation'
 import { IconSize, LockIcon, MoonFilledIcon } from 'Components/Icon'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
-import { Icon, StatusCircle } from './Status.styled'
+import * as Styled from './Status.styled'
 
-// TODO: 테스트 코드 작성
-const STATUS_TEST_ID = 'bezier-react-status'
-
-const statusWithIcon: Readonly<StatusType[]> = [
+const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.OnlineCrescent,
   StatusType.OfflineCrescent,
   StatusType.Lock,
@@ -24,43 +21,38 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
   [StatusType.Lock]: 'txt-black-darker',
 }
 
-function Status({
-  type,
-  size = StatusSize.M,
-}: StatusProps) {
-  if (statusWithIcon.includes(type)) {
-    const iconSize = (size <= StatusSize.M) ? IconSize.XXXS : IconSize.XS
-
-    return (
-      <StatusCircle
-        data-testid={STATUS_TEST_ID}
-        color="bg-white-high"
-        size={size}
-      >
-        { (type === StatusType.Lock) ? (
-          <Icon
-            source={LockIcon}
-            size={iconSize}
-            color={statusColor[type]}
-          />
-        ) : (
-          <Icon
-            source={MoonFilledIcon}
-            size={iconSize}
-            color={statusColor[type]}
-          />
-        ) }
-      </StatusCircle>
-    )
-  }
-
-  return (
-    <StatusCircle
-      data-testid={STATUS_TEST_ID}
-      color={statusColor[type] ?? 'bg-black-dark'}
-      size={size}
-    />
-  )
+function getStatusCircleBorderWidth(size: StatusSize) {
+  if (size >= StatusSize.L) { return 3 }
+  return 2
 }
 
-export default memo(Status)
+export const Status = memo(forwardRef(function Status({
+  type,
+  size = StatusSize.M,
+  style,
+  ...rest
+}: StatusProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const withIcon = statusTypesWithIcon.includes(type)
+  const backgroundColor = withIcon ? 'bg-white-high' : statusColor[type]
+
+  return (
+    <Styled.Circle
+      ref={forwardedRef}
+      style={{
+        ...style,
+        '--bezier-status-size': `${size}px`,
+        '--bezier-status-bg-color': `var(--${backgroundColor})`,
+        '--bezier-status-border-width': `${getStatusCircleBorderWidth(size)}px`,
+      }}
+      {...rest}
+    >
+      { withIcon && (
+        <Styled.Icon
+          source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
+          size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
+          color={statusColor[type]}
+        />
+      ) }
+    </Styled.Circle>
+  )
+}))

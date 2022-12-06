@@ -112,15 +112,13 @@ exports[`Avatar > renders border style 1`] = `
 
 exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 2px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 8px;
-  height: 8px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -129,10 +127,10 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
   top: 0;
   left: 0;
   display: block;
-  width: 8px;
-  height: 8px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -153,24 +151,20 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="8"
+    style="--bezier-status-size: 8px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 2px;"
   />
 </div>
 `;
 
 exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 2px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 8px;
-  height: 8px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -179,10 +173,10 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
   top: 0;
   left: 0;
   display: block;
-  width: 8px;
-  height: 8px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -203,24 +197,20 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="8"
+    style="--bezier-status-size: 8px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 2px;"
   />
 </div>
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 72 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 2px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 8px;
-  height: 8px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -229,10 +219,10 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   top: 0;
   left: 0;
   display: block;
-  width: 8px;
-  height: 8px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -253,24 +243,20 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="8"
+    style="--bezier-status-size: 8px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 2px;"
   />
 </div>
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 3px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 14px;
-  height: 14px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -279,10 +265,10 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   top: 0;
   left: 0;
   display: block;
-  width: 14px;
-  height: 14px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -303,24 +289,20 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="14"
+    style="--bezier-status-size: 14px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 3px;"
   />
 </div>
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 2px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 8px;
-  height: 8px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -329,10 +311,10 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   top: 0;
   left: 0;
   display: block;
-  width: 8px;
-  height: 8px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -353,24 +335,20 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="8"
+    style="--bezier-status-size: 8px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 2px;"
   />
 </div>
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
 .c1 {
-  box-sizing: border-box;
-  border-color: #FFFFFF;
-  border-style: solid solid solid solid;
-  border-width: 3px;
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: 14px;
-  height: 14px;
-  background-color: #FFFFFF;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 }
 
@@ -379,10 +357,10 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   top: 0;
   left: 0;
   display: block;
-  width: 14px;
-  height: 14px;
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
   content: '';
-  background-color: #31A552;
+  background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
 }
 
@@ -403,9 +381,7 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 >
   <div
     class="c1"
-    color="bgtxt-green-normal"
-    data-testid="bezier-react-status"
-    size="14"
+    style="--bezier-status-size: 14px; --bezier-status-bg-color: var(--bgtxt-green-normal); --bezier-status-border-width: 3px;"
   />
 </div>
 `;

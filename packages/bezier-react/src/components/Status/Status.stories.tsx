@@ -7,7 +7,7 @@ import { Story, Meta } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
-import Status from './Status'
+import { Status } from './Status'
 
 export default {
   title: getTitle(base),

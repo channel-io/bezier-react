@@ -1,29 +1,15 @@
 /* Internal dependencies */
-import { styled, absoluteCenter, SemanticNames } from 'Foundation'
+import { styled, absoluteCenter } from 'Foundation'
 import { Icon as BaseIcon } from 'Components/Icon'
-import { StatusSize } from './Status.types'
 
-function getStatusCircleBorderSize(size: StatusSize) {
-  if (size >= StatusSize.L) { return 3 }
-  return 2
-}
-
-interface StatusCircleProps {
-  color: SemanticNames
-  size: StatusSize
-}
-
-export const StatusCircle = styled.div<StatusCircleProps>`
-  ${({ foundation, size }) => foundation?.border?.getBorder(
-    getStatusCircleBorderSize(size),
-    foundation?.theme?.['bg-white-high'],
-  )};
-
+export const Circle = styled.div`
   position: relative;
+  z-index: 0;
   box-sizing: content-box;
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
+  width: var(--bezier-status-size);
+  height: var(--bezier-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--bezier-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 
   &::after {
@@ -31,10 +17,10 @@ export const StatusCircle = styled.div<StatusCircleProps>`
     top: 0;
     left: 0;
     display: block;
-    width: ${({ size }) => size}px;
-    height: ${({ size }) => size}px;
+    width: var(--bezier-status-size);
+    height: var(--bezier-status-size);
     content: '';
-    background-color: ${({ foundation, color = 'bg-white-high' }) => foundation?.theme?.[color]};
+    background-color: var(--bezier-status-bg-color);
     border-radius: 50%;
   }
 `
