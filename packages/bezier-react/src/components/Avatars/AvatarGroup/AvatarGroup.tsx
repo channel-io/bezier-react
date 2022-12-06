@@ -141,9 +141,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
             <Styled.AvatarEllipsisCountWrapper
               style={{
                 '--bezier-avatar-group-ellipsis-mr': `${getProperEllipsisCountMarginRight(size)}px`,
-                '--bezier-avatar-group-ellipsis-ml': `${spacing > AVATAR_GROUP_DEFAULT_SPACING
-                  ? spacing
-                  : AVATAR_GROUP_DEFAULT_SPACING}px`,
+                '--bezier-avatar-group-ellipsis-ml': `${Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)}px`,
               } as React.CSSProperties}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
