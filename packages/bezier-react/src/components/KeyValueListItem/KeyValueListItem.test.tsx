@@ -26,7 +26,7 @@ const renderMultilineComponent = (optionProps?: Partial<KeyValueListItemProps>) 
 )
 
 describe('KeyValueListItem', () => {
-  it('Snapshot >', () => {
+  it('Snapshot', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEST_ID_MAP.ROOT)
     expect(rendered).toMatchSnapshot()
@@ -325,7 +325,7 @@ describe('KeyValueListItem', () => {
         expect(rendered).toHaveStyle('align-items: center;')
 
         const keyItemText = rendered?.lastChild
-        expect(keyItemText).toHaveStyle('color: rgba(0, 0, 0, 0.4);')
+        expect(keyItemText).toHaveStyle('--bezier-text-font-color: var(--txt-black-dark);')
         expect(keyItemText).toHaveStyle('overflow: hidden;')
         expect(keyItemText).toHaveStyle('text-overflow: ellipsis;')
         expect(keyItemText).toHaveStyle('white-space: nowrap;')

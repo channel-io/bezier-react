@@ -185,21 +185,21 @@ describe('Select Test >', () => {
       const { getByTestId } = renderSelect({ text: 'lorem ipsum' })
       const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
 
-      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-darkest']};`)
+      expect(triggerText).toHaveStyle('--bezier-text-font-color: var(--txt-black-darkest);')
     })
 
     it('shows given text color', () => {
       const { getByTestId } = renderSelect({ text: 'lorem ipsum', textColor: 'bgtxt-green-normal' })
       const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
 
-      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']};`)
+      expect(triggerText).toHaveStyle('--bezier-text-font-color: var(--bgtxt-green-normal);')
     })
 
     it('shows placeholder text color if content is empty', () => {
       const { getByTestId } = renderSelect({ text: '', textColor: 'bgtxt-blue-normal' })
       const triggerText = getByTestId(SELECT_TRIGGER_TEXT_TEST_ID)
 
-      expect(triggerText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+      expect(triggerText).toHaveStyle('--bezier-text-font-color: var(--txt-black-dark);')
     })
   })
 

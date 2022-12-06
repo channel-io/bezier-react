@@ -2,17 +2,11 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import {
-  FORM_HELPER_TEXT_TEST_ID,
-  FORM_ERROR_MESSAGE_TEST_ID,
-  FormHelperText,
-  FormErrorMessage,
-} from './FormHelperText'
+import { FormHelperText, FormErrorMessage } from './FormHelperText'
 import type { FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 
-describe('FormHelperText >', () => {
+describe('FormHelperText', () => {
   let props: FormHelperTextProps
   const text = 'Lorem ipsum'
 
@@ -26,29 +20,26 @@ describe('FormHelperText >', () => {
   const renderFormHelperText = (otherProps?: Partial<FormHelperTextProps>) =>
     render(<FormHelperText {...props} {...otherProps} />)
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderFormHelperText()
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
+  it('Snapshot', () => {
+    const { getByText } = renderFormHelperText()
+    const helperText = getByText(text)
     expect(helperText).toMatchSnapshot()
   })
 
   it('renders text with correct style when children prop is not empty', () => {
-    const { getByTestId } = renderFormHelperText()
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
-    expect(helperText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
+    const { getByText } = renderFormHelperText()
+    const helperText = getByText(text)
+    expect(helperText).toHaveStyle('--bezier-text-font-color: var(--txt-black-dark);')
   })
 
   it('renders nothing when children prop is empty', () => {
     const { queryByTestId } = renderFormHelperText({ children: '' })
-    const helperText = queryByTestId(FORM_HELPER_TEXT_TEST_ID)
-
+    const helperText = queryByTestId(text)
     expect(helperText).toBeNull()
   })
 })
 
-describe('FormErrorMessage >', () => {
+describe('FormErrorMessage', () => {
   let props: FormErrorMessageProps
   const text = 'Lorem ipsum'
 
@@ -62,31 +53,27 @@ describe('FormErrorMessage >', () => {
   const renderFormHelperText = (otherProps?: Partial<FormErrorMessageProps>) =>
     render(<FormErrorMessage {...props} {...otherProps} />)
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderFormHelperText()
-    const rendered = getByTestId(FORM_ERROR_MESSAGE_TEST_ID)
-
+  it('Snapshot', () => {
+    const { getByText } = renderFormHelperText()
+    const rendered = getByText(text)
     expect(rendered).toMatchSnapshot()
   })
 
   it('renders text with correct style when children prop is not empty', () => {
-    const { getByTestId } = renderFormHelperText()
-    const rendered = getByTestId(FORM_ERROR_MESSAGE_TEST_ID)
-
-    expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-orange-normal']}`)
+    const { getByText } = renderFormHelperText()
+    const rendered = getByText(text)
+    expect(rendered).toHaveStyle('--bezier-text-font-color: var(--bgtxt-orange-normal);')
   })
 
   it('renders nothing when children prop is empty', () => {
     const { queryByTestId } = renderFormHelperText({ children: '' })
-    const rendered = queryByTestId(FORM_ERROR_MESSAGE_TEST_ID)
-
+    const rendered = queryByTestId(text)
     expect(rendered).toBeNull()
   })
 
   it('should have aria-live="polite" attribute', () => {
-    const { getByTestId } = renderFormHelperText()
-    const rendered = getByTestId(FORM_ERROR_MESSAGE_TEST_ID)
-
+    const { getByText } = renderFormHelperText()
+    const rendered = getByText(text)
     expect(rendered).toHaveAttribute('aria-live', 'polite')
   })
 })
