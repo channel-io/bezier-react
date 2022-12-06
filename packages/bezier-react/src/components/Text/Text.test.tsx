@@ -4,61 +4,61 @@ import React from 'react'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import Text, { TEXT_TEST_ID } from './Text'
-import TextProps from './Text.types'
+import { Text } from './Text'
+import { TextProps } from './Text.types'
 
-describe('Text test >', () => {
+const TEXT = 'hello, world'
+
+describe('Text', () => {
   let props: TextProps
 
   beforeEach(() => {
     props = {
-      children: 'hello, world',
+      children: TEXT,
     }
   })
 
   const renderComponent = (optionProps?: TextProps) => render(<Text {...props} {...optionProps} />)
 
-  it('Text have default style', () => {
-    const { getByTestId } = renderComponent()
-
-    const renderedText = getByTestId(TEXT_TEST_ID)
-
-    expect(renderedText).toHaveStyle('font-size: 1.5rem;')
-    expect(renderedText).toHaveStyle('font-weight: normal;')
-    expect(renderedText).toHaveStyle('font-style: normal;')
-    expect(renderedText).toHaveStyle('color: inherit;')
+  it('should have default style', () => {
+    const { getByText } = renderComponent()
+    const renderedText = getByText(TEXT)
+    expect(renderedText).toHaveStyle('--bezier-text-font-size: 1.5rem;')
+    expect(renderedText).toHaveStyle('font-size: var(--bezier-text-font-size);')
+    expect(renderedText).toHaveStyle('--bezier-text-font-weight: normal;')
+    expect(renderedText).toHaveStyle('font-weight: var(--bezier-text-font-weight);')
+    expect(renderedText).toHaveStyle('--bezier-text-font-style: normal;')
+    expect(renderedText).toHaveStyle('font-style: var(--bezier-text-font-style);')
+    expect(renderedText).toHaveStyle('--bezier-text-font-color: inherit;')
+    expect(renderedText).toHaveStyle('color: var(--bezier-text-font-color);')
   })
 
-  it('Text receives bold style', () => {
-    const { getByTestId } = renderComponent({ bold: true })
-
-    const renderedText = getByTestId(TEXT_TEST_ID)
-
-    expect(renderedText).toHaveStyle('font-weight: bold;')
+  it('should receives bold style', () => {
+    const { getByText } = renderComponent({ bold: true })
+    const renderedText = getByText(TEXT)
+    expect(renderedText).toHaveStyle('--bezier-text-font-weight: bold;')
+    expect(renderedText).toHaveStyle('font-weight: var(--bezier-text-font-weight);')
   })
 
-  it('Text receives bold style', () => {
-    const { getByTestId } = renderComponent({ italic: true })
-
-    const renderedText = getByTestId(TEXT_TEST_ID)
-
-    expect(renderedText).toHaveStyle('font-style: italic;')
+  it('should receives italic style', () => {
+    const { getByText } = renderComponent({ italic: true })
+    const renderedText = getByText(TEXT)
+    expect(renderedText).toHaveStyle('--bezier-text-font-style: italic;')
+    expect(renderedText).toHaveStyle('font-style: var(--bezier-text-font-style);')
   })
 
-  it('Text receives style object', () => {
-    const { getByTestId } = renderComponent({ style: { color: 'skyblue' } })
-
-    const renderedText = getByTestId(TEXT_TEST_ID)
-
+  it('should receives style object', () => {
+    const { getByText } = renderComponent({ style: { color: 'skyblue' } })
+    const renderedText = getByText(TEXT)
     expect(renderedText).toHaveStyle('color: skyblue;')
   })
 
-  it('Text receives typo from styled component css', () => {
-    const { getByTestId } = renderComponent({ typo: Typography.Size24 })
-
-    const renderedText = getByTestId(TEXT_TEST_ID)
-
-    expect(renderedText).toHaveStyle('font-size: 2.4rem;')
-    expect(renderedText).toHaveStyle('line-height: 3.2rem;')
+  it('should receives typo from styled component css', () => {
+    const { getByText } = renderComponent({ typo: Typography.Size24 })
+    const renderedText = getByText(TEXT)
+    expect(renderedText).toHaveStyle('--bezier-text-font-size: 2.4rem;')
+    expect(renderedText).toHaveStyle('--bezier-text-line-height: 3.2rem;')
+    expect(renderedText).toHaveStyle('font-size: var(--bezier-text-font-size);')
+    expect(renderedText).toHaveStyle('line-height: var(--bezier-text-line-height);')
   })
 })
