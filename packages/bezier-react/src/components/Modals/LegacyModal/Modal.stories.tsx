@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-imports */
+/* eslint-disable max-len */
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
@@ -7,18 +7,18 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
 import {
-  ModalContent,
-  ModalAction,
-  ModalActionProps,
+  ModalProps,
   ModalContentProps,
-} from '../LegacyModal'
-import { ModalTitleSize } from '../LegacyModal/Modal.types'
-import type { ConfirmModalProps } from './ConfirmModal.types'
-import ConfirmModal from './ConfirmModal'
+  ModalActionProps,
+  ModalTitleSize,
+} from './Modal.types'
+import Modal from './Modal'
+import ModalContent from './ModalContent'
+import ModalAction from './ModalAction'
 
 export default {
   title: getTitle(base),
-  component: ConfirmModal,
+  component: Modal,
   argTypes: {
     titleSize: {
       control: {
@@ -32,7 +32,7 @@ export default {
 } as Meta
 
 interface ModalStorybookProps extends
-  Omit<ConfirmModalProps, 'title'>,
+  Omit<ModalProps, 'title'>,
   ModalContentProps,
   ModalActionProps { }
 
@@ -72,11 +72,6 @@ const ModalStorybook = ({
     setShow(!isShow)
   }, [isShow])
 
-  const onConfirm = React.useCallback((e: React.MouseEvent | React.KeyboardEvent) => {
-    e.stopPropagation()
-    onHide()
-  }, [onHide])
-
   return (
     <>
       <button
@@ -85,11 +80,10 @@ const ModalStorybook = ({
       >
         { isShow ? 'Hide' : 'Show' }
       </button>
-      <ConfirmModal
+      <Modal
         {...rests}
         show={isShow}
         onHide={onHide}
-        onConfirm={onConfirm}
       >
         <ModalContent
           title={title}
@@ -102,16 +96,9 @@ const ModalStorybook = ({
         </ModalContent>
         <ModalAction
           leftContent={leftContent}
-          rightContent={(
-            <button
-              type="button"
-              onClick={onConfirm}
-            >
-              onConfirm
-            </button>
-          )}
+          rightContent={rightContent}
         />
-      </ConfirmModal>
+      </Modal>
     </>
   )
 }
@@ -194,3 +181,11 @@ WithoutDescription.args = {
   leftContent: 'Left content',
   rightContent: 'Right content',
 }
+
+export const WithoutAction = PrimaryTemplate.bind({})
+WithoutAction.args = {
+  ...DEFAULT_OPTIONAL_MODAL_PROPS,
+  title: 'Title',
+  description: 'Description',
+}
+

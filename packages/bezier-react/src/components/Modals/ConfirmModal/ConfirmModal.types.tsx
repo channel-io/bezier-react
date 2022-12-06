@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-imports */
 import React from 'react'
 
-import type { ModalProps } from '../Modal'
+import type { ModalProps } from '../LegacyModal'
 
 export interface ConfirmModalProps extends ModalProps {
   /**

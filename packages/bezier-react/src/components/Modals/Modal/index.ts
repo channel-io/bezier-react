@@ -1,23 +1,17 @@
-import Modal from './Modal'
-import ModalContent from './ModalContent'
-import ModalAction from './ModalAction'
-import {
+export { Modal } from './Modal'
+export { ModalContent } from './ModalContent'
+export { ModalHeader } from './ModalHeader'
+export { ModalBody } from './ModalBody'
+export { ModalFooter } from './ModalFooter'
+export { ModalTrigger, ModalClose } from './ModalHelpers'
+
+export {
   ModalTitleSize,
   type ModalProps,
-  type ModalActionProps,
   type ModalContentProps,
-  type ModalContextValue,
+  type ModalHeaderProps,
+  type ModalBodyProps,
+  type ModalFooterProps,
+  type ModalTriggerProps,
+  type ModalCloseProps,
 } from './Modal.types'
-
-export type {
-  ModalProps,
-  ModalActionProps,
-  ModalContentProps,
-  ModalContextValue,
-}
-export {
-  Modal,
-  ModalContent,
-  ModalAction,
-  ModalTitleSize,
-}

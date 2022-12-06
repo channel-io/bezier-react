@@ -1,37 +1,55 @@
-/* eslint-disable no-restricted-imports */
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, { useCallback } from 'react'
+import * as DialogPrimitive from '@radix-ui/react-dialog'
+import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { BaseModal } from '../BaseModal'
-import type { ModalContextValue, ModalProps } from './Modal.types'
-import ModalContext from './ModalContext'
+import { ModalProps } from './Modal.types'
 
-function Modal(
-  {
-    children,
-    targetElement,
+/**
+ * `Modal` is a dialog that appears on top of the page.
+ *
+ * `Modal` is a context of the Modal-related components. It doesn't render any DOM node.
+ * It controls the visibility of the entire component and provides
+ * handlers and accessibility properties to Modal-related components.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Modal
+ * <Modal>
+ *  <ModalTrigger />
+ *  <ModalContent>
+ *    <ModalHeader />
+ *    <ModalBody />
+ *    <ModalFooter />
+ *  </ModalContent>
+ * </Modal>
+ * ```
+ */
+export function Modal({
+  children,
+  show,
+  defaultShow,
+  onShow = noop,
+  onHide = noop,
+}: ModalProps) {
+  const onOpenChange = useCallback<NonNullable<DialogPrimitive.DialogProps['onOpenChange']>>((open) => {
+    const callback = open ? onShow : onHide
+    callback()
+  }, [
+    onShow,
     onHide,
-    ...rests
-  }: ModalProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const contextValue = useMemo<ModalContextValue>(() => ({
-    onHide,
-  }), [onHide])
+  ])
 
   return (
-    <BaseModal
-      {...rests}
-      ref={forwardedRef}
-      onHide={onHide}
-      targetElement={targetElement}
+    <DialogPrimitive.Root
+      open={show}
+      defaultOpen={defaultShow}
+      onOpenChange={onOpenChange}
     >
-      <ModalContext.Provider value={contextValue}>
-        { children }
-      </ModalContext.Provider>
-    </BaseModal>
+      { children }
+    </DialogPrimitive.Root>
   )
 }
 
-export default forwardRef(Modal)

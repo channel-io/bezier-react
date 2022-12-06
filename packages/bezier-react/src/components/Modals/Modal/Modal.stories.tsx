@@ -1,191 +1,137 @@
-/* eslint-disable max-len */
-/* External dependencies */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import {
-  ModalProps,
-  ModalContentProps,
-  ModalActionProps,
-  ModalTitleSize,
-} from './Modal.types'
-import Modal from './Modal'
-import ModalContent from './ModalContent'
-import ModalAction from './ModalAction'
+import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { ButtonGroup } from 'Components/ButtonGroup'
+import { FormControl } from 'Components/Forms/FormControl'
+import { FormLabel } from 'Components/Forms/FormLabel'
+import { TextField } from 'Components/Forms/Inputs/TextField'
+import { Modal } from './Modal'
+import { ModalContent } from './ModalContent'
+import { ModalHeader } from './ModalHeader'
+import { ModalBody } from './ModalBody'
+import { ModalFooter } from './ModalFooter'
+import { ModalTrigger, ModalClose } from './ModalHelpers'
+import { ModalProps, ModalContentProps, ModalHeaderProps, ModalTitleSize } from './Modal.types'
 
-export default {
-  title: getTitle(base),
-  component: Modal,
-  argTypes: {
-    titleSize: {
-      control: {
-        type: 'radio',
-        options: [
-          ...Object.values(ModalTitleSize),
-        ],
-      },
-    },
-  },
-} as Meta
+type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
 
-interface ModalStorybookProps extends
-  Omit<ModalProps, 'title'>,
-  ModalContentProps,
-  ModalActionProps { }
-
-const DEFAULT_OPTIONAL_MODAL_PROPS: Partial<ModalStorybookProps> = {
-  show: false,
-  autoFocus: true,
-  showCloseIcon: false,
-  padded: true,
-  backdropClassName: '',
-  targetElement: undefined,
-  zIndex: 1e7,
-}
-
-const ModalStorybook = ({
-  title,
-  titleSize,
-  subTitle,
-  description,
+function ModalComposition({
+  show: showProp = false,
   showCloseIcon,
-  leftContent,
-  rightContent,
-  show,
-  children,
-  ...rests
-}: ModalStorybookProps) => {
-  const [isShow, setShow] = React.useState(show)
+  width,
+  height,
+  title,
+  subtitle,
+  description,
+  titleSize,
+  hidden,
+}: ModalCompositionProps) {
+  const [show, setShow] = useState(false)
 
-  React.useEffect(function watchShowToChange() {
-    setShow(show)
-  }, [show])
-
-  const onHide = React.useCallback(() => {
-    setShow(false)
-  }, [])
-
-  const handleShowAsToggle = React.useCallback(() => {
-    setShow(!isShow)
-  }, [isShow])
+  useEffect(function watchShowToChange() {
+    setShow(showProp)
+  }, [showProp])
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={handleShowAsToggle}
+    <Modal
+      show={show}
+      onShow={() => setShow(true)}
+      onHide={() => setShow(false)}
+    >
+      <ModalTrigger>
+        <Button text="Open Modal" />
+      </ModalTrigger>
+
+      <ModalContent
+        showCloseIcon={showCloseIcon}
+        width={width}
+        height={height}
       >
-        { isShow ? 'Hide' : 'Show' }
-      </button>
-      <Modal
-        {...rests}
-        show={isShow}
-        onHide={onHide}
-      >
-        <ModalContent
+        <ModalHeader
           title={title}
-          titleSize={titleSize}
-          subTitle={subTitle}
+          subtitle={subtitle}
           description={description}
-          showCloseIcon={showCloseIcon}
-        >
-          { children }
-        </ModalContent>
-        <ModalAction
-          leftContent={leftContent}
-          rightContent={rightContent}
+          titleSize={titleSize}
+          hidden={hidden}
         />
-      </Modal>
-    </>
+
+        <ModalBody>
+          <FormControl labelPosition="left">
+            <FormLabel>Name</FormLabel>
+            <TextField />
+          </FormControl>
+        </ModalBody>
+
+        <ModalFooter
+          rightContent={(
+            <ButtonGroup>
+              <ModalClose>
+                <Button
+                  colorVariant={ButtonColorVariant.MonochromeLight}
+                  styleVariant={ButtonStyleVariant.Secondary}
+                  text="Cancel"
+                />
+              </ModalClose>
+              <ModalClose>
+                <Button
+                  colorVariant={ButtonColorVariant.Blue}
+                  styleVariant={ButtonStyleVariant.Primary}
+                  text="Save"
+                />
+              </ModalClose>
+            </ButtonGroup>
+          )}
+        />
+      </ModalContent>
+    </Modal>
   )
 }
 
-const PrimaryTemplate: Story<ModalStorybookProps> = (props) => (
-  <ModalStorybook {...props} />
-)
+export default {
+  title: getTitle(base),
+  component: ModalComposition,
+  subcomponents: {
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    ModalTrigger,
+    ModalClose,
+  },
+  argTypes: {
+    width: {
+      control: {
+        type: 'text',
+      },
+    },
+    height: {
+      control: {
+        type: 'text',
+      },
+    },
+    titleSize: {
+      control: {
+        type: 'radio',
+        options: getObjectFromEnum(ModalTitleSize),
+      },
+    },
+  },
+} as Meta<ModalProps>
 
-export const Primary = PrimaryTemplate.bind({})
-Primary.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  description: 'Description',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
+const Template: Story<ModalCompositionProps> = ModalComposition
+
+export const Composition = Template.bind({})
+Composition.args = {
+  show: false,
+  showCloseIcon: false,
+  title: 'Edit profile',
+  subtitle: 'Profile Settings',
+  description: 'Make changes to your profile here. Click save when you\'re done.',
+  titleSize: ModalTitleSize.L,
+  hidden: false,
 }
-
-export const WithChildren = PrimaryTemplate.bind({})
-WithChildren.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  subTitle: 'Sub Title',
-  description: 'Description',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-  children: (
-    <div style={{ width: '100%', height: '50px', backgroundColor: 'rgba(94, 86, 240, 0.1)' }} />
-  ),
-}
-
-export const WithSubTitle = PrimaryTemplate.bind({})
-WithSubTitle.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  subTitle: 'Sub Title',
-  description: 'Description',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const LongTitle = PrimaryTemplate.bind({})
-LongTitle.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: Array.from(Array(500)).map(() => 'Title ').join(''),
-  description: 'Description',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const LongDescription = PrimaryTemplate.bind({})
-LongDescription.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  description: Array.from(Array(500)).map(() => 'Description ').join(''),
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const LongTitleAndDescription = PrimaryTemplate.bind({})
-LongTitleAndDescription.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: Array.from(Array(500)).map(() => 'Title ').join(''),
-  description: Array.from(Array(500)).map(() => 'Description ').join(''),
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const WithoutTitle = PrimaryTemplate.bind({})
-WithoutTitle.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  description: 'Description',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const WithoutDescription = PrimaryTemplate.bind({})
-WithoutDescription.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  leftContent: 'Left content',
-  rightContent: 'Right content',
-}
-
-export const WithoutAction = PrimaryTemplate.bind({})
-WithoutAction.args = {
-  ...DEFAULT_OPTIONAL_MODAL_PROPS,
-  title: 'Title',
-  description: 'Description',
-}
-
