@@ -13,9 +13,9 @@ import {
 } from 'Components/Button'
 import {
   TabItemProps,
-  TabsSize,
+  TabSize,
 } from './Tabs.types'
-import TabsListContext from './TabsListContext'
+import TabListContext from './TabListContext'
 import * as Styled from './TabItem.styled'
 
 const TAB_ITEM_DISPLAY_NAME = 'TabItem'
@@ -24,14 +24,14 @@ export function isTabItem(element: any): element is React.ReactElement<TabItemPr
     get(element, 'type.displayName') === TAB_ITEM_DISPLAY_NAME
 }
 
-const getButtonSizeBy = (height: TabsSize) => {
+const getButtonSizeBy = (height: TabSize) => {
   switch (height) {
-    case TabsSize.L:
+    case TabSize.L:
       return ButtonSize.L
-    case TabsSize.Normal:
+    case TabSize.Normal:
       return ButtonSize.M
     default:
-    case TabsSize.XS:
+    case TabSize.XS:
       return ButtonSize.S
   }
 }
@@ -41,7 +41,7 @@ function _TabItem({
   children,
   ...rest
 }: TabItemProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  const { height } = useContext(TabsListContext)
+  const { height } = useContext(TabListContext)
 
   if (typeof children !== 'string') {
     return null

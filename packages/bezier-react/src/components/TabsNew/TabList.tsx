@@ -3,22 +3,22 @@ import React, { useMemo } from 'react'
 import * as Tabs from '@radix-ui/react-tabs'
 
 /* Internal dependencies */
-import { TabsListProps, TabsSize } from './Tabs.types'
-import * as Styled from './TabsList.styled'
-import TabsListContext from './TabsListContext'
+import { TabListProps, TabSize } from './Tabs.types'
+import * as Styled from './TabList.styled'
+import TabListContext from './TabListContext'
 import { isTabItem } from './TabItem'
 import { isTabAction } from './TabAction'
 
-export function TabsList({
+export function TabList({
   children,
-  height = TabsSize.Normal,
-}: TabsListProps) {
+  height = TabSize.Normal,
+}: TabListProps) {
   const heightContextValue = useMemo(() => ({
     height,
   }), [height])
 
   return (
-    <TabsListContext.Provider value={heightContextValue}>
+    <TabListContext.Provider value={heightContextValue}>
       <Styled.List height={height}>
         <Tabs.List asChild>
           <Styled.TriggerWrapper>
@@ -48,6 +48,6 @@ export function TabsList({
           }) }
         </Styled.TabActionWrapper>
       </Styled.List>
-    </TabsListContext.Provider>
+    </TabListContext.Provider>
   )
 }

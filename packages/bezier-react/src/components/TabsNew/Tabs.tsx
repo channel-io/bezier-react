@@ -14,15 +14,17 @@ import * as Styled from './Tabs.styled'
  * It does not render any DOM node, but it provides handlers and accessibility property to
  * its Tabs-related children components.
  *
+ * @example
+ *
  * ```tsx
- * // Anatomy of the Tabs
  * <Tabs>
- *  <TabsList>
+ *  <TabList>
  *    <TabItem />
  *    <TabAction />
- *  </TabsList>
- *  <TabsContent />
+ *  </TabList>
+ *  <TabContent />
  * </Tabs>
+ * ```
  */
 
 export function Tabs({

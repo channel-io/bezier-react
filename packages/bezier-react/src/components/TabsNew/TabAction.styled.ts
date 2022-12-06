@@ -1,26 +1,26 @@
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import { Icon } from 'Components/Icon'
-import { TabsSize } from './Tabs.types'
+import { TabSize } from './Tabs.types'
 
 interface BackgroundProps {
-  height: TabsSize
+  height: TabSize
 }
 
-function getPaddingStyle({ height }: { height: TabsSize }) {
+function getPaddingStyle({ height }: { height: TabSize }) {
   switch (height) {
-    case TabsSize.L:
+    case TabSize.L:
       return css`
         padding: 0 14px;
         ${({ foundation }) => foundation?.rounding?.round12};
       `
-    case TabsSize.Normal:
+    case TabSize.Normal:
       return css`
         padding: 0 14px;
         ${({ foundation }) => foundation?.rounding?.round8};
       `
     default:
-    case TabsSize.XS:
+    case TabSize.XS:
       return css`
         padding: 0 7px;
         ${({ foundation }) => foundation?.rounding?.round6};

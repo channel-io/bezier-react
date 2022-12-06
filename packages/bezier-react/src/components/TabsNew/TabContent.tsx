@@ -7,7 +7,7 @@ import {
   TabContentProps,
 } from './Tabs.types'
 
-export function TabsContent({
+export function TabContent({
   children,
   value,
 }: TabContentProps) {

@@ -8,16 +8,16 @@ import { Story, Meta } from '@storybook/react'
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import { Text } from 'Components/Text'
-import { TabActionProps, TabsListProps, TabsProps, TabsSize } from './Tabs.types'
+import { TabActionProps, TabListProps, TabsProps, TabSize } from './Tabs.types'
 import { Tabs } from './Tabs'
-import { TabsList } from './TabsList'
+import { TabList } from './TabList'
 import TabItem from './TabItem'
 import TabAction from './TabAction'
-import { TabsContent } from './TabsContent'
+import { TabContent } from './TabContent'
 
 type TabsCompositionProps =
   & TabsProps
-  & TabsListProps
+  & TabListProps
   & TabActionProps
 
 const Wrapper = styled.div`
@@ -47,7 +47,7 @@ function TabsComposition({
         value={value}
         defaultValue={defaultValue}
       >
-        <TabsList height={height}>
+        <TabList height={height}>
           <TabItem value="One">Tab1</TabItem>
           <TabItem value="Two">Tab2</TabItem>
           <TabItem value="Three">Tab3</TabItem>
@@ -58,29 +58,29 @@ function TabsComposition({
           <TabAction>
             Sub2
           </TabAction>
-        </TabsList>
+        </TabList>
 
-        <TabsContent value="One">
+        <TabContent value="One">
           <Content>
             <Text>
               Tab1 content
             </Text>
           </Content>
-        </TabsContent>
-        <TabsContent value="Two">
+        </TabContent>
+        <TabContent value="Two">
           <Content>
             <Text>
               Tab2 content
             </Text>
           </Content>
-        </TabsContent>
-        <TabsContent value="Three">
+        </TabContent>
+        <TabContent value="Three">
           <Content>
             <Text>
               Tab3 content
             </Text>
           </Content>
-        </TabsContent>
+        </TabContent>
       </Tabs>
     </Wrapper>
   )
@@ -93,7 +93,7 @@ export default {
     height: {
       control: {
         type: 'radio',
-        options: [TabsSize.XS, TabsSize.Normal, TabsSize.L],
+        options: [TabSize.XS, TabSize.Normal, TabSize.L],
       },
     },
     onValueChange: {
@@ -106,7 +106,7 @@ const Template: Story<TabsCompositionProps> = TabsComposition
 
 export const Composition: Story<TabsCompositionProps> = Template.bind({})
 Composition.args = {
-  height: TabsSize.Normal,
+  height: TabSize.Normal,
   onValueChange: noop,
   defaultValue: undefined,
   value: 'One',
@@ -114,7 +114,7 @@ Composition.args = {
 
 export const UnControlled: Story<TabsCompositionProps> = Template.bind({})
 UnControlled.args = {
-  height: TabsSize.Normal,
+  height: TabSize.Normal,
   onValueChange: noop,
   defaultValue: 'One',
 }

@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import { styled } from 'Foundation'
-import { TabsSize } from './Tabs.types'
+import { TabSize } from './Tabs.types'
 
 interface ListProps {
-  height: TabsSize
+  height: TabSize
 }
 
 export const List = styled.div<ListProps>`

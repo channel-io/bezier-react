@@ -19,28 +19,28 @@ import {
   OpenInNewIcon,
 } from 'Components/Icon'
 import { Text } from 'Components/Text'
-import TabsListContext from './TabsListContext'
+import TabListContext from './TabListContext'
 import {
   TabActionProps,
   TabActionOptions,
-  TabsSize,
+  TabSize,
 } from './Tabs.types'
 import * as Styled from './TabAction.styled'
 
-const getTypo = (height: TabsSize) => {
+const getTypo = (height: TabSize) => {
   switch (height) {
-    case TabsSize.L:
+    case TabSize.L:
       return Typography.Size14
-    case TabsSize.Normal:
-    case TabsSize.XS:
+    case TabSize.Normal:
+    case TabSize.XS:
     default:
       return Typography.Size13
   }
 }
 
-const getIconSize = (height: TabsSize) => {
+const getIconSize = (height: TabSize) => {
   switch (height) {
-    case TabsSize.L:
+    case TabSize.L:
       return IconSize.S
     default:
       return IconSize.XS
@@ -58,7 +58,7 @@ function _TabAction({
   onClick = noop,
 }: TabActionProps, forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { height } = useContext(TabsListContext)
+  const { height } = useContext(TabListContext)
 
   const BackgroundWithProps = useCallback(({
     children: _children,

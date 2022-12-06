@@ -2,14 +2,14 @@
 import React from 'react'
 import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from 'Types/ComponentProps'
 
-export enum TabsSize {
+export enum TabSize {
   L = 53,
   Normal = 45,
   XS = 33,
 }
 
 export interface TabsListContextValue {
-  height: TabsSize
+  height: TabSize
 }
 
 interface TabsOptions {
@@ -31,7 +31,7 @@ interface TabsListOptions {
   /**
    * Tab size whose value is TabsSize enum.
    */
-  height?: TabsSize
+  height?: TabSize
 }
 
 export interface TabActionOptions {
@@ -61,7 +61,7 @@ export interface TabItemProps extends
   DisableProps,
   TabItemOptions {}
 
-export interface TabsListProps extends
+export interface TabListProps extends
   ChildrenProps,
   BezierComponentProps,
   TabsListOptions,
