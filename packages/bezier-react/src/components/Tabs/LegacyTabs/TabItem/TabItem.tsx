@@ -6,7 +6,7 @@ import { get, noop } from 'lodash-es'
 import { Typography } from 'Foundation'
 import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'
-import TabsSize from 'Components/Tabs/TabsSize'
+import TabsSize from 'Components/Tabs/LegacyTabs/TabsSize'
 import TabItemProps from './TabItem.types'
 import { Wrapper, Background } from './TabItem.styled'
 

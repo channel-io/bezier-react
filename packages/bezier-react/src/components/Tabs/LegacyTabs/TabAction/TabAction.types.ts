@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from 'Types/ComponentProps'
-import type TabsOptions from 'Components/Tabs/Tabs.types'
+import type TabsOptions from 'Components/Tabs/LegacyTabs/Tabs.types'
 
 interface TabActionOptions extends ChildrenProps {
   onClick?: React.MouseEventHandler

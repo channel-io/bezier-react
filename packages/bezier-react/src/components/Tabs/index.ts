@@ -12,15 +12,14 @@ import type {
 
 export { TabContent as TabsContent } from './TabContent'
 
-// TODO: Legacy Tab component 삭제 후 New suffix 삭제
 export {
-  Tabs as TabsNew,
-  TabAction as TabActionNew,
-  TabItem as TabItemNew,
-  TabList as TabsListNew,
-  TabSize as TabsNewSize,
-  TabsProps as TabsNewProps,
-  TabItemProps as TabItemNewProps,
-  TabListProps as TabsListNewProps,
-  TabActionProps as TabActionNewProps,
+  Tabs,
+  TabAction,
+  TabItem,
+  TabList,
+  TabSize,
+  TabsProps,
+  TabItemProps,
+  TabListProps,
+  TabActionProps,
 }

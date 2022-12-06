@@ -6,7 +6,7 @@ import type {
   OptionItemHostProps,
   AdditionalStylableProps,
 } from 'Types/ComponentProps'
-import type TabsOptions from 'Components/Tabs/Tabs.types'
+import type TabsOptions from 'Components/Tabs/LegacyTabs/Tabs.types'
 
 export default interface TabsProps extends
   BezierComponentProps,

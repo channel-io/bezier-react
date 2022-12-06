@@ -4,7 +4,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { TabsProps } from 'Components/TabsNew/Tabs.types'
+import { TabsProps } from 'Components/Tabs/Tabs.types'
 import * as Styled from './Tabs.styled'
 
 /**
