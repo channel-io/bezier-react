@@ -55,5 +55,4 @@ export const Wrapper = styled.div`
 
 export const LinkIcon = styled(Icon)`
   margin-left: 5px;
-  font-weight: bold;
 `

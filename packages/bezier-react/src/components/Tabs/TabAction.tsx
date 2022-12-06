@@ -22,12 +22,11 @@ import { Text } from 'Components/Text'
 import TabListContext from './TabListContext'
 import {
   TabActionProps,
-  TabActionOptions,
   TabSize,
 } from './Tabs.types'
 import * as Styled from './TabAction.styled'
 
-const getTypo = (height: TabSize) => {
+const getTypoBy = (height: TabSize) => {
   switch (height) {
     case TabSize.L:
       return Typography.Size14
@@ -38,7 +37,7 @@ const getTypo = (height: TabSize) => {
   }
 }
 
-const getIconSize = (height: TabSize) => {
+const getIconSizeBy = (height: TabSize) => {
   switch (height) {
     case TabSize.L:
       return IconSize.S
@@ -65,7 +64,7 @@ function _TabAction({
     ...rest
   }: {
     children: React.ReactNode
-    onClick: TabActionOptions['onClick']
+    onClick: TabActionProps['onClick']
   }) => {
     if (isNil(href)) {
       return (
@@ -100,14 +99,14 @@ function _TabAction({
       <BackgroundWithProps onClick={onClick}>
         <Text
           bold
-          typo={getTypo(height)}
+          typo={getTypoBy(height)}
         >
           { children }
         </Text>
         { !isNil(href) && (
           <Styled.LinkIcon
             source={OpenInNewIcon}
-            size={getIconSize(height)}
+            size={getIconSizeBy(height)}
           />
         ) }
       </BackgroundWithProps>

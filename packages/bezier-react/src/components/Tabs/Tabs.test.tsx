@@ -120,9 +120,9 @@ describe('Tabs', () => {
         expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('aria-selected', 'false')
       })
 
-      it('should have \'aria-controls\' the same as its associated tab content\'s id', () => {
+      it('should have \'aria-controls\' attribute the same as its associated tab content\'s id', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('aria-controls', getByRole('tabpanel').id)
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('aria-controls', getByRole('tabpanel', { name: TAB1 }).id)
       })
     })
 

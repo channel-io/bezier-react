@@ -12,9 +12,7 @@ export function TabContent({
   value,
 }: TabContentProps) {
   return (
-    <Tabs.Content
-      value={value}
-    >
+    <Tabs.Content value={value}>
       { children }
     </Tabs.Content>
   )

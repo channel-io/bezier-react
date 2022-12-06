@@ -40,7 +40,7 @@ function _TabItem({
   disabled,
   children,
   ...rest
-}: TabItemProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}: TabItemProps, forwardedRef: React.Ref<HTMLButtonElement>) {
   const { height } = useContext(TabListContext)
 
   if (typeof children !== 'string') {

@@ -34,7 +34,7 @@ interface TabsListOptions {
   height?: TabSize
 }
 
-export interface TabActionOptions {
+interface TabActionOptions {
   /**
    * Event handler called when tab action is clicked.
    */

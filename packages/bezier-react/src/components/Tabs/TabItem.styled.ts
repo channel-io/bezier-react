@@ -30,10 +30,10 @@ export const Button = styled(BaseButton).attrs({
     &::after {
       display: none;
     }
-  }
-  
-  &[data-state="inactive"]:hover {
-    color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+
+    &:hover {
+      color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
+    }
   }
 
   &[data-state="active"] {
