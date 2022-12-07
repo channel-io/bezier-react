@@ -11,4 +11,4 @@ export * as LegacyConfirmModal from './LegacyConfirmModal'
  */
 export * as LegacyModal from './LegacyModal'
 export * from './Modal'
-export * from './ConfirmModalAlpha'
+export * from './ConfirmModal'
