@@ -15,7 +15,7 @@ import { ConfirmModalHeaderProps } from './ConfirmModal.types'
  */
 export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
   props: ConfirmModalHeaderProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
+  forwardedRef: React.Ref<HTMLElement>,
 ) {
   return (
     <ModalHeader
