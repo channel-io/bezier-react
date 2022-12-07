@@ -78,9 +78,23 @@ describe('Tabs', () => {
   })
 
   describe('Tab List', () => {
-    it('should have \'role="tablist"\' attribute.', () => {
-      const { getByRole } = renderTabs()
-      expect(getByRole('tablist')).toBeInTheDocument()
+    describe('ARIA', () => {
+      it('should have \'role="tablist"\' attribute.', () => {
+        const { getByRole } = renderTabs()
+        expect(getByRole('tablist')).toBeInTheDocument()
+      })
+
+      it('should have \'aria-orientation="horizontal"\' attribute.', () => {
+        const { getByRole } = renderTabs()
+        expect(getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
+      })
+    })
+
+    describe('Data Attributes', () => {
+      it('should have \'data-orientation="horizontal"\' attribute.', () => {
+        const { getByRole } = renderTabs()
+        expect(getByRole('tablist')).toHaveAttribute('data-orientation', 'horizontal')
+      })
     })
 
     it('should call onValueChange handler when user clicks different tabs', async () => {
