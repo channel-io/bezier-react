@@ -5,7 +5,7 @@ export * from './BaseModal'
 /**
  * @deprecated
  */
-export * as LegacyConfirmModal from './ConfirmModal'
+export * as LegacyConfirmModal from './LegacyConfirmModal'
 /**
  * @deprecated
  */
