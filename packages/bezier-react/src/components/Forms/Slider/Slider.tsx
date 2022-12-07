@@ -1,5 +1,10 @@
 /* External dependencies */
-import React, { forwardRef, useState, useCallback } from 'react'
+import React, {
+  forwardRef,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react'
 import { isFunction } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
@@ -29,6 +34,19 @@ export const Slider = forwardRef(function Slider(
   forwardedRef: React.Ref<HTMLElement>,
 ) {
   const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
+
+  useEffect(() => {
+    if (value) {
+      setCurrentValue(value)
+
+      if (isFunction(onValueChange)) {
+        onValueChange(value)
+      }
+    }
+  }, [
+    value,
+    onValueChange,
+  ])
 
   const handleValueChange: (value: number[]) => void = useCallback((_value) => {
     setCurrentValue(_value)
