@@ -1,7 +1,7 @@
 /* External dependencies */
 import React from 'react'
 import { isInaccessible } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
@@ -59,9 +59,8 @@ describe('ConfirmModal', () => {
       /**
        * To prevent `pointer-events: none` error.
        * @see https://testing-library.com/docs/user-event/options#pointereventscheck
-       * PointerEventsCheckLevel.Never
        */
-      pointerEventsCheck: 0,
+      pointerEventsCheck: PointerEventsCheckLevel.Never,
     })
     renderOpenedModal = (props) => renderModal({ modalProps: { defaultShow: true }, ...props })
   })
