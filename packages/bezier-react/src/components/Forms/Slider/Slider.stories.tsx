@@ -53,8 +53,9 @@ const Template: Story<SliderProps> = (args) => <Slider {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  width: '36',
+  width: '285',
   defaultValue: [5],
+  value: [2],
   min: 0,
   max: 10,
   step: 1,
@@ -64,6 +65,7 @@ export const Uncontrolled = Template.bind({})
 Uncontrolled.args = {
   width: '285',
   defaultValue: [5],
+  value: [2],
   min: 0,
   max: 10,
   step: 1,
@@ -73,6 +75,7 @@ export const Disabled = Template.bind({})
 Disabled.args = {
   width: '285',
   defaultValue: [5],
+  value: [2],
   min: 0,
   max: 10,
   step: 1,
@@ -83,6 +86,7 @@ export const WithGuide = Template.bind({})
 WithGuide.args = {
   width: '285',
   defaultValue: [5],
+  value: [2],
   guide: [0, 1, 2, 3, 4, 5, 10],
   min: 0,
   max: 10,
@@ -93,6 +97,7 @@ export const MultipleThumbs = Template.bind({})
 MultipleThumbs.args = {
   width: '285',
   defaultValue: [3, 7],
+  value: [2, 4],
   min: 0,
   max: 10,
   step: 1,
