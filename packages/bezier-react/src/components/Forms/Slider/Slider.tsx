@@ -107,7 +107,7 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { defaultValue.map((v) => (
+        { currentValue.map((v) => (
           <SliderPrimitive.Thumb
             asChild
             key={`slider-thumb-${v}`}
