@@ -158,4 +158,26 @@ describe('Slider', () => {
       })
     })
   })
+
+  describe('onValueChange', () => {
+    const onValueChange = jest.fn()
+
+    it('should be executed when the `value` prop changes', () => {
+      let value = [3]
+      const { rerender } = renderSlider({ value, onValueChange })
+      expect(onValueChange).toHaveBeenCalledTimes(1)
+
+      // change value with a new array
+      value = [5]
+      rerender(<Slider {...{ value, onValueChange }} />)
+
+      expect(onValueChange).toHaveBeenCalledTimes(2)
+
+      // change value with the same reference
+      value.splice(0, 1, 3)
+      rerender(<Slider {...{ value, onValueChange }} />)
+
+      expect(onValueChange).toHaveBeenCalledTimes(2)
+    })
+  })
 })
