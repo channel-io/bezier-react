@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs, isArray, values } from 'lodash-es'
+import { flattenDeep, fromPairs, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
@@ -31,7 +31,7 @@ function combinations(
   sizes: ButtonSize | ButtonSize[],
 ) : VariantTuple[] {
   function toArray<T>(items: T | T[]): T[] {
-    return isArray(items) ? items : [items]
+    return Array.isArray(items) ? items : [items]
   }
 
   return flattenDeep(

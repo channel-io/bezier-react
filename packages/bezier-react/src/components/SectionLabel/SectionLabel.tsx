@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import { isArray, isEmpty, isString, isNumber } from 'lodash-es'
+import { isEmpty, isString, isNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -140,7 +140,7 @@ function SectionLabel({
       return null
     }
 
-    const items = isArray(rightContent)
+    const items = Array.isArray(rightContent)
       ? rightContent.map((item) => renderSectionLabelActionItem(item, uuid()))
       : renderSectionLabelActionItem(rightContent)
 

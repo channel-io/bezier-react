@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useCallback, useMemo } from 'react'
-import { isEmpty, isArray, isBoolean } from 'lodash-es'
+import { isEmpty, isBoolean } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -54,7 +54,7 @@ function ItemAction(
       return null
     }
 
-    const item = isArray(actions)
+    const item = Array.isArray(actions)
       ? actions.map((action) => renderAction(action, uuid()))
       : renderAction(actions)
 

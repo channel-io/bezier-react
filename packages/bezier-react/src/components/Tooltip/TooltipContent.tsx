@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { isEmpty, isString, isArray } from 'lodash-es'
+import { isEmpty, isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -37,7 +37,7 @@ function getNewLineComponent(strContent: string) {
 }
 
 function getContentComponent(content?: React.ReactNode) {
-  if (isArray(content)) {
+  if (Array.isArray(content)) {
     return content.map(item => {
       if (isString(item)) {
         return getNewLineComponent(item)

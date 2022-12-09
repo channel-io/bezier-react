@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { size as getSize, isEmpty, isArray, toString, includes } from 'lodash-es'
+import { size as getSize, isEmpty, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -299,7 +299,7 @@ forwardedRef: Ref<TextFieldRef>,
       return null
     }
 
-    const items = isArray(rightContent)
+    const items = Array.isArray(rightContent)
       ? rightContent.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(rightContent)
 

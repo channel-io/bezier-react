@@ -1,6 +1,3 @@
-/* External dependencies */
-import { isArray } from 'lodash-es'
-
 /* Internal dependencies */
 import { IconName } from 'Components/Icon'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
@@ -15,7 +12,7 @@ describe('storyUtils Test >', () => {
 
   describe('iconList Test >', () => {
     it('iconList는 리스트이다', () => {
-      expect(isArray(iconList)).toBe(true)
+      expect(Array.isArray(iconList)).toBe(true)
     })
 
     it('iconList는 IconName type인 string을 가지고 있다', () => {
