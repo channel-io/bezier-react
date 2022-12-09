@@ -1,6 +1,5 @@
 /* External dependencies */
 import { createContext } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { ToastContextType } from './Toast.types'
@@ -8,8 +7,8 @@ import { ToastContextType } from './Toast.types'
 const ToastContext = createContext<ToastContextType>({
   add: () => '',
   update: () => '',
-  remove: noop,
-  removeAll: noop,
+  remove: () => {},
+  removeAll: () => {},
   leftToasts: [],
   rightToasts: [],
 })

@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import { noop, isNumber, range } from 'lodash-es'
+import { isNumber, range } from 'lodash-es'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
@@ -48,7 +48,7 @@ function SegmentedControl(
     size = SegmentedControlSize.M,
     /* OptionItemHost props */
     selectedOptionIndex = 0,
-    onChangeOption = noop,
+    onChangeOption = () => {},
     /* HTMLAttribute props */
     children,
     ...rest
@@ -111,7 +111,7 @@ function SegmentedControl(
         width: optionItemWidth,
         left: optionItemLeft(index),
       }}
-      onClick={() => (disabled ? noop : handleClickOptionItem(index))}
+      onClick={() => (disabled ? () => {} : handleClickOptionItem(index))}
     >
       <Text
         typo={SIZE_TO_OPTION_TYPOGRAPHY[size]}

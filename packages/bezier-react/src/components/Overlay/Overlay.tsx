@@ -11,7 +11,6 @@ import React, {
   useMemo,
 } from 'react'
 import ReactDOM from 'react-dom'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import useEventHandler from 'Hooks/useEventHandler'
@@ -45,7 +44,7 @@ function Overlay(
     withTransition = false,
     enableClickOutside = false,
     children,
-    onHide = noop,
+    onHide = () => {},
   }: OverlayProps,
   forwardedRef: Ref<any>,
 ) {

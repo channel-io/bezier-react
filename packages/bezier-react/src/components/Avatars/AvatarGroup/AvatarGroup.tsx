@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -67,8 +66,8 @@ export const AvatarGroup = forwardRef(function AvatarGroup({
   size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
-  onMouseEnterEllipsis = noop,
-  onMouseLeaveEllipsis = noop,
+  onMouseEnterEllipsis = () => {},
+  onMouseLeaveEllipsis = () => {},
   ellipsisInterpolation,
   style,
   className,

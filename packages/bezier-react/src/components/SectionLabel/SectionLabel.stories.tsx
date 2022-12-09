@@ -1,7 +1,6 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
-import _ from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
@@ -54,7 +53,7 @@ const Template: Story<SectionLabelProps & {
         rightContent={{
           icon: 'plus-circle',
           iconColor: 'bgtxt-teal-normal',
-          onClick: _.noop,
+          onClick: () => {},
         }}
         {...otherSectionLabelProps}
       />
@@ -72,7 +71,7 @@ const Template: Story<SectionLabelProps & {
         leftContent={{
           icon: 'star-filled',
           iconColor: 'bgtxt-yellow-normal',
-          onClick: _.noop,
+          onClick: () => {},
         }}
         {...otherSectionLabelProps}
       />
@@ -91,8 +90,8 @@ const Template: Story<SectionLabelProps & {
         leftContent={{ icon: 'star-filled' }}
         rightContent={[
           testNumberLabel,
-          { icon: 'plus-circle-filled', onClick: _.noop },
-          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: _.noop },
+          { icon: 'plus-circle-filled', onClick: () => {} },
+          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: () => {} },
         ]}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"

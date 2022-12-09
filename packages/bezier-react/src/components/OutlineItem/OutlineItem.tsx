@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
-import { noop, isNil } from 'lodash-es'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize, isIconName } from 'Components/Icon'
@@ -44,13 +44,13 @@ function OutlineItem(
     content = null,
     rightContent = null,
     hide = false,
-    onOpen = noop,
-    onClickArrow = noop,
+    onOpen = () => {},
+    onClickArrow = () => {},
     /* OptionMenuHost Props */
     selectedOutlineItemIndex = null,
-    onChangeOption = noop,
+    onChangeOption = () => {},
     /* HTMLAttribute props */
-    onClick: givenOnClick = noop,
+    onClick: givenOnClick = () => {},
     children,
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,

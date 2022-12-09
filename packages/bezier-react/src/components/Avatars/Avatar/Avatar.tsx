@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { noop, isEmpty } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from 'Foundation'
@@ -24,9 +24,9 @@ export const Avatar = forwardRef(function Avatar({
   disabled = false,
   showBorder = false,
   status,
-  onClick = noop,
-  onMouseEnter = noop,
-  onMouseLeave = noop,
+  onClick = () => {},
+  onMouseEnter = () => {},
+  onMouseLeave = () => {},
   className,
   wrapperClassName,
   interpolation,

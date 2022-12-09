@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
@@ -77,7 +76,7 @@ Primary.args = {
   appearance: undefined,
   iconName: undefined,
   actionContent: '새로고침',
-  onClick: noop,
+  onClick: () => {},
 }
 
 function Div({

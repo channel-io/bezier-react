@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { ReactNode, ComponentType } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { TransitionDuration } from 'Foundation'
@@ -88,7 +87,7 @@ export const defaultOptions: ToastOptions = {
   iconName: 'info-filled',
   appearance: ToastAppearance.Info,
   autoDismiss: false,
-  onDismiss: noop,
+  onDismiss: () => {},
   rightSide: false,
 }
 

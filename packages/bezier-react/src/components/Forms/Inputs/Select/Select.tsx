@@ -9,7 +9,7 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react'
-import { isEmpty, noop } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -56,8 +56,8 @@ function Select({
   dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
   dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
   dropdownPosition = OverlayPosition.BottomLeft,
-  onClickTrigger = noop,
-  onHideDropdown = noop,
+  onClickTrigger = () => {},
+  onHideDropdown = () => {},
   children,
   ...rest
 }: SelectProps,

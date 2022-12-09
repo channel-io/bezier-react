@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useCallback, useMemo } from 'react'
-import { noop, isNil, isEmpty, isArray, isBoolean } from 'lodash-es'
+import { isNil, isEmpty, isArray, isBoolean } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -25,7 +25,7 @@ function ItemAction(
           hoverBackgroundColor={action.hoverBackgroundColor ?? 'bg-black-lighter'}
           hoverIconColor={action.hoverIconColor ?? 'txt-black-darkest'}
           show={isBoolean(action.show) ? action.show : true}
-          onClick={action.onClick ?? noop}
+          onClick={action.onClick ?? (() => {})}
         >
           <Styled.ActionIcon
             name={action.icon}

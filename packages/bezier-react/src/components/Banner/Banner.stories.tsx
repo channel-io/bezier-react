@@ -2,7 +2,6 @@
 import React from 'react'
 import base from 'paths.macro'
 import type { Meta, Story } from '@storybook/react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
@@ -64,7 +63,7 @@ Playground.args = {
   icon: 'lightbulb',
   content: 'Information here.',
   actionIcon: 'cancel-small',
-  onClickAction: noop,
+  onClickAction: () => {},
 }
 
 export const Overview: Story<{}> = () => (

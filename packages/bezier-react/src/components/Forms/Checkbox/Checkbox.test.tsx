@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Themes } from 'Foundation'
@@ -18,7 +17,7 @@ describe('Checkbox test >', () => {
       contentClassName: undefined,
       disabled: false,
       checked: CheckType.False,
-      onClick: noop,
+      onClick: () => {},
     }
   })
 

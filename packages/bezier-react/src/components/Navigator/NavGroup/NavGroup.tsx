@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
-import { noop, isNil } from 'lodash-es'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -32,7 +32,7 @@ function NavGroup({
   leftIcon,
   open,
   active,
-  onClick = noop,
+  onClick = () => {},
 }: NavGroupProps) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { noop, isNil } from 'lodash-es'
+import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import ListMenuTitleProps from './ListMenuTitle.types'
@@ -13,8 +13,8 @@ function ListMenuTitle({
   content,
   hide = false,
   rightAction = null,
-  onClick = noop,
-  onClickAction = noop,
+  onClick = () => {},
+  onClickAction = () => {},
   style,
   className,
 }: ListMenuTitleProps) {

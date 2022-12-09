@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { createContext } from 'react'
-import { noop } from 'lodash-es'
 
 export interface OutlineItemContextProps {
   depth: number
@@ -13,7 +12,7 @@ export const defaultOutlineItemContext = {
   depth: 0,
   paddingLeft: 0,
   active: false,
-  onClick: noop,
+  onClick: () => {},
 }
 
 export function mergeOutlineItemContexts(

@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -30,7 +29,7 @@ function NavItem({
   rightContent,
   leftIcon,
   active,
-  onClick = noop,
+  onClick = () => {},
 }: NavItemProps) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)

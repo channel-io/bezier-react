@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { useMemo, forwardRef } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { backgroundImageVariable } from 'Foundation'
@@ -20,7 +19,7 @@ function Emoji(
     interpolation,
     size = EmojiSize.Size24,
     testId = EMOJI_TEST_ID,
-    onClick = noop,
+    onClick = () => {},
   }: EmojiProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {

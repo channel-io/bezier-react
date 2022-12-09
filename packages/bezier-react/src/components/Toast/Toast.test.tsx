@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { css, TransitionDuration } from 'Foundation'
@@ -17,7 +16,7 @@ describe('Toast test >', () => {
     props = {
       content: 'Test Toast',
       transitionDuration: TransitionDuration.M,
-      onDismiss: _.noop,
+      onDismiss: () => {},
       transform: css``,
       placement: ToastPlacement.BottomLeft,
     }

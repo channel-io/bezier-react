@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useState, useCallback, useMemo } from 'react'
-import { noop, isNil, isEmpty, isString } from 'lodash-es'
+import { isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -58,10 +58,10 @@ function ListItem({
   focused = false,
   disabled = false,
   /* HTMLAttribute Props */
-  onClick = noop,
-  onMouseDown = noop,
-  onMouseEnter = noop,
-  onMouseLeave = noop,
+  onClick = () => {},
+  onMouseDown = () => {},
+  onMouseEnter = () => {},
+  onMouseLeave = () => {},
   ...otherProps
 }: ListItemProps,
 forwardedRef: React.Ref<ListItemRef>,

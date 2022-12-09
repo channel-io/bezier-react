@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
+import { values, isBoolean, isEmpty, includes } from 'lodash-es'
 
 /* Internal dependencies */
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
@@ -26,7 +26,7 @@ function Checkbox(
     contentClassName,
     checked = false,
     children,
-    onClick = noop,
+    onClick = () => {},
     ...rest
   }: CheckboxProps,
   forwardedRef: Ref<any>,
@@ -68,7 +68,7 @@ function Checkbox(
     <Styled.Wrapper
       ref={forwardedRef}
       disabled={disabled}
-      onClick={disabled ? noop : onClick}
+      onClick={disabled ? () => {} : onClick}
       data-testid={testId}
       {...ownProps}
     >

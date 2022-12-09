@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import _ from 'lodash-es'
 import { act } from '@testing-library/react'
 
 /* Internal dependencies */
@@ -19,7 +18,7 @@ describe('ToastController >', () => {
       autoDismissTimeout: 5000,
       transitionDuration: TransitionDuration.M,
       content: 'Test Toast',
-      onDismiss: _.noop,
+      onDismiss: () => {},
       transform: css``,
       placement: ToastPlacement.BottomLeft,
       component: ToastElement,

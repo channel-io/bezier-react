@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
+import { flattenDeep, fromPairs, isArray, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
@@ -104,10 +104,10 @@ export const Button = forwardRef(function Button(
     colorVariant = ButtonColorVariant.Blue,
     leftContent,
     rightContent,
-    onClick = noop,
-    onMouseEnter = noop,
-    onMouseLeave = noop,
-    onBlur = noop,
+    onClick = () => {},
+    onMouseEnter = () => {},
+    onMouseLeave = () => {},
+    onBlur = () => {},
     ...rest
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,

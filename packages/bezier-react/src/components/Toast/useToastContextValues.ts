@@ -1,6 +1,5 @@
 /* External dependencies */
 import { useCallback, useMemo, useState } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -87,7 +86,7 @@ function useToastContextValues(): UseToastContextValuesReturns {
     rightToastService,
   ])
 
-  const dismiss = useCallback((toastId: ToastId, callback: OnDismissCallback = noop) => {
+  const dismiss = useCallback((toastId: ToastId, callback: OnDismissCallback = () => {}) => {
     callback(toastId)
     remove(toastId)
   }, [remove])
