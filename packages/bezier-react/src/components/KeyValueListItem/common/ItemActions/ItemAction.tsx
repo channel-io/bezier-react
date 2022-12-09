@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useCallback, useMemo } from 'react'
-import { isEmpty, isBoolean } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import {
+  isBoolean,
   isNil,
 } from 'Utils/typeUtils'
 import { IconSize } from 'Components/Icon'

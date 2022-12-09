@@ -1,8 +1,11 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { values, isBoolean, isEmpty, includes } from 'lodash-es'
+import { values, isEmpty, includes } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isBoolean,
+} from 'Utils/typeUtils'
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
