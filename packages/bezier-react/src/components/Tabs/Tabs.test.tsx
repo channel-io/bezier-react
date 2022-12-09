@@ -6,8 +6,10 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
 import { TabAction } from './TabAction'
+import { TabActions } from './TabActions'
 import { TabContent } from './TabContent'
 import { TabItem } from './TabItem'
+import { TabItems } from './TabItems'
 import { TabList } from './TabList'
 import { Tabs } from './Tabs'
 import { TabListProps, TabSize, TabsProps } from './Tabs.types'
@@ -39,17 +41,20 @@ describe('Tabs', () => {
   }) => render(
     <Tabs {...tabsProps} defaultValue={VALUE1}>
       <TabList {...tabListProps}>
-        <TabItem value={VALUE1}>
-          { TAB1 }
-        </TabItem>
+        <TabItems>
+          <TabItem value={VALUE1}>
+            { TAB1 }
+          </TabItem>
+          <TabItem value={VALUE2}>
+            { TAB2 }
+          </TabItem>
+        </TabItems>
 
-        <TabItem value={VALUE2}>
-          { TAB2 }
-        </TabItem>
-
-        <TabAction href="https://github.com/channel-io/bezier-react">
-          { ACTION1 }
-        </TabAction>
+        <TabActions>
+          <TabAction href="https://github.com/channel-io/bezier-react">
+            { ACTION1 }
+          </TabAction>
+        </TabActions>
       </TabList>
 
       <TabContent value={VALUE1}>
