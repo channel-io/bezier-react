@@ -1,6 +1,11 @@
 /* External dependencies */
 import { useEffect, useRef, useMemo } from 'react'
-import { noop, isNil, isFunction, isEqual } from 'lodash-es'
+import { isFunction, isEqual } from 'lodash-es'
+
+/* Internal dependencies */
+import {
+  isNil,
+} from 'Utils/typeUtils'
 
 interface HandlerOptionsProps {
   capture?: boolean
@@ -34,7 +39,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
       }
     }
 
-    return noop
+    return () => {}
   }, [
     condition,
     element,

@@ -6,9 +6,11 @@ import React, {
   MouseEvent,
   forwardRef,
 } from 'react'
-import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,

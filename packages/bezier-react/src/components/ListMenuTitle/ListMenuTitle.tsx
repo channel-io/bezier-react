@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react'
-import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import ListMenuTitleProps from './ListMenuTitle.types'
 import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
 

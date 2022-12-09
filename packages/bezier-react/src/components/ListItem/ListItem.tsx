@@ -1,10 +1,13 @@
 /* External dependencies */
 import React, { forwardRef, useState, useCallback, useMemo } from 'react'
-import { isNil, isEmpty, isString } from 'lodash-es'
+import { isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'

@@ -1,9 +1,11 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo } from 'react'
-import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import useId from 'Hooks/useId'
 import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
 // eslint-disable-next-line no-restricted-imports
