@@ -1,9 +1,6 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
-import {
-  isInteger,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -14,7 +11,7 @@ import type StackItemProps from './StackItem.types'
 
 const sanitizeWeight = (weight: number): number => {
   if (weight < 0) { return 0 }
-  if (!isInteger(weight)) { return 0 }
+  if (!Number.isInteger(weight)) { return 0 }
   return weight
 }
 
