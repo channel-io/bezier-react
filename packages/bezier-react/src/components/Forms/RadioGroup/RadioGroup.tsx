@@ -11,6 +11,8 @@ export const RadioGroup = forwardRef(function RadioGroup({
   value,
   defaultValue,
   name,
+  disabled,
+  required,
   direction = 'vertical',
   spacing = 0,
   onValueChange,
@@ -22,7 +24,8 @@ export const RadioGroup = forwardRef(function RadioGroup({
       value={value}
       defaultValue={defaultValue}
       name={name}
-      orientation={direction}
+      disabled={disabled}
+      required={required}
       onValueChange={onValueChange}
     >
       <FormGroup
