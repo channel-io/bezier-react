@@ -35,7 +35,7 @@ export const Slider = forwardRef(function Slider(
 ) {
   const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
 
-  useEffect(() => {
+  useEffect(function updateCurrentValue() {
     if (value) {
       setCurrentValue(value)
 
