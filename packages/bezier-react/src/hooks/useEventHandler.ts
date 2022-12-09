@@ -1,9 +1,10 @@
 /* External dependencies */
 import { useEffect, useRef, useMemo } from 'react'
-import { isFunction, isEqual } from 'lodash-es'
+import { isEqual } from 'lodash-es'
 
 /* Internal dependencies */
 import {
+  isFunction,
   isNil,
 } from 'Utils/typeUtils'
 
