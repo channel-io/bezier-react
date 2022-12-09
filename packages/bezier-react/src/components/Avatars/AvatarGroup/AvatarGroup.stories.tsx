@@ -7,7 +7,7 @@ import { Story, Meta } from '@storybook/react'
 import { getTitle } from 'Utils/storyUtils'
 import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
-import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
+import { AvatarGroupEllipsisType, AvatarGroupProps } from './AvatarGroup.types'
 import { AvatarGroup } from './AvatarGroup'
 
 const avatarSizeList = Object.keys(AvatarSize)

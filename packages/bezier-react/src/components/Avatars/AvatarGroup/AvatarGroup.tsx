@@ -8,7 +8,7 @@ import { isLastIndex } from 'Utils/arrayUtils'
 import { Icon, IconSize, MoreIcon } from 'Components/Icon'
 import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
-import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
+import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
 import * as Styled from './AvatarGroup.styled'
 
 const MAX_AVATAR_LIST_COUNT = 99

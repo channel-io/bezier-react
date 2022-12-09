@@ -6,8 +6,7 @@ import { render } from 'Utils/testUtils'
 import { Avatar } from 'Components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 import { AvatarGroup, AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID } from './AvatarGroup'
-import { AvatarGroupEllipsisType } from './AvatarGroup.types'
-import type AvatarGroupProps from './AvatarGroup.types'
+import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
 
 jest.mock('Worklets/EnableCSSHoudini', () => ({
   __esModule: true,
