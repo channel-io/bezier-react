@@ -26,8 +26,8 @@ import {
 } from './Tabs.types'
 import * as Styled from './TabAction.styled'
 
-const getTypoBy = (height: TabSize) => {
-  switch (height) {
+const getTypoBy = (size: TabSize) => {
+  switch (size) {
     case TabSize.L:
       return Typography.Size14
     case TabSize.Normal:
@@ -37,8 +37,8 @@ const getTypoBy = (height: TabSize) => {
   }
 }
 
-const getIconSizeBy = (height: TabSize) => {
-  switch (height) {
+const getIconSizeBy = (size: TabSize) => {
+  switch (size) {
     case TabSize.L:
       return IconSize.S
     default:
@@ -57,7 +57,7 @@ function _TabAction({
   onClick = noop,
 }: TabActionProps, forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const { height } = useContext(TabListContext)
+  const { size } = useContext(TabListContext)
 
   const BackgroundWithProps = useCallback(({
     children: _children,
@@ -69,7 +69,7 @@ function _TabAction({
     if (isNil(href)) {
       return (
         <Styled.Background
-          height={height}
+          size={size}
           {...rest}
         >
           { _children }
@@ -79,7 +79,7 @@ function _TabAction({
 
     return (
       <Styled.Background
-        height={height}
+        size={size}
         href={href}
         as="a"
         target="_blank"
@@ -90,7 +90,7 @@ function _TabAction({
       </Styled.Background>
     )
   }, [
-    height,
+    size,
     href,
   ])
 
@@ -99,14 +99,14 @@ function _TabAction({
       <BackgroundWithProps onClick={onClick}>
         <Text
           bold
-          typo={getTypoBy(height)}
+          typo={getTypoBy(size)}
         >
           { children }
         </Text>
         { !isNil(href) && (
           <Styled.LinkIcon
             source={OpenInNewIcon}
-            size={getIconSizeBy(height)}
+            size={getIconSizeBy(size)}
           />
         ) }
       </BackgroundWithProps>

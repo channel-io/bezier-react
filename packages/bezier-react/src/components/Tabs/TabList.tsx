@@ -11,15 +11,15 @@ import { isTabAction } from './TabAction'
 
 export function TabList({
   children,
-  height = TabSize.Normal,
+  size = TabSize.Normal,
 }: TabListProps) {
   const heightContextValue = useMemo(() => ({
-    height,
-  }), [height])
+    size,
+  }), [size])
 
   return (
     <TabListContext.Provider value={heightContextValue}>
-      <Styled.List height={height}>
+      <Styled.List size={size}>
         <Tabs.List asChild>
           <Styled.TriggerWrapper>
             { React.Children.map(children, child => {

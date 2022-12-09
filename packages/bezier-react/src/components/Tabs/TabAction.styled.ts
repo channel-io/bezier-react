@@ -4,11 +4,11 @@ import { Icon } from 'Components/Icon'
 import { TabSize } from './Tabs.types'
 
 interface BackgroundProps {
-  height: TabSize
+  size: TabSize
 }
 
-function getPaddingStyle({ height }: { height: TabSize }) {
-  switch (height) {
+function getPaddingStyle({ size }: { size: TabSize }) {
+  switch (size) {
     case TabSize.L:
       return css`
         padding: 0 14px;

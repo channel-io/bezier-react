@@ -41,7 +41,7 @@ function _TabItem({
   children,
   ...rest
 }: TabItemProps, forwardedRef: React.Ref<HTMLButtonElement>) {
-  const { height } = useContext(TabListContext)
+  const { size } = useContext(TabListContext)
 
   if (typeof children !== 'string') {
     return null
@@ -51,7 +51,7 @@ function _TabItem({
     <Styled.Button
       disabled={disabled}
       text={children}
-      size={getButtonSizeBy(height)}
+      size={getButtonSizeBy(size)}
       colorVariant={ButtonColorVariant.MonochromeLight}
       styleVariant={ButtonStyleVariant.Tertiary}
       ref={forwardedRef}

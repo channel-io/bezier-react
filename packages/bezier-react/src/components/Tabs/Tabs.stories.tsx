@@ -38,7 +38,7 @@ function TabsComposition({
   onValueChange,
   defaultValue,
   value,
-  height,
+  size,
 }: TabsCompositionProps) {
   return (
     <Wrapper>
@@ -47,7 +47,7 @@ function TabsComposition({
         value={value}
         defaultValue={defaultValue}
       >
-        <TabList height={height}>
+        <TabList size={size}>
           <TabItem value="One">Tab1</TabItem>
           <TabItem value="Two">Tab2</TabItem>
           <TabItem value="Three">Tab3</TabItem>
@@ -90,7 +90,7 @@ export default {
   title: getTitle(base),
   component: TabsComposition,
   argTypes: {
-    height: {
+    size: {
       control: {
         type: 'radio',
         options: [TabSize.XS, TabSize.Normal, TabSize.L],
@@ -106,7 +106,7 @@ const Template: Story<TabsCompositionProps> = TabsComposition
 
 export const Composition: Story<TabsCompositionProps> = Template.bind({})
 Composition.args = {
-  height: TabSize.Normal,
+  size: TabSize.Normal,
   onValueChange: noop,
   defaultValue: undefined,
   value: 'One',
@@ -114,7 +114,7 @@ Composition.args = {
 
 export const UnControlled: Story<TabsCompositionProps> = Template.bind({})
 UnControlled.args = {
-  height: TabSize.Normal,
+  size: TabSize.Normal,
   onValueChange: noop,
   defaultValue: 'One',
 }

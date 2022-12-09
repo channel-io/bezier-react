@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import React from 'react'
-import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from 'Types/ComponentProps'
+import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps, SizeProps } from 'Types/ComponentProps'
 
 export enum TabSize {
   L = 53,
@@ -9,7 +9,7 @@ export enum TabSize {
 }
 
 export interface TabsListContextValue {
-  height: TabSize
+  size: TabSize
 }
 
 interface TabsOptions {
@@ -25,13 +25,6 @@ interface TabsOptions {
    * Event handler called when value is changed.
    */
   onValueChange?: (value: string) => void
-}
-
-interface TabsListOptions {
-  /**
-   * Tab size whose value is TabsSize enum.
-   */
-  height?: TabSize
 }
 
 interface TabActionOptions {
@@ -64,7 +57,7 @@ export interface TabItemProps extends
 export interface TabListProps extends
   ChildrenProps,
   BezierComponentProps,
-  TabsListOptions,
+  SizeProps<TabSize>,
   TabsOptions {}
 
 export interface TabsProps extends
