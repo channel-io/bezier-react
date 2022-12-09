@@ -55,13 +55,14 @@ function _TabAction({
   href,
   children,
   onClick = noop,
+  ...rest
 }: TabActionProps, forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const { size } = useContext(TabListContext)
 
   const BackgroundWithProps = useCallback(({
     children: _children,
-    ...rest
+    ..._rest
   }: {
     children: React.ReactNode
     onClick: TabActionProps['onClick']
@@ -70,7 +71,7 @@ function _TabAction({
       return (
         <Styled.Background
           size={size}
-          {...rest}
+          {..._rest}
         >
           { _children }
         </Styled.Background>
@@ -84,7 +85,7 @@ function _TabAction({
         as="a"
         target="_blank"
         rel="noopener noreferrer"
-        {...rest}
+        {..._rest}
       >
         { _children }
       </Styled.Background>
@@ -96,7 +97,10 @@ function _TabAction({
 
   return (
     <Styled.Wrapper ref={forwardedRef}>
-      <BackgroundWithProps onClick={onClick}>
+      <BackgroundWithProps
+        onClick={onClick}
+        {...rest}
+      >
         <Text
           bold
           typo={getTypoBy(size)}

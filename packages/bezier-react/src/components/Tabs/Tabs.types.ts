@@ -52,12 +52,14 @@ export interface TabItemProps extends
   ChildrenProps,
   BezierComponentProps,
   DisableProps,
+  React.HTMLAttributes<HTMLButtonElement>,
   TabItemOptions {}
 
 export interface TabListProps extends
   ChildrenProps,
   BezierComponentProps,
   SizeProps<TabSize>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'>,
   TabsOptions {}
 
 export interface TabsProps extends
@@ -69,6 +71,7 @@ export interface TabActionProps extends
   BezierComponentProps,
   LinkProps,
   DisableProps,
+  Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick'>,
   TabActionOptions {}
 
 export interface TabContentProps extends
