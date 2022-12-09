@@ -1,11 +1,15 @@
-/* Internal dependencies */
+/* External dependencies */
 import {
   isEmpty,
-  isString,
   isNumber,
   map,
   trim,
 } from 'lodash-es'
+
+/* Internal dependencies */
+import {
+  isString,
+} from 'Utils/typeUtils'
 
 export function mergeClassNames(className?: string, ...otherClassNames: Array<string | undefined>): string | undefined {
   if (!isEmpty(className) || !isEmpty(otherClassNames)) {

@@ -1,9 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useMemo } from 'react'
-import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isString,
+} from 'Utils/typeUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { KeyItemProps } from './KeyItem.types'

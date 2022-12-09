@@ -1,13 +1,11 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
-import {
-  isString,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import {
   isNil,
+  isString,
 } from 'Utils/typeUtils'
 import { Text } from 'Components/Text'
 import { IconSize } from 'Components/Icon'
