@@ -33,27 +33,27 @@ describe('Text', () => {
     expect(renderedText).toHaveStyle('color: var(--bezier-text-font-color);')
   })
 
-  it('should receives bold style', () => {
+  it('should receive bold style', () => {
     const { getByText } = renderComponent({ bold: true })
     const renderedText = getByText(TEXT)
     expect(renderedText).toHaveStyle('--bezier-text-font-weight: bold;')
     expect(renderedText).toHaveStyle('font-weight: var(--bezier-text-font-weight);')
   })
 
-  it('should receives italic style', () => {
+  it('should receive italic style', () => {
     const { getByText } = renderComponent({ italic: true })
     const renderedText = getByText(TEXT)
     expect(renderedText).toHaveStyle('--bezier-text-font-style: italic;')
     expect(renderedText).toHaveStyle('font-style: var(--bezier-text-font-style);')
   })
 
-  it('should receives style object', () => {
+  it('should receive style object', () => {
     const { getByText } = renderComponent({ style: { color: 'skyblue' } })
     const renderedText = getByText(TEXT)
     expect(renderedText).toHaveStyle('color: skyblue;')
   })
 
-  it('should receives typo from styled component css', () => {
+  it('should receive typo from styled component css', () => {
     const { getByText } = renderComponent({ typo: Typography.Size24 })
     const renderedText = getByText(TEXT)
     expect(renderedText).toHaveStyle('--bezier-text-font-size: 2.4rem;')
