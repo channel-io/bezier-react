@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* External dependencies */
 import React from 'react'
 import { noop } from 'lodash-es'
@@ -11,9 +12,11 @@ import { Text } from 'Components/Text'
 import { TabActionProps, TabListProps, TabsProps, TabSize } from './Tabs.types'
 import { Tabs } from './Tabs'
 import { TabList } from './TabList'
-import TabItem from './TabItem'
-import TabAction from './TabAction'
+import { TabItem } from './TabItem'
 import { TabContent } from './TabContent'
+import { TabItems } from './TabItems'
+import { TabActions } from './TabActions'
+import { TabAction } from './TabAction'
 
 type TabsCompositionProps =
   & TabsProps
@@ -48,16 +51,20 @@ function TabsComposition({
         defaultValue={defaultValue}
       >
         <TabList size={size}>
-          <TabItem value="One">Tab1</TabItem>
-          <TabItem value="Two">Tab2</TabItem>
-          <TabItem value="Three">Tab3</TabItem>
+          <TabItems>
+            <TabItem value="One">Tab1</TabItem>
+            <TabItem value="Two">Tab2</TabItem>
+            <TabItem value="Three">Tab3</TabItem>
+          </TabItems>
 
-          <TabAction href="https://github.com/channel-io/bezier-react">
-            Sub1
-          </TabAction>
-          <TabAction>
-            Sub2
-          </TabAction>
+          <TabActions>
+            <TabAction href="https://github.com/channel-io/bezier-react">
+              Sub1
+            </TabAction>
+            <TabAction onClick={() => { window.alert('Hi!') }}>
+              Sub2
+            </TabAction>
+          </TabActions>
         </TabList>
 
         <TabContent value="One">

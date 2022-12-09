@@ -5,9 +5,9 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
-import TabAction from './TabAction'
+import { TabAction } from './TabAction'
 import { TabContent } from './TabContent'
-import TabItem from './TabItem'
+import { TabItem } from './TabItem'
 import { TabList } from './TabList'
 import { Tabs } from './Tabs'
 import { TabListProps, TabSize, TabsProps } from './Tabs.types'

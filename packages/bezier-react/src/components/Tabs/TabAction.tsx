@@ -1,15 +1,11 @@
 /* External dependencies */
 import React, {
-  useCallback,
-  ReactNode,
-  ReactElement,
   useContext,
   forwardRef,
 } from 'react'
 import {
   isNil,
   noop,
-  get,
 } from 'lodash-es'
 
 /* Internal dependencies */
@@ -46,12 +42,7 @@ const getIconSizeBy = (size: TabSize) => {
   }
 }
 
-const TAB_ACTION_DISPLAY_NAME = 'TabAction'
-
-export const isTabAction = (element: ReactNode): element is ReactElement<TabActionProps> =>
-  React.isValidElement(element) && get(element, 'type.displayName') === TAB_ACTION_DISPLAY_NAME
-
-function _TabAction({
+export const TabAction = forwardRef(function TabAction({
   href,
   children,
   onClick = noop,
@@ -60,65 +51,42 @@ function _TabAction({
 ) {
   const { size } = useContext(TabListContext)
 
-  const BackgroundWithProps = useCallback(({
-    children: _children,
-    ..._rest
-  }: {
-    children: React.ReactNode
-    onClick: TabActionProps['onClick']
-  }) => {
-    if (isNil(href)) {
-      return (
-        <Styled.Background
-          size={size}
-          {..._rest}
-        >
-          { _children }
-        </Styled.Background>
-      )
-    }
-
-    return (
-      <Styled.Background
-        size={size}
-        href={href}
-        as="a"
-        target="_blank"
-        rel="noopener noreferrer"
-        {..._rest}
-      >
-        { _children }
-      </Styled.Background>
-    )
-  }, [
-    size,
-    href,
-  ])
-
   return (
-    <Styled.Wrapper ref={forwardedRef}>
-      <BackgroundWithProps
-        onClick={onClick}
-        {...rest}
-      >
-        <Text
-          bold
-          typo={getTypoBy(size)}
+    <Styled.Wrapper
+      ref={forwardedRef}
+      {...rest}
+    >
+      { isNil(href) ? (
+        <Styled.ToolbarButton
+          size={size}
+          onClick={onClick}
         >
-          { children }
-        </Text>
-        { !isNil(href) && (
+          <Text
+            bold
+            typo={getTypoBy(size)}
+          >
+            { children }
+          </Text>
+        </Styled.ToolbarButton>
+      ) : (
+        <Styled.ToolbarLink
+          size={size}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Text
+            bold
+            typo={getTypoBy(size)}
+          >
+            { children }
+          </Text>
           <Styled.LinkIcon
             source={OpenInNewIcon}
             size={getIconSizeBy(size)}
           />
-        ) }
-      </BackgroundWithProps>
+        </Styled.ToolbarLink>
+      ) }
     </Styled.Wrapper>
   )
-}
-
-const TabAction = forwardRef(_TabAction)
-TabAction.displayName = TAB_ACTION_DISPLAY_NAME
-
-export default TabAction
+})

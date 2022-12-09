@@ -1,11 +1,10 @@
+/* External dependencies */
+import * as Toolbar from '@radix-ui/react-toolbar'
+
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import { Icon } from 'Components/Icon'
 import { TabSize } from './Tabs.types'
-
-interface BackgroundProps {
-  size: TabSize
-}
 
 function getPaddingStyle({ size }: { size: TabSize }) {
   switch (size) {
@@ -28,7 +27,7 @@ function getPaddingStyle({ size }: { size: TabSize }) {
   }
 }
 
-export const Background = styled.button<BackgroundProps>`
+const commonStyle = css`
   all: unset;
   position: relative;
   display: flex;
@@ -46,6 +45,18 @@ export const Background = styled.button<BackgroundProps>`
   &:hover {
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-lightest']};
   }
+`
+
+interface ToolbarComponentProps {
+  size: TabSize
+}
+
+export const ToolbarButton = styled(Toolbar.Button)<ToolbarComponentProps>`
+  ${commonStyle}
+`
+
+export const ToolbarLink = styled(Toolbar.Link)<ToolbarComponentProps>`
+  ${commonStyle}
 `
 
 export const Wrapper = styled.div`

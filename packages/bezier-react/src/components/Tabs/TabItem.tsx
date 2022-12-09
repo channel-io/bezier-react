@@ -1,11 +1,11 @@
 /* External dependencies */
-import { get } from 'lodash-es'
-
-/* Internal dependencies */
 import React, {
   forwardRef,
   useContext,
 } from 'react'
+import * as Tabs from '@radix-ui/react-tabs'
+
+/* Internal dependencies */
 import {
   ButtonColorVariant,
   ButtonSize,
@@ -17,12 +17,6 @@ import {
 } from './Tabs.types'
 import TabListContext from './TabListContext'
 import * as Styled from './TabItem.styled'
-
-const TAB_ITEM_DISPLAY_NAME = 'TabItem'
-export function isTabItem(element: any): element is React.ReactElement<TabItemProps> {
-  return React.isValidElement(element) &&
-    get(element, 'type.displayName') === TAB_ITEM_DISPLAY_NAME
-}
 
 const getButtonSizeBy = (height: TabSize) => {
   switch (height) {
@@ -36,8 +30,9 @@ const getButtonSizeBy = (height: TabSize) => {
   }
 }
 
-function _TabItem({
+export const TabItem = forwardRef(function TabItem({
   disabled,
+  value,
   children,
   ...rest
 }: TabItemProps, forwardedRef: React.Ref<HTMLButtonElement>) {
@@ -48,19 +43,20 @@ function _TabItem({
   }
 
   return (
-    <Styled.Button
+    <Tabs.TabsTrigger
       disabled={disabled}
-      text={children}
-      size={getButtonSizeBy(size)}
-      colorVariant={ButtonColorVariant.MonochromeLight}
-      styleVariant={ButtonStyleVariant.Tertiary}
-      ref={forwardedRef}
-      {...rest}
-    />
+      value={value}
+      asChild
+    >
+      <Styled.Button
+        disabled={disabled}
+        text={children}
+        size={getButtonSizeBy(size)}
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Tertiary}
+        ref={forwardedRef}
+        {...rest}
+      />
+    </Tabs.TabsTrigger>
   )
-}
-
-const TabItem = forwardRef(_TabItem)
-TabItem.displayName = TAB_ITEM_DISPLAY_NAME
-
-export default TabItem
+})

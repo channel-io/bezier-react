@@ -1,7 +1,9 @@
 import { Tabs } from './Tabs'
-import TabAction from './TabAction'
-import TabItem from './TabItem'
+import { TabAction } from './TabAction'
+import { TabItem } from './TabItem'
+import { TabItems } from './TabItems'
 import { TabList } from './TabList'
+import { TabActions } from './TabActions'
 import { TabSize } from './Tabs.types'
 import type {
   TabsProps,
@@ -10,12 +12,14 @@ import type {
   TabActionProps,
 } from './Tabs.types'
 
-export { TabContent as TabsContent } from './TabContent'
+export { TabContent } from './TabContent'
 
 export {
   Tabs,
-  TabAction,
   TabItem,
+  TabItems,
+  TabAction,
+  TabActions,
   TabList,
   TabSize,
   TabsProps,
