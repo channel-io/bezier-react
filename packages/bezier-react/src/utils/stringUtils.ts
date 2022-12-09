@@ -1,13 +1,13 @@
 /* External dependencies */
 import {
   isEmpty,
-  isNumber,
   map,
   trim,
 } from 'lodash-es'
 
 /* Internal dependencies */
 import {
+  isNumber,
   isString,
 } from 'Utils/typeUtils'
 

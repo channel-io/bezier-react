@@ -1,6 +1,5 @@
 /* External dependencies */
 import {
-  isNumber,
   isNaN,
   isEmpty,
   get,
@@ -16,6 +15,7 @@ import { css } from 'Foundation'
 import {
   isNil,
   isObject,
+  isNumber,
   isString,
 } from 'Utils/typeUtils'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'

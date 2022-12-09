@@ -13,6 +13,10 @@ export function isObject(value: unknown): value is object {
   return value != null && (type === 'object' || type === 'function')
 }
 
+export function isNumber(value: unknown): value is number {
+  return typeof value === 'number' || (isObject(value) && getTag(value) === '[object Number]')
+}
+
 export function isString(value: unknown): value is string {
   return typeof value === 'string' || (isObject(value) && getTag(value) === '[object String]')
 }

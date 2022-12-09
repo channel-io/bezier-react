@@ -1,12 +1,13 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import { isEmpty, isNumber } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import {
   isNil,
+  isNumber,
   isString,
 } from 'Utils/typeUtils'
 import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
