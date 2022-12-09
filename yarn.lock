@@ -2072,6 +2072,7 @@ __metadata:
     "@radix-ui/react-slider": ^1.0.0
     "@radix-ui/react-switch": ^1.0.1
     "@radix-ui/react-tabs": ^1.0.1
+    "@radix-ui/react-toolbar": ^1.0.1
     "@radix-ui/react-visually-hidden": ^1.0.1
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^19.0.0
@@ -3634,6 +3635,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-separator@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-separator@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: c7d7aa21f4b00127da07452cf17bca59d02fe40c62ba662d72d4a906b6722173de28a5fd647ed5d11fc483fa62fa74f075433764d8803b07f2721c957e5ec13a
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-separator@npm:^1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-separator@npm:1.0.0"
@@ -3730,6 +3744,59 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: d5e8ac40d40b6c795bb0e1d1b942fd133b9c1978b21f07d06352159182e229b2bb2d0d3b9a04d288692d41cff3ba90f128a5e95995e0cc59352cc82d1ee72599
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-toggle-group@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-toggle-group@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-roving-focus": 1.0.1
+    "@radix-ui/react-toggle": 1.0.1
+    "@radix-ui/react-use-controllable-state": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 310c061a7e8184efe8e97870fa9806f2eb6da2b66a54640f7902ce357439e4ca09ff139e85686585cd8bf6b53559a906aeedc33b19572026c2d2a2a372651764
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-toggle@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-toggle@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-use-controllable-state": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 9754df4add6c1d4bced810431e51696cd482465aaf84ffca008caf13f5f33e6e4133ce146ae208fede93acfedbfffcee3808794d4f147c949cc15465f3cc22a7
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-toolbar@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-toolbar@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-roving-focus": 1.0.1
+    "@radix-ui/react-separator": 1.0.1
+    "@radix-ui/react-toggle-group": 1.0.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 0007bc416356a231ead4b25ef90653904bee59ccc0cddaee568084e01838bfa829101af571a711f2c4b7d0e1d38ea2d7308b3e18b04ecd892d196cd67f5588ab
   languageName: node
   linkType: hard
 
