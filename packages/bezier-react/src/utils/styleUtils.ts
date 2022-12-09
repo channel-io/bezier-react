@@ -1,6 +1,5 @@
 /* External dependencies */
 import {
-  isObject,
   isNil,
   isString,
   isNumber,
@@ -16,6 +15,9 @@ import {
 
 /* Internal dependencies */
 import { css } from 'Foundation'
+import {
+  isObject,
+} from 'Utils/typeUtils'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
 import { InjectedInterpolation } from 'Types/Foundation'
 import { isNumberString } from './stringUtils'
