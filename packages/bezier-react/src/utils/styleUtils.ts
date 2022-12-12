@@ -99,3 +99,19 @@ export function gap(spacing: number): InjectedInterpolation {
     }
   `
 }
+
+export function touchableHover(interpolation: InjectedInterpolation): InjectedInterpolation {
+  return css`
+    @media (hover: hover) {
+      &:hover {
+        ${interpolation}
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        ${interpolation}
+      }
+    }
+  `
+}

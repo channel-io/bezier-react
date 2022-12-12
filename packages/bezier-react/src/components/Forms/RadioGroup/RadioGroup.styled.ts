@@ -2,8 +2,9 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import { styled, Typography } from 'Foundation'
+import { styled, css, Typography } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
+import { touchableHover } from 'Utils/styleUtils'
 import { Text } from 'Components/Text'
 import { FormFieldSize } from 'Components/Forms'
 import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
@@ -68,7 +69,7 @@ export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioPro
     }
   }
 
-  &:hover {
+  ${touchableHover(css`
     &:not([data-disabled])[data-state='checked']::before {
       background-color: var(--bgtxt-green-dark);
     }
@@ -76,7 +77,7 @@ export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioPro
     &:not([data-disabled]):not([data-state='checked'])::after {
       background-color: var(--bg-black-dark);
     }
-  }
+  `)}
 
   &:focus-visible {
     &::before {
