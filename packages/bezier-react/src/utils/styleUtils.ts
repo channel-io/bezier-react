@@ -2,7 +2,6 @@
 import {
   isNaN,
   isEmpty,
-  get,
   endsWith,
   values,
   includes,
@@ -61,7 +60,7 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
     if (isCSSUnitOption(opts)) { return opts }
     return undefined
   })()
-  const defaultUnit = get(options, 'defaultUnit', AbsoluteUnit.px)
+  const defaultUnit = options?.defaultUnit ?? AbsoluteUnit.px
 
   if (isString(value)) {
     if (isEmpty(value)) { return defaultValue || `0${defaultUnit}` }
