@@ -8,7 +8,6 @@ import base from 'paths.macro'
 import {
   keys,
   random,
-  range,
   values,
 } from 'lodash-es'
 
@@ -19,6 +18,9 @@ import {
 } from 'Foundation'
 import { LightTheme } from 'Foundation/Colors/Theme'
 import { getTitle } from 'Utils/storyUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
 import {
   Button,
   ButtonSize,

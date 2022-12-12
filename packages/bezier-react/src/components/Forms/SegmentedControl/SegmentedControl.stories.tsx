@@ -1,12 +1,15 @@
 /* External dependencies */
 import React, { useRef, useState, useCallback } from 'react'
 import base from 'paths.macro'
-import { range, isEmpty, trim } from 'lodash-es'
+import { isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
 import { Text } from 'Components/Text'
 import { Icon, CancelIcon, PlusIcon } from 'Components/Icon'
 import SegmentedControl from './SegmentedControl'
