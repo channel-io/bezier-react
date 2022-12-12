@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useRef, useState, useCallback } from 'react'
 import base from 'paths.macro'
-import { range, filter, isEmpty, trim } from 'lodash-es'
+import { range, isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
@@ -131,7 +131,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
   const clickRemoveIconHandlerFactory = useCallback((index) => (
     () => {
       if (items.length > 1) {
-        setItems(prev => filter(prev, (e, i) => (i !== index)))
+        setItems(prev => prev.filter((e, i) => (i !== index)))
         setCurrentIndex(Math.min(items.length - 2, currentIndex))
       }
     }
