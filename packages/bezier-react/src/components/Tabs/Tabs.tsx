@@ -13,8 +13,12 @@ import * as Styled from './Tabs.styled'
  * ```tsx
  * <Tabs>
  *  <TabList>
- *    <TabItem />
- *    <TabAction />
+ *    <TabItems>
+ *      <TabItem />
+ *    <TabItems />
+ *    <TabActions>
+ *      <TabAction />
+ *    </TabActions>
  *  </TabList>
  *  <TabContent />
  * </Tabs>
