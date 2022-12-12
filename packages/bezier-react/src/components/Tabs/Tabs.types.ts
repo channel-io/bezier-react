@@ -48,6 +48,17 @@ interface TabContentOptions {
   value: string
 }
 
+export interface TabsProps extends
+  ChildrenProps,
+  BezierComponentProps,
+  TabsOptions {}
+
+export interface TabListProps extends
+  ChildrenProps,
+  BezierComponentProps,
+  SizeProps<TabSize>,
+  React.HTMLAttributes<HTMLDivElement> {}
+
 export interface TabItemsProps extends
   ChildrenProps,
   BezierComponentProps,
@@ -60,17 +71,8 @@ export interface TabItemProps extends
   React.HTMLAttributes<HTMLButtonElement>,
   TabItemOptions {}
 
-export interface TabListProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  SizeProps<TabSize>,
-  React.HTMLAttributes<HTMLDivElement> {}
-
-export interface TabsProps extends
-  ChildrenProps,
-  TabsOptions {}
-
 export interface TabActionsProps extends
+  BezierComponentProps,
   ChildrenProps {}
 
 export interface TabActionProps extends
