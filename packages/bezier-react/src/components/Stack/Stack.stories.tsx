@@ -7,7 +7,6 @@ import type {
 import base from 'paths.macro'
 import {
   random,
-  values,
 } from 'lodash-es'
 
 /* Internal dependencies */
@@ -78,7 +77,7 @@ export default {
   },
 } as Meta
 
-const randomColor = (): SemanticNames => values(LightTheme)[random(Object.keys(LightTheme).length)] as SemanticNames
+const randomColor = (): SemanticNames => Object.values(LightTheme)[random(Object.keys(LightTheme).length)] as SemanticNames
 const randomSize = (): number => Math.floor((random(true) * 240) + 120)
 
 const Item = ({

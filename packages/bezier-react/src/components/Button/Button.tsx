@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs, values } from 'lodash-es'
+import { flattenDeep, fromPairs } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
@@ -73,7 +73,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     combinations(
       ButtonColorVariant.MonochromeLight,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      values(ButtonSize),
+      Object.values(ButtonSize),
     )
       .map((key) => [key, 'txt-black-dark']),
   ),
@@ -81,7 +81,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     combinations(
       ButtonColorVariant.MonochromeDark,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      values(ButtonSize),
+      Object.values(ButtonSize),
     )
       .map((key) => [key, 'txt-black-darker']),
   ),

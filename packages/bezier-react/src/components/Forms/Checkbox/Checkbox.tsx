@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { values, isEmpty, includes } from 'lodash-es'
+import { isEmpty, includes } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -15,7 +15,7 @@ import * as Styled from './Checkbox.styled'
 export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
 export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
 
-const checkTypeValues = values(CheckType)
+const checkTypeValues = Object.values(CheckType)
 
 const checkIconCommonProps: Pick<IconProps, 'size' | 'color'> = {
   size: IconSize.XS,

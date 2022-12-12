@@ -3,7 +3,6 @@ import {
   isNaN,
   isEmpty,
   endsWith,
-  values,
   includes,
 } from 'lodash-es'
 
@@ -23,8 +22,8 @@ import { InjectedInterpolation } from 'Types/Foundation'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
-  ...values(AbsoluteUnit),
-  ...values(RelativeUnit),
+  ...Object.values(AbsoluteUnit),
+  ...Object.values(RelativeUnit),
 ]
 
 export interface CSSUnitOption {
