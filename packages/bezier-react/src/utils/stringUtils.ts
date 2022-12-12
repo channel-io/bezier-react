@@ -1,7 +1,6 @@
 /* External dependencies */
 import {
   isEmpty,
-  trim,
 } from 'lodash-es'
 
 /* Internal dependencies */
@@ -14,7 +13,7 @@ export function mergeClassNames(className?: string, ...otherClassNames: Array<st
   if (!isEmpty(className) || !isEmpty(otherClassNames)) {
     const result: string[] = []
     const classNames = [className, ...otherClassNames]
-    classNames.map((cn) => trim(cn)).forEach((cn) => result.push(cn))
+    classNames.map((cn) => cn?.trim() ?? '').forEach((cn) => result.push(cn))
     
     const joinedResult = result.filter((cn) => !isEmpty(cn)).join(' ')
     if (!isEmpty(joinedResult)) { return joinedResult }

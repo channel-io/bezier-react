@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useRef, useState, useCallback } from 'react'
 import base from 'paths.macro'
-import { isEmpty, trim } from 'lodash-es'
+import { isEmpty } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
@@ -154,7 +154,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
     if (e.key === 'Enter') {
       e.stopPropagation()
       const value = e.currentTarget.value
-      if (!isEmpty(trim(value))) {
+      if (!isEmpty(value.trim())) {
         setItems(prev => [...prev, value])
         e.currentTarget.value = ''
       }
