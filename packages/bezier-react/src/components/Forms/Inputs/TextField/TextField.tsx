@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { size as getSize, isEmpty, toString, includes } from 'lodash-es'
+import { isEmpty, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -326,7 +326,7 @@ forwardedRef: Ref<TextFieldRef>,
       onClick={handleClear}
     >
       {
-        getSize(normalizedValue) > 0 && (focused || hovered) && (
+        normalizedValue && normalizedValue.length > 0 && (focused || hovered) && (
           <Icon
             source={CancelCircleFilledIcon}
             size={IconSize.XS}
