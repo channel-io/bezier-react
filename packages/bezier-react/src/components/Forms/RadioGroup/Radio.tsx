@@ -6,6 +6,10 @@ import useId from 'Hooks/useId'
 import { RadioProps } from './RadioGroup.types'
 import * as Styled from './RadioGroup.styled'
 
+/**
+ * `Radio` is a checkable button, known as a radio button.
+ * It is must be a child of `RadioGroup`.
+ */
 export const Radio = forwardRef(function Radio({
   children,
   id: idProp,

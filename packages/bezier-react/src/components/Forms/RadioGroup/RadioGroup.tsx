@@ -7,6 +7,21 @@ import { Stack, StackItem } from 'Components/Stack'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { RadioGroupProps } from './RadioGroup.types'
 
+/**
+ * `RadioGroup` is a set of checkable buttons, known as radio buttons.
+ *
+ * `RadioGroup` is a context of the `Radio` components. also, it renders an element which has the 'radiogroup' role.
+ * It controls all the parts of a radio group.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the RadioGroup
+ * <RadioGroup>
+ *  <Radio />
+ * </RadioGroup>
+ * ```
+ */
 export const RadioGroup = forwardRef(function RadioGroup({
   children,
   spacing = 0,
