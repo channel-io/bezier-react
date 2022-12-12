@@ -24,6 +24,7 @@ const CONTENT1 = 'Content one'
 const CONTENT2 = 'Content two'
 
 const ACTION1 = 'Action1'
+const ACTION2 = 'Action2'
 
 type RenderTabsProps = {
   tabsProps?: TabsProps
@@ -53,6 +54,9 @@ describe('Tabs', () => {
         <TabActions>
           <TabAction href="https://github.com/channel-io/bezier-react">
             { ACTION1 }
+          </TabAction>
+          <TabAction>
+            { ACTION2 }
           </TabAction>
         </TabActions>
       </TabList>
@@ -193,6 +197,32 @@ describe('Tabs', () => {
       expect(document.activeElement).toBe(tabAction)
       await user.tab({ shift: true })
       expect(document.activeElement).toBe(tabItem)
+    })
+  })
+
+  describe('Tab Actions', () => {
+    describe('ARIA', () => {
+      it('should have \'role="toolbar"\' attribute.', () => {
+        const { getByRole } = renderTabs()
+        expect(getByRole('toolbar', { name: 'More actions' })).toBeInTheDocument()
+      })
+    })
+
+    describe('Keyboard Navigation', () => {
+      it('can control by arrow right and left key', async () => {
+        const { getByRole } = renderTabs()
+        const tabItem1 = getByRole('link', { name: ACTION1 })
+        const tabItem2 = getByRole('button', { name: ACTION2 })
+
+        await user.click(getByRole('link', { name: ACTION1 }))
+        expect(document.activeElement).toBe(tabItem1)
+        await user.keyboard('{arrowright}')
+        expect(document.activeElement).toBe(tabItem2)
+        await user.keyboard('{arrowleft}')
+        expect(document.activeElement).toBe(tabItem1)
+        await user.keyboard('{arrowleft}')
+        expect(document.activeElement).toBe(tabItem2)
+      })
     })
   })
 
