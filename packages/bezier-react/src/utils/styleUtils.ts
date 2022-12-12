@@ -3,7 +3,6 @@ import {
   isNaN,
   isEmpty,
   get,
-  has,
   endsWith,
   values,
   includes,
@@ -17,6 +16,9 @@ import {
   isNumber,
   isString,
 } from 'Utils/typeUtils'
+import {
+  has,
+} from 'Utils/objectUtils'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
 import { InjectedInterpolation } from 'Types/Foundation'
 import { isNumberString } from './stringUtils'
