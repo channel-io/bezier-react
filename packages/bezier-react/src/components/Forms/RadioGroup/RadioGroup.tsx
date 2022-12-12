@@ -3,39 +3,36 @@ import React, { forwardRef } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import { FormGroup } from 'Components/Forms/FormGroup'
+import { Stack, StackItem } from 'Components/Stack'
+import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { RadioGroupProps } from './RadioGroup.types'
 
 export const RadioGroup = forwardRef(function RadioGroup({
   children,
-  value,
-  defaultValue,
-  name,
-  disabled,
-  required,
-  direction = 'vertical',
   spacing = 0,
-  onValueChange,
+  direction = 'vertical',
   ...rest
 }: RadioGroupProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const formFieldProps = useFormFieldProps(rest)
+
   return (
     <RadioGroupPrimitive.Root
       asChild
-      value={value}
-      defaultValue={defaultValue}
-      name={name}
-      disabled={disabled}
-      required={required}
-      onValueChange={onValueChange}
+      {...formFieldProps}
     >
-      <FormGroup
+      <Stack
         ref={forwardedRef}
-        direction={direction}
+        justify="start"
+        align="stretch"
         spacing={spacing}
-        {...rest}
+        direction={direction}
       >
-        { children }
-      </FormGroup>
+        { React.Children.map(children, (child, index) => (
+          <StackItem key={(child as React.ReactElement)?.key ?? index}>
+            { child }
+          </StackItem>
+        )) }
+      </Stack>
     </RadioGroupPrimitive.Root>
   )
 })

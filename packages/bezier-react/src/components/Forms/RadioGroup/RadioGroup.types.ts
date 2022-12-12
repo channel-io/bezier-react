@@ -4,7 +4,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 /* Internal dependencies */
 import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
 import { FormComponentProps } from 'Components/Forms'
-import { FormGroupProps } from 'Components/Forms/FormGroup'
+import { StackProps } from 'Components/Stack'
 
 interface RadioGroupOptions {
   value?: string
@@ -24,7 +24,7 @@ export interface RadioGroupProps extends
   BezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
-  Pick<FormGroupProps, 'spacing' | 'direction'>,
+  Partial<Pick<StackProps, 'spacing' | 'direction'>>,
   Omit<React.HTMLAttributes<HTMLDivElement>, keyof RadioGroupOptions | keyof RadioGroupPrimitive.RadioGroupProps>,
   RadioGroupOptions {}
 
