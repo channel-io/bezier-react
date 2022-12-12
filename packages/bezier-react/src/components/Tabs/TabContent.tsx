@@ -7,6 +7,9 @@ import {
   TabContentProps,
 } from './Tabs.types'
 
+/**
+ * `TabContent` has content associated with `TabItem`.
+ */
 export function TabContent({
   children,
   value,

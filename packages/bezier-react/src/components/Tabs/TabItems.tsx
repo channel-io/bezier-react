@@ -7,6 +7,9 @@ import React, {
 import * as Styled from './TabItems.styled'
 import { TabItemsProps } from './Tabs.types'
 
+/**
+ * `TabItems` is a flex container which has `TabItem` flex items.
+ */
 export const TabItems = forwardRef(function TabItems({
   children,
 }: TabItemsProps, forwardedRef: React.Ref<HTMLDivElement>) {

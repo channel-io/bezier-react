@@ -42,6 +42,10 @@ const getIconSizeBy = (size: TabSize) => {
   }
 }
 
+/**
+ * `TabAction` is a button for more action to open a new link or navigate to a different url.
+ * If it has `href` props, it should act as a link.
+ */
 export const TabAction = forwardRef(function TabAction({
   href,
   children,

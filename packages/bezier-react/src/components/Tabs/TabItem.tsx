@@ -18,8 +18,8 @@ import {
 import TabListContext from './TabListContext'
 import * as Styled from './TabItem.styled'
 
-const getButtonSizeBy = (height: TabSize) => {
-  switch (height) {
+const getButtonSizeBy = (size: TabSize) => {
+  switch (size) {
     case TabSize.L:
       return ButtonSize.L
     case TabSize.Normal:
@@ -30,6 +30,9 @@ const getButtonSizeBy = (height: TabSize) => {
   }
 }
 
+/**
+ * `TabItem` is a button that activates its associated content.
+ */
 export const TabItem = forwardRef(function TabItem({
   disabled,
   value,

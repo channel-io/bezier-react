@@ -7,6 +7,10 @@ import React, {
 import * as Styled from './TabActions.styled'
 import { TabActionsProps } from './Tabs.types'
 
+/**
+ * `TabActions` is a flex container which has `TabAction` flex items.
+ *  It also gives accessibility properties to its children.
+ */
 export const TabActions = forwardRef(function TabActions({
   children,
 }: TabActionsProps, forwardedRef: React.Ref<HTMLDivElement>) {
