@@ -64,6 +64,14 @@ describe('RadioGroup', () => {
       expect(radio).toBeChecked()
     })
 
+    it('should call the change event handler when user clicks on a radio in a controlled radio group', async () => {
+      const onValueChange = jest.fn()
+      const { getByRole } = renderRadioGroup({ radioGroupProps: { value: VALUES[0], onValueChange } })
+      const radio = getByRole('radio', { name: VALUES[1] })
+      await user.click(radio)
+      expect(onValueChange).toBeCalledTimes(1)
+    })
+
     it('should focus on the first radio item when user presses tab key', async () => {
       const { getByRole } = renderRadioGroup()
       const radio = getByRole('radio', { name: VALUES[0] })
