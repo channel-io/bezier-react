@@ -41,6 +41,7 @@ Primary.args = {
   hasError: false,
   disabled: false,
   readOnly: false,
+  required: false,
 }
 
 const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
@@ -120,4 +121,5 @@ WithMultiForm.args = {
   hasError: false,
   disabled: false,
   readOnly: false,
+  required: false,
 }
