@@ -79,7 +79,6 @@ export interface TabActionProps extends
   ChildrenProps,
   BezierComponentProps,
   LinkProps,
-  DisableProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick'>,
   TabActionOptions {}
 
