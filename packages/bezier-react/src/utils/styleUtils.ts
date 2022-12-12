@@ -4,7 +4,6 @@ import {
   isEmpty,
   get,
   has,
-  some,
   endsWith,
   values,
   includes,
@@ -68,10 +67,10 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
     if (isBoxSizingUnit(value)) { return value }
     if (isExplicitDefaulting(value)) { return value }
     if (!isEmpty(options?.allowUnits)) {
-      if (some(options!.allowUnits, (unit) => endsWith(value, unit))) {
+      if (options!.allowUnits?.some((unit) => endsWith(value, unit))) {
         return value
       }
-    } else if (some(UnitValues, (unit) => endsWith(value, unit))) {
+    } else if (UnitValues.some((unit) => endsWith(value, unit))) {
       return value
     }
   }
