@@ -2,10 +2,12 @@
 import React, { useState, useMemo } from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import { compact } from 'lodash-es'
 
 /* Internal dependencies */
 import { iconList, getTitle } from 'Utils/storyUtils'
+import {
+  compact,
+} from 'Utils/arrayUtils'
 import ListItem from './ListItem'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 
@@ -69,7 +71,7 @@ interface CompositionProps {
 const CompositionTemplate = ({ listRange }: CompositionProps) => {
   const [activeIndex, setActiveIndex] = useState<Set<number>>(() => {
     const randomActiveIndex = Array.from(Array(listRange).keys()).map((index) => (Math.random() < 0.5 ? index : null))
-    return new Set(compact([...randomActiveIndex]))
+    return new Set(compact<number>([...randomActiveIndex]))
   })
 
   const isActive = (index: number) => activeIndex.has(index)
