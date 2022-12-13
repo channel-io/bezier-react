@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs } from 'lodash-es'
+import { flattenDeep } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
@@ -42,7 +42,7 @@ function combinations(
 }
 
 const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -53,7 +53,7 @@ const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } =
 }
 
 const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -61,7 +61,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     )
       .map((key) => [key, 'txt-black-darker']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -69,7 +69,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     )
       .map((key) => [key, 'txt-black-dark']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.MonochromeLight,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
@@ -77,7 +77,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     )
       .map((key) => [key, 'txt-black-dark']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.MonochromeDark,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
