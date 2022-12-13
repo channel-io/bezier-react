@@ -5,9 +5,6 @@ import type {
   Story,
 } from '@storybook/react'
 import base from 'paths.macro'
-import {
-  random,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -77,8 +74,9 @@ export default {
   },
 } as Meta
 
-const randomColor = (): SemanticNames => Object.values(LightTheme)[random(Object.keys(LightTheme).length)] as SemanticNames
-const randomSize = (): number => Math.floor((random(true) * 240) + 120)
+const randomColor = (): SemanticNames =>
+  Object.values(LightTheme)[Math.floor(Math.random() * Object.keys(LightTheme).length)] as SemanticNames
+const randomSize = (): number => Math.floor((Math.random() * 240) + 120)
 
 const Item = ({
   fixedSize,
