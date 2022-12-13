@@ -96,6 +96,14 @@ function TabsComposition({
 export default {
   title: getTitle(base),
   component: TabsComposition,
+  subcomponents: {
+    Tabs,
+    TabItems,
+    TabItem,
+    TabActions,
+    TabAction,
+    TabContent,
+  },
   argTypes: {
     size: {
       control: {
