@@ -1,8 +1,3 @@
-/* External dependencies */
-import {
-  endsWith,
-} from 'lodash-es'
-
 /* Internal dependencies */
 import { css } from 'Foundation'
 import {
@@ -65,10 +60,10 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
     if (isBoxSizingUnit(value)) { return value }
     if (isExplicitDefaulting(value)) { return value }
     if (!isEmpty(options?.allowUnits)) {
-      if (options!.allowUnits?.some((unit) => endsWith(value, unit))) {
+      if (options!.allowUnits?.some((unit) => value.endsWith(unit))) {
         return value
       }
-    } else if (UnitValues.some((unit) => endsWith(value, unit))) {
+    } else if (UnitValues.some((unit) => value.endsWith(unit))) {
       return value
     }
   }
