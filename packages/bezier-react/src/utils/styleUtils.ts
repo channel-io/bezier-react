@@ -1,6 +1,5 @@
 /* External dependencies */
 import {
-  isNaN,
   endsWith,
 } from 'lodash-es'
 
@@ -75,7 +74,7 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
   }
 
   if (isNumber(value)) {
-    if (isNaN(value) || value === Infinity) { return defaultValue || `0${defaultUnit}` }
+    if (Number.isNaN(value) || value === Infinity) { return defaultValue || `0${defaultUnit}` }
     if (options?.defaultUnit) { return `${value}${defaultUnit}` }
     return `${value}${defaultUnit}`
   }
