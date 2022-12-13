@@ -47,28 +47,29 @@ export const ModalContent = forwardRef(function ModalContent({
 
   return (
     <DialogPrimitive.Portal container={container}>
-      <Styled.DialogPrimitiveOverlay />
-      <DialogPrimitive.Content asChild>
-        <Styled.Content
-          aria-modal
-          ref={forwardedRef}
-          style={contentStyle}
-          {...rest}
-        >
-          <Styled.Section>
-            <ModalContentContext.Provider value={contextValue}>
-              { children }
-            </ModalContentContext.Provider>
+      <Styled.DialogPrimitiveOverlay>
+        <DialogPrimitive.Content asChild>
+          <Styled.Content
+            aria-modal
+            ref={forwardedRef}
+            style={contentStyle}
+            {...rest}
+          >
+            <Styled.Section>
+              <ModalContentContext.Provider value={contextValue}>
+                { children }
+              </ModalContentContext.Provider>
 
-            { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
-            { showCloseIcon && (
-              <ModalClose>
-                <Styled.CloseIconButton />
-              </ModalClose>
-            ) }
-          </Styled.Section>
-        </Styled.Content>
-      </DialogPrimitive.Content>
+              { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
+              { showCloseIcon && (
+                <ModalClose>
+                  <Styled.CloseIconButton />
+                </ModalClose>
+              ) }
+            </Styled.Section>
+          </Styled.Content>
+        </DialogPrimitive.Content>
+      </Styled.DialogPrimitiveOverlay>
     </DialogPrimitive.Portal>
   )
 })

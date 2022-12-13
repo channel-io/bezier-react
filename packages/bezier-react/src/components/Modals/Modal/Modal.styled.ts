@@ -12,6 +12,10 @@ import ModalAnimation from './ModalAnimation.styled'
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   position: fixed;
   inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 40px 0;
+  overflow-y: auto;
   background-color: var(--bgtxt-absolute-black-lighter);
 
   &[data-state='open'] {
@@ -27,10 +31,6 @@ export const Content = styled.div<ModalContentProps>`
   ${({ foundation }) => foundation?.rounding.round20}
   ${({ foundation }) => foundation?.elevation.ev4()}
 
-  position: fixed;
-  inset: 0;
-  top: 50%;
-  left: 50%;
   z-index: var(--bezier-modal-z-index);
 
   box-sizing: border-box;
@@ -38,11 +38,10 @@ export const Content = styled.div<ModalContentProps>`
   min-width: 360px;
   max-width: 100vw;
   height: var(--bezier-modal-height);
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
+  max-height: 100%;
+  overflow: visible;
   color: var(--bg-grey-darkest);
   word-break: break-word;
-  transform: translate(-50%, -50%);
 
   &[data-state='open'] {
     ${ModalAnimation.contentShow}
