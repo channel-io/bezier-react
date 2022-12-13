@@ -17,6 +17,7 @@ import {
 import { Text } from 'Components/Text'
 import TabListContext from './TabListContext'
 import {
+  TabActionElement,
   TabActionProps,
   TabSize,
 } from './Tabs.types'
@@ -51,7 +52,7 @@ export const TabAction = forwardRef(function TabAction({
   children,
   onClick = noop,
   ...rest
-}: TabActionProps, forwardedRef: React.Ref<HTMLDivElement>,
+}, forwardedRef,
 ) {
   const { size } = useContext(TabListContext)
 
@@ -92,4 +93,8 @@ export const TabAction = forwardRef(function TabAction({
       </Styled.ToolbarLink>
     )
   )
-})
+}) as <Link extends string | undefined>(
+  props: TabActionProps<Link> & {
+    ref?: React.ForwardedRef<TabActionElement<Link>>
+  }
+) => JSX.Element

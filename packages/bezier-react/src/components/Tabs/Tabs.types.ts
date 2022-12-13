@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import React from 'react'
-import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps, SizeProps } from 'Types/ComponentProps'
+import { BezierComponentProps, DisableProps, ChildrenProps, SizeProps } from 'Types/ComponentProps'
 
 export enum TabSize {
   L = 53,
@@ -27,11 +27,15 @@ interface TabsOptions {
   onValueChange?: (value: string) => void
 }
 
-interface TabActionOptions {
+interface TabActionOptions<Link extends string | undefined> {
+  /**
+   * TabAction acts as a link when href is given, otherwise as a button.
+   */
+  href?: Link
   /**
    * Event handler called when tab action is clicked.
    */
-  onClick?: React.MouseEventHandler
+  onClick?: Link extends string ? never : React.MouseEventHandler<HTMLButtonElement>
 }
 
 interface TabItemOptions {
@@ -75,12 +79,13 @@ export interface TabActionsProps extends
   BezierComponentProps,
   ChildrenProps {}
 
-export interface TabActionProps extends
+export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
+
+export interface TabActionProps<Link extends string | undefined> extends
   ChildrenProps,
   BezierComponentProps,
-  LinkProps,
-  Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick'>,
-  TabActionOptions {}
+  TabActionOptions<Link>,
+  Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
 export interface TabContentProps extends
   ChildrenProps,

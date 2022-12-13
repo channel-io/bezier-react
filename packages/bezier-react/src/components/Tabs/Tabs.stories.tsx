@@ -21,7 +21,7 @@ import { TabAction } from './TabAction'
 type TabsCompositionProps =
   & TabsProps
   & TabListProps
-  & TabActionProps
+  & TabActionProps<string | undefined>
 
 const Wrapper = styled.div`
   display: flex;
