@@ -79,13 +79,13 @@ export interface TabActionsProps extends
   BezierComponentProps,
   ChildrenProps {}
 
-export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
+export type TabActionElementBy<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
 
 export interface TabActionProps<Link extends string | undefined> extends
   ChildrenProps,
   BezierComponentProps,
   TabActionOptions<Link>,
-  Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
+  Omit<React.HTMLAttributes<TabActionElementBy<Link>>, 'onClick'> {}
 
 export interface TabContentProps extends
   ChildrenProps,

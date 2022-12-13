@@ -17,7 +17,7 @@ import {
 import { Text } from 'Components/Text'
 import TabListContext from './TabListContext'
 import {
-  TabActionElement,
+  TabActionElementBy,
   TabActionProps,
   TabSize,
 } from './Tabs.types'
@@ -95,6 +95,6 @@ export const TabAction = forwardRef(function TabAction({
   )
 }) as <Link extends string | undefined>(
   props: TabActionProps<Link> & {
-    ref?: React.ForwardedRef<TabActionElement<Link>>
+    ref?: React.ForwardedRef<TabActionElementBy<Link>>
   }
 ) => JSX.Element
