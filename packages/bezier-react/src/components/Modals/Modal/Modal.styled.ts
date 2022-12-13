@@ -12,6 +12,7 @@ import ModalAnimation from './ModalAnimation.styled'
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   position: fixed;
   inset: 0;
+  z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
   padding: 40px 0;
@@ -30,8 +31,6 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
 export const Content = styled.div<ModalContentProps>`
   ${({ foundation }) => foundation?.rounding.round20}
   ${({ foundation }) => foundation?.elevation.ev4()}
-
-  z-index: var(--bezier-modal-z-index);
 
   box-sizing: border-box;
   width: var(--bezier-modal-width);

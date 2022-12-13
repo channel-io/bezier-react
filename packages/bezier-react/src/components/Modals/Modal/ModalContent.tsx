@@ -28,17 +28,14 @@ export const ModalContent = forwardRef(function ModalContent({
   const contentStyle = useMemo((): React.CSSProperties & {
     '--bezier-modal-width': ModalContentProps['width']
     '--bezier-modal-height': ModalContentProps['height']
-    '--bezier-modal-z-index': ModalContentProps['zIndex']
   } => ({
     ...style,
     '--bezier-modal-width': isNumber(width) ? `${width}px` : width,
     '--bezier-modal-height': isNumber(height) ? `${height}px` : height,
-    '--bezier-modal-z-index': zIndex,
   }), [
     style,
     width,
     height,
-    zIndex,
   ])
 
   const contextValue = useMemo((): ModalContentContextValue => ({
@@ -47,7 +44,7 @@ export const ModalContent = forwardRef(function ModalContent({
 
   return (
     <DialogPrimitive.Portal container={container}>
-      <Styled.DialogPrimitiveOverlay>
+      <Styled.DialogPrimitiveOverlay style={{ '--bezier-modal-z-index': zIndex } as React.CSSProperties}>
         <DialogPrimitive.Content asChild>
           <Styled.Content
             aria-modal
