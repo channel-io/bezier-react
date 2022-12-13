@@ -8,7 +8,8 @@ import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Butto
 import { ButtonGroup } from 'Components/ButtonGroup'
 import { FormControl } from 'Components/Forms/FormControl'
 import { FormLabel } from 'Components/Forms/FormLabel'
-import { TextField } from 'Components/Forms/Inputs/TextField'
+import { Select } from 'Components/Forms/Inputs/Select'
+import { ListItem } from 'Components/ListItem'
 import { Modal } from './Modal'
 import { ModalContent } from './ModalContent'
 import { ModalHeader } from './ModalHeader'
@@ -62,7 +63,14 @@ function ModalComposition({
         <ModalBody>
           <FormControl labelPosition="left">
             <FormLabel>Name</FormLabel>
-            <TextField />
+            <Select text="Lorem Ipsum">
+              { Array.from({ length: 20 }).map((_, index) => (
+                <ListItem
+                  key={index}
+                  content={`Item ${index}`}
+                />
+              )) }
+            </Select>
           </FormControl>
         </ModalBody>
 
