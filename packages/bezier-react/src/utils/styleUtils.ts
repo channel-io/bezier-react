@@ -2,7 +2,6 @@
 import {
   isNaN,
   endsWith,
-  includes,
 } from 'lodash-es'
 
 /* Internal dependencies */
@@ -41,11 +40,11 @@ function isCSSUnitOption(opts?: any): opts is CSSUnitOption {
 }
 
 export function isBoxSizingUnit(value?: any): value is BoxSizingUnit {
-  return value && includes(BoxSizingUnit, value)
+  return value && Object.values(BoxSizingUnit).includes(value)
 }
 
 export function isExplicitDefaulting(value?: any): value is ExplicitDefaulting {
-  return value && includes(ExplicitDefaulting, value)
+  return value && Object.values(ExplicitDefaulting).includes(value)
 }
 
 /* eslint-disable max-len */

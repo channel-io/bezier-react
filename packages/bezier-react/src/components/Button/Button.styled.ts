@@ -1,6 +1,3 @@
-/* External dependencies */
-import { includes } from 'lodash-es'
-
 /* Internal dependencies */
 import { styled, css, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
@@ -99,7 +96,7 @@ function getPaddingCSSFromSizeAndContents({
     `
   }
 
-  const paddingVariant = includes([ButtonStyleVariant.Floating, ButtonStyleVariant.FloatingAlt], styleVariant)
+  const paddingVariant = [ButtonStyleVariant.Floating, ButtonStyleVariant.FloatingAlt].includes(styleVariant)
     ? 'floating'
     : 'default'
 

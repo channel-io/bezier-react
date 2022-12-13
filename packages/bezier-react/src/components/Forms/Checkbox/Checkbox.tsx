@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { includes } from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -42,7 +41,7 @@ function Checkbox(
 
   const checkStatus = useMemo(() => {
     if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
-    if (includes(checkTypeValues, checked)) { return checked }
+    if (checkTypeValues.includes(checked)) { return checked }
     return CheckType.False
   }, [checked])
 

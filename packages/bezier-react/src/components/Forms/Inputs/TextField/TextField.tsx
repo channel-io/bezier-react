@@ -115,7 +115,7 @@ forwardedRef: Ref<TextFieldRef>,
   }, [])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
-    if (includes([TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden], type)) { return }
+    if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
     inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 
