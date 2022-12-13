@@ -1,8 +1,10 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
 import { LegacyIcon } from 'Components/Icon'
 import {
   TagBadgeText,

@@ -1,12 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useCallback, useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import {
   isBoolean,
   isNil,
+  isEmpty,
 } from 'Utils/typeUtils'
 import { IconSize } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'

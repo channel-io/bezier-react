@@ -1,9 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { get, isEmpty } from 'lodash-es'
+import { get } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import { Help } from 'Components/Help'
 import { HELP_DISPLAY_NAME } from 'Components/Help/Help'

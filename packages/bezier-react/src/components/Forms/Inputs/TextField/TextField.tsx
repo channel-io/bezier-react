@@ -1,12 +1,13 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { isEmpty, toString, includes } from 'lodash-es'
+import { toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
 import {
   isNil,
+  isEmpty,
 } from 'Utils/typeUtils'
 import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'

@@ -1,12 +1,12 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import {
   isString,
+  isEmpty,
 } from 'Utils/typeUtils'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useEventHandler from 'Hooks/useEventHandler'

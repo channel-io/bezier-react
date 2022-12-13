@@ -1,12 +1,8 @@
-/* External dependencies */
-import {
-  isEmpty,
-} from 'lodash-es'
-
 /* Internal dependencies */
 import {
   isNumber,
   isString,
+  isEmpty,
 } from 'Utils/typeUtils'
 
 export function mergeClassNames(className?: string, ...otherClassNames: Array<string | undefined>): string | undefined {

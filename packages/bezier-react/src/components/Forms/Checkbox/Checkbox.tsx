@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { isEmpty, includes } from 'lodash-es'
+import { includes } from 'lodash-es'
 
 /* Internal dependencies */
 import {
   isBoolean,
+  isEmpty,
 } from 'Utils/typeUtils'
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'

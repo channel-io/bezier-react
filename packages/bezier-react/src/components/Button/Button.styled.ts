@@ -1,10 +1,13 @@
 /* External dependencies */
-import { isEmpty, includes } from 'lodash-es'
+import { includes } from 'lodash-es'
 
 /* Internal dependencies */
 import { styled, css, SemanticNames } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { gap } from 'Utils/styleUtils'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
 import { Text } from 'Components/Text'
 import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 

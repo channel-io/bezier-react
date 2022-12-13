@@ -1,10 +1,10 @@
 /* External dependencies */
 import React, { useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import {
   isNil,
+  isEmpty,
 } from 'Utils/typeUtils'
 import {
   TagBadgeStyled,

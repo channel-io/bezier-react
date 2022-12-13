@@ -1,7 +1,6 @@
 /* External dependencies */
 import {
   isNaN,
-  isEmpty,
   endsWith,
   includes,
 } from 'lodash-es'
@@ -13,6 +12,7 @@ import {
   isObject,
   isNumber,
   isString,
+  isEmpty,
 } from 'Utils/typeUtils'
 import {
   has,

@@ -24,3 +24,15 @@ export function isNumber(value: unknown): value is number {
 export function isString(value: unknown): value is string {
   return typeof value === 'string' || (isObject(value) && getTag(value) === '[object String]')
 }
+
+const isSet = (value: unknown): value is Set<unknown> => getTag(value) === '[object Set]'
+const isMap = (value: unknown): value is Map<unknown, unknown> => getTag(value) === '[object Map]'
+
+export function isEmpty(value: unknown): boolean {
+  if (value == null) { return true }
+  if (Array.isArray(value) || isString(value)) { return !value.length }
+  if (isMap(value) || isSet(value)) { return !value.size }
+  if (isObject(value)) { return !Object.keys(value).length }
+  if (isBoolean(value) || isNumber(value)) { return false }
+  return !value
+}
