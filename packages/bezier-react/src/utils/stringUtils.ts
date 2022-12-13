@@ -2,6 +2,7 @@
 import {
   isNumber,
   isString,
+  isSymbol,
   isEmpty,
 } from 'Utils/typeUtils'
 
@@ -63,4 +64,15 @@ export function isNumberString(value?: any) {
   if (isNumber(value)) { return true }
   if (isString(value)) { return /^(?:-|\+|)?\d+(?:,\d{3})*(?:\.\d+)?$/.test(value) }
   return false
+}
+
+export function toString(value: unknown): string {
+  if (value == null) { return '' }
+  if (typeof value === 'string') { return value }
+  if (Array.isArray(value)) {
+    return `${value.map((other) => other == null ? other : toString(other))}`
+  }
+  if (isSymbol(value)) { return value.toString() }
+  if (Object.is(-0, value)) { return '-0' }
+  return `${value}`
 }

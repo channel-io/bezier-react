@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -9,6 +8,9 @@ import {
   isNil,
   isEmpty,
 } from 'Utils/typeUtils'
+import {
+  toString,
+} from 'Utils/stringUtils'
 import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
