@@ -1,5 +1,41 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.177
+
+### Minor Changes
+
+- [#1036](https://github.com/channel-io/bezier-react/pull/1036) [`e23c54a8`](https://github.com/channel-io/bezier-react/commit/e23c54a81fa6647e378985d660a95fcfedbd253a) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `Modal` component
+
+  BREAKING_CHANGES
+
+  - No longer use `BaseModal` for internal implementations of `Modal`.
+  - The existing `Modal` is renamed `LegacyModal` and will be removed from subsequent PR.
+  - The `ModalAction` component is renamed `ModalFooter`.
+  - The `targetElement` property in `ModalProps` is renamed `container`.
+  - The `showCloseIcon` property is moved from `ModalProps` to `ModalContentProps`.
+  - The `title`, `subTitle`, `description`, and `titleSize` properties are moved from `ModalContentProps` to the new `ModalHeaderProps`.
+
+* [#1002](https://github.com/channel-io/bezier-react/pull/1002) [`cb677dde`](https://github.com/channel-io/bezier-react/commit/cb677dde40d92582f8fade504b54ee8532d3ae0f) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Apply `@radix-ui/react-switch` primitives to `Switch` component
+
+  BREAKING CHANGE:
+
+  - `onClick` handler is now `React.MouseEventHandler<HTMLButtonElement>`.
+  - `Switch` component is now `HTMLButtonElement`.
+
+- [#1050](https://github.com/channel-io/bezier-react/pull/1050) [`052fdb91`](https://github.com/channel-io/bezier-react/commit/052fdb9118667b1f57ae4356329f85b4172124e3) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `ConfirmModal` component
+
+  BREAKING CHANGES:
+
+  - `onConfirm` prop of `ConfirmModal` has been removed.
+
+### Patch Changes
+
+- [#1062](https://github.com/channel-io/bezier-react/pull/1062) [`d38bcb42`](https://github.com/channel-io/bezier-react/commit/d38bcb42e823f14778e70e3e46d479c6e17200b8) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `AvatarGroup` component to use CSS Variable internally
+
+* [#1067](https://github.com/channel-io/bezier-react/pull/1067) [`314e698e`](https://github.com/channel-io/bezier-react/commit/314e698ecce5f3ed5a5624e1448f6ac915aa7c0b) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
+
+- [#1063](https://github.com/channel-io/bezier-react/pull/1063) [`d924b727`](https://github.com/channel-io/bezier-react/commit/d924b727492e1a7fbb75b67b6f933b4e08a63adf) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Status` component to use CSS Variable internally
+
 ## 1.0.0-next-v1.176
 
 ### Minor Changes
