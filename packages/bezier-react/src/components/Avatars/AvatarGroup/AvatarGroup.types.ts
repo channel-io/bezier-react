@@ -44,9 +44,10 @@ interface AvatarGroupOptions {
   onMouseLeaveEllipsis?: MouseEventHandler
 }
 
-export default interface AvatarGroupProps extends
+export interface AvatarGroupProps extends
   BezierComponentProps,
   ChildrenProps,
   SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
+  React.HTMLAttributes<HTMLDivElement>,
   AvatarGroupOptions {}

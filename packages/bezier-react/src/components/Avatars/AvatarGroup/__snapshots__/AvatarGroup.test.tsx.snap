@@ -1,6 +1,234 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AvatarGroup > Snapshot > 1`] = `
+exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
+.c3 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  margin: 0px;
+  background-color: #FFFFFF;
+  background-image: var(--background-image);
+  background-size: cover;
+  border-radius: 42%;
+}
+
+.c2 {
+  position: relative;
+  z-index: 1;
+}
+
+.c1 {
+  position: relative;
+  z-index: 0;
+}
+
+.c5 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c6 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: var(--bezier-avatar-group-size);
+  color: var(--txt-black-dark);
+}
+
+.c0 {
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 > * + * {
+  margin-left: var(--bezier-avatar-group-spacing);
+}
+
+.c4 {
+  padding-right: var(--bezier-avatar-group-ellipsis-mr);
+}
+
+.c4.c4 {
+  margin-left: var(--bezier-avatar-group-ellipsis-ml);
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c3 {
+    padding: 0px;
+    margin: 0px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    box-shadow: none;
+    border-image-source: var(--background-image);
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 0 transparent;
+    --smooth-corners-bg-color: #FFFFFF;
+    --smooth-corners-padding: 0;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+<div
+  class="c0"
+  role="group"
+  style="--bezier-avatar-group-spacing: 4px; --bezier-avatar-group-size: 24px;"
+>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Christian Nwamba"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Kola Tioluwani"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Kent Dodds"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Ryan Florence"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Dan Abrahmov"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Prosper Otemuyiwa"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c4"
+    style="--bezier-avatar-group-ellipsis-mr: 5px; --bezier-avatar-group-ellipsis-ml: 4px;"
+  >
+    <span
+      class="c5 c6"
+      data-testid="bezier-react-text"
+    >
+      +1
+    </span>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 .c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -56,6 +284,8 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 }
 
 .c0 {
+  position: relative;
+  z-index: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -63,7 +293,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 }
 
 .c0 > * + * {
-  margin-left: 4px;
+  margin-left: var(--bezier-avatar-group-spacing);
 }
 
 .c4 {
@@ -128,8 +358,8 @@ exports[`AvatarGroup > Snapshot > 1`] = `
 
 <div
   class="c0"
-  data-testid="bezier-react-avatar-group"
-  spacing="4"
+  role="group"
+  style="--bezier-avatar-group-spacing: 4px; --bezier-avatar-group-size: 24px;"
 >
   <div
     class="c1"
@@ -141,7 +371,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Christian Nwamba"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -158,7 +388,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Kola Tioluwani"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -175,7 +405,41 @@ exports[`AvatarGroup > Snapshot > 1`] = `
       <div
         aria-label="Kent Dodds"
         class="c3"
-        data-testid="AVATAR"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Ryan Florence"
+        class="c3"
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="bezier-react-avatar-wrapper"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        aria-label="Dan Abrahmov"
+        class="c3"
+        data-testid="bezier-react-avatar"
         role="img"
         size="24"
         style="--background-image: url(https://www.google.com);"
@@ -184,6 +448,7 @@ exports[`AvatarGroup > Snapshot > 1`] = `
   </div>
   <div
     class="c4"
+    data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
       class="c5"
@@ -219,9 +484,9 @@ exports[`AvatarGroup > Snapshot > 1`] = `
         class="c2"
       >
         <div
-          aria-label="Ryan Florence"
+          aria-label="Prosper Otemuyiwa"
           class="c3"
-          data-testid="AVATAR"
+          data-testid="bezier-react-avatar"
           role="img"
           size="24"
           style="--background-image: url(https://www.google.com);"

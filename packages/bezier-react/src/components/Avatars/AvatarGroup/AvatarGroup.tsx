@@ -2,31 +2,25 @@
 import React, { forwardRef, useCallback, useMemo } from 'react'
 import { noop } from 'lodash-es'
 
-/* Internal denpendencies */
+/* Internal dependencies */
 import { Typography } from 'Foundation'
 import { isLastIndex } from 'Utils/arrayUtils'
 import { Icon, IconSize, MoreIcon } from 'Components/Icon'
 import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
-import AvatarGroupProps, { AvatarGroupEllipsisType } from './AvatarGroup.types'
-import {
-  StyledAvatarGroup,
-  AvatarEllipsisIconWrapper,
-  AvatarEllipsisCountWrapper,
-  AvatarEllipsisIcon,
-  AvatarEllipsisCount,
-} from './AvatarGroup.styled'
-
-export const AVATAR_GROUP_TEST_ID = 'bezier-react-avatar-group'
+import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
+import * as Styled from './AvatarGroup.styled'
 
 const MAX_AVATAR_LIST_COUNT = 99
+
+export const AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID = 'bezier-react-avatar-group-ellipsis-icon'
 
 function getRestAvatarListCountText(count: number, max: number) {
   const restCount = count - max
   return `+${restCount > MAX_AVATAR_LIST_COUNT ? MAX_AVATAR_LIST_COUNT : restCount}`
 }
 
-// TODO: 올바른 페어의 ellipsis 아이콘 사이즈를 지정해줘야함
+// TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
     [AvatarSize.Size20]: IconSize.XXS,
@@ -40,7 +34,7 @@ function getProperIconSize(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
-// TODO: 올바른 페어의 ellipsis 텍스트 사이즈를 지정해줘야함
+// TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
     [AvatarSize.Size20]: Typography.Size12,
@@ -54,6 +48,20 @@ function getProperTypoSize(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
+// TODO: Not specified
+function getProperEllipsisCountMarginRight(avatarSize: AvatarSize) {
+  return {
+    [AvatarSize.Size20]: 4,
+    [AvatarSize.Size24]: 5,
+    [AvatarSize.Size30]: 6,
+    [AvatarSize.Size36]: 6,
+    [AvatarSize.Size42]: 6,
+    [AvatarSize.Size48]: 6,
+    [AvatarSize.Size90]: 6,
+    [AvatarSize.Size120]: 6,
+  }[avatarSize]
+}
+
 export const AvatarGroup = forwardRef(function AvatarGroup({
   max,
   size = AvatarSize.Size24,
@@ -62,8 +70,10 @@ export const AvatarGroup = forwardRef(function AvatarGroup({
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
   ellipsisInterpolation,
+  style,
   className,
   children,
+  ...rest
 }: AvatarGroupProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
@@ -105,45 +115,45 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
-          <AvatarEllipsisIconWrapper
+          <Styled.AvatarEllipsisIconWrapper
+            data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
             interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
-            <AvatarEllipsisIcon>
+            <Styled.AvatarEllipsisIcon>
               <Icon
                 source={MoreIcon}
                 size={getProperIconSize(size)}
                 color="bgtxt-absolute-white-dark"
               />
-            </AvatarEllipsisIcon>
+            </Styled.AvatarEllipsisIcon>
             { AvatarElement }
-          </AvatarEllipsisIconWrapper>
+          </Styled.AvatarEllipsisIconWrapper>
         )
       }
 
       if (ellipsisType === AvatarGroupEllipsisType.Count) {
         return (
-          <React.Fragment
-            key="ellipsis"
-          >
+          <React.Fragment key="ellipsis">
             { AvatarElement }
-            <AvatarEllipsisCountWrapper
-              size={size}
-              spacing={spacing}
+            <Styled.AvatarEllipsisCountWrapper
+              style={{
+                '--bezier-avatar-group-ellipsis-mr': `${getProperEllipsisCountMarginRight(size)}px`,
+                '--bezier-avatar-group-ellipsis-ml': `${Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)}px`,
+              } as React.CSSProperties}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
-              <AvatarEllipsisCount
+              <Styled.AvatarEllipsisCount
                 forwardedAs="span"
                 interpolation={ellipsisInterpolation}
-                size={size}
                 typo={getProperTypoSize(size)}
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
-              </AvatarEllipsisCount>
-            </AvatarEllipsisCountWrapper>
+              </Styled.AvatarEllipsisCount>
+            </Styled.AvatarEllipsisCountWrapper>
           </React.Fragment>
         )
       }
@@ -164,13 +174,18 @@ forwardedRef: React.Ref<HTMLDivElement>,
   ])
 
   return (
-    <StyledAvatarGroup
-      className={className}
-      data-testid={AVATAR_GROUP_TEST_ID}
+    <Styled.AvatarGroup
+      role="group"
       ref={forwardedRef}
-      spacing={spacing}
+      className={className}
+      style={{
+        ...style,
+        '--bezier-avatar-group-spacing': `${spacing}px`,
+        '--bezier-avatar-group-size': `${size}px`,
+      } as React.CSSProperties}
+      {...rest}
     >
       { AvatarListComponent }
-    </StyledAvatarGroup>
+    </Styled.AvatarGroup>
   )
 })

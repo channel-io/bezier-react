@@ -1,51 +1,26 @@
-/* Internal denpendencies */
-import { styled, smoothCorners, css } from 'Foundation'
+/* Internal dependencies */
+import { styled, smoothCorners } from 'Foundation'
 import { InterpolationProps } from 'Types/Foundation'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE, AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
-import { Text, TextProps } from 'Components/Text'
-import { AvatarSize } from 'Components/Avatars/Avatar'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
+import { Text } from 'Components/Text'
 
-interface AvatarSizeProps {
-  size: AvatarSize
-}
-
-interface AvatarGroupProps {
-  spacing: number
-}
-
-interface AvatarEllipsisCountWrapperProps extends AvatarSizeProps, AvatarGroupProps { }
-
-interface AvatarEllipsisCountProps extends AvatarSizeProps, TextProps, InterpolationProps { }
-
-// TODO: 올바른 페어의 패딩 사이즈를 지정해줘야함
-function getProperEllipsisCountPaddingRight(avatarSize: AvatarSize) {
-  return {
-    [AvatarSize.Size20]: 4,
-    [AvatarSize.Size24]: 5,
-    [AvatarSize.Size30]: 6,
-    [AvatarSize.Size36]: 6,
-    [AvatarSize.Size42]: 6,
-    [AvatarSize.Size48]: 6,
-    [AvatarSize.Size90]: 6,
-    [AvatarSize.Size120]: 6,
-  }[avatarSize]
-}
-
-export const AvatarEllipsisCount = styled(Text)<AvatarEllipsisCountProps>`
+export const AvatarEllipsisCount = styled(Text)`
   position: relative;
   display: flex;
   align-items: center;
-  height: ${({ size }) => size}px;
-  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
+  height: var(--bezier-avatar-group-size);
+  color: var(--txt-black-dark);
 
   ${({ interpolation }) => interpolation}
 `
 
-export const StyledAvatarGroup = styled.div<AvatarGroupProps>`
+export const AvatarGroup = styled.div`
+  position: relative;
+  z-index: 0;
   display: flex;
 
   & > * + * {
-    margin-left: ${({ spacing }) => spacing}px;
+    margin-left: var(--bezier-avatar-group-spacing);
   }
 `
 
@@ -55,14 +30,12 @@ export const AvatarEllipsisIconWrapper = styled.div<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarEllipsisCountWrapper = styled.div<AvatarEllipsisCountWrapperProps>`
-  ${({ spacing, size }) => css`
-    padding-right: ${getProperEllipsisCountPaddingRight(size)}px;
+export const AvatarEllipsisCountWrapper = styled.div`
+  padding-right: var(--bezier-avatar-group-ellipsis-mr);
 
-    && {
-      margin-left: ${spacing > AVATAR_GROUP_DEFAULT_SPACING ? spacing : AVATAR_GROUP_DEFAULT_SPACING}px;
-    }
-  `}
+  && {
+    margin-left: var(--bezier-avatar-group-ellipsis-ml);
+  }
 `
 
 export const AvatarEllipsisIcon = styled.div`
