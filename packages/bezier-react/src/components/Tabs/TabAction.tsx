@@ -56,41 +56,40 @@ export const TabAction = forwardRef(function TabAction({
   const { size } = useContext(TabListContext)
 
   return (
-    <Styled.Wrapper
-      ref={forwardedRef}
-      {...rest}
-    >
-      { isNil(href) ? (
-        <Styled.ToolbarButton
-          size={size}
-          onClick={onClick}
+    isNil(href) ? (
+      <Styled.ToolbarButton
+        size={size}
+        onClick={onClick}
+        ref={forwardedRef}
+        {...rest}
+      >
+        <Text
+          bold
+          typo={getTypoBy(size)}
         >
-          <Text
-            bold
-            typo={getTypoBy(size)}
-          >
-            { children }
-          </Text>
-        </Styled.ToolbarButton>
-      ) : (
-        <Styled.ToolbarLink
-          size={size}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          { children }
+        </Text>
+      </Styled.ToolbarButton>
+    ) : (
+      <Styled.ToolbarLink
+        size={size}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        ref={forwardedRef}
+        {...rest}
+      >
+        <Text
+          bold
+          typo={getTypoBy(size)}
         >
-          <Text
-            bold
-            typo={getTypoBy(size)}
-          >
-            { children }
-          </Text>
-          <Styled.LinkIcon
-            source={OpenInNewIcon}
-            size={getIconSizeBy(size)}
-          />
-        </Styled.ToolbarLink>
-      ) }
-    </Styled.Wrapper>
+          { children }
+        </Text>
+        <Styled.LinkIcon
+          source={OpenInNewIcon}
+          size={getIconSizeBy(size)}
+        />
+      </Styled.ToolbarLink>
+    )
   )
 })

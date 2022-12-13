@@ -59,11 +59,6 @@ export const ToolbarLink = styled(Toolbar.Link)<ToolbarComponentProps>`
   ${commonStyle}
 `
 
-export const Wrapper = styled.div`
-  display: flex;
-  height: 100%;
-`
-
 export const LinkIcon = styled(Icon)`
   margin-left: 5px;
 `
