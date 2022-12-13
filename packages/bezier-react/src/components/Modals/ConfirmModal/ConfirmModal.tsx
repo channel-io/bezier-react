@@ -1,48 +1,40 @@
 /* eslint-disable no-restricted-imports */
 /* External dependencies */
-import React, {
-  useCallback,
-  forwardRef,
-} from 'react'
+import React from 'react'
 
 /* Internal dependencies */
-import { Modal } from '../LegacyModal'
-import type { ConfirmModalProps } from './ConfirmModal.types'
+import { Modal } from '../Modal'
+import { ConfirmModalProps } from './ConfirmModal.types'
 
-function ConfirmModal(
-  {
-    children,
-    onHide,
-    onConfirm,
-    onKeyDown,
-    ...rests
-  }: ConfirmModalProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const handleKeydown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    onKeyDown?.(e)
-
-    switch (e.key) {
-      case 'Enter': {
-        e.stopPropagation()
-        onConfirm(e)
-      }
-    }
-  }, [
-    onKeyDown,
-    onConfirm,
-  ])
-
+/**
+ * `ConfirmModal` is a modal dialog that interrupts the user with important content and expects a response.
+ *
+ * `ConfirmModal` is a context of the ConfirmModal-related components. It doesn't render any DOM node.
+ * It controls the visibility of the entire component and provides
+ * handlers and accessibility properties to ConfirmModal-related components.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the ConfirmModal
+ * <ConfirmModal>
+ *  <ConfirmModalModalTrigger />
+ *  <ConfirmModalModalContent>
+ *    <ConfirmModalModalHeader />
+ *    <ConfirmModalModalBody />
+ *    <ConfirmModalModalFooter />
+ *  </ConfirmModalModalContent>
+ * </ConfirmModal>
+ * ```
+ */
+export function ConfirmModal({
+  children,
+  ...rest
+}: ConfirmModalProps) {
   return (
-    <Modal
-      {...rests}
-      ref={forwardedRef}
-      onHide={onHide}
-      onKeyDown={handleKeydown}
-    >
+    <Modal {...rest}>
       { children }
     </Modal>
   )
 }
 
-export default forwardRef(ConfirmModal)
