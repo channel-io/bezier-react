@@ -178,17 +178,30 @@ describe('Tabs', () => {
         expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
         expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
         expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+
+        await user.keyboard('{arrowleft}')
+
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+
+        await user.keyboard('{arrowleft}')
+
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
+        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
       })
     })
 
     it('can move focus by tab between tab item, tab action, and tab content.', async () => {
       const { getByRole } = renderTabs()
-      const tabItem = getByRole('tab', { name: TAB1 })
+      const tabItem1 = getByRole('tab', { name: TAB1 })
+      const tabItem2 = getByRole('tab', { name: TAB2 })
       const tabAction = getByRole('link', { name: ACTION1 })
       const tabContent = getByRole('tabpanel', { name: TAB1 })
 
       await user.click(getByRole('tab', { name: TAB1 }))
-      expect(document.activeElement).toBe(tabItem)
+      expect(document.activeElement).toBe(tabItem1)
       await user.tab()
       expect(document.activeElement).toBe(tabAction)
       await user.tab()
@@ -196,7 +209,11 @@ describe('Tabs', () => {
       await user.tab({ shift: true })
       expect(document.activeElement).toBe(tabAction)
       await user.tab({ shift: true })
-      expect(document.activeElement).toBe(tabItem)
+      expect(document.activeElement).toBe(tabItem1)
+      await user.keyboard('{end}')
+      expect(document.activeElement).toBe(tabItem2)
+      await user.keyboard('{home}')
+      expect(document.activeElement).toBe(tabItem1)
     })
   })
 
