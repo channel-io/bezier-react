@@ -2,9 +2,6 @@
 import React, { useState } from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import {
-  camelCase,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -14,6 +11,9 @@ import {
   Typography,
 } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
+import {
+  camelCase,
+} from 'Utils/stringUtils'
 import {
   ListItem,
 } from 'Components/ListItem'

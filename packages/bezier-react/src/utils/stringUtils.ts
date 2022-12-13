@@ -76,3 +76,15 @@ export function toString(value: unknown): string {
   if (Object.is(-0, value)) { return '-0' }
   return `${value}`
 }
+
+export function camelCase(value: string): string {
+  return (value.match(/[A-Za-z0-9]+/g) ?? [])
+    .reduce((acc, cur, idx) =>
+      acc + (
+        idx === 0
+          ? cur.toLowerCase()
+          : cur[0].toUpperCase() + cur.slice(1).toLowerCase()
+      ),
+    '',
+    )
+}
