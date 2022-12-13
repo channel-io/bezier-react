@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* External dependencies */
-import React from 'react'
-import { noop } from 'lodash-es'
+import React, { useCallback, useState } from 'react'
+import { isFunction, noop } from 'lodash-es'
 import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
@@ -43,11 +43,20 @@ function TabsComposition({
   value,
   size,
 }: TabsCompositionProps) {
+  const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
+
+  const handleValueChange = useCallback((_value) => {
+    setCurrentValue(_value)
+    if (isFunction(onValueChange)) {
+      onValueChange(_value)
+    }
+  }, [onValueChange])
+
   return (
     <Wrapper>
       <Tabs
-        onValueChange={onValueChange}
-        value={value}
+        onValueChange={handleValueChange}
+        value={currentValue}
         defaultValue={defaultValue}
       >
         <TabList size={size}>
