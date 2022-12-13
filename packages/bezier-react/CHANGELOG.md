@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.178
+
+### Minor Changes
+
+- [#1050](https://github.com/channel-io/bezier-react/pull/1050) [`052fdb91`](https://github.com/channel-io/bezier-react/commit/052fdb9118667b1f57ae4356329f85b4172124e3) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `ConfirmModal` component
+
+  BREAKING CHANGES:
+
+  - `onConfirm` prop of `ConfirmModal` has been removed.
+
 ## 1.0.0-next-v1.177
 
 ### Minor Changes
