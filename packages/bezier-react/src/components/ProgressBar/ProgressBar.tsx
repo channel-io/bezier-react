@@ -4,9 +4,11 @@ import React, {
   forwardRef,
   type Ref,
 } from 'react'
-import { clamp } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  clamp,
+} from 'Utils/numberUtils'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import { StyledProgressBarWrapper, StyledProgressBarActive } from './ProgressBar.styled'
