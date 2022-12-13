@@ -1,9 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
+import {
+  flattenDeep,
+} from 'Utils/arrayUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, {
