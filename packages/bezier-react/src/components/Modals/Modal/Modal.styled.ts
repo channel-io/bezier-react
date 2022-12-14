@@ -32,6 +32,7 @@ export const Content = styled.div<ModalContentProps>`
   ${({ foundation }) => foundation?.rounding.round20}
   ${({ foundation }) => foundation?.elevation.ev4()}
 
+  position: relative;
   box-sizing: border-box;
   width: var(--bezier-modal-width);
   min-width: 360px;
