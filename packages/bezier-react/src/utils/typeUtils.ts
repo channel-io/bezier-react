@@ -29,8 +29,12 @@ export function isSymbol(value: unknown): value is symbol {
   return typeof value === 'symbol' || (isObject(value) && getTag(value) === '[object Symbol]')
 }
 
-const isSet = (value: unknown): value is Set<unknown> => getTag(value) === '[object Set]'
-const isMap = (value: unknown): value is Map<unknown, unknown> => getTag(value) === '[object Map]'
+export function isRegExp(value: unknown): value is RegExp {
+  return isObject(value) && value.constructor === RegExp
+}
+
+export const isSet = (value: unknown): value is Set<unknown> => getTag(value) === '[object Set]'
+export const isMap = (value: unknown): value is Map<unknown, unknown> => getTag(value) === '[object Map]'
 
 export function isEmpty(value: unknown): boolean {
   if (value == null) { return true }
