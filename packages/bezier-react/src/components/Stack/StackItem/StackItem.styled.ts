@@ -18,6 +18,8 @@ interface ContainerProps extends
   | 'interpolation'>> {}
 
 export const Container = styled.div<ContainerProps>`
+  display: flex;
+
   ${({ justify }) => !isNil(justify) && css`
     justify-self: ${flex(justify)};
   `}

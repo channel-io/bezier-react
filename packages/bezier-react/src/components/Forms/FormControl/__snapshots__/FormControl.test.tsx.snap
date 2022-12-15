@@ -36,6 +36,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 }
 
 .c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-basis: var(--main-axis-size);
   -ms-flex-preferred-size: var(--main-axis-size);
   flex-basis: var(--main-axis-size);
@@ -384,6 +388,10 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 }
 
 .c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-basis: var(--main-axis-size);
   -ms-flex-preferred-size: var(--main-axis-size);
   flex-basis: var(--main-axis-size);
