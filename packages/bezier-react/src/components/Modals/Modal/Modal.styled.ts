@@ -84,7 +84,8 @@ export const Header = styled.header<ModalHeaderProps>`
 
   /* NOTE(@ed): Support when the ModalBody is used as stand-alone */
   ${({ hidden }) => !hidden && css`
-    & + ${Body} {
+    & + ${Body},
+    & + * ${Body} {
       padding-top: ${HEADER_BODY_GAP}px;
     }
   `}
@@ -98,7 +99,8 @@ export const Footer = styled.footer<ModalFooterProps>`
 
   /* NOTE(@ed): Support when the ModalBody is used as stand-alone */
   /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
-  ${Body} + & {
+  ${Body} + &,
+  ${Body} + * & {
     padding-top: 0;
     margin-top: ${FOOTER_TOP_GAP - MODAL_PADDING}px;
   }
