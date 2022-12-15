@@ -11,7 +11,7 @@ export function mergeClassNames(className?: string, ...otherClassNames: Array<st
     const result: string[] = []
     const classNames = [className, ...otherClassNames]
     classNames.map((cn) => cn?.trim() ?? '').forEach((cn) => result.push(cn))
-    
+
     const joinedResult = result.filter((cn) => !isEmpty(cn)).join(' ')
     if (!isEmpty(joinedResult)) { return joinedResult }
   }
@@ -70,7 +70,10 @@ export function toString(value: unknown): string {
   if (value == null) { return '' }
   if (typeof value === 'string') { return value }
   if (Array.isArray(value)) {
-    return `${value.map((other) => other == null ? other : toString(other))}`
+    return `${value.map((other) => {
+      if (other == null) { return other }
+      return toString(other)
+    })}`
   }
   if (isSymbol(value)) { return value.toString() }
   if (Object.is(-0, value)) { return '-0' }

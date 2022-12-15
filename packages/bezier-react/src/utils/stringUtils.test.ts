@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { mergeClassNames, isNumberString } from './stringUtils'
+import { mergeClassNames, isNumberString, toString, camelCase } from './stringUtils'
 
 describe('mergeClassNames()', () => {
   test('mergeClassNames() function should returns className string when 1st argument given', () => {
@@ -85,5 +85,43 @@ describe('isNumberString()', () => {
     expect(isNumberString('abcd')).toBe(false)
     expect(isNumberString('34,104,9250,100.123')).toBe(false)
     expect(isNumberString('1234-5678')).toBe(false)
+  })
+})
+
+describe('toString', () => {
+  test('nullish value to empty string', () => {
+    expect(toString(null)).toBe('')
+    expect(toString(undefined)).toBe('')
+  })
+  test('number to string', () => {
+    expect(toString(-0)).toBe('-0')
+    expect(toString(123)).toBe('123')
+    expect(toString([1, 2, 3])).toBe('1,2,3')
+  })
+  test('array to string', () => {
+    expect(toString([1, 2, 3])).toBe('1,2,3')
+  })
+})
+
+describe('camelCase', () => {
+  test('kebab-case -> camelCase', () => {
+    const input = 'one-time-msg'
+    const expected = 'oneTimeMsg'
+    expect(camelCase(input)).toBe(expected)
+  })
+  test('snake_case -> camelCase', () => {
+    const input = 'one_time_msg'
+    const expected = 'oneTimeMsg'
+    expect(camelCase(input)).toBe(expected)
+  })
+  test('space separated -> camelCase', () => {
+    const input = 'one time msg'
+    const expected = 'oneTimeMsg'
+    expect(camelCase(input)).toBe(expected)
+  })
+  test('upper case -> camelCase', () => {
+    const input = 'ONE TIME MSG'
+    const expected = 'oneTimeMsg'
+    expect(camelCase(input)).toBe(expected)
   })
 })
