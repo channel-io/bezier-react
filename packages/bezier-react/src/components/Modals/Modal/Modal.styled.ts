@@ -119,7 +119,9 @@ export const Title = styled(Text).attrs({
   forwardedAs: 'h2',
   bold: true,
   color: 'txt-black-darkest',
-})``
+})`
+  width: 100%;
+`
 
 const CLOSE_ICON_BUTTON_SIZE = ButtonSize.M
 const CLOSE_ICON_BUTTON_MARGIN_X = -6
