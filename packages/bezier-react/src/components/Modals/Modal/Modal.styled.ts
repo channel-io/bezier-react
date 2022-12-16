@@ -22,10 +22,6 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   &[data-state='open'] {
     ${ModalAnimation.overlayShow}
   }
-
-  &[data-state='closed'] {
-    ${ModalAnimation.overlayHide}
-  }
 `
 
 export const Content = styled.div<ModalContentProps>`
@@ -45,10 +41,6 @@ export const Content = styled.div<ModalContentProps>`
 
   &[data-state='open'] {
     ${ModalAnimation.contentShow}
-  }
-
-  &[data-state='closed'] {
-    ${ModalAnimation.contentHide}
   }
 
   &:focus {
