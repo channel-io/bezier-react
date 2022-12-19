@@ -1,6 +1,16 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled, keyframes, TransitionDuration } from 'Foundation'
 import { Button as BaseButton, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+
+const show = keyframes`
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 3px;
+  }
+`
 
 export const Button = styled(BaseButton).attrs({
   colorVariant: ButtonColorVariant.MonochromeLight,
@@ -27,10 +37,6 @@ export const Button = styled(BaseButton).attrs({
   &[data-state="inactive"] {
     color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 
-    &::after {
-      display: none;
-    }
-
     &:hover {
       color: ${({ foundation }) => foundation?.theme?.['txt-black-darker']};
     }
@@ -42,6 +48,10 @@ export const Button = styled(BaseButton).attrs({
     
     &:hover {
       background-color: inherit;
+    }
+
+    &::after {
+      animation: ${() => show} ${TransitionDuration.S}ms cubic-bezier(0.3, 0, 0, 1);
     }
   }
 `
