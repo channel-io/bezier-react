@@ -160,9 +160,8 @@ describe('Slider', () => {
   })
 
   describe('onValueChange', () => {
-    const onValueChange = jest.fn()
-
     it('should be executed when the `value` prop changes', () => {
+      const onValueChange = jest.fn()
       let value = [3]
       const { rerender } = renderSlider({ value, onValueChange })
       expect(onValueChange).toHaveBeenCalledTimes(1)
@@ -172,12 +171,19 @@ describe('Slider', () => {
       rerender(<Slider {...{ value, onValueChange }} />)
 
       expect(onValueChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('should not be executed when the `value` prop has the same reference', () => {
+      const onValueChange = jest.fn()
+      const value = [3]
+      const { rerender } = renderSlider({ value, onValueChange })
+      expect(onValueChange).toHaveBeenCalledTimes(1)
 
       // change value with the same reference
       value.splice(0, 1, 3)
       rerender(<Slider {...{ value, onValueChange }} />)
 
-      expect(onValueChange).toHaveBeenCalledTimes(2)
+      expect(onValueChange).toHaveBeenCalledTimes(1)
     })
   })
 })
