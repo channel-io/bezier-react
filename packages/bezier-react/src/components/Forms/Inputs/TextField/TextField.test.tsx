@@ -278,7 +278,7 @@ describe('TextField', () => {
       })
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         act(() => {
-          fireEvent.keyDown(input, { key })
+          fireEvent.keyPress(input, { key })
         })
         expect(onKeyPress).not.toBeCalled()
       })
@@ -293,7 +293,7 @@ describe('TextField', () => {
       })
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         act(() => {
-          fireEvent.keyDown(input, { key })
+          fireEvent.keyUp(input, { key })
         })
         expect(onKeyUp).not.toBeCalled()
       })
