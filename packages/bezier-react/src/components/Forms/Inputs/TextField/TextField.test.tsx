@@ -6,6 +6,7 @@ import { fireEvent } from '@testing-library/dom'
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/commonImeControlKeys'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
 import { TextFieldProps, TextFieldVariant } from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'
@@ -249,6 +250,53 @@ describe('TextField', () => {
         fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       })
       expect(onKeyUp).not.toBeCalled()
+    })
+
+    it('should block onKeyDown for common ime control keys while composing', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      act(() => {
+        fireEvent.compositionStart(input)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyDown(input, { key })
+        })
+        expect(onKeyDown).not.toBeCalled()
+      })
+    })
+
+    it('should block onKeyPress for common ime control keys while composing', () => {
+      const onKeyPress = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyPress })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      act(() => {
+        fireEvent.compositionStart(input)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyDown(input, { key })
+        })
+        expect(onKeyPress).not.toBeCalled()
+      })
+    })
+    it('should block onKeyUp for common ime control keys while composing', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+      act(() => {
+        fireEvent.compositionStart(input)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyDown(input, { key })
+        })
+        expect(onKeyUp).not.toBeCalled()
+      })
     })
   })
 })

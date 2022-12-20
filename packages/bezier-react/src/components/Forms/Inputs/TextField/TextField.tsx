@@ -7,6 +7,8 @@ import { v4 as uuid } from 'uuid'
 import { window } from 'Utils/domUtils'
 import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,
@@ -50,6 +52,9 @@ function TextFieldComponent({
   onChange,
   onKeyDown,
   onKeyUp,
+  onKeyPress,
+  onCompositionStart,
+  onCompositionEnd,
   ...rest
 }: TextFieldProps,
 forwardedRef: Ref<TextFieldRef>,
@@ -206,22 +211,46 @@ forwardedRef: Ref<TextFieldRef>,
     onChange,
   ])
 
+  const {
+    handleKeyDown: handleKeyDownWrappedWithComposingLocker,
+    handleKeyPress: handleKeyPressWrappedWithComposingLocker,
+    handleKeyUp: handleKeyUpWrappedWithComposingLocker,
+    handleCompositionStart,
+    handleCompositionEnd,
+  } = useKeyboardActionLockerWhileComposing({
+    keysToLock: COMMON_IME_CONTROL_KEYS,
+    onKeyDown,
+    onKeyPress,
+    onKeyUp,
+    onCompositionStart,
+    onCompositionEnd,
+  })
+
   const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyDown) {
-      onKeyDown(event)
+    if (activeInput && handleKeyDownWrappedWithComposingLocker) {
+      handleKeyDownWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyDown,
+    handleKeyDownWrappedWithComposingLocker,
+  ])
+
+  const handleKeyPress = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (activeInput && handleKeyPressWrappedWithComposingLocker) {
+      handleKeyPressWrappedWithComposingLocker(event)
+    }
+  }, [
+    activeInput,
+    handleKeyPressWrappedWithComposingLocker,
   ])
 
   const handleKeyUp = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyUp) {
-      onKeyUp(event)
+    if (activeInput && handleKeyUpWrappedWithComposingLocker) {
+      handleKeyUpWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyUp,
+    handleKeyUpWrappedWithComposingLocker,
   ])
 
   const handleClear = useCallback(() => {
@@ -370,7 +399,10 @@ forwardedRef: Ref<TextFieldRef>,
         onBlur={handleBlur}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        onKeyPress={handleKeyPress}
         onKeyUp={handleKeyUp}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
         {...ownProps}
       />
       { activeClear && ClearComponent }
