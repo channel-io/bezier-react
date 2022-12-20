@@ -251,8 +251,10 @@ describe('TextField', () => {
       })
       expect(onKeyUp).not.toBeCalled()
     })
+  })
 
-    it('should block onKeyDown for common ime control keys while composing', () => {
+  describe('should block keyboard event handler for common ime control keys while composing', () => {
+    it('onKeyDown', () => {
       const onKeyDown = jest.fn()
       const { getByTestId } = renderComponent({ onKeyDown })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
@@ -268,7 +270,7 @@ describe('TextField', () => {
       })
     })
 
-    it('should block onKeyPress for common ime control keys while composing', () => {
+    it('onKeyPress', () => {
       const onKeyPress = jest.fn()
       const { getByTestId } = renderComponent({ onKeyPress })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
@@ -283,7 +285,8 @@ describe('TextField', () => {
         expect(onKeyPress).not.toBeCalled()
       })
     })
-    it('should block onKeyUp for common ime control keys while composing', () => {
+
+    it('onKeyUp', () => {
       const onKeyUp = jest.fn()
       const { getByTestId } = renderComponent({ onKeyUp })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
