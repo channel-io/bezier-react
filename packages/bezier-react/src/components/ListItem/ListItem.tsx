@@ -4,12 +4,12 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import useMergeRefs from 'Hooks/useMergeRefs'
 import {
   isNil,
   isString,
   isEmpty,
 } from 'Utils/typeUtils'
-import useMergeRefs from 'Hooks/useMergeRefs'
 import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'
 import { IconSize, isIconName } from 'Components/Icon'

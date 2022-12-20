@@ -4,13 +4,13 @@ import { v4 as uuid } from 'uuid'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
+import useMergeRefs from 'Hooks/useMergeRefs'
 import {
   isNumber,
 } from 'Utils/typeUtils'
 import {
   range,
 } from 'Utils/numberUtils'
-import useMergeRefs from 'Hooks/useMergeRefs'
 import { Divider } from 'Components/Divider'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { Text } from 'Components/Text'

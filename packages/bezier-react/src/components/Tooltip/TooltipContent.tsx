@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import useMergeRefs from 'Hooks/useMergeRefs'
+import useEventHandler from 'Hooks/useEventHandler'
 import {
   isString,
   isEmpty,
 } from 'Utils/typeUtils'
-import useMergeRefs from 'Hooks/useMergeRefs'
-import useEventHandler from 'Hooks/useEventHandler'
 import { getRootElement } from 'Utils/domUtils'
 import { Text } from 'Components/Text'
 import { TooltipContentProps, TooltipPosition } from './Tooltip.types'
