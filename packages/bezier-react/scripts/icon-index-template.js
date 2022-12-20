@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-restricted-imports
-import { kebabCase } from '../src/utils/stringUtils'
-
 const path = require('path')
 
 function defaultIndexTemplate(filePaths) {
@@ -10,6 +7,14 @@ function defaultIndexTemplate(filePaths) {
 
   filePaths.forEach(filePath => {
     const basename = path.basename(filePath, path.extname(filePath))
+    const kebabCase = (value) => value
+      .trim()
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .replace(/([a-z])([0-9])/g, '$1-$2')
+      .replace(/([0-9])([A-Z])/g, '$1-$2')
+      .replace(/([0-9])([a-z])/g, '$1-$2')
+      .replace(/[\s_]+/g, '-')
+      .toLowerCase()
 
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     importEntries.push(`import ${exportName} from './${basename}'`)

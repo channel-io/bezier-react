@@ -124,6 +124,16 @@ describe('kebabCase', () => {
     const expected = 'one-time-msg'
     expect(kebabCase(input)).toBe(expected)
   })
+  test('include number -> kebab-case', () => {
+    const input = 'Hourglass1'
+    const expected = 'hourglass-1'
+    expect(kebabCase(input)).toBe(expected)
+  })
+  test('include number2 -> kebab-case', () => {
+    const input = '2Hourglass1'
+    const expected = '2-hourglass-1'
+    expect(kebabCase(input)).toBe(expected)
+  })
 })
 
 describe('camelCase', () => {
@@ -145,6 +155,16 @@ describe('camelCase', () => {
   test('upper case -> camelCase', () => {
     const input = 'ONE TIME MSG'
     const expected = 'oneTimeMsg'
+    expect(camelCase(input)).toBe(expected)
+  })
+  test('include number -> camelCase', () => {
+    const input = 'Hourglass1'
+    const expected = 'hourglass1'
+    expect(camelCase(input)).toBe(expected)
+  })
+  test('include number2 -> camelCase', () => {
+    const input = '2hourglass1'
+    const expected = '2Hourglass1'
     expect(camelCase(input)).toBe(expected)
   })
 })
