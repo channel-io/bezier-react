@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { mergeClassNames, isNumberString, toString, camelCase } from './stringUtils'
+import { mergeClassNames, isNumberString, toString, kebabCase, camelCase } from './stringUtils'
 
 describe('mergeClassNames()', () => {
   test('mergeClassNames() function should returns className string when 1st argument given', () => {
@@ -100,6 +100,29 @@ describe('toString', () => {
   })
   test('array to string', () => {
     expect(toString([1, 2, 3])).toBe('1,2,3')
+  })
+})
+
+describe('kebabCase', () => {
+  test('camelCase -> kebab-case', () => {
+    const input = 'oneTimeMsg'
+    const expected = 'one-time-msg'
+    expect(kebabCase(input)).toBe(expected)
+  })
+  test('snake_case -> kebab-case', () => {
+    const input = 'one_time_msg'
+    const expected = 'one-time-msg'
+    expect(kebabCase(input)).toBe(expected)
+  })
+  test('space separated -> kebab-case', () => {
+    const input = 'one time msg'
+    const expected = 'one-time-msg'
+    expect(kebabCase(input)).toBe(expected)
+  })
+  test('upper case -> kebab-case', () => {
+    const input = 'ONE TIME MSG'
+    const expected = 'one-time-msg'
+    expect(kebabCase(input)).toBe(expected)
   })
 })
 
