@@ -1,4 +1,6 @@
-const _ = require('lodash')
+// eslint-disable-next-line no-restricted-imports
+import { kebabCase } from '../src/utils/stringUtils'
+
 const path = require('path')
 
 function defaultIndexTemplate(filePaths) {
@@ -11,7 +13,7 @@ function defaultIndexTemplate(filePaths) {
 
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     importEntries.push(`import ${exportName} from './${basename}'`)
-    mappedFies.push(`  '${_.kebabCase(basename)}': ${exportName},`)
+    mappedFies.push(`  '${kebabCase(basename)}': ${exportName},`)
     exportEntries.push(`  ${exportName} as ${exportName}Icon,`)
   })
 

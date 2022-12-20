@@ -80,14 +80,11 @@ export function toString(value: unknown): string {
   return `${value}`
 }
 
-export function camelCase(value: string): string {
-  return (value.match(/[A-Za-z0-9]+/g) ?? [])
-    .reduce((acc, cur, idx) =>
-      acc + (
-        idx === 0
-          ? cur.toLowerCase()
-          : cur[0].toUpperCase() + cur.slice(1).toLowerCase()
-      ),
-    '',
-    )
-}
+export const kebabCase = (value: string): string => value
+  .trim()
+  .replace(/([a-z])([A-Z])/g, '$1-$2')
+  .replace(/[\s_]+/g, '-')
+  .toLowerCase()
+
+export const camelCase = (value: string): string => kebabCase(value)
+  .replace(/-([a-z])/g, (_, p1) => p1.toUpperCase())
