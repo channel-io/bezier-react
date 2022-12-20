@@ -7,6 +7,7 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/commonImeControlKeys'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
 import TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'
@@ -182,6 +183,59 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
       expect(textareaElement.selectionEnd).toEqual(TEST_INITIAL_VALUE.length)
+    })
+  })
+
+  describe('Composing 중 common ime control keys에 대해 keyboard event handler가 호출되지 않아야한다. >', () => {
+    it('onKeyDown', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      act(() => {
+        fireEvent.compositionStart(textareaElement)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyDown(textareaElement, { key })
+        })
+        expect(onKeyDown).not.toBeCalled()
+      })
+    })
+
+    it('onKeyPress', () => {
+      const onKeyPress = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyPress })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      act(() => {
+        fireEvent.compositionStart(textareaElement)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyPress(textareaElement, { key })
+        })
+        expect(onKeyPress).not.toBeCalled()
+      })
+    })
+
+    it('onKeyUp', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      act(() => {
+        fireEvent.compositionStart(textareaElement)
+      })
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        act(() => {
+          fireEvent.keyUp(textareaElement, { key })
+        })
+        expect(onKeyUp).not.toBeCalled()
+      })
     })
   })
 })
