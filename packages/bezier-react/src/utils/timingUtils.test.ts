@@ -136,19 +136,27 @@ describe('timingUtils', () => {
   })
 
   describe('throttle >', () => {
-    test('call 5 times when throttle time sleep 10ms during 50ms', async () => {
-      const limit = 50
+    jest.useFakeTimers()
+
+    test('test throttle', async () => {
       const funcSpy = jest.fn()
-      const throttled = throttle(funcSpy, 10)
+      const throttled = throttle(funcSpy, 50)
 
-      const start = Date.now()
-      let now = Date.now()
-      while ((now - start) < limit) {
-        throttled()
-        now = Date.now()
-      }
+      expect(funcSpy).toHaveBeenCalledTimes(0)
 
-      expect(funcSpy).toHaveBeenCalledTimes(5)
+      throttled()
+      throttled()
+      throttled()
+      expect(funcSpy).toHaveBeenCalledTimes(1)
+
+      jest.runAllTimers()
+      expect(funcSpy).toHaveBeenCalledTimes(2)
+
+      throttled()
+      expect(funcSpy).toHaveBeenCalledTimes(3)
+
+      jest.runAllTimers()
+      expect(funcSpy).toHaveBeenCalledTimes(3)
     })
   })
 })
