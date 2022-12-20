@@ -82,7 +82,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^25.2.3",
-    "@types/lodash-es": "^4.17.4",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "@types/styled-components": "^5.1.5",

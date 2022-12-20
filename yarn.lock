@@ -1919,7 +1919,6 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.4.3
     "@types/jest": ^25.2.3
-    "@types/lodash-es": ^4.17.4
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
     "@types/styled-components": ^5.1.5
@@ -5855,16 +5854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash-es@npm:^4.17.4":
-  version: 4.17.6
-  resolution: "@types/lodash-es@npm:4.17.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 9bd239dd525086e278821949ce12fbdd4f100a060fed9323fc7ad5661113e1641f28a7ebab617230ed3474680d8f4de705c1928b48252bb684be6ec9eed715db
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.167":
+"@types/lodash@npm:^4.14.167":
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
@@ -15038,13 +15028,6 @@ __metadata:
   dependencies:
     p-locate: ^5.0.0
   checksum: 72eb661788a0368c099a184c59d2fee760b3831c9c1c33955e8a19ae4a21b4116e53fa736dc086cdeb9fce9f7cc508f2f92d2d3aae516f133e16a2bb59a39f5a
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:^4.17.15":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
   languageName: node
   linkType: hard
 
