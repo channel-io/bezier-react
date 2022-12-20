@@ -9,6 +9,7 @@ interface DebounceSettings {
   trailing?: boolean | undefined
 }
 
+/** see: lodash debounce (https://github.com/lodash/lodash/blob/master/debounce.js) */
 export function debounce<T extends (...args: any[]) => any>(func: T, wait = 0, options?: DebounceSettings) {
   let lastArgs: Parameters<T> | undefined
   let maxWait: number | undefined
@@ -134,6 +135,7 @@ interface ThrottleSettings {
   trailing?: boolean | undefined
 }
 
+/** see: lodash throttle (https://github.com/lodash/lodash/blob/master/throttle.js) */
 export function throttle<T extends (...args: any[]) => any>(func: T, wait = 0, options?: ThrottleSettings) {
   let leading = true
   let trailing = true
