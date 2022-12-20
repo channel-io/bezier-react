@@ -6,4 +6,5 @@ import { styled } from 'Foundation'
 
 export const TabItems = styled(Tabs.TabsList)`
   display: flex;
+  overflow: hidden;
 `

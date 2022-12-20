@@ -1,35 +1,33 @@
 /* Internal dependencies */
-import { styled, keyframes, TransitionDuration } from 'Foundation'
-import { Button as BaseButton, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { styled } from 'Foundation'
+import {
+  Button as BaseButton,
+  ButtonColorVariant,
+  ButtonStyleVariant,
+} from 'Components/Button'
 
-const show = keyframes`
-  from {
-    height: 0;
-  }
-
-  to {
-    height: 3px;
-  }
-`
+const HEIGHT = 3
 
 export const Button = styled(BaseButton).attrs({
   colorVariant: ButtonColorVariant.MonochromeLight,
   styleVariant: ButtonStyleVariant.Tertiary,
 })`
   top: 4px;
+  overflow: visible;
   color: inherit;
 
   &::after {
     position: absolute;
     right: 1px;
-    bottom: -5px;
+    bottom: -8px;
     left: 1px;
-    height: 3px;
+    height: ${HEIGHT}px;
     content: '';
     background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
     border-radius: 1.5px;
 
-    ${({ foundation }) => (foundation?.transition?.getTransitionsCSS(['transform', 'background-color']))};
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
+    will-change: transform;
   }
 
   &[data-state="inactive"] {
@@ -41,7 +39,6 @@ export const Button = styled(BaseButton).attrs({
   }
 
   &[data-state="active"] {
-    overflow: visible;
     color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
     
     &:hover {
@@ -49,7 +46,7 @@ export const Button = styled(BaseButton).attrs({
     }
 
     &::after {
-      animation: ${() => show} ${TransitionDuration.S}ms cubic-bezier(0.3, 0, 0, 1);
+      transform: translateY(-${HEIGHT}px);
     }
   }
 `
