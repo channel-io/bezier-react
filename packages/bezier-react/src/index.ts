@@ -82,7 +82,6 @@ export { default as TabsSize } from 'Components/Tabs/TabsSize'
 
 /* Hooks */
 export { default as useEventHandler } from 'Hooks/useEventHandler'
-export { default as useEventLocker } from 'Hooks/useEventLocker'
 export { default as useMergeRefs } from 'Hooks/useMergeRefs'
 export { default as useId } from 'Hooks/useId'
 

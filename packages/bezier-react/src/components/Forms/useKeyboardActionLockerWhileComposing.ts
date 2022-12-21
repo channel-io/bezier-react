@@ -1,9 +1,8 @@
 /* External dependencies */
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
-/* Internal dependencies */
-import useEventLocker from 'Hooks/useEventLocker'
-
+type HandlerCache<TargetElement extends HTMLElement = HTMLInputElement> =
+  Map<React.KeyboardEventHandler<TargetElement>, React.KeyboardEventHandler<TargetElement>>
 interface UseKeyboardActionLockerWhileComposingProps<TargetElement extends HTMLElement = HTMLInputElement> {
   keysToLock?: string[]
   onKeyDown?: React.KeyboardEventHandler<TargetElement>
@@ -24,42 +23,47 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
   onCompositionStart = noop,
   onCompositionEnd = noop,
 }: UseKeyboardActionLockerWhileComposingProps<TargetElement>) {
-  const lockKeysPredicate = useCallback((event: React.KeyboardEvent<TargetElement>) => {
-    // NOTE: If keysToLock is not provided, lock all keys.
-    const isKeyLocked = !keysToLock || keysToLock.some(controlKey => event.key === controlKey)
-    const isSafariKeydownAfterComposition =
-      isSafari() &&
-      event.type === 'keydown' &&
-      event.key === 'Enter' && event.keyCode === 229
+  const isComposingRef = useRef(false)
+  const handlerCache = useRef<HandlerCache<TargetElement>>(new Map())
 
-    return isKeyLocked || isSafariKeydownAfterComposition
+  const wrapHandler = useCallback((handler?: React.KeyboardEventHandler<TargetElement>) => {
+    if (!handler) { return undefined }
+    if (handlerCache.current.has(handler)) { return handlerCache.current.get(handler) }
+
+    const wrappedHandler = (event: React.KeyboardEvent<TargetElement>) => {
+      // NOTE: If keysToLock is not provided, lock all keys.
+      const isKeyLocked = isComposingRef.current && (!keysToLock || keysToLock.some(controlKey => event.key === controlKey))
+      const isSafariKeydownAfterComposition =
+        isSafari() &&
+        event.type === 'keydown' &&
+        event.key === 'Enter' && event.keyCode === 229
+
+      if (isKeyLocked || isSafariKeydownAfterComposition) {
+        event.stopPropagation()
+        return
+      }
+      handler?.(event)
+    }
+
+    handlerCache.current.set(handler, wrappedHandler)
+    return wrappedHandler
   }, [keysToLock])
 
-  const { isLockedRef, lock, unlock, locker } = useEventLocker<TargetElement, React.KeyboardEvent<TargetElement>>(
-    lockKeysPredicate,
-  )
-
   const handleCompositionStart = useCallback((event: React.CompositionEvent<TargetElement>) => {
-    lock()
+    isComposingRef.current = true
     onCompositionStart(event)
-  }, [
-    lock,
-    onCompositionStart,
-  ])
+  }, [onCompositionStart])
 
   const handleCompositionEnd = useCallback((event: React.CompositionEvent<TargetElement>) => {
-    unlock()
+    isComposingRef.current = false
     onCompositionEnd(event)
-  }, [
-    onCompositionEnd,
-    unlock,
-  ])
+  }, [onCompositionEnd])
 
   return {
-    isComposingRef: isLockedRef,
-    handleKeyDown: locker(onKeyDown),
-    handleKeyUp: locker(onKeyUp),
-    handleKeyPress: locker(onKeyPress),
+    isComposingRef,
+    handleKeyDown: wrapHandler(onKeyDown),
+    handleKeyUp: wrapHandler(onKeyUp),
+    handleKeyPress: wrapHandler(onKeyPress),
     handleCompositionStart,
     handleCompositionEnd,
   }
