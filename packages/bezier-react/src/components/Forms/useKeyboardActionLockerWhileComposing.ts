@@ -33,12 +33,23 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
     const wrappedHandler = (event: React.KeyboardEvent<TargetElement>) => {
       // NOTE: If keysToLock is not provided, lock all keys.
       const isKeyLocked = isComposingRef.current && (!keysToLock || keysToLock.some(controlKey => event.key === controlKey))
-      const isSafariKeydownAfterComposition =
+      /**
+       * NOTE
+       * According to the spec(https://www.w3.org/TR/uievents/#events-composition-key-events),
+       * keyDown event that exit composition should be fired before compositionEnd event.
+       * However, Safari has different behavior.
+       * In Safari, keyDown event that exit composition is fired after compositionEnd event.
+       * So, we need to prevent keyDown event that exit composition in Safari.
+       * Browser fires keydown event with keyCode 229 when user is composing.
+       * An event that exits composition is also fired with keyCode 229, even though it has fired after compositionEnd event.
+       * Therefore, we need to check if the event is fired with keyCode 229 in Safari.
+       */
+      const isSafariKeydownWhileComposing =
         isSafari() &&
         event.type === 'keydown' &&
-        event.key === 'Enter' && event.keyCode === 229
+        event.keyCode === 229
 
-      if (isKeyLocked || isSafariKeydownAfterComposition) {
+      if (isKeyLocked || isSafariKeydownWhileComposing) {
         event.stopPropagation()
         return
       }
