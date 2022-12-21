@@ -53,8 +53,6 @@ function TextFieldComponent({
   onKeyDown,
   onKeyUp,
   onKeyPress,
-  onCompositionStart,
-  onCompositionEnd,
   ...rest
 }: TextFieldProps,
 forwardedRef: Ref<TextFieldRef>,
@@ -215,15 +213,11 @@ forwardedRef: Ref<TextFieldRef>,
     handleKeyDown: handleKeyDownWrappedWithComposingLocker,
     handleKeyPress: handleKeyPressWrappedWithComposingLocker,
     handleKeyUp: handleKeyUpWrappedWithComposingLocker,
-    handleCompositionStart,
-    handleCompositionEnd,
   } = useKeyboardActionLockerWhileComposing({
     keysToLock: COMMON_IME_CONTROL_KEYS,
     onKeyDown,
     onKeyPress,
     onKeyUp,
-    onCompositionStart,
-    onCompositionEnd,
   })
 
   const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -401,8 +395,6 @@ forwardedRef: Ref<TextFieldRef>,
         onKeyDown={handleKeyDown}
         onKeyPress={handleKeyPress}
         onKeyUp={handleKeyUp}
-        onCompositionStart={handleCompositionStart}
-        onCompositionEnd={handleCompositionEnd}
         {...ownProps}
       />
       { activeClear && ClearComponent }

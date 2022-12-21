@@ -8,11 +8,8 @@ interface UseKeyboardActionLockerWhileComposingProps<TargetElement extends HTMLE
   onKeyDown?: React.KeyboardEventHandler<TargetElement>
   onKeyUp?: React.KeyboardEventHandler<TargetElement>
   onKeyPress?: React.KeyboardEventHandler<TargetElement>
-  onCompositionStart?: React.CompositionEventHandler<TargetElement>
-  onCompositionEnd?: React.CompositionEventHandler<TargetElement>
 }
 
-const noop = () => {}
 const isSafari = () => window.navigator.userAgent.search('Safari') >= 0 && window.navigator.userAgent.search('Chrome') < 0
 
 function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement = HTMLInputElement>({
@@ -20,10 +17,7 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
   onKeyDown,
   onKeyUp,
   onKeyPress,
-  onCompositionStart = noop,
-  onCompositionEnd = noop,
 }: UseKeyboardActionLockerWhileComposingProps<TargetElement>) {
-  const isComposingRef = useRef(false)
   const handlerCache = useRef<HandlerCache<TargetElement>>(new Map())
 
   const wrapHandler = useCallback((handler?: React.KeyboardEventHandler<TargetElement>) => {
@@ -32,7 +26,9 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
 
     const wrappedHandler = (event: React.KeyboardEvent<TargetElement>) => {
       // NOTE: If keysToLock is not provided, lock all keys.
-      const isKeyLocked = isComposingRef.current && (!keysToLock || keysToLock.some(controlKey => event.key === controlKey))
+      const isKeyLocked =
+        event.nativeEvent.isComposing &&
+        (!keysToLock || keysToLock.some(controlKey => event.key === controlKey))
       /**
        * NOTE
        * According to the spec(https://www.w3.org/TR/uievents/#events-composition-key-events),
@@ -60,23 +56,10 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
     return wrappedHandler
   }, [keysToLock])
 
-  const handleCompositionStart = useCallback((event: React.CompositionEvent<TargetElement>) => {
-    isComposingRef.current = true
-    onCompositionStart(event)
-  }, [onCompositionStart])
-
-  const handleCompositionEnd = useCallback((event: React.CompositionEvent<TargetElement>) => {
-    isComposingRef.current = false
-    onCompositionEnd(event)
-  }, [onCompositionEnd])
-
   return {
-    isComposingRef,
     handleKeyDown: wrapHandler(onKeyDown),
     handleKeyUp: wrapHandler(onKeyUp),
     handleKeyPress: wrapHandler(onKeyPress),
-    handleCompositionStart,
-    handleCompositionEnd,
   }
 }
 

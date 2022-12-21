@@ -30,8 +30,6 @@ function TextArea({
   onKeyDown,
   onKeyPress,
   onKeyUp,
-  onCompositionStart,
-  onCompositionEnd,
   ...rest
 }: TextAreaProps,
 forwardedRef: Ref<HTMLTextAreaElement>,
@@ -80,15 +78,11 @@ forwardedRef: Ref<HTMLTextAreaElement>,
     handleKeyDown,
     handleKeyPress,
     handleKeyUp,
-    handleCompositionStart,
-    handleCompositionEnd,
   } = useKeyboardActionLockerWhileComposing({
     keysToLock: COMMON_IME_CONTROL_KEYS,
     onKeyDown,
     onKeyPress,
     onKeyUp,
-    onCompositionStart,
-    onCompositionEnd,
   })
 
   // eslint-disable-next-line prefer-arrow-callback
@@ -128,8 +122,6 @@ forwardedRef: Ref<HTMLTextAreaElement>,
         onKeyDown={handleKeyDown}
         onKeyPress={handleKeyPress}
         onKeyUp={handleKeyUp}
-        onCompositionStart={handleCompositionStart}
-        onCompositionEnd={handleCompositionEnd}
       />
     </Styled.Wrapper>
   )
