@@ -193,13 +193,9 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
 
-      act(() => {
-        fireEvent.compositionStart(textareaElement)
-      })
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyDown(textareaElement, { key })
-        })
+        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
+        fireEvent.keyDown(textareaElement, { key, isComposing: isCompositionStartFired })
         expect(onKeyDown).not.toBeCalled()
       })
     })
@@ -210,13 +206,9 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
 
-      act(() => {
-        fireEvent.compositionStart(textareaElement)
-      })
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyPress(textareaElement, { key })
-        })
+        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
+        fireEvent.keyPress(textareaElement, { key, isComposing: isCompositionStartFired })
         expect(onKeyPress).not.toBeCalled()
       })
     })
@@ -227,13 +219,9 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
 
-      act(() => {
-        fireEvent.compositionStart(textareaElement)
-      })
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyUp(textareaElement, { key })
-        })
+        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
+        fireEvent.keyUp(textareaElement, { key, isComposing: isCompositionStartFired })
         expect(onKeyUp).not.toBeCalled()
       })
     })
