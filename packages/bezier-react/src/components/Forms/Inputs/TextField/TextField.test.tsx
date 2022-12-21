@@ -254,18 +254,15 @@ describe('TextField', () => {
   })
 
   describe('should block keyboard event handler for common ime control keys while composing', () => {
-    it('onKeyDown', () => {
+    it('onKeyDown', async () => {
       const onKeyDown = jest.fn()
       const { getByTestId } = renderComponent({ onKeyDown })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.compositionStart(input)
-      })
-      COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyDown(input, { key })
-        })
+
+      COMMON_IME_CONTROL_KEYS.forEach(async (key) => {
+        const isCompositionStartFired = fireEvent.compositionStart(input)
+        fireEvent.keyDown(input, { key, isComposing: isCompositionStartFired })
         expect(onKeyDown).not.toBeCalled()
       })
     })
@@ -275,13 +272,10 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyPress })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.compositionStart(input)
-      })
+
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyPress(input, { key })
-        })
+        const isCompositionStartFired = fireEvent.compositionStart(input)
+        fireEvent.keyPress(input, { key, isComposing: isCompositionStartFired })
         expect(onKeyPress).not.toBeCalled()
       })
     })
@@ -291,13 +285,10 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.compositionStart(input)
-      })
+
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        act(() => {
-          fireEvent.keyUp(input, { key })
-        })
+        const isCompositionStartFired = fireEvent.compositionStart(input)
+        fireEvent.keyUp(input, { key, isComposing: isCompositionStartFired })
         expect(onKeyUp).not.toBeCalled()
       })
     })
