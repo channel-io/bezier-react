@@ -57,29 +57,19 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 }
 
 .c2 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c12 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -106,6 +96,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   outline: none;
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
   color: #000000D9;
 }
 
@@ -155,6 +149,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c7 .c8 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
 .c10 {
@@ -188,9 +186,13 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c10 .c8 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
-.c13 {
+.c12 {
   display: block;
   text-align: left;
 }
@@ -205,9 +207,9 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     >
       <label
         class="c2 c3"
-        color="txt-black-darkest"
         data-testid="bezier-react-form-label"
         id="form-label"
+        style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
       >
         Label
       </label>
@@ -236,10 +238,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           >
             <label
               class="c2 c3"
-              color="txt-black-darkest"
               data-testid="bezier-react-form-label"
               for="field-:r3:"
               id="field-:r3:-label"
+              style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
             >
               First Inner Label
             </label>
@@ -274,10 +276,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           >
             <label
               class="c2 c3"
-              color="txt-black-darkest"
               data-testid="bezier-react-form-label"
               for="field-:r4:"
               id="field-:r4:-label"
+              style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
             >
               Second Inner Label
             </label>
@@ -303,10 +305,9 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       class="c0 c11"
     >
       <p
-        class="c12 c13"
-        color="txt-black-dark"
-        data-testid="bezier-react-form-helper-text"
+        class="c2 c12"
         id="form-help-text"
+        style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: var(--txt-black-dark); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
       >
         Description
       </p>
@@ -325,7 +326,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   margin-bottom: 4px;
 }
 
-.c14 {
+.c13 {
   padding: 0 2px;
   margin-top: 4px;
 }
@@ -358,7 +359,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   height: 36px;
 }
 
-.c15 {
+.c14 {
   grid-row: 2 / 2;
   grid-column: 2;
 }
@@ -405,46 +406,19 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 }
 
 .c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c9 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c16 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -461,7 +435,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   word-break: break-word;
 }
 
-.c12 {
+.c11 {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -471,26 +445,30 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   outline: none;
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
   color: #000000D9;
 }
 
-.c12::-webkit-input-placeholder {
+.c11::-webkit-input-placeholder {
   color: #00000066;
 }
 
-.c12::-moz-placeholder {
+.c11::-moz-placeholder {
   color: #00000066;
 }
 
-.c12:-ms-input-placeholder {
+.c11:-ms-input-placeholder {
   color: #00000066;
 }
 
-.c12::placeholder {
+.c11::placeholder {
   color: #00000066;
 }
 
-.c10 {
+.c9 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -517,12 +495,16 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: border-color,box-shadow;
 }
 
-.c10 .c11 {
+.c9 .c10 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
-.c13 {
+.c12 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -550,12 +532,16 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: border-color,box-shadow;
 }
 
-.c13 .c11 {
+.c12 .c10 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
-.c17 {
+.c15 {
   display: block;
   text-align: left;
 }
@@ -571,9 +557,9 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
     >
       <label
         class="c3 c4"
-        color="txt-black-darkest"
         data-testid="bezier-react-form-label"
         id="form-label"
+        style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
       >
         Label
       </label>
@@ -601,23 +587,23 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="c0 c8"
           >
             <label
-              class="c9 c4"
-              color="txt-black-darkest"
+              class="c3 c4"
               data-testid="bezier-react-form-label"
               for="field-:r6:"
               id="field-:r6:-label"
+              style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
             >
               First Inner Label
             </label>
           </div>
           <div
-            class="c10"
+            class="c9"
             data-testid="bezier-react-text-input"
             size="36"
           >
             <input
               autocomplete="off"
-              class="c11 c12"
+              class="c10 c11"
               id="field-:r6:"
               size="36"
               value=""
@@ -639,24 +625,24 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="c0 c8"
           >
             <label
-              class="c9 c4"
-              color="txt-black-darkest"
+              class="c3 c4"
               data-testid="bezier-react-form-label"
               for="field-:r7:"
               id="field-:r7:-label"
+              style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
             >
               Second Inner Label
             </label>
           </div>
           <div
-            class="c13"
+            class="c12"
             data-testid="bezier-react-text-input"
             size="36"
           >
             <input
               aria-invalid="true"
               autocomplete="off"
-              class="c11 c12"
+              class="c10 c11"
               id="field-:r7:"
               size="36"
               value=""
@@ -666,13 +652,12 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       </div>
     </div>
     <div
-      class="c0 c14 c15"
+      class="c0 c13 c14"
     >
       <p
-        class="c16 c17"
-        color="txt-black-dark"
-        data-testid="bezier-react-form-helper-text"
+        class="c3 c15"
         id="form-help-text"
+        style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: var(--txt-black-dark); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
       >
         Description
       </p>
@@ -697,29 +682,19 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 }
 
 .c2 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c8 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -746,6 +721,10 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   outline: none;
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
   color: #000000D9;
 }
 
@@ -795,9 +774,13 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 .c4 .c5 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
-.c9 {
+.c8 {
   display: block;
   text-align: left;
 }
@@ -811,10 +794,10 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   >
     <label
       class="c2 c3"
-      color="txt-black-darkest"
       data-testid="bezier-react-form-label"
       for="form"
       id="form-label"
+      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Label
     </label>
@@ -837,10 +820,9 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     class="c0 c7"
   >
     <p
-      class="c8 c9"
-      color="txt-black-dark"
-      data-testid="bezier-react-form-helper-text"
+      class="c2 c8"
       id="form-help-text"
+      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: var(--txt-black-dark); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Description
     </p>
@@ -892,29 +874,19 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 }
 
 .c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c10 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -941,6 +913,10 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   outline: none;
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
   color: #000000D9;
 }
 
@@ -990,9 +966,13 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c5 .c6 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
 }
 
-.c11 {
+.c10 {
   display: block;
   text-align: left;
 }
@@ -1007,10 +987,10 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   >
     <label
       class="c3 c4"
-      color="txt-black-darkest"
       data-testid="bezier-react-form-label"
       for="form"
       id="form-label"
+      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Label
     </label>
@@ -1033,10 +1013,9 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     class="c0 c8 c9"
   >
     <p
-      class="c10 c11"
-      color="txt-black-dark"
-      data-testid="bezier-react-form-helper-text"
+      class="c3 c10"
       id="form-help-text"
+      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: var(--txt-black-dark); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Description
     </p>

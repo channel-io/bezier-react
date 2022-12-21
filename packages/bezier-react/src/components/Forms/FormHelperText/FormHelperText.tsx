@@ -10,9 +10,6 @@ import * as Styled from './FormHelperText.styled'
 
 type ForwardedRef = React.Ref<HTMLParamElement>
 
-export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
-export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
-
 const BaseHelperText = forwardRef(({
   as = 'p',
   type,
@@ -74,7 +71,6 @@ forwardedRef: ForwardedRef,
 })
 
 export const FormHelperText = forwardRef(({
-  testId = FORM_HELPER_TEXT_TEST_ID,
   color = 'txt-black-dark',
   children,
   ...rest
@@ -85,7 +81,6 @@ forwardedRef: ForwardedRef,
     {...rest}
     type="info"
     ref={forwardedRef}
-    testId={testId}
     color={color}
   >
     { children }
@@ -93,7 +88,6 @@ forwardedRef: ForwardedRef,
 ))
 
 export const FormErrorMessage = forwardRef(({
-  testId = FORM_ERROR_MESSAGE_TEST_ID,
   color = 'bgtxt-orange-normal',
   children,
   ...rest
@@ -105,7 +99,6 @@ forwardedRef: ForwardedRef,
     aria-live="polite"
     type="error"
     ref={forwardedRef}
-    testId={testId}
     color={color}
   >
     { children }

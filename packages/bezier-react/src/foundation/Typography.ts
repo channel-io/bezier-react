@@ -24,72 +24,106 @@ export enum LineHeightAbsoluteNumber {
   Lh32 = 3.2,
 }
 
-const Size11 = css`
-  font-size: ${TypoAbsoluteNumber.Typo11}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh16}rem;
-`
+interface TypographyStyle {
+  fontSize: `${string}rem`
+  lineHeight: `${string}rem`
+  letterSpacing: 'normal' | `${string}px`
+}
 
-const Size12 = css`
-  font-size: ${TypoAbsoluteNumber.Typo12}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh16}rem;
-`
+/**
+ * @deprecated
+ * Will be removed
+ * @note
+ * Should change the `Typography` to use as a key basis, not as an interpolation.
+ * It is also difficult to use type checking and CSS Variable when used as interpolation.
+ */
+const typographyStyles: Record<number, TypographyStyle> = {
+  11: {
+    fontSize: `${TypoAbsoluteNumber.Typo11}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh16}rem`,
+    letterSpacing: 'normal',
+  },
+  12: {
+    fontSize: `${TypoAbsoluteNumber.Typo12}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh16}rem`,
+    letterSpacing: 'normal',
+  },
+  13: {
+    fontSize: `${TypoAbsoluteNumber.Typo13}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh18}rem`,
+    letterSpacing: 'normal',
+  },
+  14: {
+    fontSize: `${TypoAbsoluteNumber.Typo14}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh18}rem`,
+    letterSpacing: 'normal',
+  },
+  15: {
+    fontSize: `${TypoAbsoluteNumber.Typo15}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh20}rem`,
+    letterSpacing: '-0.1px',
+  },
+  16: {
+    fontSize: `${TypoAbsoluteNumber.Typo16}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh22}rem`,
+    letterSpacing: '-0.1px',
+  },
+  17: {
+    fontSize: `${TypoAbsoluteNumber.Typo17}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh22}rem`,
+    letterSpacing: '-0.1px',
+  },
+  18: {
+    fontSize: `${TypoAbsoluteNumber.Typo18}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh24}rem`,
+    letterSpacing: 'normal',
+  },
+  22: {
+    fontSize: `${TypoAbsoluteNumber.Typo22}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh32}rem`,
+    letterSpacing: '-0.4px',
+  },
+  24: {
+    fontSize: `${TypoAbsoluteNumber.Typo24}rem`,
+    lineHeight: `${LineHeightAbsoluteNumber.Lh32}rem`,
+    letterSpacing: '-0.4px',
+  },
+}
 
-const Size13 = css`
-  font-size: ${TypoAbsoluteNumber.Typo13}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh18}rem;
-`
+const BEZIER_TEXT_SYMBOL = Symbol('$$bezier.textSize')
 
-const Size14 = css`
-  font-size: ${TypoAbsoluteNumber.Typo14}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh18}rem;
-`
-
-const Size15 = css`
-  font-size: ${TypoAbsoluteNumber.Typo15}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh20}rem;
-  letter-spacing: -0.1px;
-`
-
-const Size16 = css`
-  font-size: ${TypoAbsoluteNumber.Typo16}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh22}rem;
-  letter-spacing: -0.1px;
-`
-
-const Size17 = css`
-  font-size: ${TypoAbsoluteNumber.Typo17}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh22}rem;
-  letter-spacing: -0.1px;
-`
-
-const Size18 = css`
-  font-size: ${TypoAbsoluteNumber.Typo18}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh24}rem;
-`
-
-const Size22 = css`
-  font-size: ${TypoAbsoluteNumber.Typo22}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh28}rem;
-  letter-spacing: -0.4px;
-`
-
-const Size24 = css`
-  font-size: ${TypoAbsoluteNumber.Typo24}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh32}rem;
-  letter-spacing: -0.4px;
-`
+function getTypographyCSSInterpolation(size: keyof typeof typographyStyles) {
+  const result = css`
+    font-size: ${typographyStyles[size].fontSize};
+    line-height: ${typographyStyles[size].lineHeight};
+    letter-spacing: ${typographyStyles[size].letterSpacing};
+  `
+  result[BEZIER_TEXT_SYMBOL] = size
+  return result
+}
 
 export type TypographyType = ReturnType<typeof css>
 
 export const Typography = {
-  Size11,
-  Size12,
-  Size13,
-  Size14,
-  Size15,
-  Size16,
-  Size17,
-  Size18,
-  Size22,
-  Size24,
+  Size11: getTypographyCSSInterpolation(11),
+  Size12: getTypographyCSSInterpolation(12),
+  Size13: getTypographyCSSInterpolation(13),
+  Size14: getTypographyCSSInterpolation(14),
+  Size15: getTypographyCSSInterpolation(15),
+  Size16: getTypographyCSSInterpolation(16),
+  Size17: getTypographyCSSInterpolation(17),
+  Size18: getTypographyCSSInterpolation(18),
+  Size22: getTypographyCSSInterpolation(22),
+  Size24: getTypographyCSSInterpolation(24),
+}
+
+/**
+ * @deprecated
+ * Will be removed
+ * @note
+ * Should change the `Typography` to use as a key basis, not as an interpolation.
+ * It is also difficult to use type checking and CSS Variable when used as interpolation.
+ */
+export function getTypographyStyleFromInterpolation(typography: TypographyType): TypographyStyle {
+  return typographyStyles[typography[BEZIER_TEXT_SYMBOL]]
 }

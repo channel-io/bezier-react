@@ -18,12 +18,19 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
 }
 
 .c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -108,7 +115,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
   </div>
   <span
     class="c3 c4"
-    data-testid="bezier-react-text"
+    style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
   >
     test-content
   </span>
@@ -133,12 +140,19 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
 }
 
 .c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -230,7 +244,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
   </div>
   <span
     class="c3 c4"
-    data-testid="bezier-react-text"
+    style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
   >
     test-content
   </span>

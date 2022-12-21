@@ -104,9 +104,7 @@ describe('FormControl >', () => {
 
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
-      expect(labelNode).toHaveStyle({
-        'font-size': '1.3rem',
-      })
+      expect(labelNode).toHaveStyle('--bezier-text-font-size: 1.3rem;')
     })
 
     it('The FormLabel component should have the correct style it depends on left label position', () => {
@@ -117,9 +115,7 @@ describe('FormControl >', () => {
 
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
-      expect(labelNode).toHaveStyle({
-        'font-size': '1.4rem',
-      })
+      expect(labelNode).toHaveStyle('--bezier-text-font-size: 1.4rem;')
     })
 
     it('The FormLabel component should have the correct style with own typo props', () => {
@@ -130,9 +126,7 @@ describe('FormControl >', () => {
 
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
-      expect(labelNode).toHaveStyle({
-        'font-size': '1.8rem',
-      })
+      expect(labelNode).toHaveStyle('--bezier-text-font-size: 1.8rem;')
     })
 
     it('The Field(Input) component should have the correct attribute', () => {

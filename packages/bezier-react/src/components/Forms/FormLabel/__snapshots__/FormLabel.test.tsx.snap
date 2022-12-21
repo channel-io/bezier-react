@@ -2,12 +2,19 @@
 
 exports[`FormLabel > Snapshot > 1`] = `
 .c0 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
+  margin-top: var(--bezier-text-margin-top);
+  margin-right: var(--bezier-text-margin-right);
+  margin-bottom: var(--bezier-text-margin-bottom);
+  margin-left: var(--bezier-text-margin-left);
+  font-size: var(--bezier-text-font-size);
+  font-style: var(--bezier-text-font-style);
+  font-weight: var(--bezier-text-font-weight);
+  line-height: var(--bezier-text-line-height);
+  color: var(--bezier-text-font-color);
+  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
+  -moz-letter-spacing: var(--bezier-text-letter-spacing);
+  -ms-letter-spacing: var(--bezier-text-letter-spacing);
+  letter-spacing: var(--bezier-text-letter-spacing);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -26,8 +33,8 @@ exports[`FormLabel > Snapshot > 1`] = `
 
 <label
   class="c0 c1"
-  color="txt-black-darkest"
   data-testid="bezier-react-form-label"
+  style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: var(--txt-black-darkest); --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
 >
   label
 </label>
