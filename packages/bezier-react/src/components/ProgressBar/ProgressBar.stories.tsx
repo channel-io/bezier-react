@@ -62,6 +62,12 @@ Playground.args = {
   width: '36',
   value: 0.5,
 }
+Playground.parameters = {
+  viewMode: 'story',
+  options: {
+    showPanel: true,
+  },
+}
 
 export const Overview: Story<{}> = () => {
   const [values, setValues] = useState<number[]>([0.25, 0.5, 0.75, 1])
@@ -117,6 +123,15 @@ export const Overview: Story<{}> = () => {
     </VStack>
   )
 }
+Overview.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
 export const UsageWidth: Story<{}> = () => (
   <VStack spacing={6} align="stretch">
@@ -160,8 +175,16 @@ export const UsageWidth: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 UsageWidth.storyName = 'Usage (width)'
+UsageWidth.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
 export const UsageValue: Story<{}> = () => (
   <VStack spacing={6} align="stretch">
@@ -257,8 +280,16 @@ export const UsageValue: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 UsageValue.storyName = 'Usage (value)'
+UsageValue.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
 export const SizeVariant: Story<{}> = () => (
   <VStack spacing={16} align="stretch">
@@ -296,8 +327,16 @@ export const SizeVariant: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 SizeVariant.storyName = 'Variant (size)'
+SizeVariant.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
 export const Variant: Story<{}> = () => (
   <VStack spacing={16} align="stretch">
@@ -335,5 +374,13 @@ export const Variant: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 Variant.storyName = 'Variant (color)'
+Variant.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
