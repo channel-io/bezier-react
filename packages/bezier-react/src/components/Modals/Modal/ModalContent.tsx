@@ -1,10 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import { document } from 'Utils/domUtils'
+import {
+  isNumber,
+} from 'Utils/typeUtils'
 import { ZIndex } from 'Constants/ZIndex'
 import { ModalClose } from './ModalHelpers'
 import ModalContentContext from './ModalContentContext'

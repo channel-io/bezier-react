@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { get } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
@@ -61,9 +60,12 @@ forwardedRef: React.Ref<HTMLLabelElement>,
   const HelpComponent = useMemo(() => {
     if (isEmpty(help)) { return null }
 
-    if (React.isValidElement(help) &&
-      get(help, 'type.displayName') === HELP_DISPLAY_NAME) {
-      return help
+    if (React.isValidElement(help)) {
+      // FIXME(@bora): string, JSXElementCostructor 타입에 displayName 속성이 존재하지 않음, 임시로 any 타입으로 설정
+      const { displayName } = help?.type as any
+      if (displayName === HELP_DISPLAY_NAME) {
+        return help
+      }
     }
 
     return (

@@ -1,7 +1,6 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { ModalProps } from './Modal.types'
@@ -31,8 +30,8 @@ export function Modal({
   children,
   show,
   defaultShow,
-  onShow = noop,
-  onHide = noop,
+  onShow = () => {},
+  onHide = () => {},
 }: ModalProps) {
   const onOpenChange = useCallback<NonNullable<DialogPrimitive.DialogProps['onOpenChange']>>((open) => {
     const callback = open ? onShow : onHide

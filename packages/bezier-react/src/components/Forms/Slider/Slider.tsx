@@ -5,7 +5,6 @@ import React, {
   useCallback,
   useEffect,
 } from 'react'
-import { noop } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
@@ -19,8 +18,8 @@ export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
-    onThumbPointerDown = noop,
-    onThumbPointerUp = noop,
+    onThumbPointerDown = () => {},
+    onThumbPointerUp = () => {},
     defaultValue = [5],
     value,
     disabled = false,
