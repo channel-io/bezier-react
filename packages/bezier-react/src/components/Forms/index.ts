@@ -5,7 +5,7 @@ import useFormFieldProps from './useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from './useKeyboardActionLockerWhileComposing'
 
 export type { FormComponentProps }
-export * from './Inputs/constants/commonImeControlKeys'
+export * from './Inputs/constants/CommonImeControlKeys'
 export {
   FormFieldSize,
   useFormControlContext,

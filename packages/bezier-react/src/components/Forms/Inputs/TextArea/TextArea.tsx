@@ -5,7 +5,7 @@ import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect,
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
-import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/commonImeControlKeys'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'
