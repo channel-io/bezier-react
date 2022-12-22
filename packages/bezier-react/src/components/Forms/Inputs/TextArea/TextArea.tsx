@@ -28,7 +28,6 @@ function TextArea({
   onBlur,
   onChange,
   onKeyDown,
-  onKeyPress,
   onKeyUp,
   ...rest
 }: TextAreaProps,
@@ -76,12 +75,10 @@ forwardedRef: Ref<HTMLTextAreaElement>,
 
   const {
     handleKeyDown,
-    handleKeyPress,
     handleKeyUp,
   } = useKeyboardActionLockerWhileComposing({
     keysToLock: COMMON_IME_CONTROL_KEYS,
     onKeyDown,
-    onKeyPress,
     onKeyUp,
   })
 
@@ -120,7 +117,6 @@ forwardedRef: Ref<HTMLTextAreaElement>,
         onFocus={handleFocus}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
-        onKeyPress={handleKeyPress}
         onKeyUp={handleKeyUp}
       />
     </Styled.Wrapper>

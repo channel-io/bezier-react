@@ -7,7 +7,6 @@ interface UseKeyboardActionLockerWhileComposingProps<TargetElement extends HTMLE
   keysToLock?: string[]
   onKeyDown?: React.KeyboardEventHandler<TargetElement>
   onKeyUp?: React.KeyboardEventHandler<TargetElement>
-  onKeyPress?: React.KeyboardEventHandler<TargetElement>
 }
 
 const isSafari = () => window.navigator.userAgent.search('Safari') >= 0 && window.navigator.userAgent.search('Chrome') < 0
@@ -16,7 +15,6 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
   keysToLock,
   onKeyDown,
   onKeyUp,
-  onKeyPress,
 }: UseKeyboardActionLockerWhileComposingProps<TargetElement>) {
   const handlerCache = useRef<HandlerCache<TargetElement>>(new Map())
 
@@ -59,7 +57,6 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
   return {
     handleKeyDown: wrapHandler(onKeyDown),
     handleKeyUp: wrapHandler(onKeyUp),
-    handleKeyPress: wrapHandler(onKeyPress),
   }
 }
 

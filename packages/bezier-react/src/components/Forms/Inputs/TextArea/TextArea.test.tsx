@@ -200,19 +200,6 @@ describe('TextArea 테스트 >', () => {
       })
     })
 
-    it('onKeyPress', () => {
-      const onKeyPress = jest.fn()
-      const { getByTestId } = renderComponent({ onKeyPress })
-      const rendered = getByTestId(TEXT_AREA_TEST_ID)
-      const textareaElement = rendered.getElementsByTagName('textarea')[0]
-
-      COMMON_IME_CONTROL_KEYS.forEach((key) => {
-        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
-        fireEvent.keyPress(textareaElement, { key, isComposing: isCompositionStartFired })
-        expect(onKeyPress).not.toBeCalled()
-      })
-    })
-
     it('onKeyUp', () => {
       const onKeyUp = jest.fn()
       const { getByTestId } = renderComponent({ onKeyUp })
