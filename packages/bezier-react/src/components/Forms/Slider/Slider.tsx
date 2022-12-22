@@ -104,10 +104,10 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { currentValue.map((v) => (
+        { currentValue.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
-            key={`slider-thumb-${v}`}
+            key={`slider-thumb-${i}`}
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
           >
