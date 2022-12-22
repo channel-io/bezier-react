@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
@@ -14,7 +14,6 @@ import {
 import { Text } from 'Components/Text'
 import { Button } from 'Components/Button'
 import { ProgressBar } from './ProgressBar'
-import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import mdx from './ProgressBar.mdx'
 
@@ -26,9 +25,11 @@ export default {
       page: mdx,
     },
   },
-} as Meta<ProgressBarProps>
+} as ComponentMeta<typeof ProgressBar>
 
-export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
+export const Playground: ComponentStory<typeof ProgressBar> = (props) => (
+  <ProgressBar {...props} />
+)
 Playground.argTypes = {
   size: {
     control: {
@@ -69,7 +70,7 @@ Playground.parameters = {
   },
 }
 
-export const Overview: Story<{}> = () => {
+export const Overview: ComponentStory<typeof ProgressBar> = () => {
   const [values, setValues] = useState<number[]>([0.25, 0.5, 0.75, 1])
 
   const handleSetRandomValues = () => {
@@ -133,7 +134,7 @@ Overview.parameters = {
   },
 }
 
-export const UsageWidth: Story<{}> = () => (
+export const UsageWidth: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={6} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -186,7 +187,7 @@ UsageWidth.parameters = {
   },
 }
 
-export const UsageValue: Story<{}> = () => (
+export const UsageValue: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={6} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -291,7 +292,7 @@ UsageValue.parameters = {
   },
 }
 
-export const SizeVariant: Story<{}> = () => (
+export const SizeVariant: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={16} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -338,7 +339,7 @@ SizeVariant.parameters = {
   },
 }
 
-export const Variant: Story<{}> = () => (
+export const Variant: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={16} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
