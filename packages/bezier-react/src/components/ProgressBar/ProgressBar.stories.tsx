@@ -26,36 +26,36 @@ export default {
       page: mdx,
     },
   },
-  argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-        options: getObjectFromEnum(ProgressBarSize),
-      },
-    },
-    variant: {
-      control: {
-        type: 'radio',
-        options: getObjectFromEnum(ProgressBarVariant),
-      },
-    },
-    width: {
-      control: {
-        type: 'text',
-      },
-    },
-    value: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 1,
-        step: 0.01,
-      },
-    },
-  },
 } as Meta<ProgressBarProps>
 
 export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
+Playground.argTypes = {
+  size: {
+    control: {
+      type: 'radio',
+      options: getObjectFromEnum(ProgressBarSize),
+    },
+  },
+  variant: {
+    control: {
+      type: 'radio',
+      options: getObjectFromEnum(ProgressBarVariant),
+    },
+  },
+  width: {
+    control: {
+      type: 'text',
+    },
+  },
+  value: {
+    control: {
+      type: 'range',
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+  },
+}
 Playground.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
