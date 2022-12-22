@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
@@ -184,6 +185,27 @@ describe('Slider', () => {
       rerender(<Slider {...{ value, onValueChange }} />)
 
       expect(onValueChange).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe('user interactions', () => {
+    it('Click and ArrowLeft key', async () => {
+      const user = userEvent.setup()
+      const { getAllByTestId } = renderSlider({
+        value: [4, 6],
+      })
+
+      const sliderThumbs = getAllByTestId(SLIDER_THUMB_TEST_ID)
+
+      expect(sliderThumbs).toHaveLength(2)
+      expect(sliderThumbs[0]).toHaveAttribute('aria-valuenow', '4')
+      expect(sliderThumbs[1]).toHaveAttribute('aria-valuenow', '6')
+
+      await user.click(sliderThumbs[0])
+      await user.keyboard('[ArrowLeft]')
+
+      expect(sliderThumbs[0]).toHaveAttribute('aria-valuenow', '3')
+      expect(sliderThumbs[1]).toHaveAttribute('aria-valuenow', '6')
     })
   })
 })
