@@ -31,7 +31,7 @@ export const Slider = forwardRef(function Slider(
     minStepsBetweenThumbs = 0,
     ...rest
   }: SliderProps,
-  forwardedRef: React.Ref<HTMLElement>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
 
