@@ -14,6 +14,12 @@ export interface TabListContextValue {
 
 interface TabsOptions {
   /**
+   * When automatic, tabs are activated when receiving focus.
+   * When manual, tabs are activated when clicked.
+   * @default automatic
+   */
+  activationMode?: 'automatic' | 'manual'
+  /**
    * Use when you do not need to control the state of the component.
    */
   defaultValue?: string

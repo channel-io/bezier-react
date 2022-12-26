@@ -38,10 +38,11 @@ const Content = styled.div`
 `
 
 function TabsComposition({
-  onValueChange,
+  activationMode,
   defaultValue,
   value,
   size,
+  onValueChange,
 }: TabsCompositionProps) {
   const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
 
@@ -55,6 +56,7 @@ function TabsComposition({
   return (
     <Wrapper>
       <Tabs
+        activationMode={activationMode}
         onValueChange={handleValueChange}
         value={currentValue}
         defaultValue={defaultValue}
@@ -133,6 +135,7 @@ Composition.args = {
   size: TabSize.M,
   onValueChange: noop,
   defaultValue: undefined,
+  activationMode: 'automatic',
   value: 'One',
 }
 
@@ -141,4 +144,5 @@ UnControlled.args = {
   size: TabSize.M,
   onValueChange: noop,
   defaultValue: 'One',
+  activationMode: 'automatic',
 }

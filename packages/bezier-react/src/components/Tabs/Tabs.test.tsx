@@ -158,38 +158,60 @@ describe('Tabs', () => {
     })
 
     describe('Keyboard Navigation', () => {
-      it('can control by arrow right and left key', async () => {
+      const assertTab1IsActive = (getByRole) => {
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
+        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+      }
+
+      const assertTab2IsActive = (getByRole) => {
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+      }
+
+      it('can control by arrow right and left key (on automatic activation mode)', async () => {
         const { getByRole } = renderTabs()
 
         await user.click(getByRole('tab', { name: TAB1 }))
-
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+        assertTab1IsActive(getByRole)
 
         await user.keyboard('{arrowright}')
-
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+        assertTab2IsActive(getByRole)
 
         await user.keyboard('{arrowright}')
-
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+        assertTab1IsActive(getByRole)
 
         await user.keyboard('{arrowleft}')
-
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+        assertTab2IsActive(getByRole)
 
         await user.keyboard('{arrowleft}')
+        assertTab1IsActive(getByRole)
+      })
 
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+      it('can control by arrow right and left key with space or enter key (on manual activation mode)', async () => {
+        const { getByRole } = renderTabs({ tabsProps: { activationMode: 'manual' } })
+
+        await user.click(getByRole('tab', { name: TAB1 }))
+        assertTab1IsActive(getByRole)
+
+        await user.keyboard('{arrowright}')
+        assertTab1IsActive(getByRole)
+
+        await user.keyboard(' ')
+        assertTab2IsActive(getByRole)
+
+        await user.keyboard('{arrowright}')
+        assertTab2IsActive(getByRole)
+
+        await user.keyboard('{enter}')
+        assertTab1IsActive(getByRole)
+
+        await user.keyboard('{arrowleft}')
+        assertTab1IsActive(getByRole)
+
+        await user.keyboard('{enter}')
+        assertTab2IsActive(getByRole)
       })
     })
 

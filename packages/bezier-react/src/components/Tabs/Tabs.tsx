@@ -28,11 +28,16 @@ import * as Styled from './Tabs.styled'
  */
 
 export const Tabs = forwardRef(function Tabs({
+  activationMode = 'automatic',
   children,
   ...rest
 }: TabsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.Tabs ref={forwardedRef} {...rest}>
+    <Styled.Tabs
+      activationMode={activationMode}
+      ref={forwardedRef}
+      {...rest}
+    >
       { children }
     </Styled.Tabs>
   )
