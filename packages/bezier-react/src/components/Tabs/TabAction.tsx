@@ -5,7 +5,6 @@ import React, {
 } from 'react'
 import {
   isNil,
-  noop,
 } from 'lodash-es'
 
 /* Internal dependencies */
@@ -17,7 +16,7 @@ import {
 import { Text } from 'Components/Text'
 import TabListContext from './TabListContext'
 import {
-  TabActionElementBy,
+  TabActionElement,
   TabActionProps,
   TabSize,
 } from './Tabs.types'
@@ -47,12 +46,12 @@ const getIconSizeBy = (size: TabSize) => {
  * `TabAction` is a button for more action to open a new link or navigate to a different url.
  * If it has `href` props, it should act as a link.
  */
-export const TabAction = forwardRef(function TabAction({
+export const TabAction = forwardRef(function TabAction<Link extends string | undefined>({
   href,
   children,
-  onClick = noop,
+  onClick,
   ...rest
-}, forwardedRef,
+}: TabActionProps<Link>, forwardedRef: React.Ref<TabActionElement<Link>>,
 ) {
   const { size } = useContext(TabListContext)
 
@@ -93,8 +92,4 @@ export const TabAction = forwardRef(function TabAction({
       </Styled.ToolbarLink>
     )
   )
-}) as <Link extends string | undefined>(
-  props: TabActionProps<Link> & {
-    ref?: React.ForwardedRef<TabActionElementBy<Link>>
-  }
-) => JSX.Element
+})
