@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.178
+
+### Patch Changes
+
+- [#1077](https://github.com/channel-io/bezier-react/pull/1077) [`84e9eef7`](https://github.com/channel-io/bezier-react/commit/84e9eef79d8424fb3696bf1c5d419fed43bc500b) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - Make the `Modal` overlay scrollable and enhance styling to work well when the `ModalBody` is used stand-alone.
+  - Delete hide animation of the `Modal`.
+
+* [#1068](https://github.com/channel-io/bezier-react/pull/1068) [`65cdafa7`](https://github.com/channel-io/bezier-react/commit/65cdafa78b5551e39f657440ac54cc833c678163) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Text` component to use CSS Variable internally
+
 ## 1.0.0-next-v1.177
 
 ### Minor Changes
