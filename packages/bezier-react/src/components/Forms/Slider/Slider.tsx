@@ -1,6 +1,11 @@
 /* External dependencies */
-import React, { forwardRef, useState, useCallback } from 'react'
-import { isFunction } from 'lodash-es'
+import React, {
+  forwardRef,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react'
+import { noop } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
@@ -14,30 +19,39 @@ export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
-    onThumbPointerDown,
-    onThumbPointerUp,
+    onThumbPointerDown = noop,
+    onThumbPointerUp = noop,
     defaultValue = [5],
     value,
     disabled = false,
     min = 0,
     max = 10,
     step = 1,
-    onValueChange,
+    onValueChange = noop,
     minStepsBetweenThumbs = 0,
     ...rest
   }: SliderProps,
-  forwardedRef: React.Ref<HTMLElement>,
+  forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
 
+  useEffect(function updateCurrentValue() {
+    if (value) {
+      setCurrentValue(value)
+      onValueChange(value)
+    }
+  }, [
+    value,
+    onValueChange,
+  ])
+
   const handleValueChange: (value: number[]) => void = useCallback((_value) => {
     setCurrentValue(_value)
-    if (isFunction(onValueChange)) {
-      onValueChange(_value)
-    }
+    onValueChange(_value)
   }, [onValueChange])
+
   const handlePointerDown: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled && isFunction(onThumbPointerDown)) {
+    if (!disabled) {
       onThumbPointerDown(currentValue)
     }
   }, [
@@ -45,8 +59,9 @@ export const Slider = forwardRef(function Slider(
     onThumbPointerDown,
     currentValue,
   ])
+
   const handlePointerUp: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled && isFunction(onThumbPointerUp)) {
+    if (!disabled) {
       onThumbPointerUp(currentValue)
     }
   }, [
@@ -89,10 +104,10 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { defaultValue.map((v) => (
+        { currentValue.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
-            key={`slider-thumb-${v}`}
+            key={`slider-thumb-${i}`}
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
           >

@@ -20,6 +20,13 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 }
 
+/**
+ * Radix-ui uses the APIs below, but the DOM in jest (JSDOM) hasn't implemented them.
+ * @see https://github.com/radix-ui/primitives/issues/1822
+ */
+window.HTMLElement.prototype.hasPointerCapture = jest.fn()
+window.HTMLElement.prototype.setPointerCapture = jest.fn()
+
 beforeEach(() => {
   // @ts-ignore
   jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
