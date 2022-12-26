@@ -5,7 +5,7 @@ import { createContext } from 'react'
 import { TabListContextValue, TabSize } from './Tabs.types'
 
 const TabListContext = createContext<TabListContextValue>({
-  size: TabSize.Normal,
+  size: TabSize.M,
 })
 
 export default TabListContext

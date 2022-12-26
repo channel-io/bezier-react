@@ -117,7 +117,7 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [TabSize.XS, TabSize.Normal, TabSize.L],
+        options: [TabSize.S, TabSize.M, TabSize.L],
       },
     },
     onValueChange: {
@@ -130,7 +130,7 @@ const Template: Story<TabsCompositionProps> = TabsComposition
 
 export const Composition: Story<TabsCompositionProps> = Template.bind({})
 Composition.args = {
-  size: TabSize.Normal,
+  size: TabSize.M,
   onValueChange: noop,
   defaultValue: undefined,
   value: 'One',
@@ -138,7 +138,7 @@ Composition.args = {
 
 export const UnControlled: Story<TabsCompositionProps> = Template.bind({})
 UnControlled.args = {
-  size: TabSize.Normal,
+  size: TabSize.M,
   onValueChange: noop,
   defaultValue: 'One',
 }

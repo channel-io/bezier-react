@@ -3,9 +3,9 @@ import React from 'react'
 import { BezierComponentProps, DisableProps, ChildrenProps, SizeProps } from 'Types/ComponentProps'
 
 export enum TabSize {
-  L = 53,
-  Normal = 45,
-  XS = 33,
+  L = 'L',
+  M = 'M',
+  S = 'S',
 }
 
 export interface TabListContextValue {

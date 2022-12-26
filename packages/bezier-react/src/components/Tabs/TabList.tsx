@@ -11,7 +11,7 @@ import TabListContext from './TabListContext'
  */
 export function TabList({
   children,
-  size = TabSize.Normal,
+  size = TabSize.M,
   ...rest
 }: TabListProps) {
   const heightContextValue = useMemo(() => ({

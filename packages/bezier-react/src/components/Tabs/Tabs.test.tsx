@@ -37,7 +37,7 @@ describe('Tabs', () => {
     tabListProps,
   }: RenderTabsProps = {
     tabListProps: {
-      size: TabSize.Normal,
+      size: TabSize.M,
     },
   }) => render(
     <Tabs {...tabsProps} defaultValue={VALUE1}>

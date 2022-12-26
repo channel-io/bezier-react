@@ -13,13 +13,13 @@ function getPaddingStyle({ size }: { size: TabSize }) {
         padding: 0 14px;
         ${({ foundation }) => foundation?.rounding?.round12};
       `
-    case TabSize.Normal:
+    case TabSize.M:
       return css`
         padding: 0 14px;
         ${({ foundation }) => foundation?.rounding?.round8};
       `
     default:
-    case TabSize.XS:
+    case TabSize.S:
       return css`
         padding: 0 7px;
         ${({ foundation }) => foundation?.rounding?.round6};

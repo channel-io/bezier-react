@@ -22,10 +22,10 @@ const getButtonSizeBy = (size: TabSize) => {
   switch (size) {
     case TabSize.L:
       return ButtonSize.L
-    case TabSize.Normal:
+    case TabSize.M:
       return ButtonSize.M
     default:
-    case TabSize.XS:
+    case TabSize.S:
       return ButtonSize.S
   }
 }

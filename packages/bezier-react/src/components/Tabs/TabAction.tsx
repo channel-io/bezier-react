@@ -27,8 +27,8 @@ const getTypoBy = (size: TabSize) => {
   switch (size) {
     case TabSize.L:
       return Typography.Size14
-    case TabSize.Normal:
-    case TabSize.XS:
+    case TabSize.M:
+    case TabSize.S:
     default:
       return Typography.Size13
   }
