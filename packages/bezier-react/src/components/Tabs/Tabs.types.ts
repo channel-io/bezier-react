@@ -8,7 +8,7 @@ export enum TabSize {
   XS = 33,
 }
 
-export interface TabsListContextValue {
+export interface TabListContextValue {
   size: TabSize
 }
 

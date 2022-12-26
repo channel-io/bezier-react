@@ -2,9 +2,9 @@
 import { createContext } from 'react'
 
 /* Internal dependencies */
-import { TabsListContextValue, TabSize } from './Tabs.types'
+import { TabListContextValue, TabSize } from './Tabs.types'
 
-const TabListContext = createContext<TabsListContextValue>({
+const TabListContext = createContext<TabListContextValue>({
   size: TabSize.Normal,
 })
 
