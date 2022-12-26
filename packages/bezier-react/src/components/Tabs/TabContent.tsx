@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 import * as Tabs from '@radix-ui/react-tabs'
 
 /* Internal dependencies */
@@ -10,13 +10,18 @@ import {
 /**
  * `TabContent` has content associated with `TabItem`.
  */
-export function TabContent({
+export const TabContent = forwardRef(function TabContent({
   children,
   value,
-}: TabContentProps) {
+  ...rest
+}: TabContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Tabs.Content value={value}>
+    <Tabs.Content
+      value={value}
+      ref={forwardedRef}
+      {...rest}
+    >
       { children }
     </Tabs.Content>
   )
-}
+})

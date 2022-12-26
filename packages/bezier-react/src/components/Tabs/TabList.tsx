@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
 import { TabListProps, TabSize } from './Tabs.types'
@@ -9,11 +9,11 @@ import TabListContext from './TabListContext'
 /**
  * `TabList` gives size context to its children and decides the layout of `TabItems` and `TabActions`.
  */
-export function TabList({
+export const TabList = forwardRef(function TabList({
   children,
   size = TabSize.M,
   ...rest
-}: TabListProps) {
+}: TabListProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const heightContextValue = useMemo(() => ({
     size,
   }), [size])
@@ -22,10 +22,11 @@ export function TabList({
     <TabListContext.Provider value={heightContextValue}>
       <Styled.TabList
         size={size}
+        ref={forwardedRef}
         {...rest}
       >
         { children }
       </Styled.TabList>
     </TabListContext.Provider>
   )
-}
+})

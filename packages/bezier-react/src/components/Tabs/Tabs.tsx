@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { TabsProps } from 'Components/Tabs/Tabs.types'
@@ -27,14 +27,13 @@ import * as Styled from './Tabs.styled'
  * ```
  */
 
-export function Tabs({
+export const Tabs = forwardRef(function Tabs({
   children,
   ...rest
-}: TabsProps) {
+}: TabsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.Tabs {...rest}>
+    <Styled.Tabs ref={forwardedRef} {...rest}>
       { children }
     </Styled.Tabs>
   )
-}
-
+})
