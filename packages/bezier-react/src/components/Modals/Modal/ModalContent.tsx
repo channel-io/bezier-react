@@ -25,20 +25,23 @@ export const ModalContent = forwardRef(function ModalContent({
   zIndex = 0,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const overlayStyle = useMemo((): React.CSSProperties & {
+    '--bezier-modal-z-index': ModalContentProps['zIndex']
+  } => ({
+    '--bezier-modal-z-index': zIndex,
+  }), [zIndex])
+
   const contentStyle = useMemo((): React.CSSProperties & {
     '--bezier-modal-width': ModalContentProps['width']
     '--bezier-modal-height': ModalContentProps['height']
-    '--bezier-modal-z-index': ModalContentProps['zIndex']
   } => ({
     ...style,
     '--bezier-modal-width': isNumber(width) ? `${width}px` : width,
     '--bezier-modal-height': isNumber(height) ? `${height}px` : height,
-    '--bezier-modal-z-index': zIndex,
   }), [
     style,
     width,
     height,
-    zIndex,
   ])
 
   const contextValue = useMemo((): ModalContentContextValue => ({
@@ -47,28 +50,29 @@ export const ModalContent = forwardRef(function ModalContent({
 
   return (
     <DialogPrimitive.Portal container={container}>
-      <Styled.DialogPrimitiveOverlay />
-      <DialogPrimitive.Content asChild>
-        <Styled.Content
-          aria-modal
-          ref={forwardedRef}
-          style={contentStyle}
-          {...rest}
-        >
-          <Styled.Section>
-            <ModalContentContext.Provider value={contextValue}>
-              { children }
-            </ModalContentContext.Provider>
+      <Styled.DialogPrimitiveOverlay style={overlayStyle}>
+        <DialogPrimitive.Content asChild>
+          <Styled.Content
+            aria-modal
+            ref={forwardedRef}
+            style={contentStyle}
+            {...rest}
+          >
+            <Styled.Section>
+              <ModalContentContext.Provider value={contextValue}>
+                { children }
+              </ModalContentContext.Provider>
 
-            { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
-            { showCloseIcon && (
-              <ModalClose>
-                <Styled.CloseIconButton />
-              </ModalClose>
-            ) }
-          </Styled.Section>
-        </Styled.Content>
-      </DialogPrimitive.Content>
+              { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
+              { showCloseIcon && (
+                <ModalClose>
+                  <Styled.CloseIconButton />
+                </ModalClose>
+              ) }
+            </Styled.Section>
+          </Styled.Content>
+        </DialogPrimitive.Content>
+      </Styled.DialogPrimitiveOverlay>
     </DialogPrimitive.Portal>
   )
 })

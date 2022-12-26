@@ -33,11 +33,11 @@ const overlayHide = keyframes`
 const contentStyles = {
   open: css`
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(0, 0) scale(1);
   `,
   closed: css`
     opacity: 0;
-    transform: translate(-50%, -48%) scale(0.95);
+    transform: translate(0, -2%) scale(0.95);
   `,
 }
 

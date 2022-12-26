@@ -5,6 +5,7 @@ import React from 'react'
 import {
   LightFoundation,
   DarkFoundation,
+  createGlobalStyle,
 } from 'Foundation'
 import BezierProvider from 'Providers/BezierProvider'
 import { Text } from 'Components/Text'
@@ -52,14 +53,11 @@ function getFoundation(keyword) {
   }
 }
 
-const customGlobalStyle = {
-  // You can inject custom global CSS
-  global: {
-    html: {
-      fontFamily: 'Inter',
-    }
+const GlobalStyle = createGlobalStyle`
+  :root {
+    font-family: Inter, sans-serif;
   }
-}
+`
 
 const wrapperStyle = {
   display: 'flex',
@@ -90,8 +88,8 @@ const innerWrapperStyle = {
 function withFoundationProvider(Story, context) {
   const {
     isDarkFoundation,
-    foundation: Foundation,
-    invertedFoundation: InvertedFoundation,
+    foundation,
+    invertedFoundation,
    } = getFoundation(context.globals.Foundation)
 
   const [backgroundColor, invertedBackgroundColor, themeName, invertedThemeName] = (() => {
@@ -105,45 +103,42 @@ function withFoundationProvider(Story, context) {
       : [lightBackgroundColor, darkBackgroundColor, lightThemeName, darkThemeName]
   })()
 
-  const foundation = {
-    ...Foundation,
-    ...customGlobalStyle,
-  }
-
-  const invertedFoundation = {
-    ...InvertedFoundation,
-    ...customGlobalStyle,
-  }
-
   return (
-    <div style={wrapperStyle}>
-      <BezierProvider 
-        foundation={foundation}
-        themeVarsScope=".theme"
-      >
-        <div className="theme" style={storyWrapperStyle}>
-          <div style={{ ...innerWrapperStyle, backgroundColor }}>
-            { Story(context) }
-          </div>
-          <Text bold color="bgtxt-absolute-black-light">
-            { themeName }
-          </Text>
+    <>
+      <GlobalStyle />
+
+      <BezierProvider foundation={foundation}>
+        <div style={wrapperStyle}>
+          <BezierProvider 
+            foundation={foundation}
+            themeVarsScope=".theme"
+          >
+            <div className="theme" style={storyWrapperStyle}>
+              <div style={{ ...innerWrapperStyle, backgroundColor }}>
+                { Story(context) }
+              </div>
+              <Text bold color="bgtxt-absolute-black-light">
+                { themeName }
+              </Text>
+            </div>
+          </BezierProvider>
+
+          <BezierProvider
+            foundation={invertedFoundation}
+            themeVarsScope=".inverted-theme"
+          >
+            <div className="inverted-theme" style={storyWrapperStyle}>
+              <div style={{ ...innerWrapperStyle, backgroundColor: invertedBackgroundColor }}>
+                { Story(context) }
+              </div>
+              <Text bold color="bgtxt-absolute-black-light">
+                { invertedThemeName }
+              </Text>
+            </div>
+          </BezierProvider>
         </div>
       </BezierProvider>
-      <BezierProvider
-        foundation={invertedFoundation}
-        themeVarsScope=".inverted-theme"
-      >
-        <div className="inverted-theme" style={storyWrapperStyle}>
-          <div style={{ ...innerWrapperStyle, backgroundColor: invertedBackgroundColor }}>
-            { Story(context) }
-          </div>
-          <Text bold color="bgtxt-absolute-black-light">
-            { invertedThemeName }
-          </Text>
-        </div>
-      </BezierProvider>
-    </div>
+    </>
   )
 }
 
