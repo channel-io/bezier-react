@@ -25,6 +25,12 @@ export const ModalContent = forwardRef(function ModalContent({
   zIndex = 0,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const overlayStyle = useMemo((): React.CSSProperties & {
+    '--bezier-modal-z-index': ModalContentProps['zIndex']
+  } => ({
+    '--bezier-modal-z-index': zIndex,
+  }), [zIndex])
+
   const contentStyle = useMemo((): React.CSSProperties & {
     '--bezier-modal-width': ModalContentProps['width']
     '--bezier-modal-height': ModalContentProps['height']
@@ -44,7 +50,7 @@ export const ModalContent = forwardRef(function ModalContent({
 
   return (
     <DialogPrimitive.Portal container={container}>
-      <Styled.DialogPrimitiveOverlay style={{ '--bezier-modal-z-index': zIndex } as React.CSSProperties}>
+      <Styled.DialogPrimitiveOverlay style={overlayStyle}>
         <DialogPrimitive.Content asChild>
           <Styled.Content
             aria-modal
