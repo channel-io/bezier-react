@@ -38,10 +38,6 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
   -ms-overflow-style: none;
   font-size: 1.4rem;
   line-height: 1.8rem;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
   color: #000000D9;
 }
 
@@ -68,37 +64,21 @@ exports[`TextArea 테스트 > SnapShot 테스트 > 1`] = `
 .c1::-webkit-input-placeholder {
   font-size: 1.4rem;
   line-height: 1.8rem;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
 }
 
 .c1::-moz-placeholder {
   font-size: 1.4rem;
   line-height: 1.8rem;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
 }
 
 .c1:-ms-input-placeholder {
   font-size: 1.4rem;
   line-height: 1.8rem;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
 }
 
 .c1::placeholder {
   font-size: 1.4rem;
   line-height: 1.8rem;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
 }
 
 <div

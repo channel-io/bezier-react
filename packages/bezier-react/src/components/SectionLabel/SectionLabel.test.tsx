@@ -28,8 +28,8 @@ describe('SectionLabel', () => {
     const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
 
     expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('--bezier-text-font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('--bezier-text-font-size: 1.3rem;')
+    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
+    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
   })
 
   it('renders number content as bold text with Typography.Size13', () => {
@@ -37,8 +37,8 @@ describe('SectionLabel', () => {
     const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
 
     expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('--bezier-text-font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('--bezier-text-font-size: 1.3rem;')
+    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
+    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
   })
 
   it('renders element content as it is', () => {

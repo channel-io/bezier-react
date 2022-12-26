@@ -2,7 +2,7 @@
 import { css } from 'styled-components'
 
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, ColorProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from 'Types/ComponentProps'
 
 interface TextOptions {
   bold?: boolean
@@ -15,11 +15,12 @@ interface TextOptions {
   marginVertical?: number
   marginHorizontal?: number
   marginAll?: number
+  onClick?: React.MouseEventHandler
 }
 
-export interface TextProps extends
+export default interface TextProps extends
   BezierComponentProps,
   ChildrenProps,
   ColorProps,
-  Omit<React.HTMLAttributes<HTMLElement>, keyof ColorProps>,
+  Partial<IdentifierProps>,
   TextOptions {}
