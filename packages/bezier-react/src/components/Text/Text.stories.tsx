@@ -5,8 +5,8 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
-import { Text } from './Text'
-import { TextProps } from './Text.types'
+import Text from './Text'
+import TextProps from './Text.types'
 
 export default {
   title: getTitle(base),

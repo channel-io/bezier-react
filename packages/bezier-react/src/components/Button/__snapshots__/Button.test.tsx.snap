@@ -2,19 +2,12 @@
 
 exports[`Button Test > Active Test > Active prop change Button to hover style 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -99,7 +92,6 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -109,19 +101,12 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
 
 exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -202,7 +187,6 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -227,19 +211,12 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
 }
 
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -343,7 +320,6 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -362,19 +338,12 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
 
 exports[`Button Test > Reset CSS 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -458,7 +427,6 @@ exports[`Button Test > Reset CSS 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -468,19 +436,16 @@ exports[`Button Test > Reset CSS 1`] = `
 
 exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -571,7 +536,6 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -581,19 +545,16 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
 
 exports[`Button Test > Size Test > with text > Size L 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -677,7 +638,6 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -687,19 +647,12 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
 
 exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -790,7 +743,6 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -800,19 +752,12 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
 
 exports[`Button Test > Size Test > with text > Size M 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -896,7 +841,6 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -906,19 +850,12 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
 
 exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1009,7 +946,6 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1019,19 +955,12 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
 
 exports[`Button Test > Size Test > with text > Size S 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1115,7 +1044,6 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1125,19 +1053,12 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
 
 exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1228,7 +1149,6 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.8rem; --bezier-text-line-height: 2.4rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1238,19 +1158,12 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
 
 exports[`Button Test > Size Test > with text > Size XL 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1334,7 +1247,6 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.8rem; --bezier-text-line-height: 2.4rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1344,19 +1256,12 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
 
 exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1447,7 +1352,6 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1457,19 +1361,12 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
 
 exports[`Button Test > Size Test > with text > Size XS 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1553,7 +1450,6 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.3rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -1563,19 +1459,12 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
 
 exports[`Button Test > Size Test > with text > size prop not given, default size is Size M 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -1659,7 +1548,6 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -2019,19 +1907,12 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
 
 exports[`Button Test > StyleVariant Test > Floating 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -2122,7 +2003,6 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -2132,19 +2012,12 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
 
 exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -2235,7 +2108,6 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -2245,19 +2117,12 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
 
 exports[`Button Test > StyleVariant Test > Primary 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -2341,7 +2206,6 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -2351,19 +2215,12 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
 
 exports[`Button Test > StyleVariant Test > Secondary 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -2447,7 +2304,6 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>
@@ -2457,19 +2313,12 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
 
 exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
 .c2 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -2554,7 +2403,6 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
     <span
       class="c2 c3"
       data-testid="bezier-react-button-text"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
     >
       Test Button
     </span>

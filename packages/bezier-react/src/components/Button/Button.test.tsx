@@ -158,8 +158,8 @@ describe('Button Test >', () => {
         expect(defaultButton).toHaveStyle(`padding: 0 ${defaultButtonPadding}px 0 ${defaultButtonPadding}px;`)
 
         // Typograpy.Size14
-        expect(defaultButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
-        expect(defaultButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+        expect(defaultButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
+        expect(defaultButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
 
         // Text padding value by ButtonSize
         expect(defaultButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.M]}px;`)
@@ -178,8 +178,8 @@ describe('Button Test >', () => {
         expect(xsButton).toHaveStyle(`padding: 0 ${xsDefaultButtonPadding}px 0 ${xsDefaultButtonPadding}px;`)
 
         // Typograpy.Size13
-        expect(xsButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
-        expect(xsButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+        expect(xsButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
+        expect(xsButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
 
         // Text padding value by ButtonSize
         expect(xsButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.XS]}px;`)
@@ -211,8 +211,8 @@ describe('Button Test >', () => {
         expect(sButton).toHaveStyle(`padding: 0 ${sDefaultButtonPadding}px 0 ${sDefaultButtonPadding}px;`)
 
         // Typograpy.Size13
-        expect(sButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
-        expect(sButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+        expect(sButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo13}rem;`)
+        expect(sButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
 
         // Text padding value by ButtonSize
         expect(sButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.S]}px;`)
@@ -245,8 +245,8 @@ describe('Button Test >', () => {
         expect(mButton).toHaveStyle(`padding: 0 ${mDefaultButtonPadding}px 0 ${mDefaultButtonPadding}px;`)
 
         // Typograpy.Size14
-        expect(mButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
-        expect(mButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
+        expect(mButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo14}rem;`)
+        expect(mButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh18}rem;`)
 
         // Text padding value by ButtonSize
         expect(mButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.M]}px;`)
@@ -278,8 +278,8 @@ describe('Button Test >', () => {
         expect(lButton).toHaveStyle(`padding: 0 ${lDefaultButtonPadding}px 0 ${lDefaultButtonPadding}px;`)
 
         // Typography.Size15
-        expect(lButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo15}rem;`)
-        expect(lButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh20}rem;`)
+        expect(lButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo15}rem;`)
+        expect(lButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh20}rem;`)
 
         // Text padding value by ButtonSize
         expect(lButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.L]}px;`)
@@ -311,8 +311,8 @@ describe('Button Test >', () => {
         expect(xlButton).toHaveStyle(`padding: 0 ${xlDefaultButtonPadding}px 0 ${xlDefaultButtonPadding}px;`)
 
         // Typography.Size18
-        expect(xlButtonText).toHaveStyle(`--bezier-text-font-size: ${TypoAbsoluteNumber.Typo18}rem;`)
-        expect(xlButtonText).toHaveStyle(`--bezier-text-line-height: ${LineHeightAbsoluteNumber.Lh24}rem;`)
+        expect(xlButtonText).toHaveStyle(`font-size: ${TypoAbsoluteNumber.Typo18}rem;`)
+        expect(xlButtonText).toHaveStyle(`line-height: ${LineHeightAbsoluteNumber.Lh24}rem;`)
 
         // Text padding value by ButtonSize
         expect(xlButtonText).toHaveStyle(`padding: 0 ${TEXT_PADDING_VALUE[ButtonSize.XL]}px;`)

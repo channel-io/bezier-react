@@ -2,19 +2,12 @@
 
 exports[`SegmentedControl Snapshot 1`] = `
 .c4 {
-  margin-top: var(--bezier-text-margin-top);
-  margin-right: var(--bezier-text-margin-right);
-  margin-bottom: var(--bezier-text-margin-bottom);
-  margin-left: var(--bezier-text-margin-left);
-  font-size: var(--bezier-text-font-size);
-  font-style: var(--bezier-text-font-style);
-  font-weight: var(--bezier-text-font-weight);
-  line-height: var(--bezier-text-line-height);
-  color: var(--bezier-text-font-color);
-  -webkit-letter-spacing: var(--bezier-text-letter-spacing);
-  -moz-letter-spacing: var(--bezier-text-letter-spacing);
-  -ms-letter-spacing: var(--bezier-text-letter-spacing);
-  letter-spacing: var(--bezier-text-letter-spacing);
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -25,7 +18,28 @@ exports[`SegmentedControl Snapshot 1`] = `
   transition-property: color;
 }
 
-.c7 {
+.c5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c8 {
   overflow: hidden;
   border-radius: 1px;
   background-color: #00000014;
@@ -107,7 +121,7 @@ exports[`SegmentedControl Snapshot 1`] = `
   background-color: #0000000D;
 }
 
-.c5 {
+.c6 {
   position: absolute;
   display: -webkit-box;
   display: -webkit-flex;
@@ -185,14 +199,14 @@ exports[`SegmentedControl Snapshot 1`] = `
   background-color: #FFFFFF;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   top: 2px;
   bottom: 2px;
   visibility: hidden;
 }
 
-.c8 {
+.c9 {
   position: absolute;
   top: 2px;
   bottom: 2px;
@@ -217,28 +231,28 @@ exports[`SegmentedControl Snapshot 1`] = `
   >
     <span
       class="c4"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+      data-testid="bezier-react-text"
     >
       <span
-        class="c4"
-        style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+        class="c5"
+        data-testid="bezier-react-text"
       >
         0
       </span>
     </span>
   </div>
   <div
-    class="c5"
+    class="c6"
     data-testid="bezier-react-segmented-control-option-item-1"
     style="width: -1.75px; left: 1.25px;"
   >
     <span
       class="c4"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+      data-testid="bezier-react-text"
     >
       <span
-        class="c4"
-        style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+        class="c5"
+        data-testid="bezier-react-text"
       >
         1
       </span>
@@ -251,11 +265,11 @@ exports[`SegmentedControl Snapshot 1`] = `
   >
     <span
       class="c4"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+      data-testid="bezier-react-text"
     >
       <span
-        class="c4"
-        style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+        class="c5"
+        data-testid="bezier-react-text"
       >
         2
       </span>
@@ -268,24 +282,24 @@ exports[`SegmentedControl Snapshot 1`] = `
   >
     <span
       class="c4"
-      style="--bezier-text-font-size: 1.4rem; --bezier-text-line-height: 1.8rem; --bezier-text-letter-spacing: normal; --bezier-text-font-style: normal; --bezier-text-font-weight: bold; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+      data-testid="bezier-react-text"
     >
       <span
-        class="c4"
-        style="--bezier-text-font-size: 1.5rem; --bezier-text-line-height: 2rem; --bezier-text-letter-spacing: -0.1px; --bezier-text-font-style: normal; --bezier-text-font-weight: normal; --bezier-text-font-color: inherit; --bezier-text-margin-top: 0px; --bezier-text-margin-right: 0px; --bezier-text-margin-bottom: 0px; --bezier-text-margin-left: 0px;"
+        class="c5"
+        data-testid="bezier-react-text"
       >
         3
       </span>
     </span>
   </div>
   <div
-    class="c6"
+    class="c7"
     hidden=""
     style="left: -5.75px;"
   >
     <div
       aria-orientation="vertical"
-      class="c7"
+      class="c8"
       data-orientation="vertical"
       data-testid="bezier-react-divider"
       orientation="vertical"
@@ -293,13 +307,13 @@ exports[`SegmentedControl Snapshot 1`] = `
     />
   </div>
   <div
-    class="c6"
+    class="c7"
     hidden=""
     style="left: -6.5px;"
   >
     <div
       aria-orientation="vertical"
-      class="c7"
+      class="c8"
       data-orientation="vertical"
       data-testid="bezier-react-divider"
       orientation="vertical"
@@ -307,12 +321,12 @@ exports[`SegmentedControl Snapshot 1`] = `
     />
   </div>
   <div
-    class="c8"
+    class="c9"
     style="left: -7.25px;"
   >
     <div
       aria-orientation="vertical"
-      class="c7"
+      class="c8"
       data-orientation="vertical"
       data-testid="bezier-react-divider"
       orientation="vertical"
