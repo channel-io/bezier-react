@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.179
+
+### Patch Changes
+
+- [#1070](https://github.com/channel-io/bezier-react/pull/1070) [`78d217ec`](https://github.com/channel-io/bezier-react/commit/78d217ec20c85d4ec9485e40de1f9542a83aa29d) Thanks [@guswnsxodlf](https://github.com/guswnsxodlf)! - Enhance the Slider component
+
+* [#1086](https://github.com/channel-io/bezier-react/pull/1086) [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726) Thanks [@sungik-choi](https://github.com/sungik-choi)! - revert https://github.com/channel-io/bezier-react/pull/1068
+
 ## 1.0.0-next-v1.178
 
 ### Patch Changes
