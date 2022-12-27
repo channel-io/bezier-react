@@ -6,6 +6,7 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "beige-rice-shout",
     "big-dingos-compete",
     "big-penguins-compare",
     "chilly-ladybugs-laugh",
@@ -32,7 +33,6 @@
     "nervous-wasps-help",
     "old-olives-trade",
     "old-students-raise",
-    "orange-zoos-scream",
     "poor-brooms-arrive",
     "pretty-tools-sneeze",
     "purple-shrimps-play",
@@ -57,6 +57,7 @@
     "witty-bananas-return",
     "witty-planets-exist",
     "witty-starfishes-shake",
-    "young-onions-fry"
+    "young-onions-fry",
+    "young-parrots-happen"
   ]
 }
