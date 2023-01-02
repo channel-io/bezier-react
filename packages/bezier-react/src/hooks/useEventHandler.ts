@@ -5,6 +5,7 @@ import { useEffect, useRef, useMemo } from 'react'
 import {
   isFunction,
   isNil,
+  noop,
 } from 'Utils/typeUtils'
 import {
   isEqual,
@@ -42,7 +43,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
       }
     }
 
-    return () => {}
+    return noop
   }, [
     condition,
     element,

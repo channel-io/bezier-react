@@ -8,6 +8,7 @@ import {
   isBoolean,
   isNil,
   isEmpty,
+  noop,
 } from 'Utils/typeUtils'
 import { IconSize } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
@@ -30,7 +31,7 @@ function ItemAction(
           hoverBackgroundColor={action.hoverBackgroundColor ?? 'bg-black-lighter'}
           hoverIconColor={action.hoverIconColor ?? 'txt-black-darkest'}
           show={isBoolean(action.show) ? action.show : true}
-          onClick={action.onClick ?? (() => {})}
+          onClick={action.onClick ?? noop}
         >
           <Styled.ActionIcon
             name={action.icon}

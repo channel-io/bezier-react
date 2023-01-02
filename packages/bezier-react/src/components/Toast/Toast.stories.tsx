@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal depependencies */
 import { styled } from 'Foundation'
 import { iconList, getTitle } from 'Utils/storyUtils'
+import { noop } from 'Utils/typeUtils'
 import { ProgressBar } from 'Components/ProgressBar'
 import { StackItem, VStack } from 'Components/Stack'
 import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
@@ -76,7 +77,7 @@ Primary.args = {
   appearance: undefined,
   iconName: undefined,
   actionContent: '새로고침',
-  onClick: () => {},
+  onClick: noop,
 }
 
 function Div({

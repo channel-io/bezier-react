@@ -5,6 +5,7 @@ import type { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { noop } from 'Utils/typeUtils'
 import {
   StackItem,
   VStack,
@@ -63,7 +64,7 @@ Playground.args = {
   icon: 'lightbulb',
   content: 'Information here.',
   actionIcon: 'cancel-small',
-  onClickAction: () => {},
+  onClickAction: noop,
 }
 
 export const Overview: Story<{}> = () => (

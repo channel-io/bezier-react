@@ -3,6 +3,7 @@ import React, { useCallback, memo } from 'react'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import { noop } from 'Utils/typeUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import type NavItemProps from './NavItem.types'
@@ -29,7 +30,7 @@ function NavItem({
   rightContent,
   leftIcon,
   active,
-  onClick = () => {},
+  onClick = noop,
 }: NavItemProps) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)

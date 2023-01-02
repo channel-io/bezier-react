@@ -8,6 +8,7 @@ import {
 } from 'Utils/arrayUtils'
 import {
   isArray,
+  noop,
 } from 'Utils/typeUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
@@ -109,10 +110,10 @@ export const Button = forwardRef(function Button(
     colorVariant = ButtonColorVariant.Blue,
     leftContent,
     rightContent,
-    onClick = () => {},
-    onMouseEnter = () => {},
-    onMouseLeave = () => {},
-    onBlur = () => {},
+    onClick = noop,
+    onMouseEnter = noop,
+    onMouseLeave = noop,
+    onBlur = noop,
     ...rest
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,

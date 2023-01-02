@@ -7,6 +7,7 @@ import { useResizeDetector } from 'react-resize-detector'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import {
   isNumber,
+  noop,
 } from 'Utils/typeUtils'
 import {
   range,
@@ -53,7 +54,7 @@ function SegmentedControl(
     size = SegmentedControlSize.M,
     /* OptionItemHost props */
     selectedOptionIndex = 0,
-    onChangeOption = () => {},
+    onChangeOption = noop,
     /* HTMLAttribute props */
     children,
     ...rest
@@ -116,7 +117,7 @@ function SegmentedControl(
         width: optionItemWidth,
         left: optionItemLeft(index),
       }}
-      onClick={() => (disabled ? () => {} : handleClickOptionItem(index))}
+      onClick={() => (disabled ? noop : handleClickOptionItem(index))}
     >
       <Text
         typo={SIZE_TO_OPTION_TYPOGRAPHY[size]}

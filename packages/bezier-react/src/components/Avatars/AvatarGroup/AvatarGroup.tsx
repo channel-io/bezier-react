@@ -4,6 +4,7 @@ import React, { forwardRef, useCallback, useMemo } from 'react'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { isLastIndex } from 'Utils/arrayUtils'
+import { noop } from 'Utils/typeUtils'
 import { Icon, IconSize, MoreIcon } from 'Components/Icon'
 import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
@@ -66,8 +67,8 @@ export const AvatarGroup = forwardRef(function AvatarGroup({
   size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
-  onMouseEnterEllipsis = () => {},
-  onMouseLeaveEllipsis = () => {},
+  onMouseEnterEllipsis = noop,
+  onMouseLeaveEllipsis = noop,
   ellipsisInterpolation,
   style,
   className,

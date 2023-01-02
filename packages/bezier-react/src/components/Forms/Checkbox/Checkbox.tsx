@@ -5,6 +5,7 @@ import React, { Ref, forwardRef, useMemo } from 'react'
 import {
   isBoolean,
   isEmpty,
+  noop,
 } from 'Utils/typeUtils'
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
@@ -29,7 +30,7 @@ function Checkbox(
     contentClassName,
     checked = false,
     children,
-    onClick = () => {},
+    onClick = noop,
     ...rest
   }: CheckboxProps,
   forwardedRef: Ref<any>,
@@ -71,7 +72,7 @@ function Checkbox(
     <Styled.Wrapper
       ref={forwardedRef}
       disabled={disabled}
-      onClick={disabled ? () => {} : onClick}
+      onClick={disabled ? noop : onClick}
       data-testid={testId}
       {...ownProps}
     >

@@ -5,6 +5,7 @@ import React, { forwardRef, useMemo } from 'react'
 import { backgroundImageVariable } from 'Foundation'
 import {
   isEmpty,
+  noop,
 } from 'Utils/typeUtils'
 import { Status, StatusSize } from 'Components/Status'
 // eslint-disable-next-line no-restricted-imports
@@ -26,9 +27,9 @@ export const Avatar = forwardRef(function Avatar({
   disabled = false,
   showBorder = false,
   status,
-  onClick = () => {},
-  onMouseEnter = () => {},
-  onMouseLeave = () => {},
+  onClick = noop,
+  onMouseEnter = noop,
+  onMouseLeave = noop,
   className,
   wrapperClassName,
   interpolation,

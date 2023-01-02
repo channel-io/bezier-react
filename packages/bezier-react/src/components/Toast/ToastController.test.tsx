@@ -5,6 +5,7 @@ import { act } from '@testing-library/react'
 /* Internal dependencies */
 import { css, TransitionDuration } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import { noop } from 'Utils/typeUtils'
 import { ToastControllerProps, ToastPlacement } from './Toast.types'
 import ToastElement from './ToastElement'
 import ToastController from './ToastController'
@@ -18,7 +19,7 @@ describe('ToastController >', () => {
       autoDismissTimeout: 5000,
       transitionDuration: TransitionDuration.M,
       content: 'Test Toast',
-      onDismiss: () => {},
+      onDismiss: noop,
       transform: css``,
       placement: ToastPlacement.BottomLeft,
       component: ToastElement,

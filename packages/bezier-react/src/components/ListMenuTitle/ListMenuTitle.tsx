@@ -3,6 +3,7 @@ import React, { useCallback } from 'react'
 /* Internal dependencies */
 import {
   isNil,
+  noop,
 } from 'Utils/typeUtils'
 import ListMenuTitleProps from './ListMenuTitle.types'
 import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
@@ -15,8 +16,8 @@ function ListMenuTitle({
   content,
   hide = false,
   rightAction = null,
-  onClick = () => {},
-  onClickAction = () => {},
+  onClick = noop,
+  onClickAction = noop,
   style,
   className,
 }: ListMenuTitleProps) {

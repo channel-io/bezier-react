@@ -8,6 +8,7 @@ import React, {
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
+import { noop } from 'Utils/typeUtils'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
@@ -18,8 +19,8 @@ export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
-    onThumbPointerDown = () => {},
-    onThumbPointerUp = () => {},
+    onThumbPointerDown = noop,
+    onThumbPointerUp = noop,
     defaultValue = [5],
     value,
     disabled = false,

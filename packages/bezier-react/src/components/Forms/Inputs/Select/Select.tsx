@@ -15,6 +15,7 @@ import { Typography } from 'Foundation'
 import { ZIndex } from 'Constants/ZIndex'
 import {
   isEmpty,
+  noop,
 } from 'Utils/typeUtils'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
@@ -58,8 +59,8 @@ function Select({
   dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
   dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
   dropdownPosition = OverlayPosition.BottomLeft,
-  onClickTrigger = () => {},
-  onHideDropdown = () => {},
+  onClickTrigger = noop,
+  onHideDropdown = noop,
   children,
   ...rest
 }: SelectProps,

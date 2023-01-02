@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { css, Typography } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import { noop } from 'Utils/typeUtils'
 import { ListItem } from 'Components/ListItem'
 import { Text } from 'Components/Text'
 import type { ListItemProps } from 'Components/ListItem'
@@ -53,7 +54,7 @@ const Template: Story<SectionLabelProps & {
         rightContent={{
           icon: 'plus-circle',
           iconColor: 'bgtxt-teal-normal',
-          onClick: () => {},
+          onClick: noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -71,7 +72,7 @@ const Template: Story<SectionLabelProps & {
         leftContent={{
           icon: 'star-filled',
           iconColor: 'bgtxt-yellow-normal',
-          onClick: () => {},
+          onClick: noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -90,8 +91,8 @@ const Template: Story<SectionLabelProps & {
         leftContent={{ icon: 'star-filled' }}
         rightContent={[
           testNumberLabel,
-          { icon: 'plus-circle-filled', onClick: () => {} },
-          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: () => {} },
+          { icon: 'plus-circle-filled', onClick: noop },
+          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: noop },
         ]}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"

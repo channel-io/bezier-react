@@ -9,6 +9,7 @@ import {
   isNil,
   isString,
   isEmpty,
+  noop,
 } from 'Utils/typeUtils'
 import { mergeClassNames } from 'Utils/stringUtils'
 import { Text } from 'Components/Text'
@@ -62,10 +63,10 @@ function ListItem({
   focused = false,
   disabled = false,
   /* HTMLAttribute Props */
-  onClick = () => {},
-  onMouseDown = () => {},
-  onMouseEnter = () => {},
-  onMouseLeave = () => {},
+  onClick = noop,
+  onMouseDown = noop,
+  onMouseEnter = noop,
+  onMouseLeave = noop,
   ...otherProps
 }: ListItemProps,
 forwardedRef: React.Ref<ListItemRef>,

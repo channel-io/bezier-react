@@ -5,6 +5,7 @@ import React, { useCallback, memo } from 'react'
 import { Typography } from 'Foundation'
 import {
   isNil,
+  noop,
 } from 'Utils/typeUtils'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from 'Components/Icon'
 import { Text } from 'Components/Text'
@@ -34,7 +35,7 @@ function NavGroup({
   leftIcon,
   open,
   active,
-  onClick = () => {},
+  onClick = noop,
 }: NavGroupProps) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)

@@ -3,6 +3,7 @@ import React, { useMemo, forwardRef } from 'react'
 
 /* Internal dependencies */
 import { backgroundImageVariable } from 'Foundation'
+import { noop } from 'Utils/typeUtils'
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
 import { Icon } from './Emoji.styled'
@@ -19,7 +20,7 @@ function Emoji(
     interpolation,
     size = EmojiSize.Size24,
     testId = EMOJI_TEST_ID,
-    onClick = () => {},
+    onClick = noop,
   }: EmojiProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {

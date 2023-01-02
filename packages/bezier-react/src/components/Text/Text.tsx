@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import { noop } from 'Utils/typeUtils'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 

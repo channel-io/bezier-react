@@ -1,6 +1,9 @@
 /* External dependencies */
 import React, { createContext } from 'react'
 
+/* Internal dependencies */
+import { noop } from 'Utils/typeUtils'
+
 export interface OutlineItemContextProps {
   depth: number
   paddingLeft: number
@@ -12,7 +15,7 @@ export const defaultOutlineItemContext = {
   depth: 0,
   paddingLeft: 0,
   active: false,
-  onClick: () => {},
+  onClick: noop,
 }
 
 export function mergeOutlineItemContexts(

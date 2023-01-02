@@ -3,6 +3,7 @@ import React, { ReactNode, ComponentType } from 'react'
 
 /* Internal dependencies */
 import { TransitionDuration } from 'Foundation'
+import { noop } from 'Utils/typeUtils'
 import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
 import { InjectedInterpolation } from 'Types/Foundation'
 import { IconName } from 'Components/Icon'
@@ -87,7 +88,7 @@ export const defaultOptions: ToastOptions = {
   iconName: 'info-filled',
   appearance: ToastAppearance.Info,
   autoDismiss: false,
-  onDismiss: () => {},
+  onDismiss: noop,
   rightSide: false,
 }
 

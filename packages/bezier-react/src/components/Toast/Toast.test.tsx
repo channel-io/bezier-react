@@ -6,6 +6,7 @@ import { css, TransitionDuration } from 'Foundation'
 import { DarkTheme } from 'Foundation/Colors/Theme'
 import { ZIndex } from 'Constants/ZIndex'
 import { render } from 'Utils/testUtils'
+import { noop } from 'Utils/typeUtils'
 import ToastElementProps, { ToastAppearance, ToastPlacement, ToastPreset } from './Toast.types'
 import ToastElement, { TOAST_TEST_ID } from './ToastElement'
 
@@ -16,7 +17,7 @@ describe('Toast test >', () => {
     props = {
       content: 'Test Toast',
       transitionDuration: TransitionDuration.M,
-      onDismiss: () => {},
+      onDismiss: noop,
       transform: css``,
       placement: ToastPlacement.BottomLeft,
     }

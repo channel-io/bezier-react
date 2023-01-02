@@ -2,6 +2,7 @@
 import { useCallback, useMemo, useState } from 'react'
 
 /* Internal dependencies */
+import { noop } from 'Utils/typeUtils'
 import {
   OnDismissCallback,
   defaultOptions,
@@ -86,7 +87,7 @@ function useToastContextValues(): UseToastContextValuesReturns {
     rightToastService,
   ])
 
-  const dismiss = useCallback((toastId: ToastId, callback: OnDismissCallback = () => {}) => {
+  const dismiss = useCallback((toastId: ToastId, callback: OnDismissCallback = noop) => {
     callback(toastId)
     remove(toastId)
   }, [remove])

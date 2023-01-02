@@ -4,6 +4,7 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 /* Internal dependencies */
 import {
   isNil,
+  noop,
 } from 'Utils/typeUtils'
 import { IconSize, isIconName } from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
@@ -46,13 +47,13 @@ function OutlineItem(
     content = null,
     rightContent = null,
     hide = false,
-    onOpen = () => {},
-    onClickArrow = () => {},
+    onOpen = noop,
+    onClickArrow = noop,
     /* OptionMenuHost Props */
     selectedOutlineItemIndex = null,
-    onChangeOption = () => {},
+    onChangeOption = noop,
     /* HTMLAttribute props */
-    onClick: givenOnClick = () => {},
+    onClick: givenOnClick = noop,
     children,
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,

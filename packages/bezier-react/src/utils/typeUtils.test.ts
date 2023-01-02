@@ -12,12 +12,13 @@ import {
   isSymbol,
   isRegExp,
   isEmpty,
+  noop,
 } from './typeUtils'
 
 describe('typeUtils', () => {
   describe('isFunction', () => {
     it('is function', () => {
-      expect(isFunction(() => {})).toBe(true)
+      expect(isFunction(noop)).toBe(true)
       expect(isFunction(function func() {})).toBe(true)
     })
   })
@@ -49,7 +50,7 @@ describe('typeUtils', () => {
       expect(isObject({})).toBe(true)
       expect(isObject({ a: 'A' })).toBe(true)
       expect(isObject([1, 2, 3])).toBe(true)
-      expect(isObject(() => {})).toBe(true)
+      expect(isObject(noop)).toBe(true)
     })
   })
 
@@ -58,6 +59,7 @@ describe('typeUtils', () => {
       expect(isArray(null)).toBe(false)
       expect(isArray(undefined)).toBe(false)
       expect(isArray('array')).toBe(false)
+      expect(isArray(noop)).toBe(false)
     })
 
     it('is array', () => {
@@ -175,6 +177,12 @@ describe('typeUtils', () => {
       expect(isEmpty([])).toBe(true)
       expect(isEmpty(new Set())).toBe(true)
       expect(isEmpty(new Map())).toBe(true)
+    })
+  })
+
+  describe('noop', () => {
+    it('should return undefined', () => {
+      expect(noop()).toBe(undefined)
     })
   })
 })
