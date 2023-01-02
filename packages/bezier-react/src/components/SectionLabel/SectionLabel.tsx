@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import {
+  isArray,
   isNil,
   isNumber,
   isString,
@@ -142,7 +143,7 @@ function SectionLabel({
       return null
     }
 
-    const items = Array.isArray(rightContent)
+    const items = isArray(rightContent)
       ? rightContent.map((item) => renderSectionLabelActionItem(item, uuid()))
       : renderSectionLabelActionItem(rightContent)
 

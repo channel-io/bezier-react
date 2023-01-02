@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import {
+  isArray,
   isNumber,
   isString,
   isSymbol,
@@ -69,7 +70,7 @@ export function isNumberString(value?: any) {
 export function toString(value: unknown): string {
   if (value == null) { return '' }
   if (typeof value === 'string') { return value }
-  if (Array.isArray(value)) {
+  if (isArray(value)) {
     return `${value.map((other) => {
       if (other == null) { return other }
       return toString(other)

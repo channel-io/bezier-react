@@ -13,12 +13,24 @@ export function isObject(value: unknown): value is object {
   return value != null && (type === 'object' || type === 'function')
 }
 
+export function isArray(value: any): value is any[] {
+  return Array.isArray(value)
+}
+
 export function isBoolean(value: unknown): value is boolean {
   return typeof value === 'boolean' || (isObject(value) && getTag(value) === '[object Boolean]')
 }
 
+export function isInteger(value: unknown): value is BigInteger {
+  return Number.isInteger(value)
+}
+
 export function isNumber(value: unknown): value is number {
   return typeof value === 'number' || (isObject(value) && getTag(value) === '[object Number]')
+}
+
+export function isNaN(value: unknown): boolean {
+  return Number.isNaN(value)
 }
 
 export function isString(value: unknown): value is string {
@@ -38,7 +50,7 @@ export const isMap = (value: unknown): value is Map<unknown, unknown> => getTag(
 
 export function isEmpty(value: unknown): boolean {
   if (value == null) { return true }
-  if (Array.isArray(value) || isString(value)) { return !value.length }
+  if (isArray(value) || isString(value)) { return !value.length }
   if (isMap(value) || isSet(value)) { return !value.size }
   if (isObject(value)) { return !Object.keys(value).length }
   if (isBoolean(value) || isNumber(value)) { return false }

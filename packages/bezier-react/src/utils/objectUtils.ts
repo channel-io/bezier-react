@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import {
+  isArray,
   isObject,
   isSet,
   isMap,
@@ -41,8 +42,8 @@ export function isEqual(source: unknown, other: unknown): boolean {
 
   if (source.constructor !== other.constructor) { return false }
 
-  if (Array.isArray(source)) {
-    if (!Array.isArray(other)) { return false }
+  if (isArray(source)) {
+    if (!isArray(other)) { return false }
     if (source.length !== other.length) { return false }
     for (let i = 0; i < source.length; i += 1) {
       if (!isEqual(source[i], other[i])) { return false }

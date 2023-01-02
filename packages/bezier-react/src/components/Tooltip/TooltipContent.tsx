@@ -7,6 +7,7 @@ import { Typography } from 'Foundation'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useEventHandler from 'Hooks/useEventHandler'
 import {
+  isArray,
   isString,
   isEmpty,
 } from 'Utils/typeUtils'
@@ -40,7 +41,7 @@ function getNewLineComponent(strContent: string) {
 }
 
 function getContentComponent(content?: React.ReactNode) {
-  if (Array.isArray(content)) {
+  if (isArray(content)) {
     return content.map(item => {
       if (isString(item)) {
         return getNewLineComponent(item)

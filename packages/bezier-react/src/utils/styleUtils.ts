@@ -4,6 +4,7 @@ import {
   isNil,
   isObject,
   isNumber,
+  isNaN,
   isString,
   isEmpty,
 } from 'Utils/typeUtils'
@@ -69,7 +70,7 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
   }
 
   if (isNumber(value)) {
-    if (Number.isNaN(value) || value === Infinity) { return defaultValue || `0${defaultUnit}` }
+    if (isNaN(value) || value === Infinity) { return defaultValue || `0${defaultUnit}` }
     if (options?.defaultUnit) { return `${value}${defaultUnit}` }
     return `${value}${defaultUnit}`
   }

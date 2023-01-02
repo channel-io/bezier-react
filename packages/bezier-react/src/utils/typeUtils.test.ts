@@ -3,8 +3,11 @@ import {
   isFunction,
   isNil,
   isObject,
+  isArray,
   isBoolean,
+  isInteger,
   isNumber,
+  isNaN,
   isString,
   isSymbol,
   isRegExp,
@@ -35,7 +38,7 @@ describe('typeUtils', () => {
   })
 
   describe('isObject', () => {
-    it('not a object', () => {
+    it('not an object', () => {
       expect(isObject(null)).toBe(false)
       expect(isObject(undefined)).toBe(false)
       expect(isObject(NaN)).toBe(false)
@@ -47,6 +50,19 @@ describe('typeUtils', () => {
       expect(isObject({ a: 'A' })).toBe(true)
       expect(isObject([1, 2, 3])).toBe(true)
       expect(isObject(() => {})).toBe(true)
+    })
+  })
+
+  describe('isArray', () => {
+    it('not an array', () => {
+      expect(isArray(null)).toBe(false)
+      expect(isArray(undefined)).toBe(false)
+      expect(isArray('array')).toBe(false)
+    })
+
+    it('is array', () => {
+      expect(isArray([])).toBe(true)
+      expect(isArray([1, 2, 3])).toBe(true)
     })
   })
 
@@ -64,6 +80,21 @@ describe('typeUtils', () => {
     })
   })
 
+  describe('isInteger', () => {
+    it('not an integer', () => {
+      expect(isInteger(Number.MIN_VALUE)).toBe(false)
+      expect(isInteger(Number.POSITIVE_INFINITY)).toBe(false)
+      expect(isInteger(undefined)).toBe(false)
+      expect(isInteger('123')).toBe(false)
+    })
+
+    it('is integer', () => {
+      expect(isInteger(3)).toBe(true)
+      expect(isInteger(Number('123'))).toBe(true)
+      expect(isInteger(Number.MAX_SAFE_INTEGER)).toBe(true)
+    })
+  })
+
   describe('isNumber', () => {
     it('not a number', () => {
       expect(isNumber(null)).toBe(false)
@@ -75,6 +106,19 @@ describe('typeUtils', () => {
       expect(isNumber(0)).toBe(true)
       expect(isNumber(Number('123'))).toBe(true)
       expect(isNumber(Infinity)).toBe(true)
+    })
+  })
+
+  describe('isNaN', () => {
+    it('not a NaN', () => {
+      expect(isNaN(null)).toBe(false)
+      expect(isNaN(undefined)).toBe(false)
+      expect(isNaN('123')).toBe(false)
+    })
+
+    it('is NaN', () => {
+      expect(isNaN(NaN)).toBe(true)
+      expect(isNaN(Number(NaN))).toBe(true)
     })
   })
 

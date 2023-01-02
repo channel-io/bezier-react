@@ -6,6 +6,9 @@ import { Typography, SemanticNames } from 'Foundation'
 import {
   flattenDeep,
 } from 'Utils/arrayUtils'
+import {
+  isArray,
+} from 'Utils/typeUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, {
@@ -33,7 +36,7 @@ function combinations(
   sizes: ButtonSize | ButtonSize[],
 ) : VariantTuple[] {
   function toArray<T>(items: T | T[]): T[] {
-    return Array.isArray(items) ? items : [items]
+    return isArray(items) ? items : [items]
   }
 
   return flattenDeep(

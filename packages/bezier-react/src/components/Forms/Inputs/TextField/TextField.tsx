@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
 import {
+  isArray,
   isNil,
   isEmpty,
 } from 'Utils/typeUtils'
@@ -302,7 +303,7 @@ forwardedRef: Ref<TextFieldRef>,
       return null
     }
 
-    const items = Array.isArray(rightContent)
+    const items = isArray(rightContent)
       ? rightContent.map((item) => renderRightItem(item, uuid()))
       : renderRightItem(rightContent)
 

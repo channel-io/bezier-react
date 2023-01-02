@@ -4,6 +4,7 @@ import type { Ref } from 'react'
 
 /* Internal dependencies */
 import {
+  isInteger,
   isNil,
 } from 'Utils/typeUtils'
 import * as Styled from './StackItem.styled'
@@ -11,7 +12,7 @@ import type StackItemProps from './StackItem.types'
 
 const sanitizeWeight = (weight: number): number => {
   if (weight < 0) { return 0 }
-  if (!Number.isInteger(weight)) { return 0 }
+  if (!isInteger(weight)) { return 0 }
   return weight
 }
 

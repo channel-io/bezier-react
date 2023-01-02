@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import { isNaN } from 'Utils/typeUtils'
 import { StatusType } from 'Components/Status'
 import { Avatar } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
@@ -13,7 +14,7 @@ import AvatarProps, { AvatarSize } from './Avatar.types'
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
 const avatarSizeList = Object.keys(AvatarSize)
-  .filter(value => Number.isNaN(Number(value)) === true)
+  .filter(value => isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
 const statusTypeList = Object.keys(StatusType)

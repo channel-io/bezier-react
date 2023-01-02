@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import {
+  isArray,
   isBoolean,
   isNil,
   isEmpty,
@@ -55,7 +56,7 @@ function ItemAction(
       return null
     }
 
-    const item = Array.isArray(actions)
+    const item = isArray(actions)
       ? actions.map((action) => renderAction(action, uuid()))
       : renderAction(actions)
 

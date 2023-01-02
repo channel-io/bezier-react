@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import { isNaN } from 'Utils/typeUtils'
 import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
 import { CheckableAvatar } from './CheckableAvatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
@@ -51,7 +52,7 @@ const MOCK_AVATAR_LIST = [
 ]
 
 const avatarSizeList = Object.keys(AvatarSize)
-  .filter(value => Number.isNaN(Number(value)) === true)
+  .filter(value => isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
 export default {

@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { IconName } from 'Components/Icon'
+import { isArray } from './typeUtils'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
 describe('storyUtils Test >', () => {
@@ -12,7 +13,7 @@ describe('storyUtils Test >', () => {
 
   describe('iconList Test >', () => {
     it('iconList는 리스트이다', () => {
-      expect(Array.isArray(iconList)).toBe(true)
+      expect(isArray(iconList)).toBe(true)
     })
 
     it('iconList는 IconName type인 string을 가지고 있다', () => {
