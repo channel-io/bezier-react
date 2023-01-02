@@ -1,13 +1,16 @@
 /* eslint-disable no-alert */
 /* External dependencies */
 import React, { useCallback, useState } from 'react'
-import { isFunction, noop } from 'lodash-es'
 import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import {
+  isFunction,
+  noop,
+} from 'Utils/typeUtils'
 import { Text } from 'Components/Text'
 import { TabActionProps, TabListProps, TabsProps, TabSize } from './Tabs.types'
 import { Tabs } from './Tabs'
