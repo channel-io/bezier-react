@@ -253,7 +253,7 @@ describe('TextField', () => {
     })
   })
 
-  describe('should block keyboard event handler for common ime control keys while composing', () => {
+  describe('Keyboard event handlers for common ime control keys should not be called while composing', () => {
     it('onKeyDown', async () => {
       const onKeyDown = jest.fn()
       const { getByTestId } = renderComponent({ onKeyDown })
