@@ -186,7 +186,7 @@ describe('TextArea 테스트 >', () => {
     })
   })
 
-  describe('Composing 중 common ime control keys에 대해 keyboard event handler가 호출되지 않아야한다. >', () => {
+  describe('Keyboard event handlers for common ime control keys should not be called while composing ', () => {
     it('onKeyDown', () => {
       const onKeyDown = jest.fn()
       const { getByTestId } = renderComponent({ onKeyDown })
