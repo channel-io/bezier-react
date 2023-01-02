@@ -27,7 +27,6 @@ export const Button = styled(BaseButton).attrs({
     border-radius: 1.5px;
 
     ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['transform'])};
-    will-change: transform;
   }
 
   &[data-state="inactive"] {
