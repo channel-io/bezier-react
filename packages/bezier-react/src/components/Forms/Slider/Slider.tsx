@@ -5,15 +5,41 @@ import React, {
   useCallback,
   useEffect,
 } from 'react'
-import { noop } from 'lodash-es'
+import {
+  noop,
+} from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
+import * as ToolTipPrimitive from '@radix-ui/react-tooltip'
 
 /* Internal dependencies */
+import {
+  Typography,
+} from 'Foundation'
+import { Text } from 'Components/Text'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
+
+function SliderTooltip({
+  value,
+}: {
+  value: number
+}) {
+  return (
+    <ToolTipPrimitive.Portal>
+      <Styled.TooltipContent
+        key={value}
+        sideOffset={10}
+      >
+        <Text typo={Typography.Size14}>
+          { value }
+        </Text>
+      </Styled.TooltipContent>
+    </ToolTipPrimitive.Portal>
+  )
+}
 
 export const Slider = forwardRef(function Slider(
   {
@@ -34,6 +60,7 @@ export const Slider = forwardRef(function Slider(
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
+  const [open, setOpen] = useState<{ 0: boolean, 1: boolean }>({ 0: false, 1: false })
 
   useEffect(function updateCurrentValue() {
     if (value) {
@@ -70,6 +97,32 @@ export const Slider = forwardRef(function Slider(
     currentValue,
   ])
 
+  const openTooltipOf = useCallback((idx: number) => {
+    setOpen(prev => ({ ...prev, [idx]: true }))
+  }, [])
+
+  const closeTooltipOf = useCallback((idx: number) => {
+    setOpen(prev => ({ ...prev, [idx]: false }))
+  }, [])
+
+  const makeHandleFocus: (idx: number) => React.FocusEventHandler<HTMLElement> = useCallback((idx: number) => () => {
+    if (!disabled) {
+      openTooltipOf(idx)
+    }
+  }, [
+    disabled,
+    openTooltipOf,
+  ])
+
+  const makeHandleBlur: (idx: number) => React.FocusEventHandler<HTMLElement> = useCallback((idx: number) => () => {
+    if (!disabled) {
+      closeTooltipOf(idx)
+    }
+  }, [
+    disabled,
+    closeTooltipOf,
+  ])
+
   return (
     <SliderPrimitive.Root
       asChild
@@ -104,18 +157,27 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { currentValue.map((v, i) => (
-          <SliderPrimitive.Thumb
-            asChild
-            key={`slider-thumb-${i}`}
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
-          >
-            <Styled.SliderThumb
-              data-testid={SLIDER_THUMB_TEST_ID}
-            />
-          </SliderPrimitive.Thumb>
-        )) }
+        <ToolTipPrimitive.Provider>
+          { currentValue.map((v, i) => (
+            <ToolTipPrimitive.Root
+              open={open[i]}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`slider-thumb-${i}`}
+            >
+              <ToolTipPrimitive.Trigger asChild>
+                <Styled.SliderThumb
+                  onFocus={makeHandleFocus(i)}
+                  onBlur={makeHandleBlur(i)}
+                  onPointerDown={handlePointerDown}
+                  onPointerUp={handlePointerUp}
+                  data-testid={SLIDER_THUMB_TEST_ID}
+                />
+              </ToolTipPrimitive.Trigger>
+
+              <SliderTooltip value={currentValue[i]} />
+            </ToolTipPrimitive.Root>
+          )) }
+        </ToolTipPrimitive.Provider>
       </Styled.SliderRoot>
     </SliderPrimitive.Root>
   )

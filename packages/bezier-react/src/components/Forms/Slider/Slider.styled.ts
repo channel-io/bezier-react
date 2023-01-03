@@ -1,3 +1,7 @@
+/* External dependencies */
+import * as SliderPrimitive from '@radix-ui/react-slider'
+import * as ToolTipPrimitive from '@radix-ui/react-tooltip'
+
 /* Internal dependencies */
 import { styled, css } from 'Foundation'
 import { toLength } from 'Utils/styleUtils'
@@ -8,7 +12,9 @@ import type SliderProps from './Slider.types'
 const SLIDER_TRACK_RANGE_HEIGHT = 6
 const SLIDER_THUMB_SIZE = 20
 const SLIDER_GUIDE_WIDTH = 2
-const SLIDER_GUIDE_HEIGHT = 8
+const SLIDER_GUIDE_HEIGHT = 10
+
+const TOOLTIP_ARROW_HEIGHT = 8
 
 interface CalculateGuideBottomPosition {
   gap: number
@@ -18,7 +24,7 @@ function calculateGuideBottomPosition({
   gap,
 }: CalculateGuideBottomPosition) {
   return css`
-    bottom: calc(${SLIDER_GUIDE_HEIGHT}px + ${SLIDER_GUIDE_HEIGHT / 2}px + ${gap}px);
+    bottom: calc(${SLIDER_THUMB_SIZE / 2}px + ${SLIDER_TRACK_RANGE_HEIGHT / 2}px + ${gap}px);
   `
 }
 
@@ -63,32 +69,24 @@ export const SliderRoot = styled.div<SliderRootProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface SliderTrackProps extends SliderProps {}
-
-export const SliderTrack = styled.div<SliderTrackProps>`
+export const SliderTrack = styled.div`
   position: relative;
   flex: 1;
   height: ${SLIDER_TRACK_RANGE_HEIGHT}px;
 
   ${({ foundation }) => foundation?.rounding?.round3}
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
-
-  ${({ interpolation }) => interpolation}
 `
 
-interface SliderRangeProps extends SliderProps {}
-
-export const SliderRange = styled.div<SliderRangeProps>`
+export const SliderRange = styled.div`
   position: absolute;
   height: 100%;
 
   ${({ foundation }) => foundation?.rounding?.round3}
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
-
-  ${({ interpolation }) => interpolation}
 `
 
-interface SliderGuideProps extends SliderProps {
+type SliderGuideProps = {
   min: NonNullable<SliderProps['min']>
   max: NonNullable<SliderProps['max']>
   guideValue: number
@@ -104,13 +102,9 @@ export const SliderGuide = styled.div<SliderGuideProps>`
 
   ${({ foundation }) => foundation?.rounding?.round1}
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-
-  ${({ interpolation }) => interpolation}
 `
 
-interface SliderThumbProps extends SliderProps {}
-
-export const SliderThumb = styled.div<SliderThumbProps>`
+export const SliderThumb = styled(SliderPrimitive.Thumb)`
   all: unset;
   display: block;
 
@@ -131,5 +125,29 @@ export const SliderThumb = styled.div<SliderThumbProps>`
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])}
-  ${({ interpolation }) => interpolation}
+`
+
+export const TooltipContent = styled(ToolTipPrimitive.Content)`
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: ${TOOLTIP_ARROW_HEIGHT}px;
+  color: var(--bgtxt-absolute-white-normal);
+  background-color: var(--bgtxt-absolute-black-light);
+  border-radius: 4px;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: ' ';
+    border-top: ${TOOLTIP_ARROW_HEIGHT}px solid ${({ foundation }) => foundation?.theme['bdr-black-dark']};
+    border-right: ${TOOLTIP_ARROW_HEIGHT}px solid transparent;
+    border-left: ${TOOLTIP_ARROW_HEIGHT}px solid transparent;
+    transform: translateX(-50%);
+  }
 `
