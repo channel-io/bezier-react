@@ -212,3 +212,6 @@ stats.html
 
 # Stylelint cache
 .stylelintcache
+
+# Parcel cache
+.parcel-cache
