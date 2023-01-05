@@ -17,7 +17,13 @@ import {
   isEmpty,
 } from 'Utils/typeUtils'
 import { noop } from 'Utils/functionUtils'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
+import {
+  Icon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+  isIcon,
+  IconSize,
+} from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import { Text } from 'Components/Text'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
@@ -79,39 +85,39 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const LeftComponent = useMemo(() => {
-    if (isIconName(leftContent)) {
+    if (isIcon(leftContent)) {
       return (
-        <LegacyIcon
-          name={leftContent}
+        <Icon
+          source={leftContent.props.source}
           size={IconSize.XS}
-          color={iconColor}
           marginRight={6}
+          color={iconColor}
         />
       )
     }
 
     return leftContent
   }, [
-    leftContent,
     iconColor,
+    leftContent,
   ])
 
   const RightComponent = useMemo(() => {
-    if (isIconName(rightContent)) {
+    if (isIcon(rightContent)) {
       return (
-        <LegacyIcon
-          name={rightContent}
+        <Icon
+          source={rightContent.props.source}
           size={IconSize.XS}
-          color={iconColor}
           marginRight={6}
+          color={iconColor}
         />
       )
     }
 
     return rightContent
   }, [
-    rightContent,
     iconColor,
+    rightContent,
   ])
 
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
@@ -186,12 +192,12 @@ forwardedRef: Ref<SelectRef>,
           { RightComponent }
         </Styled.MainContentWrapper>
         { !withoutChevron && (
-        <Icon
-          source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
-          size={IconSize.XS}
-          color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-          marginLeft={6}
-        />
+          <Icon
+            source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
+            size={IconSize.XS}
+            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+            marginLeft={6}
+          />
         ) }
       </Styled.Trigger>
 
