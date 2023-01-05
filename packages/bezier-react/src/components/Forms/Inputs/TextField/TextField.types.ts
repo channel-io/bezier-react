@@ -8,11 +8,9 @@ import type {
   SizeProps,
   SideContentProps,
   AdditionalStylableProps,
-  AdditionalColorProps,
 } from 'Types/ComponentProps'
 import type { FormComponentProps } from 'Components/Forms'
 import { FormFieldSize } from 'Components/Forms'
-import type { IconName } from 'Components/Icon'
 
 export enum TextFieldType {
   Search = 'search',
@@ -39,10 +37,7 @@ export enum TextFieldVariant {
   Secondary,
 }
 
-export type TextFieldItemProps = {
-  icon: IconName
-  onClick?: React.MouseEventHandler
-} & AdditionalColorProps<'icon'> | React.ReactElement
+export type TextFieldItemProps = React.ReactElement
 
 export interface TextFieldRef {
   focus(options?: FocusOptions): void
