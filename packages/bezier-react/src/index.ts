@@ -1,3 +1,7 @@
+import * as LegacyTabs from '~/src/components/Tabs/LegacyTabs'
+import * as StyleUtils from '~/src/utils/styleUtils'
+import * as StringUtils from '~/src/utils/stringUtils'
+
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
 
@@ -42,7 +46,7 @@ export * from '~/src/components/SectionLabel'
 export * from '~/src/components/Spinner'
 export * from '~/src/components/Stack'
 export * from '~/src/components/Status'
-export * as LegacyTabs from '~/src/components/Tabs/LegacyTabs'
+export { LegacyTabs }
 export * from '~/src/components/Tabs'
 export * from '~/src/components/TagBadge'
 export * from '~/src/components/Text'
@@ -86,5 +90,5 @@ export { default as useId } from '~/src/hooks/useId'
 
 /* Utils */
 export { getRootElement } from '~/src/utils/domUtils'
-export * as StyleUtils from '~/src/utils/styleUtils'
-export * as StringUtils from '~/src/utils/stringUtils'
+export { StyleUtils }
+export { StringUtils }

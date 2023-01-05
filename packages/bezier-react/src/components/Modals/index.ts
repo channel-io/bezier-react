@@ -1,3 +1,6 @@
+import * as LegacyConfirmModal from './LegacyConfirmModal'
+import * as LegacyModal from './LegacyModal'
+
 /**
  * @deprecated
  */
@@ -5,10 +8,10 @@ export * from './BaseModal'
 /**
  * @deprecated
  */
-export * as LegacyConfirmModal from './LegacyConfirmModal'
+export { LegacyConfirmModal }
 /**
  * @deprecated
  */
-export * as LegacyModal from './LegacyModal'
+export { LegacyModal }
 export * from './Modal'
 export * from './ConfirmModal'
