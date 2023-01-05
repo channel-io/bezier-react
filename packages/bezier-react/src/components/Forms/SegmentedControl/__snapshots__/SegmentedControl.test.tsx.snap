@@ -1,6 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SegmentedControl Snapshot 1`] = `
+.c8 {
+  overflow: hidden;
+  border-radius: 1px;
+  background-color: #00000014;
+  width: 1px;
+  height: calc(100% - 12px);
+  margin: 6px;
+}
+
 .c4 {
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -37,15 +46,6 @@ exports[`SegmentedControl Snapshot 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c8 {
-  overflow: hidden;
-  border-radius: 1px;
-  background-color: #00000014;
-  width: 1px;
-  height: calc(100% - 12px);
-  margin: 6px;
 }
 
 .c0 {

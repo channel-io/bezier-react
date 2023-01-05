@@ -111,6 +111,12 @@ exports[`Avatar > renders border style 1`] = `
 `;
 
 exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
+.c0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -132,12 +138,6 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: -2px;
-  bottom: -2px;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -157,6 +157,12 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 `;
 
 exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
+.c0 {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -178,12 +184,6 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: 2px;
-  bottom: 2px;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -203,6 +203,12 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 72 1`] = `
+.c0 {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -224,12 +230,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -249,6 +249,12 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
+.c0 {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -270,12 +276,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -295,6 +295,12 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border 1`] = `
+.c0 {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -316,12 +322,6 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -341,6 +341,12 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
+.c0 {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
 .c1 {
   position: relative;
   z-index: 0;
@@ -362,12 +368,6 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   content: '';
   background-color: var(--bezier-status-bg-color);
   border-radius: 50%;
-}
-
-.c0 {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
 }
 
 @supports (background:paint(smooth-corners)) {

@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`KeyValueListItem Snapshot > 1`] = `
-.c6 {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
+.c5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
   color: #00000066;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
@@ -18,11 +17,12 @@ exports[`KeyValueListItem Snapshot > 1`] = `
   transition-property: color;
 }
 
-.c5 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+.c6 {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
   margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
   color: #00000066;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
