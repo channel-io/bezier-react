@@ -7,6 +7,7 @@ import { Meta, Story } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
 import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { BadgeIcon, EditIcon, Icon } from 'Components/Icon'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
@@ -21,7 +22,7 @@ interface KeyValueListItemStorybookProps extends KeyValueListItemProps {
 }
 
 const DEFAULT_ARGS: KeyValueListItemStorybookProps = {
-  keyIcon: 'badge',
+  keyIcon: <Icon source={BadgeIcon} />,
   keyContent: 'I\'m the Long Long Key',
   containerWidth: 300,
   // eslint-disable-next-line max-len
@@ -45,7 +46,7 @@ const SingleLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWi
     <KeyValueListItem {...otherProps} />
     <KeyValueListItem
       {...otherProps}
-      actions={Array.from(Array(2)).map(() => ({ icon: 'edit', onClick: console.log, tooltip: '수정하기' }))}
+      actions={Array.from(Array(2)).map(() => ({ icon: <Icon source={EditIcon} />, onClick: console.log, tooltip: '수정하기' }))}
     />
     <KeyValueListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
     <KeyValueListItem {...otherProps}>
@@ -68,7 +69,7 @@ const MultiLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWid
     <KeyValueMultiLineListItem {...otherProps} />
     <KeyValueMultiLineListItem
       {...otherProps}
-      actions={Array.from(Array(2)).map(() => ({ icon: 'edit', onClick: console.log, tooltip: '수정하기' }))}
+      actions={Array.from(Array(2)).map(() => ({ icon: <Icon source={EditIcon} />, onClick: console.log, tooltip: '수정하기' }))}
     />
     <KeyValueMultiLineListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
   </div>
@@ -77,7 +78,7 @@ const MultiLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWid
 export const SingleLine = SingleLineTemplate.bind({})
 SingleLine.args = {
   ...DEFAULT_ARGS,
-  actions: { icon: 'edit', onClick: console.log, tooltip: '수정하기' },
+  actions: { icon: <Icon source={EditIcon} />, onClick: console.log, tooltip: '수정하기' },
 }
 
 export const MultiLine = MultiLineTemplate.bind({})
