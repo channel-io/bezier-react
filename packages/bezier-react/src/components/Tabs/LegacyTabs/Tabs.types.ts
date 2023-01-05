@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import TabsSize from 'Components/Tabs/LegacyTabs/TabsSize'
+import TabsSize from '~/src/components/Tabs/LegacyTabs/TabsSize'
 
 export default interface TabsOptions {
   height?: TabsSize | number

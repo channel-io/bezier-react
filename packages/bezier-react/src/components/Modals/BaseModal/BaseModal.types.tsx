@@ -1,4 +1,4 @@
-import { BezierComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps } from '~/src/types/ComponentProps'
 
 type BaseModalHtmlAttributes = React.HTMLAttributes<HTMLDivElement>
 

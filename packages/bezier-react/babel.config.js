@@ -25,7 +25,7 @@ module.exports = {
         ['babel-plugin-styled-components', {
           minify: true,
           pure: true,
-          topLevelImportPaths: ['Foundation'],
+          topLevelImportPaths: ['~/src/foundation'],
         }],
       ],
     },

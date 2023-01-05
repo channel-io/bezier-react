@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { css } from 'Foundation'
-import { GNB_WIDTH } from 'Layout/LayoutSizes'
+import { css } from '~/src/foundation'
 import { ToastAppearance, ToastIconColor, ToastPlacement, ToastPreset, ToastPresetType } from './Toast.types'
+import { GNB_WIDTH } from '~/src/layout/LayoutSizes'
 
 function getIconColor(appearance: ToastAppearance): ToastIconColor {
   switch (appearance) {

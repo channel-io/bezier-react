@@ -4,9 +4,9 @@ import { base } from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { Text } from 'Components/Text'
+import { Typography } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Text } from '~/src/components/Text'
 import RadioProps from './Radio.types'
 import Radio from './Radio'
 

@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 
 /* Internal dependencies */
-import { LayoutDispatchContext } from 'Layout/LayoutContext'
+import { LayoutDispatchContext } from '~/src/layout/LayoutContext'
 
 function useLayoutDispatch() {
   const dispatch = useContext(LayoutDispatchContext)

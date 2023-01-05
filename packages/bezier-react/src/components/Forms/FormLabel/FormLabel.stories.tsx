@@ -4,7 +4,7 @@ import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import FormLabel from './FormLabel'
 import FormLabelProps from './FormLabel.types'
 

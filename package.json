@@ -28,6 +28,7 @@
     "@channel.io/stylelint-config": "^1.2.0",
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@parcel/transformer-typescript-types": "2.8.2",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^4.33.0",
     "cz-conventional-changelog": "^3.3.0",

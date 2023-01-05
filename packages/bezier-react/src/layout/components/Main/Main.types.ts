@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, ContentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, ContentProps } from '~/src/types/ComponentProps'
 
 type FocusEventHandler = React.FocusEventHandler<HTMLDivElement>
 

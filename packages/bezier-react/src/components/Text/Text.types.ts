@@ -2,7 +2,7 @@
 import { css } from 'styled-components'
 
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from '~/src/types/ComponentProps'
 
 interface TextOptions {
   bold?: boolean

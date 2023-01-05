@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Text } from 'Components/Text'
 import TagBadgeTextProps from './TagBadgeText.types'
 import Styled from './TagBadgeText.styled'
+import { Text } from '~/src/components/Text'
 
 // TODO: 테스트 코드 작성
 const TAG_BADGE_TEXT_TEST_ID = 'bezier-react-avatar-group'

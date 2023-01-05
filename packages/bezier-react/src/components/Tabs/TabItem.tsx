@@ -10,7 +10,7 @@ import {
   ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
-} from 'Components/Button'
+} from '~/src/components/Button'
 import {
   TabItemProps,
   TabSize,

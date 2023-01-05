@@ -5,11 +5,11 @@ import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { getTitle } from '~/src/utils/storyUtils'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
 
 export default {
   title: getTitle(base),

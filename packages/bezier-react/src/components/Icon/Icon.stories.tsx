@@ -8,27 +8,13 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
+import { getObjectFromEnum, getTitle, iconList } from '~/src/utils/storyUtils'
 import {
   LightFoundation,
   type SemanticNames,
   styled,
   Typography,
-} from 'Foundation'
-import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
-import {
-  ListItem,
-} from 'Components/ListItem'
-import {
-  HStack,
-  StackItem,
-  VStack,
-} from 'Components/Stack'
-import {
-  Select,
-} from 'Components/Forms/Inputs/Select'
-import {
-  Text,
-} from 'Components/Text'
+} from '~/src/foundation'
 import icons, {
   ArrowLeftIcon,
   BookmarkFilledIcon,
@@ -53,6 +39,20 @@ import {
 } from './Icon'
 import IconProps, { IconSize } from './Icon.types'
 import mdx from './Icon.mdx'
+import {
+  ListItem,
+} from '~/src/components/ListItem'
+import {
+  HStack,
+  StackItem,
+  VStack,
+} from '~/src/components/Stack'
+import {
+  Select,
+} from '~/src/components/Forms/Inputs/Select'
+import {
+  Text,
+} from '~/src/components/Text'
 
 export default {
   title: getTitle(base),

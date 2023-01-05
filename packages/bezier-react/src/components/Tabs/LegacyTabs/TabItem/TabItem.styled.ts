@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
+import { styled } from '~/src/foundation'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import TabItemProps, { StyledWrapperProps } from './TabItem.types'
 
 export const Wrapper = styled.div<StyledWrapperProps & TabItemProps>`

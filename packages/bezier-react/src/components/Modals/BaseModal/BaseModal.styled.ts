@@ -5,7 +5,7 @@ import {
   TransitionDuration,
   RoundAbsoluteNumber,
   keyframes,
-} from 'Foundation'
+} from '~/src/foundation'
 
 const visibleAnimation = keyframes`
   from {

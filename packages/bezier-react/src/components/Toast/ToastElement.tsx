@@ -4,9 +4,9 @@ import { v4 as uuid } from 'uuid'
 import { isString } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { Icon, LegacyIcon, CancelIcon, IconSize } from 'Components/Icon'
-import { Text } from 'Components/Text'
+import { Typography } from '~/src/foundation'
+import { Icon, LegacyIcon, CancelIcon, IconSize } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 import { getToastPreset } from './utils'
 import ToastProps, { ToastPreset } from './Toast.types'
 import { Element, IconWrapper, Close, ActionContent, NormalContent, Content, EllipsisableContent } from './Toast.styled'

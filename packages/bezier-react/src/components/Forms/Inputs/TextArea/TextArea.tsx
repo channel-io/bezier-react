@@ -2,8 +2,8 @@
 import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect, useMemo } from 'react'
 
 /* Internal dependencies */
-import useMergeRefs from 'Hooks/useMergeRefs'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'

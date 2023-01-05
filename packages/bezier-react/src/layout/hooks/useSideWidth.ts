@@ -2,9 +2,9 @@
 import { useEffect } from 'react'
 
 /* Internal dependencies */
-import { LayoutActions } from 'Layout/redux'
-import { SIDE_FALLBACK_WIDTH } from 'Layout/LayoutSizes'
 import useLayoutDispatch from './useLayoutDispatch'
+import { LayoutActions } from '~/src/layout/redux'
+import { SIDE_FALLBACK_WIDTH } from '~/src/layout/LayoutSizes'
 
 export default function useSideWidth(width: number = SIDE_FALLBACK_WIDTH) {
   const dispatch = useLayoutDispatch()

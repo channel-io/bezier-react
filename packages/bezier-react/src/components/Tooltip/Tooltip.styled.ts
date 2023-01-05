@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, css, ellipsis, LineHeightAbsoluteNumber } from 'Foundation'
-import type { InterpolationProps } from 'Types/Foundation'
+import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '~/src/foundation'
+import type { InterpolationProps } from '~/src/types/Foundation'
 
 interface ContentWrapperProps {
   disabled: boolean

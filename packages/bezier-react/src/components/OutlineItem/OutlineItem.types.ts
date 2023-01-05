@@ -10,8 +10,8 @@ import type {
   AdditionalStylableProps,
   AdditionalTestIdProps,
   AdditionalColorProps,
-} from 'Types/ComponentProps'
-import { IconName, IconSize } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import { IconName, IconSize } from '~/src/components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',

@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
-import Help, { HELP_TEST_ID } from 'Components/Help/Help'
+import { render } from '~/src/utils/testUtils'
+import Help, { HELP_TEST_ID } from '~/src/components/Help/Help'
 import FormLabel, { FORM_LABEL_TEST_ID } from './FormLabel'
 import type FormLabelProps from './FormLabel.types'
 

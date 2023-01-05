@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { BezierComponentProps } from '~/src/types/ComponentProps'
 
 export default interface SpacerProps extends
   BezierComponentProps {}

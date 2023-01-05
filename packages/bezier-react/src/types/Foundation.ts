@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { Foundation, css } from 'Foundation'
+import { Foundation, css } from '~/src/foundation'
 
 export interface FoundationProps {
   foundation?: Foundation

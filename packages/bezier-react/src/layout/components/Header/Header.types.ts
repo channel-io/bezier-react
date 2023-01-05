@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { InjectedInterpolation } from 'Types/Foundation'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { InjectedInterpolation } from '~/src/types/Foundation'
 
 interface HeaderOptions {
   title: string

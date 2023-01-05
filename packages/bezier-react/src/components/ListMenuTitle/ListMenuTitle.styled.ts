@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled } from '~/src/foundation'
 import { StyledWrapperProps, StyledTitleWrapperProps } from './ListMenuTitle.types'
 
 export const Wrapper = styled.div<StyledWrapperProps>`

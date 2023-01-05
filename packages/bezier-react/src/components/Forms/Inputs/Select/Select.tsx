@@ -12,10 +12,10 @@ import React, {
 import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
-import { OverlayPosition } from 'Components/Overlay'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import { Typography } from '~/src/foundation'
+import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from '~/src/components/Icon'
+import { OverlayPosition } from '~/src/components/Overlay'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
 import * as Styled from './Select.styled'

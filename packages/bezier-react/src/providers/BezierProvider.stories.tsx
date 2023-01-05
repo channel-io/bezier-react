@@ -4,10 +4,10 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, DarkFoundation, LightFoundation } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from 'Components/Button/Button.types'
-import { Button } from 'Components/Button'
+import { styled, DarkFoundation, LightFoundation } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from '~/src/components/Button/Button.types'
+import { Button } from '~/src/components/Button'
 import BezierProvider from './BezierProvider'
 
 interface BezierProviderStorybookProps {

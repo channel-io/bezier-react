@@ -2,12 +2,12 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { FormControl } from 'Components/Forms/FormControl'
-import { FormGroup } from 'Components/Forms/FormGroup'
-import { FormLabel } from 'Components/Forms/FormLabel'
-import { TextField } from 'Components/Forms/Inputs/TextField'
-import { FormHelperText, FormErrorMessage } from 'Components/Forms/FormHelperText'
+import { Typography } from '~/src/foundation'
+import { FormControl } from '~/src/components/Forms/FormControl'
+import { FormGroup } from '~/src/components/Forms/FormGroup'
+import { FormLabel } from '~/src/components/Forms/FormLabel'
+import { TextField } from '~/src/components/Forms/Inputs/TextField'
+import { FormHelperText, FormErrorMessage } from '~/src/components/Forms/FormHelperText'
 
 export const MOCK_CONSTS = {
   LABEL_TEXT: 'Label',

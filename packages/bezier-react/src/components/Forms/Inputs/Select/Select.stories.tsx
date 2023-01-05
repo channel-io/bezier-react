@@ -4,8 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import { Text } from 'Components/Text'
+import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
+import { Text } from '~/src/components/Text'
 import Select from './Select'
 import SelectProps, { SelectSize } from './Select.types'
 

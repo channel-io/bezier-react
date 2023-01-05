@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, disableAutoMinimum } from 'Foundation'
+import { styled, disableAutoMinimum } from '~/src/foundation'
 
 interface HeaderWrapperProps {
   showSideView: boolean

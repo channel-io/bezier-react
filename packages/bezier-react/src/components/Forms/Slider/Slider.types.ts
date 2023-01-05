@@ -2,7 +2,7 @@
 import type { SliderProps as SliderPrimitiveProps } from '@radix-ui/react-slider'
 
 /* Internal dependencies */
-import type { BezierComponentProps } from 'Types/ComponentProps'
+import type { BezierComponentProps } from '~/src/types/ComponentProps'
 
 interface SliderOptions {
   /**

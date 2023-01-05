@@ -18,7 +18,7 @@
   "scripts": {
     "build": "run-s 'build:*'",
     "build:icon": "./scripts/build-icon.sh",
-    "build:rollup": "cross-env BABEL_ENV=production rollup -c",
+    "build:rollup": "cross-env BABEL_ENV=production parcel build",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache 'src/**/*.+(js|ts)?(x)'",

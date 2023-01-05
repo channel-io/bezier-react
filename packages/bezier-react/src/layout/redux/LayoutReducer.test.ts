@@ -1,7 +1,7 @@
 import LayoutReducer, { defaultState } from './LayoutReducer'
 import AT from './LayoutActionTypes'
 
-describe('LayoutReducer 함수 테스트', () => {
+describe('~/src/layoutReducer 함수 테스트', () => {
   it('setShowingHidableNavigations 정상 작동 테스트', () => {
     expect(
       LayoutReducer(

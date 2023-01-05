@@ -8,7 +8,7 @@ import React, {
 import ReactDom from 'react-dom'
 
 /* Internal dependencies */
-import { document, getRootElement } from 'Utils/domUtils'
+import { document, getRootElement } from '~/src/utils/domUtils'
 import * as Styled from './BaseModal.styled'
 import type { BaseModalProps } from './BaseModal.types'
 

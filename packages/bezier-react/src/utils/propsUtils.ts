@@ -2,7 +2,7 @@
 import { omit, pick } from 'lodash-es'
 
 /* Internal dependencies */
-import { BezierComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps } from '~/src/types/ComponentProps'
 
 const bezierComponentPropsKeys: Array<keyof BezierComponentProps> = [
   'as',

@@ -4,8 +4,8 @@ import type { RenderResult } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import BaseModal from './BaseModal'
 import type { BaseModalProps } from './BaseModal.types'
 

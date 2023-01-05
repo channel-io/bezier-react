@@ -2,7 +2,7 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled } from '~/src/foundation'
 
 interface ResizeBarProps {
   disable: boolean

@@ -2,10 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { Text } from 'Components/Text'
-import useHeader from 'Layout/hooks/useHeader'
-import LayoutHeaderType from 'Layout/types/LayoutHeaderType'
+import { styled } from '~/src/foundation'
+import { Text } from '~/src/components/Text'
+import useHeader from '~/src/layout/hooks/useHeader'
+import LayoutHeaderType from '~/src/layout/types/LayoutHeaderType'
 
 const Div = styled.div`
   display: flex;

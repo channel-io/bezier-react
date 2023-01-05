@@ -4,10 +4,10 @@ import { noop, isNil, isEmpty, isArray, isBoolean } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { IconSize } from 'Components/Icon'
-import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { ItemActionProps, KeyValueListItemActionProps } from './ItemAction.types'
 import * as Styled from './ItemAction.styled'
+import { IconSize } from '~/src/components/Icon'
+import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 
 function ItemAction(
   {

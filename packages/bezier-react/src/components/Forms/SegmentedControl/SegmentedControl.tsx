@@ -5,10 +5,10 @@ import { noop, isNumber, range } from 'lodash-es'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
-import useMergeRefs from 'Hooks/useMergeRefs'
-import { Divider } from 'Components/Divider'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import { Text } from 'Components/Text'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { Divider } from '~/src/components/Divider'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { Text } from '~/src/components/Text'
 import {
   DIVIDER_WIDTH,
   DIVIDER_SIDE_MARGIN,

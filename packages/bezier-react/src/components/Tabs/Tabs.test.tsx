@@ -4,7 +4,7 @@ import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import { TabAction } from './TabAction'
 import { TabActions } from './TabActions'
 import { TabContent } from './TabContent'

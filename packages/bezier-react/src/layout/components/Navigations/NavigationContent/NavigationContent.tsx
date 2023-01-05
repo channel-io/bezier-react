@@ -4,14 +4,14 @@ import { isArray, noop, compact } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { mergeClassNames } from 'Utils/stringUtils'
-import { LayoutActions } from 'Layout/redux'
-import useLayoutState from 'Layout/hooks/useLayoutState'
-import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
-import { NavigationArea } from 'Layout/components/Navigations/NavigationArea'
-import { Button, ButtonStyleVariant, ButtonColorVariant } from 'Components/Button'
+import { mergeClassNames } from '~/src/utils/stringUtils'
 import { StyledContentWrapper, StyledFooterWrapper, StyledTitleWrapper } from './NavigationContent.styled'
 import NavigationContentProps from './NavigationContent.types'
+import { LayoutActions } from '~/src/layout/redux'
+import useLayoutState from '~/src/layout/hooks/useLayoutState'
+import useLayoutDispatch from '~/src/layout/hooks/useLayoutDispatch'
+import { NavigationArea } from '~/src/layout/components/Navigations/NavigationArea'
+import { Button, ButtonStyleVariant, ButtonColorVariant } from '~/src/components/Button'
 
 // TODO: 테스트 코드 작성
 const NAV_CONTENT_TEST_ID = 'bezier-react-nav-content'

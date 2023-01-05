@@ -4,8 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, Themes } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
+import { styled, Themes } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
 
 export default {
   title: getTitle(base),

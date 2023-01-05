@@ -2,10 +2,10 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { css } from 'Foundation'
-import { render } from 'Utils/testUtils'
-import { Stack } from 'Components/Stack'
+import { css } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import { StackItem } from './StackItem'
+import { Stack } from '~/src/components/Stack'
 
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {

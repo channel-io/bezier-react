@@ -4,8 +4,8 @@ import { getWindow, getDocument } from 'ssr-window'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
 import ListItemProps, { ListItemVariant, ListItemSize } from './ListItem.types'
 

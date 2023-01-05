@@ -2,10 +2,10 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { styled, css, ellipsis } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
-import { ColorProps } from 'Types/ComponentProps'
-import { LegacyIcon } from 'Components/Icon'
+import { styled, css, ellipsis } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
+import { ColorProps } from '~/src/types/ComponentProps'
+import { LegacyIcon } from '~/src/components/Icon'
 import OutlineItemProps from './OutlineItem.types'
 
 interface WrapperProps extends InterpolationProps {

@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
-import type { FormComponentProps, FormFieldSize } from 'Components/Forms'
+import type { BezierComponentProps, ChildrenProps, IdentifierProps } from '~/src/types/ComponentProps'
+import type { FormComponentProps, FormFieldSize } from '~/src/components/Forms'
 
 interface FormControlOptions {
   labelPosition?: 'top' | 'left'

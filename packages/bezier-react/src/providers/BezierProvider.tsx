@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Foundation, FoundationProvider, GlobalStyle, GlobalStyleProp, ThemeVars } from 'Foundation'
-import type { ThemeVarsAdditionalType } from 'Foundation'
-import EnableCSSHoudini from 'Worklets/EnableCSSHoudini'
+import { Foundation, FoundationProvider, GlobalStyle, GlobalStyleProp, ThemeVars } from '~/src/foundation'
+import type { ThemeVarsAdditionalType } from '~/src/foundation'
+import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp

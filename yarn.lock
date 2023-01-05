@@ -4089,6 +4089,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/transformer-typescript-types@npm:2.8.2":
+  version: 2.8.2
+  resolution: "@parcel/transformer-typescript-types@npm:2.8.2"
+  dependencies:
+    "@parcel/diagnostic": 2.8.2
+    "@parcel/plugin": 2.8.2
+    "@parcel/source-map": ^2.1.1
+    "@parcel/ts-utils": 2.8.2
+    "@parcel/utils": 2.8.2
+    nullthrows: ^1.1.1
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 007dbfce5b9aca7fc5ce17a41873147ff71c38fcf781598f5a33b23f18b4809068a0d1b29579def38d8ca79833dc163b4e6e09b1b0696b9a4b2ba76899e29965
+  languageName: node
+  linkType: hard
+
+"@parcel/ts-utils@npm:2.8.2":
+  version: 2.8.2
+  resolution: "@parcel/ts-utils@npm:2.8.2"
+  dependencies:
+    nullthrows: ^1.1.1
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 718d1d2398606bce21dc80069880d858271593de38b8854894d5d71508234cb1b35439105d6d3894aa991f938e9cd164975ce3bdbffbc39c34ab29deb7875b0f
+  languageName: node
+  linkType: hard
+
 "@parcel/types@npm:2.8.2":
   version: 2.8.2
   resolution: "@parcel/types@npm:2.8.2"
@@ -20526,6 +20553,7 @@ __metadata:
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^17.2.0
     "@commitlint/config-conventional": ^13.1.0
+    "@parcel/transformer-typescript-types": 2.8.2
     "@typescript-eslint/eslint-plugin": ^5.42.1
     "@typescript-eslint/parser": ^4.33.0
     cz-conventional-changelog: ^3.3.0

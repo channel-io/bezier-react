@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { InjectedInterpolation } from 'Types/Foundation'
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { InjectedInterpolation } from '~/src/types/Foundation'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
 
 interface TagBadgeTextOptions {
   typo: InjectedInterpolation

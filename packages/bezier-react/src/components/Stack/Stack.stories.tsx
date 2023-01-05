@@ -16,14 +16,9 @@ import {
 import {
   SemanticNames,
   Typography,
-} from 'Foundation'
-import { LightTheme } from 'Foundation/Colors/Theme'
-import { getTitle } from 'Utils/storyUtils'
-import {
-  Button,
-  ButtonSize,
-} from 'Components/Button'
-import { Text } from 'Components/Text'
+} from '~/src/foundation'
+import { LightTheme } from '~/src/foundation/Colors/Theme'
+import { getTitle } from '~/src/utils/storyUtils'
 import { HStack } from './HStack'
 import { Spacer } from './Spacer'
 import { Stack } from './Stack'
@@ -31,6 +26,11 @@ import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
 import mdx from './Stack.mdx'
+import { Text } from '~/src/components/Text'
+import {
+  Button,
+  ButtonSize,
+} from '~/src/components/Button'
 
 export default {
   title: getTitle(base),

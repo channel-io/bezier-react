@@ -5,7 +5,7 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import {
   ModalProps,
   ModalContentProps,

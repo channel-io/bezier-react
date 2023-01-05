@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
-import { Button } from 'Components/Button'
+import { render } from '~/src/utils/testUtils'
+import { Button } from '~/src/components/Button'
 import { ButtonGroup } from './ButtonGroup'
 import ButtonGroupProps from './ButtonGroup.types'
 

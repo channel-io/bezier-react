@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { ColumnState } from 'Layout/redux/LayoutActions'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { ColumnState } from '~/src/layout/redux/LayoutActions'
 
 interface NavigationContentOptions {
   header?: React.ReactElement | null

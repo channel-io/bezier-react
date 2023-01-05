@@ -4,8 +4,8 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import * as VisuallyHiddenPrimitive from '@radix-ui/react-visually-hidden'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { Text } from 'Components/Text'
+import { Typography } from '~/src/foundation'
+import { Text } from '~/src/components/Text'
 import ModalContentContext from './ModalContentContext'
 import { ModalHeaderProps, ModalTitleSize } from './Modal.types'
 import * as Styled from './Modal.styled'

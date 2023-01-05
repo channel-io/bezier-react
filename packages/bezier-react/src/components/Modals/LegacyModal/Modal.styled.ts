@@ -2,9 +2,9 @@
 import {
   styled,
   ellipsis,
-} from 'Foundation'
-import { Text } from 'Components/Text'
-import { Button } from 'Components/Button'
+} from '~/src/foundation'
+import { Text } from '~/src/components/Text'
+import { Button } from '~/src/components/Button'
 
 export const Contents = styled.div`
   box-sizing: border-box;

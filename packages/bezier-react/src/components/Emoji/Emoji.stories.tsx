@@ -2,10 +2,10 @@
 import React from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import { styled } from 'Foundation'
+import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
+import { styled } from '~/src/foundation'
 
 /* Internal dependencies */
-import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
 import Emoji from './Emoji'
 import EmojiProps, { EmojiSize } from './Emoji.types'
 
