@@ -5,7 +5,7 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
 import { AllIcon } from './generated'
-import { Icon, ICON_TEST_ID } from './Icon'
+import { Icon, ICON_TEST_ID, isIcon } from './Icon'
 import type IconProps from './Icon.types'
 
 describe('Icon test >', () => {
@@ -35,5 +35,9 @@ describe('Icon test >', () => {
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
     expect(renderedIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-olive-dark']};`)
+  })
+
+  it('isIcon returns true with Icon component', () => {
+    expect(isIcon(<Icon source={AllIcon} />)).toBe(true)
   })
 })
