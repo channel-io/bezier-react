@@ -125,6 +125,7 @@
     "@radix-ui/react-switch": "^1.0.1",
     "@radix-ui/react-tabs": "^1.0.1",
     "@radix-ui/react-toolbar": "^1.0.1",
+    "@swc/helpers": "^0.4.14",
     "lodash-es": "^4.17.15",
     "react-resize-detector": "^7.1.1",
     "react-textarea-autosize": "^8.3.4",
