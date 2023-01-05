@@ -3,10 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps, AdditionalColorProps } from 'Types/ComponentProps'
-import type { IconType } from 'Components/Icon'
+import type { BezierIcon } from 'Components/Icon'
 
 export type KeyValueListItemActionProps = {
-  icon: IconType
+  icon: BezierIcon
   tooltip?: string
   show?: boolean
   onClick?: React.MouseEventHandler<HTMLDivElement>

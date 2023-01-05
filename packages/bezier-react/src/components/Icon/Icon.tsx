@@ -42,7 +42,7 @@ export const Icon = memo(function Icon({
   )
 })
 
-export type IconType = ReactElement<IconProps>
+export type BezierIcon = ReactElement<IconProps>
 
-export const isIcon = (maybeIcon): maybeIcon is IconType =>
+export const isIcon = (maybeIcon): maybeIcon is BezierIcon =>
   maybeIcon?.type === Icon
