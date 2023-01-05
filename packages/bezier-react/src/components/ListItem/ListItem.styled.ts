@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
-import { LegacyIcon } from 'Components/Icon'
+import { Icon } from 'Components/Icon'
 import { ListItemVariant, ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
@@ -96,7 +96,7 @@ interface IconWrapperProps {
   active?: boolean
 }
 
-export const StyledIcon = styled(LegacyIcon)<IconWrapperProps>`
+export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, variant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
