@@ -207,6 +207,7 @@ import Ghost from './Ghost'
 import Gif from './Gif'
 import Gift from './Gift'
 import Globe from './Globe'
+import GoalOff from './GoalOff'
 import Goal from './Goal'
 import Google from './Google'
 import Graph from './Graph'
@@ -676,6 +677,7 @@ const icons = {
   gif: Gif,
   gift: Gift,
   globe: Globe,
+  'goal-off': GoalOff,
   goal: Goal,
   google: Google,
   graph: Graph,
@@ -1160,6 +1162,7 @@ export {
   Gif as GifIcon,
   Gift as GiftIcon,
   Globe as GlobeIcon,
+  GoalOff as GoalOffIcon,
   Goal as GoalIcon,
   Google as GoogleIcon,
   Graph as GraphIcon,
