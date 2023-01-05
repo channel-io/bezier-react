@@ -2067,6 +2067,8 @@ __metadata:
     "@babel/runtime": ^7.12.13
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
+    "@parcel/packager-ts": 2.8.2
+    "@parcel/transformer-typescript-types": 2.8.2
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-separator": ^1.0.0
     "@radix-ui/react-slider": ^1.0.0
@@ -20563,8 +20565,6 @@ __metadata:
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^17.2.0
     "@commitlint/config-conventional": ^13.1.0
-    "@parcel/packager-ts": 2.8.2
-    "@parcel/transformer-typescript-types": 2.8.2
     "@typescript-eslint/eslint-plugin": ^5.42.1
     "@typescript-eslint/parser": ^4.33.0
     cz-conventional-changelog: ^3.3.0
