@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.180
+
+### Minor Changes
+
+- [#1061](https://github.com/channel-io/bezier-react/pull/1061) [`d4e04675`](https://github.com/channel-io/bezier-react/commit/d4e046759a501f56513df1b31d76b34a3ff511e4) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Re-implement `Tabs` component
+
+  BREAKING_CHANGES
+
+  - The existing `Tabs` is renamed `LegacyTabs` and will be removed from following PR.
+  - No longer use selectedOptionIndex in `Tabs`
+  - Some props such as `withIndicator`, `optionKey` are removed from `TabItem`
+  - Wrap with `TabContent` component for tab panel
+
 ## 1.0.0-next-v1.179
 
 ### Patch Changes
