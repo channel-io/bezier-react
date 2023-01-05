@@ -1,3 +1,5 @@
+/// <reference types="./types/declaration/custom" />
+
 import * as LegacyTabs from '~/src/components/Tabs/LegacyTabs'
 import * as StyleUtils from '~/src/utils/styleUtils'
 import * as StringUtils from '~/src/utils/stringUtils'
