@@ -4,8 +4,8 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from '~/src/foundation'
-import defaultAvatarUrl from '~/src/assets/defaultAvatar.svg'
 import { Status, StatusSize } from '~/src/components/Status'
+import defaultAvatarUrl from '~/src/components/Avatars/assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
