@@ -283,7 +283,7 @@ forwardedRef: Ref<TextFieldRef>,
 
     const item = renderLeftItem(leftContent)
 
-    if (isNil(item) || withoutLeftContentWrapper) { return item }
+    if (withoutLeftContentWrapper) { return item }
 
     return (
       <Styled.LeftContentWrapper

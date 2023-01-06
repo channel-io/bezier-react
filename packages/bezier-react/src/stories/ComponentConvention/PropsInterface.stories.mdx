@@ -6,7 +6,7 @@ import { SegmentedControl } from 'Components/Forms/SegmentedControl'
 import { Select } from 'Components/Forms/Inputs/Select'
 import { TextField } from 'Components/Forms/Inputs/TextField'
 import { KeyValueListItem } from 'Components/KeyValueListItem'
-import { Icon, ChannelSmileFilledIcon } from 'Components/Icon'
+import { Icon, ChannelSmileFilledIcon, UserNameIcon } from 'Components/Icon'
 import { ListItem, ListItemSize } from 'Components/ListItem'
 import { OutlineItem } from 'Components/OutlineItem'
 import { SectionLabel } from 'Components/SectionLabel'
@@ -490,10 +490,10 @@ Form 내에서 사용되는 필드가 구현할 수 있는 인터페이스입니
 
 <Canvas>
   <Story name="FormComponentProps:TextFieldProps.idle">
-    <TextField leftContent={{ icon: 'username' }} value="channel" />
+    <TextField leftContent={<Icon source={UserNameIcon} />} value="channel" />
   </Story>
   <Story name="FormComponentProps:TextFieldProps.hasError">
-    <TextField leftContent={{ icon: 'username' }} value="channel" hasError />
+    <TextField leftContent={<Icon source={UserNameIcon} />} value="channel" hasError />
   </Story>
 </Canvas>
 
