@@ -22,7 +22,7 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "~*": ["./*"]
+      "~/*": ["./*"]
     }
   },
   "types": ["react", "jest"],
