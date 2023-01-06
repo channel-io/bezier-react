@@ -5,10 +5,10 @@ import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
+import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 import { AvatarGroupEllipsisType, AvatarGroupProps } from './AvatarGroup.types'
 import { AvatarGroup } from './AvatarGroup'
-import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
 
 const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => Number.isNaN(Number(value)) === true)

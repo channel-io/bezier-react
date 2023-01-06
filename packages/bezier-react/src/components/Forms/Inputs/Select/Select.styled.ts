@@ -1,6 +1,5 @@
 /* Internal dependencies */
 import { styled, css, ellipsis } from '~/src/foundation'
-import { SelectSize } from './Select.types'
 import type { InterpolationProps } from '~/src/types/Foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { Overlay } from '~/src/components/Overlay'
@@ -11,6 +10,7 @@ import {
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
+import { SelectSize } from './Select.types'
 
 export const Container = styled.div<InterpolationProps>`
   position: relative;

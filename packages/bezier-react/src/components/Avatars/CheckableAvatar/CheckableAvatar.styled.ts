@@ -1,6 +1,6 @@
 /* Internal denpendencies */
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 import { styled, css, smoothCorners, Foundation, SemanticNames } from '~/src/foundation'
+import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 import type { InjectedInterpolation, InterpolationProps } from '~/src/types/Foundation'
 import { Icon, CheckIcon as CheckIconSource } from '~/src/components/Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'

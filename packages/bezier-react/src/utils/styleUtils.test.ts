@@ -2,8 +2,8 @@
 import { values } from 'lodash-es'
 
 /* Internal dependencies */
-import { isExplicitDefaulting, isBoxSizingUnit, toLength } from './styleUtils'
 import { ExplicitDefaulting, BoxSizingUnit } from '~/src/types/CSS'
+import { isExplicitDefaulting, isBoxSizingUnit, toLength } from './styleUtils'
 
 const ExplicitDefaultingValues = values(ExplicitDefaulting)
 const BoxSizingUnitValues = values(BoxSizingUnit)

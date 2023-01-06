@@ -4,6 +4,10 @@ import { LightFoundation } from '~/src/foundation'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
+import { ICON_TEST_ID } from '~/src/components/Icon/Icon'
+import { DIVIDER_TEST_ID } from '~/src/components/Divider/Divider'
+import type SectionLabelProps from './SectionLabel.types'
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
   SECTION_LABEL_TEST_LEFT_CONTENT_ID,
@@ -11,10 +15,6 @@ import SectionLabel, {
   SECTION_LABEL_TEST_ID,
   SECTION_LABEL_TEST_HELP_CONTENT_ID,
 } from './SectionLabel'
-import type SectionLabelProps from './SectionLabel.types'
-import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
-import { ICON_TEST_ID } from '~/src/components/Icon/Icon'
-import { DIVIDER_TEST_ID } from '~/src/components/Divider/Divider'
 
 describe('SectionLabel', () => {
   const defaultProps: SectionLabelProps = {}

@@ -1,8 +1,8 @@
 /// <reference types="./types/declaration/custom" />
 
-import * as LegacyTabs from '~/src/components/Tabs/LegacyTabs'
 import * as StyleUtils from '~/src/utils/styleUtils'
 import * as StringUtils from '~/src/utils/stringUtils'
+import * as LegacyTabs from '~/src/components/Tabs/LegacyTabs'
 
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'

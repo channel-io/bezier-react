@@ -6,9 +6,9 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
+import { StatusType } from '~/src/components/Status'
 import { Avatar } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
-import { StatusType } from '~/src/components/Status'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 

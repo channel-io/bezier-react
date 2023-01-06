@@ -7,11 +7,11 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { css, Typography } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import SectionLabel from './SectionLabel'
-import SectionLabelProps from './SectionLabel.types'
 import { ListItem } from '~/src/components/ListItem'
 import { Text } from '~/src/components/Text'
 import type { ListItemProps } from '~/src/components/ListItem'
+import SectionLabelProps from './SectionLabel.types'
+import SectionLabel from './SectionLabel'
 
 export default {
   title: getTitle(base),

@@ -1,8 +1,8 @@
 /* External dependencies */
 import { useEffect } from 'react'
-import useLayoutDispatch from './useLayoutDispatch'
 import { LayoutActions } from '~/src/layout/redux'
 import LayoutHeaderType from '~/src/layout/types/LayoutHeaderType'
+import useLayoutDispatch from './useLayoutDispatch'
 
 /* Internal dependencies */
 

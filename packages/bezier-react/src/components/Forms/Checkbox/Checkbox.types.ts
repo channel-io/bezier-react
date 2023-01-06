@@ -1,5 +1,4 @@
 /* Internal dependencies */
-import CheckType from './CheckType'
 import {
   BezierComponentProps,
   ChildrenProps,
@@ -7,6 +6,7 @@ import {
   AdditionalTestIdProps,
 } from '~/src/types/ComponentProps'
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
+import CheckType from './CheckType'
 
 interface CheckboxOptions {
   checked?: boolean | CheckType

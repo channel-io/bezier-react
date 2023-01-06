@@ -4,13 +4,13 @@ import React from 'react'
 /* Internal dependencies */
 import { RoundAbsoluteNumber } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import { Badge, BADGE_TEST_ID } from './Badge'
-import BadgeProps from './Badge.types'
 import {
   TagBadgeSize,
   getProperTagBadgePadding,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
+import { Badge, BADGE_TEST_ID } from './Badge'
+import BadgeProps from './Badge.types'
 
 describe('Badge test >', () => {
   let props: BadgeProps

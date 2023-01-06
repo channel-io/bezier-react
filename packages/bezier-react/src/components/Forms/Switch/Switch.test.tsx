@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   Switch,
   SWITCH_TEST_ID,
@@ -12,7 +13,6 @@ import {
 } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 
 describe('Switch', () => {
   const renderComponent = (props?: Partial<SwitchProps>) => render(

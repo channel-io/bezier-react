@@ -3,8 +3,6 @@ import React, { useMemo } from 'react'
 import { isNil, isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import Styled from './Tag.styled'
-import TagProps from './Tag.types'
 import {
   TagBadgeStyled,
   TagBadgeSize,
@@ -18,6 +16,8 @@ import {
   getProperTagBadgeRounding,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { CancelSmallIcon } from '~/src/components/Icon'
+import Styled from './Tag.styled'
+import TagProps from './Tag.types'
 
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'

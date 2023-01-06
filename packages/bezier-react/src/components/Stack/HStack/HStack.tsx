@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
 /* Internal dependencies */
-import type HStackProps from './HStack.types'
 import { Stack } from '~/src/components/Stack/Stack'
+import type HStackProps from './HStack.types'
 
 /**
  * A container for horizontal flex layout.

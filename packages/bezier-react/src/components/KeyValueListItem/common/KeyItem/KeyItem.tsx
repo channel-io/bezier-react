@@ -4,10 +4,10 @@ import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import { KeyItemProps } from './KeyItem.types'
-import * as Styled from './KeyItem.styled'
 import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import { KeyItemProps } from './KeyItem.types'
+import * as Styled from './KeyItem.styled'
 
 function KeyItem(
   {

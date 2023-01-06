@@ -2,8 +2,8 @@
 import { ActionType, createAction } from 'typesafe-actions'
 
 /* Internal dependencies */
-import AT from './LayoutActionTypes'
 import ColumnType from '~/src/layout/types/ColumnType'
+import AT from './LayoutActionTypes'
 
 export type ColumnRef = {
   target: HTMLDivElement

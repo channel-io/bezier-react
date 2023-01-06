@@ -19,7 +19,7 @@ module.exports = {
     {
       files: ['./packages/bezier-react/**/*'],
       rules: {
-        'import/extensions': 'off',
+        'import/extensions': 'off', // FIXME(@aru)
         'import/order': [
           'error',
           {
@@ -51,12 +51,12 @@ module.exports = {
                 position: 'before',
               },
               {
-                pattern: '@(Constants|Types|Utils)/**',
+                pattern: '~/src/@(constants|types|utils|assets)/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: '@(Components|Layout)/**',
+                pattern: '~/src/@(components|layout)/**',
                 group: 'internal',
                 position: 'before',
               },

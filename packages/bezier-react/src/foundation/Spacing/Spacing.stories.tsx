@@ -4,9 +4,9 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
 import { styled, Spacing } from '~/src/foundation'
-import { Entries } from ''~/src/utilstypes/Utils'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Entries } from '~/src/types/Utils'
 import { Text } from '~/src/components/Text'
 
 export default {
