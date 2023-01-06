@@ -1,0 +1,3 @@
+{
+  "ignore": "src/components/Tabs/LegacyTabs|src/components/Modals/LegacyConfirmModal|src/components/Modals/LegacyModal"
+}
