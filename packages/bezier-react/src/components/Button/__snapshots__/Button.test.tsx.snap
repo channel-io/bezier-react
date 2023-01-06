@@ -195,6 +195,21 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
 `;
 
 exports[`Button Test > Loading Test > Active prop change Button to hover style 1`] = `
+.c5 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: transparent;
+  border-right-color: inherit;
+  border-bottom-color: inherit;
+  border-left-color: inherit;
+  border-radius: 50%;
+  -webkit-animation: epmXAj 1s infinite linear;
+  animation: epmXAj 1s infinite linear;
+}
+
 .c2 {
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -279,21 +294,6 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
 
 .c3 {
   padding: 0 4px;
-}
-
-.c5 {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-style: solid;
-  border-width: 2px;
-  border-top-color: transparent;
-  border-right-color: inherit;
-  border-bottom-color: inherit;
-  border-left-color: inherit;
-  border-radius: 50%;
-  -webkit-animation: epmXAj 1s infinite linear;
-  animation: epmXAj 1s infinite linear;
 }
 
 @supports not(gap:2px) {

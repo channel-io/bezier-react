@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
+.c3 {
+  position: relative;
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  margin: 0px;
+  background-color: #FFFFFF;
+  background-image: var(--background-image);
+  background-size: cover;
+  border-radius: 42%;
+}
+
+.c2 {
+  position: relative;
+  z-index: 1;
+}
+
+.c1 {
+  position: relative;
+  z-index: 0;
+}
+
 .c5 {
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -51,44 +89,6 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 
 .c4.c4 {
   margin-left: var(--bezier-avatar-group-ellipsis-ml);
-}
-
-.c3 {
-  position: relative;
-  box-sizing: content-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  outline: none;
-  margin: 0px;
-  background-color: #FFFFFF;
-  background-image: var(--background-image);
-  background-size: cover;
-  border-radius: 42%;
-}
-
-.c2 {
-  position: relative;
-  z-index: 1;
-}
-
-.c1 {
-  position: relative;
-  z-index: 0;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -229,48 +229,6 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 `;
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
-.c0 {
-  position: relative;
-  z-index: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c0 > * + * {
-  margin-left: var(--bezier-avatar-group-spacing);
-}
-
-.c4 {
-  position: relative;
-}
-
-.c5 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  margin: 0px;
-  background-color: #00000033;
-  border-radius: 42%;
-}
-
 .c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -325,19 +283,46 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   z-index: 0;
 }
 
-@supports (background:paint(smooth-corners)) {
-  .c5 {
-    padding: 0px;
-    margin: 0px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #00000033;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
-  }
+.c0 {
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 > * + * {
+  margin-left: var(--bezier-avatar-group-spacing);
+}
+
+.c4 {
+  position: relative;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin: 0px;
+  background-color: #00000033;
+  border-radius: 42%;
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -351,6 +336,21 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     --smooth-corners: 42%;
     --smooth-corners-shadow: 0 0 0 0 transparent;
     --smooth-corners-bg-color: #FFFFFF;
+    --smooth-corners-padding: 0;
+    --smooth-corners-radius-unit: string;
+  }
+}
+
+@supports (background:paint(smooth-corners)) {
+  .c5 {
+    padding: 0px;
+    margin: 0px;
+    background: paint(smooth-corners);
+    border-radius: 0;
+    box-shadow: none;
+    --smooth-corners: 42%;
+    --smooth-corners-shadow: 0 0 0 0 transparent;
+    --smooth-corners-bg-color: #00000033;
     --smooth-corners-padding: 0;
     --smooth-corners-radius-unit: string;
   }
