@@ -4,7 +4,7 @@ import {
   isNil,
 } from 'Utils/typeUtils'
 import { AdditionalColorProps } from 'Types/ComponentProps'
-import { Icon } from 'Components/Icon'
+import { Icon, LegacyIcon } from 'Components/Icon'
 import { Tooltip } from 'Components/Tooltip'
 
 export const ItemActionWrapper = styled.div`
@@ -16,6 +16,7 @@ interface ActionWrapperProps extends AdditionalColorProps<['hoverBackground', 'h
 }
 
 export const ActionIcon = styled(Icon)``
+export const ActionLegacyIcon = styled(LegacyIcon)``
 
 export const ActionIconWrapper = styled.div<ActionWrapperProps>`
   display: ${({ show }) => (show ? 'flex' : 'none')};
@@ -33,6 +34,12 @@ export const ActionIconWrapper = styled.div<ActionWrapperProps>`
     `}
 
     ${ActionIcon} {
+      ${({ foundation, hoverIconColor }) => !isNil(hoverIconColor) && css`
+        color: ${foundation?.theme?.[hoverIconColor]};
+      `}
+    }
+    
+    ${ActionLegacyIcon} {
       ${({ foundation, hoverIconColor }) => !isNil(hoverIconColor) && css`
         color: ${foundation?.theme?.[hoverIconColor]};
       `}

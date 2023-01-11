@@ -3,10 +3,10 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
+import type { BezierIcon, IconName } from 'Components/Icon'
 
 interface KeyItemOptions {
-  keyIcon?: IconName | React.ReactNode
+  keyIcon?: IconName | BezierIcon | React.ReactNode
 }
 
 export interface KeyItemProps extends

@@ -3,10 +3,11 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from 'Types/ComponentProps'
+import { BezierIcon, IconName } from 'Components/Icon'
 import { KeyValueListItemActionProps } from './common'
 
 interface KeyValueListItemOptions {
-  keyIcon?: React.ReactNode
+  keyIcon?: IconName | BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
   actions?: KeyValueListItemActionProps | KeyValueListItemActionProps[]
 }

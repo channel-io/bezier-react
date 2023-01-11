@@ -6,7 +6,7 @@ import { Typography } from 'Foundation'
 import {
   isString,
 } from 'Utils/typeUtils'
-import { IconSize, isIcon, Icon } from 'Components/Icon'
+import { IconSize, Icon, isIconName, LegacyIcon, isBezierIcon } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { KeyItemProps } from './KeyItem.types'
 import * as Styled from './KeyItem.styled'
@@ -23,15 +23,26 @@ function KeyItem(
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const KeyIcon = useMemo(() => {
-    if (isIcon(keyIcon)) {
+    if (isIconName(keyIcon)) {
       return (
-        <Icon
+        <LegacyIcon
           size={IconSize.S}
-          source={keyIcon.props.source}
+          name={keyIcon}
           color="txt-black-dark"
         />
       )
     }
+
+    if (isBezierIcon(keyIcon)) {
+      return (
+        <Icon
+          size={IconSize.S}
+          source={keyIcon}
+          color="txt-black-dark"
+        />
+      )
+    }
+
     return keyIcon
   }, [keyIcon])
 
