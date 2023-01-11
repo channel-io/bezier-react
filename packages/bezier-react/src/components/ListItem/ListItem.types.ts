@@ -12,7 +12,7 @@ import type {
   SideContentProps,
   AdditionalStylableProps,
 } from 'Types/ComponentProps'
-import type { BezierIcon } from 'Components/Icon'
+import type { BezierIcon, IconName } from 'Components/Icon'
 
 export enum ListItemSize {
   S = 's',
@@ -35,7 +35,7 @@ interface ListItemOptions {
   name?: string
   hide?: boolean
   nested?: boolean
-  leftIcon?: BezierIcon
+  leftIcon?: IconName | BezierIcon
   focused?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number

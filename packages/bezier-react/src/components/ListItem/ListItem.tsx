@@ -13,19 +13,20 @@ import {
 import { mergeClassNames } from 'Utils/stringUtils'
 import { noop } from 'Utils/functionUtils'
 import { Text } from 'Components/Text'
-import { IconSize } from 'Components/Icon'
+import { IconSize, isBezierIcon, isIconName } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
-  StyledIcon,
+  StyledLegacyIcon,
   TitleWrapper,
   Title,
   DescriptionWrapper,
   Description,
   RightContent,
   ContentWrapper,
+  StyledIcon,
 } from './ListItem.styled'
 
 const LINE_BREAK_CHAR = '\n'
@@ -133,12 +134,26 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (!isNil(leftIcon)) {
+    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+      return (
+        <LeftContentWrapper>
+          <StyledLegacyIcon
+            className={iconClassName}
+            name={leftIcon}
+            size={IconSize.S}
+            active={isActive}
+            variant={variant}
+          />
+        </LeftContentWrapper>
+      )
+    }
+
+    if (!isNil(leftIcon) && isBezierIcon(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon
             className={iconClassName}
-            source={leftIcon.props.source}
+            source={leftIcon}
             size={IconSize.S}
             active={isActive}
             variant={variant}

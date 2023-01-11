@@ -21,8 +21,10 @@ import {
   Icon,
   ChevronUpIcon,
   ChevronDownIcon,
-  isIcon,
   IconSize,
+  isBezierIcon,
+  isIconName,
+  LegacyIcon,
 } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import { Text } from 'Components/Text'
@@ -85,28 +87,39 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const LeftComponent = useMemo(() => {
-    if (isIcon(leftContent)) {
+    if (isBezierIcon(leftContent)) {
       return (
         <Icon
-          source={leftContent.props.source}
+          source={leftContent}
           size={IconSize.XS}
           marginRight={6}
           color={iconColor}
+        />
+      )
+    }
+
+    if (isIconName(leftContent)) {
+      return (
+        <LegacyIcon
+          name={leftContent}
+          size={IconSize.XS}
+          color={iconColor}
+          marginRight={6}
         />
       )
     }
 
     return leftContent
   }, [
-    iconColor,
     leftContent,
+    iconColor,
   ])
 
   const RightComponent = useMemo(() => {
-    if (isIcon(rightContent)) {
+    if (isBezierIcon(rightContent)) {
       return (
         <Icon
-          source={rightContent.props.source}
+          source={rightContent}
           size={IconSize.XS}
           marginRight={6}
           color={iconColor}
@@ -114,10 +127,21 @@ forwardedRef: Ref<SelectRef>,
       )
     }
 
+    if (isIconName(rightContent)) {
+      return (
+        <LegacyIcon
+          name={rightContent}
+          size={IconSize.XS}
+          color={iconColor}
+          marginRight={6}
+        />
+      )
+    }
+
     return rightContent
   }, [
-    iconColor,
     rightContent,
+    iconColor,
   ])
 
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {

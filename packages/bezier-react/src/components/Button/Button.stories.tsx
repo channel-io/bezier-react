@@ -44,7 +44,6 @@ import {
   Text,
 } from 'Components/Text'
 import {
-  Icon,
   TagIcon,
 } from 'Components/Icon'
 import ButtonProps, {
@@ -270,7 +269,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon={<Icon source={TagIcon} />}
+              leftIcon={TagIcon}
               content="KR/Product"
               rightContent={(
                 <HStack>
@@ -296,7 +295,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon={<Icon source={TagIcon} />}
+              leftIcon={TagIcon}
               content="KR/Design"
               rightContent={(
                 <HStack>
