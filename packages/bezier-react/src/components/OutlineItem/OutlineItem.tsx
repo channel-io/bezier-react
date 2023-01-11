@@ -8,14 +8,22 @@ import {
 import { noop } from 'Utils/functionUtils'
 import {
   IconSize,
-  isIcon,
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
+  isIconName,
+  isBezierIcon,
 } from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
 import OutlineItemProps from './OutlineItem.types'
-import { GroupItemWrapper, StyledIcon, ContentWrapper, ChevronWrapper, LeftContentWrapper } from './OutlineItem.styled'
+import {
+  GroupItemWrapper,
+  StyledIcon,
+  ContentWrapper,
+  ChevronWrapper,
+  LeftContentWrapper,
+  StyledLegacyIcon,
+} from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
 
@@ -155,14 +163,32 @@ function OutlineItem(
         </LeftContentWrapper>
       )
     }
-    if (isIcon(leftIcon)) {
+
+    if (isIconName(leftIcon)) {
+      return (
+        <LeftContentWrapper>
+          <StyledLegacyIcon
+            testId={leftIconTestId}
+            className={iconClassName}
+            interpolation={iconInterpolation}
+            name={leftIcon}
+            size={IconSize.S}
+            active={active}
+            disableIconActive={disableIconActive}
+            color={leftIconColor}
+          />
+        </LeftContentWrapper>
+      )
+    }
+
+    if (isBezierIcon(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon
             testId={leftIconTestId}
             className={iconClassName}
             interpolation={iconInterpolation}
-            source={leftIcon.props.source}
+            source={leftIcon}
             size={IconSize.S}
             active={active}
             disableIconActive={disableIconActive}

@@ -8,7 +8,7 @@ import { render } from 'Utils/testUtils'
 import {
   range,
 } from 'Utils/numberUtils'
-import { EditIcon, Icon } from 'Components/Icon'
+import { EditIcon } from 'Components/Icon'
 import OutlineItem, { OUTLINE_ITEM_LEFT_ICON_TEST_ID, OUTLINE_ITEM_TEST_ID } from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
 
@@ -94,14 +94,14 @@ describe('OutlineItem', () => {
 
   describe('should have correct left icon style', () => {
     it('shows default left icon color', () => {
-      const { getByTestId } = renderComponent({ leftIcon: <Icon source={EditIcon} /> })
+      const { getByTestId } = renderComponent({ leftIcon: EditIcon })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
     })
 
     it('shows given leftIconColor if exists', () => {
-      const { getByTestId } = renderComponent({ leftIcon: <Icon source={EditIcon} />, leftIconColor: 'bgtxt-green-normal' })
+      const { getByTestId } = renderComponent({ leftIcon: EditIcon, leftIconColor: 'bgtxt-green-normal' })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
       expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']};`)
@@ -109,7 +109,7 @@ describe('OutlineItem', () => {
 
     it('shows active icon color, ignoring given leftIconColor', () => {
       const { getByTestId } = renderComponent({
-        leftIcon: <Icon source={EditIcon} />,
+        leftIcon: EditIcon,
         leftIconColor: 'bgtxt-green-normal',
         active: true,
       })
@@ -120,7 +120,7 @@ describe('OutlineItem', () => {
 
     it('shows given leftIconColor even if "active = true", if "disableIconActive = true"', () => {
       const { getByTestId } = renderComponent({
-        leftIcon: <Icon source={EditIcon} />,
+        leftIcon: EditIcon,
         leftIconColor: 'bgtxt-purple-normal',
         active: true,
         disableIconActive: true,

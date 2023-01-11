@@ -8,7 +8,6 @@ import { v4 as uuid } from 'uuid'
 import { getTitle } from 'Utils/storyUtils'
 import {
   DotIcon,
-  Icon,
   EmailUnreadIcon,
   AppPushIcon,
   SmsIcon,
@@ -58,7 +57,7 @@ const Template: Story<OutlineItemProps> = (args) => {
       <div style={{ width: 240 }}>
         <OutlineItem
           content="GL"
-          leftIcon={<Icon source={DotIcon} />}
+          leftIcon={DotIcon}
           leftIconColor="bgtxt-teal-normal"
           name="nested"
         />
@@ -88,25 +87,25 @@ const Template: Story<OutlineItemProps> = (args) => {
               optionKey="item-with-a"
               href="https://naver.com"
               content="🔥"
-              leftIcon={<Icon source={DotIcon} />}
+              leftIcon={DotIcon}
               leftIconColor="txt-black-dark"
             />
             <OutlineItem
               content="feedback"
-              leftIcon={<Icon source={DotIcon} />}
+              leftIcon={DotIcon}
               leftIconColor="bgtxt-olive-normal"
             />
           </OutlineItem>
 
           <OutlineItem
             content="bug"
-            leftIcon={<Icon source={DotIcon} />}
+            leftIcon={DotIcon}
             leftIconColor="bgtxt-red-normal"
           />
         </OutlineItem>
         <OutlineItem
           content="etc"
-          leftIcon={<Icon source={DotIcon} />}
+          leftIcon={DotIcon}
           leftIconColor="txt-black-dark"
         />
       </div>
@@ -114,28 +113,28 @@ const Template: Story<OutlineItemProps> = (args) => {
         <OutlineItem
           open
           content="푸시 메시지 설정"
-          leftIcon={<Icon source={EmailUnreadIcon} />}
+          leftIcon={EmailUnreadIcon}
         >
           <OutlineItem
             key={uuid()}
             optionKey="item-with-a"
             href="https://naver.com"
             content="모바일 SDK 푸시"
-            leftIcon={<Icon source={AppPushIcon} />}
+            leftIcon={AppPushIcon}
             leftIconColor="txt-black-dark"
           />
           <OutlineItem
             content="알림톡, 문자 푸시"
-            leftIcon={<Icon source={SmsIcon} />}
+            leftIcon={SmsIcon}
           />
           <OutlineItem
             content="이메일 푸시"
-            leftIcon={<Icon source={EmailIcon} />}
+            leftIcon={EmailIcon}
           />
         </OutlineItem>
         <OutlineItem
           content="보안"
-          leftIcon={<Icon source={SecurityIcon} />}
+          leftIcon={SecurityIcon}
         />
       </div>
 
@@ -148,6 +147,6 @@ export const Primary: Story<OutlineItemProps> = Template.bind({})
 Primary.args = {
   name: 'sample group',
   content: 'KR',
-  leftIcon: <Icon source={DotIcon} />,
+  leftIcon: DotIcon,
   leftIconColor: 'bgtxt-pink-normal',
 }
