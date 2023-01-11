@@ -12,13 +12,13 @@ import {
 import { noop } from 'Utils/functionUtils'
 import { IconSize, isIconName } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
-import { ItemActionProps, ItemActionWithIcon as ItemWithIcon, KeyValueListItemActionProps } from './ItemAction.types'
+import { ItemActionProps, ItemActionWithIcon, KeyValueListItemActionProps } from './ItemAction.types'
 import * as Styled from './ItemAction.styled'
 
 function ActionIcon({
   icon,
   iconColor,
-}: ItemWithIcon) {
+}: ItemActionWithIcon) {
   if (isIconName(icon)) {
     return (
       <Styled.ActionLegacyIcon
