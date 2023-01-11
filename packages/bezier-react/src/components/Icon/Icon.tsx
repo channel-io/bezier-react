@@ -1,7 +1,6 @@
 /* External dependencies */
 import React, {
   memo,
-  ReactElement,
 } from 'react'
 
 /* Internal dependencies */
@@ -41,8 +40,3 @@ export const Icon = memo(function Icon({
     />
   )
 })
-
-export type BezierIcon = ReactElement<IconProps>
-
-export const isIcon = (maybeIcon): maybeIcon is BezierIcon =>
-  maybeIcon?.type === Icon
