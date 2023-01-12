@@ -134,7 +134,7 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+    if (isIconName(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledLegacyIcon
@@ -148,7 +148,7 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (!isNil(leftIcon) && isBezierIcon(leftIcon)) {
+    if (isBezierIcon(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon

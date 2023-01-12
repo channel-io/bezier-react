@@ -145,9 +145,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     ${focused && css`
       ${FocusedItemStyle}
 
-      ${StyledLegacyIcon} {
-        ${FocusedIconStyle}
-      }
+      ${StyledLegacyIcon},
       ${StyledIcon} {
         ${FocusedIconStyle}
       }
