@@ -5,9 +5,8 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { compact } from 'Utils/arrayUtils'
-import { isNil } from 'Utils/typeUtils'
-import { iconList, getTitle } from 'Utils/storyUtils'
-import icons from 'Components/Icon/generated'
+import { getTitle } from 'Utils/storyUtils'
+import { InboxIcon } from 'Components/Icon'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import ListItem from './ListItem'
 
@@ -16,16 +15,14 @@ export default {
   component: ListItem,
 } as Meta
 
-interface ArgTypes extends Omit<ListItemProps, 'leftIcon'> {
+interface ArgTypes extends ListItemProps {
   width: number
-  leftIcon?: string
 }
 
-const Template: Story<ArgTypes> = ({ leftIcon: leftIconKey, width, ...listItemProps }) => (
+const Template: Story<ArgTypes> = ({ width, ...listItemProps }) => (
   <div style={{ width }}>
     <ListItem
       optionKey="menu-item-0"
-      leftIcon={isNil(leftIconKey) ? undefined : icons[leftIconKey]}
       {...listItemProps}
     />
   </div>
@@ -39,7 +36,7 @@ Primary.args = {
   content: '상담이 열릴 때',
   description: '고객이 첫 메시지를 보내거나, 매니저가 상담을 다시 열거나, 자동으로 리오픈되면 트리거됩니다.',
   rightContent: '',
-  leftIcon: 'inbox',
+  leftIcon: InboxIcon,
   active: false,
   focused: false,
   disableIconActive: false,
@@ -66,7 +63,6 @@ Primary.argTypes = {
     },
   },
   active: { control: { type: 'boolean' } },
-  leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
   size: { control: { type: 'select', options: ListItemSize } },
 }
 
