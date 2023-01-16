@@ -215,3 +215,6 @@ stats.html
 
 # Parcel cache
 .parcel-cache
+
+# @parcel/reporter-bundle-analyzer
+parcel-bundle-reports
