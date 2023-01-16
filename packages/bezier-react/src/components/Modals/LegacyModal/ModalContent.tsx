@@ -68,6 +68,7 @@ const ModalContent = (
               <Styled.SubTitleText
                 testId="Modal__Contents__SubTitle__Text"
                 typo={Typography.Size13}
+                truncated
                 color="txt-black-dark"
               >
                 { subTitle }
