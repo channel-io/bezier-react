@@ -2068,6 +2068,7 @@ __metadata:
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
     "@parcel/packager-ts": 2.8.2
+    "@parcel/reporter-bundle-analyzer": ^2.8.2
     "@parcel/transformer-typescript-types": 2.8.2
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-separator": ^1.0.0
@@ -3853,6 +3854,17 @@ __metadata:
   dependencies:
     "@parcel/types": 2.8.2
   checksum: 5c9f0ec6ff0bdb547316dfe0f2d6060509e8f9725b7dfc8d9d09a8bc9a68cb34cc43590143be2e24db9c9f9fdffa203d183bbf420c9106b2a5a5f90a202cca99
+  languageName: node
+  linkType: hard
+
+"@parcel/reporter-bundle-analyzer@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "@parcel/reporter-bundle-analyzer@npm:2.8.2"
+  dependencies:
+    "@parcel/plugin": 2.8.2
+    "@parcel/utils": 2.8.2
+    nullthrows: ^1.1.1
+  checksum: fa0e6fa71c3d48e9ee60f4cb93996384ae5e98265f8ee49dbf2b94b9126d25cc8f9c2af028a1c600923d142637db98890093290f5b80337d09b08a4215b44b26
   languageName: node
   linkType: hard
 
