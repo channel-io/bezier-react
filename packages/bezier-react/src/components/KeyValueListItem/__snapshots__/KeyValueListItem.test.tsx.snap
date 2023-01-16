@@ -4,6 +4,10 @@ exports[`KeyValueListItem Snapshot > 1`] = `
 .c6 {
   font-size: 1.2rem;
   line-height: 1.6rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: bold;
@@ -50,9 +54,6 @@ exports[`KeyValueListItem Snapshot > 1`] = `
 
 .c7 {
   margin-left: 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .c9 {
