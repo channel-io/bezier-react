@@ -24,7 +24,7 @@
     "lint:style": "stylelint 'src/**/*.styled.{js,ts}' --cache",
     "typecheck": "yarn find-deadcode && tsc --build --verbose",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
-    "test": "cross-env NODE_ENV=test jest --maxWorkers=2",
+    "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "update-snapshot": "jest --updateSnapshot",
     "clean": "rm -rf node_modules .turbo & yarn clean:build",
