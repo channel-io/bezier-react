@@ -2062,7 +2062,8 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@parcel/packager-ts": 2.8.2
     "@parcel/reporter-bundle-analyzer": ^2.8.2
-    "@parcel/reporter-sourcemap-visualiser": ^2.8.2
+    "@parcel/reporter-bundle-buddy": ^2.8.2
+    "@parcel/runtime-js": ^2.8.2
     "@parcel/transformer-typescript-types": 2.8.2
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-separator": ^1.0.0
@@ -3862,6 +3863,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/reporter-bundle-buddy@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "@parcel/reporter-bundle-buddy@npm:2.8.2"
+  dependencies:
+    "@parcel/plugin": 2.8.2
+  checksum: b1c202f0a1b25008885fa87ffcd6af31b40de29c71c0e0c4ec1783bc04cdc4f5c93103cfb8c3c510e96891084b7a262a7640e24e0f7559a12d020a387fadf011
+  languageName: node
+  linkType: hard
+
 "@parcel/reporter-cli@npm:2.8.2":
   version: 2.8.2
   resolution: "@parcel/reporter-cli@npm:2.8.2"
@@ -3885,17 +3895,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/reporter-sourcemap-visualiser@npm:^2.8.2":
-  version: 2.8.2
-  resolution: "@parcel/reporter-sourcemap-visualiser@npm:2.8.2"
-  dependencies:
-    "@parcel/plugin": 2.8.2
-    "@parcel/utils": 2.8.2
-    nullthrows: ^1.1.1
-  checksum: 6c0df936616e584e33ed9c235fd576bc127cb6ac55f8ab6283859ba21ff098ea05f1dd2ba503c0e928080c91a2c7306db35272731beee75a8ed65d36c6e5da04
-  languageName: node
-  linkType: hard
-
 "@parcel/resolver-default@npm:2.8.2":
   version: 2.8.2
   resolution: "@parcel/resolver-default@npm:2.8.2"
@@ -3916,7 +3915,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/runtime-js@npm:2.8.2":
+"@parcel/runtime-js@npm:2.8.2, @parcel/runtime-js@npm:^2.8.2":
   version: 2.8.2
   resolution: "@parcel/runtime-js@npm:2.8.2"
   dependencies:
