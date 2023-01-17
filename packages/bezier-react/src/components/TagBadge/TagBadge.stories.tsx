@@ -41,7 +41,7 @@ export default {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  ${StyleUtils.gap(4)}
+  ${gap(4)}
 `
 
 export const Overview: Story<{}> = () => (
