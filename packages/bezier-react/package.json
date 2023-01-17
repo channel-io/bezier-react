@@ -75,6 +75,8 @@
     "@svgr/babel-plugin-add-jsx-attribute": "^6.5.1",
     "@svgr/babel-plugin-remove-jsx-attribute": "^6.0.0",
     "@svgr/cli": "^6.2.1",
+    "@swc/core": "^1.3.27",
+    "@swc/jest": "^0.2.24",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
