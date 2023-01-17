@@ -101,7 +101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.20.2":
+"@babel/core@npm:^7.11.6":
   version: 7.20.2
   resolution: "@babel/core@npm:7.20.2"
   dependencies:
@@ -575,7 +575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-class-properties@npm:^7.12.1, @babel/plugin-proposal-class-properties@npm:^7.13.0, @babel/plugin-proposal-class-properties@npm:^7.16.0, @babel/plugin-proposal-class-properties@npm:^7.18.6":
+"@babel/plugin-proposal-class-properties@npm:^7.12.1, @babel/plugin-proposal-class-properties@npm:^7.16.0, @babel/plugin-proposal-class-properties@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/plugin-proposal-class-properties@npm:7.18.6"
   dependencies:
@@ -1405,7 +1405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-runtime@npm:^7.12.15, @babel/plugin-transform-runtime@npm:^7.16.4":
+"@babel/plugin-transform-runtime@npm:^7.16.4":
   version: 7.18.6
   resolution: "@babel/plugin-transform-runtime@npm:7.18.6"
   dependencies:
@@ -1513,7 +1513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.12.11, @babel/preset-env@npm:^7.14.2, @babel/preset-env@npm:^7.16.4":
+"@babel/preset-env@npm:^7.12.11, @babel/preset-env@npm:^7.16.4":
   version: 7.18.6
   resolution: "@babel/preset-env@npm:7.18.6"
   dependencies:
@@ -1680,7 +1680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.6
   resolution: "@babel/runtime@npm:7.18.6"
   dependencies:
@@ -2058,17 +2058,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
-    "@babel/core": ^7.20.2
-    "@babel/plugin-proposal-class-properties": ^7.13.0
-    "@babel/plugin-transform-runtime": ^7.12.15
-    "@babel/preset-env": ^7.14.2
-    "@babel/preset-react": ^7.12.10
-    "@babel/preset-typescript": ^7.12.7
-    "@babel/runtime": ^7.12.13
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
     "@parcel/packager-ts": 2.8.2
     "@parcel/reporter-bundle-analyzer": ^2.8.2
+    "@parcel/reporter-sourcemap-visualiser": ^2.8.2
     "@parcel/transformer-typescript-types": 2.8.2
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-separator": ^1.0.0
@@ -3888,6 +3882,17 @@ __metadata:
     "@parcel/plugin": 2.8.2
     "@parcel/utils": 2.8.2
   checksum: 1efff76ed9003813ff5457657966204eed0ed26709a569530b38f5674b43f3a1c49f828ee25caab98329f6e1ea0c7454377608179e2c295d6da085192a97b1c5
+  languageName: node
+  linkType: hard
+
+"@parcel/reporter-sourcemap-visualiser@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "@parcel/reporter-sourcemap-visualiser@npm:2.8.2"
+  dependencies:
+    "@parcel/plugin": 2.8.2
+    "@parcel/utils": 2.8.2
+    nullthrows: ^1.1.1
+  checksum: 6c0df936616e584e33ed9c235fd576bc127cb6ac55f8ab6283859ba21ff098ea05f1dd2ba503c0e928080c91a2c7306db35272731beee75a8ed65d36c6e5da04
   languageName: node
   linkType: hard
 

@@ -49,16 +49,11 @@
     "not ie <= 11"
   ],
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/preset-typescript": "^7.12.7",
     "@channel.io/react-docgen-typescript-plugin": "^1.0.0",
     "@mdx-js/react": "^1.6.22",
     "@parcel/packager-ts": "2.8.2",
     "@parcel/reporter-bundle-analyzer": "^2.8.2",
+    "@parcel/reporter-sourcemap-visualiser": "^2.8.2",
     "@parcel/transformer-typescript-types": "2.8.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -120,7 +115,6 @@
     "styled-components": ">=5"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.13",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-separator": "^1.0.0",
     "@radix-ui/react-slider": "^1.0.0",
