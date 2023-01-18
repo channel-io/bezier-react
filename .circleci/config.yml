@@ -12,7 +12,7 @@ references:
       at: *workspace_root
 
 defaults: &defaults
-  resource_class: large
+  resource_class: xlarge
   working_directory: *workspace_root
 
   docker:
