@@ -79,7 +79,6 @@
     "@swc/jest": "^0.2.24",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^25.2.3",
     "@types/lodash-es": "^4.17.4",
