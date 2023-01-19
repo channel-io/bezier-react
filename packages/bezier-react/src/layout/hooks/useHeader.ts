@@ -1,10 +1,10 @@
 /* External dependencies */
 import { useEffect } from 'react'
-import { LayoutActions } from 'Layout/redux'
-import LayoutHeaderType from 'Layout/types/LayoutHeaderType'
+import useLayoutDispatch from './useLayoutDispatch'
+import { LayoutActions } from '~/src/layout/redux'
+import LayoutHeaderType from '~/src/layout/types/LayoutHeaderType'
 
 /* Internal dependencies */
-import useLayoutDispatch from './useLayoutDispatch'
 
 export default function useHeader(type: LayoutHeaderType) {
   const dispatch = useLayoutDispatch()

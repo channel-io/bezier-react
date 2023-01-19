@@ -3,8 +3,8 @@ import React, { useCallback, memo } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
+import { Typography } from '~/src/foundation'
+import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
 import type NavItemProps from './NavItem.types'
 import {
   Item,

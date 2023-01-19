@@ -4,11 +4,9 @@ import { noop, isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useMergeRefs from 'Hooks/useMergeRefs'
-import { mergeClassNames } from 'Utils/stringUtils'
-import { Text } from 'Components/Text'
-import { IconSize, isIconName } from 'Components/Icon'
+import { Typography } from '~/src/foundation'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { mergeClassNames } from '~/src/utils/stringUtils'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {
@@ -22,6 +20,8 @@ import {
   RightContent,
   ContentWrapper,
 } from './ListItem.styled'
+import { IconSize, isIconName } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 
 const LINE_BREAK_CHAR = '\n'
 

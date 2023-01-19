@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { GNB_WIDTH } from 'Layout/LayoutSizes'
+import { styled } from '~/src/foundation'
 import GNBProps from './GNB.types'
+import { GNB_WIDTH } from '~/src/layout/LayoutSizes'
 
 const GNB = styled.div<GNBProps>`
   z-index: 10000;

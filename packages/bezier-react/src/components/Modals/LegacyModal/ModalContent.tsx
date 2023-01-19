@@ -7,12 +7,12 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   ButtonColorVariant,
   ButtonStyleVariant,
   ButtonSize,
-} from 'Components/Button'
+} from '~/src/components/Button'
 import ModalContext from './ModalContext'
 import type { ModalContentProps, ModalTitleTextProps } from './Modal.types'
 import { ModalTitleSize } from './Modal.types'

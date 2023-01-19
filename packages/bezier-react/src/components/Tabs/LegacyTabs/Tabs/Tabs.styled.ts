@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, hideScrollbars } from 'Foundation'
+import { styled, hideScrollbars } from '~/src/foundation'
 
 export const Wrapper = styled.div`
   display: flex;

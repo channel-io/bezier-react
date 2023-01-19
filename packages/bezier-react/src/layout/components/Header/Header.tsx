@@ -2,8 +2,8 @@
 import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
-import { backgroundImageVariable, Typography } from 'Foundation'
-import { Text } from 'Components/Text'
+import { backgroundImageVariable, Typography } from '~/src/foundation'
+import { Text } from '~/src/components/Text'
 import { ActionWrapper, Container, ImageWrapper, TitleImage, TitleWrapper } from './Header.styled'
 import HeaderProps from './Header.types'
 

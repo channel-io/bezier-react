@@ -4,19 +4,19 @@ import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
+import { ProgressBar } from './ProgressBar'
+import type ProgressBarProps from './ProgressBar.types'
+import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
+import mdx from './ProgressBar.mdx'
+import { Button } from '~/src/components/Button'
+import { Text } from '~/src/components/Text'
 import {
   VStack,
   HStack,
   StackItem,
   Spacer,
-} from 'Components/Stack'
-import { Text } from 'Components/Text'
-import { Button } from 'Components/Button'
-import { ProgressBar } from './ProgressBar'
-import type ProgressBarProps from './ProgressBar.types'
-import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
-import mdx from './ProgressBar.mdx'
+} from '~/src/components/Stack'
 
 export default {
   title: getTitle(base),

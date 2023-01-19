@@ -4,7 +4,7 @@ import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
+import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
 import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'

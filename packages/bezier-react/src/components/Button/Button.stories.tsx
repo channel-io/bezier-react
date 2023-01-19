@@ -13,39 +13,12 @@ import {
 
 /* Internal dependencies */
 import {
+  getTitle,
+} from '~/src/utils/storyUtils'
+import {
   styled,
   Typography,
-} from 'Foundation'
-import {
-  getTitle,
-} from 'Utils/storyUtils'
-import {
-  Avatar,
-} from 'Components/Avatars/Avatar'
-import {
-  ButtonGroup,
-} from 'Components/ButtonGroup'
-import {
-  ListItem,
-} from 'Components/ListItem'
-import {
-  Overlay,
-  OverlayPosition,
-} from 'Components/Overlay'
-import {
-  SectionLabel,
-} from 'Components/SectionLabel'
-import {
-  HStack,
-  StackItem,
-  VStack,
-} from 'Components/Stack'
-import {
-  StatusType,
-} from 'Components/Status'
-import {
-  Text,
-} from 'Components/Text'
+} from '~/src/foundation'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
@@ -55,6 +28,33 @@ import {
   Button,
 } from './Button'
 import mdx from './Button.mdx'
+import {
+  Avatar,
+} from '~/src/components/Avatars/Avatar'
+import {
+  ButtonGroup,
+} from '~/src/components/ButtonGroup'
+import {
+  ListItem,
+} from '~/src/components/ListItem'
+import {
+  Overlay,
+  OverlayPosition,
+} from '~/src/components/Overlay'
+import {
+  SectionLabel,
+} from '~/src/components/SectionLabel'
+import {
+  HStack,
+  StackItem,
+  VStack,
+} from '~/src/components/Stack'
+import {
+  StatusType,
+} from '~/src/components/Status'
+import {
+  Text,
+} from '~/src/components/Text'
 
 export default {
   title: getTitle(base),

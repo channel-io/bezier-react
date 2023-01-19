@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import Icons, { IconName } from 'Components/Icon/generated'
+import Icons, { IconName } from '~/src/components/Icon/generated'
 
 export const getTitle = (baseDir: string) => {
   const filePath = baseDir.split('/')

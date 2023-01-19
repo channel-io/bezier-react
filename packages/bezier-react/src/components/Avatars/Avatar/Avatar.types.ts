@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, DisableProps, SizeProps, AdditionalStylableProps } from 'Types/ComponentProps'
-import { StatusType } from 'Components/Status'
+import type { BezierComponentProps, ChildrenProps, DisableProps, SizeProps, AdditionalStylableProps } from '~/src/types/ComponentProps'
+import { StatusType } from '~/src/components/Status'
 
 export enum AvatarSize {
   Size20 = 20,

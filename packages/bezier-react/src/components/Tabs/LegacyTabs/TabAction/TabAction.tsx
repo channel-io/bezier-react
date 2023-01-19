@@ -3,10 +3,10 @@ import React, { Ref, forwardRef, useMemo, useCallback } from 'react'
 import { get, isNil, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { Text } from 'Components/Text'
-import { IconSize, OpenInNewIcon } from 'Components/Icon'
-import TabsSize from 'Components/Tabs/LegacyTabs/TabsSize'
+import { Typography } from '~/src/foundation'
+import { Text } from '~/src/components/Text'
+import { IconSize, OpenInNewIcon } from '~/src/components/Icon'
+import TabsSize from '~/src/components/Tabs/LegacyTabs/TabsSize'
 import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
 

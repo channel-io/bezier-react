@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, disableAutoMinimum } from 'Foundation'
-import LayoutSideType from 'Layout/types/LayoutSideType'
+import { styled, disableAutoMinimum } from '~/src/foundation'
+import LayoutSideType from '~/src/layout/types/LayoutSideType'
 
 interface SideAreaWrapperProps {
   sideType: LayoutSideType

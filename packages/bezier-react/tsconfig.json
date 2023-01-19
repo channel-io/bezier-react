@@ -20,18 +20,9 @@
     "useUnknownInCatchVariables": false,
     "allowJs": true,
     "noImplicitAny": false,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "Components/*": ["src/components/*"],
-      "Constants/*": ["src/constants/*"],
-      "Foundation": ["src/foundation"],
-      "Foundation/*": ["src/foundation/*"],
-      "Hooks/*": ["src/hooks/*"],
-      "Layout/*": ["src/layout/*"],
-      "Providers/*": ["src/providers/*"],
-      "Types/*": ["src/types/*"],
-      "Utils/*": ["src/utils/*"],
-      "Worklets/*": ["src/worklets/*"]
+      "~*": ["./*"]
     }
   },
   "types": ["react", "jest"],

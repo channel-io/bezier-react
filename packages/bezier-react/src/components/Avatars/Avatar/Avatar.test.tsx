@@ -2,16 +2,16 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { StatusType } from 'Components/Status'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
+import { render } from '~/src/utils/testUtils'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { Avatar, AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
+import { StatusType } from '~/src/components/Status'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 
-jest.mock('Worklets/EnableCSSHoudini', () => ({
+jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
   __esModule: true,
-  ...jest.requireActual('Worklets/EnableCSSHoudini') as object,
+  ...jest.requireActual('~/src/worklets/EnableCSSHoudini') as object,
   enableSmoothCorners: { current: true },
 }))
 

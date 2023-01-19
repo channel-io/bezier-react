@@ -6,9 +6,9 @@ import {
   LightFoundation,
   DarkFoundation,
   createGlobalStyle,
-} from 'Foundation'
-import BezierProvider from 'Providers/BezierProvider'
-import { Text } from 'Components/Text'
+} from '~/src/foundation'
+import BezierProvider from '~/src/providers/BezierProvider'
+import { Text } from '~/src/components/Text'
 
 const FoundationKeyword = {
   Light: 'light',
@@ -34,7 +34,7 @@ export const parameters = {
 
 export const globalTypes = {
   Foundation: {
-    name: 'Foundation',
+    name: '~/src/foundation',
     description: 'Global Foundation for components',
     defaultValue: 'light',
     toolbar: {

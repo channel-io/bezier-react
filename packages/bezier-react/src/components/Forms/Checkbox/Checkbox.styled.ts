@@ -1,8 +1,8 @@
 /* Internal dependencies */
-import { styled, css, absoluteCenter } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { Icon as BaseIcon } from 'Components/Icon'
+import { styled, css, absoluteCenter } from '~/src/foundation'
 import CheckType from './CheckType'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { Icon as BaseIcon } from '~/src/components/Icon'
 
 const CHECKER_BOX_SIZE = 18
 const CHECKER_BORDER_THICKNESS = 2

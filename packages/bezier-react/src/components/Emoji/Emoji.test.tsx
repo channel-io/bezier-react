@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Interanal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import type EmojiProps from './Emoji.types'
 import Emoji, { EMOJI_TEST_ID } from './Emoji'
 import { EmojiSize } from './Emoji.types'

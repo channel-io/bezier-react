@@ -3,7 +3,7 @@ import React from 'react'
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import GNB from './GNB'
 
 export default {

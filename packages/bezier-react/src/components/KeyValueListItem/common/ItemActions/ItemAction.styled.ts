@@ -2,10 +2,10 @@
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { css, styled } from 'Foundation'
-import { AdditionalColorProps } from 'Types/ComponentProps'
-import { LegacyIcon } from 'Components/Icon'
-import { Tooltip } from 'Components/Tooltip'
+import { css, styled } from '~/src/foundation'
+import { AdditionalColorProps } from '~/src/types/ComponentProps'
+import { LegacyIcon } from '~/src/components/Icon'
+import { Tooltip } from '~/src/components/Tooltip'
 
 export const ItemActionWrapper = styled.div`
   display: flex;

@@ -5,15 +5,15 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { Icon, SearchIcon, TriangleUpdownIcon } from 'Components/Icon'
-import { ListItem } from 'Components/ListItem'
-import { Client } from 'Layout/components/Client'
-import { Header } from 'Layout/components/Header'
-import LayoutProvider from 'Layout/LayoutProvider'
+import { getTitle } from '~/src/utils/storyUtils'
+import { styled } from '~/src/foundation'
 import { NavigationContent } from './NavigationContent'
 import Navigations from './Navigations'
+import { Icon, SearchIcon, TriangleUpdownIcon } from '~/src/components/Icon'
+import { ListItem } from '~/src/components/ListItem'
+import { Client } from '~/src/layout/components/Client'
+import { Header } from '~/src/layout/components/Header'
+import LayoutProvider from '~/src/layout/LayoutProvider'
 
 export default {
   title: getTitle(base),

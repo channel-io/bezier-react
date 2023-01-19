@@ -4,7 +4,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
-import { document } from 'Utils/domUtils'
+import { document } from '~/src/utils/domUtils'
 import { ModalClose } from './ModalHelpers'
 import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'

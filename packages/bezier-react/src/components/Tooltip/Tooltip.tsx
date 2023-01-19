@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useEffect } from 'react'
 
 /* Internal dependencies */
-import { window } from 'Utils/domUtils'
+import { window } from '~/src/utils/domUtils'
 import TooltipContent from './TooltipContent'
 import TooltipProps, { TooltipPosition } from './Tooltip.types'
 import { Container } from './Tooltip.styled'

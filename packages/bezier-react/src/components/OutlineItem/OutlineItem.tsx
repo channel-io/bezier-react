@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize, isIconName } from 'Components/Icon'
+import { IconSize, isIconName } from '~/src/components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
 import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'

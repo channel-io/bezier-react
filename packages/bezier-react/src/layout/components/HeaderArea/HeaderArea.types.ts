@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps } from 'Types/ComponentProps'
+import { BezierComponentProps } from '~/src/types/ComponentProps'
 
 interface HeaderAreaOptions {
   hasHeader: boolean

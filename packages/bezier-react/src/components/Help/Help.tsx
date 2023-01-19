@@ -3,9 +3,9 @@ import React from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize, HelpFilledIcon } from 'Components/Icon'
 import type HelpProps from './Help.types'
 import * as Styled from './Help.styled'
+import { IconSize, HelpFilledIcon } from '~/src/components/Icon'
 
 export const HELP_TEST_ID = 'bezier-react-help'
 export const HELP_DISPLAY_NAME = 'Help'

@@ -3,8 +3,8 @@ import React, { forwardRef, useEffect, useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import { Typography } from '~/src/foundation'
+import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type { BaseHelperTextProps, FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 

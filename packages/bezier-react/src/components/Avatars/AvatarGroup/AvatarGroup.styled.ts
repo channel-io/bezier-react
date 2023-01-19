@@ -1,8 +1,8 @@
 /* Internal dependencies */
-import { styled, smoothCorners } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
-import { Text } from 'Components/Text'
+import { styled, smoothCorners } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { Text } from '~/src/components/Text'
 
 export const AvatarEllipsisCount = styled(Text)`
   position: relative;

@@ -5,11 +5,7 @@ import type { Meta, Story } from '@storybook/react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
-import {
-  StackItem,
-  VStack,
-} from 'Components/Stack'
+import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
 import {
   Banner,
 } from './Banner'
@@ -18,6 +14,10 @@ import {
   BannerProps,
 } from './Banner.types'
 import mdx from './Banner.mdx'
+import {
+  StackItem,
+  VStack,
+} from '~/src/components/Stack'
 
 export default {
   title: getTitle(base),

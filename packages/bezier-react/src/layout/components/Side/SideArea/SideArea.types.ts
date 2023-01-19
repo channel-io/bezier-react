@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import SideCommonProps from 'Layout/components/Side/Side.types'
-import LayoutSideType from 'Layout/types/LayoutSideType'
+import SideCommonProps from '~/src/layout/components/Side/Side.types'
+import LayoutSideType from '~/src/layout/types/LayoutSideType'
 
 interface SideAreaOptions {
   sideType: LayoutSideType

@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from 'Types/ComponentProps'
-import type TabsOptions from 'Components/Tabs/LegacyTabs/Tabs.types'
+import { BezierComponentProps, DisableProps, LinkProps, ChildrenProps } from '~/src/types/ComponentProps'
+import type TabsOptions from '~/src/components/Tabs/LegacyTabs/Tabs.types'
 
 interface TabActionOptions extends ChildrenProps {
   onClick?: React.MouseEventHandler

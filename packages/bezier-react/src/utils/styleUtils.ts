@@ -15,10 +15,10 @@ import {
 } from 'lodash-es'
 
 /* Internal dependencies */
-import { css } from 'Foundation'
-import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
-import { InjectedInterpolation } from 'Types/Foundation'
+import { css } from '~/src/foundation'
 import { isNumberString } from './stringUtils'
+import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '~/src/types/CSS'
+import { InjectedInterpolation } from '~/src/types/Foundation'
 
 export const UnitValues: string[] = [
   ...values(AbsoluteUnit),

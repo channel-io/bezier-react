@@ -19,43 +19,44 @@ module.exports = {
     {
       files: ['./packages/bezier-react/**/*'],
       rules: {
+        'import/extensions': 'off',
         'import/order': [
           'error',
           {
             groups: ['external', 'builtin', 'internal', 'parent', 'sibling', 'index'],
             pathGroups: [
               {
-                pattern: 'Foundation',
+                pattern: '~/src/foundation',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: 'Foundation/**',
+                pattern: '~/src/foundation/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: 'Providers/**',
+                pattern: '~/src/providers/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: 'Hooks/**',
+                pattern: '~/src/hooks/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: 'Worklets/**',
+                pattern: '~/src/worklets/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: '@(Constants|Types|Utils)/**',
+                pattern: '~/src/@(constants|types|utils|assets)/**',
                 group: 'internal',
                 position: 'before',
               },
               {
-                pattern: '@(Components|Layout)/**',
+                pattern: '~/src/@(components|layout)/**',
                 group: 'internal',
                 position: 'before',
               },

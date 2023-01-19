@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 /* Internal dependencies */
-import { window } from 'Utils/domUtils'
+import { window } from '~/src/utils/domUtils'
 import { ToastControllerProps } from './Toast.types'
 import { showedToastTranslateXStyle, initPosition } from './utils'
 

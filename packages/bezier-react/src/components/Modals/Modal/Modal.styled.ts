@@ -2,10 +2,10 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
-import { gap } from 'Utils/styleUtils'
-import { Text } from 'Components/Text'
-import { Button, ButtonSize, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
+import { styled, css } from '~/src/foundation'
+import { gap } from '~/src/utils/styleUtils'
+import { Text } from '~/src/components/Text'
+import { Button, ButtonSize, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
 import { ModalBodyProps, ModalContentProps, ModalFooterProps, ModalHeaderProps } from './Modal.types'
 import ModalAnimation from './ModalAnimation.styled'
 

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
 
 interface NavigationOptions {
   currentKey?: string

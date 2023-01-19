@@ -3,7 +3,7 @@ import React, { useMemo, forwardRef } from 'react'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { backgroundImageVariable } from 'Foundation'
+import { backgroundImageVariable } from '~/src/foundation'
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
 import { Icon } from './Emoji.styled'

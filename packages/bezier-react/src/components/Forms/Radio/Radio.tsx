@@ -9,7 +9,7 @@ import React, {
 import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,
   StyledRadioHandle,

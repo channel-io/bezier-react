@@ -2,15 +2,15 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { RoundAbsoluteNumber } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { RoundAbsoluteNumber } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
+import { Tag, TAG_TEST_ID } from './Tag'
+import TagProps from './Tag.types'
 import {
   TagBadgeSize,
   getProperTagBadgePadding,
-} from 'Components/TagBadge/TagBadgeCommon'
-import { TAGBADGE_VERTICAL_PADDING } from 'Components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
-import { Tag, TAG_TEST_ID } from './Tag'
-import TagProps from './Tag.types'
+} from '~/src/components/TagBadge/TagBadgeCommon'
+import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
 
 describe('Tag test >', () => {
   let props: TagProps

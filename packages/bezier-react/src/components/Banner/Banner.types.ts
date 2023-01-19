@@ -2,9 +2,9 @@
 import type { ReactNode } from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
-import type { ButtonProps } from 'Components/Button'
+import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from '~/src/types/ComponentProps'
+import type { IconName } from '~/src/components/Icon'
+import type { ButtonProps } from '~/src/components/Button'
 
 export enum BannerVariant {
   Default = 'default',

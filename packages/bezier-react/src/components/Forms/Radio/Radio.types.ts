@@ -8,8 +8,8 @@ import {
   DisableProps,
   AdditionalTestIdProps,
   AdditionalStylableProps,
-} from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms/Form.types'
+} from '~/src/types/ComponentProps'
+import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
 interface RadioOptions {
   value?: any

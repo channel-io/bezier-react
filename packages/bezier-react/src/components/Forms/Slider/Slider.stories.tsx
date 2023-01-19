@@ -9,7 +9,7 @@ import {
 /* Internal dependencies */
 import {
   getTitle,
-} from 'Utils/storyUtils'
+} from '~/src/utils/storyUtils'
 import { Slider } from './Slider'
 import type SliderProps from './Slider.types'
 

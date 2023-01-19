@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, AdditionalColorProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
+import type { BezierComponentProps, ChildrenProps, AdditionalColorProps } from '~/src/types/ComponentProps'
+import type { IconName } from '~/src/components/Icon'
 
 export type KeyValueListItemActionProps = {
   icon: IconName

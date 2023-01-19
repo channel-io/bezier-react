@@ -5,10 +5,10 @@ import { range, filter, isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { Text } from 'Components/Text'
-import { Icon, CancelIcon, PlusIcon } from 'Components/Icon'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Text } from '~/src/components/Text'
+import { Icon, CancelIcon, PlusIcon } from '~/src/components/Icon'
 import SegmentedControl from './SegmentedControl'
 import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
 

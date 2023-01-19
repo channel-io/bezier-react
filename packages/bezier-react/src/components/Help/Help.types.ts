@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { TooltipProps } from 'Components/Tooltip'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { TooltipProps } from '~/src/components/Tooltip'
 
 export default interface HelpProps extends
   BezierComponentProps,

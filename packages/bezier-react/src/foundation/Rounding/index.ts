@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from 'Foundation/FoundationStyledComponent'
+import { css } from '~/src/foundation/FoundationStyledComponent'
 
 const DefaultRoundStyle = css`
   overflow: hidden;

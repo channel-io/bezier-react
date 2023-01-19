@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, AdditionalStylableProps, AdditionalTestIdProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ChildrenProps, AdditionalStylableProps, AdditionalTestIdProps } from '~/src/types/ComponentProps'
 
 export interface ContainerRectAttr {
   containerWidth: number

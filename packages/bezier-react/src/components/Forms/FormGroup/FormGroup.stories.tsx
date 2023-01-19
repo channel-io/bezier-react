@@ -4,8 +4,8 @@ import base from 'paths.macro'
 import type { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import { Checkbox } from 'Components/Forms/Checkbox'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Checkbox } from '~/src/components/Forms/Checkbox'
 import FormGroup from './FormGroup'
 import FormGroupProps from './FormGroup.types'
 

@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightTheme } from 'Foundation/Colors/Theme'
-import { render } from 'Utils/testUtils'
+import { LightTheme } from '~/src/foundation/Colors/Theme'
+import { render } from '~/src/utils/testUtils'
 import NavItem, { NAV_ITEM_LEFT_ICON_TEST_ID, NAV_ITEM_TEST_ID } from './NavItem'
 import type NavItemProps from './NavItem.types'
 

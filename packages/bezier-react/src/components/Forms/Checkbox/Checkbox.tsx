@@ -3,8 +3,8 @@ import React, { Ref, forwardRef, useMemo } from 'react'
 import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
-import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from '~/src/components/Icon'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
 import * as Styled from './Checkbox.styled'

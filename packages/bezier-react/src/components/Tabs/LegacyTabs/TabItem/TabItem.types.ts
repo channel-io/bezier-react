@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, DisableProps, ChildrenProps, OptionItemProps, ActivatableProps } from 'Types/ComponentProps'
-import type TabsOptions from 'Components/Tabs/LegacyTabs/Tabs.types'
+import { BezierComponentProps, DisableProps, ChildrenProps, OptionItemProps, ActivatableProps } from '~/src/types/ComponentProps'
+import type TabsOptions from '~/src/components/Tabs/LegacyTabs/Tabs.types'
 
 type TabItemBaseProps = BezierComponentProps & OptionItemProps & ActivatableProps
 

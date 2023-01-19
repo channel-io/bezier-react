@@ -2,10 +2,10 @@
 import React, { memo, forwardRef } from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
-import { IconSize, LockIcon, MoonFilledIcon } from 'Components/Icon'
+import type { SemanticNames } from '~/src/foundation'
 import { StatusProps, StatusSize, StatusType } from './Status.types'
 import * as Styled from './Status.styled'
+import { IconSize, LockIcon, MoonFilledIcon } from '~/src/components/Icon'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.OnlineCrescent,

@@ -4,9 +4,9 @@ import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lo
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { window } from 'Utils/domUtils'
-import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import { window } from '~/src/utils/domUtils'
+import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from '~/src/components/Icon'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,

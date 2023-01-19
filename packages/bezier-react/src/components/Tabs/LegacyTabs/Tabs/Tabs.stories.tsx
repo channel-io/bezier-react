@@ -6,10 +6,10 @@ import { range, noop } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
-import { TabItem } from 'Components/Tabs/LegacyTabs/TabItem'
-import { TabAction } from 'Components/Tabs/LegacyTabs/TabAction'
-import TabsSize from 'Components/Tabs/LegacyTabs/TabsSize'
+import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
+import { TabItem } from '~/src/components/Tabs/LegacyTabs/TabItem'
+import { TabAction } from '~/src/components/Tabs/LegacyTabs/TabAction'
+import TabsSize from '~/src/components/Tabs/LegacyTabs/TabsSize'
 import Tabs from './Tabs'
 import TabsProps from './Tabs.types'
 

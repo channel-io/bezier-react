@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, absoluteCenter } from 'Foundation'
-import { Icon as BaseIcon } from 'Components/Icon'
+import { styled, absoluteCenter } from '~/src/foundation'
+import { Icon as BaseIcon } from '~/src/components/Icon'
 
 export const Circle = styled.div`
   position: relative;

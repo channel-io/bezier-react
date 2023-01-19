@@ -5,9 +5,9 @@ import { isNil } from 'lodash-es'
 import {
   css,
   styled,
-} from 'Foundation'
-import { flex } from 'Components/Stack/util'
+} from '~/src/foundation'
 import type StackItemProps from './StackItem.types'
+import { flex } from '~/src/components/Stack/util'
 
 interface ContainerProps extends
   Required<Pick<

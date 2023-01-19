@@ -14,9 +14,9 @@ import ReactDOM from 'react-dom'
 import { noop } from 'lodash-es'
 
 /* Internal dependencies */
-import useEventHandler from 'Hooks/useEventHandler'
-import useMergeRefs from 'Hooks/useMergeRefs'
-import { window, document, getRootElement } from 'Utils/domUtils'
+import useEventHandler from '~/src/hooks/useEventHandler'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { window, document, getRootElement } from '~/src/utils/domUtils'
 import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 

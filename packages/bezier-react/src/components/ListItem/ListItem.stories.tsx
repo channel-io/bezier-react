@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/react'
 import { compact } from 'lodash-es'
 
 /* Internal dependencies */
-import { iconList, getTitle } from 'Utils/storyUtils'
+import { iconList, getTitle } from '~/src/utils/storyUtils'
 import ListItem from './ListItem'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 

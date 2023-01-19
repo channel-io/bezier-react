@@ -4,7 +4,7 @@ import type { RenderResult } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import type {
   ModalProps,
   ModalContentProps,

@@ -4,8 +4,8 @@ import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import Select, {
   SELECT_CONTAINER_TEST_ID,
   SELECT_TRIGGER_TEST_ID,

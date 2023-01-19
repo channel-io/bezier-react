@@ -3,13 +3,13 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from 'react
 import { noop, clamp } from 'lodash-es'
 
 /* Internal dependencies */
-import useEventHandler from 'Hooks/useEventHandler'
-import { document } from 'Utils/domUtils'
-import { LayoutActions } from 'Layout/redux'
-import useLayoutState from 'Layout/hooks/useLayoutState'
-import useResizingHandlers from 'Layout/hooks/useResizingHandlers'
-import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from 'Layout/LayoutSizes'
-import useLayoutDispatch from 'Layout/hooks/useLayoutDispatch'
+import useEventHandler from '~/src/hooks/useEventHandler'
+import { document } from '~/src/utils/domUtils'
+import { LayoutActions } from '~/src/layout/redux'
+import useLayoutState from '~/src/layout/hooks/useLayoutState'
+import useResizingHandlers from '~/src/layout/hooks/useResizingHandlers'
+import { CONTENT_MIN_WIDTH, SIDE_MAX_WIDTH, SIDE_MIN_WIDTH } from '~/src/layout/LayoutSizes'
+import useLayoutDispatch from '~/src/layout/hooks/useLayoutDispatch'
 import { Resizer, ScrollWrapper, SideAreaWrapper } from './SideArea.styled'
 import SideAreaProps from './SideArea.types'
 

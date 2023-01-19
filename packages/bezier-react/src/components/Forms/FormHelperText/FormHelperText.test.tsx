@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import {
   FORM_HELPER_TEXT_TEST_ID,
   FORM_ERROR_MESSAGE_TEST_ID,

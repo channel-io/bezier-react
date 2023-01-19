@@ -1,5 +1,5 @@
 /* Internal Dependencies */
-import { css } from 'Foundation'
+import { css } from '~/src/foundation'
 import { ListItemSize } from './ListItem.types'
 
 export function getStyleOfSize(size?: ListItemSize) {

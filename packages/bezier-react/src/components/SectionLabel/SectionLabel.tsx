@@ -4,13 +4,13 @@ import { isNil, isArray, isEmpty, isString, isNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
-import { LegacyIcon, IconSize } from 'Components/Icon'
-import { Divider } from 'Components/Divider'
-import { Tooltip } from 'Components/Tooltip'
+import { Typography } from '~/src/foundation'
 import Styled from './SectionLabel.styled'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
+import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from '~/src/components/Button'
+import { LegacyIcon, IconSize } from '~/src/components/Icon'
+import { Divider } from '~/src/components/Divider'
+import { Tooltip } from '~/src/components/Tooltip'
 
 export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
 export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
