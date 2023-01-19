@@ -4,12 +4,12 @@ import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
 import type { KeyValueListItemActionProps } from './common'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
 import { TEST_ID_MAP } from './KeyValueListItem.const'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
-import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
 
 const DEFAULT_PROPS: KeyValueListItemProps = {
   keyIcon: 'apple',

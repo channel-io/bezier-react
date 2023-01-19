@@ -2,11 +2,11 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { MainWrapper } from './Main.styled'
-import MainProps from './Main.types'
 import useLayoutState from '~/src/layout/hooks/useLayoutState'
 import { HeaderArea } from '~/src/layout/components/HeaderArea'
 import { ContentArea } from '~/src/layout/components/ContentArea'
+import MainProps from './Main.types'
+import { MainWrapper } from './Main.styled'
 
 // TODO: 테스트 코드 작성
 const LAYOUT_MAIN_TEST_ID = 'bezier-react-main'

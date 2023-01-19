@@ -5,11 +5,11 @@ import { range } from 'lodash-es'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import disabledOpacity from '~/src/constants/DisabledOpacity'
+import { Text } from '~/src/components/Text'
 import ResizeObserver from './__mocks__/ResizeObserver'
 import SegmentedControl, { SEGMENTED_CONTROL_TEST_ID, segmentedControlOptionItemTestId } from './SegmentedControl'
 import type SegmentedControlProps from './SegmentedControl.types'
-import { Text } from '~/src/components/Text'
-import disabledOpacity from '~/src/constants/DisabledOpacity'
 
 describe('SegmentedControl', () => {
   const defaultProps: Partial<SegmentedControlProps> = {

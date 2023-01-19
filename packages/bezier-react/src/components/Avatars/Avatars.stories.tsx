@@ -12,7 +12,6 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import mdx from './Avatars.mdx'
 import {
   Avatar,
   AvatarSize,
@@ -39,6 +38,7 @@ import {
 import {
   Text,
 } from '~/src/components/Text'
+import mdx from './Avatars.mdx'
 
 export default {
   title: getTitle(base),

@@ -3,8 +3,8 @@ import {
   css,
   styled,
 } from '~/src/foundation'
-import type StackProps from './Stack.types'
 import { flex } from '~/src/components/Stack/util'
+import type StackProps from './Stack.types'
 
 interface ContainerProps extends
   Required<Pick<StackProps, 'interpolation' | 'direction' | 'justify' | 'align'>> {}

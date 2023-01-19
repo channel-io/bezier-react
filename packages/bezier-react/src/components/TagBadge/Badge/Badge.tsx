@@ -3,7 +3,6 @@ import React, { useMemo } from 'react'
 import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
-import BadgeProps from './Badge.types'
 import { LegacyIcon } from '~/src/components/Icon'
 import {
   TagBadgeText,
@@ -18,6 +17,7 @@ import {
   getProperTagBadgeTypo,
   TagBadgeStyled,
 } from '~/src/components/TagBadge/TagBadgeCommon'
+import BadgeProps from './Badge.types'
 
 // TODO: 테스트 코드 작성
 export const BADGE_TEST_ID = 'bezier-react-badge'

@@ -13,21 +13,12 @@ import {
 
 /* Internal dependencies */
 import {
-  getTitle,
-} from '~/src/utils/storyUtils'
-import {
   styled,
   Typography,
 } from '~/src/foundation'
-import ButtonProps, {
-  ButtonSize,
-  ButtonStyleVariant,
-  ButtonColorVariant,
-} from './Button.types'
 import {
-  Button,
-} from './Button'
-import mdx from './Button.mdx'
+  getTitle,
+} from '~/src/utils/storyUtils'
 import {
   Avatar,
 } from '~/src/components/Avatars/Avatar'
@@ -55,6 +46,15 @@ import {
 import {
   Text,
 } from '~/src/components/Text'
+import mdx from './Button.mdx'
+import ButtonProps, {
+  ButtonSize,
+  ButtonStyleVariant,
+  ButtonColorVariant,
+} from './Button.types'
+import {
+  Button,
+} from './Button'
 
 export default {
   title: getTitle(base),

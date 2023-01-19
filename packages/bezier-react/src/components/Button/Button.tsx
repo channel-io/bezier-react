@@ -4,6 +4,8 @@ import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from '~/src/foundation'
+import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
+import { Spinner, SpinnerSize } from '~/src/components/Spinner'
 import ButtonProps, {
   SideContent,
   ButtonSize,
@@ -12,8 +14,6 @@ import ButtonProps, {
   MouseEventHandler,
 } from './Button.types'
 import * as Styled from './Button.styled'
-import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
-import { Spinner, SpinnerSize } from '~/src/components/Spinner'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'

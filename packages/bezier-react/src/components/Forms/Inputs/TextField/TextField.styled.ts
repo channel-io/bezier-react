@@ -3,7 +3,6 @@ import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
 import { css, styled, Typography, SemanticNames } from '~/src/foundation'
-import { TextFieldSize, TextFieldVariant } from './TextField.types'
 import { InterpolationProps } from '~/src/types/Foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { LegacyIcon } from '~/src/components/Icon'
@@ -14,6 +13,7 @@ import {
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
+import { TextFieldSize, TextFieldVariant } from './TextField.types'
 
 interface ClickableElementProps {
   clickable: boolean

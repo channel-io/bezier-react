@@ -5,13 +5,13 @@ import userEvent from '@testing-library/user-event'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   Slider,
   SLIDER_TEST_ID,
   SLIDER_THUMB_TEST_ID,
 } from './Slider'
 import type SliderProps from './Slider.types'
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 
 describe('Slider', () => {
   const renderSlider = (props?: Partial<SliderProps>) => render(<Slider {...props} />)

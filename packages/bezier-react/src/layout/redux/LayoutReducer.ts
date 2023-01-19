@@ -3,9 +3,9 @@ import { omit } from 'lodash-es'
 
 /* Internal dependencies */
 import { insertItem, removeItem } from '~/src/utils/arrayUtils'
+import ColumnType from '~/src/layout/types/ColumnType'
 import AT from './LayoutActionTypes'
 import { ColumnRef, ColumnState, LayoutActionTypes } from './LayoutActions'
-import ColumnType from '~/src/layout/types/ColumnType'
 
 export interface LayoutState {
   /* Header related */

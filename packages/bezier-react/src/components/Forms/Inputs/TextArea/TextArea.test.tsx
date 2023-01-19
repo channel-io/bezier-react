@@ -6,10 +6,10 @@ import React from 'react'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import disabledOpacity from '~/src/constants/DisabledOpacity'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
 import TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'
-import disabledOpacity from '~/src/constants/DisabledOpacity'
 
 // SEE ALSO: https://github.com/Andarist/react-textarea-autosize#how-to-test-it-with-jest-and-react-test-renderer-if-you-need-ref
 describe('TextArea 테스트 >', () => {

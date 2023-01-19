@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
 /* Internal dependencies */
-import type VStackProps from './VStack.types'
 import { Stack } from '~/src/components/Stack/Stack'
+import type VStackProps from './VStack.types'
 
 /**
  * A container for vertical flex layout.

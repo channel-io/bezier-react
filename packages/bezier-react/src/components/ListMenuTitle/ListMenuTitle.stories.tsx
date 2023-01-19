@@ -5,9 +5,9 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
+import { LegacyIcon, IconSize } from '~/src/components/Icon'
 import ListMenuTitle from './ListMenuTitle'
 import ListMenuTitleProps from './ListMenuTitle.types'
-import { LegacyIcon, IconSize } from '~/src/components/Icon'
 
 export default {
   title: getTitle(base),

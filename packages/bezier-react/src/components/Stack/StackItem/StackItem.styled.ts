@@ -6,8 +6,8 @@ import {
   css,
   styled,
 } from '~/src/foundation'
-import type StackItemProps from './StackItem.types'
 import { flex } from '~/src/components/Stack/util'
+import type StackItemProps from './StackItem.types'
 
 interface ContainerProps extends
   Required<Pick<

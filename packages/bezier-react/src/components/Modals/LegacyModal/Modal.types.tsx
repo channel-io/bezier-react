@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-imports */
 /* Internal dependencies */
-import { BaseModalProps } from '../BaseModal'
 import { BezierComponentProps, SideContentProps, ChildrenProps } from '~/src/types/ComponentProps'
 import { TextProps } from '~/src/components/Text'
+import { BaseModalProps } from '../BaseModal'
 
 export enum ModalTitleSize {
   L = 'L',

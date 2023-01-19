@@ -2,9 +2,9 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
+import useLayoutState from '~/src/layout/hooks/useLayoutState'
 import { HeaderWrapper, ContentHeader, CoverableHeader } from './HeaderArea.styled'
 import HeaderAreaProps from './HeaderArea.types'
-import useLayoutState from '~/src/layout/hooks/useLayoutState'
 
 // TODO: 테스트 코드 작성
 const HEADER_AREA_TEST_ID = 'bezier-react-header-area'

@@ -2,6 +2,7 @@
 import { css, styled, Transition } from '~/src/foundation'
 import { toLength } from '~/src/utils/styleUtils'
 import type { BezierComponentProps } from '~/src/types/ComponentProps'
+import disabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   SIZE_TO_DIVIDER_VERTICAL_MARGIN,
   SIZE_TO_HEIGHT,
@@ -9,7 +10,6 @@ import {
 } from './SegmentedControl.const'
 import { SegmentedControlSize } from './SegmentedControl.types'
 import type { SegmentedControlItemProps } from './SegmentedControl.types'
-import disabledOpacity from '~/src/constants/DisabledOpacity'
 
 interface StyledWrapperProps extends BezierComponentProps {
   disabled?: boolean

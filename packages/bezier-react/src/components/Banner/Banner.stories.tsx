@@ -7,6 +7,10 @@ import { noop } from 'lodash-es'
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
 import {
+  StackItem,
+  VStack,
+} from '~/src/components/Stack'
+import {
   Banner,
 } from './Banner'
 import {
@@ -14,10 +18,6 @@ import {
   BannerProps,
 } from './Banner.types'
 import mdx from './Banner.mdx'
-import {
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
 
 export default {
   title: getTitle(base),

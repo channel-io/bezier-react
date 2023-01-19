@@ -4,10 +4,10 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { Avatar, AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
-import AvatarProps, { AvatarSize } from './Avatar.types'
 import { StatusType } from '~/src/components/Status'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { Avatar, AVATAR_TEST_ID, AVATAR_WRAPPER_TEST_ID, STATUS_WRAPPER_TEST_ID } from './Avatar'
+import AvatarProps, { AvatarSize } from './Avatar.types'
 
 jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
   __esModule: true,

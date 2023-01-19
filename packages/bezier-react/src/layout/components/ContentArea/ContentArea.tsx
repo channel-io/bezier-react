@@ -9,12 +9,12 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import ContentAreaProps from './ContentArea.types'
-import { ContentAreaWrapper } from './ContentArea.styled'
 import { LayoutActions } from '~/src/layout/redux'
 import useLayoutDispatch from '~/src/layout/hooks/useLayoutDispatch'
 import { CONTENT_MIN_WIDTH } from '~/src/layout/LayoutSizes'
 import ColumnType from '~/src/layout/types/ColumnType'
+import { ContentAreaWrapper } from './ContentArea.styled'
+import ContentAreaProps from './ContentArea.types'
 
 // TODO: 테스트 코드 작성
 const CONTENT_AREA_TEST_ID = 'bezier-react-content-area'

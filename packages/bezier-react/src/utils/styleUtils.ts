@@ -16,9 +16,9 @@ import {
 
 /* Internal dependencies */
 import { css } from '~/src/foundation'
-import { isNumberString } from './stringUtils'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '~/src/types/CSS'
 import { InjectedInterpolation } from '~/src/types/Foundation'
+import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
   ...values(AbsoluteUnit),

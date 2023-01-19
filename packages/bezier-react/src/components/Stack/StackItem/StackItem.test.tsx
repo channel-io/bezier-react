@@ -4,8 +4,8 @@ import React from 'react'
 /* Internal dependencies */
 import { css } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import { StackItem } from './StackItem'
 import { Stack } from '~/src/components/Stack'
+import { StackItem } from './StackItem'
 
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {

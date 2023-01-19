@@ -5,13 +5,13 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { mergeClassNames } from '~/src/utils/stringUtils'
-import { StyledContentWrapper, StyledFooterWrapper, StyledTitleWrapper } from './NavigationContent.styled'
-import NavigationContentProps from './NavigationContent.types'
 import { LayoutActions } from '~/src/layout/redux'
 import useLayoutState from '~/src/layout/hooks/useLayoutState'
 import useLayoutDispatch from '~/src/layout/hooks/useLayoutDispatch'
 import { NavigationArea } from '~/src/layout/components/Navigations/NavigationArea'
 import { Button, ButtonStyleVariant, ButtonColorVariant } from '~/src/components/Button'
+import NavigationContentProps from './NavigationContent.types'
+import { StyledContentWrapper, StyledFooterWrapper, StyledTitleWrapper } from './NavigationContent.styled'
 
 // TODO: 테스트 코드 작성
 const NAV_CONTENT_TEST_ID = 'bezier-react-nav-content'

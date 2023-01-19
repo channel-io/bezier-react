@@ -6,10 +6,10 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
-import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
 
 export default {
   title: getTitle(base),

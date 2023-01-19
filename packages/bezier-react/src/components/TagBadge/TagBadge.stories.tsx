@@ -16,7 +16,6 @@ import {
 import {
   gap,
 } from '~/src/utils/styleUtils'
-import mdx from './TagBadge.mdx'
 import {
   HStack,
   StackItem,
@@ -28,6 +27,7 @@ import {
   TagBadgeSize,
   TagBadgeVariant,
 } from '~/src/components/TagBadge'
+import mdx from './TagBadge.mdx'
 
 export default {
   title: getTitle(base),

@@ -4,12 +4,11 @@ import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from '~/src/foundation'
-// eslint-disable-next-line no-restricted-imports
-import defaultAvatarUrl from '../assets/defaultAvatar.svg'
+import defaultAvatarUrl from '~/src/assets/defaultAvatar.svg'
+import { Status, StatusSize } from '~/src/components/Status'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
-import { Status, StatusSize } from '~/src/components/Status'
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'

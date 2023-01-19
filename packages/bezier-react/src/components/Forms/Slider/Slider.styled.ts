@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import { styled, css } from '~/src/foundation'
 import { toLength } from '~/src/utils/styleUtils'
-import type SliderProps from './Slider.types'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+import type SliderProps from './Slider.types'
 
 const SLIDER_TRACK_RANGE_HEIGHT = 6
 const SLIDER_THUMB_SIZE = 20
