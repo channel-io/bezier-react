@@ -11,7 +11,10 @@ import ModalAnimation from './ModalAnimation.styled'
 
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
