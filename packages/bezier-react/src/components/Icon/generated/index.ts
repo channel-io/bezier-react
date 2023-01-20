@@ -112,7 +112,6 @@ import ChatPush from './ChatPush'
 import ChatQuestionFilled from './ChatQuestionFilled'
 import ChatQuestion from './ChatQuestion'
 import ChatReady from './ChatReady'
-import ChatTeam from './ChatTeam'
 import CheckAll from './CheckAll'
 import CheckBold from './CheckBold'
 import CheckCircleFilled from './CheckCircleFilled'
@@ -582,7 +581,6 @@ const icons = {
   'chat-question-filled': ChatQuestionFilled,
   'chat-question': ChatQuestion,
   'chat-ready': ChatReady,
-  'chat-team': ChatTeam,
   'check-all': CheckAll,
   'check-bold': CheckBold,
   'check-circle-filled': CheckCircleFilled,
@@ -1067,7 +1065,6 @@ export {
   ChatQuestionFilled as ChatQuestionFilledIcon,
   ChatQuestion as ChatQuestionIcon,
   ChatReady as ChatReadyIcon,
-  ChatTeam as ChatTeamIcon,
   CheckAll as CheckAllIcon,
   CheckBold as CheckBoldIcon,
   CheckCircleFilled as CheckCircleFilledIcon,
