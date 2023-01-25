@@ -2,7 +2,7 @@
 import React, { createContext } from 'react'
 
 /* Internal dependencies */
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 
 export interface OutlineItemContextProps {
   depth: number

@@ -5,7 +5,7 @@ import type { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import {
   StackItem,
   VStack,

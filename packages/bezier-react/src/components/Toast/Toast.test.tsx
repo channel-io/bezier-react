@@ -6,7 +6,7 @@ import { css, TransitionDuration } from 'Foundation'
 import { DarkTheme } from 'Foundation/Colors/Theme'
 import { ZIndex } from 'Constants/ZIndex'
 import { render } from 'Utils/testUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import ToastElementProps, { ToastAppearance, ToastPlacement, ToastPreset } from './Toast.types'
 import ToastElement, { TOAST_TEST_ID } from './ToastElement'
 

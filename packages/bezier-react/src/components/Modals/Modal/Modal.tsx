@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { ModalProps } from './Modal.types'
 
 /**

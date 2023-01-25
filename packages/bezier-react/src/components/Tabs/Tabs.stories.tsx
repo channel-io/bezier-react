@@ -9,8 +9,8 @@ import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
 import {
   isFunction,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { Text } from 'Components/Text'
 import { TabActionProps, TabListProps, TabsProps, TabSize } from './Tabs.types'
 import { Tabs } from './Tabs'

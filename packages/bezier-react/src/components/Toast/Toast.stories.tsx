@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal depependencies */
 import { styled } from 'Foundation'
 import { iconList, getTitle } from 'Utils/storyUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { ProgressBar } from 'Components/ProgressBar'
 import { StackItem, VStack } from 'Components/Stack'
 import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'

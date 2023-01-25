@@ -5,8 +5,8 @@ import React, { forwardRef, useMemo } from 'react'
 import { backgroundImageVariable } from 'Foundation'
 import {
   isEmpty,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { Status, StatusSize } from 'Components/Status'
 // eslint-disable-next-line no-restricted-imports
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'

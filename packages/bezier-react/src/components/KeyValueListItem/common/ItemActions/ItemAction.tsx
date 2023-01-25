@@ -8,8 +8,8 @@ import {
   isBoolean,
   isNil,
   isEmpty,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { IconSize } from 'Components/Icon'
 import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
 import { ItemActionProps, KeyValueListItemActionProps } from './ItemAction.types'

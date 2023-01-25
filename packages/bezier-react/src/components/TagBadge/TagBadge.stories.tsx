@@ -16,9 +16,7 @@ import {
 import {
   gap,
 } from 'Utils/styleUtils'
-import {
-  noop,
-} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import {
   HStack,
   StackItem,

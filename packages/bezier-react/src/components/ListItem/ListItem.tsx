@@ -9,9 +9,9 @@ import {
   isNil,
   isString,
   isEmpty,
-  noop,
 } from 'Utils/typeUtils'
 import { mergeClassNames } from 'Utils/stringUtils'
+import { noop } from 'Utils/functionUtils'
 import { Text } from 'Components/Text'
 import { IconSize, isIconName } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'

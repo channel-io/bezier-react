@@ -5,8 +5,8 @@ import { useEffect, useRef, useMemo } from 'react'
 import {
   isFunction,
   isNil,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import {
   isEqual,
 } from 'Utils/objectUtils'

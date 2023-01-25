@@ -7,11 +7,11 @@ import { useResizeDetector } from 'react-resize-detector'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import {
   isNumber,
-  noop,
 } from 'Utils/typeUtils'
 import {
   range,
 } from 'Utils/numberUtils'
+import { noop } from 'Utils/functionUtils'
 import { Divider } from 'Components/Divider'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { Text } from 'Components/Text'

@@ -2,7 +2,6 @@
 import React, { memo } from 'react'
 
 /* Internal dependencies */
-import { noop } from 'Utils/typeUtils'
 import type IconProps from './Icon.types'
 import { IconSize } from './Icon.types'
 import Styled from './Icon.styled'

@@ -5,7 +5,7 @@ import { act } from '@testing-library/react'
 /* Internal dependencies */
 import { css, TransitionDuration } from 'Foundation'
 import { render } from 'Utils/testUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { ToastControllerProps, ToastPlacement } from './Toast.types'
 import ToastElement from './ToastElement'
 import ToastController from './ToastController'

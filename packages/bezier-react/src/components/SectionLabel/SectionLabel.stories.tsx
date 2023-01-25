@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { css, Typography } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { ListItem } from 'Components/ListItem'
 import { Text } from 'Components/Text'
 import type { ListItemProps } from 'Components/ListItem'

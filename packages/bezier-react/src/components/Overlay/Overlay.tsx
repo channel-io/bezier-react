@@ -16,7 +16,7 @@ import ReactDOM from 'react-dom'
 import useEventHandler from 'Hooks/useEventHandler'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import { window, document, getRootElement } from 'Utils/domUtils'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 

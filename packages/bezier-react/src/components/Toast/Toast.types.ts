@@ -3,7 +3,7 @@ import React, { ReactNode, ComponentType } from 'react'
 
 /* Internal dependencies */
 import { TransitionDuration } from 'Foundation'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
 import { InjectedInterpolation } from 'Types/Foundation'
 import { IconName } from 'Components/Icon'

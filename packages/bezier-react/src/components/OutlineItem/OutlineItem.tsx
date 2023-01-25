@@ -4,8 +4,8 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 /* Internal dependencies */
 import {
   isNil,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { IconSize, isIconName } from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'

@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
-import { noop } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 

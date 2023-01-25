@@ -5,8 +5,8 @@ import React, { Ref, forwardRef, useMemo } from 'react'
 import {
   isBoolean,
   isEmpty,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'

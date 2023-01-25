@@ -56,5 +56,3 @@ export function isEmpty(value: unknown): boolean {
   if (isBoolean(value) || isNumber(value)) { return false }
   return !value
 }
-
-export function noop() {}

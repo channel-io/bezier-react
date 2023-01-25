@@ -12,8 +12,10 @@ import {
   isSymbol,
   isRegExp,
   isEmpty,
-  noop,
 } from './typeUtils'
+import {
+  noop,
+} from './functionUtils'
 
 describe('typeUtils', () => {
   describe('isFunction', () => {

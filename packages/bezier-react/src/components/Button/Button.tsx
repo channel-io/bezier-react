@@ -8,8 +8,8 @@ import {
 } from 'Utils/arrayUtils'
 import {
   isArray,
-  noop,
 } from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, {
