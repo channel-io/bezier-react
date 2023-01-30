@@ -1984,10 +1984,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/eslint-config@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@channel.io/eslint-config@npm:1.4.1"
+  peerDependencies:
+    "@channel.io/eslint-plugin": ^1.2.0
+    "@typescript-eslint/eslint-plugin": ^4.4.1
+    "@typescript-eslint/parser": ^4.4.1
+    babel-eslint: ^8.2.6
+    eslint: ^7.0.0
+    eslint-config-airbnb-typescript: ^12.0.0
+    eslint-import-resolver-typescript: ^2.0.0
+    eslint-import-resolver-webpack: ^0.10.1
+    eslint-plugin-babel: ^5.3.0
+    eslint-plugin-import: ^2.22.0
+    eslint-plugin-jest: ^22.7.1
+    eslint-plugin-jsx-a11y: ^6.3.1
+    eslint-plugin-react: ^7.29.4
+    eslint-plugin-react-hooks: ^4.2.0
+    typescript: ^4.2.3
+  checksum: 2572561fe96604da477dfb3e3de5644ed49f5844194528d07cf57b0cb79ed0a49e1a9c2060ab495804d2d2a04b62c9eb1155e368fa7889c68795f7620083a72c
+  languageName: node
+  linkType: hard
+
 "@channel.io/eslint-plugin@npm:^1.1.1":
   version: 1.2.1
   resolution: "@channel.io/eslint-plugin@npm:1.2.1"
   checksum: 6a75fdb0d1197c3e6f9148b3b27c7a77938752285e0d8ee16d6e322fd6d9661c45270378f5be155703326f8a863adeddc5e1312adfc7327f577dc07d659d4c75
+  languageName: node
+  linkType: hard
+
+"@channel.io/eslint-plugin@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@channel.io/eslint-plugin@npm:1.2.3"
+  checksum: 391eb072087dd2607bfebe718ec8be1bd8fd80cef0cc5514ae9c20eb06d78eca177168575f8f2008b55d81de09809fc5b57df24f7fecf93fe3603ff2f409aa67
   languageName: node
   linkType: hard
 
@@ -10713,6 +10743,15 @@ __metadata:
   checksum: ea11cd0006912f7086fb278e03180da4bc2378cf4e93b1dd970775d8e9b50fd11a64209bdc0ed17654d29abe4ccfa19baa4d1e1e5bd3eb660fcf4798ba2810d2
   languageName: node
   linkType: hard
+
+"eslint-config-bezier@workspace:packages/eslint-config-bezier":
+  version: 0.0.0-use.local
+  resolution: "eslint-config-bezier@workspace:packages/eslint-config-bezier"
+  dependencies:
+    "@channel.io/eslint-config": ^1.4.1
+    "@channel.io/eslint-plugin": ^1.2.3
+  languageName: unknown
+  linkType: soft
 
 "eslint-import-resolver-node@npm:^0.3.6":
   version: 0.3.6

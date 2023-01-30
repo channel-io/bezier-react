@@ -1,0 +1,8 @@
+{
+  "name": "eslint-config-bezier",
+  "main": "index.js",
+  "dependencies": {
+    "@channel.io/eslint-config": "^1.4.1",
+    "@channel.io/eslint-plugin": "^1.2.3"
+  }
+}
