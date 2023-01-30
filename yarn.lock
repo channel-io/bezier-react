@@ -8005,6 +8005,7 @@ __metadata:
     style-loader: ^3.3.1
     styled-components: ^5.3.5
     ts-loader: ^9.3.0
+    tsconfig: "workspace:*"
     url-loader: ^4.1.1
     webpack: ^5.72.1
     webpack-cli: ^4.9.2
