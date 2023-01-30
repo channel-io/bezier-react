@@ -1930,6 +1930,7 @@ __metadata:
     chromatic: ^6.11.4
     core-js: ^3.8.1
     cross-env: ^7.0.3
+    eslint-config-bezier: "workspace:*"
     identity-obj-proxy: ^3.0.0
     jest: ^26.6.3
     jest-styled-components: ^7.1.1
@@ -7964,6 +7965,7 @@ __metadata:
     "@types/react": ^18.0.9
     "@types/react-dom": ^18.0.5
     css-loader: ^6.7.2
+    eslint-config-bezier: "workspace:*"
     html-webpack-inline-source-plugin: ^0.0.10
     html-webpack-plugin: ^5.5.0
     octokit: ^1.7.1
@@ -10744,7 +10746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-bezier@workspace:packages/eslint-config-bezier":
+"eslint-config-bezier@workspace:*, eslint-config-bezier@workspace:packages/eslint-config-bezier":
   version: 0.0.0-use.local
   resolution: "eslint-config-bezier@workspace:packages/eslint-config-bezier"
   dependencies:

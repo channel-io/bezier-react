@@ -1,9 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    '@channel.io/eslint-config',
-    'plugin:storybook/recommended',
-  ],
+  extends: ['bezier'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
