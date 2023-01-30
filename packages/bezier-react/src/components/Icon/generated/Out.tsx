@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-
 function SvgOut(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -23,5 +22,4 @@ function SvgOut(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 export default createBezierIcon(SvgOut)

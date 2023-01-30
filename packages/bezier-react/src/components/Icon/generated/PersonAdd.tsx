@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-
 function SvgPersonAdd(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -16,10 +15,9 @@ function SvgPersonAdd(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.998 6V3h2v3h3v2h-3v3h-2V8h-3V6h3Zm-3.384 2.6a3.6 3.6 0 1 1-7.2 0 3.6 3.6 0 0 1 7.2 0ZM3.031 20.476a8 8 0 0 1 15.966 0 .504.504 0 0 1-.506.524H3.537a.504.504 0 0 1-.506-.524Z"
+        d="M17.998 4a1 1 0 1 1 2 0v2h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0V8h-2a1 1 0 1 1 0-2h2V4ZM12.58 8.6a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0Zm-1.6 3.6a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2Zm.004 2.8a6.004 6.004 0 0 1 5.659 4H5.325c.824-2.33 3.047-4 5.659-4Zm7.477 6c.285 0 .524-.24.506-.524a8 8 0 0 0-15.966 0 .504.504 0 0 0 .506.524H18.46Z"
       />
     </svg>
   )
 }
-
 export default createBezierIcon(SvgPersonAdd)
