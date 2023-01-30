@@ -17,7 +17,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./packages/bezier-react/**/*'],
+      files: ['./**/*'],
       rules: {
         'import/order': [
           'error',
@@ -62,13 +62,6 @@ module.exports = {
             ],
           },
         ],
-      },
-    },
-    {
-      files: ['./packages/bezier-figma-plugin/**/*'],
-      rules: {
-        'no-restricted-imports': 'off',
-        'no-restricted-globals': 'off',
       },
     },
   ],
