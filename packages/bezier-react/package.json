@@ -106,6 +106,7 @@
     "rollup-plugin-visualizer": "^5.8.3",
     "styled-components": "^5.3.5",
     "ts-prune": "^0.10.3",
+    "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "tslib": "^2.3.1",
     "ttypescript": "^1.5.13",
