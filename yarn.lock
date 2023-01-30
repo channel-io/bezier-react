@@ -20931,6 +20931,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfig@workspace:packages/tsconfig":
+  version: 0.0.0-use.local
+  resolution: "tsconfig@workspace:packages/tsconfig"
+  languageName: unknown
+  linkType: soft
+
 "tslib@npm:2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
