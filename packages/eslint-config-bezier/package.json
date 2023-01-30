@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-bezier",
   "main": "index.js",
-  "devDependencies": {
+  "dependencies": {
     "@channel.io/eslint-config": "^1.4.1",
     "@channel.io/eslint-plugin": "^1.2.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
