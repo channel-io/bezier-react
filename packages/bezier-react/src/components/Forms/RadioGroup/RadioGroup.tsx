@@ -43,7 +43,7 @@ export const RadioGroup = forwardRef(function RadioGroup({
         direction={direction}
       >
         { React.Children.map(children, (child, index) => (
-          <StackItem key={(child as React.ReactElement)?.key ?? index}>
+          <StackItem key={child?.key ?? index}>
             { child }
           </StackItem>
         )) }
