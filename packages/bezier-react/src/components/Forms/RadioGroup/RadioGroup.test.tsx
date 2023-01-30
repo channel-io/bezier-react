@@ -113,7 +113,7 @@ describe('RadioGroup', () => {
       // expect(nextRadio).toBeChecked()
     })
 
-    it('should focus and check the next radio item when user presses arrow up key on a radio', async () => {
+    it('should focus and check the previous radio item when user presses arrow up key on a radio', async () => {
       const { getByRole } = renderRadioGroup()
       const radio = getByRole('radio', { name: VALUES[0] })
       const nextRadio = getByRole('radio', { name: VALUES[2] })
@@ -125,7 +125,7 @@ describe('RadioGroup', () => {
       // expect(nextRadio).toBeChecked()
     })
 
-    it('should focus and check the next radio item when user presses arrow left key on a radio', async () => {
+    it('should focus and check the previous radio item when user presses arrow left key on a radio', async () => {
       const { getByRole } = renderRadioGroup()
       const radio = getByRole('radio', { name: VALUES[0] })
       const nextRadio = getByRole('radio', { name: VALUES[2] })
