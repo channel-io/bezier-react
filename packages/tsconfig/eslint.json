@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": [
+    ".*.js",
+    "packages/**/src/**/*",
+    "packages/**/*.js",
+    "packages/**/*.ts"
+  ]
+}
