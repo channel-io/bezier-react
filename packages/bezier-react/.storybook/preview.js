@@ -34,7 +34,7 @@ export const parameters = {
 
 export const globalTypes = {
   Foundation: {
-    name: '~/src/foundation',
+    name: 'Foundation',
     description: 'Global Foundation for components',
     defaultValue: 'light',
     toolbar: {
