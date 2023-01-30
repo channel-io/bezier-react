@@ -6,7 +6,7 @@ import { get, isNil, noop } from 'lodash-es'
 import { Typography } from 'Foundation'
 import { Text } from 'Components/Text'
 import { IconSize, OpenInNewIcon } from 'Components/Icon'
-import TabsSize from 'Components/Tabs/TabsSize'
+import TabsSize from 'Components/Tabs/LegacyTabs/TabsSize'
 import TabActionProps from './TabAction.types'
 import { Wrapper, Background, LinkIcon } from './TabAction.styled'
 

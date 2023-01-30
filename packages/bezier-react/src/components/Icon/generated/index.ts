@@ -112,7 +112,6 @@ import ChatPush from './ChatPush'
 import ChatQuestionFilled from './ChatQuestionFilled'
 import ChatQuestion from './ChatQuestion'
 import ChatReady from './ChatReady'
-import ChatTeam from './ChatTeam'
 import CheckAll from './CheckAll'
 import CheckBold from './CheckBold'
 import CheckCircleFilled from './CheckCircleFilled'
@@ -207,6 +206,7 @@ import Ghost from './Ghost'
 import Gif from './Gif'
 import Gift from './Gift'
 import Globe from './Globe'
+import GoalOff from './GoalOff'
 import Goal from './Goal'
 import Google from './Google'
 import Graph from './Graph'
@@ -581,7 +581,6 @@ const icons = {
   'chat-question-filled': ChatQuestionFilled,
   'chat-question': ChatQuestion,
   'chat-ready': ChatReady,
-  'chat-team': ChatTeam,
   'check-all': CheckAll,
   'check-bold': CheckBold,
   'check-circle-filled': CheckCircleFilled,
@@ -676,6 +675,7 @@ const icons = {
   gif: Gif,
   gift: Gift,
   globe: Globe,
+  'goal-off': GoalOff,
   goal: Goal,
   google: Google,
   graph: Graph,
@@ -1065,7 +1065,6 @@ export {
   ChatQuestionFilled as ChatQuestionFilledIcon,
   ChatQuestion as ChatQuestionIcon,
   ChatReady as ChatReadyIcon,
-  ChatTeam as ChatTeamIcon,
   CheckAll as CheckAllIcon,
   CheckBold as CheckBoldIcon,
   CheckCircleFilled as CheckCircleFilledIcon,
@@ -1160,6 +1159,7 @@ export {
   Gif as GifIcon,
   Gift as GiftIcon,
   Globe as GlobeIcon,
+  GoalOff as GoalOffIcon,
   Goal as GoalIcon,
   Google as GoogleIcon,
   Graph as GraphIcon,

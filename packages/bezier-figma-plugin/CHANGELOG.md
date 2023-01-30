@@ -1,10 +1,31 @@
 # bezier-figma-plugin
 
+## 0.1.1-next-v1.24
+
+### Patch Changes
+
+- Updated dependencies [[`d4e04675`](https://github.com/channel-io/bezier-react/commit/d4e046759a501f56513df1b31d76b34a3ff511e4)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.180
+
+## 0.1.1-next-v1.23
+
+### Patch Changes
+
+- Updated dependencies [[`78d217ec`](https://github.com/channel-io/bezier-react/commit/78d217ec20c85d4ec9485e40de1f9542a83aa29d), [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.179
+
+## 0.1.1-next-v1.22
+
+### Patch Changes
+
+- Updated dependencies [[`84e9eef7`](https://github.com/channel-io/bezier-react/commit/84e9eef79d8424fb3696bf1c5d419fed43bc500b), [`65cdafa7`](https://github.com/channel-io/bezier-react/commit/65cdafa78b5551e39f657440ac54cc833c678163)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.178
+
 ## 0.1.1-next-v1.21
 
 ### Patch Changes
 
-- Updated dependencies [[`e23c54a8`](https://github.com/channel-io/bezier-react/commit/e23c54a81fa6647e378985d660a95fcfedbd253a), [`d38bcb42`](https://github.com/channel-io/bezier-react/commit/d38bcb42e823f14778e70e3e46d479c6e17200b8), [`cb677dde`](https://github.com/channel-io/bezier-react/commit/cb677dde40d92582f8fade504b54ee8532d3ae0f), [`314e698e`](https://github.com/channel-io/bezier-react/commit/314e698ecce5f3ed5a5624e1448f6ac915aa7c0b), [`d924b727`](https://github.com/channel-io/bezier-react/commit/d924b727492e1a7fbb75b67b6f933b4e08a63adf)]:
+- Updated dependencies [[`e23c54a8`](https://github.com/channel-io/bezier-react/commit/e23c54a81fa6647e378985d660a95fcfedbd253a), [`d38bcb42`](https://github.com/channel-io/bezier-react/commit/d38bcb42e823f14778e70e3e46d479c6e17200b8), [`cb677dde`](https://github.com/channel-io/bezier-react/commit/cb677dde40d92582f8fade504b54ee8532d3ae0f), [`314e698e`](https://github.com/channel-io/bezier-react/commit/314e698ecce5f3ed5a5624e1448f6ac915aa7c0b), [`d924b727`](https://github.com/channel-io/bezier-react/commit/d924b727492e1a7fbb75b67b6f933b4e08a63adf), [`052fdb91`](https://github.com/channel-io/bezier-react/commit/052fdb9118667b1f57ae4356329f85b4172124e3)]:
   - @channel.io/bezier-react@1.0.0-next-v1.177
 
 ## 0.1.1-next-v1.20

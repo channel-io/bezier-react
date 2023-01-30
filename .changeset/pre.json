@@ -6,7 +6,9 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "beige-rice-shout",
     "big-dingos-compete",
+    "big-penguins-compare",
     "chilly-ladybugs-laugh",
     "cold-jars-clap",
     "cuddly-eagles-serve",
@@ -26,6 +28,7 @@
     "kind-chairs-hide",
     "lemon-steaks-decide",
     "little-beans-cry",
+    "mean-garlics-speak",
     "moody-frogs-rush",
     "moody-tigers-relax",
     "nervous-wasps-help",
@@ -49,11 +52,13 @@
     "thick-dryers-deliver",
     "thirty-crews-cough",
     "unlucky-poets-type",
+    "violet-moose-beam",
     "violet-ravens-help",
     "wise-apricots-switch",
     "witty-bananas-return",
     "witty-planets-exist",
     "witty-starfishes-shake",
-    "young-onions-fry"
+    "young-onions-fry",
+    "young-parrots-happen"
   ]
 }
