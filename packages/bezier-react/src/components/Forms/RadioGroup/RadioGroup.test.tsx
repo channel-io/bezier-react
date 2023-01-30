@@ -53,6 +53,17 @@ describe('RadioGroup', () => {
       const { getByRole } = renderRadioGroup({ radioGroupProps: { required: true } })
       expect(getByRole('radiogroup')).toBeRequired()
     })
+
+    it('should be disabled when disabled prop is true', () => {
+      const { getByRole } = renderRadioGroup({ radioGroupProps: { disabled: true } })
+      expect(getByRole('radiogroup')).toHaveAttribute('aria-disabled', 'true')
+    })
+
+    it('children(Radio) should be disabled when disabled prop is true', () => {
+      const { getAllByRole } = renderRadioGroup({ radioGroupProps: { disabled: true } })
+      const radios = getAllByRole('radio')
+      radios.forEach(radio => expect(radio).toBeDisabled())
+    })
   })
 
   describe('User Interactions', () => {
@@ -148,12 +159,6 @@ describe('RadioGroup', () => {
 
       it('should be disabled when disabled prop is true', () => {
         const { getAllByRole } = renderRadioGroup({ radioProps: { disabled: true } })
-        const radios = getAllByRole('radio')
-        radios.forEach(radio => expect(radio).toBeDisabled())
-      })
-
-      it('should be disabled when disabled prop of RadioGroup is true', () => {
-        const { getAllByRole } = renderRadioGroup({ radioGroupProps: { disabled: false }, radioProps: { disabled: true } })
         const radios = getAllByRole('radio')
         radios.forEach(radio => expect(radio).toBeDisabled())
       })
