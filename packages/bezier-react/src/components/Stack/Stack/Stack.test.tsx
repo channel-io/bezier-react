@@ -70,7 +70,7 @@ describe('Stack', () => {
     expect(getByTestId('three')).toHaveStyle('--margin-before: 10px')
   })
 
-  it('does not give marginBefore attribute to first stackItem even if first node is not a valid JSXElement', () => {
+  it('does not give marginBefore attribute to first stackItem if first node is not a valid ReactNode', () => {
     const spacing = 10
 
     const { getByTestId } = render(
