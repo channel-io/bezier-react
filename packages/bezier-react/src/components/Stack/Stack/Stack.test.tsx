@@ -4,6 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { css } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import { StackItem } from 'Components/Stack/StackItem'
 import { Stack } from './Stack'
 
 describe('Stack', () => {
@@ -51,5 +52,40 @@ describe('Stack', () => {
 
       expect(getByTestId('stack')).toHaveStyle({ 'background-color': 'red' })
     })
+  })
+
+  it('gives marginBefore attribute to second stackItem if it is given some spacing', () => {
+    const spacing = 10
+
+    const { getByTestId } = render(
+      <Stack direction="horizontal" spacing={spacing}>
+        <StackItem testId="one" />
+        <StackItem testId="two" />
+        <StackItem testId="three" />
+      </Stack>,
+    )
+
+    expect(getByTestId('one')).not.toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('two')).toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('three')).toHaveStyle('--margin-before: 10px')
+  })
+
+  it('does not give marginBefore attribute to first stackItem even if first node is not a valid JSXElement', () => {
+    const spacing = 10
+
+    const { getByTestId } = render(
+      <Stack direction="horizontal" spacing={spacing}>
+        { false }
+        { null }
+        abc
+        <StackItem testId="one" />
+        <StackItem testId="two" />
+        <StackItem testId="three" />
+      </Stack>,
+    )
+
+    expect(getByTestId('one')).not.toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('two')).toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('three')).toHaveStyle('--margin-before: 10px')
   })
 })
