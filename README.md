@@ -10,8 +10,8 @@
 |---|---|
 | [bezier-react](packages/bezier-react) | React components library that implements Bezier Design System. |
 | [bezier-figma-plugin](packages/bezier-figma-plugin) | Figma plugin that helps build Bezier Design System and increase productivity. |
-| [tsconfig](packages/tsconfig) | TypeScript configs used throughout the monorepo. |
-| [eslint-config-bezier](packages/eslint-config-bezier) | ESLint configurations used throughout the monorepo. |
+| [tsconfig](supports/tsconfig) | TypeScript configs used throughout the monorepo. |
+| [eslint-config-bezier](supports/eslint-config-bezier) | ESLint configurations used throughout the monorepo. |
 
 ## Commands
 

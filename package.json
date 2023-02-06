@@ -2,7 +2,8 @@
   "private": true,
   "license": "Apache-2.0",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "supports/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -15,7 +16,7 @@
     "storybook": "yarn workspace @channel.io/bezier-react storybook",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "pre-commit": "run-s verify lint-staged typecheck test",
-    "verify": "ts-node -P ./packages/tsconfig/script.json ./scripts/check-yarn-version.ts",
+    "verify": "ts-node -P ./supports/tsconfig/script.json ./scripts/check-yarn-version.ts",
     "lint-staged": "lint-staged",
     "changeset": "changeset",
     "prepare": "husky install"
