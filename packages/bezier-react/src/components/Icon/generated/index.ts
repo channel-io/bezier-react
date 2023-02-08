@@ -73,6 +73,7 @@ import CallOff from './CallOff'
 import CallOutgoing from './CallOutgoing'
 import CallPull from './CallPull'
 import Call from './Call'
+import CameraFilled from './CameraFilled'
 import Camera from './Camera'
 import CancelCircleFilled from './CancelCircleFilled'
 import CancelCircle from './CancelCircle'
@@ -544,6 +545,7 @@ const icons = {
   'call-outgoing': CallOutgoing,
   'call-pull': CallPull,
   call: Call,
+  'camera-filled': CameraFilled,
   camera: Camera,
   'cancel-circle-filled': CancelCircleFilled,
   'cancel-circle': CancelCircle,
@@ -1030,6 +1032,7 @@ export {
   CallOutgoing as CallOutgoingIcon,
   CallPull as CallPullIcon,
   Call as CallIcon,
+  CameraFilled as CameraFilledIcon,
   Camera as CameraIcon,
   CancelCircleFilled as CancelCircleFilledIcon,
   CancelCircle as CancelCircleIcon,
