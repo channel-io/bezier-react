@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.182
+
+### Patch Changes
+
+- [#1118](https://github.com/channel-io/bezier-react/pull/1118) [`40d11807`](https://github.com/channel-io/bezier-react/commit/40d11807ad72f1f21ffe40aef9850c5be4f0c0bd) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
 ## 1.0.0-next-v1.181
 
 ### Patch Changes
