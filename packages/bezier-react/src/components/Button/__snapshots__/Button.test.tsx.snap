@@ -1411,7 +1411,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   transition-property: background-color,box-shadow;
   min-width: 20px;
   height: 20px;
-  padding: 0 4px 0 4px;
+  padding: 0 2px 0 2px;
   overflow: hidden;
   border-radius: 6px;
   color: #FFFFFF;

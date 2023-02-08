@@ -56,7 +56,7 @@ type ButtonPaddingVariantKey = 'default' | 'floating'
 // NOTE: floating 은 padding 이 버튼의 size value 의 절반에서 Text padding 값 만큼 빼줘야 스펙과 일치
 export const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVariantKey, number>> = {
   [ButtonSize.XS]: {
-    default: 4,
+    default: 2,
     floating: (BUTTON_SIZE_VALUE[ButtonSize.XS] / 2) - TEXT_PADDING_VALUE[ButtonSize.XS],
   },
   [ButtonSize.S]: {
