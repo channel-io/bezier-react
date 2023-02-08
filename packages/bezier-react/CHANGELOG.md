@@ -1,5 +1,17 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.181
+
+### Patch Changes
+
+- [#1107](https://github.com/channel-io/bezier-react/pull/1107) [`f6789fa2`](https://github.com/channel-io/bezier-react/commit/f6789fa2b0d8a2889c42163ba734e910ae01fe89) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+* [#1113](https://github.com/channel-io/bezier-react/pull/1113) [`3bd99b8d`](https://github.com/channel-io/bezier-react/commit/3bd99b8d573d0d7d9d0e58173adea57af2f64409) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1110](https://github.com/channel-io/bezier-react/pull/1110) [`b406a268`](https://github.com/channel-io/bezier-react/commit/b406a26827b774bb99ed54d227584f972afc24e5) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change modal floating style from `inset` to `top`...`left` position to support legacy browser
+
+* [#1095](https://github.com/channel-io/bezier-react/pull/1095) [`3544182d`](https://github.com/channel-io/bezier-react/commit/3544182d75957616afd3d940d0c237784d45f974) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
 ## 1.0.0-next-v1.180
 
 ### Minor Changes
