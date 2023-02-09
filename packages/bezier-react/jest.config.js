@@ -20,7 +20,6 @@ module.exports = {
     '^Foundation$': '<rootDir>/src/foundation',
     'Foundation/(.*)$': '<rootDir>/src/foundation/$1',
     'Hooks/(.*)$': '<rootDir>/src/hooks/$1',
-    'Layout/(.*)$': '<rootDir>/src/layout/$1',
     'Providers/(.*)$': '<rootDir>/src/providers/$1',
     'Types/(.*)$': '<rootDir>/src/types/$1',
     'Utils/(.*)$': '<rootDir>/src/utils/$1',
