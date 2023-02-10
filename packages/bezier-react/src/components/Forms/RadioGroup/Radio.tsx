@@ -6,15 +6,11 @@ import useId from 'Hooks/useId'
 import { RadioProps } from './RadioGroup.types'
 import * as Styled from './RadioGroup.styled'
 
-/**
- * `Radio` is a checkable button, known as a radio button.
- * It is must be a child of `RadioGroup`.
- */
-export const Radio = forwardRef(function Radio({
+function RadioImpl<Value extends string>({
   children,
   id: idProp,
   ...rest
-}: RadioProps, forwardedRef: React.Ref<HTMLButtonElement>) {
+}: RadioProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
   const id = useId(idProp, 'bezier-radio')
 
   return (
@@ -29,4 +25,12 @@ export const Radio = forwardRef(function Radio({
       </Styled.Label>
     </Styled.RadioGroupPrimitiveItem>
   )
-})
+}
+
+/**
+ * `Radio` is a checkable button, known as a radio button.
+ * It is must be a child of `RadioGroup`.
+ */
+export const Radio = forwardRef(RadioImpl) as <Value extends string>(
+  props: RadioProps<Value> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+) => ReturnType<typeof RadioImpl<Value>>
