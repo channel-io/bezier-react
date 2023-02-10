@@ -1889,6 +1889,7 @@ __metadata:
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
     "@radix-ui/react-dialog": ^1.0.2
+    "@radix-ui/react-radio-group": ^1.1.0
     "@radix-ui/react-separator": ^1.0.0
     "@radix-ui/react-slider": ^1.0.0
     "@radix-ui/react-switch": ^1.0.1
@@ -3351,6 +3352,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-radio-group@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@radix-ui/react-radio-group@npm:1.1.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-compose-refs": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-presence": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-roving-focus": 1.0.1
+    "@radix-ui/react-use-controllable-state": 1.0.0
+    "@radix-ui/react-use-previous": 1.0.0
+    "@radix-ui/react-use-size": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: d8a0e418d37c5279701a2eee2a96fe398577511ff342f80a46be2adaa1590228152f255e6d00fd40d87d7c151884e48dfe5230236c10d4e6ce6e8f3baa5f40ed
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-roving-focus@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-roving-focus@npm:1.0.1"
@@ -3372,7 +3395,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-separator@npm:1.0.1, @radix-ui/react-separator@npm:^1.0.0":
+"@radix-ui/react-separator@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-separator@npm:1.0.1"
   dependencies:
@@ -3382,6 +3405,27 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: c7d7aa21f4b00127da07452cf17bca59d02fe40c62ba662d72d4a906b6722173de28a5fd647ed5d11fc483fa62fa74f075433764d8803b07f2721c957e5ec13a
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-separator@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@radix-ui/react-separator@npm:1.0.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-collection": 1.0.1
+    "@radix-ui/react-compose-refs": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-direction": 1.0.0
+    "@radix-ui/react-id": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-use-callback-ref": 1.0.0
+    "@radix-ui/react-use-controllable-state": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 19056da055ec89ce0613a3d60608f13e27b778228fbb0df7ada3ebda89c292e71a514ab6e0061a74d0a0d4963354fde1ffd8b8848628cb3275f216d05423a7a5
   languageName: node
   linkType: hard
 
