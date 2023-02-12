@@ -54,7 +54,7 @@ type RadioFormComponentProps = Pick<FormComponentProps, 'disabled' | 'required'>
 
 export interface RadioGroupProps<Value extends string = string> extends
   BezierComponentProps,
-  ChildrenProps<React.ReactElement[] | React.ReactElement>,
+  ChildrenProps,
   RadioFormComponentProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, keyof RadioGroupOptions<Value> | keyof RadioGroupPrimitive.RadioGroupProps>,
   RadioGroupOptions<Value> {}

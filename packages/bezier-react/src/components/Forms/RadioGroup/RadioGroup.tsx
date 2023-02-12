@@ -28,7 +28,7 @@ function RadioGroupImpl<Value extends string>({
         direction={direction}
       >
         { React.Children.map(children, (child, index) => (
-          <StackItem key={child?.key ?? index}>
+          <StackItem key={(child as React.ReactElement)?.key ?? index}>
             { child }
           </StackItem>
         )) }
