@@ -19,10 +19,12 @@ function RadioImpl<Value extends string>({
       id={id}
       {...rest}
     >
-      { /* @ts-ignore FIXME(@ed): Delete after applying polymorphic props */ }
-      <Styled.Label htmlFor={id}>
-        { children }
-      </Styled.Label>
+      { children && (
+        /* @ts-ignore FIXME(@ed): Delete after applying polymorphic props */
+        <Styled.Label htmlFor={id}>
+          { children }
+        </Styled.Label>
+      ) }
     </Styled.RadioGroupPrimitiveItem>
   )
 }
