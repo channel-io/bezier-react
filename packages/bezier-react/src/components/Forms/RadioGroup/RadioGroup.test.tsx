@@ -16,8 +16,8 @@ describe('RadioGroup', () => {
     radioGroupProps,
     radioProps,
   }: {
-    radioGroupProps?: RadioGroupProps
-    radioProps?: Partial<RadioProps>
+    radioGroupProps?: RadioGroupProps<string>
+    radioProps?: Partial<RadioProps<string>>
   } = {}) => render(
     <RadioGroup {...radioGroupProps}>
       { VALUES.map(value => (
