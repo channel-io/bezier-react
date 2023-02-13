@@ -31,7 +31,7 @@ function RadioImpl<Value extends string>({
 
 /**
  * `Radio` is a checkable button, known as a radio button.
- * It is must be a child of `RadioGroup`.
+ * It should be a child of `RadioGroup`.
  */
 export const Radio = forwardRef(RadioImpl) as <Value extends string>(
   props: RadioProps<Value> & { ref?: React.ForwardedRef<HTMLButtonElement> }
