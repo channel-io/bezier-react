@@ -9,6 +9,12 @@ import { RadioGroup } from './RadioGroup'
 import { Radio } from './Radio'
 import { RadioGroupProps } from './RadioGroup.types'
 
+enum Theme {
+  System = 'System',
+  Light = 'Light',
+  Dark = 'Dark',
+}
+
 export default {
   title: getTitle(base),
   component: RadioGroup,
@@ -21,13 +27,13 @@ export default {
       },
     },
   },
-} as Meta<RadioGroupProps>
+} as Meta<RadioGroupProps<Theme>>
 
-const Template: Story<RadioGroupProps> = ({
+const Template: Story<RadioGroupProps<Theme>> = ({
   value: valueProp,
   ...props
 }) => {
-  const [value, setValue] = useState(() => valueProp)
+  const [value, setValue] = useState<Theme | undefined>(() => valueProp)
 
   useEffect(function watchValueToChange() {
     setValue(valueProp)
@@ -39,16 +45,16 @@ const Template: Story<RadioGroupProps> = ({
       onValueChange={setValue}
       {...props}
     >
-      <Radio value="System">System</Radio>
-      <Radio value="Light">Light</Radio>
-      <Radio value="Dark">Dark</Radio>
+      <Radio value={Theme.System}>{ Theme.System }</Radio>
+      <Radio value={Theme.Light}>{ Theme.Light }</Radio>
+      <Radio value={Theme.Dark}>{ Theme.Dark }</Radio>
     </RadioGroup>
   )
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
-  value: 'System',
+  value: Theme.System,
   disabled: false,
   required: false,
   direction: 'vertical',
