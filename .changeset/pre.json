@@ -6,6 +6,7 @@
     "@channel.io/bezier-react": "1.0.0-next-v1.155"
   },
   "changesets": [
+    "afraid-kids-do",
     "beige-rice-shout",
     "big-dingos-compete",
     "big-penguins-compare",

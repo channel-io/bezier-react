@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.185
+
+### Patch Changes
+
+- [#1132](https://github.com/channel-io/bezier-react/pull/1132) [`115f0d27`](https://github.com/channel-io/bezier-react/commit/115f0d2747132a1a65e4d8e5e842abb5c126c270) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete `RadioGroup`'s default generic parameter to fix type inferencing.
+
 ## 1.0.0-next-v1.184
 
 ### Patch Changes
