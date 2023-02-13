@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef, useEffect, isValidElement } from 'react'
 
 /* Internal dependencies */
 import { StackItem } from 'Components/Stack'
@@ -48,7 +48,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       role={role}
     >
       { React.Children.map(children, (child, index) => (
-        <StackItem key={(child as React.ReactElement)?.key ?? index}>
+        <StackItem key={isValidElement(child) ? child.key : index}>
           { child }
         </StackItem>
       )) }

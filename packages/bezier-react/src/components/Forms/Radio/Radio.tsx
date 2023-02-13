@@ -19,6 +19,9 @@ import RadioProps from './Radio.types'
 export const RADIO_TEST_ID = 'bezier-react-radio'
 export const RADIO_HANDLE_TEST_ID = 'bezier-react-radio-handle'
 
+/**
+ * @deprecated Use `RadioGroup` instead.
+ */
 function Radio(
   {
     as,
@@ -85,4 +88,7 @@ function Radio(
   )
 }
 
+/**
+ * @deprecated Use `RadioGroup` instead.
+ */
 export default forwardRef(Radio)

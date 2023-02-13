@@ -17,6 +17,9 @@ interface RadioOptions {
   onClick?: (value: any, e: MouseEvent) => void
 }
 
+/**
+ * @deprecated Use `RadioGroup` instead.
+ */
 export default interface RadioProps extends
   BezierComponentProps,
   ChildrenProps,
