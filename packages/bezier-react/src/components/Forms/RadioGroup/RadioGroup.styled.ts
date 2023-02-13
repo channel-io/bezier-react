@@ -14,7 +14,7 @@ const OUTER_INDICATOR_SIZE = 18
 const OUTER_INDICATOR_MARGIN = 1
 const INNER_INDICATOR_SIZE = 8
 
-export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioProps>`
+export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioProps<string>>`
   all: unset;
   position: relative;
   display: flex;
