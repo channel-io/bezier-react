@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { forwardRef } from 'react'
+import React, { forwardRef, isValidElement } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
@@ -28,7 +28,7 @@ function RadioGroupImpl<Value extends string>({
         direction={direction}
       >
         { React.Children.map(children, (child, index) => (
-          <StackItem key={(child as React.ReactElement)?.key ?? index}>
+          <StackItem key={isValidElement(child) ? child.key : index}>
             { child }
           </StackItem>
         )) }
