@@ -5,6 +5,7 @@ import { noop, isNil } from 'lodash-es'
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from 'Components/Icon'
+import { Text } from 'Components/Text'
 import type NavGroupProps from './NavGroup.types'
 import {
   Item,
@@ -12,7 +13,6 @@ import {
   ChildrenWrapper,
   LeftIconWrapper,
   ChevronWrapper,
-  ContentWrapper,
   RightContentWrapper,
 } from './NavGroup.styled'
 
@@ -72,9 +72,9 @@ function NavGroup({
           ) }
         </LeftIconWrapper>
 
-        <ContentWrapper typo={Typography.Size14}>
+        <Text typo={Typography.Size14} truncated>
           { content }
-        </ContentWrapper>
+        </Text>
 
         { hasChildren && (
           <ChevronWrapper>

@@ -17,7 +17,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   transition-property: color;
 }
 
-.c6 {
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -36,6 +36,10 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -65,12 +69,6 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
 }
 
 .c4 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -145,16 +143,16 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     </svg>
   </div>
   <span
-    class="c3 c4"
+    class="c3"
     data-testid="bezier-react-text"
   >
     test-content
   </span>
   <div
-    class="c5"
+    class="c4"
   >
     <svg
-      class="c6"
+      class="c5"
       color="bgtxt-orange-normal"
       data-testid="bezier-react-icon"
       fill="none"
@@ -196,7 +194,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   transition-property: color;
 }
 
-.c6 {
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -215,6 +213,10 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -244,12 +246,6 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
 }
 
 .c4 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -331,16 +327,16 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     </svg>
   </div>
   <span
-    class="c3 c4"
+    class="c3"
     data-testid="bezier-react-text"
   >
     test-content
   </span>
   <div
-    class="c5"
+    class="c4"
   >
     <svg
-      class="c6"
+      class="c5"
       color="bgtxt-orange-normal"
       data-testid="bezier-react-icon"
       fill="none"

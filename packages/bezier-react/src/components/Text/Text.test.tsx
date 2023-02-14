@@ -37,12 +37,23 @@ describe('Text test >', () => {
     expect(renderedText).toHaveStyle('font-weight: bold;')
   })
 
-  it('Text receives bold style', () => {
+  it('Text receives italic style', () => {
     const { getByTestId } = renderComponent({ italic: true })
 
     const renderedText = getByTestId(TEXT_TEST_ID)
 
     expect(renderedText).toHaveStyle('font-style: italic;')
+  })
+
+  it('Text receives truncated style', () => {
+    const { getByTestId } = renderComponent({ truncated: true })
+
+    const renderedText = getByTestId(TEXT_TEST_ID)
+
+    expect(renderedText).toHaveStyle('display: block;')
+    expect(renderedText).toHaveStyle('overflow: hidden;')
+    expect(renderedText).toHaveStyle('text-overflow: ellipsis;')
+    expect(renderedText).toHaveStyle('white-space: nowrap;')
   })
 
   it('Text receives style object', () => {

@@ -36,7 +36,7 @@ function KeyItem(
   const KeyText = useMemo(() => {
     if (isString(children)) {
       return (
-        <Styled.KeyText bold typo={Typography.Size12}>
+        <Styled.KeyText bold typo={Typography.Size12} truncated>
           { children }
         </Styled.KeyText>
       )

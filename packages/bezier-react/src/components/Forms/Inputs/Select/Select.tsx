@@ -15,6 +15,7 @@ import { isEmpty, noop } from 'lodash-es'
 import { Typography } from 'Foundation'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
+import { Text } from 'Components/Text'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
@@ -170,13 +171,14 @@ forwardedRef: Ref<SelectRef>,
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
-          <Styled.TextContainer
+          <Text
             testId={triggerTextTestId}
             typo={Typography.Size14}
+            truncated
             color={hasContent ? textColor : 'txt-black-dark'}
           >
             { hasContent ? text : placeholder }
-          </Styled.TextContainer>
+          </Text>
           { RightComponent }
         </Styled.MainContentWrapper>
         { !withoutChevron && (

@@ -20,6 +20,10 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -46,12 +50,6 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
   min-width: 20px;
   max-width: 20px;
   margin-right: 8px;
-}
-
-.c4 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .c0 {
@@ -107,7 +105,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
     </svg>
   </div>
   <span
-    class="c3 c4"
+    class="c3"
     data-testid="bezier-react-text"
   >
     test-content
@@ -135,6 +133,10 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 0px 0px 0px 0px;
   font-style: normal;
   font-weight: normal;
@@ -161,12 +163,6 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
   min-width: 20px;
   max-width: 20px;
   margin-right: 8px;
-}
-
-.c4 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .c0 {
@@ -229,7 +225,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
     </svg>
   </div>
   <span
-    class="c3 c4"
+    class="c3"
     data-testid="bezier-react-text"
   >
     test-content

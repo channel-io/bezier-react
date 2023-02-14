@@ -1,7 +1,6 @@
 /* Internal dependencies */
 import {
   styled,
-  ellipsis,
 } from 'Foundation'
 import { Text } from 'Components/Text'
 import { Button } from 'Components/Button'
@@ -33,8 +32,6 @@ export const SubTitleText = styled(Text).attrs(() => ({
 }))`
   box-sizing: border-box;
   width: 100%;
-
-  ${ellipsis()}
 `
 
 export const CloseIconButton = styled(Button)`
