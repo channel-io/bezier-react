@@ -23,7 +23,6 @@ export * from 'Components/Forms/Inputs/mixins'
 export * from 'Components/Forms/Inputs/Select'
 export * from 'Components/Forms/Inputs/TextArea'
 export * from 'Components/Forms/Inputs/TextField'
-export * as LEGACY__Radio from 'Components/Forms/Radio'
 export * from 'Components/Forms/RadioGroup'
 export * from 'Components/Forms/SegmentedControl'
 export * from 'Components/Forms/Slider'
@@ -48,6 +47,8 @@ export * from 'Components/TagBadge'
 export * from 'Components/Text'
 export * from 'Components/Toast'
 export * from 'Components/Tooltip'
+
+export * as LegacyRadio from 'Components/Legacies/Radio'
 
 /* Hooks for Component */
 export { default as useToast } from 'Components/Toast/useToast'
