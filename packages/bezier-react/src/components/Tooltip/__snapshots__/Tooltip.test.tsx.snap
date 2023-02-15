@@ -26,7 +26,7 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000000000;
+  z-index: 1300;
 }
 
 .c2 {
@@ -117,7 +117,7 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000000000;
+  z-index: 1300;
 }
 
 .c2 {

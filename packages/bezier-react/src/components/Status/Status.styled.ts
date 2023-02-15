@@ -1,10 +1,11 @@
 /* Internal dependencies */
 import { styled, absoluteCenter } from 'Foundation'
+import { ZIndex } from 'Constants/ZIndex'
 import { Icon as BaseIcon } from 'Components/Icon'
 
 export const Circle = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: ${ZIndex.Base};
   box-sizing: content-box;
   width: var(--bezier-status-size);
   height: var(--bezier-status-size);
@@ -27,5 +28,5 @@ export const Circle = styled.div`
 
 export const Icon = styled(BaseIcon)`
   ${absoluteCenter('')}
-  z-index: 1;
+  z-index: ${ZIndex.Float};
 `

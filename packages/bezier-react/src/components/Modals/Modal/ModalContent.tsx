@@ -5,6 +5,7 @@ import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import { document } from 'Utils/domUtils'
+import { ZIndex } from 'Constants/ZIndex'
 import { ModalClose } from './ModalHelpers'
 import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'
@@ -22,7 +23,7 @@ export const ModalContent = forwardRef(function ModalContent({
   showCloseIcon = false,
   width = 'max-content',
   height = 'fit-content',
-  zIndex = 0,
+  zIndex = ZIndex.Modal,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const overlayStyle = useMemo((): React.CSSProperties & {

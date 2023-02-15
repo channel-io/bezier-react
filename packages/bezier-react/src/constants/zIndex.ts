@@ -19,7 +19,7 @@ enum ZIndex {
   Base = 0,
   Float = 1,
   /**
-   * Used by `Overlay` component.
+   * Used by `Overlay`, `Select` component.
    */
   Overlay = 1000,
   /**
@@ -34,10 +34,6 @@ enum ZIndex {
    * Used by `Tooltip` component.
    */
   Tooltip = 1300,
-  /**
-   * @deprecated 🚨 It will be deprecated. Use other {@link ZIndex} values instead.
-   */
-  Max = Number.MAX_SAFE_INTEGER,
 }
 
 export { ZIndex }
