@@ -43,7 +43,6 @@ export * from 'Components/SectionLabel'
 export * from 'Components/Spinner'
 export * from 'Components/Stack'
 export * from 'Components/Status'
-export * as LegacyTabs from 'Components/Tabs/LegacyTabs'
 export * from 'Components/Tabs'
 export * from 'Components/TagBadge'
 export * from 'Components/Text'
@@ -57,9 +56,6 @@ export { default as useToast } from 'Components/Toast/useToast'
 export * from 'Types/ComponentProps'
 export * from 'Types/Foundation'
 export * from 'Types/Utils'
-
-/* Types (Enum) */
-export { default as TabsSize } from 'Components/Tabs/LegacyTabs/TabsSize'
 
 /* Hooks */
 export { default as useEventHandler } from 'Hooks/useEventHandler'
