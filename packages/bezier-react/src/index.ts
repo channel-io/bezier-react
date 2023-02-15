@@ -23,7 +23,6 @@ export * from 'Components/Forms/Inputs/mixins'
 export * from 'Components/Forms/Inputs/Select'
 export * from 'Components/Forms/Inputs/TextArea'
 export * from 'Components/Forms/Inputs/TextField'
-export * as LEGACY__Radio from 'Components/Forms/Radio'
 export * from 'Components/Forms/RadioGroup'
 export * from 'Components/Forms/SegmentedControl'
 export * from 'Components/Forms/Slider'
@@ -43,12 +42,13 @@ export * from 'Components/SectionLabel'
 export * from 'Components/Spinner'
 export * from 'Components/Stack'
 export * from 'Components/Status'
-export * as LegacyTabs from 'Components/Tabs/LegacyTabs'
 export * from 'Components/Tabs'
 export * from 'Components/TagBadge'
 export * from 'Components/Text'
 export * from 'Components/Toast'
 export * from 'Components/Tooltip'
+
+export * as LegacyRadio from 'Components/Legacies/Radio'
 
 /* Hooks for Component */
 export { default as useToast } from 'Components/Toast/useToast'
@@ -57,9 +57,6 @@ export { default as useToast } from 'Components/Toast/useToast'
 export * from 'Types/ComponentProps'
 export * from 'Types/Foundation'
 export * from 'Types/Utils'
-
-/* Types (Enum) */
-export { default as TabsSize } from 'Components/Tabs/LegacyTabs/TabsSize'
 
 /* Hooks */
 export { default as useEventHandler } from 'Hooks/useEventHandler'
