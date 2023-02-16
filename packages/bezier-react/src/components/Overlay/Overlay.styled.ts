@@ -32,12 +32,14 @@ export const DefaultContainer = styled.div<DefaultContainerProps>`
 
 export const DefaultWrapper = styled.div`
   position: relative;
+  z-index: ${ZIndex.Base};
   width: 100%;
   height: 100%;
 `
 
 export const Overlay = styled.div<StyledOverlayProps>`
   position: absolute;
+  z-index: ${ZIndex.Overlay};
 
   ${getOverlayStyle};
 
