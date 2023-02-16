@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.186
+
+### Minor Changes
+
+- [#1128](https://github.com/channel-io/bezier-react/pull/1128) [`e8593727`](https://github.com/channel-io/bezier-react/commit/e85937271b119e5fb68c8aeaa24d83b388716d1a) Thanks [@sungik-choi](https://github.com/sungik-choi)! - **Breaking changes**
+
+  No longer provide `layout`-related modules (e.g. `LayoutProvider`, `GNB`...)
+
+### Patch Changes
+
+- [#1103](https://github.com/channel-io/bezier-react/pull/1103) [`3bdb95e1`](https://github.com/channel-io/bezier-react/commit/3bdb95e1a022370122afb4166cc2f138028cb72b) Thanks [@annie1229](https://github.com/annie1229)! - Add truncated prop to Text component
+
+* [#1135](https://github.com/channel-io/bezier-react/pull/1135) [`ee776e66`](https://github.com/channel-io/bezier-react/commit/ee776e66f25e93e6a8c6a6fe181eb84159e8d985) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete Legacy `Modal` and `Tabs` components. Rename `LEGACY__RADIO` to `LegacyRadio`.
+
 ## 1.0.0-next-v1.185
 
 ### Patch Changes
