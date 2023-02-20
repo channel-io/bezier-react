@@ -3,7 +3,7 @@
  */
 /**
  * Preset of `z-index` values to help control the stacking order of components.
- * **Recommended to use these values instead of hard-coding `z-index` values.**
+ * **Recommend using these values instead of hard-coding `z-index` values.**
  */
 enum ZIndex {
   Hide = -1,
