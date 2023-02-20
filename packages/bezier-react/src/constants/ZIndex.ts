@@ -34,6 +34,11 @@ enum ZIndex {
    * Used by `Tooltip` component.
    */
   Tooltip = 1300,
+  /**
+   * 🚨 **Recommend not to use this value.**
+   * If used unnecessarily, uses only this value for components that must be on **top of everything.**
+   */
+  Important = 2000,
 }
 
 export { ZIndex }
