@@ -60,6 +60,10 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
   background-color: #4E40C9;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -156,6 +160,10 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
   border-radius: 8px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c3 {
@@ -288,6 +296,10 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -395,6 +407,10 @@ exports[`Button Test > Reset CSS 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -497,6 +513,10 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -606,6 +626,10 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -704,6 +728,10 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -809,6 +837,10 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -907,6 +939,10 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -1012,6 +1048,10 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1110,6 +1150,10 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -1215,6 +1259,10 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1313,6 +1361,10 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -1418,6 +1470,10 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1516,6 +1572,10 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1597,6 +1657,10 @@ exports[`Button Test > Size Test > without text > Size L 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1665,6 +1729,10 @@ exports[`Button Test > Size Test > without text > Size M 1`] = `
   border-radius: 8px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -1737,6 +1805,10 @@ exports[`Button Test > Size Test > without text > Size S 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1807,6 +1879,10 @@ exports[`Button Test > Size Test > without text > Size XL 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1875,6 +1951,10 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
   border-radius: 6px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -1964,6 +2044,10 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
   border-radius: 1000px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
@@ -2071,6 +2155,10 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -2174,6 +2262,10 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -2272,6 +2364,10 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
   background-color: #5E56F01A;
 }
 
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+}
+
 .c0:hover {
   background-color: #5E56F033;
 }
@@ -2368,6 +2464,10 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
   border-radius: 8px;
   color: #5E56F0;
   background-color: transparent;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
 }
 
 .c0:hover {
