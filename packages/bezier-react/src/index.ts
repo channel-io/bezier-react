@@ -58,6 +58,9 @@ export * from 'Types/ComponentProps'
 export * from 'Types/Foundation'
 export * from 'Types/Utils'
 
+/* Constants */
+export { ZIndex } from 'Constants/ZIndex'
+
 /* Hooks */
 export { default as useEventHandler } from 'Hooks/useEventHandler'
 export { default as useMergeRefs } from 'Hooks/useMergeRefs'

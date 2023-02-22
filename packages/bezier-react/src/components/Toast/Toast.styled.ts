@@ -1,9 +1,8 @@
 /* Internal dependencies */
 import { ellipsis, Foundation, LineHeightAbsoluteNumber, styled, Transition } from 'Foundation'
+import { ZIndex } from 'Constants/ZIndex'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
-
-const TOAST_DEFAULT_ZINDEX = Number.MAX_SAFE_INTEGER
 
 interface IconProps {
   appearance: ToastAppearance
@@ -52,7 +51,7 @@ export const Element = styled.div<StyledToastProps>`
   }
 
   position: relative;
-  z-index: ${({ zIndex }) => zIndex ?? TOAST_DEFAULT_ZINDEX};
+  z-index: ${({ zIndex }) => zIndex ?? ZIndex.Toast};
   display: flex;
   align-items: flex-start;
   width: 288px;
