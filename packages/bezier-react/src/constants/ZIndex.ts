@@ -9,7 +9,7 @@ enum ZIndex {
   Hide = -1,
   /**
    * Default CSS `z-index` value.
-   * It's **not** create a new stacking context.
+   * It does **not** create a new stacking context.
    */
   Auto = 'auto',
   /**
