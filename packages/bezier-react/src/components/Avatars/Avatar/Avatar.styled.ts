@@ -72,11 +72,6 @@ export const AvatarImage = styled.div<AvatarProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarImageWrapper = styled.div`
-  position: relative;
-  z-index: ${ZIndex.Float};
-`
-
 export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   position: relative;
   z-index: ${ZIndex.Base};
