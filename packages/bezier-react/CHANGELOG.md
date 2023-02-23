@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.187
+
+### Minor Changes
+
+- [#1136](https://github.com/channel-io/bezier-react/pull/1136) [`bf96d2db`](https://github.com/channel-io/bezier-react/commit/bf96d2db33886ca9dee74dabc16f9c18bdc786f1) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Organize z-index values and provide the `ZIndex` enum which is a preset of z-index values to help control the stacking order of components in consumer applications.
+
+  Change the z-index value of the below components.
+
+  - `Overlay`, `Select`: `1000` (container and content)
+  - `Modal`: `1100`
+  - `Toast`: `1200`
+  - `Tooltip`: `1300`
+
 ## 1.0.0-next-v1.186
 
 ### Minor Changes
