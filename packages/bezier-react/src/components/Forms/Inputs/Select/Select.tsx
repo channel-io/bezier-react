@@ -9,11 +9,14 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react'
-import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import { ZIndex } from 'Constants/ZIndex'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import { Text } from 'Components/Text'

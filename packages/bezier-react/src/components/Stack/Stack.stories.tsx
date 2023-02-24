@@ -5,12 +5,6 @@ import type {
   Story,
 } from '@storybook/react'
 import base from 'paths.macro'
-import {
-  keys,
-  random,
-  range,
-  values,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -19,6 +13,9 @@ import {
 } from 'Foundation'
 import { LightTheme } from 'Foundation/Colors/Theme'
 import { getTitle } from 'Utils/storyUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
 import {
   Button,
   ButtonSize,
@@ -77,8 +74,9 @@ export default {
   },
 } as Meta
 
-const randomColor = (): SemanticNames => values(LightTheme)[random(keys(LightTheme).length)] as SemanticNames
-const randomSize = (): number => Math.floor((random(true) * 240) + 120)
+const randomColor = (): SemanticNames =>
+  Object.values(LightTheme)[Math.floor(Math.random() * Object.keys(LightTheme).length)] as SemanticNames
+const randomSize = (): number => Math.floor((Math.random() * 240) + 120)
 
 const Item = ({
   fixedSize,

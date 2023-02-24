@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import type NavItemProps from './NavItem.types'

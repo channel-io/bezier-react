@@ -2,10 +2,6 @@
 import React, { useState } from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import {
-  camelCase,
-  keys,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -15,6 +11,9 @@ import {
   Typography,
 } from 'Foundation'
 import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
+import {
+  camelCase,
+} from 'Utils/stringUtils'
 import {
   ListItem,
 } from 'Components/ListItem'
@@ -209,7 +208,7 @@ export const UsageColor: Story<{}> = () => {
       <StackItem>
         <Select text={color} style={{ width: 200 }}>
           <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-            { keys(LightFoundation.theme)
+            { Object.keys(LightFoundation.theme)
               .map((semanticName) => (
                 <ListItem
                   key={semanticName}

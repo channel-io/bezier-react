@@ -1,4 +1,5 @@
 /* Internal dependencies */
+import { isArray } from 'Utils/typeUtils'
 // eslint-disable-next-line no-restricted-imports
 import { css } from '../FoundationStyledComponent'
 
@@ -16,7 +17,7 @@ function getTransitionsCSS(
   delay: number = 0,
 ) {
   const properties = (
-    Array.isArray(transitionProperties)
+    isArray(transitionProperties)
       ? transitionProperties.join(', ')
       : transitionProperties
   )

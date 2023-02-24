@@ -1,10 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
-import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isString,
+} from 'Utils/typeUtils'
 import { Icon, LegacyIcon, CancelIcon, IconSize } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import { getToastPreset } from './utils'

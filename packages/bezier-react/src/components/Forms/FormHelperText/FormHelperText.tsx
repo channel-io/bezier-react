@@ -1,9 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, useEffect, useMemo } from 'react'
-import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
 import useFormControlContext from 'Components/Forms/useFormControlContext'
 import type { BaseHelperTextProps, FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'

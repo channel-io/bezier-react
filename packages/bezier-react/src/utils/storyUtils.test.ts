@@ -1,8 +1,6 @@
-/* External dependencies */
-import { isArray } from 'lodash-es'
-
 /* Internal dependencies */
 import { IconName } from 'Components/Icon'
+import { isArray } from './typeUtils'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
 describe('storyUtils Test >', () => {

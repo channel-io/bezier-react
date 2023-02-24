@@ -1,10 +1,17 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { window } from 'Utils/domUtils'
+import {
+  isArray,
+  isNil,
+  isEmpty,
+} from 'Utils/typeUtils'
+import {
+  toString,
+} from 'Utils/stringUtils'
 import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import Styled from './TextField.styled'
@@ -111,7 +118,7 @@ forwardedRef: Ref<TextFieldRef>,
   }, [])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
-    if (includes([TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden], type)) { return }
+    if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
     inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 
@@ -323,7 +330,7 @@ forwardedRef: Ref<TextFieldRef>,
       onClick={handleClear}
     >
       {
-        getSize(normalizedValue) > 0 && (focused || hovered) && (
+        normalizedValue && normalizedValue.length > 0 && (focused || hovered) && (
           <Icon
             source={CancelCircleFilledIcon}
             size={IconSize.XS}

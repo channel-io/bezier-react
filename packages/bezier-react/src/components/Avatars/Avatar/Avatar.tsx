@@ -1,9 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from 'Foundation'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { Status, StatusSize } from 'Components/Status'
 // eslint-disable-next-line no-restricted-imports
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'

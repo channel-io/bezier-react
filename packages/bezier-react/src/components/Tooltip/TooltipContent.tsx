@@ -1,12 +1,16 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { isEmpty, isString, isArray } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useEventHandler from 'Hooks/useEventHandler'
+import {
+  isArray,
+  isString,
+  isEmpty,
+} from 'Utils/typeUtils'
 import { getRootElement } from 'Utils/domUtils'
 import { Text } from 'Components/Text'
 import { TooltipContentProps, TooltipPosition } from './Tooltip.types'

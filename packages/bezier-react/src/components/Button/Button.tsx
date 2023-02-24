@@ -1,9 +1,15 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
-import { flattenDeep, fromPairs, isArray, noop, values } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography, SemanticNames } from 'Foundation'
+import {
+  flattenDeep,
+} from 'Utils/arrayUtils'
+import {
+  isArray,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
 import { Spinner, SpinnerSize } from 'Components/Spinner'
 import ButtonProps, {
@@ -42,7 +48,7 @@ function combinations(
 }
 
 const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -53,7 +59,7 @@ const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } =
 }
 
 const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -61,7 +67,7 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     )
       .map((key) => [key, 'txt-black-darker']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.Monochrome,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
@@ -69,19 +75,19 @@ const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: Seman
     )
       .map((key) => [key, 'txt-black-dark']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.MonochromeLight,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      values(ButtonSize),
+      Object.values(ButtonSize),
     )
       .map((key) => [key, 'txt-black-dark']),
   ),
-  ...fromPairs(
+  ...Object.fromEntries(
     combinations(
       ButtonColorVariant.MonochromeDark,
       [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      values(ButtonSize),
+      Object.values(ButtonSize),
     )
       .map((key) => [key, 'txt-black-darker']),
   ),

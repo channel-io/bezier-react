@@ -7,9 +7,6 @@ import {
   Meta,
   Story,
 } from '@storybook/react'
-import {
-  entries,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -570,7 +567,7 @@ VariantsColor.storyName = 'Color variants'
 
 export const VariantsStyle: Story<{}> = () => (
   <VStack spacing={16} align="start">
-    { entries(ButtonStyleVariant)
+    { Object.entries(ButtonStyleVariant)
       .map(([key, styleVariant]) => (
         <StackItem key={styleVariant}>
           <HStack spacing={24} align="center">
@@ -596,7 +593,7 @@ VariantsStyle.storyName = 'Style variants'
 
 export const VariantsSize: Story<{}> = () => (
   <VStack spacing={16} align="start">
-    { entries(ButtonSize)
+    { Object.entries(ButtonSize)
       .map(([key, size]) => (
         <StackItem key={key}>
           <HStack spacing={24} align="center">

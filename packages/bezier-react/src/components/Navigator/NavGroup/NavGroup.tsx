@@ -1,9 +1,12 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
-import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isNil,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from 'Components/Icon'
 import { Text } from 'Components/Text'
 import type NavGroupProps from './NavGroup.types'

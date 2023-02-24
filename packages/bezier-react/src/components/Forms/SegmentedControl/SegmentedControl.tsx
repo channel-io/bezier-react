@@ -1,11 +1,17 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useState, useEffect, useMemo, useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
-import { noop, isNumber, range } from 'lodash-es'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
+import {
+  isNumber,
+} from 'Utils/typeUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
+import { noop } from 'Utils/functionUtils'
 import { Divider } from 'Components/Divider'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { Text } from 'Components/Text'

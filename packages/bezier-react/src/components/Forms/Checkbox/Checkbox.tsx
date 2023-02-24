@@ -1,8 +1,12 @@
 /* External dependencies */
 import React, { Ref, forwardRef, useMemo } from 'react'
-import { values, isBoolean, isEmpty, includes, noop } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isBoolean,
+  isEmpty,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
@@ -12,7 +16,7 @@ import * as Styled from './Checkbox.styled'
 export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
 export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
 
-const checkTypeValues = values(CheckType)
+const checkTypeValues = Object.values(CheckType)
 
 const checkIconCommonProps: Pick<IconProps, 'size' | 'color'> = {
   size: IconSize.XS,
@@ -38,7 +42,7 @@ function Checkbox(
 
   const checkStatus = useMemo(() => {
     if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
-    if (includes(checkTypeValues, checked)) { return checked }
+    if (checkTypeValues.includes(checked)) { return checked }
     return CheckType.False
   }, [checked])
 

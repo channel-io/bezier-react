@@ -1,6 +1,3 @@
-/* External dependencies */
-import { get } from 'lodash-es'
-
 /* Internal dependencies */
 import { createGlobalStyle, css } from './FoundationStyledComponent'
 
@@ -10,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ${({ foundation }) => {
-    const globalStyleObject = get(foundation, 'global')
+    const globalStyleObject = foundation?.global
     if (!globalStyleObject) {
       return undefined
     }

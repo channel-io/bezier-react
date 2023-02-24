@@ -1,10 +1,16 @@
 /* External dependencies */
 import React, { useCallback, useMemo } from 'react'
-import { isNil, isArray, isEmpty, isString, isNumber } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import {
+  isArray,
+  isNil,
+  isNumber,
+  isString,
+  isEmpty,
+} from 'Utils/typeUtils'
 import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
 import { LegacyIcon, IconSize } from 'Components/Icon'
 import { Divider } from 'Components/Divider'
