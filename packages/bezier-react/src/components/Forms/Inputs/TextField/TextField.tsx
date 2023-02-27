@@ -14,6 +14,8 @@ import {
 } from 'Utils/stringUtils'
 import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,
@@ -213,22 +215,31 @@ forwardedRef: Ref<TextFieldRef>,
     onChange,
   ])
 
+  const {
+    handleKeyDown: handleKeyDownWrappedWithComposingLocker,
+    handleKeyUp: handleKeyUpWrappedWithComposingLocker,
+  } = useKeyboardActionLockerWhileComposing({
+    keysToLock: COMMON_IME_CONTROL_KEYS,
+    onKeyDown,
+    onKeyUp,
+  })
+
   const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyDown) {
-      onKeyDown(event)
+    if (activeInput && handleKeyDownWrappedWithComposingLocker) {
+      handleKeyDownWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyDown,
+    handleKeyDownWrappedWithComposingLocker,
   ])
 
   const handleKeyUp = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyUp) {
-      onKeyUp(event)
+    if (activeInput && handleKeyUpWrappedWithComposingLocker) {
+      handleKeyUpWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyUp,
+    handleKeyUpWrappedWithComposingLocker,
   ])
 
   const handleClear = useCallback(() => {
