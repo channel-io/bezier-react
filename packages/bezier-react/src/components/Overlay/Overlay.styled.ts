@@ -53,4 +53,6 @@ export const Overlay = styled.div<StyledOverlayProps>`
       foundation?.transition?.TransitionDuration.S,
     )
   )};
+  
+  ${({ interpolation }) => interpolation}
 `
