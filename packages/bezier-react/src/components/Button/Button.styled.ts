@@ -420,8 +420,12 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   outline: none;
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 
-  &:focus {
-    outline: 3px solid var(--bgtxt-cobalt-light);
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};

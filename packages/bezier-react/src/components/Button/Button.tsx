@@ -236,6 +236,7 @@ export const Button = forwardRef(function Button(
       colorVariant={colorVariant}
       text={text}
       data-testid={testId}
+      data-component="BezierButton"
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
