@@ -6,7 +6,6 @@ import {
   isEmpty,
 } from 'Utils/typeUtils'
 import { Text } from 'Components/Text'
-import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
 
 // NOTE: ButtonSize 에 따른 버튼의 min-width, height
@@ -422,7 +421,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
 
   &:focus {
-    ${focusedInputWrapperStyle};
+    outline: 3px solid var(--bgtxt-cobalt-light);
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
