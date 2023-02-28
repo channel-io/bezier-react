@@ -61,7 +61,7 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -163,7 +163,7 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c3 {
@@ -297,7 +297,7 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -408,7 +408,7 @@ exports[`Button Test > Reset CSS 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -516,7 +516,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -627,7 +627,7 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -731,7 +731,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -838,7 +838,7 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -942,7 +942,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1049,7 +1049,7 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1153,7 +1153,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1260,7 +1260,7 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1364,7 +1364,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1471,7 +1471,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1573,7 +1573,7 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1658,7 +1658,7 @@ exports[`Button Test > Size Test > without text > Size L 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1732,7 +1732,7 @@ exports[`Button Test > Size Test > without text > Size M 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1806,7 +1806,7 @@ exports[`Button Test > Size Test > without text > Size S 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1880,7 +1880,7 @@ exports[`Button Test > Size Test > without text > Size XL 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -1954,7 +1954,7 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -2047,7 +2047,7 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -2156,7 +2156,7 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -2263,7 +2263,7 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -2365,7 +2365,7 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
@@ -2467,7 +2467,7 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
 }
 
 .c0:focus {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
+  outline: 3px solid var(--bgtxt-cobalt-light);
 }
 
 .c0:hover {
