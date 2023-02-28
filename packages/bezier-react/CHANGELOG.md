@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.188
+
+### Minor Changes
+
+- [#1082](https://github.com/channel-io/bezier-react/pull/1082) [`89f18836`](https://github.com/channel-io/bezier-react/commit/89f1883616d0c460aaf5222328f334303773c238) Thanks [@Tanney-102](https://github.com/Tanney-102)! - - keyboard event locker added.
+  - TextField and TextArea use keyboard event locker, so that they can block keyboard event handling for IME control keys while composing.
+
+### Patch Changes
+
+- [#1143](https://github.com/channel-io/bezier-react/pull/1143) [`53d83ba2`](https://github.com/channel-io/bezier-react/commit/53d83ba27f79ae81ab82836af047f8584919a1b8) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix to pass missing property of `Overlay` component.
+
+* [#1079](https://github.com/channel-io/bezier-react/pull/1079) [`85d04e70`](https://github.com/channel-io/bezier-react/commit/85d04e709fb8114330650fc939a7915aab96a2c5) Thanks [@annie1229](https://github.com/annie1229)! - Remove and re-implement lodash-es
+
 ## 1.0.0-next-v1.187
 
 ### Minor Changes
