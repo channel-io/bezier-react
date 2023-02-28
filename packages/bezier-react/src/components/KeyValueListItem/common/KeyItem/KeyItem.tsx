@@ -51,7 +51,7 @@ function KeyItem(
       ref={forwardedRef}
       interpolation={interpolation}
     >
-      { KeyIcon }
+      <Styled.KeyIconWrapper>{ KeyIcon }</Styled.KeyIconWrapper>
       { KeyText }
     </Styled.KeyContent>
   )
