@@ -46,6 +46,7 @@ Primary.args = {
   as: undefined,
   bold: false,
   italic: false,
+  truncated: false,
   style: { color: 'gray' },
   children: 'hello',
   marginTop: 0,
@@ -56,3 +57,21 @@ Primary.args = {
   marginHorizontal: 0,
   marginAll: 0,
 }
+
+const Truncated: Story<TextProps & { width: string }> = ({ children, width, ...otherTextProps }) => (
+  <div style={{ width }}>
+    <Text {...otherTextProps}>
+      { children }
+    </Text>
+  </div>
+)
+
+export const Secondary = Truncated.bind({})
+Secondary.args = {
+  width: '100px',
+  truncated: true,
+  style: { color: 'gray' },
+  children: 'test truncated long text',
+}
+
+Secondary.storyName = 'Usage (truncated)'

@@ -4,6 +4,8 @@ import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect,
 /* Internal dependencies */
 import useMergeRefs from 'Hooks/useMergeRefs'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'
@@ -25,6 +27,8 @@ function TextArea({
   onFocus,
   onBlur,
   onChange,
+  onKeyDown,
+  onKeyUp,
   ...rest
 }: TextAreaProps,
 forwardedRef: Ref<HTMLTextAreaElement>,
@@ -69,6 +73,15 @@ forwardedRef: Ref<HTMLTextAreaElement>,
     onBlur?.(event)
   }, [onBlur])
 
+  const {
+    handleKeyDown,
+    handleKeyUp,
+  } = useKeyboardActionLockerWhileComposing({
+    keysToLock: COMMON_IME_CONTROL_KEYS,
+    onKeyDown,
+    onKeyUp,
+  })
+
   // eslint-disable-next-line prefer-arrow-callback
   useLayoutEffect(function initialAutoFocus() {
     function setSelectionToEnd() {
@@ -103,6 +116,8 @@ forwardedRef: Ref<HTMLTextAreaElement>,
         onChange={onChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
       />
     </Styled.Wrapper>
   )

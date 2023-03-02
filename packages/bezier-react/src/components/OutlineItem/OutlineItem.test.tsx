@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
 import OutlineItem, { OUTLINE_ITEM_LEFT_ICON_TEST_ID, OUTLINE_ITEM_TEST_ID } from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
 

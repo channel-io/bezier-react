@@ -1,8 +1,8 @@
 /* External dependencies */
 import { createContext } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { noop } from 'Utils/functionUtils'
 import { ToastContextType } from './Toast.types'
 
 const ToastContext = createContext<ToastContextType>({

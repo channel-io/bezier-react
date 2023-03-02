@@ -1,8 +1,8 @@
-/* External dependencies */
-import { isNil } from 'lodash-es'
-
 /* Internal dependencies */
 import { styled, css, ellipsis } from 'Foundation'
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import { InterpolationProps } from 'Types/Foundation'
 import { ColorProps } from 'Types/ComponentProps'
 import { LegacyIcon } from 'Components/Icon'

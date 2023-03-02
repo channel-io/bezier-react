@@ -9,12 +9,17 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react'
-import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
+import { ZIndex } from 'Constants/ZIndex'
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
+import { noop } from 'Utils/functionUtils'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
+import { Text } from 'Components/Text'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
@@ -26,7 +31,7 @@ export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
 const DEFAULT_DROPDOWN_MARGIN_Y = 6
-const DEFAULT_DROPDOWN_Z_INDEX = 10
+const DEFAULT_DROPDOWN_Z_INDEX = ZIndex.Overlay
 
 function Select({
   testId = SELECT_CONTAINER_TEST_ID,
@@ -170,13 +175,14 @@ forwardedRef: Ref<SelectRef>,
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
-          <Styled.TextContainer
+          <Text
             testId={triggerTextTestId}
             typo={Typography.Size14}
+            truncated
             color={hasContent ? textColor : 'txt-black-dark'}
           >
             { hasContent ? text : placeholder }
-          </Styled.TextContainer>
+          </Text>
           { RightComponent }
         </Styled.MainContentWrapper>
         { !withoutChevron && (

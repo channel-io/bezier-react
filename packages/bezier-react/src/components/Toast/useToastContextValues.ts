@@ -1,8 +1,8 @@
 /* External dependencies */
 import { useCallback, useMemo, useState } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { noop } from 'Utils/functionUtils'
 import {
   OnDismissCallback,
   defaultOptions,

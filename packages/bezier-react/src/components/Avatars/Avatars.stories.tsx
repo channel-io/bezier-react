@@ -4,14 +4,14 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import {
-  range,
-} from 'lodash-es'
 import base from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from 'Foundation'
 import { getTitle } from 'Utils/storyUtils'
+import {
+  range,
+} from 'Utils/numberUtils'
 import {
   Avatar,
   AvatarSize,

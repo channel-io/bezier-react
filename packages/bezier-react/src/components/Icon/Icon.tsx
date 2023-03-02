@@ -1,6 +1,5 @@
 /* External dependencies */
 import React, { memo } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import type IconProps from './Icon.types'
@@ -19,8 +18,8 @@ export const Icon = memo(function Icon({
   marginRight = 0,
   marginBottom = 0,
   marginLeft = 0,
-  onClick = noop,
-  onMouseDown = noop,
+  onClick,
+  onMouseDown,
 }: IconProps) {
   return (
     <Styled

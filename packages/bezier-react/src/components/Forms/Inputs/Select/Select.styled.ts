@@ -1,9 +1,8 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from 'Foundation'
+import { styled, css } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import type { InterpolationProps } from 'Types/Foundation'
 import { Overlay } from 'Components/Overlay'
-import { Text } from 'Components/Text'
 import {
   inputTextStyle,
   inputWrapperStyle,
@@ -81,10 +80,6 @@ export const MainContentWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-`
-
-export const TextContainer = styled(Text)`
-  ${ellipsis()}
 `
 
 interface DropdownProps extends InterpolationProps {

@@ -17,6 +17,7 @@
 /packages/bezier-react/src/components/Forms/ @sungik-choi
 /packages/bezier-react/src/components/Forms/Slider/
 /packages/bezier-react/src/components/Forms/Slider/ @Dogdriip
+/packages/bezier-react/src/components/Forms/RadioGroup/ @sungik-choi
 /packages/bezier-react/src/components/Help/ @dinohan
 /packages/bezier-react/src/components/Icon/ @sungik-choi
 /packages/bezier-react/src/components/KeyValueListItem/ @sungik-choi
@@ -36,7 +37,3 @@
 /packages/bezier-react/src/components/Text/ @sungik-choi
 /packages/bezier-react/src/components/Toast/ @dinohan
 /packages/bezier-react/src/components/Tooltip/ @sungik-choi
-
-# FIXME - Should be deleted after <https://github.com/channel-io/bezier-react/issues/981> resolved
-
-/packages/bezier-react/src/layout/ @quino0627

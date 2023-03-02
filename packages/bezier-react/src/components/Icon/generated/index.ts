@@ -73,6 +73,7 @@ import CallOff from './CallOff'
 import CallOutgoing from './CallOutgoing'
 import CallPull from './CallPull'
 import Call from './Call'
+import CameraFilled from './CameraFilled'
 import Camera from './Camera'
 import CancelCircleFilled from './CancelCircleFilled'
 import CancelCircle from './CancelCircle'
@@ -209,6 +210,7 @@ import Globe from './Globe'
 import GoalOff from './GoalOff'
 import Goal from './Goal'
 import Google from './Google'
+import GraphFilled from './GraphFilled'
 import Graph from './Graph'
 import GroupFilled from './GroupFilled'
 import GroupRemove from './GroupRemove'
@@ -318,6 +320,7 @@ import Pause from './Pause'
 import Pencil from './Pencil'
 import PeopleList from './PeopleList'
 import People from './People'
+import PersonAddFilled from './PersonAddFilled'
 import PersonAdd from './PersonAdd'
 import PersonBlocked from './PersonBlocked'
 import PersonCheck from './PersonCheck'
@@ -542,6 +545,7 @@ const icons = {
   'call-outgoing': CallOutgoing,
   'call-pull': CallPull,
   call: Call,
+  'camera-filled': CameraFilled,
   camera: Camera,
   'cancel-circle-filled': CancelCircleFilled,
   'cancel-circle': CancelCircle,
@@ -678,6 +682,7 @@ const icons = {
   'goal-off': GoalOff,
   goal: Goal,
   google: Google,
+  'graph-filled': GraphFilled,
   graph: Graph,
   'group-filled': GroupFilled,
   'group-remove': GroupRemove,
@@ -787,6 +792,7 @@ const icons = {
   pencil: Pencil,
   'people-list': PeopleList,
   people: People,
+  'person-add-filled': PersonAddFilled,
   'person-add': PersonAdd,
   'person-blocked': PersonBlocked,
   'person-check': PersonCheck,
@@ -1026,6 +1032,7 @@ export {
   CallOutgoing as CallOutgoingIcon,
   CallPull as CallPullIcon,
   Call as CallIcon,
+  CameraFilled as CameraFilledIcon,
   Camera as CameraIcon,
   CancelCircleFilled as CancelCircleFilledIcon,
   CancelCircle as CancelCircleIcon,
@@ -1162,6 +1169,7 @@ export {
   GoalOff as GoalOffIcon,
   Goal as GoalIcon,
   Google as GoogleIcon,
+  GraphFilled as GraphFilledIcon,
   Graph as GraphIcon,
   GroupFilled as GroupFilledIcon,
   GroupRemove as GroupRemoveIcon,
@@ -1271,6 +1279,7 @@ export {
   Pencil as PencilIcon,
   PeopleList as PeopleListIcon,
   People as PeopleIcon,
+  PersonAddFilled as PersonAddFilledIcon,
   PersonAdd as PersonAddIcon,
   PersonBlocked as PersonBlockedIcon,
   PersonCheck as PersonCheckIcon,

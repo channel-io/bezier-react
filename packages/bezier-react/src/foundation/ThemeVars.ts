@@ -1,8 +1,10 @@
 /* External dependencies */
-import { isEmpty } from 'lodash-es'
 import { AnyStyledComponent } from 'styled-components'
 
 /* Internal dependencies */
+import {
+  isEmpty,
+} from 'Utils/typeUtils'
 import { createGlobalStyle } from './FoundationStyledComponent'
 
 type ThemeRecord = Record<string, string>

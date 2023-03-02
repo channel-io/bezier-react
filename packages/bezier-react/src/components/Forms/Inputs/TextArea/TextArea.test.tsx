@@ -7,6 +7,7 @@ import React from 'react'
 import { LightFoundation } from 'Foundation'
 import disabledOpacity from 'Constants/DisabledOpacity'
 import { render } from 'Utils/testUtils'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
 import TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'
@@ -182,6 +183,34 @@ describe('TextArea 테스트 >', () => {
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
       expect(textareaElement.selectionEnd).toEqual(TEST_INITIAL_VALUE.length)
+    })
+  })
+
+  describe('Keyboard event handlers for common ime control keys should not be called while composing ', () => {
+    it('onKeyDown', () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
+        fireEvent.keyDown(textareaElement, { key, isComposing: isCompositionStartFired })
+        expect(onKeyDown).not.toBeCalled()
+      })
+    })
+
+    it('onKeyUp', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp })
+      const rendered = getByTestId(TEXT_AREA_TEST_ID)
+      const textareaElement = rendered.getElementsByTagName('textarea')[0]
+
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
+        fireEvent.keyUp(textareaElement, { key, isComposing: isCompositionStartFired })
+        expect(onKeyUp).not.toBeCalled()
+      })
     })
   })
 })

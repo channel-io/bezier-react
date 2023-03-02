@@ -3,6 +3,7 @@
 exports[`Overlay test > Snapshot > 1`] = `
 .c0 {
   position: absolute;
+  z-index: 1000;
 }
 
 <div

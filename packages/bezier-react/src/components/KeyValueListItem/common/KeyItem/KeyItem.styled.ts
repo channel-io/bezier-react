@@ -15,5 +15,4 @@ export const KeyText = styled(Text).attrs({
   color: 'txt-black-dark',
 })`
   margin-left: 8px;
-  ${ellipsis()};
 `

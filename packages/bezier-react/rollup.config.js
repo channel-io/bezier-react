@@ -27,7 +27,6 @@ const typescriptPlugin = typescript({
       ],
     },
     exclude: [
-      './src/layout/stories/**/*',
       '**/__mocks__/*',
       '**/*.stories.tsx',
       '**/*.test.ts',

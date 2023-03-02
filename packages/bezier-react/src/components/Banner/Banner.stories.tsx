@@ -2,10 +2,10 @@
 import React from 'react'
 import base from 'paths.macro'
 import type { Meta, Story } from '@storybook/react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { noop } from 'Utils/functionUtils'
 import {
   StackItem,
   VStack,

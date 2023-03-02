@@ -1,12 +1,17 @@
 /* External dependencies */
 import React, { forwardRef, useState, useCallback, useMemo } from 'react'
-import { noop, isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from 'Foundation'
 import useMergeRefs from 'Hooks/useMergeRefs'
+import {
+  isNil,
+  isString,
+  isEmpty,
+} from 'Utils/typeUtils'
 import { mergeClassNames } from 'Utils/stringUtils'
+import { noop } from 'Utils/functionUtils'
 import { Text } from 'Components/Text'
 import { IconSize, isIconName } from 'Components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'

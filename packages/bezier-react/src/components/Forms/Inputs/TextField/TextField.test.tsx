@@ -6,6 +6,7 @@ import { fireEvent } from '@testing-library/dom'
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
 import { TextFieldProps, TextFieldVariant } from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'
@@ -249,6 +250,34 @@ describe('TextField', () => {
         fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       })
       expect(onKeyUp).not.toBeCalled()
+    })
+  })
+
+  describe('Keyboard event handlers for common ime control keys should not be called while composing', () => {
+    it('onKeyDown', async () => {
+      const onKeyDown = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyDown })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      COMMON_IME_CONTROL_KEYS.forEach(async (key) => {
+        const isCompositionStartFired = fireEvent.compositionStart(input)
+        fireEvent.keyDown(input, { key, isComposing: isCompositionStartFired })
+        expect(onKeyDown).not.toBeCalled()
+      })
+    })
+
+    it('onKeyUp', () => {
+      const onKeyUp = jest.fn()
+      const { getByTestId } = renderComponent({ onKeyUp })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      COMMON_IME_CONTROL_KEYS.forEach((key) => {
+        const isCompositionStartFired = fireEvent.compositionStart(input)
+        fireEvent.keyUp(input, { key, isComposing: isCompositionStartFired })
+        expect(onKeyUp).not.toBeCalled()
+      })
     })
   })
 })

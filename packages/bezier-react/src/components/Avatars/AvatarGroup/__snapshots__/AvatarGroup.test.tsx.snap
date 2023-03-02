@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
-.c3 {
+.c2 {
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -29,17 +29,12 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   border-radius: 42%;
 }
 
-.c2 {
-  position: relative;
-  z-index: 1;
-}
-
 .c1 {
   position: relative;
   z-index: 0;
 }
 
-.c5 {
+.c4 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -56,7 +51,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   transition-property: color;
 }
 
-.c6 {
+.c5 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -83,16 +78,16 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   margin-left: var(--bezier-avatar-group-spacing);
 }
 
-.c4 {
+.c3 {
   padding-right: var(--bezier-avatar-group-ellipsis-mr);
 }
 
-.c4.c4 {
+.c3.c3 {
   margin-left: var(--bezier-avatar-group-ellipsis-ml);
 }
 
 @supports (background:paint(smooth-corners)) {
-  .c3 {
+  .c2 {
     padding: 0px;
     margin: 0px;
     background: paint(smooth-corners);
@@ -117,109 +112,85 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Christian Nwamba"
       class="c2"
-    >
-      <div
-        aria-label="Christian Nwamba"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Kola Tioluwani"
       class="c2"
-    >
-      <div
-        aria-label="Kola Tioluwani"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Kent Dodds"
       class="c2"
-    >
-      <div
-        aria-label="Kent Dodds"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Ryan Florence"
       class="c2"
-    >
-      <div
-        aria-label="Ryan Florence"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Dan Abrahmov"
       class="c2"
-    >
-      <div
-        aria-label="Dan Abrahmov"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Prosper Otemuyiwa"
       class="c2"
-    >
-      <div
-        aria-label="Prosper Otemuyiwa"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
-    class="c4"
+    class="c3"
     style="--bezier-avatar-group-ellipsis-mr: 5px; --bezier-avatar-group-ellipsis-ml: 4px;"
   >
     <span
-      class="c5 c6"
+      class="c4 c5"
       data-testid="bezier-react-text"
     >
       +1
@@ -229,7 +200,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 `;
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
-.c6 {
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -245,7 +216,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   transition-property: color;
 }
 
-.c3 {
+.c2 {
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -273,11 +244,6 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   border-radius: 42%;
 }
 
-.c2 {
-  position: relative;
-  z-index: 1;
-}
-
 .c1 {
   position: relative;
   z-index: 0;
@@ -296,15 +262,15 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   margin-left: var(--bezier-avatar-group-spacing);
 }
 
-.c4 {
+.c3 {
   position: relative;
 }
 
-.c5 {
+.c4 {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -326,7 +292,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 @supports (background:paint(smooth-corners)) {
-  .c3 {
+  .c2 {
     padding: 0px;
     margin: 0px;
     background: paint(smooth-corners);
@@ -342,7 +308,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 @supports (background:paint(smooth-corners)) {
-  .c5 {
+  .c4 {
     padding: 0px;
     margin: 0px;
     background: paint(smooth-corners);
@@ -366,95 +332,75 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Christian Nwamba"
       class="c2"
-    >
-      <div
-        aria-label="Christian Nwamba"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Kola Tioluwani"
       class="c2"
-    >
-      <div
-        aria-label="Kola Tioluwani"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Kent Dodds"
       class="c2"
-    >
-      <div
-        aria-label="Kent Dodds"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Ryan Florence"
       class="c2"
-    >
-      <div
-        aria-label="Ryan Florence"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
     class="c1"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
+      aria-label="Dan Abrahmov"
       class="c2"
-    >
-      <div
-        aria-label="Dan Abrahmov"
-        class="c3"
-        data-testid="bezier-react-avatar"
-        role="img"
-        size="24"
-        style="--background-image: url(https://www.google.com);"
-      />
-    </div>
+      data-testid="bezier-react-avatar"
+      role="img"
+      size="24"
+      style="--background-image: url(https://www.google.com);"
+    />
   </div>
   <div
-    class="c4"
+    class="c3"
     data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
-      class="c5"
+      class="c4"
     >
       <svg
-        class="c6"
+        class="c5"
         color="bgtxt-absolute-white-dark"
         data-testid="bezier-react-icon"
         fill="none"
@@ -470,7 +416,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       >
         <path
           clip-rule="evenodd"
-          d="M4.5 14.5A2.507 2.507 0 0 1 2 12c0-1.375 1.125-2.5 2.5-2.5S7 10.625 7 12s-1.125 2.5-2.5 2.5Zm7.5 0A2.507 2.507 0 0 1 9.5 12c0-1.375 1.125-2.5 2.5-2.5s2.5 1.125 2.5 2.5-1.125 2.5-2.5 2.5Zm5-2.5c0 1.375 1.125 2.5 2.5 2.5S22 13.375 22 12s-1.125-2.5-2.5-2.5A2.507 2.507 0 0 0 17 12Z"
+          d="M2.5 12a2.257 2.257 0 0 0 2.25 2.25A2.257 2.257 0 0 0 7 12a2.257 2.257 0 0 0-2.25-2.25A2.257 2.257 0 0 0 2.5 12Zm9.5 2.25A2.257 2.257 0 0 1 9.75 12 2.257 2.257 0 0 1 12 9.75 2.257 2.257 0 0 1 14.25 12 2.257 2.257 0 0 1 12 14.25Zm7.25 0A2.257 2.257 0 0 1 17 12a2.257 2.257 0 0 1 2.25-2.25A2.257 2.257 0 0 1 21.5 12a2.257 2.257 0 0 1-2.25 2.25Z"
           fill="currentColor"
           fill-rule="evenodd"
         />
@@ -481,17 +427,13 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       data-testid="bezier-react-avatar-wrapper"
     >
       <div
+        aria-label="Prosper Otemuyiwa"
         class="c2"
-      >
-        <div
-          aria-label="Prosper Otemuyiwa"
-          class="c3"
-          data-testid="bezier-react-avatar"
-          role="img"
-          size="24"
-          style="--background-image: url(https://www.google.com);"
-        />
-      </div>
+        data-testid="bezier-react-avatar"
+        role="img"
+        size="24"
+        style="--background-image: url(https://www.google.com);"
+      />
     </div>
   </div>
 </div>

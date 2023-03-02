@@ -1,8 +1,8 @@
-/* External dependencies */
-import { isNil } from 'lodash-es'
-
 /* Internal dependencies */
 import { css, styled } from 'Foundation'
+import {
+  isNil,
+} from 'Utils/typeUtils'
 import { AdditionalColorProps } from 'Types/ComponentProps'
 import { LegacyIcon } from 'Components/Icon'
 import { Tooltip } from 'Components/Tooltip'
