@@ -14,7 +14,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./**/*'],
+      files: ['./packages/**/src/**/*'],
       rules: {
         'import/order': [
           'error',
