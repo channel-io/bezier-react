@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.189
+
+### Patch Changes
+
+- [#1139](https://github.com/channel-io/bezier-react/pull/1139) [`ff323960`](https://github.com/channel-io/bezier-react/commit/ff323960173e5b49a371e59dd78255327fbef800) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add focused style to `Button` component.
+
 ## 1.0.0-next-v1.188
 
 ### Minor Changes
