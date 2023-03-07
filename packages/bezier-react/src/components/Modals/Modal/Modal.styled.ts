@@ -50,6 +50,11 @@ export const Content = styled.div<ModalContentProps>`
     outline: none;
   }
 
+  /* NOTE(@ed): to show a focus ring when the modal is mounted */
+  & [data-component='BezierButton']:focus {
+    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+  }
+
   ${({ interpolation }) => interpolation}
 `
 
