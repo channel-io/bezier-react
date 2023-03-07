@@ -1,0 +1,42 @@
+name: Prereleased
+
+on:
+  release:
+    types: [prereleased]
+
+jobs:
+  notify-prereleased:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ch-web-github-actions
+        uses: actions/checkout@v3
+        with:
+          repository: channel-io/ch-web-github-actions
+          token: ${{ secrets.ACTIONS_REPO_ACCESS_TOKEN }}
+          ref: main
+          path: ch-web-github-actions
+
+      - name: Send Channel Desk notification
+        uses: ./ch-web-github-actions/packages/action-ch-create-message
+        with:
+          stage: production
+          accessKey: ${{ secrets.CH_API_ACCESS_KEY_PRODUCTION }}
+          accessSecret: ${{ secrets.CH_API_ACCESS_SECRET_PRODUCTION }}
+          botName: Github
+          groupName: Release
+          blocks: |
+            [
+              {
+                "type": "text",
+                "value": "\n\n${{ github.event.repository.name }}: <b>${{ github.event.release.name }}</b>"
+              },
+              {
+                "type": "bullets",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "value": "Release note: <link type=\"url\">${{ github.event.release.html_url }}</link>"
+                  }
+                ]
+              }
+            ]
