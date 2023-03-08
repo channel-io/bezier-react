@@ -1,8 +1,9 @@
 name: Prereleased
 
 on:
-  release:
-    types: [prereleased]
+  push:
+    tags:
+      - '*@[0-9]+.[0-9]+.[0-9]+-next-v[0-9]+.[0-9]+'
 
 jobs:
   notify-prereleased:
