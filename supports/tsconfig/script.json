@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "module": "CommonJS"
+    "module": "commonjs"
   }
 }

@@ -1,9 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    '@channel.io/eslint-config',
-    'plugin:storybook/recommended',
-  ],
+  extends: ['bezier'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
@@ -17,7 +14,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./packages/bezier-react/**/*'],
+      files: ['./packages/**/src/**/*'],
       rules: {
         'import/order': [
           'error',
@@ -62,13 +59,6 @@ module.exports = {
             ],
           },
         ],
-      },
-    },
-    {
-      files: ['./packages/bezier-figma-plugin/**/*'],
-      rules: {
-        'no-restricted-imports': 'off',
-        'no-restricted-globals': 'off',
       },
     },
   ],

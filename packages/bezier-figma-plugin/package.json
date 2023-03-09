@@ -18,11 +18,13 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "css-loader": "^6.7.2",
+    "eslint-config-bezier": "workspace:*",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^5.5.0",
     "react-dev-utils": "^12.0.1",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.3.0",
+    "tsconfig": "workspace:*",
     "url-loader": "^4.1.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
