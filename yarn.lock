@@ -1991,7 +1991,7 @@ __metadata:
     "@radix-ui/react-visually-hidden": ^1.0.1
     "@rollup/plugin-babel": ^5.3.0
     "@rollup/plugin-commonjs": ^19.0.0
-    "@rollup/plugin-node-resolve": ^13.0.0
+    "@rollup/plugin-node-resolve": ^15.0.0
     "@rollup/plugin-url": ^6.0.0
     "@storybook/addon-a11y": ^6.5.0
     "@storybook/addon-actions": ^6.5.13
@@ -3778,19 +3778,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^13.0.0":
-  version: 13.3.0
-  resolution: "@rollup/plugin-node-resolve@npm:13.3.0"
+"@rollup/plugin-node-resolve@npm:^15.0.0":
+  version: 15.0.1
+  resolution: "@rollup/plugin-node-resolve@npm:15.0.1"
   dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    "@types/resolve": 1.17.1
+    "@rollup/pluginutils": ^5.0.1
+    "@types/resolve": 1.20.2
     deepmerge: ^4.2.2
-    is-builtin-module: ^3.1.0
+    is-builtin-module: ^3.2.0
     is-module: ^1.0.0
-    resolve: ^1.19.0
+    resolve: ^1.22.1
   peerDependencies:
-    rollup: ^2.42.0
-  checksum: ec5418e6b3c23a9e30683056b3010e9d325316dcfae93fbc673ae64dad8e56a2ce761c15c48f5e2dcfe0c822fdc4a4905ee6346e3dcf90603ba2260afef5a5e6
+    rollup: ^2.78.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 90e30b41626a15ebf02746a83d34b15f9fe9051ddc156a9bf785504f489947980b3bdeb7bf2f80828a9becfe472a03a96d0238328a3e3e2198a482fcac7eb3aa
   languageName: node
   linkType: hard
 
@@ -3827,6 +3830,22 @@ __metadata:
     estree-walker: ^2.0.1
     picomatch: ^2.2.2
   checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^5.0.1":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
+  dependencies:
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^2.3.1
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: edea15e543bebc7dcac3b0ac8bc7b8e8e6dbd46e2864dbe5dd28072de1fbd5b0e10d545a610c0edaa178e8a7ac432e2a2a52e547ece1308471412caba47db8ce
   languageName: node
   linkType: hard
 
@@ -5803,6 +5822,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/estree@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@types/estree@npm:1.0.0"
+  checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
+  languageName: node
+  linkType: hard
+
 "@types/glob@npm:*, @types/glob@npm:^7.1.1":
   version: 7.2.0
   resolution: "@types/glob@npm:7.2.0"
@@ -6109,12 +6135,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/resolve@npm:1.17.1":
-  version: 1.17.1
-  resolution: "@types/resolve@npm:1.17.1"
-  dependencies:
-    "@types/node": "*"
-  checksum: dc6a6df507656004e242dcb02c784479deca516d5f4b58a1707e708022b269ae147e1da0521f3e8ad0d63638869d87e0adc023f0bd5454aa6f72ac66c7525cf5
+"@types/resolve@npm:1.20.2":
+  version: 1.20.2
+  resolution: "@types/resolve@npm:1.20.2"
+  checksum: 61c2cad2499ffc8eab36e3b773945d337d848d3ac6b7b0a87c805ba814bc838ef2f262fc0f109bfd8d2e0898ff8bd80ad1025f9ff64f1f71d3d4294c9f14e5f6
   languageName: node
   linkType: hard
 
@@ -8373,7 +8397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.0.0":
+"builtin-modules@npm:^3.3.0":
   version: 3.3.0
   resolution: "builtin-modules@npm:3.3.0"
   checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
@@ -11257,7 +11281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1":
+"estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -13516,12 +13540,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-builtin-module@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "is-builtin-module@npm:3.1.0"
+"is-builtin-module@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
   dependencies:
-    builtin-modules: ^3.0.0
-  checksum: f1e5dd2cd5f252d4d799b20a0c8c4f7e9c399c4d141749af76ca0121058d4062c3015d026f1b1409dd3d2a4ddfb9b15cf6eb9c370fed53fea8652ce35b5e95cb
+    builtin-modules: ^3.3.0
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
   languageName: node
   linkType: hard
 
