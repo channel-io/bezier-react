@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.190
+
+### Patch Changes
+
+- [#1093](https://github.com/channel-io/bezier-react/pull/1093) [`0424db5f`](https://github.com/channel-io/bezier-react/commit/0424db5f01f97307738cdeb7b65e82c168369737) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Support BezierIcon type for icon prop as well as IconName type in following components
+
+  - `Select`, `TextField`, `ListItem`, `KeyValuseListItem`, `OutlineItem`
+
 ## 1.0.0-next-v1.189
 
 ### Patch Changes
