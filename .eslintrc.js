@@ -8,15 +8,6 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        project: [
-          'packages/*/tsconfig.json',
-        ],
-      },
-    },
-  },
   rules: {
     'max-classes-per-file': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -28,6 +19,7 @@ module.exports = {
     {
       files: ['./packages/bezier-react/**/*'],
       rules: {
+        'import/extensions': 'off', // FIXME(@aru)
         'import/order': [
           'error',
           {
