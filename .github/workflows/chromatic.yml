@@ -12,6 +12,7 @@ on:
 
 jobs:
   chromatic-deployment:
+    if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]'
     name: Chromatic
     runs-on: ubuntu-latest
     steps:
