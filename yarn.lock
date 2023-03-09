@@ -2158,12 +2158,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^13.1.0":
-  version: 13.2.0
-  resolution: "@commitlint/config-conventional@npm:13.2.0"
+"@commitlint/config-conventional@npm:^17.0.0":
+  version: 17.4.4
+  resolution: "@commitlint/config-conventional@npm:17.4.4"
   dependencies:
-    conventional-changelog-conventionalcommits: ^4.3.1
-  checksum: fd659269fe31df17bf479b90e915e063c7dc61b795396458d403c4154f037e152ad015463c078a881af18456c638ab3b6c1b67966abc42b131e5a900ad3c2753
+    conventional-changelog-conventionalcommits: ^5.0.0
+  checksum: 679d92509fe6e53ee0cc4202f8069d88360c4f9dbd7ab74114bb28278a196da517ef711dfe69893033a66e54ffc29e8df2ccf63cfd746a89c82a053949473c4b
   languageName: node
   linkType: hard
 
@@ -9292,14 +9292,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:^4.3.1":
-  version: 4.6.3
-  resolution: "conventional-changelog-conventionalcommits@npm:4.6.3"
+"conventional-changelog-conventionalcommits@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
   dependencies:
     compare-func: ^2.0.0
     lodash: ^4.17.15
     q: ^1.5.1
-  checksum: 7b8e8a21ebb56f9aaa510e12917b7c609202072c3e71089e0a09630c37c2e8146cdb04364809839b0e3eb55f807fe84d03b2079500b37f6186d505848be5c562
+  checksum: b67d12e4e0fdde5baa32c3d77af472de38646a18657b26f5543eecce041a318103092fbfcef247e2319a16957c9ac78c6ea78acc11a5db6acf74be79a28c561f
   languageName: node
   linkType: hard
 
@@ -19137,7 +19137,7 @@ __metadata:
     "@changesets/cli": ^2.23.0
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^17.2.0
-    "@commitlint/config-conventional": ^13.1.0
+    "@commitlint/config-conventional": ^17.0.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^7.32.0
     eslint-config-bezier: "workspace:*"
