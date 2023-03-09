@@ -3,7 +3,7 @@ name: Prereleased
 on:
   push:
     tags:
-      - '*@[0-9]+.[0-9]+.[0-9]+-next-v[0-9]+.[0-9]+'
+      - '@channel.io/bezier-react@[0-9]+.[0-9]+.[0-9]+-next-v[0-9]+.[0-9]+'
 
 jobs:
   notify-prereleased:
@@ -29,14 +29,14 @@ jobs:
             [
               {
                 "type": "text",
-                "value": "\n\n${{ github.event.repository.name }}: <b>${{ github.event.release.name }}</b>"
+                "value": "\n\n${{ github.event.repository.name }}: <b>${{ github.ref_name }}</b>"
               },
               {
                 "type": "bullets",
                 "blocks": [
                   {
                     "type": "text",
-                    "value": "Release note: <link type=\"url\">${{ github.event.release.html_url }}</link>"
+                    "value": "Release note: <link type=\"url\">https://github.com/channel-io/bezier-react/releases/tag/${{ github.ref_name }}</link>"
                   }
                 ]
               }
