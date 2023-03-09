@@ -1,5 +1,14 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
+import React, {
+  Ref,
+  forwardRef,
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useCallback,
+  useMemo,
+} from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -12,7 +21,7 @@ import {
 import {
   toString,
 } from 'Utils/stringUtils'
-import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from 'Components/Icon'
+import { Icon, IconSize, CancelCircleFilledIcon, LegacyIcon, isIconName } from 'Components/Icon'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
 import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
@@ -252,18 +261,33 @@ forwardedRef: Ref<TextFieldRef>,
     }
   }, [activeInput])
 
-  const renderLeftItem = useCallback((item: TextFieldItemProps) => (
-    'icon' in item
-      ? (
+  const renderLeftItem = useCallback((item: TextFieldItemProps) => {
+    if ('icon' in item) {
+      if (isIconName(item.icon)) {
+        return (
+          <Styled.LeftLegacyIcon
+            name={item.icon}
+            size={IconSize.S}
+            color={item.iconColor ?? 'txt-black-dark'}
+            clickable={!isNil(item.onClick)}
+            onClick={item.onClick}
+          />
+        )
+      }
+
+      return (
         <Styled.LeftIcon
-          name={item.icon}
+          source={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
           clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         />
-      ) : item
-  ), [])
+      )
+    }
+
+    return item
+  }, [])
 
   const LeftComponent = useMemo(() => {
     if (isNil(leftContent)) {
@@ -272,7 +296,7 @@ forwardedRef: Ref<TextFieldRef>,
 
     const item = renderLeftItem(leftContent)
 
-    if (isNil(item) || withoutLeftContentWrapper) { return item }
+    if (withoutLeftContentWrapper) { return item }
 
     return (
       <Styled.LeftContentWrapper
@@ -290,24 +314,43 @@ forwardedRef: Ref<TextFieldRef>,
     renderLeftItem,
   ])
 
-  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => (
-    'icon' in item ? (
-      <Styled.RightItemWrapper
-        key={key}
-        clickable={!isNil(item.onClick)}
-        onClick={item.onClick}
-      >
-        <LegacyIcon
-          name={item.icon}
-          size={IconSize.XS}
-          color={item.iconColor ?? 'txt-black-dark'}
-        />
-      </Styled.RightItemWrapper>
-    ) : React.cloneElement(
-      item,
-      { key },
+  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
+    if ('icon' in item) {
+      if (isIconName(item.icon)) {
+        return (
+          <Styled.RightItemWrapper
+            key={key}
+            clickable={!isNil(item.onClick)}
+            onClick={item.onClick}
+          >
+            <LegacyIcon
+              name={item.icon}
+              size={IconSize.XS}
+              color={item.iconColor ?? 'txt-black-dark'}
+            />
+          </Styled.RightItemWrapper>
+        )
+      }
+
+      return (
+        <Styled.RightItemWrapper
+          key={key}
+          clickable={!isNil(item.onClick)}
+          onClick={item.onClick}
+        >
+          <Icon
+            source={item.icon}
+            size={IconSize.XS}
+            color={item.iconColor ?? 'txt-black-dark'}
+          />
+        </Styled.RightItemWrapper>
+      )
+    }
+
+    return React.cloneElement(
+      item, { key },
     )
-  ), [])
+  }, [])
 
   const RightComponent = useMemo(() => {
     if (isNil(rightContent) || isEmpty(rightContent)) {

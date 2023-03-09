@@ -17,7 +17,15 @@ import {
   isEmpty,
 } from 'Utils/typeUtils'
 import { noop } from 'Utils/functionUtils'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from 'Components/Icon'
+import {
+  Icon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+  IconSize,
+  isBezierIcon,
+  isIconName,
+  LegacyIcon,
+} from 'Components/Icon'
 import { OverlayPosition } from 'Components/Overlay'
 import { Text } from 'Components/Text'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
@@ -79,6 +87,17 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const LeftComponent = useMemo(() => {
+    if (isBezierIcon(leftContent)) {
+      return (
+        <Icon
+          source={leftContent}
+          size={IconSize.XS}
+          marginRight={6}
+          color={iconColor}
+        />
+      )
+    }
+
     if (isIconName(leftContent)) {
       return (
         <LegacyIcon
@@ -97,6 +116,17 @@ forwardedRef: Ref<SelectRef>,
   ])
 
   const RightComponent = useMemo(() => {
+    if (isBezierIcon(rightContent)) {
+      return (
+        <Icon
+          source={rightContent}
+          size={IconSize.XS}
+          marginRight={6}
+          color={iconColor}
+        />
+      )
+    }
+
     if (isIconName(rightContent)) {
       return (
         <LegacyIcon
@@ -186,12 +216,12 @@ forwardedRef: Ref<SelectRef>,
           { RightComponent }
         </Styled.MainContentWrapper>
         { !withoutChevron && (
-        <Icon
-          source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
-          size={IconSize.XS}
-          color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-          marginLeft={6}
-        />
+          <Icon
+            source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
+            size={IconSize.XS}
+            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+            marginLeft={6}
+          />
         ) }
       </Styled.Trigger>
 

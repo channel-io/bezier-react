@@ -43,6 +43,9 @@ import {
 import {
   Text,
 } from 'Components/Text'
+import {
+  TagIcon,
+} from 'Components/Icon'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
@@ -266,7 +269,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon="tag"
+              leftIcon={TagIcon}
               content="KR/Product"
               rightContent={(
                 <HStack>
@@ -292,7 +295,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon="tag"
+              leftIcon={TagIcon}
               content="KR/Design"
               rightContent={(
                 <HStack>

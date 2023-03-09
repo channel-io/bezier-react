@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { LightFoundation } from 'Foundation'
 import { render } from 'Utils/testUtils'
+import { CheckIcon } from 'Components/Icon'
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
 import ListItemProps, { ListItemVariant, ListItemSize } from './ListItem.types'
 
@@ -160,7 +161,7 @@ describe('ListItem', () => {
   /* icon, text 등 contents와 padding에 따라 height 변합니다. */
   describe('should render correct height according to "size"', () => {
     it('size S', () => {
-      renderComponent({ content: 'test', leftIcon: 'check', size: ListItemSize.S })
+      renderComponent({ content: 'test', leftIcon: CheckIcon, size: ListItemSize.S })
       const rendered = getDocument().querySelector(`div[data-testid=${LIST_ITEM_TEST_ID}]`)
       if (rendered) {
         const style = getWindow().getComputedStyle(rendered)
@@ -169,7 +170,7 @@ describe('ListItem', () => {
     })
 
     it('size M', () => {
-      renderComponent({ content: 'test', leftIcon: 'check', size: ListItemSize.M })
+      renderComponent({ content: 'test', leftIcon: CheckIcon, size: ListItemSize.M })
       const rendered = getDocument().querySelector(`div[data-testid=${LIST_ITEM_TEST_ID}]`)
       if (rendered) {
         const style = getWindow().getComputedStyle(rendered)
@@ -178,7 +179,7 @@ describe('ListItem', () => {
     })
 
     it('size L', () => {
-      renderComponent({ content: 'test', leftIcon: 'check', size: ListItemSize.L })
+      renderComponent({ content: 'test', leftIcon: CheckIcon, size: ListItemSize.L })
       const rendered = getDocument().querySelector(`div[data-testid=${LIST_ITEM_TEST_ID}]`)
       if (rendered) {
         const style = getWindow().getComputedStyle(rendered)
@@ -187,7 +188,7 @@ describe('ListItem', () => {
     })
 
     it('size XL', () => {
-      renderComponent({ content: 'test', leftIcon: 'check', size: ListItemSize.XL })
+      renderComponent({ content: 'test', leftIcon: CheckIcon, size: ListItemSize.XL })
       const rendered = getDocument().querySelector(`div[data-testid=${LIST_ITEM_TEST_ID}]`)
       if (rendered) {
         const style = getWindow().getComputedStyle(rendered)

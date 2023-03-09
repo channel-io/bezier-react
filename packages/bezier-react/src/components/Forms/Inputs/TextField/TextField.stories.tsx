@@ -5,6 +5,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
+import { SearchIcon } from 'Components/Icon'
 import TextField from './TextField'
 import { TextFieldRef, TextFieldSize, TextFieldVariant, TextFieldProps } from './TextField.types'
 
@@ -32,8 +33,7 @@ const PrimaryTemplate: Story<TextFieldProps> = ({ ...otherProps }) => {
         value={value}
         autoFocus
         leftContent={{
-          icon: 'search',
-          iconColor: 'txt-black-dark',
+          icon: SearchIcon,
           onClick: handleClickLeftIcon,
         }}
         onChange={handleChangeValue}

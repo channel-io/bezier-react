@@ -1,5 +1,7 @@
 /* External dependencies */
-import React, { memo } from 'react'
+import React, {
+  memo,
+} from 'react'
 
 /* Internal dependencies */
 import type IconProps from './Icon.types'

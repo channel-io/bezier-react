@@ -10,6 +10,7 @@ import { noop } from 'Utils/functionUtils'
 import { ListItem } from 'Components/ListItem'
 import { Text } from 'Components/Text'
 import type { ListItemProps } from 'Components/ListItem'
+import { StarFilledIcon, ViewIcon } from 'Components/Icon'
 import SectionLabel from './SectionLabel'
 import SectionLabelProps from './SectionLabel.types'
 
@@ -104,12 +105,12 @@ const Template: Story<SectionLabelProps & {
         onClick={toggle}
       >
         <ListItem
-          leftIcon="star-filled"
+          leftIcon={StarFilledIcon}
           content="안 읽은 메시지"
           {...listItemProps}
         />
         <ListItem
-          leftIcon="view"
+          leftIcon={ViewIcon}
           content="팔로잉"
           {...listItemProps}
         />

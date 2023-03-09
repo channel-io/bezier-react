@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event'
 /* Internal dependencies */
 import { render } from 'Utils/testUtils'
 import { TOOLTIP_TEST_ID } from 'Components/Tooltip/Tooltip'
+import { AppleIcon, BadgeIcon } from 'Components/Icon'
 import type { KeyValueListItemActionProps } from './common'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
 import { TEST_ID_MAP } from './KeyValueListItem.const'
@@ -12,7 +13,7 @@ import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
 const DEFAULT_PROPS: KeyValueListItemProps = {
-  keyIcon: 'apple',
+  keyIcon: AppleIcon,
   keyContent: 'Key',
   children: 'Value',
 }
@@ -35,7 +36,7 @@ describe('KeyValueListItem', () => {
   describe('Props', () => {
     describe('keyIcon', () => {
       it('keyIcon이 Bezier의 아이콘 한 종류면, icon으로 렌더링된다.', () => {
-        const keyIcon = 'badge'
+        const keyIcon = BadgeIcon
         const { getByTestId } = renderComponent({ keyIcon })
         const rendered = getByTestId(TEST_ID_MAP.KEY_ITEM)
         const keyItemIcon = rendered?.firstChild
@@ -99,7 +100,7 @@ describe('KeyValueListItem', () => {
 
     describe('actions', () => {
       it('actions의 show가 true면, ActionIconWrapper display가 flex처리 된다.', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge', show: true }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon, show: true }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         const actionItemIconWrapper = rendered?.firstChild
@@ -107,7 +108,7 @@ describe('KeyValueListItem', () => {
       })
 
       it('actions의 show가 false면, ActionIconWrapper display가 none처리 된다.', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge', show: false }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon, show: false }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         const actionItemIconWrapper = rendered?.firstChild
@@ -122,7 +123,7 @@ describe('KeyValueListItem', () => {
       })
 
       it('actions가 Object면, 아이콘이 1개만 렌더링된다.', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge' }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         const actionItemsCount = rendered?.childNodes.length
@@ -131,7 +132,7 @@ describe('KeyValueListItem', () => {
 
       it('actions가 Array면, 아이콘이 여러개 렌더링된다.', () => {
         const actions: KeyValueListItemActionProps[] = (
-          Array.from(Array(2)).map(() => ({ icon: 'badge' }))
+          Array.from(Array(2)).map(() => ({ icon: BadgeIcon }))
         )
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
@@ -140,7 +141,7 @@ describe('KeyValueListItem', () => {
       })
 
       it('actions의 icon이 렌더링된다.', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge' }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         const actionItemIconWrapper = rendered?.firstChild
@@ -151,7 +152,7 @@ describe('KeyValueListItem', () => {
       it('actions의 onClick 있으면, icon click event에서 호출된다.', async () => {
         const user = userEvent.setup()
 
-        const actions: KeyValueListItemActionProps = { icon: 'badge', onClick: jest.fn() }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon, onClick: jest.fn() }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         const actionItemIconWrapper = rendered?.firstChild
@@ -164,7 +165,7 @@ describe('KeyValueListItem', () => {
       })
 
       it('actions의 tooltip이 있으면, tooltip이 렌더링된다.', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge', tooltip: 'tooltip' }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon, tooltip: 'tooltip' }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TOOLTIP_TEST_ID)
         expect(rendered).toBeInTheDocument()
@@ -338,7 +339,7 @@ describe('KeyValueListItem', () => {
       })
 
       it('KeyValueListItem > ItemActions', () => {
-        const actions: KeyValueListItemActionProps = { icon: 'badge' }
+        const actions: KeyValueListItemActionProps = { icon: BadgeIcon }
         const { getByTestId } = renderComponent({ actions })
         const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
         expect(rendered).toHaveStyle('display: flex;')

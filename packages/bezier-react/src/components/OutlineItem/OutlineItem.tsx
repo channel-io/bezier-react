@@ -6,11 +6,24 @@ import {
   isNil,
 } from 'Utils/typeUtils'
 import { noop } from 'Utils/functionUtils'
-import { IconSize, isIconName } from 'Components/Icon'
+import {
+  IconSize,
+  ChevronSmallDownIcon,
+  ChevronSmallRightIcon,
+  isIconName,
+  isBezierIcon,
+} from 'Components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
-import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
-import { GroupItemWrapper, StyledIcon, ContentWrapper, ChevronWrapper, LeftContentWrapper } from './OutlineItem.styled'
+import OutlineItemProps from './OutlineItem.types'
+import {
+  GroupItemWrapper,
+  StyledIcon,
+  ContentWrapper,
+  ChevronWrapper,
+  LeftContentWrapper,
+  StyledLegacyIcon,
+} from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
 
@@ -25,8 +38,6 @@ function OutlineItem(
     style,
     className,
     interpolation,
-    chevronClassName,
-    chevronInterpolation,
     contentClassName,
     contentInterpolation,
     iconClassName,
@@ -35,8 +46,6 @@ function OutlineItem(
     open = false,
     active: givenActive,
     focused = false,
-    chevronIconType = ChevronIconType.Small,
-    chevronIconSize = IconSize.XS,
     leftContent,
     leftIcon,
     leftIconColor,
@@ -124,17 +133,15 @@ function OutlineItem(
       return null
     }
 
-    const chevronIcon = `${chevronIconType}-${open ? 'down' : 'right'}` as const
+    const chevronSource = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
     const showChevron = !isNil(children)
 
     return (
       <ChevronWrapper>
         { showChevron && (
           <StyledIcon
-            className={chevronClassName}
-            interpolation={chevronInterpolation}
-            name={chevronIcon}
-            size={chevronIconSize}
+            source={chevronSource}
+            size={IconSize.XS}
             onClick={handleClickIcon}
             color="txt-black-darker"
           />
@@ -142,14 +149,10 @@ function OutlineItem(
       </ChevronWrapper>
     )
   }, [
-    disableChevron,
-    open,
-    chevronIconType,
-    chevronIconSize,
-    chevronClassName,
-    chevronInterpolation,
     children,
+    disableChevron,
     handleClickIcon,
+    open,
   ])
 
   const leftComponent = useMemo(() => {
@@ -160,14 +163,32 @@ function OutlineItem(
         </LeftContentWrapper>
       )
     }
-    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+
+    if (isIconName(leftIcon)) {
+      return (
+        <LeftContentWrapper>
+          <StyledLegacyIcon
+            testId={leftIconTestId}
+            className={iconClassName}
+            interpolation={iconInterpolation}
+            name={leftIcon}
+            size={IconSize.S}
+            active={active}
+            disableIconActive={disableIconActive}
+            color={leftIconColor}
+          />
+        </LeftContentWrapper>
+      )
+    }
+
+    if (isBezierIcon(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon
             testId={leftIconTestId}
             className={iconClassName}
             interpolation={iconInterpolation}
-            name={leftIcon}
+            source={leftIcon}
             size={IconSize.S}
             active={active}
             disableIconActive={disableIconActive}
