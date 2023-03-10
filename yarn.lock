@@ -2015,7 +2015,7 @@ __metadata:
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
     "@types/styled-components": ^5.1.5
-    "@types/uuid": ^8.3.0
+    "@types/uuid": ^9.0.0
     babel-eslint: ^10.1.0
     babel-loader: ^9.1.0
     babel-plugin-styled-components: ^2.0.7
@@ -6189,10 +6189,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:^8.3.0":
-  version: 8.3.4
-  resolution: "@types/uuid@npm:8.3.4"
-  checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
+"@types/uuid@npm:^9.0.0":
+  version: 9.0.1
+  resolution: "@types/uuid@npm:9.0.1"
+  checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
   languageName: node
   linkType: hard
 
