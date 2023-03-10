@@ -2,8 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    ":labels(chore:deps)",
-    ":timezone(Asia/Seoul)"
+    ":labels(chore:deps)"
+  ],
+  "timezone": "Asia/Seoul",
+  "schedule": [
+    "after 10am on Monday",
+    "before 6pm on Monday"
   ],
   "packageRules": [
     {
