@@ -24,7 +24,7 @@
 /packages/bezier-react/src/components/ListItem/ @quino0627
 /packages/bezier-react/src/components/ListMenuTitle/ @quino0627
 /packages/bezier-react/src/components/Modals/ @sungik-choi
-/packages/bezier-react/src/components/Navigator/ @guswnsxodlf
+/packages/bezier-react/src/components/Navigator/ @sungik-choi
 /packages/bezier-react/src/components/OutlineItem/ @quino0627
 /packages/bezier-react/src/components/Overlay/ @sungik-choi
 /packages/bezier-react/src/components/ProgressBar/ @Dogdriip
@@ -37,5 +37,5 @@
 /packages/bezier-react/src/components/Text/ @sungik-choi
 /packages/bezier-react/src/components/Toast/ @dinohan
 /packages/bezier-react/src/components/Tooltip/ @sungik-choi
-
+/packages/bezier-react/src/components/VisuallyHidden/ @sungik-choi
 /packages/bezier-react/src/components/AlphaCenter/ @sungik-choi
