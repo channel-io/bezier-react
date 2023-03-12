@@ -2034,7 +2034,7 @@ __metadata:
     react-resize-detector: ^7.1.1
     react-textarea-autosize: ^8.3.4
     regenerator-runtime: ^0.13.11
-    rollup: ^2.50.5
+    rollup: ^3.0.0
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
     rollup-plugin-visualizer: ^5.8.3
@@ -19115,9 +19115,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.50.5":
-  version: 2.75.7
-  resolution: "rollup@npm:2.75.7"
+"rollup@npm:^3.0.0":
+  version: 3.19.1
+  resolution: "rollup@npm:3.19.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -19125,7 +19125,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: a6331d46b01062b184efdcb42ce12caf2e1575f989963944534b02f5855f6f3bc239ed0c1a18893572d7695af6d83166f3aef59dbd0365084e1531cb67824674
+  checksum: f78198c6de224b26650c70b16db156762d1fcceeb375d34fb2c76fc5b23a78f712c3c881d3248e6f277a511589e20d50c247bcf5c7920f1ddc0a43cadf9f0140
   languageName: node
   linkType: hard
 
