@@ -16,7 +16,7 @@ defaults: &defaults
   working_directory: *workspace_root
 
   docker:
-    - image: node:18.15.0
+    - image: node:19.7.0
 
 filter_only_tagged: &filter_only_tagged
   filters:
