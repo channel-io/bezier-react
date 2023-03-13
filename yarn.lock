@@ -2038,7 +2038,7 @@ __metadata:
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
     rollup-plugin-visualizer: ^5.8.3
-    ssr-window: ^3.0.0
+    ssr-window: ^4.0.0
     styled-components: ^5.3.5
     ts-prune: ^0.10.3
     tsconfig: "workspace:*"
@@ -19806,10 +19806,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ssr-window@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "ssr-window@npm:3.0.0"
-  checksum: e619db7437874c89d2f4cea94ca8cbdfb4eed9f20d86fa193c29a17829c26d7ceefae344ac1699cc24ebb8d397fd0937a1043b5177a140c2504c9fda58bb5652
+"ssr-window@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "ssr-window@npm:4.0.2"
+  checksum: df182600927f4f3225224cf8c02338ea637c9750519505bbfb9a9236741a2a7ec088386fb948bca7b447b8303d9109e7dc7672e3de041c79ac2a0e03665af7d2
   languageName: node
   linkType: hard
 
