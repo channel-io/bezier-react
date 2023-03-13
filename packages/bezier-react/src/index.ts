@@ -51,6 +51,8 @@ export * from 'Components/VisuallyHidden'
 
 export * from 'Components/AlphaCenter'
 
+export * from 'Components/AlphaCheckbox'
+
 export * as LegacyRadio from 'Components/Legacies/Radio'
 
 /* Hooks for Component */
