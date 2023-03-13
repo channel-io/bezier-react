@@ -20,7 +20,8 @@ function RadioImpl<Value extends string>({
       {...rest}
     >
       { children && (
-        /* @ts-ignore FIXME(@ed): Delete after applying polymorphic props */
+        /* FIXME(@ed): Delete after applying polymorphic props */
+        /* @ts-ignore */
         <Styled.Label htmlFor={id}>
           { children }
         </Styled.Label>
