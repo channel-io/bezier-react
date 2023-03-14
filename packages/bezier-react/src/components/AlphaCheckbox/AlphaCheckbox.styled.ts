@@ -84,6 +84,9 @@ export const Container = styled.div`
  */
 export const Label = styled.label`
   ${Typography.Size14}
+  display: flex;
+  align-items: center;
+  height: 100%;
   padding-left: 12px;
   color: var(--txt-black-darkest);
   cursor: inherit;
