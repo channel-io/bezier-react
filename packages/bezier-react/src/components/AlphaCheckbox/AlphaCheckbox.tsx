@@ -12,10 +12,10 @@ import { CheckboxProps } from './AlphaCheckbox.types'
 import * as Styled from './AlphaCheckbox.styled'
 
 /* NOTE: Props are injected at runtime by `CheckboxPrimitive.Indicator`. */
-function CheckIcon(props: {
-  style?: React.CSSProperties
-  'data-state'?: 'checked' | 'unchecked' | 'indeterminate'
-  'data-disabled'?: boolean | undefined
+function CheckIcon(props: {} | {
+  style: React.CSSProperties
+  'data-state': 'checked' | 'unchecked' | 'indeterminate'
+  'data-disabled': boolean | undefined
 }) {
   // eslint-disable-next-line react/destructuring-assignment
   const state = props['data-state']
