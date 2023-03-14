@@ -20,8 +20,7 @@ export const Icon = memo(function Icon({
   marginRight = 0,
   marginBottom = 0,
   marginLeft = 0,
-  onClick,
-  onMouseDown,
+  ...rest
 }: IconProps) {
   return (
     <Styled
@@ -35,8 +34,7 @@ export const Icon = memo(function Icon({
       marginright={marginRight}
       marginbottom={marginBottom}
       marginleft={marginLeft}
-      onClick={onClick}
-      onMouseDown={onMouseDown}
+      {...rest}
     />
   )
 })
