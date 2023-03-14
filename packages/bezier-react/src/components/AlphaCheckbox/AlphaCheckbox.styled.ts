@@ -13,6 +13,7 @@ const CHECKBOX_SIZE = 18
 const CHECKBOX_MARGIN = 1
 
 export const CheckIcon = styled(Icon)`
+  /* NOTE: Reset Icon's default transition style  */
   transition: none;
 
   &[data-state='unchecked'] {
