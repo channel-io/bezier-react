@@ -60,6 +60,14 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
   background-color: #4E40C9;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -82,6 +90,7 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -158,6 +167,14 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c3 {
   padding: 0 4px;
 }
@@ -176,6 +193,7 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   disabled=""
   type="button"
@@ -288,6 +306,14 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -310,6 +336,7 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -395,6 +422,14 @@ exports[`Button Test > Reset CSS 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -417,6 +452,7 @@ exports[`Button Test > Reset CSS 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -499,6 +535,14 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -526,6 +570,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -606,6 +651,14 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -628,6 +681,7 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -706,6 +760,14 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -733,6 +795,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -809,6 +872,14 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -831,6 +902,7 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -909,6 +981,14 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -936,6 +1016,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1012,6 +1093,14 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1034,6 +1123,7 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1112,6 +1202,14 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -1139,6 +1237,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1215,6 +1314,14 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1237,6 +1344,7 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1315,6 +1423,14 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -1342,6 +1458,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1411,11 +1528,19 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   transition-property: background-color,box-shadow;
   min-width: 20px;
   height: 20px;
-  padding: 0 4px 0 4px;
+  padding: 0 2px 0 2px;
   overflow: hidden;
   border-radius: 6px;
   color: #FFFFFF;
   background-color: #5E56F0;
+}
+
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .c0:hover {
@@ -1440,6 +1565,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1516,6 +1642,14 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1538,6 +1672,7 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1597,6 +1732,14 @@ exports[`Button Test > Size Test > without text > Size L 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1615,6 +1758,7 @@ exports[`Button Test > Size Test > without text > Size L 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1667,6 +1811,14 @@ exports[`Button Test > Size Test > without text > Size M 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1685,6 +1837,7 @@ exports[`Button Test > Size Test > without text > Size M 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1737,6 +1890,14 @@ exports[`Button Test > Size Test > without text > Size S 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1755,6 +1916,7 @@ exports[`Button Test > Size Test > without text > Size S 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1807,6 +1969,14 @@ exports[`Button Test > Size Test > without text > Size XL 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1825,6 +1995,7 @@ exports[`Button Test > Size Test > without text > Size XL 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1877,6 +2048,14 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -1895,6 +2074,7 @@ exports[`Button Test > Size Test > without text > Size XS 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -1966,6 +2146,14 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -1993,6 +2181,7 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -2071,6 +2260,14 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
@@ -2098,6 +2295,7 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -2174,6 +2372,14 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
   background-color: #5E56F0;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #4E40C9;
 }
@@ -2196,6 +2402,7 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -2272,6 +2479,14 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
   background-color: #5E56F01A;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   background-color: #5E56F033;
 }
@@ -2294,6 +2509,7 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >
@@ -2370,6 +2586,14 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
   background-color: transparent;
 }
 
+.c0:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+}
+
+.c0:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
 .c0:hover {
   color: #4E40C9;
   background-color: #5E56F01A;
@@ -2393,6 +2617,7 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
 
 <button
   class="c0"
+  data-component="BezierButton"
   data-testid="bezier-react-button"
   type="button"
 >

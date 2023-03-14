@@ -9,12 +9,25 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from 'react'
-import { isEmpty, noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronUpIcon, ChevronDownIcon } from '~/src/components/Icon'
+import { ZIndex } from '~/src/constants/ZIndex'
+import {
+  isEmpty,
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import {
+  Icon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+  IconSize,
+  isBezierIcon,
+  isIconName,
+  LegacyIcon,
+} from '~/src/components/Icon'
 import { OverlayPosition } from '~/src/components/Overlay'
+import { Text } from '~/src/components/Text'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
@@ -26,7 +39,7 @@ export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
 const DEFAULT_DROPDOWN_MARGIN_Y = 6
-const DEFAULT_DROPDOWN_Z_INDEX = 10
+const DEFAULT_DROPDOWN_Z_INDEX = ZIndex.Overlay
 
 function Select({
   testId = SELECT_CONTAINER_TEST_ID,
@@ -74,6 +87,17 @@ forwardedRef: Ref<SelectRef>,
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const LeftComponent = useMemo(() => {
+    if (isBezierIcon(leftContent)) {
+      return (
+        <Icon
+          source={leftContent}
+          size={IconSize.XS}
+          marginRight={6}
+          color={iconColor}
+        />
+      )
+    }
+
     if (isIconName(leftContent)) {
       return (
         <LegacyIcon
@@ -92,6 +116,17 @@ forwardedRef: Ref<SelectRef>,
   ])
 
   const RightComponent = useMemo(() => {
+    if (isBezierIcon(rightContent)) {
+      return (
+        <Icon
+          source={rightContent}
+          size={IconSize.XS}
+          marginRight={6}
+          color={iconColor}
+        />
+      )
+    }
+
     if (isIconName(rightContent)) {
       return (
         <LegacyIcon
@@ -170,22 +205,23 @@ forwardedRef: Ref<SelectRef>,
       >
         <Styled.MainContentWrapper>
           { LeftComponent }
-          <Styled.TextContainer
+          <Text
             testId={triggerTextTestId}
             typo={Typography.Size14}
+            truncated
             color={hasContent ? textColor : 'txt-black-dark'}
           >
             { hasContent ? text : placeholder }
-          </Styled.TextContainer>
+          </Text>
           { RightComponent }
         </Styled.MainContentWrapper>
         { !withoutChevron && (
-        <Icon
-          source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
-          size={IconSize.XS}
-          color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-          marginLeft={6}
-        />
+          <Icon
+            source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
+            size={IconSize.XS}
+            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+            marginLeft={6}
+          />
         ) }
       </Styled.Trigger>
 

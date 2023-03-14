@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
 import { Text } from '~/src/components/Text'
+import { CalendarIcon } from '~/src/components/Icon'
 import Select from './Select'
 import SelectProps, { SelectSize } from './Select.types'
 
@@ -38,7 +39,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   placeholder: '날짜를 선택해주세요',
   text: '2022. 7. 14.',
-  leftContent: 'calendar',
+  leftContent: CalendarIcon,
   rightContent: (<Text marginLeft={4}>일</Text>),
   disabled: false,
   readOnly: false,

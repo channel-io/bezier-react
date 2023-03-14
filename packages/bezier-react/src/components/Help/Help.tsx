@@ -1,8 +1,10 @@
 /* External dependencies */
 import React from 'react'
-import { isEmpty } from 'lodash-es'
 
 /* Internal dependencies */
+import {
+  isEmpty,
+} from '~/src/utils/typeUtils'
 import { IconSize, HelpFilledIcon } from '~/src/components/Icon'
 import type HelpProps from './Help.types'
 import * as Styled from './Help.styled'

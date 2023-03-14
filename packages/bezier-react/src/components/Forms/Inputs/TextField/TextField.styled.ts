@@ -3,9 +3,9 @@ import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
 import { css, styled, Typography, SemanticNames } from '~/src/foundation'
-import { InterpolationProps } from '~/src/types/Foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { LegacyIcon } from '~/src/components/Icon'
+import { InterpolationProps } from '~/src/types/Foundation'
+import { Icon, LegacyIcon } from '~/src/components/Icon'
 import {
   inputTextStyle,
   inputPlaceholderStyle,
@@ -41,7 +41,11 @@ const Input = styled.input<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-const LeftIcon = styled(LegacyIcon)<ClickableElementProps>`
+const LeftLegacyIcon = styled(LegacyIcon)<ClickableElementProps>`
+  ${({ clickable }) => clickable && clickableElementStyle}
+`
+
+const LeftIcon = styled(Icon)<ClickableElementProps>`
   ${({ clickable }) => clickable && clickableElementStyle}
 `
 
@@ -142,6 +146,7 @@ const Wrapper = styled.div<WrapperProps & InterpolationProps>`
 
 export default {
   Input,
+  LeftLegacyIcon,
   LeftIcon,
   LeftContentWrapper,
   RightItemWrapper,

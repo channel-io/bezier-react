@@ -1,10 +1,12 @@
 /* External dependencies */
 import React, { useState, useCallback, useMemo } from 'react'
-import { isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import useId from '~/src/hooks/useId'
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
 import { omitBezierComponentProps, pickBezierComponentProps } from '~/src/utils/propsUtils'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'

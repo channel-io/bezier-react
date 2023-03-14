@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled, smoothCorners } from '~/src/foundation'
 import { InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { Text } from '~/src/components/Text'
 
@@ -16,7 +17,7 @@ export const AvatarEllipsisCount = styled(Text)`
 
 export const AvatarGroup = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: ${ZIndex.Base};
   display: flex;
 
   & > * + * {
@@ -42,7 +43,7 @@ export const AvatarEllipsisIcon = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: ${ZIndex.Float};
   display: flex;
   align-items: center;
   justify-content: center;

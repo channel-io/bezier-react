@@ -1,6 +1,15 @@
 /* External dependencies */
 import { useEffect, useRef, useMemo } from 'react'
-import { noop, isNil, isFunction, isEqual } from 'lodash-es'
+
+/* Internal dependencies */
+import {
+  isFunction,
+  isNil,
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import {
+  isEqual,
+} from '~/src/utils/objectUtils'
 
 interface HandlerOptionsProps {
   capture?: boolean

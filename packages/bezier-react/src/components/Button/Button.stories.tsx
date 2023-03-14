@@ -7,9 +7,6 @@ import {
   Meta,
   Story,
 } from '@storybook/react'
-import {
-  entries,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import {
@@ -46,6 +43,9 @@ import {
 import {
   Text,
 } from '~/src/components/Text'
+import {
+  TagIcon,
+} from '~/src/components/Icon'
 import mdx from './Button.mdx'
 import ButtonProps, {
   ButtonSize,
@@ -269,7 +269,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon="tag"
+              leftIcon={TagIcon}
               content="KR/Product"
               rightContent={(
                 <HStack>
@@ -295,7 +295,7 @@ export const UsageComposite: Story<{}> = () => (
           </StackItem>
           <StackItem>
             <ListItem
-              leftIcon="tag"
+              leftIcon={TagIcon}
               content="KR/Design"
               rightContent={(
                 <HStack>
@@ -570,7 +570,7 @@ VariantsColor.storyName = 'Color variants'
 
 export const VariantsStyle: Story<{}> = () => (
   <VStack spacing={16} align="start">
-    { entries(ButtonStyleVariant)
+    { Object.entries(ButtonStyleVariant)
       .map(([key, styleVariant]) => (
         <StackItem key={styleVariant}>
           <HStack spacing={24} align="center">
@@ -596,7 +596,7 @@ VariantsStyle.storyName = 'Style variants'
 
 export const VariantsSize: Story<{}> = () => (
   <VStack spacing={16} align="start">
-    { entries(ButtonSize)
+    { Object.entries(ButtonSize)
       .map(([key, size]) => (
         <StackItem key={key}>
           <HStack spacing={24} align="center">

@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
+import { noop } from '~/src/utils/functionUtils'
 import { ModalProps } from './Modal.types'
 
 /**

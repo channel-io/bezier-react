@@ -1,12 +1,17 @@
 /* External dependencies */
 import React, { useRef, useState, useCallback } from 'react'
 import base from 'paths.macro'
-import { range, filter, isEmpty, trim } from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
+import {
+  isEmpty,
+} from '~/src/utils/typeUtils'
+import {
+  range,
+} from '~/src/utils/numberUtils'
 import { Text } from '~/src/components/Text'
 import { Icon, CancelIcon, PlusIcon } from '~/src/components/Icon'
 import SegmentedControl from './SegmentedControl'
@@ -131,7 +136,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
   const clickRemoveIconHandlerFactory = useCallback((index) => (
     () => {
       if (items.length > 1) {
-        setItems(prev => filter(prev, (e, i) => (i !== index)))
+        setItems(prev => prev.filter((e, i) => (i !== index)))
         setCurrentIndex(Math.min(items.length - 2, currentIndex))
       }
     }
@@ -151,7 +156,7 @@ const PlaygroundStory: Story<SegmentedControlProps> = ({ size, width, ...otherPr
     if (e.key === 'Enter') {
       e.stopPropagation()
       const value = e.currentTarget.value
-      if (!isEmpty(trim(value))) {
+      if (!isEmpty(value.trim())) {
         setItems(prev => [...prev, value])
         e.currentTarget.value = ''
       }

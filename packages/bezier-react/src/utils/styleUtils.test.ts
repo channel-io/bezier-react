@@ -1,12 +1,9 @@
-/* External dependencies */
-import { values } from 'lodash-es'
-
 /* Internal dependencies */
 import { ExplicitDefaulting, BoxSizingUnit } from '~/src/types/CSS'
 import { isExplicitDefaulting, isBoxSizingUnit, toLength } from './styleUtils'
 
-const ExplicitDefaultingValues = values(ExplicitDefaulting)
-const BoxSizingUnitValues = values(BoxSizingUnit)
+const ExplicitDefaultingValues = Object.values(ExplicitDefaulting)
+const BoxSizingUnitValues = Object.values(BoxSizingUnit)
 
 describe('isExplicitDefaulting()', () => {
   test('should return true when given value is one of ExplicitDefaulting values', () => {

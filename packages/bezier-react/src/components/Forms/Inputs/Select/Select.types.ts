@@ -11,7 +11,7 @@ import type {
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
 import type { OverlayProps } from '~/src/components/Overlay'
-import type { IconName } from '~/src/components/Icon'
+import type { BezierIcon } from '~/src/components/Icon'
 
 export enum SelectSize {
   XL = FormFieldSize.XL,
@@ -44,7 +44,7 @@ interface SelectProps extends
   BezierComponentProps,
   ChildrenProps,
   SizeProps<SelectSize>,
-  SideContentProps<IconName | React.ReactNode, IconName | React.ReactNode>,
+  SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AdditionalStylableProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text']>,

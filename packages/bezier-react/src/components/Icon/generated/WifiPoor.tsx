@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-
 function SvgWifiPoor(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -29,5 +28,4 @@ function SvgWifiPoor(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 export default createBezierIcon(SvgWifiPoor)

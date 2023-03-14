@@ -3,7 +3,6 @@
   "exclude": [
     "src/index.ts",
     "src/components/Icon/generated/**/*",
-    "src/layout/stories/**/*",
     "**/*.stories.tsx",
     "src/utils/storyUtils.ts"
   ],

@@ -1,12 +1,12 @@
 /* External dependencies */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { noop } from 'lodash-es'
 import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal depependencies */
 import { styled } from '~/src/foundation'
 import { iconList, getTitle } from '~/src/utils/storyUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { ProgressBar } from '~/src/components/ProgressBar'
 import { StackItem, VStack } from '~/src/components/Stack'
 import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'

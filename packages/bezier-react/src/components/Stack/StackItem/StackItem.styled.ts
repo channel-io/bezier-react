@@ -1,11 +1,11 @@
-/* External dependencies */
-import { isNil } from 'lodash-es'
-
 /* Internal dependencies */
 import {
   css,
   styled,
 } from '~/src/foundation'
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
 import { flex } from '~/src/components/Stack/util'
 import type StackItemProps from './StackItem.types'
 

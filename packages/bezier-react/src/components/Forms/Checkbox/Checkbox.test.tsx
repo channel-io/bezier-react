@@ -1,10 +1,10 @@
 /* External dependencies */
 import React from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Themes } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/functionUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
 import CheckboxProps from './Checkbox.types'

@@ -6,6 +6,7 @@ import userEvent from '@testing-library/user-event'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import { ZIndex } from '~/src/constants/ZIndex'
 import Select, {
   SELECT_CONTAINER_TEST_ID,
   SELECT_TRIGGER_TEST_ID,
@@ -89,7 +90,7 @@ describe('Select Test >', () => {
 
       const defaultSelectDropdown = getByTestId(SELECT_DROPDOWN_TEST_ID)
 
-      expect(defaultSelectDropdown).toHaveStyle('z-index: 10;')
+      expect(defaultSelectDropdown).toHaveStyle(`z-index: ${ZIndex.Overlay};`)
       expect(defaultSelectDropdown).toHaveStyle('min-width: 200px;')
       expect(defaultSelectDropdown).toHaveStyle('min-height: 42px;')
       expect(defaultSelectDropdown).toHaveStyle('max-height: 640px;')

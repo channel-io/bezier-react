@@ -1,12 +1,30 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useState, useEffect, useImperativeHandle, useRef, useCallback, useMemo } from 'react'
-import { size as getSize, isNil, isEmpty, isArray, toString, includes } from 'lodash-es'
+import React, {
+  Ref,
+  forwardRef,
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useCallback,
+  useMemo,
+} from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
-import { LegacyIcon, Icon, IconSize, CancelCircleFilledIcon } from '~/src/components/Icon'
+import {
+  isArray,
+  isNil,
+  isEmpty,
+} from '~/src/utils/typeUtils'
+import {
+  toString,
+} from '~/src/utils/stringUtils'
+import { Icon, IconSize, CancelCircleFilledIcon, LegacyIcon, isIconName } from '~/src/components/Icon'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,
@@ -111,7 +129,7 @@ forwardedRef: Ref<TextFieldRef>,
   }, [])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
-    if (includes([TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden], type)) { return }
+    if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
     inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 
@@ -206,22 +224,31 @@ forwardedRef: Ref<TextFieldRef>,
     onChange,
   ])
 
+  const {
+    handleKeyDown: handleKeyDownWrappedWithComposingLocker,
+    handleKeyUp: handleKeyUpWrappedWithComposingLocker,
+  } = useKeyboardActionLockerWhileComposing({
+    keysToLock: COMMON_IME_CONTROL_KEYS,
+    onKeyDown,
+    onKeyUp,
+  })
+
   const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyDown) {
-      onKeyDown(event)
+    if (activeInput && handleKeyDownWrappedWithComposingLocker) {
+      handleKeyDownWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyDown,
+    handleKeyDownWrappedWithComposingLocker,
   ])
 
   const handleKeyUp = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (activeInput && onKeyUp) {
-      onKeyUp(event)
+    if (activeInput && handleKeyUpWrappedWithComposingLocker) {
+      handleKeyUpWrappedWithComposingLocker(event)
     }
   }, [
     activeInput,
-    onKeyUp,
+    handleKeyUpWrappedWithComposingLocker,
   ])
 
   const handleClear = useCallback(() => {
@@ -234,18 +261,33 @@ forwardedRef: Ref<TextFieldRef>,
     }
   }, [activeInput])
 
-  const renderLeftItem = useCallback((item: TextFieldItemProps) => (
-    'icon' in item
-      ? (
+  const renderLeftItem = useCallback((item: TextFieldItemProps) => {
+    if ('icon' in item) {
+      if (isIconName(item.icon)) {
+        return (
+          <Styled.LeftLegacyIcon
+            name={item.icon}
+            size={IconSize.S}
+            color={item.iconColor ?? 'txt-black-dark'}
+            clickable={!isNil(item.onClick)}
+            onClick={item.onClick}
+          />
+        )
+      }
+
+      return (
         <Styled.LeftIcon
-          name={item.icon}
+          source={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
           clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         />
-      ) : item
-  ), [])
+      )
+    }
+
+    return item
+  }, [])
 
   const LeftComponent = useMemo(() => {
     if (isNil(leftContent)) {
@@ -254,7 +296,7 @@ forwardedRef: Ref<TextFieldRef>,
 
     const item = renderLeftItem(leftContent)
 
-    if (isNil(item) || withoutLeftContentWrapper) { return item }
+    if (withoutLeftContentWrapper) { return item }
 
     return (
       <Styled.LeftContentWrapper
@@ -272,24 +314,43 @@ forwardedRef: Ref<TextFieldRef>,
     renderLeftItem,
   ])
 
-  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => (
-    'icon' in item ? (
-      <Styled.RightItemWrapper
-        key={key}
-        clickable={!isNil(item.onClick)}
-        onClick={item.onClick}
-      >
-        <LegacyIcon
-          name={item.icon}
-          size={IconSize.XS}
-          color={item.iconColor ?? 'txt-black-dark'}
-        />
-      </Styled.RightItemWrapper>
-    ) : React.cloneElement(
-      item,
-      { key },
+  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
+    if ('icon' in item) {
+      if (isIconName(item.icon)) {
+        return (
+          <Styled.RightItemWrapper
+            key={key}
+            clickable={!isNil(item.onClick)}
+            onClick={item.onClick}
+          >
+            <LegacyIcon
+              name={item.icon}
+              size={IconSize.XS}
+              color={item.iconColor ?? 'txt-black-dark'}
+            />
+          </Styled.RightItemWrapper>
+        )
+      }
+
+      return (
+        <Styled.RightItemWrapper
+          key={key}
+          clickable={!isNil(item.onClick)}
+          onClick={item.onClick}
+        >
+          <Icon
+            source={item.icon}
+            size={IconSize.XS}
+            color={item.iconColor ?? 'txt-black-dark'}
+          />
+        </Styled.RightItemWrapper>
+      )
+    }
+
+    return React.cloneElement(
+      item, { key },
     )
-  ), [])
+  }, [])
 
   const RightComponent = useMemo(() => {
     if (isNil(rightContent) || isEmpty(rightContent)) {
@@ -323,7 +384,7 @@ forwardedRef: Ref<TextFieldRef>,
       onClick={handleClear}
     >
       {
-        getSize(normalizedValue) > 0 && (focused || hovered) && (
+        normalizedValue && normalizedValue.length > 0 && (focused || hovered) && (
           <Icon
             source={CancelCircleFilledIcon}
             size={IconSize.XS}

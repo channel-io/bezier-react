@@ -16,6 +16,7 @@ import {
 import {
   gap,
 } from '~/src/utils/styleUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   HStack,
   StackItem,
@@ -98,8 +99,6 @@ export const BadgeWithoutText: Story<{}> = () => (
 )
 
 BadgeWithoutText.storyName = 'Usage (badges without text)'
-
-const noop = () => {}
 
 export const DismissibleTag: Story<{}> = () => (
   <VStack spacing={4}>

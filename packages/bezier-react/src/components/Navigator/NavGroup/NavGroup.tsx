@@ -1,9 +1,13 @@
 /* External dependencies */
 import React, { useCallback, memo } from 'react'
-import { noop, isNil } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Text } from '~/src/components/Text'
 import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from '~/src/components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
@@ -12,7 +16,6 @@ import {
   ChildrenWrapper,
   LeftIconWrapper,
   ChevronWrapper,
-  ContentWrapper,
   RightContentWrapper,
 } from './NavGroup.styled'
 
@@ -72,9 +75,9 @@ function NavGroup({
           ) }
         </LeftIconWrapper>
 
-        <ContentWrapper typo={Typography.Size14}>
+        <Text typo={Typography.Size14} truncated>
           { content }
-        </ContentWrapper>
+        </Text>
 
         { hasChildren && (
           <ChevronWrapper>

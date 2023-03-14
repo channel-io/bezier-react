@@ -8,6 +8,7 @@ interface TextOptions {
   bold?: boolean
   italic?: boolean
   typo?: ReturnType<typeof css>
+  truncated?: boolean
   marginTop?: number
   marginRight?: number
   marginBottom?: number

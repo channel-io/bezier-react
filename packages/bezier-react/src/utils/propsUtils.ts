@@ -1,7 +1,8 @@
-/* External dependencies */
-import { omit, pick } from 'lodash-es'
-
 /* Internal dependencies */
+import {
+  pick,
+  omit,
+} from '~/src/utils/objectUtils'
 import { BezierComponentProps } from '~/src/types/ComponentProps'
 
 const bezierComponentPropsKeys: Array<keyof BezierComponentProps> = [

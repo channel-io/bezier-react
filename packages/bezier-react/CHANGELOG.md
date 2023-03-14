@@ -1,5 +1,127 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.190
+
+### Patch Changes
+
+- [#1093](https://github.com/channel-io/bezier-react/pull/1093) [`0424db5f`](https://github.com/channel-io/bezier-react/commit/0424db5f01f97307738cdeb7b65e82c168369737) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Support BezierIcon type for icon prop as well as IconName type in following components
+
+  - `Select`, `TextField`, `ListItem`, `KeyValuseListItem`, `OutlineItem`
+
+## 1.0.0-next-v1.189
+
+### Patch Changes
+
+- [#1139](https://github.com/channel-io/bezier-react/pull/1139) [`ff323960`](https://github.com/channel-io/bezier-react/commit/ff323960173e5b49a371e59dd78255327fbef800) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add focused style to `Button` component.
+
+## 1.0.0-next-v1.188
+
+### Minor Changes
+
+- [#1082](https://github.com/channel-io/bezier-react/pull/1082) [`89f18836`](https://github.com/channel-io/bezier-react/commit/89f1883616d0c460aaf5222328f334303773c238) Thanks [@Tanney-102](https://github.com/Tanney-102)! - - keyboard event locker added.
+  - TextField and TextArea use keyboard event locker, so that they can block keyboard event handling for IME control keys while composing.
+
+### Patch Changes
+
+- [#1143](https://github.com/channel-io/bezier-react/pull/1143) [`53d83ba2`](https://github.com/channel-io/bezier-react/commit/53d83ba27f79ae81ab82836af047f8584919a1b8) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix to pass missing property of `Overlay` component.
+
+* [#1079](https://github.com/channel-io/bezier-react/pull/1079) [`85d04e70`](https://github.com/channel-io/bezier-react/commit/85d04e709fb8114330650fc939a7915aab96a2c5) Thanks [@annie1229](https://github.com/annie1229)! - Remove and re-implement lodash-es
+
+## 1.0.0-next-v1.187
+
+### Minor Changes
+
+- [#1136](https://github.com/channel-io/bezier-react/pull/1136) [`bf96d2db`](https://github.com/channel-io/bezier-react/commit/bf96d2db33886ca9dee74dabc16f9c18bdc786f1) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Organize z-index values and provide the `ZIndex` enum which is a preset of z-index values to help control the stacking order of components in consumer applications.
+
+  Change the z-index value of the below components.
+
+  - `Overlay`, `Select`: `1000` (container and content)
+  - `Modal`: `1100`
+  - `Toast`: `1200`
+  - `Tooltip`: `1300`
+
+## 1.0.0-next-v1.186
+
+### Minor Changes
+
+- [#1128](https://github.com/channel-io/bezier-react/pull/1128) [`e8593727`](https://github.com/channel-io/bezier-react/commit/e85937271b119e5fb68c8aeaa24d83b388716d1a) Thanks [@sungik-choi](https://github.com/sungik-choi)! - **Breaking changes**
+
+  No longer provide `layout`-related modules (e.g. `LayoutProvider`, `GNB`...)
+
+### Patch Changes
+
+- [#1103](https://github.com/channel-io/bezier-react/pull/1103) [`3bdb95e1`](https://github.com/channel-io/bezier-react/commit/3bdb95e1a022370122afb4166cc2f138028cb72b) Thanks [@annie1229](https://github.com/annie1229)! - Add truncated prop to Text component
+
+* [#1135](https://github.com/channel-io/bezier-react/pull/1135) [`ee776e66`](https://github.com/channel-io/bezier-react/commit/ee776e66f25e93e6a8c6a6fe181eb84159e8d985) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete Legacy `Modal` and `Tabs` components. Rename `LEGACY__RADIO` to `LegacyRadio`.
+
+## 1.0.0-next-v1.185
+
+### Patch Changes
+
+- [#1132](https://github.com/channel-io/bezier-react/pull/1132) [`115f0d27`](https://github.com/channel-io/bezier-react/commit/115f0d2747132a1a65e4d8e5e842abb5c126c270) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete `RadioGroup`'s default generic parameter to fix type inferencing.
+
+## 1.0.0-next-v1.184
+
+### Patch Changes
+
+- [#1131](https://github.com/channel-io/bezier-react/pull/1131) [`b4d80ecb`](https://github.com/channel-io/bezier-react/commit/b4d80ecb19e3ee00a91e87cee215662e4f31f76f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Enhance the interface of `Radio` and `RadioGroup` components. Change `Radio` to render children when their value is evaluated as true.
+
+* [#1129](https://github.com/channel-io/bezier-react/pull/1129) [`8d243d21`](https://github.com/channel-io/bezier-react/commit/8d243d215e4baa1832cb6bccdfe25e5d58f654ee) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix babel runtime error
+
+## 1.0.0-next-v1.183
+
+### Minor Changes
+
+- [#1071](https://github.com/channel-io/bezier-react/pull/1071) [`8df05c64`](https://github.com/channel-io/bezier-react/commit/8df05c641807c7429f20c98dd9963383f146cd21) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `Radio` component.
+
+  BREAKING CHANGES
+
+  - Legacy `Radio` component is now exported with namespace `LEGACY__Radio`. It will be deprecated.
+  - New `Radio` component must be used with the new `RadioGroup` component. See below.
+
+  ```tsx
+  // AS-IS
+  <Radio
+    value={value}
+    watchingValue={watchingValue}
+    onClick={() => setWatchingValue(value)}
+  />
+
+  // TO-BE
+  <RadioGroup
+    value={watchingValue}
+    onChangeValue={setWatchingValue}
+  >
+    <Radio value={value} />
+  </RadioGroup>
+  ```
+
+### Patch Changes
+
+- [#1122](https://github.com/channel-io/bezier-react/pull/1122) [`48f6a3b2`](https://github.com/channel-io/bezier-react/commit/48f6a3b2c820638aa4cd5a1b212d77e4540a3013) Thanks [@heech1013](https://github.com/heech1013)! - Remove default value of event handler props in Icon component
+
+* [#1120](https://github.com/channel-io/bezier-react/pull/1120) [`70efd997`](https://github.com/channel-io/bezier-react/commit/70efd9970e6790d1dc5c4fafe7268a386249a69f) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Fix bug that first StackItem has marginBefore when the preceding node is not valid element such as null or false
+
+- [#1119](https://github.com/channel-io/bezier-react/pull/1119) [`1c52fcdc`](https://github.com/channel-io/bezier-react/commit/1c52fcdcf2934377213f7224290983cc9f7d3f62) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Decrease horizontal padding of XS size button to 2px
+
+## 1.0.0-next-v1.182
+
+### Patch Changes
+
+- [#1118](https://github.com/channel-io/bezier-react/pull/1118) [`40d11807`](https://github.com/channel-io/bezier-react/commit/40d11807ad72f1f21ffe40aef9850c5be4f0c0bd) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+## 1.0.0-next-v1.181
+
+### Patch Changes
+
+- [#1107](https://github.com/channel-io/bezier-react/pull/1107) [`f6789fa2`](https://github.com/channel-io/bezier-react/commit/f6789fa2b0d8a2889c42163ba734e910ae01fe89) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+* [#1113](https://github.com/channel-io/bezier-react/pull/1113) [`3bd99b8d`](https://github.com/channel-io/bezier-react/commit/3bd99b8d573d0d7d9d0e58173adea57af2f64409) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1110](https://github.com/channel-io/bezier-react/pull/1110) [`b406a268`](https://github.com/channel-io/bezier-react/commit/b406a26827b774bb99ed54d227584f972afc24e5) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change modal floating style from `inset` to `top`...`left` position to support legacy browser
+
+* [#1095](https://github.com/channel-io/bezier-react/pull/1095) [`3544182d`](https://github.com/channel-io/bezier-react/commit/3544182d75957616afd3d940d0c237784d45f974) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
 ## 1.0.0-next-v1.180
 
 ### Minor Changes

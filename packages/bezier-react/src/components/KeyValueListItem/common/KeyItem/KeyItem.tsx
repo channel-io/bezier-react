@@ -1,10 +1,12 @@
 /* External dependencies */
 import React, { forwardRef, memo, Ref, useMemo } from 'react'
-import { isString } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
+import {
+  isString,
+} from '~/src/utils/typeUtils'
+import { IconSize, Icon, isIconName, LegacyIcon, isBezierIcon } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 import { KeyItemProps } from './KeyItem.types'
 import * as Styled from './KeyItem.styled'
@@ -24,19 +26,30 @@ function KeyItem(
     if (isIconName(keyIcon)) {
       return (
         <LegacyIcon
-          name={keyIcon}
           size={IconSize.S}
+          name={keyIcon}
           color="txt-black-dark"
         />
       )
     }
+
+    if (isBezierIcon(keyIcon)) {
+      return (
+        <Icon
+          size={IconSize.S}
+          source={keyIcon}
+          color="txt-black-dark"
+        />
+      )
+    }
+
     return keyIcon
   }, [keyIcon])
 
   const KeyText = useMemo(() => {
     if (isString(children)) {
       return (
-        <Styled.KeyText bold typo={Typography.Size12}>
+        <Styled.KeyText bold typo={Typography.Size12} truncated>
           { children }
         </Styled.KeyText>
       )

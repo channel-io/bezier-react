@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '~/src/foundation'
 import type { InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 
 interface ContentWrapperProps {
   disabled: boolean
@@ -13,7 +14,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000000000;
+  z-index: ${ZIndex.Tooltip};
 
   ${({ disabled }) => disabled && css`
     display: none;

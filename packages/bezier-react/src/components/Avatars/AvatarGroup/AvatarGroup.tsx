@@ -1,10 +1,10 @@
 /* External dependencies */
 import React, { forwardRef, useCallback, useMemo } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import { isLastIndex } from '~/src/utils/arrayUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { Icon, IconSize, MoreIcon } from '~/src/components/Icon'
 import { AvatarProps, AvatarSize } from '~/src/components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from '~/src/components/Avatars/AvatarStyle'

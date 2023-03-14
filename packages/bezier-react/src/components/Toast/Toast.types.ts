@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { ReactNode, ComponentType } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { TransitionDuration } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
 import { BezierComponentProps, ContentProps } from '~/src/types/ComponentProps'
 import { InjectedInterpolation } from '~/src/types/Foundation'
 import { IconName } from '~/src/components/Icon'

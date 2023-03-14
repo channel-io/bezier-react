@@ -1,14 +1,17 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
-import { noop, isEmpty } from 'lodash-es'
 
 /* Internal denpendencies */
 import { backgroundImageVariable } from '~/src/foundation'
+import {
+  isEmpty,
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { Status, StatusSize } from '~/src/components/Status'
 import defaultAvatarUrl from '~/src/components/Avatars/assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
-import { AvatarImage, AvatarImageWrapper, AvatarWrapper, StatusWrapper } from './Avatar.styled'
+import { AvatarImage, AvatarWrapper, StatusWrapper } from './Avatar.styled'
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
@@ -81,24 +84,22 @@ forwardedRef: React.Ref<HTMLDivElement>,
       disabled={disabled}
       data-testid={AVATAR_WRAPPER_TEST_ID}
     >
-      <AvatarImageWrapper>
-        <AvatarImage
-          style={backgroundImageVariable({ imageUrl: loadedAvatarUrl })}
-          className={className}
-          interpolation={interpolation}
-          ref={forwardedRef}
-          data-testid={testId}
-          size={size}
-          role="img"
-          aria-label={name}
-          showBorder={showBorder}
-          onClick={onClick}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        >
-          { StatusComponent }
-        </AvatarImage>
-      </AvatarImageWrapper>
+      <AvatarImage
+        style={backgroundImageVariable({ imageUrl: loadedAvatarUrl })}
+        className={className}
+        interpolation={interpolation}
+        ref={forwardedRef}
+        data-testid={testId}
+        size={size}
+        role="img"
+        aria-label={name}
+        showBorder={showBorder}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        { StatusComponent }
+      </AvatarImage>
     </AvatarWrapper>
   )
 })

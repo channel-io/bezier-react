@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled } from '~/src/foundation'
+import { styled, css, ellipsis } from '~/src/foundation'
 import { ColorProps } from '~/src/types/ComponentProps'
 import TextProps from './Text.types'
 
@@ -21,6 +21,10 @@ function getMargin({
 
 const Text = styled.span<TextProps & TextStyledProps>`
   ${props => props.typo};
+  ${props => props.truncated && css`
+    display: block;
+    ${ellipsis()}
+  `}
   ${props => props.interpolation};
   margin: ${getMargin};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};

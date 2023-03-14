@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import Icons, { IconName } from '~/src/components/Icon/generated'
+import { isNaN } from './typeUtils'
 
 export const getTitle = (baseDir: string) => {
   const filePath = baseDir.split('/')
@@ -15,7 +16,7 @@ interface Enum {
 
 export const getObjectFromEnum = (input: Enum) => Object.entries(input)
   .reduce((acc, [key, value]) => (
-    Number.isNaN(Number(key))
+    isNaN(Number(key))
       ? { ...acc, [key]: value }
       : acc
   ), {})

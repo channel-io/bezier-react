@@ -3,14 +3,16 @@ import React from 'react'
 
 /* Internal dependencies */
 import type { BezierComponentProps, ChildrenProps, AdditionalColorProps } from '~/src/types/ComponentProps'
-import type { IconName } from '~/src/components/Icon'
+import type { BezierIcon, IconName } from '~/src/components/Icon'
 
-export type KeyValueListItemActionProps = {
-  icon: IconName
+export type ItemActionWithIcon = {
+  icon: IconName | BezierIcon
   tooltip?: string
   show?: boolean
   onClick?: React.MouseEventHandler<HTMLDivElement>
-} & AdditionalColorProps<['icon', 'hoverBackground', 'hoverIcon']> | React.ReactElement
+} & AdditionalColorProps<['icon', 'hoverBackground', 'hoverIcon']>
+
+export type KeyValueListItemActionProps = ItemActionWithIcon | React.ReactElement
 
 interface ItemActionOptions {
   actions?: KeyValueListItemActionProps | KeyValueListItemActionProps[]

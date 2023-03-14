@@ -1,9 +1,11 @@
 /* External dependencies */
 import type { CSSProperties } from 'react'
-import { isNil } from 'lodash-es'
 import type { SimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
 import { css } from './FoundationStyledComponent'
 
 export const absoluteCenter = (otherTransforms?: SimpleInterpolation) => css`

@@ -1,28 +1,23 @@
-/* External dependencies */
-import {
-  isObject,
-  isNil,
-  isString,
-  isNumber,
-  isNaN,
-  isEmpty,
-  get,
-  has,
-  some,
-  endsWith,
-  values,
-  includes,
-} from 'lodash-es'
-
 /* Internal dependencies */
 import { css } from '~/src/foundation'
+import {
+  isNil,
+  isObject,
+  isNumber,
+  isNaN,
+  isString,
+  isEmpty,
+} from '~/src/utils/typeUtils'
+import {
+  has,
+} from '~/src/utils/objectUtils'
 import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '~/src/types/CSS'
 import { InjectedInterpolation } from '~/src/types/Foundation'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [
-  ...values(AbsoluteUnit),
-  ...values(RelativeUnit),
+  ...Object.values(AbsoluteUnit),
+  ...Object.values(RelativeUnit),
 ]
 
 export interface CSSUnitOption {
@@ -40,11 +35,11 @@ function isCSSUnitOption(opts?: any): opts is CSSUnitOption {
 }
 
 export function isBoxSizingUnit(value?: any): value is BoxSizingUnit {
-  return value && includes(BoxSizingUnit, value)
+  return value && Object.values(BoxSizingUnit).includes(value)
 }
 
 export function isExplicitDefaulting(value?: any): value is ExplicitDefaulting {
-  return value && includes(ExplicitDefaulting, value)
+  return value && Object.values(ExplicitDefaulting).includes(value)
 }
 
 /* eslint-disable max-len */
@@ -58,7 +53,7 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
     if (isCSSUnitOption(opts)) { return opts }
     return undefined
   })()
-  const defaultUnit = get(options, 'defaultUnit', AbsoluteUnit.px)
+  const defaultUnit = options?.defaultUnit ?? AbsoluteUnit.px
 
   if (isString(value)) {
     if (isEmpty(value)) { return defaultValue || `0${defaultUnit}` }
@@ -66,10 +61,10 @@ export function toLength(value: any, defaultValueOrOption?: string | CSSUnitOpti
     if (isBoxSizingUnit(value)) { return value }
     if (isExplicitDefaulting(value)) { return value }
     if (!isEmpty(options?.allowUnits)) {
-      if (some(options!.allowUnits, (unit) => endsWith(value, unit))) {
+      if (options!.allowUnits?.some((unit) => value.endsWith(unit))) {
         return value
       }
-    } else if (some(UnitValues, (unit) => endsWith(value, unit))) {
+    } else if (UnitValues.some((unit) => value.endsWith(unit))) {
       return value
     }
   }
@@ -95,6 +90,22 @@ export function gap(spacing: number): InjectedInterpolation {
       > * {
         margin-top: ${spacing}px;
         margin-left: ${spacing}px;
+      }
+    }
+  `
+}
+
+export function touchableHover(interpolation: InjectedInterpolation): InjectedInterpolation {
+  return css`
+    @media (hover: hover) {
+      &:hover {
+        ${interpolation}
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        ${interpolation}
       }
     }
   `

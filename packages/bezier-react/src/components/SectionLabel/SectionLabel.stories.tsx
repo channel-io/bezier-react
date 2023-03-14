@@ -1,17 +1,18 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
-import _ from 'lodash-es'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
 import { css, Typography } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { ListItem } from '~/src/components/ListItem'
 import { Text } from '~/src/components/Text'
 import type { ListItemProps } from '~/src/components/ListItem'
-import SectionLabelProps from './SectionLabel.types'
+import { StarFilledIcon, ViewIcon } from '~/src/components/Icon'
 import SectionLabel from './SectionLabel'
+import SectionLabelProps from './SectionLabel.types'
 
 export default {
   title: getTitle(base),
@@ -54,7 +55,7 @@ const Template: Story<SectionLabelProps & {
         rightContent={{
           icon: 'plus-circle',
           iconColor: 'bgtxt-teal-normal',
-          onClick: _.noop,
+          onClick: noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -72,7 +73,7 @@ const Template: Story<SectionLabelProps & {
         leftContent={{
           icon: 'star-filled',
           iconColor: 'bgtxt-yellow-normal',
-          onClick: _.noop,
+          onClick: noop,
         }}
         {...otherSectionLabelProps}
       />
@@ -91,8 +92,8 @@ const Template: Story<SectionLabelProps & {
         leftContent={{ icon: 'star-filled' }}
         rightContent={[
           testNumberLabel,
-          { icon: 'plus-circle-filled', onClick: _.noop },
-          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: _.noop },
+          { icon: 'plus-circle-filled', onClick: noop },
+          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: noop },
         ]}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"
@@ -104,12 +105,12 @@ const Template: Story<SectionLabelProps & {
         onClick={toggle}
       >
         <ListItem
-          leftIcon="star-filled"
+          leftIcon={StarFilledIcon}
           content="안 읽은 메시지"
           {...listItemProps}
         />
         <ListItem
-          leftIcon="view"
+          leftIcon={ViewIcon}
           content="팔로잉"
           {...listItemProps}
         />

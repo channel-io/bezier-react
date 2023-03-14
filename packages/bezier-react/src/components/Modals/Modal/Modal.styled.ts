@@ -11,7 +11,10 @@ import ModalAnimation from './ModalAnimation.styled'
 
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
@@ -45,6 +48,11 @@ export const Content = styled.div<ModalContentProps>`
 
   &:focus {
     outline: none;
+  }
+
+  /* NOTE(@ed): to show a focus ring when the modal is mounted */
+  & [data-component='BezierButton']:focus {
+    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
   }
 
   ${({ interpolation }) => interpolation}

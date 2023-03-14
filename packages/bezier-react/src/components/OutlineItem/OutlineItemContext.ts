@@ -1,6 +1,8 @@
 /* External dependencies */
 import React, { createContext } from 'react'
-import { noop } from 'lodash-es'
+
+/* Internal dependencies */
+import { noop } from '~/src/utils/functionUtils'
 
 export interface OutlineItemContextProps {
   depth: number

@@ -1,9 +1,9 @@
-/* External dependencies */
-import { isEmpty, includes } from 'lodash-es'
-
 /* Internal dependencies */
 import { styled, css, SemanticNames } from '~/src/foundation'
 import { gap } from '~/src/utils/styleUtils'
+import {
+  isEmpty,
+} from '~/src/utils/typeUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { Text } from '~/src/components/Text'
 import ButtonProps, { ButtonSize, ButtonStyleVariant, ButtonColorVariant } from './Button.types'
@@ -56,7 +56,7 @@ type ButtonPaddingVariantKey = 'default' | 'floating'
 // NOTE: floating 은 padding 이 버튼의 size value 의 절반에서 Text padding 값 만큼 빼줘야 스펙과 일치
 export const BUTTON_HORIZONTAL_PADDING_VALUE: Record<ButtonSize, Record<ButtonPaddingVariantKey, number>> = {
   [ButtonSize.XS]: {
-    default: 4,
+    default: 2,
     floating: (BUTTON_SIZE_VALUE[ButtonSize.XS] / 2) - TEXT_PADDING_VALUE[ButtonSize.XS],
   },
   [ButtonSize.S]: {
@@ -96,7 +96,7 @@ function getPaddingCSSFromSizeAndContents({
     `
   }
 
-  const paddingVariant = includes([ButtonStyleVariant.Floating, ButtonStyleVariant.FloatingAlt], styleVariant)
+  const paddingVariant = [ButtonStyleVariant.Floating, ButtonStyleVariant.FloatingAlt].includes(styleVariant)
     ? 'floating'
     : 'default'
 
@@ -419,6 +419,14 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   border: none;
   outline: none;
   opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'box-shadow'])};
 

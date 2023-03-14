@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-
 function SvgCheckAll(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -23,5 +22,4 @@ function SvgCheckAll(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 export default createBezierIcon(SvgCheckAll)

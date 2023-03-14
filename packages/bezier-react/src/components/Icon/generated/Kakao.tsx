@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-
 function SvgKakao(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -35,5 +34,4 @@ function SvgKakao(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 export default createBezierIcon(SvgKakao)

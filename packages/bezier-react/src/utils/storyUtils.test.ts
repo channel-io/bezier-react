@@ -1,9 +1,6 @@
-/* External dependencies */
-import { isArray } from 'lodash-es'
-
 /* Internal dependencies */
 import { IconName } from '~/src/components/Icon'
-import TabsSize from '~/src/components/Tabs/LegacyTabs/TabsSize'
+import { isArray } from './typeUtils'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 
 describe('storyUtils Test >', () => {
@@ -36,7 +33,12 @@ describe('storyUtils Test >', () => {
 
   describe('getObejctFromEnum Test >', () => {
     it('getObjectFromEnum 정상 동작', () => {
-      expect(getObjectFromEnum(TabsSize)).toMatchObject({ L: 53, Normal: 45, XS: 33 })
+      enum FooEnum {
+        A = 'A',
+        B = 'B',
+        C = 'C',
+      }
+      expect(getObjectFromEnum(FooEnum)).toMatchObject({ A: 'A', B: 'B', C: 'C' })
     })
 
     it('Empty Enum이 들어가면 {} 을 뱉는다', () => {

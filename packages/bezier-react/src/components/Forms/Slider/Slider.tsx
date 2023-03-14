@@ -5,10 +5,10 @@ import React, {
   useCallback,
   useEffect,
 } from 'react'
-import { noop } from 'lodash-es'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
+import { noop } from '~/src/utils/functionUtils'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 

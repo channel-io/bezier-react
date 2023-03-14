@@ -1,10 +1,13 @@
 /* External dependencies */
 import React, { forwardRef, useMemo } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { isNumber } from 'lodash-es'
 
 /* Internal dependencies */
 import { document } from '~/src/utils/domUtils'
+import {
+  isNumber,
+} from '~/src/utils/typeUtils'
+import { ZIndex } from '~/src/constants/ZIndex'
 import { ModalClose } from './ModalHelpers'
 import ModalContentContext from './ModalContentContext'
 import { ModalContentProps, ModalContentContextValue } from './Modal.types'
@@ -22,7 +25,7 @@ export const ModalContent = forwardRef(function ModalContent({
   showCloseIcon = false,
   width = 'max-content',
   height = 'fit-content',
-  zIndex = 0,
+  zIndex = ZIndex.Modal,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const overlayStyle = useMemo((): React.CSSProperties & {

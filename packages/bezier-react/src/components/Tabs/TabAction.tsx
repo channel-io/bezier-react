@@ -3,12 +3,12 @@ import React, {
   useContext,
   forwardRef,
 } from 'react'
-import {
-  isNil,
-} from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
 import {
   IconSize,
   OpenInNewIcon,

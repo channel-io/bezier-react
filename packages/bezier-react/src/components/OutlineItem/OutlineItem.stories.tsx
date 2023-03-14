@@ -6,10 +6,17 @@ import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { IconSize } from '~/src/components/Icon'
+import {
+  DotIcon,
+  EmailUnreadIcon,
+  AppPushIcon,
+  SmsIcon,
+  EmailIcon,
+  SecurityIcon,
+} from '~/src/components/Icon'
 import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
 import OutlineItem from './OutlineItem'
-import OutlineItemProps, { ChevronIconType } from './OutlineItem.types'
+import OutlineItemProps from './OutlineItem.types'
 
 export default {
   title: getTitle(base),
@@ -29,7 +36,7 @@ const Template: Story<OutlineItemProps> = (args) => {
 
   const handleToggle = useCallback(() => {
     setOpen(v => !v)
-    //  if you want to manually activate specific elemenmt
+    //  if you want to manually activate specific element
     // setIdx(0)
   }, [])
 
@@ -50,7 +57,7 @@ const Template: Story<OutlineItemProps> = (args) => {
       <div style={{ width: 240 }}>
         <OutlineItem
           content="GL"
-          leftIcon="dot"
+          leftIcon={DotIcon}
           leftIconColor="bgtxt-teal-normal"
           name="nested"
         />
@@ -80,25 +87,25 @@ const Template: Story<OutlineItemProps> = (args) => {
               optionKey="item-with-a"
               href="https://naver.com"
               content="🔥"
-              leftIcon="dot"
+              leftIcon={DotIcon}
               leftIconColor="txt-black-dark"
             />
             <OutlineItem
               content="feedback"
-              leftIcon="dot"
+              leftIcon={DotIcon}
               leftIconColor="bgtxt-olive-normal"
             />
           </OutlineItem>
 
           <OutlineItem
             content="bug"
-            leftIcon="dot"
+            leftIcon={DotIcon}
             leftIconColor="bgtxt-red-normal"
           />
         </OutlineItem>
         <OutlineItem
           content="etc"
-          leftIcon="dot"
+          leftIcon={DotIcon}
           leftIconColor="txt-black-dark"
         />
       </div>
@@ -106,28 +113,28 @@ const Template: Story<OutlineItemProps> = (args) => {
         <OutlineItem
           open
           content="푸시 메시지 설정"
-          leftIcon="email-unread"
+          leftIcon={EmailUnreadIcon}
         >
           <OutlineItem
             key={uuid()}
             optionKey="item-with-a"
             href="https://naver.com"
             content="모바일 SDK 푸시"
-            leftIcon="app-push"
+            leftIcon={AppPushIcon}
             leftIconColor="txt-black-dark"
           />
           <OutlineItem
             content="알림톡, 문자 푸시"
-            leftIcon="sms"
+            leftIcon={SmsIcon}
           />
           <OutlineItem
             content="이메일 푸시"
-            leftIcon="email"
+            leftIcon={EmailIcon}
           />
         </OutlineItem>
         <OutlineItem
           content="보안"
-          leftIcon="security"
+          leftIcon={SecurityIcon}
         />
       </div>
 
@@ -140,8 +147,6 @@ export const Primary: Story<OutlineItemProps> = Template.bind({})
 Primary.args = {
   name: 'sample group',
   content: 'KR',
-  chevronIconType: ChevronIconType.Small,
-  chevronIconSize: IconSize.XS,
-  leftIcon: 'dot',
+  leftIcon: DotIcon,
   leftIconColor: 'bgtxt-pink-normal',
 }

@@ -2,6 +2,7 @@
 import { styled, css, smoothCorners, Foundation, SemanticNames } from '~/src/foundation'
 import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 import type { InjectedInterpolation, InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import { Icon, CheckIcon as CheckIconSource } from '~/src/components/Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { AvatarSize } from '~/src/components/Avatars/Avatar'
@@ -29,7 +30,7 @@ const getCheckIconSize = (avatarSize: AvatarSize) => ({
 
 export const CheckIcon = styled(Icon).attrs({ source: CheckIconSource })<CheckIconProps>`
   position: absolute;
-  z-index: 2;
+  z-index: ${ZIndex.Float};
   pointer-events: none;
   opacity: 0;
 

@@ -2,6 +2,7 @@
 import { styled, css, smoothCorners } from '~/src/foundation'
 import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 import type { InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { AvatarSize } from './Avatar.types'
@@ -36,7 +37,7 @@ const smoothCornersFallbackBorderStyle = css`
     position: absolute;
     top: -${AVATAR_BORDER_WIDTH}px;
     left: -${AVATAR_BORDER_WIDTH}px;
-    z-index: -1;
+    z-index: ${ZIndex.Hide};
     box-sizing: content-box;
     display: block;
     width: 100%;
@@ -71,14 +72,9 @@ export const AvatarImage = styled.div<AvatarProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarImageWrapper = styled.div`
-  position: relative;
-  z-index: 1;
-`
-
 export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   position: relative;
-  z-index: 0;
+  z-index: ${ZIndex.Base};
 
   ${({ disabled }) => disabled && disabledStyle}
 

@@ -1,7 +1,6 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from '~/src/foundation'
+import { styled, css } from '~/src/foundation'
 import type { InterpolationProps } from '~/src/types/Foundation'
-import { Text } from '~/src/components/Text'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean
@@ -13,10 +12,6 @@ export const LeftIconWrapper = styled.div`
   min-width: 20px;
   max-width: 20px;
   margin-right: 8px;
-`
-
-export const ContentWrapper = styled(Text)`
-  ${ellipsis()}
 `
 
 export const ChevronWrapper = styled.div`

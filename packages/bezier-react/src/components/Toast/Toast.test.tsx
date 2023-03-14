@@ -1,11 +1,12 @@
 /* External dependencies */
 import React from 'react'
-import _ from 'lodash-es'
 
 /* Internal dependencies */
 import { css, TransitionDuration } from '~/src/foundation'
 import { DarkTheme } from '~/src/foundation/Colors/Theme'
+import { ZIndex } from '~/src/constants/ZIndex'
 import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/functionUtils'
 import ToastElementProps, { ToastAppearance, ToastPlacement, ToastPreset } from './Toast.types'
 import ToastElement, { TOAST_TEST_ID } from './ToastElement'
 
@@ -16,7 +17,7 @@ describe('Toast test >', () => {
     props = {
       content: 'Test Toast',
       transitionDuration: TransitionDuration.M,
-      onDismiss: _.noop,
+      onDismiss: noop,
       transform: css``,
       placement: ToastPlacement.BottomLeft,
     }
@@ -32,7 +33,7 @@ describe('Toast test >', () => {
     expect(defaultToast).toHaveStyle('display: flex')
     expect(defaultToast).toHaveStyle('width: 288px')
     expect(defaultToast).toHaveStyle('padding: 16px')
-    expect(defaultToast).toHaveStyle(`z-index: ${Number.MAX_SAFE_INTEGER}`)
+    expect(defaultToast).toHaveStyle(`z-index: ${ZIndex.Toast}`)
   })
 
   describe('Apearance Variant Test > ', () => {

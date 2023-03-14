@@ -1,11 +1,13 @@
 /* External dependencies */
 import React from 'react'
-import { range } from 'lodash-es'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
 import disabledOpacity from '~/src/constants/DisabledOpacity'
+import { render } from '~/src/utils/testUtils'
+import {
+  range,
+} from '~/src/utils/numberUtils'
 import { Text } from '~/src/components/Text'
 import ResizeObserver from './__mocks__/ResizeObserver'
 import SegmentedControl, { SEGMENTED_CONTROL_TEST_ID, segmentedControlOptionItemTestId } from './SegmentedControl'

@@ -1,9 +1,9 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 
@@ -17,6 +17,7 @@ function Text(
     italic = false,
     color,
     typo = Typography.Size15,
+    truncated = false,
     marginTop = 0,
     marginRight = 0,
     marginBottom = 0,
@@ -46,6 +47,7 @@ function Text(
       italic={italic}
       color={color}
       typo={typo}
+      truncated={truncated}
       data-testid={testId}
       margintop={marginTop || marginVertical || marginAll}
       marginright={marginRight || marginHorizontal || marginAll}

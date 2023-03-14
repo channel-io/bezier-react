@@ -4,6 +4,7 @@ import React, {
   cloneElement,
   forwardRef,
   isValidElement,
+  useRef,
 } from 'react'
 import type { Ref } from 'react'
 
@@ -45,6 +46,8 @@ export const Stack = forwardRef(function Stack(
   }: StackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
+  const firstValidElementIdx = useRef(-1)
+
   return (
     <Styled.Container
       ref={forwardedRef}
@@ -60,24 +63,26 @@ export const Stack = forwardRef(function Stack(
     >
       { Children.map(
         children,
-        (element, index) => (
-          isValidElement(element)
-            /**
+        (element, index) => {
+          if (!isValidElement(element)) { return element }
+
+          /**
              * NOTE: this assumes that this element is `StackItem`.
              *
              * Even if the child is not a `StackItem` component,
              * it could forward the prop to `StackItem` deeper in the tree,
              * or implement a custom behavior compatible with `StackItemProps`.
              */
-            ? cloneElement(element, {
-              ...element.props,
-              direction,
-              marginBefore:
+          if (firstValidElementIdx.current === -1) { firstValidElementIdx.current = index }
+          return cloneElement(element, {
+            ...element.props,
+            direction,
+            marginBefore:
                 element.props.marginBefore ??
-                (index > 0 ? spacing : 0),
-            })
-            : element
-        ),
+                (index > firstValidElementIdx.current ? spacing : 0),
+          })
+        },
+
       ) }
     </Styled.Container>
   )

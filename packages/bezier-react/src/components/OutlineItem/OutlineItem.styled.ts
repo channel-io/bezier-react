@@ -1,11 +1,11 @@
-/* External dependencies */
-import { isNil } from 'lodash-es'
-
 /* Internal dependencies */
 import { styled, css, ellipsis } from '~/src/foundation'
+import {
+  isNil,
+} from '~/src/utils/typeUtils'
 import { InterpolationProps } from '~/src/types/Foundation'
 import { ColorProps } from '~/src/types/ComponentProps'
-import { LegacyIcon } from '~/src/components/Icon'
+import { Icon, LegacyIcon } from '~/src/components/Icon'
 import OutlineItemProps from './OutlineItem.types'
 
 interface WrapperProps extends InterpolationProps {
@@ -68,7 +68,16 @@ export const LeftContentWrapper = styled.div`
 
 interface StyledIconProps extends InterpolationProps, ColorProps {}
 
-export const StyledIcon = styled(LegacyIcon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
+export const StyledLegacyIcon = styled(LegacyIcon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
+  color: ${props => {
+    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    return props.foundation?.theme?.[props.color || 'txt-black-dark']
+  }};
+
+  ${({ interpolation }) => interpolation}
+`
+
+export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
   color: ${props => {
     if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']

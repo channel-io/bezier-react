@@ -1,26 +1,32 @@
 /* External dependencies */
 import React, { forwardRef, useState, useCallback, useMemo } from 'react'
-import { noop, isNil, isEmpty, isString } from 'lodash-es'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import {
+  isNil,
+  isString,
+  isEmpty,
+} from '~/src/utils/typeUtils'
 import { mergeClassNames } from '~/src/utils/stringUtils'
-import { IconSize, isIconName } from '~/src/components/Icon'
+import { noop } from '~/src/utils/functionUtils'
 import { Text } from '~/src/components/Text'
+import { IconSize, isBezierIcon, isIconName } from '~/src/components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,
-  StyledIcon,
+  StyledLegacyIcon,
   TitleWrapper,
   Title,
   DescriptionWrapper,
   Description,
   RightContent,
   ContentWrapper,
+  StyledIcon,
 } from './ListItem.styled'
 
 const LINE_BREAK_CHAR = '\n'
@@ -128,12 +134,26 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (!isNil(leftIcon) && isIconName(leftIcon)) {
+    if (isIconName(leftIcon)) {
+      return (
+        <LeftContentWrapper>
+          <StyledLegacyIcon
+            className={iconClassName}
+            name={leftIcon}
+            size={IconSize.S}
+            active={isActive}
+            variant={variant}
+          />
+        </LeftContentWrapper>
+      )
+    }
+
+    if (isBezierIcon(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon
             className={iconClassName}
-            name={leftIcon}
+            source={leftIcon}
             size={IconSize.S}
             active={isActive}
             variant={variant}

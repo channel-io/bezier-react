@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from '~/src/foundation'
 import disabledOpacity from '~/src/constants/DisabledOpacity'
-import { LegacyIcon } from '~/src/components/Icon'
+import { Icon, LegacyIcon } from '~/src/components/Icon'
 import { ListItemVariant, ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 
@@ -96,7 +96,15 @@ interface IconWrapperProps {
   active?: boolean
 }
 
-export const StyledIcon = styled(LegacyIcon)<IconWrapperProps>`
+export const StyledLegacyIcon = styled(LegacyIcon)<IconWrapperProps>`
+  color: ${({ foundation, variant, active }) => (
+    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
+  )};
+  
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
+`
+
+export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, variant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
@@ -137,6 +145,7 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     ${focused && css`
       ${FocusedItemStyle}
 
+      ${StyledLegacyIcon},
       ${StyledIcon} {
         ${FocusedIconStyle}
       }
@@ -144,6 +153,10 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
     &:hover {
       ${FocusedItemStyle}
+    }
+
+    &:hover ${StyledLegacyIcon} {
+      ${FocusedIconStyle}
     }
 
     &:hover ${StyledIcon} {

@@ -1,9 +1,8 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from '~/src/foundation'
-import type { InterpolationProps } from '~/src/types/Foundation'
+import { styled, css } from '~/src/foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import type { InterpolationProps } from '~/src/types/Foundation'
 import { Overlay } from '~/src/components/Overlay'
-import { Text } from '~/src/components/Text'
 import {
   inputTextStyle,
   inputWrapperStyle,
@@ -81,10 +80,6 @@ export const MainContentWrapper = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-`
-
-export const TextContainer = styled(Text)`
-  ${ellipsis()}
 `
 
 interface DropdownProps extends InterpolationProps {

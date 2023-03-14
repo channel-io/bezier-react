@@ -6,7 +6,7 @@ import type { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
-import { Radio } from '~/src/components/Forms/Radio'
+import { RadioGroup, Radio } from '~/src/components/Forms/RadioGroup'
 import { Checkbox } from '~/src/components/Forms/Checkbox'
 import { Text } from '~/src/components/Text'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
@@ -41,6 +41,7 @@ Primary.args = {
   hasError: false,
   disabled: false,
   readOnly: false,
+  required: false,
 }
 
 const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
@@ -94,31 +95,12 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
     </FormControl>
 
     <FormControl {...args}>
-      <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <FormGroup direction="horizontal" spacing={20}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-          }}
-        >
-          <Radio>Immediately</Radio>
-          <Radio>Year(s)</Radio>
-          <Radio>Seasons</Radio>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-          }}
-        >
-          <Radio>Hour(s)</Radio>
-          <Radio>Day(s)</Radio>
-          <Radio>Minute(s)</Radio>
-        </div>
-      </FormGroup>
+      <FormLabel>Theme Setting</FormLabel>
+      <RadioGroup>
+        <Radio value="system">System Preference</Radio>
+        <Radio value="light">Light Theme</Radio>
+        <Radio value="dark">Dark Theme</Radio>
+      </RadioGroup>
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
     </FormControl>
@@ -139,4 +121,5 @@ WithMultiForm.args = {
   hasError: false,
   disabled: false,
   readOnly: false,
+  required: false,
 }

@@ -1,12 +1,12 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
+
+/* Internal dependencies */
 import {
   isInteger,
   isNil,
-} from 'lodash-es'
-
-/* Internal dependencies */
+} from '~/src/utils/typeUtils'
 import * as Styled from './StackItem.styled'
 import type StackItemProps from './StackItem.types'
 

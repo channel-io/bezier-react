@@ -2,19 +2,24 @@
 import React, { useState, useMemo } from 'react'
 import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
-import { compact } from 'lodash-es'
 
 /* Internal dependencies */
-import { iconList, getTitle } from '~/src/utils/storyUtils'
-import ListItem from './ListItem'
+import { compact } from '~/src/utils/arrayUtils'
+import { getTitle } from '~/src/utils/storyUtils'
+import { InboxIcon } from '~/src/components/Icon'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
+import ListItem from './ListItem'
 
 export default {
   title: getTitle(base),
   component: ListItem,
 } as Meta
 
-const Template: Story<ListItemProps & { width: number }> = ({ width, ...listItemProps }) => (
+interface ArgTypes extends ListItemProps {
+  width: number
+}
+
+const Template: Story<ArgTypes> = ({ width, ...listItemProps }) => (
   <div style={{ width }}>
     <ListItem
       optionKey="menu-item-0"
@@ -31,7 +36,7 @@ Primary.args = {
   content: '상담이 열릴 때',
   description: '고객이 첫 메시지를 보내거나, 매니저가 상담을 다시 열거나, 자동으로 리오픈되면 트리거됩니다.',
   rightContent: '',
-  leftIcon: 'inbox',
+  leftIcon: InboxIcon,
   active: false,
   focused: false,
   disableIconActive: false,
@@ -58,7 +63,6 @@ Primary.argTypes = {
     },
   },
   active: { control: { type: 'boolean' } },
-  leftIcon: { control: { type: 'select', options: [...iconList, undefined] } },
   size: { control: { type: 'select', options: ListItemSize } },
 }
 
@@ -69,7 +73,7 @@ interface CompositionProps {
 const CompositionTemplate = ({ listRange }: CompositionProps) => {
   const [activeIndex, setActiveIndex] = useState<Set<number>>(() => {
     const randomActiveIndex = Array.from(Array(listRange).keys()).map((index) => (Math.random() < 0.5 ? index : null))
-    return new Set(compact([...randomActiveIndex]))
+    return new Set(compact<number>([...randomActiveIndex]))
   })
 
   const isActive = (index: number) => activeIndex.has(index)

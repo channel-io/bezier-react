@@ -1,11 +1,11 @@
 /* External dependencies */
 import React from 'react'
-import _ from 'lodash-es'
 import { act } from '@testing-library/react'
 
 /* Internal dependencies */
 import { css, TransitionDuration } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { ToastControllerProps, ToastPlacement } from './Toast.types'
 import ToastElement from './ToastElement'
 import ToastController from './ToastController'
@@ -19,7 +19,7 @@ describe('ToastController >', () => {
       autoDismissTimeout: 5000,
       transitionDuration: TransitionDuration.M,
       content: 'Test Toast',
-      onDismiss: _.noop,
+      onDismiss: noop,
       transform: css``,
       placement: ToastPlacement.BottomLeft,
       component: ToastElement,

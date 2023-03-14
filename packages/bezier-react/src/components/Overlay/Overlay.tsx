@@ -11,12 +11,12 @@ import React, {
   useMemo,
 } from 'react'
 import ReactDOM from 'react-dom'
-import { noop } from 'lodash-es'
 
 /* Internal dependencies */
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { window, document, getRootElement } from '~/src/utils/domUtils'
+import { noop } from '~/src/utils/functionUtils'
 import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 
@@ -46,8 +46,10 @@ function Overlay(
     enableClickOutside = false,
     children,
     onHide = noop,
+    onTransitionEnd = noop,
+    ...rest
   }: OverlayProps,
-  forwardedRef: Ref<any>,
+  forwardedRef: Ref<HTMLDivElement>,
 ) {
   // NOTE: DOM render 가 필요한지 여부를 결정하는 state
   const [shouldRender, setShouldRender] = useState(false)
@@ -67,7 +69,7 @@ function Overlay(
   }, [])
 
   const handleContainerRect = useCallback(() => {
-    const containerElement = container || getRootElement() as HTMLElement
+    const containerElement = container || getRootElement()
 
     const {
       width: containerWidth,
@@ -126,11 +128,15 @@ function Overlay(
     handleTargetRect,
   ])
 
-  const handleTransitionEnd = useCallback(() => {
+  const handleTransitionEnd = useCallback<React.TransitionEventHandler<HTMLDivElement>>((event) => {
+    onTransitionEnd(event)
     if (!show) {
       setShouldRender(false)
     }
-  }, [show])
+  }, [
+    show,
+    onTransitionEnd,
+  ])
 
   const handleBlockMouseWheel = useCallback((event: HTMLElementEventMap['wheel']) => {
     event.stopPropagation()
@@ -176,6 +182,7 @@ function Overlay(
       marginY={marginY}
       keepInContainer={keepInContainer}
       onTransitionEnd={handleTransitionEnd}
+      {...rest}
     >
       { children }
     </Styled.Overlay>
@@ -276,7 +283,7 @@ function Overlay(
 
   return ReactDOM.createPortal(
     overlay,
-    container || getRootElement() as HTMLElement,
+    container || getRootElement(),
   )
 }
 
