@@ -15,6 +15,7 @@ export * from 'Components/Divider'
 export * from 'Components/Emoji'
 export * from 'Components/Forms'
 export * from 'Components/Forms/Checkbox'
+export * from 'Components/Forms/AlphaCheckbox'
 export * from 'Components/Forms/FormControl'
 export * from 'Components/Forms/FormGroup'
 export * from 'Components/Forms/FormHelperText'
@@ -50,8 +51,6 @@ export * from 'Components/Tooltip'
 export * from 'Components/VisuallyHidden'
 
 export * from 'Components/AlphaCenter'
-
-export * from 'Components/AlphaCheckbox'
 
 export * as LegacyRadio from 'Components/Legacies/Radio'
 
