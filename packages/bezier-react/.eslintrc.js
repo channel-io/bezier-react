@@ -16,7 +16,6 @@ module.exports = {
     {
       files: ['./packages/**/src/**/*'],
       rules: {
-        'import/extensions': 'off', // FIXME(@aru)
         'import/order': [
           'error',
           {
