@@ -21,16 +21,23 @@ export const CheckIcon = styled(Icon)`
   }
 `
 
-const focusStyle = css`
+const backgroundFocusStyle = css`
   &:not([data-disabled]):not([data-state='unchecked']) {
     background-color: var(--bgtxt-green-dark);
   }
+`
 
+const checkIconFocusStyle = css`
   &:not([data-disabled])[data-state='unchecked'] {
     ${CheckIcon} {
       visibility: visible;
     }
   }
+`
+
+const focusStyle = css`
+  ${backgroundFocusStyle}
+  ${checkIconFocusStyle}
 `
 
 export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProps>`
@@ -59,7 +66,7 @@ export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProp
   ${touchableHover(focusStyle)}
 
   &:focus-visible {
-    ${focusStyle}
+    ${checkIconFocusStyle}
     ${focusedInputWrapperStyle}
   }
 
