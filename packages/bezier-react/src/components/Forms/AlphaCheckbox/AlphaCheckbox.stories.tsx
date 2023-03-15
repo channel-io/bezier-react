@@ -5,13 +5,13 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
+import { CheckboxProps } from './AlphaCheckbox.types'
 import { AlphaCheckbox } from './AlphaCheckbox'
 
 export default {
   title: getTitle(base),
   component: AlphaCheckbox,
   argTypes: {
-    onClick: { control: { action: 'onClick' } },
     checked: {
       control: {
         type: 'radio',
@@ -25,29 +25,28 @@ export default {
   },
 } as Meta
 
-const Template: Story<any> = ({ children, ...otherCheckboxProps }) => (
-  <>
-    <AlphaCheckbox {...otherCheckboxProps}>
-      { children }
-    </AlphaCheckbox>
-    <AlphaCheckbox {...otherCheckboxProps} />
-  </>
+const ControlledTemplate: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => (
+  <AlphaCheckbox {...otherCheckboxProps}>
+    { children }
+  </AlphaCheckbox>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Controlled = ControlledTemplate.bind({})
+Controlled.args = {
   checked: true,
   disabled: false,
-  children: 'Check Me!',
+  children: 'Option',
 }
 
-const UncontrolledTemplate: Story<any> = ({ children }) => (
-  <AlphaCheckbox>
+const UncontrolledTemplate: Story<CheckboxProps> = ({ children, defaultChecked }) => (
+  <AlphaCheckbox defaultChecked={defaultChecked}>
     { children }
   </AlphaCheckbox>
 )
 
 export const Uncontrolled = UncontrolledTemplate.bind({})
 Uncontrolled.args = {
-  children: 'Check Me!',
+  defaultChecked: true,
+  disabled: false,
+  children: 'Option',
 }
