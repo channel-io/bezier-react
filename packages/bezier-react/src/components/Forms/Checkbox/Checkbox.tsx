@@ -1,95 +1,102 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useMemo } from 'react'
+import React, { forwardRef } from 'react'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 /* Internal dependencies */
-import {
-  isBoolean,
-  isEmpty,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
+import useId from 'Hooks/useId'
+import { ariaAttr } from 'Utils/domUtils'
+import { IconSize, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
+import { FormFieldSize } from 'Components/Forms'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import type CheckboxProps from './Checkbox.types'
-import CheckType from './CheckType'
+import { CheckboxProps } from './Checkbox.types'
 import * as Styled from './Checkbox.styled'
 
-export const CHECKBOX_TEST_ID = 'bezier-react-checkbox'
-export const CHECKBOX_CHECKER_TEST_ID = 'bezier-react-checkbox-checker'
-
-const checkTypeValues = Object.values(CheckType)
-
-const checkIconCommonProps: Pick<IconProps, 'size' | 'color'> = {
-  size: IconSize.XS,
-  color: 'bgtxt-absolute-white-dark',
-}
-
-function Checkbox(
-  {
-    testId = CHECKBOX_TEST_ID,
-    checkerTestId = CHECKBOX_CHECKER_TEST_ID,
-    contentClassName,
-    checked = false,
-    children,
-    onClick = noop,
-    ...rest
-  }: CheckboxProps,
-  forwardedRef: Ref<any>,
-) {
-  const {
-    disabled,
-    ...ownProps
-  } = useFormFieldProps(rest)
-
-  const checkStatus = useMemo(() => {
-    if (isBoolean(checked)) { return (checked) ? CheckType.True : CheckType.False }
-    if (checkTypeValues.includes(checked)) { return checked }
-    return CheckType.False
-  }, [checked])
-
-  const CheckIcon = useMemo(() => {
-    switch (checkStatus) {
-      case CheckType.True:
-        return (
-          <Styled.Icon
-            source={CheckBoldIcon}
-            {...checkIconCommonProps}
-          />
-        )
-      case CheckType.Partial:
-        return (
-          <Styled.Icon
-            source={HyphenBoldIcon}
-            {...checkIconCommonProps}
-
-          />
-        )
-      default:
-        return null
-    }
-  }, [checkStatus])
+/* NOTE: Props are injected at runtime by `CheckboxPrimitive.Indicator`. */
+function CheckIcon(props: {} | {
+  style: React.CSSProperties
+  'data-state': 'checked' | 'unchecked' | 'indeterminate'
+  'data-disabled': boolean | undefined
+}) {
+  // eslint-disable-next-line react/destructuring-assignment
+  const state = props['data-state']
+  const isUnchecked = state === 'unchecked'
+  const isIndeterminate = state === 'indeterminate'
 
   return (
-    <Styled.Wrapper
-      ref={forwardedRef}
-      disabled={disabled}
-      onClick={disabled ? noop : onClick}
-      data-testid={testId}
-      {...ownProps}
-    >
-      <Styled.Checker
-        disabled={disabled}
-        checkStatus={checkStatus}
-        data-testid={checkerTestId}
-      >
-        { CheckIcon }
-      </Styled.Checker>
-      { !isEmpty(children) ? (
-        <Styled.Content className={contentClassName}>
-          { children }
-        </Styled.Content>
-      ) : null }
-    </Styled.Wrapper>
+    <Styled.CheckIcon
+      source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
+      size={IconSize.XS}
+      color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
+      {...props}
+    />
   )
 }
 
-export default forwardRef(Checkbox)
+/**
+ * `Checkbox` is a control that allows the user to toggle between checked and not checked.
+ * It can be used with labels or standalone.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [checked, setChecked] = useState(false)
+ * // Controlled / With label
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * >
+ *   Label
+ * </Checkbox>
+ * // Controlled / Standalone
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * />
+ * // Uncontrolled
+ * <Checkbox
+ *   defaultChecked={true}
+ * >
+ *   Label
+ * </Checkbox>
+ * ```
+ */
+export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox({
+  children,
+  checked,
+  id: idProp,
+  ...rest
+}, forwardedRef) {
+  const id = useId(idProp, 'bezier-checkbox')
+  const formFieldProps = useFormFieldProps(rest)
+
+  const containerStyle = {
+    '--bezier-checkbox-height': children ? `${FormFieldSize.M}px` : 'auto',
+  } as React.CSSProperties
+
+  return (
+    <Styled.Container
+      style={containerStyle}
+      data-disabled={ariaAttr(formFieldProps.disabled)}
+    >
+      <Styled.CheckboxPrimitiveRoot
+        ref={forwardedRef}
+        id={id}
+        checked={checked}
+        {...formFieldProps}
+      >
+        <CheckboxPrimitive.Indicator
+          asChild
+          /* NOTE: To allow the icon to be rendered even if unchecked. */
+          forceMount
+        >
+          <CheckIcon />
+        </CheckboxPrimitive.Indicator>
+      </Styled.CheckboxPrimitiveRoot>
+      { children && (
+        <Styled.Label htmlFor={id}>
+          { children }
+        </Styled.Label>
+      ) }
+    </Styled.Container>
+  )
+})

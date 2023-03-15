@@ -41,6 +41,6 @@ const Template: Story<FormGroupProps> = props => (
 
 export const Primary: Story<FormGroupProps> = Template.bind({})
 Primary.args = {
-  spacing: 6,
+  spacing: 0,
   direction: 'vertical',
 }

@@ -1,12 +1,6 @@
-import Checkbox from './Checkbox'
-import CheckType from './CheckType'
-import type CheckboxProps from './Checkbox.types'
+export { Checkbox } from './Checkbox'
 
 export type {
+  CheckedState,
   CheckboxProps,
-}
-
-export {
-  Checkbox,
-  CheckType,
-}
+} from './Checkbox.types'
