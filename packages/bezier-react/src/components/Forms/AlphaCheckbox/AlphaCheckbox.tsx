@@ -34,29 +34,30 @@ function CheckIcon(props: {} | {
 
 /**
  * `Checkbox` is a control that allows the user to toggle between checked and not checked.
+ * It can be used with labels or standalone.
  *
  * @example
  *
  * ```tsx
- * // Controlled
  * const [checked, setChecked] = useState(false)
- * return (
- *  <Checkbox
- *    checked={checked}
- *    onCheckedChange={setChecked}
- *  >
- *    Label
- *  </Checkbox>
- * )
- *
+ * // Controlled / With label
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * >
+ *   Label
+ * </Checkbox>
+ * // Controlled / Standalone
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * />
  * // Uncontrolled
- * return (
- *  <Checkbox
- *    defaultChecked={true}
- *  >
- *    Label
- *  </Checkbox>
- * )
+ * <Checkbox
+ *   defaultChecked={true}
+ * >
+ *   Label
+ * </Checkbox>
  * ```
  */
 export const AlphaCheckbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox({
