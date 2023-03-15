@@ -25,28 +25,26 @@ export default {
   },
 } as Meta
 
-const ControlledTemplate: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => (
+const Template: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => (
   <Checkbox {...otherCheckboxProps}>
     { children }
   </Checkbox>
 )
 
-export const Controlled = ControlledTemplate.bind({})
+export const Controlled = Template.bind({})
 Controlled.args = {
   checked: true,
   disabled: false,
+  required: false,
+  hasError: false,
   children: 'Option',
 }
 
-const UncontrolledTemplate: Story<CheckboxProps> = ({ children, defaultChecked }) => (
-  <Checkbox defaultChecked={defaultChecked}>
-    { children }
-  </Checkbox>
-)
-
-export const Uncontrolled = UncontrolledTemplate.bind({})
+export const Uncontrolled = Template.bind({})
 Uncontrolled.args = {
   defaultChecked: true,
   disabled: false,
+  required: false,
+  hasError: false,
   children: 'Option',
 }

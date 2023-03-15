@@ -4,7 +4,6 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 /* Internal dependencies */
 import useId from 'Hooks/useId'
-import { ariaAttr } from 'Utils/domUtils'
 import { IconSize, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
 import { FormFieldSize } from 'Components/Forms'
 import useFormFieldProps from 'Components/Forms/useFormFieldProps'
@@ -73,7 +72,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
   ...rest
 }, forwardedRef) {
   const id = useId(idProp, 'bezier-checkbox')
-  const formFieldProps = useFormFieldProps(rest)
+  const {
+    hasError,
+    ...formFieldProps
+  } = useFormFieldProps(rest)
 
   const containerStyle = {
     '--bezier-checkbox-height': children ? `${FormFieldSize.M}px` : 'auto',
@@ -82,12 +84,13 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
   return (
     <Styled.Container
       style={containerStyle}
-      data-disabled={ariaAttr(formFieldProps.disabled)}
+      data-disabled={formFieldProps['aria-disabled']}
     >
       <Styled.CheckboxPrimitiveRoot
         ref={forwardedRef}
         id={id}
         checked={checked}
+        data-invalid={formFieldProps['aria-invalid']}
         {...formFieldProps}
       >
         <CheckboxPrimitive.Indicator

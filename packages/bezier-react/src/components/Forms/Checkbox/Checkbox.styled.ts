@@ -6,7 +6,7 @@ import { styled, css, Typography } from 'Foundation'
 import DisabledOpacity from 'Constants/DisabledOpacity'
 import { touchableHover } from 'Utils/styleUtils'
 import { Icon } from 'Components/Icon'
-import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
+import { focusedInputWrapperStyle, erroredInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
 import { CheckboxProps } from './Checkbox.types'
 
 const CHECKBOX_SIZE = 18
@@ -57,17 +57,26 @@ export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProp
     box-shadow: none;
   }
 
+  &[data-invalid] {
+    ${erroredInputWrapperStyle}
+  }
+
   &[data-state='checked'],
   &[data-state='indeterminate'] {
     background-color: var(--bgtxt-green-normal);
-    box-shadow: none;
+
+    &:not([data-invalid]) {
+      box-shadow: none;
+    }
   }
 
   ${touchableHover(focusStyle)}
 
-  &:focus-visible {
-    ${checkIconFocusStyle}
-    ${focusedInputWrapperStyle}
+  && {
+    &:focus-visible {
+      ${checkIconFocusStyle}
+      ${focusedInputWrapperStyle}
+    }
   }
 
   ${({ interpolation }) => interpolation}
