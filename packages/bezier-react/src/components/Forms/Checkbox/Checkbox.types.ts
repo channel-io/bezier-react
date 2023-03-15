@@ -37,7 +37,7 @@ interface CheckboxOptions {
 }
 
 export interface CheckboxProps extends
-  BezierComponentProps,
+  Omit<BezierComponentProps, 'as'>,
   ChildrenProps,
   FormComponentProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CheckboxOptions>,
