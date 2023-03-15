@@ -11,12 +11,17 @@ import useFormFieldProps from 'Components/Forms/useFormFieldProps'
 import { CheckboxProps } from './Checkbox.types'
 import * as Styled from './Checkbox.styled'
 
-/* NOTE: Props are injected at runtime by `CheckboxPrimitive.Indicator`. */
-function CheckIcon(props: {} | {
+type CheckIconProps = {} | {
   style: React.CSSProperties
   'data-state': 'checked' | 'unchecked' | 'indeterminate'
   'data-disabled': boolean | undefined
-}) {
+}
+
+/* NOTE: Props are injected at runtime by `CheckboxPrimitive.Indicator`. */
+const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
+  props,
+  forwardedRef,
+) {
   // eslint-disable-next-line react/destructuring-assignment
   const state = props['data-state']
   const isUnchecked = state === 'unchecked'
@@ -24,13 +29,14 @@ function CheckIcon(props: {} | {
 
   return (
     <Styled.CheckIcon
+      ref={forwardedRef}
       source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
       size={IconSize.XS}
       color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
       {...props}
     />
   )
-}
+})
 
 /**
  * `Checkbox` is a control that allows the user to toggle between checked and not checked.
