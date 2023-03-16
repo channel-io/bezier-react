@@ -3645,8 +3645,8 @@ __metadata:
   linkType: hard
 
 "@radix-ui/react-tabs@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@radix-ui/react-tabs@npm:1.0.1"
+  version: 1.0.3
+  resolution: "@radix-ui/react-tabs@npm:1.0.3"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/primitive": 1.0.0
@@ -3654,13 +3654,13 @@ __metadata:
     "@radix-ui/react-direction": 1.0.0
     "@radix-ui/react-id": 1.0.0
     "@radix-ui/react-presence": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
-    "@radix-ui/react-roving-focus": 1.0.1
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-roving-focus": 1.0.3
     "@radix-ui/react-use-controllable-state": 1.0.0
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: d5e8ac40d40b6c795bb0e1d1b942fd133b9c1978b21f07d06352159182e229b2bb2d0d3b9a04d288692d41cff3ba90f128a5e95995e0cc59352cc82d1ee72599
+  checksum: 603b06a1c071fec7b01cf82c3058aff239079b14f7d7988b559b9877bcd4e3f23d287b8cf38ebef6bb6b0c4f238a80f67525aa5fc9db519fbf1b70777a40f0ec
   languageName: node
   linkType: hard
 
