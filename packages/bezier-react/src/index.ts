@@ -48,6 +48,8 @@ export * from 'Components/Text'
 export * from 'Components/Toast'
 export * from 'Components/Tooltip'
 
+export * from 'Components/AlphaCenter'
+
 export * as LegacyRadio from 'Components/Legacies/Radio'
 
 /* Hooks for Component */
