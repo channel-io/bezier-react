@@ -1,5 +1,21 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.191
+
+### Patch Changes
+
+- [#1189](https://github.com/channel-io/bezier-react/pull/1189) [`cc7270dd`](https://github.com/channel-io/bezier-react/commit/cc7270dd84199ea2148623e7ceaba9ad5f5f9bf2) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Introduce `AlphaCenter` component.
+
+- [#1174](https://github.com/channel-io/bezier-react/pull/1174) [`355fdaff`](https://github.com/channel-io/bezier-react/commit/355fdaffe472365dc6c18c6f77bd0c5cae40599c) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Implement `VisuallyHidden` component.
+
+  `VisuallyHidden` is a component that visually hides the content. It doesn't render any DOM node. It is useful when you want to provide additional information to screen readers.
+
+  ```tsx
+  <VisuallyHidden>
+    <span>This is a visually hidden text.</span>
+  </VisuallyHidden>
+  ```
+
 ## 1.0.0-next-v1.190
 
 ### Patch Changes
