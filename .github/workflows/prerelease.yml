@@ -80,7 +80,7 @@ jobs:
             [
               {
                 "type": "text",
-                "value": "\n\n${{ GITHUB_REPOSITORY }}"
+                "value": "\n\n${{ github.repository }}"
               },
               {
                 "type": "bullets",
