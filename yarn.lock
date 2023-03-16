@@ -3255,22 +3255,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-collection@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-collection@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-compose-refs": 1.0.0
-    "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-primitive": 1.0.0
-    "@radix-ui/react-slot": 1.0.0
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-    react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 271683a45c35808ffc0566c56546a8846c54f2d1f64dd7b681b83f622343d2f5a6173abe3f1dbd0002045a18bc8730838e90ac928618199e937b55a76150d254
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-collection@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-collection@npm:1.0.1"
@@ -3444,19 +3428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-primitive@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-primitive@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-slot": 1.0.0
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-    react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: fb3fe8c8c5a57995716cce4d7e9039e474c09ba5d714994419ad4940bc954da670f1188813cc931f189b23d9bd5a67adf7087bf44fe1d4272b4a334a3514d38b
-  languageName: node
-  linkType: hard
-
 "@radix-ui/react-primitive@npm:1.0.1":
   version: 1.0.1
   resolution: "@radix-ui/react-primitive@npm:1.0.1"
@@ -3574,17 +3545,17 @@ __metadata:
   linkType: hard
 
 "@radix-ui/react-slider@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-slider@npm:1.0.0"
+  version: 1.1.1
+  resolution: "@radix-ui/react-slider@npm:1.1.1"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/number": 1.0.0
     "@radix-ui/primitive": 1.0.0
-    "@radix-ui/react-collection": 1.0.0
+    "@radix-ui/react-collection": 1.0.2
     "@radix-ui/react-compose-refs": 1.0.0
     "@radix-ui/react-context": 1.0.0
     "@radix-ui/react-direction": 1.0.0
-    "@radix-ui/react-primitive": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
     "@radix-ui/react-use-controllable-state": 1.0.0
     "@radix-ui/react-use-layout-effect": 1.0.0
     "@radix-ui/react-use-previous": 1.0.0
@@ -3592,19 +3563,7 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: c8227b6306c8107835bdcbb9e8bba074e007d9710fc7f89280ad7bc9a60525110f4593666b831a69b27691fbb064ef1ec57f416f185f6f639b73d534db4cb928
-  languageName: node
-  linkType: hard
-
-"@radix-ui/react-slot@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-slot@npm:1.0.0"
-  dependencies:
-    "@babel/runtime": ^7.13.10
-    "@radix-ui/react-compose-refs": 1.0.0
-  peerDependencies:
-    react: ^16.8 || ^17.0 || ^18.0
-  checksum: 60c0190ebdca21785b4f8b58a0c52717600c98953fc49da9580870519c60f52d5cf873dffa05446f4bb539066326ccec0827f4ca252b02ec4ff1a4ae203f59d7
+  checksum: fbe95278fce9eda92ac91af604909e16d526ebc67ad2327988690ae8dcf557d70bc30602d085976d71d00f14f4d5c38896c88a92611c281f9ad3211eb8a668ac
   languageName: node
   linkType: hard
 
