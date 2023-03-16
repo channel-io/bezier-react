@@ -47,6 +47,7 @@ export * from 'Components/TagBadge'
 export * from 'Components/Text'
 export * from 'Components/Toast'
 export * from 'Components/Tooltip'
+export * from 'Components/VisuallyHidden'
 
 export * from 'Components/AlphaCenter'
 
