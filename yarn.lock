@@ -3558,23 +3558,15 @@ __metadata:
   linkType: hard
 
 "@radix-ui/react-separator@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-separator@npm:1.0.0"
+  version: 1.0.2
+  resolution: "@radix-ui/react-separator@npm:1.0.2"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@radix-ui/primitive": 1.0.0
-    "@radix-ui/react-collection": 1.0.1
-    "@radix-ui/react-compose-refs": 1.0.0
-    "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-direction": 1.0.0
-    "@radix-ui/react-id": 1.0.0
-    "@radix-ui/react-primitive": 1.0.1
-    "@radix-ui/react-use-callback-ref": 1.0.0
-    "@radix-ui/react-use-controllable-state": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 19056da055ec89ce0613a3d60608f13e27b778228fbb0df7ada3ebda89c292e71a514ab6e0061a74d0a0d4963354fde1ffd8b8848628cb3275f216d05423a7a5
+  checksum: ab5eae3310b37b00132c882268200d55f21b7ee200fdc1263456292681adb6227853d8b180378105a3317866959d901ef55e0291ae540867634339f085aef61e
   languageName: node
   linkType: hard
 
