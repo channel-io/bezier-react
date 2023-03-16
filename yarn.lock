@@ -3780,15 +3780,15 @@ __metadata:
   linkType: hard
 
 "@radix-ui/react-visually-hidden@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@radix-ui/react-visually-hidden@npm:1.0.1"
+  version: 1.0.2
+  resolution: "@radix-ui/react-visually-hidden@npm:1.0.2"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@radix-ui/react-primitive": 1.0.1
+    "@radix-ui/react-primitive": 1.0.2
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 03e9103c4939b9455ee4614e93e7b12bc9e70397d4a86296526b86f63c35f6ac3555b824aa1bcd325baf3766dfcae5c22c63b3f3b8eada7a327f704e47a6b907
+  checksum: 67c4a55cfad9a8ff519a9b4ce24d2cc9d78c34d08a128a85de1a0a41228fdeb961eaeb4e50ca0d2080c5e31cef6f6e703cb06786579b44e5c66af161b941adb6
   languageName: node
   linkType: hard
 
