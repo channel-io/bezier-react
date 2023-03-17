@@ -11271,6 +11271,7 @@ __metadata:
     eslint-import-resolver-webpack: ^0.13.0
     eslint-plugin-babel: ^5.3.1
     eslint-plugin-import: ^2.27.5
+    eslint-plugin-import-newlines: ^1.3.1
     eslint-plugin-jest: ^22.21.0
     eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.32.2
@@ -11348,6 +11349,17 @@ __metadata:
   peerDependencies:
     eslint: ">=4.0.0"
   checksum: 18b0bfda53deab4056160a4f3a89a4649b6ae17e4970cc836f7d586c8abab5ebb492440e2acf4770a463138a44a4ee7f9b22b4ed1fdbe69c652f714c1d973e38
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-import-newlines@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "eslint-plugin-import-newlines@npm:1.3.1"
+  peerDependencies:
+    eslint: ">=6.0.0"
+  bin:
+    import-linter: lib/index.js
+  checksum: f1ee861d8d955393f68d489bc8e7755f708d4945ef8097b28dca3c801f28f8092c9621816de45b38f3d999295b4e360acf4134f495bc51966e18ca906757d1b7
   languageName: node
   linkType: hard
 
