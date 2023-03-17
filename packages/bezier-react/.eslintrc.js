@@ -9,10 +9,9 @@ module.exports = {
     'max-classes-per-file': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'warn',
+    'import/no-duplicates': ['error', { 'prefer-inline': true }],
     '@typescript-eslint/naming-convention': 'off',
-    '@typescript-eslint/consistent-type-imports': ['error', {
-      fixStyle: 'inline-type-imports',
-    }],
+    '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
     '@typescript-eslint/consistent-type-exports': 'error',
   },
   overrides: [
