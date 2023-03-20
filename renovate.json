@@ -5,7 +5,7 @@
     ":labels(chore:deps)"
   ],
   "timezone": "Asia/Seoul",
-  "schedule": "on Monday at 11:00 am through 7:00 pm",
+  "schedule": "on Monday after 10am before 7pm",
   "packageRules": [
     {
       "groupName": "style",
