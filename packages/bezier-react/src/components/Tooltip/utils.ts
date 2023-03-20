@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { getRootElement } from 'Utils/domUtils'
+import { getRootElement } from '~/src/utils/domUtils'
 import { TooltipPosition, GetTooltipStyle, GetReplacement } from './Tooltip.types'
 
 export function getReplacement({

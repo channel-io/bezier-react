@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { AxisAlignment } from 'Components/Stack/types'
+import type { AxisAlignment } from '~/src/components/Stack/types'
 
 const MAPPED_FLEX_PROPERTIES: Record<AxisAlignment, string> = {
   start: 'flex-start',

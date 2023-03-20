@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { css } from 'Foundation'
-import { render } from 'Utils/testUtils'
-import { Stack } from 'Components/Stack'
+import { css } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
+import { Stack } from '~/src/components/Stack'
 import { StackItem } from './StackItem'
 
 describe('StackItem', () => {

@@ -2,7 +2,7 @@
 import React, { CSSProperties } from 'react'
 
 /* Internal dependencies */
-import type { SemanticNames } from 'Foundation'
+import type { SemanticNames } from '~/src/foundation'
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */

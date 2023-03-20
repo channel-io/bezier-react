@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import useId from 'Hooks/useId'
+import useId from '~/src/hooks/useId'
 import { RadioProps } from './RadioGroup.types'
 import * as Styled from './RadioGroup.styled'
 

@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 
 /* Internal dependencies */
-import { FormControlContext } from 'Components/Forms/FormControl'
+import { FormControlContext } from '~/src/components/Forms/FormControl'
 
 function useFormControlContext() {
   return useContext(FormControlContext)

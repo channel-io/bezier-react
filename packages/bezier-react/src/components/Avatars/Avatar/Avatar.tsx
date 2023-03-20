@@ -2,14 +2,13 @@
 import React, { forwardRef, useMemo } from 'react'
 
 /* Internal denpendencies */
-import { backgroundImageVariable } from 'Foundation'
+import { backgroundImageVariable } from '~/src/foundation'
 import {
   isEmpty,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { Status, StatusSize } from 'Components/Status'
-// eslint-disable-next-line no-restricted-imports
-import defaultAvatarUrl from '../assets/defaultAvatar.svg'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Status, StatusSize } from '~/src/components/Status'
+import defaultAvatarUrl from '~/src/components/Avatars/assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarWrapper, StatusWrapper } from './Avatar.styled'

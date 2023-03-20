@@ -2,10 +2,10 @@
 import React, { useCallback, memo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { noop } from 'Utils/functionUtils'
-import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
-import { Text } from 'Components/Text'
+import { Typography } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
+import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 import type NavItemProps from './NavItem.types'
 import {
   Item,

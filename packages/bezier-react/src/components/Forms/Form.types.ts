@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { IdentifierProps, DisableProps } from 'Types/ComponentProps'
+import type { IdentifierProps, DisableProps } from '~/src/types/ComponentProps'
 
 interface FormComponentOptions {
   hasError?: boolean

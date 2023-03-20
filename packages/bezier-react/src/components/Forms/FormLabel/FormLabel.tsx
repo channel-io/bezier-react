@@ -2,12 +2,12 @@
 import React, { forwardRef, useMemo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { isEmpty } from 'Utils/typeUtils'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
-import { Help } from 'Components/Help'
-import { HELP_DISPLAY_NAME } from 'Components/Help/Help'
-import { HStack, StackItem } from 'Components/Stack'
+import { Typography } from '~/src/foundation'
+import { isEmpty } from '~/src/utils/typeUtils'
+import useFormControlContext from '~/src/components/Forms/useFormControlContext'
+import { Help } from '~/src/components/Help'
+import { HELP_DISPLAY_NAME } from '~/src/components/Help/Help'
+import { HStack, StackItem } from '~/src/components/Stack'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 

@@ -8,7 +8,7 @@ import React, {
 /* Internal dependencies */
 import {
   clamp,
-} from 'Utils/numberUtils'
+} from '~/src/utils/numberUtils'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import { StyledProgressBarWrapper, StyledProgressBarActive } from './ProgressBar.styled'

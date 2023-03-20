@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { ellipsis, styled } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
-import { Text } from 'Components/Text'
+import { ellipsis, styled } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
+import { Text } from '~/src/components/Text'
 
 export const KeyContent = styled.div<InterpolationProps>`
   display: flex;

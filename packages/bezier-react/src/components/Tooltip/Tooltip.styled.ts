@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { styled, css, ellipsis, LineHeightAbsoluteNumber } from 'Foundation'
-import type { InterpolationProps } from 'Types/Foundation'
-import { ZIndex } from 'Constants/ZIndex'
+import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '~/src/foundation'
+import type { InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 
 interface ContentWrapperProps {
   disabled: boolean

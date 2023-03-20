@@ -12,19 +12,19 @@ import React, {
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { window } from 'Utils/domUtils'
+import { window } from '~/src/utils/domUtils'
 import {
   isArray,
   isNil,
   isEmpty,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import {
   toString,
-} from 'Utils/stringUtils'
-import { Icon, IconSize, CancelCircleFilledIcon, LegacyIcon, isIconName } from 'Components/Icon'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
-import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
+} from '~/src/utils/stringUtils'
+import { Icon, IconSize, CancelCircleFilledIcon, LegacyIcon, isIconName } from '~/src/components/Icon'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextField.styled'
 import {
   TextFieldItemProps,

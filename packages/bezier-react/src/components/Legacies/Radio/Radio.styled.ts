@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
+import { styled, css } from '~/src/foundation'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import RadioProps, { StyledRadioHandleProps } from './Radio.types'
 
 export const StyledRadioWrapper = styled.div<RadioProps>`

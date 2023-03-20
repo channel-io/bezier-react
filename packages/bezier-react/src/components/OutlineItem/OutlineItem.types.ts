@@ -10,8 +10,8 @@ import type {
   AdditionalStylableProps,
   AdditionalTestIdProps,
   AdditionalColorProps,
-} from 'Types/ComponentProps'
-import { BezierIcon, IconName } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import { BezierIcon, IconName } from '~/src/components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',

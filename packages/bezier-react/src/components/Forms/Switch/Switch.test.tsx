@@ -3,9 +3,9 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   Switch,
   SWITCH_TEST_ID,

@@ -2,9 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightTheme } from 'Foundation/Colors/Theme'
-import { render } from 'Utils/testUtils'
-import { Icon, IconSize, DotIcon } from 'Components/Icon'
+import { LightTheme } from '~/src/foundation/Colors/Theme'
+import { render } from '~/src/utils/testUtils'
+import { Icon, IconSize, DotIcon } from '~/src/components/Icon'
 import NavGroup, { NAV_GROUP_TEST_ID, NAV_GROUP_LEFT_ICON_TEST_ID } from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
 

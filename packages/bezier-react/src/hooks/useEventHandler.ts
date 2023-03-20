@@ -5,11 +5,11 @@ import { useEffect, useRef, useMemo } from 'react'
 import {
   isFunction,
   isNil,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   isEqual,
-} from 'Utils/objectUtils'
+} from '~/src/utils/objectUtils'
 
 interface HandlerOptionsProps {
   capture?: boolean

@@ -2,13 +2,13 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import disabledOpacity from 'Constants/DisabledOpacity'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import disabledOpacity from '~/src/constants/DisabledOpacity'
+import { render } from '~/src/utils/testUtils'
 import {
   range,
-} from 'Utils/numberUtils'
-import { Text } from 'Components/Text'
+} from '~/src/utils/numberUtils'
+import { Text } from '~/src/components/Text'
 import ResizeObserver from './__mocks__/ResizeObserver'
 import SegmentedControl, { SEGMENTED_CONTROL_TEST_ID, segmentedControlOptionItemTestId } from './SegmentedControl'
 import type SegmentedControlProps from './SegmentedControl.types'

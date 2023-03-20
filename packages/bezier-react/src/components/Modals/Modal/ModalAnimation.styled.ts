@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css, keyframes, TransitionDuration } from 'Foundation'
+import { css, keyframes, TransitionDuration } from '~/src/foundation'
 
 const overlayStyles = {
   open: css`

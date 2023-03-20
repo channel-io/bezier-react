@@ -4,9 +4,9 @@ import base from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { compact } from 'Utils/arrayUtils'
-import { getTitle } from 'Utils/storyUtils'
-import { InboxIcon } from 'Components/Icon'
+import { compact } from '~/src/utils/arrayUtils'
+import { getTitle } from '~/src/utils/storyUtils'
+import { InboxIcon } from '~/src/components/Icon'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import ListItem from './ListItem'
 

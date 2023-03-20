@@ -5,7 +5,7 @@ import type {
   VariantProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
-} from 'Types/ComponentProps'
+} from '~/src/types/ComponentProps'
 
 export enum ProgressBarSize {
   M = 'm',

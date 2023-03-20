@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { FormComponentProps } from 'Components/Forms'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { FormComponentProps } from '~/src/components/Forms'
 
 export type CheckedState = boolean | 'indeterminate'
 

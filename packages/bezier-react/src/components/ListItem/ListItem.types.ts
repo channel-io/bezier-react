@@ -11,8 +11,8 @@ import type {
   OptionItemProps,
   SideContentProps,
   AdditionalStylableProps,
-} from 'Types/ComponentProps'
-import type { BezierIcon, IconName } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import type { BezierIcon, IconName } from '~/src/components/Icon'
 
 export enum ListItemSize {
   S = 's',

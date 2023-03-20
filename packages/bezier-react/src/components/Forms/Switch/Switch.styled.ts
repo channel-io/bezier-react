@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
+import { styled } from '~/src/foundation'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 

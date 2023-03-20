@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
+import { BezierComponentProps, ContentProps } from '~/src/types/ComponentProps'
 
 interface ListMenuTitleOptions {
   rightAction?: React.ReactNode

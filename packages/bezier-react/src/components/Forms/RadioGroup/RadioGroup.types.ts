@@ -2,9 +2,9 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import { FormComponentProps } from 'Components/Forms'
-import { StackProps } from 'Components/Stack'
+import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { FormComponentProps } from '~/src/components/Forms'
+import { StackProps } from '~/src/components/Stack'
 
 interface RadioGroupOptions<Value extends string> {
   /**

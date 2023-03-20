@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from 'Foundation'
+import { css } from '~/src/foundation'
 import {
   isNil,
   isObject,
@@ -7,12 +7,12 @@ import {
   isNaN,
   isString,
   isEmpty,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import {
   has,
-} from 'Utils/objectUtils'
-import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from 'Types/CSS'
-import { InjectedInterpolation } from 'Types/Foundation'
+} from '~/src/utils/objectUtils'
+import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '~/src/types/CSS'
+import { InjectedInterpolation } from '~/src/types/Foundation'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [

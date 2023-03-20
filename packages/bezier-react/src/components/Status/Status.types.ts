@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import type { BezierComponentProps, SizeProps } from 'Types/ComponentProps'
+import type { BezierComponentProps, SizeProps } from '~/src/types/ComponentProps'
 
 export enum StatusType {
   Online = 'Online',

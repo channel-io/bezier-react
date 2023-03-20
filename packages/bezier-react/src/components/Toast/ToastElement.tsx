@@ -3,12 +3,12 @@ import React, { forwardRef, Ref, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   isString,
-} from 'Utils/typeUtils'
-import { Icon, LegacyIcon, CancelIcon, IconSize } from 'Components/Icon'
-import { Text } from 'Components/Text'
+} from '~/src/utils/typeUtils'
+import { Icon, LegacyIcon, CancelIcon, IconSize } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 import { getToastPreset } from './utils'
 import ToastProps, { ToastPreset } from './Toast.types'
 import { Element, IconWrapper, Close, ActionContent, NormalContent, Content, EllipsisableContent } from './Toast.styled'

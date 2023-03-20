@@ -1,4 +1,4 @@
 /* Internal dependencies */
-import type { StackProps } from 'Components/Stack/Stack'
+import type { StackProps } from '~/src/components/Stack/Stack'
 
 export default interface HStackProps extends Omit<StackProps, 'direction'> {}

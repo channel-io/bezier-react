@@ -9,25 +9,25 @@ import {
   type SemanticNames,
   styled,
   Typography,
-} from 'Foundation'
-import { getObjectFromEnum, getTitle, iconList } from 'Utils/storyUtils'
+} from '~/src/foundation'
+import { getObjectFromEnum, getTitle, iconList } from '~/src/utils/storyUtils'
 import {
   camelCase,
-} from 'Utils/stringUtils'
+} from '~/src/utils/stringUtils'
 import {
   ListItem,
-} from 'Components/ListItem'
+} from '~/src/components/ListItem'
 import {
   HStack,
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   Select,
-} from 'Components/Forms/Inputs/Select'
+} from '~/src/components/Forms/Inputs/Select'
 import {
   Text,
-} from 'Components/Text'
+} from '~/src/components/Text'
 import icons, {
   ArrowLeftIcon,
   BookmarkFilledIcon,

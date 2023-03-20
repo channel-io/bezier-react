@@ -3,17 +3,17 @@ import React, { forwardRef, useState, useCallback, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useMergeRefs from 'Hooks/useMergeRefs'
+import { Typography } from '~/src/foundation'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import {
   isNil,
   isString,
   isEmpty,
-} from 'Utils/typeUtils'
-import { mergeClassNames } from 'Utils/stringUtils'
-import { noop } from 'Utils/functionUtils'
-import { Text } from 'Components/Text'
-import { IconSize, isBezierIcon, isIconName } from 'Components/Icon'
+} from '~/src/utils/typeUtils'
+import { mergeClassNames } from '~/src/utils/stringUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Text } from '~/src/components/Text'
+import { IconSize, isBezierIcon, isIconName } from '~/src/components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
 import {

@@ -2,11 +2,11 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { css, TransitionDuration } from 'Foundation'
-import { DarkTheme } from 'Foundation/Colors/Theme'
-import { ZIndex } from 'Constants/ZIndex'
-import { render } from 'Utils/testUtils'
-import { noop } from 'Utils/functionUtils'
+import { css, TransitionDuration } from '~/src/foundation'
+import { DarkTheme } from '~/src/foundation/Colors/Theme'
+import { ZIndex } from '~/src/constants/ZIndex'
+import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/functionUtils'
 import ToastElementProps, { ToastAppearance, ToastPlacement, ToastPreset } from './Toast.types'
 import ToastElement, { TOAST_TEST_ID } from './ToastElement'
 

@@ -2,13 +2,13 @@
 import React, { useCallback, memo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from 'Components/Icon'
-import { Text } from 'Components/Text'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Text } from '~/src/components/Text'
+import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from '~/src/components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
   Item,

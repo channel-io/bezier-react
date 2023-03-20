@@ -2,11 +2,11 @@
 import {
   css,
   styled,
-} from 'Foundation'
+} from '~/src/foundation'
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { flex } from 'Components/Stack/util'
+} from '~/src/utils/typeUtils'
+import { flex } from '~/src/components/Stack/util'
 import type StackItemProps from './StackItem.types'
 
 interface ContainerProps extends

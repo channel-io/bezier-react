@@ -4,10 +4,10 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { isNaN } from 'Utils/typeUtils'
-import { StatusType } from 'Components/Status'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { isNaN } from '~/src/utils/typeUtils'
+import { StatusType } from '~/src/components/Status'
 import { Avatar } from './Avatar'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 

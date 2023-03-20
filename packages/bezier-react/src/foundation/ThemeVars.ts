@@ -4,7 +4,7 @@ import { AnyStyledComponent } from 'styled-components'
 /* Internal dependencies */
 import {
   isEmpty,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import { createGlobalStyle } from './FoundationStyledComponent'
 
 type ThemeRecord = Record<string, string>

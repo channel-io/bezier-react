@@ -2,8 +2,8 @@
 import {
   css,
   styled,
-} from 'Foundation'
-import { flex } from 'Components/Stack/util'
+} from '~/src/foundation'
+import { flex } from '~/src/components/Stack/util'
 import type StackProps from './Stack.types'
 
 interface ContainerProps extends

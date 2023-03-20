@@ -4,12 +4,12 @@ import base from 'paths.macro'
 import type { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle, getObjectFromEnum } from 'Utils/storyUtils'
-import { noop } from 'Utils/functionUtils'
+import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   Banner,
 } from './Banner'

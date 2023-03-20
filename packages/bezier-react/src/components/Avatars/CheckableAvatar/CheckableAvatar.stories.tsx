@@ -4,10 +4,10 @@ import { base } from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
-import { isNaN } from 'Utils/typeUtils'
-import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { isNaN } from '~/src/utils/typeUtils'
+import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
 import { CheckableAvatar } from './CheckableAvatar'
 import CheckableAvatarProps from './CheckableAvatar.types'
 

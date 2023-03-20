@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { css, SemanticNames } from 'Foundation'
-import type { InjectedInterpolation } from 'Types/Foundation'
-import { ButtonColorVariant } from 'Components/Button'
+import { css, SemanticNames } from '~/src/foundation'
+import type { InjectedInterpolation } from '~/src/types/Foundation'
+import { ButtonColorVariant } from '~/src/components/Button'
 import { BannerVariant } from './Banner.types'
 
 export const BACKGROUND_COLORS: Record<BannerVariant, SemanticNames> = {

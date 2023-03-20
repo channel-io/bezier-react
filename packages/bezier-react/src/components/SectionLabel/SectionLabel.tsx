@@ -3,20 +3,20 @@ import React, { useCallback, useMemo } from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   isArray,
   isNil,
   isNumber,
   isString,
   isEmpty,
-} from 'Utils/typeUtils'
-import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from 'Components/Button'
-import { LegacyIcon, IconSize } from 'Components/Icon'
-import { Divider } from 'Components/Divider'
-import { Tooltip } from 'Components/Tooltip'
-import Styled from './SectionLabel.styled'
+} from '~/src/utils/typeUtils'
+import { Button, ButtonColorVariant, ButtonSize, ButtonStyleVariant } from '~/src/components/Button'
+import { LegacyIcon, IconSize } from '~/src/components/Icon'
+import { Divider } from '~/src/components/Divider'
+import { Tooltip } from '~/src/components/Tooltip'
 import SectionLabelProps, { SectionLabelItemProps } from './SectionLabel.types'
+import Styled from './SectionLabel.styled'
 
 export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
 export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'

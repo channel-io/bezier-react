@@ -4,7 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import { Checkbox } from './Checkbox'
 import { CheckboxProps } from './Checkbox.types'
 

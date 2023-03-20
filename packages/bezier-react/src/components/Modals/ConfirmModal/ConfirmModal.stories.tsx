@@ -5,9 +5,9 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import { Button, ButtonColorVariant, ButtonStyleVariant } from 'Components/Button'
-import { ButtonGroup } from 'Components/ButtonGroup'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
+import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { ConfirmModal } from './ConfirmModal'
 import { ConfirmModalContent } from './ConfirmModalContent'
 import { ConfirmModalHeader } from './ConfirmModalHeader'

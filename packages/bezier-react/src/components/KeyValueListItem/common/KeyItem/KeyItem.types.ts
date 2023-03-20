@@ -2,8 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps } from 'Types/ComponentProps'
-import type { BezierIcon, IconName } from 'Components/Icon'
+import type { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import type { BezierIcon, IconName } from '~/src/components/Icon'
 
 interface KeyItemOptions {
   keyIcon?: IconName | BezierIcon | React.ReactNode

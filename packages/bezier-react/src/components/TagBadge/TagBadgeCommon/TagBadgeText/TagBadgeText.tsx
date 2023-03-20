@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Text } from 'Components/Text'
+import { Text } from '~/src/components/Text'
 import TagBadgeTextProps from './TagBadgeText.types'
 import Styled from './TagBadgeText.styled'
 

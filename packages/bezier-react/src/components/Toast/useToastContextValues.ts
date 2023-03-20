@@ -2,7 +2,7 @@
 import { useCallback, useMemo, useState } from 'react'
 
 /* Internal dependencies */
-import { noop } from 'Utils/functionUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   OnDismissCallback,
   defaultOptions,

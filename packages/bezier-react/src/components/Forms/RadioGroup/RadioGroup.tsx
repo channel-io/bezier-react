@@ -3,8 +3,8 @@ import React, { forwardRef, isValidElement } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import { Stack, StackItem } from 'Components/Stack'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+import { Stack, StackItem } from '~/src/components/Stack'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { RadioGroupProps } from './RadioGroup.types'
 
 function RadioGroupImpl<Value extends string>({

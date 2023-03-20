@@ -2,14 +2,14 @@
 import React, { forwardRef, useCallback, useMemo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { isLastIndex } from 'Utils/arrayUtils'
-import { noop } from 'Utils/functionUtils'
-import { Icon, IconSize, MoreIcon } from 'Components/Icon'
-import { AvatarProps, AvatarSize } from 'Components/Avatars/Avatar'
-import { AVATAR_GROUP_DEFAULT_SPACING } from 'Components/Avatars/AvatarStyle'
-import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
+import { Typography } from '~/src/foundation'
+import { isLastIndex } from '~/src/utils/arrayUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Icon, IconSize, MoreIcon } from '~/src/components/Icon'
+import { AvatarProps, AvatarSize } from '~/src/components/Avatars/Avatar'
+import { AVATAR_GROUP_DEFAULT_SPACING } from '~/src/components/Avatars/AvatarStyle'
 import * as Styled from './AvatarGroup.styled'
+import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
 
 const MAX_AVATAR_LIST_COUNT = 99
 

@@ -5,7 +5,7 @@ import React, { useMemo } from 'react'
 import {
   isNil,
   isEmpty,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import {
   TagBadgeStyled,
   TagBadgeSize,
@@ -17,8 +17,8 @@ import {
   getProperTagBadgePadding,
   getProperTagBadgeTypo,
   getProperTagBadgeRounding,
-} from 'Components/TagBadge/TagBadgeCommon'
-import { CancelSmallIcon } from 'Components/Icon'
+} from '~/src/components/TagBadge/TagBadgeCommon'
+import { CancelSmallIcon } from '~/src/components/Icon'
 import Styled from './Tag.styled'
 import TagProps from './Tag.types'
 

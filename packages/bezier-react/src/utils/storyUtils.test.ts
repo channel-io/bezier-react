@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { IconName } from 'Components/Icon'
+import { IconName } from '~/src/components/Icon'
 import { isArray } from './typeUtils'
 import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
 

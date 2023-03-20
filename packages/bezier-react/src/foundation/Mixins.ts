@@ -5,7 +5,7 @@ import type { SimpleInterpolation } from 'styled-components'
 /* Internal dependencies */
 import {
   isNil,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import { css } from './FoundationStyledComponent'
 
 export const absoluteCenter = (otherTransforms?: SimpleInterpolation) => css`

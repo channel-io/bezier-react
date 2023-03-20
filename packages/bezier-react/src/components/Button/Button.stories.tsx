@@ -12,40 +12,41 @@ import {
 import {
   styled,
   Typography,
-} from 'Foundation'
+} from '~/src/foundation'
 import {
   getTitle,
-} from 'Utils/storyUtils'
+} from '~/src/utils/storyUtils'
 import {
   Avatar,
-} from 'Components/Avatars/Avatar'
+} from '~/src/components/Avatars/Avatar'
 import {
   ButtonGroup,
-} from 'Components/ButtonGroup'
+} from '~/src/components/ButtonGroup'
 import {
   ListItem,
-} from 'Components/ListItem'
+} from '~/src/components/ListItem'
 import {
   Overlay,
   OverlayPosition,
-} from 'Components/Overlay'
+} from '~/src/components/Overlay'
 import {
   SectionLabel,
-} from 'Components/SectionLabel'
+} from '~/src/components/SectionLabel'
 import {
   HStack,
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   StatusType,
-} from 'Components/Status'
+} from '~/src/components/Status'
 import {
   Text,
-} from 'Components/Text'
+} from '~/src/components/Text'
 import {
   TagIcon,
-} from 'Components/Icon'
+} from '~/src/components/Icon'
+import mdx from './Button.mdx'
 import ButtonProps, {
   ButtonSize,
   ButtonStyleVariant,
@@ -54,7 +55,6 @@ import ButtonProps, {
 import {
   Button,
 } from './Button'
-import mdx from './Button.mdx'
 
 export default {
   title: getTitle(base),

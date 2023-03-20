@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
+import { styled } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
 
 const LEFT_LABEL_MIN_WIDTH = 150
 

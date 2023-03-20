@@ -2,7 +2,7 @@
 import { FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
-import { SemanticNames, Rounding } from 'Foundation'
+import { SemanticNames, Rounding } from '~/src/foundation'
 import { TextFieldVariant, TextFieldSize } from './TextField.types'
 
 interface BackgroundColorProps {

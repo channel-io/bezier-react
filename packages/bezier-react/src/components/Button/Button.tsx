@@ -2,16 +2,16 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
 
 /* Internal dependencies */
-import { Typography, SemanticNames } from 'Foundation'
+import { Typography, SemanticNames } from '~/src/foundation'
 import {
   flattenDeep,
-} from 'Utils/arrayUtils'
+} from '~/src/utils/arrayUtils'
 import {
   isArray,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { LegacyIcon, IconSize, isIconName } from 'Components/Icon'
-import { Spinner, SpinnerSize } from 'Components/Spinner'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
+import { Spinner, SpinnerSize } from '~/src/components/Spinner'
 import ButtonProps, {
   SideContent,
   ButtonSize,

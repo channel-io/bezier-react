@@ -10,8 +10,8 @@ import React, {
 /* Internal dependencies */
 import {
   isNil,
-} from 'Utils/typeUtils'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+} from '~/src/utils/typeUtils'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,
   StyledRadioHandle,

@@ -4,17 +4,17 @@ import { v4 as uuid } from 'uuid'
 import { useResizeDetector } from 'react-resize-detector'
 
 /* Internal dependencies */
-import useMergeRefs from 'Hooks/useMergeRefs'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import {
   isNumber,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import {
   range,
-} from 'Utils/numberUtils'
-import { noop } from 'Utils/functionUtils'
-import { Divider } from 'Components/Divider'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import { Text } from 'Components/Text'
+} from '~/src/utils/numberUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Divider } from '~/src/components/Divider'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { Text } from '~/src/components/Text'
 import {
   DIVIDER_WIDTH,
   DIVIDER_SIDE_MARGIN,

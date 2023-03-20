@@ -8,7 +8,7 @@ import React, {
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
-import { noop } from 'Utils/functionUtils'
+import { noop } from '~/src/utils/functionUtils'
 import SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 

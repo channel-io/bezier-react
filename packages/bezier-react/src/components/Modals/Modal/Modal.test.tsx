@@ -4,7 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import { Modal } from './Modal'
 import { ModalContent } from './ModalContent'
 import { ModalHeader } from './ModalHeader'

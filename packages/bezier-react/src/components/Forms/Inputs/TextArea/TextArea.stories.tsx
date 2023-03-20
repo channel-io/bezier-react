@@ -4,7 +4,7 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from 'Utils/storyUtils'
+import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
 import TextArea from './TextArea'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'
 

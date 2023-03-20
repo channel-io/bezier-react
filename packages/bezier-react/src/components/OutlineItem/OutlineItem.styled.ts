@@ -1,11 +1,11 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from 'Foundation'
+import { styled, css, ellipsis } from '~/src/foundation'
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { InterpolationProps } from 'Types/Foundation'
-import { ColorProps } from 'Types/ComponentProps'
-import { Icon, LegacyIcon } from 'Components/Icon'
+} from '~/src/utils/typeUtils'
+import { InterpolationProps } from '~/src/types/Foundation'
+import { ColorProps } from '~/src/types/ComponentProps'
+import { Icon, LegacyIcon } from '~/src/components/Icon'
 import OutlineItemProps from './OutlineItem.types'
 
 interface WrapperProps extends InterpolationProps {

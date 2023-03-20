@@ -9,10 +9,10 @@ import type {
   SideContentProps,
   AdditionalStylableProps,
   AdditionalColorProps,
-} from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms'
-import { FormFieldSize } from 'Components/Forms'
-import { BezierIcon, IconName } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import type { FormComponentProps } from '~/src/components/Forms'
+import { FormFieldSize } from '~/src/components/Forms'
+import { BezierIcon, IconName } from '~/src/components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

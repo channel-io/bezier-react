@@ -7,37 +7,37 @@ import {
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
 import {
   range,
-} from 'Utils/numberUtils'
+} from '~/src/utils/numberUtils'
 import {
   Avatar,
   AvatarSize,
-} from 'Components/Avatars/Avatar'
+} from '~/src/components/Avatars/Avatar'
 import {
   AvatarGroup,
   AvatarGroupEllipsisType,
-} from 'Components/Avatars/AvatarGroup'
+} from '~/src/components/Avatars/AvatarGroup'
 import {
   CheckableAvatar,
-} from 'Components/Avatars/CheckableAvatar'
+} from '~/src/components/Avatars/CheckableAvatar'
 import {
   Emoji,
   EmojiSize,
-} from 'Components/Emoji'
+} from '~/src/components/Emoji'
 import {
   HStack,
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   StatusType,
-} from 'Components/Status'
+} from '~/src/components/Status'
 import {
   Text,
-} from 'Components/Text'
+} from '~/src/components/Text'
 import mdx from './Avatars.mdx'
 
 export default {

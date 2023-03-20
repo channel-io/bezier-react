@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useMemo } from 'react'
 
 /* Internal dependencies */
-import { getReactVersion } from 'Utils/reactUtils'
+import { getReactVersion } from '~/src/utils/reactUtils'
 import {
   compact,
-} from 'Utils/arrayUtils'
+} from '~/src/utils/arrayUtils'
 
 /* @see https://github.com/chakra-ui/chakra-ui/blob/fa474bea3dcbdd4bbf2a26925f938d6e75a50c6d/packages/hooks/src/use-id.ts */
 const idRef = Object.seal({ current: 1 })
