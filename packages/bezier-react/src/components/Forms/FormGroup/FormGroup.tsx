@@ -2,8 +2,8 @@
 import React, { forwardRef, useEffect, isValidElement } from 'react'
 
 /* Internal dependencies */
-import { StackItem } from 'Components/Stack'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+import { StackItem } from '~/src/components/Stack'
+import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type FormGroupProps from './FormGroup.types'
 import * as Styled from './FormGroup.styled'
 

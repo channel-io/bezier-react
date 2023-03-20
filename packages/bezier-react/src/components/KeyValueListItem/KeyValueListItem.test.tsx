@@ -3,9 +3,9 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
-import { TOOLTIP_TEST_ID } from 'Components/Tooltip/Tooltip'
-import { AppleIcon, BadgeIcon } from 'Components/Icon'
+import { render } from '~/src/utils/testUtils'
+import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
+import { AppleIcon, BadgeIcon } from '~/src/components/Icon'
 import type { KeyValueListItemActionProps } from './common'
 import { KeyValueListItemProps } from './KeyValueListItem.types'
 import { TEST_ID_MAP } from './KeyValueListItem.const'

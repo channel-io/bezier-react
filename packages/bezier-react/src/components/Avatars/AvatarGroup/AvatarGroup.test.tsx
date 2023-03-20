@@ -2,15 +2,15 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
-import { Avatar } from 'Components/Avatars/Avatar'
+import { render } from '~/src/utils/testUtils'
+import { Avatar } from '~/src/components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 import { AvatarGroup, AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID } from './AvatarGroup'
 import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
 
-jest.mock('Worklets/EnableCSSHoudini', () => ({
+jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
   __esModule: true,
-  ...jest.requireActual('Worklets/EnableCSSHoudini') as object,
+  ...jest.requireActual('~/src/worklets/EnableCSSHoudini') as object,
   enableSmoothCorners: { current: true },
 }))
 

@@ -2,7 +2,7 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import { AlphaCenter } from './AlphaCenter'
 import { AlphaCenterProps } from './AlphaCenter.types'
 

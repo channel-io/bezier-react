@@ -2,11 +2,11 @@
 import React, { forwardRef, useEffect, useMemo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   isEmpty,
-} from 'Utils/typeUtils'
-import useFormControlContext from 'Components/Forms/useFormControlContext'
+} from '~/src/utils/typeUtils'
+import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type { BaseHelperTextProps, FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
 import * as Styled from './FormHelperText.styled'
 

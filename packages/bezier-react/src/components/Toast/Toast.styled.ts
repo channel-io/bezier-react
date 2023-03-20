@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { ellipsis, Foundation, LineHeightAbsoluteNumber, styled, Transition } from 'Foundation'
-import { ZIndex } from 'Constants/ZIndex'
+import { ellipsis, Foundation, LineHeightAbsoluteNumber, styled, Transition } from '~/src/foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import ToastElementProps, { ToastAppearance, ToastContainerProps, ToastPlacement } from './Toast.types'
 import { getIconColor, getPlacement, initPosition, showedToastTranslateXStyle } from './utils'
 

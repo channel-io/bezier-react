@@ -2,10 +2,10 @@
 import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect, useMemo } from 'react'
 
 /* Internal dependencies */
-import useMergeRefs from 'Hooks/useMergeRefs'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
-import useKeyboardActionLockerWhileComposing from 'Components/Forms/useKeyboardActionLockerWhileComposing'
-import { COMMON_IME_CONTROL_KEYS } from 'Components/Forms/Inputs/constants/CommonImeControlKeys'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
 import TextAreaProps, { TextAreaHeight } from './TextArea.types'

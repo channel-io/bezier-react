@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from 'Types/ComponentProps'
-import type { IconName } from 'Components/Icon'
+import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from '~/src/types/ComponentProps'
+import type { IconName } from '~/src/components/Icon'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

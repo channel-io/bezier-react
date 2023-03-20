@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
-import { ZIndex } from 'Constants/ZIndex'
+import { styled, css } from '~/src/foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
 import { getOverlayStyle } from './utils'
 

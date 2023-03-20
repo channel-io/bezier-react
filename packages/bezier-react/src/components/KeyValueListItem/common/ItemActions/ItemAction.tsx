@@ -8,10 +8,10 @@ import {
   isBoolean,
   isNil,
   isEmpty,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { IconSize, isIconName } from 'Components/Icon'
-import { TEST_ID_MAP } from 'Components/KeyValueListItem/KeyValueListItem.const'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { IconSize, isIconName } from '~/src/components/Icon'
+import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 import { ItemActionProps, ItemActionWithIcon, KeyValueListItemActionProps } from './ItemAction.types'
 import * as Styled from './ItemAction.styled'
 

@@ -4,7 +4,7 @@ import { base } from 'paths.macro'
 import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import { RadioGroup } from './RadioGroup'
 import { Radio } from './Radio'
 import { RadioGroupProps } from './RadioGroup.types'

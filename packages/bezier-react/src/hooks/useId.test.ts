@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { renderHook } from 'Utils/testUtils'
+import { renderHook } from '~/src/utils/testUtils'
 import useId, { useIdLegacy } from './useId'
 
 describe('useId >', () => {

@@ -4,8 +4,8 @@ import {
   ChildrenProps,
   AdditionalStylableProps,
   AdditionalTestIdProps,
-} from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms/Form.types'
+} from '~/src/types/ComponentProps'
+import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 import CheckType from './CheckType'
 
 interface CheckboxOptions {

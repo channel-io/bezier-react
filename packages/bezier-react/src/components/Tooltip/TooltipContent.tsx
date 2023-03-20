@@ -3,16 +3,16 @@ import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useMergeRefs from 'Hooks/useMergeRefs'
-import useEventHandler from 'Hooks/useEventHandler'
+import { Typography } from '~/src/foundation'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import useEventHandler from '~/src/hooks/useEventHandler'
 import {
   isArray,
   isString,
   isEmpty,
-} from 'Utils/typeUtils'
-import { getRootElement } from 'Utils/domUtils'
-import { Text } from 'Components/Text'
+} from '~/src/utils/typeUtils'
+import { getRootElement } from '~/src/utils/domUtils'
+import { Text } from '~/src/components/Text'
 import { TooltipContentProps, TooltipPosition } from './Tooltip.types'
 import { getReplacement, getTooltipStyle } from './utils'
 import { ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'

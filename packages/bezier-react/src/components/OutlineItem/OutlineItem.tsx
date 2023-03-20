@@ -4,15 +4,15 @@ import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 're
 /* Internal dependencies */
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   IconSize,
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
   isIconName,
   isBezierIcon,
-} from 'Components/Icon'
+} from '~/src/components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
 import OutlineItemProps from './OutlineItem.types'

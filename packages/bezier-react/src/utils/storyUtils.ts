@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import Icons, { IconName } from 'Components/Icon/generated'
+import Icons, { IconName } from '~/src/components/Icon/generated'
 import { isNaN } from './typeUtils'
 
 export const getTitle = (baseDir: string) => {

@@ -6,9 +6,9 @@ import {
   LightFoundation,
   DarkFoundation,
   createGlobalStyle,
-} from 'Foundation'
-import BezierProvider from 'Providers/BezierProvider'
-import { Text } from 'Components/Text'
+} from '~/src/foundation'
+import BezierProvider from '~/src/providers/BezierProvider'
+import { Text } from '~/src/components/Text'
 
 const FoundationKeyword = {
   Light: 'light',

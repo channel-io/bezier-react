@@ -43,11 +43,11 @@ src/components/          // `src/components` 아래에 모든 컴포넌트에 �
   - 컴포넌트의 directory 밖에서는 컴포넌트 import 시 `index.ts`에서 export 하는 값만 접근해야 합니다.
   - ✅ **DO**: Directory 밖에서 접근 시, 루트 export 파일에서 import합니다.
   ```tsx
-  import { ButtonProps } from 'Components/Button'
+  import { ButtonProps } from '~/src/components/Button'
   ```
   - 🚫 **DO NOT**: Directory 밖에서 접근 시, 컴포넌트 내부 파일에서 import합니다.
   ```tsx
-  import { ButtonProps } from 'Components/Button/Button.types'
+  import { ButtonProps } from '~/src/components/Button/Button.types'
   ```
   - 컴포넌트의 directory 내부에서는 이 파일에서 import해서는 안 됩니다. (**Circular dependency 예방**)
   - ✅ **DO**: Directory 내부에서 접근 시, 개별 파일에서 import합니다.

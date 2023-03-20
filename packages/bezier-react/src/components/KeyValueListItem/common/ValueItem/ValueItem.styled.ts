@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { ellipsis, styled, Typography } from 'Foundation'
-import { InterpolationProps } from 'Types/Foundation'
+import { ellipsis, styled, Typography } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
 
 interface ValueWrapperProps extends InterpolationProps {
   multiline?: boolean

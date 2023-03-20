@@ -2,8 +2,8 @@
 import React, { useMemo, forwardRef } from 'react'
 
 /* Internal dependencies */
-import { backgroundImageVariable } from 'Foundation'
-import { noop } from 'Utils/functionUtils'
+import { backgroundImageVariable } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
 import { Icon } from './Emoji.styled'

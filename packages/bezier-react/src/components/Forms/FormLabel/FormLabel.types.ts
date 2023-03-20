@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, IdentifierProps } from 'Types/ComponentProps'
-import { TextProps } from 'Components/Text'
+import { BezierComponentProps, ChildrenProps, IdentifierProps } from '~/src/types/ComponentProps'
+import { TextProps } from '~/src/components/Text'
 
 interface FormLabelOptions {
   htmlFor?: string

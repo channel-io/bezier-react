@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import {
   DotIcon,
   EmailUnreadIcon,
@@ -13,8 +13,8 @@ import {
   SmsIcon,
   EmailIcon,
   SecurityIcon,
-} from 'Components/Icon'
-import { Avatar, AvatarSize } from 'Components/Avatars/Avatar'
+} from '~/src/components/Icon'
+import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
 import OutlineItem from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
 

@@ -5,13 +5,13 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { styled } from 'Foundation'
-import { getTitle } from 'Utils/storyUtils'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
 import {
   isFunction,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { Text } from 'Components/Text'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { Text } from '~/src/components/Text'
 import { TabActionProps, TabListProps, TabsProps, TabSize } from './Tabs.types'
 import { Tabs } from './Tabs'
 import { TabList } from './TabList'

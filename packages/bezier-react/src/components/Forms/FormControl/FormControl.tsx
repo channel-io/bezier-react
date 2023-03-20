@@ -2,12 +2,12 @@
 import React, { useState, useCallback, useMemo } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import useId from 'Hooks/useId'
+import { Typography } from '~/src/foundation'
+import useId from '~/src/hooks/useId'
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { omitBezierComponentProps, pickBezierComponentProps } from 'Utils/propsUtils'
+} from '~/src/utils/typeUtils'
+import { omitBezierComponentProps, pickBezierComponentProps } from '~/src/utils/propsUtils'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
 import FormControlContext from './FormControlContext'

@@ -2,8 +2,8 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { noop } from 'Utils/functionUtils'
+import { Typography } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
 import TextProps from './Text.types'
 import TextView from './Text.styled'
 

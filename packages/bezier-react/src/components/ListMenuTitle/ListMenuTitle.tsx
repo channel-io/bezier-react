@@ -3,8 +3,8 @@ import React, { useCallback } from 'react'
 /* Internal dependencies */
 import {
   isNil,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
 import ListMenuTitleProps from './ListMenuTitle.types'
 import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
 

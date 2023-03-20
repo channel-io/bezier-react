@@ -2,11 +2,11 @@
 import React, { ReactNode, ComponentType } from 'react'
 
 /* Internal dependencies */
-import { TransitionDuration } from 'Foundation'
-import { noop } from 'Utils/functionUtils'
-import { BezierComponentProps, ContentProps } from 'Types/ComponentProps'
-import { InjectedInterpolation } from 'Types/Foundation'
-import { IconName } from 'Components/Icon'
+import { TransitionDuration } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
+import { BezierComponentProps, ContentProps } from '~/src/types/ComponentProps'
+import { InjectedInterpolation } from '~/src/types/Foundation'
+import { IconName } from '~/src/components/Icon'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',

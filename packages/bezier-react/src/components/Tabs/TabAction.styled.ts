@@ -2,8 +2,8 @@
 import * as Toolbar from '@radix-ui/react-toolbar'
 
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
-import { Icon } from 'Components/Icon'
+import { styled, css } from '~/src/foundation'
+import { Icon } from '~/src/components/Icon'
 import { TabSize } from './Tabs.types'
 
 function getPaddingStyle({ size }: { size: TabSize }) {

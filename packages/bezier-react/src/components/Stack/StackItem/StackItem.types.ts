@@ -2,8 +2,8 @@
 import type {
   BezierComponentProps,
   ChildrenProps,
-} from 'Types/ComponentProps'
-import type { AxisAlignment } from 'Components/Stack/types'
+} from '~/src/types/ComponentProps'
+import type { AxisAlignment } from '~/src/components/Stack/types'
 
 interface StackItemOptions {
   /**

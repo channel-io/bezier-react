@@ -5,8 +5,8 @@ import type {
   LinkProps,
   SideContentProps,
   ActivatableProps,
-} from 'Types/ComponentProps'
-import { IconName } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import { IconName } from '~/src/components/Icon'
 
 interface NavItemOptions {
   leftIcon?: IconName

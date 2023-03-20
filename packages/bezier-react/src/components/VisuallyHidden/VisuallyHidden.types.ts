@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ChildrenProps } from 'Types/ComponentProps'
+import { ChildrenProps } from '~/src/types/ComponentProps'
 
 export interface VisuallyHiddenProps extends
   ChildrenProps {}

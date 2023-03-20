@@ -1,6 +1,6 @@
 /* Internal dependencies */
-import { styled, css } from 'Foundation'
-import type { InterpolationProps } from 'Types/Foundation'
+import { styled, css } from '~/src/foundation'
+import type { InterpolationProps } from '~/src/types/Foundation'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean

@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { SemanticNames, Typography, Rounding } from 'Foundation'
+import { SemanticNames, Typography, Rounding } from '~/src/foundation'
 import TagBadgeVariant, { BadgeColorPreset, TagBadgeBgColorPreset } from './constants/TagBadgeVariant'
 import TagBadgeSize from './constants/TagBadgeSize'
 

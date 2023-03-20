@@ -4,7 +4,7 @@ import {
   pick,
   omit,
   isEqual,
-} from 'Utils/objectUtils'
+} from '~/src/utils/objectUtils'
 
 describe('objectUtils', () => {
   describe('has', () => {

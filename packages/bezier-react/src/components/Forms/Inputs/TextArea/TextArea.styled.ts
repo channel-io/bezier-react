@@ -2,16 +2,16 @@
 import TextareaAutosize from 'react-textarea-autosize'
 
 /* Internal dependencies */
-import { hideScrollbars, SemanticNames, styled, Typography } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { InterpolationProps } from 'Types/Foundation'
+import { hideScrollbars, SemanticNames, styled, Typography } from '~/src/foundation'
+import { InterpolationProps } from '~/src/types/Foundation'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   inputTextStyle,
   erroredInputWrapperStyle,
   focusedInputWrapperStyle,
   inputWrapperStyle,
   inputPlaceholderStyle,
-} from 'Components/Forms/Inputs/mixins'
+} from '~/src/components/Forms/Inputs/mixins'
 
 interface WrapperProps extends InterpolationProps {
   focused: boolean

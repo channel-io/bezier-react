@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { ExplicitDefaulting, BoxSizingUnit } from 'Types/CSS'
+import { ExplicitDefaulting, BoxSizingUnit } from '~/src/types/CSS'
 import { isExplicitDefaulting, isBoxSizingUnit, toLength } from './styleUtils'
 
 const ExplicitDefaultingValues = Object.values(ExplicitDefaulting)

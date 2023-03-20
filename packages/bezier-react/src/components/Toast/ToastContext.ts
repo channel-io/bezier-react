@@ -2,7 +2,7 @@
 import { createContext } from 'react'
 
 /* Internal dependencies */
-import { noop } from 'Utils/functionUtils'
+import { noop } from '~/src/utils/functionUtils'
 import { ToastContextType } from './Toast.types'
 
 const ToastContext = createContext<ToastContextType>({

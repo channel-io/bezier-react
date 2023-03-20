@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { styled, css, keyframes } from 'Foundation'
+import { styled, css, keyframes } from '~/src/foundation'
 import { StyledSpinnerProps, SpinnerSize, SpinnerThickness } from './Spinner.types'
 
 function getThicknessFromSize(size: SpinnerSize) {

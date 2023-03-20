@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from 'Foundation'
-import disabledOpacity from 'Constants/DisabledOpacity'
-import { Icon, LegacyIcon } from 'Components/Icon'
+import { styled, css, ellipsis, SemanticNames, LineHeightAbsoluteNumber, TransitionDuration } from '~/src/foundation'
+import disabledOpacity from '~/src/constants/DisabledOpacity'
+import { Icon, LegacyIcon } from '~/src/components/Icon'
 import { ListItemVariant, ListItemSize } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 

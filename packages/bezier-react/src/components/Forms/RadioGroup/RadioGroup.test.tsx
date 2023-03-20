@@ -4,7 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import { RadioGroup } from './RadioGroup'
 import { Radio } from './Radio'
 import { RadioGroupProps, RadioProps } from './RadioGroup.types'

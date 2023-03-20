@@ -5,10 +5,10 @@ import React, { Ref, forwardRef, useMemo } from 'react'
 import {
   isBoolean,
   isEmpty,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
-import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from 'Components/Icon'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
+import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from '~/src/components/Icon'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
 import * as Styled from './Checkbox.styled'

@@ -5,7 +5,7 @@ import {
   isString,
   isSymbol,
   isEmpty,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 
 export function mergeClassNames(className?: string, ...otherClassNames: Array<string | undefined>): string | undefined {
   if (!isEmpty(className) || !isEmpty(otherClassNames)) {

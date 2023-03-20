@@ -2,12 +2,12 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import { styled, css, Typography } from 'Foundation'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { touchableHover } from 'Utils/styleUtils'
-import { Text } from 'Components/Text'
-import { FormFieldSize } from 'Components/Forms'
-import { focusedInputWrapperStyle } from 'Components/Forms/Inputs/mixins'
+import { styled, css, Typography } from '~/src/foundation'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { touchableHover } from '~/src/utils/styleUtils'
+import { Text } from '~/src/components/Text'
+import { FormFieldSize } from '~/src/components/Forms'
+import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 import { RadioProps } from './RadioGroup.types'
 
 const OUTER_INDICATOR_SIZE = 18

@@ -8,7 +8,7 @@ import {
   ContentProps,
   DisableProps,
   AdditionalStylableProps,
-} from 'Types/ComponentProps'
+} from '~/src/types/ComponentProps'
 
 interface TooltipOptions {
   placement?: TooltipPosition

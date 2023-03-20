@@ -1,10 +1,10 @@
 /* Internal denpendencies */
-import { styled, css, smoothCorners } from 'Foundation'
-import { enableSmoothCorners } from 'Worklets/EnableCSSHoudini'
-import type { InterpolationProps } from 'Types/Foundation'
-import { ZIndex } from 'Constants/ZIndex'
-import DisabledOpacity from 'Constants/DisabledOpacity'
-import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from 'Components/Avatars/AvatarStyle'
+import { styled, css, smoothCorners } from '~/src/foundation'
+import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
+import type { InterpolationProps } from '~/src/types/Foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { AVATAR_BORDER_WIDTH, AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { AvatarSize } from './Avatar.types'
 
 interface AvatarWrapperProps extends InterpolationProps {

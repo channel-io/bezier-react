@@ -4,7 +4,7 @@ import { act } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
 
 /* Internal dependencies */
-import { render } from 'Utils/testUtils'
+import { render } from '~/src/utils/testUtils'
 import Tooltip, { TOOLTIP_TEST_ID, TOOLTIP_CONTENT_TEST_ID } from './Tooltip'
 import TooltipProps from './Tooltip.types'
 

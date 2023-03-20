@@ -9,25 +9,25 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import {
   styled,
-} from 'Foundation'
+} from '~/src/foundation'
 import {
   getTitle,
-} from 'Utils/storyUtils'
+} from '~/src/utils/storyUtils'
 import {
   gap,
-} from 'Utils/styleUtils'
-import { noop } from 'Utils/functionUtils'
+} from '~/src/utils/styleUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   HStack,
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   Badge,
   Tag,
   TagBadgeSize,
   TagBadgeVariant,
-} from 'Components/TagBadge'
+} from '~/src/components/TagBadge'
 import mdx from './TagBadge.mdx'
 
 export default {

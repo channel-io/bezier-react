@@ -11,12 +11,12 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
-import { ZIndex } from 'Constants/ZIndex'
+import { Typography } from '~/src/foundation'
+import { ZIndex } from '~/src/constants/ZIndex'
 import {
   isEmpty,
-} from 'Utils/typeUtils'
-import { noop } from 'Utils/functionUtils'
+} from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   Icon,
   ChevronUpIcon,
@@ -25,10 +25,10 @@ import {
   isBezierIcon,
   isIconName,
   LegacyIcon,
-} from 'Components/Icon'
-import { OverlayPosition } from 'Components/Overlay'
-import { Text } from 'Components/Text'
-import useFormFieldProps from 'Components/Forms/useFormFieldProps'
+} from '~/src/components/Icon'
+import { OverlayPosition } from '~/src/components/Overlay'
+import { Text } from '~/src/components/Text'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import SelectProps, { SelectRef, SelectSize } from './Select.types'
 import * as Styled from './Select.styled'

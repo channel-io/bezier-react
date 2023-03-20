@@ -1,10 +1,10 @@
 /* Internal dependencies */
-import { styled } from 'Foundation'
+import { styled } from '~/src/foundation'
 import {
   Button as BaseButton,
   ButtonColorVariant,
   ButtonStyleVariant,
-} from 'Components/Button'
+} from '~/src/components/Button'
 
 const HEIGHT = 3
 

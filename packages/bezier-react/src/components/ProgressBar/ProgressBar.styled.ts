@@ -3,8 +3,8 @@ import {
   styled,
   css,
   type Foundation,
-} from 'Foundation'
-import { toLength } from 'Utils/styleUtils'
+} from '~/src/foundation'
+import { toLength } from '~/src/utils/styleUtils'
 import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 

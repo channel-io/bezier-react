@@ -7,11 +7,11 @@ import type {
   AdditionalStylableProps,
   AdditionalColorProps,
   AdditionalTestIdProps,
-} from 'Types/ComponentProps'
-import type { FormComponentProps } from 'Components/Forms'
-import { FormFieldSize } from 'Components/Forms'
-import type { OverlayProps } from 'Components/Overlay'
-import type { BezierIcon } from 'Components/Icon'
+} from '~/src/types/ComponentProps'
+import type { FormComponentProps } from '~/src/components/Forms'
+import { FormFieldSize } from '~/src/components/Forms'
+import type { OverlayProps } from '~/src/components/Overlay'
+import type { BezierIcon } from '~/src/components/Icon'
 
 export enum SelectSize {
   XL = FormFieldSize.XL,

@@ -4,8 +4,8 @@ import base from 'paths.macro'
 import { Story, Meta } from '@storybook/react'
 
 /* Internal dependencies */
-import { getTitle } from 'Utils/storyUtils'
-import { Text } from 'Components/Text'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Text } from '~/src/components/Text'
 import { AlphaCenter } from './AlphaCenter'
 import { AlphaCenterProps } from './AlphaCenter.types'
 

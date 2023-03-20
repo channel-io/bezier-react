@@ -3,12 +3,12 @@ import React from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
-import { LightFoundation } from 'Foundation'
-import { render } from 'Utils/testUtils'
+import { LightFoundation } from '~/src/foundation'
+import { render } from '~/src/utils/testUtils'
 import {
   range,
-} from 'Utils/numberUtils'
-import { EditIcon } from 'Components/Icon'
+} from '~/src/utils/numberUtils'
+import { EditIcon } from '~/src/components/Icon'
 import OutlineItem, { OUTLINE_ITEM_LEFT_ICON_TEST_ID, OUTLINE_ITEM_TEST_ID } from './OutlineItem'
 import OutlineItemProps from './OutlineItem.types'
 

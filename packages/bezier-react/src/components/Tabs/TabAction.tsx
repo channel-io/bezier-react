@@ -5,15 +5,15 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import { Typography } from 'Foundation'
+import { Typography } from '~/src/foundation'
 import {
   isNil,
-} from 'Utils/typeUtils'
+} from '~/src/utils/typeUtils'
 import {
   IconSize,
   OpenInNewIcon,
-} from 'Components/Icon'
-import { Text } from 'Components/Text'
+} from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 import TabListContext from './TabListContext'
 import {
   TabActionElement,

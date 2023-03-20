@@ -8,21 +8,21 @@ import {
 /* Internal dependencies */
 import {
   styled,
-} from 'Foundation'
+} from '~/src/foundation'
 import {
   StackItem,
   VStack,
-} from 'Components/Stack'
+} from '~/src/components/Stack'
 import {
   Text,
-} from 'Components/Text'
+} from '~/src/components/Text'
 import {
   Typography,
 } from './Typography'
 import mdx from './Typography.mdx'
 
 export default {
-  title: 'Foundation/Typography',
+  title: '~/src/foundation/Typography',
   parameters: {
     docs: {
       page: mdx,

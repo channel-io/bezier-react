@@ -1,7 +1,7 @@
 /* Internal dependencies */
-import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps } from 'Types/ComponentProps'
-import { IconName } from 'Components/Icon'
-import { TagBadgeSize, TagBadgeVariant } from 'Components/TagBadge'
+import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps } from '~/src/types/ComponentProps'
+import { IconName } from '~/src/components/Icon'
+import { TagBadgeSize, TagBadgeVariant } from '~/src/components/TagBadge'
 
 interface BadgeOptions {
   /**

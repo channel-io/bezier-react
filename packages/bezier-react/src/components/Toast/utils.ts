@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { css } from 'Foundation'
+import { css } from '~/src/foundation'
 import { ToastAppearance, ToastIconColor, ToastPlacement, ToastPreset, ToastPresetType } from './Toast.types'
 
 /**
