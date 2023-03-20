@@ -1,11 +1,11 @@
 /* External dependencies */
 import React, { forwardRef, useContext } from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import * as VisuallyHiddenPrimitive from '@radix-ui/react-visually-hidden'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import { Text } from '~/src/components/Text'
+import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 import ModalContentContext from './ModalContentContext'
 import { ModalHeaderProps, ModalTitleSize } from './Modal.types'
 import * as Styled from './Modal.styled'
@@ -61,23 +61,6 @@ function ModalHeaderTitle({
   )
 }
 
-function VisuallyHidden({
-  children,
-  hidden,
-}: React.PropsWithChildren<Required<Pick<ModalHeaderProps, 'hidden'>>>) {
-  return hidden
-    ? (
-      <VisuallyHiddenPrimitive.Root asChild>
-        { children }
-      </VisuallyHiddenPrimitive.Root>
-    )
-    : (
-      <>
-        { children }
-      </>
-    )
-}
-
 /**
  * `ModalHeader` is a header of the modal content.
  * It renders the accessible title and description of the modal.
@@ -93,9 +76,10 @@ export const ModalHeader = forwardRef(function ModalHeader({
 }: ModalHeaderProps, forwardedRef: React.Ref<HTMLElement>) {
   const { showCloseIcon } = useContext(ModalContentContext)
   const hasTitleArea = title || showCloseIcon
+  const Hidden = hidden ? VisuallyHidden : React.Fragment
 
   return (
-    <VisuallyHidden hidden={hidden}>
+    <Hidden>
       <Styled.Header
         ref={forwardedRef}
         hidden={hidden}
@@ -130,6 +114,6 @@ export const ModalHeader = forwardRef(function ModalHeader({
           </DialogPrimitive.Description>
         ) }
       </Styled.Header>
-    </VisuallyHidden>
+    </Hidden>
   )
 })

@@ -3,7 +3,9 @@
   "tag": "next-v1",
   "initialVersions": {
     "bezier-figma-plugin": "0.1.0",
-    "@channel.io/bezier-react": "1.0.0-next-v1.155"
+    "@channel.io/bezier-react": "1.0.0-next-v1.155",
+    "eslint-config-bezier": "0.0.1",
+    "tsconfig": "0.0.1"
   },
   "changesets": [
     "afraid-kids-do",
@@ -33,6 +35,7 @@
     "healthy-sheep-taste",
     "heavy-jars-behave",
     "heavy-pandas-deny",
+    "hungry-islands-judge",
     "kind-chairs-hide",
     "lemon-steaks-decide",
     "little-beans-cry",
@@ -47,6 +50,7 @@
     "old-students-raise",
     "poor-brooms-arrive",
     "pretty-tools-sneeze",
+    "proud-countries-breathe",
     "purple-shrimps-play",
     "quick-ravens-dance",
     "real-vans-tie",

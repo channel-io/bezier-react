@@ -47,6 +47,9 @@ export * from '~/src/components/TagBadge'
 export * from '~/src/components/Text'
 export * from '~/src/components/Toast'
 export * from '~/src/components/Tooltip'
+export * from '~/src/components/VisuallyHidden'
+
+export * from '~/src/components/AlphaCenter'
 
 export * as LegacyRadio from '~/src/components/Legacies/Radio'
 
