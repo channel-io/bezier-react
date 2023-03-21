@@ -81,6 +81,7 @@ const Template: Story<{ property: keyof ElementProps }> = (args) => {
     bottom?: number
     left?: number
   } = useMemo(() => {
+    // eslint-disable-next-line react/destructuring-assignment
     switch (args.property) {
       case 'top':
         return {

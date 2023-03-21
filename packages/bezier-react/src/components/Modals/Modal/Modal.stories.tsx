@@ -87,6 +87,7 @@ function ModalComposition({
             <Select text="Lorem Ipsum">
               { Array.from({ length: 20 }).map((_, index) => (
                 <ListItem
+                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   content={`Item ${index}`}
                 />

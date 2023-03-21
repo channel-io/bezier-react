@@ -107,6 +107,7 @@ export const Slider = forwardRef(function Slider(
         { currentValue.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
+            // eslint-disable-next-line react/no-array-index-key
             key={`slider-thumb-${i}`}
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
