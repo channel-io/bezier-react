@@ -1,5 +1,6 @@
 /* Internal dependencies */
-import TextAreaProps, { TextAreaHeight } from './TextArea.types'
+import type TextAreaProps from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 import TextArea from './TextArea'
 
 export type {

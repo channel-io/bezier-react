@@ -1,5 +1,9 @@
 /* External dependencies */
-import React, { Ref, forwardRef, useMemo } from 'react'
+import React, {
+  type Ref,
+  forwardRef,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import {
@@ -7,7 +11,12 @@ import {
   isEmpty,
 } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
-import { IconSize, IconProps, CheckBoldIcon, HyphenBoldIcon } from '~/src/components/Icon'
+import {
+  IconSize,
+  type IconProps,
+  CheckBoldIcon,
+  HyphenBoldIcon,
+} from '~/src/components/Icon'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'

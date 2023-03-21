@@ -1,23 +1,37 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useMemo, useState } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react'
 
 /* Internal dependencies */
-import { Typography, SemanticNames } from '~/src/foundation'
 import {
-  flattenDeep,
-} from '~/src/utils/arrayUtils'
-import {
-  isArray,
-} from '~/src/utils/typeUtils'
+  Typography,
+  type SemanticNames,
+} from '~/src/foundation'
+import { flattenDeep } from '~/src/utils/arrayUtils'
+import { isArray } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
-import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
-import { Spinner, SpinnerSize } from '~/src/components/Spinner'
-import ButtonProps, {
-  SideContent,
+import {
+  LegacyIcon,
+  IconSize,
+  isIconName,
+} from '~/src/components/Icon'
+import {
+  Spinner,
+  SpinnerSize,
+} from '~/src/components/Spinner'
+import {
+  type SideContent,
+  type MouseEventHandler,
+} from './Button.types'
+import type ButtonProps from './Button.types'
+import {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,
-  MouseEventHandler,
 } from './Button.types'
 import * as Styled from './Button.styled'
 

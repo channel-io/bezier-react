@@ -1,7 +1,12 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { VStack, StackItem, ListItem, ListItemSize } from '@channel.io/bezier-react'
+import {
+  VStack,
+  StackItem,
+  ListItem,
+  ListItemSize,
+} from '@channel.io/bezier-react'
 
 function Home() {
   const navigate = useNavigate()

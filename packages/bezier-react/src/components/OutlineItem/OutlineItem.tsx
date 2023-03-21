@@ -1,10 +1,14 @@
 /* External dependencies */
-import React, { useCallback, useMemo, useState, useEffect, forwardRef } from 'react'
+import React, {
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  forwardRef,
+} from 'react'
 
 /* Internal dependencies */
-import {
-  isNil,
-} from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
 import {
   IconSize,
@@ -15,7 +19,7 @@ import {
 } from '~/src/components/Icon'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
-import OutlineItemProps from './OutlineItem.types'
+import type OutlineItemProps from './OutlineItem.types'
 import {
   GroupItemWrapper,
   StyledIcon,

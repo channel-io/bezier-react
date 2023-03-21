@@ -6,8 +6,11 @@ import { fireEvent } from '@testing-library/dom'
 /* Internal dependencies */
 import { css } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import Tooltip, { TOOLTIP_TEST_ID, TOOLTIP_CONTENT_TEST_ID } from './Tooltip'
-import TooltipProps from './Tooltip.types'
+import Tooltip, {
+  TOOLTIP_TEST_ID,
+  TOOLTIP_CONTENT_TEST_ID,
+} from './Tooltip'
+import type TooltipProps from './Tooltip.types'
 
 const RootTooltip: React.FC<TooltipProps> = ({ children, ...rests }) => (
   <Tooltip {...rests}>

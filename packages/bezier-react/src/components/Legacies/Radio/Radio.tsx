@@ -3,20 +3,18 @@ import React, {
   useCallback,
   useState,
   useMemo,
-  MouseEvent,
+  type MouseEvent,
   forwardRef,
 } from 'react'
 
 /* Internal dependencies */
-import {
-  isNil,
-} from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/typeUtils'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
   StyledRadioWrapper,
   StyledRadioHandle,
 } from './Radio.styled'
-import RadioProps from './Radio.types'
+import type RadioProps from './Radio.types'
 
 export const RADIO_TEST_ID = 'bezier-react-radio'
 export const RADIO_HANDLE_TEST_ID = 'bezier-react-radio-handle'

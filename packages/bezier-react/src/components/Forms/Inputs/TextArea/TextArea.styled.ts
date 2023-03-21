@@ -2,8 +2,13 @@
 import TextareaAutosize from 'react-textarea-autosize'
 
 /* Internal dependencies */
-import { hideScrollbars, SemanticNames, styled, Typography } from '~/src/foundation'
-import { InterpolationProps } from '~/src/types/Foundation'
+import {
+  hideScrollbars,
+  type SemanticNames,
+  styled,
+  Typography,
+} from '~/src/foundation'
+import { type InterpolationProps } from '~/src/types/Foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import {
   inputTextStyle,

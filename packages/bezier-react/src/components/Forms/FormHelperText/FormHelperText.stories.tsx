@@ -1,12 +1,21 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type {
+  Story,
+  Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { FormHelperText, FormErrorMessage } from './FormHelperText'
-import { FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
+import {
+  FormHelperText,
+  FormErrorMessage,
+} from './FormHelperText'
+import {
+  type FormHelperTextProps,
+  type FormErrorMessageProps,
+} from './FormHelperText.types'
 
 export default {
   title: getTitle(base),

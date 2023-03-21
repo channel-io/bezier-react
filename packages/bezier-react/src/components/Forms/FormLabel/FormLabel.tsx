@@ -1,5 +1,8 @@
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, {
+  forwardRef,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
@@ -7,7 +10,10 @@ import { isEmpty } from '~/src/utils/typeUtils'
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import { Help } from '~/src/components/Help'
 import { HELP_DISPLAY_NAME } from '~/src/components/Help/Help'
-import { HStack, StackItem } from '~/src/components/Stack'
+import {
+  HStack,
+  StackItem,
+} from '~/src/components/Stack'
 import type FormLabelProps from './FormLabel.types'
 import * as Styled from './FormLabel.styled'
 

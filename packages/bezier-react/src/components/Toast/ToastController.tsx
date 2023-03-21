@@ -1,10 +1,18 @@
 /* External dependencies */
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 
 /* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
-import { ToastControllerProps } from './Toast.types'
-import { showedToastTranslateXStyle, initPosition } from './utils'
+import { type ToastControllerProps } from './Toast.types'
+import {
+  showedToastTranslateXStyle,
+  initPosition,
+} from './utils'
 
 function ToastController({
   autoDismissTimeout,

@@ -1,14 +1,23 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
-import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
-import { AvatarGroupEllipsisType, AvatarGroupProps } from './AvatarGroup.types'
+import {
+  AvatarGroupEllipsisType,
+  type AvatarGroupProps,
+} from './AvatarGroup.types'
 import { AvatarGroup } from './AvatarGroup'
 
 const avatarSizeList = Object.keys(AvatarSize)

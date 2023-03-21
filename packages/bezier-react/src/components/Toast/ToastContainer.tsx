@@ -3,7 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { Container } from './Toast.styled'
-import { ToastContainerProps } from './Toast.types'
+import { type ToastContainerProps } from './Toast.types'
 
 const ToastContainer = ({
   placement,

@@ -1,9 +1,15 @@
 /* External dependencies */
-import { FlattenSimpleInterpolation } from 'styled-components'
+import { type FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
-import { SemanticNames, Rounding } from '~/src/foundation'
-import { TextFieldVariant, TextFieldSize } from './TextField.types'
+import {
+  type SemanticNames,
+  Rounding,
+} from '~/src/foundation'
+import {
+  TextFieldVariant,
+  TextFieldSize,
+} from './TextField.types'
 
 interface BackgroundColorProps {
   variant: TextFieldVariant

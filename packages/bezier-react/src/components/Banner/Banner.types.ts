@@ -2,7 +2,12 @@
 import type { ReactNode } from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, VariantProps, ContentProps, AdditionalColorProps } from '~/src/types/ComponentProps'
+import type {
+  BezierComponentProps,
+  VariantProps,
+  ContentProps,
+  AdditionalColorProps,
+} from '~/src/types/ComponentProps'
 import type { IconName } from '~/src/components/Icon'
 import type { ButtonProps } from '~/src/components/Button'
 

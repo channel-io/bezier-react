@@ -1,11 +1,9 @@
 /* External dependencies */
-import React, {
-  useState,
-} from 'react'
+import React, { useState } from 'react'
 import base from 'paths.macro'
 import {
-  Meta,
-  Story,
+  type Meta,
+  type Story,
 } from '@storybook/react'
 
 /* Internal dependencies */
@@ -13,48 +11,31 @@ import {
   styled,
   Typography,
 } from '~/src/foundation'
-import {
-  getTitle,
-} from '~/src/utils/storyUtils'
-import {
-  Avatar,
-} from '~/src/components/Avatars/Avatar'
-import {
-  ButtonGroup,
-} from '~/src/components/ButtonGroup'
-import {
-  ListItem,
-} from '~/src/components/ListItem'
+import { getTitle } from '~/src/utils/storyUtils'
+import { Avatar } from '~/src/components/Avatars/Avatar'
+import { ButtonGroup } from '~/src/components/ButtonGroup'
+import { ListItem } from '~/src/components/ListItem'
 import {
   Overlay,
   OverlayPosition,
 } from '~/src/components/Overlay'
-import {
-  SectionLabel,
-} from '~/src/components/SectionLabel'
+import { SectionLabel } from '~/src/components/SectionLabel'
 import {
   HStack,
   StackItem,
   VStack,
 } from '~/src/components/Stack'
-import {
-  StatusType,
-} from '~/src/components/Status'
-import {
-  Text,
-} from '~/src/components/Text'
-import {
-  TagIcon,
-} from '~/src/components/Icon'
+import { StatusType } from '~/src/components/Status'
+import { Text } from '~/src/components/Text'
+import { TagIcon } from '~/src/components/Icon'
 import mdx from './Button.mdx'
-import ButtonProps, {
+import type ButtonProps from './Button.types'
+import {
   ButtonSize,
   ButtonStyleVariant,
   ButtonColorVariant,
 } from './Button.types'
-import {
-  Button,
-} from './Button'
+import { Button } from './Button'
 
 export default {
   title: getTitle(base),

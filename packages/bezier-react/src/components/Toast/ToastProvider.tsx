@@ -3,13 +3,16 @@ import React, { useCallback } from 'react'
 import { createPortal } from 'react-dom'
 
 /* Internal dependencies */
-import { css, TransitionDuration } from '~/src/foundation'
+import {
+  css,
+  TransitionDuration,
+} from '~/src/foundation'
 import { getRootElement } from '~/src/utils/domUtils'
 import ToastContext from './ToastContext'
 import {
   ToastPlacement,
-  ToastProviderProps,
-  ToastType,
+  type ToastProviderProps,
+  type ToastType,
 } from './Toast.types'
 import ToastContainer from './ToastContainer'
 import ToastController from './ToastController'

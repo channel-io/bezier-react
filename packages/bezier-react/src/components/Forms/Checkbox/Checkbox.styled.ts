@@ -1,5 +1,9 @@
 /* Internal dependencies */
-import { styled, css, absoluteCenter } from '~/src/foundation'
+import {
+  styled,
+  css,
+  absoluteCenter,
+} from '~/src/foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { Icon as BaseIcon } from '~/src/components/Icon'
 import CheckType from './CheckType'

@@ -20,7 +20,7 @@ import {
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { CancelSmallIcon } from '~/src/components/Icon'
 import Styled from './Tag.styled'
-import TagProps from './Tag.types'
+import type TagProps from './Tag.types'
 
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'

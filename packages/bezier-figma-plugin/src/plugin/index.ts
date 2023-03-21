@@ -1,6 +1,13 @@
 /* Internal dependencies */
-import { ExtractIconPluginMessage, GetTokenPluginMessage, UIMessage } from '../types/Message'
-import { flatten, findAllComponentNode } from './utils'
+import {
+  type ExtractIconPluginMessage,
+  type GetTokenPluginMessage,
+  type UIMessage,
+} from '../types/Message'
+import {
+  flatten,
+  findAllComponentNode,
+} from './utils'
 
 // eslint-disable-next-line no-console
 console.info('Figma file key: ', figma.fileKey)

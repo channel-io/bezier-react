@@ -1,5 +1,10 @@
 /* Internal dependencies */
-import { styled, css, ellipsis, LineHeightAbsoluteNumber } from '~/src/foundation'
+import {
+  styled,
+  css,
+  ellipsis,
+  LineHeightAbsoluteNumber,
+} from '~/src/foundation'
 import type { InterpolationProps } from '~/src/types/Foundation'
 import { ZIndex } from '~/src/constants/ZIndex'
 

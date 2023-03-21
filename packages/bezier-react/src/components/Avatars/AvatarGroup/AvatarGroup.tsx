@@ -1,15 +1,29 @@
 /* External dependencies */
-import React, { forwardRef, useCallback, useMemo } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import { isLastIndex } from '~/src/utils/arrayUtils'
 import { noop } from '~/src/utils/functionUtils'
-import { Icon, IconSize, MoreIcon } from '~/src/components/Icon'
-import { AvatarProps, AvatarSize } from '~/src/components/Avatars/Avatar'
+import {
+  Icon,
+  IconSize,
+  MoreIcon,
+} from '~/src/components/Icon'
+import {
+  type AvatarProps,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
 import { AVATAR_GROUP_DEFAULT_SPACING } from '~/src/components/Avatars/AvatarStyle'
 import * as Styled from './AvatarGroup.styled'
-import { AvatarGroupEllipsisType, type AvatarGroupProps } from './AvatarGroup.types'
+import {
+  AvatarGroupEllipsisType,
+  type AvatarGroupProps,
+} from './AvatarGroup.types'
 
 const MAX_AVATAR_LIST_COUNT = 99
 

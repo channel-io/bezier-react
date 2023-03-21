@@ -2,7 +2,7 @@
 import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { ModalFooterProps } from './Modal.types'
+import { type ModalFooterProps } from './Modal.types'
 import * as Styled from './Modal.styled'
 
 /**

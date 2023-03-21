@@ -6,8 +6,11 @@ import { Themes } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
 import { noop } from '~/src/utils/functionUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
-import CheckboxProps from './Checkbox.types'
+import Checkbox, {
+  CHECKBOX_TEST_ID,
+  CHECKBOX_CHECKER_TEST_ID,
+} from './Checkbox'
+import type CheckboxProps from './Checkbox.types'
 import CheckType from './CheckType'
 
 describe('Checkbox test >', () => {

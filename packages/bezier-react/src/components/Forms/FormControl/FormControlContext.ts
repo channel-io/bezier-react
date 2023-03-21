@@ -2,7 +2,7 @@
 import { createContext } from 'react'
 
 /* Internal dependencies */
-import { FormControlContextValue } from '~/src/components/Forms/FormControl'
+import { type FormControlContextValue } from '~/src/components/Forms/FormControl'
 
 const FormControlContext = createContext<FormControlContextValue | undefined>(undefined)
 

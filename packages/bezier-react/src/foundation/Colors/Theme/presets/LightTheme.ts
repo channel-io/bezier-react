@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { Palette } from '~/src/foundation/Colors/Palette'
-import { ThemeType } from '~/src/foundation/Colors/Theme'
+import { type ThemeType } from '~/src/foundation/Colors/Theme'
 
 const LightTheme: ThemeType = {
   // Elevation Background

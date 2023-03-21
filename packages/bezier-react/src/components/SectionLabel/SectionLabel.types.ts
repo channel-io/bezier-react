@@ -10,7 +10,10 @@ import type {
   AdditionalStylableProps,
   AdditionalColorProps,
 } from '~/src/types/ComponentProps'
-import type { IconName, IconSize } from '~/src/components/Icon'
+import type {
+  IconName,
+  IconSize,
+} from '~/src/components/Icon'
 
 interface IconInfo extends AdditionalColorProps<'icon'> {
   icon: IconName

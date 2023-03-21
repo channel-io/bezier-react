@@ -3,7 +3,7 @@ import { createContext } from 'react'
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
-import { ToastContextType } from './Toast.types'
+import { type ToastContextType } from './Toast.types'
 
 const ToastContext = createContext<ToastContextType>({
   add: () => '',

@@ -1,5 +1,9 @@
 /* Internal dependencies */
-import BasePaletteKey, { BaseMonoPaletteKey, BaseColorfulPaletteKey } from '~/src/foundation/Colors/Palette/BasePaletteKey'
+import {
+  type BaseMonoPaletteKey,
+  type BaseColorfulPaletteKey,
+} from '~/src/foundation/Colors/Palette/BasePaletteKey'
+import type BasePaletteKey from '~/src/foundation/Colors/Palette/BasePaletteKey'
 
 type MonoBackgroundColor =
   | `bg-${BaseMonoPaletteKey}-darkest`

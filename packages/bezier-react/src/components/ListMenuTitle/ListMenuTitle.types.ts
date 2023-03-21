@@ -1,8 +1,11 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, ContentProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type ContentProps,
+} from '~/src/types/ComponentProps'
 
 interface ListMenuTitleOptions {
   rightAction?: React.ReactNode

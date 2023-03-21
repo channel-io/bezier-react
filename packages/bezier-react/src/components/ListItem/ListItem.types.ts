@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import React from 'react'
+import type React from 'react'
 import type {
   BezierComponentProps,
   ContentProps,
@@ -12,7 +12,10 @@ import type {
   SideContentProps,
   AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
-import type { BezierIcon, IconName } from '~/src/components/Icon'
+import type {
+  BezierIcon,
+  IconName,
+} from '~/src/components/Icon'
 
 export enum ListItemSize {
   S = 's',

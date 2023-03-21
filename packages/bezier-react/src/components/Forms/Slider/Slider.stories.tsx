@@ -7,9 +7,7 @@ import {
 } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 import { Slider } from './Slider'
 import type SliderProps from './Slider.types'
 

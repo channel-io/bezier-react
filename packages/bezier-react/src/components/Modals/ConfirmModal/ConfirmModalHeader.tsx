@@ -7,7 +7,7 @@ import {
   ModalHeader,
   ModalTitleSize,
 } from '../Modal'
-import { ConfirmModalHeaderProps } from './ConfirmModal.types'
+import { type ConfirmModalHeaderProps } from './ConfirmModal.types'
 
 /**
  * `ConfirmModalHeader` is a header of the modal content.

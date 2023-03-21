@@ -1,8 +1,11 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+} from '~/src/types/ComponentProps'
 
 interface ValueItemOptions {
   multiline?: boolean

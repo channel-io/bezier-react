@@ -1,5 +1,10 @@
 /* External dependencies */
-import React, { forwardRef, useState, useCallback, useMemo } from 'react'
+import React, {
+  forwardRef,
+  useState,
+  useCallback,
+  useMemo,
+} from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -13,9 +18,17 @@ import {
 import { mergeClassNames } from '~/src/utils/stringUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { Text } from '~/src/components/Text'
-import { IconSize, isBezierIcon, isIconName } from '~/src/components/Icon'
+import {
+  IconSize,
+  isBezierIcon,
+  isIconName,
+} from '~/src/components/Icon'
 import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
-import ListItemProps, { ListItemSize, ListItemVariant } from './ListItem.types'
+import type ListItemProps from './ListItem.types'
+import {
+  ListItemSize,
+  ListItemVariant,
+} from './ListItem.types'
 import {
   Wrapper,
   LeftContentWrapper,

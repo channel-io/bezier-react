@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type ChildrenProps,
+} from '~/src/types/ComponentProps'
 
 export interface AlphaCenterProps extends
   BezierComponentProps,

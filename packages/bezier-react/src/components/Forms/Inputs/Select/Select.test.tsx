@@ -13,7 +13,8 @@ import Select, {
   SELECT_DROPDOWN_TEST_ID,
   SELECT_TRIGGER_TEXT_TEST_ID,
 } from './Select'
-import SelectProps, { SelectSize } from './Select.types'
+import type SelectProps from './Select.types'
+import { SelectSize } from './Select.types'
 
 describe('Select Test >', () => {
   let props: SelectProps

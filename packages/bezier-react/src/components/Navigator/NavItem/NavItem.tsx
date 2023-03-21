@@ -1,10 +1,17 @@
 /* External dependencies */
-import React, { useCallback, memo } from 'react'
+import React, {
+  useCallback,
+  memo,
+} from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import { noop } from '~/src/utils/functionUtils'
-import { LegacyIcon, IconSize, isIconName } from '~/src/components/Icon'
+import {
+  LegacyIcon,
+  IconSize,
+  isIconName,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import type NavItemProps from './NavItem.types'
 import {

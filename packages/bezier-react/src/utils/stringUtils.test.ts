@@ -1,5 +1,11 @@
 /* Internal dependencies */
-import { mergeClassNames, isNumberString, toString, kebabCase, camelCase } from './stringUtils'
+import {
+  mergeClassNames,
+  isNumberString,
+  toString,
+  kebabCase,
+  camelCase,
+} from './stringUtils'
 
 describe('mergeClassNames()', () => {
   test('mergeClassNames() function should returns className string when 1st argument given', () => {

@@ -3,7 +3,7 @@ import React from 'react'
 import * as VisuallyHiddenPrimitive from '@radix-ui/react-visually-hidden'
 
 /* Internal dependencies */
-import { VisuallyHiddenProps } from './VisuallyHidden.types'
+import { type VisuallyHiddenProps } from './VisuallyHidden.types'
 
 /**
  * `VisuallyHidden` is a component that visually hides the content. It doesn't render any DOM node.

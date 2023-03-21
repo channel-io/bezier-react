@@ -1,7 +1,10 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import {
@@ -10,24 +13,20 @@ import {
   styled,
   Typography,
 } from '~/src/foundation'
-import { getObjectFromEnum, getTitle, iconList } from '~/src/utils/storyUtils'
 import {
-  camelCase,
-} from '~/src/utils/stringUtils'
-import {
-  ListItem,
-} from '~/src/components/ListItem'
+  getObjectFromEnum,
+  getTitle,
+  iconList,
+} from '~/src/utils/storyUtils'
+import { camelCase } from '~/src/utils/stringUtils'
+import { ListItem } from '~/src/components/ListItem'
 import {
   HStack,
   StackItem,
   VStack,
 } from '~/src/components/Stack'
-import {
-  Select,
-} from '~/src/components/Forms/Inputs/Select'
-import {
-  Text,
-} from '~/src/components/Text'
+import { Select } from '~/src/components/Forms/Inputs/Select'
+import { Text } from '~/src/components/Text'
 import icons, {
   ArrowLeftIcon,
   BookmarkFilledIcon,
@@ -47,10 +46,9 @@ import icons, {
   SettingsIcon,
   TrashIcon,
 } from './generated'
-import {
-  Icon,
-} from './Icon'
-import IconProps, { IconSize } from './Icon.types'
+import { Icon } from './Icon'
+import type IconProps from './Icon.types'
+import { IconSize } from './Icon.types'
 import mdx from './Icon.mdx'
 
 export default {

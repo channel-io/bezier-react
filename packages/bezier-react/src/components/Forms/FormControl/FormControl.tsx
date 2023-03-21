@@ -1,23 +1,29 @@
 /* External dependencies */
-import React, { useState, useCallback, useMemo } from 'react'
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import useId from '~/src/hooks/useId'
+import { isNil } from '~/src/utils/typeUtils'
 import {
-  isNil,
-} from '~/src/utils/typeUtils'
-import { omitBezierComponentProps, pickBezierComponentProps } from '~/src/utils/propsUtils'
+  omitBezierComponentProps,
+  pickBezierComponentProps,
+} from '~/src/utils/propsUtils'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
 import FormControlContext from './FormControlContext'
-import FormControlProps, {
-  GroupPropsGetter,
-  FieldPropsGetter,
-  LabelPropsGetter,
-  HelperTextPropsGetter,
-  ErrorMessagePropsGetter,
+import {
+  type GroupPropsGetter,
+  type FieldPropsGetter,
+  type LabelPropsGetter,
+  type HelperTextPropsGetter,
+  type ErrorMessagePropsGetter,
 } from './FormControl.types'
+import type FormControlProps from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'

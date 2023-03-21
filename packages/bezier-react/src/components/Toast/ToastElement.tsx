@@ -1,17 +1,33 @@
 /* External dependencies */
-import React, { forwardRef, Ref, useMemo } from 'react'
+import React, {
+  forwardRef,
+  type Ref,
+  useMemo,
+} from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+import { isString } from '~/src/utils/typeUtils'
 import {
-  isString,
-} from '~/src/utils/typeUtils'
-import { Icon, LegacyIcon, CancelIcon, IconSize } from '~/src/components/Icon'
+  Icon,
+  LegacyIcon,
+  CancelIcon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { getToastPreset } from './utils'
-import ToastProps, { ToastPreset } from './Toast.types'
-import { Element, IconWrapper, Close, ActionContent, NormalContent, Content, EllipsisableContent } from './Toast.styled'
+import type ToastProps from './Toast.types'
+import { ToastPreset } from './Toast.types'
+import {
+  Element,
+  IconWrapper,
+  Close,
+  ActionContent,
+  NormalContent,
+  Content,
+  EllipsisableContent,
+} from './Toast.styled'
 
 export const TOAST_TEST_ID = 'bezier-react-toast'
 

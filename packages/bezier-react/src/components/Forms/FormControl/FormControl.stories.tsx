@@ -1,12 +1,18 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type {
+  Story,
+  Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
-import { RadioGroup, Radio } from '~/src/components/Forms/RadioGroup'
+import {
+  RadioGroup,
+  Radio,
+} from '~/src/components/Forms/RadioGroup'
 import { Checkbox } from '~/src/components/Forms/Checkbox'
 import { Text } from '~/src/components/Text'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
@@ -14,10 +20,13 @@ import { FormLabel } from '~/src/components/Forms/FormLabel'
 import { TextField } from '~/src/components/Forms/Inputs/TextField'
 import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
 import { Select } from '~/src/components/Forms/Inputs/Select'
-import { FormHelperText, FormErrorMessage } from '~/src/components/Forms/FormHelperText'
+import {
+  FormHelperText,
+  FormErrorMessage,
+} from '~/src/components/Forms/FormHelperText'
 import { Switch } from '~/src/components/Forms/Switch'
 import FormControl from './FormControl'
-import FormControlProps from './FormControl.types'
+import type FormControlProps from './FormControl.types'
 
 export default {
   title: getTitle(base),

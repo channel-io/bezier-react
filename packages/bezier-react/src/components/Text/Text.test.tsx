@@ -5,7 +5,7 @@ import React from 'react'
 import { Typography } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
 import Text, { TEXT_TEST_ID } from './Text'
-import TextProps from './Text.types'
+import type TextProps from './Text.types'
 
 describe('Text test >', () => {
   let props: TextProps

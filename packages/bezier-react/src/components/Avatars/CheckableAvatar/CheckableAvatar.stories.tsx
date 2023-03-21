@@ -1,15 +1,24 @@
 /* External dependencies */
-import React, { useState, useCallback } from 'react'
+import React, {
+  useState,
+  useCallback,
+} from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
-import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
 import { CheckableAvatar } from './CheckableAvatar'
-import CheckableAvatarProps from './CheckableAvatar.types'
+import type CheckableAvatarProps from './CheckableAvatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 

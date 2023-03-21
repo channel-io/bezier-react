@@ -1,11 +1,9 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import * as Styled from './TabItems.styled'
-import { TabItemsProps } from './Tabs.types'
+import { type TabItemsProps } from './Tabs.types'
 
 /**
  * `TabItems` is a flex container which has `TabItem` flex items.

@@ -3,8 +3,14 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { ModalTrigger, ModalClose } from '../Modal'
-import { ConfirmModalTriggerProps, ConfirmModalCloseProps } from './ConfirmModal.types'
+import {
+  ModalTrigger,
+  ModalClose,
+} from '../Modal'
+import {
+  type ConfirmModalTriggerProps,
+  type ConfirmModalCloseProps,
+} from './ConfirmModal.types'
 
 /**
  * `ConfirmModalTrigger` is a button that opens the modal. **It doesn't render any DOM node.**

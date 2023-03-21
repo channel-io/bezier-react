@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { ModalFooter } from '../Modal'
-import { ConfirmModalFooterProps } from './ConfirmModal.types'
+import { type ConfirmModalFooterProps } from './ConfirmModal.types'
 
 /**
  * `ConfirmModalFooter` is a simple wrapper of the footer of the modal content.

@@ -1,8 +1,14 @@
 /* External dependencies */
-import { renderHook, act } from '@testing-library/react'
+import {
+  renderHook,
+  act,
+} from '@testing-library/react'
 
 /* Internal dependencies */
-import { ToastAppearance, ToastType } from './Toast.types'
+import {
+  ToastAppearance,
+  type ToastType,
+} from './Toast.types'
 import useToastContextValues from './useToastContextValues'
 
 const UUID_V4_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
