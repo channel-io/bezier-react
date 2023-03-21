@@ -20,7 +20,7 @@ We actively welcome your pull requests:
 5. (Recommended) Commit with [commitizen(cz-cli)](https://github.com/commitizen/cz-cli).
     1. Install commitizen globally.
         ```bash
-        yarn global add commitizen
+        yarn dlx commitizen
         ```
     2. Commit with commitizen.
         ```bash
