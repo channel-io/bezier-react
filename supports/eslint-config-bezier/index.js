@@ -1,10 +1,6 @@
 module.exports = {
-  plugins: [
-    "import-newlines"
-  ],
-  extends: [
-    '@channel.io/eslint-config',
-  ],
+  plugins: ['import-newlines'],
+  extends: ['@channel.io/eslint-config'],
   rules: {
     'import-newlines/enforce': ['error', { items: 1 }],
     'import/no-duplicates': ['error', { 'prefer-inline': true }],
