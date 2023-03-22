@@ -50,6 +50,7 @@ export * from '~/src/components/Tooltip'
 export * from '~/src/components/VisuallyHidden'
 
 export * from '~/src/components/AlphaCenter'
+export * from '~/src/components/AlphaStack'
 
 export * as LegacyRadio from '~/src/components/Legacies/Radio'
 
