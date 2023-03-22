@@ -1,85 +1,110 @@
+/* External dependencies */
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+
 /* Internal dependencies */
-import { styled, css, absoluteCenter } from '~/src/foundation'
+import { styled, css, Typography } from '~/src/foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { Icon as BaseIcon } from '~/src/components/Icon'
-import CheckType from './CheckType'
+import { touchableHover } from '~/src/utils/styleUtils'
+import { Icon } from '~/src/components/Icon'
+import { focusedInputWrapperStyle, erroredInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+import { CheckboxProps } from './Checkbox.types'
 
-const CHECKER_BOX_SIZE = 18
-const CHECKER_BORDER_THICKNESS = 2
+const CHECKBOX_SIZE = 18
+const CHECKBOX_MARGIN = 1
 
-interface StyledWrapperProps {
-  disabled?: boolean
-}
+export const CheckIcon = styled(Icon)`
+  /* NOTE: Reset Icon's default transition style  */
+  transition: none;
 
-interface StyledCheckerProps extends StyledWrapperProps {
-  checkStatus?: CheckType
-}
-
-export const Wrapper = styled.div<StyledWrapperProps>`
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-
-  ${({ disabled }) => disabled && css`
-    cursor: not-allowed;
-  `};
+  &[data-state='unchecked'] {
+    visibility: hidden;
+  }
 `
 
-function isTrueOrPartial(checkStatus: CheckType = CheckType.False) {
-  return checkStatus === CheckType.True || checkStatus === CheckType.Partial
-}
-
-const disabledStyle = css`
-  opacity: ${DisabledOpacity};
+const backgroundFocusStyle = css`
+  &:not([data-disabled]):not([data-state='unchecked']) {
+    background-color: var(--bgtxt-green-dark);
+  }
 `
 
-const checkerBaseStyle = css<StyledCheckerProps>`
-  position: relative;
-  box-sizing: border-box !important;
+const checkIconFocusStyle = css`
+  &:not([data-disabled])[data-state='unchecked'] {
+    ${CheckIcon} {
+      visibility: visible;
+    }
+  }
+`
+
+const focusStyle = css`
+  ${backgroundFocusStyle}
+  ${checkIconFocusStyle}
+`
+
+export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProps>`
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${CHECKER_BOX_SIZE}px;
-  min-width: ${CHECKER_BOX_SIZE}px;
-  height: ${CHECKER_BOX_SIZE}px;
-  min-height: ${CHECKER_BOX_SIZE}px;
-  margin: 1px;
-  border-radius: ${({ foundation }) => foundation?.rounding.round6};
+  width: ${CHECKBOX_SIZE}px;
+  height: ${CHECKBOX_SIZE}px;
+  margin: ${CHECKBOX_MARGIN}px;
+  background-color: var(--bg-white-normal);
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'opacity'])};
+  &[data-disabled] {
+    background-color: var(--bg-black-dark);
+    box-shadow: none;
+  }
 
-  ${({ disabled }) => disabled && disabledStyle};
+  &[data-invalid] {
+    ${erroredInputWrapperStyle}
+  }
+
+  &[data-state='checked'],
+  &[data-state='indeterminate'] {
+    background-color: var(--bgtxt-green-normal);
+
+    &:not([data-invalid]) {
+      box-shadow: none;
+    }
+  }
+
+  ${touchableHover(focusStyle)}
+
+  && {
+    &:focus-visible {
+      ${checkIconFocusStyle}
+      ${focusedInputWrapperStyle}
+    }
+  }
+
+  ${({ interpolation }) => interpolation}
 `
 
-const checkerDynamicStyle = css<StyledCheckerProps>`
-  ${({ foundation, checkStatus, disabled }) => (isTrueOrPartial(checkStatus)
-    ? css`
-        border-color: transparent;
-        background-color: ${foundation?.theme?.['bgtxt-green-normal']};
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: var(--bezier-checkbox-height);
+  cursor: pointer;
 
-        &:hover {
-          background-color: ${!disabled && foundation?.theme?.['bgtxt-green-dark']};
-        }
-      `
-    : css`
-        ${foundation?.border?.getBorder(CHECKER_BORDER_THICKNESS, foundation?.theme?.['bg-black-dark'])};
-        background-color: ${foundation?.theme?.['bg-white-normal']};
-      `
-  )}
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: ${DisabledOpacity};
+  }
 `
 
-export const Icon = styled(BaseIcon)`
-  ${absoluteCenter('')}
-`
-
-export const Checker = styled.div`
-  ${checkerBaseStyle};
-  ${checkerDynamicStyle};
-`
-
-export const Content = styled.div`
-  box-sizing: border-box;
-  padding: ${CHECKER_BORDER_THICKNESS}px 0;
-  margin-left: 8px;
-  user-select: none;
+/**
+ * NOTE: When using the `Text` component in combination with the `as` prop,
+ * radix-ui lib does not bind the mouse-enter(hover) and click handler.
+ */
+export const Label = styled.label`
+  ${Typography.Size14}
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 12px;
+  color: var(--txt-black-darkest);
+  cursor: inherit;
 `

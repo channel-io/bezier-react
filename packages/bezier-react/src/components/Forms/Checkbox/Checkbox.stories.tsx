@@ -5,22 +5,20 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import Checkbox from './Checkbox'
-import CheckboxProps from './Checkbox.types'
-import CheckType from './CheckType'
+import { CheckboxProps } from './Checkbox.types'
+import { Checkbox } from './Checkbox'
 
 export default {
   title: getTitle(base),
   component: Checkbox,
   argTypes: {
-    onClick: { control: { action: 'onClick' } },
     checked: {
       control: {
         type: 'radio',
         options: [
-          CheckType.True,
-          CheckType.False,
-          CheckType.Partial,
+          true,
+          false,
+          'indeterminate',
         ],
       },
     },
@@ -33,9 +31,20 @@ const Template: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => 
   </Checkbox>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  checked: CheckType.True,
+export const Controlled = Template.bind({})
+Controlled.args = {
+  checked: true,
   disabled: false,
-  children: 'Check Me!',
+  required: false,
+  hasError: false,
+  children: 'Option',
+}
+
+export const Uncontrolled = Template.bind({})
+Uncontrolled.args = {
+  defaultChecked: true,
+  disabled: false,
+  required: false,
+  hasError: false,
+  children: 'Option',
 }

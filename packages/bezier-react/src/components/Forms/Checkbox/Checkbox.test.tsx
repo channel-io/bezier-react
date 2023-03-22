@@ -1,75 +1,130 @@
 /* External dependencies */
 import React from 'react'
+import { isInaccessible } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
-import { Themes } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import { noop } from '~/src/utils/functionUtils'
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import Checkbox, { CHECKBOX_TEST_ID, CHECKBOX_CHECKER_TEST_ID } from './Checkbox'
-import CheckboxProps from './Checkbox.types'
-import CheckType from './CheckType'
+import { Checkbox } from './Checkbox'
+import { CheckboxProps } from './Checkbox.types'
 
-describe('Checkbox test >', () => {
-  let props: CheckboxProps
+const VALUES = ['0', '1', '2']
 
-  beforeEach(() => {
-    props = {
-      contentClassName: undefined,
-      disabled: false,
-      checked: CheckType.False,
-      onClick: noop,
-    }
-  })
-
-  const renderComponent = (optionProps?: Partial<CheckboxProps>) => render(
-    <Checkbox {...props} {...optionProps} />,
+describe('Checkbox', () => {
+  const renderCheckbox = ({
+    children,
+    ...rest
+  }: CheckboxProps = {}) => render(
+    <Checkbox {...rest}>
+      { children }
+    </Checkbox>,
   )
 
-  it('Checkbox has default style', () => {
-    const { getByTestId } = renderComponent()
+  const renderCheckboxes = (
+    props: Omit<CheckboxProps, 'children'> = {},
+  ) => render(
+    <div role="group">
+      { VALUES.map(value => (
+        <Checkbox
+          key={value}
+          value={value}
+          {...props}
+        >
+          { value }
+        </Checkbox>
+      )) }
+    </div>,
+  )
 
-    const renderedCheckbox = getByTestId(CHECKBOX_TEST_ID)
+  let user: ReturnType<typeof userEvent.setup>
 
-    expect(renderedCheckbox).toHaveStyle('display: inline-flex;')
-    expect(renderedCheckbox).toHaveStyle('align-items: center;')
-    expect(renderedCheckbox).toHaveStyle('cursor: pointer;')
+  beforeEach(() => {
+    user = userEvent.setup()
   })
 
-  it('Checker of Checkbox has default style', () => {
-    const { getByTestId } = renderComponent()
+  describe('ARIA', () => {
+    it('should be accessible', () => {
+      const { container } = renderCheckbox()
+      expect(isInaccessible(container)).toBe(false)
+    })
 
-    const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
+    it('should have \'role="checkbox"\' attribute', () => {
+      const { getByRole } = renderCheckbox()
+      expect(getByRole('checkbox')).toBeInTheDocument()
+    })
 
-    expect(renderedCheckboxChecker).toHaveStyle('position: relative;')
-    expect(renderedCheckboxChecker).toHaveStyle('display: flex;')
-    expect(renderedCheckboxChecker).toHaveStyle('align-items: center;')
-    expect(renderedCheckboxChecker).toHaveStyle('justify-content: center;')
-    expect(renderedCheckboxChecker).toHaveStyle('box-sizing: border-box;')
+    it('should be disabled when disabled prop is true', () => {
+      const { getByRole } = renderCheckbox({ disabled: true })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true')
+    })
+
+    it('should be required when required prop is true', () => {
+      const { getByRole } = renderCheckbox({ required: true })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-required', 'true')
+    })
+
+    it('should be invalid when hasError prop is true', () => {
+      const { getByRole } = renderCheckbox({ hasError: true })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-invalid', 'true')
+    })
+
+    it('should have \'aria-checked="mixed"\' attribute If it is in indeterminate state', () => {
+      const { getByRole } = renderCheckbox({ checked: 'indeterminate' })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-checked', 'mixed')
+    })
   })
 
-  it('Checker of Checkbox has normal background when check status is falsy', () => {
-    const { getByTestId } = renderComponent()
+  describe('User Interactions', () => {
+    it('should focus and check checkbox when user clicks on a checkbox', async () => {
+      const { getByRole } = renderCheckbox()
+      const checkbox = getByRole('checkbox')
+      await user.click(checkbox)
+      expect(checkbox).toHaveFocus()
+      expect(checkbox).toBeChecked()
+    })
 
-    const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
+    it('should focus and check checkbox when user clicks on a label of checkbox', async () => {
+      const { getByText, getByRole } = renderCheckbox({ children: 'Label' })
+      const checkbox = getByRole('checkbox')
+      const label = getByText('Label')
+      await user.click(label)
+      expect(checkbox).toHaveFocus()
+      expect(checkbox).toBeChecked()
+    })
 
-    expect(renderedCheckboxChecker).toHaveStyle(`border-color: ${Themes.LightTheme['bg-black-dark']};`)
-  })
+    it('should call the checked change event handler when user clicks on a checkbox', async () => {
+      const onCheckedChange = jest.fn()
+      const { getByRole } = renderCheckbox({ onCheckedChange })
+      const checkbox = getByRole('checkbox')
+      await user.click(checkbox)
+      expect(onCheckedChange).toBeCalledTimes(1)
+    })
 
-  it('Checker of Checkbox has green background when check status is truthy', () => {
-    const { getByTestId } = renderComponent({ checked: true })
+    it('should focus on the first checkbox item when user presses tab key', async () => {
+      const { getByRole } = renderCheckboxes()
+      const checkbox = getByRole('checkbox', { name: VALUES[0] })
+      await user.tab()
+      expect(checkbox).toHaveFocus()
+    })
 
-    const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
+    it('should check checkbox when user presses space key on a focused checkbox', async () => {
+      const { getByRole } = renderCheckboxes()
+      const checkbox = getByRole('checkbox', { name: VALUES[0] })
+      await user.tab()
+      expect(checkbox).toHaveFocus()
+      await user.keyboard('{ }')
+      expect(checkbox).toHaveFocus()
+      expect(checkbox).toBeChecked()
+    })
 
-    expect(renderedCheckboxChecker).toHaveStyle(`background-color: ${Themes.LightTheme['bgtxt-green-normal']};`)
-    expect(renderedCheckboxChecker).toHaveStyle('border-color: transparent;')
-  })
-
-  it('Checker of Checkbox has grey background when disabled', () => {
-    const { getByTestId } = renderComponent({ disabled: true })
-
-    const renderedCheckboxChecker = getByTestId(CHECKBOX_CHECKER_TEST_ID)
-
-    expect(renderedCheckboxChecker).toHaveStyle(`opacity: ${DisabledOpacity}`)
+    it('should call the checked change event handler user presses space key on a focused checkbox', async () => {
+      const onCheckedChange = jest.fn()
+      const { getByRole } = renderCheckboxes({ onCheckedChange })
+      const checkbox = getByRole('checkbox', { name: VALUES[0] })
+      await user.tab()
+      expect(checkbox).toHaveFocus()
+      await user.keyboard('{ }')
+      expect(onCheckedChange).toBeCalledTimes(1)
+    })
   })
 })

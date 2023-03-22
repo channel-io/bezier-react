@@ -2000,6 +2000,7 @@ __metadata:
     "@babel/runtime": ^7.12.13
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
+    "@radix-ui/react-checkbox": ^1.0.3
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-radio-group": ^1.1.0
     "@radix-ui/react-separator": ^1.0.0
@@ -3261,6 +3262,26 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
   checksum: 72996afaf346ec4f4c73422f14f6cb2d0de994801ba7cbb9a4a67b0050e0cd74625182c349ef8017ccae1406579d4b74a34a225ef2efe61e8e5337decf235deb
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-checkbox@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@radix-ui/react-checkbox@npm:1.0.3"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 1.0.0
+    "@radix-ui/react-compose-refs": 1.0.0
+    "@radix-ui/react-context": 1.0.0
+    "@radix-ui/react-presence": 1.0.0
+    "@radix-ui/react-primitive": 1.0.2
+    "@radix-ui/react-use-controllable-state": 1.0.0
+    "@radix-ui/react-use-previous": 1.0.0
+    "@radix-ui/react-use-size": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: aca9213eddb7f5c65b2d396421bc5a9d18fb87fad81e1964d0ac7a72fe6abb3b2c2c51ecc29b0643286843187680974ba1ff7197b2a936dd7d5edde25819800f
   languageName: node
   linkType: hard
 

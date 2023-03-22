@@ -14,6 +14,23 @@ const OUTER_INDICATOR_SIZE = 18
 const OUTER_INDICATOR_MARGIN = 1
 const INNER_INDICATOR_SIZE = 8
 
+const outerIndicatorFocusStyle = css`
+  &:not([data-disabled])[data-state='checked']::before {
+    background-color: var(--bgtxt-green-dark);
+  }
+`
+
+const innerIndicatorFocusStyle = css`
+  &:not([data-disabled]):not([data-state='checked'])::after {
+    background-color: var(--bg-black-dark);
+  }
+`
+
+const focusStyle = css`
+  ${outerIndicatorFocusStyle}
+  ${innerIndicatorFocusStyle}
+`
+
 export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioProps<string>>`
   all: unset;
   position: relative;
@@ -69,17 +86,11 @@ export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioPro
     }
   }
 
-  ${touchableHover(css`
-    &:not([data-disabled])[data-state='checked']::before {
-      background-color: var(--bgtxt-green-dark);
-    }
-
-    &:not([data-disabled]):not([data-state='checked'])::after {
-      background-color: var(--bg-black-dark);
-    }
-  `)}
+  ${touchableHover(focusStyle)}
 
   &:focus-visible {
+    ${innerIndicatorFocusStyle}
+
     &::before {
       ${focusedInputWrapperStyle}
     }

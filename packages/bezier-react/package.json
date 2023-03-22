@@ -121,6 +121,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
+    "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-separator": "^1.0.0",
     "@radix-ui/react-slider": "^1.0.0",
     "@radix-ui/react-switch": "^1.0.1",
