@@ -47,3 +47,43 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Channel Desk message bullets blocks
+        if: steps.changesets.outputs.published == 'true'
+        id: create-bullets-blocks
+        env:
+          PUBLISHED_PACKAGES: ${{ toJSON(steps.changesets.outputs.publishedPackages) }}
+        run: |
+          blocks=$(.github/create-ch-desk-bullets-blocks.sh $PUBLISHED_PACKAGES)
+          echo "blocks=$blocks" >> $GITHUB_OUTPUT
+
+      - name: Checkout ch-web-github-actions repo if a publish happens
+        id: checkout-ch-web-github-actions
+        if: steps.create-bullets-blocks.outcome == 'success'
+        uses: actions/checkout@v3
+        with:
+          repository: channel-io/ch-web-github-actions
+          token: ${{ secrets.ACTIONS_REPO_ACCESS_TOKEN }}
+          ref: main
+          path: ch-web-github-actions
+
+      - name: Send Channel Desk notification
+        if: steps.checkout-ch-web-github-actions.outcome == 'success'
+        uses: ./ch-web-github-actions/packages/action-ch-create-message
+        with:
+          stage: production
+          accessKey: ${{ secrets.CH_API_ACCESS_KEY_PRODUCTION }}
+          accessSecret: ${{ secrets.CH_API_ACCESS_SECRET_PRODUCTION }}
+          botName: Github
+          groupName: Release
+          blocks: |
+            [
+              {
+                "type": "text",
+                "value": "\n\n${{ GITHUB_REPOSITORY }}"
+              },
+              {
+                "type": "bullets",
+                "blocks": ${{ steps.create-bullets-blocks.outputs.blocks }}
+              }
+            ]
