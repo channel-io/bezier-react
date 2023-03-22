@@ -1,7 +1,7 @@
 /* External dependencies */
 import React, { useState } from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -14,7 +14,6 @@ import {
   Spacer,
 } from '~/src/components/Stack'
 import { ProgressBar } from './ProgressBar'
-import type ProgressBarProps from './ProgressBar.types'
 import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
 import mdx from './ProgressBar.mdx'
 
@@ -26,44 +25,52 @@ export default {
       page: mdx,
     },
   },
-  argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-        options: getObjectFromEnum(ProgressBarSize),
-      },
-    },
-    variant: {
-      control: {
-        type: 'radio',
-        options: getObjectFromEnum(ProgressBarVariant),
-      },
-    },
-    width: {
-      control: {
-        type: 'text',
-      },
-    },
-    value: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 1,
-        step: 0.01,
-      },
+} as ComponentMeta<typeof ProgressBar>
+
+export const Playground: ComponentStory<typeof ProgressBar> = (props) => (
+  <ProgressBar {...props} />
+)
+Playground.argTypes = {
+  size: {
+    control: {
+      type: 'radio',
+      options: getObjectFromEnum(ProgressBarSize),
     },
   },
-} as Meta<ProgressBarProps>
-
-export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
+  variant: {
+    control: {
+      type: 'radio',
+      options: getObjectFromEnum(ProgressBarVariant),
+    },
+  },
+  width: {
+    control: {
+      type: 'text',
+    },
+  },
+  value: {
+    control: {
+      type: 'range',
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+  },
+}
 Playground.args = {
   size: ProgressBarSize.M,
   variant: ProgressBarVariant.Green,
   width: '36',
   value: 0.5,
 }
+Playground.parameters = {
+  viewMode: 'story',
+  options: {
+    showPanel: true,
+  },
+}
 
-export const Overview: Story<{}> = () => {
+export const Overview: ComponentStory<typeof ProgressBar> = () => {
   const [values, setValues] = useState<number[]>([0.25, 0.5, 0.75, 1])
 
   const handleSetRandomValues = () => {
@@ -117,8 +124,17 @@ export const Overview: Story<{}> = () => {
     </VStack>
   )
 }
+Overview.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
-export const UsageWidth: Story<{}> = () => (
+export const UsageWidth: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={6} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -160,10 +176,18 @@ export const UsageWidth: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 UsageWidth.storyName = 'Usage (width)'
+UsageWidth.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
-export const UsageValue: Story<{}> = () => (
+export const UsageValue: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={6} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -257,10 +281,18 @@ export const UsageValue: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 UsageValue.storyName = 'Usage (value)'
+UsageValue.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
-export const SizeVariant: Story<{}> = () => (
+export const SizeVariant: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={16} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -296,10 +328,18 @@ export const SizeVariant: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 SizeVariant.storyName = 'Variant (size)'
+SizeVariant.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
 
-export const Variant: Story<{}> = () => (
+export const Variant: ComponentStory<typeof ProgressBar> = () => (
   <VStack spacing={16} align="stretch">
     <StackItem>
       <HStack spacing={8} align="center">
@@ -335,5 +375,13 @@ export const Variant: Story<{}> = () => (
     </StackItem>
   </VStack>
 )
-
 Variant.storyName = 'Variant (color)'
+Variant.parameters = {
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true },
+  },
+  options: {
+    showPanel: false,
+  },
+}
