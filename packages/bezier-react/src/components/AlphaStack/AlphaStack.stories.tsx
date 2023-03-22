@@ -6,16 +6,42 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
 import { range } from 'Utils/numberUtils'
+import { MAPPED_FLEX_PROPERTIES } from 'Components/Stack/util'
 import { AlphaStack } from './AlphaStack'
 import { AlphaStackProps } from './AlphaStack.types'
 
 export default {
   title: getTitle(base),
   component: AlphaStack,
+  argTypes: {
+    spacing: {
+      control: {
+        type: 'number',
+      },
+    },
+    direction: {
+      control: {
+        type: 'radio',
+        options: ['horizontal', 'vertical'],
+      },
+    },
+    justify: {
+      control: {
+        type: 'radio',
+        options: Object.keys(MAPPED_FLEX_PROPERTIES),
+      },
+    },
+    align: {
+      control: {
+        type: 'radio',
+        options: Object.keys(MAPPED_FLEX_PROPERTIES),
+      },
+    },
+  },
 } as Meta<AlphaStackProps>
 
 const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
-  <AlphaStack {...rest} spacing={10}>
+  <AlphaStack {...rest}>
     <>
       { range(4).map((_, i) =>
         // eslint-disable-next-line react/no-array-index-key
@@ -25,34 +51,11 @@ const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
   </AlphaStack>
 )
 
-export const Vertical = Template.bind({})
+export const Primary = Template.bind({})
 
-Vertical.args = {
+Primary.args = {
   style: {
     width: '200px',
     height: '200px',
   },
-  direction: 'vertical',
 }
-
-export const Horizontal = Template.bind({})
-
-Horizontal.args = {
-  style: {
-    width: '200px',
-    height: '200px',
-  },
-  direction: 'horizontal',
-}
-
-export const JustifyCenter = Template.bind({})
-
-Horizontal.args = {
-  style: {
-    width: '200px',
-    height: '200px',
-  },
-  direction: 'horizontal',
-  justify: 'center',
-}
-
