@@ -6,9 +6,10 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { getTitle } from 'Utils/storyUtils'
 import { range } from 'Utils/numberUtils'
-import { MAPPED_FLEX_PROPERTIES } from 'Components/Stack/util'
 import { AlphaStack } from './AlphaStack'
 import { AlphaStackProps } from './AlphaStack.types'
+
+const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
 export default {
   title: getTitle(base),
@@ -28,13 +29,13 @@ export default {
     justify: {
       control: {
         type: 'radio',
-        options: Object.keys(MAPPED_FLEX_PROPERTIES),
+        options: Object.keys(FLEX_PROPERTIES),
       },
     },
     align: {
       control: {
         type: 'radio',
-        options: Object.keys(MAPPED_FLEX_PROPERTIES),
+        options: Object.keys(FLEX_PROPERTIES),
       },
     },
   },
