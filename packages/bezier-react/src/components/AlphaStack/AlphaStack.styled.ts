@@ -1,9 +1,9 @@
 /* Internal dependencies */
+import { flex } from '~/src/components/Stack/util'
 import {
   css,
   styled,
-} from 'Foundation'
-import { flex } from 'Components/Stack/util'
+} from '~/src/foundation'
 import type { AlphaStackProps } from './AlphaStack.types'
 
 interface ContainerProps extends
