@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # See: https://github.com/changesets/action#outputs
-# The format is must be [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
-INPUT=$1
-
+#
+# Input:
+# [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+#
+# Output:
 # [
 #   {
 #     "type": "text",
@@ -14,4 +16,4 @@ INPUT=$1
 #     "value": "@xx/xy@0.8.9: <link type=\"url\" value=\"https://github.com/channel-io/bezier-react/releases/tag/@xx/xy@0.8.9\">Release Note</link>"
 #   }
 # ]
-echo "$INPUT" | jq --raw-output '[ .[] | (.name + "@" + .version) | {"type": "text", "value": (. + ": <link type=\"url\" value=\"https://github.com/channel-io/bezier-react/releases/tag/" + . + "\">Release Note</link>") } ]'
+jq --raw-output '[ .[] | (.name + "@" + .version) | {"type": "text", "value": (. + ": <link type=\"url\" value=\"https://github.com/channel-io/bezier-react/releases/tag/" + . + "\">Release Note</link>") } ]'
