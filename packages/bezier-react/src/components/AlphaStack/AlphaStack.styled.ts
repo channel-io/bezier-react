@@ -27,7 +27,7 @@ export const Container = styled.div<ContainerProps>`
   `}
 
   ${({ spacing, direction }) => css`
-    ${direction === 'horizontal' ? 'column-gap' : 'row-gap'}: ${spacing}px
+    ${direction === 'horizontal' ? 'column-gap' : 'row-gap'}: ${spacing}px;
   `}
 
   ${({ interpolation }) => interpolation}
