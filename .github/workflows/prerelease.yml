@@ -57,7 +57,7 @@ jobs:
           blocks=$(.github/create-ch-desk-bullets-blocks.sh $PUBLISHED_PACKAGES)
           echo "blocks=$blocks" >> $GITHUB_OUTPUT
 
-      - name: Checkout ch-web-github-actions repo if a publish happens
+      - name: Checkout ch-web-github-actions repo
         id: checkout-ch-web-github-actions
         if: steps.create-bullets-blocks.outcome == 'success'
         uses: actions/checkout@v3
