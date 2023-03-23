@@ -12,7 +12,6 @@ type MonoBackgroundColor =
   | `bg-${BasePaletteKey.White}-dim-dark`
   | `bg-${BasePaletteKey.White}-dim-light`
 
-
 type LayoutBackgroundColor =
   | 'bg-gnb'
   | 'bg-navi'
