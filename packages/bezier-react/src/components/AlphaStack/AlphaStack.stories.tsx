@@ -44,8 +44,7 @@ export default {
 const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
   <AlphaStack {...rest}>
     <>
-      { range(4).map((_, i) =>
-        // eslint-disable-next-line react/no-array-index-key
+      { range(4).map((i) =>
         <div style={{ height: '30px', width: '30px', backgroundColor: 'red' }} key={`item-${i}`}>{ i }</div>,
       ) }
     </>
