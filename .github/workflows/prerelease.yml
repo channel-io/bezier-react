@@ -54,10 +54,10 @@ jobs:
         env:
           PUBLISHED_PACKAGES: ${{ toJSON(steps.changesets.outputs.publishedPackages) }}
         run: |
-          blocks=$(.github/create-ch-desk-bullets-blocks.sh $PUBLISHED_PACKAGES)
+          blocks=$(echo $PUBLISHED_PACKAGES | .github/create-ch-desk-bullets-blocks.sh)
           echo "blocks=$blocks" >> $GITHUB_OUTPUT
 
-      - name: Checkout ch-web-github-actions repo if a publish happens
+      - name: Checkout ch-web-github-actions repo
         id: checkout-ch-web-github-actions
         if: steps.create-bullets-blocks.outcome == 'success'
         uses: actions/checkout@v3
@@ -84,6 +84,6 @@ jobs:
               },
               {
                 "type": "bullets",
-                "blocks": ${{ steps.create-bullets-blocks.outputs.blocks }}
+                "blocks": ${{ toJSON(steps.create-bullets-blocks.outputs.blocks) }}
               }
             ]
