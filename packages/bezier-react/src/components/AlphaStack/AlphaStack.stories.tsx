@@ -29,13 +29,13 @@ export default {
     justify: {
       control: {
         type: 'radio',
-        options: Object.keys(FLEX_PROPERTIES),
+        options: FLEX_PROPERTIES,
       },
     },
     align: {
       control: {
         type: 'radio',
-        options: Object.keys(FLEX_PROPERTIES),
+        options: FLEX_PROPERTIES,
       },
     },
   },
