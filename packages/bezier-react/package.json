@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "1.0.0-next-v1.191",
+  "version": "1.0.0-next-v1.192",
   "description": "React components library that implements Bezier Design System.",
   "repository": {
     "type": "git",
@@ -122,6 +122,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
+    "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-separator": "^1.0.0",
     "@radix-ui/react-slider": "^1.0.0",
     "@radix-ui/react-switch": "^1.0.1",

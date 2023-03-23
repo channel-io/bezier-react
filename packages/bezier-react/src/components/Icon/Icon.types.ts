@@ -18,8 +18,6 @@ export enum IconSize {
   XXXS = 10,
 }
 
-type MouseEventHandler = React.MouseEventHandler<SVGSVGElement>
-
 interface IconOptions {
   /**
    * Controls which icon should be rendered.
@@ -62,21 +60,11 @@ interface IconOptions {
    * @default 0
    */
   marginLeft?: number
-
-  /**
-   * Handler to be called when the icon is clicked.
-   */
-  onClick?: MouseEventHandler
-
-  /**
-   * Handler to be called when the mouse is pressed down at the icon.
-   */
-  onMouseDown?: MouseEventHandler
 }
 
 export default interface IconProps extends
   Omit<BezierComponentProps, 'as'>,
   SizeProps<IconSize>,
   ColorProps,
+  Omit<React.HTMLAttributes<SVGSVGElement>, keyof ColorProps>,
   IconOptions {}
-

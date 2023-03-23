@@ -1,5 +1,8 @@
 /* External dependencies */
-import React, { memo } from 'react'
+import React, {
+  memo,
+  forwardRef,
+} from 'react'
 
 /* Internal dependencies */
 import type IconProps from './Icon.types'
@@ -8,7 +11,7 @@ import Styled from './Icon.styled'
 
 export const ICON_TEST_ID = 'bezier-react-icon'
 
-export const Icon = memo(function Icon({
+export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon({
   source,
   className,
   color,
@@ -18,11 +21,11 @@ export const Icon = memo(function Icon({
   marginRight = 0,
   marginBottom = 0,
   marginLeft = 0,
-  onClick,
-  onMouseDown,
-}: IconProps) {
+  ...rest
+}, forwardedRef) {
   return (
     <Styled
+      ref={forwardedRef}
       as={source}
       className={className}
       data-testid={testId}
@@ -33,8 +36,7 @@ export const Icon = memo(function Icon({
       marginright={marginRight}
       marginbottom={marginBottom}
       marginleft={marginLeft}
-      onClick={onClick}
-      onMouseDown={onMouseDown}
+      {...rest}
     />
   )
-})
+}))

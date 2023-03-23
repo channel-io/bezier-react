@@ -1,5 +1,43 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.192
+
+### Minor Changes
+
+- [#1191](https://github.com/channel-io/bezier-react/pull/1191) [`0a53d6aa`](https://github.com/channel-io/bezier-react/commit/0a53d6aa1daad028c786c35ed2b874360e389f87) Thanks [@sungik-choi](https://github.com/sungik-choi)! - `Checkbox` re-implementation and design updates:
+
+  `Checkbox` is a control that allows the user to toggle between checked and not checked.
+  It can be used with labels or standalone.
+
+  ```tsx
+  const [checked, setChecked] = useState(false)
+  // Controlled / With label
+  <Checkbox
+    checked={checked}
+    onCheckedChange={setChecked}
+  >
+    Label
+  </Checkbox>
+  // Controlled / Standalone
+  <Checkbox
+    checked={checked}
+    onCheckedChange={setChecked}
+  />
+  // Uncontrolled
+  <Checkbox
+    defaultChecked={true}
+  >
+    Label
+  </Checkbox>
+  ```
+
+  Breaking Changes:
+
+  - Delete `CheckType` enum
+  - Change the allowable value of the `checked` property:
+    - AS-IS: `boolean | CheckType`
+    - TO-BE: `boolean | 'indeterminate'`
+
 ## 1.0.0-next-v1.191
 
 ### Patch Changes
