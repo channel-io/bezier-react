@@ -9,18 +9,11 @@ interface AlphaStackOptions {
   /**
    * Direction of this stack.
    *
-   * @remarks
-   *
-   * If you are directly using this prop in application code,
-   * consider using `HStack` or `VStack` instead.
    */
   direction: 'horizontal' | 'vertical'
 
   /**
    * Determines the default aligning of children along the main axis.
-   *
-   * The `justify` prop given to child `StackItem` component
-   * overrides the default alignment.
    *
    * @default start
    */
@@ -29,8 +22,6 @@ interface AlphaStackOptions {
   /**
    * Determines the default aligning of children along the cross axis.
    *
-   * The `align` prop given to child `StackItem` component
-   * overrides the default alignment.
    *
    * @default stretch
    */
@@ -38,9 +29,6 @@ interface AlphaStackOptions {
 
   /**
    * Default spacing between children, in pixels.
-   *
-   * `marginBefore` and `marginAfter` prop given to child `StackItem` component
-   * overrides the default spacing.
    *
    * @remarks
    * `spacing` could be enumerated in later design, if bezier design system
