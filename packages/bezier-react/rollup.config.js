@@ -35,6 +35,8 @@ const typescriptPlugin = typescript({
       '**/*.test.tsx',
       './src/utils/storyUtils.ts',
       './src/utils/testUtils.tsx',
+      'node_modules',
+      'build',
     ],
   },
 })
