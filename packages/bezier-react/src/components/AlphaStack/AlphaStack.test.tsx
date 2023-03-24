@@ -17,15 +17,19 @@ describe('alpha-Stack', () => {
     it('creates a horizontal flexbox when given direction="horizontal"', () => {
       const { getByTestId } = render(<AlphaStack direction="horizontal" testId="alpha-stack" spacing={10} />)
 
-      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: row')
-      expect(getByTestId('alpha-stack')).toHaveStyle('gap: 10px')
+      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: var(--bezier-alpha-stack-direction)')
+      expect(getByTestId('alpha-stack')).toHaveStyle('--bezier-alpha-stack-direction: row')
+      expect(getByTestId('alpha-stack')).toHaveStyle('gap: var(--bezier-alpha-stack-spacing)')
+      expect(getByTestId('alpha-stack')).toHaveStyle('--bezier-alpha-stack-spacing: 10px')
     })
 
     it('creates a vertical flexbox when given direction="vertical"', () => {
       const { getByTestId } = render(<AlphaStack direction="vertical" testId="alpha-stack" spacing={10} />)
 
-      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: column')
-      expect(getByTestId('alpha-stack')).toHaveStyle('gap: 10px')
+      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: var(--bezier-alpha-stack-direction)')
+      expect(getByTestId('alpha-stack')).toHaveStyle('--bezier-alpha-stack-direction: column')
+      expect(getByTestId('alpha-stack')).toHaveStyle('gap: var(--bezier-alpha-stack-spacing)')
+      expect(getByTestId('alpha-stack')).toHaveStyle('--bezier-alpha-stack-spacing: 10px')
     })
   })
 
