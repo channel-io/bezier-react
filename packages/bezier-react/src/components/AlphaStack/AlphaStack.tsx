@@ -1,8 +1,9 @@
 /* External dependencies */
 import React, {
-  forwardRef, useMemo,
+  forwardRef,
+  useMemo,
+  type Ref,
 } from 'react'
-import type { Ref } from 'react'
 
 /* Internal dependencies */
 import { flex } from '~/src/components/Stack/util'
