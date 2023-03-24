@@ -8,7 +8,7 @@ import {
 } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { Status, StatusSize } from '~/src/components/Status'
-// NOTE: Don't fix it. When using absolute paths, a module resolve error occurs at runtime.
+// NOTE: Don't fix it. When using absolute paths, a module resolve error occurs at the runtime of the library consumer.
 // eslint-disable-next-line no-restricted-imports
 import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
