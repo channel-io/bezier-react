@@ -1,10 +1,11 @@
 /* External dependencies */
 import React, {
-  forwardRef,
+  forwardRef, useMemo,
 } from 'react'
 import type { Ref } from 'react'
 
 /* Internal dependencies */
+import { flex } from '~/src/components/Stack/util'
 import * as Styled from './AlphaStack.styled'
 import type { AlphaStackProps } from './AlphaStack.types'
 
@@ -30,9 +31,9 @@ export const AlphaStack = forwardRef(function AlphaStack(
   {
     as = 'div',
     testId = 'bezier-react-alpha-stack',
-    style,
     className,
     interpolation,
+    style,
     children,
     direction,
     justify = 'start',
@@ -42,18 +43,27 @@ export const AlphaStack = forwardRef(function AlphaStack(
   }: AlphaStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
+  const stackStyle = useMemo(():React.CSSProperties => ({
+    flexDirection: direction === 'horizontal' ? 'row' : 'column',
+    justifyContent: flex(justify),
+    alignItems: flex(align),
+    gap: `${spacing}px`,
+  }),
+  [
+    align,
+    direction,
+    justify,
+    spacing,
+  ])
+
   return (
     <Styled.Container
       ref={forwardedRef}
       as={as}
       data-testid={testId}
-      style={style}
+      style={{ ...stackStyle, ...style }}
       className={className}
       interpolation={interpolation}
-      direction={direction}
-      justify={justify}
-      align={align}
-      spacing={spacing}
       {...rest}
     >
       { children }

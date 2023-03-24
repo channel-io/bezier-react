@@ -6,6 +6,7 @@ import { Story, Meta } from '@storybook/react'
 /* Internal dependencies */
 import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
+import { css } from '~/src/foundation/FoundationStyledComponent'
 import { AlphaStack } from './AlphaStack'
 import { AlphaStackProps } from './AlphaStack.types'
 
@@ -58,4 +59,5 @@ Primary.args = {
     width: '200px',
     height: '200px',
   },
+  interpolation: css`background-color: blue;`,
 }
