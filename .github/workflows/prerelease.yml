@@ -51,11 +51,8 @@ jobs:
       - name: Create Channel Desk message bullets blocks
         if: steps.changesets.outputs.published == 'true'
         id: create-bullets-blocks
-        env:
-          PUBLISHED_PACKAGES: ${{ toJSON(steps.changesets.outputs.publishedPackages) }}
         run: |
-          blocks=$(echo $PUBLISHED_PACKAGES | .github/create-ch-desk-bullets-blocks.sh)
-          echo "blocks=$blocks" >> $GITHUB_OUTPUT
+          echo "blocks=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | .github/create-ch-desk-bullets-blocks.sh)" >> $GITHUB_OUTPUT
 
       - name: Checkout ch-web-github-actions repo
         id: checkout-ch-web-github-actions
