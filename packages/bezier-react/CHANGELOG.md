@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.194
+
+### Patch Changes
+
+- [#1232](https://github.com/channel-io/bezier-react/pull/1232) [`b37bcebc`](https://github.com/channel-io/bezier-react/commit/b37bcebc54a03ba201401df79bf42c53e1224b9a) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix module resolve error in library usage
+
 ## 1.0.0-next-v1.193
 
 ### Patch Changes
