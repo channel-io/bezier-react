@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-function SvgLock(props: SVGProps<SVGSVGElement>) {
+function SvgMicrophoneFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -13,15 +13,11 @@ function SvgLock(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M11.998 18a1 1 0 0 1-1-1v-3a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1Z"
-      />
-      <path
-        fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5.5 9H6V7a6 6 0 1 1 12 0v2h.5a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20.5v-10A1.5 1.5 0 0 1 5.5 9ZM16 7v2H8V7a4 4 0 1 1 8 0Zm2 4v9H6v-9h12Z"
+        d="M12 2a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-1 18.938a8.004 8.004 0 0 1-6.938-6.94C3.993 13.45 4.448 13 5 13c.552 0 .991.451 1.082.996a6.002 6.002 0 0 0 11.836 0c.09-.545.53-.996 1.082-.996s1.007.45.938.998A8.004 8.004 0 0 1 13 20.938V23h-2v-2.062Z"
       />
     </svg>
   )
 }
-export default createBezierIcon(SvgLock)
+export default createBezierIcon(SvgMicrophoneFilled)
