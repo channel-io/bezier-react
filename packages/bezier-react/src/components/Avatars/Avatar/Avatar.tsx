@@ -8,7 +8,9 @@ import {
 } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { Status, StatusSize } from '~/src/components/Status'
-import defaultAvatarUrl from '~/src/components/Avatars/assets/defaultAvatar.svg'
+// NOTE: Don't fix it. When using absolute paths, a module resolve error occurs at runtime.
+// eslint-disable-next-line no-restricted-imports
+import defaultAvatarUrl from '../assets/defaultAvatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 import AvatarProps, { AvatarSize } from './Avatar.types'
 import { AvatarImage, AvatarWrapper, StatusWrapper } from './Avatar.styled'
