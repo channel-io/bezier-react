@@ -52,7 +52,7 @@ jobs:
         if: steps.changesets.outputs.published == 'true'
         id: create-bullets-blocks
         run: |
-          echo "blocks=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | .github/create-ch-desk-bullets-blocks.sh)" >> $GITHUB_OUTPUT
+          echo "blocks=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | .github/utils/prerelease/create-ch-desk-bullets-blocks.sh)" >> $GITHUB_OUTPUT
 
       - name: Checkout ch-web-github-actions repo
         id: checkout-ch-web-github-actions
