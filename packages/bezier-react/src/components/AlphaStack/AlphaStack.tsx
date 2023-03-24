@@ -7,8 +7,8 @@ import React, {
 
 /* Internal dependencies */
 import { flex } from '~/src/components/Stack/util'
-import * as Styled from './AlphaStack.styled'
 import type { AlphaStackProps } from './AlphaStack.types'
+import * as Styled from './AlphaStack.styled'
 
 /**
  * `AlphaStack` provides an abstraction of **flex layout** so that
