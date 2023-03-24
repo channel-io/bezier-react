@@ -8,7 +8,6 @@ import type {
 interface AlphaStackOptions {
   /**
    * Direction of this stack.
-   *
    */
   direction: 'horizontal' | 'vertical'
 
@@ -21,7 +20,6 @@ interface AlphaStackOptions {
 
   /**
    * Determines the default aligning of children along the cross axis.
-   *
    *
    * @default stretch
    */
