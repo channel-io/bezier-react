@@ -18,14 +18,14 @@ describe('alpha-Stack', () => {
       const { getByTestId } = render(<AlphaStack direction="horizontal" testId="alpha-stack" spacing={10} />)
 
       expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: row')
-      expect(getByTestId('alpha-stack')).toHaveStyle('column-gap: 10px')
+      expect(getByTestId('alpha-stack')).toHaveStyle('gap: 10px')
     })
 
     it('creates a vertical flexbox when given direction="vertical"', () => {
       const { getByTestId } = render(<AlphaStack direction="vertical" testId="alpha-stack" spacing={10} />)
 
       expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: column')
-      expect(getByTestId('alpha-stack')).toHaveStyle('row-gap: 10px')
+      expect(getByTestId('alpha-stack')).toHaveStyle('gap: 10px')
     })
   })
 

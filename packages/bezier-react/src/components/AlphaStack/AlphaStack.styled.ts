@@ -26,8 +26,8 @@ export const Container = styled.div<ContainerProps>`
     align-items: ${flex(align)};
   `}
 
-  ${({ spacing, direction }) => css`
-    ${direction === 'horizontal' ? 'column-gap' : 'row-gap'}: ${spacing}px;
+  ${({ spacing }) => css`
+    gap: ${spacing}px;
   `}
 
   ${({ interpolation }) => interpolation}
