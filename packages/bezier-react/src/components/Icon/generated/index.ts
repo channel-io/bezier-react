@@ -170,7 +170,6 @@ import DialogDown from './DialogDown'
 import DialogUp from './DialogUp'
 import Distribute from './Distribute'
 import Dot from './Dot'
-import DownloadJudy from './DownloadJudy'
 import Download from './Download'
 import Dragable from './Dragable'
 import Dropdown from './Dropdown'
@@ -657,7 +656,6 @@ const icons = {
   'dialog-up': DialogUp,
   distribute: Distribute,
   dot: Dot,
-  'download-judy': DownloadJudy,
   download: Download,
   dragable: Dragable,
   dropdown: Dropdown,
@@ -1159,7 +1157,6 @@ export {
   DialogUp as DialogUpIcon,
   Distribute as DistributeIcon,
   Dot as DotIcon,
-  DownloadJudy as DownloadJudyIcon,
   Download as DownloadIcon,
   Dragable as DragableIcon,
   Dropdown as DropdownIcon,
