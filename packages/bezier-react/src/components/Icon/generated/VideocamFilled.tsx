@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-function SvgLock(props: SVGProps<SVGSVGElement>) {
+function SvgVideocamFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -13,15 +13,11 @@ function SvgLock(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M11.998 18a1 1 0 0 1-1-1v-3a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1Z"
-      />
-      <path
-        fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5.5 9H6V7a6 6 0 1 1 12 0v2h.5a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20.5v-10A1.5 1.5 0 0 1 5.5 9ZM16 7v2H8V7a4 4 0 1 1 8 0Zm2 4v9H6v-9h12Z"
+        d="M13.998 6H4.002a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.996a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm7.19 11.35-4-3.2a.5.5 0 0 1-.187-.39v-3.52a.5.5 0 0 1 .187-.39l4-3.2a.5.5 0 0 1 .812.39v9.92a.5.5 0 0 1-.812.39Z"
       />
     </svg>
   )
 }
-export default createBezierIcon(SvgLock)
+export default createBezierIcon(SvgVideocamFilled)

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-function SvgArrowRightDownSmall(props: SVGProps<SVGSVGElement>) {
+function SvgVoiceWave(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -13,9 +13,9 @@ function SvgArrowRightDownSmall(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M7.05 7.05a1 1 0 0 0 0 1.414l6.779 6.779H8.463a1 1 0 1 0 0 2h7.779a1 1 0 0 0 1-1V8.464a1 1 0 1 0-2 0v5.364L8.464 7.05a1 1 0 0 0-1.414 0Z"
+        d="M13 7.5a1.5 1.5 0 0 1 3 0v9a1.5 1.5 0 0 1-3 0v-9ZM8 4.5a1.5 1.5 0 1 1 3 0v15a1.5 1.5 0 0 1-3 0v-15ZM3 9.5a1.5 1.5 0 1 1 3 0v5a1.5 1.5 0 0 1-3 0v-5ZM18 10.5a1.5 1.5 0 0 1 3 0v3a1.5 1.5 0 0 1-3 0v-3Z"
       />
     </svg>
   )
 }
-export default createBezierIcon(SvgArrowRightDownSmall)
+export default createBezierIcon(SvgVoiceWave)

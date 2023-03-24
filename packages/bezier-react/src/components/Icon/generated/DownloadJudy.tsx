@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 import { createBezierIcon } from '../utils'
-function SvgLock(props: SVGProps<SVGSVGElement>) {
+function SvgDownloadJudy(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -13,15 +13,11 @@ function SvgLock(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M11.998 18a1 1 0 0 1-1-1v-3a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1Z"
-      />
-      <path
-        fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M5.5 9H6V7a6 6 0 1 1 12 0v2h.5a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20.5v-10A1.5 1.5 0 0 1 5.5 9ZM16 7v2H8V7a4 4 0 1 1 8 0Zm2 4v9H6v-9h12Z"
+        d="M9 4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5h2.586c.89 0 1.337 1.077.707 1.707l-5.586 5.586a1 1 0 0 1-1.414 0l-5.586-5.586C5.077 10.077 5.523 9 6.414 9H9V4ZM4.889 18C4.398 18 4 18.448 4 19v1c0 .552.398 1 .889 1H19.11c.491 0 .889-.448.889-1v-1c0-.552-.398-1-.889-1H4.89Z"
       />
     </svg>
   )
 }
-export default createBezierIcon(SvgLock)
+export default createBezierIcon(SvgDownloadJudy)
