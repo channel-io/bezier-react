@@ -43,17 +43,19 @@ export const AlphaStack = forwardRef(function AlphaStack(
   }: AlphaStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
-  const stackStyle = useMemo(():React.CSSProperties => ({
-    flexDirection: direction === 'horizontal' ? 'row' : 'column',
-    justifyContent: flex(justify),
-    alignItems: flex(align),
-    gap: `${spacing}px`,
-  }),
+  const stackStyle = useMemo(() => ({
+    ...style,
+    '--bezier-alpha-stack-direction': direction === 'horizontal' ? 'row' : 'column',
+    '--bezier-alpha-stack-justify': flex(justify),
+    '--bezier-alpha-stack-align': flex(align),
+    '--bezier-alpha-stack-spacing': `${spacing}px`,
+  } as React.CSSProperties),
   [
     align,
     direction,
     justify,
     spacing,
+    style,
   ])
 
   return (
@@ -61,7 +63,7 @@ export const AlphaStack = forwardRef(function AlphaStack(
       ref={forwardedRef}
       as={as}
       data-testid={testId}
-      style={{ ...stackStyle, ...style }}
+      style={stackStyle}
       className={className}
       interpolation={interpolation}
       {...rest}
