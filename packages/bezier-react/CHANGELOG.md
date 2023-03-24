@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.195
+
+### Patch Changes
+
+- [#1226](https://github.com/channel-io/bezier-react/pull/1226) [`f02904d6`](https://github.com/channel-io/bezier-react/commit/f02904d6d30afe0f99b99d1aeec66a75372d7ff3) Thanks [@Kanary159357](https://github.com/Kanary159357)! - Introduce `AlphaStack` component
+
 ## 1.0.0-next-v1.194
 
 ### Patch Changes
