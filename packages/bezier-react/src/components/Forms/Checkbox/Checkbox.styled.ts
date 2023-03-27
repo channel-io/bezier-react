@@ -40,7 +40,7 @@ const focusStyle = css`
   ${checkIconFocusStyle}
 `
 
-export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProps>`
+export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)<CheckboxProps<any>>`
   all: unset;
   display: flex;
   align-items: center;

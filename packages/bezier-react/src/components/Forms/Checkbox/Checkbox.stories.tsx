@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { CheckboxProps } from './Checkbox.types'
+import { CheckboxProps, CheckedState } from './Checkbox.types'
 import { Checkbox } from './Checkbox'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<CheckboxProps> = ({ children, ...otherCheckboxProps }) => (
+const Template: Story<CheckboxProps<CheckedState>> = ({ children, ...otherCheckboxProps }) => (
   <Checkbox {...otherCheckboxProps}>
     { children }
   </Checkbox>

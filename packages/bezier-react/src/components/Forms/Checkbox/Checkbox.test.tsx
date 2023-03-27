@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event'
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 import { Checkbox } from './Checkbox'
-import { CheckboxProps } from './Checkbox.types'
+import { CheckboxProps, CheckedState } from './Checkbox.types'
 
 const VALUES = ['0', '1', '2']
 
@@ -14,14 +14,14 @@ describe('Checkbox', () => {
   const renderCheckbox = ({
     children,
     ...rest
-  }: CheckboxProps = {}) => render(
+  }: CheckboxProps<CheckedState> = {}) => render(
     <Checkbox {...rest}>
       { children }
     </Checkbox>,
   )
 
   const renderCheckboxes = (
-    props: Omit<CheckboxProps, 'children'> = {},
+    props: Omit<CheckboxProps<CheckedState>, 'children'> = {},
   ) => render(
     <div role="group">
       { VALUES.map(value => (
