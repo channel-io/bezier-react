@@ -1,8 +1,7 @@
 /* External dependencies */
-import React, { forwardRef, useEffect, isValidElement } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 
 /* Internal dependencies */
-import { StackItem } from '~/src/components/Stack'
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type FormGroupProps from './FormGroup.types'
 import * as Styled from './FormGroup.styled'
@@ -47,11 +46,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       direction={direction}
       role={role}
     >
-      { React.Children.map(children, (child, index) => (
-        <StackItem key={isValidElement(child) ? child.key : index}>
-          { child }
-        </StackItem>
-      )) }
+      { children }
     </Styled.Stack>
   )
 }

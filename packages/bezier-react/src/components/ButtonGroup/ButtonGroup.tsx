@@ -1,8 +1,8 @@
 /* External dependencies */
-import React, { Children, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
-import { HStack, StackItem } from '~/src/components/Stack'
+import { AlphaStack } from '~/src/components/AlphaStack'
 import ButtonGroupProps from './ButtonGroup.types'
 
 export const ButtonGroup = forwardRef(function ButtonGroup(
@@ -14,26 +14,18 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
   }: ButtonGroupProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const spacing = withoutSpacing ? 0 : 6
+  const spacing = withoutSpacing ? 0 : 10
 
   return (
-    <HStack
+    <AlphaStack
+      direction="horizontal"
       spacing={spacing}
       justify={justify}
       ref={forwardedRef}
       role="group"
       {...props}
     >
-      {
-        Children.map(
-          children,
-          (element) => (
-            <StackItem>
-              { element }
-            </StackItem>
-          ),
-        )
-      }
-    </HStack>
+      { children }
+    </AlphaStack>
   )
 })
