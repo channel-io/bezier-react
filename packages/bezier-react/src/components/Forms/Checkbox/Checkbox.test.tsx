@@ -137,7 +137,7 @@ describe('Checkbox', () => {
     }: {
       children?: React.ReactNode
       formControlProps?: Omit<FormControlProps, 'children'>
-      checkboxProps?: Omit<CheckboxProps, 'children'>
+      checkboxProps?: Omit<CheckboxProps<CheckedState>, 'children'>
     }) => render(
       <FormControl {...formControlProps}>
         <Checkbox {...checkboxProps}>
