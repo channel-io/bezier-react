@@ -43,11 +43,13 @@ function CheckboxImpl<Checked extends CheckedState>({
   id: idProp,
   ...rest
 }: CheckboxProps<Checked>, forwardedRef: React.Ref<HTMLButtonElement>) {
-  const id = useId(idProp, 'bezier-checkbox')
   const {
+    id: formFieldId,
     hasError,
     ...formFieldProps
   } = useFormFieldProps(rest)
+
+  const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
   const containerStyle = {
     '--bezier-checkbox-height': children ? `${FormFieldSize.M}px` : 'auto',
