@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.196
+
+### Patch Changes
+
+- [#1245](https://github.com/channel-io/bezier-react/pull/1245) [`6fdb5d18`](https://github.com/channel-io/bezier-react/commit/6fdb5d184152c48ee6cc9e1f4b903c707c5bef7e) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix `FormControl`'s id always overrides `Checkbox`'s id prop
+
+- [#1244](https://github.com/channel-io/bezier-react/pull/1244) [`825bd8ae`](https://github.com/channel-io/bezier-react/commit/825bd8aed6ba1f566069a2caae56c9ef2219b6c2) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Apply a generic type to the `checked` type of `Checkbox`
+
 ## 1.0.0-next-v1.195
 
 ### Patch Changes
