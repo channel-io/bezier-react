@@ -135,7 +135,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
           </EllipsisableContent>
         </Content>
       </ContentWrapper>,
-      getRootElement(),
+      tooltipContainer || getRootElement(),
     )
   )
 }

@@ -66,25 +66,25 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
       data-testid="bezier-react-tooltip"
     >
       Text
-    </div>
-  </div>
-  <div
-    class="c1"
-    style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
-  >
-    <div
-      class="c2"
-      data-testid="bezier-react-tooltip-content"
-    >
       <div
-        class="c3"
+        class="c1"
+        style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
       >
-        <span
-          class="c4"
-          data-testid="bezier-react-text"
+        <div
+          class="c2"
+          data-testid="bezier-react-tooltip-content"
         >
-          Hovered
-        </span>
+          <div
+            class="c3"
+          >
+            <span
+              class="c4"
+              data-testid="bezier-react-text"
+            >
+              Hovered
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -156,25 +156,25 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
       data-testid="bezier-react-tooltip"
     >
       Text
-    </div>
-  </div>
-  <div
-    class="c1"
-    style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
-  >
-    <div
-      class="c2"
-      data-testid="bezier-react-tooltip-content"
-    >
       <div
-        class="c3"
+        class="c1"
+        style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
       >
-        <span
-          class="c4"
-          data-testid="bezier-react-text"
+        <div
+          class="c2"
+          data-testid="bezier-react-tooltip-content"
         >
-          Hovered
-        </span>
+          <div
+            class="c3"
+          >
+            <span
+              class="c4"
+              data-testid="bezier-react-text"
+            >
+              Hovered
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
