@@ -81,6 +81,6 @@ jobs:
               },
               {
                 "type": "bullets",
-                "blocks": ${{ toJSON(steps.create-bullets-blocks.outputs.blocks) }}
+                "blocks": ${{ fromJSON(steps.create-bullets-blocks.outputs.blocks) }}
               }
             ]
