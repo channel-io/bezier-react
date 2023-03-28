@@ -14,7 +14,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
   }: ButtonGroupProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const spacing = withoutSpacing ? 0 : 10
+  const spacing = withoutSpacing ? 0 : 6
 
   return (
     <AlphaStack
