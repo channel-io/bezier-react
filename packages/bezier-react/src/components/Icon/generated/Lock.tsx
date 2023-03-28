@@ -11,7 +11,10 @@ function SvgLock(props: SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path fill="currentColor" d="M10.998 18v-5h2v5h-2Z" />
+      <path
+        fill="currentColor"
+        d="M11.998 18a1 1 0 0 1-1-1v-3a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1Z"
+      />
       <path
         fill="currentColor"
         fillRule="evenodd"

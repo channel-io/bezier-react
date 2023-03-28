@@ -11,7 +11,10 @@ import {
 } from '~/src/components/Icon'
 import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import { type CheckboxProps } from './Checkbox.types'
+import {
+  type CheckboxProps,
+  type CheckedState,
+} from './Checkbox.types'
 import * as Styled from './Checkbox.styled'
 
 type CheckIconProps = {} | {
@@ -41,45 +44,19 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
   )
 })
 
-/**
- * `Checkbox` is a control that allows the user to toggle between checked and not checked.
- * It can be used with labels or standalone.
- *
- * @example
- *
- * ```tsx
- * const [checked, setChecked] = useState(false)
- * // Controlled / With label
- * <Checkbox
- *   checked={checked}
- *   onCheckedChange={setChecked}
- * >
- *   Label
- * </Checkbox>
- * // Controlled / Standalone
- * <Checkbox
- *   checked={checked}
- *   onCheckedChange={setChecked}
- * />
- * // Uncontrolled
- * <Checkbox
- *   defaultChecked={true}
- * >
- *   Label
- * </Checkbox>
- * ```
- */
-export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox({
+function CheckboxImpl<Checked extends CheckedState>({
   children,
   checked,
   id: idProp,
   ...rest
-}, forwardedRef) {
-  const id = useId(idProp, 'bezier-checkbox')
+}: CheckboxProps<Checked>, forwardedRef: React.Ref<HTMLButtonElement>) {
   const {
+    id: formFieldId,
     hasError,
     ...formFieldProps
   } = useFormFieldProps(rest)
+
+  const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
   const containerStyle = {
     '--bezier-checkbox-height': children ? `${FormFieldSize.M}px` : 'auto',
@@ -112,4 +89,36 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
       ) }
     </Styled.Container>
   )
-})
+}
+
+/**
+ * `Checkbox` is a control that allows the user to toggle between checked and not checked.
+ * It can be used with labels or standalone.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [checked, setChecked] = useState(false)
+ * // Controlled / With label
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * >
+ *   Label
+ * </Checkbox>
+ * // Controlled / Standalone
+ * <Checkbox
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * />
+ * // Uncontrolled
+ * <Checkbox
+ *   defaultChecked={true}
+ * >
+ *   Label
+ * </Checkbox>
+ * ```
+ */
+export const Checkbox = forwardRef(CheckboxImpl) as <Checked extends CheckedState>(
+  props: CheckboxProps<Checked> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+) => ReturnType<typeof CheckboxImpl<Checked>>

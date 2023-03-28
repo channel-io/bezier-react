@@ -5,8 +5,15 @@ import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+import {
+  FormControl,
+  type FormControlProps,
+} from '~/src/components/Forms/FormControl'
 import { Checkbox } from './Checkbox'
-import { type CheckboxProps } from './Checkbox.types'
+import {
+  type CheckboxProps,
+  type CheckedState,
+} from './Checkbox.types'
 
 const VALUES = ['0', '1', '2']
 
@@ -14,14 +21,14 @@ describe('Checkbox', () => {
   const renderCheckbox = ({
     children,
     ...rest
-  }: CheckboxProps = {}) => render(
+  }: CheckboxProps<CheckedState> = {}) => render(
     <Checkbox {...rest}>
       { children }
     </Checkbox>,
   )
 
   const renderCheckboxes = (
-    props: Omit<CheckboxProps, 'children'> = {},
+    props: Omit<CheckboxProps<CheckedState>, 'children'> = {},
   ) => render(
     <div role="group">
       { VALUES.map(value => (
@@ -125,6 +132,49 @@ describe('Checkbox', () => {
       expect(checkbox).toHaveFocus()
       await user.keyboard('{ }')
       expect(onCheckedChange).toBeCalledTimes(1)
+    })
+  })
+
+  describe('With FormControl', () => {
+    const renderCheckboxWithFormControl = ({
+      children,
+      formControlProps = {},
+      checkboxProps = {},
+    }: {
+      children?: React.ReactNode
+      formControlProps?: Omit<FormControlProps, 'children'>
+      checkboxProps?: Omit<CheckboxProps<CheckedState>, 'children'>
+    }) => render(
+      <FormControl {...formControlProps}>
+        <Checkbox {...checkboxProps}>
+          { children }
+        </Checkbox>
+      </FormControl>,
+    )
+
+    it('FormControl\'s disabled prop should be passed to Checkbox', () => {
+      const { getByRole } = renderCheckboxWithFormControl({ formControlProps: { disabled: true } })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true')
+    })
+
+    it('FormControl\'s hasError prop should be passed to Checkbox', () => {
+      const { getByRole } = renderCheckboxWithFormControl({ formControlProps: { hasError: true } })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-invalid', 'true')
+    })
+
+    it('FormControl\'s required prop should be passed to Checkbox', () => {
+      const { getByRole } = renderCheckboxWithFormControl({ formControlProps: { required: true } })
+      expect(getByRole('checkbox')).toHaveAttribute('aria-required', 'true')
+    })
+
+    it('FormControl\'s id prop should be passed to Checkbox', () => {
+      const { getByRole } = renderCheckboxWithFormControl({ formControlProps: { id: 'form-control-id' } })
+      expect(getByRole('checkbox')).toHaveAttribute('id', 'form-control-id')
+    })
+
+    it('FormControl\'s id prop should be overwritten by Checkbox\'s id prop', () => {
+      const { getByRole } = renderCheckboxWithFormControl({ formControlProps: { id: 'form-control-id' }, checkboxProps: { id: 'checkbox-id' } })
+      expect(getByRole('checkbox')).toHaveAttribute('id', 'checkbox-id')
     })
   })
 })

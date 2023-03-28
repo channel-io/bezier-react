@@ -25,9 +25,13 @@ const LightTheme: ThemeType = {
 
   'bg-grey-darkest': Palette.grey900,
   'bg-grey-dark': Palette.grey500,
+  'bg-grey-dim-lightest': Palette.grey50_80,
   'bg-grey-light': Palette.grey200,
   'bg-grey-lighter': Palette.grey100,
   'bg-grey-lightest': Palette.grey50,
+
+  'bg-white-dim-dark': Palette.white_60,
+  'bg-white-dim-light': Palette.white_20,
 
   // Colorful text and background
   'bgtxt-blue-dark': Palette.blue500,

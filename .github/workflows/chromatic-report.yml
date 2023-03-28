@@ -73,7 +73,7 @@ jobs:
         id: template
         uses: chuhlomin/render-template@v1.6
         with:
-          template: .github/comment_template.md
+          template: .github/utils/chromatic-report/comment_template.md
           vars: |
             storybookUrl: ${{ steps.storybook-url.outputs.result }}
             buildUrl: ${{ steps.build-url.outputs.result }}

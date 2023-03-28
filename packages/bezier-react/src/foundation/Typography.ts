@@ -12,6 +12,8 @@ export enum TypoAbsoluteNumber {
   Typo18 = 1.8,
   Typo22 = 2.2,
   Typo24 = 2.4,
+  Typo30 = 3.0,
+  Typo36 = 3.6,
 }
 
 export enum LineHeightAbsoluteNumber {
@@ -22,6 +24,8 @@ export enum LineHeightAbsoluteNumber {
   Lh24 = 2.4,
   Lh28 = 2.8,
   Lh32 = 3.2,
+  Lh36 = 3.6,
+  Lh44 = 4.4,
 }
 
 const Size11 = css`
@@ -79,6 +83,18 @@ const Size24 = css`
   letter-spacing: -0.4px;
 `
 
+const Size30 = css`
+  font-size: ${TypoAbsoluteNumber.Typo30}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh36}rem;
+  letter-spacing: -0.4px;
+`
+
+const Size36 = css`
+  font-size: ${TypoAbsoluteNumber.Typo36}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh44}rem;
+  letter-spacing: -0.4px;
+`
+
 export type TypographyType = ReturnType<typeof css>
 
 export const Typography = {
@@ -92,4 +108,6 @@ export const Typography = {
   Size18,
   Size22,
   Size24,
+  Size30,
+  Size36,
 }

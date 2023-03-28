@@ -66,14 +66,17 @@ import Bus from './Bus'
 import BusinessGuy from './BusinessGuy'
 import ButtonRoute from './ButtonRoute'
 import Calendar from './Calendar'
+import CallFilled from './CallFilled'
 import CallInProgress from './CallInProgress'
 import CallIncoming from './CallIncoming'
+import CallMeet from './CallMeet'
 import CallMissed from './CallMissed'
 import CallOff from './CallOff'
 import CallOutgoing from './CallOutgoing'
 import CallPull from './CallPull'
 import Call from './Call'
 import CameraFilled from './CameraFilled'
+import CameraSwitch from './CameraSwitch'
 import Camera from './Camera'
 import CancelCircleFilled from './CancelCircleFilled'
 import CancelCircle from './CancelCircle'
@@ -96,6 +99,7 @@ import ChannelUpFilled from './ChannelUpFilled'
 import ChannelUp from './ChannelUp'
 import Channel from './Channel'
 import ChannelsList from './ChannelsList'
+import ChatBubbleAltFilled from './ChatBubbleAltFilled'
 import ChatBubbleAlt from './ChatBubbleAlt'
 import ChatBubbleFilled from './ChatBubbleFilled'
 import ChatBubble from './ChatBubble'
@@ -129,6 +133,7 @@ import ChevronRightDouble from './ChevronRightDouble'
 import ChevronRight from './ChevronRight'
 import ChevronSmallDown from './ChevronSmallDown'
 import ChevronSmallLeft from './ChevronSmallLeft'
+import ChevronSmallLeftright from './ChevronSmallLeftright'
 import ChevronSmallRight from './ChevronSmallRight'
 import ChevronSmallUp from './ChevronSmallUp'
 import ChevronSmallUpdown from './ChevronSmallUpdown'
@@ -150,6 +155,7 @@ import CommentIn from './CommentIn'
 import CommentOut from './CommentOut'
 import Comment from './Comment'
 import Communication from './Communication'
+import ContactFilled from './ContactFilled'
 import Contact from './Contact'
 import Contract from './Contract'
 import Cookie from './Cookie'
@@ -260,6 +266,7 @@ import KakaoFilledAlt from './KakaoFilledAlt'
 import KakaoFilled from './KakaoFilled'
 import Kakao from './Kakao'
 import Key from './Key'
+import KeyboardHide from './KeyboardHide'
 import Keyboard from './Keyboard'
 import Keypad from './Keypad'
 import Lab from './Lab'
@@ -285,6 +292,7 @@ import MenuUnfold from './MenuUnfold'
 import Menu from './Menu'
 import MessagingApp from './MessagingApp'
 import Metro from './Metro'
+import MicrophoneFilled from './MicrophoneFilled'
 import MicrophoneOff from './MicrophoneOff'
 import Microphone from './Microphone'
 import MinusCircleFilled from './MinusCircleFilled'
@@ -338,6 +346,7 @@ import Play from './Play'
 import PlusCircleFilled from './PlusCircleFilled'
 import PlusCircle from './PlusCircle'
 import PlusSmall from './PlusSmall'
+import PlusSquare from './PlusSquare'
 import Plus from './Plus'
 import Point from './Point'
 import Power from './Power'
@@ -435,10 +444,15 @@ import Untag from './Untag'
 import Upload from './Upload'
 import Username from './Username'
 import Variable from './Variable'
+import VideocamFilled from './VideocamFilled'
+import VideocamOffFilled from './VideocamOffFilled'
 import VideocamOff from './VideocamOff'
 import Videocam from './Videocam'
 import ViewOff from './ViewOff'
 import View from './View'
+import VoiceWave from './VoiceWave'
+import Voicemail from './Voicemail'
+import VolumeBluetoothFilled from './VolumeBluetoothFilled'
 import VolumeBluetooth from './VolumeBluetooth'
 import VolumeDown from './VolumeDown'
 import VolumeOffFilled from './VolumeOffFilled'
@@ -538,14 +552,17 @@ const icons = {
   'business-guy': BusinessGuy,
   'button-route': ButtonRoute,
   calendar: Calendar,
+  'call-filled': CallFilled,
   'call-in-progress': CallInProgress,
   'call-incoming': CallIncoming,
+  'call-meet': CallMeet,
   'call-missed': CallMissed,
   'call-off': CallOff,
   'call-outgoing': CallOutgoing,
   'call-pull': CallPull,
   call: Call,
   'camera-filled': CameraFilled,
+  'camera-switch': CameraSwitch,
   camera: Camera,
   'cancel-circle-filled': CancelCircleFilled,
   'cancel-circle': CancelCircle,
@@ -568,6 +585,7 @@ const icons = {
   'channel-up': ChannelUp,
   channel: Channel,
   'channels-list': ChannelsList,
+  'chat-bubble-alt-filled': ChatBubbleAltFilled,
   'chat-bubble-alt': ChatBubbleAlt,
   'chat-bubble-filled': ChatBubbleFilled,
   'chat-bubble': ChatBubble,
@@ -601,6 +619,7 @@ const icons = {
   'chevron-right': ChevronRight,
   'chevron-small-down': ChevronSmallDown,
   'chevron-small-left': ChevronSmallLeft,
+  'chevron-small-leftright': ChevronSmallLeftright,
   'chevron-small-right': ChevronSmallRight,
   'chevron-small-up': ChevronSmallUp,
   'chevron-small-updown': ChevronSmallUpdown,
@@ -622,6 +641,7 @@ const icons = {
   'comment-out': CommentOut,
   comment: Comment,
   communication: Communication,
+  'contact-filled': ContactFilled,
   contact: Contact,
   contract: Contract,
   cookie: Cookie,
@@ -732,6 +752,7 @@ const icons = {
   'kakao-filled': KakaoFilled,
   kakao: Kakao,
   key: Key,
+  'keyboard-hide': KeyboardHide,
   keyboard: Keyboard,
   keypad: Keypad,
   lab: Lab,
@@ -757,6 +778,7 @@ const icons = {
   menu: Menu,
   'messaging-app': MessagingApp,
   metro: Metro,
+  'microphone-filled': MicrophoneFilled,
   'microphone-off': MicrophoneOff,
   microphone: Microphone,
   'minus-circle-filled': MinusCircleFilled,
@@ -810,6 +832,7 @@ const icons = {
   'plus-circle-filled': PlusCircleFilled,
   'plus-circle': PlusCircle,
   'plus-small': PlusSmall,
+  'plus-square': PlusSquare,
   plus: Plus,
   point: Point,
   power: Power,
@@ -907,10 +930,15 @@ const icons = {
   upload: Upload,
   username: Username,
   variable: Variable,
+  'videocam-filled': VideocamFilled,
+  'videocam-off-filled': VideocamOffFilled,
   'videocam-off': VideocamOff,
   videocam: Videocam,
   'view-off': ViewOff,
   view: View,
+  'voice-wave': VoiceWave,
+  voicemail: Voicemail,
+  'volume-bluetooth-filled': VolumeBluetoothFilled,
   'volume-bluetooth': VolumeBluetooth,
   'volume-down': VolumeDown,
   'volume-off-filled': VolumeOffFilled,
@@ -938,7 +966,7 @@ const icons = {
   wing: Wing,
   youtube: Youtube,
   'zoom-in': ZoomIn,
-  'zoom-out': ZoomOut
+  'zoom-out': ZoomOut,
 }
 
 /**
@@ -1025,14 +1053,17 @@ export {
   BusinessGuy as BusinessGuyIcon,
   ButtonRoute as ButtonRouteIcon,
   Calendar as CalendarIcon,
+  CallFilled as CallFilledIcon,
   CallInProgress as CallInProgressIcon,
   CallIncoming as CallIncomingIcon,
+  CallMeet as CallMeetIcon,
   CallMissed as CallMissedIcon,
   CallOff as CallOffIcon,
   CallOutgoing as CallOutgoingIcon,
   CallPull as CallPullIcon,
   Call as CallIcon,
   CameraFilled as CameraFilledIcon,
+  CameraSwitch as CameraSwitchIcon,
   Camera as CameraIcon,
   CancelCircleFilled as CancelCircleFilledIcon,
   CancelCircle as CancelCircleIcon,
@@ -1055,6 +1086,7 @@ export {
   ChannelUp as ChannelUpIcon,
   Channel as ChannelIcon,
   ChannelsList as ChannelsListIcon,
+  ChatBubbleAltFilled as ChatBubbleAltFilledIcon,
   ChatBubbleAlt as ChatBubbleAltIcon,
   ChatBubbleFilled as ChatBubbleFilledIcon,
   ChatBubble as ChatBubbleIcon,
@@ -1088,6 +1120,7 @@ export {
   ChevronRight as ChevronRightIcon,
   ChevronSmallDown as ChevronSmallDownIcon,
   ChevronSmallLeft as ChevronSmallLeftIcon,
+  ChevronSmallLeftright as ChevronSmallLeftrightIcon,
   ChevronSmallRight as ChevronSmallRightIcon,
   ChevronSmallUp as ChevronSmallUpIcon,
   ChevronSmallUpdown as ChevronSmallUpdownIcon,
@@ -1109,6 +1142,7 @@ export {
   CommentOut as CommentOutIcon,
   Comment as CommentIcon,
   Communication as CommunicationIcon,
+  ContactFilled as ContactFilledIcon,
   Contact as ContactIcon,
   Contract as ContractIcon,
   Cookie as CookieIcon,
@@ -1219,6 +1253,7 @@ export {
   KakaoFilled as KakaoFilledIcon,
   Kakao as KakaoIcon,
   Key as KeyIcon,
+  KeyboardHide as KeyboardHideIcon,
   Keyboard as KeyboardIcon,
   Keypad as KeypadIcon,
   Lab as LabIcon,
@@ -1244,6 +1279,7 @@ export {
   Menu as MenuIcon,
   MessagingApp as MessagingAppIcon,
   Metro as MetroIcon,
+  MicrophoneFilled as MicrophoneFilledIcon,
   MicrophoneOff as MicrophoneOffIcon,
   Microphone as MicrophoneIcon,
   MinusCircleFilled as MinusCircleFilledIcon,
@@ -1297,6 +1333,7 @@ export {
   PlusCircleFilled as PlusCircleFilledIcon,
   PlusCircle as PlusCircleIcon,
   PlusSmall as PlusSmallIcon,
+  PlusSquare as PlusSquareIcon,
   Plus as PlusIcon,
   Point as PointIcon,
   Power as PowerIcon,
@@ -1394,10 +1431,15 @@ export {
   Upload as UploadIcon,
   Username as UsernameIcon,
   Variable as VariableIcon,
+  VideocamFilled as VideocamFilledIcon,
+  VideocamOffFilled as VideocamOffFilledIcon,
   VideocamOff as VideocamOffIcon,
   Videocam as VideocamIcon,
   ViewOff as ViewOffIcon,
   View as ViewIcon,
+  VoiceWave as VoiceWaveIcon,
+  Voicemail as VoicemailIcon,
+  VolumeBluetoothFilled as VolumeBluetoothFilledIcon,
   VolumeBluetooth as VolumeBluetoothIcon,
   VolumeDown as VolumeDownIcon,
   VolumeOffFilled as VolumeOffFilledIcon,
@@ -1425,7 +1467,7 @@ export {
   Wing as WingIcon,
   Youtube as YoutubeIcon,
   ZoomIn as ZoomInIcon,
-  ZoomOut as ZoomOutIcon
+  ZoomOut as ZoomOutIcon,
 }
 
 /* eslint-enable */

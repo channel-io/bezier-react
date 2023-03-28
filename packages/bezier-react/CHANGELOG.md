@@ -1,5 +1,43 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.196
+
+### Patch Changes
+
+- [#1245](https://github.com/channel-io/bezier-react/pull/1245) [`6fdb5d18`](https://github.com/channel-io/bezier-react/commit/6fdb5d184152c48ee6cc9e1f4b903c707c5bef7e) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix `FormControl`'s id always overrides `Checkbox`'s id prop
+
+- [#1244](https://github.com/channel-io/bezier-react/pull/1244) [`825bd8ae`](https://github.com/channel-io/bezier-react/commit/825bd8aed6ba1f566069a2caae56c9ef2219b6c2) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Apply a generic type to the `checked` type of `Checkbox`
+
+## 1.0.0-next-v1.195
+
+### Patch Changes
+
+- [#1226](https://github.com/channel-io/bezier-react/pull/1226) [`f02904d6`](https://github.com/channel-io/bezier-react/commit/f02904d6d30afe0f99b99d1aeec66a75372d7ff3) Thanks [@Kanary159357](https://github.com/Kanary159357)! - Introduce `AlphaStack` component
+
+## 1.0.0-next-v1.194
+
+### Patch Changes
+
+- [#1232](https://github.com/channel-io/bezier-react/pull/1232) [`b37bcebc`](https://github.com/channel-io/bezier-react/commit/b37bcebc54a03ba201401df79bf42c53e1224b9a) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix module resolve error in library usage
+
+## 1.0.0-next-v1.193
+
+### Patch Changes
+
+- [#1230](https://github.com/channel-io/bezier-react/pull/1230) [`052b1177`](https://github.com/channel-io/bezier-react/commit/052b11775ad6687d4550138d417330f4311b6b59) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
+
+- [#1228](https://github.com/channel-io/bezier-react/pull/1228) [`c68bec81`](https://github.com/channel-io/bezier-react/commit/c68bec8199d0f33d6934f058be432c3a9a3e3353) Thanks [@leejiwoo2002](https://github.com/leejiwoo2002)! - add new text/palette specs
+  - add 2 color palette
+    - grey50_80
+    - grey850_80
+  - add 2 text specs
+    - size30
+    - size36
+  - add 3 semantic colors
+    - bg-grey-dim-lightest
+    - light: grey50_80
+    - dark: grey850_80
+
 ## 1.0.0-next-v1.192
 
 ### Minor Changes

@@ -13,7 +13,7 @@ function SvgArrowRightDownSmall(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="currentColor"
-        d="M7.05 7.05a1 1 0 0 0 0 1.414l6.778 6.779H8.464a1 1 0 1 0 0 2h7.779a1 1 0 0 0 1-1V8.464a1 1 0 1 0-2 0v5.364L8.464 7.05a1 1 0 0 0-1.414 0Z"
+        d="M7.05 7.05a1 1 0 0 0 0 1.414l6.779 6.779H8.463a1 1 0 1 0 0 2h7.779a1 1 0 0 0 1-1V8.464a1 1 0 1 0-2 0v5.364L8.464 7.05a1 1 0 0 0-1.414 0Z"
       />
     </svg>
   )
