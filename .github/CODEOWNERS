@@ -8,6 +8,7 @@
 
 # Owner of bezier-react
 
+/packages/bezier-react/src/components/AutoFocus/ @sungik-choi
 /packages/bezier-react/src/components/Avatars/ @sungik-choi
 /packages/bezier-react/src/components/Banner/ @sungik-choi
 /packages/bezier-react/src/components/Button/ @sungik-choi
