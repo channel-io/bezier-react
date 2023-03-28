@@ -6,19 +6,20 @@ exports[`FormGroup > Snapshot > 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
   width: 100%;
   height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
 }
 
 .c1 {
@@ -27,10 +28,22 @@ exports[`FormGroup > Snapshot > 1`] = `
   flex-wrap: wrap;
 }
 
+@supports not(gap:var(--bezier-alpha-stack-spacing)) {
+  .c0 {
+    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+  }
+
+  .c0 > * {
+    margin-top: var(--bezier-alpha-stack-spacing);
+    margin-left: var(--bezier-alpha-stack-spacing);
+  }
+}
+
 <div
   class="c0 c1"
   data-testid="bezier-react-form-group"
-  direction="vertical"
   role="group"
+  style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 6px;"
 />
 `;
