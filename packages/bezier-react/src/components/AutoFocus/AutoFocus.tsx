@@ -1,8 +1,12 @@
 /* External dependencies */
-import React, { useCallback } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+} from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
 /* Internal dependencies */
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { type AutoFocusProps } from './AutoFocus.types'
 
 /**
@@ -18,18 +22,20 @@ import { type AutoFocusProps } from './AutoFocus.types'
  * </AutoFocus>
  * ```
  */
-export function AutoFocus({
+export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(function AutoFocus({
   children,
-}: AutoFocusProps) {
+}, forwardedRef) {
   const focus = useCallback((node: HTMLElement | null) => {
     if (node) {
       node.focus()
     }
   }, [])
 
+  const ref = useMergeRefs(focus, forwardedRef)
+
   return (
-    <Slot ref={focus}>
+    <Slot ref={ref}>
       { children }
     </Slot>
   )
-}
+})
