@@ -5,6 +5,7 @@ import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+import { AutoFocus } from '~/src/components/AutoFocus'
 import { Modal } from './Modal'
 import { ModalContent } from './ModalContent'
 import { ModalHeader } from './ModalHeader'
@@ -273,6 +274,37 @@ describe('Modal', () => {
         await user.click(getByRole('button', { name: CLOSE_TEXT }))
         expect(onHide).toBeCalledTimes(1)
       })
+    })
+  })
+
+  describe('With AutoFocus', () => {
+    const renderModalWithAutoFocus = () => render(
+      <Modal>
+        <ModalTrigger>
+          <button type="button">{ TRIGGER_TEXT }</button>
+        </ModalTrigger>
+        <ModalContent>
+          <ModalBody>
+            <input type="text" />
+          </ModalBody>
+          <ModalFooter
+            leftContent={(<div />)}
+            rightContent={(
+              <ModalClose>
+                <AutoFocus>
+                  <button type="button">{ CLOSE_TEXT }</button>
+                </AutoFocus>
+              </ModalClose>
+            )}
+          />
+        </ModalContent>
+      </Modal>,
+    )
+
+    it('should focus the element wrapped by AutoFocus', async () => {
+      const { getByRole } = renderModalWithAutoFocus()
+      await user.click(getByRole('button', { name: TRIGGER_TEXT }))
+      expect(getByRole('button', { name: CLOSE_TEXT })).toHaveFocus()
     })
   })
 })
