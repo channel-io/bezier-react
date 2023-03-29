@@ -1,4 +1,4 @@
-{ 
-  "src/**/*.(js|ts)?(x)": "yarn lint:js",
-  "src/**/*.styled.{js,ts}": "yarn lint:style"
+{
+  "**/*.(js|ts)?(x)": "yarn lint:js",
+  "**/*.styled.{js,ts}": "yarn lint:style"
 }
