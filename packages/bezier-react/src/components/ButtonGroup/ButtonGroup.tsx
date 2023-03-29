@@ -3,8 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { AlphaStack } from '~/src/components/AlphaStack'
-import ButtonGroupProps from './ButtonGroup.types'
-
+import type ButtonGroupProps from './ButtonGroup.types'
 
 export const ButtonGroup = forwardRef(function ButtonGroup(
   {

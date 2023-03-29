@@ -5,8 +5,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 /* Internal dependencies */
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { AlphaStack } from '~/src/components/AlphaStack'
-import { RadioGroupProps } from './RadioGroup.types'
-
+import { type RadioGroupProps } from './RadioGroup.types'
 
 function RadioGroupImpl<Value extends string>({
   children,

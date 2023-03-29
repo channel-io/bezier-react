@@ -1,5 +1,8 @@
 /* External dependencies */
-import React, { forwardRef, useEffect } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+} from 'react'
 
 /* Internal dependencies */
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
