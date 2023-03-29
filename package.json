@@ -19,7 +19,7 @@
     "verify": "ts-node -P ./supports/tsconfig/script.json ./scripts/check-yarn-version.ts",
     "lint-staged": "lint-staged",
     "changeset": "changeset",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.7",
