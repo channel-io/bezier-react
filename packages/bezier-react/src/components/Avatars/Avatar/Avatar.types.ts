@@ -6,7 +6,7 @@ import type {
   SizeProps,
   AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
-import { StatusType } from '~/src/components/Status'
+import { type StatusType } from '~/src/components/Status'
 
 export enum AvatarSize {
   Size20 = 20,

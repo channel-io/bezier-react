@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
 /* Internal dependencies */
-import DividerProps from './Divider.types'
+import type DividerProps from './Divider.types'
 import * as Styled from './Divider.styled'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'

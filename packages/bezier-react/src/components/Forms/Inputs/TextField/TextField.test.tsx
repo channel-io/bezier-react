@@ -8,7 +8,10 @@ import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
-import { TextFieldProps, TextFieldVariant } from './TextField.types'
+import {
+  type TextFieldProps,
+  TextFieldVariant,
+} from './TextField.types'
 import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 describe('TextField', () => {

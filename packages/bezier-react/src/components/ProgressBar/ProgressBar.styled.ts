@@ -6,7 +6,10 @@ import {
 } from '~/src/foundation'
 import { toLength } from '~/src/utils/styleUtils'
 import type ProgressBarProps from './ProgressBar.types'
-import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
+import {
+  ProgressBarSize,
+  ProgressBarVariant,
+} from './ProgressBar.types'
 
 const PROGRESS_BAR_HEIGHT: Record<ProgressBarSize, number> = {
   [ProgressBarSize.S]: 4,

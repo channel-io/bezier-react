@@ -13,9 +13,7 @@ import {
   isRegExp,
   isEmpty,
 } from './typeUtils'
-import {
-  noop,
-} from './functionUtils'
+import { noop } from './functionUtils'
 
 describe('typeUtils', () => {
   describe('isFunction', () => {

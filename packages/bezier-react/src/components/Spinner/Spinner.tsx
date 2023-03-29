@@ -2,7 +2,8 @@
 import React from 'react'
 
 /* Internal dependencies */
-import SpinnerProps, { SpinnerSize } from './Spinner.types'
+import type SpinnerProps from './Spinner.types'
+import { SpinnerSize } from './Spinner.types'
 import { SpinIcon } from './Spinner.styled'
 
 export const SPINNER_TEST_ID = 'bezier-react-spinner'

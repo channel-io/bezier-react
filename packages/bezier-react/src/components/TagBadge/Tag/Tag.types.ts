@@ -1,6 +1,15 @@
 /* Internal dependencies */
-import { BezierComponentProps, VariantProps, SizeProps, ChildrenProps, ColorProps } from '~/src/types/ComponentProps'
-import { TagBadgeSize, TagBadgeVariant } from '~/src/components/TagBadge'
+import {
+  type BezierComponentProps,
+  type VariantProps,
+  type SizeProps,
+  type ChildrenProps,
+  type ColorProps,
+} from '~/src/types/ComponentProps'
+import {
+  type TagBadgeSize,
+  type TagBadgeVariant,
+} from '~/src/components/TagBadge'
 
 interface TagOptions {
   /**

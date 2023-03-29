@@ -9,9 +9,7 @@ import base from 'paths.macro'
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import {
-  range,
-} from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/numberUtils'
 import {
   Avatar,
   AvatarSize,
@@ -20,9 +18,7 @@ import {
   AvatarGroup,
   AvatarGroupEllipsisType,
 } from '~/src/components/Avatars/AvatarGroup'
-import {
-  CheckableAvatar,
-} from '~/src/components/Avatars/CheckableAvatar'
+import { CheckableAvatar } from '~/src/components/Avatars/CheckableAvatar'
 import {
   Emoji,
   EmojiSize,
@@ -32,12 +28,8 @@ import {
   StackItem,
   VStack,
 } from '~/src/components/Stack'
-import {
-  StatusType,
-} from '~/src/components/Status'
-import {
-  Text,
-} from '~/src/components/Text'
+import { StatusType } from '~/src/components/Status'
+import { Text } from '~/src/components/Text'
 import mdx from './Avatars.mdx'
 
 export default {

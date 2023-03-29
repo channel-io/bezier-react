@@ -1,12 +1,15 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import TagBadgeText from './TagBadgeText'
-import TagBadgeTextProps from './TagBadgeText.types'
+import type TagBadgeTextProps from './TagBadgeText.types'
 
 export default {
   title: getTitle(base),

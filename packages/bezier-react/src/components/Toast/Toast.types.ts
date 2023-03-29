@@ -1,12 +1,19 @@
 /* External dependencies */
-import React, { ReactNode, ComponentType } from 'react'
+import {
+  type ReactNode,
+  type ComponentType,
+} from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import { TransitionDuration } from '~/src/foundation'
+import { type TransitionDuration } from '~/src/foundation'
 import { noop } from '~/src/utils/functionUtils'
-import { BezierComponentProps, ContentProps } from '~/src/types/ComponentProps'
-import { InjectedInterpolation } from '~/src/types/Foundation'
-import { IconName } from '~/src/components/Icon'
+import {
+  type BezierComponentProps,
+  type ContentProps,
+} from '~/src/types/ComponentProps'
+import { type InjectedInterpolation } from '~/src/types/Foundation'
+import { type IconName } from '~/src/components/Icon'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',

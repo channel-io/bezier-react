@@ -1,5 +1,9 @@
 /* External dependencies */
-import React, { forwardRef, useEffect, isValidElement } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  isValidElement,
+} from 'react'
 
 /* Internal dependencies */
 import { StackItem } from '~/src/components/Stack'

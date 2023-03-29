@@ -4,7 +4,12 @@ import { isInaccessible } from '@testing-library/react'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
-import { SingleFieldForm, MultipleFieldForm, SingleFieldFormWithLabelFont, MOCK_CONSTS } from './__mocks__/forms'
+import {
+  SingleFieldForm,
+  MultipleFieldForm,
+  SingleFieldFormWithLabelFont,
+  MOCK_CONSTS,
+} from './__mocks__/forms'
 import FormControl, { FORM_CONTROL_TEST_ID } from './FormControl'
 import type FormControlProps from './FormControl.types'
 

@@ -1,9 +1,15 @@
 /* External dependencies */
-import React, { Children, forwardRef } from 'react'
+import React, {
+  Children,
+  forwardRef,
+} from 'react'
 
 /* Internal dependencies */
-import { HStack, StackItem } from '~/src/components/Stack'
-import ButtonGroupProps from './ButtonGroup.types'
+import {
+  HStack,
+  StackItem,
+} from '~/src/components/Stack'
+import type ButtonGroupProps from './ButtonGroup.types'
 
 export const ButtonGroup = forwardRef(function ButtonGroup(
   {

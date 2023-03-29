@@ -1,7 +1,10 @@
 /* Internal dependencies */
-import { styled, centeredBackgroundImage } from '~/src/foundation'
-import { InterpolationProps } from '~/src/types/Foundation'
-import { EmojiSize } from './Emoji.types'
+import {
+  styled,
+  centeredBackgroundImage,
+} from '~/src/foundation'
+import { type InterpolationProps } from '~/src/types/Foundation'
+import { type EmojiSize } from './Emoji.types'
 
 interface IconProps extends InterpolationProps {
   size: EmojiSize

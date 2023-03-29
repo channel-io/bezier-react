@@ -9,7 +9,7 @@ import disabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
-import TextAreaProps from './TextArea.types'
+import type TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'
 
 // SEE ALSO: https://github.com/Andarist/react-textarea-autosize#how-to-test-it-with-jest-and-react-test-renderer-if-you-need-ref

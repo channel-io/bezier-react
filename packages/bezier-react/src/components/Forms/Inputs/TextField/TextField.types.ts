@@ -1,5 +1,5 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
 import type {
@@ -12,7 +12,10 @@ import type {
 } from '~/src/types/ComponentProps'
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
-import { BezierIcon, IconName } from '~/src/components/Icon'
+import {
+  type BezierIcon,
+  type IconName,
+} from '~/src/components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

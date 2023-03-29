@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { Foundation } from './Foundation'
+import { type Foundation } from './Foundation'
 import { Themes } from './Colors'
 import { Spacing } from './Spacing'
 import { Transition } from './Transition'

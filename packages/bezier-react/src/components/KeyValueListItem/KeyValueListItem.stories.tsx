@@ -2,15 +2,25 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
-import { BadgeIcon, EditIcon } from '~/src/components/Icon'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
+import {
+  BadgeIcon,
+  EditIcon,
+} from '~/src/components/Icon'
 import KeyValueListItem from './KeyValueListItem'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
-import { KeyValueListItemProps } from './KeyValueListItem.types'
+import { type KeyValueListItemProps } from './KeyValueListItem.types'
 
 export default {
   title: getTitle(base),

@@ -1,5 +1,8 @@
 import Spinner from './Spinner'
-import { SpinnerSize, SpinnerThickness } from './Spinner.types'
+import {
+  SpinnerSize,
+  SpinnerThickness,
+} from './Spinner.types'
 import type SpinnerProps from './Spinner.types'
 
 export type {

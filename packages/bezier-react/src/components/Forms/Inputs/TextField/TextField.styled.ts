@@ -1,11 +1,19 @@
 /* External dependencies */
-import { FlattenSimpleInterpolation } from 'styled-components'
+import { type FlattenSimpleInterpolation } from 'styled-components'
 
 /* Internal dependencies */
-import { css, styled, Typography, SemanticNames } from '~/src/foundation'
+import {
+  css,
+  styled,
+  Typography,
+  type SemanticNames,
+} from '~/src/foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { InterpolationProps } from '~/src/types/Foundation'
-import { Icon, LegacyIcon } from '~/src/components/Icon'
+import { type InterpolationProps } from '~/src/types/Foundation'
+import {
+  Icon,
+  LegacyIcon,
+} from '~/src/components/Icon'
 import {
   inputTextStyle,
   inputPlaceholderStyle,
@@ -13,7 +21,10 @@ import {
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
-import { TextFieldSize, TextFieldVariant } from './TextField.types'
+import {
+  TextFieldSize,
+  TextFieldVariant,
+} from './TextField.types'
 
 interface ClickableElementProps {
   clickable: boolean

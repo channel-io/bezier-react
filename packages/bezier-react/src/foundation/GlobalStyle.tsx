@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { createGlobalStyle, css } from './FoundationStyledComponent'
+import {
+  createGlobalStyle,
+  css,
+} from './FoundationStyledComponent'
 
 export const GlobalStyle = createGlobalStyle`
   html {

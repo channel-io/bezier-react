@@ -7,15 +7,9 @@ import {
 import base from 'paths.macro'
 
 /* Internal dependencies */
-import {
-  styled,
-} from '~/src/foundation'
-import {
-  getTitle,
-} from '~/src/utils/storyUtils'
-import {
-  gap,
-} from '~/src/utils/styleUtils'
+import { styled } from '~/src/foundation'
+import { getTitle } from '~/src/utils/storyUtils'
+import { gap } from '~/src/utils/styleUtils'
 import { noop } from '~/src/utils/functionUtils'
 import {
   HStack,

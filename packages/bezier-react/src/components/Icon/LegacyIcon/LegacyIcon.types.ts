@@ -1,6 +1,6 @@
 /* Internal dependencies */
 /* eslint-disable no-restricted-imports */
-import { IconName } from '../generated'
+import { type IconName } from '../generated'
 import type IconProps from '../Icon.types'
 /* eslint-enable no-restricted-imports */
 

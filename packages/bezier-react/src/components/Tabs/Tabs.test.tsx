@@ -12,7 +12,11 @@ import { TabItem } from './TabItem'
 import { TabItems } from './TabItems'
 import { TabList } from './TabList'
 import { Tabs } from './Tabs'
-import { TabListProps, TabSize, TabsProps } from './Tabs.types'
+import {
+  type TabListProps,
+  TabSize,
+  type TabsProps,
+} from './Tabs.types'
 
 const VALUE1 = 'One'
 const VALUE2 = 'Two'

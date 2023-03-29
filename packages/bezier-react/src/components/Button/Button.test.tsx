@@ -2,12 +2,28 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { LightFoundation, RoundAbsoluteNumber, TypoAbsoluteNumber, LineHeightAbsoluteNumber } from '~/src/foundation'
+import {
+  LightFoundation,
+  RoundAbsoluteNumber,
+  TypoAbsoluteNumber,
+  LineHeightAbsoluteNumber,
+} from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { Button, BUTTON_TEST_ID, BUTTON_TEXT_TEST_ID, BUTTON_INNER_CONTENT_TEST_ID } from './Button'
-import { ButtonStyleVariant, ButtonSize } from './Button.types'
-import { BUTTON_HORIZONTAL_PADDING_VALUE, TEXT_PADDING_VALUE } from './Button.styled'
+import {
+  Button,
+  BUTTON_TEST_ID,
+  BUTTON_TEXT_TEST_ID,
+  BUTTON_INNER_CONTENT_TEST_ID,
+} from './Button'
+import {
+  ButtonStyleVariant,
+  ButtonSize,
+} from './Button.types'
+import {
+  BUTTON_HORIZONTAL_PADDING_VALUE,
+  TEXT_PADDING_VALUE,
+} from './Button.styled'
 import type ButtonProps from './Button.types'
 
 describe('Button Test >', () => {

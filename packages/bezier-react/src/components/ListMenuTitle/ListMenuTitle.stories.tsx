@@ -1,13 +1,19 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { LegacyIcon, IconSize } from '~/src/components/Icon'
+import {
+  LegacyIcon,
+  IconSize,
+} from '~/src/components/Icon'
 import ListMenuTitle from './ListMenuTitle'
-import ListMenuTitleProps from './ListMenuTitle.types'
+import type ListMenuTitleProps from './ListMenuTitle.types'
 
 export default {
   title: getTitle(base),

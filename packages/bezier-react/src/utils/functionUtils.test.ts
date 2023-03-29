@@ -1,7 +1,5 @@
 /* Internal dependencies */
-import {
-  noop,
-} from './functionUtils'
+import { noop } from './functionUtils'
 
 describe('functionUtils', () => {
   describe('noop', () => {

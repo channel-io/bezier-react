@@ -1,5 +1,8 @@
 /* External dependencies */
-import React, { forwardRef, useContext } from 'react'
+import React, {
+  forwardRef,
+  useContext,
+} from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
@@ -7,7 +10,10 @@ import { Typography } from '~/src/foundation'
 import { Text } from '~/src/components/Text'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 import ModalContentContext from './ModalContentContext'
-import { ModalHeaderProps, ModalTitleSize } from './Modal.types'
+import {
+  type ModalHeaderProps,
+  ModalTitleSize,
+} from './Modal.types'
 import * as Styled from './Modal.styled'
 
 function getTitleTypo(size: ModalTitleSize) {

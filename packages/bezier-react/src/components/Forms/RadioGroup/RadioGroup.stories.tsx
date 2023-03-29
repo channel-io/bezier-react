@@ -1,13 +1,19 @@
 /* External dependencies */
-import React, { useState, useEffect } from 'react'
+import React, {
+  useState,
+  useEffect,
+} from 'react'
 import { base } from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { RadioGroup } from './RadioGroup'
 import { Radio } from './Radio'
-import { RadioGroupProps } from './RadioGroup.types'
+import { type RadioGroupProps } from './RadioGroup.types'
 
 enum Theme {
   System = 'System',

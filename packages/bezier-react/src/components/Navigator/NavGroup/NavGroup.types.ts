@@ -6,7 +6,7 @@ import type {
   SideContentProps,
   ActivatableProps,
 } from '~/src/types/ComponentProps'
-import { IconName } from '~/src/components/Icon'
+import { type IconName } from '~/src/components/Icon'
 
 interface NavGroupOptions {
   open?: boolean

@@ -1,9 +1,21 @@
 /* Internal denpendencies */
-import { styled, css, smoothCorners, Foundation, SemanticNames } from '~/src/foundation'
+import {
+  styled,
+  css,
+  smoothCorners,
+  type Foundation,
+  type SemanticNames,
+} from '~/src/foundation'
 import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
-import type { InjectedInterpolation, InterpolationProps } from '~/src/types/Foundation'
+import type {
+  InjectedInterpolation,
+  InterpolationProps,
+} from '~/src/types/Foundation'
 import { ZIndex } from '~/src/constants/ZIndex'
-import { Icon, CheckIcon as CheckIconSource } from '~/src/components/Icon'
+import {
+  Icon,
+  CheckIcon as CheckIconSource,
+} from '~/src/components/Icon'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { AvatarSize } from '~/src/components/Avatars/Avatar'
 import { AvatarImage } from '~/src/components/Avatars/Avatar/Avatar.styled'

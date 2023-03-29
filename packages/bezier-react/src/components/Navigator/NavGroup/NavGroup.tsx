@@ -1,14 +1,22 @@
 /* External dependencies */
-import React, { useCallback, memo } from 'react'
+import React, {
+  useCallback,
+  memo,
+} from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import {
-  isNil,
-} from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { Text } from '~/src/components/Text'
-import { LegacyIcon, Icon, IconSize, isIconName, ChevronSmallDownIcon, ChevronSmallRightIcon } from '~/src/components/Icon'
+import {
+  LegacyIcon,
+  Icon,
+  IconSize,
+  isIconName,
+  ChevronSmallDownIcon,
+  ChevronSmallRightIcon,
+} from '~/src/components/Icon'
 import type NavGroupProps from './NavGroup.types'
 import {
   Item,

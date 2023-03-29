@@ -4,7 +4,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { Modal } from '../Modal'
-import { ConfirmModalProps } from './ConfirmModal.types'
+import { type ConfirmModalProps } from './ConfirmModal.types'
 
 /**
  * `ConfirmModal` is a modal dialog that interrupts the user with important content and expects a response.

@@ -4,7 +4,7 @@ import React from 'react'
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 import { AlphaCenter } from './AlphaCenter'
-import { AlphaCenterProps } from './AlphaCenter.types'
+import { type AlphaCenterProps } from './AlphaCenter.types'
 
 const CONTENT = 'Centered content'
 

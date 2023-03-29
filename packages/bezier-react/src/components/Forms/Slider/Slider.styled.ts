@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { styled, css } from '~/src/foundation'
+import {
+  styled,
+  css,
+} from '~/src/foundation'
 import { toLength } from '~/src/utils/styleUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'

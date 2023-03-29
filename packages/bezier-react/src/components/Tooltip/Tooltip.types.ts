@@ -1,13 +1,13 @@
 /* External dependencies */
-import { Ref } from 'react'
+import { type Ref } from 'react'
 /* Internal dependencies */
 import {
-  BezierComponentProps,
-  RenderConfigProps,
-  ChildrenProps,
-  ContentProps,
-  DisableProps,
-  AdditionalStylableProps,
+  type BezierComponentProps,
+  type RenderConfigProps,
+  type ChildrenProps,
+  type ContentProps,
+  type DisableProps,
+  type AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
 
 interface TooltipOptions {

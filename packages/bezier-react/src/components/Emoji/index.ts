@@ -1,6 +1,7 @@
 /* Internal dependencies */
 import Emoji from './Emoji'
-import EmojiProps, { EmojiSize } from './Emoji.types'
+import type EmojiProps from './Emoji.types'
+import { EmojiSize } from './Emoji.types'
 
 export type {
   EmojiProps,

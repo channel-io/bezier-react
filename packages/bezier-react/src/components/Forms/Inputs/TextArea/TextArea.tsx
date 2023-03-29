@@ -1,5 +1,13 @@
 /* External dependencies */
-import React, { forwardRef, Ref, useRef, useCallback, useState, useLayoutEffect, useMemo } from 'react'
+import React, {
+  forwardRef,
+  type Ref,
+  useRef,
+  useCallback,
+  useState,
+  useLayoutEffect,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -8,7 +16,8 @@ import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKey
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextArea.styled'
 import { getTextAreaBgColorSemanticName } from './utils'
-import TextAreaProps, { TextAreaHeight } from './TextArea.types'
+import type TextAreaProps from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 

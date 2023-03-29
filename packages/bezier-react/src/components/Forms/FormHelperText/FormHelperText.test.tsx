@@ -10,7 +10,10 @@ import {
   FormHelperText,
   FormErrorMessage,
 } from './FormHelperText'
-import type { FormHelperTextProps, FormErrorMessageProps } from './FormHelperText.types'
+import type {
+  FormHelperTextProps,
+  FormErrorMessageProps,
+} from './FormHelperText.types'
 
 describe('FormHelperText >', () => {
   let props: FormHelperTextProps

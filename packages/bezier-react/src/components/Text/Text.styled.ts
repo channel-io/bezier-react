@@ -1,7 +1,11 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from '~/src/foundation'
-import { ColorProps } from '~/src/types/ComponentProps'
-import TextProps from './Text.types'
+import {
+  styled,
+  css,
+  ellipsis,
+} from '~/src/foundation'
+import { type ColorProps } from '~/src/types/ComponentProps'
+import type TextProps from './Text.types'
 
 interface TextStyledProps extends ColorProps {
   margintop: number

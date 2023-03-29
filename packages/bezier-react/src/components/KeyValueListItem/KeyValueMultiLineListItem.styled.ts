@@ -1,6 +1,9 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
-import { KeyValueListItemWrapper, KeyValueListItemContainer } from './KeyValueListItem.common.styled'
+import {
+  KeyValueListItemWrapper,
+  KeyValueListItemContainer,
+} from './KeyValueListItem.common.styled'
 
 export const Wrapper = styled(KeyValueListItemWrapper)`
   display: flex;

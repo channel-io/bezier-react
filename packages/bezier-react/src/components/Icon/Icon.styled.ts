@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
-import { ColorProps } from '~/src/types/ComponentProps'
+import { type ColorProps } from '~/src/types/ComponentProps'
 
 interface IconStyledProps extends ColorProps {
   margintop: number

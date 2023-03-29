@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { styled, absoluteCenter } from '~/src/foundation'
+import {
+  styled,
+  absoluteCenter,
+} from '~/src/foundation'
 import { ZIndex } from '~/src/constants/ZIndex'
 import { Icon as BaseIcon } from '~/src/components/Icon'
 

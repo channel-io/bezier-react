@@ -1,5 +1,10 @@
 /* Internal dependencies */
-import { BezierComponentProps, SizeProps, DisableProps, SideContentProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type SizeProps,
+  type DisableProps,
+  type SideContentProps,
+} from '~/src/types/ComponentProps'
 import type { IconName } from '~/src/components/Icon'
 
 export enum ButtonStyleVariant {

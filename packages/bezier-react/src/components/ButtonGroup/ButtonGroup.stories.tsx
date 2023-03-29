@@ -1,15 +1,24 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type {
+  Story,
+  Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import { Button, ButtonStyleVariant } from '~/src/components/Button'
-import { Spacer, StackItem } from '~/src/components/Stack'
+import {
+  Button,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
+import {
+  Spacer,
+  StackItem,
+} from '~/src/components/Stack'
 import { ButtonGroup } from './ButtonGroup'
-import ButtonGroupProps from './ButtonGroup.types'
+import type ButtonGroupProps from './ButtonGroup.types'
 import mdx from './ButtonGroup.mdx'
 
 export default {

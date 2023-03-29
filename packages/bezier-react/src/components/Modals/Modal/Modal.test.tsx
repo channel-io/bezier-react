@@ -10,8 +10,16 @@ import { ModalContent } from './ModalContent'
 import { ModalHeader } from './ModalHeader'
 import { ModalBody } from './ModalBody'
 import { ModalFooter } from './ModalFooter'
-import { ModalTrigger, ModalClose } from './ModalHelpers'
-import { ModalProps, ModalContentProps, ModalHeaderProps, ModalTitleSize } from './Modal.types'
+import {
+  ModalTrigger,
+  ModalClose,
+} from './ModalHelpers'
+import {
+  type ModalProps,
+  type ModalContentProps,
+  type ModalHeaderProps,
+  ModalTitleSize,
+} from './Modal.types'
 
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'

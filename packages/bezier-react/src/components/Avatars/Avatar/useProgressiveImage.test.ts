@@ -1,6 +1,6 @@
 /* Internal dependencies */
 import { renderHook } from '~/src/utils/testUtils'
-import useProgressiveImage, { CachedImage } from './useProgressiveImage'
+import useProgressiveImage, { type CachedImage } from './useProgressiveImage'
 
 describe('useProgressiveImage >', () => {
   const mockValidImageUrlFoo = 'valid_foo'

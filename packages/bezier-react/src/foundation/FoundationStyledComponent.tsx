@@ -8,30 +8,34 @@
  */
 
 /* External dependencies */
-import React, { createContext, useContext, forwardRef } from 'react'
+import React, {
+  createContext,
+  useContext,
+  forwardRef,
+} from 'react'
 import styled, {
   createGlobalStyle as baseCreateGlobalStyle,
   css as baseCSS,
-  ThemedStyledFunction,
-  ThemedStyledProps,
-  AnyStyledComponent,
-  StyledComponentInnerComponent,
-  StyledComponentInnerOtherProps,
-  StyledComponentInnerAttrs,
+  type ThemedStyledFunction,
+  type ThemedStyledProps,
+  type AnyStyledComponent,
+  type StyledComponentInnerComponent,
+  type StyledComponentInnerOtherProps,
+  type StyledComponentInnerAttrs,
   ServerStyleSheet,
-  FlattenSimpleInterpolation,
-  Interpolation,
-  InterpolationFunction,
-  FlattenInterpolation,
-  SimpleInterpolation,
-  CSSObject,
+  type FlattenSimpleInterpolation,
+  type Interpolation,
+  type InterpolationFunction,
+  type FlattenInterpolation,
+  type SimpleInterpolation,
+  type CSSObject,
   keyframes,
-  GlobalStyleComponent,
+  type GlobalStyleComponent,
 } from 'styled-components'
 
 /* Internal dependencies */
 import domElements from './utils/domElements'
-import { Foundation } from './Foundation'
+import { type Foundation } from './Foundation'
 
 const FoundationContext = createContext<Foundation | null>(null)
 

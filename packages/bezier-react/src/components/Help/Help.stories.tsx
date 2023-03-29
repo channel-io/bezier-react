@@ -1,12 +1,15 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type {
+  Story,
+  Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import Help from './Help'
-import HelpProps from './Help.types'
+import type HelpProps from './Help.types'
 
 export default {
   title: getTitle(base),

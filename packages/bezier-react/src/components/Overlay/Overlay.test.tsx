@@ -6,8 +6,18 @@ import { fireEvent } from '@testing-library/dom'
 /* Internal dependencies */
 import { TransitionDuration } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import OverlayProps, { ContainerRectAttr, TargetRectAttr, OverlayPosition } from './Overlay.types'
-import Overlay, { CONTAINER_TEST_ID, ESCAPE_KEY, OVERLAY_TEST_ID, WRAPPER_TEST_ID } from './Overlay'
+import {
+  type ContainerRectAttr,
+  type TargetRectAttr,
+} from './Overlay.types'
+import type OverlayProps from './Overlay.types'
+import { OverlayPosition } from './Overlay.types'
+import Overlay, {
+  CONTAINER_TEST_ID,
+  ESCAPE_KEY,
+  OVERLAY_TEST_ID,
+  WRAPPER_TEST_ID,
+} from './Overlay'
 import { getOverlayTranslation } from './utils'
 
 const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (

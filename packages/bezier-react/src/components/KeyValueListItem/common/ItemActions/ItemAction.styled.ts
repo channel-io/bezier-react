@@ -1,10 +1,14 @@
 /* Internal dependencies */
-import { css, styled } from '~/src/foundation'
 import {
-  isNil,
-} from '~/src/utils/typeUtils'
-import { AdditionalColorProps } from '~/src/types/ComponentProps'
-import { Icon, LegacyIcon } from '~/src/components/Icon'
+  css,
+  styled,
+} from '~/src/foundation'
+import { isNil } from '~/src/utils/typeUtils'
+import { type AdditionalColorProps } from '~/src/types/ComponentProps'
+import {
+  Icon,
+  LegacyIcon,
+} from '~/src/components/Icon'
 import { Tooltip } from '~/src/components/Tooltip'
 
 export const ItemActionWrapper = styled.div`

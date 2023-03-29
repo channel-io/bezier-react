@@ -1,10 +1,17 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, AdditionalStylableProps } from '~/src/types/ComponentProps'
-import { BezierIcon, IconName } from '~/src/components/Icon'
-import { KeyValueListItemActionProps } from './common'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  AdditionalStylableProps,
+} from '~/src/types/ComponentProps'
+import {
+  type BezierIcon,
+  type IconName,
+} from '~/src/components/Icon'
+import { type KeyValueListItemActionProps } from './common'
 
 interface KeyValueListItemOptions {
   keyIcon?: IconName | BezierIcon | React.ReactNode

@@ -1,12 +1,17 @@
 /* Internal dependencies */
-import { styled, css, ellipsis } from '~/src/foundation'
 import {
-  isNil,
-} from '~/src/utils/typeUtils'
-import { InterpolationProps } from '~/src/types/Foundation'
-import { ColorProps } from '~/src/types/ComponentProps'
-import { Icon, LegacyIcon } from '~/src/components/Icon'
-import OutlineItemProps from './OutlineItem.types'
+  styled,
+  css,
+  ellipsis,
+} from '~/src/foundation'
+import { isNil } from '~/src/utils/typeUtils'
+import { type InterpolationProps } from '~/src/types/Foundation'
+import { type ColorProps } from '~/src/types/ComponentProps'
+import {
+  Icon,
+  LegacyIcon,
+} from '~/src/components/Icon'
+import type OutlineItemProps from './OutlineItem.types'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean

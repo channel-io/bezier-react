@@ -1,13 +1,21 @@
 /* External dependencies */
-import React, { useEffect, useRef, useState } from 'react'
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
 import Overlay from './Overlay'
-import OverlayProps, { OverlayPosition } from './Overlay.types'
+import type OverlayProps from './Overlay.types'
+import { OverlayPosition } from './Overlay.types'
 
 export default {
   title: getTitle(base),

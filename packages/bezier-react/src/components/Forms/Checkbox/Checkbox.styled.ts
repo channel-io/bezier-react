@@ -2,12 +2,19 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 /* Internal dependencies */
-import { styled, css, Typography } from '~/src/foundation'
+import {
+  styled,
+  css,
+  Typography,
+} from '~/src/foundation'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { touchableHover } from '~/src/utils/styleUtils'
 import { Icon } from '~/src/components/Icon'
-import { focusedInputWrapperStyle, erroredInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
-import { CheckboxProps } from './Checkbox.types'
+import {
+  focusedInputWrapperStyle,
+  erroredInputWrapperStyle,
+} from '~/src/components/Forms/Inputs/mixins'
+import { type CheckboxProps } from './Checkbox.types'
 
 const CHECKBOX_SIZE = 18
 const CHECKBOX_MARGIN = 1

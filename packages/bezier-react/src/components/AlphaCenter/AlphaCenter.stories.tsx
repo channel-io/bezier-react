@@ -1,13 +1,16 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { Text } from '~/src/components/Text'
 import { AlphaCenter } from './AlphaCenter'
-import { AlphaCenterProps } from './AlphaCenter.types'
+import { type AlphaCenterProps } from './AlphaCenter.types'
 
 export default {
   title: getTitle(base),

@@ -1,11 +1,17 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { CheckboxProps, CheckedState } from './Checkbox.types'
+import {
+  type CheckboxProps,
+  type CheckedState,
+} from './Checkbox.types'
 import { Checkbox } from './Checkbox'
 
 export default {

@@ -1,11 +1,14 @@
 /* External dependencies */
 import React from 'react'
-import { render as baseRender, renderHook as baseRenderHook } from '@testing-library/react'
+import {
+  render as baseRender,
+  renderHook as baseRenderHook,
+} from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import BezierProvider from '~/src/providers/BezierProvider'
-import { ChildrenProps } from '~/src/types/ComponentProps'
+import { type ChildrenProps } from '~/src/types/ComponentProps'
 
 function TestProviders({ children }: ChildrenProps) {
   return (

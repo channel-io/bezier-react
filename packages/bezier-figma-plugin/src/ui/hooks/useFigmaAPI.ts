@@ -1,5 +1,8 @@
 /* External dependencies */
-import { useCallback, useMemo } from 'react'
+import {
+  useCallback,
+  useMemo,
+} from 'react'
 
 const BASE_URL = 'https://api.figma.com/v1'
 

@@ -1,8 +1,14 @@
 /* External dependencies */
-import React, { forwardRef, useMemo } from 'react'
+import React, {
+  forwardRef,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
-import { TabListProps, TabSize } from './Tabs.types'
+import {
+  type TabListProps,
+  TabSize,
+} from './Tabs.types'
 import * as Styled from './TabList.styled'
 import TabListContext from './TabListContext'
 

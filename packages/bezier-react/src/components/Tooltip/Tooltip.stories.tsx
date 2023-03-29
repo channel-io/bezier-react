@@ -1,13 +1,20 @@
 /* External dependencies */
-import React, { useState, useCallback } from 'react'
+import React, {
+  useState,
+  useCallback,
+} from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
 import Tooltip from './Tooltip'
-import TooltipProps, { TooltipPosition } from './Tooltip.types'
+import type TooltipProps from './Tooltip.types'
+import { TooltipPosition } from './Tooltip.types'
 
 export default {
   title: getTitle(base),

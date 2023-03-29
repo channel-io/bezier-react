@@ -1,9 +1,16 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, AdditionalColorProps } from '~/src/types/ComponentProps'
-import type { BezierIcon, IconName } from '~/src/components/Icon'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  AdditionalColorProps,
+} from '~/src/types/ComponentProps'
+import type {
+  BezierIcon,
+  IconName,
+} from '~/src/components/Icon'
 
 export type ItemActionWithIcon = {
   icon: IconName | BezierIcon

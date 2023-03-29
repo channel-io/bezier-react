@@ -1,11 +1,18 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { Icon, IconSize, ErrorFilledIcon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+  ErrorFilledIcon,
+} from '~/src/components/Icon'
 import NavItem from './NavItem'
 import type NavItemProps from './NavItem.types'
 

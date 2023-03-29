@@ -1,6 +1,6 @@
 /* Internal Dependencies */
 // eslint-disable-next-line no-restricted-imports
-import icons, { IconName } from '../generated'
+import icons, { type IconName } from '../generated'
 
 /**
  * @deprecated Please import and use individual icons.
