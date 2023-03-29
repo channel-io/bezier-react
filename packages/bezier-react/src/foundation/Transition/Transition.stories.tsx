@@ -1,7 +1,14 @@
 /* External dependencies */
-import React, { useCallback, useState, useMemo } from 'react'
+import React, {
+  useCallback,
+  useState,
+  useMemo,
+} from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
@@ -74,6 +81,7 @@ const Template: Story<{ property: keyof ElementProps }> = (args) => {
     bottom?: number
     left?: number
   } = useMemo(() => {
+    // eslint-disable-next-line react/destructuring-assignment
     switch (args.property) {
       case 'top':
         return {

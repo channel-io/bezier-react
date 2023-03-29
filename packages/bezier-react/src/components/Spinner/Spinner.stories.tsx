@@ -1,12 +1,16 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import Spinner from './Spinner'
-import SpinnerProps, { SpinnerSize } from './Spinner.types'
+import type SpinnerProps from './Spinner.types'
+import { SpinnerSize } from './Spinner.types'
 
 export default {
   title: getTitle(base),

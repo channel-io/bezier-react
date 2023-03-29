@@ -1,6 +1,11 @@
 /* Internal dependencies */
-import React from 'react'
-import { BezierComponentProps, DisableProps, ChildrenProps, SizeProps } from '~/src/types/ComponentProps'
+import type React from 'react'
+import {
+  type BezierComponentProps,
+  type DisableProps,
+  type ChildrenProps,
+  type SizeProps,
+} from '~/src/types/ComponentProps'
 
 export enum TabSize {
   L = 'L',

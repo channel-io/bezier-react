@@ -1,12 +1,19 @@
 /* External dependencies */
 import React from 'react'
 import { base } from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import { StatusProps, StatusSize, StatusType } from './Status.types'
+import {
+  type StatusProps,
+  StatusSize,
+  StatusType,
+} from './Status.types'
 import { Status } from './Status'
 
 export default {

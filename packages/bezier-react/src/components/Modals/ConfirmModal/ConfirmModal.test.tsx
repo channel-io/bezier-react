@@ -9,8 +9,14 @@ import { ConfirmModal } from './ConfirmModal'
 import { ConfirmModalContent } from './ConfirmModalContent'
 import { ConfirmModalHeader } from './ConfirmModalHeader'
 import { ConfirmModalFooter } from './ConfirmModalFooter'
-import { ConfirmModalTrigger, ConfirmModalClose } from './ConfirmModalHelpers'
-import { ConfirmModalProps, ConfirmModalContentProps } from './ConfirmModal.types'
+import {
+  ConfirmModalTrigger,
+  ConfirmModalClose,
+} from './ConfirmModalHelpers'
+import {
+  type ConfirmModalProps,
+  type ConfirmModalContentProps,
+} from './ConfirmModal.types'
 
 const TRIGGER_TEXT = 'Open'
 const CANCEL_TEXT = 'Cancel'

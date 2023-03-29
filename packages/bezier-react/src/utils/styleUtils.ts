@@ -8,11 +8,15 @@ import {
   isString,
   isEmpty,
 } from '~/src/utils/typeUtils'
+import { has } from '~/src/utils/objectUtils'
 import {
-  has,
-} from '~/src/utils/objectUtils'
-import { ExplicitDefaulting, AbsoluteUnit, RelativeUnit, BoxSizingUnit, CSSUnits } from '~/src/types/CSS'
-import { InjectedInterpolation } from '~/src/types/Foundation'
+  ExplicitDefaulting,
+  AbsoluteUnit,
+  RelativeUnit,
+  BoxSizingUnit,
+  type CSSUnits,
+} from '~/src/types/CSS'
+import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [

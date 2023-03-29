@@ -1,5 +1,11 @@
 /* External dependencies */
-import React, { forwardRef, memo, Ref, useCallback, useMemo } from 'react'
+import React, {
+  forwardRef,
+  memo,
+  type Ref,
+  useCallback,
+  useMemo,
+} from 'react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -10,9 +16,16 @@ import {
   isEmpty,
 } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
-import { IconSize, isIconName } from '~/src/components/Icon'
+import {
+  IconSize,
+  isIconName,
+} from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
-import { ItemActionProps, ItemActionWithIcon, KeyValueListItemActionProps } from './ItemAction.types'
+import {
+  type ItemActionProps,
+  type ItemActionWithIcon,
+  type KeyValueListItemActionProps,
+} from './ItemAction.types'
 import * as Styled from './ItemAction.styled'
 
 function ActionIcon({

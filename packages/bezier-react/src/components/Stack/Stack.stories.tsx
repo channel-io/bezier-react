@@ -8,13 +8,11 @@ import base from 'paths.macro'
 
 /* Internal dependencies */
 import {
-  SemanticNames,
+  type SemanticNames,
   Typography,
 } from '~/src/foundation'
 import { LightTheme } from '~/src/foundation/Colors/Theme'
-import {
-  range,
-} from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 import { Text } from '~/src/components/Text'
 import {

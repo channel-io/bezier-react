@@ -1,5 +1,6 @@
 /* External dependencies */
-import React, { createContext } from 'react'
+import type React from 'react'
+import { createContext } from 'react'
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'

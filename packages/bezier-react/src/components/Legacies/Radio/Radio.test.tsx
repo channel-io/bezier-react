@@ -4,8 +4,11 @@ import React from 'react'
 /* Internal dependencies */
 import { Themes } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import Radio, { RADIO_TEST_ID, RADIO_HANDLE_TEST_ID } from './Radio'
-import RadioProps from './Radio.types'
+import Radio, {
+  RADIO_TEST_ID,
+  RADIO_HANDLE_TEST_ID,
+} from './Radio'
+import type RadioProps from './Radio.types'
 
 const value = 'text'
 

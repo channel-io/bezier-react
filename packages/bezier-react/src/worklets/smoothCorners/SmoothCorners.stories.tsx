@@ -1,9 +1,16 @@
 /* External dependencies */
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
-import { styled, smoothCorners, backgroundImageVariable } from '~/src/foundation'
+import {
+  styled,
+  smoothCorners,
+  backgroundImageVariable,
+} from '~/src/foundation'
 
 export default {
   title: 'SmoothCorners',

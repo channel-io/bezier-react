@@ -3,7 +3,10 @@ import React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
-import { ModalTriggerProps, ModalCloseProps } from './Modal.types'
+import {
+  type ModalTriggerProps,
+  type ModalCloseProps,
+} from './Modal.types'
 
 /**
  * `ModalTrigger` is a button that opens the modal. **It doesn't render any DOM node.**

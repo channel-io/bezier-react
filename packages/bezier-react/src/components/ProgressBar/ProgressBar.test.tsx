@@ -9,7 +9,10 @@ import {
   PROGRESS_BAR_ACTIVE_TEST_ID,
 } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
-import { ProgressBarSize, ProgressBarVariant } from './ProgressBar.types'
+import {
+  ProgressBarSize,
+  ProgressBarVariant,
+} from './ProgressBar.types'
 
 describe('ProgressBar', () => {
   const renderComponent = (props?: Partial<ProgressBarProps>) => render(

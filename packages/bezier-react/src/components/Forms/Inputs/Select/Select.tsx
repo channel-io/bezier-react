@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useRef,
   forwardRef,
-  Ref,
+  type Ref,
   useImperativeHandle,
   useEffect,
 } from 'react'
@@ -13,9 +13,7 @@ import React, {
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
 import { ZIndex } from '~/src/constants/ZIndex'
-import {
-  isEmpty,
-} from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
 import {
   Icon,
@@ -30,7 +28,9 @@ import { OverlayPosition } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
-import SelectProps, { SelectRef, SelectSize } from './Select.types'
+import { type SelectRef } from './Select.types'
+import type SelectProps from './Select.types'
+import { SelectSize } from './Select.types'
 import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'

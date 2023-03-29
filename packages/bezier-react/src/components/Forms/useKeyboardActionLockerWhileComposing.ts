@@ -1,5 +1,9 @@
 /* External dependencies */
-import React, { useCallback, useRef } from 'react'
+import type React from 'react'
+import {
+  useCallback,
+  useRef,
+} from 'react'
 
 type HandlerCache<TargetElement extends HTMLElement = HTMLInputElement> =
   Map<React.KeyboardEventHandler<TargetElement>, React.KeyboardEventHandler<TargetElement>>

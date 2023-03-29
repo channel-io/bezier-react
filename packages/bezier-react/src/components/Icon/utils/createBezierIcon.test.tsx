@@ -4,7 +4,10 @@ import React from 'react'
 /* Internal dependencies */
 // eslint-disable-next-line no-restricted-imports
 import { AllIcon } from '../generated'
-import { createBezierIcon, isBezierIcon } from './createBezierIcon'
+import {
+  createBezierIcon,
+  isBezierIcon,
+} from './createBezierIcon'
 
 describe('createBezierIcon utils >', () => {
   it('isBezierIcon returns true for BezierIcon', () => {

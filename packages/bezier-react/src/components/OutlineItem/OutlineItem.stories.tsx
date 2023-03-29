@@ -1,7 +1,13 @@
 /* External dependencies */
-import React, { useCallback, useState } from 'react'
+import React, {
+  useCallback,
+  useState,
+} from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
@@ -14,9 +20,12 @@ import {
   EmailIcon,
   SecurityIcon,
 } from '~/src/components/Icon'
-import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
 import OutlineItem from './OutlineItem'
-import OutlineItemProps from './OutlineItem.types'
+import type OutlineItemProps from './OutlineItem.types'
 
 export default {
   title: getTitle(base),

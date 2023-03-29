@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
 
 /* Internal dependencies */
-import {
-  isNil,
-} from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
-import ListMenuTitleProps from './ListMenuTitle.types'
-import { TitleWrapper, Wrapper } from './ListMenuTitle.styled'
+import type ListMenuTitleProps from './ListMenuTitle.types'
+import {
+  TitleWrapper,
+  Wrapper,
+} from './ListMenuTitle.styled'
 
 export const SIDEBAR_MENU_TITLE_TEST_ID = 'bezier-react-sidebar-menu-title'
 

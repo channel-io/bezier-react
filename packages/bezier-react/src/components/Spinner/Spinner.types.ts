@@ -1,5 +1,9 @@
 /* Internal dependencies */
-import { BezierComponentProps, SizeProps, ColorProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type SizeProps,
+  type ColorProps,
+} from '~/src/types/ComponentProps'
 
 export enum SpinnerSize {
   XL = 50,

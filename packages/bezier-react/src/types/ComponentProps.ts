@@ -1,5 +1,6 @@
 /* External dependencies */
-import React, { CSSProperties } from 'react'
+import { type CSSProperties } from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
 import type { SemanticNames } from '~/src/foundation'

@@ -2,9 +2,7 @@
 import React, { useMemo } from 'react'
 
 /* Internal dependencies */
-import {
-  isEmpty,
-} from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/typeUtils'
 import { LegacyIcon } from '~/src/components/Icon'
 import {
   TagBadgeText,
@@ -19,7 +17,7 @@ import {
   getProperTagBadgeTypo,
   TagBadgeStyled,
 } from '~/src/components/TagBadge/TagBadgeCommon'
-import BadgeProps from './Badge.types'
+import type BadgeProps from './Badge.types'
 
 // TODO: 테스트 코드 작성
 export const BADGE_TEST_ID = 'bezier-react-badge'

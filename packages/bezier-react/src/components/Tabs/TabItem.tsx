@@ -12,7 +12,7 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import {
-  TabItemProps,
+  type TabItemProps,
   TabSize,
 } from './Tabs.types'
 import TabListContext from './TabListContext'

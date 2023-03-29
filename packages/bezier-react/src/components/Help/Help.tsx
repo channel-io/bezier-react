@@ -2,10 +2,11 @@
 import React from 'react'
 
 /* Internal dependencies */
+import { isEmpty } from '~/src/utils/typeUtils'
 import {
-  isEmpty,
-} from '~/src/utils/typeUtils'
-import { IconSize, HelpFilledIcon } from '~/src/components/Icon'
+  IconSize,
+  HelpFilledIcon,
+} from '~/src/components/Icon'
 import type HelpProps from './Help.types'
 import * as Styled from './Help.styled'
 

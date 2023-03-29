@@ -1,7 +1,18 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { VStack, StackItem, Text, Typography, Button, ButtonColorVariant, ButtonStyleVariant } from '@channel.io/bezier-react'
+import {
+  useLocation,
+  useNavigate,
+} from 'react-router-dom'
+import {
+  VStack,
+  StackItem,
+  Text,
+  Typography,
+  Button,
+  ButtonColorVariant,
+  ButtonStyleVariant,
+} from '@channel.io/bezier-react'
 
 function ExtractSuccess() {
   const navigate = useNavigate()

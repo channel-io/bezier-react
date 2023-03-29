@@ -3,9 +3,7 @@ import React, { forwardRef } from 'react'
 import * as Tabs from '@radix-ui/react-tabs'
 
 /* Internal dependencies */
-import {
-  TabContentProps,
-} from './Tabs.types'
+import { type TabContentProps } from './Tabs.types'
 
 /**
  * `TabContent` has content associated with `TabItem`.

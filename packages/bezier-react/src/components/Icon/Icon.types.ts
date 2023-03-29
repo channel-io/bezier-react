@@ -1,8 +1,12 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import { BezierComponentProps, SizeProps, ColorProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type SizeProps,
+  type ColorProps,
+} from '~/src/types/ComponentProps'
 
 export enum IconSize {
   XL = 44,

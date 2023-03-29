@@ -3,7 +3,10 @@ import React from 'react'
 
 /* Internal Dependencies */
 import { render } from '~/src/utils/testUtils'
-import { css, styled } from './FoundationStyledComponent'
+import {
+  css,
+  styled,
+} from './FoundationStyledComponent'
 import { ellipsis } from './Mixins'
 
 const ELLIPSIS_TEST_ID = 'bezier-react-ellipsis'

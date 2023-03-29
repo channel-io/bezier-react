@@ -9,7 +9,7 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
-import SliderProps from './Slider.types'
+import type SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
@@ -107,6 +107,7 @@ export const Slider = forwardRef(function Slider(
         { currentValue.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
+            // eslint-disable-next-line react/no-array-index-key
             key={`slider-thumb-${i}`}
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}

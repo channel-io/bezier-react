@@ -1,21 +1,29 @@
 /* External dependencies */
-import React, { useRef, useState, useCallback } from 'react'
+import React, {
+  useRef,
+  useState,
+  useCallback,
+} from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
 import { getTitle } from '~/src/utils/storyUtils'
-import {
-  isEmpty,
-} from '~/src/utils/typeUtils'
-import {
-  range,
-} from '~/src/utils/numberUtils'
+import { isEmpty } from '~/src/utils/typeUtils'
+import { range } from '~/src/utils/numberUtils'
 import { Text } from '~/src/components/Text'
-import { Icon, CancelIcon, PlusIcon } from '~/src/components/Icon'
+import {
+  Icon,
+  CancelIcon,
+  PlusIcon,
+} from '~/src/components/Icon'
 import SegmentedControl from './SegmentedControl'
-import SegmentedControlProps, { SegmentedControlSize } from './SegmentedControl.types'
+import type SegmentedControlProps from './SegmentedControl.types'
+import { SegmentedControlSize } from './SegmentedControl.types'
 
 export default {
   title: getTitle(base),

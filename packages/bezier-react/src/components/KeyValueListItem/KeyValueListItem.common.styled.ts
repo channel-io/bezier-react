@@ -1,7 +1,10 @@
 /* Internal dependencies */
-import React from 'react'
-import { css, styled } from '~/src/foundation'
-import { InterpolationProps } from '~/src/types/Foundation'
+import type React from 'react'
+import {
+  css,
+  styled,
+} from '~/src/foundation'
+import { type InterpolationProps } from '~/src/types/Foundation'
 
 export const KeyValueListItemWrapper = styled.div<InterpolationProps>`
   ${({ foundation }) => foundation?.rounding?.round6}

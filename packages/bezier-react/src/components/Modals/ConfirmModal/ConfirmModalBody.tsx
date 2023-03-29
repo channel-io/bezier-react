@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { ModalBody } from '../Modal'
-import { ConfirmModalBodyProps } from './ConfirmModal.types'
+import { type ConfirmModalBodyProps } from './ConfirmModal.types'
 
 /**
  * `ConfirmModalBody` is a simple wrapper of the main modal content.

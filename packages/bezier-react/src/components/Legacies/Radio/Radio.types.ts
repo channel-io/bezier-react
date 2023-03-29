@@ -1,13 +1,13 @@
 /* External dependencies */
-import { MouseEvent } from 'react'
+import { type MouseEvent } from 'react'
 
 /* Internal dependencies */
 import {
-  BezierComponentProps,
-  ChildrenProps,
-  DisableProps,
-  AdditionalTestIdProps,
-  AdditionalStylableProps,
+  type BezierComponentProps,
+  type ChildrenProps,
+  type DisableProps,
+  type AdditionalTestIdProps,
+  type AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 

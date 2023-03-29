@@ -1,12 +1,22 @@
 /* External dependencies */
-import React, { useCallback, useState } from 'react'
+import React, {
+  useCallback,
+  useState,
+} from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
-import { getObjectFromEnum, getTitle } from '~/src/utils/storyUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+} from '~/src/utils/storyUtils'
 import TextArea from './TextArea'
-import TextAreaProps, { TextAreaHeight } from './TextArea.types'
+import type TextAreaProps from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 
 export default {
   title: getTitle(base),

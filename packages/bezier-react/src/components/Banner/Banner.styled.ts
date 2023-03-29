@@ -8,7 +8,11 @@ import {
 import { LegacyIcon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import type { BannerVariant } from './Banner.types'
-import { BACKGROUND_COLORS, TEXT_COLORS, ELEVATIONS } from './Banner.const'
+import {
+  BACKGROUND_COLORS,
+  TEXT_COLORS,
+  ELEVATIONS,
+} from './Banner.const'
 
 type BannerVariantProps = Required<VariantProps<BannerVariant>>
 

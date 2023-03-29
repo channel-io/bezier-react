@@ -1,5 +1,9 @@
 /* Internal dependencies */
-import { css, styled, Transition } from '~/src/foundation'
+import {
+  css,
+  styled,
+  Transition,
+} from '~/src/foundation'
 import { toLength } from '~/src/utils/styleUtils'
 import type { BezierComponentProps } from '~/src/types/ComponentProps'
 import disabledOpacity from '~/src/constants/DisabledOpacity'

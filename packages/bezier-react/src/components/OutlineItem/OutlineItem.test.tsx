@@ -5,12 +5,13 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
-import {
-  range,
-} from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/numberUtils'
 import { EditIcon } from '~/src/components/Icon'
-import OutlineItem, { OUTLINE_ITEM_LEFT_ICON_TEST_ID, OUTLINE_ITEM_TEST_ID } from './OutlineItem'
-import OutlineItemProps from './OutlineItem.types'
+import OutlineItem, {
+  OUTLINE_ITEM_LEFT_ICON_TEST_ID,
+  OUTLINE_ITEM_TEST_ID,
+} from './OutlineItem'
+import type OutlineItemProps from './OutlineItem.types'
 
 describe('OutlineItem', () => {
   let props: OutlineItemProps

@@ -1,6 +1,14 @@
 /* Internal dependencies */
-import { styled, css, keyframes } from '~/src/foundation'
-import { StyledSpinnerProps, SpinnerSize, SpinnerThickness } from './Spinner.types'
+import {
+  styled,
+  css,
+  keyframes,
+} from '~/src/foundation'
+import {
+  type StyledSpinnerProps,
+  SpinnerSize,
+  SpinnerThickness,
+} from './Spinner.types'
 
 function getThicknessFromSize(size: SpinnerSize) {
   switch (size) {

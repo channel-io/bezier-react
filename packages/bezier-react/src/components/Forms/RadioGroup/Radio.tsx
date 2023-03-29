@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import useId from '~/src/hooks/useId'
-import { RadioProps } from './RadioGroup.types'
+import { type RadioProps } from './RadioGroup.types'
 import * as Styled from './RadioGroup.styled'
 
 function RadioImpl<Value extends string>({

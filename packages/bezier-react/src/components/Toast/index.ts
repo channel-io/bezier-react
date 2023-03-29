@@ -1,14 +1,17 @@
 /* Internal dependencies */
 import ToastProvider from './ToastProvider'
-import ToastProps, {
+import {
+  type ToastOptions,
+  type ToastId,
+  type ToastType,
+  type ToastContent,
+} from './Toast.types'
+import type ToastProps from './Toast.types'
+import {
   ToastPlacement,
   ToastAppearance,
   ToastIconColor,
   ToastPreset,
-  ToastOptions,
-  ToastId,
-  ToastType,
-  ToastContent,
 } from './Toast.types'
 
 export type {

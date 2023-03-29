@@ -1,5 +1,9 @@
 /* External dependencies */
-import { useEffect, useRef, useMemo } from 'react'
+import {
+  useEffect,
+  useRef,
+  useMemo,
+} from 'react'
 
 /* Internal dependencies */
 import {
@@ -7,9 +11,7 @@ import {
   isNil,
 } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
-import {
-  isEqual,
-} from '~/src/utils/objectUtils'
+import { isEqual } from '~/src/utils/objectUtils'
 
 interface HandlerOptionsProps {
   capture?: boolean

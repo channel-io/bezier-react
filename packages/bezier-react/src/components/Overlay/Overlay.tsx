@@ -6,7 +6,7 @@ import React, {
   useCallback,
   useLayoutEffect,
   useEffect,
-  Ref,
+  type Ref,
   forwardRef,
   useMemo,
 } from 'react'
@@ -15,9 +15,18 @@ import ReactDOM from 'react-dom'
 /* Internal dependencies */
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { window, document, getRootElement } from '~/src/utils/domUtils'
+import {
+  window,
+  document,
+  getRootElement,
+} from '~/src/utils/domUtils'
 import { noop } from '~/src/utils/functionUtils'
-import OverlayProps, { OverlayPosition, ContainerRectAttr, TargetRectAttr } from './Overlay.types'
+import {
+  type ContainerRectAttr,
+  type TargetRectAttr,
+} from './Overlay.types'
+import type OverlayProps from './Overlay.types'
+import { OverlayPosition } from './Overlay.types'
 import * as Styled from './Overlay.styled'
 
 export const CONTAINER_TEST_ID = 'bezier-react-container'

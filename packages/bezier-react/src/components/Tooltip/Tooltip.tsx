@@ -1,10 +1,19 @@
 /* External dependencies */
-import React, { useState, useCallback, useMemo, useRef, forwardRef, Ref, useEffect } from 'react'
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  forwardRef,
+  type Ref,
+  useEffect,
+} from 'react'
 
 /* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
 import TooltipContent from './TooltipContent'
-import TooltipProps, { TooltipPosition } from './Tooltip.types'
+import type TooltipProps from './Tooltip.types'
+import { TooltipPosition } from './Tooltip.types'
 import { Container } from './Tooltip.styled'
 
 export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'

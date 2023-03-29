@@ -5,9 +5,15 @@ import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
-import { FormControl, FormControlProps } from '~/src/components/Forms/FormControl'
+import {
+  FormControl,
+  type FormControlProps,
+} from '~/src/components/Forms/FormControl'
 import { Checkbox } from './Checkbox'
-import { CheckboxProps, CheckedState } from './Checkbox.types'
+import {
+  type CheckboxProps,
+  type CheckedState,
+} from './Checkbox.types'
 
 const VALUES = ['0', '1', '2']
 

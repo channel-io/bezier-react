@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { compact, flattenDeep } from './arrayUtils'
+import {
+  compact,
+  flattenDeep,
+} from './arrayUtils'
 
 describe('arrayUtils', () => {
   describe('compact', () => {

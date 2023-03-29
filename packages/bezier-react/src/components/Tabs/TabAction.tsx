@@ -6,9 +6,7 @@ import React, {
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import {
-  isNil,
-} from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/typeUtils'
 import {
   IconSize,
   OpenInNewIcon,
@@ -16,8 +14,8 @@ import {
 import { Text } from '~/src/components/Text'
 import TabListContext from './TabListContext'
 import {
-  TabActionElement,
-  TabActionProps,
+  type TabActionElement,
+  type TabActionProps,
   TabSize,
 } from './Tabs.types'
 import * as Styled from './TabAction.styled'

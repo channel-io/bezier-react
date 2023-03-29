@@ -1,6 +1,11 @@
 /* Internal dependencies */
-import type { BezierComponentProps, ChildrenProps, SizeProps, AdditionalStylableProps } from '~/src/types/ComponentProps'
-import { AvatarSize } from '~/src/components/Avatars/Avatar'
+import type {
+  BezierComponentProps,
+  ChildrenProps,
+  SizeProps,
+  AdditionalStylableProps,
+} from '~/src/types/ComponentProps'
+import { type AvatarSize } from '~/src/components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {
   Icon = 'Icon',

@@ -1,7 +1,11 @@
 /* Internal dependencies */
-import { IconName } from '~/src/components/Icon'
+import { type IconName } from '~/src/components/Icon'
 import { isArray } from './typeUtils'
-import { getObjectFromEnum, getTitle, iconList } from './storyUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+  iconList,
+} from './storyUtils'
 
 describe('storyUtils Test >', () => {
   describe('getTitle Test >', () => {

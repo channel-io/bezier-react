@@ -1,6 +1,6 @@
 /* External dependencies */
 import React, {
-  Ref,
+  type Ref,
   forwardRef,
   useState,
   useEffect,
@@ -18,24 +18,31 @@ import {
   isNil,
   isEmpty,
 } from '~/src/utils/typeUtils'
+import { toString } from '~/src/utils/stringUtils'
 import {
-  toString,
-} from '~/src/utils/stringUtils'
-import { Icon, IconSize, CancelCircleFilledIcon, LegacyIcon, isIconName } from '~/src/components/Icon'
+  Icon,
+  IconSize,
+  CancelCircleFilledIcon,
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/Icon'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import Styled from './TextField.styled'
 import {
-  TextFieldItemProps,
+  type TextFieldItemProps,
   TextFieldType,
-  TextFieldRef,
-  SelectionRangeDirections,
+  type TextFieldRef,
+  type SelectionRangeDirections,
   TextFieldSize,
   TextFieldVariant,
+  type TextFieldProps,
 } from './TextField.types'
-import { getProperTextFieldBgColor, getProperTextFieldBorderRadius } from './TextFieldUtils'
-import type { TextFieldProps } from './TextField.types'
+import {
+  getProperTextFieldBgColor,
+  getProperTextFieldBorderRadius,
+} from './TextFieldUtils'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 

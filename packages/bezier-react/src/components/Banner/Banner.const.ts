@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import { css, SemanticNames } from '~/src/foundation'
+import {
+  css,
+  type SemanticNames,
+} from '~/src/foundation'
 import type { InjectedInterpolation } from '~/src/types/Foundation'
 import { ButtonColorVariant } from '~/src/components/Button'
 import { BannerVariant } from './Banner.types'

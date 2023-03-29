@@ -6,19 +6,13 @@ import {
 } from '@storybook/react'
 
 /* Internal dependencies */
-import {
-  styled,
-} from '~/src/foundation'
+import { styled } from '~/src/foundation'
 import {
   StackItem,
   VStack,
 } from '~/src/components/Stack'
-import {
-  Text,
-} from '~/src/components/Text'
-import {
-  Typography,
-} from './Typography'
+import { Text } from '~/src/components/Text'
+import { Typography } from './Typography'
 import mdx from './Typography.mdx'
 
 export default {

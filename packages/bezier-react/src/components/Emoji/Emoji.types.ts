@@ -1,5 +1,8 @@
 /* Internal dependencies */
-import type { BezierComponentProps, SizeProps } from '~/src/types/ComponentProps'
+import type {
+  BezierComponentProps,
+  SizeProps,
+} from '~/src/types/ComponentProps'
 
 export enum EmojiSize {
   Size16 = 16,

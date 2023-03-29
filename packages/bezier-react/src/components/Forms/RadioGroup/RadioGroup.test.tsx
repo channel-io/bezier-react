@@ -7,7 +7,10 @@ import userEvent from '@testing-library/user-event'
 import { render } from '~/src/utils/testUtils'
 import { RadioGroup } from './RadioGroup'
 import { Radio } from './Radio'
-import { RadioGroupProps, RadioProps } from './RadioGroup.types'
+import {
+  type RadioGroupProps,
+  type RadioProps,
+} from './RadioGroup.types'
 
 const VALUES = ['0', '1', '2']
 

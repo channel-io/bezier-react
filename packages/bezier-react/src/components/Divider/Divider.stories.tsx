@@ -1,7 +1,10 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import type { Story, Meta } from '@storybook/react'
+import type {
+  Story,
+  Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'

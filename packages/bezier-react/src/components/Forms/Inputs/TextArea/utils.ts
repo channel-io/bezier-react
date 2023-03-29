@@ -1,5 +1,5 @@
 /* Internal dependencies */
-import { SemanticNames } from '~/src/foundation'
+import { type SemanticNames } from '~/src/foundation'
 
 interface CalculateBgColorProps {
   focused: boolean

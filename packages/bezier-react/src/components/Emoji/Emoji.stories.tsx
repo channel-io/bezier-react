@@ -1,13 +1,20 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Meta, Story } from '@storybook/react'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
 import { styled } from '~/src/foundation'
-import { getTitle, getObjectFromEnum } from '~/src/utils/storyUtils'
+import {
+  getTitle,
+  getObjectFromEnum,
+} from '~/src/utils/storyUtils'
 
 /* Internal dependencies */
 import Emoji from './Emoji'
-import EmojiProps, { EmojiSize } from './Emoji.types'
+import type EmojiProps from './Emoji.types'
+import { EmojiSize } from './Emoji.types'
 
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/blush.png'
 

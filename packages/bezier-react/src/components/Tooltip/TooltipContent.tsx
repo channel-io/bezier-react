@@ -1,5 +1,11 @@
 /* External dependencies */
-import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  useEffect,
+} from 'react'
 import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
@@ -13,9 +19,19 @@ import {
 } from '~/src/utils/typeUtils'
 import { getRootElement } from '~/src/utils/domUtils'
 import { Text } from '~/src/components/Text'
-import { TooltipContentProps, TooltipPosition } from './Tooltip.types'
-import { getReplacement, getTooltipStyle } from './utils'
-import { ContentWrapper, Content, EllipsisableContent } from './Tooltip.styled'
+import {
+  type TooltipContentProps,
+  TooltipPosition,
+} from './Tooltip.types'
+import {
+  getReplacement,
+  getTooltipStyle,
+} from './utils'
+import {
+  ContentWrapper,
+  Content,
+  EllipsisableContent,
+} from './Tooltip.styled'
 
 function getNewLineComponent(strContent: string) {
   return (

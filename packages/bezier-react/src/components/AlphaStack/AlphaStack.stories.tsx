@@ -1,14 +1,17 @@
 /* External dependencies */
 import React from 'react'
 import base from 'paths.macro'
-import { Story, Meta } from '@storybook/react'
+import {
+  type Story,
+  type Meta,
+} from '@storybook/react'
 
 /* Internal dependencies */
 import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 import { css } from '~/src/foundation/FoundationStyledComponent'
 import { AlphaStack } from './AlphaStack'
-import { AlphaStackProps } from './AlphaStack.types'
+import { type AlphaStackProps } from './AlphaStack.types'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 

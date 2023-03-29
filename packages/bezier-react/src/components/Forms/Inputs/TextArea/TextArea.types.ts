@@ -1,9 +1,12 @@
 /* External dependencies */
-import React from 'react'
+import type React from 'react'
 
 /* Internal dependencies */
-import type { BezierComponentProps, AdditionalStylableProps } from '~/src/types/ComponentProps'
-import { FormComponentProps } from '~/src/components/Forms/Form.types'
+import type {
+  BezierComponentProps,
+  AdditionalStylableProps,
+} from '~/src/types/ComponentProps'
+import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
 export enum TextAreaHeight {
   Row3 = 3,

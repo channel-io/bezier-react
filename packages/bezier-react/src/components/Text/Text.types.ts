@@ -1,8 +1,13 @@
 /* External dependencies */
-import { css } from 'styled-components'
+import { type css } from 'styled-components'
 
 /* Internal dependencies */
-import { BezierComponentProps, ChildrenProps, ColorProps, IdentifierProps } from '~/src/types/ComponentProps'
+import {
+  type BezierComponentProps,
+  type ChildrenProps,
+  type ColorProps,
+  type IdentifierProps,
+} from '~/src/types/ComponentProps'
 
 interface TextOptions {
   bold?: boolean

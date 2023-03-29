@@ -4,7 +4,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
-import { ModalProps } from './Modal.types'
+import { type ModalProps } from './Modal.types'
 
 /**
  * `Modal` is a dialog that appears on top of the page.

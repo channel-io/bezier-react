@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { ModalContent } from '../Modal'
-import { ConfirmModalContentProps } from './ConfirmModal.types'
+import { type ConfirmModalContentProps } from './ConfirmModal.types'
 
 /**
  * `ConfirmModalContent` is a container of the modal content.

@@ -2,9 +2,16 @@
 import React from 'react'
 
 /* Internal denpendencies */
-import { Avatar, AvatarSize } from '~/src/components/Avatars/Avatar'
-import CheckableAvatarProps from './CheckableAvatar.types'
-import { CheckableAvatarWrapper, CheckIcon, getAvatarImageStyle } from './CheckableAvatar.styled'
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
+import type CheckableAvatarProps from './CheckableAvatar.types'
+import {
+  CheckableAvatarWrapper,
+  CheckIcon,
+  getAvatarImageStyle,
+} from './CheckableAvatar.styled'
 
 // TODO: 테스트 코드 작성
 const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
