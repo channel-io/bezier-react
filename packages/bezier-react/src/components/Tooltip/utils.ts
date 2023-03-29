@@ -1,5 +1,4 @@
 /* Internal dependencies */
-import { getRootElement } from '~/src/utils/domUtils'
 import {
   TooltipPosition,
   type GetTooltipStyle,
@@ -8,10 +7,11 @@ import {
 
 export function getReplacement({
   tooltip,
+  container,
   keepInContainer,
   placement,
 }: GetReplacement): TooltipPosition {
-  if (!keepInContainer) {
+  if (!keepInContainer || !container) {
     return placement
   }
 
@@ -21,12 +21,13 @@ export function getReplacement({
     top: tooltipTop,
     left: tooltipLeft,
   } = tooltip.getBoundingClientRect()
+
   const {
     width: rootWidth,
     height: rootHeight,
     top: rootTop,
     left: rootLeft,
-  } = getRootElement().getBoundingClientRect()
+  } = container.getBoundingClientRect()
 
   const isOverTop = tooltipTop < rootTop
   const isOverBottom = tooltipTop + tooltipHeight > rootTop + rootHeight
