@@ -5,6 +5,7 @@ export { default as BezierProvider } from '~/src/providers/BezierProvider'
 export * from '~/src/foundation'
 
 /* Components */
+export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatars/Avatar'
 export * from '~/src/components/Avatars/AvatarGroup'
 export * from '~/src/components/Avatars/CheckableAvatar'
