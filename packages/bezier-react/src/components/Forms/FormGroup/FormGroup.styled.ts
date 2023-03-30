@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
-import { Stack as BaseStack } from '~/src/components/Stack'
+import { AlphaStack } from '~/src/components/AlphaStack'
 
-export const Stack = styled(BaseStack)`
+export const Stack = styled(AlphaStack)`
   flex-wrap: wrap;
 `

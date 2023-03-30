@@ -1,16 +1,10 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  isValidElement,
-} from 'react'
+import React, { forwardRef } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 /* Internal dependencies */
-import {
-  Stack,
-  StackItem,
-} from '~/src/components/Stack'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { AlphaStack } from '~/src/components/AlphaStack'
 import { type RadioGroupProps } from './RadioGroup.types'
 
 function RadioGroupImpl<Value extends string>({
@@ -26,19 +20,15 @@ function RadioGroupImpl<Value extends string>({
       asChild
       {...formFieldProps}
     >
-      <Stack
+      <AlphaStack
         ref={forwardedRef}
         justify="start"
         align="stretch"
         spacing={spacing}
         direction={direction}
       >
-        { React.Children.map(children, (child, index) => (
-          <StackItem key={isValidElement(child) ? child.key : index}>
-            { child }
-          </StackItem>
-        )) }
-      </Stack>
+        { children }
+      </AlphaStack>
     </RadioGroupPrimitive.Root>
   )
 }
