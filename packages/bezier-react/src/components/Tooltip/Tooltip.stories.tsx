@@ -1,8 +1,5 @@
 /* External dependencies */
-import React, {
-  useState,
-  useCallback,
-} from 'react'
+import React, { useState } from 'react'
 import { base } from 'paths.macro'
 import {
   type Story,
@@ -82,20 +79,19 @@ const Target = styled.div`
 `
 
 const Template: Story<TooltipProps> = (props) => {
-  const [showTarget, setShowTarget] = useState(true)
-
-  const handleClick = useCallback(() => {
-    setShowTarget(false)
-  }, [])
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
 
   return (
-    <Tooltip {...props}>
-      { showTarget && (
-        <Target onClick={handleClick}>
+    <div ref={setContainer}>
+      <Tooltip
+        {...props}
+        container={container}
+      >
+        <Target>
           Target
         </Target>
-      ) }
-    </Tooltip>
+      </Tooltip>
+    </div>
   )
 }
 

@@ -32,6 +32,7 @@ function Tooltip(
     placement = TooltipPosition.BottomCenter,
     disabled = false,
     offset = 4,
+    container,
     keepInContainer = false,
     allowHover = false,
     delayShow = 0,
@@ -103,6 +104,7 @@ function Tooltip(
           placement={placement}
           offset={offset}
           allowHover={allowHover}
+          container={container}
           keepInContainer={keepInContainer}
           tooltipContainer={tooltipContainerRef.current}
           forwardedRef={forwardedRef}
@@ -123,6 +125,7 @@ function Tooltip(
     placement,
     offset,
     allowHover,
+    container,
     keepInContainer,
     forwardedRef,
     contentTestId,
