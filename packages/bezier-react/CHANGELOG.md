@@ -1,5 +1,37 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.197
+
+### Minor Changes
+
+- [#1254](https://github.com/channel-io/bezier-react/pull/1254) [`e4a0d68c`](https://github.com/channel-io/bezier-react/commit/e4a0d68c0808debb50a8316cad2680dbca057db4) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add `container` property to `Tooltip` component.
+
+  ```tsx
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+
+  return (
+    <div ref={setContainer}>
+      <Tooltip content="Lorem ipsum" container={container}>
+        <div />
+      </Tooltip>
+    </div>
+  );
+  ```
+
+### Patch Changes
+
+- [#1250](https://github.com/channel-io/bezier-react/pull/1250) [`42c6ce74`](https://github.com/channel-io/bezier-react/commit/42c6ce7410e6db05dab7e60c6b9f6e4c275fc2a0) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Introduce `AutoFocus` component.
+
+  `AutoFocus` is a component that automatically focuses its child component when they are added to the document. It is useful when you want to focus on a specific element when the component is mounted. It doesn't render any DOM node.
+
+  ```tsx
+  <AutoFocus>
+    <button>Close</button>
+  </AutoFocus>
+  ```
+
+- [#1249](https://github.com/channel-io/bezier-react/pull/1249) [`8466ab3c`](https://github.com/channel-io/bezier-react/commit/8466ab3c211e50baad2c69de682258615e5c9dfa) Thanks [@Kanary159357](https://github.com/Kanary159357)! - change to alphastack on ...group component
+
 ## 1.0.0-next-v1.196
 
 ### Patch Changes
