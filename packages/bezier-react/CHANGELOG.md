@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.198
+
+### Minor Changes
+
+- [#1258](https://github.com/channel-io/bezier-react/pull/1258) [`eab709b1`](https://github.com/channel-io/bezier-react/commit/eab709b1e96b15936ab02990c473dc70c9d9d4f9) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add `when` prop to the `Autofocus` component.
+
 ## 1.0.0-next-v1.197
 
 ### Minor Changes
