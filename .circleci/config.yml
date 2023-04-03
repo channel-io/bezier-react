@@ -60,7 +60,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach_workspace
-      - run: yarn test
+      - run: yarn test:ci
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
           token: $CODECOV_TOKEN
