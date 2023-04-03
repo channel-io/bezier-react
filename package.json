@@ -11,6 +11,7 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "test:ci": "turbo run test:ci",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "release": "turbo run build --filter=@channel.io/bezier-react && changeset publish",
     "storybook": "yarn workspace @channel.io/bezier-react storybook",

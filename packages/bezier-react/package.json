@@ -25,6 +25,7 @@
     "typecheck": "yarn find-deadcode && tsc --build --verbose",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "test": "jest --onlyChanged",
+    "test:ci": "jest --ci --coverage",
     "test:watch": "jest --watch",
     "update-snapshot": "jest --updateSnapshot",
     "clean": "run-s 'clean:*'",
