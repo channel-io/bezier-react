@@ -24,17 +24,22 @@ import { type AutoFocusProps } from './AutoFocus.types'
  */
 export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(function AutoFocus({
   children,
+  when = true,
+  ...rest
 }, forwardedRef) {
   const focus = useCallback((node: HTMLElement | null) => {
-    if (node) {
+    if (node && when) {
       node.focus()
     }
-  }, [])
+  }, [when])
 
   const ref = useMergeRefs(focus, forwardedRef)
 
   return (
-    <Slot ref={ref}>
+    <Slot
+      ref={ref}
+      {...rest}
+    >
       { children }
     </Slot>
   )
