@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.199
+
+### Patch Changes
+
+- [#1265](https://github.com/channel-io/bezier-react/pull/1265) [`d68e2524`](https://github.com/channel-io/bezier-react/commit/d68e2524b0bf9632d6d8576f2cc383713af2a964) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add forwardRef to `FormControl`.
+
+- [#1264](https://github.com/channel-io/bezier-react/pull/1264) [`e2b4291a`](https://github.com/channel-io/bezier-react/commit/e2b4291a4b3661391dcfda0667d78732aacea41e) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Remove the 100% width, 100% height style from `AlphaStack` component
+
 ## 1.0.0-next-v1.198
 
 ### Minor Changes
