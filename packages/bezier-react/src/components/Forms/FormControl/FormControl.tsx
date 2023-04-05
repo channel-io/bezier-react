@@ -191,8 +191,12 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   ])
 
   const containerStyle = useMemo(() => ({
+    ...style,
     '--bezier-form-control-left-label-wrapper-height': `${leftLabelWrapperHeight}px`,
-  } as React.CSSProperties), [leftLabelWrapperHeight])
+  } as React.CSSProperties), [
+    style,
+    leftLabelWrapperHeight,
+  ])
 
   if (!children) { return null }
 
