@@ -18,8 +18,6 @@ exports[`FormGroup > Snapshot > 1`] = `
   -webkit-justify-content: var(--bezier-alpha-stack-justify);
   -ms-flex-pack: var(--bezier-alpha-stack-justify);
   justify-content: var(--bezier-alpha-stack-justify);
-  width: 100%;
-  height: 100%;
 }
 
 .c1 {
