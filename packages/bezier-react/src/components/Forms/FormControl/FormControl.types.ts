@@ -25,19 +25,19 @@ interface WrapperProps {
   Wrapper: React.FunctionComponent<ChildrenProps>
 }
 
-interface SetRenderedProps {
-  setIsRendered: React.Dispatch<React.SetStateAction<boolean>>
+interface CallbackRefProps {
+  ref: (node: HTMLElement | null) => void
 }
 
 type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & FormControlContextCommonValue & ExtraReturnType
 
-export type GroupPropsGetter = PropsGetter<SetRenderedProps & FormControlAriaProps>
+export type GroupPropsGetter = PropsGetter<CallbackRefProps & FormControlAriaProps>
 
 export type LabelPropsGetter = PropsGetter<WrapperProps>
 
 export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
 
-export type HelperTextPropsGetter = PropsGetter<WrapperProps & SetRenderedProps & {
+export type HelperTextPropsGetter = PropsGetter<WrapperProps & CallbackRefProps & {
   visible: boolean
 }>
 

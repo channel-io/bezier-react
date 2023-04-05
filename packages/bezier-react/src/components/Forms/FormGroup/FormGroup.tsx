@@ -1,10 +1,9 @@
 /* External dependencies */
-import React, {
-  forwardRef,
-  useEffect,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
+import { noop } from '~/src/utils/functionUtils'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type FormGroupProps from './FormGroup.types'
 import * as Styled from './FormGroup.styled'
@@ -24,25 +23,20 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const contextValue = useFormControlContext()
 
   const {
-    setIsRendered,
+    ref,
     ...ownProps
   } = contextValue?.getGroupProps(rest) ?? {
-    setIsRendered: undefined,
+    ref: noop,
     ...rest,
   }
 
-  useEffect(() => {
-    setIsRendered?.(true)
-    return function cleanUp() {
-      setIsRendered?.(false)
-    }
-  }, [setIsRendered])
+  const mergedRef = useMergeRefs(ref, forwardedRef)
 
   return (
     <Styled.Stack
       {...ownProps}
       data-testid={testId}
-      ref={forwardedRef}
+      ref={mergedRef}
       justify="start"
       align="stretch"
       spacing={spacing}

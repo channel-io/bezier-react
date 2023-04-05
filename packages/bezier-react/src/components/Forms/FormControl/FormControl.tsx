@@ -36,9 +36,9 @@ function FormControl({
   children,
   ...rest
 }: FormControlProps) {
-  const [hasMultipleFields, setHasMultipleFields] = useState(false)
-  const [hasHelperText, setHasHelperText] = useState(false)
-  const [hasErrorMessage, setHasErrorMessage] = useState(false)
+  const [groupNode, setGroupNode] = useState<HTMLElement | null>(null)
+  const [helperTextNode, setHelperTextNode] = useState<HTMLElement | null>(null)
+  const [errorMessageNode, setErrorMessageNode] = useState<HTMLElement | null>(null)
 
   const id = useId(idProp, 'field')
   const groupId = `${id}-group`
@@ -46,15 +46,15 @@ function FormControl({
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
 
-  const fieldId = hasMultipleFields ? undefined : id
+  const fieldId = groupNode ? undefined : id
 
   const describerId = useMemo(() => {
-    if (hasErrorMessage) { return errorMessageId }
-    if (hasHelperText) { return helperTextId }
+    if (errorMessageNode) { return errorMessageId }
+    if (helperTextNode) { return helperTextId }
     return undefined
   }, [
-    hasErrorMessage,
-    hasHelperText,
+    errorMessageNode,
+    helperTextNode,
     errorMessageId,
     helperTextId,
   ])
@@ -66,13 +66,12 @@ function FormControl({
     id: groupId,
     'aria-labelledby': labelId,
     'aria-describedby': describerId,
-    setIsRendered: setHasMultipleFields,
+    ref: setGroupNode,
     ...ownProps,
   }), [
     groupId,
     labelId,
     describerId,
-    setHasMultipleFields,
   ])
 
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
@@ -96,20 +95,20 @@ function FormControl({
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id: fieldId,
-    'aria-describedby': hasMultipleFields ? undefined : describerId,
+    'aria-describedby': groupNode ? undefined : describerId,
     ...formCommonProps,
     ...ownProps,
   }), [
     fieldId,
     describerId,
     formCommonProps,
-    hasMultipleFields,
+    groupNode,
   ])
 
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
     id: helperTextId,
     visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
-    setIsRendered: setHasHelperText,
+    ref: setHelperTextNode,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
@@ -123,7 +122,7 @@ function FormControl({
   const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(ownProps => ({
     id: errorMessageId,
     visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
-    setIsRendered: setHasErrorMessage,
+    ref: setErrorMessageNode,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
