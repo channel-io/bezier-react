@@ -3,6 +3,7 @@ import React, {
   useState,
   useCallback,
   useMemo,
+  forwardRef,
 } from 'react'
 
 /* Internal dependencies */
@@ -30,17 +31,18 @@ import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
-function Container({
+const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
   labelPosition,
   children,
   testId,
   ...rest
-}: ContainerProps) {
+}, forwardedRef) {
   switch (labelPosition) {
     case 'top':
     default:
       return (
         <AlphaStack
+          ref={forwardedRef}
           direction="vertical"
           spacing={4}
           testId={testId}
@@ -53,6 +55,7 @@ function Container({
     case 'left':
       return (
         <Styled.Grid
+          ref={forwardedRef}
           data-testid={testId}
           {...rest}
         >
@@ -60,9 +63,9 @@ function Container({
         </Styled.Grid>
       )
   }
-}
+})
 
-function FormControl({
+export const FormControl = forwardRef<HTMLElement, FormControlProps>(function FormControl({
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
@@ -70,7 +73,7 @@ function FormControl({
   style,
   children,
   ...rest
-}: FormControlProps) {
+}, forwardedRef) {
   const [groupNode, setGroupNode] = useState<HTMLElement | null>(null)
   const [helperTextNode, setHelperTextNode] = useState<HTMLElement | null>(null)
   const [errorMessageNode, setErrorMessageNode] = useState<HTMLElement | null>(null)
@@ -197,6 +200,7 @@ function FormControl({
     <FormControlContext.Provider value={contextValue}>
       <Container
         {...bezierProps}
+        ref={forwardedRef}
         style={containerStyle}
         testId={testId}
         labelPosition={labelPosition}
@@ -205,6 +209,4 @@ function FormControl({
       </Container>
     </FormControlContext.Provider>
   )
-}
-
-export default FormControl
+})
