@@ -31,6 +31,14 @@ import { type FormControlProps } from './FormControl.types'
 export default {
   title: getTitle(base),
   component: FormControl,
+  argTypes: {
+    labelPosition: {
+      control: {
+        type: 'radio',
+        options: ['top', 'left', undefined],
+      },
+    },
+  },
 } as Meta
 
 const Template: Story<FormControlProps> = (args) => (
