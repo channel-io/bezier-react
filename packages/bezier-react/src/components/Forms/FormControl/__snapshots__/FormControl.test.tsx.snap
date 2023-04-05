@@ -2,20 +2,6 @@
 
 exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c0 {
-  position: relative;
-}
-
-.c1 {
-  padding: 0 2px;
-  margin-bottom: 4px;
-}
-
-.c10 {
-  padding: 0 2px;
-  margin-top: 4px;
-}
-
-.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,13 +20,25 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   justify-content: var(--bezier-alpha-stack-justify);
 }
 
+.c1 {
+  position: relative;
+}
+
+.c2 {
+  padding: 0 2px;
+}
+
+.c10 {
+  padding: 0 2px;
+}
+
 .c5 {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.c2 {
+.c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -74,7 +72,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-property: color;
 }
 
-.c3 {
+.c4 {
   display: block;
   text-align: left;
   word-break: break-word;
@@ -180,12 +178,12 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 }
 
 @supports not(gap:var(--bezier-alpha-stack-spacing)) {
-  .c4 {
+  .c0 {
     margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
     margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
   }
 
-  .c4 > * {
+  .c0 > * {
     margin-top: var(--bezier-alpha-stack-spacing);
     margin-left: var(--bezier-alpha-stack-spacing);
   }
@@ -195,12 +193,13 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   <div
     class="c0"
     data-testid="bezier-react-form-control"
+    style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
   >
     <div
-      class="c0 c1"
+      class="c1 c2"
     >
       <label
-        class="c2 c3"
+        class="c3 c4"
         color="txt-black-darkest"
         data-testid="bezier-react-form-label"
         id="form-label"
@@ -211,7 +210,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     <div
       aria-describedby="form-help-text"
       aria-labelledby="form-label"
-      class="c4 c5"
+      class="c0 c5"
       data-testid="bezier-react-form-group"
       id="form-group"
       role="group"
@@ -220,12 +219,13 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
+        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
-          class="c0 c1"
+          class="c1 c2"
         >
           <label
-            class="c2 c3"
+            class="c3 c4"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
             for="field-:r3:"
@@ -251,12 +251,13 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
+        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
-          class="c0 c1"
+          class="c1 c2"
         >
           <label
-            class="c2 c3"
+            class="c3 c4"
             color="txt-black-darkest"
             data-testid="bezier-react-form-label"
             for="field-:r4:"
@@ -282,7 +283,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       </div>
     </div>
     <div
-      class="c0 c10"
+      class="c1 c10"
     >
       <p
         class="c11 c12"
@@ -298,18 +299,35 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 `;
 
 exports[`FormControl > Snapshot > With multiple field and left label position 1`] = `
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
+}
+
 .c0 {
   position: relative;
 }
 
 .c7 {
   padding: 0 2px;
-  margin-bottom: 4px;
 }
 
 .c13 {
   padding: 0 2px;
-  margin-top: 4px;
 }
 
 .c1 {
@@ -343,25 +361,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 .c14 {
   grid-row: 2 / 2;
   grid-column: 2;
-}
-
-.c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
 }
 
 .c6 {
@@ -566,8 +565,9 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 6px;"
     >
       <div
-        class="c0"
+        class="c5"
         data-testid="bezier-react-form-control"
+        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c0 c7"
@@ -597,8 +597,9 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         </div>
       </div>
       <div
-        class="c0"
+        class="c5"
         data-testid="bezier-react-form-control"
+        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c0 c7"
@@ -647,20 +648,37 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 
 exports[`FormControl > Snapshot > With single field 1`] = `
 .c0 {
-  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
 }
 
 .c1 {
-  padding: 0 2px;
-  margin-bottom: 4px;
-}
-
-.c7 {
-  padding: 0 2px;
-  margin-top: 4px;
+  position: relative;
 }
 
 .c2 {
+  padding: 0 2px;
+}
+
+.c8 {
+  padding: 0 2px;
+}
+
+.c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -677,7 +695,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-property: color;
 }
 
-.c8 {
+.c9 {
   font-size: 1.3rem;
   line-height: 1.8rem;
   margin: 0px 0px 0px 0px;
@@ -694,13 +712,13 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-property: color;
 }
 
-.c3 {
+.c4 {
   display: block;
   text-align: left;
   word-break: break-word;
 }
 
-.c6 {
+.c7 {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -713,23 +731,23 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   color: #000000D9;
 }
 
-.c6::-webkit-input-placeholder {
+.c7::-webkit-input-placeholder {
   color: #00000066;
 }
 
-.c6::-moz-placeholder {
+.c7::-moz-placeholder {
   color: #00000066;
 }
 
-.c6:-ms-input-placeholder {
+.c7:-ms-input-placeholder {
   color: #00000066;
 }
 
-.c6::placeholder {
+.c7::placeholder {
   color: #00000066;
 }
 
-.c4 {
+.c5 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -756,25 +774,38 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-property: border-color,box-shadow;
 }
 
-.c4 .c5 {
+.c5 .c6 {
   font-size: 1.4rem;
   line-height: 1.8rem;
 }
 
-.c9 {
+.c10 {
   display: block;
   text-align: left;
+}
+
+@supports not(gap:var(--bezier-alpha-stack-spacing)) {
+  .c0 {
+    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+  }
+
+  .c0 > * {
+    margin-top: var(--bezier-alpha-stack-spacing);
+    margin-left: var(--bezier-alpha-stack-spacing);
+  }
 }
 
 <div
   class="c0"
   data-testid="bezier-react-form-control"
+  style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
 >
   <div
-    class="c0 c1"
+    class="c1 c2"
   >
     <label
-      class="c2 c3"
+      class="c3 c4"
       color="txt-black-darkest"
       data-testid="bezier-react-form-label"
       for="form"
@@ -784,24 +815,24 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     </label>
   </div>
   <div
-    class="c4"
+    class="c5"
     data-testid="bezier-react-text-input"
     size="36"
   >
     <input
       aria-describedby="form-help-text"
       autocomplete="off"
-      class="c5 c6"
+      class="c6 c7"
       id="form"
       size="36"
       value=""
     />
   </div>
   <div
-    class="c0 c7"
+    class="c1 c8"
   >
     <p
-      class="c8 c9"
+      class="c9 c10"
       color="txt-black-dark"
       data-testid="bezier-react-form-helper-text"
       id="form-help-text"
@@ -819,7 +850,6 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 
 .c8 {
   padding: 0 2px;
-  margin-top: 4px;
 }
 
 .c1 {

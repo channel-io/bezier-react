@@ -13,6 +13,7 @@ import {
   omitBezierComponentProps,
   pickBezierComponentProps,
 } from '~/src/utils/propsUtils'
+import { AlphaStack } from '~/src/components/AlphaStack'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
 import FormControlContext from './FormControlContext'
@@ -22,11 +23,44 @@ import {
   type LabelPropsGetter,
   type HelperTextPropsGetter,
   type ErrorMessagePropsGetter,
+  type ContainerProps,
 } from './FormControl.types'
 import type FormControlProps from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
+
+function Container({
+  labelPosition,
+  children,
+  testId,
+  ...rest
+}: ContainerProps) {
+  switch (labelPosition) {
+    case 'top':
+    default:
+      return (
+        <AlphaStack
+          direction="vertical"
+          spacing={4}
+          testId={testId}
+          {...rest}
+        >
+          { children }
+        </AlphaStack>
+      )
+
+    case 'left':
+      return (
+        <Styled.Grid
+          data-testid={testId}
+          {...rest}
+        >
+          { children }
+        </Styled.Grid>
+      )
+  }
+}
 
 function FormControl({
   id: idProp,
@@ -159,16 +193,12 @@ function FormControl({
 
   if (!children) { return null }
 
-  const Container = {
-    top: Styled.Box,
-    left: Styled.Grid,
-  }[labelPosition]
-
   return (
     <FormControlContext.Provider value={contextValue}>
       <Container
-        data-testid={testId}
+        labelPosition={labelPosition}
         {...bezierProps}
+        testId={testId}
       >
         { children }
       </Container>

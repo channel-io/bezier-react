@@ -55,6 +55,11 @@ export interface FormControlContextValue extends FormComponentProps {
   getErrorMessageProps: ErrorMessagePropsGetter
 }
 
+export interface ContainerProps extends
+  BezierComponentProps,
+  ChildrenProps,
+  Pick<FormControlOptions, 'labelPosition'> {}
+
 export default interface FormControlProps extends
   BezierComponentProps,
   ChildrenProps,
