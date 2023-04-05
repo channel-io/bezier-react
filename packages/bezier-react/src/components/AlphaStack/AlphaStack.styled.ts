@@ -11,8 +11,6 @@ export const Container = styled.div<ContainerProps>`
   gap: var(--bezier-alpha-stack-spacing);
   align-items: var(--bezier-alpha-stack-align);
   justify-content: var(--bezier-alpha-stack-justify);
-  width: 100%;
-  height: 100%;
 
   @supports not(gap: var(--bezier-alpha-stack-spacing)) {
     margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
