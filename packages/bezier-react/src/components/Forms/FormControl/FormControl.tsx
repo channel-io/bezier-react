@@ -3,6 +3,7 @@ import React, {
   useState,
   useCallback,
   useMemo,
+  forwardRef,
 } from 'react'
 
 /* Internal dependencies */
@@ -13,32 +14,69 @@ import {
   omitBezierComponentProps,
   pickBezierComponentProps,
 } from '~/src/utils/propsUtils'
+import { AlphaStack } from '~/src/components/AlphaStack'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
-import FormControlContext from './FormControlContext'
+import { FormControlContext } from './FormControlContext'
 import {
+  type FormControlProps,
   type GroupPropsGetter,
   type FieldPropsGetter,
   type LabelPropsGetter,
   type HelperTextPropsGetter,
   type ErrorMessagePropsGetter,
+  type ContainerProps,
 } from './FormControl.types'
-import type FormControlProps from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
-function FormControl({
+const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
+  labelPosition,
+  children,
+  testId,
+  ...rest
+}, forwardedRef) {
+  switch (labelPosition) {
+    case 'top':
+      return (
+        <AlphaStack
+          ref={forwardedRef}
+          direction="vertical"
+          spacing={4}
+          testId={testId}
+          {...rest}
+        >
+          { children }
+        </AlphaStack>
+      )
+
+    case 'left':
+    default:
+      return (
+        <Styled.Grid
+          ref={forwardedRef}
+          data-testid={testId}
+          {...rest}
+        >
+          { children }
+        </Styled.Grid>
+      )
+  }
+})
+
+export const FormControl = forwardRef<HTMLElement, FormControlProps>(function FormControl({
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
   leftLabelWrapperHeight = FormFieldSize.M,
+  style,
   children,
   ...rest
-}: FormControlProps) {
-  const [hasMultipleFields, setHasMultipleFields] = useState(false)
-  const [hasHelperText, setHasHelperText] = useState(false)
-  const [hasErrorMessage, setHasErrorMessage] = useState(false)
+}, forwardedRef) {
+  const [groupNode, setGroupNode] = useState<HTMLElement | null>(null)
+  const [helperTextNode, setHelperTextNode] = useState<HTMLElement | null>(null)
+  const [errorMessageNode, setErrorMessageNode] = useState<HTMLElement | null>(null)
 
   const id = useId(idProp, 'field')
   const groupId = `${id}-group`
@@ -46,15 +84,15 @@ function FormControl({
   const helperTextId = `${id}-help-text`
   const errorMessageId = `${id}-error-message`
 
-  const fieldId = hasMultipleFields ? undefined : id
+  const fieldId = groupNode ? undefined : id
 
   const describerId = useMemo(() => {
-    if (hasErrorMessage) { return errorMessageId }
-    if (hasHelperText) { return helperTextId }
+    if (errorMessageNode) { return errorMessageId }
+    if (helperTextNode) { return helperTextId }
     return undefined
   }, [
-    hasErrorMessage,
-    hasHelperText,
+    errorMessageNode,
+    helperTextNode,
     errorMessageId,
     helperTextId,
   ])
@@ -66,50 +104,44 @@ function FormControl({
     id: groupId,
     'aria-labelledby': labelId,
     'aria-describedby': describerId,
-    setIsRendered: setHasMultipleFields,
+    ref: setGroupNode,
     ...ownProps,
   }), [
     groupId,
     labelId,
     describerId,
-    setHasMultipleFields,
   ])
 
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
-    typo: labelPosition === 'left' ? Typography.Size14 : Typography.Size13,
+    typo: labelPosition === 'top' ? Typography.Size13 : Typography.Size14,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
-      : (({ children: labelElement }) => (
-        <Styled.LeftLabelWrapper height={leftLabelWrapperHeight}>
-          { labelElement }
-        </Styled.LeftLabelWrapper>
-      )),
+      : Styled.LeftLabelWrapper,
     ...ownProps,
   }), [
     fieldId,
     labelId,
     labelPosition,
-    leftLabelWrapperHeight,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id: fieldId,
-    'aria-describedby': hasMultipleFields ? undefined : describerId,
+    'aria-describedby': groupNode ? undefined : describerId,
     ...formCommonProps,
     ...ownProps,
   }), [
     fieldId,
     describerId,
     formCommonProps,
-    hasMultipleFields,
+    groupNode,
   ])
 
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
     id: helperTextId,
     visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
-    setIsRendered: setHasHelperText,
+    ref: setHelperTextNode,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
@@ -123,7 +155,7 @@ function FormControl({
   const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(ownProps => ({
     id: errorMessageId,
     visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
-    setIsRendered: setHasErrorMessage,
+    ref: setErrorMessageNode,
     Wrapper: labelPosition === 'top'
       ? Styled.TopHelperTextWrapper
       : Styled.LeftHelperTextWrapper,
@@ -158,23 +190,27 @@ function FormControl({
     formCommonProps,
   ])
 
-  if (!children) { return null }
+  const containerStyle = useMemo(() => ({
+    ...style,
+    '--bezier-form-control-left-label-wrapper-height': `${leftLabelWrapperHeight}px`,
+  } as React.CSSProperties), [
+    style,
+    leftLabelWrapperHeight,
+  ])
 
-  const Container = {
-    top: Styled.Box,
-    left: Styled.Grid,
-  }[labelPosition]
+  if (!children) { return null }
 
   return (
     <FormControlContext.Provider value={contextValue}>
       <Container
-        data-testid={testId}
         {...bezierProps}
+        ref={forwardedRef}
+        style={containerStyle}
+        testId={testId}
+        labelPosition={labelPosition}
       >
         { children }
       </Container>
     </FormControlContext.Provider>
   )
-}
-
-export default FormControl
+})

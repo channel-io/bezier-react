@@ -10,8 +10,11 @@ import {
   SingleFieldFormWithLabelFont,
   MOCK_CONSTS,
 } from './__mocks__/forms'
-import FormControl, { FORM_CONTROL_TEST_ID } from './FormControl'
-import type FormControlProps from './FormControl.types'
+import {
+  FormControl,
+  FORM_CONTROL_TEST_ID,
+} from './FormControl'
+import { type FormControlProps } from './FormControl.types'
 
 describe('FormControl >', () => {
   let props: FormControlProps

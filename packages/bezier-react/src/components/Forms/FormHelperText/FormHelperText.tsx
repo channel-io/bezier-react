@@ -1,13 +1,14 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useEffect,
   useMemo,
 } from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+import { noop } from '~/src/utils/functionUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
 import type {
   BaseHelperTextProps,
@@ -37,15 +38,17 @@ forwardedRef: ForwardedRef,
 
   const {
     visible,
-    setIsRendered,
+    ref,
     Wrapper,
     ...ownProps
   } = getProps?.(rest) ?? {
     visible: true,
-    setIsRendered: undefined,
+    ref: noop,
     Wrapper: React.Fragment,
     ...rest,
   }
+
+  const mergedRef = useMergeRefs(ref, forwardedRef)
 
   const shouldRendered = useMemo(() => (
     !isEmpty(children) && visible
@@ -54,24 +57,13 @@ forwardedRef: ForwardedRef,
     children,
   ])
 
-  useEffect(() => {
-    setIsRendered?.(shouldRendered)
-  }, [
-    shouldRendered,
-    setIsRendered,
-  ])
-
-  useEffect(() => function cleanUp() {
-    setIsRendered?.(false)
-  }, [setIsRendered])
-
   if (!shouldRendered) { return null }
 
   return (
     <Wrapper>
       <Styled.HelperText
         {...ownProps}
-        ref={forwardedRef}
+        ref={mergedRef}
         forwardedAs={as}
         typo={typo}
       >
