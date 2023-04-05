@@ -60,7 +60,7 @@ export interface ContainerProps extends
   ChildrenProps,
   Pick<FormControlOptions, 'labelPosition'> {}
 
-export default interface FormControlProps extends
+export interface FormControlProps extends
   BezierComponentProps,
   ChildrenProps,
   FormComponentProps,

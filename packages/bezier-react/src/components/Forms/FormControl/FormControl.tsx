@@ -17,8 +17,9 @@ import {
 import { AlphaStack } from '~/src/components/AlphaStack'
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
-import FormControlContext from './FormControlContext'
+import { FormControlContext } from './FormControlContext'
 import {
+  type FormControlProps,
   type GroupPropsGetter,
   type FieldPropsGetter,
   type LabelPropsGetter,
@@ -26,7 +27,6 @@ import {
   type ErrorMessagePropsGetter,
   type ContainerProps,
 } from './FormControl.types'
-import type FormControlProps from './FormControl.types'
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'

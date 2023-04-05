@@ -25,8 +25,8 @@ import {
   FormErrorMessage,
 } from '~/src/components/Forms/FormHelperText'
 import { Switch } from '~/src/components/Forms/Switch'
-import FormControl from './FormControl'
-import type FormControlProps from './FormControl.types'
+import { FormControl } from './FormControl'
+import { type FormControlProps } from './FormControl.types'
 
 export default {
   title: getTitle(base),
