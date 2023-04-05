@@ -39,7 +39,6 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
 }, forwardedRef) {
   switch (labelPosition) {
     case 'top':
-    default:
       return (
         <AlphaStack
           ref={forwardedRef}
@@ -53,6 +52,7 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
       )
 
     case 'left':
+    default:
       return (
         <Styled.Grid
           ref={forwardedRef}
