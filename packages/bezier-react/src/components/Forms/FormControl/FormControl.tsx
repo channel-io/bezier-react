@@ -112,7 +112,7 @@ function FormControl({
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
-    typo: labelPosition === 'left' ? Typography.Size14 : Typography.Size13,
+    typo: labelPosition === 'top' ? Typography.Size13 : Typography.Size14,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : Styled.LeftLabelWrapper,
