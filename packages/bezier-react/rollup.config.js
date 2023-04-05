@@ -18,7 +18,6 @@ const typescriptPlugin = typescript({
   tsconfig: './tsconfig.json',
   useTsconfigDeclarationDir: true,
   tsconfigDefaults: {
-    noEmit: false,
     emitDeclarationOnly: true,
     compilerOptions: {
       plugins: [
@@ -26,6 +25,9 @@ const typescriptPlugin = typescript({
         { transform: 'typescript-transform-paths', afterDeclarations: true },
       ],
     },
+  },
+  tsconfigOverride: {
+    noEmit: false,
     exclude: [
       '**/__mocks__/*',
       '**/*.stories.tsx',
@@ -33,6 +35,8 @@ const typescriptPlugin = typescript({
       '**/*.test.tsx',
       './src/utils/storyUtils.ts',
       './src/utils/testUtils.tsx',
+      'node_modules',
+      'build',
     ],
   },
 })
