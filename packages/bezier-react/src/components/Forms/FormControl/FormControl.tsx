@@ -67,6 +67,7 @@ function FormControl({
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
   leftLabelWrapperHeight = FormFieldSize.M,
+  style,
   children,
   ...rest
 }: FormControlProps) {
@@ -114,17 +115,12 @@ function FormControl({
     typo: labelPosition === 'left' ? Typography.Size14 : Typography.Size13,
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
-      : (({ children: labelElement }) => (
-        <Styled.LeftLabelWrapper height={leftLabelWrapperHeight}>
-          { labelElement }
-        </Styled.LeftLabelWrapper>
-      )),
+      : Styled.LeftLabelWrapper,
     ...ownProps,
   }), [
     fieldId,
     labelId,
     labelPosition,
-    leftLabelWrapperHeight,
   ])
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
@@ -191,14 +187,19 @@ function FormControl({
     formCommonProps,
   ])
 
+  const containerStyle = useMemo(() => ({
+    '--bezier-form-control-left-label-wrapper-height': `${leftLabelWrapperHeight}px`,
+  } as React.CSSProperties), [leftLabelWrapperHeight])
+
   if (!children) { return null }
 
   return (
     <FormControlContext.Provider value={contextValue}>
       <Container
-        labelPosition={labelPosition}
         {...bezierProps}
+        style={containerStyle}
         testId={testId}
+        labelPosition={labelPosition}
       >
         { children }
       </Container>

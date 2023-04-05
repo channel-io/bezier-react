@@ -25,17 +25,13 @@ export const Grid = styled(Box)`
   align-items: center;
 `
 
-interface LeftLabelWrapperProps {
-  height: number
-}
-
-export const LeftLabelWrapper = styled(Box)<LeftLabelWrapperProps>`
+export const LeftLabelWrapper = styled(Box)`
   display: flex;
   grid-row: 1 / 1;
   grid-column: 1 / 1;
   align-items: center;
   align-self: start;
-  height: ${({ height }) => height}px;
+  height: var(--bezier-form-control-left-label-wrapper-height);
 `
 
 export const LeftHelperTextWrapper = styled(TopHelperTextWrapper)`

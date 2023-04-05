@@ -193,7 +193,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   <div
     class="c0"
     data-testid="bezier-react-form-control"
-    style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+    style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
   >
     <div
       class="c1 c2"
@@ -219,7 +219,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c1 c2"
@@ -251,7 +251,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c1 c2"
@@ -355,7 +355,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
-  height: 36px;
+  height: var(--bezier-form-control-left-label-wrapper-height);
 }
 
 .c14 {
@@ -541,10 +541,10 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   <div
     class="c0 c1"
     data-testid="bezier-react-form-control"
+    style="--bezier-form-control-left-label-wrapper-height: 36px;"
   >
     <div
       class="c0 c2"
-      height="36"
     >
       <label
         class="c3 c4"
@@ -567,7 +567,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c0 c7"
@@ -599,7 +599,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
       >
         <div
           class="c0 c7"
@@ -799,7 +799,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 <div
   class="c0"
   data-testid="bezier-react-form-control"
-  style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
+  style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 4px;"
 >
   <div
     class="c1 c2"
@@ -877,7 +877,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
-  height: 36px;
+  height: var(--bezier-form-control-left-label-wrapper-height);
 }
 
 .c9 {
@@ -994,10 +994,10 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 <div
   class="c0 c1"
   data-testid="bezier-react-form-control"
+  style="--bezier-form-control-left-label-wrapper-height: 36px;"
 >
   <div
     class="c0 c2"
-    height="36"
   >
     <label
       class="c3 c4"
