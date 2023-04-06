@@ -1,15 +1,18 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useState,
   useCallback,
   useEffect,
+  useState,
 } from 'react'
+
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
+
 import type SliderProps from './Slider.types'
+
 import * as Styled from './Slider.styled'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'

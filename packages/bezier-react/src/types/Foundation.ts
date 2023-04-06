@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import {
-  type Foundation,
   type css,
+  type Foundation,
 } from '~/src/foundation'
 
 export interface FoundationProps {

@@ -1,14 +1,17 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
+
 import { styled } from '~/src/foundation'
+
 import {
-  getTitle,
   getObjectFromEnum,
+  getTitle,
 } from '~/src/utils/storyUtils'
 
 /* Internal dependencies */

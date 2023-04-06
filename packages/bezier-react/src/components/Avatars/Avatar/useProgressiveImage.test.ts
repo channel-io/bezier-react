@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { renderHook } from '~/src/utils/testUtils'
+
 import useProgressiveImage, { type CachedImage } from './useProgressiveImage'
 
 describe('useProgressiveImage >', () => {

@@ -3,7 +3,9 @@ import {
   ellipsis,
   styled,
 } from '~/src/foundation'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
+
 import { Text } from '~/src/components/Text'
 
 export const KeyContent = styled.div<InterpolationProps>`

@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 
 /* Internal dependencies */
 import { type TabsProps } from '~/src/components/Tabs/Tabs.types'
+
 import * as Styled from './Tabs.styled'
 
 /**

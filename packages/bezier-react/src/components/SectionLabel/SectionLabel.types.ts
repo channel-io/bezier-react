@@ -3,13 +3,14 @@ import type React from 'react'
 
 /* Internal dependencies */
 import type {
-  BezierComponentProps,
-  ContentProps,
-  ChildrenProps,
-  SideContentProps,
-  AdditionalStylableProps,
   AdditionalColorProps,
+  AdditionalStylableProps,
+  BezierComponentProps,
+  ChildrenProps,
+  ContentProps,
+  SideContentProps,
 } from '~/src/types/ComponentProps'
+
 import type {
   IconName,
   IconSize,

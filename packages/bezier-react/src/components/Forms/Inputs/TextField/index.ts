@@ -1,8 +1,8 @@
 import TextField from './TextField'
 import {
-  TextFieldVariant,
   TextFieldSize,
   TextFieldType,
+  TextFieldVariant,
 } from './TextField.types'
 import type {
   TextFieldProps,

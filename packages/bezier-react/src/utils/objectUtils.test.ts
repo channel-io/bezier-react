@@ -1,9 +1,9 @@
 /* Internal dependencies */
 import {
   has,
-  pick,
-  omit,
   isEqual,
+  omit,
+  pick,
 } from '~/src/utils/objectUtils'
 
 describe('objectUtils', () => {

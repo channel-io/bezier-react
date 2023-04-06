@@ -1,15 +1,19 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import type {
-  Story,
   Meta,
+  Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
 import { ListItem } from '~/src/components/ListItem'
+
 import Divider from './Divider'
 import type DividerProps from './Divider.types'
 

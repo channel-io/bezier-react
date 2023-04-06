@@ -1,20 +1,24 @@
 /* External dependencies */
 import React from 'react'
+
 import {
-  getWindow,
   getDocument,
+  getWindow,
 } from 'ssr-window'
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import { CheckIcon } from '~/src/components/Icon'
+
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
 import type ListItemProps from './ListItem.types'
 import {
-  ListItemVariant,
   ListItemSize,
+  ListItemVariant,
 } from './ListItem.types'
 
 describe('ListItem', () => {

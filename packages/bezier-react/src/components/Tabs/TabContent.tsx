@@ -1,5 +1,6 @@
 /* External dependencies */
 import React, { forwardRef } from 'react'
+
 import * as Tabs from '@radix-ui/react-tabs'
 
 /* Internal dependencies */

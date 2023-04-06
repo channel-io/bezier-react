@@ -4,15 +4,18 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { base } from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
 import Overlay from './Overlay'
 import type OverlayProps from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'

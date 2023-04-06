@@ -1,30 +1,33 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import type {
-  Story,
   Meta,
+  Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
-import {
-  RadioGroup,
-  Radio,
-} from '~/src/components/Forms/RadioGroup'
+
 import { Checkbox } from '~/src/components/Forms/Checkbox'
-import { Text } from '~/src/components/Text'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
-import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { TextField } from '~/src/components/Forms/Inputs/TextField'
-import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
-import { Select } from '~/src/components/Forms/Inputs/Select'
 import {
-  FormHelperText,
   FormErrorMessage,
+  FormHelperText,
 } from '~/src/components/Forms/FormHelperText'
+import { FormLabel } from '~/src/components/Forms/FormLabel'
+import { Select } from '~/src/components/Forms/Inputs/Select'
+import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
+import { TextField } from '~/src/components/Forms/Inputs/TextField'
+import {
+  Radio,
+  RadioGroup,
+} from '~/src/components/Forms/RadioGroup'
+import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
 import { Switch } from '~/src/components/Forms/Switch'
+import { Text } from '~/src/components/Text'
+
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 

@@ -6,10 +6,13 @@ import {
   css,
   TransitionDuration,
 } from '~/src/foundation'
+
 import { DarkTheme } from '~/src/foundation/Colors/Theme'
+
 import { ZIndex } from '~/src/constants/ZIndex'
-import { render } from '~/src/utils/testUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { render } from '~/src/utils/testUtils'
+
 import type ToastElementProps from './Toast.types'
 import {
   ToastAppearance,

@@ -1,13 +1,15 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
+
 import { Slider } from './Slider'
 import type SliderProps from './Slider.types'
 

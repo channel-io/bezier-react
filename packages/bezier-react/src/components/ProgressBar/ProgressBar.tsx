@@ -1,20 +1,22 @@
 /* External dependencies */
 import React, {
-  memo,
   forwardRef,
+  memo,
   type Ref,
 } from 'react'
 
 /* Internal dependencies */
 import { clamp } from '~/src/utils/numberUtils'
+
 import type ProgressBarProps from './ProgressBar.types'
 import {
   ProgressBarSize,
   ProgressBarVariant,
 } from './ProgressBar.types'
+
 import {
-  StyledProgressBarWrapper,
   StyledProgressBarActive,
+  StyledProgressBarWrapper,
 } from './ProgressBar.styled'
 
 export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'

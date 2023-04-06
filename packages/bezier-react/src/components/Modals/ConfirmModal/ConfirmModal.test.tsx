@@ -1,22 +1,24 @@
 /* External dependencies */
 import React from 'react'
+
 import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import { ConfirmModal } from './ConfirmModal'
-import { ConfirmModalContent } from './ConfirmModalContent'
-import { ConfirmModalHeader } from './ConfirmModalHeader'
-import { ConfirmModalFooter } from './ConfirmModalFooter'
 import {
-  ConfirmModalTrigger,
-  ConfirmModalClose,
-} from './ConfirmModalHelpers'
-import {
-  type ConfirmModalProps,
   type ConfirmModalContentProps,
+  type ConfirmModalProps,
 } from './ConfirmModal.types'
+import { ConfirmModalContent } from './ConfirmModalContent'
+import { ConfirmModalFooter } from './ConfirmModalFooter'
+import { ConfirmModalHeader } from './ConfirmModalHeader'
+import {
+  ConfirmModalClose,
+  ConfirmModalTrigger,
+} from './ConfirmModalHelpers'
 
 const TRIGGER_TEXT = 'Open'
 const CANCEL_TEXT = 'Cancel'

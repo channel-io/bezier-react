@@ -1,32 +1,35 @@
 /* External dependencies */
 import React, {
-  useReducer,
-  useState,
-  useRef,
-  useCallback,
-  useLayoutEffect,
-  useEffect,
-  type Ref,
   forwardRef,
+  type Ref,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
   useMemo,
+  useReducer,
+  useRef,
+  useState,
 } from 'react'
+
 import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import {
-  window,
   document,
   getRootElement,
+  window,
 } from '~/src/utils/domUtils'
 import { noop } from '~/src/utils/functionUtils'
+
+import type OverlayProps from './Overlay.types'
 import {
   type ContainerRectAttr,
   type TargetRectAttr,
 } from './Overlay.types'
-import type OverlayProps from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
+
 import * as Styled from './Overlay.styled'
 
 export const CONTAINER_TEST_ID = 'bezier-react-container'

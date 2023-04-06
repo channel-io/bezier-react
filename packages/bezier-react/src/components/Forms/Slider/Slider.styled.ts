@@ -1,11 +1,14 @@
 /* Internal dependencies */
 import {
-  styled,
   css,
+  styled,
 } from '~/src/foundation'
-import { toLength } from '~/src/utils/styleUtils'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { toLength } from '~/src/utils/styleUtils'
+
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+
 import type SliderProps from './Slider.types'
 
 const SLIDER_TRACK_RANGE_HEIGHT = 6

@@ -8,16 +8,20 @@ import React, {
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { isString } from '~/src/utils/typeUtils'
+
 import {
-  IconSize,
   Icon,
+  IconSize,
+  isBezierIcon,
   isIconName,
   LegacyIcon,
-  isBezierIcon,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+
 import { type KeyItemProps } from './KeyItem.types'
+
 import * as Styled from './KeyItem.styled'
 
 function KeyItem(

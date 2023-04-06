@@ -1,26 +1,30 @@
 /* External dependencies */
 import React, {
+  useCallback,
   useRef,
   useState,
-  useCallback,
 } from 'react'
-import base from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
+import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
-import { range } from '~/src/utils/numberUtils'
-import { Text } from '~/src/components/Text'
+
 import {
-  Icon,
   CancelIcon,
+  Icon,
   PlusIcon,
 } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
+
 import SegmentedControl from './SegmentedControl'
 import type SegmentedControlProps from './SegmentedControl.types'
 import { SegmentedControlSize } from './SegmentedControl.types'

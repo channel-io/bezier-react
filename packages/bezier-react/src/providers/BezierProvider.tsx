@@ -10,6 +10,7 @@ import {
   ThemeVars,
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
+
 import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
 interface BezierProviderProps {

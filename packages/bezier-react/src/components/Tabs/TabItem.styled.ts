@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import {
   Button as BaseButton,
   ButtonColorVariant,

@@ -1,18 +1,21 @@
 /* Internal dependencies */
 import {
-  styled,
   css,
   type SemanticNames,
+  styled,
 } from '~/src/foundation'
+
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { gap } from '~/src/utils/styleUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { Text } from '~/src/components/Text'
+
 import type ButtonProps from './Button.types'
 import {
+  ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
-  ButtonColorVariant,
 } from './Button.types'
 
 // NOTE: ButtonSize 에 따른 버튼의 min-width, height

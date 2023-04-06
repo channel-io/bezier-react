@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+
 import {
   render as baseRender,
   renderHook as baseRenderHook,
@@ -7,6 +8,7 @@ import {
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import BezierProvider from '~/src/providers/BezierProvider'
 import { type ChildrenProps } from '~/src/types/ComponentProps'
 

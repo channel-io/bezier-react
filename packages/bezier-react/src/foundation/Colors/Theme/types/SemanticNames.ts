@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import {
-  type BaseMonoPaletteKey,
   type BaseColorfulPaletteKey,
+  type BaseMonoPaletteKey,
 } from '~/src/foundation/Colors/Palette/BasePaletteKey'
 import type BasePaletteKey from '~/src/foundation/Colors/Palette/BasePaletteKey'
 

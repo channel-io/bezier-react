@@ -4,12 +4,15 @@ import React, {
   type ReactElement,
   type Ref,
 } from 'react'
+
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 
 /* Internal dependencies */
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
+
 import * as Styled from './Switch.styled'
 
 export const SWITCH_TEST_ID = 'bezier-react-switch'

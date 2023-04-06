@@ -7,14 +7,15 @@ import {
 
 /* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
+
 import {
-  type OnDismissCallback,
   defaultOptions,
-  type ToastOptions,
-  type ToastId,
-  type ToastType,
+  type OnDismissCallback,
   type ToastContent,
   type ToastContextType,
+  type ToastId,
+  type ToastOptions,
+  type ToastType,
 } from './Toast.types'
 import ToastService from './ToastService'
 

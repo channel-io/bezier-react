@@ -1,7 +1,7 @@
 /* External dependencies */
 import {
-  renderHook,
   act,
+  renderHook,
 } from '@testing-library/react'
 
 /* Internal dependencies */

@@ -1,19 +1,22 @@
 /* External dependencies */
 import React from 'react'
+
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
-import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
+
 import {
   AppleIcon,
   BadgeIcon,
 } from '~/src/components/Icon'
-import type { KeyValueListItemActionProps } from './common'
-import { type KeyValueListItemProps } from './KeyValueListItem.types'
-import { TEST_ID_MAP } from './KeyValueListItem.const'
+import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
+
 import KeyValueListItem from './KeyValueListItem'
+import { TEST_ID_MAP } from './KeyValueListItem.const'
+import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
+import type { KeyValueListItemActionProps } from './common'
 
 const DEFAULT_PROPS: KeyValueListItemProps = {
   keyIcon: AppleIcon,

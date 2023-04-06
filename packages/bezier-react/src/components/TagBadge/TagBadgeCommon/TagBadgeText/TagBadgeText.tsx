@@ -3,7 +3,9 @@ import React from 'react'
 
 /* Internal dependencies */
 import { Text } from '~/src/components/Text'
+
 import type TagBadgeTextProps from './TagBadgeText.types'
+
 import Styled from './TagBadgeText.styled'
 
 // TODO: 테스트 코드 작성

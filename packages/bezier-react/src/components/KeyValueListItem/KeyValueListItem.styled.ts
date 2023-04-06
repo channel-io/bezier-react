@@ -3,9 +3,10 @@ import {
   ellipsis,
   styled,
 } from '~/src/foundation'
+
 import {
-  KeyValueListItemWrapper,
   KeyValueListItemContainer,
+  KeyValueListItemWrapper,
 } from './KeyValueListItem.common.styled'
 
 export const Wrapper = styled(KeyValueListItemWrapper)`

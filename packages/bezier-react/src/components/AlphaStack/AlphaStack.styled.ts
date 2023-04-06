@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import type { AlphaStackProps } from './AlphaStack.types'
 
 interface ContainerProps extends

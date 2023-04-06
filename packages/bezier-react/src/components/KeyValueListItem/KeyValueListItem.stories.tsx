@@ -1,14 +1,16 @@
 /* eslint-disable no-console */
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
+
 import {
   Button,
   ButtonColorVariant,
@@ -18,9 +20,10 @@ import {
   BadgeIcon,
   EditIcon,
 } from '~/src/components/Icon'
+
 import KeyValueListItem from './KeyValueListItem'
-import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
+import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
 export default {
   title: getTitle(base),

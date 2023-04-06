@@ -4,10 +4,10 @@ import { v4 as uuid } from 'uuid'
 /* Internal dependencies */
 import {
   defaultOptions,
-  type ToastOptions,
-  type ToastId,
-  type ToastType,
   type ToastContent,
+  type ToastId,
+  type ToastOptions,
+  type ToastType,
 } from './Toast.types'
 
 /* ToastService를 사용하는 이유

@@ -1,10 +1,10 @@
 /* Internal dependencies */
 import {
-  mergeClassNames,
-  isNumberString,
-  toString,
-  kebabCase,
   camelCase,
+  isNumberString,
+  kebabCase,
+  mergeClassNames,
+  toString,
 } from './stringUtils'
 
 describe('mergeClassNames()', () => {

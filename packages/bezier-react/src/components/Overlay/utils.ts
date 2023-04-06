@@ -1,8 +1,9 @@
 /* Internal dependencies */
 import { css } from '~/src/foundation'
+
 import {
-  OverlayPosition,
   type ContainerRectAttr,
+  OverlayPosition,
   type TargetRectAttr,
 } from './Overlay.types'
 

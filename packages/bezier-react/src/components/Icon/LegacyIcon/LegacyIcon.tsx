@@ -3,8 +3,9 @@ import React, { memo } from 'react'
 
 /* Internal dependencies */
 /* eslint-disable no-restricted-imports */
-import icons from '../generated'
 import { Icon } from '../Icon'
+import icons from '../generated'
+
 /* eslint-enable no-restricted-imports */
 import type LegacyIconProps from './LegacyIcon.types'
 

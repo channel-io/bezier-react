@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+
 import {
   type Meta,
   type Story,
@@ -7,11 +8,13 @@ import {
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import {
   StackItem,
   VStack,
 } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
+
 import { Typography } from './Typography'
 import mdx from './Typography.mdx'
 

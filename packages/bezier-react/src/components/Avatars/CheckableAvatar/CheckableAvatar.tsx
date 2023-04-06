@@ -6,7 +6,9 @@ import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
+
 import type CheckableAvatarProps from './CheckableAvatar.types'
+
 import {
   CheckableAvatarWrapper,
   CheckIcon,

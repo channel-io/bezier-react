@@ -4,9 +4,11 @@ import {
   styled,
   Transition,
 } from '~/src/foundation'
-import { toLength } from '~/src/utils/styleUtils'
-import type { BezierComponentProps } from '~/src/types/ComponentProps'
+
 import disabledOpacity from '~/src/constants/DisabledOpacity'
+import type { BezierComponentProps } from '~/src/types/ComponentProps'
+import { toLength } from '~/src/utils/styleUtils'
+
 import {
   SIZE_TO_DIVIDER_VERTICAL_MARGIN,
   SIZE_TO_HEIGHT,

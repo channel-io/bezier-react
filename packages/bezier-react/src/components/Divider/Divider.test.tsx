@@ -3,7 +3,9 @@ import React from 'react'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import Divider, { DIVIDER_TEST_ID } from './Divider'
 import type DividerProps from './Divider.types'
 

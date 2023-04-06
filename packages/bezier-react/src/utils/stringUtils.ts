@@ -1,10 +1,10 @@
 /* Internal dependencies */
 import {
   isArray,
+  isEmpty,
   isNumber,
   isString,
   isSymbol,
-  isEmpty,
 } from '~/src/utils/typeUtils'
 
 export function mergeClassNames(className?: string, ...otherClassNames: Array<string | undefined>): string | undefined {

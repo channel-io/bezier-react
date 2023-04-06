@@ -1,18 +1,21 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import type { VariantProps } from '~/src/types/ComponentProps'
-import {
-  HStack,
-  StackItem as BaseStackItem,
-} from '~/src/components/Stack'
+
 import { LegacyIcon } from '~/src/components/Icon'
+import {
+  StackItem as BaseStackItem,
+  HStack,
+} from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import type { BannerVariant } from './Banner.types'
+
 import {
   BACKGROUND_COLORS,
-  TEXT_COLORS,
   ELEVATIONS,
+  TEXT_COLORS,
 } from './Banner.const'
+import type { BannerVariant } from './Banner.types'
 
 type BannerVariantProps = Required<VariantProps<BannerVariant>>
 

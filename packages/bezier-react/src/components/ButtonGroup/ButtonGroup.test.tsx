@@ -3,7 +3,9 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import { Button } from '~/src/components/Button'
+
 import { ButtonGroup } from './ButtonGroup'
 import type ButtonGroupProps from './ButtonGroup.types'
 

@@ -1,14 +1,17 @@
 /* External dependencies */
 import React, {
-  useMemo,
   forwardRef,
+  useMemo,
 } from 'react'
 
 /* Internal dependencies */
 import { backgroundImageVariable } from '~/src/foundation'
+
 import { noop } from '~/src/utils/functionUtils'
+
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
+
 import { Icon } from './Emoji.styled'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'

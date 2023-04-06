@@ -1,12 +1,14 @@
 /* External dependencies */
 import React, {
-  memo,
   forwardRef,
+  memo,
 } from 'react'
 
 /* Internal dependencies */
+
 import type IconProps from './Icon.types'
 import { IconSize } from './Icon.types'
+
 import Styled from './Icon.styled'
 
 export const ICON_TEST_ID = 'bezier-react-icon'

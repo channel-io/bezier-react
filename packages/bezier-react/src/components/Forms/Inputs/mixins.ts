@@ -1,5 +1,6 @@
 /* Internal dependencies */
 import { css } from '~/src/foundation'
+
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
 export const inputTextStyle = css`

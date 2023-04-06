@@ -1,14 +1,17 @@
 /* External dependencies */
 import React from 'react'
+
 import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import {
   FormControl,
   type FormControlProps,
 } from '~/src/components/Forms/FormControl'
+
 import { Checkbox } from './Checkbox'
 import {
   type CheckboxProps,

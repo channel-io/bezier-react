@@ -1,24 +1,27 @@
 /* External dependencies */
 import React from 'react'
-import { base } from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
+
 import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
-import MOCK_AVATAR_LIST from './__mocks__/avatarList'
+
+import { AvatarGroup } from './AvatarGroup'
 import {
   AvatarGroupEllipsisType,
   type AvatarGroupProps,
 } from './AvatarGroup.types'
-import { AvatarGroup } from './AvatarGroup'
+import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
 const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => isNaN(Number(value)) === true)

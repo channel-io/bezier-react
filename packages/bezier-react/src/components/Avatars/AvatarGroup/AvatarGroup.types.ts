@@ -1,10 +1,11 @@
 /* Internal dependencies */
 import type {
+  AdditionalStylableProps,
   BezierComponentProps,
   ChildrenProps,
   SizeProps,
-  AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
+
 import { type AvatarSize } from '~/src/components/Avatars/Avatar'
 
 export enum AvatarGroupEllipsisType {

@@ -1,17 +1,18 @@
 /* Internal dependencies */
 import type {
+  AdditionalColorProps,
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
   BezierComponentProps,
   ChildrenProps,
-  SizeProps,
   SideContentProps,
-  AdditionalStylableProps,
-  AdditionalColorProps,
-  AdditionalTestIdProps,
+  SizeProps,
 } from '~/src/types/ComponentProps'
+
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
-import type { OverlayProps } from '~/src/components/Overlay'
 import type { BezierIcon } from '~/src/components/Icon'
+import type { OverlayProps } from '~/src/components/Overlay'
 
 export enum SelectSize {
   XL = FormFieldSize.XL,

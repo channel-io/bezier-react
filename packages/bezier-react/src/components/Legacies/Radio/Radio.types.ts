@@ -3,12 +3,13 @@ import { type MouseEvent } from 'react'
 
 /* Internal dependencies */
 import {
+  type AdditionalStylableProps,
+  type AdditionalTestIdProps,
   type BezierComponentProps,
   type ChildrenProps,
   type DisableProps,
-  type AdditionalTestIdProps,
-  type AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
+
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
 interface RadioOptions {

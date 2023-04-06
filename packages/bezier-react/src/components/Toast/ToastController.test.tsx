@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+
 import { act } from '@testing-library/react'
 
 /* Internal dependencies */
@@ -7,14 +8,16 @@ import {
   css,
   TransitionDuration,
 } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
+
 import { noop } from '~/src/utils/functionUtils'
+import { render } from '~/src/utils/testUtils'
+
 import {
   type ToastControllerProps,
   ToastPlacement,
 } from './Toast.types'
-import ToastElement from './ToastElement'
 import ToastController from './ToastController'
+import ToastElement from './ToastElement'
 
 describe('ToastController >', () => {
   let props: ToastControllerProps

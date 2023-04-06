@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useContext,
 } from 'react'
+
 import * as Tabs from '@radix-ui/react-tabs'
 
 /* Internal dependencies */
@@ -11,11 +12,13 @@ import {
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
+
+import TabListContext from './TabListContext'
 import {
   type TabItemProps,
   TabSize,
 } from './Tabs.types'
-import TabListContext from './TabListContext'
+
 import * as Styled from './TabItem.styled'
 
 const getButtonSizeBy = (size: TabSize) => {

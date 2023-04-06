@@ -2,8 +2,9 @@
 import React from 'react'
 
 /* Internal dependencies */
-import { Container } from './Toast.styled'
 import { type ToastContainerProps } from './Toast.types'
+
+import { Container } from './Toast.styled'
 
 const ToastContainer = ({
   placement,

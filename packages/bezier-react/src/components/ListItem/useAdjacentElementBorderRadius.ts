@@ -1,8 +1,8 @@
 /* eslint-disable prefer-arrow-callback */
 /* External dependencies */
 import {
-  useState,
   useEffect,
+  useState,
 } from 'react'
 
 function flattenBorderTopRadiusStyle(elem: HTMLElement) {

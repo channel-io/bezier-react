@@ -1,8 +1,9 @@
 /* Internal dependencies */
 import type {
-  AdditionalStylableProps,
   AdditionalColorProps,
+  AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
+
 import type { AvatarProps } from '~/src/components/Avatars/Avatar'
 
 interface CheckableAvatarPropsOptions {

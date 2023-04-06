@@ -3,6 +3,7 @@ import {
   type css,
   Typography,
 } from '~/src/foundation'
+
 import { SegmentedControlSize } from './SegmentedControl.types'
 
 export const SIZE_TO_HEIGHT: Record<SegmentedControlSize, number> = {

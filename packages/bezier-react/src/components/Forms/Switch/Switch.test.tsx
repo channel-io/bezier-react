@@ -1,15 +1,18 @@
 /* External dependencies */
 import React from 'react'
+
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { render } from '~/src/utils/testUtils'
+
 import {
   Switch,
-  SWITCH_TEST_ID,
   SWITCH_HANDLE_TEST_ID,
+  SWITCH_TEST_ID,
 } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'

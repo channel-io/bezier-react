@@ -1,18 +1,21 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import {
   getObjectFromEnum,
   getTitle,
 } from '~/src/utils/storyUtils'
-import { Text } from '~/src/components/Text'
+
 import { CalendarIcon } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
+
 import Select from './Select'
 import type SelectProps from './Select.types'
 import { SelectSize } from './Select.types'

@@ -1,13 +1,17 @@
 /* External dependencies */
-import { act } from '@testing-library/react'
-import { fireEvent } from '@testing-library/dom'
 import React from 'react'
+
+import { fireEvent } from '@testing-library/dom'
+import { act } from '@testing-library/react'
 
 /* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import disabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
+
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+
 import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
 import type TextAreaProps from './TextArea.types'
 import { getTextAreaBgColorSemanticName } from './utils'

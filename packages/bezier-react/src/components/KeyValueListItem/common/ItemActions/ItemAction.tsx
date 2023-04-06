@@ -6,26 +6,30 @@ import React, {
   useCallback,
   useMemo,
 } from 'react'
+
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
+import { noop } from '~/src/utils/functionUtils'
 import {
   isArray,
   isBoolean,
-  isNil,
   isEmpty,
+  isNil,
 } from '~/src/utils/typeUtils'
-import { noop } from '~/src/utils/functionUtils'
+
 import {
   IconSize,
   isIconName,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+
 import {
   type ItemActionProps,
   type ItemActionWithIcon,
   type KeyValueListItemActionProps,
 } from './ItemAction.types'
+
 import * as Styled from './ItemAction.styled'
 
 function ActionIcon({

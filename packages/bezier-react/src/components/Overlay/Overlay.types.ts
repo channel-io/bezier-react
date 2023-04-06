@@ -3,10 +3,10 @@ import type React from 'react'
 
 /* Internal dependencies */
 import {
-  type BezierComponentProps,
-  type ChildrenProps,
   type AdditionalStylableProps,
   type AdditionalTestIdProps,
+  type BezierComponentProps,
+  type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
 export interface ContainerRectAttr {

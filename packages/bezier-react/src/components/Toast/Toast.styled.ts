@@ -6,12 +6,14 @@ import {
   styled,
   Transition,
 } from '~/src/foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+
+import type ToastElementProps from './Toast.types'
 import {
   type ToastAppearance,
   type ToastContainerProps,
 } from './Toast.types'
-import type ToastElementProps from './Toast.types'
 import { ToastPlacement } from './Toast.types'
 import {
   getIconColor,

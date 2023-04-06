@@ -1,7 +1,7 @@
 /* Internal dependencies */
 import {
-  range,
   clamp,
+  range,
 } from '~/src/utils/numberUtils'
 
 describe('numberUtils', () => {

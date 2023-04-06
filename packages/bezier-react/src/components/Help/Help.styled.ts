@@ -1,7 +1,8 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
-import { Tooltip as BaseTooltip } from '~/src/components/Tooltip'
+
 import { Icon as BaseIcon } from '~/src/components/Icon'
+import { Tooltip as BaseTooltip } from '~/src/components/Tooltip'
 
 export const Icon = styled(BaseIcon)``
 

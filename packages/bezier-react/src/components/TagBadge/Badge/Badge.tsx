@@ -3,20 +3,22 @@ import React, { useMemo } from 'react'
 
 /* Internal dependencies */
 import { isEmpty } from '~/src/utils/typeUtils'
+
 import { LegacyIcon } from '~/src/components/Icon'
 import {
-  TagBadgeText,
-  TagBadgeSize,
-  TagBadgeVariant,
-  TAG_BADGE_ICON_SIZE,
   BADGE_TEXT_HORIZONTAL_PADDING,
   getProperBadgeTextColor,
   getProperTagBadgeBgColor,
   getProperTagBadgePadding,
   getProperTagBadgeRounding,
   getProperTagBadgeTypo,
+  TAG_BADGE_ICON_SIZE,
+  TagBadgeSize,
   TagBadgeStyled,
+  TagBadgeText,
+  TagBadgeVariant,
 } from '~/src/components/TagBadge/TagBadgeCommon'
+
 import type BadgeProps from './Badge.types'
 
 // TODO: 테스트 코드 작성

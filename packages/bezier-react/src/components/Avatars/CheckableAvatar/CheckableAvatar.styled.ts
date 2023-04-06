@@ -1,24 +1,26 @@
 /* Internal denpendencies */
 import {
-  styled,
   css,
-  smoothCorners,
   type Foundation,
   type SemanticNames,
+  smoothCorners,
+  styled,
 } from '~/src/foundation'
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
+
+import { ZIndex } from '~/src/constants/ZIndex'
 import type {
   InjectedInterpolation,
   InterpolationProps,
 } from '~/src/types/Foundation'
-import { ZIndex } from '~/src/constants/ZIndex'
-import {
-  Icon,
-  CheckIcon as CheckIconSource,
-} from '~/src/components/Icon'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
+
 import { AvatarSize } from '~/src/components/Avatars/Avatar'
 import { AvatarImage } from '~/src/components/Avatars/Avatar/Avatar.styled'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import {
+  CheckIcon as CheckIconSource,
+  Icon,
+} from '~/src/components/Icon'
 
 interface CheckableAvatarWrapperProps extends InterpolationProps {
   isChecked: boolean

@@ -3,8 +3,10 @@ import {
   css,
   styled,
 } from '~/src/foundation'
-import { isNil } from '~/src/utils/typeUtils'
+
 import { type AdditionalColorProps } from '~/src/types/ComponentProps'
+import { isNil } from '~/src/utils/typeUtils'
+
 import {
   Icon,
   LegacyIcon,

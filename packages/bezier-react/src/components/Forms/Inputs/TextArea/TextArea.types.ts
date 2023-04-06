@@ -3,9 +3,10 @@ import type React from 'react'
 
 /* Internal dependencies */
 import type {
-  BezierComponentProps,
   AdditionalStylableProps,
+  BezierComponentProps,
 } from '~/src/types/ComponentProps'
+
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
 export enum TextAreaHeight {

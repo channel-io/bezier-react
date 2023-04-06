@@ -5,8 +5,8 @@
 
 /* Internal dependencies */
 import {
-  type BaseMonoPaletteKey,
   type BaseColorfulPaletteKey,
+  type BaseMonoPaletteKey,
 } from './BasePaletteKey'
 import type BasePaletteKey from './BasePaletteKey'
 import { getAlphaHex } from './alphaUtils'

@@ -7,7 +7,9 @@ import React, {
 
 /* Internal dependencies */
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+
 import { type ValueItemProps } from './ValueItem.types'
+
 import * as Styled from './ValueItem.styled'
 
 function ValueItem(

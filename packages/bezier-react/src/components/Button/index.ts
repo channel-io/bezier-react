@@ -1,7 +1,7 @@
 import { Button } from './Button'
 import {
-  ButtonSize,
   ButtonColorVariant,
+  ButtonSize,
   ButtonStyleVariant,
 } from './Button.types'
 import type ButtonProps from './Button.types'

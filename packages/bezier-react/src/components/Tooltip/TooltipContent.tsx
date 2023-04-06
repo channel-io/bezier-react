@@ -1,24 +1,28 @@
 /* External dependencies */
 import React, {
-  useState,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
-  useEffect,
+  useState,
 } from 'react'
+
 import ReactDOM from 'react-dom'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import useMergeRefs from '~/src/hooks/useMergeRefs'
+
 import useEventHandler from '~/src/hooks/useEventHandler'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { getRootElement } from '~/src/utils/domUtils'
 import {
   isArray,
-  isString,
   isEmpty,
+  isString,
 } from '~/src/utils/typeUtils'
-import { getRootElement } from '~/src/utils/domUtils'
+
 import { Text } from '~/src/components/Text'
+
 import {
   type TooltipContentProps,
   TooltipPosition,
@@ -27,9 +31,10 @@ import {
   getReplacement,
   getTooltipStyle,
 } from './utils'
+
 import {
-  ContentWrapper,
   Content,
+  ContentWrapper,
   EllipsisableContent,
 } from './Tooltip.styled'
 

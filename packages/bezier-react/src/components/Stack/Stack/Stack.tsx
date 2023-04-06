@@ -9,8 +9,9 @@ import React, {
 import type { Ref } from 'react'
 
 /* Internal dependencies */
-import * as Styled from './Stack.styled'
 import type StackProps from './Stack.types'
+
+import * as Styled from './Stack.styled'
 
 /**
  * `Stack` provides an abstraction of **flex layout** so that

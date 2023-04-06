@@ -3,23 +3,27 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
 import {
-  styled,
   css,
+  styled,
 } from '~/src/foundation'
+
 import { gap } from '~/src/utils/styleUtils'
-import { Text } from '~/src/components/Text'
+
 import {
   Button,
-  ButtonSize,
   ButtonColorVariant,
+  ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
+import { Text } from '~/src/components/Text'
+
 import {
   type ModalBodyProps,
   type ModalContentProps,
   type ModalFooterProps,
   type ModalHeaderProps,
 } from './Modal.types'
+
 import ModalAnimation from './ModalAnimation.styled'
 
 export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`

@@ -1,9 +1,9 @@
 /* Internal dependencies */
-import {
-  pick,
-  omit,
-} from '~/src/utils/objectUtils'
 import { type BezierComponentProps } from '~/src/types/ComponentProps'
+import {
+  omit,
+  pick,
+} from '~/src/utils/objectUtils'
 
 const bezierComponentPropsKeys: Array<keyof BezierComponentProps> = [
   'as',

@@ -4,29 +4,34 @@ import React, {
   type Ref,
   useMemo,
 } from 'react'
+
 import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { isString } from '~/src/utils/typeUtils'
+
 import {
-  Icon,
-  LegacyIcon,
   CancelIcon,
+  Icon,
   IconSize,
+  LegacyIcon,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
-import { getToastPreset } from './utils'
+
 import type ToastProps from './Toast.types'
 import { ToastPreset } from './Toast.types'
+import { getToastPreset } from './utils'
+
 import {
-  Element,
-  IconWrapper,
-  Close,
   ActionContent,
-  NormalContent,
+  Close,
   Content,
+  Element,
   EllipsisableContent,
+  IconWrapper,
+  NormalContent,
 } from './Toast.styled'
 
 export const TOAST_TEST_ID = 'bezier-react-toast'

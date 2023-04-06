@@ -1,12 +1,14 @@
 /* External dependencies */
 import React from 'react'
+
 import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
-import { RadioGroup } from './RadioGroup'
+
 import { Radio } from './Radio'
+import { RadioGroup } from './RadioGroup'
 import {
   type RadioGroupProps,
   type RadioProps,

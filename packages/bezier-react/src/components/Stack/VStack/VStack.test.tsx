@@ -3,6 +3,7 @@ import React from 'react'
 
 /* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import { VStack } from './VStack'
 
 describe('VStack', () => {

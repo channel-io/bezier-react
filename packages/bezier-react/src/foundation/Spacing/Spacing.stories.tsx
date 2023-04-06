@@ -1,18 +1,21 @@
 /* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 /* Internal dependencies */
 import {
-  styled,
   Spacing,
+  styled,
 } from '~/src/foundation'
-import { getTitle } from '~/src/utils/storyUtils'
+
 import { type Entries } from '~/src/types/Utils'
+import { getTitle } from '~/src/utils/storyUtils'
+
 import { Text } from '~/src/components/Text'
 
 export default {

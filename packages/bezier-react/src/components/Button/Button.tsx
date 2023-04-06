@@ -8,31 +8,35 @@ import React, {
 
 /* Internal dependencies */
 import {
-  Typography,
   type SemanticNames,
+  Typography,
 } from '~/src/foundation'
+
 import { flattenDeep } from '~/src/utils/arrayUtils'
-import { isArray } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { isArray } from '~/src/utils/typeUtils'
+
 import {
-  LegacyIcon,
   IconSize,
   isIconName,
+  LegacyIcon,
 } from '~/src/components/Icon'
 import {
   Spinner,
   SpinnerSize,
 } from '~/src/components/Spinner'
-import {
-  type SideContent,
-  type MouseEventHandler,
-} from './Button.types'
+
 import type ButtonProps from './Button.types'
 import {
+  type MouseEventHandler,
+  type SideContent,
+} from './Button.types'
+import {
+  ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
-  ButtonColorVariant,
 } from './Button.types'
+
 import * as Styled from './Button.styled'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'

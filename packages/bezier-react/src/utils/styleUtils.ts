@@ -1,22 +1,24 @@
 /* Internal dependencies */
 import { css } from '~/src/foundation'
+
 import {
-  isNil,
-  isObject,
-  isNumber,
-  isNaN,
-  isString,
-  isEmpty,
-} from '~/src/utils/typeUtils'
-import { has } from '~/src/utils/objectUtils'
-import {
-  ExplicitDefaulting,
   AbsoluteUnit,
-  RelativeUnit,
   BoxSizingUnit,
   type CSSUnits,
+  ExplicitDefaulting,
+  RelativeUnit,
 } from '~/src/types/CSS'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
+import { has } from '~/src/utils/objectUtils'
+import {
+  isEmpty,
+  isNaN,
+  isNil,
+  isNumber,
+  isObject,
+  isString,
+} from '~/src/utils/typeUtils'
+
 import { isNumberString } from './stringUtils'
 
 export const UnitValues: string[] = [

@@ -1,7 +1,7 @@
 /* External dependencies */
 import {
-  getWindow,
   getDocument,
+  getWindow,
 } from 'ssr-window'
 
 export const document = getDocument()

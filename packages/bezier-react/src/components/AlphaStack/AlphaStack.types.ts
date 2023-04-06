@@ -1,9 +1,10 @@
 /* Internal dependencies */
-import type { AxisAlignment } from '~/src/components/Stack/types'
 import type {
   BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
+
+import type { AxisAlignment } from '~/src/components/Stack/types'
 
 interface AlphaStackOptions {
   /**

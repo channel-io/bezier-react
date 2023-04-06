@@ -5,12 +5,14 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
+
+import TabListContext from './TabListContext'
 import {
   type TabListProps,
   TabSize,
 } from './Tabs.types'
+
 import * as Styled from './TabList.styled'
-import TabListContext from './TabListContext'
 
 const heightBy = (size: TabSize) => {
   switch (size) {

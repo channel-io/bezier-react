@@ -3,11 +3,14 @@ import React from 'react'
 
 /* Internal dependencies */
 import { isEmpty } from '~/src/utils/typeUtils'
+
 import {
-  IconSize,
   HelpFilledIcon,
+  IconSize,
 } from '~/src/components/Icon'
+
 import type HelpProps from './Help.types'
+
 import * as Styled from './Help.styled'
 
 export const HELP_TEST_ID = 'bezier-react-help'

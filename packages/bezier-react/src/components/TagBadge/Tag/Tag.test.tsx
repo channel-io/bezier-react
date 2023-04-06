@@ -3,12 +3,15 @@ import React from 'react'
 
 /* Internal dependencies */
 import { RoundAbsoluteNumber } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import {
-  TagBadgeSize,
   getProperTagBadgePadding,
+  TagBadgeSize,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
+
 import {
   Tag,
   TAG_TEST_ID,

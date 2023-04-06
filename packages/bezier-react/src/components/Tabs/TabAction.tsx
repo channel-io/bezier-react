@@ -1,23 +1,27 @@
 /* External dependencies */
 import React, {
-  useContext,
   forwardRef,
+  useContext,
 } from 'react'
 
 /* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { isNil } from '~/src/utils/typeUtils'
+
 import {
   IconSize,
   OpenInNewIcon,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
+
 import TabListContext from './TabListContext'
 import {
   type TabActionElement,
   type TabActionProps,
   TabSize,
 } from './Tabs.types'
+
 import * as Styled from './TabAction.styled'
 
 const getTypoBy = (size: TabSize) => {

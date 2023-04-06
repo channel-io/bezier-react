@@ -3,24 +3,27 @@ import React, { useMemo } from 'react'
 
 /* Internal dependencies */
 import {
-  isNil,
   isEmpty,
+  isNil,
 } from '~/src/utils/typeUtils'
+
+import { CancelSmallIcon } from '~/src/components/Icon'
 import {
-  TagBadgeStyled,
-  TagBadgeSize,
-  TagBadgeVariant,
-  TagBadgeText,
-  TAG_BADGE_ICON_SIZE,
-  TAG_TEXT_HORIZONTAL_PADDING,
   getProperTagBadgeBgColor,
   getProperTagBadgePadding,
-  getProperTagBadgeTypo,
   getProperTagBadgeRounding,
+  getProperTagBadgeTypo,
+  TAG_BADGE_ICON_SIZE,
+  TAG_TEXT_HORIZONTAL_PADDING,
+  TagBadgeSize,
+  TagBadgeStyled,
+  TagBadgeText,
+  TagBadgeVariant,
 } from '~/src/components/TagBadge/TagBadgeCommon'
-import { CancelSmallIcon } from '~/src/components/Icon'
-import Styled from './Tag.styled'
+
 import type TagProps from './Tag.types'
+
+import Styled from './Tag.styled'
 
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'

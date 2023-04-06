@@ -1,16 +1,20 @@
 /* External dependencies */
 import React from 'react'
-import { base } from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import { base } from 'paths.macro'
 
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
+
 import { StatusType } from '~/src/components/Status'
+
 import { Avatar } from './Avatar'
 import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'

@@ -1,11 +1,12 @@
 /* External dependencies */
 import React from 'react'
+
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 /* Internal dependencies */
 import {
-  type ModalTriggerProps,
   type ModalCloseProps,
+  type ModalTriggerProps,
 } from './Modal.types'
 
 /**

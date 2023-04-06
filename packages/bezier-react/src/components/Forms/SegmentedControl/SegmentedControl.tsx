@@ -1,31 +1,35 @@
 /* External dependencies */
 import React, {
-  type Ref,
   forwardRef,
-  useState,
+  type Ref,
+  useCallback,
   useEffect,
   useMemo,
-  useCallback,
+  useState,
 } from 'react'
-import { v4 as uuid } from 'uuid'
+
 import { useResizeDetector } from 'react-resize-detector'
+import { v4 as uuid } from 'uuid'
 
 /* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { isNumber } from '~/src/utils/typeUtils'
-import { range } from '~/src/utils/numberUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { range } from '~/src/utils/numberUtils'
+import { isNumber } from '~/src/utils/typeUtils'
+
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { Text } from '~/src/components/Text'
+
 import {
-  DIVIDER_WIDTH,
   DIVIDER_SIDE_MARGIN,
+  DIVIDER_WIDTH,
   SIZE_TO_OPTION_TYPOGRAPHY,
   SIZE_TO_PADDING,
 } from './SegmentedControl.const'
 import type SegmentedControlProps from './SegmentedControl.types'
 import { SegmentedControlSize } from './SegmentedControl.types'
+
 import * as Styled from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'

@@ -1,7 +1,10 @@
 /* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 

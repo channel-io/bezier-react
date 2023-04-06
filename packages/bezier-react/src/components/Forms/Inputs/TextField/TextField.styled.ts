@@ -4,23 +4,26 @@ import { type FlattenSimpleInterpolation } from 'styled-components'
 /* Internal dependencies */
 import {
   css,
+  type SemanticNames,
   styled,
   Typography,
-  type SemanticNames,
 } from '~/src/foundation'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { type InterpolationProps } from '~/src/types/Foundation'
+
+import {
+  erroredInputWrapperStyle,
+  focusedInputWrapperStyle,
+  inputPlaceholderStyle,
+  inputTextStyle,
+  inputWrapperStyle,
+} from '~/src/components/Forms/Inputs/mixins'
 import {
   Icon,
   LegacyIcon,
 } from '~/src/components/Icon'
-import {
-  inputTextStyle,
-  inputPlaceholderStyle,
-  inputWrapperStyle,
-  focusedInputWrapperStyle,
-  erroredInputWrapperStyle,
-} from '~/src/components/Forms/Inputs/mixins'
+
 import {
   TextFieldSize,
   TextFieldVariant,

@@ -1,11 +1,12 @@
 /* Internal dependencies */
 import {
-  ExplicitDefaulting,
   BoxSizingUnit,
+  ExplicitDefaulting,
 } from '~/src/types/CSS'
+
 import {
-  isExplicitDefaulting,
   isBoxSizingUnit,
+  isExplicitDefaulting,
   toLength,
 } from './styleUtils'
 

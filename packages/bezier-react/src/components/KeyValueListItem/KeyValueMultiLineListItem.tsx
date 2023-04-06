@@ -5,13 +5,15 @@ import React, {
 } from 'react'
 
 /* Internal dependencies */
-import {
-  ValueItem,
-  ItemAction,
-  KeyItem,
-} from './common'
+
 import { TEST_ID_MAP } from './KeyValueListItem.const'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
+import {
+  ItemAction,
+  KeyItem,
+  ValueItem,
+} from './common'
+
 import * as Styled from './KeyValueMultiLineListItem.styled'
 
 function KeyValueMultiLineListItem(

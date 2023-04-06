@@ -4,6 +4,7 @@ import {
   styled,
   Typography,
 } from '~/src/foundation'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 interface ValueWrapperProps extends InterpolationProps {

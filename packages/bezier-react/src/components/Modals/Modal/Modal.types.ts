@@ -1,8 +1,8 @@
 /* Internal dependencies */
 import {
   type BezierComponentProps,
-  type SideContentProps,
   type ChildrenProps,
+  type SideContentProps,
 } from '~/src/types/ComponentProps'
 
 export enum ModalTitleSize {
