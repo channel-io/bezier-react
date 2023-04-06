@@ -4,9 +4,10 @@ import {
   type GetTokenPluginMessage,
   type UIMessage,
 } from '../types/Message'
+
 import {
-  flatten,
   findAllComponentNode,
+  flatten,
 } from './utils'
 
 // eslint-disable-next-line no-console

@@ -1,11 +1,13 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
+
 import { useNavigate } from 'react-router-dom'
+
 import {
-  VStack,
-  StackItem,
   ListItem,
   ListItemSize,
+  StackItem,
+  VStack,
 } from '@channel.io/bezier-react'
 
 function Home() {

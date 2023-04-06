@@ -1,20 +1,22 @@
 /* External dependencies */
 import React from 'react'
+
 import { createRoot } from 'react-dom/client'
 import {
   MemoryRouter,
-  Routes,
   Route,
+  Routes,
 } from 'react-router-dom'
+
 import {
   BezierProvider,
   LightFoundation,
 } from '@channel.io/bezier-react'
 
 /* Internal dependencies */
+import ExtractSuccess from './components/ExtractSuccess'
 import Home from './components/Home'
 import IconExtract from './components/IconExtract'
-import ExtractSuccess from './components/ExtractSuccess'
 
 const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)

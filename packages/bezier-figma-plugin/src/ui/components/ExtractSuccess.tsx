@@ -1,17 +1,19 @@
 /* External dependencies */
 import React, { useCallback } from 'react'
+
 import {
   useLocation,
   useNavigate,
 } from 'react-router-dom'
+
 import {
-  VStack,
-  StackItem,
-  Text,
-  Typography,
   Button,
   ButtonColorVariant,
   ButtonStyleVariant,
+  StackItem,
+  Text,
+  Typography,
+  VStack,
 } from '@channel.io/bezier-react'
 
 function ExtractSuccess() {
