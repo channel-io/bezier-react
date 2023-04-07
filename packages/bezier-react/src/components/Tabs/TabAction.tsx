@@ -1,10 +1,8 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useContext,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { isNil } from '~/src/utils/typeUtils'

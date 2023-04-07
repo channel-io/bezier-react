@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { type IconName } from '~/src/components/Icon'
 
 import {

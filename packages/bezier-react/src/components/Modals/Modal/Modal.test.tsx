@@ -1,10 +1,8 @@
-/* External dependencies */
 import React from 'react'
 
 import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import { AutoFocus } from '~/src/components/AutoFocus'

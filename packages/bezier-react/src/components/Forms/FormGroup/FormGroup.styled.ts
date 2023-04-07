@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 import { AlphaStack } from '~/src/components/AlphaStack'

@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useCallback,
@@ -8,7 +7,6 @@ import React, {
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 
 import type SliderProps from './Slider.types'

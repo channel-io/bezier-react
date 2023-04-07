@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -6,7 +5,6 @@ import {
   renderHook as baseRenderHook,
 } from '@testing-library/react'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import BezierProvider from '~/src/providers/BezierProvider'

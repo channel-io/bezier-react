@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import useId from '~/src/hooks/useId'
 
 import { type RadioProps } from './RadioGroup.types'

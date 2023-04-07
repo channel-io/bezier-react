@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useCallback,
@@ -6,7 +5,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import useId from '~/src/hooks/useId'

@@ -1,10 +1,7 @@
-/* External dependencies */
 import React, {
   forwardRef,
   memo,
 } from 'react'
-
-/* Internal dependencies */
 
 import type IconProps from './Icon.types'
 import { IconSize } from './Icon.types'

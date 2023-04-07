@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -8,7 +7,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 
 import {

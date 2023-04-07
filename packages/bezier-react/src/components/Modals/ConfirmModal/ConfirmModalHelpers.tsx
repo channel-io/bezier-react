@@ -1,8 +1,6 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import {
   ModalClose,
   ModalTrigger,

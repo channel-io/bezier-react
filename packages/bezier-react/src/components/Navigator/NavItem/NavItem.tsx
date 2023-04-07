@@ -1,10 +1,8 @@
-/* External dependencies */
 import React, {
   memo,
   useCallback,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

@@ -1,10 +1,8 @@
-/* External dependencies */
 import React, {
   forwardRef,
   memo,
 } from 'react'
 
-/* Internal dependencies */
 import type { SemanticNames } from '~/src/foundation'
 
 import {

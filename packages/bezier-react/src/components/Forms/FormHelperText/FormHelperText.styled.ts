@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 import { Text } from '~/src/components/Text'

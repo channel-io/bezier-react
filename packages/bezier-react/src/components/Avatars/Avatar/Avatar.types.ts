@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import type {
   AdditionalStylableProps,
   BezierComponentProps,

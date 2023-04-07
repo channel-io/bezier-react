@@ -1,5 +1,4 @@
 /* eslint-disable prefer-arrow-callback */
-/* External dependencies */
 import {
   useEffect,
   useState,

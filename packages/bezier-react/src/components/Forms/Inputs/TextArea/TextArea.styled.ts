@@ -1,7 +1,5 @@
-/* External dependencies */
 import TextareaAutosize from 'react-textarea-autosize'
 
-/* Internal dependencies */
 import {
   hideScrollbars,
   type SemanticNames,

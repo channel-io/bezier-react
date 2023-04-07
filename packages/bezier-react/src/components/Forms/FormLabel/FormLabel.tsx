@@ -1,10 +1,8 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { isEmpty } from '~/src/utils/typeUtils'

@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Interanal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'

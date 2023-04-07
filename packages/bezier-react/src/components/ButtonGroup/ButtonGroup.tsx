@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { AlphaStack } from '~/src/components/AlphaStack'
 
 import type ButtonGroupProps from './ButtonGroup.types'

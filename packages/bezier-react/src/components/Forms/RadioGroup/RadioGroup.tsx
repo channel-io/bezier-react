@@ -1,9 +1,7 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-/* Internal dependencies */
 import { AlphaStack } from '~/src/components/AlphaStack'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 

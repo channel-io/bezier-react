@@ -1,11 +1,9 @@
-/* External dependencies */
 import {
   type ComponentType,
   type ReactNode,
 } from 'react'
 import type React from 'react'
 
-/* Internal dependencies */
 import { type TransitionDuration } from '~/src/foundation'
 
 import {

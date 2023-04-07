@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useMemo,
   useState,
@@ -10,7 +9,6 @@ import {
 } from '@storybook/react'
 import { base } from 'paths.macro'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { getTitle } from '~/src/utils/storyUtils'

@@ -1,11 +1,9 @@
-/* External dependencies */
 import {
   useCallback,
   useMemo,
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 
 import {

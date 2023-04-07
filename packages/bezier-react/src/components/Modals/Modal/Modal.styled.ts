@@ -1,7 +1,5 @@
-/* External dependencies */
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
-/* Internal dependencies */
 import {
   css,
   styled,

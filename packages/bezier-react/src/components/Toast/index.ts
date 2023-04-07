@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import type ToastProps from './Toast.types'
 import {
   type ToastContent,

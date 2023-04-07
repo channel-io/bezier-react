@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, { useCallback } from 'react'
 
 import { useNavigate } from 'react-router-dom'

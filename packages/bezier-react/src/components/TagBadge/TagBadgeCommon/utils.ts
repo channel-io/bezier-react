@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import {
   Rounding,
   type SemanticNames,

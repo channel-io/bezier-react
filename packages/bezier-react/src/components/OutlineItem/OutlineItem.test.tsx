@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import { range } from '~/src/utils/numberUtils'

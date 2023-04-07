@@ -1,9 +1,7 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 
-/* Internal dependencies */
 import type DividerProps from './Divider.types'
 
 import * as Styled from './Divider.styled'

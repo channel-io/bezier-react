@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { type ModalBodyProps } from './Modal.types'
 
 import * as Styled from './Modal.styled'

@@ -7,7 +7,6 @@
  * 동작에는 문제가 없으며, type checking 도 올바르게 됩니다.
  */
 
-/* External dependencies */
 import React, {
   createContext,
   forwardRef,
@@ -34,7 +33,6 @@ import styled, {
   type ThemedStyledProps,
 } from 'styled-components'
 
-/* Internal dependencies */
 import { type Foundation } from './Foundation'
 import domElements from './utils/domElements'
 

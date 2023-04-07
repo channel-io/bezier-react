@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { type TabItemsProps } from './Tabs.types'
 
 import * as Styled from './TabItems.styled'

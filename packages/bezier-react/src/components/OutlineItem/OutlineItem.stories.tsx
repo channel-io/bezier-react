@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useState,
@@ -11,7 +10,6 @@ import {
 import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 
 import {

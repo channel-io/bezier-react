@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import { Avatar } from '~/src/components/Avatars/Avatar'

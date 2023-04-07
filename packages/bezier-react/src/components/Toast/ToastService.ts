@@ -1,7 +1,5 @@
-/* External dependencies */
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import {
   defaultOptions,
   type ToastContent,

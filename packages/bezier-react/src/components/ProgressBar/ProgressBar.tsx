@@ -1,11 +1,9 @@
-/* External dependencies */
 import React, {
   forwardRef,
   memo,
   type Ref,
 } from 'react'
 
-/* Internal dependencies */
 import { clamp } from '~/src/utils/numberUtils'
 
 import type ProgressBarProps from './ProgressBar.types'

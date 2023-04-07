@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Interanal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import Emoji, { EMOJI_TEST_ID } from './Emoji'

@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import userEvent from '@testing-library/user-event'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import {

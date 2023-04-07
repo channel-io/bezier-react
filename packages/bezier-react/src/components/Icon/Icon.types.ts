@@ -1,7 +1,5 @@
-/* External dependencies */
 import type React from 'react'
 
-/* Internal dependencies */
 import {
   type BezierComponentProps,
   type ColorProps,

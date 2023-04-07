@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useCallback,
@@ -7,7 +6,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
 

@@ -1,10 +1,8 @@
-/* External dependencies */
 import React from 'react'
 
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'

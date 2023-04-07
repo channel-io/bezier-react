@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { type SemanticNames } from '~/src/foundation'
 
 interface CalculateBgColorProps {

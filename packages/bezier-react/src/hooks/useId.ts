@@ -1,11 +1,9 @@
-/* External dependencies */
 import React, {
   useEffect,
   useMemo,
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { compact } from '~/src/utils/arrayUtils'
 import { getReactVersion } from '~/src/utils/reactUtils'
 

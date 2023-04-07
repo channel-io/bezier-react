@@ -1,7 +1,5 @@
-/* External dependencies */
 import { type MouseEvent } from 'react'
 
-/* Internal dependencies */
 import {
   type AdditionalStylableProps,
   type AdditionalTestIdProps,

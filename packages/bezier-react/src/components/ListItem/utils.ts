@@ -1,4 +1,3 @@
-/* Internal Dependencies */
 import { css } from '~/src/foundation'
 
 import { ListItemSize } from './ListItem.types'

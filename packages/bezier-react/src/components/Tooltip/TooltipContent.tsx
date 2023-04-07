@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useEffect,
@@ -9,7 +8,6 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import useEventHandler from '~/src/hooks/useEventHandler'

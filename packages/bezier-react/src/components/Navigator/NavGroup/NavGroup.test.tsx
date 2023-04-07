@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { render } from '~/src/utils/testUtils'

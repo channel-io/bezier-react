@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useCallback,
@@ -8,7 +7,6 @@ import React, {
 
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'

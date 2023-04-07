@@ -1,7 +1,5 @@
-/* External dependencies */
 import type { ReactNode } from 'react'
 
-/* Internal dependencies */
 import type {
   AdditionalColorProps,
   BezierComponentProps,

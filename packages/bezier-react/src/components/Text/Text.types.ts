@@ -1,7 +1,5 @@
-/* External dependencies */
 import { type css } from 'styled-components'
 
-/* Internal dependencies */
 import {
   type BezierComponentProps,
   type ChildrenProps,

@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { type Border } from './Border'
 import { type Theme } from './Colors'
 import { type Elevation } from './Elevation'

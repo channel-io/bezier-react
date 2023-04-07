@@ -1,8 +1,6 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { Modal } from '../Modal'
 
 import { type ConfirmModalProps } from './ConfirmModal.types'

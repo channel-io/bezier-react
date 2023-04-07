@@ -1,4 +1,3 @@
-/* Internal denpendencies */
 import {
   css,
   smoothCorners,

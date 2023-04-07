@@ -1,8 +1,6 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-/* Internal dependencies */
 import { StackItem } from '~/src/components/Stack/StackItem'
 
 import type SpacerProps from './Spacer.types'

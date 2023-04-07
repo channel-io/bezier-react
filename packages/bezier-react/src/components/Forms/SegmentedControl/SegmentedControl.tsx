@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -11,7 +10,6 @@ import React, {
 import { useResizeDetector } from 'react-resize-detector'
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/functionUtils'
 import { range } from '~/src/utils/numberUtils'

@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useContext,
@@ -6,7 +5,6 @@ import React, {
 
 import * as Tabs from '@radix-ui/react-tabs'
 
-/* Internal dependencies */
 import {
   ButtonColorVariant,
   ButtonSize,

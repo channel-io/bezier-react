@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'

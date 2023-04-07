@@ -1,7 +1,5 @@
-/* External dependencies */
 import { useContext } from 'react'
 
-/* Internal dependencies */
 import {
   defaultOutlineItemContext,
   mergeOutlineItemContexts,

@@ -1,11 +1,9 @@
-/* External dependencies */
 import {
   useEffect,
   useMemo,
   useRef,
 } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 import { isEqual } from '~/src/utils/objectUtils'
 import {

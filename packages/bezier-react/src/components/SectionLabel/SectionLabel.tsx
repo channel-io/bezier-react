@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useMemo,
@@ -6,7 +5,6 @@ import React, {
 
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import {

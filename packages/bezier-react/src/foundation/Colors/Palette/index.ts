@@ -3,7 +3,6 @@
  * version: 1
  */
 
-/* Internal dependencies */
 import {
   type BaseColorfulPaletteKey,
   type BaseMonoPaletteKey,

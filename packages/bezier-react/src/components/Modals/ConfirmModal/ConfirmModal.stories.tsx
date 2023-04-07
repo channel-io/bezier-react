@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React, {
   useEffect,
   useState,
@@ -11,7 +10,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
 
 import {

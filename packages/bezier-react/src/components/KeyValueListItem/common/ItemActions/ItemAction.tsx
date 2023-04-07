@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   memo,
@@ -9,7 +8,6 @@ import React, {
 
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 import {
   isArray,

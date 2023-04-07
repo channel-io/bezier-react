@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -10,7 +9,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'

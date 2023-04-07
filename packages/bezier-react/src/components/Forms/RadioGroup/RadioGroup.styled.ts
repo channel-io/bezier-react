@@ -1,7 +1,5 @@
-/* External dependencies */
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-/* Internal dependencies */
 import {
   css,
   styled,

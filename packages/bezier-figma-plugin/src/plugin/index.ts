@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import {
   type ExtractIconPluginMessage,
   type GetTokenPluginMessage,

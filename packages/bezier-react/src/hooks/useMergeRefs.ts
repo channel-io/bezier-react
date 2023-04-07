@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 function setRef<T>(ref: React.Ref<T>, value: T) {

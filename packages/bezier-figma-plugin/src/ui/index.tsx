@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import { createRoot } from 'react-dom/client'
@@ -13,7 +12,6 @@ import {
   LightFoundation,
 } from '@channel.io/bezier-react'
 
-/* Internal dependencies */
 import ExtractSuccess from './components/ExtractSuccess'
 import Home from './components/Home'
 import IconExtract from './components/IconExtract'

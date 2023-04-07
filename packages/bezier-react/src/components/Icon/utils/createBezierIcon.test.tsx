@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 // eslint-disable-next-line no-restricted-imports
 import { AllIcon } from '../generated'
 

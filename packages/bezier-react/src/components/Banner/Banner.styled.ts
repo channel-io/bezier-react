@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 import type { VariantProps } from '~/src/types/ComponentProps'

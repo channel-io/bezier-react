@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { isEmpty } from '~/src/utils/typeUtils'
 
 import {

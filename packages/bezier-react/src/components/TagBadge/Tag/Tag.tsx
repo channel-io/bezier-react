@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { useMemo } from 'react'
 
-/* Internal dependencies */
 import {
   isEmpty,
   isNil,

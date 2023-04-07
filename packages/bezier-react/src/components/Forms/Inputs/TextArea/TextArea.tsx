@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -9,7 +8,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'

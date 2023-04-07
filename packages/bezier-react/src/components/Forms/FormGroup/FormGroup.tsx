@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/functionUtils'
 

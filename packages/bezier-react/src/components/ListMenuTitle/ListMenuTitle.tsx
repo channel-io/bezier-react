@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
 

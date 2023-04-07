@@ -1,7 +1,5 @@
-/* External dependencies */
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-/* Internal dependencies */
 import {
   css,
   styled,

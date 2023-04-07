@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import Overlay from './Overlay'
 import { OverlayPosition } from './Overlay.types'
 import type OverlayProps from './Overlay.types'

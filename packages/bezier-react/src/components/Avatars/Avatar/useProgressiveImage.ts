@@ -1,4 +1,3 @@
-/* External dependencies */
 import {
   useEffect,
   useState,

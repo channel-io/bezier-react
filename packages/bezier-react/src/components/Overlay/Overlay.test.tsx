@@ -1,10 +1,8 @@
-/* External dependencies */
 import React from 'react'
 
 import { fireEvent } from '@testing-library/dom'
 import { getWindow } from 'ssr-window'
 
-/* Internal dependencies */
 import { TransitionDuration } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'

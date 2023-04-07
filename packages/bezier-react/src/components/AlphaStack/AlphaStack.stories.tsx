@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -7,7 +6,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { css } from '~/src/foundation/FoundationStyledComponent'
 
 import { range } from '~/src/utils/numberUtils'

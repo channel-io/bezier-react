@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import {
   type GetReplacement,
   type GetTooltipStyle,

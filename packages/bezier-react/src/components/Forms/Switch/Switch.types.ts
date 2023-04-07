@@ -1,7 +1,5 @@
-/* External dependencies */
 import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch'
 
-/* Internal dependencies */
 import type {
   AdditionalTestIdProps,
   BezierComponentProps,

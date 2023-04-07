@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type ReactElement,
@@ -7,7 +6,6 @@ import React, {
 
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 
-/* Internal dependencies */
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import type SwitchProps from './Switch.types'

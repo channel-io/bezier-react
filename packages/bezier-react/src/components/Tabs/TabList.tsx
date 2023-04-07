@@ -1,10 +1,7 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useMemo,
 } from 'react'
-
-/* Internal dependencies */
 
 import TabListContext from './TabListContext'
 import {

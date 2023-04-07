@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import { AutoFocus } from './AutoFocus'

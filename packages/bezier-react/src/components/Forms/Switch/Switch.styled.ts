@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'

@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -9,7 +8,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
 
 import type TooltipProps from './Tooltip.types'

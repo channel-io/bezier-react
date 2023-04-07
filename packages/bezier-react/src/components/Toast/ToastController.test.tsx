@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import { act } from '@testing-library/react'
 
-/* Internal dependencies */
 import {
   css,
   TransitionDuration,

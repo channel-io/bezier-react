@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useContext,
@@ -6,7 +5,6 @@ import React, {
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { Text } from '~/src/components/Text'

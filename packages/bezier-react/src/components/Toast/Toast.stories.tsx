@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useEffect,
@@ -12,7 +11,6 @@ import {
 } from '@storybook/react'
 import { base } from 'paths.macro'
 
-/* Internal depependencies */
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

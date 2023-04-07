@@ -1,7 +1,5 @@
-/* External dependencies */
 import type * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-/* Internal dependencies */
 import {
   type BezierComponentProps,
   type ChildrenProps,

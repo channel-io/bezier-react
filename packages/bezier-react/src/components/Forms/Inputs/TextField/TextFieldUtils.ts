@@ -1,7 +1,5 @@
-/* External dependencies */
 import { type FlattenSimpleInterpolation } from 'styled-components'
 
-/* Internal dependencies */
 import {
   Rounding,
   type SemanticNames,

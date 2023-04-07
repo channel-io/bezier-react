@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-imports */
-/* Internal dependencies */
 import {
   type ModalBodyProps,
   type ModalCloseProps,

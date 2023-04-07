@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { RoundAbsoluteNumber } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'

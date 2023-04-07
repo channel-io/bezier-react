@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-/* External dependencies */
+
 import React, {
   useCallback,
   useState,
@@ -11,7 +11,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

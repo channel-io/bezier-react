@@ -1,8 +1,6 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-/* Internal dependencies */
 import {
   isInteger,
   isNil,

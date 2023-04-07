@@ -1,10 +1,8 @@
-/* External dependencies */
 import {
   act,
   renderHook,
 } from '@testing-library/react'
 
-/* Internal dependencies */
 import {
   ToastAppearance,
   type ToastType,

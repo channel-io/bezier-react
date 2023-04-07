@@ -1,4 +1,3 @@
-/* External dependencies */
 import {
   useCallback,
   useMemo,

@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import {
   DarkTheme,
   LightTheme,

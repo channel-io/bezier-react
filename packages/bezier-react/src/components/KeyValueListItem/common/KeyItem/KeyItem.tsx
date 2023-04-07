@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   memo,
@@ -6,7 +5,6 @@ import React, {
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { isString } from '~/src/utils/typeUtils'

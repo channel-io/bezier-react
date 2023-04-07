@@ -1,4 +1,3 @@
-/* Internal dependencies */
 /* eslint-disable no-restricted-imports */
 import type IconProps from '../Icon.types'
 import { type IconName } from '../generated'

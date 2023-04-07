@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useMemo,
@@ -6,7 +5,6 @@ import React, {
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
-/* Internal dependencies */
 import { ZIndex } from '~/src/constants/ZIndex'
 import { document } from '~/src/utils/domUtils'
 import { isNumber } from '~/src/utils/typeUtils'

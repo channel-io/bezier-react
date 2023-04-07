@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { type TabActionsProps } from './Tabs.types'
 
 import * as Styled from './TabActions.styled'

@@ -1,5 +1,3 @@
-/* Internal dependencies */
-
 import KeyValueListItem from './KeyValueListItem'
 import type { KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'

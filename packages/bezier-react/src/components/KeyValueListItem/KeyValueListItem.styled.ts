@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import {
   ellipsis,
   styled,

@@ -1,11 +1,9 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useCallback,
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { isLastIndex } from '~/src/utils/arrayUtils'

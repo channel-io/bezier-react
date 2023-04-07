@@ -1,9 +1,7 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-/* Internal dependencies */
 import useId from '~/src/hooks/useId'
 
 import { FormFieldSize } from '~/src/components/Forms'

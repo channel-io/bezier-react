@@ -1,7 +1,5 @@
-/* External dependencies */
 import React, { memo } from 'react'
 
-/* Internal dependencies */
 /* eslint-disable no-restricted-imports */
 import { Icon } from '../Icon'
 import icons from '../generated'

@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useEffect,
@@ -25,7 +24,6 @@ import {
   VStack,
 } from '@channel.io/bezier-react'
 
-/* Internal dependencies */
 import config from '../../config'
 import type { PluginMessage } from '../../types/Message'
 import useFigmaAPI from '../hooks/useFigmaAPI'

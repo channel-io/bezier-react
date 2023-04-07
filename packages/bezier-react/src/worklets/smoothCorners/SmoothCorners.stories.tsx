@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -6,7 +5,6 @@ import {
   type Story,
 } from '@storybook/react'
 
-/* Internal dependencies */
 import {
   backgroundImageVariable,
   smoothCorners,

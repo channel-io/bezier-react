@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 

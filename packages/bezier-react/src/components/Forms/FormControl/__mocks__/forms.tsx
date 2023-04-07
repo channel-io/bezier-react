@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
 
 import { FormControl } from '~/src/components/Forms/FormControl'

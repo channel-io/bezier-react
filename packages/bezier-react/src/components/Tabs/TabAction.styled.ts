@@ -1,7 +1,5 @@
-/* External dependencies */
 import * as Toolbar from '@radix-ui/react-toolbar'
 
-/* Internal dependencies */
 import {
   css,
   styled,

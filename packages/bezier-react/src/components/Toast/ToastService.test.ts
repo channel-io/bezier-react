@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { type ToastType } from './Toast.types'
 import ToastService from './ToastService'
 

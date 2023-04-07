@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   Children,
   cloneElement,
@@ -8,7 +7,6 @@ import React, {
 } from 'react'
 import type { Ref } from 'react'
 
-/* Internal dependencies */
 import type StackProps from './Stack.types'
 
 import * as Styled from './Stack.styled'

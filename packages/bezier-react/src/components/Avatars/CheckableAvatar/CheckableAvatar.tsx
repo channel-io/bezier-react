@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal denpendencies */
 import {
   Avatar,
   AvatarSize,

@@ -1,7 +1,5 @@
-/* External dependencies */
 import { type Ref } from 'react'
 
-/* Internal dependencies */
 import {
   type AdditionalStylableProps,
   type BezierComponentProps,

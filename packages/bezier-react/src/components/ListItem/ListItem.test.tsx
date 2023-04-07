@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -7,7 +6,6 @@ import {
 } from 'ssr-window'
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'

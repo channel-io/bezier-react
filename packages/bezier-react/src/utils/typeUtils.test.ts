@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { noop } from './functionUtils'
 import {
   isArray,

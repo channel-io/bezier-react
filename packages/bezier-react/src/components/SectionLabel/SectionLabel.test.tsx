@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import { LightFoundation } from '~/src/foundation'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import { BUTTON_TEST_ID } from '~/src/components/Button/Button'

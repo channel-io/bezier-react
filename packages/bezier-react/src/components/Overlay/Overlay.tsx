@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -13,7 +12,6 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
-/* Internal dependencies */
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import {

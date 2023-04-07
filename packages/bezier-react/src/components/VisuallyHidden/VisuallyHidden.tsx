@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import * as VisuallyHiddenPrimitive from '@radix-ui/react-visually-hidden'
 
-/* Internal dependencies */
 import { type VisuallyHiddenProps } from './VisuallyHidden.types'
 
 /**

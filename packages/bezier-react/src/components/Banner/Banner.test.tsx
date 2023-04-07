@@ -1,9 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
 import { fireEvent } from '@testing-library/react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
 
 import {

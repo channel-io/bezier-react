@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import Icons, { type IconName } from '~/src/components/Icon/generated'
 
 import { isNaN } from './typeUtils'

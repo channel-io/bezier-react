@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { Border } from './Border'
 import { Themes } from './Colors'
 import { Elevation } from './Elevation'

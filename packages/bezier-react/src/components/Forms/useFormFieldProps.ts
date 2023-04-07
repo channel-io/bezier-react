@@ -1,7 +1,5 @@
-/* External dependencies */
 import { useMemo } from 'react'
 
-/* Internal dependencies */
 import { ariaAttr } from '~/src/utils/domUtils'
 
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'

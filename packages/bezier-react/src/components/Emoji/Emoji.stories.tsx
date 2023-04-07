@@ -1,4 +1,3 @@
-/* External dependencies */
 import React from 'react'
 
 import {
@@ -14,7 +13,6 @@ import {
   getTitle,
 } from '~/src/utils/storyUtils'
 
-/* Internal dependencies */
 import Emoji from './Emoji'
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'

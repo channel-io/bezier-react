@@ -1,9 +1,7 @@
-/* External dependencies */
 import React, { useCallback } from 'react'
 
 import { createPortal } from 'react-dom'
 
-/* Internal dependencies */
 import {
   css,
   TransitionDuration,

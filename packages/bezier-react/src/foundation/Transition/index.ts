@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { isArray } from '~/src/utils/typeUtils'
 
 // eslint-disable-next-line no-restricted-imports

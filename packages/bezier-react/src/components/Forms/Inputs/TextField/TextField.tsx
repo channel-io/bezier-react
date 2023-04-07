@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type Ref,
@@ -12,7 +11,6 @@ import React, {
 
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
 import { toString } from '~/src/utils/stringUtils'
 import {

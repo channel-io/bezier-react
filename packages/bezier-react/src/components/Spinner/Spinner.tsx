@@ -1,7 +1,4 @@
-/* External dependencies */
 import React from 'react'
-
-/* Internal dependencies */
 
 import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'

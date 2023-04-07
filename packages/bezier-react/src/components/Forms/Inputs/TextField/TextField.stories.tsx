@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useRef,
@@ -11,7 +10,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
   getObjectFromEnum,
   getTitle,

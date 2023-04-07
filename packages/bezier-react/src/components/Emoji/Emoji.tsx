@@ -1,10 +1,8 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { backgroundImageVariable } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

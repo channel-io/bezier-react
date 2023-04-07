@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   forwardRef,
   type MouseEvent,
@@ -7,7 +6,6 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { isNil } from '~/src/utils/typeUtils'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'

@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, { useState } from 'react'
 
 import type {
@@ -7,7 +6,6 @@ import type {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
   type SemanticNames,
   Typography,
