@@ -130,6 +130,8 @@
     "@radix-ui/react-switch": "^1.0.1",
     "@radix-ui/react-tabs": "^1.0.1",
     "@radix-ui/react-toolbar": "^1.0.1",
+    "@radix-ui/react-visually-hidden": "^1.0.2",
+    "classnames": "^2.3.2",
     "react-resize-detector": "^7.1.1",
     "react-textarea-autosize": "^8.3.4",
     "ssr-window": "^3.0.0",
