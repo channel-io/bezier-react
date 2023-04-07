@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
+import { useSegmentedControlContext } from './SegmentedControl'
 import { type SegmentedControlItemProps } from './SegmentedControl.types'
-import { useSegmentedControlContext } from './SegmentedControlContext'
 
 function SegmentedControlItemImpl<Value extends string>({
   value,

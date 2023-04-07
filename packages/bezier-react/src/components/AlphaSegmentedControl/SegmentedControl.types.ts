@@ -23,9 +23,6 @@ interface SegmentedControlOptions<Type extends SegmentedControlType, Value exten
   onValueChange?: (value: Value) => void
 }
 
-export interface SegmentedControlContextValue extends
-  Pick<SegmentedControlOptions<SegmentedControlType, string>, 'type' | 'size'> {}
-
 interface SegmentedControlItemOptions<Value extends string> {
   value: Value
   id?: string

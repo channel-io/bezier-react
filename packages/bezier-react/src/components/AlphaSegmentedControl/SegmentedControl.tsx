@@ -1,5 +1,7 @@
 import React, {
+  createContext,
   forwardRef,
+  useContext,
   useMemo,
 } from 'react'
 
@@ -8,9 +10,23 @@ import {
   SegmentedControlSize,
   type SegmentedControlType,
 } from './SegmentedControl.types'
-import { SegmentedControlContext } from './SegmentedControlContext'
 import { SegmentedControlRadioGroup } from './SegmentedControlRadioGroup'
 import { SegmentedControlTabs } from './SegmentedControlTabs'
+
+type SegmentedControlContextValue = Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size'>
+
+const SegmentedControlContext = createContext<SegmentedControlContextValue | null>(null)
+
+// TODO: (@ed) Evolve it into a commonly reusable hook
+export function useSegmentedControlContext(consumerName: string) {
+  const contextValue = useContext(SegmentedControlContext)
+
+  if (!contextValue) {
+    throw new Error(`\`${consumerName}\` must be used within \`SegmentedControl\``)
+  }
+
+  return contextValue
+}
 
 function SegmentedControlImpl<
   Type extends SegmentedControlType,
