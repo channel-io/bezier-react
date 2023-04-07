@@ -1,70 +1,43 @@
-/* External dependencies */
-import React, { forwardRef } from 'react'
+import React, {
+  forwardRef,
+  useMemo,
+} from 'react'
 
-/* Internal dependencies */
 import {
-  type SegmentedControlType,
   type SegmentedControlProps,
+  SegmentedControlSize,
+  type SegmentedControlType,
 } from './SegmentedControl.types'
-
-type SegmentedControlRadioGroupProps<Value extends string> = Omit<SegmentedControlProps<'radiogroup', Value>, 'type'>
-
-function SegmentedControlRadioGroupImpl<Value extends string>({
-  children,
-  ...rest
-}: SegmentedControlRadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <div
-      ref={forwardedRef}
-      {...rest}
-    >
-      { children }
-    </div>
-  )
-}
-
-const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
-  props: SegmentedControlRadioGroupProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlRadioGroupImpl<Value>>
-
-type SegmentedControlTabsProps<Value extends string> = Omit<SegmentedControlProps<'tabs', Value>, 'type'>
-
-function SegmentedControlTabsImpl<Value extends string>({
-  children,
-  ...rest
-}: SegmentedControlTabsProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <div
-      ref={forwardedRef}
-      {...rest}
-    >
-      { children }
-    </div>
-  )
-}
-
-const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
-  props: SegmentedControlTabsProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlTabsImpl<Value>>
+import { SegmentedControlContext } from './SegmentedControlContext'
+import { SegmentedControlRadioGroup } from './SegmentedControlRadioGroup'
+import { SegmentedControlTabs } from './SegmentedControlTabs'
 
 function SegmentedControlImpl<
   Type extends SegmentedControlType,
   Value extends string,
 >({
   type = 'radiogroup' as Type,
+  size = SegmentedControlSize.M,
   name: nameProp,
   children,
   ...rest
 }: SegmentedControlProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const isRadioGroupType = type === 'radiogroup'
+  const [SegmentedControl, name] = useMemo(() => (
+    type === 'radiogroup'
+      ? [SegmentedControlRadioGroup, nameProp]
+      : [SegmentedControlTabs, undefined]
+  ), [
+    type,
+    nameProp,
+  ])
 
-  const SegmentedControl = isRadioGroupType
-    ? SegmentedControlRadioGroup
-    : SegmentedControlTabs
-
-  const name = isRadioGroupType
-    ? nameProp
-    : undefined
+  const contextValue = useMemo(() => ({
+    type,
+    size,
+  }), [
+    type,
+    size,
+  ])
 
   return (
     <SegmentedControl
@@ -73,7 +46,9 @@ function SegmentedControlImpl<
       name={name}
       {...rest}
     >
-      { children }
+      <SegmentedControlContext.Provider value={contextValue}>
+        { children }
+      </SegmentedControlContext.Provider>
     </SegmentedControl>
   )
 }
@@ -84,5 +59,3 @@ export const SegmentedControl = forwardRef(SegmentedControlImpl) as <
 >(
   props: SegmentedControlProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => ReturnType<typeof SegmentedControlImpl<Type, Value>>
-
-export default SegmentedControl
