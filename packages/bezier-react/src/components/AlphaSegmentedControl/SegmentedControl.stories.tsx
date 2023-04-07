@@ -21,23 +21,24 @@ export default {
 } as Meta<SegmentedControlProps<SegmentedControlType, string>>
 
 const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({ children, ...rest }) => (
-  <div>
+  <div style={{ width: 500 }}>
     <SegmentedControl
-      type="radiogroup"
       {...rest}
+      type="radiogroup"
+      disabled
     >
       <SegmentedControlItem value="1">First</SegmentedControlItem>
       <SegmentedControlItem value="2">Second</SegmentedControlItem>
-      <SegmentedControlItem value="2">Third</SegmentedControlItem>
+      <SegmentedControlItem value="3">Third</SegmentedControlItem>
     </SegmentedControl>
 
     <SegmentedControl
-      type="tabs"
       {...rest}
+      type="tabs"
     >
       <SegmentedControlItem value="1">First</SegmentedControlItem>
       <SegmentedControlItem value="2">Second</SegmentedControlItem>
-      <SegmentedControlItem value="2">Third</SegmentedControlItem>
+      <SegmentedControlItem value="3">Third</SegmentedControlItem>
     </SegmentedControl>
   </div>
 )
