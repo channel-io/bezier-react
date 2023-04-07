@@ -1,20 +1,27 @@
 import React, { forwardRef } from 'react'
 
+import * as TabsPrimitive from '@radix-ui/react-tabs'
+
 import { type SegmentedControlProps } from './SegmentedControl.types'
 
 type SegmentedControlTabsProps<Value extends string> = Omit<SegmentedControlProps<'tabs', Value>, 'type'>
 
 function SegmentedControlTabsImpl<Value extends string>({
   children,
+  onValueChange,
   ...rest
 }: SegmentedControlTabsProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <div
+    <TabsPrimitive.Root
       ref={forwardedRef}
+      onValueChange={onValueChange as TabsPrimitive.TabsProps['onValueChange']}
       {...rest}
     >
-      { children }
-    </div>
+      { /* TODO: Isolate TabList */ }
+      <TabsPrimitive.List>
+        { children }
+      </TabsPrimitive.List>
+    </TabsPrimitive.Root>
   )
 }
 
