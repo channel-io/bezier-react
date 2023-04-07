@@ -11,14 +11,8 @@ function SegmentedControlItemImpl<Value extends string>({
   children,
   ...rest
 }: SegmentedControlItemProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
-  const contextValue = useSegmentedControlContext()
-
-  if (!contextValue) {
-    throw new Error('SegmentedControlItem must be used within SegmentedControl')
-  }
-
   // TODO: Implement size
-  const { type, size } = contextValue
+  const { type, size } = useSegmentedControlContext('SegmentedControlItem')
 
   const SegmentedControlItem = type === 'radiogroup'
     ? RadioGroupPrimitive.Item
