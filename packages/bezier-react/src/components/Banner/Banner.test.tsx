@@ -5,8 +5,8 @@ import { fireEvent } from '@testing-library/react'
 import { render } from '~/src/utils/testUtils'
 
 import {
-  Banner,
   BANNER_LINK_TEST_ID,
+  Banner,
 } from './Banner'
 import type { BannerProps } from './Banner.types'
 

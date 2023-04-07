@@ -5,16 +5,16 @@ import { isEmpty } from '~/src/utils/typeUtils'
 import { LegacyIcon } from '~/src/components/Icon'
 import {
   BADGE_TEXT_HORIZONTAL_PADDING,
-  getProperBadgeTextColor,
-  getProperTagBadgeBgColor,
-  getProperTagBadgePadding,
-  getProperTagBadgeRounding,
-  getProperTagBadgeTypo,
   TAG_BADGE_ICON_SIZE,
   TagBadgeSize,
   TagBadgeStyled,
   TagBadgeText,
   TagBadgeVariant,
+  getProperBadgeTextColor,
+  getProperTagBadgeBgColor,
+  getProperTagBadgePadding,
+  getProperTagBadgeRounding,
+  getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 
 import type BadgeProps from './Badge.types'

@@ -1,7 +1,7 @@
 import React, {
-  forwardRef,
   type ReactElement,
   type Ref,
+  forwardRef,
 } from 'react'
 
 import * as SwitchPrimitive from '@radix-ui/react-switch'

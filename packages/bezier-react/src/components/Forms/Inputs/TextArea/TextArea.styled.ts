@@ -1,10 +1,10 @@
 import TextareaAutosize from 'react-textarea-autosize'
 
 import {
-  hideScrollbars,
   type SemanticNames,
-  styled,
   Typography,
+  hideScrollbars,
+  styled,
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'

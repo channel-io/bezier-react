@@ -9,8 +9,8 @@ import { noop } from '~/src/utils/functionUtils'
 
 import {
   IconSize,
-  isIconName,
   LegacyIcon,
+  isIconName,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 

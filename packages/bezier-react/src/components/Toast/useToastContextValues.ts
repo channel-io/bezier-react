@@ -7,13 +7,13 @@ import {
 import { noop } from '~/src/utils/functionUtils'
 
 import {
-  defaultOptions,
   type OnDismissCallback,
   type ToastContent,
   type ToastContextType,
   type ToastId,
   type ToastOptions,
   type ToastType,
+  defaultOptions,
 } from './Toast.types'
 import ToastService from './ToastService'
 

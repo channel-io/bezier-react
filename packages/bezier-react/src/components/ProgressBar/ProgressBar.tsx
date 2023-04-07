@@ -1,7 +1,7 @@
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
 } from 'react'
 
 import { clamp } from '~/src/utils/numberUtils'

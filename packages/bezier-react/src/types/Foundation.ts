@@ -1,6 +1,6 @@
 import {
-  type css,
   type Foundation,
+  type css,
 } from '~/src/foundation'
 
 export interface FoundationProps {

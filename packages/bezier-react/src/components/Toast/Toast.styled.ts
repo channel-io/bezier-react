@@ -1,9 +1,9 @@
 import {
-  ellipsis,
   type Foundation,
   LineHeightAbsoluteNumber,
-  styled,
   Transition,
+  ellipsis,
+  styled,
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'

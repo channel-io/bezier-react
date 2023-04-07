@@ -16,8 +16,8 @@ import { isArray } from '~/src/utils/typeUtils'
 
 import {
   IconSize,
-  isIconName,
   LegacyIcon,
+  isIconName,
 } from '~/src/components/Icon'
 import {
   Spinner,

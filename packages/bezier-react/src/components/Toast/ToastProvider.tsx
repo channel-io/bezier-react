@@ -3,8 +3,8 @@ import React, { useCallback } from 'react'
 import { createPortal } from 'react-dom'
 
 import {
-  css,
   TransitionDuration,
+  css,
 } from '~/src/foundation'
 
 import { getRootElement } from '~/src/utils/domUtils'

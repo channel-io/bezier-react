@@ -1,6 +1,6 @@
 import {
-  type css,
   Typography,
+  type css,
 } from '~/src/foundation'
 
 import { SegmentedControlSize } from './SegmentedControl.types'

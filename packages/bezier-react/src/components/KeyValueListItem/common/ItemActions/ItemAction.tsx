@@ -1,7 +1,7 @@
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
   useCallback,
   useMemo,
 } from 'react'

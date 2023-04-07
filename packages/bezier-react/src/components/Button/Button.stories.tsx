@@ -7,8 +7,8 @@ import {
 import base from 'paths.macro'
 
 import {
-  styled,
   Typography,
+  styled,
 } from '~/src/foundation'
 
 import { getTitle } from '~/src/utils/storyUtils'

@@ -1,7 +1,7 @@
 import {
+  Transition,
   css,
   styled,
-  Transition,
 } from '~/src/foundation'
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'

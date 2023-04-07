@@ -3,8 +3,8 @@ import React from 'react'
 import { act } from '@testing-library/react'
 
 import {
-  css,
   TransitionDuration,
+  css,
 } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

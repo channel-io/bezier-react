@@ -1,10 +1,10 @@
 import { type FlattenSimpleInterpolation } from 'styled-components'
 
 import {
-  css,
   type SemanticNames,
-  styled,
   Typography,
+  css,
+  styled,
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'

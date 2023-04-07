@@ -8,9 +8,9 @@ import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 
 import {
-  Slider,
   SLIDER_TEST_ID,
   SLIDER_THUMB_TEST_ID,
+  Slider,
 } from './Slider'
 import type SliderProps from './Slider.types'
 

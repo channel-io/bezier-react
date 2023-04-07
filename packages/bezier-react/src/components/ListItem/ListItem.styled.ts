@@ -1,10 +1,10 @@
 import {
-  css,
-  ellipsis,
   LineHeightAbsoluteNumber,
   type SemanticNames,
-  styled,
   TransitionDuration,
+  css,
+  ellipsis,
+  styled,
 } from '~/src/foundation'
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'

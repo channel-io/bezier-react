@@ -1,6 +1,6 @@
 import React, {
-  forwardRef,
   type Ref,
+  forwardRef,
 } from 'react'
 
 import { TEST_ID_MAP } from './KeyValueListItem.const'

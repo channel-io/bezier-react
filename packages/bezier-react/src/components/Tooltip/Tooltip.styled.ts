@@ -1,7 +1,7 @@
 import {
+  LineHeightAbsoluteNumber,
   css,
   ellipsis,
-  LineHeightAbsoluteNumber,
   styled,
 } from '~/src/foundation'
 

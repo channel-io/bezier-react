@@ -15,15 +15,12 @@ import React, {
 
 import styled, {
   type AnyStyledComponent,
-  createGlobalStyle as baseCreateGlobalStyle,
-  css as baseCSS,
   type CSSObject,
   type FlattenInterpolation,
   type FlattenSimpleInterpolation,
   type GlobalStyleComponent,
   type Interpolation,
   type InterpolationFunction,
-  keyframes,
   ServerStyleSheet,
   type SimpleInterpolation,
   type StyledComponentInnerAttrs,
@@ -31,6 +28,9 @@ import styled, {
   type StyledComponentInnerOtherProps,
   type ThemedStyledFunction,
   type ThemedStyledProps,
+  css as baseCSS,
+  createGlobalStyle as baseCreateGlobalStyle,
+  keyframes,
 } from 'styled-components'
 
 import { type Foundation } from './Foundation'

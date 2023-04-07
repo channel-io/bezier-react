@@ -1,7 +1,7 @@
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
   useMemo,
 } from 'react'
 
@@ -12,9 +12,9 @@ import { isString } from '~/src/utils/typeUtils'
 import {
   Icon,
   IconSize,
+  LegacyIcon,
   isBezierIcon,
   isIconName,
-  LegacyIcon,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 

@@ -11,10 +11,10 @@ import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 
 import {
-  Button,
   BUTTON_INNER_CONTENT_TEST_ID,
   BUTTON_TEST_ID,
   BUTTON_TEXT_TEST_ID,
+  Button,
 } from './Button'
 import {
   ButtonSize,

@@ -1,6 +1,6 @@
 import React, {
-  forwardRef,
   type Ref,
+  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -21,9 +21,9 @@ import {
   ChevronUpIcon,
   Icon,
   IconSize,
+  LegacyIcon,
   isBezierIcon,
   isIconName,
-  LegacyIcon,
 } from '~/src/components/Icon'
 import { OverlayPosition } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'

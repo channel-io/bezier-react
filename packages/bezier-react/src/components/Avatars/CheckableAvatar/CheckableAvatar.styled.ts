@@ -1,7 +1,7 @@
 import {
-  css,
   type Foundation,
   type SemanticNames,
+  css,
   smoothCorners,
   styled,
 } from '~/src/foundation'

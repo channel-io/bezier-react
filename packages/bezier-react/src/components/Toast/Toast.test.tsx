@@ -1,8 +1,8 @@
 import React from 'react'
 
 import {
-  css,
   TransitionDuration,
+  css,
 } from '~/src/foundation'
 
 import { DarkTheme } from '~/src/foundation/Colors/Theme'

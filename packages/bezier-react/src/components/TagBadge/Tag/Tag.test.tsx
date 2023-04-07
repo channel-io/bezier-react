@@ -5,14 +5,14 @@ import { RoundAbsoluteNumber } from '~/src/foundation'
 import { render } from '~/src/utils/testUtils'
 
 import {
-  getProperTagBadgePadding,
   TagBadgeSize,
+  getProperTagBadgePadding,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
 
 import {
-  Tag,
   TAG_TEST_ID,
+  Tag,
 } from './Tag'
 import type TagProps from './Tag.types'
 

@@ -7,8 +7,8 @@ import {
 import base from 'paths.macro'
 
 import {
-  css,
   Typography,
+  css,
 } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'

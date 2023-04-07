@@ -1,6 +1,6 @@
 import {
-  css,
   type SemanticNames,
+  css,
   styled,
 } from '~/src/foundation'
 

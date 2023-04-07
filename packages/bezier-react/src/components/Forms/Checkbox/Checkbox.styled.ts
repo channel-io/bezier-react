@@ -1,9 +1,9 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import {
+  Typography,
   css,
   styled,
-  Typography,
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'

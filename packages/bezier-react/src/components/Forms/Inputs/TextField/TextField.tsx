@@ -1,6 +1,6 @@
 import React, {
-  forwardRef,
   type Ref,
+  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -26,8 +26,8 @@ import {
   CancelCircleFilledIcon,
   Icon,
   IconSize,
-  isIconName,
   LegacyIcon,
+  isIconName,
 } from '~/src/components/Icon'
 
 import {

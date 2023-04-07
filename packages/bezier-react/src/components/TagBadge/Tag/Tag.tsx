@@ -7,16 +7,16 @@ import {
 
 import { CancelSmallIcon } from '~/src/components/Icon'
 import {
-  getProperTagBadgeBgColor,
-  getProperTagBadgePadding,
-  getProperTagBadgeRounding,
-  getProperTagBadgeTypo,
   TAG_BADGE_ICON_SIZE,
   TAG_TEXT_HORIZONTAL_PADDING,
   TagBadgeSize,
   TagBadgeStyled,
   TagBadgeText,
   TagBadgeVariant,
+  getProperTagBadgeBgColor,
+  getProperTagBadgePadding,
+  getProperTagBadgeRounding,
+  getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 
 import type TagProps from './Tag.types'

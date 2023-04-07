@@ -8,9 +8,9 @@ import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 
 import {
-  Switch,
   SWITCH_HANDLE_TEST_ID,
   SWITCH_TEST_ID,
+  Switch,
 } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'

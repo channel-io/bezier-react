@@ -1,6 +1,6 @@
 import {
-  css,
   type SemanticNames,
+  css,
 } from '~/src/foundation'
 
 import type { InjectedInterpolation } from '~/src/types/Foundation'

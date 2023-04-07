@@ -13,8 +13,8 @@ import {
   ChevronSmallRightIcon,
   Icon,
   IconSize,
-  isIconName,
   LegacyIcon,
+  isIconName,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 

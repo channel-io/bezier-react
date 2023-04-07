@@ -1,7 +1,7 @@
 import {
+  TransitionDuration,
   css,
   keyframes,
-  TransitionDuration,
 } from '~/src/foundation'
 
 const overlayStyles = {

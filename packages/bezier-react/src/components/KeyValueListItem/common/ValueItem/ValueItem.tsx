@@ -1,7 +1,7 @@
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
 } from 'react'
 
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'

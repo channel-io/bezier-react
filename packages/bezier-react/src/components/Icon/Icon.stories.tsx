@@ -9,8 +9,8 @@ import base from 'paths.macro'
 import {
   LightFoundation,
   type SemanticNames,
-  styled,
   Typography,
+  styled,
 } from '~/src/foundation'
 
 import {

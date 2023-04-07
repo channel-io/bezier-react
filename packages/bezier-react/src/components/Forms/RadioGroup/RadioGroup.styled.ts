@@ -1,9 +1,9 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 import {
+  Typography,
   css,
   styled,
-  Typography,
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'

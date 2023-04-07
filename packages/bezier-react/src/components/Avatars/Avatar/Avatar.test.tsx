@@ -7,9 +7,9 @@ import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/Avatar
 import { StatusType } from '~/src/components/Status'
 
 import {
-  Avatar,
   AVATAR_TEST_ID,
   AVATAR_WRAPPER_TEST_ID,
+  Avatar,
   STATUS_WRAPPER_TEST_ID,
 } from './Avatar'
 import type AvatarProps from './Avatar.types'
