@@ -3,12 +3,17 @@ import React, { forwardRef } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
+import { Text } from '~/src/components/Text'
+
 import { useSegmentedControlContext } from './SegmentedControl'
 import { type SegmentedControlItemProps } from './SegmentedControl.types'
+
+import * as Styled from './SegmentedControl.styled'
 
 function SegmentedControlItemImpl<Value extends string>({
   value,
   children,
+  className: classNameProp,
   ...rest
 }: SegmentedControlItemProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
   // TODO: Implement size
@@ -20,11 +25,16 @@ function SegmentedControlItemImpl<Value extends string>({
 
   return (
     <SegmentedControlItem
+      asChild
       ref={forwardedRef}
       value={value}
       {...rest}
     >
-      { children }
+      <Styled.Item>
+        <Styled.ItemLabel>
+          { children }
+        </Styled.ItemLabel>
+      </Styled.Item>
     </SegmentedControlItem>
   )
 }

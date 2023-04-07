@@ -36,8 +36,6 @@ export type SegmentedControlOptions<Type extends SegmentedControlType, Value ext
 interface SegmentedControlItemOptions<Value extends string> extends
   DisableProps {
   value: Value
-  /** TODO: write comments: working only radiogroup type */
-  id?: string
 }
 
 interface SegmentedControlTabContentOptions<Value extends string> {

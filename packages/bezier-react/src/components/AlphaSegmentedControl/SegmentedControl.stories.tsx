@@ -25,7 +25,6 @@ const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({ 
     <SegmentedControl
       {...rest}
       type="radiogroup"
-      disabled
     >
       <SegmentedControlItem value="1">First</SegmentedControlItem>
       <SegmentedControlItem value="2">Second</SegmentedControlItem>

@@ -5,6 +5,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import classNames from 'classnames'
+
 import {
   type SegmentedControlProps,
   SegmentedControlSize,
@@ -13,7 +15,9 @@ import {
 import { SegmentedControlRadioGroup } from './SegmentedControlRadioGroup'
 import { SegmentedControlTabs } from './SegmentedControlTabs'
 
-type SegmentedControlContextValue = Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size'>
+import * as Styled from './SegmentedControl.styled'
+
+type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size'>>
 
 const SegmentedControlContext = createContext<SegmentedControlContextValue | null>(null)
 
@@ -34,18 +38,16 @@ function SegmentedControlImpl<
 >({
   type = 'radiogroup' as Type,
   size = SegmentedControlSize.M,
-  name: nameProp,
+  width = '100%',
+  style: styleProp,
+  className: classNameProp,
+  onValueChange,
   children,
   ...rest
 }: SegmentedControlProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const [SegmentedControl, name] = useMemo(() => (
-    type === 'radiogroup'
-      ? [SegmentedControlRadioGroup, nameProp]
-      : [SegmentedControlTabs, undefined]
-  ), [
-    type,
-    nameProp,
-  ])
+  const SegmentedControl = type === 'radiogroup'
+    ? SegmentedControlRadioGroup
+    : SegmentedControlTabs
 
   const contextValue = useMemo(() => ({
     type,
@@ -55,14 +57,31 @@ function SegmentedControlImpl<
     size,
   ])
 
+  const style = useMemo(() => ({
+    ...styleProp,
+    '--bezier-react-segmented-control-width': width,
+  }), [
+    styleProp,
+    width,
+  ])
+
+  const className = classNames(
+    classNameProp,
+    size,
+  )
+
   return (
     <SegmentedControl
       ref={forwardedRef}
-      // @ts-ignore
-      name={name}
+      style={style}
+      className={className}
+      size={size}
+      onValueChange={onValueChange}
       {...rest}
     >
       <SegmentedControlContext.Provider value={contextValue}>
+        { /* TODO: Conditional render */ }
+        <Styled.Indicator />
         { children }
       </SegmentedControlContext.Provider>
     </SegmentedControl>
