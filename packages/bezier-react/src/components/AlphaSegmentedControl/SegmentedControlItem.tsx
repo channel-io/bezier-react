@@ -1,14 +1,50 @@
-import React, { forwardRef } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+} from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
-import { Text } from '~/src/components/Text'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import { useSegmentedControlContext } from './SegmentedControl'
 import { type SegmentedControlItemProps } from './SegmentedControl.types'
 
 import * as Styled from './SegmentedControl.styled'
+
+// TODO: type declaration
+const Item = forwardRef(function Item({
+  children,
+  ...rest
+}, forwardedRef) {
+  const { setSelectedElement } = useSegmentedControlContext('SegmentedControlItem')
+
+  const checked = rest?.['data-state'] === 'checked'
+
+  const ref = useMergeRefs(
+    forwardedRef,
+    useCallback((node: HTMLButtonElement | null) => {
+      if (checked) {
+        setSelectedElement(node)
+      }
+    }, [
+      checked,
+      setSelectedElement,
+    ]),
+  )
+
+  return (
+    <Styled.Item
+      {...rest}
+      ref={ref}
+    >
+      <Styled.ItemLabel>
+        { children }
+      </Styled.ItemLabel>
+    </Styled.Item>
+  )
+})
 
 function SegmentedControlItemImpl<Value extends string>({
   value,
@@ -16,8 +52,7 @@ function SegmentedControlItemImpl<Value extends string>({
   className: classNameProp,
   ...rest
 }: SegmentedControlItemProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
-  // TODO: Implement size
-  const { type, size } = useSegmentedControlContext('SegmentedControlItem')
+  const { type } = useSegmentedControlContext('SegmentedControlItem')
 
   const SegmentedControlItem = type === 'radiogroup'
     ? RadioGroupPrimitive.Item
@@ -30,11 +65,9 @@ function SegmentedControlItemImpl<Value extends string>({
       value={value}
       {...rest}
     >
-      <Styled.Item>
-        <Styled.ItemLabel>
-          { children }
-        </Styled.ItemLabel>
-      </Styled.Item>
+      <Item>
+        { children }
+      </Item>
     </SegmentedControlItem>
   )
 }

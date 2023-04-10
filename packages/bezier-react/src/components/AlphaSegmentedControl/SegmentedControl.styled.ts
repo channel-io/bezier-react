@@ -1,11 +1,11 @@
 import {
+  Transition,
   Typography,
   styled,
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
-import { AlphaCenter } from '~/src/components/AlphaCenter'
 import { AlphaStack } from '~/src/components/AlphaStack'
 import { Text } from '~/src/components/Text'
 
@@ -15,8 +15,15 @@ export const ItemLabel = styled(Text).attrs({ bold: true })`
   z-index: ${ZIndex.Float};
 `
 
-export const Item = styled(AlphaCenter)`
+export const Item = styled.button`
+  all: unset;
+
+  display: flex;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
 
   &[data-state='checked'] {
     color: var(--txt-black-darkest);
@@ -34,19 +41,24 @@ export const Item = styled(AlphaCenter)`
 `
 
 export const Indicator = styled.div`
+  --bezier-react-segmented-control-indicator-transform: initial;
+  --bezier-react-segmented-control-indicator-width: initial;
+  --bezier-react-segmented-control-indicator-height: initial;
+
   position: absolute;
   top: 0;
   left: 0;
   z-index: ${ZIndex.Float};
 
-  /* start temps */
-  width: 100px;
-  height: 100%;
-  /* end temps */
+  width: var(--bezier-react-segmented-control-indicator-width);
+  height: var(--bezier-react-segmented-control-indicator-height);
 
   ${({ foundation }) => foundation?.elevation.ev1()}
   /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
   background-color: var(--bg-white-high);
+
+  transform: var(--bezier-react-segmented-control-indicator-transform);
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', Transition.TransitionDuration.M)}
 `
 
 export const Container = styled(AlphaStack)`
