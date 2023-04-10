@@ -21,6 +21,30 @@ import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
+function Separator({
+  children,
+}: React.PropsWithChildren) {
+  return (
+    <>
+      { React.Children.map(children, (child, index) => {
+        if (index === 0) {
+          return child
+        }
+
+        return (
+          <>
+            <Divider
+              withoutParallelIndent
+              orientation="vertical"
+            />
+            { child }
+          </>
+        )
+      }) }
+    </>
+  )
+}
+
 type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size'>> & {
   setSelectedElement: (node: HTMLButtonElement | null) => void
 }
@@ -147,22 +171,9 @@ function SegmentedControlImpl<
     >
       <SegmentedControlContext.Provider value={contextValue}>
         { renderIndicator() }
-
-        { React.Children.map(children, (child, index) => {
-          if (index === 0) {
-            return child
-          }
-
-          return (
-            <>
-              <Divider
-                withoutParallelIndent
-                orientation="vertical"
-              />
-              { child }
-            </>
-          )
-        }) }
+        <Separator>
+          { children }
+        </Separator>
       </SegmentedControlContext.Provider>
     </SegmentedControl>
   )
