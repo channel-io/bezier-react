@@ -22,30 +22,6 @@ import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
-function Separator({
-  children,
-}: React.PropsWithChildren) {
-  return (
-    <>
-      { React.Children.map(children, (child, index) => {
-        if (index === 0) {
-          return child
-        }
-
-        return (
-          <>
-            <Divider
-              withoutParallelIndent
-              orientation="vertical"
-            />
-            { child }
-          </>
-        )
-      }) }
-    </>
-  )
-}
-
 type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size' | 'width'>>
 
 const SegmentedControlContext = createContext<SegmentedControlContextValue | null>(null)
@@ -159,9 +135,22 @@ function SegmentedControlItemListImpl({
       <Styled.Container>
         <SegmentedControlItemListContext.Provider value={contextValue}>
           { renderIndicator() }
-          <Separator>
-            { children }
-          </Separator>
+
+          { React.Children.map(children, (child, index) => {
+            if (index === 0) {
+              return child
+            }
+
+            return (
+              <>
+                <Divider
+                  withoutParallelIndent
+                  orientation="vertical"
+                />
+                { child }
+              </>
+            )
+          }) }
         </SegmentedControlItemListContext.Provider>
       </Styled.Container>
     </SegmentedControlItemList>
