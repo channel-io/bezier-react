@@ -1,7 +1,6 @@
 import React, {
   createContext,
   forwardRef,
-  useCallback,
   useContext,
   useMemo,
   useState,
@@ -10,9 +9,6 @@ import React, {
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
-import { useResizeDetector } from 'react-resize-detector'
-
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import { Divider } from '~/src/components/Divider'
 
@@ -21,6 +17,7 @@ import {
   SegmentedControlSize,
   type SegmentedControlType,
 } from './SegmentedControl.types'
+import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
@@ -103,48 +100,15 @@ function SegmentedControlImpl<
   children,
   ...rest
 }: SegmentedControlProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null)
   const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
-  const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({})
 
   const {
-    width: containerWidth,
-    ref: resizeDetectorRef,
-  } = useResizeDetector<HTMLDivElement>()
-
-  const ref = useMergeRefs(
-    forwardedRef,
-    resizeDetectorRef,
-    setContainerElement as React.Ref<HTMLDivElement | null>,
-  )
-
-  const updateIndicatorPosition = useCallback((node: HTMLDivElement | null) => {
-    if (node && containerElement && selectedElement) {
-      const {
-        top,
-        left,
-        width: selectedElementWidth,
-        height: selectedElementHeight,
-      } = selectedElement.getBoundingClientRect()
-
-      const {
-        top: containerTop,
-        left: containerLeft,
-      } = containerElement.getBoundingClientRect()
-
-      setIndicatorStyle({
-        '--bezier-react-segmented-control-indicator-transform': `translate(${left - containerLeft}px, ${top - containerTop}px)`,
-        '--bezier-react-segmented-control-indicator-width': `${selectedElementWidth}px`,
-        '--bezier-react-segmented-control-indicator-height': `${selectedElementHeight}px`,
-      } as React.CSSProperties)
-    }
-    // NOTE: (@ed) to force update indicator position on container width change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    containerWidth,
-    containerElement,
-    selectedElement,
-  ])
+    containerRef: ref,
+    render: renderIndicator,
+  } = useSegmentedControlIndicator({
+    target: selectedElement,
+    refs: [forwardedRef],
+  })
 
   const SegmentedControl = type === 'radiogroup'
     ? SegmentedControlRadioGroup
@@ -182,12 +146,7 @@ function SegmentedControlImpl<
       {...rest}
     >
       <SegmentedControlContext.Provider value={contextValue}>
-        { selectedElement && (
-          <Styled.Indicator
-            ref={updateIndicatorPosition}
-            style={indicatorStyle}
-          />
-        ) }
+        { renderIndicator() }
 
         { React.Children.map(children, (child, index) => {
           if (index === 0) {
