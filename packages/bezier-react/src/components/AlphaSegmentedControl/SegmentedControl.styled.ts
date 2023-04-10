@@ -13,6 +13,7 @@ import { SegmentedControlSize } from './SegmentedControl.types'
 
 export const ItemLabel = styled(Text).attrs({ bold: true })`
   z-index: ${ZIndex.Float};
+  padding: 1px 4px;
 `
 
 export const Item = styled.button`
@@ -70,6 +71,7 @@ export const Container = styled(AlphaStack)`
   background-color: var(--bg-black-lighter);
 
   &.${SegmentedControlSize.XS} {
+    height: 24px;
     padding: 1px;
     border-radius: 6px;
     ${Typography.Size13}
@@ -85,6 +87,7 @@ export const Container = styled(AlphaStack)`
   }
 
   &.${SegmentedControlSize.S} {
+    height: 28px;
     padding: 2px;
     border-radius: 8px;
     ${Typography.Size14}
@@ -100,6 +103,7 @@ export const Container = styled(AlphaStack)`
   }
 
   &.${SegmentedControlSize.M} {
+    height: 36px;
     padding: 2px;
     border-radius: 8px;
     ${Typography.Size14}
@@ -115,6 +119,7 @@ export const Container = styled(AlphaStack)`
   }
 
   &.${SegmentedControlSize.L} {
+    height: 44px;
     padding: 4px;
     border-radius: 12px;
     ${Typography.Size14}

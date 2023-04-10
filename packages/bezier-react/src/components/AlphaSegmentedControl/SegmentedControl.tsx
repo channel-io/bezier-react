@@ -14,6 +14,8 @@ import { useResizeDetector } from 'react-resize-detector'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
+import { Divider } from '~/src/components/Divider'
+
 import {
   type SegmentedControlProps,
   SegmentedControlSize,
@@ -52,10 +54,7 @@ function SegmentedControlRadioGroupImpl<Value extends string>({
       ref={forwardedRef}
       {...rest}
     >
-      <Styled.Container
-        direction="horizontal"
-        spacing={1}
-      >
+      <Styled.Container direction="horizontal">
         { children }
       </Styled.Container>
     </RadioGroupPrimitive.Root>
@@ -189,7 +188,22 @@ function SegmentedControlImpl<
             style={indicatorStyle}
           />
         ) }
-        { children }
+
+        { React.Children.map(children, (child, index) => {
+          if (index === 0) {
+            return child
+          }
+
+          return (
+            <>
+              <Divider
+                withoutParallelIndent
+                orientation="vertical"
+              />
+              { child }
+            </>
+          )
+        }) }
       </SegmentedControlContext.Provider>
     </SegmentedControl>
   )
