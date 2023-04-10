@@ -5,6 +5,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
+import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
 
 import {
@@ -12,8 +14,6 @@ import {
   SegmentedControlSize,
   type SegmentedControlType,
 } from './SegmentedControl.types'
-import { SegmentedControlRadioGroup } from './SegmentedControlRadioGroup'
-import { SegmentedControlTabs } from './SegmentedControlTabs'
 
 import * as Styled from './SegmentedControl.styled'
 
@@ -31,6 +31,58 @@ export function useSegmentedControlContext(consumerName: string) {
 
   return contextValue
 }
+
+type SegmentedControlRadioGroupProps<Value extends string> = Omit<SegmentedControlProps<'radiogroup', Value>, 'type'>
+
+function SegmentedControlRadioGroupImpl<Value extends string>({
+  children,
+  size,
+  ...rest
+}: SegmentedControlRadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  return (
+    <RadioGroupPrimitive.Root
+      asChild
+      ref={forwardedRef}
+      {...rest}
+    >
+      <Styled.Container
+        direction="horizontal"
+        spacing={1}
+      >
+        { children }
+      </Styled.Container>
+    </RadioGroupPrimitive.Root>
+  )
+}
+
+const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
+  props: SegmentedControlRadioGroupProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlRadioGroupImpl<Value>>
+
+type SegmentedControlTabsProps<Value extends string> = Omit<SegmentedControlProps<'tabs', Value>, 'type'>
+
+function SegmentedControlTabsImpl<Value extends string>({
+  children,
+  onValueChange,
+  ...rest
+}: SegmentedControlTabsProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  return (
+    <TabsPrimitive.Root
+      ref={forwardedRef}
+      onValueChange={onValueChange as TabsPrimitive.TabsProps['onValueChange']}
+      {...rest}
+    >
+      { /* TODO: Isolate TabList */ }
+      <TabsPrimitive.List>
+        { children }
+      </TabsPrimitive.List>
+    </TabsPrimitive.Root>
+  )
+}
+
+const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
+  props: SegmentedControlTabsProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlTabsImpl<Value>>
 
 function SegmentedControlImpl<
   Type extends SegmentedControlType,
