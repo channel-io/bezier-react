@@ -8,7 +8,10 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
-import { useSegmentedControlContext } from './SegmentedControl'
+import {
+  useSegmentedControlContext,
+  useSegmentedControlItemListContext,
+} from './SegmentedControl'
 import { type SegmentedControlItemProps } from './SegmentedControl.types'
 
 import * as Styled from './SegmentedControl.styled'
@@ -18,9 +21,9 @@ const Item = forwardRef(function Item({
   children,
   ...rest
 }, forwardedRef) {
-  const { setSelectedElement } = useSegmentedControlContext('SegmentedControlItem')
+  const { setSelectedElement } = useSegmentedControlItemListContext('SegmentedControlItem')
 
-  const checked = rest?.['data-state'] === 'checked'
+  const checked = rest?.['data-state'] === 'checked' || rest?.['data-state'] === 'active'
 
   const ref = useMergeRefs(
     forwardedRef,

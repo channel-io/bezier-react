@@ -8,7 +8,10 @@ import base from 'paths.macro'
 
 import { getTitle } from '~/src/utils/storyUtils'
 
-import { SegmentedControl } from './SegmentedControl'
+import {
+  SegmentedControl,
+  SegmentedControlTabList,
+} from './SegmentedControl'
 import {
   type SegmentedControlProps,
   type SegmentedControlType,
@@ -35,9 +38,17 @@ const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({ 
       {...rest}
       type="tabs"
     >
-      <SegmentedControlItem value="1">First</SegmentedControlItem>
-      <SegmentedControlItem value="2">Second</SegmentedControlItem>
-      <SegmentedControlItem value="3">Third</SegmentedControlItem>
+      <SegmentedControlTabList>
+        <SegmentedControlItem value="1">First</SegmentedControlItem>
+        <SegmentedControlItem value="2">Second</SegmentedControlItem>
+        <SegmentedControlItem value="3">Third</SegmentedControlItem>
+      </SegmentedControlTabList>
+
+      <div>
+        <div>First</div>
+        <div>Second</div>
+        <div>Third</div>
+      </div>
     </SegmentedControl>
   </div>
 )

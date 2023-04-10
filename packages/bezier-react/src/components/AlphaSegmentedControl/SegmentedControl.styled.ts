@@ -62,7 +62,7 @@ export const Indicator = styled.div`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', Transition.TransitionDuration.M)}
 `
 
-export const Container = styled(AlphaStack)`
+export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   --bezier-react-segmented-control-width: initial;
 
   position: relative;

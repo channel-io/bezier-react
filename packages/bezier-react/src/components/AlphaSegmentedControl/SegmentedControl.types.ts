@@ -52,6 +52,10 @@ export interface SegmentedControlItemProps<Value extends string> extends
   ChildrenProps,
   SegmentedControlItemOptions<Value> {}
 
+export interface SegmentedControlTabListProps extends
+  BezierComponentProps,
+  ChildrenProps {}
+
 export interface SegmentedControlTabContentProps<Value extends string> extends
   BezierComponentProps,
   ChildrenProps,
