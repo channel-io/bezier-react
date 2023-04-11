@@ -1,7 +1,5 @@
 import React, {
-  createContext,
   forwardRef,
-  useContext,
   useMemo,
   useState,
 } from 'react'
@@ -11,88 +9,41 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
 
 import { Divider } from '~/src/components/Divider'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import {
+  type SegmentedControlItemListProps,
   type SegmentedControlProps,
   SegmentedControlSize,
+  type SegmentedControlTabContentProps,
   type SegmentedControlTabListProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'
+import {
+  SegmentedControlContextProvider,
+  SegmentedControlItemListContextProvider,
+  useSegmentedControlContext,
+} from './SegmentedControlContext'
 import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
-type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size' | 'width'>>
-
-const SegmentedControlContext = createContext<SegmentedControlContextValue | null>(null)
-
-// TODO: (@ed) Evolve it into a commonly reusable hook
-export function useSegmentedControlContext(consumerName: string) {
-  const contextValue = useContext(SegmentedControlContext)
-
-  if (!contextValue) {
-    throw new Error(`\`${consumerName}\` must be used within \`SegmentedControl\``)
-  }
-
-  return contextValue
-}
-
-type SegmentedControlItemListContextValue = {
-  selectedElement: HTMLButtonElement | null
-  setSelectedElement: (node: HTMLButtonElement | null) => void
-}
-
-const SegmentedControlItemListContext = createContext<SegmentedControlItemListContextValue | null>(null)
-
-export function useSegmentedControlItemListContext(consumerName: string) {
-  const contextValue = useContext(SegmentedControlItemListContext)
-
-  if (!contextValue) {
-    throw new Error(`\`${consumerName}\` must be used within \`SegmentedControl\``)
-  }
-
-  return contextValue
-}
-
-type SegmentedControlTabsProps<Value extends string> = Omit<SegmentedControlProps<'tabs', Value>, 'type' | 'width'>
-
-function SegmentedControlTabsImpl<Value extends string>({
-  children,
-  value,
-  defaultValue,
-  onValueChange,
-  ...rest
-}: SegmentedControlTabsProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <TabsPrimitive.Root
-      ref={forwardedRef}
-      value={value}
-      defaultValue={defaultValue}
-      onValueChange={onValueChange as TabsPrimitive.TabsProps['onValueChange']}
-      {...rest}
-    >
-      { children }
-    </TabsPrimitive.Root>
-  )
-}
-
-const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
-  props: SegmentedControlTabsProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlTabsImpl<Value>>
-
-function SegmentedControlItemListImpl({
+function SegmentedControlItemListImpl<
+  Type extends SegmentedControlType,
+  Value extends string,
+>({
   children,
   style: styleProp,
   className: classNameProp,
   ...rest
-}: any, forwardedRef: React.Ref<HTMLDivElement>) {
+}: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
 
   const {
     type,
     size,
     width,
-  } = useSegmentedControlContext('SegmentedControlTabs')
+  } = useSegmentedControlContext('SegmentedControlItemList')
 
   const {
     containerRef: ref,
@@ -110,7 +61,7 @@ function SegmentedControlItemListImpl({
   const style = useMemo(() => ({
     ...styleProp,
     '--bezier-react-segmented-control-width': width,
-  }), [
+  } as React.CSSProperties), [
     styleProp,
     width,
   ])
@@ -133,7 +84,7 @@ function SegmentedControlItemListImpl({
       {...rest}
     >
       <Styled.Container>
-        <SegmentedControlItemListContext.Provider value={contextValue}>
+        <SegmentedControlItemListContextProvider value={contextValue}>
           { renderIndicator() }
 
           { React.Children.map(children, (child, index) => {
@@ -151,27 +102,27 @@ function SegmentedControlItemListImpl({
               </>
             )
           }) }
-        </SegmentedControlItemListContext.Provider>
+        </SegmentedControlItemListContextProvider>
       </Styled.Container>
     </SegmentedControlItemList>
   )
 }
 
-// TODO: type declaration
-const SegmentedControlItemList = forwardRef(SegmentedControlItemListImpl) as (
-  props: any & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlItemListImpl>
-
-type SegmentedControlRadioGroupProps<Value extends string> = Omit<SegmentedControlProps<'radiogroup', Value>, 'type' | 'width'>
+const SegmentedControlItemList = forwardRef(SegmentedControlItemListImpl) as <
+  Type extends SegmentedControlType,
+  Value extends string,
+>(
+  props: SegmentedControlProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlItemListImpl<Type, Value>>
 
 function SegmentedControlRadioGroupImpl<Value extends string>({
   children,
   ...rest
-}: SegmentedControlRadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+}: SegmentedControlItemListProps<'radiogroup', Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
     <SegmentedControlItemList
       ref={forwardedRef}
-      {...rest}
+      {...useFormFieldProps(rest)}
     >
       { children }
     </SegmentedControlItemList>
@@ -179,22 +130,54 @@ function SegmentedControlRadioGroupImpl<Value extends string>({
 }
 
 const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
-  props: SegmentedControlRadioGroupProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+  props: SegmentedControlItemListProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => ReturnType<typeof SegmentedControlRadioGroupImpl<Value>>
 
-export const SegmentedControlTabList = forwardRef<HTMLDivElement, SegmentedControlTabListProps>(function SegmentedControlTabList({
+export const SegmentedControlTabList = SegmentedControlItemList as <Value extends string>(
+  props: SegmentedControlTabListProps & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlItemListImpl<'tabs', Value>>
+
+function SegmentedControlTabContentImpl<Value extends string>({
   children,
   ...rest
-}, forwardedRef) {
+}: SegmentedControlTabContentProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <SegmentedControlItemList
+    <TabsPrimitive.Content
       ref={forwardedRef}
       {...rest}
     >
       { children }
-    </SegmentedControlItemList>
+    </TabsPrimitive.Content>
   )
-})
+}
+
+export const SegmentedControlTabContent = forwardRef(SegmentedControlTabContentImpl) as <Value extends string>(
+  props: SegmentedControlTabContentProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlTabContentImpl<Value>>
+
+function SegmentedControlTabsImpl<Value extends string>({
+  children,
+  value,
+  defaultValue,
+  onValueChange,
+  ...rest
+}: SegmentedControlItemListProps<'tabs', Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  return (
+    <TabsPrimitive.Root
+      ref={forwardedRef}
+      value={value}
+      defaultValue={defaultValue}
+      onValueChange={onValueChange as TabsPrimitive.TabsProps['onValueChange']}
+      {...rest}
+    >
+      { children }
+    </TabsPrimitive.Root>
+  )
+}
+
+const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
+  props: SegmentedControlItemListProps<'tabs', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof SegmentedControlTabsImpl<Value>>
 
 function SegmentedControlImpl<
   Type extends SegmentedControlType,
@@ -222,7 +205,7 @@ function SegmentedControlImpl<
   ])
 
   return (
-    <SegmentedControlContext.Provider value={contextValue}>
+    <SegmentedControlContextProvider value={contextValue}>
       <SegmentedControl
         ref={forwardedRef}
         onValueChange={onValueChange}
@@ -230,7 +213,7 @@ function SegmentedControlImpl<
       >
         { children }
       </SegmentedControl>
-    </SegmentedControlContext.Provider>
+    </SegmentedControlContextProvider>
   )
 }
 

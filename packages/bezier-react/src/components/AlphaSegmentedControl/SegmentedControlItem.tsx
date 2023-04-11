@@ -10,21 +10,35 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { ariaAttr } from '~/src/utils/domUtils'
 
 import {
+  type SegmentedControlItemProps,
+  type SegmentedControlType,
+} from './SegmentedControl.types'
+import {
   useSegmentedControlContext,
   useSegmentedControlItemListContext,
-} from './SegmentedControl'
-import { type SegmentedControlItemProps } from './SegmentedControl.types'
+} from './SegmentedControlContext'
 
 import * as Styled from './SegmentedControl.styled'
 
-// TODO: type declaration
-const Item = forwardRef(function Item({
+/**
+ * NOTE: (@ed) A property injected at runtime by the radix-ui lib.
+ */
+type ItemProps<Type extends SegmentedControlType> = (
+  Type extends 'radiogroup'
+    ? { 'data-state'?: 'unchecked' | 'checked' }
+    : { 'data-state'?: 'inactive' | 'active' }
+) & React.HTMLAttributes<HTMLButtonElement>
+
+const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(function Item({
   children,
   ...rest
 }, forwardedRef) {
+  const { type } = useSegmentedControlContext('SegmentedControlItem')
   const { setSelectedElement } = useSegmentedControlItemListContext('SegmentedControlItem')
 
-  const checked = rest?.['data-state'] === 'checked' || rest?.['data-state'] === 'active'
+  const checked = type === 'radiogroup'
+    ? (rest as ItemProps<'radiogroup'>)?.['data-state'] === 'checked'
+    : (rest as ItemProps<'tabs'>)?.['data-state'] === 'active'
 
   const ref = useMergeRefs(
     forwardedRef,
