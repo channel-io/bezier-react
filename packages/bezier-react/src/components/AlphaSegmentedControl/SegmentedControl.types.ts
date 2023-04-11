@@ -6,6 +6,7 @@ import {
   type BezierComponentProps,
   type ChildrenProps,
   type DisableProps,
+  type SideContentProps,
 } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms'
@@ -64,6 +65,7 @@ export interface SegmentedControlItemProps<Value extends string> extends
   ChildrenProps,
   DisableProps,
   React.HTMLAttributes<HTMLButtonElement>,
+  SideContentProps,
   SegmentedControlItemOptions<Value> {}
 
 type RadixTabListPredefinedPropKeys = 'defaultValue'

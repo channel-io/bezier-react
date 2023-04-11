@@ -9,6 +9,8 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { ariaAttr } from '~/src/utils/domUtils'
 
+import { AlphaStack } from '~/src/components/AlphaStack'
+
 import {
   type SegmentedControlItemProps,
   type SegmentedControlType,
@@ -27,10 +29,14 @@ type ItemProps<Type extends SegmentedControlType> = (
   Type extends 'radiogroup'
     ? { 'data-state'?: 'unchecked' | 'checked' }
     : { 'data-state'?: 'inactive' | 'active' }
-) & React.HTMLAttributes<HTMLButtonElement>
+)
+& React.HTMLAttributes<HTMLButtonElement>
+& Partial<SegmentedControlItemProps<Type>>
 
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(function Item({
   children,
+  leftContent,
+  rightContent,
   ...rest
 }, forwardedRef) {
   const { type } = useSegmentedControlContext('SegmentedControlItem')
@@ -58,9 +64,16 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
       ref={ref}
       data-checked={ariaAttr(checked)}
     >
-      <Styled.ItemLabel>
-        { children }
-      </Styled.ItemLabel>
+      <AlphaStack
+        direction="vertical"
+        spacing={2}
+      >
+        { leftContent }
+        <Styled.ItemLabel>
+          { children }
+        </Styled.ItemLabel>
+        { rightContent }
+      </AlphaStack>
     </Styled.Item>
   )
 })
