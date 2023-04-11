@@ -1,5 +1,6 @@
 import React, {
   useCallback,
+  useLayoutEffect,
   useState,
 } from 'react'
 
@@ -9,7 +10,7 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import * as Styled from './SegmentedControl.styled'
 
-export function SegmentedControlIndicator({
+export const SegmentedControlIndicator = function SegmentedControlIndicator({
   target,
   container,
   containerWidth,
@@ -18,10 +19,39 @@ export function SegmentedControlIndicator({
   container: HTMLElement | null
   containerWidth?: number
 }) {
+  const [indicatorNode, setIndicatorNode] = useState<HTMLDivElement | null>(null)
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({})
 
-  const updateIndicatorPosition = useCallback((node: HTMLElement | null) => {
-    if (node && container && target) {
+  useLayoutEffect(function pauseTransitionOnMount() {
+    let timer: NodeJS.Timeout | undefined
+
+    if (indicatorNode) {
+      const transitionDuration = (
+        indicatorNode
+          .computedStyleMap()
+          .get('transition-duration') as { value: number }
+      )?.value
+
+      setIndicatorStyle(prev => ({
+        ...prev,
+        transition: 'none',
+      }))
+
+      timer = setTimeout(() => {
+        setIndicatorStyle(prev => ({
+          ...prev,
+          transition: undefined,
+        }))
+      }, transitionDuration * 1000)
+    }
+
+    return function cleanUp() {
+      clearTimeout(timer)
+    }
+  }, [indicatorNode])
+
+  useLayoutEffect(function updatePosition() {
+    if (indicatorNode && container && target) {
       const {
         top,
         left,
@@ -34,16 +64,17 @@ export function SegmentedControlIndicator({
         left: containerLeft,
       } = container.getBoundingClientRect()
 
-      setIndicatorStyle({
+      setIndicatorStyle(prev => ({
+        ...prev,
         '--bezier-react-segmented-control-indicator-transform': `translate(${left - containerLeft}px, ${top - containerTop}px)`,
         '--bezier-react-segmented-control-indicator-width': `${selectedElementWidth}px`,
         '--bezier-react-segmented-control-indicator-height': `${selectedElementHeight}px`,
-      } as React.CSSProperties)
+      }))
     }
-    // NOTE: (@ed) to force update indicator position on container width change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    // NOTE: (@ed) to force update indicator position on container width change
     containerWidth,
+    indicatorNode,
     container,
     target,
   ])
@@ -52,7 +83,7 @@ export function SegmentedControlIndicator({
 
   return (
     <Styled.Indicator
-      ref={updateIndicatorPosition}
+      ref={setIndicatorNode}
       style={indicatorStyle}
     />
   )
