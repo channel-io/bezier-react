@@ -5,6 +5,7 @@ import {
   styled,
 } from '~/src/foundation'
 
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { ZIndex } from '~/src/constants/ZIndex'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
@@ -37,7 +38,11 @@ export const Item = styled.button`
     cursor: pointer;
   }
 
-  &:not([data-checked]):hover {
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:not([data-checked]):not(&:disabled):hover {
     background-color: var(--bg-black-light);
   }
 `
@@ -136,7 +141,9 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
     }
   }
 
-  &:disabled {
+  &[data-disabled] {
+    opacity: ${DisabledOpacity};
+
     ${Item},
     ${Indicator} {
       cursor: not-allowed;
