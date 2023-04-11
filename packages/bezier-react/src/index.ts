@@ -54,6 +54,7 @@ export * from '~/src/components/AlphaCenter'
 export * from '~/src/components/AlphaStack'
 
 export * as LegacyRadio from '~/src/components/Legacies/Radio'
+export * as LegacySegmentedControl from '~/src/components/Legacies/SegmentedControl'
 
 /* Hooks for Component */
 export { default as useToast } from '~/src/components/Toast/useToast'

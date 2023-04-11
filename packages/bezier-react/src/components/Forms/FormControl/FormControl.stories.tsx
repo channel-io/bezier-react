@@ -8,23 +8,27 @@ import type {
 
 /* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
+
 import {
-  RadioGroup,
-  Radio,
-} from '~/src/components/Forms/RadioGroup'
+  SegmentedControl,
+  SegmentedControlItem,
+} from '~/src/components/Forms/SegmentedControl'
 import { Checkbox } from '~/src/components/Forms/Checkbox'
-import { Text } from '~/src/components/Text'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
-import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { TextField } from '~/src/components/Forms/Inputs/TextField'
-import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
-import { Select } from '~/src/components/Forms/Inputs/Select'
 import {
-  FormHelperText,
   FormErrorMessage,
+  FormHelperText,
 } from '~/src/components/Forms/FormHelperText'
+import { FormLabel } from '~/src/components/Forms/FormLabel'
+import { Select } from '~/src/components/Forms/Inputs/Select'
+import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
+import { TextField } from '~/src/components/Forms/Inputs/TextField'
+import {
+  Radio,
+  RadioGroup,
+} from '~/src/components/Forms/RadioGroup'
 import { Switch } from '~/src/components/Forms/Switch'
+
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 
@@ -92,7 +96,12 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <SegmentedControl>
         { ['Open', 'Snoozed', 'Closed'].map((item) => (
-          <Text key={item} bold>{ item }</Text>
+          <SegmentedControlItem
+            key={item}
+            value={item}
+          >
+            { item }
+          </SegmentedControlItem>
         )) }
       </SegmentedControl>
       <FormHelperText>Description</FormHelperText>
