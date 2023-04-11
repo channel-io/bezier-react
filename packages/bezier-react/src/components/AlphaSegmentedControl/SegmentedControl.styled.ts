@@ -9,6 +9,7 @@ import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { ZIndex } from '~/src/constants/ZIndex'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
+import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
@@ -21,6 +22,7 @@ export const ItemLabel = styled(Text).attrs({ bold: true })`
 export const Item = styled.button`
   all: unset;
 
+  position: relative;
   display: flex;
   flex: 1;
   align-items: center;
@@ -40,6 +42,26 @@ export const Item = styled.button`
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  /* NOTE: (@ed) focus indicator */
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: ${ZIndex.Float};
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    border-radius: inherit;
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])}
+  }
+
+  &:focus-visible {
+    &::after {
+      ${focusedInputWrapperStyle}
+    }
   }
 
   &:not([data-checked]):not(&:disabled):hover {
