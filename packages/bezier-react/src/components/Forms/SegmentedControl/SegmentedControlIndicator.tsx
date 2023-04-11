@@ -13,11 +13,11 @@ import * as Styled from './SegmentedControl.styled'
 export const SegmentedControlIndicator = function SegmentedControlIndicator({
   target,
   container,
-  containerWidth,
+  updateKey,
 }: {
   target: HTMLElement | null
   container: HTMLElement | null
-  containerWidth?: number
+  updateKey?: string
 }) {
   const [indicatorNode, setIndicatorNode] = useState<HTMLDivElement | null>(null)
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({})
@@ -72,8 +72,8 @@ export const SegmentedControlIndicator = function SegmentedControlIndicator({
       }))
     }
   }, [
-    // NOTE: (@ed) to force update indicator position on container width change
-    containerWidth,
+    // NOTE: (@ed) to force update indicator position on container size change
+    updateKey,
     indicatorNode,
     container,
     target,
@@ -100,8 +100,11 @@ export function useSegmentedControlIndicator<Element extends HTMLElement>({
 
   const {
     width: containerWidth,
+    height: containerHeight,
     ref: resizeDetectorRef,
   } = useResizeDetector<Element>()
+
+  const containerSizeKey = `${containerWidth}-${containerHeight}`
 
   const containerRef = useMergeRefs(
     ...refs,
@@ -113,12 +116,12 @@ export function useSegmentedControlIndicator<Element extends HTMLElement>({
     <SegmentedControlIndicator
       target={target}
       container={container}
-      containerWidth={containerWidth}
+      updateKey={containerSizeKey}
     />
   ), [
     target,
     container,
-    containerWidth,
+    containerSizeKey,
   ])
 
   return {
