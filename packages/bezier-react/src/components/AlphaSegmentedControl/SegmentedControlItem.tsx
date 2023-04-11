@@ -66,9 +66,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
 })
 
 function SegmentedControlItemImpl<Value extends string>({
-  value,
   children,
-  className: classNameProp,
   ...rest
 }: SegmentedControlItemProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
   const { type } = useSegmentedControlContext('SegmentedControlItem')
@@ -81,7 +79,6 @@ function SegmentedControlItemImpl<Value extends string>({
     <SegmentedControlItem
       asChild
       ref={forwardedRef}
-      value={value}
       {...rest}
     >
       <Item>
