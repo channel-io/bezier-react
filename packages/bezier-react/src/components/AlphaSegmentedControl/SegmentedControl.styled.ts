@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
 import {
   Transition,
   Typography,
@@ -26,17 +27,17 @@ export const Item = styled.button`
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
 
-  &[data-state='checked'] {
+  &[data-checked] {
     color: var(--txt-black-darkest);
     cursor: default;
   }
 
-  &:not([data-state='checked']) {
+  &:not([data-checked]) {
     color: var(--txt-black-dark);
     cursor: pointer;
   }
 
-  &:not([data-state='checked']):hover {
+  &:not([data-checked]):hover {
     background-color: var(--bg-black-light);
   }
 `

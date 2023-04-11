@@ -7,6 +7,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { ariaAttr } from '~/src/utils/domUtils'
 
 import {
   useSegmentedControlContext,
@@ -41,6 +42,7 @@ const Item = forwardRef(function Item({
     <Styled.Item
       {...rest}
       ref={ref}
+      data-checked={ariaAttr(checked)}
     >
       <Styled.ItemLabel>
         { children }
