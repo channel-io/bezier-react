@@ -65,17 +65,17 @@ export function useSegmentedControlIndicator<Element extends HTMLElement>({
   target: HTMLElement | null
   refs: React.Ref<Element>[]
 }) {
-  const [container, setContainer] = useState<HTMLElement | null>(null)
+  const [container, setContainer] = useState<Element | null>(null)
 
   const {
     width: containerWidth,
     ref: resizeDetectorRef,
-  } = useResizeDetector<HTMLElement>()
+  } = useResizeDetector<Element>()
 
   const containerRef = useMergeRefs(
     ...refs,
     resizeDetectorRef,
-    setContainer as React.Ref<HTMLElement | null>,
+    setContainer as React.Ref<Element | null>,
   )
 
   const render = useCallback(() => (
@@ -93,5 +93,5 @@ export function useSegmentedControlIndicator<Element extends HTMLElement>({
   return {
     containerRef,
     render,
-  }
+  } as const
 }
