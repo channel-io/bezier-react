@@ -134,9 +134,9 @@ const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as
   props: SegmentedControlItemListProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => ReturnType<typeof SegmentedControlRadioGroupImpl<Value>>
 
-export const SegmentedControlTabList = SegmentedControlItemList as <Value extends string>(
+export const SegmentedControlTabList = SegmentedControlItemList as (
   props: SegmentedControlTabListProps & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlItemListImpl<'tabs', Value>>
+) => ReturnType<typeof SegmentedControlItemListImpl<'tabs', string>>
 
 function SegmentedControlTabContentImpl<Value extends string>({
   children,

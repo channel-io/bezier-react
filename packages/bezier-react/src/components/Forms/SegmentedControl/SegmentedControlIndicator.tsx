@@ -10,7 +10,7 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import * as Styled from './SegmentedControl.styled'
 
-export const SegmentedControlIndicator = function SegmentedControlIndicator({
+const SegmentedControlIndicator = function SegmentedControlIndicator({
   target,
   container,
   updateKey,
