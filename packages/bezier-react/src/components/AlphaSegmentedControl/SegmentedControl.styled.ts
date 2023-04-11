@@ -43,9 +43,9 @@ export const Item = styled.button`
 `
 
 export const Indicator = styled.div`
-  --bezier-react-segmented-control-indicator-transform: initial;
-  --bezier-react-segmented-control-indicator-width: initial;
-  --bezier-react-segmented-control-indicator-height: initial;
+  --bezier-react-segmented-control-indicator-transform: none;
+  --bezier-react-segmented-control-indicator-width: auto;
+  --bezier-react-segmented-control-indicator-height: auto;
 
   position: absolute;
   top: 0;
@@ -64,10 +64,11 @@ export const Indicator = styled.div`
 `
 
 export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
-  --bezier-react-segmented-control-width: initial;
+  --bezier-react-segmented-control-width: auto;
 
   position: relative;
   z-index: ${ZIndex.Base};
+  box-sizing: border-box;
   width: var(--bezier-react-segmented-control-width);
   background-color: var(--bg-black-lighter);
 
