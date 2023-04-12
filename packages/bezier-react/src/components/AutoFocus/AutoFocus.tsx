@@ -1,7 +1,8 @@
 /* External dependencies */
 import React, {
   forwardRef,
-  useCallback,
+  useLayoutEffect,
+  useState,
 } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
@@ -32,13 +33,21 @@ export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(function AutoFo
   when = true,
   ...rest
 }, forwardedRef) {
-  const focus = useCallback((node: HTMLElement | null) => {
-    if (node && when) {
-      node.focus()
-    }
-  }, [when])
+  const [target, setTarget] = useState<HTMLElement | null>(null)
 
-  const ref = useMergeRefs(focus, forwardedRef)
+  useLayoutEffect(function focus() {
+    if (target && when) {
+      target.focus()
+    }
+  }, [
+    target,
+    when,
+  ])
+
+  const ref = useMergeRefs(
+    setTarget,
+    forwardedRef,
+  )
 
   return (
     <Slot

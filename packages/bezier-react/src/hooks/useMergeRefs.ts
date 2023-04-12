@@ -1,21 +1,37 @@
-/* External dependencies */
-import React from 'react'
+import { useMemo } from 'react'
 
-function setRef<T>(ref: React.Ref<T>, value: T) {
+type ReactRef<Node> = React.RefCallback<Node> | React.MutableRefObject<Node | null>
+
+type Ref<Node> = ReactRef<Node> | null | undefined
+type Refs<Node> = Array<Ref<Node>>
+
+function assignRef<Node>(
+  ref: Ref<Node>,
+  value: Node | null,
+) {
+  if (ref === null || ref === undefined) { return }
+
   if (typeof ref === 'function') {
     ref(value)
-  } else if (ref) {
-    (ref as any).current = value
+    return
+  }
+
+  try {
+    ref.current = value
+  } catch (error) {
+    throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }
 }
 
-export default function useMergeRefs<T>(...refs: Array<React.Ref<T>>) {
-  /* eslint-disable-next-line consistent-return */
-  return React.useCallback((inst: T) => {
-    const filteredRefs = refs.filter(Boolean)
-    if (!filteredRefs.length) { return null }
-    if (filteredRefs.length === 0) { return filteredRefs[0] }
+function mergeRefs<Node>(...refs: Refs<Node>) {
+  return (node: Node | null) => {
+    refs.forEach((ref) => {
+      assignRef(ref, node)
+    })
+  }
+}
 
-    filteredRefs.forEach(ref => setRef<T>(ref, inst))
-  }, [refs])
+export default function useMergeRefs<Node>(...refs: Refs<Node>) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  return useMemo(() => mergeRefs(...refs), refs)
 }
