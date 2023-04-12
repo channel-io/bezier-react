@@ -109,7 +109,7 @@ export function useSegmentedControlIndicator<Element extends HTMLElement>({
   const containerRef = useMergeRefs(
     ...refs,
     resizeDetectorRef,
-    setContainer as React.Ref<Element | null>,
+    setContainer,
   )
 
   const render = useCallback(() => (
