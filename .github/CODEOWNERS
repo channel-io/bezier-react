@@ -19,6 +19,7 @@
 /packages/bezier-react/src/components/Forms/Slider/
 /packages/bezier-react/src/components/Forms/Slider/ @Dogdriip
 /packages/bezier-react/src/components/Forms/RadioGroup/ @sungik-choi
+/packages/bezier-react/src/components/Forms/SegmentedControl/ @sungik-choi
 /packages/bezier-react/src/components/Help/ @dinohan
 /packages/bezier-react/src/components/Icon/ @sungik-choi
 /packages/bezier-react/src/components/KeyValueListItem/ @sungik-choi
