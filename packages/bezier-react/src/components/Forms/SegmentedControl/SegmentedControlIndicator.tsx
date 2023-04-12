@@ -28,6 +28,8 @@ const SegmentedControlIndicator = function SegmentedControlIndicator({
     if (indicatorNode) {
       const transitionDuration = (
         indicatorNode
+          // NOTE: (@ed) prevent error TS2339: Property 'computedStyleMap' does not exist on type 'Element'.
+          // @ts-ignore
           .computedStyleMap()
           .get('transition-duration') as { value: number }
       )?.value

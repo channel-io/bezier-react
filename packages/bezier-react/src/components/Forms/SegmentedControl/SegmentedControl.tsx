@@ -114,7 +114,7 @@ const SegmentedControlItemList = forwardRef(SegmentedControlItemListImpl) as <
   Value extends string,
 >(
   props: SegmentedControlProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlItemListImpl<Type, Value>>
+) => JSX.Element
 
 function SegmentedControlRadioGroupImpl<Value extends string>({
   children,
@@ -132,11 +132,11 @@ function SegmentedControlRadioGroupImpl<Value extends string>({
 
 const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
   props: SegmentedControlItemListProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlRadioGroupImpl<Value>>
+) => JSX.Element
 
 export const SegmentedControlTabList = SegmentedControlItemList as (
   props: SegmentedControlTabListProps & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlItemListImpl<'tabs', string>>
+) => JSX.Element
 
 function SegmentedControlTabContentImpl<Value extends string>({
   children,
@@ -154,7 +154,7 @@ function SegmentedControlTabContentImpl<Value extends string>({
 
 export const SegmentedControlTabContent = forwardRef(SegmentedControlTabContentImpl) as <Value extends string>(
   props: SegmentedControlTabContentProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlTabContentImpl<Value>>
+) => JSX.Element
 
 function SegmentedControlTabsImpl<Value extends string>({
   children,
@@ -178,7 +178,7 @@ function SegmentedControlTabsImpl<Value extends string>({
 
 const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
   props: SegmentedControlItemListProps<'tabs', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlTabsImpl<Value>>
+) => JSX.Element
 
 function SegmentedControlImpl<
   Type extends SegmentedControlType,
@@ -223,4 +223,4 @@ export const SegmentedControl = forwardRef(SegmentedControlImpl) as <
   Value extends string,
 >(
   props: SegmentedControlProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof SegmentedControlImpl<Type, Value>>
+) => JSX.Element
