@@ -16,7 +16,7 @@ function createContext<ContextValue>(
     const contextValue = React.useContext(Context)
 
     if (!contextValue) {
-      throw new Error(`\`${consumerName}\` must be used within \`${providerName}\``)
+      throw new Error(`'${consumerName}' must be used within '${providerName}'`)
     }
 
     return contextValue
