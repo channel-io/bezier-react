@@ -11,7 +11,6 @@ import {
   getTitle,
 } from '~/src/utils/storyUtils'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -30,56 +29,101 @@ export default {
   title: getTitle(base),
   component: SegmentedControl,
   argTypes: {
+    type: {
+      control: {
+        type: 'radio',
+        options: ['radiogroup', 'tabs'],
+      },
+    },
     size: {
       control: {
         type: 'radio',
         options: getObjectFromEnum(SegmentedControlSize),
       },
     },
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+    defaultValue: {
+      control: {
+        type: 'text',
+      },
+    },
   },
 } as Meta<SegmentedControlProps<SegmentedControlType, string>>
 
-const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({ children, ...rest }) => (
-  <AlphaStack
-    style={{ width: 500 }}
-    direction="vertical"
-    spacing={20}
-  >
-    <SegmentedControl
-      {...rest}
-      type="radiogroup"
-    >
-      <SegmentedControlItem value="1">First Radio</SegmentedControlItem>
-      <SegmentedControlItem value="2">Second Radio</SegmentedControlItem>
-      <SegmentedControlItem value="3">Third Radio</SegmentedControlItem>
-    </SegmentedControl>
+const VALUES = [
+  {
+    value: '1',
+    label: 'First',
+  },
+  {
+    value: '2',
+    label: 'Second',
+  },
+  {
+    value: '3',
+    label: 'Third',
+  },
+]
 
+const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({
+  children,
+  type,
+  ...rest
+}) => (
+  <div style={{ width: 500 }}>
     <SegmentedControl
+      type={type}
       {...rest}
-      type="tabs"
     >
-      <AlphaStack
-        direction="vertical"
-        spacing={12}
-      >
-        <SegmentedControlTabList>
-          <SegmentedControlItem value="1">First Tab</SegmentedControlItem>
-          <SegmentedControlItem value="2">Second Tab</SegmentedControlItem>
-          <SegmentedControlItem value="3">Third Tab</SegmentedControlItem>
-        </SegmentedControlTabList>
+      { type === 'radiogroup'
+        ? VALUES.map(({ value, label }) => (
+          <SegmentedControlItem
+            key={value}
+            value={value}
+          >
+            { label }
+          </SegmentedControlItem>
+        ))
+        : (
+          <>
+            <SegmentedControlTabList>
+              { VALUES.map(({ value, label }) => (
+                <SegmentedControlItem
+                  key={value}
+                  value={value}
+                >
+                  { label }
+                </SegmentedControlItem>
+              )) }
+            </SegmentedControlTabList>
 
-        <Text color="txt-black-dark">
-          <SegmentedControlTabContent value="1">First Tab Content</SegmentedControlTabContent>
-          <SegmentedControlTabContent value="2">Second Tab Content</SegmentedControlTabContent>
-          <SegmentedControlTabContent value="3">Third Tab Content</SegmentedControlTabContent>
-        </Text>
-      </AlphaStack>
+            { VALUES.map(({ value, label }) => (
+              <SegmentedControlTabContent
+                key={value}
+                value={value}
+              >
+                <Text color="txt-black-darkest">
+                  { label }
+                </Text>
+              </SegmentedControlTabContent>
+            )) }
+          </>
+        ) }
     </SegmentedControl>
-  </AlphaStack>
+  </div>
 )
 
 export const Primary = Template.bind({})
 
 Primary.args = {
+  type: 'radiogroup',
   size: SegmentedControlSize.XS,
+  width: '100%',
+  value: undefined,
+  defaultValue: undefined,
+  disabled: false,
 }
