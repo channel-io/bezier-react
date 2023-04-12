@@ -101,6 +101,15 @@ function SegmentedControlItemImpl<Value extends string>({
   )
 }
 
+/**
+ * `SegmentedControlItem` component is each item in `SegmentedControl`.
+ *
+ * If the type of `SegmentedControl` is `radiogroup`, this component acts as a radio item.
+ * In this case, it must be used as a child component of `SegmentedControl`.
+ *
+ * If the type of `SegmentedControl` is `tabs`, this component acts as a tab item.
+ * In this case, it must be used as a child component of `SegmentedControlTabList`.
+ */
 export const SegmentedControlItem = forwardRef(SegmentedControlItemImpl) as <Value extends string>(
   props: SegmentedControlItemProps<Value> & { ref?: React.ForwardedRef<HTMLButtonElement> }
 ) => JSX.Element

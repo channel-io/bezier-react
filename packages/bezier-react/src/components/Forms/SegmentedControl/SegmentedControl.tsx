@@ -134,49 +134,27 @@ const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as
   props: SegmentedControlItemListProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
+/**
+ * `SegmentedControlTabList` is the component that wraps `SegmentedControlItem`.
+ * It can be used only when `SegmentedControl` component is used as the `tabs` type.
+ *
+ * It must be used as a child of `SegmentedControl`.
+ */
 export const SegmentedControlTabList = SegmentedControlItemList as (
   props: SegmentedControlTabListProps & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
-function SegmentedControlTabContentImpl<Value extends string>({
-  children,
-  ...rest
-}: SegmentedControlTabContentProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <TabsPrimitive.Content
-      ref={forwardedRef}
-      {...rest}
-    >
-      { children }
-    </TabsPrimitive.Content>
-  )
-}
-
-export const SegmentedControlTabContent = forwardRef(SegmentedControlTabContentImpl) as <Value extends string>(
+/**
+ * `SegmentedControlTabContent` is the component that wraps the content that corresponds to a specific value of `SegmentedControlItem`.
+ * It can be used only when `SegmentedControl` component is used as the `tabs` type.
+ *
+ * It must be used as a child of `SegmentedControl`.
+ */
+export const SegmentedControlTabContent = TabsPrimitive.Content as <Value extends string>(
   props: SegmentedControlTabContentProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
-function SegmentedControlTabsImpl<Value extends string>({
-  children,
-  value,
-  defaultValue,
-  onValueChange,
-  ...rest
-}: SegmentedControlItemListProps<'tabs', Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <TabsPrimitive.Root
-      ref={forwardedRef}
-      value={value}
-      defaultValue={defaultValue}
-      onValueChange={onValueChange as TabsPrimitive.TabsProps['onValueChange']}
-      {...rest}
-    >
-      { children }
-    </TabsPrimitive.Root>
-  )
-}
-
-const SegmentedControlTabs = forwardRef(SegmentedControlTabsImpl) as <Value extends string>(
+const SegmentedControlTabs = TabsPrimitive.Root as <Value extends string>(
   props: SegmentedControlItemListProps<'tabs', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
@@ -218,6 +196,31 @@ function SegmentedControlImpl<
   )
 }
 
+/**
+ * `SegmentedControl` is component that looks like a combination of a radio and a button.
+ * They can be used in place of tabs and as input elements in modals.
+ * If you have more than five items, use a different element, such as a dropdown.
+ *
+ * `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the SegmentedControl type="radiogroup"
+ * <SegmentedControl type="radiogroup">
+ *  <SegmentedControlItem />
+ * </SegmentedControl>
+ *
+ * // Anatomy of the SegmentedControl type="tabs"
+ * <SegmentedControl type="tabs">
+ *  <SegmentedControlTabList>
+ *   <SegmentedControlItem />
+ *  </SegmentedControlTabList>
+ *
+ *  <SegmentedControlTabContent />
+ * </SegmentedControl>
+ * ```
+ */
 export const SegmentedControl = forwardRef(SegmentedControlImpl) as <
   Type extends SegmentedControlType,
   Value extends string,
