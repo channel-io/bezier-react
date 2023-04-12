@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.200
+
+### Minor Changes
+
+- [#1279](https://github.com/channel-io/bezier-react/pull/1279) [`dc2e30cd`](https://github.com/channel-io/bezier-react/commit/dc2e30cdb198e2d74000a67f2147ddd6370d967c) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fixes an issue that causes the focus to move whenever the state changes when using `AutoFocus` component.
+
 ## 1.0.0-next-v1.199
 
 ### Patch Changes
