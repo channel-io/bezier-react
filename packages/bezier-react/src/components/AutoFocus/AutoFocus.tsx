@@ -45,7 +45,7 @@ export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(function AutoFo
   ])
 
   const ref = useMergeRefs(
-    setTarget as React.Ref<HTMLElement>,
+    setTarget,
     forwardedRef,
   )
 
