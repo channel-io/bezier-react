@@ -69,6 +69,10 @@ export const Item = styled.button`
   }
 `
 
+export const indicatorTransitionMeta = {
+  duration: Transition.TransitionDuration.M,
+}
+
 export const Indicator = styled.div`
   --bezier-react-segmented-control-indicator-transform: none;
   --bezier-react-segmented-control-indicator-width: auto;
@@ -87,7 +91,7 @@ export const Indicator = styled.div`
   background-color: var(--bg-white-high);
 
   transform: var(--bezier-react-segmented-control-indicator-transform);
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', Transition.TransitionDuration.M)}
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
 `
 
 export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`

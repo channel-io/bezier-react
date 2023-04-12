@@ -26,14 +26,6 @@ const SegmentedControlIndicator = function SegmentedControlIndicator({
     let timer: NodeJS.Timeout | undefined
 
     if (indicatorNode) {
-      const transitionDuration = (
-        indicatorNode
-          // NOTE: (@ed) prevent error TS2339: Property 'computedStyleMap' does not exist on type 'Element'.
-          // @ts-ignore
-          .computedStyleMap()
-          .get('transition-duration') as { value: number }
-      )?.value
-
       setIndicatorStyle(prev => ({
         ...prev,
         transition: 'none',
@@ -44,7 +36,7 @@ const SegmentedControlIndicator = function SegmentedControlIndicator({
           ...prev,
           transition: undefined,
         }))
-      }, transitionDuration * 1000)
+      }, Styled.indicatorTransitionMeta.duration)
     }
 
     return function cleanUp() {
