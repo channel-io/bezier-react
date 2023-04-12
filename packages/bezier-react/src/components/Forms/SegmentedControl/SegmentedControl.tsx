@@ -13,7 +13,7 @@ import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import {
-  type SegmentedControlItemListProps,
+  type SegmentedControlRootProps,
   type SegmentedControlProps,
   SegmentedControlSize,
   type SegmentedControlTabContentProps,
@@ -37,7 +37,7 @@ function SegmentedControlItemListImpl<
   style: styleProp,
   className: classNameProp,
   ...rest
-}: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+}: SegmentedControlRootProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
 
   const {
@@ -119,7 +119,7 @@ const SegmentedControlItemList = forwardRef(SegmentedControlItemListImpl) as <
 function SegmentedControlRadioGroupImpl<Value extends string>({
   children,
   ...rest
-}: SegmentedControlItemListProps<'radiogroup', Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+}: SegmentedControlRootProps<'radiogroup', Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
     <SegmentedControlItemList
       ref={forwardedRef}
@@ -131,7 +131,7 @@ function SegmentedControlRadioGroupImpl<Value extends string>({
 }
 
 const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
-  props: SegmentedControlItemListProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+  props: SegmentedControlRootProps<'radiogroup', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
 /**
@@ -155,7 +155,7 @@ export const SegmentedControlTabContent = TabsPrimitive.Content as <Value extend
 ) => JSX.Element
 
 const SegmentedControlTabs = TabsPrimitive.Root as <Value extends string>(
-  props: SegmentedControlItemListProps<'tabs', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+  props: SegmentedControlRootProps<'tabs', Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => JSX.Element
 
 function SegmentedControlImpl<
@@ -169,7 +169,7 @@ function SegmentedControlImpl<
   children,
   ...rest
 }: SegmentedControlProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const SegmentedControl = type === 'radiogroup'
+  const SegmentedControlRoot = type === 'radiogroup'
     ? SegmentedControlRadioGroup
     : SegmentedControlTabs
 
@@ -185,13 +185,13 @@ function SegmentedControlImpl<
 
   return (
     <SegmentedControlContextProvider value={contextValue}>
-      <SegmentedControl
+      <SegmentedControlRoot
         ref={forwardedRef}
         onValueChange={onValueChange}
         {...rest}
       >
         { children }
-      </SegmentedControl>
+      </SegmentedControlRoot>
     </SegmentedControlContextProvider>
   )
 }

@@ -97,7 +97,7 @@ export type SegmentedControlProps<Type extends SegmentedControlType, Value exten
   & Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabsPredefinedPropKeys>
   & SegmentedControlOptions<Type, Value>
 
-export type SegmentedControlItemListProps<Type extends SegmentedControlType, Value extends string> =
+export type SegmentedControlRootProps<Type extends SegmentedControlType, Value extends string> =
   Omit<SegmentedControlProps<Type, Value>, keyof SegmentedControlNonValueOptions<Type>>
 
 export interface SegmentedControlItemProps<Value extends string> extends
