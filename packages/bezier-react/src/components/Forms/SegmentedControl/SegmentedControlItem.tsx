@@ -12,6 +12,7 @@ import { ariaAttr } from '~/src/utils/domUtils'
 import { AlphaStack } from '~/src/components/AlphaStack'
 
 import {
+  type SegmentedControlProps,
   type SegmentedControlItemProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'
@@ -32,14 +33,15 @@ type ItemProps<Type extends SegmentedControlType> = (
 )
 & React.HTMLAttributes<HTMLButtonElement>
 & Partial<SegmentedControlItemProps<Type>>
+& Required<Pick<SegmentedControlProps<Type, string>, 'type'>>
 
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(function Item({
   children,
+  type,
   leftContent,
   rightContent,
   ...rest
 }, forwardedRef) {
-  const { type } = useSegmentedControlContext('SegmentedControlItem')
   const { setSelectedElement } = useSegmentedControlItemListContext('SegmentedControlItem')
 
   const checked = type === 'radiogroup'
@@ -94,7 +96,7 @@ function SegmentedControlItemImpl<Value extends string>({
       ref={forwardedRef}
       {...rest}
     >
-      <Item>
+      <Item type={type}>
         { children }
       </Item>
     </SegmentedControlItem>
