@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.201
+
+### Minor Changes
+
+- [#1281](https://github.com/channel-io/bezier-react/pull/1281) [`123f4cdd`](https://github.com/channel-io/bezier-react/commit/123f4cdd4f05bff9d4f3c44b9e5fad246f3c1b3b) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix no spacing between form fields and `FormLabel` and `FormHelperText` when `labelPosition="left"`.
+
 ## 1.0.0-next-v1.200
 
 ### Minor Changes
