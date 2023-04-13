@@ -57,9 +57,8 @@ function SegmentedControlItemListImpl<
   })
 
   const contextValue = useMemo(() => ({
-    selectedElement,
     setSelectedElement,
-  }), [selectedElement])
+  }), [])
 
   const style = useMemo(() => ({
     ...styleProp,
