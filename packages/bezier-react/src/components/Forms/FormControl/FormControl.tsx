@@ -43,7 +43,6 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
         <AlphaStack
           ref={forwardedRef}
           direction="vertical"
-          spacing={4}
           testId={testId}
           {...rest}
         >
