@@ -10,6 +10,8 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import * as Styled from './SegmentedControl.styled'
 
+export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
+
 const SegmentedControlIndicator = function SegmentedControlIndicator({
   target,
   container,
@@ -79,6 +81,7 @@ const SegmentedControlIndicator = function SegmentedControlIndicator({
     <Styled.Indicator
       ref={setIndicatorNode}
       style={indicatorStyle}
+      data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
     />
   )
 }
