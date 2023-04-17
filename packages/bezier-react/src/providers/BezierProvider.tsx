@@ -11,6 +11,8 @@ import {
 
 import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
+import { TooltipProvider } from '~/src/components/AlphaTooltip'
+
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp
   children: React.ReactNode
@@ -26,12 +28,14 @@ function BezierProvider({
 
   return (
     <FoundationProvider foundation={foundation}>
-      <GlobalStyle foundation={foundation} />
-      <ThemeVars
-        foundation={foundation}
-        scope={themeVarsScope}
-      />
-      { children }
+      <TooltipProvider>
+        <GlobalStyle foundation={foundation} />
+        <ThemeVars
+          foundation={foundation}
+          scope={themeVarsScope}
+        />
+        { children }
+      </TooltipProvider>
     </FoundationProvider>
   )
 }
