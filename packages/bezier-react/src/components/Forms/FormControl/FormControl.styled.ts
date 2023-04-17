@@ -11,10 +11,12 @@ const Box = styled.div<InterpolationProps>`
 
 export const TopLabelWrapper = styled(Box)`
   padding: 0 2px;
+  margin-bottom: 4px;
 `
 
 export const TopHelperTextWrapper = styled(Box)`
   padding: 0 2px;
+  margin-top: 4px;
 `
 
 export const Grid = styled(Box)`

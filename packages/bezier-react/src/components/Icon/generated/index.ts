@@ -79,6 +79,7 @@ import Camera from './Camera'
 import CameraFilled from './CameraFilled'
 import CameraSwitch from './CameraSwitch'
 import Cancel from './Cancel'
+import CancelBold from './CancelBold'
 import CancelCircle from './CancelCircle'
 import CancelCircleFilled from './CancelCircleFilled'
 import CancelSmall from './CancelSmall'
@@ -171,7 +172,8 @@ import DialogUp from './DialogUp'
 import Distribute from './Distribute'
 import Dot from './Dot'
 import Download from './Download'
-import Dragable from './Dragable'
+import DownloadJudy from './DownloadJudy'
+import DragableAlt from './DragableAlt'
 import Dropdown from './Dropdown'
 import Edit from './Edit'
 import Education from './Education'
@@ -259,6 +261,7 @@ import Info from './Info'
 import InfoFilled from './InfoFilled'
 import Instagram from './Instagram'
 import IntoPage from './IntoPage'
+import IntoPageAlt from './IntoPageAlt'
 import Invert from './Invert'
 import Ios from './Ios'
 import Italic from './Italic'
@@ -270,6 +273,7 @@ import Keyboard from './Keyboard'
 import KeyboardHide from './KeyboardHide'
 import Keypad from './Keypad'
 import Lab from './Lab'
+import Landline from './Landline'
 import Laptop from './Laptop'
 import Lightbulb from './Lightbulb'
 import Lightning from './Lightning'
@@ -341,6 +345,7 @@ import PieChart from './PieChart'
 import Pin from './Pin'
 import PinFilled from './PinFilled'
 import PinOff from './PinOff'
+import Pip from './Pip'
 import Plane from './Plane'
 import Play from './Play'
 import Plus from './Plus'
@@ -564,6 +569,7 @@ const icons = {
   'camera-filled': CameraFilled,
   'camera-switch': CameraSwitch,
   camera: Camera,
+  'cancel-bold': CancelBold,
   'cancel-circle-filled': CancelCircleFilled,
   'cancel-circle': CancelCircle,
   'cancel-small': CancelSmall,
@@ -656,8 +662,9 @@ const icons = {
   'dialog-up': DialogUp,
   distribute: Distribute,
   dot: Dot,
+  'download-judy': DownloadJudy,
   download: Download,
-  dragable: Dragable,
+  'dragable-alt': DragableAlt,
   dropdown: Dropdown,
   edit: Edit,
   education: Education,
@@ -744,6 +751,7 @@ const icons = {
   'info-filled': InfoFilled,
   info: Info,
   instagram: Instagram,
+  'into-page-alt': IntoPageAlt,
   'into-page': IntoPage,
   invert: Invert,
   ios: Ios,
@@ -756,6 +764,7 @@ const icons = {
   keyboard: Keyboard,
   keypad: Keypad,
   lab: Lab,
+  landline: Landline,
   laptop: Laptop,
   lightbulb: Lightbulb,
   'lightning-filled': LightningFilled,
@@ -827,6 +836,7 @@ const icons = {
   'pin-filled': PinFilled,
   'pin-off': PinOff,
   pin: Pin,
+  pip: Pip,
   plane: Plane,
   play: Play,
   'plus-circle-filled': PlusCircleFilled,
@@ -1065,6 +1075,7 @@ export {
   CameraFilled as CameraFilledIcon,
   CameraSwitch as CameraSwitchIcon,
   Camera as CameraIcon,
+  CancelBold as CancelBoldIcon,
   CancelCircleFilled as CancelCircleFilledIcon,
   CancelCircle as CancelCircleIcon,
   CancelSmall as CancelSmallIcon,
@@ -1157,8 +1168,9 @@ export {
   DialogUp as DialogUpIcon,
   Distribute as DistributeIcon,
   Dot as DotIcon,
+  DownloadJudy as DownloadJudyIcon,
   Download as DownloadIcon,
-  Dragable as DragableIcon,
+  DragableAlt as DragableAltIcon,
   Dropdown as DropdownIcon,
   Edit as EditIcon,
   Education as EducationIcon,
@@ -1245,6 +1257,7 @@ export {
   InfoFilled as InfoFilledIcon,
   Info as InfoIcon,
   Instagram as InstagramIcon,
+  IntoPageAlt as IntoPageAltIcon,
   IntoPage as IntoPageIcon,
   Invert as InvertIcon,
   Ios as IosIcon,
@@ -1257,6 +1270,7 @@ export {
   Keyboard as KeyboardIcon,
   Keypad as KeypadIcon,
   Lab as LabIcon,
+  Landline as LandlineIcon,
   Laptop as LaptopIcon,
   Lightbulb as LightbulbIcon,
   LightningFilled as LightningFilledIcon,
@@ -1328,6 +1342,7 @@ export {
   PinFilled as PinFilledIcon,
   PinOff as PinOffIcon,
   Pin as PinIcon,
+  Pip as PipIcon,
   Plane as PlaneIcon,
   Play as PlayIcon,
   PlusCircleFilled as PlusCircleFilledIcon,
