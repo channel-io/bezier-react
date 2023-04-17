@@ -7,6 +7,7 @@ import {
   type ChildrenProps,
   type DisableProps,
   type SideContentProps,
+  type SizeProps,
 } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms'
@@ -27,12 +28,7 @@ type SegmentedControlNonValueOptions<Type extends SegmentedControlType> = {
    * @default 'radiogroup'
    */
   type?: Type
-  /**
-   * The size of the segmented control.
-   * @default SegmentedControlSize.M
-   */
-  size?: SegmentedControlSize
-  /**
+  /*
    * The width of the segmented control.
    * @default '100%'
    */
@@ -94,6 +90,7 @@ type RadixTabsPredefinedPropKeys = 'dir'
 export type SegmentedControlProps<Type extends SegmentedControlType, Value extends string> =
   & BezierComponentProps
   & ChildrenProps
+  & SizeProps<SegmentedControlSize>
   & Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabsPredefinedPropKeys>
   & SegmentedControlOptions<Type, Value>
 
