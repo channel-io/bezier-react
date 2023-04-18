@@ -9,7 +9,11 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
 
-import { TooltipPosition } from './Tooltip.types'
+import {
+  type TooltipContentProps,
+  TooltipPosition,
+  type TooltipProps,
+} from './Tooltip.types'
 
 import * as Styled from './Tooltip.styled'
 
@@ -109,7 +113,7 @@ function getSideAndAlign(
       }
   }
 }
-interface TooltipCustomContentContextValue extends TooltipPrimitive.TooltipContentProps {
+interface TooltipCustomContentContextValue extends TooltipContentProps {
   ref: (element: HTMLDivElement | null) => void
 }
 
@@ -118,8 +122,23 @@ const [
   useTooltipCustomContentContext,
 ] = createContext<TooltipCustomContentContextValue | null>('Tooltip', null)
 
-// TODO: (@ed) prop type declaration
-export const TooltipContent = forwardRef<HTMLDivElement, any>(function TooltipContent({
+const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContentImpl({
+  children,
+  ...rest
+}, forwardedRef) {
+  return (
+    <Styled.TooltipContent
+      ref={forwardedRef}
+      {...rest}
+    >
+      <Styled.TooltipText>
+        { children }
+      </Styled.TooltipText>
+    </Styled.TooltipContent>
+  )
+})
+
+export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContent({
   children,
   ...rest
 }, forwardedRef) {
@@ -128,17 +147,14 @@ export const TooltipContent = forwardRef<HTMLDivElement, any>(function TooltipCo
     ...contentProps
   } = useTooltipCustomContentContext('TooltipContent')
 
-  /* FIXME: duplicate */
   return (
-    <Styled.TooltipContent
+    <TooltipContentImpl
       ref={useMergeRefs(ref, forwardedRef)}
       {...contentProps}
       {...rest}
     >
-      <Styled.TooltipText>
-        { children }
-      </Styled.TooltipText>
-    </Styled.TooltipContent>
+      { children }
+    </TooltipContentImpl>
   )
 })
 
@@ -151,20 +167,21 @@ const collisionPadding = {
 
 export const TooltipProvider = TooltipPrimitive.Provider
 
-export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   children,
   content,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
+  disabled,
   container = document.body,
   keepInContainer = true,
   delayShow = 0,
-  // TODO: implement
-  delayHide = 2000,
+  ...rest
 }, forwardedRef) {
   const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
 
   const contentProps = useMemo<TooltipPrimitive.TooltipContentProps>(() => ({
+    ...rest,
     ...getSideAndAlign(placement),
     sideOffset: offset,
     avoidCollisions: keepInContainer,
@@ -173,6 +190,7 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
     placement,
     offset,
     keepInContainer,
+    rest,
   ])
 
   const customContentContextValue = useMemo(() => ({
@@ -180,20 +198,24 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
     ref: setCustomContentElement,
   }), [contentProps])
 
-  const ContentRoot = !customContentElement ? Styled.TooltipContent : React.Fragment
+  const ContentRoot = !customContentElement ? TooltipContentImpl : React.Fragment
 
   return (
-    <TooltipPrimitive.Root delayDuration={delayShow}>
-      <TooltipPrimitive.Trigger>
+    <TooltipPrimitive.Root
+      open={disabled ? false : undefined}
+      delayDuration={delayShow}
+    >
+      <TooltipPrimitive.Trigger asChild>
         { children }
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
         <TooltipCustomContentContextProvider value={customContentContextValue}>
-          <ContentRoot {...contentProps}>
-            <Styled.TooltipText>
-              { content }
-            </Styled.TooltipText>
+          <ContentRoot
+            ref={forwardedRef}
+            {...contentProps}
+          >
+            { content }
           </ContentRoot>
         </TooltipCustomContentContextProvider>
       </TooltipPrimitive.Portal>

@@ -14,6 +14,8 @@ import { ZIndex } from '~/src/constants/ZIndex'
 
 import { Text } from '~/src/components/Text'
 
+import { type TooltipContentProps } from './Tooltip.types'
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -72,7 +74,7 @@ const getSlideAnimation = (frames: ReturnType<typeof keyframes>) => css`
   animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
 `
 
-export const TooltipContent = styled(TooltipPrimitive.Content)`
+export const TooltipContent = styled(TooltipPrimitive.Content)<TooltipContentProps>`
   z-index: ${ZIndex.Tooltip};
 
   box-sizing: border-box;
@@ -103,8 +105,6 @@ export const TooltipContent = styled(TooltipPrimitive.Content)`
     ${getSlideAnimation(slideLeft)}
   }
 
-
-  /* FIXME: type */
   ${({ interpolation }) => interpolation}
 `
 
