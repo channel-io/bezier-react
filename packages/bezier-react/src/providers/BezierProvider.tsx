@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Provider as BalancerProvider } from 'react-wrap-balancer'
+
 import {
   type Foundation,
   FoundationProvider,
@@ -27,16 +29,18 @@ function BezierProvider({
   EnableCSSHoudini({ smoothCorners: true })
 
   return (
-    <FoundationProvider foundation={foundation}>
-      <TooltipProvider>
-        <GlobalStyle foundation={foundation} />
-        <ThemeVars
-          foundation={foundation}
-          scope={themeVarsScope}
-        />
-        { children }
-      </TooltipProvider>
-    </FoundationProvider>
+    <BalancerProvider>
+      <FoundationProvider foundation={foundation}>
+        <TooltipProvider>
+          <GlobalStyle foundation={foundation} />
+          <ThemeVars
+            foundation={foundation}
+            scope={themeVarsScope}
+          />
+          { children }
+        </TooltipProvider>
+      </FoundationProvider>
+    </BalancerProvider>
   )
 }
 

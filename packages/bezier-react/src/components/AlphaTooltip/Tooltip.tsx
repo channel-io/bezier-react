@@ -5,13 +5,10 @@ import React, {
 } from 'react'
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+import Balancer from 'react-wrap-balancer'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
-import {
-  isArray,
-  isString,
-} from '~/src/utils/typeUtils'
 
 import { TooltipPosition } from './Tooltip.types'
 
@@ -113,46 +110,6 @@ function getSideAndAlign(
       }
   }
 }
-
-function splitStringByLineBreak(str: string) {
-  return (
-    str.split('\n').map((chunk, index) => {
-      if (index === 0) {
-        return (
-          <Styled.TooltipText key={chunk}>
-            { chunk }
-          </Styled.TooltipText>
-        )
-      }
-
-      return (
-        <React.Fragment key={chunk}>
-          <br />
-          <Styled.TooltipText>
-            { chunk }
-          </Styled.TooltipText>
-        </React.Fragment>
-      )
-    })
-  )
-}
-
-function parseContentByLineBreak(content: React.ReactNode): React.ReactNode {
-  if (isString(content)) {
-    return splitStringByLineBreak(content)
-  }
-
-  if (isArray(content)) {
-    return content.map(item => (
-      isString(item)
-        ? splitStringByLineBreak(item)
-        : item
-    ))
-  }
-
-  return content
-}
-
 interface TooltipCustomContentContextValue extends TooltipPrimitive.TooltipContentProps {
   ref: (element: HTMLDivElement | null) => void
 }
@@ -179,9 +136,9 @@ export const TooltipContent = forwardRef<HTMLDivElement, any>(function TooltipCo
       {...contentProps}
       {...rest}
     >
-      <Styled.EllipsisableContent>
-        { parseContentByLineBreak(children) }
-      </Styled.EllipsisableContent>
+      <Styled.TooltipText>
+        { children }
+      </Styled.TooltipText>
     </Styled.TooltipContent>
   )
 })
@@ -224,8 +181,6 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
     ref: setCustomContentElement,
   }), [contentProps])
 
-  const parsedContent = useMemo(() => parseContentByLineBreak(content), [content])
-
   const ContentRoot = !customContentElement ? Styled.TooltipContent : React.Fragment
 
   return (
@@ -237,9 +192,11 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
       <TooltipPrimitive.Portal container={container}>
         <TooltipCustomContentContextProvider value={customContentContextValue}>
           <ContentRoot {...contentProps}>
-            <Styled.EllipsisableContent>
-              { parsedContent }
-            </Styled.EllipsisableContent>
+            <Balancer>
+              <Styled.TooltipText>
+                { content }
+              </Styled.TooltipText>
+            </Balancer>
           </ContentRoot>
         </TooltipCustomContentContextProvider>
       </TooltipPrimitive.Portal>

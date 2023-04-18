@@ -30,9 +30,8 @@ export const TooltipContent = styled(TooltipPrimitive.Content)`
   ${({ interpolation }) => interpolation}
 `
 
-export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })``
-
-export const EllipsisableContent = styled.div`
+export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })`
   /* NOTE: Line height of Typography.Size13  */
   ${ellipsis(20, LineHeightAbsoluteNumber.Lh18)}
+  white-space: pre-wrap;
 `
