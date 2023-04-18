@@ -5,7 +5,6 @@ import React, {
 } from 'react'
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import Balancer from 'react-wrap-balancer'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
@@ -192,11 +191,9 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
       <TooltipPrimitive.Portal container={container}>
         <TooltipCustomContentContextProvider value={customContentContextValue}>
           <ContentRoot {...contentProps}>
-            <Balancer>
-              <Styled.TooltipText>
-                { content }
-              </Styled.TooltipText>
-            </Balancer>
+            <Styled.TooltipText>
+              { content }
+            </Styled.TooltipText>
           </ContentRoot>
         </TooltipCustomContentContextProvider>
       </TooltipPrimitive.Portal>
