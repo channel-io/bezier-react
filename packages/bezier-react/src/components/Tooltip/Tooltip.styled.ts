@@ -1,12 +1,12 @@
-/* Internal dependencies */
 import {
-  styled,
+  LineHeightAbsoluteNumber,
   css,
   ellipsis,
-  LineHeightAbsoluteNumber,
+  styled,
 } from '~/src/foundation'
-import type { InterpolationProps } from '~/src/types/Foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+import type { InterpolationProps } from '~/src/types/Foundation'
 
 interface ContentWrapperProps {
   disabled: boolean

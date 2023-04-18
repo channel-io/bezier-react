@@ -1,22 +1,24 @@
-/* External dependencies */
 import React, {
-  useState,
   useCallback,
+  useState,
 } from 'react'
-import { base } from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import { base } from 'paths.macro'
+
 import { styled } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
+
 import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
+
 import { CheckableAvatar } from './CheckableAvatar'
 import type CheckableAvatarProps from './CheckableAvatar.types'
 

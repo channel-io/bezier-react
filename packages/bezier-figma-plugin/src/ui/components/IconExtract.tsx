@@ -1,34 +1,34 @@
-/* External dependencies */
 import React, {
-  useState,
-  useEffect,
   useCallback,
+  useEffect,
+  useState,
 } from 'react'
+
 import { useNavigate } from 'react-router-dom'
+
 import {
-  FormControl,
-  FormLabel,
-  FormHelperText,
-  FormErrorMessage,
-  TextField,
-  TextFieldType,
   Button,
   ButtonColorVariant,
   ButtonStyleVariant,
-  VStack,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  FormLabel,
   HStack,
+  ProgressBar,
   Spacer,
   StackItem,
-  ProgressBar,
   Text,
+  TextField,
+  TextFieldType,
+  VStack,
 } from '@channel.io/bezier-react'
 
-/* Internal dependencies */
+import config from '../../config'
+import type { PluginMessage } from '../../types/Message'
 import useFigmaAPI from '../hooks/useFigmaAPI'
 import useGithubAPI from '../hooks/useGithubAPI'
 import { createSvgGitBlob } from '../utils'
-import config from '../../config'
-import type { PluginMessage } from '../../types/Message'
 
 enum Step {
   Pending,

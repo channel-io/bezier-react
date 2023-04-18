@@ -1,9 +1,8 @@
-/* Internal dependencies */
 import {
-  LightTheme,
   DarkTheme,
-  type ThemeType,
+  LightTheme,
   type SemanticNames,
+  type ThemeType,
 } from './Theme'
 
 const LIGHT_KEYWORD = 'light'

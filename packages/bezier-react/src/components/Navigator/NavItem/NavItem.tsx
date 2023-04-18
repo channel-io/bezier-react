@@ -1,24 +1,26 @@
-/* External dependencies */
 import React, {
-  useCallback,
   memo,
+  useCallback,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { noop } from '~/src/utils/functionUtils'
+
 import {
-  LegacyIcon,
   IconSize,
+  LegacyIcon,
   isIconName,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
+
 import type NavItemProps from './NavItem.types'
+
 import {
   Item,
-  Wrapper,
-  RightContentWrapper,
   LeftIconWrapper,
+  RightContentWrapper,
+  Wrapper,
 } from './NavItem.styled'
 
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'

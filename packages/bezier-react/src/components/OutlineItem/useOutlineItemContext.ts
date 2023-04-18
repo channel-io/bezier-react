@@ -1,10 +1,8 @@
-/* External dependencies */
 import { useContext } from 'react'
 
-/* Internal dependencies */
 import {
-  defaultOutlineItemContext,
   OutlineItemContext,
+  defaultOutlineItemContext,
   mergeOutlineItemContexts,
 } from './OutlineItemContext'
 import type { OutlineItemContextProps } from './OutlineItemContext'

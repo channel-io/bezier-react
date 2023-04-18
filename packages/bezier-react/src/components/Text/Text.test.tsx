@@ -1,9 +1,9 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import Text, { TEXT_TEST_ID } from './Text'
 import type TextProps from './Text.types'
 

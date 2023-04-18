@@ -1,12 +1,11 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import {
   ModalHeader,
   ModalTitleSize,
 } from '../Modal'
+
 import { type ConfirmModalHeaderProps } from './ConfirmModal.types'
 
 /**

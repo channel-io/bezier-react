@@ -1,19 +1,21 @@
-/* External dependencies */
 import React, { useState } from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
-  styled,
   Typography,
+  styled,
 } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
 import { Avatar } from '~/src/components/Avatars/Avatar'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
+import { TagIcon } from '~/src/components/Icon'
 import { ListItem } from '~/src/components/ListItem'
 import {
   Overlay,
@@ -27,15 +29,15 @@ import {
 } from '~/src/components/Stack'
 import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
-import { TagIcon } from '~/src/components/Icon'
+
+import { Button } from './Button'
 import mdx from './Button.mdx'
 import type ButtonProps from './Button.types'
 import {
+  ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
-  ButtonColorVariant,
 } from './Button.types'
-import { Button } from './Button'
 
 export default {
   title: getTitle(base),

@@ -1,14 +1,15 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import type {
+  AdditionalColorProps,
+  ColorProps,
+} from '~/src/types/ComponentProps'
+import type {
+  FoundationProps,
   InjectedInterpolation,
   InterpolationProps,
-  FoundationProps,
 } from '~/src/types/Foundation'
-import type {
-  ColorProps,
-  AdditionalColorProps,
-} from '~/src/types/ComponentProps'
+
 import { TAGBADGE_VERTICAL_PADDING } from './constants/TagBadgeStyle'
 
 interface CommonTagBadgeStyleProps extends

@@ -1,7 +1,5 @@
-/* External dependencies */
 import { useContext } from 'react'
 
-/* Internal dependencies */
 import ToastContext from './ToastContext'
 
 export default function useToast() {

@@ -1,20 +1,22 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/functionUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
-import useMergeRefs from '~/src/hooks/useMergeRefs'
+
 import useFormControlContext from '~/src/components/Forms/useFormControlContext'
+
 import type {
   BaseHelperTextProps,
-  FormHelperTextProps,
   FormErrorMessageProps,
+  FormHelperTextProps,
 } from './FormHelperText.types'
+
 import * as Styled from './FormHelperText.styled'
 
 type ForwardedRef = React.Ref<HTMLParamElement>

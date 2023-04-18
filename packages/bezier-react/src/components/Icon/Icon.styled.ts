@@ -1,5 +1,5 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { type ColorProps } from '~/src/types/ComponentProps'
 
 interface IconStyledProps extends ColorProps {

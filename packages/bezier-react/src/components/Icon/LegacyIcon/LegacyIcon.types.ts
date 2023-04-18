@@ -1,7 +1,6 @@
-/* Internal dependencies */
 /* eslint-disable no-restricted-imports */
-import { type IconName } from '../generated'
 import type IconProps from '../Icon.types'
+import { type IconName } from '../generated'
 /* eslint-enable no-restricted-imports */
 
 interface LegacyIconOptions {

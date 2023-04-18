@@ -1,24 +1,26 @@
-/* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
 import {
-  styled,
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
+import {
   DarkFoundation,
   LightFoundation,
+  styled,
 } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
+import { Button } from '~/src/components/Button'
 import {
+  ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
-  ButtonColorVariant,
 } from '~/src/components/Button/Button.types'
-import { Button } from '~/src/components/Button'
+
 import BezierProvider from './BezierProvider'
 
 interface BezierProviderStorybookProps {

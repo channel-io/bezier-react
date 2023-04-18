@@ -1,10 +1,11 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { noop } from '~/src/utils/functionUtils'
+
 import type TextProps from './Text.types'
+
 import TextView from './Text.styled'
 
 export const TEXT_TEST_ID = 'bezier-react-text'

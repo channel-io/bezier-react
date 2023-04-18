@@ -1,9 +1,8 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { ModalContent } from '../Modal'
+
 import { type ConfirmModalContentProps } from './ConfirmModal.types'
 
 /**

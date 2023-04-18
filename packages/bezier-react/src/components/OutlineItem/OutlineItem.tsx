@@ -1,31 +1,32 @@
-/* External dependencies */
 import React, {
+  forwardRef,
   useCallback,
+  useEffect,
   useMemo,
   useState,
-  useEffect,
-  forwardRef,
 } from 'react'
 
-/* Internal dependencies */
-import { isNil } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { isNil } from '~/src/utils/typeUtils'
+
 import {
-  IconSize,
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
-  isIconName,
+  IconSize,
   isBezierIcon,
+  isIconName,
 } from '~/src/components/Icon'
+
+import type OutlineItemProps from './OutlineItem.types'
 import { OutlineItemContext } from './OutlineItemContext'
 import useOutlineItemContext from './useOutlineItemContext'
-import type OutlineItemProps from './OutlineItem.types'
+
 import {
-  GroupItemWrapper,
-  StyledIcon,
-  ContentWrapper,
   ChevronWrapper,
+  ContentWrapper,
+  GroupItemWrapper,
   LeftContentWrapper,
+  StyledIcon,
   StyledLegacyIcon,
 } from './OutlineItem.styled'
 

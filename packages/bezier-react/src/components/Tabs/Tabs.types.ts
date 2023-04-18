@@ -1,9 +1,9 @@
-/* Internal dependencies */
 import type React from 'react'
+
 import {
   type BezierComponentProps,
-  type DisableProps,
   type ChildrenProps,
+  type DisableProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
 

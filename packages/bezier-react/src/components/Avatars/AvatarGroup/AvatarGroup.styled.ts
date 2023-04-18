@@ -1,10 +1,11 @@
-/* Internal dependencies */
 import {
-  styled,
   smoothCorners,
+  styled,
 } from '~/src/foundation'
-import { type InterpolationProps } from '~/src/types/Foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+import { type InterpolationProps } from '~/src/types/Foundation'
+
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { Text } from '~/src/components/Text'
 

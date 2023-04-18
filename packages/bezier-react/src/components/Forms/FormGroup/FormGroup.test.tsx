@@ -1,8 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import FormGroup from './FormGroup'
 import type FormGroupProps from './FormGroup.types'
 

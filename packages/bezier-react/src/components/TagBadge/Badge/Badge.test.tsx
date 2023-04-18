@@ -1,17 +1,18 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { RoundAbsoluteNumber } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import {
   TagBadgeSize,
   getProperTagBadgePadding,
 } from '~/src/components/TagBadge/TagBadgeCommon'
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
+
 import {
-  Badge,
   BADGE_TEST_ID,
+  Badge,
 } from './Badge'
 import type BadgeProps from './Badge.types'
 

@@ -1,13 +1,13 @@
-/* External dependencies */
 import React, {
   forwardRef,
   useLayoutEffect,
   useState,
 } from 'react'
+
 import { Slot } from '@radix-ui/react-slot'
 
-/* Internal dependencies */
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+
 import { type AutoFocusProps } from './AutoFocus.types'
 
 /**

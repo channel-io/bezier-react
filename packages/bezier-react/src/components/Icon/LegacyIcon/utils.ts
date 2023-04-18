@@ -1,4 +1,3 @@
-/* Internal Dependencies */
 // eslint-disable-next-line no-restricted-imports
 import icons, { type IconName } from '../generated'
 

@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import {
   LightFoundation,
   DarkFoundation,
@@ -109,7 +107,7 @@ function withFoundationProvider(Story, context) {
 
       <BezierProvider foundation={foundation}>
         <div style={wrapperStyle}>
-          <BezierProvider 
+          <BezierProvider
             foundation={foundation}
             themeVarsScope=".theme"
           >

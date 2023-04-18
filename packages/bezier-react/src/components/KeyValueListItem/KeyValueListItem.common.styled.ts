@@ -1,9 +1,10 @@
-/* Internal dependencies */
 import type React from 'react'
+
 import {
   css,
   styled,
 } from '~/src/foundation'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 export const KeyValueListItemWrapper = styled.div<InterpolationProps>`

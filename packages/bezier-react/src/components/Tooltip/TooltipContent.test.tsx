@@ -1,13 +1,13 @@
-/* External dependencies */
 import React from 'react'
-import { act } from '@testing-library/react'
-import { fireEvent } from '@testing-library/dom'
 
-/* Internal dependencies */
+import { fireEvent } from '@testing-library/dom'
+import { act } from '@testing-library/react'
+
 import { render } from '~/src/utils/testUtils'
+
 import Tooltip, {
-  TOOLTIP_TEST_ID,
   TOOLTIP_CONTENT_TEST_ID,
+  TOOLTIP_TEST_ID,
 } from './Tooltip'
 import type TooltipProps from './Tooltip.types'
 

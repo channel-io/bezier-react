@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import Emoji from './Emoji'
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'

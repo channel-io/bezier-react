@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { css } from '~/src/foundation/FoundationStyledComponent'
 
 const DefaultRoundStyle = css`

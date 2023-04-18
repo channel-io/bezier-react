@@ -1,9 +1,9 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { css } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import { AlphaStack } from './AlphaStack'
 
 describe('alpha-Stack', () => {

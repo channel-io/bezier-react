@@ -1,27 +1,28 @@
-/* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
+
 import type {
   Meta,
   Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
-/* Internal dependencies */
-import {
-  getTitle,
-  getObjectFromEnum,
-} from '~/src/utils/storyUtils'
 import { noop } from '~/src/utils/functionUtils'
+import {
+  getObjectFromEnum,
+  getTitle,
+} from '~/src/utils/storyUtils'
+
 import {
   StackItem,
   VStack,
 } from '~/src/components/Stack'
+
 import { Banner } from './Banner'
-import {
-  BannerVariant,
-  type BannerProps,
-} from './Banner.types'
 import mdx from './Banner.mdx'
+import {
+  type BannerProps,
+  BannerVariant,
+} from './Banner.types'
 
 export default {
   title: getTitle(base),

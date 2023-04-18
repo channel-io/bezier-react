@@ -1,18 +1,19 @@
 import React, {
-  useState,
   useEffect,
+  useState,
 } from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
 import {
-  getTitle,
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
+import {
   getObjectFromEnum,
+  getTitle,
 } from '~/src/utils/storyUtils'
+
 import {
   Button,
   ButtonColorVariant,
@@ -23,21 +24,22 @@ import { FormControl } from '~/src/components/Forms/FormControl'
 import { FormLabel } from '~/src/components/Forms/FormLabel'
 import { Select } from '~/src/components/Forms/Inputs/Select'
 import { ListItem } from '~/src/components/ListItem'
+
 import { Modal } from './Modal'
-import { ModalContent } from './ModalContent'
-import { ModalHeader } from './ModalHeader'
-import { ModalBody } from './ModalBody'
-import { ModalFooter } from './ModalFooter'
 import {
-  ModalTrigger,
-  ModalClose,
-} from './ModalHelpers'
-import {
-  type ModalProps,
   type ModalContentProps,
   type ModalHeaderProps,
+  type ModalProps,
   ModalTitleSize,
 } from './Modal.types'
+import { ModalBody } from './ModalBody'
+import { ModalContent } from './ModalContent'
+import { ModalFooter } from './ModalFooter'
+import { ModalHeader } from './ModalHeader'
+import {
+  ModalClose,
+  ModalTrigger,
+} from './ModalHelpers'
 
 type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
 

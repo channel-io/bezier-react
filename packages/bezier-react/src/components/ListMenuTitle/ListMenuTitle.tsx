@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react'
 
-/* Internal dependencies */
-import { isNil } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { isNil } from '~/src/utils/typeUtils'
+
 import type ListMenuTitleProps from './ListMenuTitle.types'
+
 import {
   TitleWrapper,
   Wrapper,

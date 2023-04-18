@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import ItemAction from './ItemAction'
 import type { KeyValueListItemActionProps } from './ItemAction.types'
 

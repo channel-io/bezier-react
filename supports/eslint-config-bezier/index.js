@@ -2,6 +2,7 @@ module.exports = {
   plugins: ['import-newlines'],
   extends: ['@channel.io/eslint-config'],
   rules: {
+    "no-multiple-empty-lines": ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
     'import-newlines/enforce': ['error', { items: 1 }],
     'import/no-duplicates': ['error', { 'prefer-inline': true }],
     '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],

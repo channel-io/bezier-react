@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import SegmentedControl from './SegmentedControl'
 import { SegmentedControlSize } from './SegmentedControl.types'
 import type SegmentedControlProps from './SegmentedControl.types'

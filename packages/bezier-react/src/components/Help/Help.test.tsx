@@ -1,8 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import Help, { HELP_TEST_ID } from './Help'
 import type HelpProps from './Help.types'
 

@@ -1,31 +1,34 @@
-/* External dependencies */
 import React, { useState } from 'react'
+
 import type {
   Meta,
   Story,
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
   type SemanticNames,
   Typography,
 } from '~/src/foundation'
+
 import { LightTheme } from '~/src/foundation/Colors/Theme'
+
 import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
-import { Text } from '~/src/components/Text'
+
 import {
   Button,
   ButtonSize,
 } from '~/src/components/Button'
+import { Text } from '~/src/components/Text'
+
 import { HStack } from './HStack'
 import { Spacer } from './Spacer'
 import { Stack } from './Stack'
+import mdx from './Stack.mdx'
 import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
-import mdx from './Stack.mdx'
 
 export default {
   title: getTitle(base),

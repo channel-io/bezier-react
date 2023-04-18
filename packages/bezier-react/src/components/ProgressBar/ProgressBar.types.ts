@@ -1,10 +1,9 @@
-/* Internal dependencies */
 import type {
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
   BezierComponentProps,
   SizeProps,
   VariantProps,
-  AdditionalStylableProps,
-  AdditionalTestIdProps,
 } from '~/src/types/ComponentProps'
 
 export enum ProgressBarSize {

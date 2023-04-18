@@ -1,13 +1,13 @@
-/* External dependencies */
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
 } from 'react'
 
-/* Internal dependencies */
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+
 import { type ValueItemProps } from './ValueItem.types'
+
 import * as Styled from './ValueItem.styled'
 
 function ValueItem(

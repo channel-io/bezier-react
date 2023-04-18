@@ -1,15 +1,15 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal denpendencies */
 import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
+
 import type CheckableAvatarProps from './CheckableAvatar.types'
+
 import {
-  CheckableAvatarWrapper,
   CheckIcon,
+  CheckableAvatarWrapper,
   getAvatarImageStyle,
 } from './CheckableAvatar.styled'
 

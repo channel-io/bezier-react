@@ -1,17 +1,18 @@
-/* Internal dependencies */
 import type React from 'react'
+
 import type {
+  ActivatableProps,
+  AdditionalStylableProps,
   BezierComponentProps,
   ContentProps,
-  VariantProps,
-  SizeProps,
-  LinkProps,
   DisableProps,
-  ActivatableProps,
+  LinkProps,
   OptionItemProps,
   SideContentProps,
-  AdditionalStylableProps,
+  SizeProps,
+  VariantProps,
 } from '~/src/types/ComponentProps'
+
 import type {
   BezierIcon,
   IconName,

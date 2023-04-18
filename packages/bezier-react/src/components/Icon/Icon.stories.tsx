@@ -1,32 +1,38 @@
-/* External dependencies */
 import React, { useState } from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
   LightFoundation,
   type SemanticNames,
-  styled,
   Typography,
+  styled,
 } from '~/src/foundation'
+
 import {
   getObjectFromEnum,
   getTitle,
   iconList,
 } from '~/src/utils/storyUtils'
 import { camelCase } from '~/src/utils/stringUtils'
+
+import { Select } from '~/src/components/Forms/Inputs/Select'
 import { ListItem } from '~/src/components/ListItem'
 import {
   HStack,
   StackItem,
   VStack,
 } from '~/src/components/Stack'
-import { Select } from '~/src/components/Forms/Inputs/Select'
 import { Text } from '~/src/components/Text'
+
+import { Icon } from './Icon'
+import mdx from './Icon.mdx'
+import type IconProps from './Icon.types'
+import { IconSize } from './Icon.types'
 import icons, {
   ArrowLeftIcon,
   BookmarkFilledIcon,
@@ -46,10 +52,6 @@ import icons, {
   SettingsIcon,
   TrashIcon,
 } from './generated'
-import { Icon } from './Icon'
-import type IconProps from './Icon.types'
-import { IconSize } from './Icon.types'
-import mdx from './Icon.mdx'
 
 export default {
   title: getTitle(base),

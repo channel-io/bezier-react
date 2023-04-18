@@ -1,8 +1,7 @@
-/* Internal dependencies */
 import {
-  TooltipPosition,
-  type GetTooltipStyle,
   type GetReplacement,
+  type GetTooltipStyle,
+  TooltipPosition,
 } from './Tooltip.types'
 
 export function getReplacement({

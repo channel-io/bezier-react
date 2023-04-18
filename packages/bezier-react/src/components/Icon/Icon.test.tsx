@@ -1,15 +1,15 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
-import { AllIcon } from './generated'
+
 import {
-  Icon,
   ICON_TEST_ID,
+  Icon,
 } from './Icon'
 import type IconProps from './Icon.types'
+import { AllIcon } from './generated'
 
 describe('Icon test >', () => {
   let props: IconProps

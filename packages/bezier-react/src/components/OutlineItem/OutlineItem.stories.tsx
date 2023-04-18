@@ -1,29 +1,30 @@
-/* External dependencies */
 import React, {
   useCallback,
   useState,
 } from 'react'
-import base from 'paths.macro'
+
 import {
-  type Story,
   type Meta,
+  type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { getTitle } from '~/src/utils/storyUtils'
-import {
-  DotIcon,
-  EmailUnreadIcon,
-  AppPushIcon,
-  SmsIcon,
-  EmailIcon,
-  SecurityIcon,
-} from '~/src/components/Icon'
+
 import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
+import {
+  AppPushIcon,
+  DotIcon,
+  EmailIcon,
+  EmailUnreadIcon,
+  SecurityIcon,
+  SmsIcon,
+} from '~/src/components/Icon'
+
 import OutlineItem from './OutlineItem'
 import type OutlineItemProps from './OutlineItem.types'
 

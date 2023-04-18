@@ -1,20 +1,19 @@
-/* External dependencies */
 import {
   useCallback,
   useMemo,
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
+
 import {
   type OnDismissCallback,
-  defaultOptions,
-  type ToastOptions,
-  type ToastId,
-  type ToastType,
   type ToastContent,
   type ToastContextType,
+  type ToastId,
+  type ToastOptions,
+  type ToastType,
+  defaultOptions,
 } from './Toast.types'
 import ToastService from './ToastService'
 

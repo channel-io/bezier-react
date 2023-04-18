@@ -1,9 +1,10 @@
-/* Internal dependencies */
 import {
-  styled,
   css,
+  styled,
 } from '~/src/foundation'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { type StyledRadioHandleProps } from './Radio.types'
 import type RadioProps from './Radio.types'
 

@@ -1,17 +1,19 @@
-/* Internal dependencies */
 import {
-  styled,
   css,
+  styled,
 } from '~/src/foundation'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import type { InterpolationProps } from '~/src/types/Foundation'
-import { Overlay } from '~/src/components/Overlay'
+
 import {
+  erroredInputWrapperStyle,
+  focusedInputWrapperStyle,
   inputTextStyle,
   inputWrapperStyle,
-  focusedInputWrapperStyle,
-  erroredInputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
+import { Overlay } from '~/src/components/Overlay'
+
 import { type SelectSize } from './Select.types'
 
 export const Container = styled.div<InterpolationProps>`

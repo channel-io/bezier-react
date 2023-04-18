@@ -1,12 +1,13 @@
-/* Internal dependencies */
 import {
-  styled,
   css,
+  styled,
 } from '~/src/foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+
 import {
-  type OverlayPosition,
   type ContainerRectAttr,
+  type OverlayPosition,
   type TargetRectAttr,
 } from './Overlay.types'
 import type OverlayProps from './Overlay.types'

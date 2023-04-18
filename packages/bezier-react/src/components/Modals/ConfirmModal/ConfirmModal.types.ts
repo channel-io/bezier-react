@@ -1,13 +1,12 @@
 /* eslint-disable no-restricted-imports */
-/* Internal dependencies */
 import {
-  type ModalProps,
-  type ModalContentProps,
-  type ModalHeaderProps,
   type ModalBodyProps,
-  type ModalFooterProps,
-  type ModalTriggerProps,
   type ModalCloseProps,
+  type ModalContentProps,
+  type ModalFooterProps,
+  type ModalHeaderProps,
+  type ModalProps,
+  type ModalTriggerProps,
 } from '../Modal'
 
 export interface ConfirmModalProps extends

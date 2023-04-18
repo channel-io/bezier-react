@@ -1,15 +1,15 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
-import { render } from '~/src/utils/testUtils'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { StatusType } from '~/src/components/Status'
+import { render } from '~/src/utils/testUtils'
+
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { StatusType } from '~/src/components/Status'
+
 import {
-  Avatar,
   AVATAR_TEST_ID,
   AVATAR_WRAPPER_TEST_ID,
+  Avatar,
   STATUS_WRAPPER_TEST_ID,
 } from './Avatar'
 import type AvatarProps from './Avatar.types'

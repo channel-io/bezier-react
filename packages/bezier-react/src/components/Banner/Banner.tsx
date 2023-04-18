@@ -1,31 +1,33 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import {
   isNil,
   isString,
 } from '~/src/utils/typeUtils'
-import { Text } from '~/src/components/Text'
-import { IconSize } from '~/src/components/Icon'
-import { StackItem } from '~/src/components/Stack'
+
 import {
   Button,
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import Styled from './Banner.styled'
+import { IconSize } from '~/src/components/Icon'
+import { StackItem } from '~/src/components/Stack'
+import { Text } from '~/src/components/Text'
+
 import {
-  BannerVariant,
-  type BannerProps,
-  type RenderLinkFunc,
-} from './Banner.types'
-import {
+  ACTION_BUTTON_COLOR_VARIANTS,
   DEFAULT_ICON_COLORS,
   TEXT_COLORS,
-  ACTION_BUTTON_COLOR_VARIANTS,
 } from './Banner.const'
+import {
+  type BannerProps,
+  BannerVariant,
+  type RenderLinkFunc,
+} from './Banner.types'
+
+import Styled from './Banner.styled'
 
 const BANNER_TEST_ID = 'bezier-react-banner'
 export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'

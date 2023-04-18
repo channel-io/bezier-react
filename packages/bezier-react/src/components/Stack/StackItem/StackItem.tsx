@@ -1,14 +1,14 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-/* Internal dependencies */
 import {
   isInteger,
   isNil,
 } from '~/src/utils/typeUtils'
-import * as Styled from './StackItem.styled'
+
 import type StackItemProps from './StackItem.types'
+
+import * as Styled from './StackItem.styled'
 
 const sanitizeWeight = (weight: number): number => {
   if (weight < 0) { return 0 }

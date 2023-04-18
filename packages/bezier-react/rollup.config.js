@@ -1,11 +1,11 @@
 import { DEFAULT_EXTENSIONS } from '@babel/core'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
-import commonjs from '@rollup/plugin-commonjs'
-import babel from '@rollup/plugin-babel'
-import { visualizer } from 'rollup-plugin-visualizer'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import packageJson from './package.json'
 

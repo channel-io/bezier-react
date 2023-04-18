@@ -1,34 +1,37 @@
 /* eslint-disable no-alert */
-/* External dependencies */
+
 import React, {
   useCallback,
   useState,
 } from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
 import { styled } from '~/src/foundation'
+
+import { noop } from '~/src/utils/functionUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 import { isFunction } from '~/src/utils/typeUtils'
-import { noop } from '~/src/utils/functionUtils'
+
 import { Text } from '~/src/components/Text'
+
+import { TabAction } from './TabAction'
+import { TabActions } from './TabActions'
+import { TabContent } from './TabContent'
+import { TabItem } from './TabItem'
+import { TabItems } from './TabItems'
+import { TabList } from './TabList'
+import { Tabs } from './Tabs'
 import {
   type TabActionProps,
   type TabListProps,
-  type TabsProps,
   TabSize,
+  type TabsProps,
 } from './Tabs.types'
-import { Tabs } from './Tabs'
-import { TabList } from './TabList'
-import { TabItem } from './TabItem'
-import { TabContent } from './TabContent'
-import { TabItems } from './TabItems'
-import { TabActions } from './TabActions'
-import { TabAction } from './TabAction'
 
 type TabsCompositionProps =
   & TabsProps

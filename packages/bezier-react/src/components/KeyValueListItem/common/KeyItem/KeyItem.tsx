@@ -1,23 +1,25 @@
-/* External dependencies */
 import React, {
+  type Ref,
   forwardRef,
   memo,
-  type Ref,
   useMemo,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { isString } from '~/src/utils/typeUtils'
+
 import {
-  IconSize,
   Icon,
-  isIconName,
+  IconSize,
   LegacyIcon,
   isBezierIcon,
+  isIconName,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+
 import { type KeyItemProps } from './KeyItem.types'
+
 import * as Styled from './KeyItem.styled'
 
 function KeyItem(

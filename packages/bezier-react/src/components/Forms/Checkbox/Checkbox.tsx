@@ -1,20 +1,22 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
+
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-/* Internal dependencies */
 import useId from '~/src/hooks/useId'
-import {
-  IconSize,
-  CheckBoldIcon,
-  HyphenBoldIcon,
-} from '~/src/components/Icon'
+
 import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import {
+  CheckBoldIcon,
+  HyphenBoldIcon,
+  IconSize,
+} from '~/src/components/Icon'
+
 import {
   type CheckboxProps,
   type CheckedState,
 } from './Checkbox.types'
+
 import * as Styled from './Checkbox.styled'
 
 type CheckIconProps = {} | {

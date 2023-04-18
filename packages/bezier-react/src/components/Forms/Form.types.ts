@@ -1,7 +1,6 @@
-/* Internal dependencies */
 import type {
-  IdentifierProps,
   DisableProps,
+  IdentifierProps,
 } from '~/src/types/ComponentProps'
 
 interface FormComponentOptions {

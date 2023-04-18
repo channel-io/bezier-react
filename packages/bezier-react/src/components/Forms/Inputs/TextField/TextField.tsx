@@ -1,48 +1,50 @@
-/* External dependencies */
 import React, {
   type Ref,
   forwardRef,
-  useState,
+  useCallback,
   useEffect,
   useImperativeHandle,
-  useRef,
-  useCallback,
   useMemo,
+  useRef,
+  useState,
 } from 'react'
+
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
-import {
-  isArray,
-  isNil,
-  isEmpty,
-} from '~/src/utils/typeUtils'
 import { toString } from '~/src/utils/stringUtils'
 import {
+  isArray,
+  isEmpty,
+  isNil,
+} from '~/src/utils/typeUtils'
+
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
+import {
+  CancelCircleFilledIcon,
   Icon,
   IconSize,
-  CancelCircleFilledIcon,
   LegacyIcon,
   isIconName,
 } from '~/src/components/Icon'
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
-import Styled from './TextField.styled'
+
 import {
-  type TextFieldItemProps,
-  TextFieldType,
-  type TextFieldRef,
   type SelectionRangeDirections,
-  TextFieldSize,
-  TextFieldVariant,
+  type TextFieldItemProps,
   type TextFieldProps,
+  type TextFieldRef,
+  TextFieldSize,
+  TextFieldType,
+  TextFieldVariant,
 } from './TextField.types'
 import {
   getProperTextFieldBgColor,
   getProperTextFieldBorderRadius,
 } from './TextFieldUtils'
+
+import Styled from './TextField.styled'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 

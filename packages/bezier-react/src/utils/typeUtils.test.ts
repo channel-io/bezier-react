@@ -1,19 +1,18 @@
-/* Internal dependencies */
+import { noop } from './functionUtils'
 import {
-  isFunction,
-  isNil,
-  isObject,
   isArray,
   isBoolean,
+  isEmpty,
+  isFunction,
   isInteger,
-  isNumber,
   isNaN,
+  isNil,
+  isNumber,
+  isObject,
+  isRegExp,
   isString,
   isSymbol,
-  isRegExp,
-  isEmpty,
 } from './typeUtils'
-import { noop } from './functionUtils'
 
 describe('typeUtils', () => {
   describe('isFunction', () => {

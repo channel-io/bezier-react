@@ -74,6 +74,11 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-property: color;
 }
 
+.c12 {
+  display: block;
+  text-align: left;
+}
+
 .c4 {
   display: block;
   text-align: left;
@@ -172,11 +177,6 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 .c9 .c7 {
   font-size: 1.4rem;
   line-height: 1.8rem;
-}
-
-.c12 {
-  display: block;
-  text-align: left;
 }
 
 @supports not(gap:var(--bezier-alpha-stack-spacing)) {
@@ -424,6 +424,11 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-property: color;
 }
 
+.c16 {
+  display: block;
+  text-align: left;
+}
+
 .c4 {
   display: block;
   text-align: left;
@@ -522,11 +527,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 .c12 .c10 {
   font-size: 1.4rem;
   line-height: 1.8rem;
-}
-
-.c16 {
-  display: block;
-  text-align: left;
 }
 
 @supports not(gap:var(--bezier-alpha-stack-spacing)) {
@@ -718,6 +718,11 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-property: color;
 }
 
+.c10 {
+  display: block;
+  text-align: left;
+}
+
 .c4 {
   display: block;
   text-align: left;
@@ -783,11 +788,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 .c5 .c6 {
   font-size: 1.4rem;
   line-height: 1.8rem;
-}
-
-.c10 {
-  display: block;
-  text-align: left;
 }
 
 @supports not(gap:var(--bezier-alpha-stack-spacing)) {
@@ -926,6 +926,11 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   transition-property: color;
 }
 
+.c11 {
+  display: block;
+  text-align: left;
+}
+
 .c4 {
   display: block;
   text-align: left;
@@ -991,11 +996,6 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c5 .c6 {
   font-size: 1.4rem;
   line-height: 1.8rem;
-}
-
-.c11 {
-  display: block;
-  text-align: left;
 }
 
 <div

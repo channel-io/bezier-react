@@ -1,18 +1,18 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import { Avatar } from '~/src/components/Avatars/Avatar'
-import MOCK_AVATAR_LIST from './__mocks__/avatarList'
+
 import {
-  AvatarGroup,
   AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID,
+  AvatarGroup,
 } from './AvatarGroup'
 import {
   AvatarGroupEllipsisType,
   type AvatarGroupProps,
 } from './AvatarGroup.types'
+import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
 jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
   __esModule: true,

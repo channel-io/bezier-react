@@ -1,36 +1,37 @@
-/* External dependencies */
 import React, {
-  useState,
+  type Ref,
+  forwardRef,
   useCallback,
+  useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
-  forwardRef,
-  type Ref,
-  useImperativeHandle,
-  useEffect,
+  useState,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
-import { isEmpty } from '~/src/utils/typeUtils'
 import { noop } from '~/src/utils/functionUtils'
+import { isEmpty } from '~/src/utils/typeUtils'
+
+import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
-  Icon,
-  ChevronUpIcon,
   ChevronDownIcon,
+  ChevronUpIcon,
+  Icon,
   IconSize,
+  LegacyIcon,
   isBezierIcon,
   isIconName,
-  LegacyIcon,
 } from '~/src/components/Icon'
 import { OverlayPosition } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
-import { type SelectRef } from './Select.types'
 import type SelectProps from './Select.types'
+import { type SelectRef } from './Select.types'
 import { SelectSize } from './Select.types'
+
 import * as Styled from './Select.styled'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'

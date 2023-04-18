@@ -1,14 +1,14 @@
-/* Internal dependencies */
 import type {
+  BoxSizingUnit,
+  ExplicitDefaulting,
+} from '~/src/types/CSS'
+import type {
+  ActivatableProps,
   BezierComponentProps,
   ChildrenProps,
-  ActivatableProps,
   OptionItemHostProps,
 } from '~/src/types/ComponentProps'
-import type {
-  ExplicitDefaulting,
-  BoxSizingUnit,
-} from '~/src/types/CSS'
+
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
 type SegmentedControlBaseProps = BezierComponentProps & ChildrenProps & FormComponentProps
