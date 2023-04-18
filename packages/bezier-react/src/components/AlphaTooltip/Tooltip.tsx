@@ -8,8 +8,14 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
+import {
+  isArray,
+  isString,
+} from '~/src/utils/typeUtils'
 
 import { TooltipPosition } from './Tooltip.types'
+
+import * as Styled from './Tooltip.styled'
 
 // TODO: (@ed) Evolve it into a commonly reusable function
 // FIXME: duplicate
@@ -108,14 +114,53 @@ function getSideAndAlign(
   }
 }
 
-interface TooltipContentContextValue extends TooltipPrimitive.TooltipContentProps {
+function splitStringByLineBreak(str: string) {
+  return (
+    str.split('\n').map((chunk, index) => {
+      if (index === 0) {
+        return (
+          <Styled.TooltipText key={chunk}>
+            { chunk }
+          </Styled.TooltipText>
+        )
+      }
+
+      return (
+        <React.Fragment key={chunk}>
+          <br />
+          <Styled.TooltipText>
+            { chunk }
+          </Styled.TooltipText>
+        </React.Fragment>
+      )
+    })
+  )
+}
+
+function parseContentByLineBreak(content: React.ReactNode): React.ReactNode {
+  if (isString(content)) {
+    return splitStringByLineBreak(content)
+  }
+
+  if (isArray(content)) {
+    return content.map(item => (
+      isString(item)
+        ? splitStringByLineBreak(item)
+        : item
+    ))
+  }
+
+  return content
+}
+
+interface TooltipCustomContentContextValue extends TooltipPrimitive.TooltipContentProps {
   ref: (element: HTMLDivElement | null) => void
 }
 
 const [
-  TooltipContentContextProvider,
-  useTooltipContentContext,
-] = createContext<TooltipContentContextValue | null>('Tooltip', null)
+  TooltipCustomContentContextProvider,
+  useTooltipCustomContentContext,
+] = createContext<TooltipCustomContentContextValue | null>('Tooltip', null)
 
 // TODO: (@ed) prop type declaration
 export const TooltipContent = forwardRef<HTMLDivElement, any>(function TooltipContent({
@@ -125,16 +170,19 @@ export const TooltipContent = forwardRef<HTMLDivElement, any>(function TooltipCo
   const {
     ref,
     ...contentProps
-  } = useTooltipContentContext('TooltipContent')
+  } = useTooltipCustomContentContext('TooltipContent')
 
+  /* FIXME: duplicate */
   return (
-    <TooltipPrimitive.Content
+    <Styled.TooltipContent
       ref={useMergeRefs(ref, forwardedRef)}
       {...contentProps}
       {...rest}
     >
-      { children }
-    </TooltipPrimitive.Content>
+      <Styled.EllipsisableContent>
+        { parseContentByLineBreak(children) }
+      </Styled.EllipsisableContent>
+    </Styled.TooltipContent>
   )
 })
 
@@ -171,12 +219,14 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
     keepInContainer,
   ])
 
-  const contentContextValue = useMemo(() => ({
+  const customContentContextValue = useMemo(() => ({
     ...contentProps,
     ref: setCustomContentElement,
   }), [contentProps])
 
-  const ContentRoot = !customContentElement ? TooltipPrimitive.Content : React.Fragment
+  const parsedContent = useMemo(() => parseContentByLineBreak(content), [content])
+
+  const ContentRoot = !customContentElement ? Styled.TooltipContent : React.Fragment
 
   return (
     <TooltipPrimitive.Root delayDuration={delayShow}>
@@ -185,11 +235,13 @@ export const Tooltip = forwardRef<HTMLDivElement, any>(function Tooltip({
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
-        <TooltipContentContextProvider value={contentContextValue}>
+        <TooltipCustomContentContextProvider value={customContentContextValue}>
           <ContentRoot {...contentProps}>
-            { content }
+            <Styled.EllipsisableContent>
+              { parsedContent }
+            </Styled.EllipsisableContent>
           </ContentRoot>
-        </TooltipContentContextProvider>
+        </TooltipCustomContentContextProvider>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
   )
