@@ -1,18 +1,17 @@
 import React from 'react'
 
-import { base } from 'paths.macro'
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import { base } from 'paths.macro'
 
 import {
-  getTitle,
   getObjectFromEnum,
+  getTitle,
 } from '~/src/utils/storyUtils'
 
 import { Tooltip } from './Tooltip'
-
 import { TooltipPosition } from './Tooltip.types'
 
 export default {
