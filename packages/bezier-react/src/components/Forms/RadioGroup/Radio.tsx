@@ -1,9 +1,9 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import useId from '~/src/hooks/useId'
+
 import { type RadioProps } from './RadioGroup.types'
+
 import * as Styled from './RadioGroup.styled'
 
 function RadioImpl<Value extends string>({

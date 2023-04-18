@@ -1,5 +1,5 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { type TabSize } from './Tabs.types'
 
 interface ListProps {

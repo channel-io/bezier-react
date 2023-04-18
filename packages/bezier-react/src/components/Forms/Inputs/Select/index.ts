@@ -1,7 +1,7 @@
 import Select from './Select'
 import {
-  SelectSize,
   type SelectRef,
+  SelectSize,
 } from './Select.types'
 import type SelectProps from './Select.types'
 

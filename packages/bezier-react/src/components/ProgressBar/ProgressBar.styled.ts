@@ -1,10 +1,11 @@
-/* Internal dependencies */
 import {
-  styled,
-  css,
   type Foundation,
+  css,
+  styled,
 } from '~/src/foundation'
+
 import { toLength } from '~/src/utils/styleUtils'
+
 import type ProgressBarProps from './ProgressBar.types'
 import {
   ProgressBarSize,

@@ -1,17 +1,17 @@
-/* External dependencies */
 import React, {
   useCallback,
-  useState,
   useMemo,
+  useState,
 } from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
 import { styled } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
 
 export default {

@@ -1,11 +1,10 @@
-/* External dependencies */
 import type React from 'react'
 
-/* Internal dependencies */
 import type {
   BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
+
 import type {
   BezierIcon,
   IconName,

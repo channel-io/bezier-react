@@ -1,17 +1,19 @@
-/* Internal denpendencies */
 import {
-  styled,
   css,
   smoothCorners,
+  styled,
 } from '~/src/foundation'
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
-import type { InterpolationProps } from '~/src/types/Foundation'
-import { ZIndex } from '~/src/constants/ZIndex'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { ZIndex } from '~/src/constants/ZIndex'
+import type { InterpolationProps } from '~/src/types/Foundation'
+import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
+
 import {
-  AVATAR_BORDER_WIDTH,
   AVATAR_BORDER_RADIUS_PERCENTAGE,
+  AVATAR_BORDER_WIDTH,
 } from '~/src/components/Avatars/AvatarStyle'
+
 import { AvatarSize } from './Avatar.types'
 
 interface AvatarWrapperProps extends InterpolationProps {

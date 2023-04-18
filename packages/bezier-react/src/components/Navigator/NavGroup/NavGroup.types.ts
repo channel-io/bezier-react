@@ -1,11 +1,11 @@
-/* Internal dependencies */
 import type {
+  ActivatableProps,
   BezierComponentProps,
   ChildrenProps,
   ContentProps,
   SideContentProps,
-  ActivatableProps,
 } from '~/src/types/ComponentProps'
+
 import { type IconName } from '~/src/components/Icon'
 
 interface NavGroupOptions {

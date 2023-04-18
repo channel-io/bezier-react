@@ -1,16 +1,17 @@
-/* External dependencies */
 import React from 'react'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
+import { noop } from '~/src/utils/functionUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 import { gap } from '~/src/utils/styleUtils'
-import { noop } from '~/src/utils/functionUtils'
+
 import {
   HStack,
   StackItem,
@@ -22,6 +23,7 @@ import {
   TagBadgeSize,
   TagBadgeVariant,
 } from '~/src/components/TagBadge'
+
 import mdx from './TagBadge.mdx'
 
 export default {

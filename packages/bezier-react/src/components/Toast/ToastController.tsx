@@ -1,4 +1,3 @@
-/* External dependencies */
 import React, {
   useCallback,
   useEffect,
@@ -6,12 +5,12 @@ import React, {
   useState,
 } from 'react'
 
-/* Internal dependencies */
 import { window } from '~/src/utils/domUtils'
+
 import { type ToastControllerProps } from './Toast.types'
 import {
-  showedToastTranslateXStyle,
   initPosition,
+  showedToastTranslateXStyle,
 } from './utils'
 
 function ToastController({

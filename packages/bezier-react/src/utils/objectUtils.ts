@@ -1,10 +1,9 @@
-/* Internal dependencies */
 import {
   isArray,
-  isObject,
-  isSet,
   isMap,
+  isObject,
   isRegExp,
+  isSet,
 } from './typeUtils'
 
 export function has(object: unknown, key: string): boolean {

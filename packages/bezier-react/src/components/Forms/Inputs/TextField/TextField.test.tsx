@@ -1,12 +1,14 @@
-/* External dependencies */
 import React from 'react'
-import { act } from '@testing-library/react'
-import { fireEvent } from '@testing-library/dom'
 
-/* Internal dependencies */
+import { fireEvent } from '@testing-library/dom'
+import { act } from '@testing-library/react'
+
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+
 import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
 import {
   type TextFieldProps,

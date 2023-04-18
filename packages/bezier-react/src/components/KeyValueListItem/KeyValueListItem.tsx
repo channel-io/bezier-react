@@ -1,17 +1,16 @@
-/* External dependencies */
 import React, {
-  forwardRef,
   type Ref,
+  forwardRef,
 } from 'react'
 
-/* Internal dependencies */
+import { TEST_ID_MAP } from './KeyValueListItem.const'
+import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import {
   ItemAction,
   KeyItem,
   ValueItem,
 } from './common'
-import { TEST_ID_MAP } from './KeyValueListItem.const'
-import { type KeyValueListItemProps } from './KeyValueListItem.types'
+
 import * as Styled from './KeyValueListItem.styled'
 
 function KeyValueListItem(

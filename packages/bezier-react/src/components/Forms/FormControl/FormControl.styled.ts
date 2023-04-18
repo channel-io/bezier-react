@@ -1,5 +1,5 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 const LEFT_LABEL_MIN_WIDTH = 150
@@ -11,10 +11,12 @@ const Box = styled.div<InterpolationProps>`
 
 export const TopLabelWrapper = styled(Box)`
   padding: 0 2px;
+  margin-bottom: 4px;
 `
 
 export const TopHelperTextWrapper = styled(Box)`
   padding: 0 2px;
+  margin-top: 4px;
 `
 
 export const Grid = styled(Box)`

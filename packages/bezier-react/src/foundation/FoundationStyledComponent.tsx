@@ -7,35 +7,34 @@
  * 동작에는 문제가 없으며, type checking 도 올바르게 됩니다.
  */
 
-/* External dependencies */
 import React, {
   createContext,
-  useContext,
   forwardRef,
+  useContext,
 } from 'react'
+
 import styled, {
-  createGlobalStyle as baseCreateGlobalStyle,
-  css as baseCSS,
-  type ThemedStyledFunction,
-  type ThemedStyledProps,
   type AnyStyledComponent,
-  type StyledComponentInnerComponent,
-  type StyledComponentInnerOtherProps,
-  type StyledComponentInnerAttrs,
-  ServerStyleSheet,
+  type CSSObject,
+  type FlattenInterpolation,
   type FlattenSimpleInterpolation,
+  type GlobalStyleComponent,
   type Interpolation,
   type InterpolationFunction,
-  type FlattenInterpolation,
+  ServerStyleSheet,
   type SimpleInterpolation,
-  type CSSObject,
+  type StyledComponentInnerAttrs,
+  type StyledComponentInnerComponent,
+  type StyledComponentInnerOtherProps,
+  type ThemedStyledFunction,
+  type ThemedStyledProps,
+  css as baseCSS,
+  createGlobalStyle as baseCreateGlobalStyle,
   keyframes,
-  type GlobalStyleComponent,
 } from 'styled-components'
 
-/* Internal dependencies */
-import domElements from './utils/domElements'
 import { type Foundation } from './Foundation'
+import domElements from './utils/domElements'
 
 const FoundationContext = createContext<Foundation | null>(null)
 

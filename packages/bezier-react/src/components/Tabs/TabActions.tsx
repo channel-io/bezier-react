@@ -1,9 +1,8 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
-import * as Styled from './TabActions.styled'
 import { type TabActionsProps } from './Tabs.types'
+
+import * as Styled from './TabActions.styled'
 
 /**
  * `TabActions` is a flex container which has `TabAction` flex items.

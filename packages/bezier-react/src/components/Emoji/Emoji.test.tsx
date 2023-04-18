@@ -1,10 +1,9 @@
-/* External dependencies */
 import React from 'react'
 
-/* Interanal dependencies */
 import { render } from '~/src/utils/testUtils'
-import type EmojiProps from './Emoji.types'
+
 import Emoji, { EMOJI_TEST_ID } from './Emoji'
+import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
 
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/a.png'

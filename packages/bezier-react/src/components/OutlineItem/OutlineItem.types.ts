@@ -1,16 +1,16 @@
-/* Internal dependencies */
 import type {
+  ActivatableProps,
+  AdditionalColorProps,
+  AdditionalStylableProps,
+  AdditionalTestIdProps,
   BezierComponentProps,
   ChildrenProps,
   ContentProps,
-  SideContentProps,
   LinkProps,
-  ActivatableProps,
   OptionItemProps,
-  AdditionalStylableProps,
-  AdditionalTestIdProps,
-  AdditionalColorProps,
+  SideContentProps,
 } from '~/src/types/ComponentProps'
+
 import {
   type BezierIcon,
   type IconName,

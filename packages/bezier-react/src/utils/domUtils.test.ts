@@ -1,8 +1,7 @@
-/* Internal dependencies */
 import {
   document,
-  window,
   getRootElement,
+  window,
 } from './domUtils'
 
 describe('domUtils', () => {

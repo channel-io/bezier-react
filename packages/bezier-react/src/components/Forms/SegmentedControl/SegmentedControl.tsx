@@ -1,8 +1,7 @@
-/* External dependencies */
 import React, {
   forwardRef,
-  useState,
   useMemo,
+  useState,
 } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
@@ -15,10 +14,10 @@ import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
   type SegmentedControlItemListProps,
   type SegmentedControlProps,
-  SegmentedControlSize,
-  type SegmentedControlTabListProps,
   type SegmentedControlRadioGroupProps,
+  SegmentedControlSize,
   type SegmentedControlTabContentProps,
+  type SegmentedControlTabListProps,
   type SegmentedControlTabsProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'

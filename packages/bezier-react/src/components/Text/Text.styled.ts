@@ -1,10 +1,11 @@
-/* Internal dependencies */
 import {
-  styled,
   css,
   ellipsis,
+  styled,
 } from '~/src/foundation'
+
 import { type ColorProps } from '~/src/types/ComponentProps'
+
 import type TextProps from './Text.types'
 
 interface TextStyledProps extends ColorProps {

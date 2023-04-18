@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { isArray } from './typeUtils'
 
 export function isLastIndex(array: any[], index: number) {

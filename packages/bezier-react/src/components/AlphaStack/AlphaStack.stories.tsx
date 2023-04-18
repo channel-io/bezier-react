@@ -1,15 +1,16 @@
-/* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
+import { css } from '~/src/foundation/FoundationStyledComponent'
+
 import { range } from '~/src/utils/numberUtils'
 import { getTitle } from '~/src/utils/storyUtils'
-import { css } from '~/src/foundation/FoundationStyledComponent'
+
 import { AlphaStack } from './AlphaStack'
 import { type AlphaStackProps } from './AlphaStack.types'
 

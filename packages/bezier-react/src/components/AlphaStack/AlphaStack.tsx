@@ -1,13 +1,13 @@
-/* External dependencies */
 import React, {
+  type Ref,
   forwardRef,
   useMemo,
-  type Ref,
 } from 'react'
 
-/* Internal dependencies */
 import { flex } from '~/src/components/Stack/util'
+
 import type { AlphaStackProps } from './AlphaStack.types'
+
 import * as Styled from './AlphaStack.styled'
 
 /**

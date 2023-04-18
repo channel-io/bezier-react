@@ -1,4 +1,3 @@
-
 export const Spacing = {
   s1: '2px',
   s2: '4px',

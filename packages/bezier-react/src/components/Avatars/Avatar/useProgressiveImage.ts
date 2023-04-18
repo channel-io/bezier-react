@@ -1,7 +1,6 @@
-/* External dependencies */
 import {
-  useState,
   useEffect,
+  useState,
 } from 'react'
 
 enum ImageEventType {

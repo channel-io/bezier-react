@@ -1,20 +1,22 @@
-/* Internal dependencies */
 import {
-  styled,
+  LineHeightAbsoluteNumber,
+  type SemanticNames,
+  TransitionDuration,
   css,
   ellipsis,
-  type SemanticNames,
-  LineHeightAbsoluteNumber,
-  TransitionDuration,
+  styled,
 } from '~/src/foundation'
+
 import disabledOpacity from '~/src/constants/DisabledOpacity'
+
 import {
   Icon,
   LegacyIcon,
 } from '~/src/components/Icon'
+
 import {
-  ListItemVariant,
   type ListItemSize,
+  ListItemVariant,
 } from './ListItem.types'
 import { getStyleOfSize } from './utils'
 

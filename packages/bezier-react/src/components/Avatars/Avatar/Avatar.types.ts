@@ -1,11 +1,11 @@
-/* Internal dependencies */
 import type {
+  AdditionalStylableProps,
   BezierComponentProps,
   ChildrenProps,
   DisableProps,
   SizeProps,
-  AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
+
 import { type StatusType } from '~/src/components/Status'
 
 export enum AvatarSize {

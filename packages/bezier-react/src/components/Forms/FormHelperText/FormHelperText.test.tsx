@@ -1,18 +1,18 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import {
-  FORM_HELPER_TEXT_TEST_ID,
   FORM_ERROR_MESSAGE_TEST_ID,
-  FormHelperText,
+  FORM_HELPER_TEXT_TEST_ID,
   FormErrorMessage,
+  FormHelperText,
 } from './FormHelperText'
 import type {
-  FormHelperTextProps,
   FormErrorMessageProps,
+  FormHelperTextProps,
 } from './FormHelperText.types'
 
 describe('FormHelperText >', () => {

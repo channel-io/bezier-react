@@ -1,10 +1,11 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { css } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import { Stack } from '~/src/components/Stack'
+
 import { StackItem } from './StackItem'
 
 describe('StackItem', () => {

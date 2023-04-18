@@ -1,9 +1,10 @@
-/* Internal dependencies */
 import {
-  styled,
   absoluteCenter,
+  styled,
 } from '~/src/foundation'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+
 import { Icon as BaseIcon } from '~/src/components/Icon'
 
 export const Circle = styled.div`

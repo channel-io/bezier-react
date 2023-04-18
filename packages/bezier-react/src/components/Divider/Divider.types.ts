@@ -1,7 +1,5 @@
-/* External dependencies */
 import type { SeparatorProps as SeparatorPrimitiveProps } from '@radix-ui/react-separator'
 
-/* Internal dependencies */
 import type { BezierComponentProps } from '~/src/types/ComponentProps'
 
 interface DividerOptions {

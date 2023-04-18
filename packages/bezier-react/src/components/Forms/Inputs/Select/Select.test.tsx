@@ -1,16 +1,17 @@
-/* External dependencies */
 import React from 'react'
+
 import { fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
+
 import { ZIndex } from '~/src/constants/ZIndex'
+import { render } from '~/src/utils/testUtils'
+
 import Select, {
   SELECT_CONTAINER_TEST_ID,
-  SELECT_TRIGGER_TEST_ID,
   SELECT_DROPDOWN_TEST_ID,
+  SELECT_TRIGGER_TEST_ID,
   SELECT_TRIGGER_TEXT_TEST_ID,
 } from './Select'
 import type SelectProps from './Select.types'

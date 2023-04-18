@@ -1,32 +1,35 @@
-/* External dependencies */
 import React, {
-  useState,
+  forwardRef,
   useCallback,
   useMemo,
-  forwardRef,
+  useState,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import useId from '~/src/hooks/useId'
-import { isNil } from '~/src/utils/typeUtils'
 import {
   omitBezierComponentProps,
   pickBezierComponentProps,
 } from '~/src/utils/propsUtils'
+import { isNil } from '~/src/utils/typeUtils'
+
 import { AlphaStack } from '~/src/components/AlphaStack'
+
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
-import { FormControlContext } from './FormControlContext'
+
 import {
+  type ContainerProps,
+  type ErrorMessagePropsGetter,
+  type FieldPropsGetter,
   type FormControlProps,
   type GroupPropsGetter,
-  type FieldPropsGetter,
-  type LabelPropsGetter,
   type HelperTextPropsGetter,
-  type ErrorMessagePropsGetter,
-  type ContainerProps,
+  type LabelPropsGetter,
 } from './FormControl.types'
+import { FormControlContext } from './FormControlContext'
+
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
@@ -43,7 +46,6 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
         <AlphaStack
           ref={forwardedRef}
           direction="vertical"
-          spacing={4}
           testId={testId}
           {...rest}
         >

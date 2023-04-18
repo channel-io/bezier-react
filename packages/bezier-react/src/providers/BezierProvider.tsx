@@ -1,7 +1,5 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import {
   type Foundation,
   FoundationProvider,
@@ -10,6 +8,7 @@ import {
   ThemeVars,
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
+
 import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
 interface BezierProviderProps {

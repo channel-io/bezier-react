@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
 
 export const Box = styled.div`

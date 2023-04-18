@@ -1,42 +1,44 @@
-/* External dependencies */
 import React, {
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react'
-import { base } from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal depependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import { base } from 'paths.macro'
+
 import { styled } from '~/src/foundation'
-import {
-  iconList,
-  getTitle,
-} from '~/src/utils/storyUtils'
+
 import { noop } from '~/src/utils/functionUtils'
-import { ProgressBar } from '~/src/components/ProgressBar'
 import {
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  getTitle,
+  iconList,
+} from '~/src/utils/storyUtils'
+
 import {
   Button,
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import useToast from './useToast'
-import ToastProvider from './ToastProvider'
-import ToastElement from './ToastElement'
-import { type ToastOptions } from './Toast.types'
+import { ProgressBar } from '~/src/components/ProgressBar'
+import {
+  StackItem,
+  VStack,
+} from '~/src/components/Stack'
+
 import type ToastProps from './Toast.types'
+import { type ToastOptions } from './Toast.types'
 import {
   ToastAppearance,
   ToastPreset,
 } from './Toast.types'
+import ToastElement from './ToastElement'
+import ToastProvider from './ToastProvider'
+import useToast from './useToast'
 
 export default {
   title: getTitle(base),

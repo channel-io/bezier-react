@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { SmoothCornersScript } from './smoothCorners'
 
 interface EnableCSSHoudiniOptions {

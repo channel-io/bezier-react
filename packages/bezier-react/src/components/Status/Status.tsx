@@ -1,21 +1,22 @@
-/* External dependencies */
 import React, {
-  memo,
   forwardRef,
+  memo,
 } from 'react'
 
-/* Internal dependencies */
 import type { SemanticNames } from '~/src/foundation'
+
 import {
   IconSize,
   LockIcon,
   MoonFilledIcon,
 } from '~/src/components/Icon'
+
 import {
   type StatusProps,
   StatusSize,
   StatusType,
 } from './Status.types'
+
 import * as Styled from './Status.styled'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [

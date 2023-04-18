@@ -1,15 +1,14 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import {
-  ModalTrigger,
   ModalClose,
+  ModalTrigger,
 } from '../Modal'
+
 import {
-  type ConfirmModalTriggerProps,
   type ConfirmModalCloseProps,
+  type ConfirmModalTriggerProps,
 } from './ConfirmModal.types'
 
 /**

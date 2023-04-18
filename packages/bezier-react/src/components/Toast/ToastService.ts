@@ -1,13 +1,11 @@
-/* External dependencies */
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import {
-  defaultOptions,
-  type ToastOptions,
-  type ToastId,
-  type ToastType,
   type ToastContent,
+  type ToastId,
+  type ToastOptions,
+  type ToastType,
+  defaultOptions,
 } from './Toast.types'
 
 /* ToastService를 사용하는 이유

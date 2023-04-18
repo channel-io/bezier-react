@@ -1,12 +1,12 @@
-/* External dependencies */
 import React from 'react'
 
-/* Interanal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import { render } from '~/src/utils/testUtils'
+
 import {
-  ProgressBar,
   PROGRESS_BAR_ACTIVE_TEST_ID,
+  ProgressBar,
 } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import {

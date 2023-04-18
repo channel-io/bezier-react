@@ -1,8 +1,7 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal Dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import {
   css,
   styled,

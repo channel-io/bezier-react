@@ -1,18 +1,13 @@
-/* External dependencies */
 import React from 'react'
-import base from 'paths.macro'
-import type {
-  Story,
-  Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import type {
+  Meta,
+  Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
 import { getTitle } from '~/src/utils/storyUtils'
 
-import {
-  SegmentedControl,
-  SegmentedControlItem,
-} from '~/src/components/Forms/SegmentedControl'
 import { Checkbox } from '~/src/components/Forms/Checkbox'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
 import {
@@ -27,6 +22,10 @@ import {
   Radio,
   RadioGroup,
 } from '~/src/components/Forms/RadioGroup'
+import {
+  SegmentedControl,
+  SegmentedControlItem,
+} from '~/src/components/Forms/SegmentedControl'
 import { Switch } from '~/src/components/Forms/Switch'
 
 import { FormControl } from './FormControl'

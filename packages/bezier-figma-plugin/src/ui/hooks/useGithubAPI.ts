@@ -1,10 +1,10 @@
-/* External dependencies */
 import {
-  useMemo,
   useCallback,
+  useMemo,
 } from 'react'
-import { Octokit } from 'octokit'
+
 import { type RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods'
+import { Octokit } from 'octokit'
 
 interface UseGithubAPIProps {
   auth: string

@@ -1,15 +1,14 @@
-/* External dependencies */
 import type React from 'react'
 
-/* Internal dependencies */
 import type {
-  BezierComponentProps,
-  VariantProps,
-  SizeProps,
-  SideContentProps,
-  AdditionalStylableProps,
   AdditionalColorProps,
+  AdditionalStylableProps,
+  BezierComponentProps,
+  SideContentProps,
+  SizeProps,
+  VariantProps,
 } from '~/src/types/ComponentProps'
+
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
 import {

@@ -1,24 +1,25 @@
-/* External dependencies */
 import React, {
-  useState,
   useMemo,
+  useState,
 } from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
-/* Internal dependencies */
 import { compact } from '~/src/utils/arrayUtils'
 import { getTitle } from '~/src/utils/storyUtils'
+
 import { InboxIcon } from '~/src/components/Icon'
+
+import ListItem from './ListItem'
 import type ListItemProps from './ListItem.types'
 import {
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
-import ListItem from './ListItem'
 
 export default {
   title: getTitle(base),

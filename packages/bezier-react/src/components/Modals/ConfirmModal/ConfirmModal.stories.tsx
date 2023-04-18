@@ -1,37 +1,38 @@
 /* eslint-disable no-restricted-imports */
-/* External dependencies */
 import React, {
-  useState,
   useEffect,
+  useState,
 } from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
 import {
   Button,
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
+
 import { ConfirmModal } from './ConfirmModal'
-import { ConfirmModalContent } from './ConfirmModalContent'
-import { ConfirmModalHeader } from './ConfirmModalHeader'
-import { ConfirmModalBody } from './ConfirmModalBody'
-import { ConfirmModalFooter } from './ConfirmModalFooter'
 import {
-  ConfirmModalTrigger,
-  ConfirmModalClose,
-} from './ConfirmModalHelpers'
-import {
-  type ConfirmModalProps,
   type ConfirmModalContentProps,
   type ConfirmModalHeaderProps,
+  type ConfirmModalProps,
 } from './ConfirmModal.types'
+import { ConfirmModalBody } from './ConfirmModalBody'
+import { ConfirmModalContent } from './ConfirmModalContent'
+import { ConfirmModalFooter } from './ConfirmModalFooter'
+import { ConfirmModalHeader } from './ConfirmModalHeader'
+import {
+  ConfirmModalClose,
+  ConfirmModalTrigger,
+} from './ConfirmModalHelpers'
 
 type ConfirmModalCompositionProps = ConfirmModalProps & ConfirmModalContentProps & ConfirmModalHeaderProps
 

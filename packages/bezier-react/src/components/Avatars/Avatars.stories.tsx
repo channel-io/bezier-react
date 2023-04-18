@@ -1,15 +1,16 @@
-/* External dependencies */
 import React from 'react'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
 import base from 'paths.macro'
 
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
-import { getTitle } from '~/src/utils/storyUtils'
+
 import { range } from '~/src/utils/numberUtils'
+import { getTitle } from '~/src/utils/storyUtils'
+
 import {
   Avatar,
   AvatarSize,
@@ -30,6 +31,7 @@ import {
 } from '~/src/components/Stack'
 import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
+
 import mdx from './Avatars.mdx'
 
 export default {

@@ -1,9 +1,8 @@
-/* External dependencies */
 import { type CSSProperties } from 'react'
 import type React from 'react'
 
-/* Internal dependencies */
 import type { SemanticNames } from '~/src/foundation'
+
 import type { InjectedInterpolation } from './Foundation'
 
 /* Component Base Props */

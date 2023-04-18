@@ -1,18 +1,19 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
+
 import disabledOpacity from '~/src/constants/DisabledOpacity'
-import { render } from '~/src/utils/testUtils'
 import { range } from '~/src/utils/numberUtils'
+import { render } from '~/src/utils/testUtils'
+
 import { Text } from '~/src/components/Text'
-import ResizeObserver from './__mocks__/ResizeObserver'
+
 import SegmentedControl, {
   SEGMENTED_CONTROL_TEST_ID,
   segmentedControlOptionItemTestId,
 } from './SegmentedControl'
 import type SegmentedControlProps from './SegmentedControl.types'
+import ResizeObserver from './__mocks__/ResizeObserver'
 
 describe('SegmentedControl', () => {
   const defaultProps: Partial<SegmentedControlProps> = {

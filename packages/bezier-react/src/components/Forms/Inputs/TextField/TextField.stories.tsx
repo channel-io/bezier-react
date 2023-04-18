@@ -1,27 +1,28 @@
-/* External dependencies */
 import React, {
-  useRef,
   useCallback,
+  useRef,
   useState,
 } from 'react'
-import base from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
-/* Internal dependencies */
 import {
-  getTitle,
   getObjectFromEnum,
+  getTitle,
 } from '~/src/utils/storyUtils'
+
 import { SearchIcon } from '~/src/components/Icon'
+
 import TextField from './TextField'
 import {
+  type TextFieldProps,
   type TextFieldRef,
   TextFieldSize,
   TextFieldVariant,
-  type TextFieldProps,
 } from './TextField.types'
 
 export default {

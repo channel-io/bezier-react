@@ -1,12 +1,11 @@
-/* External dependencies */
 import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch'
 
-/* Internal dependencies */
 import type {
+  AdditionalTestIdProps,
   BezierComponentProps,
   SizeProps,
-  AdditionalTestIdProps,
 } from '~/src/types/ComponentProps'
+
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
 export enum SwitchSize {

@@ -1,26 +1,27 @@
-/* External dependencies */
 import React from 'react'
+
 import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import { AutoFocus } from '~/src/components/AutoFocus'
+
 import { Modal } from './Modal'
-import { ModalContent } from './ModalContent'
-import { ModalHeader } from './ModalHeader'
-import { ModalBody } from './ModalBody'
-import { ModalFooter } from './ModalFooter'
 import {
-  ModalTrigger,
-  ModalClose,
-} from './ModalHelpers'
-import {
-  type ModalProps,
   type ModalContentProps,
   type ModalHeaderProps,
+  type ModalProps,
   ModalTitleSize,
 } from './Modal.types'
+import { ModalBody } from './ModalBody'
+import { ModalContent } from './ModalContent'
+import { ModalFooter } from './ModalFooter'
+import { ModalHeader } from './ModalHeader'
+import {
+  ModalClose,
+  ModalTrigger,
+} from './ModalHelpers'
 
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'

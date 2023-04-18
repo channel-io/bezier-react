@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { IconSize } from '~/src/components/Icon'
 
 export const BADGE_TEXT_HORIZONTAL_PADDING = 3

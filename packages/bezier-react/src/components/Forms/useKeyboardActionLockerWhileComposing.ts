@@ -1,4 +1,3 @@
-/* External dependencies */
 import type React from 'react'
 import {
   useCallback,

@@ -1,4 +1,3 @@
-/* External dependencies */
 import { css } from './FoundationStyledComponent'
 
 export enum TypoAbsoluteNumber {

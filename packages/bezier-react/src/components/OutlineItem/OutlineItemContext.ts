@@ -1,8 +1,6 @@
-/* External dependencies */
 import type React from 'react'
 import { createContext } from 'react'
 
-/* Internal dependencies */
 import { noop } from '~/src/utils/functionUtils'
 
 export interface OutlineItemContextProps {

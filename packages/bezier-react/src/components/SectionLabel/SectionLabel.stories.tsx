@@ -1,25 +1,27 @@
-/* External dependencies */
 import React, { useState } from 'react'
-import base from 'paths.macro'
-import {
-  type Story,
-  type Meta,
-} from '@storybook/react'
 
-/* Internal dependencies */
 import {
-  css,
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
+import {
   Typography,
+  css,
 } from '~/src/foundation'
-import { getTitle } from '~/src/utils/storyUtils'
+
 import { noop } from '~/src/utils/functionUtils'
-import { ListItem } from '~/src/components/ListItem'
-import { Text } from '~/src/components/Text'
-import type { ListItemProps } from '~/src/components/ListItem'
+import { getTitle } from '~/src/utils/storyUtils'
+
 import {
   StarFilledIcon,
   ViewIcon,
 } from '~/src/components/Icon'
+import { ListItem } from '~/src/components/ListItem'
+import type { ListItemProps } from '~/src/components/ListItem'
+import { Text } from '~/src/components/Text'
+
 import SectionLabel from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 

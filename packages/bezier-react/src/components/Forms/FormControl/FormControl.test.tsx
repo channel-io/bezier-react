@@ -1,20 +1,20 @@
-/* External dependencies */
 import React from 'react'
+
 import { isInaccessible } from '@testing-library/react'
 
-/* Internal dependencies */
 import { render } from '~/src/utils/testUtils'
+
 import {
-  SingleFieldForm,
-  MultipleFieldForm,
-  SingleFieldFormWithLabelFont,
-  MOCK_CONSTS,
-} from './__mocks__/forms'
-import {
-  FormControl,
   FORM_CONTROL_TEST_ID,
+  FormControl,
 } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
+import {
+  MOCK_CONSTS,
+  MultipleFieldForm,
+  SingleFieldForm,
+  SingleFieldFormWithLabelFont,
+} from './__mocks__/forms'
 
 describe('FormControl >', () => {
   let props: FormControlProps

@@ -12,8 +12,8 @@ import { ariaAttr } from '~/src/utils/domUtils'
 import { AlphaStack } from '~/src/components/AlphaStack'
 
 import {
-  type SegmentedControlProps,
   type SegmentedControlItemProps,
+  type SegmentedControlProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'
 import {

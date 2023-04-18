@@ -1,8 +1,8 @@
-/* Internal dependencies */
 import {
   type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
+
 import { type HStackProps } from '~/src/components/Stack'
 
 interface ButtonGroupOptions {

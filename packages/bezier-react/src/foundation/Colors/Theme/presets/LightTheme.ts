@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { Palette } from '~/src/foundation/Colors/Palette'
 import { type ThemeType } from '~/src/foundation/Colors/Theme'
 

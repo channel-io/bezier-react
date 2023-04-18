@@ -1,45 +1,48 @@
-/* External dependencies */
 import React, {
   forwardRef,
-  useState,
   useCallback,
   useMemo,
+  useState,
 } from 'react'
+
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { noop } from '~/src/utils/functionUtils'
+import { mergeClassNames } from '~/src/utils/stringUtils'
 import {
+  isEmpty,
   isNil,
   isString,
-  isEmpty,
 } from '~/src/utils/typeUtils'
-import { mergeClassNames } from '~/src/utils/stringUtils'
-import { noop } from '~/src/utils/functionUtils'
-import { Text } from '~/src/components/Text'
+
 import {
   IconSize,
   isBezierIcon,
   isIconName,
 } from '~/src/components/Icon'
-import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
+import { Text } from '~/src/components/Text'
+
 import type ListItemProps from './ListItem.types'
 import {
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
+import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
+
 import {
-  Wrapper,
-  LeftContentWrapper,
-  StyledLegacyIcon,
-  TitleWrapper,
-  Title,
-  DescriptionWrapper,
-  Description,
-  RightContent,
   ContentWrapper,
+  Description,
+  DescriptionWrapper,
+  LeftContentWrapper,
+  RightContent,
   StyledIcon,
+  StyledLegacyIcon,
+  Title,
+  TitleWrapper,
+  Wrapper,
 } from './ListItem.styled'
 
 const LINE_BREAK_CHAR = '\n'

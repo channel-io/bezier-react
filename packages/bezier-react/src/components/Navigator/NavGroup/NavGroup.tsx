@@ -1,30 +1,32 @@
-/* External dependencies */
 import React, {
-  useCallback,
   memo,
+  useCallback,
 } from 'react'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
-import { isNil } from '~/src/utils/typeUtils'
+
 import { noop } from '~/src/utils/functionUtils'
-import { Text } from '~/src/components/Text'
+import { isNil } from '~/src/utils/typeUtils'
+
 import {
-  LegacyIcon,
-  Icon,
-  IconSize,
-  isIconName,
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
+  Icon,
+  IconSize,
+  LegacyIcon,
+  isIconName,
 } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
+
 import type NavGroupProps from './NavGroup.types'
+
 import {
-  Item,
-  Wrapper,
-  ChildrenWrapper,
-  LeftIconWrapper,
   ChevronWrapper,
+  ChildrenWrapper,
+  Item,
+  LeftIconWrapper,
   RightContentWrapper,
+  Wrapper,
 } from './NavGroup.styled'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'

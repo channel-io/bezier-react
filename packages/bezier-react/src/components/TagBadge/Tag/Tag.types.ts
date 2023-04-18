@@ -1,11 +1,11 @@
-/* Internal dependencies */
 import {
   type BezierComponentProps,
-  type VariantProps,
-  type SizeProps,
   type ChildrenProps,
   type ColorProps,
+  type SizeProps,
+  type VariantProps,
 } from '~/src/types/ComponentProps'
+
 import {
   type TagBadgeSize,
   type TagBadgeVariant,

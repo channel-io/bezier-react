@@ -1,21 +1,21 @@
-/* External dependencies */
 import TextareaAutosize from 'react-textarea-autosize'
 
-/* Internal dependencies */
 import {
-  hideScrollbars,
   type SemanticNames,
-  styled,
   Typography,
+  hideScrollbars,
+  styled,
 } from '~/src/foundation'
-import { type InterpolationProps } from '~/src/types/Foundation'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { type InterpolationProps } from '~/src/types/Foundation'
+
 import {
-  inputTextStyle,
   erroredInputWrapperStyle,
   focusedInputWrapperStyle,
-  inputWrapperStyle,
   inputPlaceholderStyle,
+  inputTextStyle,
+  inputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
 
 interface WrapperProps extends InterpolationProps {

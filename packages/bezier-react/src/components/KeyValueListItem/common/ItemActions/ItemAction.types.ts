@@ -1,12 +1,11 @@
-/* External dependencies */
 import type React from 'react'
 
-/* Internal dependencies */
 import type {
+  AdditionalColorProps,
   BezierComponentProps,
   ChildrenProps,
-  AdditionalColorProps,
 } from '~/src/types/ComponentProps'
+
 import type {
   BezierIcon,
   IconName,

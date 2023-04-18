@@ -1,30 +1,31 @@
-/* External dependencies */
 import React from 'react'
 
-/* Internal dependencies */
 import {
   LightFoundation,
+  LineHeightAbsoluteNumber,
   RoundAbsoluteNumber,
   TypoAbsoluteNumber,
-  LineHeightAbsoluteNumber,
 } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
+
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { render } from '~/src/utils/testUtils'
+
 import {
-  Button,
+  BUTTON_INNER_CONTENT_TEST_ID,
   BUTTON_TEST_ID,
   BUTTON_TEXT_TEST_ID,
-  BUTTON_INNER_CONTENT_TEST_ID,
+  Button,
 } from './Button'
 import {
-  ButtonStyleVariant,
   ButtonSize,
+  ButtonStyleVariant,
 } from './Button.types'
+import type ButtonProps from './Button.types'
+
 import {
   BUTTON_HORIZONTAL_PADDING_VALUE,
   TEXT_PADDING_VALUE,
 } from './Button.styled'
-import type ButtonProps from './Button.types'
 
 describe('Button Test >', () => {
   let props: ButtonProps

@@ -1,20 +1,22 @@
-/* External dependencies */
 import React, {
-  useState,
   useMemo,
+  useState,
 } from 'react'
-import { base } from 'paths.macro'
+
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import { base } from 'paths.macro'
 
-/* Internal dependencies */
 import { Typography } from '~/src/foundation'
+
 import { getTitle } from '~/src/utils/storyUtils'
+
 import { Text } from '~/src/components/Text'
-import type RadioProps from './Radio.types'
+
 import Radio from './Radio'
+import type RadioProps from './Radio.types'
 
 export default {
   title: getTitle(base),

@@ -1,12 +1,14 @@
-/* External dependencies */
 import React from 'react'
+
 import { v4 as uuid } from 'uuid'
 
-/* Internal dependencies */
 import { LightFoundation } from '~/src/foundation'
-import { render } from '~/src/utils/testUtils'
+
 import { range } from '~/src/utils/numberUtils'
+import { render } from '~/src/utils/testUtils'
+
 import { EditIcon } from '~/src/components/Icon'
+
 import OutlineItem, {
   OUTLINE_ITEM_LEFT_ICON_TEST_ID,
   OUTLINE_ITEM_TEST_ID,

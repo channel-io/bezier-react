@@ -1,4 +1,3 @@
-/* Internal dependencies */
 import { OverlayPosition } from './Overlay.types'
 import {
   getOverlayPosition,

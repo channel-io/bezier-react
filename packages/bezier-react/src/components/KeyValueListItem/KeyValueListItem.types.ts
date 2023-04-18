@@ -1,16 +1,16 @@
-/* External dependencies */
 import type React from 'react'
 
-/* Internal dependencies */
 import type {
+  AdditionalStylableProps,
   BezierComponentProps,
   ChildrenProps,
-  AdditionalStylableProps,
 } from '~/src/types/ComponentProps'
+
 import {
   type BezierIcon,
   type IconName,
 } from '~/src/components/Icon'
+
 import { type KeyValueListItemActionProps } from './common'
 
 interface KeyValueListItemOptions {

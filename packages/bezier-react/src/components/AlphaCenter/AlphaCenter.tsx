@@ -1,8 +1,7 @@
-/* External dependencies */
 import React, { forwardRef } from 'react'
 
-/* Internal dependencies */
 import { type AlphaCenterProps } from './AlphaCenter.types'
+
 import * as Styled from './AlphaCenter.styled'
 
 /**

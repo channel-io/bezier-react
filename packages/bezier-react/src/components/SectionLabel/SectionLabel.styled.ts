@@ -1,6 +1,7 @@
-/* Internal dependencies */
 import { styled } from '~/src/foundation'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
+
 import { LegacyIcon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 

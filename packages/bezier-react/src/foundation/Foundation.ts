@@ -1,10 +1,9 @@
-/* Internal dependencies */
+import { type Border } from './Border'
 import { type Theme } from './Colors'
+import { type Elevation } from './Elevation'
+import { type Rounding } from './Rounding'
 import { type Spacing } from './Spacing'
 import { type Transition } from './Transition'
-import { type Rounding } from './Rounding'
-import { type Elevation } from './Elevation'
-import { type Border } from './Border'
 
 export interface Foundation {
   theme: Theme
