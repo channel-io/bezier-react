@@ -82,7 +82,6 @@ export const TooltipContent = styled(TooltipPrimitive.Content)<TooltipContentPro
   max-width: 260px;
   height: max-content;
   padding: 5px 8px;
-  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   word-break: normal;
   word-wrap: break-word;
 
@@ -109,7 +108,26 @@ export const TooltipContent = styled(TooltipPrimitive.Content)<TooltipContentPro
 `
 
 export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })`
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   /* NOTE: Line height of Typography.Size13  */
   ${ellipsis(20, LineHeightAbsoluteNumber.Lh18)}
   white-space: pre-wrap;
+`
+
+export const Description = styled(Text).attrs({ typo: Typography.Size12 })`
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-dark']};
+`
+
+export const DefaultTrigger = styled.div.attrs({ tabIndex: 0 })`
+  line-height: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+  }
+
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])};
 `

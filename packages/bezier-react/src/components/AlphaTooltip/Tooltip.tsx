@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react'
 
+import { Slot } from '@radix-ui/react-slot'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -16,6 +17,8 @@ import {
 } from './Tooltip.types'
 
 import * as Styled from './Tooltip.styled'
+
+export const TooltipProvider = TooltipPrimitive.Provider
 
 // TODO: (@ed) Evolve it into a commonly reusable function
 // FIXME: duplicate
@@ -113,6 +116,7 @@ function getSideAndAlign(
       }
   }
 }
+
 interface TooltipCustomContentContextValue extends TooltipContentProps {
   ref: (element: HTMLDivElement | null) => void
 }
@@ -124,6 +128,7 @@ const [
 
 const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContentImpl({
   children,
+  description,
   ...rest
 }, forwardedRef) {
   return (
@@ -134,6 +139,11 @@ const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(funct
       <Styled.TooltipText>
         { children }
       </Styled.TooltipText>
+      { description && (
+        <Styled.Description>
+          { description }
+        </Styled.Description>
+      ) }
     </Styled.TooltipContent>
   )
 })
@@ -165,8 +175,6 @@ const collisionPadding = {
   right: 16,
 }
 
-export const TooltipProvider = TooltipPrimitive.Provider
-
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   children,
   content,
@@ -176,6 +184,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   container = document.body,
   keepInContainer = true,
   delayShow = 0,
+  useDefaultTrigger = false,
   ...rest
 }, forwardedRef) {
   const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
@@ -198,7 +207,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     ref: setCustomContentElement,
   }), [contentProps])
 
-  const ContentRoot = !customContentElement ? TooltipContentImpl : React.Fragment
+  const TriggerRoot = !useDefaultTrigger ? Slot : Styled.DefaultTrigger
+
+  const ContentRoot = customContentElement ? React.Fragment : TooltipContentImpl
 
   return (
     <TooltipPrimitive.Root
@@ -206,7 +217,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       delayDuration={delayShow}
     >
       <TooltipPrimitive.Trigger asChild>
-        { children }
+        <TriggerRoot>
+          { children }
+        </TriggerRoot>
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>

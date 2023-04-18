@@ -22,12 +22,17 @@ export enum TooltipPosition {
   LeftBottom = 'leftBottom',
 }
 
+interface TooltipContentOptions {
+  description?: React.ReactNode
+}
+
 interface TooltipOptions {
   placement?: TooltipPosition
   offset?: number
   container?: HTMLElement | null
   keepInContainer?: boolean
   delayShow?: number
+  useDefaultTrigger?: boolean
 }
 
 export interface TooltipProps extends
@@ -36,8 +41,10 @@ export interface TooltipProps extends
   ContentProps,
   DisableProps,
   React.HTMLAttributes<HTMLDivElement>,
+  TooltipContentOptions,
   TooltipOptions {}
 
 export interface TooltipContentProps extends
   BezierComponentProps,
-  TooltipPrimitive.TooltipContentProps {}
+  TooltipPrimitive.TooltipContentProps,
+  TooltipContentOptions {}
