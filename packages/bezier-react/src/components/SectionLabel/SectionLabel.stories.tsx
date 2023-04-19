@@ -127,7 +127,7 @@ const Template: Story<SectionLabelProps & {
         />
       </SectionLabel>
       <SectionLabel
-        help={{ tooltipContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }}
+        help="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
         {...otherSectionLabelProps}
       />

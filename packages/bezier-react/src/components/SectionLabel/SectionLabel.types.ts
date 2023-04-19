@@ -11,15 +11,8 @@ import type {
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-import type { IconSize } from '~/src/components/Icon'
-
 interface IconInfo extends AdditionalColorProps<'icon'> {
   icon: IconName
-}
-
-interface SectionLabelHelpProps extends Partial<IconInfo> {
-  iconSize?: IconSize
-  tooltipContent: React.ReactNode
 }
 
 export type SectionLabelItemProps = (IconInfo & {
@@ -29,7 +22,7 @@ export type SectionLabelItemProps = (IconInfo & {
 interface SectionLabelOptions {
   open?: boolean
   divider?: boolean
-  help?: SectionLabelHelpProps
+  help?: React.ReactNode
   onClick?: React.MouseEventHandler
 }
 

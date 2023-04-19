@@ -25,7 +25,6 @@ import {
 import { Divider } from '~/src/components/Divider'
 import { IconSize } from '~/src/components/Icon'
 import { LegacyIcon } from '~/src/components/LegacyIcon'
-import { LegacyTooltip } from '~/src/components/LegacyTooltip'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -181,18 +180,9 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <LegacyTooltip
-      content={help.tooltipContent}
-      allowHover
-    >
-      <Styled.HelpIconWrapper data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
-        <LegacyIcon
-          name={help.icon ?? 'help-filled'}
-          size={IconSize.XS}
-          color={help.iconColor ?? 'txt-black-dark'}
-        />
-      </Styled.HelpIconWrapper>
-    </LegacyTooltip>
+    <Styled.Help data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
+      { help }
+    </Styled.Help>
   ), [help])
 
   return (
