@@ -27,11 +27,16 @@ interface TooltipContentOptions {
 }
 
 interface TooltipOptions {
+  'aria-label'?: string
+  defaultShow?: boolean
+  onShow?: () => void
+  onHide?: () => void
   placement?: TooltipPosition
   offset?: number
   container?: HTMLElement | null
   keepInContainer?: boolean
   delayShow?: number
+  delayHide?: number
   useDefaultTrigger?: boolean
 }
 

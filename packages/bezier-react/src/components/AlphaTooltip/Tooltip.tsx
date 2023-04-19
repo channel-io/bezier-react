@@ -1,6 +1,9 @@
 import React, {
   forwardRef,
+  useCallback,
+  useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 
@@ -170,6 +173,9 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(fu
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   children,
+  defaultShow,
+  onShow,
+  onHide,
   content,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
@@ -177,10 +183,56 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   container = document.body,
   keepInContainer = true,
   delayShow = 0,
+  delayHide = 0,
   useDefaultTrigger = false,
   ...rest
 }, forwardedRef) {
+  const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
+
+  const timeoutRef = useRef<NodeJS.Timeout>()
+
+  useEffect(function cleanUpTimeout() {
+    return function cleanUp() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
+  const onOpenChange = useCallback((open: boolean) => {
+    if (disabled) { return }
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = undefined
+    }
+
+    if (open) {
+      setShow(open)
+      onShow?.()
+      return
+    }
+
+    const hide = () => {
+      setShow(open)
+      onHide?.()
+    }
+
+    if (delayHide > 0) {
+      timeoutRef.current = setTimeout(() => {
+        hide()
+      }, delayHide)
+      return
+    }
+
+    hide()
+  }, [
+    disabled,
+    delayHide,
+    onShow,
+    onHide,
+  ])
 
   const contentProps = useMemo<TooltipPrimitive.TooltipContentProps>(() => ({
     ...rest,
@@ -206,8 +258,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
   return (
     <TooltipPrimitive.Root
-      open={disabled ? false : undefined}
+      open={show}
+      defaultOpen={defaultShow}
       delayDuration={delayShow}
+      onOpenChange={onOpenChange}
     >
       <TooltipPrimitive.Trigger asChild>
         <TriggerRoot>
