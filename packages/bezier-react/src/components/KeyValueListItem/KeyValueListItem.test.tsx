@@ -373,7 +373,7 @@ describe('KeyValueListItem', () => {
         const rootValueContainer = rendered.lastChild
         expect(rootValueContainer).toHaveStyle('display: flex;')
         expect(rootValueContainer).toHaveStyle('flex: 1;')
-        expect(rootValueContainer).toHaveStyle('padding: 0 6px;')
+        expect(rootValueContainer).toHaveStyle('padding: 4px 6px;')
         expect(rootValueContainer).toHaveStyle('min-height: 28px;')
       })
     })

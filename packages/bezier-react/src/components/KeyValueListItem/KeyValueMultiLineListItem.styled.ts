@@ -20,5 +20,4 @@ export const KeyItemContainer = styled(KeyValueListItemContainer)`
 export const ValueItemContainer = styled(KeyValueListItemContainer)`
   flex: 1;
   min-height: 28px;
-  padding: 0 6px;
 `
