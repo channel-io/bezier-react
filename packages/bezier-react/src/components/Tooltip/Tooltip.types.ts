@@ -25,7 +25,7 @@ export default interface TooltipProps extends
   ChildrenProps,
   ContentProps,
   DisableProps,
-  AdditionalStylableProps<'content'>,
+  AdditionalStylableProps<'content' | 'contentWrapper'>,
   React.HTMLAttributes<HTMLDivElement>,
   TooltipOptions {
 }
@@ -39,7 +39,7 @@ TooltipOptions,
 >,
   RenderConfigProps,
   ContentProps,
-  AdditionalStylableProps<'content'>,
+  AdditionalStylableProps<'content' | 'contentWrapper'>,
   DisableProps {
   tooltipContainer: HTMLDivElement | null
   forwardedRef: Ref<HTMLDivElement>

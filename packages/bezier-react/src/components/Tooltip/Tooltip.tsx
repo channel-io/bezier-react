@@ -27,6 +27,7 @@ function Tooltip(
     className,
     contentClassName,
     contentInterpolation,
+    contentWrapperStyle,
     content = null,
     lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
     placement = TooltipPosition.BottomCenter,
@@ -99,6 +100,7 @@ function Tooltip(
           content={content}
           contentClassName={contentClassName}
           contentInterpolation={contentInterpolation}
+          contentWrapperStyle={contentWrapperStyle}
           disabled={disabled}
           placement={placement}
           offset={offset}
@@ -119,6 +121,7 @@ function Tooltip(
     content,
     contentClassName,
     contentInterpolation,
+    contentWrapperStyle,
     disabled,
     placement,
     offset,

@@ -82,6 +82,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
   content,
   contentClassName,
   contentInterpolation,
+  contentWrapperStyle: givenContentWrapperStyle,
   disabled = false,
   keepInContainer = false,
   placement = TooltipPosition.BottomCenter,
@@ -119,17 +120,21 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
 
   const contentWrapperStyle = useMemo(() => {
     if (tooltipContainer) {
-      return getTooltipStyle({
-        tooltipContainer,
-        placement: replacement,
-        offset,
-        allowHover,
-      })
+      return {
+        ...givenContentWrapperStyle,
+        ...getTooltipStyle({
+          tooltipContainer,
+          placement: replacement,
+          offset,
+          allowHover,
+        }),
+      }
     }
 
     return {}
   }, [
     tooltipContainer,
+    givenContentWrapperStyle,
     replacement,
     offset,
     allowHover,
