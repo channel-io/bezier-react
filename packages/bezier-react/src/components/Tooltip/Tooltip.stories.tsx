@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
   type Meta,
@@ -79,22 +79,15 @@ const Target = styled.div`
   border-radius: 4px;
 `
 
-const Template: Story<TooltipProps> = (props) => {
-  const [container, setContainer] = useState<HTMLDivElement | null>(null)
-
-  return (
-    <div ref={setContainer}>
-      <Tooltip
-        {...props}
-        container={container}
-      >
-        <Target>
-          Target
-        </Target>
-      </Tooltip>
-    </div>
-  )
-}
+const Template: Story<TooltipProps> = (props) => (
+  <Tooltip
+    {...props}
+  >
+    <Target>
+      Target
+    </Target>
+  </Tooltip>
+)
 
 export const Primary = Template.bind({})
 

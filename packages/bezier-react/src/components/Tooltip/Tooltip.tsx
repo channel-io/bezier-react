@@ -27,12 +27,12 @@ function Tooltip(
     className,
     contentClassName,
     contentInterpolation,
+    contentWrapperStyle,
     content = null,
     lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
     placement = TooltipPosition.BottomCenter,
     disabled = false,
     offset = 4,
-    container,
     keepInContainer = false,
     allowHover = false,
     delayShow = 0,
@@ -100,11 +100,11 @@ function Tooltip(
           content={content}
           contentClassName={contentClassName}
           contentInterpolation={contentInterpolation}
+          contentWrapperStyle={contentWrapperStyle}
           disabled={disabled}
           placement={placement}
           offset={offset}
           allowHover={allowHover}
-          container={container}
           keepInContainer={keepInContainer}
           tooltipContainer={tooltipContainerRef.current}
           forwardedRef={forwardedRef}
@@ -121,11 +121,11 @@ function Tooltip(
     content,
     contentClassName,
     contentInterpolation,
+    contentWrapperStyle,
     disabled,
     placement,
     offset,
     allowHover,
-    container,
     keepInContainer,
     forwardedRef,
     contentTestId,

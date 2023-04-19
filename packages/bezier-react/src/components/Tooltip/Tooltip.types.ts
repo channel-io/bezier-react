@@ -12,7 +12,6 @@ import {
 interface TooltipOptions {
   placement?: TooltipPosition
   offset?: number
-  container?: HTMLElement | null
   keepInContainer?: boolean
   allowHover?: boolean
   delayShow?: number
@@ -26,14 +25,13 @@ export default interface TooltipProps extends
   ChildrenProps,
   ContentProps,
   DisableProps,
-  AdditionalStylableProps<'content'>,
+  AdditionalStylableProps<'content' | 'contentWrapper'>,
   React.HTMLAttributes<HTMLDivElement>,
   TooltipOptions {
 }
 
 export interface TooltipContentProps extends Pick<
 TooltipOptions,
-'container' |
 'keepInContainer' |
 'placement' |
 'offset' |
@@ -41,7 +39,7 @@ TooltipOptions,
 >,
   RenderConfigProps,
   ContentProps,
-  AdditionalStylableProps<'content'>,
+  AdditionalStylableProps<'content' | 'contentWrapper'>,
   DisableProps {
   tooltipContainer: HTMLDivElement | null
   forwardedRef: Ref<HTMLDivElement>
@@ -51,7 +49,7 @@ export interface GetTooltipStyle extends Required<Pick<TooltipOptions, 'placemen
   tooltipContainer: HTMLDivElement
 }
 
-export interface GetReplacement extends Required<Pick<TooltipOptions, 'placement' | 'container' | 'keepInContainer'>> {
+export interface GetReplacement extends Required<Pick<TooltipOptions, 'placement' | 'keepInContainer'>> {
   tooltip: HTMLDivElement
 }
 
