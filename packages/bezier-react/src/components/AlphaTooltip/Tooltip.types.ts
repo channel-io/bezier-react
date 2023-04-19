@@ -27,7 +27,6 @@ interface TooltipContentOptions {
 }
 
 interface TooltipOptions {
-  'aria-label'?: string
   defaultShow?: boolean
   onShow?: () => void
   onHide?: () => void
@@ -44,7 +43,7 @@ export interface TooltipProps extends
   ChildrenProps,
   ContentProps,
   DisableProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  React.HTMLAttributes<HTMLElement>,
   TooltipContentOptions,
   TooltipOptions {}
 

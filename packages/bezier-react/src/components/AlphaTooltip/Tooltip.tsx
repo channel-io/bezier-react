@@ -170,12 +170,13 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(fu
   )
 })
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
+export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
   children,
   defaultShow,
   onShow,
   onHide,
   content,
+  description,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
   disabled,
@@ -183,8 +184,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   keepInContainer = true,
   delayShow = 0,
   delayHide = 0,
-  style,
-  className,
   ...rest
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
@@ -235,16 +234,16 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   ])
 
   const contentProps = useMemo<TooltipPrimitive.TooltipContentProps>(() => ({
-    ...rest,
     ...getSideAndAlign(placement),
+    description,
     sideOffset: offset,
     avoidCollisions: keepInContainer,
     collisionPadding: 16,
   }), [
     placement,
+    description,
     offset,
     keepInContainer,
-    rest,
   ])
 
   const customContentContextValue = useMemo(() => ({
@@ -263,18 +262,15 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     >
       <TooltipPrimitive.Trigger
         asChild
-        style={style}
-        className={className}
+        ref={forwardedRef as React.Ref<HTMLButtonElement>}
+        {...rest}
       >
         { children }
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
         <TooltipCustomContentContextProvider value={customContentContextValue}>
-          <ContentRoot
-            ref={forwardedRef}
-            {...contentProps}
-          >
+          <ContentRoot {...contentProps}>
             { content }
           </ContentRoot>
         </TooltipCustomContentContextProvider>
