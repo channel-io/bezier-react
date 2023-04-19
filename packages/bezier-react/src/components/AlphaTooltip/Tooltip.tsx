@@ -168,13 +168,6 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(fu
   )
 })
 
-const collisionPadding = {
-  top: 16,
-  left: 16,
-  bottom: 16,
-  right: 16,
-}
-
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   children,
   content,
@@ -194,7 +187,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     ...getSideAndAlign(placement),
     sideOffset: offset,
     avoidCollisions: keepInContainer,
-    collisionPadding,
+    collisionPadding: 16,
   }), [
     placement,
     offset,
