@@ -183,6 +183,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   keepInContainer = true,
   delayShow = 0,
   delayHide = 0,
+  style,
+  className,
   ...rest
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
@@ -259,7 +261,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       delayDuration={delayShow}
       onOpenChange={onOpenChange}
     >
-      <TooltipPrimitive.Trigger asChild>
+      <TooltipPrimitive.Trigger
+        asChild
+        style={style}
+        className={className}
+      >
         { children }
       </TooltipPrimitive.Trigger>
 
