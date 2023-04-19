@@ -12,7 +12,6 @@ import {
 interface TooltipOptions {
   placement?: TooltipPosition
   offset?: number
-  container?: HTMLElement | null
   keepInContainer?: boolean
   allowHover?: boolean
   delayShow?: number
@@ -33,7 +32,6 @@ export default interface TooltipProps extends
 
 export interface TooltipContentProps extends Pick<
 TooltipOptions,
-'container' |
 'keepInContainer' |
 'placement' |
 'offset' |
@@ -51,7 +49,7 @@ export interface GetTooltipStyle extends Required<Pick<TooltipOptions, 'placemen
   tooltipContainer: HTMLDivElement
 }
 
-export interface GetReplacement extends Required<Pick<TooltipOptions, 'placement' | 'container' | 'keepInContainer'>> {
+export interface GetReplacement extends Required<Pick<TooltipOptions, 'placement' | 'keepInContainer'>> {
   tooltip: HTMLDivElement
 }
 

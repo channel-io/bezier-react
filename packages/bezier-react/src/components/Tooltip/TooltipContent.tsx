@@ -83,7 +83,6 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
   contentClassName,
   contentInterpolation,
   disabled = false,
-  container: givenContainer,
   keepInContainer = false,
   placement = TooltipPosition.BottomCenter,
   tooltipContainer,
@@ -97,8 +96,6 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
   const [replacement, setReplacement] = useState(placement)
 
-  const container = givenContainer || getRootElement()
-
   const handleClickTooltip = useCallback((event: HTMLElementEventMap['click']) => {
     event.stopPropagation()
   }, [])
@@ -109,13 +106,11 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
     if (!tooltipRef.current) { return }
     const newPlacement = getReplacement({
       tooltip: tooltipRef.current,
-      container,
       keepInContainer,
       placement,
     })
     setReplacement(newPlacement)
   }, [
-    container,
     keepInContainer,
     placement,
   ])
@@ -159,7 +154,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
           </EllipsisableContent>
         </Content>
       </ContentWrapper>,
-      container,
+      getRootElement(),
     )
   )
 }
