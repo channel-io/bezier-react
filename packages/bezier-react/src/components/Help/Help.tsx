@@ -5,6 +5,7 @@ import { HelpFilledIcon } from '@channel.io/bezier-icons'
 import { isEmpty } from '~/src/utils/typeUtils'
 
 import { IconSize } from '~/src/components/Icon'
+import { Tooltip } from '~/src/components/Tooltip'
 
 import type HelpProps from './Help.types'
 
@@ -20,14 +21,19 @@ function Help({
   if (isEmpty(children)) { return null }
 
   return (
-    <Styled.Tooltip {...rest} content={children}>
-      <Styled.Icon
-        testId={HELP_TEST_ID}
-        source={HelpFilledIcon}
-        size={IconSize.XS}
-        color="txt-black-dark"
-      />
-    </Styled.Tooltip>
+    <Tooltip
+      {...rest}
+      content={children}
+    >
+      <Styled.Trigger>
+        <Styled.Icon
+          testId={HELP_TEST_ID}
+          source={HelpFilledIcon}
+          size={IconSize.XS}
+          color="txt-black-dark"
+        />
+      </Styled.Trigger>
+    </Tooltip>
   )
 }
 
