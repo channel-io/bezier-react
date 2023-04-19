@@ -15,7 +15,7 @@ export type ItemActionWithIcon = {
   icon: IconName | BezierIcon
   tooltip?: string
   show?: boolean
-  onClick?: React.MouseEventHandler<HTMLDivElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 } & AdditionalColorProps<['icon', 'hoverBackground', 'hoverIcon']>
 
 export type KeyValueListItemActionProps = ItemActionWithIcon | React.ReactElement
