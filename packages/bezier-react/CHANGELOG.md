@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.202
+
+### Minor Changes
+
+- [#1284](https://github.com/channel-io/bezier-react/pull/1284) [`4dcf60d7`](https://github.com/channel-io/bezier-react/commit/4dcf60d7437c10c761989c27df4c64f9caadf7eb) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1292](https://github.com/channel-io/bezier-react/pull/1292) [`3b6d7feb`](https://github.com/channel-io/bezier-react/commit/3b6d7feb8c397d92534b603065be17effba8ffb0) Thanks [@rktguswjd](https://github.com/rktguswjd)! - Remove `container` property from `Tooltip` component and add `contentWrapperStyle` property.
+
 ## 1.0.0-next-v1.201
 
 ### Minor Changes
