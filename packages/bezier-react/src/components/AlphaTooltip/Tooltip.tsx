@@ -7,7 +7,6 @@ import React, {
   useState,
 } from 'react'
 
-import { Slot } from '@radix-ui/react-slot'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -184,7 +183,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   keepInContainer = true,
   delayShow = 0,
   delayHide = 0,
-  useDefaultTrigger = false,
   ...rest
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
@@ -252,8 +250,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     ref: setCustomContentElement,
   }), [contentProps])
 
-  const TriggerRoot = !useDefaultTrigger ? Slot : Styled.DefaultTrigger
-
   const ContentRoot = customContentElement ? React.Fragment : TooltipContentImpl
 
   return (
@@ -264,9 +260,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       onOpenChange={onOpenChange}
     >
       <TooltipPrimitive.Trigger asChild>
-        <TriggerRoot>
-          { children }
-        </TriggerRoot>
+        { children }
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>

@@ -117,17 +117,3 @@ export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })`
 export const Description = styled(Text).attrs({ typo: Typography.Size12 })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-dark']};
 `
-
-export const DefaultTrigger = styled.div.attrs({ tabIndex: 0 })`
-  line-height: 0;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
-  }
-
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])};
-`

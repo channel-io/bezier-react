@@ -37,7 +37,6 @@ interface TooltipOptions {
   keepInContainer?: boolean
   delayShow?: number
   delayHide?: number
-  useDefaultTrigger?: boolean
 }
 
 export interface TooltipProps extends
