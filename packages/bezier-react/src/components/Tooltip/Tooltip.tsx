@@ -118,10 +118,6 @@ function getSideAndAlign(
   }
 }
 
-interface TooltipCustomContentContextValue extends TooltipContentProps {
-  ref: (element: HTMLDivElement | null) => void
-}
-
 const [
   /**
    * NOTE: Custom context use because the radix-ui doesn't support `delayHide`.
@@ -133,7 +129,7 @@ const [
 const [
   TooltipCustomContentContextProvider,
   useTooltipCustomContentContext,
-] = createContext<TooltipCustomContentContextValue | null>('Tooltip', null)
+] = createContext<TooltipContentProps & { ref: React.RefCallback<HTMLDivElement> } | null>('Tooltip', null)
 
 export function TooltipProvider({
   children,
