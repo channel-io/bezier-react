@@ -1,39 +1,13 @@
 import React from 'react'
 
-import {
-  type Foundation,
-  FoundationProvider,
-  GlobalStyle,
-  type GlobalStyleProp,
-  ThemeVars,
-  type ThemeVarsAdditionalType,
-} from '~/src/foundation'
-
 import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
-interface BezierProviderProps {
-  foundation: Foundation & GlobalStyleProp
-  children: React.ReactNode
-  themeVarsScope?: ThemeVarsAdditionalType['scope']
-}
+import AlphaBezierProvider, { type BezierProviderProps } from './AlphaBezierProvider'
 
-function BezierProvider({
-  foundation,
-  children,
-  themeVarsScope,
-}: BezierProviderProps) {
+function BezierProvider(props: BezierProviderProps) {
   EnableCSSHoudini({ smoothCorners: true })
 
-  return (
-    <FoundationProvider foundation={foundation}>
-      <GlobalStyle foundation={foundation} />
-      <ThemeVars
-        foundation={foundation}
-        scope={themeVarsScope}
-      />
-      { children }
-    </FoundationProvider>
-  )
+  return <AlphaBezierProvider {...props} />
 }
 
 export default BezierProvider
