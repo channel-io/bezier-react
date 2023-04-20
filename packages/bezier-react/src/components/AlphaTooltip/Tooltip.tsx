@@ -238,7 +238,7 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
     description,
     sideOffset: offset,
     avoidCollisions: keepInContainer,
-    collisionPadding: 16,
+    collisionPadding: 8,
   }), [
     placement,
     description,
