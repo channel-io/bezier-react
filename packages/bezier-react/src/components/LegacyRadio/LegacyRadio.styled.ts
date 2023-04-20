@@ -5,10 +5,12 @@ import {
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 
-import { type StyledRadioHandleProps } from './Radio.types'
-import type RadioProps from './Radio.types'
+import {
+  type LegacyRadioProps,
+  type StyledRadioHandleProps,
+} from './LegacyRadio.types'
 
-export const StyledRadioWrapper = styled.div<RadioProps>`
+export const StyledRadioWrapper = styled.div<LegacyRadioProps>`
   display: flex;
   align-items: center;
   cursor: ${({ disabled }) => {
@@ -35,7 +37,7 @@ const StyledRadioHandleDot = css<StyledRadioHandleProps>`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
 `
 
-export const StyledRadioHandle = styled.div<RadioProps & StyledRadioHandleProps>`
+export const StyledRadioHandle = styled.div<LegacyRadioProps & StyledRadioHandleProps>`
   position: relative;
   box-sizing: border-box;
   width: 18px;

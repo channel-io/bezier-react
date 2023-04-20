@@ -4,16 +4,17 @@ import { Themes } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
 
-import Radio, {
+import {
+  LegacyRadio,
   RADIO_HANDLE_TEST_ID,
   RADIO_TEST_ID,
-} from './Radio'
-import type RadioProps from './Radio.types'
+} from './LegacyRadio'
+import { type LegacyRadioProps } from './LegacyRadio.types'
 
 const value = 'text'
 
 describe('Radio test >', () => {
-  let props: RadioProps
+  let props: LegacyRadioProps
 
   beforeEach(() => {
     props = {
@@ -23,8 +24,8 @@ describe('Radio test >', () => {
     }
   })
 
-  const renderRadio = (optionProps?: RadioProps) => render(
-    <Radio {...props} {...optionProps} />,
+  const renderRadio = (optionProps?: LegacyRadioProps) => render(
+    <LegacyRadio {...props} {...optionProps} />,
   )
 
   it('RadioInput has default style', () => {

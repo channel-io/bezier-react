@@ -53,7 +53,7 @@ export * from '~/src/components/VisuallyHidden'
 export * from '~/src/components/AlphaCenter'
 export * from '~/src/components/AlphaStack'
 
-export * as LegacyRadio from '~/src/components/Legacies/Radio'
+export * from '~/src/components/LegacyRadio'
 
 /* Hooks for Component */
 export { default as useToast } from '~/src/components/Toast/useToast'
