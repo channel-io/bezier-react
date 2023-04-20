@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -8,146 +7,274 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import type TooltipProps from './Tooltip.types'
-import { TooltipPosition } from './Tooltip.types'
-import TooltipContent from './TooltipContent'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { document } from '~/src/utils/domUtils'
 
-import { Container } from './Tooltip.styled'
+import {
+  type TooltipContentProps,
+  TooltipPosition,
+  type TooltipProps,
+} from './Tooltip.types'
 
-export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
-export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
+import * as Styled from './Tooltip.styled'
 
-function Tooltip(
-  {
-    as,
-    testId = TOOLTIP_TEST_ID,
-    contentTestId = TOOLTIP_CONTENT_TEST_ID,
-    className,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    content = null,
-    lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
-    placement = TooltipPosition.BottomCenter,
-    disabled = false,
-    offset = 4,
-    keepInContainer = false,
-    allowHover = false,
-    delayShow = 0,
-    delayHide = 0,
-    children,
-    ...otherProps
-  }: TooltipProps,
-  forwardedRef: Ref<any>,
+export const TooltipProvider = TooltipPrimitive.Provider
+
+// TODO: (@ed) Evolve it into a commonly reusable function
+// FIXME: duplicate
+function createContext<ContextValue>(
+  providerName: string,
+  defaultValue: ContextValue,
 ) {
-  const [show, setShow] = useState(false)
-  const [didMount, setDidMount] = useState(show)
+  const Context = React.createContext<ContextValue>(defaultValue)
 
-  const tooltipContainerRef = useRef<HTMLDivElement>(null)
-  const timerRef = useRef<ReturnType<Window['setTimeout']>>()
+  function useContext(consumerName: string) {
+    const contextValue = React.useContext(Context)
 
-  useEffect(function hideTooltipContentWhenDisabled() {
-    if (disabled) {
-      setShow(false)
-    }
-  }, [disabled])
-
-  useEffect(function updateDidMount() {
-    setDidMount((prev) => prev || show)
-  }, [show])
-
-  const handleMouseEnter = useCallback(() => {
-    if (disabled) {
-      return
+    if (!contextValue) {
+      throw new Error(`'${consumerName}' must be used within '${providerName}'`)
     }
 
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(true)
-    }, delayShow)
-  }, [
-    delayShow,
-    disabled,
-  ])
-
-  const handleMouseLeave = useCallback(() => {
-    if (disabled) {
-      return
-    }
-
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(false)
-    }, delayHide)
-  }, [
-    delayHide,
-    disabled,
-  ])
-
-  const TooltipComponent = useMemo(() => {
-    if (!lazy || didMount) {
-      return (
-        <TooltipContent
-          as={as}
-          content={content}
-          contentClassName={contentClassName}
-          contentInterpolation={contentInterpolation}
-          contentWrapperStyle={contentWrapperStyle}
-          disabled={disabled}
-          placement={placement}
-          offset={offset}
-          allowHover={allowHover}
-          keepInContainer={keepInContainer}
-          tooltipContainer={tooltipContainerRef.current}
-          forwardedRef={forwardedRef}
-          testId={contentTestId}
-        />
-      )
-    }
-
-    return null
-  }, [
-    lazy,
-    didMount,
-    as,
-    content,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    disabled,
-    placement,
-    offset,
-    allowHover,
-    keepInContainer,
-    forwardedRef,
-    contentTestId,
-  ])
-
-  if (!children) {
-    return null
+    return contextValue
   }
 
-  return (
-    <Container
-      ref={tooltipContainerRef}
-      data-testid={testId}
-      className={className}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...otherProps}
-    >
-      { children }
-      { show && TooltipComponent }
-    </Container>
-  )
+  return [
+    Context.Provider,
+    useContext,
+  ] as const
 }
 
-export default React.memo(forwardRef(Tooltip))
+function getSideAndAlign(
+  placement: TooltipPosition,
+): Pick<TooltipPrimitive.TooltipContentProps, 'side' | 'align'> {
+  switch (placement) {
+    case TooltipPosition.TopCenter:
+      return {
+        side: 'top',
+        align: 'center',
+      }
+    case TooltipPosition.TopLeft:
+      return {
+        side: 'top',
+        align: 'start',
+      }
+    case TooltipPosition.TopRight:
+      return {
+        side: 'top',
+        align: 'end',
+      }
+    case TooltipPosition.RightCenter:
+      return {
+        side: 'right',
+        align: 'center',
+      }
+    case TooltipPosition.RightTop:
+      return {
+        side: 'right',
+        align: 'start',
+      }
+    case TooltipPosition.RightBottom:
+      return {
+        side: 'right',
+        align: 'end',
+      }
+    case TooltipPosition.BottomCenter:
+      return {
+        side: 'bottom',
+        align: 'center',
+      }
+    case TooltipPosition.BottomLeft:
+      return {
+        side: 'bottom',
+        align: 'start',
+      }
+    case TooltipPosition.BottomRight:
+      return {
+        side: 'bottom',
+        align: 'end',
+      }
+    case TooltipPosition.LeftCenter:
+      return {
+        side: 'left',
+        align: 'center',
+      }
+    case TooltipPosition.LeftTop:
+      return {
+        side: 'left',
+        align: 'start',
+      }
+    case TooltipPosition.LeftBottom:
+      return {
+        side: 'left',
+        align: 'end',
+      }
+    default:
+      // NOTE: should not reach here
+      return {
+        side: undefined,
+        align: undefined,
+      }
+  }
+}
+
+interface TooltipCustomContentContextValue extends TooltipContentProps {
+  ref: (element: HTMLDivElement | null) => void
+}
+
+const [
+  TooltipCustomContentContextProvider,
+  useTooltipCustomContentContext,
+] = createContext<TooltipCustomContentContextValue | null>('Tooltip', null)
+
+const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContentImpl({
+  children,
+  description,
+  ...rest
+}, forwardedRef) {
+  return (
+    <Styled.TooltipContent
+      ref={forwardedRef}
+      {...rest}
+    >
+      <Styled.TooltipText>
+        { children }
+      </Styled.TooltipText>
+      { description && (
+        <Styled.Description>
+          { description }
+        </Styled.Description>
+      ) }
+    </Styled.TooltipContent>
+  )
+})
+
+export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContent({
+  children,
+  ...rest
+}, forwardedRef) {
+  const {
+    ref,
+    ...contentProps
+  } = useTooltipCustomContentContext('TooltipContent')
+
+  return (
+    <TooltipContentImpl
+      ref={useMergeRefs(ref, forwardedRef)}
+      {...contentProps}
+      {...rest}
+    >
+      { children }
+    </TooltipContentImpl>
+  )
+})
+
+export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
+  children,
+  defaultShow,
+  onShow,
+  onHide,
+  content,
+  description,
+  placement = TooltipPosition.BottomCenter,
+  offset = 4,
+  disabled,
+  container = document.body,
+  keepInContainer = true,
+  delayShow = 0,
+  delayHide = 0,
+  ...rest
+}, forwardedRef) {
+  const [show, setShow] = useState<boolean>(defaultShow ?? false)
+  const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
+
+  const timeoutRef = useRef<NodeJS.Timeout>()
+
+  useEffect(function cleanUpTimeout() {
+    return function cleanUp() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
+  const onOpenChange = useCallback((open: boolean) => {
+    if (disabled) { return }
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = undefined
+    }
+
+    if (open) {
+      setShow(open)
+      onShow?.()
+      return
+    }
+
+    const hide = () => {
+      setShow(open)
+      onHide?.()
+    }
+
+    if (delayHide > 0) {
+      timeoutRef.current = setTimeout(() => {
+        hide()
+      }, delayHide)
+      return
+    }
+
+    hide()
+  }, [
+    disabled,
+    delayHide,
+    onShow,
+    onHide,
+  ])
+
+  const contentProps = useMemo<TooltipPrimitive.TooltipContentProps>(() => ({
+    ...getSideAndAlign(placement),
+    description,
+    sideOffset: offset,
+    avoidCollisions: keepInContainer,
+    collisionPadding: 8,
+  }), [
+    placement,
+    description,
+    offset,
+    keepInContainer,
+  ])
+
+  const customContentContextValue = useMemo(() => ({
+    ...contentProps,
+    ref: setCustomContentElement,
+  }), [contentProps])
+
+  const ContentRoot = customContentElement ? React.Fragment : TooltipContentImpl
+
+  return (
+    <TooltipPrimitive.Root
+      open={show}
+      defaultOpen={defaultShow}
+      delayDuration={delayShow}
+      onOpenChange={onOpenChange}
+    >
+      <TooltipPrimitive.Trigger
+        asChild
+        ref={forwardedRef as React.Ref<HTMLButtonElement>}
+        {...rest}
+      >
+        { children }
+      </TooltipPrimitive.Trigger>
+
+      <TooltipPrimitive.Portal container={container}>
+        <TooltipCustomContentContextProvider value={customContentContextValue}>
+          <ContentRoot {...contentProps}>
+            { content }
+          </ContentRoot>
+        </TooltipCustomContentContextProvider>
+      </TooltipPrimitive.Portal>
+    </TooltipPrimitive.Root>
+  )
+})

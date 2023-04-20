@@ -10,7 +10,7 @@ import {
   Icon,
   LegacyIcon,
 } from '~/src/components/Icon'
-import { Tooltip } from '~/src/components/Tooltip'
+import { LegacyTooltip } from '~/src/components/LegacyTooltip'
 
 export const ItemActionWrapper = styled.div`
   display: flex;
@@ -43,7 +43,7 @@ export const ActionIconWrapper = styled.div<ActionWrapperProps>`
         color: ${foundation?.theme?.[hoverIconColor]};
       `}
     }
-    
+
     ${ActionLegacyIcon} {
       ${({ foundation, hoverIconColor }) => !isNil(hoverIconColor) && css`
         color: ${foundation?.theme?.[hoverIconColor]};
@@ -52,6 +52,6 @@ export const ActionIconWrapper = styled.div<ActionWrapperProps>`
   }
 `
 
-export const ActionIconTooltip = styled(Tooltip)`
+export const ActionIconTooltip = styled(LegacyTooltip)`
   margin-left: auto;
 `

@@ -26,7 +26,7 @@ import {
   IconSize,
   LegacyIcon,
 } from '~/src/components/Icon'
-import { Tooltip } from '~/src/components/Tooltip'
+import { LegacyTooltip } from '~/src/components/LegacyTooltip'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -178,7 +178,7 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <Tooltip
+    <LegacyTooltip
       content={help.tooltipContent}
       allowHover
     >
@@ -189,7 +189,7 @@ function SectionLabel({
           color={help.iconColor ?? 'txt-black-dark'}
         />
       </Styled.HelpIconWrapper>
-    </Tooltip>
+    </LegacyTooltip>
   ), [help])
 
   return (

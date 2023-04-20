@@ -11,7 +11,7 @@ import {
 
 import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
 
-import { TooltipProvider } from '~/src/components/AlphaTooltip'
+import { TooltipProvider } from '~/src/components/Tooltip'
 
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp
