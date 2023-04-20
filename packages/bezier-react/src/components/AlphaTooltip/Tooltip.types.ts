@@ -38,6 +38,9 @@ interface TooltipOptions {
   delayHide?: number
 }
 
+export interface TooltipProviderProps extends
+  TooltipPrimitive.TooltipProviderProps {}
+
 export interface TooltipProps extends
   BezierComponentProps,
   ChildrenProps,

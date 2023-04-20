@@ -9,5 +9,6 @@ export { TooltipPosition } from './Tooltip.types'
 export type {
   TooltipProps,
   TooltipContentProps,
+  TooltipProviderProps,
 } from './Tooltip.types'
 
