@@ -16,11 +16,10 @@ import {
   type TooltipContentProps,
   TooltipPosition,
   type TooltipProps,
+  type TooltipProviderProps,
 } from './Tooltip.types'
 
 import * as Styled from './Tooltip.styled'
-
-export const TooltipProvider = TooltipPrimitive.Provider
 
 // TODO: (@ed) Evolve it into a commonly reusable function
 // FIXME: duplicate
@@ -124,9 +123,41 @@ interface TooltipCustomContentContextValue extends TooltipContentProps {
 }
 
 const [
+  /**
+   * NOTE: Custom context use because the radix-ui doesn't support `delayHide`.
+   */
+  TooltipGlobalContextProvider,
+  useTooltipGlobalContext,
+] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>('TooltipProvider', null)
+
+const [
   TooltipCustomContentContextProvider,
   useTooltipCustomContentContext,
 ] = createContext<TooltipCustomContentContextValue | null>('Tooltip', null)
+
+export function TooltipProvider({
+  children,
+  delayShow = 0,
+  delayHide = 0,
+  skipDelayShow = 0,
+  allowHover = false,
+}: TooltipProviderProps) {
+  const contextValue = useMemo(() => ({
+    delayHide,
+  }), [delayHide])
+
+  return (
+    <TooltipPrimitive.Provider
+      delayDuration={delayShow}
+      skipDelayDuration={skipDelayShow}
+      disableHoverableContent={!allowHover}
+    >
+      <TooltipGlobalContextProvider value={contextValue}>
+        { children }
+      </TooltipGlobalContextProvider>
+    </TooltipPrimitive.Provider>
+  )
+}
 
 const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContentImpl({
   children,
@@ -182,14 +213,18 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
   disabled,
   container = document.body,
   keepInContainer = true,
-  delayShow = 0,
-  delayHide = 0,
+  allowHover = false,
+  delayShow,
+  delayHide: delayHideProp,
   ...rest
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
 
   const timeoutRef = useRef<NodeJS.Timeout>()
+
+  const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
+  const delayHide = delayHideProp ?? globalDelayHide
 
   useEffect(function cleanUpTimeout() {
     return function cleanUp() {
@@ -258,6 +293,7 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
       open={show}
       defaultOpen={defaultShow}
       delayDuration={delayShow}
+      disableHoverableContent={!allowHover}
       onOpenChange={onOpenChange}
     >
       <TooltipPrimitive.Trigger

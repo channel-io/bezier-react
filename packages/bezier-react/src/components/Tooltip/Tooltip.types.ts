@@ -26,6 +26,13 @@ interface TooltipContentOptions {
   description?: React.ReactNode
 }
 
+interface TooltipProviderOptions {
+  allowHover?: boolean
+  delayShow?: number
+  delayHide?: number
+  skipDelayShow?: number
+}
+
 interface TooltipOptions {
   defaultShow?: boolean
   onShow?: () => void
@@ -34,12 +41,14 @@ interface TooltipOptions {
   offset?: number
   container?: HTMLElement | null
   keepInContainer?: boolean
+  allowHover?: boolean
   delayShow?: number
   delayHide?: number
 }
 
 export interface TooltipProviderProps extends
-  TooltipPrimitive.TooltipProviderProps {}
+  ChildrenProps,
+  TooltipProviderOptions {}
 
 export interface TooltipProps extends
   BezierComponentProps,
