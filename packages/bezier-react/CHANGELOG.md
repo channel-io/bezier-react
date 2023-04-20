@@ -1,5 +1,30 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.202
+
+### Minor Changes
+
+- [#1284](https://github.com/channel-io/bezier-react/pull/1284) [`4dcf60d7`](https://github.com/channel-io/bezier-react/commit/4dcf60d7437c10c761989c27df4c64f9caadf7eb) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1298](https://github.com/channel-io/bezier-react/pull/1298) [`284d3d8b`](https://github.com/channel-io/bezier-react/commit/284d3d8b041223dacdab2e3a3773f772ebe47180) Thanks [@sungik-choi](https://github.com/sungik-choi)! - BREAKING CHANGE
+
+  Change `LegacyRadio` component to export individually named instead of the `LegacyRadio` namespace.
+
+  ```diff
+  - import { LegacyRadio } from '@channel.io/bezier-react'
+  - type RadioProps = LegacyRadio.RadioProps
+  - const RadioComponent = LegacyRadio.Radio
+  + import { LegacyRadio, type LegacyRadioProps } from '@channel.io/bezier-react'
+  + type RadioProps = LegacyRadioProps
+  + const RadioComponent = LegacyRadio
+  ```
+
+- [#1292](https://github.com/channel-io/bezier-react/pull/1292) [`3b6d7feb`](https://github.com/channel-io/bezier-react/commit/3b6d7feb8c397d92534b603065be17effba8ffb0) Thanks [@rktguswjd](https://github.com/rktguswjd)! - Remove `container` property from `Tooltip` component and add `contentWrapperStyle` property.
+
+### Patch Changes
+
+- [#1290](https://github.com/channel-io/bezier-react/pull/1290) [`e7773286`](https://github.com/channel-io/bezier-react/commit/e7773286f2308a48f38027fb94f223ce32b0b559) Thanks [@Kanary159357](https://github.com/Kanary159357)! - change keyvalue item padding
+
 ## 1.0.0-next-v1.201
 
 ### Minor Changes
