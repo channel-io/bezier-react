@@ -175,6 +175,7 @@ import Dot from './Dot'
 import DownloadJudy from './DownloadJudy'
 import Download from './Download'
 import DragableAlt from './DragableAlt'
+import Dragable from './Dragable'
 import Dropdown from './Dropdown'
 import Edit from './Edit'
 import Education from './Education'
@@ -665,6 +666,7 @@ const icons = {
   'download-judy': DownloadJudy,
   download: Download,
   'dragable-alt': DragableAlt,
+  dragable: Dragable,
   dropdown: Dropdown,
   edit: Edit,
   education: Education,
@@ -1171,6 +1173,7 @@ export {
   DownloadJudy as DownloadJudyIcon,
   Download as DownloadIcon,
   DragableAlt as DragableAltIcon,
+  Dragable as DragableIcon,
   Dropdown as DropdownIcon,
   Edit as EditIcon,
   Education as EducationIcon,
