@@ -15,26 +15,26 @@ import { getTitle } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
-import Radio from './Radio'
-import type RadioProps from './Radio.types'
+import { LegacyRadio } from './LegacyRadio'
+import { type LegacyRadioProps } from './LegacyRadio.types'
 
 export default {
   title: getTitle(base),
-  component: Radio,
+  component: LegacyRadio,
   argTypes: {
     onClick: { action: 'onClick' },
   },
 } as Meta
 
-const Template: Story<RadioProps> = ({
+const Template: Story<LegacyRadioProps> = ({
   children,
   ...otherRadioProps
 }) => (
-  <Radio {...otherRadioProps}>
+  <LegacyRadio {...otherRadioProps}>
     <Text>
       { children }
     </Text>
-  </Radio>
+  </LegacyRadio>
 )
 
 export const Primary = Template.bind({})
@@ -61,7 +61,7 @@ export const MultiRadio = ({
 
       {
         options.map(value => (
-          <Radio
+          <LegacyRadio
             key={value}
             value={value}
             watchingValue={selected}
@@ -71,7 +71,7 @@ export const MultiRadio = ({
             <Text>
               { value }st option
             </Text>
-          </Radio>
+          </LegacyRadio>
         ))
       }
     </>

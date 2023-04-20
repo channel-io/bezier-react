@@ -10,12 +10,12 @@ import { isNil } from '~/src/utils/typeUtils'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
-import type RadioProps from './Radio.types'
+import { type LegacyRadioProps } from './LegacyRadio.types'
 
 import {
   StyledRadioHandle,
   StyledRadioWrapper,
-} from './Radio.styled'
+} from './LegacyRadio.styled'
 
 export const RADIO_TEST_ID = 'bezier-react-radio'
 export const RADIO_HANDLE_TEST_ID = 'bezier-react-radio-handle'
@@ -23,7 +23,7 @@ export const RADIO_HANDLE_TEST_ID = 'bezier-react-radio-handle'
 /**
  * @deprecated Use `RadioGroup` instead.
  */
-function Radio(
+export const LegacyRadio = forwardRef(function LegacyRadio(
   {
     as,
     testId = RADIO_TEST_ID,
@@ -34,7 +34,7 @@ function Radio(
     onClick,
     children,
     ...rest
-  }: RadioProps,
+  }: LegacyRadioProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
   const {
@@ -87,9 +87,4 @@ function Radio(
       { children }
     </StyledRadioWrapper>
   )
-}
-
-/**
- * @deprecated Use `RadioGroup` instead.
- */
-export default forwardRef(Radio)
+})

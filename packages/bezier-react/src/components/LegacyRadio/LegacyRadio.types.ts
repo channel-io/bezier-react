@@ -10,7 +10,7 @@ import {
 
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
-interface RadioOptions {
+interface LegacyRadioOptions {
   value?: any
   watchingValue?: any
   onClick?: (value: any, e: MouseEvent) => void
@@ -19,13 +19,13 @@ interface RadioOptions {
 /**
  * @deprecated Use `RadioGroup` instead.
  */
-export default interface RadioProps extends
+export interface LegacyRadioProps extends
   BezierComponentProps,
   ChildrenProps,
   FormComponentProps,
   AdditionalStylableProps<'dot'>,
   AdditionalTestIdProps<'handle'>,
-  RadioOptions {}
+  LegacyRadioOptions {}
 
 export interface StyledRadioHandleProps extends DisableProps {
   checked: boolean
