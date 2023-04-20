@@ -1,4 +1,5 @@
 /* Provider */
+export { default as AlphaBezierProvider } from '~/src/providers/AlphaBezierProvider'
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
 
 /* Foundation */
