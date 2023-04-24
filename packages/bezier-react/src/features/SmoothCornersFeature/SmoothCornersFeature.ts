@@ -10,28 +10,29 @@ class SmoothCornersFeature extends Feature {
   private activated = false
 
   async activate() {
-    if (typeof CSS === 'undefined') {
-      return false
-    }
-
-    if ('paintWorklet' in CSS && this.activated) {
-      return true
-    }
-
-    if (!this.activated) {
+    if (
+      !this.activated
+      && typeof CSS !== 'undefined'
+      && 'paintWorklet' in CSS
+    ) {
       const workletURL = URL.createObjectURL(
         new Blob([smoothCornersScript], { type: 'application/javascript' }),
       )
 
       // @ts-ignore
-      CSS.paintWorklet.addModule(workletURL)
+      const promise = CSS.paintWorklet.addModule(workletURL) as Promise<void>
 
-      this.activated = true
-
-      return true
+      return promise
+        .then(() => {
+          this.activated = true
+          return this.activated
+        }).catch(() => {
+          this.activated = false
+          return this.activated
+        })
     }
 
-    return false
+    return this.activated
   }
 }
 
