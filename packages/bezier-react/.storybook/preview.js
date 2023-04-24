@@ -5,6 +5,10 @@ import {
   DarkFoundation,
   createGlobalStyle,
 } from '~/src/foundation'
+import {
+  FeatureProvider,
+  SmoothCornersFeature,
+} from '~/src/features'
 import BezierProvider from '~/src/providers/BezierProvider'
 import { Text } from '~/src/components/Text'
 
@@ -102,7 +106,7 @@ function withFoundationProvider(Story, context) {
   })()
 
   return (
-    <>
+    <FeatureProvider features={[SmoothCornersFeature]}>
       <GlobalStyle />
 
       <BezierProvider foundation={foundation}>
@@ -136,7 +140,7 @@ function withFoundationProvider(Story, context) {
           </BezierProvider>
         </div>
       </BezierProvider>
-    </>
+    </FeatureProvider>
   )
 }
 
