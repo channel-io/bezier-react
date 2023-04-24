@@ -7,4 +7,3 @@ export {
 } from './FeatureProvider'
 
 export { SmoothCornersFeature } from './SmoothCornersFeature'
-
