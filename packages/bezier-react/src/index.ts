@@ -75,3 +75,6 @@ export { default as useId } from '~/src/hooks/useId'
 export { getRootElement } from '~/src/utils/domUtils'
 export * as StyleUtils from '~/src/utils/styleUtils'
 export * as StringUtils from '~/src/utils/stringUtils'
+
+/* Features */
+export * from '~/src/features'
