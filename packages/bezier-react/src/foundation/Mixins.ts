@@ -82,9 +82,6 @@ interface SmoothCornersOptions {
   margin?: number
 }
 
-/**
- * TODO: (@ed) Change the enable property to be directly accessible in feature context
- */
 export const smoothCorners = ({
   borderRadius = 0,
   shadow = '0 0 0 0 transparent',
