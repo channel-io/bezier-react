@@ -4,6 +4,7 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
+import base from 'paths.macro'
 
 import {
   backgroundImageVariable,
@@ -11,8 +12,10 @@ import {
   styled,
 } from '~/src/foundation'
 
+import { getTitle } from '~/src/utils/storyUtils'
+
 export default {
-  title: 'SmoothCorners',
+  title: getTitle(base),
   argTypes: {
     width: {
       control: {

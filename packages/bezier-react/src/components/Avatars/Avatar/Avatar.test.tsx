@@ -15,12 +15,6 @@ import {
 import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 
-jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
-  __esModule: true,
-  ...jest.requireActual('~/src/worklets/EnableCSSHoudini') as object,
-  enableSmoothCorners: { current: true },
-}))
-
 describe('Avatar >', () => {
   let props: AvatarProps
 
