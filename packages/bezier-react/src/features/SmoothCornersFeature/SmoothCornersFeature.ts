@@ -13,7 +13,11 @@ import { smoothCornersScript } from './smoothCornersScript'
  * When enabled, the feature will be applied to components with the `smoothCorners` property set to `true`.
  */
 class SmoothCornersFeature extends Feature {
-  private activated = false
+  /**
+   * @deprecated (@ed) Upcoming improvements
+   * Changed to private property, and will be referenced via the useFeatureFlag context rather than directly externally.
+   */
+  activated = false
 
   async activate() {
     if (

@@ -7,7 +7,6 @@ import {
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { ZIndex } from '~/src/constants/ZIndex'
 import type { InterpolationProps } from '~/src/types/Foundation'
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 
 import {
   AVATAR_BORDER_RADIUS_PERCENTAGE,
@@ -16,20 +15,32 @@ import {
 
 import { AvatarSize } from './Avatar.types'
 
+interface SmoothCornersProps {
+  enableSmoothCorners: boolean
+}
+
 interface AvatarWrapperProps extends InterpolationProps {
   disabled: boolean
 }
 
-interface AvatarProps extends InterpolationProps {
+interface AvatarProps extends
+  InterpolationProps,
+  SmoothCornersProps {
   size: AvatarSize
   showBorder: boolean
 }
 
-interface StatusWrapperProps extends Pick<AvatarProps, 'showBorder' | 'size'> {}
+interface StatusWrapperProps extends
+  Pick<AvatarProps, 'showBorder' | 'size'>,
+  SmoothCornersProps {}
 
-function calcStatusGap({ showBorder, size }: StatusWrapperProps) {
+function calcStatusGap({
+  showBorder,
+  size,
+  enableSmoothCorners,
+}: StatusWrapperProps) {
   let gap = (size >= AvatarSize.Size72 ? 4 : -2)
-  if (showBorder && enableSmoothCorners.current) {
+  if (showBorder && enableSmoothCorners) {
     gap += AVATAR_BORDER_WIDTH * 2
   }
   return gap
@@ -68,7 +79,7 @@ export const AvatarImage = styled.div<AvatarProps>`
   height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
+  ${({ showBorder, enableSmoothCorners }) => (!enableSmoothCorners && showBorder) && smoothCornersFallbackBorderStyle}
 
   ${({ foundation, showBorder }) => smoothCorners({
     shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-high']}` : undefined,

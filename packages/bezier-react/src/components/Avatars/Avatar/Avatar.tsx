@@ -5,6 +5,10 @@ import React, {
 
 import { backgroundImageVariable } from '~/src/foundation'
 
+import {
+  FeatureType,
+  useFeatureFlag,
+} from '~/src/features'
 import { noop } from '~/src/utils/functionUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
@@ -51,6 +55,7 @@ export const Avatar = forwardRef(function Avatar({
 }: AvatarProps,
 forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const enableSmoothCorners = useFeatureFlag(FeatureType.SmoothCorners)
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
 
   const StatusComponent = useMemo(() => {
@@ -80,6 +85,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
         data-testid={STATUS_WRAPPER_TEST_ID}
         size={size}
         showBorder={showBorder}
+        enableSmoothCorners={enableSmoothCorners}
       >
         { Contents }
       </StatusWrapper>
@@ -88,6 +94,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     status,
     size,
     showBorder,
+    enableSmoothCorners,
     children,
   ])
 
@@ -99,6 +106,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       data-testid={AVATAR_WRAPPER_TEST_ID}
     >
       <AvatarImage
+        enableSmoothCorners={enableSmoothCorners}
         style={backgroundImageVariable({ imageUrl: loadedAvatarUrl })}
         className={className}
         interpolation={interpolation}
