@@ -2,6 +2,7 @@ import React, {
   createContext,
   useContext,
   useLayoutEffect,
+  useMemo,
   useState,
 } from 'react'
 
@@ -18,12 +19,29 @@ const initialFeatureFlag: FeatureFlag = {
 
 const FeatureFlagContext = createContext<FeatureFlag>(initialFeatureFlag)
 
+interface FeatureProviderProps {
+  children: React.ReactNode
+  /**
+   * Features to activate.
+   */
+  features: Feature[]
+}
+
+/**
+ * `FeatureProvider` is a component that activates features and provides.
+ *
+ * @example
+ *
+ * ```tsx
+ * <FeatureProvider features={[SmoothCornersFeature]}>
+ *   <App />
+ * </FeatureProvider>
+ * ```
+ */
 export function FeatureProvider({
   children,
   features,
-}: React.PropsWithChildren<{
-  features: Feature[]
-}>) {
+}: FeatureProviderProps) {
   const [featureFlag, setFeatureFlag] = useState<FeatureFlag>(initialFeatureFlag)
 
   useLayoutEffect(function activateFeatures() {
@@ -52,6 +70,13 @@ export function FeatureProvider({
   )
 }
 
-export function useFeatureFlag() {
-  return useContext(FeatureFlagContext)
+export function useFeatureFlag(featureType: FeatureType) {
+  const contextValue = useContext(FeatureFlagContext)
+
+  return useMemo(() => (
+    contextValue[featureType]
+  ), [
+    contextValue,
+    featureType,
+  ])
 }

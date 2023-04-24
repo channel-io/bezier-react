@@ -6,6 +6,12 @@ import {
 
 import { smoothCornersScript } from './smoothCornersScript'
 
+/**
+ * 🚨 This is an experimental feature! It may not be suitable for use in production.
+ *
+ * Instead of CSS border-radius, Use *Superellipse* masking using the CSS Houdini API.
+ * When enabled, the feature will be applied to components with the `smoothCorners` property set to `true`.
+ */
 class SmoothCornersFeature extends Feature {
   private activated = false
 

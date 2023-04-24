@@ -1,3 +1,5 @@
+export { FeatureType } from './Feature'
+
 export {
   FeatureProvider,
   useFeatureFlag,
