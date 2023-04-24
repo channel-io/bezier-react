@@ -31,9 +31,11 @@ export function FeatureProvider({
       return
     }
 
-    const promises = features.map(({ name, activate }) =>
-      activate().then(isActive => ({ [name]: isActive })),
-    )
+    const promises = features.map(feature => (
+      feature.activate().then(activated => (
+        { [feature.name]: activated }
+      ))
+    ))
 
     Promise.all(promises).then(flags => {
       setFeatureFlag(prev => ({
