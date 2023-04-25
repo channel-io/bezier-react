@@ -124,12 +124,23 @@ const [
   useTooltipGlobalContext,
 ] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>('TooltipProvider', null)
 
+/**
+ * `TooltipProvider` is used to globally provide props to child tooltips.
+ *
+ * @example
+ *
+ * ```tsx
+ * <TooltipProvider allowHover delayShow={1000}>
+ *   <Tooltip />
+ * </TooltipProvider>
+ * ```
+ */
 export function TooltipProvider({
   children,
+  allowHover = false,
   delayShow = 0,
   delayHide = 0,
   skipDelayShow = 0,
-  allowHover = false,
 }: TooltipProviderProps) {
   const contextValue = useMemo(() => ({
     delayHide,
@@ -148,7 +159,25 @@ export function TooltipProvider({
   )
 }
 
+/**
+ * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Tooltip
+ * <TooltipProvider>
+ *   <Tooltip />
+ * </TooltipProvider>
+ *
+ * // Example of a Tooltip with a button
+ * <Tooltip content="Ta-da!">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ * ```
+ */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
+  as,
   children,
   defaultShow,
   onShow,
@@ -229,6 +258,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         <Styled.TooltipContent
           {...rest}
           {...getSideAndAlign(placement)}
+          forwardedAs={as}
           ref={forwardedRef}
           sideOffset={offset}
           avoidCollisions={keepInContainer}
