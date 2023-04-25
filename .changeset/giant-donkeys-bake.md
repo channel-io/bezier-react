@@ -6,6 +6,7 @@ Re-implement `Tooltip` component.
 
 BREAKING CHANGES
 
+- No longer render div elements outside of the trigger(children) component.
 - The legacy tooltip is now exported with the name `LegacyTooltip`.
 - The `keepInContainer` property defaults from false to true.
 
