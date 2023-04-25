@@ -10,6 +10,7 @@ import React, {
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { document } from '~/src/utils/domUtils'
+import { isBoolean } from '~/src/utils/typeUtils'
 
 import {
   TooltipPosition,
@@ -247,7 +248,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       open={show}
       defaultOpen={defaultShow}
       delayDuration={delayShow}
-      disableHoverableContent={!allowHover}
+      disableHoverableContent={isBoolean(allowHover) ? !allowHover : undefined}
       onOpenChange={onOpenChange}
     >
       <TooltipPrimitive.Trigger asChild>
