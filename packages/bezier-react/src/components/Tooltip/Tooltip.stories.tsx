@@ -13,7 +13,10 @@ import {
 
 import { Button } from '~/src/components/Button'
 
-import { Tooltip } from './Tooltip'
+import {
+  Tooltip,
+  TooltipProvider,
+} from './Tooltip'
 import {
   TooltipPosition,
   type TooltipProps,
@@ -22,7 +25,13 @@ import {
 export default {
   title: getTitle(base),
   component: Tooltip,
+  subcomponents: { TooltipProvider },
   argTypes: {
+    offset: {
+      control: {
+        type: 'range',
+      },
+    },
     placement: {
       control: {
         type: 'select',
@@ -46,6 +55,7 @@ Primary.args = {
   offset: 4,
   disabled: false,
   keepInContainer: true,
+  allowHover: false,
   delayShow: 0,
   delayHide: 0,
   children: (<Button text="Button" />),
