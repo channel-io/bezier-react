@@ -160,7 +160,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   disabled,
   container = document.body,
   keepInContainer = true,
-  allowHover = false,
+  allowHover,
   delayShow,
   delayHide: delayHideProp,
   ...rest
