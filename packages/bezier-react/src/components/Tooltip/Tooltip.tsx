@@ -9,11 +9,9 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
 
 import {
-  type TooltipContentProps,
   TooltipPosition,
   type TooltipProps,
   type TooltipProviderProps,
@@ -126,11 +124,6 @@ const [
   useTooltipGlobalContext,
 ] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>('TooltipProvider', null)
 
-const [
-  TooltipCustomContentContextProvider,
-  useTooltipCustomContentContext,
-] = createContext<TooltipContentProps & { ref: React.RefCallback<HTMLDivElement> } | null>('Tooltip', null)
-
 export function TooltipProvider({
   children,
   delayShow = 0,
@@ -155,49 +148,7 @@ export function TooltipProvider({
   )
 }
 
-const TooltipContentImpl = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContentImpl({
-  children,
-  description,
-  ...rest
-}, forwardedRef) {
-  return (
-    <Styled.TooltipContent
-      ref={forwardedRef}
-      {...rest}
-    >
-      <Styled.TooltipText>
-        { children }
-      </Styled.TooltipText>
-      { description && (
-        <Styled.Description>
-          { description }
-        </Styled.Description>
-      ) }
-    </Styled.TooltipContent>
-  )
-})
-
-export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(function TooltipContent({
-  children,
-  ...rest
-}, forwardedRef) {
-  const {
-    ref,
-    ...contentProps
-  } = useTooltipCustomContentContext('TooltipContent')
-
-  return (
-    <TooltipContentImpl
-      ref={useMergeRefs(ref, forwardedRef)}
-      {...contentProps}
-      {...rest}
-    >
-      { children }
-    </TooltipContentImpl>
-  )
-})
-
-export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   children,
   defaultShow,
   onShow,
@@ -215,11 +166,9 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
   ...rest
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
-  const [customContentElement, setCustomContentElement] = useState<HTMLDivElement | null>(null)
-
   const timeoutRef = useRef<NodeJS.Timeout>()
-
   const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
+
   const delayHide = delayHideProp ?? globalDelayHide
 
   useEffect(function cleanUpTimeout() {
@@ -264,26 +213,6 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
     onHide,
   ])
 
-  const contentProps = useMemo<TooltipPrimitive.TooltipContentProps>(() => ({
-    ...getSideAndAlign(placement),
-    description,
-    sideOffset: offset,
-    avoidCollisions: keepInContainer,
-    collisionPadding: 8,
-  }), [
-    placement,
-    description,
-    offset,
-    keepInContainer,
-  ])
-
-  const customContentContextValue = useMemo(() => ({
-    ...contentProps,
-    ref: setCustomContentElement,
-  }), [contentProps])
-
-  const ContentRoot = customContentElement ? React.Fragment : TooltipContentImpl
-
   return (
     <TooltipPrimitive.Root
       open={show}
@@ -292,20 +221,29 @@ export const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip({
       disableHoverableContent={!allowHover}
       onOpenChange={onOpenChange}
     >
-      <TooltipPrimitive.Trigger
-        asChild
-        ref={forwardedRef as React.Ref<HTMLButtonElement>}
-        {...rest}
-      >
+      <TooltipPrimitive.Trigger asChild>
         { children }
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
-        <TooltipCustomContentContextProvider value={customContentContextValue}>
-          <ContentRoot {...contentProps}>
+        <Styled.TooltipContent
+          {...rest}
+          {...getSideAndAlign(placement)}
+          ref={forwardedRef}
+          sideOffset={offset}
+          avoidCollisions={keepInContainer}
+          collisionPadding={8}
+        >
+          <Styled.TooltipText>
             { content }
-          </ContentRoot>
-        </TooltipCustomContentContextProvider>
+          </Styled.TooltipText>
+
+          { description && (
+            <Styled.Description>
+              { description }
+            </Styled.Description>
+          ) }
+        </Styled.TooltipContent>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
   )

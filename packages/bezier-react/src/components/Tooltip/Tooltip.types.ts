@@ -1,5 +1,3 @@
-import type * as TooltipPrimitive from '@radix-ui/react-tooltip'
-
 import {
   type BezierComponentProps,
   type ChildrenProps,
@@ -22,10 +20,6 @@ export enum TooltipPosition {
   LeftBottom = 'leftBottom',
 }
 
-interface TooltipContentOptions {
-  description?: React.ReactNode
-}
-
 interface TooltipProviderOptions {
   allowHover?: boolean
   delayShow?: number
@@ -38,6 +32,7 @@ interface TooltipOptions {
   onShow?: () => void
   onHide?: () => void
   placement?: TooltipPosition
+  description?: React.ReactNode
   offset?: number
   container?: HTMLElement | null
   keepInContainer?: boolean
@@ -55,11 +50,5 @@ export interface TooltipProps extends
   ChildrenProps,
   ContentProps,
   DisableProps,
-  React.HTMLAttributes<HTMLElement>,
-  TooltipContentOptions,
+  React.HTMLAttributes<HTMLDivElement>,
   TooltipOptions {}
-
-export interface TooltipContentProps extends
-  BezierComponentProps,
-  TooltipPrimitive.TooltipContentProps,
-  TooltipContentOptions {}
