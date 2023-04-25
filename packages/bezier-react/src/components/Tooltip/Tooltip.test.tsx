@@ -93,6 +93,14 @@ describe('Tooltip', () => {
       expect(onHide).toHaveBeenCalled()
     })
 
+    it('If the `disabled` property is true, the tooltip should not be visible when hovering over it or with keyboard focus.', async () => {
+      const { getByRole, queryByRole } = renderTooltip({ disabled: true })
+      await user.hover(getByRole('button'))
+      expect(queryByRole('tooltip')).not.toBeInTheDocument()
+      await user.tab()
+      expect(queryByRole('tooltip')).not.toBeInTheDocument()
+    })
+
     it('If the `delayShow` property is greater than 0, the tooltip should be delayed by that number of ms before appearing.', async () => {
       const { getByRole, queryByRole } = renderTooltip({ delayShow: 1000 })
       await user.hover(getByRole('button'))
