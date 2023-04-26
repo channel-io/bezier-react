@@ -400,10 +400,12 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c4"
     >
       <svg
+        aria-hidden="true"
         class="c5"
         color="bgtxt-absolute-white-dark"
         data-testid="bezier-react-icon"
         fill="none"
+        focusable="false"
         foundation="[object Object]"
         height="16"
         marginbottom="0"
@@ -421,6 +423,11 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
           fill-rule="evenodd"
         />
       </svg>
+      <span
+        style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
+      >
+        More
+      </span>
     </div>
     <div
       class="c1"
