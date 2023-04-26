@@ -3,8 +3,10 @@ import React, {
   memo,
 } from 'react'
 
-import type IconProps from './Icon.types'
-import { IconSize } from './Icon.types'
+import {
+  type IconProps,
+  IconSize,
+} from './Icon.types'
 
 import Styled from './Icon.styled'
 
