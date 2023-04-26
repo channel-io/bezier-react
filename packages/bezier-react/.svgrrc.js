@@ -72,6 +72,7 @@ const svgElements = [
 module.exports = {
   "icon": true,
   "typescript": true,
+  "ref": true,
   "singleQuote": true,
   "prettier": true,
   "prettierConfig": {
