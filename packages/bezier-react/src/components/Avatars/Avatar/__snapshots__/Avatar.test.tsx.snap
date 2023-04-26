@@ -29,22 +29,6 @@ exports[`Avatar > Snapshot 1`] = `
   border-radius: 42%;
 }
 
-@supports (background:paint(smooth-corners)) {
-  .c0 {
-    padding: 0px;
-    margin: 0px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
-  }
-}
-
 <div
   aria-label="Name"
   class="c0"
@@ -84,20 +68,22 @@ exports[`Avatar > renders border style 1`] = `
   border-radius: 42%;
 }
 
-@supports (background:paint(smooth-corners)) {
-  .c0 {
-    padding: 4px;
-    margin: -4px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 2px #FFFFFF;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 4;
-    --smooth-corners-radius-unit: string;
-  }
+.c0::after {
+  box-sizing: border-box;
+  border-color: #FFFFFF;
+  border-style: solid solid solid solid;
+  border-width: 2px;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: -1;
+  box-sizing: content-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: #FFFFFF;
+  border-radius: 42%;
 }
 
 <div
@@ -140,10 +126,6 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
   bottom: -2px;
 }
 
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
@@ -182,12 +164,8 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 2px;
-  bottom: 2px;
-}
-
-@supports (background:paint(smooth-corners)) {
-
+  right: -2px;
+  bottom: -2px;
 }
 
 <div
@@ -232,10 +210,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   bottom: 4px;
 }
 
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
@@ -278,10 +252,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   bottom: 4px;
 }
 
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
@@ -320,12 +290,8 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
-}
-
-@supports (background:paint(smooth-corners)) {
-
+  right: 4px;
+  bottom: 4px;
 }
 
 <div
@@ -366,12 +332,8 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
-}
-
-@supports (background:paint(smooth-corners)) {
-
+  right: 4px;
+  bottom: 4px;
 }
 
 <div

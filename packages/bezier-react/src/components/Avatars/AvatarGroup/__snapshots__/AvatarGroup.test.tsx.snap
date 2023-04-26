@@ -86,22 +86,6 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   margin-left: var(--bezier-avatar-group-ellipsis-ml);
 }
 
-@supports (background:paint(smooth-corners)) {
-  .c2 {
-    padding: 0px;
-    margin: 0px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
-  }
-}
-
 <div
   class="c0"
   role="group"
@@ -289,37 +273,6 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   margin: 0px;
   background-color: #00000033;
   border-radius: 42%;
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c2 {
-    padding: 0px;
-    margin: 0px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
-  }
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c4 {
-    padding: 0px;
-    margin: 0px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    box-shadow: none;
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #00000033;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
-  }
 }
 
 <div

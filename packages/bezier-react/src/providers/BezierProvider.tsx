@@ -9,8 +9,6 @@ import {
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
 
-import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
-
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp
   children: React.ReactNode
@@ -22,8 +20,6 @@ function BezierProvider({
   children,
   themeVarsScope,
 }: BezierProviderProps) {
-  EnableCSSHoudini({ smoothCorners: true })
-
   return (
     <FoundationProvider foundation={foundation}>
       <GlobalStyle foundation={foundation} />

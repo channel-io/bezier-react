@@ -1,4 +1,4 @@
-const smoothCornersScript = `
+export const smoothCornersScript = `
 class SmoothCorners {
   static get inputProperties() {
     return [
@@ -189,5 +189,3 @@ class SmoothCorners {
 }
 registerPaint('smooth-corners', SmoothCorners)
 `
-
-export default smoothCornersScript
