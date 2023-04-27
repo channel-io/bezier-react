@@ -11,6 +11,7 @@ import {
   ChevronSmallRightIcon,
   isBezierIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
@@ -54,7 +55,7 @@ function OutlineItem(
     focused = false,
     leftContent,
     leftIcon,
-    leftIconColor,
+    leftIconColor = 'txt-black-dark',
     disableChevron = false,
     disableIconActive = false,
     name,
@@ -176,10 +177,12 @@ function OutlineItem(
     if (isLegacyIcon || isIcon) {
       const iconProps = {
         testId: leftIconTestId,
-        className: iconClassName,
+        className: classNames(
+          iconClassName,
+          (!disableIconActive && active) && 'active',
+        ),
         interpolation: iconInterpolation,
         size: IconSize.S,
-        active: (!disableIconActive && active) ? true : undefined,
         color: leftIconColor,
       }
 

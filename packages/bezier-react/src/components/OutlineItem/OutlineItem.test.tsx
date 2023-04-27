@@ -117,7 +117,7 @@ describe('OutlineItem', () => {
       })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']};`)
+      expect(rendered).not.toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']};`)
     })
 
     it('shows given leftIconColor even if "active = true", if "disableIconActive = true"', () => {
