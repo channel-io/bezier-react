@@ -170,34 +170,42 @@ function OutlineItem(
       )
     }
 
-    if (isIconName(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledLegacyIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            name={leftIcon}
-            size={IconSize.S}
-            active={(!disableIconActive && active) ? true : undefined}
-            color={leftIconColor}
-          />
-        </LeftContentWrapper>
-      )
-    }
+    const isLegacyIcon = isIconName(leftIcon)
+    const isIcon = isBezierIcon(leftIcon)
 
-    if (isBezierIcon(leftIcon)) {
+    if (isLegacyIcon || isIcon) {
+      const iconProps = {
+        testId: leftIconTestId,
+        className: iconClassName,
+        interpolation: iconInterpolation,
+        size: IconSize.S,
+        active: (!disableIconActive && active) ? true : undefined,
+        color: leftIconColor,
+      }
+
+      const Icon = (() => {
+        if (isLegacyIcon) {
+          return (
+            <StyledLegacyIcon
+              {...iconProps}
+              name={leftIcon}
+            />
+          )
+        }
+        if (isIcon) {
+          return (
+            <StyledIcon
+              {...iconProps}
+              source={leftIcon}
+            />
+          )
+        }
+        return <></>
+      })()
+
       return (
         <LeftContentWrapper>
-          <StyledIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            source={leftIcon}
-            size={IconSize.S}
-            active={(!disableIconActive && active) ? true : undefined}
-            color={leftIconColor}
-          />
+          { Icon }
         </LeftContentWrapper>
       )
     }
