@@ -179,7 +179,7 @@ function OutlineItem(
             interpolation={iconInterpolation}
             name={leftIcon}
             size={IconSize.S}
-            active={active}
+            active={active ? true : undefined}
             disableIconActive={disableIconActive}
             color={leftIconColor}
           />
@@ -196,7 +196,7 @@ function OutlineItem(
             interpolation={iconInterpolation}
             source={leftIcon}
             size={IconSize.S}
-            active={active}
+            active={active ? true : undefined}
             disableIconActive={disableIconActive}
             color={leftIconColor}
           />
