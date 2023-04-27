@@ -73,18 +73,18 @@ export const LeftContentWrapper = styled.div`
 
 interface StyledIconProps extends InterpolationProps, ColorProps {}
 
-export const StyledLegacyIcon = styled(LegacyIcon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
+export const StyledLegacyIcon = styled(LegacyIcon)<StyledIconProps & Pick<OutlineItemProps, 'active'>>`
   color: ${props => {
-    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    if (props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
 
   ${({ interpolation }) => interpolation}
 `
 
-export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
+export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active'>>`
   color: ${props => {
-    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
+    if (props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
     return props.foundation?.theme?.[props.color || 'txt-black-dark']
   }};
 
