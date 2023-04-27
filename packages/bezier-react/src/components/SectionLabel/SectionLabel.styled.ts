@@ -1,4 +1,7 @@
-import { styled } from '~/src/foundation'
+import {
+  css,
+  styled,
+} from '~/src/foundation'
 
 import { type InterpolationProps } from '~/src/types/Foundation'
 
@@ -6,12 +9,12 @@ import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 interface ClickableElementProps {
-  clickable: boolean
+  clickable: true | undefined
 }
 
-function clickableElementStyle(clickable: boolean): string | false {
-  return clickable && `
-  cursor: pointer;
+function clickableElementStyle(clickable: true | undefined) {
+  return clickable && css`
+    cursor: pointer;
   `
 }
 

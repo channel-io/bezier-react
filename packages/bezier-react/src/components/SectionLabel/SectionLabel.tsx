@@ -52,7 +52,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
     return (
       <Styled.RightItemWrapper
         key={key}
-        clickable={!isNil(onClick)}
+        clickable={!isNil(onClick) ? true : undefined}
         onClick={onClick}
       >
         <LegacyIcon
@@ -121,7 +121,7 @@ function SectionLabel({
           name={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
-          clickable={!isNil(item.onClick)}
+          clickable={!isNil(item.onClick) ? true : undefined}
           onClick={item.onClick}
         />
       ) : item
