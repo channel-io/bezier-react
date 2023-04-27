@@ -223,7 +223,7 @@ describe('Tabs', () => {
       const { getByRole } = renderTabs()
       const tabItem1 = getByRole('tab', { name: TAB1 })
       const tabItem2 = getByRole('tab', { name: TAB2 })
-      const tabAction = getByRole('link', { name: ACTION1 })
+      const tabAction = getByRole('link')
       const tabContent = getByRole('tabpanel', { name: TAB1 })
 
       await user.click(getByRole('tab', { name: TAB1 }))
@@ -254,10 +254,10 @@ describe('Tabs', () => {
     describe('Keyboard Navigation', () => {
       it('can control by arrow right and left key', async () => {
         const { getByRole } = renderTabs()
-        const tabItem1 = getByRole('link', { name: ACTION1 })
+        const tabItem1 = getByRole('link')
         const tabItem2 = getByRole('button', { name: ACTION2 })
 
-        await user.click(getByRole('link', { name: ACTION1 }))
+        await user.click(getByRole('link'))
         expect(document.activeElement).toBe(tabItem1)
         await user.keyboard('{arrowright}')
         expect(document.activeElement).toBe(tabItem2)

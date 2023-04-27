@@ -2000,6 +2000,7 @@ __metadata:
     "@babel/runtime": ^7.12.13
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
+    "@radix-ui/react-accessible-icon": ^1.0.2
     "@radix-ui/react-checkbox": ^1.0.3
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-radio-group": ^1.1.0
@@ -3350,6 +3351,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-accessible-icon@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-accessible-icon@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-visually-hidden": 1.0.2
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 06ac923be04e3863d2183060ee117705e602d8ce27ad4709d16d01b01b18f2ab7c0ef60ad7113cf56f733130042e6ec9aa06cfba1a391db3debd5a1daa5ae02e
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-checkbox@npm:^1.0.3":
   version: 1.0.3
   resolution: "@radix-ui/react-checkbox@npm:1.0.3"
@@ -3792,7 +3806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-visually-hidden@npm:^1.0.1":
+"@radix-ui/react-visually-hidden@npm:1.0.2, @radix-ui/react-visually-hidden@npm:^1.0.1":
   version: 1.0.2
   resolution: "@radix-ui/react-visually-hidden@npm:1.0.2"
   dependencies:

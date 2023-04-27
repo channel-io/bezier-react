@@ -8,7 +8,7 @@ import {
   ICON_TEST_ID,
   Icon,
 } from './Icon'
-import type IconProps from './Icon.types'
+import { type IconProps } from './Icon.types'
 import { AllIcon } from './generated'
 
 describe('Icon test >', () => {

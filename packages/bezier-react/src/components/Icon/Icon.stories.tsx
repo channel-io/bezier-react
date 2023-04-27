@@ -31,8 +31,10 @@ import { Text } from '~/src/components/Text'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
-import type IconProps from './Icon.types'
-import { IconSize } from './Icon.types'
+import {
+  type IconProps,
+  IconSize,
+} from './Icon.types'
 import icons, {
   ArrowLeftIcon,
   BookmarkFilledIcon,

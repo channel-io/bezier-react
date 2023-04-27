@@ -60,7 +60,7 @@ interface IconOptions {
   marginLeft?: number
 }
 
-export default interface IconProps extends
+export interface IconProps extends
   Omit<BezierComponentProps, 'as'>,
   SizeProps<IconSize>,
   ColorProps,
