@@ -30,21 +30,21 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
 
   const style = useMemo(() => ({
     ...styleProp,
-    '--bezier-react-alpha-smooth-corners-box-border-radius': borderRadius,
-    '--bezier-react-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
-    '--bezier-react-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
-    '--bezier-react-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
-    '--bezier-react-alpha-smooth-corners-box-shadow-blur-radius': shadow?.blurRadius,
-    '--bezier-react-alpha-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
-    '--bezier-react-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
+    '--bezier-alpha-smooth-corners-box-border-radius': borderRadius,
+    '--bezier-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
+    '--bezier-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
+    '--bezier-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
+    '--bezier-alpha-smooth-corners-box-shadow-blur-radius': shadow?.blurRadius,
+    '--bezier-alpha-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
+    '--bezier-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
     /**
      * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
-    '--bezier-react-alpha-smooth-corners-box-padding': `${(shadow?.spreadRadius ?? 0) * 2}px`,
-    '--bezier-react-alpha-smooth-corners-box-margin': margin,
-    '--bezier-react-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
-    '--bezier-react-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
+    '--bezier-alpha-smooth-corners-box-padding': `${(shadow?.spreadRadius ?? 0) * 2}px`,
+    '--bezier-alpha-smooth-corners-box-margin': margin,
+    '--bezier-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
+    '--bezier-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
     styleProp,
     borderRadius,
