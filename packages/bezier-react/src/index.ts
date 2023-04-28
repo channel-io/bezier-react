@@ -52,6 +52,7 @@ export * from '~/src/components/VisuallyHidden'
 
 export * from '~/src/components/AlphaCenter'
 export * from '~/src/components/AlphaStack'
+export * from '~/src/components/AlphaSmoothCornersBox'
 
 export * from '~/src/components/LegacyRadio'
 

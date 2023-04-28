@@ -7,41 +7,49 @@ import {
   FeatureType,
   useFeatureFlag,
 } from '~/src/features'
+import {
+  cssUrl,
+  cssVar,
+} from '~/src/utils/styleUtils'
 
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
 import * as Styled from './AlphaSmoothCornersBox.styled'
 
-export const AlphaSmoothCornersBox = forwardRef(function AlphaSmoothCornersBox({
+export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
   children,
   borderRadius,
   margin,
   shadow,
-  shadowBlur,
   backgroundColor,
   backgroundImage,
   style: styleProp,
   ...rest
-}: AlphaSmoothCornersBoxProps) {
+}, forwardedRef) {
   const isSmoothCornersEnabled = useFeatureFlag(FeatureType.SmoothCorners)
 
   const style = useMemo(() => ({
     ...styleProp,
     '--bezier-react-alpha-smooth-corners-box-border-radius': borderRadius,
     '--bezier-react-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
+    '--bezier-react-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
+    '--bezier-react-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
+    '--bezier-react-alpha-smooth-corners-box-shadow-blur-radius': shadow?.blurRadius,
+    '--bezier-react-alpha-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
+    '--bezier-react-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
+    /**
+     * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
+     * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
+     */
+    '--bezier-react-alpha-smooth-corners-box-padding': `${(shadow?.spreadRadius ?? 0) * 2}px`,
     '--bezier-react-alpha-smooth-corners-box-margin': margin,
-    // NOTE: (@ed) Calculated in javascript because it doesn't work via CSS calc().
-    '--bezier-react-alpha-smooth-corners-box-padding': (shadowBlur ?? 0) * 2,
-    '--bezier-react-alpha-smooth-corners-box-shadow': shadow,
-    '--bezier-react-alpha-smooth-corners-box-shadow-blur': shadowBlur,
-    '--bezier-react-alpha-smooth-corners-box-background-color': backgroundColor,
-    '--bezier-react-alpha-smooth-corners-box-background-image': backgroundImage ? `url(${backgroundImage})` : undefined,
+    '--bezier-react-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
+    '--bezier-react-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
     styleProp,
     borderRadius,
     margin,
     shadow,
-    shadowBlur,
     backgroundColor,
     backgroundImage,
   ])
@@ -49,6 +57,7 @@ export const AlphaSmoothCornersBox = forwardRef(function AlphaSmoothCornersBox({
   return (
     <Styled.Box
       {...rest}
+      ref={forwardedRef}
       style={style}
       data-state={isSmoothCornersEnabled ? 'enabled' : 'disabled'}
     >
