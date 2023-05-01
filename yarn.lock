@@ -5435,11 +5435,11 @@ __metadata:
   linkType: hard
 
 "@svgr/babel-plugin-remove-jsx-attribute@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@svgr/babel-plugin-remove-jsx-attribute@npm:6.0.0"
+  version: 6.5.0
+  resolution: "@svgr/babel-plugin-remove-jsx-attribute@npm:6.5.0"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 82c988ed40f88640fcd68fc24ff3dbf729673d59cf1627ed0aa5f0c992a1ddc220fe23e7f23ba39110cd47720cc7c630e70333f1a25ff6a65662584317ff2385
+  checksum: 7a4dfc1345f5855b010684e9c5301731842bf91d72b82ce5cc4c82c80b94de1036e447a8a00fb306a6dd575cb4c640d8ce3cfee6607ddbb804796a77284c7f22
   languageName: node
   linkType: hard
 
