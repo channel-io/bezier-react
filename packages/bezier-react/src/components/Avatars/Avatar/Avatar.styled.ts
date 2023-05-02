@@ -24,24 +24,6 @@ export const AvatarImage = styled(AlphaSmoothCornersBox)`
     --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
   }
 
-  /* NOTE: Fallback border style when smooth corners is disabled */
-  &.bordered[data-state="disabled"] {
-    &::after {
-      position: absolute;
-      top: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-      left: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-      z-index: ${ZIndex.Hide};
-      box-sizing: content-box;
-      display: block;
-      width: 100%;
-      height: 100%;
-      content: '';
-      background-color: var(--bezier-alpha-smooth-corners-box-background-color);
-      border: var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) solid var(--bezier-alpha-smooth-corners-box-shadow-color);
-      border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
-    }
-  }
-
   &.size-${AvatarSize.Size20} {
     width: 20px;
     height: 20px;
