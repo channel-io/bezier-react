@@ -58,7 +58,7 @@ interface AlphaSmoothCornersBoxOptions {
    */
   backgroundColor?: SemanticNames
   /**
-   * The background image of an element.
+   * The background image url of an element.
    */
   backgroundImage?: string
 }
