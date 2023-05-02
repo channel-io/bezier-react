@@ -10,7 +10,7 @@ export const Box = styled.div`
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
   --bezier-alpha-smooth-corners-box-padding: 0px;
   --bezier-alpha-smooth-corners-box-margin: 0px;
-  --bezier-alpha-smooth-corners-box-background-color: white;
+  --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
 
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);

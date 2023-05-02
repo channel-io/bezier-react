@@ -54,7 +54,7 @@ interface AlphaSmoothCornersBoxOptions {
   margin?: number
   /**
    * The background color of an element.
-   * @default white
+   * @default 'bgtxt-absolute-white-normal'
    */
   backgroundColor?: SemanticNames
   /**
