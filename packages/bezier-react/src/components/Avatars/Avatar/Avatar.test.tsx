@@ -3,7 +3,6 @@ import React from 'react'
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/testUtils'
 
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import { StatusType } from '~/src/components/Status'
 
 import {
@@ -43,20 +42,6 @@ describe('Avatar >', () => {
     const img = getByTestId(AVATAR_TEST_ID)
 
     expect(img).toMatchSnapshot()
-  })
-
-  it('renders image with correct style', () => {
-    const { getByTestId } = renderAvatar()
-    const img = getByTestId(AVATAR_TEST_ID)
-
-    expect(img).toHaveStyle('position: relative')
-    expect(img).toHaveStyle('box-sizing: content-box')
-    expect(img).toHaveStyle('display: flex')
-    expect(img).toHaveStyle('outline: none')
-    expect(img).toHaveStyle('background-image: var(--background-image)')
-    expect(img).toHaveStyle(`--background-image: url(${mockFallbackUrl})`)
-    expect(img).toHaveStyle('background-size: cover')
-    expect(img).toHaveStyle(`border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%`)
   })
 
   it('renders disabled style', () => {

@@ -10,12 +10,13 @@ exports[`Avatar > Snapshot 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
   --bezier-alpha-smooth-corners-box-padding: 0px;
   --bezier-alpha-smooth-corners-box-margin: 0px;
-  --bezier-alpha-smooth-corners-box-background-color: white;
-  margin: var(--bezier-alpha-smooth-corners-box-margin)px;
+  --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
+  margin: var(--bezier-alpha-smooth-corners-box-margin);
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
   background-image: var(--bezier-alpha-smooth-corners-box-background-image);
   background-size: cover;
   border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
 }
 
 .c1 {
@@ -42,21 +43,6 @@ exports[`Avatar > Snapshot 1`] = `
 
 .c1.bordered[data-state="enabled"] {
   --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
-}
-
-.c1.bordered[data-state="disabled"]::after {
-  position: absolute;
-  top: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-  left: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-  z-index: -1;
-  box-sizing: content-box;
-  display: block;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
-  border: var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) solid var(--bezier-alpha-smooth-corners-box-shadow-color);
-  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
 }
 
 .c1.size-20 {
@@ -125,7 +111,7 @@ exports[`Avatar > Snapshot 1`] = `
   class="c0 c1 size-24"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
@@ -139,12 +125,13 @@ exports[`Avatar > renders border style 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
   --bezier-alpha-smooth-corners-box-padding: 0px;
   --bezier-alpha-smooth-corners-box-margin: 0px;
-  --bezier-alpha-smooth-corners-box-background-color: white;
-  margin: var(--bezier-alpha-smooth-corners-box-margin)px;
+  --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
+  margin: var(--bezier-alpha-smooth-corners-box-margin);
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
   background-image: var(--bezier-alpha-smooth-corners-box-background-image);
   background-size: cover;
   border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
 }
 
 .c1 {
@@ -171,21 +158,6 @@ exports[`Avatar > renders border style 1`] = `
 
 .c1.bordered[data-state="enabled"] {
   --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
-}
-
-.c1.bordered[data-state="disabled"]::after {
-  position: absolute;
-  top: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-  left: calc(-1 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius));
-  z-index: -1;
-  box-sizing: content-box;
-  display: block;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
-  border: var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) solid var(--bezier-alpha-smooth-corners-box-shadow-color);
-  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
 }
 
 .c1.size-20 {
@@ -254,7 +226,7 @@ exports[`Avatar > renders border style 1`] = `
   class="c0 c1 size-24 bordered"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 2px; --bezier-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --bezier-alpha-smooth-corners-box-padding: 4px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 2px; --bezier-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --bezier-alpha-smooth-corners-box-padding: 4px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
