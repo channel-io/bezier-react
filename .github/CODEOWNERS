@@ -39,7 +39,9 @@
 /packages/bezier-react/src/components/Toast/ @dinohan
 /packages/bezier-react/src/components/Tooltip/ @sungik-choi
 /packages/bezier-react/src/components/VisuallyHidden/ @sungik-choi
+
 /packages/bezier-react/src/components/AlphaCenter/ @sungik-choi
 /packages/bezier-react/src/components/AlphaStack/ @Kanary159357
+/packages/bezier-react/src/components/AlphaSmoothCornersBox/ @sungik-choi
 
 /packages/bezier-react/src/features/ @sungik-choi
