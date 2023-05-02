@@ -18,6 +18,7 @@ import * as Styled from './AlphaSmoothCornersBox.styled'
 
 export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
   children,
+  disabled,
   borderRadius,
   margin,
   shadow,
@@ -26,7 +27,8 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
   style: styleProp,
   ...rest
 }, forwardedRef) {
-  const isSmoothCornersEnabled = useFeatureFlag(FeatureType.SmoothCorners)
+  const smoothCornersEnabled = useFeatureFlag(FeatureType.SmoothCorners)
+  const enabled = !disabled && smoothCornersEnabled
 
   const shadowSpreadRadius = shadow?.spreadRadius ?? 0
 
@@ -62,7 +64,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
       {...rest}
       ref={forwardedRef}
       style={style}
-      data-state={isSmoothCornersEnabled ? 'enabled' : 'disabled'}
+      data-state={enabled ? 'enabled' : 'disabled'}
     >
       { children }
     </Styled.Box>

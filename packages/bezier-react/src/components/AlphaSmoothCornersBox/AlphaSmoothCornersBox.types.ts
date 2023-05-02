@@ -3,6 +3,7 @@ import { type SemanticNames } from '~/src/foundation'
 import type {
   BezierComponentProps,
   ChildrenProps,
+  DisableProps,
 } from '~/src/types/ComponentProps'
 
 /**
@@ -27,5 +28,6 @@ interface AlphaSmoothCornersBoxOptions {
 export interface AlphaSmoothCornersBoxProps extends
   BezierComponentProps,
   ChildrenProps,
+  DisableProps,
   React.HTMLAttributes<HTMLElement>,
   AlphaSmoothCornersBoxOptions {}
