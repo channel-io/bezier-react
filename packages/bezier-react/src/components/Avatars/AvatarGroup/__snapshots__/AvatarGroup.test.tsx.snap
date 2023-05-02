@@ -8,8 +8,8 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0;
-  --bezier-alpha-smooth-corners-box-margin: 0;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: white;
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
@@ -168,7 +168,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 @supports (background:paint(smooth-corners)) {
   .c2[data-state="enabled"] {
     padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding));
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
     border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
@@ -302,8 +302,8 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0;
-  --bezier-alpha-smooth-corners-box-margin: 0;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: white;
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
@@ -444,15 +444,12 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   width: 100%;
   height: 100%;
   outline: none;
-  margin: 0px;
-  background-color: #00000033;
-  border-radius: 42%;
 }
 
 @supports (background:paint(smooth-corners)) {
   .c2[data-state="enabled"] {
     padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding));
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
     border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
@@ -540,7 +537,9 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
-      class="c5"
+      class="c2 c5"
+      data-state="disabled"
+      style="--bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
         aria-hidden="true"

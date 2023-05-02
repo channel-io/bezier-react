@@ -8,8 +8,8 @@ exports[`Avatar > Snapshot 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0;
-  --bezier-alpha-smooth-corners-box-margin: 0;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: white;
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
@@ -107,7 +107,7 @@ exports[`Avatar > Snapshot 1`] = `
 @supports (background:paint(smooth-corners)) {
   .c0[data-state="enabled"] {
     padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding));
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
     border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
@@ -137,8 +137,8 @@ exports[`Avatar > renders border style 1`] = `
   --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0;
-  --bezier-alpha-smooth-corners-box-margin: 0;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: white;
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
@@ -236,7 +236,7 @@ exports[`Avatar > renders border style 1`] = `
 @supports (background:paint(smooth-corners)) {
   .c0[data-state="enabled"] {
     padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding));
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
     border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
