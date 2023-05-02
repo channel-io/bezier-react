@@ -16,6 +16,18 @@ import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
 import * as Styled from './AlphaSmoothCornersBox.styled'
 
+/**
+ * `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
+ * It is available by enabling the `SmoothCornersFeature`.
+ *
+ * @example
+ *
+ * ```tsx
+ * <FeatureProvider features={[SmoothCornersFeature]}>
+ *   <AlphaSmoothCornersBox />
+ * </FeatureProvider>
+ * ```
+ */
 export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
   children,
   disabled,
