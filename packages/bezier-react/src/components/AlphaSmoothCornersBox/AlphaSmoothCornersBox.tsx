@@ -28,6 +28,8 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
 }, forwardedRef) {
   const isSmoothCornersEnabled = useFeatureFlag(FeatureType.SmoothCorners)
 
+  const shadowSpreadRadius = shadow?.spreadRadius ?? 0
+
   const style = useMemo(() => ({
     ...styleProp,
     '--bezier-alpha-smooth-corners-box-border-radius': borderRadius,
@@ -35,13 +37,13 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
     '--bezier-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
     '--bezier-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
     '--bezier-alpha-smooth-corners-box-shadow-blur-radius': shadow?.blurRadius,
-    '--bezier-alpha-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
+    '--bezier-alpha-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
     '--bezier-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
     /**
      * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
-    '--bezier-alpha-smooth-corners-box-padding': `${(shadow?.spreadRadius ?? 0) * 2}px`,
+    '--bezier-alpha-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
     '--bezier-alpha-smooth-corners-box-margin': margin,
     '--bezier-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
     '--bezier-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
@@ -50,6 +52,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
     borderRadius,
     margin,
     shadow,
+    shadowSpreadRadius,
     backgroundColor,
     backgroundImage,
   ])
