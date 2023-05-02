@@ -12,11 +12,12 @@ export const Box = styled.div`
   --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
 
-  margin: var(--bezier-alpha-smooth-corners-box-margin)px;
+  margin: var(--bezier-alpha-smooth-corners-box-margin);
   background-color: var(--bezier-alpha-smooth-corners-box-background-color);
   background-image: var(--bezier-alpha-smooth-corners-box-background-image);
   background-size: cover;
   border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
 
   &[data-state="enabled"] {
     @supports (background: paint(smooth-corners)) {

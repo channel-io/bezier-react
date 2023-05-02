@@ -50,7 +50,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
     '--bezier-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
     '--bezier-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
     '--bezier-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
-    '--bezier-alpha-smooth-corners-box-shadow-blur-radius': shadow?.blurRadius,
+    '--bezier-alpha-smooth-corners-box-shadow-blur-radius': `${shadow?.blurRadius ?? 0}px`,
     '--bezier-alpha-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
     '--bezier-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
     /**
@@ -58,7 +58,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
     '--bezier-alpha-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
-    '--bezier-alpha-smooth-corners-box-margin': margin,
+    '--bezier-alpha-smooth-corners-box-margin': `${margin}px`,
     '--bezier-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
     '--bezier-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
