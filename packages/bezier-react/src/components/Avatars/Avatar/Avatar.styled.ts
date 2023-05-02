@@ -2,7 +2,6 @@
 import { styled } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { ZIndex } from '~/src/constants/ZIndex'
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
@@ -74,7 +73,6 @@ export const AvatarImage = styled(AlphaSmoothCornersBox)`
 
 export const AvatarWrapper = styled.div<InterpolationProps>`
   position: relative;
-  z-index: ${ZIndex.Base};
 
   &[data-disabled="true"] {
     opacity: ${DisabledOpacity};
