@@ -41,6 +41,7 @@ export const Avatar = forwardRef(function Avatar({
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
+  smoothCorners = true,
   status,
   className: classNameProp,
   wrapperClassName,
@@ -115,6 +116,7 @@ export const Avatar = forwardRef(function Avatar({
         style={style}
         className={className}
         interpolation={interpolation}
+        disabled={!smoothCorners}
         borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
         shadow={showBorder ? shadow : undefined}
         backgroundColor="bg-white-normal"

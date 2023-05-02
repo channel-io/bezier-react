@@ -80,6 +80,7 @@ Primary.args = {
   size: AvatarSize.Size24,
   showBorder: false,
   disabled: false,
+  smoothCorners: true,
 }
 
 const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
