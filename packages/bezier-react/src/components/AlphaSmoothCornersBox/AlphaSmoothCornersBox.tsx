@@ -58,7 +58,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
     '--bezier-alpha-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
-    '--bezier-alpha-smooth-corners-box-margin': `${margin}px`,
+    '--bezier-alpha-smooth-corners-box-margin': `${margin ?? 0}px`,
     '--bezier-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
     '--bezier-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
