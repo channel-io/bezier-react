@@ -1,4 +1,4 @@
-/* stylelint-disable function-whitespace-after */
+/* stylelint-disable function-whitespace-after, length-zero-no-unit */
 import { styled } from '~/src/foundation'
 
 export const Box = styled.div`
@@ -8,8 +8,8 @@ export const Box = styled.div`
   --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
   --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0;
-  --bezier-alpha-smooth-corners-box-margin: 0;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
   --bezier-alpha-smooth-corners-box-background-color: white;
 
   margin: var(--bezier-alpha-smooth-corners-box-margin)px;
@@ -21,7 +21,7 @@ export const Box = styled.div`
   &[data-state="enabled"] {
     @supports (background: paint(smooth-corners)) {
       padding: var(--bezier-alpha-smooth-corners-box-padding);
-      margin: var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding));
+      margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
       background: paint(smooth-corners);
       border-radius: 0;
       border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
