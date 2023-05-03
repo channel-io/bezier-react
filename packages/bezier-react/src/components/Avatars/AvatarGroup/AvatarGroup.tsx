@@ -13,7 +13,10 @@ import {
   type AvatarProps,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
-import { AVATAR_GROUP_DEFAULT_SPACING } from '~/src/components/Avatars/AvatarStyle'
+import {
+  AVATAR_BORDER_RADIUS_PERCENTAGE,
+  AVATAR_GROUP_DEFAULT_SPACING,
+} from '~/src/components/Avatars/AvatarStyle'
 import {
   Icon,
   IconSize,
@@ -138,7 +141,10 @@ forwardedRef: React.Ref<HTMLDivElement>,
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
-            <Styled.AvatarEllipsisIcon>
+            <Styled.AvatarEllipsisIcon
+              borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
+              backgroundColor="bgtxt-absolute-black-lightest"
+            >
               <Icon
                 source={MoreIcon}
                 size={getProperIconSize(size)}

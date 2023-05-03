@@ -2043,6 +2043,7 @@ __metadata:
     babel-plugin-styled-components: ^2.0.7
     babel-preset-react-app: ^10.0.0
     chromatic: ^6.11.4
+    classnames: ^2.3.2
     core-js: ^3.8.1
     cross-env: ^7.0.3
     eslint-config-bezier: "workspace:*"
@@ -9279,6 +9280,13 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: be108900801e639e50f96a7e4bfa8867c753a7750a7603879f3981f8b0a89cba657497a2d5f40cd4ea557ff15d535a100818bb486baf6e26fe5d7872e75f1078
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
   languageName: node
   linkType: hard
 

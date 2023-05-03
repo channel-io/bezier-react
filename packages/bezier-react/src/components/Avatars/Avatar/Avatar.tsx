@@ -3,11 +3,12 @@ import React, {
   useMemo,
 } from 'react'
 
-import { backgroundImageVariable } from '~/src/foundation'
+import classNames from 'classnames'
 
-import { noop } from '~/src/utils/functionUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
+import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
+import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import {
   Status,
   StatusSize,
@@ -21,11 +22,12 @@ import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 import useProgressiveImage from './useProgressiveImage'
 
-import {
-  AvatarImage,
-  AvatarWrapper,
-  StatusWrapper,
-} from './Avatar.styled'
+import * as Styled from './Avatar.styled'
+
+const shadow: BoxShadow = {
+  spreadRadius: 2,
+  color: 'bg-white-high',
+}
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
@@ -39,18 +41,16 @@ export const Avatar = forwardRef(function Avatar({
   testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
+  smoothCorners = true,
   status,
-  onClick = noop,
-  onMouseEnter = noop,
-  onMouseLeave = noop,
-  className,
+  className: classNameProp,
   wrapperClassName,
   interpolation,
   wrapperInterpolation,
+  style: styleProp,
   children,
-}: AvatarProps,
-forwardedRef: React.Ref<HTMLDivElement>,
-) {
+  ...rest
+}: AvatarProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
 
   const StatusComponent = useMemo(() => {
@@ -62,6 +62,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
     }
 
     const statusSize = size >= AvatarSize.Size90 ? StatusSize.L : StatusSize.M
+
     const Contents = (() => {
       if (children) { return children }
       if (status) {
@@ -76,44 +77,53 @@ forwardedRef: React.Ref<HTMLDivElement>,
     })()
 
     return (
-      <StatusWrapper
-        data-testid={STATUS_WRAPPER_TEST_ID}
-        size={size}
-        showBorder={showBorder}
-      >
+      <Styled.StatusWrapper data-testid={STATUS_WRAPPER_TEST_ID}>
         { Contents }
-      </StatusWrapper>
+      </Styled.StatusWrapper>
     )
   }, [
     status,
     size,
-    showBorder,
     children,
   ])
 
+  const style = useMemo(() => ({
+    ...styleProp,
+    '--bezier-avatar-status-gap': `${size >= AvatarSize.Size72 ? 4 : -2}px`,
+  }), [
+    styleProp,
+    size,
+  ])
+
+  const className = classNames(
+    classNameProp,
+    size && `size-${size}`,
+    showBorder && 'bordered',
+  )
+
   return (
-    <AvatarWrapper
+    <Styled.AvatarWrapper
+      data-testid={AVATAR_WRAPPER_TEST_ID}
+      data-disabled={disabled}
       className={wrapperClassName}
       interpolation={wrapperInterpolation}
-      disabled={disabled}
-      data-testid={AVATAR_WRAPPER_TEST_ID}
     >
-      <AvatarImage
-        style={backgroundImageVariable({ imageUrl: loadedAvatarUrl })}
-        className={className}
-        interpolation={interpolation}
+      <Styled.AvatarImage
+        {...rest}
         ref={forwardedRef}
         data-testid={testId}
-        size={size}
-        role="img"
         aria-label={name}
-        showBorder={showBorder}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+        style={style}
+        className={className}
+        interpolation={interpolation}
+        disabled={!smoothCorners}
+        borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
+        shadow={showBorder ? shadow : undefined}
+        backgroundColor="bg-white-normal"
+        backgroundImage={loadedAvatarUrl}
       >
         { StatusComponent }
-      </AvatarImage>
-    </AvatarWrapper>
+      </Styled.AvatarImage>
+    </Styled.AvatarWrapper>
   )
 })
