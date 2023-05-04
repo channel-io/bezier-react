@@ -1,10 +1,3 @@
-import { CheckableAvatar } from './CheckableAvatar'
-import type CheckableAvatarProps from './CheckableAvatar.types'
+export { CheckableAvatar } from './CheckableAvatar'
 
-export type {
-  CheckableAvatarProps,
-}
-
-export {
-  CheckableAvatar,
-}
+export type { CheckableAvatarProps } from './CheckableAvatar.types'

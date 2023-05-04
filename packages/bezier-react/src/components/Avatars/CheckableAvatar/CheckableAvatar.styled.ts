@@ -1,127 +1,129 @@
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+
 import {
-  type Foundation,
-  type SemanticNames,
-  css,
-  smoothCorners,
+  absoluteCenter,
   styled,
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { SmoothCornersFeature } from '~/src/features'
-import type {
-  InjectedInterpolation,
-  InterpolationProps,
-} from '~/src/types/Foundation'
 
-import { AvatarSize } from '~/src/components/Avatars/Avatar'
-import { AvatarImage } from '~/src/components/Avatars/Avatar/Avatar.styled'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import {
+  AvatarSize,
+  Avatar as BaseAvatar,
+} from '~/src/components/Avatars/Avatar'
 import {
   CheckIcon as CheckIconSource,
   Icon,
 } from '~/src/components/Icon'
 
-interface CheckableAvatarWrapperProps extends InterpolationProps {
-  isChecked: boolean
-  isCheckable: boolean
-}
+export const Avatar = styled(BaseAvatar)``
 
-interface CheckIconProps {
-  avatarSize: AvatarSize
-}
-
-const getCheckIconSize = (avatarSize: AvatarSize) => ({
-  [AvatarSize.Size20]: 14,
-  [AvatarSize.Size24]: 16,
-  [AvatarSize.Size30]: 20,
-  [AvatarSize.Size36]: 22,
-  [AvatarSize.Size42]: 24,
-  [AvatarSize.Size48]: 28,
-  [AvatarSize.Size90]: 46,
-  [AvatarSize.Size120]: 60,
-}[avatarSize])
-
-export const CheckIcon = styled(Icon).attrs({ source: CheckIconSource })<CheckIconProps>`
+export const CheckIcon = styled(Icon).attrs({
+  source: CheckIconSource,
+  color: 'bgtxt-absolute-white-normal',
+})`
   position: absolute;
   z-index: ${ZIndex.Float};
-  pointer-events: none;
-  opacity: 0;
+  visibility: hidden;
 
-  ${({ avatarSize }) => {
-    const iconSize = getCheckIconSize(avatarSize)
-    return css`
-      width: ${iconSize}px;
-      height: ${iconSize}px;
-    `
-  }};
+  ${absoluteCenter()}
+
+  &.size-${AvatarSize.Size20} {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.size-${AvatarSize.Size24} {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.size-${AvatarSize.Size30} {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.size-${AvatarSize.Size36} {
+    width: 22px;
+    height: 22px;
+  }
+
+  &.size-${AvatarSize.Size42} {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.size-${AvatarSize.Size48} {
+    width: 28px;
+    height: 28px;
+  }
+
+  &.size-${AvatarSize.Size72} {
+    width: 42px;
+    height: 42px;
+  }
+
+  &.size-${AvatarSize.Size90} {
+    width: 52px;
+    height: 52px;
+  }
+
+  &.size-${AvatarSize.Size120} {
+    width: 68px;
+    height: 68px;
+  }
 `
 
-const getBackgroundColor = (isChecked: boolean, checkedBackgroundColor: SemanticNames, foundation?: Foundation) =>
-  foundation?.theme?.[isChecked ? checkedBackgroundColor : 'bg-grey-dark']
-
-/* eslint-disable @typescript-eslint/indent */
-export const getAvatarImageStyle = (
-  isChecked: boolean,
-  isCheckable: boolean,
-  checkedBackgroundColor: SemanticNames,
-  interpolation?: InjectedInterpolation,
-) => css`
-  ${isCheckable && css`
-    &::before {
-      display: block;
-      width: 100%;
-      height: 100%;
-      content: '';
-      opacity: ${isChecked ? 1 : 0};
-      ${'' /**
-         * NOTE: (@ed) smooth corner가 적용된 상태에선 background 색상을 background-color 속성을 통해 그리지 않으므로 (background: paint(smooth-corners))
-         * smooth-corners가 사용 가능한 브라우저에선 background-color 트랜지션또한 불가능합니다.
-         * 발생하지 않는 트랜지션에 will-change 속성을 주는 건 불필요하므로, will-change 속성에서 background-color를 제거합니다.
-      */}
-      will-change: ${SmoothCornersFeature.activated ? 'opacity' : 'opacity, background-color'};
-
-      ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
-
-      ${({ foundation }) => smoothCorners({
-        backgroundColor: getBackgroundColor(isChecked, checkedBackgroundColor, foundation),
-        borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-      })};
-    }
-  `}
-
-  ${interpolation}
-`
-
-const getCheckableStyle = (isChecked: boolean, isCheckable: boolean) =>
-  (!isCheckable
-  ? css`
-    cursor: not-allowed;
-  `
-  : css`
-    cursor: pointer;
-
-    ${CheckIcon} {
-      opacity: ${isChecked ? 1 : 0};
-      will-change: opacity;
-
-      ${({ foundation }) => foundation?.transition.getTransitionsCSS('opacity')}
-    }
-
-    &:hover ${CheckIcon},
-    &:hover ${AvatarImage}::before {
-      opacity: 1;
-    }
-  `)
-/* eslint-enable @typescript-eslint/indent */
-
-export const CheckableAvatarWrapper = styled.div<CheckableAvatarWrapperProps>`
+export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)`
+  all: unset;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
+  z-index: ${ZIndex.Base};
+  cursor: pointer;
+  outline: none;
 
-  ${({ isChecked, isCheckable }) => getCheckableStyle(isChecked, isCheckable)}
+  &[data-disabled] {
+    cursor: not-allowed;
+  }
 
-  ${({ interpolation }) => interpolation}
+  &:not([data-state='unchecked']) {
+    ${CheckIcon} {
+      visibility: visible;
+    }
+
+    ${Avatar} {
+      --bezier-alpha-smooth-corners-box-background-image: none !important;
+      --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
+    }
+  }
+
+  &:not([data-disabled]) {
+    &:hover,
+    &:focus-visible {
+      ${CheckIcon} {
+        visibility: visible;
+      }
+
+      ${Avatar} {
+        --bezier-alpha-smooth-corners-box-background-image: none !important;
+      }
+    }
+
+    &[data-state='unchecked'] {
+      &:hover,
+      &:focus-visible {
+        ${Avatar} {
+          --bezier-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
+        }
+      }
+    }
+
+    &:not([data-state='unchecked']) {
+      &:hover,
+      &:focus-visible {
+        ${Avatar} {
+          --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
+        }
+      }
+    }
+  }
 `

@@ -20,7 +20,7 @@ import {
 } from '~/src/components/Avatars/Avatar'
 
 import { CheckableAvatar } from './CheckableAvatar'
-import type CheckableAvatarProps from './CheckableAvatar.types'
+import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
 
@@ -111,7 +111,7 @@ const Template: Story<CheckableAvatarPropsWithAdditionalAvatar> = ({ withAdditio
     <Wrapper>
       <CheckableAvatar
         {...args}
-        isChecked={checked}
+        checked={checked}
         onClick={handleClick}
       >
         { withAdditionalAvatar && (
@@ -134,9 +134,7 @@ Primary.args = {
   size: AvatarSize.Size24,
   showBorder: false,
   disabled: false,
-  isChecked: false,
-  isCheckable: true,
-  checkedBackgroundColor: undefined,
+  checked: false,
   withAdditionalAvatar: false,
 }
 
@@ -175,7 +173,7 @@ const TemplateCheckableAvatarList: Story<CheckableAvatarProps> = (args) => {
             {...args}
             avatarUrl={avatarUrl}
             name={name}
-            isChecked={checkedList[id]}
+            checked={checkedList[id]}
             onClick={() => handleClickList(id)}
           />
           <Name>{ name }</Name>
@@ -185,7 +183,6 @@ const TemplateCheckableAvatarList: Story<CheckableAvatarProps> = (args) => {
         <CheckableAvatar
           avatarUrl="https://bit.ly/dan-abramov"
           name="Dan Abramov"
-          isCheckable={false}
           disabled
         />
         <Name>Disabled Dan</Name>
@@ -201,8 +198,6 @@ CheckableAvatarList.args = {
   size: AvatarSize.Size24,
   showBorder: false,
   disabled: false,
-  isChecked: false,
-  isCheckable: true,
-  checkedBackgroundColor: undefined,
+  checked: false,
 }
 
