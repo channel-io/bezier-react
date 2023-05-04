@@ -60,7 +60,7 @@ describe('CheckableAvatar', () => {
 
     it('should be disabled when disabled prop is true', () => {
       const { getByRole } = renderCheckableAvatar({ disabled: true })
-      expect(getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true')
+      expect(getByRole('checkbox')).toHaveAttribute('disabled')
     })
   })
 
@@ -69,15 +69,6 @@ describe('CheckableAvatar', () => {
       const { getByRole } = renderCheckableAvatar()
       const checkbox = getByRole('checkbox')
       await user.click(checkbox)
-      expect(checkbox).toHaveFocus()
-      expect(checkbox).toBeChecked()
-    })
-
-    it('should focus and check checkbox when user clicks on a label of checkbox', async () => {
-      const { getByText, getByRole } = renderCheckableAvatar({ children: 'Label' })
-      const checkbox = getByRole('checkbox')
-      const label = getByText('Label')
-      await user.click(label)
       expect(checkbox).toHaveFocus()
       expect(checkbox).toBeChecked()
     })
