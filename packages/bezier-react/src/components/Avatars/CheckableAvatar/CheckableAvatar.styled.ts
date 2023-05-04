@@ -74,6 +74,10 @@ export const CheckIcon = styled(Icon).attrs({
   }
 `
 
+/**
+ * NOTE: Using the `!important` keyword to override a local CSS variable of `AlphaSmoothCorners`.
+ * Improvements are needed to the styling when using the `AlphaSmoothCorners` component.
+ */
 export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)`
   all: unset;
   position: relative;
