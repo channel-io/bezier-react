@@ -11,6 +11,28 @@ import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
 import * as Styled from './CheckableAvatar.styled'
 
+/**
+ * `CheckableAvatar` is a checkbox component that looks like `Avatar`.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [checked, setChecked] = useState(false)
+ * // Controlled
+ * <CheckableAvatar
+ *   name="John Doe"
+ *   avatarUrl="..."
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * />
+ * // Uncontrolled
+ * <CheckableAvatar
+ *   name="John Doe"
+ *   avatarUrl="..."
+ *   defaultChecked
+ * />
+ * ```
+ */
 export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProps>(function CheckableAvatar({
   children,
   id: idProp,
