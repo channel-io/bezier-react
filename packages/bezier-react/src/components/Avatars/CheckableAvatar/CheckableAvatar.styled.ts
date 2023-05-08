@@ -2,10 +2,12 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import {
   absoluteCenter,
+  css,
   styled,
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
+import { touchableHover } from '~/src/utils/styleUtils'
 
 import {
   AvatarSize,
@@ -74,6 +76,28 @@ export const CheckIcon = styled(Icon).attrs({
   }
 `
 
+const focusStyles = {
+  common: css`
+    ${CheckIcon} {
+      visibility: visible;
+    }
+
+    ${Avatar} {
+      --bezier-alpha-smooth-corners-box-background-image: none !important;
+    }
+  `,
+  unchecked: css`
+    ${Avatar} {
+      --bezier-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
+    }
+  `,
+  checked: css`
+    ${Avatar} {
+      --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
+    }
+  `,
+}
+
 /**
  * NOTE: Using the `!important` keyword to override a local CSS variable of `AlphaSmoothCorners`.
  * Improvements are needed to the styling when using the `AlphaSmoothCorners` component.
@@ -101,32 +125,25 @@ export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)`
   }
 
   &:not([data-disabled]) {
-    &:hover,
-    &:focus-visible {
-      ${CheckIcon} {
-        visibility: visible;
-      }
+    ${touchableHover(focusStyles.common)}
 
-      ${Avatar} {
-        --bezier-alpha-smooth-corners-box-background-image: none !important;
-      }
+    &:focus-visible {
+      ${focusStyles.common}
     }
 
     &[data-state='unchecked'] {
-      &:hover,
+      ${touchableHover(focusStyles.unchecked)}
+
       &:focus-visible {
-        ${Avatar} {
-          --bezier-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
-        }
+        ${focusStyles.unchecked}
       }
     }
 
     &:not([data-state='unchecked']) {
-      &:hover,
+      ${touchableHover(focusStyles.checked)}
+
       &:focus-visible {
-        ${Avatar} {
-          --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
-        }
+        ${focusStyles.checked}
       }
     }
   }
