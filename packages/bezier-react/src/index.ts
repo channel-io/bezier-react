@@ -52,6 +52,7 @@ export * from '~/src/components/VisuallyHidden'
 
 export * from '~/src/components/AlphaCenter'
 export * from '~/src/components/AlphaStack'
+export * from '~/src/components/AlphaSmoothCornersBox'
 
 export * from '~/src/components/LegacyRadio'
 export * from '~/src/components/LegacyTooltip'
@@ -76,3 +77,6 @@ export { default as useId } from '~/src/hooks/useId'
 export { getRootElement } from '~/src/utils/domUtils'
 export * as StyleUtils from '~/src/utils/styleUtils'
 export * as StringUtils from '~/src/utils/stringUtils'
+
+/* Features */
+export * from '~/src/features'

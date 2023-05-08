@@ -1,12 +1,9 @@
-import {
-  smoothCorners,
-  styled,
-} from '~/src/foundation'
+import { styled } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import { type InterpolationProps } from '~/src/types/Foundation'
 
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import { Text } from '~/src/components/Text'
 
 export const AvatarEllipsisCount = styled(Text)`
@@ -43,7 +40,7 @@ export const AvatarEllipsisCountWrapper = styled.div`
   }
 `
 
-export const AvatarEllipsisIcon = styled.div`
+export const AvatarEllipsisIcon = styled(AlphaSmoothCornersBox)`
   position: absolute;
   top: 0;
   right: 0;
@@ -54,9 +51,4 @@ export const AvatarEllipsisIcon = styled.div`
   width: 100%;
   height: 100%;
   outline: none;
-
-  ${({ foundation }) => smoothCorners({
-    borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    backgroundColor: foundation?.theme?.['bgtxt-absolute-black-lightest'],
-  })}
 `

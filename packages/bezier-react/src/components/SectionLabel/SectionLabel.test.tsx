@@ -59,8 +59,6 @@ describe('SectionLabel', () => {
     const { getByTestId } = renderComponent({ leftContent: { icon: 'tag' } })
     const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
 
-    expect(leftContent.children.length).toBe(1)
-
     const leftIcon = leftContent.children.item(0)
 
     expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
@@ -71,8 +69,6 @@ describe('SectionLabel', () => {
     const { getByTestId } = renderComponent({ leftContent: { icon: 'tag', iconColor: 'bgtxt-orange-normal' } })
     const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
 
-    expect(leftContent.children.length).toBe(1)
-
     const leftIcon = leftContent.children.item(0)
 
     expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
@@ -82,8 +78,6 @@ describe('SectionLabel', () => {
   it('renders left content as it is', () => {
     const { getByTestId } = renderComponent({ leftContent: <div id="foo" /> })
     const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
-
-    expect(leftContent.children.length).toBe(1)
 
     const leftIcon = leftContent.children.item(0)
     expect(leftIcon?.id).toBe('foo')
@@ -96,8 +90,6 @@ describe('SectionLabel', () => {
       },
     })
     const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
-
-    expect(helpContent.children.length).toBe(1)
 
     const helpIcon = helpContent.children.item(0)
     expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
@@ -113,8 +105,6 @@ describe('SectionLabel', () => {
       },
     })
     const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
-
-    expect(helpContent.children.length).toBe(1)
 
     const helpIcon = helpContent.children.item(0)
     expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)

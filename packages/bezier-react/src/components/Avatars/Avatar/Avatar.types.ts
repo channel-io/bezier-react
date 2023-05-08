@@ -27,21 +27,16 @@ interface AvatarOptions {
    * Semantic name of the avatar.
    */
   name: string
-
   /**
    * Asset image URL of the avatar.
-   *
    * @default ''
    */
   avatarUrl?: string
-
   /**
    * Fallback image URL for the avatar.
-   *
    * @default DEFAULT_AVATAR_URL
    */
   fallbackUrl?: string
-
   /**
    * Additional status type for this avatar.
    * Typically, this is used to indicate the status of the user (online, offline, etc).
@@ -50,24 +45,25 @@ interface AvatarOptions {
    * pass the custom status component as `children` of the Avatar component.
    */
   status?: StatusType
-
   /**
    * Whether to display the border of the avatar.
-   *
    * @default false
    */
   showBorder?: boolean
-
+  /**
+   * Whether to use the smooth corners feature.
+   * Overrides whether the smooth corners feature is applied when it is enabled.
+   * @default true
+   */
+  smoothCorners?: boolean
   /**
    * Handler to be called when the avatar is clicked.
    */
   onClick?: MouseEventHandler
-
   /**
    * Handler to be called when the mouse enters the avatar.
    */
   onMouseEnter?: MouseEventHandler
-
   /**
    * Handler to be called when the mouse leaves the avatar.
    */

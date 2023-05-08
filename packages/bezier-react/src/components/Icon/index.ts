@@ -1,11 +1,17 @@
 export * from './generated'
-export * from './utils'
 
 export {
-  Icon,
-} from './Icon'
-export type { default as IconProps } from './Icon.types'
-export { IconSize } from './Icon.types'
+  type IconSource,
+  type BezierIcon,
+  isBezierIcon,
+} from './utils'
+
+export { Icon } from './Icon'
+
+export {
+  type IconProps,
+  IconSize,
+} from './Icon.types'
 
 /**
  * @deprecated

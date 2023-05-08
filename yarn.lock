@@ -2000,6 +2000,7 @@ __metadata:
     "@babel/runtime": ^7.12.13
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
+    "@radix-ui/react-accessible-icon": ^1.0.2
     "@radix-ui/react-checkbox": ^1.0.3
     "@radix-ui/react-dialog": ^1.0.2
     "@radix-ui/react-radio-group": ^1.1.0
@@ -2043,6 +2044,7 @@ __metadata:
     babel-plugin-styled-components: ^2.0.7
     babel-preset-react-app: ^10.0.0
     chromatic: ^6.11.4
+    classnames: ^2.3.2
     core-js: ^3.8.1
     cross-env: ^7.0.3
     eslint-config-bezier: "workspace:*"
@@ -2499,9 +2501,9 @@ __metadata:
   linkType: hard
 
 "@figma/plugin-typings@npm:*":
-  version: 1.62.0
-  resolution: "@figma/plugin-typings@npm:1.62.0"
-  checksum: e4ab3c3f2ae345b93d050beaef3f08ecf15261d30a0b3e17568dc1ecf92e02e0d38be3a57a873897143dc8a212d20397877982bfc6f63d8998547c607430922f
+  version: 1.63.0
+  resolution: "@figma/plugin-typings@npm:1.63.0"
+  checksum: fd0c2ba5e7e3adb324d26a11dea705be9e8f89519a33ee567a448ef4bd4975fe734c3f5a0d391ab380ca4349b869f4db104ad0887b25ea577ba9a423d0f66207
   languageName: node
   linkType: hard
 
@@ -3377,6 +3379,19 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
   checksum: 72996afaf346ec4f4c73422f14f6cb2d0de994801ba7cbb9a4a67b0050e0cd74625182c349ef8017ccae1406579d4b74a34a225ef2efe61e8e5337decf235deb
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-accessible-icon@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-accessible-icon@npm:1.0.2"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-visually-hidden": 1.0.2
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 06ac923be04e3863d2183060ee117705e602d8ce27ad4709d16d01b01b18f2ab7c0ef60ad7113cf56f733130042e6ec9aa06cfba1a391db3debd5a1daa5ae02e
   languageName: node
   linkType: hard
 
@@ -9375,6 +9390,13 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: be108900801e639e50f96a7e4bfa8867c753a7750a7603879f3981f8b0a89cba657497a2d5f40cd4ea557ff15d535a100818bb486baf6e26fe5d7872e75f1078
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
   languageName: node
   linkType: hard
 

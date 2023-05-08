@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
-import { createBezierIcon } from '../utils'
+import * as AccessibleIcon from '@radix-ui/react-accessible-icon'
+import { createIconLabel, createBezierIcon } from '../utils'
+const label = createIconLabel('SvgHeart')
 function SvgHeart(props: SVGProps<SVGSVGElement>) {
-  return (
+  const Svg = (
     <svg
       width="1em"
       height="1em"
@@ -19,5 +21,6 @@ function SvgHeart(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   )
+  return <AccessibleIcon.Root label={label}>{Svg}</AccessibleIcon.Root>
 }
 export default createBezierIcon(SvgHeart)

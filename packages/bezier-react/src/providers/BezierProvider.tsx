@@ -9,8 +9,6 @@ import {
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
 
-import EnableCSSHoudini from '~/src/worklets/EnableCSSHoudini'
-
 import { TooltipProvider } from '~/src/components/Tooltip'
 
 interface BezierProviderProps {
@@ -24,8 +22,6 @@ function BezierProvider({
   children,
   themeVarsScope,
 }: BezierProviderProps) {
-  EnableCSSHoudini({ smoothCorners: true })
-
   return (
     <FoundationProvider foundation={foundation}>
       <TooltipProvider>
