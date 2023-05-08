@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LegacySegmentedControl Snapshot 1`] = `
+.c4 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  -webkit-letter-spacing: -0.1px;
+  -moz-letter-spacing: -0.1px;
+  -ms-letter-spacing: -0.1px;
+  letter-spacing: -0.1px;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c8 {
+  overflow: hidden;
+  border-radius: 1px;
+  background-color: #00000014;
+  width: 1px;
+  height: calc(100% - 12px);
+  margin: 6px;
+}
+
+.c0 {
+  position: relative;
+  box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 144px;
+  min-width: 50px;
+  overflow: hidden;
+  background-color: #0000000D;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 2px 0;
+}
+
+.c3 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #00000066;
+  cursor: pointer;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,color;
+  transition-property: background-color,color;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.c3:hover {
+  background-color: #0000000D;
+}
+
+.c6 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #000000D9;
+  cursor: auto;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: background-color,color;
+  transition-property: background-color,color;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.c1 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: default;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  will-change: transform;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.c2 {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 1px 2px #00000014;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+}
+
+.c7 {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  visibility: hidden;
+}
+
+.c9 {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+}
+
+<div
+  class="c0"
+  data-testid="bezier-react-segmented-control"
+>
+  <div
+    class="c1"
+    style="width: -1.75px; transform: translateX(1.25px);"
+  >
+    <div
+      class="c2"
+    />
+  </div>
+  <div
+    class="c3"
+    data-testid="bezier-react-segmented-control-option-item-0"
+    style="width: -1.75px; left: 2px;"
+  >
+    <span
+      class="c4"
+      data-testid="bezier-react-text"
+    >
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        0
+      </span>
+    </span>
+  </div>
+  <div
+    class="c6"
+    data-testid="bezier-react-segmented-control-option-item-1"
+    style="width: -1.75px; left: 1.25px;"
+  >
+    <span
+      class="c4"
+      data-testid="bezier-react-text"
+    >
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        1
+      </span>
+    </span>
+  </div>
+  <div
+    class="c3"
+    data-testid="bezier-react-segmented-control-option-item-2"
+    style="width: -1.75px; left: 0.5px;"
+  >
+    <span
+      class="c4"
+      data-testid="bezier-react-text"
+    >
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        2
+      </span>
+    </span>
+  </div>
+  <div
+    class="c3"
+    data-testid="bezier-react-segmented-control-option-item-3"
+    style="width: -1.75px; left: -0.25px;"
+  >
+    <span
+      class="c4"
+      data-testid="bezier-react-text"
+    >
+      <span
+        class="c5"
+        data-testid="bezier-react-text"
+      >
+        3
+      </span>
+    </span>
+  </div>
+  <div
+    class="c7"
+    hidden=""
+    style="left: -5.75px;"
+  >
+    <div
+      aria-orientation="vertical"
+      class="c8"
+      data-orientation="vertical"
+      data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
+    />
+  </div>
+  <div
+    class="c7"
+    hidden=""
+    style="left: -6.5px;"
+  >
+    <div
+      aria-orientation="vertical"
+      class="c8"
+      data-orientation="vertical"
+      data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
+    />
+  </div>
+  <div
+    class="c9"
+    style="left: -7.25px;"
+  >
+    <div
+      aria-orientation="vertical"
+      class="c8"
+      data-orientation="vertical"
+      data-testid="bezier-react-divider"
+      orientation="vertical"
+      role="separator"
+    />
+  </div>
+</div>
+`;

@@ -2,6 +2,25 @@
 
 exports[`Avatar > Snapshot 1`] = `
 .c0 {
+  --bezier-alpha-smooth-corners-box-border-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-offset-x: 0;
+  --bezier-alpha-smooth-corners-box-shadow-offset-y: 0;
+  --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-color: transparent;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
+  --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
+  margin: var(--bezier-alpha-smooth-corners-box-margin);
+  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
+  background-image: var(--bezier-alpha-smooth-corners-box-background-image);
+  background-size: cover;
+  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+}
+
+.c1 {
+  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -19,44 +38,104 @@ exports[`Avatar > Snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  outline: none;
+}
+
+.c1.bordered[data-state="enabled"] {
+  --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+}
+
+.c1.size-20 {
+  width: 20px;
+  height: 20px;
+}
+
+.c1.size-24 {
   width: 24px;
   height: 24px;
-  outline: none;
-  margin: 0px;
-  background-color: #FFFFFF;
-  background-image: var(--background-image);
-  background-size: cover;
-  border-radius: 42%;
+}
+
+.c1.size-30 {
+  width: 30px;
+  height: 30px;
+}
+
+.c1.size-36 {
+  width: 36px;
+  height: 36px;
+}
+
+.c1.size-42 {
+  width: 42px;
+  height: 42px;
+}
+
+.c1.size-48 {
+  width: 48px;
+  height: 48px;
+}
+
+.c1.size-72 {
+  width: 72px;
+  height: 72px;
+}
+
+.c1.size-90 {
+  width: 90px;
+  height: 90px;
+}
+
+.c1.size-120 {
+  width: 120px;
+  height: 120px;
 }
 
 @supports (background:paint(smooth-corners)) {
-  .c0 {
-    padding: 0px;
-    margin: 0px;
+  .c0[data-state="enabled"] {
+    padding: var(--bezier-alpha-smooth-corners-box-padding);
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
+    border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
     box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 0 transparent;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 0;
-    --smooth-corners-radius-unit: string;
+    --smooth-corners: var(--bezier-alpha-smooth-corners-box-border-radius);
+    --smooth-corners-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+    --smooth-corners-bg-color: var(--bezier-alpha-smooth-corners-box-background-color);
+    --smooth-corners-padding: var(--bezier-alpha-smooth-corners-box-padding);
+    --smooth-corners-radius-unit: var(--bezier-alpha-smooth-corners-box-border-radius-type);
   }
 }
 
 <div
   aria-label="Name"
-  class="c0"
+  class="c0 c1 size-24"
+  data-state="disabled"
   data-testid="bezier-react-avatar"
-  role="img"
-  size="24"
-  style="--background-image: url(https://www.google.com);"
+  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
 exports[`Avatar > renders border style 1`] = `
 .c0 {
+  --bezier-alpha-smooth-corners-box-border-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-offset-x: 0;
+  --bezier-alpha-smooth-corners-box-shadow-offset-y: 0;
+  --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0;
+  --bezier-alpha-smooth-corners-box-shadow-color: transparent;
+  --bezier-alpha-smooth-corners-box-padding: 0px;
+  --bezier-alpha-smooth-corners-box-margin: 0px;
+  --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-white-normal);
+  margin: var(--bezier-alpha-smooth-corners-box-margin);
+  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
+  background-image: var(--bezier-alpha-smooth-corners-box-background-image);
+  background-size: cover;
+  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+}
+
+.c1 {
+  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -74,39 +153,80 @@ exports[`Avatar > renders border style 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  outline: none;
+}
+
+.c1.bordered[data-state="enabled"] {
+  --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+}
+
+.c1.size-20 {
+  width: 20px;
+  height: 20px;
+}
+
+.c1.size-24 {
   width: 24px;
   height: 24px;
-  outline: none;
-  margin: 0px;
-  background-color: #FFFFFF;
-  background-image: var(--background-image);
-  background-size: cover;
-  border-radius: 42%;
+}
+
+.c1.size-30 {
+  width: 30px;
+  height: 30px;
+}
+
+.c1.size-36 {
+  width: 36px;
+  height: 36px;
+}
+
+.c1.size-42 {
+  width: 42px;
+  height: 42px;
+}
+
+.c1.size-48 {
+  width: 48px;
+  height: 48px;
+}
+
+.c1.size-72 {
+  width: 72px;
+  height: 72px;
+}
+
+.c1.size-90 {
+  width: 90px;
+  height: 90px;
+}
+
+.c1.size-120 {
+  width: 120px;
+  height: 120px;
 }
 
 @supports (background:paint(smooth-corners)) {
-  .c0 {
-    padding: 4px;
-    margin: -4px;
+  .c0[data-state="enabled"] {
+    padding: var(--bezier-alpha-smooth-corners-box-padding);
+    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
+    border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
     box-shadow: none;
-    border-image-source: var(--background-image);
-    --smooth-corners: 42%;
-    --smooth-corners-shadow: 0 0 0 2px #FFFFFF;
-    --smooth-corners-bg-color: #FFFFFF;
-    --smooth-corners-padding: 4;
-    --smooth-corners-radius-unit: string;
+    --smooth-corners: var(--bezier-alpha-smooth-corners-box-border-radius);
+    --smooth-corners-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+    --smooth-corners-bg-color: var(--bezier-alpha-smooth-corners-box-background-color);
+    --smooth-corners-padding: var(--bezier-alpha-smooth-corners-box-padding);
+    --smooth-corners-radius-unit: var(--bezier-alpha-smooth-corners-box-border-radius-type);
   }
 }
 
 <div
   aria-label="Name"
-  class="c0"
+  class="c0 c1 size-24 bordered"
+  data-state="disabled"
   data-testid="bezier-react-avatar"
-  role="img"
-  size="24"
-  style="--background-image: url(https://www.google.com);"
+  style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 2px; --bezier-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --bezier-alpha-smooth-corners-box-padding: 4px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
@@ -136,8 +256,8 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 
 .c0 {
   position: absolute;
-  right: -2px;
-  bottom: -2px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -147,7 +267,6 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="24"
 >
   <div
     class="c1"
@@ -182,8 +301,8 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 2px;
-  bottom: 2px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -193,7 +312,6 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="24"
 >
   <div
     class="c1"
@@ -228,8 +346,8 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -239,7 +357,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="72"
 >
   <div
     class="c1"
@@ -274,8 +391,8 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -285,7 +402,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="90"
 >
   <div
     class="c1"
@@ -320,8 +436,8 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -331,7 +447,6 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="72"
 >
   <div
     class="c1"
@@ -366,8 +481,8 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 
 .c0 {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: var(--bezier-avatar-computed-status-gap,0);
+  bottom: var(--bezier-avatar-computed-status-gap,0);
 }
 
 @supports (background:paint(smooth-corners)) {
@@ -377,7 +492,6 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 <div
   class="c0"
   data-testid="bezier-react-status-wrapper"
-  size="90"
 >
   <div
     class="c1"

@@ -52,9 +52,10 @@ export * from '~/src/components/VisuallyHidden'
 
 export * from '~/src/components/AlphaCenter'
 export * from '~/src/components/AlphaStack'
+export * from '~/src/components/AlphaSmoothCornersBox'
 
-export * as LegacyRadio from '~/src/components/Legacies/Radio'
-export * as LegacySegmentedControl from '~/src/components/Legacies/SegmentedControl'
+export * from '~/src/components/LegacyRadio'
+export * from '~/src/components/LegacySegmentedControl'
 
 /* Hooks for Component */
 export { default as useToast } from '~/src/components/Toast/useToast'
@@ -76,3 +77,6 @@ export { default as useId } from '~/src/hooks/useId'
 export { getRootElement } from '~/src/utils/domUtils'
 export * as StyleUtils from '~/src/utils/styleUtils'
 export * as StringUtils from '~/src/utils/stringUtils'
+
+/* Features */
+export * from '~/src/features'

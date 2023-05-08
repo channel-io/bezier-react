@@ -22,14 +22,14 @@ function defaultIndexTemplate(filePaths) {
     exportEntries.push(`  ${exportName} as ${exportName}Icon,`)
   })
 
-  const icons = `/* eslint-disable */
-
+  const icons = `
 const icons = {
 ${mappedFies.join('\n')}
 }
 `
 
   return `
+/* eslint-disable */
 ${importEntries.join('\n')}
 ${icons}
 
@@ -52,7 +52,6 @@ export {
 ${exportEntries.join('\n')}
 }
 
-/* eslint-enable */
 export default icons
 `
 }

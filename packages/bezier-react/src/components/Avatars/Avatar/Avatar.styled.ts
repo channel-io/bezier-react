@@ -1,97 +1,88 @@
-import {
-  css,
-  smoothCorners,
-  styled,
-} from '~/src/foundation'
+/* stylelint-disable function-whitespace-after */
+import { styled } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { ZIndex } from '~/src/constants/ZIndex'
 import type { InterpolationProps } from '~/src/types/Foundation'
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 
-import {
-  AVATAR_BORDER_RADIUS_PERCENTAGE,
-  AVATAR_BORDER_WIDTH,
-} from '~/src/components/Avatars/AvatarStyle'
+import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 
 import { AvatarSize } from './Avatar.types'
 
-interface AvatarWrapperProps extends InterpolationProps {
-  disabled: boolean
-}
+export const AvatarImage = styled(AlphaSmoothCornersBox)`
+  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
 
-interface AvatarProps extends InterpolationProps {
-  size: AvatarSize
-  showBorder: boolean
-}
-
-interface StatusWrapperProps extends Pick<AvatarProps, 'showBorder' | 'size'> {}
-
-function calcStatusGap({ showBorder, size }: StatusWrapperProps) {
-  let gap = (size >= AvatarSize.Size72 ? 4 : -2)
-  if (showBorder && enableSmoothCorners.current) {
-    gap += AVATAR_BORDER_WIDTH * 2
-  }
-  return gap
-}
-
-const disabledStyle = css`
-  opacity: ${DisabledOpacity};
-`
-
-const smoothCornersFallbackBorderStyle = css`
-  &::after {
-    ${({ foundation }) => foundation?.border?.getBorder(AVATAR_BORDER_WIDTH, foundation?.theme?.['bg-white-high'])};
-
-    position: absolute;
-    top: -${AVATAR_BORDER_WIDTH}px;
-    left: -${AVATAR_BORDER_WIDTH}px;
-    z-index: ${ZIndex.Hide};
-    box-sizing: content-box;
-    display: block;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-color: ${({ foundation }) => `${foundation?.theme?.['bg-white-normal']}`};
-    border-radius: ${AVATAR_BORDER_RADIUS_PERCENTAGE}%;
-  }
-`
-
-export const AvatarImage = styled.div<AvatarProps>`
   position: relative;
   box-sizing: content-box;
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
   outline: none;
 
-  ${({ showBorder }) => (!enableSmoothCorners.current && showBorder) && smoothCornersFallbackBorderStyle}
+  &.bordered[data-state="enabled"] {
+    --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+  }
 
-  ${({ foundation, showBorder }) => smoothCorners({
-    shadow: showBorder ? `0 0 0 ${AVATAR_BORDER_WIDTH}px ${foundation?.theme?.['bg-white-high']}` : undefined,
-    shadowBlur: showBorder ? AVATAR_BORDER_WIDTH : 0,
-    backgroundColor: foundation?.theme?.['bg-white-normal'],
-    borderRadius: `${AVATAR_BORDER_RADIUS_PERCENTAGE}%`,
-    hasBackgroundImage: true,
-  })};
+  &.size-${AvatarSize.Size20} {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.size-${AvatarSize.Size24} {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.size-${AvatarSize.Size30} {
+    width: 30px;
+    height: 30px;
+  }
+
+  &.size-${AvatarSize.Size36} {
+    width: 36px;
+    height: 36px;
+  }
+
+  &.size-${AvatarSize.Size42} {
+    width: 42px;
+    height: 42px;
+  }
+
+  &.size-${AvatarSize.Size48} {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.size-${AvatarSize.Size72} {
+    width: 72px;
+    height: 72px;
+  }
+
+  &.size-${AvatarSize.Size90} {
+    width: 90px;
+    height: 90px;
+  }
+
+  &.size-${AvatarSize.Size120} {
+    width: 120px;
+    height: 120px;
+  }
 
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarWrapper = styled.div<AvatarWrapperProps>`
+export const AvatarWrapper = styled.div<InterpolationProps>`
   position: relative;
-  z-index: ${ZIndex.Base};
 
-  ${({ disabled }) => disabled && disabledStyle}
+  &[data-disabled="true"] {
+    opacity: ${DisabledOpacity};
+  }
 
   ${({ interpolation }) => interpolation}
 `
 
-export const StatusWrapper = styled.div<StatusWrapperProps>`
+export const StatusWrapper = styled.div`
   position: absolute;
-  right: ${calcStatusGap}px;
-  bottom: ${calcStatusGap}px;
+  right: var(--bezier-avatar-computed-status-gap, 0);
+  bottom: var(--bezier-avatar-computed-status-gap, 0);
 `

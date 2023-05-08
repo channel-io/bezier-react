@@ -115,3 +115,17 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
     }
   `
 }
+
+export function cssVar(customPropertyName: string | undefined, declarationValue?: string) {
+  /* eslint-disable no-nested-ternary */
+  return customPropertyName
+    ? declarationValue
+      ? `var(--${customPropertyName}, ${declarationValue})`
+      : `var(--${customPropertyName})`
+    : undefined
+  /* eslint-enable no-nested-ternary */
+}
+
+export function cssUrl(url: string | undefined) {
+  return url ? `url(${url})` : undefined
+}

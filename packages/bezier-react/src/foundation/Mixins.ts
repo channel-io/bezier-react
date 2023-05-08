@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 
 import type { SimpleInterpolation } from 'styled-components'
 
+import { SmoothCornersFeature } from '~/src/features'
 import { isNil } from '~/src/utils/typeUtils'
 
 import { css } from './FoundationStyledComponent'
@@ -101,24 +102,26 @@ export const smoothCorners = ({
     border-radius: ${borderRadius};
   `}
 
-  @supports (background: paint(smooth-corners)) {
-    padding: ${shadowBlur * 2}px;
-    margin: ${-(shadowBlur * 2) + margin}px;
-    background: paint(smooth-corners);
-    border-radius: 0;
-    /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
-    box-shadow: none;
+  ${SmoothCornersFeature.activated && css`
+    @supports (background: paint(smooth-corners)) {
+      padding: ${shadowBlur * 2}px;
+      margin: ${-(shadowBlur * 2) + margin}px;
+      background: paint(smooth-corners);
+      border-radius: 0;
+      /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
+      box-shadow: none;
 
-    ${hasBackgroundImage && css`
-      border-image-source: var(--background-image);
-    `}
+      ${hasBackgroundImage && css`
+        border-image-source: var(--background-image);
+      `}
 
-    --smooth-corners: ${borderRadius};
-    --smooth-corners-shadow: ${shadow};
-    --smooth-corners-bg-color: ${backgroundColor};
-    --smooth-corners-padding: ${shadowBlur * 2};
-    --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
-  }
+      --smooth-corners: ${borderRadius};
+      --smooth-corners-shadow: ${shadow};
+      --smooth-corners-bg-color: ${backgroundColor};
+      --smooth-corners-padding: ${shadowBlur * 2};
+      --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
+    }
+  `}
 `
 
 interface BackgroundImageVariableOptions {

@@ -14,12 +14,6 @@ import {
 } from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
-jest.mock('~/src/worklets/EnableCSSHoudini', () => ({
-  __esModule: true,
-  ...jest.requireActual('~/src/worklets/EnableCSSHoudini') as object,
-  enableSmoothCorners: { current: true },
-}))
-
 describe('AvatarGroup', () => {
   let props: AvatarGroupProps
   const mockFallbackUrl = 'https://www.google.com'

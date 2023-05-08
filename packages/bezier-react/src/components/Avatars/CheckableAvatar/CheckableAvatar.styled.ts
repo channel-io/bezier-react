@@ -7,11 +7,11 @@ import {
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
+import { SmoothCornersFeature } from '~/src/features'
 import type {
   InjectedInterpolation,
   InterpolationProps,
 } from '~/src/types/Foundation'
-import { enableSmoothCorners } from '~/src/worklets/EnableCSSHoudini'
 
 import { AvatarSize } from '~/src/components/Avatars/Avatar'
 import { AvatarImage } from '~/src/components/Avatars/Avatar/Avatar.styled'
@@ -78,7 +78,7 @@ export const getAvatarImageStyle = (
          * smooth-corners가 사용 가능한 브라우저에선 background-color 트랜지션또한 불가능합니다.
          * 발생하지 않는 트랜지션에 will-change 속성을 주는 건 불필요하므로, will-change 속성에서 background-color를 제거합니다.
       */}
-      will-change: ${enableSmoothCorners.current ? 'opacity' : 'opacity, background-color'};
+      will-change: ${SmoothCornersFeature.activated ? 'opacity' : 'opacity, background-color'};
 
       ${({ foundation }) => foundation?.transition.getTransitionsCSS(['opacity', 'background-color'])}
 
