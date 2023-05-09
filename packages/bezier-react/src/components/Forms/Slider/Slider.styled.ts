@@ -71,29 +71,21 @@ export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationPro
   ${({ interpolation }) => interpolation}
 `
 
-interface SliderTrackProps extends SliderProps {}
-
-export const SliderTrack = styled.div<SliderTrackProps>`
+export const SliderPrimitiveTrack = styled(SliderPrimitive.Track)`
   position: relative;
   flex: 1;
   height: ${SLIDER_TRACK_RANGE_HEIGHT}px;
 
   ${({ foundation }) => foundation?.rounding?.round3}
   background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
-
-  ${({ interpolation }) => interpolation}
 `
 
-interface SliderRangeProps extends SliderProps {}
-
-export const SliderRange = styled.div<SliderRangeProps>`
+export const SliderPrimitiveRange = styled(SliderPrimitive.Range)`
   position: absolute;
   height: 100%;
 
   ${({ foundation }) => foundation?.rounding?.round3}
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
-
-  ${({ interpolation }) => interpolation}
 `
 
 interface SliderGuideProps extends SliderProps {

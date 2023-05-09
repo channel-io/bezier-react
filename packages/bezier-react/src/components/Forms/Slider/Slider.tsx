@@ -82,13 +82,9 @@ export const Slider = forwardRef(function Slider(
       minStepsBetweenThumbs={minStepsBetweenThumbs}
       {...rest}
     >
-      <SliderPrimitive.Track asChild>
-        <Styled.SliderTrack>
-          <SliderPrimitive.Range asChild>
-            <Styled.SliderRange />
-          </SliderPrimitive.Range>
-        </Styled.SliderTrack>
-      </SliderPrimitive.Track>
+      <Styled.SliderPrimitiveTrack>
+        <Styled.SliderPrimitiveRange />
+      </Styled.SliderPrimitiveTrack>
 
       { guide?.map((guideValue) => (
         <Styled.SliderGuide
