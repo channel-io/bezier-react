@@ -16,14 +16,16 @@ import * as Styled from './Slider.styled'
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
+const DEFAULT_VALUE: number[] = [5]
+
 export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
     onThumbPointerDown = noop,
     onThumbPointerUp = noop,
-    defaultValue = [5],
-    value,
+    defaultValue = DEFAULT_VALUE,
+    value: valueProp = DEFAULT_VALUE,
     disabled = false,
     min = 0,
     max = 10,
@@ -34,11 +36,11 @@ export const Slider = forwardRef(function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
+  const [value, setValue] = useState<number[]>(valueProp)
 
   useEffect(function updateCurrentValue() {
     if (value) {
-      setCurrentValue(value)
+      setValue(value)
       onValueChange(value)
     }
   }, [
@@ -47,35 +49,35 @@ export const Slider = forwardRef(function Slider(
   ])
 
   const handleValueChange: (value: number[]) => void = useCallback((_value) => {
-    setCurrentValue(_value)
+    setValue(_value)
     onValueChange(_value)
   }, [onValueChange])
 
   const handlePointerDown: React.PointerEventHandler<HTMLElement> = useCallback(() => {
     if (!disabled) {
-      onThumbPointerDown(currentValue)
+      onThumbPointerDown(value)
     }
   }, [
     disabled,
     onThumbPointerDown,
-    currentValue,
+    value,
   ])
 
   const handlePointerUp: React.PointerEventHandler<HTMLElement> = useCallback(() => {
     if (!disabled) {
-      onThumbPointerUp(currentValue)
+      onThumbPointerUp(value)
     }
   }, [
     disabled,
     onThumbPointerUp,
-    currentValue,
+    value,
   ])
 
   return (
     <SliderPrimitive.Root
       asChild
       defaultValue={defaultValue}
-      value={currentValue}
+      value={value}
       disabled={disabled}
       min={min}
       max={max}
@@ -105,7 +107,7 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { currentValue.map((v, i) => (
+        { value.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
             // eslint-disable-next-line react/no-array-index-key
