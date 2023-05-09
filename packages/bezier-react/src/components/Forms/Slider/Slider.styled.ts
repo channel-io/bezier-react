@@ -1,10 +1,12 @@
+import * as SliderPrimitive from '@radix-ui/react-slider'
+
 import {
   css,
   styled,
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { toLength } from '~/src/utils/styleUtils'
+import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 
@@ -46,16 +48,14 @@ function calculateGuideLeftPosition({
   `
 }
 
-interface SliderRootProps extends SliderProps {
-  width: NonNullable<SliderProps['width']>
-}
+export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationProps>`
+  --bezier-slider-width: auto;
 
-export const SliderRoot = styled.div<SliderRootProps>`
   position: relative;
   display: flex;
   align-items: center;
 
-  width: ${({ width }) => toLength(width, '36px')};
+  width: var(--bezier-slider-width);
   height: ${SLIDER_THUMB_SIZE}px;
 
   touch-action: none;

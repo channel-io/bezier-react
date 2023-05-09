@@ -4,13 +4,10 @@ import type { BezierComponentProps } from '~/src/types/ComponentProps'
 
 interface SliderOptions {
   /**
-   * CSS Width of entire slider.
-   * If given value is number or doesn't end with proper unit, `defaultUnit` is suffixed to given value.
-   *
-   * @see /packages/bezier-react/src/utils/styleUtils.ts
+   * Width of the slider.
    * @default 36
    */
-  width?: number | string
+  width?: React.CSSProperties['width']
 
   /**
    * When array of number `guide` is provided, guide mark will be shown above track regard to given value(s).
