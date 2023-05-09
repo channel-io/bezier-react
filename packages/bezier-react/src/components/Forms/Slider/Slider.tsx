@@ -5,7 +5,6 @@ import React, {
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import { noop } from '~/src/utils/functionUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
 import {
@@ -60,7 +59,6 @@ export const Slider = forwardRef(function Slider(
     max = 10,
     step = 1,
     minStepsBetweenThumbs = 0,
-    onValueChange = noop,
     ...rest
   }: SliderProps,
   forwardedRef: React.Ref<HTMLSpanElement>,
@@ -82,7 +80,6 @@ export const Slider = forwardRef(function Slider(
       max={max}
       step={step}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
-      onValueChange={onValueChange}
       {...rest}
     >
       <SliderPrimitive.Track asChild>
