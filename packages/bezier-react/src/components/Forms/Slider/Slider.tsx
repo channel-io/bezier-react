@@ -64,7 +64,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
   style,
   width = 36,
   guide,
-  defaultValue = [5],
+  defaultValue = [0],
   value,
   disabled = false,
   min = 0,

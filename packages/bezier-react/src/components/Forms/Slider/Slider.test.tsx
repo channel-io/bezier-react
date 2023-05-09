@@ -37,7 +37,6 @@ describe('Slider', () => {
       it('should render thumb with "slider" role', () => {
         const { getAllByRole } = renderSlider()
         const sliderThumb = getAllByRole('slider')
-
         expect(sliderThumb).toHaveLength(1)
         expect(sliderThumb[0]).toBeInTheDocument()
       })
@@ -45,7 +44,6 @@ describe('Slider', () => {
       it('should render multiple thumb when multiple defaultValue is specified', () => {
         const { getAllByRole } = renderSlider({ defaultValue: [4, 5, 6] })
         const sliderThumb = getAllByRole('slider')
-
         expect(sliderThumb).toHaveLength(3)
         expect(sliderThumb[0]).toBeInTheDocument()
         expect(sliderThumb[1]).toBeInTheDocument()
@@ -55,7 +53,6 @@ describe('Slider', () => {
       it('should not render thumb when defaultValue is not specified', () => {
         const { queryAllByRole } = renderSlider({ defaultValue: [] })
         const sliderThumb = queryAllByRole('slider')
-
         expect(sliderThumb).toHaveLength(0)
       })
     })
@@ -64,7 +61,6 @@ describe('Slider', () => {
       it('should have default value on "aria-valuemin", "aria-valuemax" attribute when no props specified', () => {
         const { getAllByRole } = renderSlider()
         const sliderThumb = getAllByRole('slider')
-
         expect(sliderThumb).toHaveLength(1)
         expect(sliderThumb[0]).toHaveAttribute('aria-valuemin', '0')
         expect(sliderThumb[0]).toHaveAttribute('aria-valuemax', '10')
@@ -73,7 +69,6 @@ describe('Slider', () => {
       it('should have proper value on "aria-valuemin", "aria-valuemax" attribute', () => {
         const { getAllByRole } = renderSlider({ min: -50, max: 70 })
         const sliderThumb = getAllByRole('slider')
-
         expect(sliderThumb).toHaveLength(1)
         expect(sliderThumb[0]).toHaveAttribute('aria-valuemin', '-50')
         expect(sliderThumb[0]).toHaveAttribute('aria-valuemax', '70')
@@ -86,7 +81,7 @@ describe('Slider', () => {
         const sliderThumb = getAllByRole('slider')
 
         expect(sliderThumb).toHaveLength(1)
-        expect(sliderThumb[0]).toHaveAttribute('aria-valuenow', '5')
+        expect(sliderThumb[0]).toHaveAttribute('aria-valuenow', '0')
       })
 
       it('should have proper value on "aria-valuenow" attribute', () => {
@@ -104,14 +99,12 @@ describe('Slider', () => {
       it('should have "false" value on "aria-disabled" attribute when disabled prop is false', () => {
         const { getByTestId } = renderSlider({ disabled: false })
         const slider = getByTestId(SLIDER_TEST_ID)
-
         expect(slider).toHaveAttribute('aria-disabled', 'false')
       })
 
       it('should have "true" value on "aria-disabled" attribute when disabled prop is true', () => {
         const { getByTestId } = renderSlider({ disabled: true })
         const slider = getByTestId(SLIDER_TEST_ID)
-
         expect(slider).toHaveAttribute('aria-disabled', 'true')
       })
     })
