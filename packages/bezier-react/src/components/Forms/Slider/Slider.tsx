@@ -18,7 +18,6 @@ import type SliderProps from './Slider.types'
 import * as Styled from './Slider.styled'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
-export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
 const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
   min,
@@ -54,7 +53,6 @@ const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
       onPointerDownOutside={onPointerDownOutside}
     >
       <Styled.SliderThumb
-        data-testid={SLIDER_THUMB_TEST_ID}
         ref={forwardedRef}
         {...props}
       />
@@ -85,6 +83,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       }}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}
+      orientation="horizontal"
       defaultValue={defaultValue}
       value={value}
       disabled={disabled}
