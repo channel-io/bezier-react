@@ -21,7 +21,7 @@ export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
 /* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
-const Thumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function Thumb(
+const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function SliderThumb(
   props,
   forwardedRef,
 ) {
@@ -108,7 +108,7 @@ export const Slider = forwardRef(function Slider(
           key={`slider-thumb-${i}`}
           asChild
         >
-          <Thumb />
+          <SliderThumb />
         </SliderPrimitive.Thumb>
       )) }
     </Styled.SliderPrimitiveRoot>
