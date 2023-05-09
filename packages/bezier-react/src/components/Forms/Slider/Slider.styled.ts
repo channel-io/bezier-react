@@ -59,10 +59,13 @@ export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationPro
   height: ${SLIDER_THUMB_SIZE}px;
 
   touch-action: none;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: pointer;
   user-select: none;
 
-  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 'initial')};
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: ${DisabledOpacity};
+  }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['opacity'])};
   ${({ interpolation }) => interpolation}
