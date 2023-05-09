@@ -20,6 +20,20 @@ import * as Styled from './Slider.styled'
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
+const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
+  min,
+  max,
+  value,
+}) {
+  return (
+    <Styled.SliderGuide
+      style={{
+        '--bezier-slider-guide-left': `${(value / (max - min)) * 100}%`,
+      } as React.CSSProperties}
+    />
+  )
+})
+
 /* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
 const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function SliderThumb(
   props,
@@ -48,36 +62,19 @@ const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
   )
 })
 
-const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
-  min,
-  max,
+export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
+  style,
+  width = 36,
+  guide,
+  defaultValue = [5],
   value,
-}) {
-  return (
-    <Styled.SliderGuide
-      style={{
-        '--bezier-slider-guide-left': `${(value / (max - min)) * 100}%`,
-      } as React.CSSProperties}
-    />
-  )
-})
-
-export const Slider = forwardRef(function Slider(
-  {
-    style,
-    width = 36,
-    guide,
-    defaultValue = [5],
-    value,
-    disabled = false,
-    min = 0,
-    max = 10,
-    step = 1,
-    minStepsBetweenThumbs = 0,
-    ...rest
-  }: SliderProps,
-  forwardedRef: React.Ref<HTMLSpanElement>,
-) {
+  disabled = false,
+  min = 0,
+  max = 10,
+  step = 1,
+  minStepsBetweenThumbs = 0,
+  ...rest
+}, forwardedRef) {
   const targetValue = value || defaultValue
 
   return (
