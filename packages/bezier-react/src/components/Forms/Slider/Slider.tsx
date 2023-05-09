@@ -1,4 +1,7 @@
-import React, { forwardRef } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+} from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
@@ -24,11 +27,17 @@ const Thumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(f
 ) {
   const value = props?.['aria-valuenow']
 
+  // NOTE: Prevents the tooltip from closing when the thumb is clicked.
+  const onPointerDownOutside = useCallback((e: MouseEvent) => {
+    e.preventDefault()
+  }, [])
+
   return (
     <Tooltip
       content={value}
       offset={6}
       placement={TooltipPosition.TopCenter}
+      onPointerDownOutside={onPointerDownOutside}
     >
       <Styled.SliderThumb
         data-testid={SLIDER_THUMB_TEST_ID}
