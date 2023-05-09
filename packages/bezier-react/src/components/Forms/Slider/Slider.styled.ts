@@ -1,63 +1,21 @@
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import {
-  css,
-  styled,
-} from '~/src/foundation'
+import { styled } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 
-import type SliderProps from './Slider.types'
-
-const SLIDER_TRACK_RANGE_HEIGHT = 6
-const SLIDER_THUMB_SIZE = 20
-const SLIDER_GUIDE_WIDTH = 2
-const SLIDER_GUIDE_HEIGHT = 8
-
-interface CalculateGuideBottomPosition {
-  gap: number
-}
-
-function calculateGuideBottomPosition({
-  gap,
-}: CalculateGuideBottomPosition) {
-  return css`
-    bottom: calc(${SLIDER_GUIDE_HEIGHT}px + ${SLIDER_GUIDE_HEIGHT / 2}px + ${gap}px);
-  `
-}
-
-interface CalculateGuideLeftPosition {
-  min: number
-  max: number
-  guideValue: number
-}
-
-function calculateGuideLeftPosition({
-  min,
-  max,
-  guideValue,
-}: CalculateGuideLeftPosition) {
-  const relativePositionPercentage = (guideValue / (max - min)) * 100
-  const thumbOffsetPx = (((max + min) / 2) - guideValue) * (SLIDER_THUMB_SIZE / ((max - min)))
-
-  return css`
-    left: calc(${relativePositionPercentage}% - ${SLIDER_GUIDE_WIDTH / 2}px + ${thumbOffsetPx}px);
-  `
-}
-
 export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationProps>`
   --bezier-slider-width: auto;
+  --bezier-slider-thumb-size: 20px;
 
   position: relative;
   display: flex;
   align-items: center;
-
   width: var(--bezier-slider-width);
-  height: ${SLIDER_THUMB_SIZE}px;
-
+  height: var(--bezier-slider-thumb-size);
   touch-action: none;
   cursor: pointer;
   user-select: none;
@@ -74,54 +32,55 @@ export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationPro
 export const SliderPrimitiveTrack = styled(SliderPrimitive.Track)`
   position: relative;
   flex: 1;
-  height: ${SLIDER_TRACK_RANGE_HEIGHT}px;
-
-  ${({ foundation }) => foundation?.rounding?.round3}
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-dark']};
+  height: 6px;
+  background-color: var(--bg-black-dark);
+  border-radius: 3px;
 `
 
 export const SliderPrimitiveRange = styled(SliderPrimitive.Range)`
   position: absolute;
   height: 100%;
-
-  ${({ foundation }) => foundation?.rounding?.round3}
-  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-green-normal']};
+  background-color: var(--bgtxt-green-normal);
+  border-radius: 3px;
 `
 
-interface SliderGuideProps extends SliderProps {
-  min: NonNullable<SliderProps['min']>
-  max: NonNullable<SliderProps['max']>
-  guideValue: number
-}
+export const GuideContainer = styled.div`
+  --bezier-slider-guide-height: 8px;
 
-export const SliderGuide = styled.div<SliderGuideProps>`
   position: absolute;
-  ${calculateGuideBottomPosition({ gap: 3 })}
-  ${({ min, max, guideValue }) => calculateGuideLeftPosition({ min, max, guideValue })}
+  top: calc(-1 * (var(--bezier-slider-guide-height) + 3px));
+  left: calc(var(--bezier-slider-thumb-size) / 2);
+  width: calc(100% - var(--bezier-slider-thumb-size));
+`
 
-  width: ${SLIDER_GUIDE_WIDTH}px;
-  height: ${SLIDER_GUIDE_HEIGHT}px;
+export const SliderGuide = styled.div`
+  --bezier-slider-guide-left: 0;
 
-  ${({ foundation }) => foundation?.rounding?.round1}
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
-
-  ${({ interpolation }) => interpolation}
+  position: absolute;
+  top: 0;
+  left: var(--bezier-slider-guide-left);
+  width: 2px;
+  height: var(--bezier-slider-guide-height);
+  background-color: var(--bg-black-light);
+  border-radius: 1px;
+  transform: translateX(-50%);
 `
 
 export const SliderThumb = styled.div`
   all: unset;
   display: block;
+  width: var(--bezier-slider-thumb-size);
+  height: var(--bezier-slider-thumb-size);
+  border-radius: 12px;
 
-  width: ${SLIDER_THUMB_SIZE}px;
-  height: ${SLIDER_THUMB_SIZE}px;
-
-  ${({ foundation }) => foundation?.rounding?.round12}
   ${({ foundation }) => foundation?.elevation?.ev2()}
-  background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+  /* stylelint-disable order/properties-order */
+  /* NOTE: Override the background-color property inside ev mixin */
+  background-color: var(--bgtxt-absolute-white-dark);
 
   &:hover {
     ${({ foundation }) => foundation?.elevation?.ev3()}
-    background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-absolute-white-dark']};
+    background-color: var(--bgtxt-absolute-white-dark);
   }
 
   &:focus-visible {

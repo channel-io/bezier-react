@@ -1,5 +1,6 @@
 import React, {
   forwardRef,
+  memo,
   useCallback,
 } from 'react'
 
@@ -47,6 +48,20 @@ const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
   )
 })
 
+const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
+  min,
+  max,
+  value,
+}) {
+  return (
+    <Styled.SliderGuide
+      style={{
+        '--bezier-slider-guide-left': `${(value / (max - min)) * 100}%`,
+      } as React.CSSProperties}
+    />
+  )
+})
+
 export const Slider = forwardRef(function Slider(
   {
     style,
@@ -84,16 +99,20 @@ export const Slider = forwardRef(function Slider(
     >
       <Styled.SliderPrimitiveTrack>
         <Styled.SliderPrimitiveRange />
-      </Styled.SliderPrimitiveTrack>
 
-      { guide?.map((guideValue) => (
-        <Styled.SliderGuide
-          key={`slider-guide-${guideValue}`}
-          min={min}
-          max={max}
-          guideValue={guideValue}
-        />
-      )) }
+        { guide && (
+          <Styled.GuideContainer>
+            { guide.map((guideValue) => (
+              <SliderGuide
+                key={`slider-guide-${guideValue}`}
+                min={min}
+                max={max}
+                value={guideValue}
+              />
+            )) }
+          </Styled.GuideContainer>
+        ) }
+      </Styled.SliderPrimitiveTrack>
 
       { targetValue.map((_, i) => (
         <SliderPrimitive.Thumb
