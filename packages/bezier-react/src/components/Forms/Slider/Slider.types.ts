@@ -10,7 +10,7 @@ interface SliderOptions {
    */
   width?: React.CSSProperties['width']
   /**
-   * When array of number `guide` is provided, guide mark will be shown above track regard to given value(s).
+   * When array of number `guide` is provided, guide scale will be shown above track regard to given value(s).
    */
   guide?: number[]
   /**

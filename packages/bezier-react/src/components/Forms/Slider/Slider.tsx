@@ -60,6 +60,23 @@ const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
   )
 })
 
+/**
+ * An input component where the user selects a value from within a given range.
+ * The value of the slider is shown in a tooltip, and in some cases you can add a guide scale.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [value, setValue] = useState([1])
+ * // Controlled
+ * <Slider
+ *   value={value}
+ *   onValueChange={setValue}
+ * />
+ * // Uncontrolled
+ * <Slider defaultValue={[1]} />
+ * ```
+ */
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
   style,
   width = 36,
