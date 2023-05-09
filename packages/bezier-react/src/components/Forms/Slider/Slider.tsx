@@ -22,8 +22,6 @@ export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
-    onThumbPointerDown = noop,
-    onThumbPointerUp = noop,
     defaultValue = DEFAULT_VALUE,
     value: valueProp = DEFAULT_VALUE,
     disabled = false,
@@ -52,26 +50,6 @@ export const Slider = forwardRef(function Slider(
     setValue(_value)
     onValueChange(_value)
   }, [onValueChange])
-
-  const handlePointerDown: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled) {
-      onThumbPointerDown(value)
-    }
-  }, [
-    disabled,
-    onThumbPointerDown,
-    value,
-  ])
-
-  const handlePointerUp: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled) {
-      onThumbPointerUp(value)
-    }
-  }, [
-    disabled,
-    onThumbPointerUp,
-    value,
-  ])
 
   return (
     <SliderPrimitive.Root
@@ -112,8 +90,6 @@ export const Slider = forwardRef(function Slider(
             asChild
             // eslint-disable-next-line react/no-array-index-key
             key={`slider-thumb-${i}`}
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
           >
             <Styled.SliderThumb
               data-testid={SLIDER_THUMB_TEST_ID}

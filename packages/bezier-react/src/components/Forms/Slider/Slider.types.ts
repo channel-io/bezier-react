@@ -16,16 +16,6 @@ interface SliderOptions {
    * When array of number `guide` is provided, guide mark will be shown above track regard to given value(s).
    */
   guide?: number[]
-
-  /**
-   * Callback of slider thumb's `onpointerdown` event.
-   */
-  onThumbPointerDown?: (value: number[]) => void
-
-  /**
-   * Callback of slider thumb's `onpointerup` event.
-   */
-  onThumbPointerUp?: (value: number[]) => void
 }
 
 export default interface SliderProps extends
