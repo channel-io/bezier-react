@@ -1,13 +1,9 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import { noop } from '~/src/utils/functionUtils'
+import { isNil } from '~/src/utils/typeUtils'
 
 import type SliderProps from './Slider.types'
 
@@ -23,7 +19,7 @@ export const Slider = forwardRef(function Slider(
     width = 36,
     guide,
     defaultValue = DEFAULT_VALUE,
-    value: valueProp = DEFAULT_VALUE,
+    value,
     disabled = false,
     min = 0,
     max = 10,
@@ -34,22 +30,7 @@ export const Slider = forwardRef(function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const [value, setValue] = useState<number[]>(valueProp)
-
-  useEffect(function updateCurrentValue() {
-    if (value) {
-      setValue(value)
-      onValueChange(value)
-    }
-  }, [
-    value,
-    onValueChange,
-  ])
-
-  const handleValueChange: (value: number[]) => void = useCallback((_value) => {
-    setValue(_value)
-    onValueChange(_value)
-  }, [onValueChange])
+  const targetValue = isNil(value) ? defaultValue : value
 
   return (
     <SliderPrimitive.Root
@@ -60,7 +41,7 @@ export const Slider = forwardRef(function Slider(
       min={min}
       max={max}
       step={step}
-      onValueChange={handleValueChange}
+      onValueChange={onValueChange}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
     >
       <Styled.SliderRoot
@@ -85,7 +66,7 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { value.map((v, i) => (
+        { targetValue.map((v, i) => (
           <SliderPrimitive.Thumb
             asChild
             // eslint-disable-next-line react/no-array-index-key
