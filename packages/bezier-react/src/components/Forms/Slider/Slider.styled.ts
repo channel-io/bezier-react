@@ -113,9 +113,7 @@ export const SliderGuide = styled.div<SliderGuideProps>`
   ${({ interpolation }) => interpolation}
 `
 
-interface SliderThumbProps extends SliderProps {}
-
-export const SliderThumb = styled.div<SliderThumbProps>`
+export const SliderThumb = styled.div`
   all: unset;
   display: block;
 
@@ -136,5 +134,4 @@ export const SliderThumb = styled.div<SliderThumbProps>`
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])}
-  ${({ interpolation }) => interpolation}
 `

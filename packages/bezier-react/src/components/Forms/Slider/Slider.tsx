@@ -3,7 +3,8 @@ import React, { forwardRef } from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import { noop } from '~/src/utils/functionUtils'
-import { isNil } from '~/src/utils/typeUtils'
+
+import { Tooltip } from '~/src/components/Tooltip'
 
 import type SliderProps from './Slider.types'
 
@@ -12,13 +13,26 @@ import * as Styled from './Slider.styled'
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
-const DEFAULT_VALUE: number[] = [5]
+/* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
+const Thumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function Thumb(props, ref) {
+  const value = props?.['aria-valuenow']
+
+  return (
+    <Tooltip content={value}>
+      <Styled.SliderThumb
+        data-testid={SLIDER_THUMB_TEST_ID}
+        ref={ref}
+        {...props}
+      />
+    </Tooltip>
+  )
+})
 
 export const Slider = forwardRef(function Slider(
   {
     width = 36,
     guide,
-    defaultValue = DEFAULT_VALUE,
+    defaultValue = [5],
     value,
     disabled = false,
     min = 0,
@@ -30,7 +44,7 @@ export const Slider = forwardRef(function Slider(
   }: SliderProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const targetValue = isNil(value) ? defaultValue : value
+  const targetValue = value || defaultValue
 
   return (
     <SliderPrimitive.Root
@@ -58,6 +72,7 @@ export const Slider = forwardRef(function Slider(
             </SliderPrimitive.Range>
           </Styled.SliderTrack>
         </SliderPrimitive.Track>
+
         { guide?.map((guideValue) => (
           <Styled.SliderGuide
             key={`slider-guide-${guideValue}`}
@@ -66,15 +81,14 @@ export const Slider = forwardRef(function Slider(
             guideValue={guideValue}
           />
         )) }
-        { targetValue.map((v, i) => (
+
+        { targetValue.map((_, i) => (
           <SliderPrimitive.Thumb
-            asChild
             // eslint-disable-next-line react/no-array-index-key
             key={`slider-thumb-${i}`}
+            asChild
           >
-            <Styled.SliderThumb
-              data-testid={SLIDER_THUMB_TEST_ID}
-            />
+            <Thumb />
           </SliderPrimitive.Thumb>
         )) }
       </Styled.SliderRoot>
