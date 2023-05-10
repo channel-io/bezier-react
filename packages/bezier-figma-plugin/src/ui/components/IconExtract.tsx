@@ -200,10 +200,17 @@ function Progress({
               sha: commit.sha,
             })
 
-            const { html_url } = await githubAPI.createPullRequest({
-              ...config.pr,
+            const { labels, ...rest } = config.pr
+
+            const { html_url, number } = await githubAPI.createPullRequest({
+              ...rest,
               head: newBranchName,
               base: config.repository.baseBranchName,
+            })
+
+            await githubAPI.addLabels({
+              issueNumber: number,
+              labels,
             })
 
             return html_url
