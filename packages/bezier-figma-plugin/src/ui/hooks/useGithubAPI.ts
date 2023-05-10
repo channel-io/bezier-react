@@ -18,6 +18,7 @@ type CreateGitTreeParameters = RestEndpointMethodTypes['git']['createTree']['par
 type CreateGitCommitParameters = RestEndpointMethodTypes['git']['createCommit']['parameters']
 type CreateGitRefParameters = RestEndpointMethodTypes['git']['createRef']['parameters']
 type CreatePullRequestParameters = RestEndpointMethodTypes['pulls']['create']['parameters']
+type AddLabelsRequestParameters = RestEndpointMethodTypes['issues']['addLabels']['parameters']
 
 function useGithubAPI({
   auth,
@@ -149,6 +150,27 @@ function useGithubAPI({
     repo,
   ])
 
+  /**
+   * NOTE: Every pull request is an issue.
+   * @see https://docs.github.com/en/rest/issues/labels?apiVersion=2022-11-28#about-labels
+   */
+  const addLabels = useCallback(async ({
+    issueNumber,
+    labels,
+  }: { issueNumber: AddLabelsRequestParameters['issue_number'] } & Pick<AddLabelsRequestParameters, 'labels'>) => {
+    const { data } = await octokit.rest.issues.addLabels({
+      owner,
+      repo,
+      issue_number: issueNumber,
+      labels,
+    })
+    return data
+  }, [
+    octokit,
+    owner,
+    repo,
+  ])
+
   return {
     getGitCommit,
     getGitRef,
@@ -158,6 +180,7 @@ function useGithubAPI({
     createGitRef,
     createGitTree,
     createPullRequest,
+    addLabels,
   }
 }
 
