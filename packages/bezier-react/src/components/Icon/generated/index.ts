@@ -29,6 +29,7 @@ import ArrowTurnLeftDown from './ArrowTurnLeftDown'
 import ArrowTurnLeftUp from './ArrowTurnLeftUp'
 import ArrowTurnRightDown from './ArrowTurnRightDown'
 import ArrowTurnRightUp from './ArrowTurnRightUp'
+import ArrowUpSmall from './ArrowUpSmall'
 import ArrowUp from './ArrowUp'
 import AssignToMe from './AssignToMe'
 import Assignee from './Assignee'
@@ -172,7 +173,6 @@ import DialogDown from './DialogDown'
 import DialogUp from './DialogUp'
 import Distribute from './Distribute'
 import Dot from './Dot'
-import DownloadJudy from './DownloadJudy'
 import Download from './Download'
 import DragableAlt from './DragableAlt'
 import Dragable from './Dragable'
@@ -191,13 +191,14 @@ import Error from './Error'
 import Event from './Event'
 import Expand from './Expand'
 import FaceAngry from './FaceAngry'
+import FaceDisappointed from './FaceDisappointed'
 import FaceGrinning from './FaceGrinning'
 import FaceId from './FaceId'
 import FaceNomouth from './FaceNomouth'
-import FaceSad from './FaceSad'
 import FaceSmileAdd from './FaceSmileAdd'
 import FaceSmileFilled from './FaceSmileFilled'
 import FaceSmile from './FaceSmile'
+import FaceWithTears from './FaceWithTears'
 import FaceWow from './FaceWow'
 import Facebook from './Facebook'
 import FastForward from './FastForward'
@@ -520,6 +521,7 @@ const icons = {
   'arrow-turn-left-up': ArrowTurnLeftUp,
   'arrow-turn-right-down': ArrowTurnRightDown,
   'arrow-turn-right-up': ArrowTurnRightUp,
+  'arrow-up-small': ArrowUpSmall,
   'arrow-up': ArrowUp,
   'assign-to-me': AssignToMe,
   assignee: Assignee,
@@ -663,7 +665,6 @@ const icons = {
   'dialog-up': DialogUp,
   distribute: Distribute,
   dot: Dot,
-  'download-judy': DownloadJudy,
   download: Download,
   'dragable-alt': DragableAlt,
   dragable: Dragable,
@@ -682,13 +683,14 @@ const icons = {
   event: Event,
   expand: Expand,
   'face-angry': FaceAngry,
+  'face-disappointed': FaceDisappointed,
   'face-grinning': FaceGrinning,
   'face-id': FaceId,
   'face-nomouth': FaceNomouth,
-  'face-sad': FaceSad,
   'face-smile-add': FaceSmileAdd,
   'face-smile-filled': FaceSmileFilled,
   'face-smile': FaceSmile,
+  'face-with-tears': FaceWithTears,
   'face-wow': FaceWow,
   facebook: Facebook,
   'fast-forward': FastForward,
@@ -1027,6 +1029,7 @@ export {
   ArrowTurnLeftUp as ArrowTurnLeftUpIcon,
   ArrowTurnRightDown as ArrowTurnRightDownIcon,
   ArrowTurnRightUp as ArrowTurnRightUpIcon,
+  ArrowUpSmall as ArrowUpSmallIcon,
   ArrowUp as ArrowUpIcon,
   AssignToMe as AssignToMeIcon,
   Assignee as AssigneeIcon,
@@ -1170,7 +1173,6 @@ export {
   DialogUp as DialogUpIcon,
   Distribute as DistributeIcon,
   Dot as DotIcon,
-  DownloadJudy as DownloadJudyIcon,
   Download as DownloadIcon,
   DragableAlt as DragableAltIcon,
   Dragable as DragableIcon,
@@ -1189,13 +1191,14 @@ export {
   Event as EventIcon,
   Expand as ExpandIcon,
   FaceAngry as FaceAngryIcon,
+  FaceDisappointed as FaceDisappointedIcon,
   FaceGrinning as FaceGrinningIcon,
   FaceId as FaceIdIcon,
   FaceNomouth as FaceNomouthIcon,
-  FaceSad as FaceSadIcon,
   FaceSmileAdd as FaceSmileAddIcon,
   FaceSmileFilled as FaceSmileFilledIcon,
   FaceSmile as FaceSmileIcon,
+  FaceWithTears as FaceWithTearsIcon,
   FaceWow as FaceWowIcon,
   Facebook as FacebookIcon,
   FastForward as FastForwardIcon,
