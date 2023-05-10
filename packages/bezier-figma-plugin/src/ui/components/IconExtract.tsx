@@ -60,7 +60,7 @@ function useProgress() {
     }
     const result = await callback()
     if (successValueOffset) {
-      setProgressValue(prev => Math.max(prev + successValueOffset, 1))
+      setProgressValue(prev => Math.min(prev + successValueOffset, 1))
     }
     return result as ReturnType<Fn>
   }, [])
