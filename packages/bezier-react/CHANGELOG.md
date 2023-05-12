@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.206
+
+### Patch Changes
+
+- [#1335](https://github.com/channel-io/bezier-react/pull/1335) [`a8a2a78a`](https://github.com/channel-io/bezier-react/commit/a8a2a78aef5dc2ba8bd45c10cbd9ec8b5e5ba564) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - Fix `Avatar`'s style overrides to work the same way as before.
+  - Delete `wrapperStyle` prop of `AvatarProps`.
+  - Delete `wrapperClassName` prop of `AvatarProps`.
+  - Delete `wrapperInterpolation` prop of `AvatarProps`.
+
 ## 1.0.0-next-v1.205
 
 ### Patch Changes
