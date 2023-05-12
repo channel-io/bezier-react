@@ -11,6 +11,7 @@ import { AvatarSize } from './Avatar.types'
 export const AvatarWrapper = styled.div<InterpolationProps>`
   all: unset;
   position: relative;
+  display: block;
 
   &.disabled {
     pointer-events: none;
