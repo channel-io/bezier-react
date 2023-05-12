@@ -136,7 +136,7 @@ export const Overview: Story<{}> = () => (
               <CheckableAvatar
                 {...SAMPLE_AVATARS[0]}
                 size={size}
-                isChecked={i % 2 === 0}
+                checked={i % 2 === 0}
                 disabled={i % 3 === 1}
               />
             </StackItem>
@@ -244,8 +244,8 @@ const EmojiStatusWrapper = styled.div`
   justify-content: center;
   width: 24px;
   height: 24px;
-  border-radius: 42%;
   background-color: ${({ foundation }) => foundation?.theme['bg-white-high']};
+  border-radius: 42%;
 `
 
 export const UsageCustomStatus: Story<{}> = () => (
@@ -353,14 +353,14 @@ export const UsageCheckableAvatar: Story<{}> = () => (
     <StackItem>
       <HStack align="center" spacing={24}>
         <StackItem size={270}>
-          <Text color="txt-black-darkest">Checkable (checked=false, readonly)</Text>
+          <Text color="txt-black-darkest">Checkable (checked=false, disabled)</Text>
         </StackItem>
 
         <StackItem>
           <CheckableAvatar
             {...SAMPLE_AVATARS[0]}
             size={AvatarSize.Size36}
-            isCheckable={false}
+            disabled
           />
         </StackItem>
       </HStack>
@@ -376,7 +376,7 @@ export const UsageCheckableAvatar: Story<{}> = () => (
           <CheckableAvatar
             {...SAMPLE_AVATARS[0]}
             size={AvatarSize.Size36}
-            isChecked
+            checked
           />
         </StackItem>
       </HStack>

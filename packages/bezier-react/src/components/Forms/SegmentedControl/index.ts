@@ -1,12 +1,14 @@
-import SegmentedControl from './SegmentedControl'
-import { SegmentedControlSize } from './SegmentedControl.types'
-import type SegmentedControlProps from './SegmentedControl.types'
+export {
+  SegmentedControl,
+  SegmentedControlTabList,
+  SegmentedControlTabContent,
+} from './SegmentedControl'
+
+export { SegmentedControlItem } from './SegmentedControlItem'
 
 export type {
   SegmentedControlProps,
-}
-
-export {
-  SegmentedControl,
-  SegmentedControlSize,
-}
+  SegmentedControlItemProps,
+  SegmentedControlTabListProps,
+  SegmentedControlTabContentProps,
+} from './SegmentedControl.types'

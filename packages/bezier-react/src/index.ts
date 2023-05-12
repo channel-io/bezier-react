@@ -56,6 +56,7 @@ export * from '~/src/components/AlphaSmoothCornersBox'
 
 export * from '~/src/components/LegacyRadio'
 export * from '~/src/components/LegacyTooltip'
+export * from '~/src/components/LegacySegmentedControl'
 
 /* Hooks for Component */
 export { default as useToast } from '~/src/components/Toast/useToast'

@@ -20,8 +20,6 @@ export enum AvatarSize {
   Size120 = 120,
 }
 
-type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
-
 interface AvatarOptions {
   /**
    * Semantic name of the avatar.
@@ -56,18 +54,6 @@ interface AvatarOptions {
    * @default true
    */
   smoothCorners?: boolean
-  /**
-   * Handler to be called when the avatar is clicked.
-   */
-  onClick?: MouseEventHandler
-  /**
-   * Handler to be called when the mouse enters the avatar.
-   */
-  onMouseEnter?: MouseEventHandler
-  /**
-   * Handler to be called when the mouse leaves the avatar.
-   */
-  onMouseLeave?: MouseEventHandler
 }
 
 export default interface AvatarProps extends
@@ -76,4 +62,5 @@ export default interface AvatarProps extends
   SizeProps<AvatarSize>,
   DisableProps,
   AdditionalStylableProps<'wrapper'>,
+  React.HTMLAttributes<HTMLDivElement>,
   AvatarOptions {}
