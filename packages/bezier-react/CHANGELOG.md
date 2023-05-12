@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.208
+
+### Patch Changes
+
+- [#1339](https://github.com/channel-io/bezier-react/pull/1339) [`f674fc39`](https://github.com/channel-io/bezier-react/commit/f674fc3925f2bbcf0bcbc0862deb456cd921a7b5) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix passing a number to the `width` prop of a `SegmentedControl` to work correctly.
+
 ## 1.0.0-next-v1.207
 
 ### Patch Changes
