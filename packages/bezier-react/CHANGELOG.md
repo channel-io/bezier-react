@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.205
+
+### Patch Changes
+
+- [#1333](https://github.com/channel-io/bezier-react/pull/1333) [`45e7946d`](https://github.com/channel-io/bezier-react/commit/45e7946dfd6a1d9c18aa331d9263ddaf5216492d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add the missing `SegmentedControlSize` enum export.
+
 ## 1.0.0-next-v1.204
 
 ### Minor Changes
