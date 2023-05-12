@@ -22,9 +22,11 @@ import {
   Radio,
   RadioGroup,
 } from '~/src/components/Forms/RadioGroup'
-import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
+import {
+  SegmentedControl,
+  SegmentedControlItem,
+} from '~/src/components/Forms/SegmentedControl'
 import { Switch } from '~/src/components/Forms/Switch'
-import { Text } from '~/src/components/Text'
 
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
@@ -93,7 +95,12 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <SegmentedControl>
         { ['Open', 'Snoozed', 'Closed'].map((item) => (
-          <Text key={item} bold>{ item }</Text>
+          <SegmentedControlItem
+            key={item}
+            value={item}
+          >
+            { item }
+          </SegmentedControlItem>
         )) }
       </SegmentedControl>
       <FormHelperText>Description</FormHelperText>

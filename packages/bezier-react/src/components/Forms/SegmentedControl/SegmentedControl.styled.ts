@@ -1,158 +1,178 @@
+/* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
 import {
   Transition,
-  css,
+  Typography,
   styled,
 } from '~/src/foundation'
 
-import disabledOpacity from '~/src/constants/DisabledOpacity'
-import type { BezierComponentProps } from '~/src/types/ComponentProps'
-import { toLength } from '~/src/utils/styleUtils'
+import DisabledOpacity from '~/src/constants/DisabledOpacity'
+import { ZIndex } from '~/src/constants/ZIndex'
 
-import {
-  SIZE_TO_DIVIDER_VERTICAL_MARGIN,
-  SIZE_TO_HEIGHT,
-  SIZE_TO_PADDING,
-} from './SegmentedControl.const'
+import { AlphaStack } from '~/src/components/AlphaStack'
+import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+import { Text } from '~/src/components/Text'
+
 import { SegmentedControlSize } from './SegmentedControl.types'
-import type { SegmentedControlItemProps } from './SegmentedControl.types'
 
-interface StyledWrapperProps extends BezierComponentProps {
-  disabled?: boolean
-  size: SegmentedControlSize
-  wrapperWidth: number | string
-}
-
-interface StyledOptionItemWrapperProps extends SegmentedControlItemProps {
-  size: SegmentedControlSize
-}
-
-interface StyledIndicatorProps {
-  size: SegmentedControlSize
-}
-
-interface StyledDividerProps {
-  size: SegmentedControlSize
-  hidden: boolean
-}
-
-const heightStyle = css<{ size: SegmentedControlSize }>`
-  height: ${({ size }) => SIZE_TO_HEIGHT[size]}px;
+export const ItemLabel = styled(Text).attrs({ bold: true })`
+  z-index: ${ZIndex.Float};
+  padding: 1px 4px;
 `
 
-const indicatorHeightStyle = css<{ size: SegmentedControlSize }>`
-  height: ${({ size }) => SIZE_TO_HEIGHT[size] - (SIZE_TO_PADDING[size] * 2)}px;
-`
+export const Item = styled.button`
+  all: unset;
 
-const verticalPaddingStyle = css<{ size: SegmentedControlSize }>`
-  padding: ${({ size }) => SIZE_TO_PADDING[size]}px 0;
-`
-
-const wrapperRoundingStyle = css<{ size: SegmentedControlSize }>`
-  ${({ foundation, size }) => ({
-    [SegmentedControlSize.XS]: foundation?.rounding.round6,
-    [SegmentedControlSize.S]: foundation?.rounding.round8,
-    [SegmentedControlSize.M]: foundation?.rounding.round8,
-    [SegmentedControlSize.L]: foundation?.rounding.round12,
-  })[size]}
-`
-
-const itemRoundingStyle = css<{ size: SegmentedControlSize }>`
-  ${({ foundation, size }) => ({
-    [SegmentedControlSize.XS]: foundation?.rounding.round4,
-    [SegmentedControlSize.S]: foundation?.rounding.round6,
-    [SegmentedControlSize.M]: foundation?.rounding.round6,
-    [SegmentedControlSize.L]: foundation?.rounding.round6,
-  })[size]}
-`
-
-const indicatorRoundingStyle = css<{ size: SegmentedControlSize }>`
-  ${({ foundation, size }) => ({
-    [SegmentedControlSize.XS]: foundation?.rounding.round4,
-    [SegmentedControlSize.S]: foundation?.rounding.round6,
-    [SegmentedControlSize.M]: foundation?.rounding.round6,
-    [SegmentedControlSize.L]: foundation?.rounding.round8,
-  })[size]}
-`
-
-export const Wrapper = styled.div<StyledWrapperProps>`
   position: relative;
-  box-sizing: border-box;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  width: ${({ wrapperWidth }) => toLength(wrapperWidth, '100%')};
-  min-width: 50px;
-  overflow: hidden;
-  background-color: ${props => props.foundation?.theme?.['bg-black-lighter']};
-  ${({ disabled }) => disabled && `
-    opacity: ${disabledOpacity};
-  `}
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')};
-
-  ${heightStyle}
-  ${wrapperRoundingStyle}
-  ${verticalPaddingStyle}
-`
-
-export const OptionItemWrapper = styled.div<StyledOptionItemWrapperProps>`
-  position: absolute;
   display: flex;
-  flex-direction: row;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  color: ${props => (
-    props.active
-      ? props.foundation?.theme?.['txt-black-darkest']
-      : props.foundation?.theme?.['txt-black-dark']
-  )};
-  cursor: ${props => {
-    if (props.disabled) { return 'not-allowed' }
-    if (props.active) { return 'auto' }
-    return 'pointer'
-  }};
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color', 'color'])};
-  user-select: none;
 
-  &:hover {
-    ${props => ((!props.disabled && !props.active) ? `
-      background-color: ${props.foundation?.theme?.['bg-black-lighter']};
-    ` : '')}
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
+
+  &[data-checked] {
+    color: var(--txt-black-darkest);
+    cursor: default;
   }
 
-  ${heightStyle}
-  ${itemRoundingStyle}
+  &:not([data-checked]) {
+    color: var(--txt-black-dark);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  /* NOTE: (@ed) focus indicator */
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: ${ZIndex.Float};
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    border-radius: inherit;
+    ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['box-shadow'])}
+  }
+
+  &:focus-visible {
+    &::after {
+      ${focusedInputWrapperStyle}
+    }
+  }
+
+  &:not([data-checked]):not(&:disabled):hover {
+    background-color: var(--bg-black-light);
+  }
 `
 
-export const Indicator = styled.div<StyledIndicatorProps>`
+export const indicatorTransitionMeta = {
+  duration: Transition.TransitionDuration.M,
+}
+
+export const Indicator = styled.div`
+  --bezier-react-segmented-control-indicator-transform: none;
+  --bezier-react-segmented-control-indicator-width: auto;
+  --bezier-react-segmented-control-indicator-height: auto;
+
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-  ${({ foundation }) => (
-    foundation?.transition?.getTransitionsCSS('transform', Transition.TransitionDuration.M)
-  )};
-  will-change: transform;
+  top: 0;
+  left: 0;
+  z-index: ${ZIndex.Float};
 
-  ${indicatorHeightStyle}
-  ${indicatorRoundingStyle}
+  width: var(--bezier-react-segmented-control-indicator-width);
+  height: var(--bezier-react-segmented-control-indicator-height);
+
+  ${({ foundation }) => foundation?.elevation.ev1()}
+  /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
+  background-color: var(--bg-white-high);
+
+  transform: var(--bezier-react-segmented-control-indicator-transform);
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
 `
 
-export const IndicatorBox = styled.div`
-  ${({ foundation }) => foundation?.elevation?.ev1()};
-  width: 100%;
-  height: 100%;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-white-high']};
-`
+export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
+  --bezier-react-segmented-control-width: auto;
 
-export const DividerContainer = styled.div<StyledDividerProps>`
-  position: absolute;
-  top: ${({ size }) => SIZE_TO_DIVIDER_VERTICAL_MARGIN[size]}px;
-  bottom: ${({ size }) => SIZE_TO_DIVIDER_VERTICAL_MARGIN[size]}px;
+  position: relative;
+  z-index: ${ZIndex.Base};
+  box-sizing: border-box;
+  width: var(--bezier-react-segmented-control-width);
+  background-color: var(--bg-black-lighter);
 
-  ${({ hidden }) => hidden && `
-    visibility: hidden;
-  `}
+  &.${SegmentedControlSize.XS} {
+    height: 24px;
+    padding: 1px;
+    border-radius: 6px;
+    ${Typography.Size13}
+
+    ${Item},
+    ${Indicator} {
+      border-radius: 5px;
+    }
+
+    ${Item} {
+      padding: 1px 0;
+    }
+  }
+
+  &.${SegmentedControlSize.S} {
+    height: 28px;
+    padding: 2px;
+    border-radius: 8px;
+    ${Typography.Size14}
+
+    ${Item},
+    ${Indicator} {
+      border-radius: 6px;
+    }
+
+    ${Item} {
+      padding: 2px 0;
+    }
+  }
+
+  &.${SegmentedControlSize.M} {
+    height: 36px;
+    padding: 2px;
+    border-radius: 8px;
+    ${Typography.Size14}
+
+    ${Item},
+    ${Indicator} {
+      border-radius: 6px;
+    }
+
+    ${Item} {
+      padding: 6px 0;
+    }
+  }
+
+  &.${SegmentedControlSize.L} {
+    height: 44px;
+    padding: 4px;
+    border-radius: 12px;
+    ${Typography.Size14}
+
+    ${Item},
+    ${Indicator} {
+      border-radius: 8px;
+    }
+
+    ${Item} {
+      padding: 8px 0;
+    }
+  }
+
+  &[data-disabled] {
+    opacity: ${DisabledOpacity};
+
+    ${Item},
+    ${Indicator} {
+      cursor: not-allowed;
+    }
+  }
 `

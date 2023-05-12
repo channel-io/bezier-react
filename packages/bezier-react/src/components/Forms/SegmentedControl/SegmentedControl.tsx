@@ -1,205 +1,229 @@
 import React, {
-  type Ref,
   forwardRef,
-  useCallback,
-  useEffect,
   useMemo,
   useState,
 } from 'react'
 
-import { useResizeDetector } from 'react-resize-detector'
-import { v4 as uuid } from 'uuid'
-
-import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/functionUtils'
-import { range } from '~/src/utils/numberUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
+import * as TabsPrimitive from '@radix-ui/react-tabs'
+import classNames from 'classnames'
 
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import { Text } from '~/src/components/Text'
 
 import {
-  DIVIDER_SIDE_MARGIN,
-  DIVIDER_WIDTH,
-  SIZE_TO_OPTION_TYPOGRAPHY,
-  SIZE_TO_PADDING,
-} from './SegmentedControl.const'
-import type SegmentedControlProps from './SegmentedControl.types'
-import { SegmentedControlSize } from './SegmentedControl.types'
+  type SegmentedControlItemListProps,
+  type SegmentedControlProps,
+  type SegmentedControlRadioGroupProps,
+  SegmentedControlSize,
+  type SegmentedControlTabContentProps,
+  type SegmentedControlTabListProps,
+  type SegmentedControlTabsProps,
+  type SegmentedControlType,
+} from './SegmentedControl.types'
+import {
+  SegmentedControlContextProvider,
+  SegmentedControlItemListContextProvider,
+  useSegmentedControlContext,
+} from './SegmentedControlContext'
+import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
-export const SEGMENTED_CONTROL_TEST_ID = 'bezier-react-segmented-control'
-const SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX = 'bezier-react-segmented-control-option-item'
-export const segmentedControlOptionItemTestId = (index: number) =>
-  [SEGMENTED_CONTROL_OPTION_ITEM_TEST_ID_PREFIX, index.toString()].join('-')
+function SegmentedControlItemListImpl<
+  Type extends SegmentedControlType,
+  Value extends string,
+>({
+  children,
+  style: styleProp,
+  className: classNameProp,
+  ...rest
+}: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
 
-const itemWidth = (width: number, numItems: number, size: SegmentedControlSize): number =>
-  (width - (2 * SIZE_TO_PADDING[size]) - ((numItems - 1) * DIVIDER_WIDTH)) / Math.max(1, numItems)
-
-const itemLeft = (width: number, numItems: number, size: SegmentedControlSize) =>
-  (index: number): number => (
-    SIZE_TO_PADDING[size]
-      + (itemWidth(width, numItems, size) * index)
-      + (DIVIDER_WIDTH * index)
-  )
-
-const dividerLeft = (width: number, numItems: number, size: SegmentedControlSize) =>
-  (index: number): number => (
-    SIZE_TO_PADDING[size]
-      + (itemWidth(width, numItems, size) * index)
-      + (DIVIDER_WIDTH * (index - 1))
-      - DIVIDER_SIDE_MARGIN
-  )
-
-function SegmentedControl(
-  {
-    testId = SEGMENTED_CONTROL_TEST_ID,
-    width = '100%',
-    size = SegmentedControlSize.M,
-    /* OptionItemHost props */
-    selectedOptionIndex = 0,
-    onChangeOption = noop,
-    /* HTMLAttribute props */
-    children,
-    ...rest
-  }: SegmentedControlProps,
-  forwardedRef: Ref<any>,
-) {
   const {
-    disabled,
-    ...ownProps
-  } = useFormFieldProps(rest)
-
-  const [currentIndex, setCurrentIndex] = useState<number>(selectedOptionIndex)
-  const [wrapperWidth, setWrapperWidth] = useState<number>(0)
-
-  const numItems = useMemo(() => React.Children.count(children), [children])
-
-  const optionItemWidth = itemWidth(wrapperWidth, numItems, size)
-  const optionItemLeft = useMemo(() => (
-    itemLeft(wrapperWidth, numItems, size)
-  ), [
-    wrapperWidth,
-    numItems,
+    type,
     size,
+    width,
+  } = useSegmentedControlContext('SegmentedControlItemList')
+
+  const {
+    containerRef: ref,
+    render: renderIndicator,
+  } = useSegmentedControlIndicator({
+    target: selectedElement,
+    refs: [forwardedRef],
+  })
+
+  const contextValue = useMemo(() => ({
+    setSelectedElement,
+  }), [])
+
+  const style = useMemo(() => ({
+    ...styleProp,
+    '--bezier-react-segmented-control-width': width,
+  } as React.CSSProperties), [
+    styleProp,
+    width,
   ])
-  const dividerItemLeft = useMemo(() => (
-    dividerLeft(wrapperWidth, numItems, size)
-  ), [
-    wrapperWidth,
-    numItems,
+
+  const className = classNames(
+    classNameProp,
     size,
-  ])
+  )
 
-  const updateDimensions = useCallback((_width?: number) => {
-    if (isNumber(_width)) { setWrapperWidth(_width) }
-  }, [])
-
-  const { ref: resizeDetectorRef } = useResizeDetector({ onResize: updateDimensions })
-
-  const wrapperRef = useMergeRefs(resizeDetectorRef, forwardedRef)
-
-  useEffect(() => {
-    if (isNumber(selectedOptionIndex)) {
-      setCurrentIndex(selectedOptionIndex)
-    }
-  }, [selectedOptionIndex])
-
-  const handleClickOptionItem = useCallback((index: number) => {
-    setCurrentIndex(index)
-    onChangeOption(index)
-  }, [onChangeOption])
-
-  const renderOption = useCallback((Element: React.ReactNode, index: number) => (
-    <Styled.OptionItemWrapper
-      key={uuid()}
-      data-testid={segmentedControlOptionItemTestId(index)}
-      disabled={disabled}
-      active={index === currentIndex}
-      size={size}
-      style={{
-        width: optionItemWidth,
-        left: optionItemLeft(index),
-      }}
-      onClick={() => (disabled ? noop : handleClickOptionItem(index))}
-    >
-      <Text
-        typo={SIZE_TO_OPTION_TYPOGRAPHY[size]}
-        bold
-      >
-        { Element }
-      </Text>
-    </Styled.OptionItemWrapper>
-  ), [
-    disabled,
-    size,
-    currentIndex,
-    optionItemWidth,
-    optionItemLeft,
-    handleClickOptionItem,
-  ])
-
-  const Content = useMemo(() => (
-    React.Children.map(children, renderOption)
-  ), [
-    children,
-    renderOption,
-  ])
-
-  const Dividers = useMemo(() => (
-    range(1, numItems)
-      .map(index => (
-        <Styled.DividerContainer
-          key={`divider-${index.toString(36)}`}
-          size={size}
-          hidden={index === currentIndex || index === currentIndex + 1}
-          style={{
-            left: dividerItemLeft(index),
-          }}
-        >
-          <Divider orientation="vertical" />
-        </Styled.DividerContainer>
-      ))
-  ), [
-    size,
-    numItems,
-    currentIndex,
-    dividerItemLeft,
-  ])
-
-  const IndicatorComponent = useMemo(() => (
-    <Styled.Indicator
-      size={size}
-      style={{
-        width: optionItemWidth,
-        transform: `translateX(${optionItemLeft(currentIndex)}px)`,
-      }}
-    >
-      <Styled.IndicatorBox />
-    </Styled.Indicator>
-  ), [
-    size,
-    currentIndex,
-    optionItemWidth,
-    optionItemLeft,
-  ])
+  const SegmentedControlItemList = type === 'radiogroup'
+    ? RadioGroupPrimitive.Root
+    : TabsPrimitive.List
 
   return (
-    <Styled.Wrapper
-      {...ownProps}
-      ref={wrapperRef}
-      disabled={disabled}
-      size={size}
-      wrapperWidth={width}
-      data-testid={testId}
+    <SegmentedControlItemList
+      asChild
+      ref={ref}
+      style={style}
+      className={className}
+      {...rest}
     >
-      { IndicatorComponent }
-      { Content }
-      { Dividers }
-    </Styled.Wrapper>
+      <Styled.Container>
+        <SegmentedControlItemListContextProvider value={contextValue}>
+          { renderIndicator() }
+
+          { React.Children.map(children, (child, index) => {
+            if (index === 0) {
+              return child
+            }
+
+            return (
+              <>
+                <Divider
+                  withoutParallelIndent
+                  orientation="vertical"
+                />
+                { child }
+              </>
+            )
+          }) }
+        </SegmentedControlItemListContextProvider>
+      </Styled.Container>
+    </SegmentedControlItemList>
   )
 }
 
-export default forwardRef(SegmentedControl)
+const SegmentedControlItemList = forwardRef(SegmentedControlItemListImpl) as <
+  Type extends SegmentedControlType,
+  Value extends string,
+>(
+  props: SegmentedControlItemListProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
+
+function SegmentedControlRadioGroupImpl<Value extends string>({
+  children,
+  ...rest
+}: SegmentedControlRadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  return (
+    <SegmentedControlItemList
+      ref={forwardedRef}
+      {...useFormFieldProps(rest)}
+    >
+      { children }
+    </SegmentedControlItemList>
+  )
+}
+
+const SegmentedControlRadioGroup = forwardRef(SegmentedControlRadioGroupImpl) as <Value extends string>(
+  props: SegmentedControlRadioGroupProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
+
+/**
+ * `SegmentedControlTabList` is the component that wraps `SegmentedControlItem`.
+ * It can be used only when `SegmentedControl` component is used as the `tabs` type.
+ *
+ * It must be used as a child of `SegmentedControl`.
+ */
+export const SegmentedControlTabList = SegmentedControlItemList as (
+  props: SegmentedControlTabListProps & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
+
+/**
+ * `SegmentedControlTabContent` is the component that wraps the content that corresponds to a specific value of `SegmentedControlItem`.
+ * It can be used only when `SegmentedControl` component is used as the `tabs` type.
+ *
+ * It must be used as a child of `SegmentedControl`.
+ */
+export const SegmentedControlTabContent = TabsPrimitive.Content as <Value extends string>(
+  props: SegmentedControlTabContentProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
+
+const SegmentedControlTabs = TabsPrimitive.Root as <Value extends string>(
+  props: SegmentedControlTabsProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
+
+function SegmentedControlImpl<
+  Type extends SegmentedControlType,
+  Value extends string,
+>({
+  type = 'radiogroup' as Type,
+  size = SegmentedControlSize.M,
+  width = '100%',
+  onValueChange,
+  children,
+  ...rest
+}: SegmentedControlProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  const SegmentedControlRoot = type === 'radiogroup'
+    ? SegmentedControlRadioGroup
+    : SegmentedControlTabs
+
+  const contextValue = useMemo(() => ({
+    type,
+    size,
+    width,
+  }), [
+    type,
+    size,
+    width,
+  ])
+
+  return (
+    <SegmentedControlContextProvider value={contextValue}>
+      <SegmentedControlRoot
+        ref={forwardedRef}
+        onValueChange={onValueChange}
+        {...rest}
+      >
+        { children }
+      </SegmentedControlRoot>
+    </SegmentedControlContextProvider>
+  )
+}
+
+/**
+ * `SegmentedControl` is component that looks like a combination of a radio and a button.
+ * They can be used in place of tabs and as input elements in modals.
+ * If you have more than five items, use a different element, such as a dropdown.
+ *
+ * `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the SegmentedControl type="radiogroup"
+ * <SegmentedControl type="radiogroup">
+ *  <SegmentedControlItem />
+ * </SegmentedControl>
+ *
+ * // Anatomy of the SegmentedControl type="tabs"
+ * <SegmentedControl type="tabs">
+ *  <SegmentedControlTabList>
+ *   <SegmentedControlItem />
+ *  </SegmentedControlTabList>
+ *
+ *  <SegmentedControlTabContent />
+ * </SegmentedControl>
+ * ```
+ */
+export const SegmentedControl = forwardRef(SegmentedControlImpl) as <
+  Type extends SegmentedControlType,
+  Value extends string,
+>(
+  props: SegmentedControlProps<Type, Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
+) => JSX.Element
