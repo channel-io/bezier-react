@@ -1,5 +1,16 @@
 # bezier-figma-plugin
 
+## 0.2.0-next-v1.48
+
+### Minor Changes
+
+- [#1328](https://github.com/channel-io/bezier-react/pull/1328) [`968ba8f7`](https://github.com/channel-io/bezier-react/commit/968ba8f70d7589d46a95e2e9a480c997135c6bc2) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add feature to automatically add labels.
+
+### Patch Changes
+
+- Updated dependencies [[`b37f1971`](https://github.com/channel-io/bezier-react/commit/b37f1971fa3f8170ed85fc5daaabcebe4f8b7ecb), [`04e05209`](https://github.com/channel-io/bezier-react/commit/04e052097472743ff8d1f43a6192999c1770a559), [`b2629ece`](https://github.com/channel-io/bezier-react/commit/b2629ece4ffcee334fdb0554ed37ee29ed5fa9eb), [`620f864d`](https://github.com/channel-io/bezier-react/commit/620f864dce75ee176d9abc986f6549ede35a4a28), [`07dc6ed8`](https://github.com/channel-io/bezier-react/commit/07dc6ed8e4cc7c1b0cce12fbbc4edcc52c23328f), [`5b6c2d5c`](https://github.com/channel-io/bezier-react/commit/5b6c2d5c220279b5f5307bdb06f734c8fa16f0e1)]:
+  - @channel.io/bezier-react@1.0.0-next-v1.204
+
 ## 0.1.1-next-v1.47
 
 ### Patch Changes
