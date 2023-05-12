@@ -1,53 +1,83 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-import {
-  Avatar,
-  AvatarSize,
-} from '~/src/components/Avatars/Avatar'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
-import type CheckableAvatarProps from './CheckableAvatar.types'
+import useId from '~/src/hooks/useId'
 
-import {
-  CheckIcon,
-  CheckableAvatarWrapper,
-  getAvatarImageStyle,
-} from './CheckableAvatar.styled'
+import { AvatarSize } from '~/src/components/Avatars/Avatar'
+import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
-// TODO: 테스트 코드 작성
-const CHECKABLE_AVATAR_TEST_ID = 'bezier-react-checkable-avatar'
+import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
-const CHECKED_DEFAULT_SEMANTIC_COLOR = 'bgtxt-green-normal'
+import * as Styled from './CheckableAvatar.styled'
 
-export function CheckableAvatar({
-  size = AvatarSize.Size24,
-  isChecked = false,
-  isCheckable = true,
-  checkedBackgroundColor = CHECKED_DEFAULT_SEMANTIC_COLOR,
-  checkableWrapperClassName,
-  checkableWrapperInterpolation,
-  interpolation,
+/**
+ * `CheckableAvatar` is a checkbox component that looks like `Avatar`.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [checked, setChecked] = useState(false)
+ * // Controlled
+ * <CheckableAvatar
+ *   name="John Doe"
+ *   avatarUrl="..."
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ * />
+ * // Uncontrolled
+ * <CheckableAvatar
+ *   name="John Doe"
+ *   avatarUrl="..."
+ *   defaultChecked
+ * />
+ * ```
+ */
+export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProps>(function CheckableAvatar({
   children,
+  id: idProp,
+  name,
+  size = AvatarSize.Size24,
+  disabled,
+  avatarUrl,
+  fallbackUrl,
+  status,
+  showBorder,
   ...props
-}: CheckableAvatarProps) {
+}, forwardedRef) {
+  const id = useId(idProp, 'bezier-checkable-avatar')
+
   return (
-    <CheckableAvatarWrapper
-      data-testid={CHECKABLE_AVATAR_TEST_ID}
-      isChecked={isChecked}
-      isCheckable={isCheckable}
-      className={checkableWrapperClassName}
-      interpolation={checkableWrapperInterpolation}
+    <Styled.CheckboxPrimitiveRoot
+      ref={forwardedRef}
+      id={id}
+      name={name}
+      disabled={disabled}
+      {...props}
     >
-      <CheckIcon
-        avatarSize={size}
-        color="bgtxt-absolute-white-normal"
-      />
-      <Avatar
-        {...props}
+      <CheckboxPrimitive.Indicator
+        asChild
+        forceMount
+      >
+        <Styled.CheckIcon className={`size-${size}`} />
+      </CheckboxPrimitive.Indicator>
+
+      <Styled.Avatar
+        aria-hidden
         size={size}
-        interpolation={getAvatarImageStyle(isChecked, isCheckable, checkedBackgroundColor, interpolation)}
+        name={name}
+        disabled={disabled}
+        avatarUrl={avatarUrl}
+        fallbackUrl={fallbackUrl}
+        status={status}
+        showBorder={showBorder}
       >
         { children }
-      </Avatar>
-    </CheckableAvatarWrapper>
+      </Styled.Avatar>
+
+      <VisuallyHidden>
+        <label htmlFor={id}>{ name }</label>
+      </VisuallyHidden>
+    </Styled.CheckboxPrimitiveRoot>
   )
-}
+})

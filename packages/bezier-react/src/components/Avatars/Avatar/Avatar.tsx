@@ -76,7 +76,7 @@ export const Avatar = forwardRef(function Avatar({
       return null
     })()
 
-    return (
+    return Contents && (
       <Styled.StatusWrapper data-testid={STATUS_WRAPPER_TEST_ID}>
         { Contents }
       </Styled.StatusWrapper>
