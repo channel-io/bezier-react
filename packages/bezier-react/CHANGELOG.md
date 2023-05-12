@@ -1,5 +1,102 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.204
+
+### Minor Changes
+
+- [#1310](https://github.com/channel-io/bezier-react/pull/1310) [`b37f1971`](https://github.com/channel-io/bezier-react/commit/b37f1971fa3f8170ed85fc5daaabcebe4f8b7ecb) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Enhance the accessibility of icons.
+
+- [#1309](https://github.com/channel-io/bezier-react/pull/1309) [`04e05209`](https://github.com/channel-io/bezier-react/commit/04e052097472743ff8d1f43a6192999c1770a559) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add a `FeatureProvider` to make non-required features optional.
+
+  BRAKING CHANGES
+
+  The smooth corners feature is turned off by default. To make it behave the same as before, wrap the root of app in a `FeatureProvider`, as shown below.
+
+  ```tsx
+  import {
+    FeatureProvider,
+    SmoothCornersFeature,
+    BezierProvider,
+  } from "@channel.io/bezier-react";
+
+  root.render(
+    <FeatureProvider features={[SmoothCornersFeature]}>
+      <BezierProvider>
+        <App />
+      </BezierProvider>
+    </FeatureProvider>
+  );
+  ```
+
+- [#1317](https://github.com/channel-io/bezier-react/pull/1317) [`b2629ece`](https://github.com/channel-io/bezier-react/commit/b2629ece4ffcee334fdb0554ed37ee29ed5fa9eb) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Implement `AlphaSmoothCornersBox`.
+
+  `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
+  It is available by enabling the `SmoothCornersFeature`.
+
+  ```tsx
+  <FeatureProvider features={[SmoothCornersFeature]}>
+    <AlphaSmoothCornersBox />
+  </FeatureProvider>
+  ```
+
+  - Change to use `AlphaSmoothCornersBox` for `Avatar`'s internal implementation. `Avatar`'s border is now implemented as a box-shadow instead of a qseudo element.
+  - Change to use `AlphaSmoothCornersBox` for ellipsis icon of `AvatarGroup`'s internal implementation.
+
+- [#1326](https://github.com/channel-io/bezier-react/pull/1326) [`620f864d`](https://github.com/channel-io/bezier-react/commit/620f864dce75ee176d9abc986f6549ede35a4a28) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1272](https://github.com/channel-io/bezier-react/pull/1272) [`07dc6ed8`](https://github.com/channel-io/bezier-react/commit/07dc6ed8e4cc7c1b0cce12fbbc4edcc52c23328f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `SegmentedControl` component. Legacy components are exported to the `LegacySegmentedControl` namespace.
+
+  `SegmentedControl` is component that looks like a combination of a radio and a button. They can be used in place of tabs and as input elements in modals. If you have more than five items, use a different element, such as a dropdown.
+
+  `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
+
+  ```tsx
+  // Anatomy of the SegmentedControl type="radiogroup"
+  <SegmentedControl type="radiogroup">
+    <SegmentedControlItem />
+  </SegmentedControl>
+
+  // Anatomy of the SegmentedControl type="tabs"
+  <SegmentedControl type="tabs">
+    <SegmentedControlTabList>
+      <SegmentedControlItem />
+    </SegmentedControlTabList>
+
+    <SegmentedControlTabContent />
+  </SegmentedControl>
+  ```
+
+- [#1320](https://github.com/channel-io/bezier-react/pull/1320) [`5b6c2d5c`](https://github.com/channel-io/bezier-react/commit/5b6c2d5c220279b5f5307bdb06f734c8fa16f0e1) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `CheckableAvatar` component.
+
+  - `CheckableAvatar` is a checkbox component that looks like `Avatar`.
+  - It now behaves as a checkbox. Keyboard control is available.
+  - Add `forwardRef`.
+
+  ```tsx
+  const [checked, setChecked] = useState(false)
+  // Controlled
+  <CheckableAvatar
+    name="John Doe"
+    avatarUrl="..."
+    checked={checked}
+    onCheckedChange={setChecked}
+  />
+  // Uncontrolled
+  <CheckableAvatar
+    name="John Doe"
+    avatarUrl="..."
+    defaultChecked
+  />
+  ```
+
+  BREAKING CHANGES
+
+  - Change name of `isChecked` property to `checked` property.
+  - Remove `isCheckable` property.
+  - Remove `checkedBackgroundColor` property.
+  - Remove `checkableWrapperClassName` property.
+  - Remove `checkableWrapperInterpolation` property.
+
 ## 1.0.0-next-v1.203
 
 ### Minor Changes
