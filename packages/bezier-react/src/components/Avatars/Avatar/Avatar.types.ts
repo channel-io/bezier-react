@@ -1,5 +1,4 @@
 import type {
-  AdditionalStylableProps,
   BezierComponentProps,
   ChildrenProps,
   DisableProps,
@@ -61,6 +60,5 @@ export default interface AvatarProps extends
   ChildrenProps,
   SizeProps<AvatarSize>,
   DisableProps,
-  AdditionalStylableProps<'wrapper'>,
   React.HTMLAttributes<HTMLDivElement>,
   AvatarOptions {}
