@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.207
+
+### Patch Changes
+
+- [#1337](https://github.com/channel-io/bezier-react/pull/1337) [`caa6916d`](https://github.com/channel-io/bezier-react/commit/caa6916d0d9804b4e96f35e6379fc02daf4a368f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add missing `display: block` property of `Avatar`'s style.
+
 ## 1.0.0-next-v1.206
 
 ### Patch Changes
