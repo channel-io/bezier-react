@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.209
+
+### Patch Changes
+
+- [#1343](https://github.com/channel-io/bezier-react/pull/1343) [`0feaed93`](https://github.com/channel-io/bezier-react/commit/0feaed93b00dfffb694ee92c26731d4ccc3c2d81) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix the styling of `SegmentedControlItem`'s content area.
+
 ## 1.0.0-next-v1.208
 
 ### Patch Changes
