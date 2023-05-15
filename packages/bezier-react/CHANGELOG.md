@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.210
+
+### Minor Changes
+
+- [#1347](https://github.com/channel-io/bezier-react/pull/1347) [`91d69e9b`](https://github.com/channel-io/bezier-react/commit/91d69e9b5ddae7ea20f15eb0c53b18b2f51ef056) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change `SegmentedControlItem` button element type from 'submit' to 'button'.
+
 ## 1.0.0-next-v1.209
 
 ### Patch Changes
