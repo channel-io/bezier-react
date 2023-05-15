@@ -44,10 +44,6 @@ export const Avatar = forwardRef(function Avatar({
   smoothCorners = true,
   status,
   className: classNameProp,
-  wrapperClassName,
-  interpolation,
-  wrapperInterpolation,
-  style: styleProp,
   children,
   ...rest
 }: AvatarProps, forwardedRef: React.Ref<HTMLDivElement>) {
@@ -87,35 +83,29 @@ export const Avatar = forwardRef(function Avatar({
     children,
   ])
 
-  const style = useMemo(() => ({
-    ...styleProp,
-    '--bezier-avatar-status-gap': `${size >= AvatarSize.Size72 ? 4 : -2}px`,
-  }), [
-    styleProp,
-    size,
-  ])
-
   const className = classNames(
     classNameProp,
     size && `size-${size}`,
-    showBorder && 'bordered',
+    disabled && 'disabled',
   )
+
+  const avatarStyle = useMemo(() => ({
+    '--bezier-avatar-status-gap': `${size >= AvatarSize.Size72 ? 4 : -2}px`,
+  } as React.CSSProperties), [size])
 
   return (
     <Styled.AvatarWrapper
+      {...rest}
       data-testid={AVATAR_WRAPPER_TEST_ID}
       data-disabled={disabled}
-      className={wrapperClassName}
-      interpolation={wrapperInterpolation}
+      className={className}
     >
       <Styled.AvatarImage
-        {...rest}
         ref={forwardedRef}
         data-testid={testId}
         aria-label={name}
-        style={style}
-        className={className}
-        interpolation={interpolation}
+        style={avatarStyle}
+        className={showBorder ? 'bordered' : undefined}
         disabled={!smoothCorners}
         borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
         shadow={showBorder ? shadow : undefined}

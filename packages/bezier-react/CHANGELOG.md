@@ -1,5 +1,141 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.210
+
+### Minor Changes
+
+- [#1347](https://github.com/channel-io/bezier-react/pull/1347) [`91d69e9b`](https://github.com/channel-io/bezier-react/commit/91d69e9b5ddae7ea20f15eb0c53b18b2f51ef056) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change `SegmentedControlItem` button element type from 'submit' to 'button'.
+
+## 1.0.0-next-v1.209
+
+### Patch Changes
+
+- [#1343](https://github.com/channel-io/bezier-react/pull/1343) [`0feaed93`](https://github.com/channel-io/bezier-react/commit/0feaed93b00dfffb694ee92c26731d4ccc3c2d81) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix the styling of `SegmentedControlItem`'s content area.
+
+## 1.0.0-next-v1.208
+
+### Patch Changes
+
+- [#1339](https://github.com/channel-io/bezier-react/pull/1339) [`f674fc39`](https://github.com/channel-io/bezier-react/commit/f674fc3925f2bbcf0bcbc0862deb456cd921a7b5) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix passing a number to the `width` prop of a `SegmentedControl` to work correctly.
+
+## 1.0.0-next-v1.207
+
+### Patch Changes
+
+- [#1337](https://github.com/channel-io/bezier-react/pull/1337) [`caa6916d`](https://github.com/channel-io/bezier-react/commit/caa6916d0d9804b4e96f35e6379fc02daf4a368f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add missing `display: block` property of `Avatar`'s style.
+
+## 1.0.0-next-v1.206
+
+### Patch Changes
+
+- [#1335](https://github.com/channel-io/bezier-react/pull/1335) [`a8a2a78a`](https://github.com/channel-io/bezier-react/commit/a8a2a78aef5dc2ba8bd45c10cbd9ec8b5e5ba564) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - Fix `Avatar`'s style overrides to work the same way as before.
+  - Delete `wrapperStyle` prop of `AvatarProps`.
+  - Delete `wrapperClassName` prop of `AvatarProps`.
+  - Delete `wrapperInterpolation` prop of `AvatarProps`.
+
+## 1.0.0-next-v1.205
+
+### Patch Changes
+
+- [#1333](https://github.com/channel-io/bezier-react/pull/1333) [`45e7946d`](https://github.com/channel-io/bezier-react/commit/45e7946dfd6a1d9c18aa331d9263ddaf5216492d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add the missing `SegmentedControlSize` enum export.
+
+## 1.0.0-next-v1.204
+
+### Minor Changes
+
+- [#1310](https://github.com/channel-io/bezier-react/pull/1310) [`b37f1971`](https://github.com/channel-io/bezier-react/commit/b37f1971fa3f8170ed85fc5daaabcebe4f8b7ecb) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Enhance the accessibility of icons.
+
+- [#1309](https://github.com/channel-io/bezier-react/pull/1309) [`04e05209`](https://github.com/channel-io/bezier-react/commit/04e052097472743ff8d1f43a6192999c1770a559) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add a `FeatureProvider` to make non-required features optional.
+
+  BRAKING CHANGES
+
+  The smooth corners feature is turned off by default. To make it behave the same as before, wrap the root of app in a `FeatureProvider`, as shown below.
+
+  ```tsx
+  import {
+    FeatureProvider,
+    SmoothCornersFeature,
+    BezierProvider,
+  } from "@channel.io/bezier-react";
+
+  root.render(
+    <FeatureProvider features={[SmoothCornersFeature]}>
+      <BezierProvider>
+        <App />
+      </BezierProvider>
+    </FeatureProvider>
+  );
+  ```
+
+- [#1317](https://github.com/channel-io/bezier-react/pull/1317) [`b2629ece`](https://github.com/channel-io/bezier-react/commit/b2629ece4ffcee334fdb0554ed37ee29ed5fa9eb) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Implement `AlphaSmoothCornersBox`.
+
+  `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
+  It is available by enabling the `SmoothCornersFeature`.
+
+  ```tsx
+  <FeatureProvider features={[SmoothCornersFeature]}>
+    <AlphaSmoothCornersBox />
+  </FeatureProvider>
+  ```
+
+  - Change to use `AlphaSmoothCornersBox` for `Avatar`'s internal implementation. `Avatar`'s border is now implemented as a box-shadow instead of a qseudo element.
+  - Change to use `AlphaSmoothCornersBox` for ellipsis icon of `AvatarGroup`'s internal implementation.
+
+- [#1326](https://github.com/channel-io/bezier-react/pull/1326) [`620f864d`](https://github.com/channel-io/bezier-react/commit/620f864dce75ee176d9abc986f6549ede35a4a28) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+
+- [#1272](https://github.com/channel-io/bezier-react/pull/1272) [`07dc6ed8`](https://github.com/channel-io/bezier-react/commit/07dc6ed8e4cc7c1b0cce12fbbc4edcc52c23328f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `SegmentedControl` component. Legacy components are exported to the `LegacySegmentedControl` namespace.
+
+  `SegmentedControl` is component that looks like a combination of a radio and a button. They can be used in place of tabs and as input elements in modals. If you have more than five items, use a different element, such as a dropdown.
+
+  `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
+
+  ```tsx
+  // Anatomy of the SegmentedControl type="radiogroup"
+  <SegmentedControl type="radiogroup">
+    <SegmentedControlItem />
+  </SegmentedControl>
+
+  // Anatomy of the SegmentedControl type="tabs"
+  <SegmentedControl type="tabs">
+    <SegmentedControlTabList>
+      <SegmentedControlItem />
+    </SegmentedControlTabList>
+
+    <SegmentedControlTabContent />
+  </SegmentedControl>
+  ```
+
+- [#1320](https://github.com/channel-io/bezier-react/pull/1320) [`5b6c2d5c`](https://github.com/channel-io/bezier-react/commit/5b6c2d5c220279b5f5307bdb06f734c8fa16f0e1) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Re-implement `CheckableAvatar` component.
+
+  - `CheckableAvatar` is a checkbox component that looks like `Avatar`.
+  - It now behaves as a checkbox. Keyboard control is available.
+  - Add `forwardRef`.
+
+  ```tsx
+  const [checked, setChecked] = useState(false)
+  // Controlled
+  <CheckableAvatar
+    name="John Doe"
+    avatarUrl="..."
+    checked={checked}
+    onCheckedChange={setChecked}
+  />
+  // Uncontrolled
+  <CheckableAvatar
+    name="John Doe"
+    avatarUrl="..."
+    defaultChecked
+  />
+  ```
+
+  BREAKING CHANGES
+
+  - Change name of `isChecked` property to `checked` property.
+  - Remove `isCheckable` property.
+  - Remove `checkedBackgroundColor` property.
+  - Remove `checkableWrapperClassName` property.
+  - Remove `checkableWrapperInterpolation` property.
+
 ## 1.0.0-next-v1.203
 
 ### Minor Changes

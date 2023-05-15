@@ -82,19 +82,21 @@ const focusStyles = {
       visibility: visible;
     }
 
-    ${Avatar} {
+    /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
+    ${Avatar} > div {
       --bezier-alpha-smooth-corners-box-background-image: none !important;
     }
   `,
   unchecked: css`
-    ${Avatar} {
+    ${Avatar} > div {
       --bezier-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
     }
   `,
   checked: css`
-    ${Avatar} {
+    ${Avatar} > div {
       --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
     }
+    /* stylelint-enable declaration-block-semicolon-newline-after, rule-empty-line-before */
   `,
 }
 
@@ -118,10 +120,12 @@ export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)`
       visibility: visible;
     }
 
-    ${Avatar} {
+    /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
+    ${Avatar} > div {
       --bezier-alpha-smooth-corners-box-background-image: none !important;
       --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
     }
+    /* stylelint-enable declaration-block-semicolon-newline-after, rule-empty-line-before */
   }
 
   &:not([data-disabled]) {

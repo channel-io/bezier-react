@@ -6,6 +6,8 @@ export {
 
 export { SegmentedControlItem } from './SegmentedControlItem'
 
+export { SegmentedControlSize } from './SegmentedControl.types'
+
 export type {
   SegmentedControlProps,
   SegmentedControlItemProps,

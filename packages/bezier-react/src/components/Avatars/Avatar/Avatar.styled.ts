@@ -8,19 +8,14 @@ import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 
 import { AvatarSize } from './Avatar.types'
 
-export const AvatarImage = styled(AlphaSmoothCornersBox)`
-  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
-
+export const AvatarWrapper = styled.div<InterpolationProps>`
+  all: unset;
   position: relative;
-  box-sizing: content-box;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  outline: none;
+  display: block;
 
-  &.bordered[data-state="enabled"] {
-    --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+  &.disabled {
+    pointer-events: none;
+    opacity: ${DisabledOpacity};
   }
 
   &.size-${AvatarSize.Size20} {
@@ -71,14 +66,22 @@ export const AvatarImage = styled(AlphaSmoothCornersBox)`
   ${({ interpolation }) => interpolation}
 `
 
-export const AvatarWrapper = styled.div<InterpolationProps>`
+export const AvatarImage = styled(AlphaSmoothCornersBox)`
+  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
+
   position: relative;
+  box-sizing: content-box;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  outline: none;
 
-  &[data-disabled="true"] {
-    opacity: ${DisabledOpacity};
+  &.bordered[data-state="enabled"] {
+    --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
   }
-
-  ${({ interpolation }) => interpolation}
 `
 
 export const StatusWrapper = styled.div`
