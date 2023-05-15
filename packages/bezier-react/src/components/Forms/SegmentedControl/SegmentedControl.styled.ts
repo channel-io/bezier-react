@@ -14,8 +14,15 @@ import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
 
-export const ItemLabel = styled(Text).attrs({ bold: true })`
+export const ItemContainer = styled(AlphaStack).attrs({
+  direction: 'horizontal',
+  align: 'center',
+  spacing: 2,
+})`
   z-index: ${ZIndex.Float};
+`
+
+export const ItemLabel = styled(Text).attrs({ bold: true })`
   padding: 1px 4px;
 `
 
