@@ -9,8 +9,6 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { ariaAttr } from '~/src/utils/domUtils'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
-
 import {
   type SegmentedControlItemProps,
   type SegmentedControlProps,
@@ -66,16 +64,13 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
       ref={ref}
       data-checked={ariaAttr(checked)}
     >
-      <AlphaStack
-        direction="vertical"
-        spacing={2}
-      >
+      <Styled.ItemContainer>
         { leftContent }
         <Styled.ItemLabel>
           { children }
         </Styled.ItemLabel>
         { rightContent }
-      </AlphaStack>
+      </Styled.ItemContainer>
     </Styled.Item>
   )
 })
