@@ -62,6 +62,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
     <Styled.Item
       {...rest}
       ref={ref}
+      type="button"
       data-checked={ariaAttr(checked)}
     >
       <Styled.ItemContainer>
