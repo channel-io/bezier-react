@@ -8,13 +8,14 @@
     "directory": "packages/bezier-icons"
   },
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "yarn generate",
     "generate": "run-p 'generate:*'",
     "generate:react": "./scripts/react/generate-icon.sh",
     "lint": "TIMING=1 eslint --cache .",
     "clean": "run-s 'clean:*'",
-    "clean:build": "rm -rf build",
+    "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache tsconfig.tsbuildinfo coverage"
   },
   "keywords": [

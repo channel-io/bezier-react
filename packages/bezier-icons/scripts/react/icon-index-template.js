@@ -14,7 +14,7 @@ function defaultIndexTemplate(filePaths) {
   const mappedFies = []
   const exportEntries = []
 
-  filePaths.forEach(filePath => {
+  filePaths.forEach(({ path: filePath }) => {
     const basename = path.basename(filePath, path.extname(filePath))
     const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
     importEntries.push(`import ${exportName} from './${basename}'`)
