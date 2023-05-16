@@ -181,8 +181,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   as,
   children,
   defaultShow,
-  onShow,
-  onHide,
+  onShow: onShowProp,
+  onHide: onHideProp,
   disabled,
   content,
   description,
@@ -209,33 +209,37 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     }
   }, [])
 
+  const onShow = useCallback(() => {
+    setShow(true)
+    onShowProp?.()
+  }, [onShowProp])
+
+  const onHide = useCallback(() => {
+    setShow(false)
+    onHideProp?.()
+  }, [onHideProp])
+
   const onOpenChange = useCallback((open: boolean) => {
     if (disabled) { return }
+
+    if (open) {
+      onShow()
+      return
+    }
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
       timeoutRef.current = undefined
     }
 
-    if (open) {
-      setShow(open)
-      onShow?.()
-      return
-    }
-
-    const hide = () => {
-      setShow(open)
-      onHide?.()
-    }
-
     if (delayHide > 0) {
       timeoutRef.current = setTimeout(() => {
-        hide()
+        onHide()
       }, delayHide)
       return
     }
 
-    hide()
+    onHide()
   }, [
     disabled,
     delayHide,
