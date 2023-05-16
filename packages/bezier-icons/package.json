@@ -12,9 +12,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "channel",
     "design",
-    "icons",
-    "channel"
+    "svg",
+    "icons"
   ],
   "author": "Channel Corp.",
   "license": "Apache-2.0"
