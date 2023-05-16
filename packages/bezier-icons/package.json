@@ -9,7 +9,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "yarn generate",
+    "generate": "run-p 'generate:*'",
+    "generate:react": "./scripts/react/generate-icon.sh",
+    "lint": "TIMING=1 eslint --cache .",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf build",
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache tsconfig.tsbuildinfo coverage"
   },
   "keywords": [
     "channel",
@@ -18,5 +24,12 @@
     "icons"
   ],
   "author": "Channel Corp.",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@svgr/babel-plugin-add-jsx-attribute": "^8.0.0",
+    "@svgr/babel-plugin-remove-jsx-attribute": "^8.0.0",
+    "@svgr/cli": "^8.0.1",
+    "eslint-config-bezier": "workspace:^",
+    "tsconfig": "workspace:^"
+  }
 }
