@@ -17,17 +17,3 @@ export function createBezierIcon(source: IconSource): BezierIcon {
   (source as BezierIcon)[BEZIER_ICON_SYMBOL] = true
   return source as BezierIcon
 }
-
-const pipe = (...fn: Function[]) => (arg: any) => fn.reduce((acc, cur) => cur(acc), arg)
-
-export function createIconLabel(svgName: string): string {
-  const deleteSvgPrefix = (str: string) => str.replace('Svg', '')
-  const replaceUppercaseToSpace = (str: string) => str.replace(/([A-Z])/g, ' $1')
-  const deleteFirstSpace = (str: string) => str.substring(1)
-
-  return pipe(
-    deleteSvgPrefix,
-    replaceUppercaseToSpace,
-    deleteFirstSpace,
-  )(svgName)
-}
