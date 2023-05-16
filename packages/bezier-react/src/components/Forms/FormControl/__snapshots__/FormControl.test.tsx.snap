@@ -1,6 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormControl > Snapshot > With multiple field 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
+}
+
 .c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -33,25 +52,6 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
 }
 
 .c1 {
@@ -301,6 +301,25 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 `;
 
 exports[`FormControl > Snapshot > With multiple field and left label position 1`] = `
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
+}
+
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -350,25 +369,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
 }
 
 .c0 {
@@ -651,6 +651,25 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
 `;
 
 exports[`FormControl > Snapshot > With single field 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
+  -ms-flex-direction: var(--bezier-alpha-stack-direction);
+  flex-direction: var(--bezier-alpha-stack-direction);
+  gap: var(--bezier-alpha-stack-spacing);
+  -webkit-align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-align: var(--bezier-alpha-stack-align);
+  -ms-flex-align: var(--bezier-alpha-stack-align);
+  align-items: var(--bezier-alpha-stack-align);
+  -webkit-box-pack: var(--bezier-alpha-stack-justify);
+  -webkit-justify-content: var(--bezier-alpha-stack-justify);
+  -ms-flex-pack: var(--bezier-alpha-stack-justify);
+  justify-content: var(--bezier-alpha-stack-justify);
+}
+
 .c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -683,25 +702,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
 }
 
 .c1 {

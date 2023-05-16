@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem Test > Snapshot > Active 1`] = `
+.c2 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 0px;
+  color: #5E56F0;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -12,22 +28,6 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
   font-style: normal;
   font-weight: normal;
   color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c2 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #5E56F0;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -121,6 +121,22 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
 `;
 
 exports[`NavItem Test > Snapshot > Not active 1`] = `
+.c2 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 0px 0px 0px 0px;
+  color: #00000066;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
 .c3 {
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -132,22 +148,6 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
   font-style: normal;
   font-weight: normal;
   color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c2 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #00000066;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
