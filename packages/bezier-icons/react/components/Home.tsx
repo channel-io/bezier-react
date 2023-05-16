@@ -1,0 +1,22 @@
+import type { SVGProps } from 'react'
+import { createBezierIcon } from '../utils'
+function SvgHome(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M12.614 2.477a1 1 0 0 0-1.228 0L3.772 8.4A2 2 0 0 0 3 9.98V20a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-5a1 1 0 1 1 2 0v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9.978a2 2 0 0 0-.772-1.579l-7.614-5.922ZM9 19v-4a3 3 0 1 1 6 0v4h4V9.978l-7-5.444L5 10v9h4Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
+}
+export default createBezierIcon(SvgHome)
