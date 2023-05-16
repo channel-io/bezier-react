@@ -5,6 +5,8 @@ import {
   type DisableProps,
 } from '~/src/types/ComponentProps'
 
+import { type BezierIcon } from '~/src/components/Icon'
+
 /**
  * An enumeration that determines the position of `Tooltip`.
  */
@@ -63,6 +65,10 @@ interface TooltipOptions {
    * An element that sits below the tooltip content.
    */
   description?: React.ReactNode
+  /**
+   * A decorative icon that sits right of the tooltip content.
+   */
+  icon?: BezierIcon
   /**
    * Options to determine the location from the trigger.
    * @default TooltipPosition.BottomCenter

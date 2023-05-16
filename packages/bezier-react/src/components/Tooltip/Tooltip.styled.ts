@@ -1,5 +1,3 @@
-import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-
 import {
   LineHeightAbsoluteNumber,
   TransitionDuration,
@@ -12,6 +10,11 @@ import {
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
+import { AlphaStack } from '~/src/components/AlphaStack'
+import {
+  Icon as BaseIcon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import { type TooltipProps } from './Tooltip.types'
@@ -74,7 +77,10 @@ const getSlideAnimation = (frames: ReturnType<typeof keyframes>) => css`
   animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
 `
 
-export const TooltipContent = styled(TooltipPrimitive.Content)<TooltipProps>`
+export const TooltipContent = styled(AlphaStack).attrs({
+  direction: 'horizontal',
+  spacing: 4,
+})<TooltipProps>`
   z-index: ${ZIndex.Tooltip};
 
   box-sizing: border-box;
@@ -107,7 +113,7 @@ export const TooltipContent = styled(TooltipPrimitive.Content)<TooltipProps>`
   ${({ interpolation }) => interpolation}
 `
 
-export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })`
+export const Content = styled(Text).attrs({ typo: Typography.Size13 })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   /* NOTE: Line height of Typography.Size13  */
   ${ellipsis(20, LineHeightAbsoluteNumber.Lh18)}
@@ -116,4 +122,11 @@ export const TooltipText = styled(Text).attrs({ typo: Typography.Size13 })`
 
 export const Description = styled(Text).attrs({ typo: Typography.Size12 })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-dark']};
+`
+
+export const Icon = styled(BaseIcon).attrs({
+  size: IconSize.XS,
+})`
+  padding: 1px;
+  color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
 `

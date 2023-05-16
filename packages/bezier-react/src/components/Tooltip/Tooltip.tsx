@@ -186,6 +186,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   disabled,
   content,
   description,
+  icon,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
   container = document.body,
@@ -260,25 +261,33 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
-        <Styled.TooltipContent
+        <TooltipPrimitive.Content
           {...rest}
           {...getSideAndAlign(placement)}
-          forwardedAs={as}
+          asChild
           ref={forwardedRef}
           sideOffset={offset}
           avoidCollisions={keepInContainer}
           collisionPadding={8}
         >
-          <Styled.TooltipText>
-            { content }
-          </Styled.TooltipText>
+          <Styled.TooltipContent forwardedAs={as}>
+            <div>
+              <Styled.Content>
+                { content }
+              </Styled.Content>
 
-          { description && (
-            <Styled.Description>
-              { description }
-            </Styled.Description>
-          ) }
-        </Styled.TooltipContent>
+              { description && (
+                <Styled.Description>
+                  { description }
+                </Styled.Description>
+              ) }
+            </div>
+
+            { icon && (
+              <Styled.Icon source={icon} />
+            ) }
+          </Styled.TooltipContent>
+        </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
   )
