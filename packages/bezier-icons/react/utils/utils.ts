@@ -14,6 +14,7 @@ export function isBezierIcon(arg: unknown): arg is BezierIcon {
 }
 
 export function createBezierIcon(source: IconSource): BezierIcon {
-  (source as BezierIcon)[BEZIER_ICON_SYMBOL] = true
-  return source as BezierIcon
+  const clone = source as BezierIcon
+  clone[BEZIER_ICON_SYMBOL] = true
+  return clone
 }
