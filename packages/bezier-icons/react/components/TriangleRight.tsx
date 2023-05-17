@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgTriangleRight(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="m16.37 11.923-6.735 5.612A.387.387 0 0 1 9 17.24V6.013c0-.327.382-.506.635-.298l6.735 5.614a.386.386 0 0 1 0 .594Z"
         clipRule="evenodd"
+        d="M16.3701 11.9227L9.63478 17.5353C9.38241 17.7452 9 17.5662 9 17.2392V6.01273C9 5.68569 9.38241 5.50671 9.63478 5.7153L16.3701 11.3292C16.5555 11.4837 16.5555 11.7682 16.3701 11.9227Z"
       />
     </svg>
   )

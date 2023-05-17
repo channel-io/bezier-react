@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgChevronUp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M4.293 15.207a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 0l7 7a1 1 0 0 1-1.414 1.414L12 8.914l-6.293 6.293a1 1 0 0 1-1.414 0Z"
         clipRule="evenodd"
+        d="M4.29289 15.2071C3.90237 14.8166 3.90237 14.1834 4.29289 13.7929L11.2929 6.79289C11.6834 6.40237 12.3166 6.40237 12.7071 6.79289L19.7071 13.7929C20.0976 14.1834 20.0976 14.8166 19.7071 15.2071C19.3166 15.5976 18.6834 15.5976 18.2929 15.2071L12 8.91421L5.70711 15.2071C5.31658 15.5976 4.68342 15.5976 4.29289 15.2071Z"
       />
     </svg>
   )

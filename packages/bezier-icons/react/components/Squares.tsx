@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgSquares(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M10 5h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1ZM7 7V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-1v1a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3h1Zm8 10v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h1v5a3 3 0 0 0 3 3h5Z"
         clipRule="evenodd"
+        d="M10 5H18C18.5523 5 19 5.44772 19 6V14C19 14.5523 18.5523 15 18 15H16H10C9.44772 15 9 14.5523 9 14V8V6C9 5.44772 9.44772 5 10 5ZM7 7V6C7 4.34315 8.34315 3 10 3H18C19.6569 3 21 4.34315 21 6V14C21 15.6569 19.6569 17 18 17H17V18C17 19.6569 15.6569 21 14 21H6C4.34315 21 3 19.6569 3 18V10C3 8.34315 4.34315 7 6 7H7ZM15 17V18C15 18.5523 14.5523 19 14 19H6C5.44772 19 5 18.5523 5 18V10C5 9.44772 5.44772 9 6 9H7V14C7 15.6569 8.34315 17 10 17H15Z"
       />
     </svg>
   )

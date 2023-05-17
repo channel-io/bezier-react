@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgWindowsRestore(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M16 8h-6v1h5v5h1V8Zm-1 7v2H7V9h2V7h8v8h-2Zm-7-5h6v6H8v-6Z"
         clipRule="evenodd"
+        d="M16 8H10V9H15V14H16V8ZM15 15V17H7V9H9V7H17V15H15ZM8 10H14V16H8V10Z"
       />
     </svg>
   )

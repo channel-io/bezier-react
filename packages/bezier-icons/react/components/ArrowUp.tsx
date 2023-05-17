@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgArrowUp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M3.285 11.837a1 1 0 0 0 1.413.044L11 5.959V20a1 1 0 1 0 2 0V5.933l6.329 5.948a1 1 0 0 0 1.37-1.458L13.04 3.227a1.5 1.5 0 0 0-2.055 0L3.33 10.423a1 1 0 0 0-.044 1.414Z"
         clipRule="evenodd"
+        d="M3.28481 11.8367C3.66302 12.2391 4.29588 12.2588 4.69834 11.8806L11 5.95861V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V5.93318L19.3287 11.8806C19.7312 12.2588 20.364 12.2391 20.7422 11.8367C21.1205 11.4342 21.1008 10.8014 20.6983 10.4232L13.0408 3.22693C12.4634 2.68437 11.5637 2.68437 10.9863 3.22693L3.32872 10.4232C2.92626 10.8014 2.9066 11.4342 3.28481 11.8367Z"
       />
     </svg>
   )

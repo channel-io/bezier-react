@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgBookmarkFilled(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M19.007 3.993a2 2 0 0 0-2-1.993H7a2 2 0 0 0-2 2v15.577a1 1 0 0 0 1.64.768l5.396-4.505 5.387 4.498a1 1 0 0 0 1.64-.77l-.056-15.575Z"
         clipRule="evenodd"
+        d="M19.0072 3.99286C19.0032 2.89113 18.109 2.00012 17.0073 2.00012H6.9996C5.89503 2.00012 4.9996 2.89555 4.9996 4.00012L4.9996 19.5774C4.9996 20.4257 5.98939 20.8887 6.64054 20.345L12.0356 15.8401L17.4229 20.3384C18.0753 20.8832 19.0669 20.4172 19.0638 19.5672L19.0072 3.99286Z"
       />
     </svg>
   )

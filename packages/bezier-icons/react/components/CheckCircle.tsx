@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgCheckCircle(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0Zm-12.029-.776 2.783 2.672 5.651-5.31 1.37 1.458-7.035 6.61-4.154-3.987 1.385-1.443Z"
         clipRule="evenodd"
+        d="M22 12C22 17.523 17.5226 22 12 22C6.47672 22 2 17.5233 2 12C2 6.47672 6.47672 2 12 2C17.5226 2 22 6.47704 22 12ZM20 12C20 7.58165 16.4181 4 12 4C7.58128 4 4 7.58128 4 12C4 16.4187 7.58128 20 12 20C16.4181 20 20 16.4184 20 12ZM7.97112 11.2241L10.7544 13.8959L16.405 8.58647L17.7745 10.044L10.7396 16.6541L6.58609 12.6669L7.97112 11.2241Z"
       />
     </svg>
   )

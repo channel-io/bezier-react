@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgRow(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M19 9H5V5h14v4ZM4.5 11h15c.827 0 1.5-.673 1.5-1.5v-5c0-.827-.673-1.5-1.5-1.5h-15C3.673 3 3 3.673 3 4.5v5c0 .827.673 1.5 1.5 1.5ZM19 19H5v-4h14v4ZM4.5 21h15c.827 0 1.5-.673 1.5-1.5v-5c0-.827-.673-1.5-1.5-1.5h-15c-.827 0-1.5.673-1.5 1.5v5c0 .827.673 1.5 1.5 1.5Z"
         clipRule="evenodd"
+        d="M19 9H5V5H19V9ZM4.5 11H19.5C20.327 11 21 10.327 21 9.5V4.5C21 3.673 20.327 3 19.5 3H4.5C3.673 3 3 3.673 3 4.5V9.5C3 10.327 3.673 11 4.5 11ZM19 19H5V15H19V19ZM4.5 21H19.5C20.327 21 21 20.327 21 19.5V14.5C21 13.673 20.327 13 19.5 13H4.5C3.673 13 3 13.673 3 14.5V19.5C3 20.327 3.673 21 4.5 21Z"
       />
     </svg>
   )

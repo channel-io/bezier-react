@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgPageZip(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M7 20h10v-9.63l-4-4.666V10h-2V4H7v16Zm5.911-17.474L18.64 9.21c.233.272.361.62.361.976V20.5c0 .827-.673 1.5-1.5 1.5h-11c-.827 0-1.5-.673-1.5-1.5v-17C5 2.673 5.673 2 6.5 2h5.27c.44 0 .856.192 1.141.526ZM11 14h2v-2h-2v2Zm0 4h2v-2h-2v2Z"
         clipRule="evenodd"
+        d="M7.00024 20.0001H17.0002V10.3701L13.0002 5.70412V10.0001H11.0002V4.00012H7.00024V20.0001ZM12.9112 2.52612L18.6392 9.20912C18.8722 9.48112 19.0002 9.82812 19.0002 10.1851V20.5001C19.0002 21.3271 18.3272 22.0001 17.5002 22.0001H6.50024C5.67324 22.0001 5.00024 21.3271 5.00024 20.5001V3.50012C5.00024 2.67312 5.67324 2.00012 6.50024 2.00012H11.7702C12.2102 2.00012 12.6262 2.19212 12.9112 2.52612ZM11 14H13V12H11V14ZM11 18H13V16H11V18Z"
       />
     </svg>
   )

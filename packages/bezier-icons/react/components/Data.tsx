@@ -3,18 +3,18 @@ import { createBezierIcon } from '../utils'
 function SvgData(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M18 5H6a1 1 0 0 0-1 1v1h14V6a1 1 0 0 0-1-1ZM3 7v11a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v1Zm16 2H5v4h14V9ZM5 15v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3H5Zm1-4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
         clipRule="evenodd"
+        d="M18 5H6C5.44772 5 5 5.44772 5 6V7H19V6C19 5.44772 18.5523 5 18 5ZM3 7V9V13V15V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V15V13V9V7V6C21 4.34315 19.6569 3 18 3H6C4.34315 3 3 4.34315 3 6V7ZM19 9H5V13H19V9ZM5 15V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V15H5ZM6 11C6 10.4477 6.44772 10 7 10C7.55228 10 8 10.4477 8 11C8 11.5523 7.55228 12 7 12C6.44772 12 6 11.5523 6 11ZM7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16Z"
       />
     </svg>
   )
