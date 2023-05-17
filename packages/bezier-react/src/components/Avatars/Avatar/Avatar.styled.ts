@@ -12,6 +12,7 @@ export const AvatarWrapper = styled.div<InterpolationProps>`
   all: unset;
   position: relative;
   display: block;
+  flex: none;
 
   &.disabled {
     pointer-events: none;
