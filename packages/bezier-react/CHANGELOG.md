@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.212
+
+### Minor Changes
+
+- [#1359](https://github.com/channel-io/bezier-react/pull/1359) [`d52a2710`](https://github.com/channel-io/bezier-react/commit/d52a27103641e6c2908e4b7983e7ac9e33dc4e78) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix `Avatar` not resizing under flex layout.
+
 ## 1.0.0-next-v1.211
 
 ### Minor Changes
