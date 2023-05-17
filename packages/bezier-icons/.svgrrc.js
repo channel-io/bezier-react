@@ -1,100 +1,32 @@
-const svgElements = [
-  'a',,
-  'animate',
-  'animateMotion',
-  'animateTransform',
-  'audio',
-  'canvas',
-  'circle',
-  'clipPath',
-  'defs',
-  'desc',
-  'discard',
-  'ellipse',
-  'feBlend',
-  'feColorMatrix',
-  'feComponentTransfer',
-  'feComposite',
-  'feConvolveMatrix',
-  'feDiffuseLighting',
-  'feDisplacementMap',
-  'feDistantLight',
-  'feDropShadow',
-  'feFlood',
-  'feFuncA',
-  'feFuncB',
-  'feFuncG',
-  'feFuncR',
-  'feGaussianBlur',
-  'feImage',
-  'feMerge',
-  'feMergeNode',
-  'feMorphology',
-  'feOffset',
-  'fePointLight',
-  'feSpecularLighting',
-  'feSpotLight',
-  'feTile',
-  'feTurbulence',
-  'filter',
-  'foreignObject',
-  'g',
-  'iframe',
-  'image',
-  'line',
-  'linearGradient',
-  'marker',
-  'mask',
-  'metadata',
-  'mpath',
-  'path',
-  'pattern',
-  'polygon',
-  'polyline',
-  'radialGradient',
-  'rect',
-  'script',
-  'set',
-  'stop',
-  'style',
-  'switch',
-  'symbol',
-  'text',
-  'textPath',
-  'title',
-  'tspan',
-  'unknown',
-  'use',
-  'video',
-  'view',
-]
-
 module.exports = {
   "icon": true,
   "typescript": true,
   "jsxRuntime": "automatic",
-  "singleQuote": true,
   "prettier": true,
   "prettierConfig": {
-    "dimensions": false,
     "semi": false,
     "endOfLine": "lf",
     "singleQuote": true
   },
   "jsx": {
+    /**
+     * Set the `fill` attribute to `currentColor` for all `path` elements.
+     * This allows us to dynamically change the color of the SVG icon.
+     * @see https://gomakethings.com/currentcolor-and-svgs/#dynamic-svg-colors
+     */
     babelConfig: {
       plugins: [
         [
           '@svgr/babel-plugin-remove-jsx-attribute',
           {
-            elements: svgElements,
+            elements: ['path'],
             attributes: ['fill'],
           },
         ],
         [
           '@svgr/babel-plugin-add-jsx-attribute',
           {
-            elements: svgElements,
+            elements: ['path'],
             attributes: [
               {
                 name: 'fill',

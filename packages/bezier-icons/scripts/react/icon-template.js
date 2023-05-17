@@ -1,19 +1,19 @@
 function iconTemplate({ imports, componentName, props, interfaces, jsx }, { tpl }) {
   return tpl`
-  ${imports}
+    ${imports}
 
-  ${interfaces}
+    ${interfaces}
 
-  import { createBezierIcon } from '../utils'
+    import { createBezierIcon } from '../utils'
 
-  function ${componentName}(${props}) {
-    return (
-      ${jsx}
-    )
-  }
+    function ${componentName}(${props}) {
+      return (
+        ${jsx}
+      )
+    }
 
-  export default createBezierIcon(${componentName})
-`
+    export default createBezierIcon(${componentName})
+  `
 }
 
 module.exports = iconTemplate

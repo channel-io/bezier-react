@@ -1,5 +1,9 @@
 const path = require('path')
 
+const ICONS_OBJECT_NAME = 'icons'
+const ICONS_TYPE_NAME = 'IconName'
+const ICON_POSTFIX = 'Icon'
+
 const kebabCase = (value) => value
   .trim()
   .replace(/([a-z])([A-Z])/g, '$1-$2')
@@ -9,51 +13,47 @@ const kebabCase = (value) => value
   .replace(/[\s_]+/g, '-')
   .toLowerCase()
 
+function generateSafeESModuleName(basename) {
+  return /^\d/.test(basename) ? `Svg${basename}` : basename
+}
+
 function defaultIndexTemplate(filePaths) {
-  const importEntries = []
-  const mappedFies = []
-  const exportEntries = []
+  const importLines = []
+  const objectLines = []
+  const types = []
+  const exportLines = []
 
   filePaths.forEach(({ path: filePath }) => {
     const basename = path.basename(filePath, path.extname(filePath))
-    const exportName = /^\d/.test(basename) ? `Svg${basename}` : basename
-    importEntries.push(`import ${exportName} from './${basename}'`)
-    mappedFies.push(`  '${kebabCase(basename)}': ${exportName},`)
-    exportEntries.push(`  ${exportName} as ${exportName}Icon,`)
+    const moduleName = generateSafeESModuleName(basename)
+    const objectKey = kebabCase(basename)
+
+    importLines.push(`import ${moduleName} from './${basename}'`)
+    objectLines.push(`'${objectKey}': ${moduleName},`)
+    types.push(`'${objectKey}'`)
+    exportLines.push(`${moduleName} as ${moduleName}${ICON_POSTFIX},`)
   })
 
   const icons = `
-const icons = {
-${mappedFies.join('\n')}
-}
-`
+    const ${ICONS_OBJECT_NAME} = {
+      ${objectLines.join('\n')}
+    }
+  `
 
   return `
-/* eslint-disable */
-${importEntries.join('\n')}
-${icons}
+    /* eslint-disable */
+    ${importLines.join('\n')}
 
-/**
- * @deprecated Please import and use individual icons.
- * @example
- * import { Icon, AllIcon, type IconProps } from '@channel.io/bezier-react'
- * <Icon source={AllIcon} color="bg-black-dark" />
- * @example <caption>How to validate the bezier icon source</caption>
- * import { isBezierIcon, AllIcon } from '@channel.io/bezier-react'
- * isBezierIcon(AllIcon) // true
- * isBezierIcon(<svg>...</svg>) // false
- * @example <caption>Legacy icon component is still available. but it will be removed in future versions!</caption>
- * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
- * <LegacyIcon name="all" color="bg-black-dark" />
- */
-export type IconName = keyof typeof icons
+    ${icons}
 
-export {
-${exportEntries.join('\n')}
-}
+    export type ${ICONS_TYPE_NAME} = ${types.join(' | ')}
 
-export default icons
-`
+    export {
+      ${exportLines.join('\n')}
+    }
+
+    export default ${ICONS_OBJECT_NAME}
+  `
 }
 
 module.exports = defaultIndexTemplate
