@@ -23,6 +23,9 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   all: unset;
   position: relative;
   display: block;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
 }
 
 .c1.disabled {
@@ -307,6 +310,9 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   all: unset;
   position: relative;
   display: block;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
 }
 
 .c1.disabled {
