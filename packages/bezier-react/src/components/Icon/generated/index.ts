@@ -68,6 +68,7 @@ import Bus from './Bus'
 import BusinessGuy from './BusinessGuy'
 import ButtonRoute from './ButtonRoute'
 import Calendar from './Calendar'
+import CallApp from './CallApp'
 import CallFilled from './CallFilled'
 import CallInProgress from './CallInProgress'
 import CallIncoming from './CallIncoming'
@@ -562,6 +563,7 @@ const icons = {
   'business-guy': BusinessGuy,
   'button-route': ButtonRoute,
   calendar: Calendar,
+  'call-app': CallApp,
   'call-filled': CallFilled,
   'call-in-progress': CallInProgress,
   'call-incoming': CallIncoming,
@@ -1072,6 +1074,7 @@ export {
   BusinessGuy as BusinessGuyIcon,
   ButtonRoute as ButtonRouteIcon,
   Calendar as CalendarIcon,
+  CallApp as CallAppIcon,
   CallFilled as CallFilledIcon,
   CallInProgress as CallInProgressIcon,
   CallIncoming as CallIncomingIcon,
