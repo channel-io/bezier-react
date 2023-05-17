@@ -30,6 +30,7 @@
     "@svgr/babel-plugin-add-jsx-attribute": "^8.0.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^8.0.0",
     "@svgr/cli": "^8.0.1",
+    "@types/react": "^18.2.6",
     "eslint-config-bezier": "workspace:^",
     "tsconfig": "workspace:^"
   }
