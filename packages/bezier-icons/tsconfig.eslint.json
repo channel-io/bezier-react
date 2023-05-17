@@ -4,5 +4,6 @@
     "react/**/*",
     "scripts/**/*",
     ".eslintrc.js",
+    "svgo.config.js",
   ],
 }

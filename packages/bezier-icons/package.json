@@ -11,6 +11,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "yarn generate",
+    "optimize": "svgo -f ./icons -o ./dist",
     "generate": "run-p 'generate:*'",
     "generate:react": "./scripts/react/generate-icon.sh",
     "lint": "TIMING=1 eslint --cache .",
@@ -32,6 +33,7 @@
     "@svgr/cli": "^8.0.1",
     "@types/react": "^18.2.6",
     "eslint-config-bezier": "workspace:^",
+    "svgo": "^3.0.2",
     "tsconfig": "workspace:^"
   }
 }
