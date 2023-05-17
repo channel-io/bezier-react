@@ -103,6 +103,8 @@ import ChannelUp from './ChannelUp'
 import Channel from './Channel'
 import ChannelsList from './ChannelsList'
 import ChatBubbleAltFilled from './ChatBubbleAltFilled'
+import ChatBubbleAltOff from './ChatBubbleAltOff'
+import ChatBubbleAltPushFilled from './ChatBubbleAltPushFilled'
 import ChatBubbleAlt from './ChatBubbleAlt'
 import ChatBubbleFilled from './ChatBubbleFilled'
 import ChatBubble from './ChatBubble'
@@ -595,6 +597,8 @@ const icons = {
   channel: Channel,
   'channels-list': ChannelsList,
   'chat-bubble-alt-filled': ChatBubbleAltFilled,
+  'chat-bubble-alt-off': ChatBubbleAltOff,
+  'chat-bubble-alt-push-filled': ChatBubbleAltPushFilled,
   'chat-bubble-alt': ChatBubbleAlt,
   'chat-bubble-filled': ChatBubbleFilled,
   'chat-bubble': ChatBubble,
@@ -1103,6 +1107,8 @@ export {
   Channel as ChannelIcon,
   ChannelsList as ChannelsListIcon,
   ChatBubbleAltFilled as ChatBubbleAltFilledIcon,
+  ChatBubbleAltOff as ChatBubbleAltOffIcon,
+  ChatBubbleAltPushFilled as ChatBubbleAltPushFilledIcon,
   ChatBubbleAlt as ChatBubbleAltIcon,
   ChatBubbleFilled as ChatBubbleFilledIcon,
   ChatBubble as ChatBubbleIcon,
