@@ -128,12 +128,10 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       </span>
     </div>
     <svg
-      aria-hidden="true"
       class="c4"
       color="txt-black-darker"
       data-testid="bezier-react-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="16"
       marginbottom="0"
@@ -151,11 +149,6 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Chevron Down
-    </span>
   </button>
 </div>
 `;
@@ -291,12 +284,10 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
       </div>
     </div>
     <svg
-      aria-hidden="true"
       class="c4"
       color="txt-black-darker"
       data-testid="bezier-react-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="16"
       marginbottom="0"
@@ -314,11 +305,6 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Chevron Down
-    </span>
   </button>
 </div>
 `;
