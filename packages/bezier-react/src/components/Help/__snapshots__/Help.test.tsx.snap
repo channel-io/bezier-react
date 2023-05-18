@@ -18,12 +18,10 @@ exports[`Help > Snapshot > 1`] = `
 }
 
 <svg
-  aria-hidden="true"
   class="c0 "
   color="txt-black-dark"
   data-testid="bezier-react-help"
   fill="none"
-  focusable="false"
   foundation="[object Object]"
   height="16"
   marginbottom="0"

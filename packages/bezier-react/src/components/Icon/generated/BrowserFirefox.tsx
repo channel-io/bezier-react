@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
-import * as AccessibleIcon from '@radix-ui/react-accessible-icon'
-import { createIconLabel, createBezierIcon } from '../utils'
-const label = createIconLabel('SvgBrowserFirefox')
+import { createBezierIcon } from '../utils'
 function SvgBrowserFirefox(props: SVGProps<SVGSVGElement>) {
-  const Svg = (
+  return (
     <svg
       width="1em"
       height="1em"
@@ -21,6 +19,5 @@ function SvgBrowserFirefox(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   )
-  return <AccessibleIcon.Root label={label}>{Svg}</AccessibleIcon.Root>
 }
 export default createBezierIcon(SvgBrowserFirefox)

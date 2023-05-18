@@ -3,7 +3,6 @@ import React from 'react'
 import { AllIcon } from './generated'
 import {
   createBezierIcon,
-  createIconLabel,
   isBezierIcon,
 } from './utils'
 
@@ -22,14 +21,6 @@ describe('Icon utils', () => {
       const source = () => (<svg />)
       const mockBezierIcon = createBezierIcon(source)
       expect(isBezierIcon(mockBezierIcon)).toBe(true)
-    })
-  })
-
-  describe('createIconLabel', () => {
-    it('should format the string as intended', () => {
-      const label = 'SvgSpaceSvgHorizontal'
-      const expectedLabel = 'Space Svg Horizontal'
-      expect(createIconLabel(label)).toBe(expectedLabel)
     })
   })
 })

@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
-import * as AccessibleIcon from '@radix-ui/react-accessible-icon'
-import { createIconLabel, createBezierIcon } from '../utils'
-const label = createIconLabel('SvgWindowsMinimize')
+import { createBezierIcon } from '../utils'
 function SvgWindowsMinimize(props: SVGProps<SVGSVGElement>) {
-  const Svg = (
+  return (
     <svg
       width="1em"
       height="1em"
@@ -16,6 +14,5 @@ function SvgWindowsMinimize(props: SVGProps<SVGSVGElement>) {
       <path fill="currentColor" d="M7 12h10v1H7z" />
     </svg>
   )
-  return <AccessibleIcon.Root label={label}>{Svg}</AccessibleIcon.Root>
 }
 export default createBezierIcon(SvgWindowsMinimize)
