@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.213
+
+### Minor Changes
+
+- [#1361](https://github.com/channel-io/bezier-react/pull/1361) [`dbca37c3`](https://github.com/channel-io/bezier-react/commit/dbca37c391ec1499f377cd3b8cd08a795e742590) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Revert `Icon` a11y enhancements.
+
 ## 1.0.0-next-v1.212
 
 ### Minor Changes
