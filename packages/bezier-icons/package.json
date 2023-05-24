@@ -10,7 +10,7 @@
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
-    "build": "yarn generate",
+    "build": "rollup -c",
     "optimize": "svgo -f ./icons -o ./dist",
     "generate": "run-p 'generate:*'",
     "generate:react": "./scripts/react/generate-icon.sh",
@@ -33,6 +33,7 @@
     "@svgr/cli": "^8.0.1",
     "@types/react": "^18.2.6",
     "eslint-config-bezier": "workspace:^",
+    "rollup": "^3.22.0",
     "svgo": "^3.0.2",
     "tsconfig": "workspace:^"
   }
