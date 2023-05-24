@@ -7,7 +7,7 @@
     "url": "https://github.com/channel-io/bezier-react",
     "directory": "packages/bezier-icons"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c -w",
@@ -34,7 +34,6 @@
     "@rollup/pluginutils": "^5.0.2",
     "@svgr/babel-plugin-add-jsx-attribute": "^8.0.0",
     "@svgr/babel-plugin-remove-jsx-attribute": "^8.0.0",
-    "@svgr/babel-plugin-transform-svg-component": "^8.0.0",
     "@svgr/cli": "^8.0.1",
     "@svgr/core": "^8.0.0",
     "@types/react": "^18.2.6",

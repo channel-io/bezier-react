@@ -2187,7 +2187,6 @@ __metadata:
     "@rollup/pluginutils": ^5.0.2
     "@svgr/babel-plugin-add-jsx-attribute": ^8.0.0
     "@svgr/babel-plugin-remove-jsx-attribute": ^8.0.0
-    "@svgr/babel-plugin-transform-svg-component": ^8.0.0
     "@svgr/cli": ^8.0.1
     "@svgr/core": ^8.0.0
     "@types/react": ^18.2.6
@@ -5836,7 +5835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/babel-plugin-transform-svg-component@npm:8.0.0, @svgr/babel-plugin-transform-svg-component@npm:^8.0.0":
+"@svgr/babel-plugin-transform-svg-component@npm:8.0.0":
   version: 8.0.0
   resolution: "@svgr/babel-plugin-transform-svg-component@npm:8.0.0"
   peerDependencies:
