@@ -89,4 +89,5 @@ export const StatusWrapper = styled.div`
   position: absolute;
   right: var(--bezier-avatar-computed-status-gap, 0);
   bottom: var(--bezier-avatar-computed-status-gap, 0);
+  display: flex;
 `
