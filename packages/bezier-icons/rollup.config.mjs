@@ -64,7 +64,7 @@ const entryModuleContent = iconImportLines
   .join('\n')
 
 const entryTypesContent = `
-export declare type IconSource = (props: SVGProps<SVGSVGElement>) => JSX.Element
+export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
 
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
