@@ -8,7 +8,22 @@
     "directory": "packages/bezier-icons"
   },
   "main": "dist/index.js",
-  "sideEffects": false,
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./dist/assets/*.svg": "./dist/assets/*.svg"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "sideEffects": [
+    "*.svg"
+  ],
   "scripts": {
     "build": "rollup -c",
     "optimize": "svgo -f ./icons -o ./dist",
