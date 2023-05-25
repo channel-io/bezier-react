@@ -29,6 +29,7 @@ const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathnam
 
 const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8')
 
+const iconNames = []
 const iconImportLines = []
 const iconExportLines = []
 const iconObjectLines = []
@@ -44,6 +45,7 @@ iconFileNames.forEach((iconFileName) => {
   const iconName = iconFileName.replace('.svg', '')
   const iconModuleName = `${toPascalCase(iconName)}Icon`
 
+  iconNames.push(`'${iconName}'`)
   iconImportLines.push(`import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`)
   iconExportLines.push(`${iconModuleName},`)
   iconObjectLines.push(`'${iconName}': ${iconModuleName},`)
@@ -62,10 +64,20 @@ const entryModuleContent = iconImportLines
   .join('\n')
 
 const iconUtilTypes = `
-export declare type IconSource = (props: SVGProps<SVGSVGElement>) => JSX.Element
+export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
+
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
 export declare function createBezierIcon(icon: IconSource): BezierIcon
+
+export declare type IconName = ${iconNames.join(' | ')}
+
+/**
+ * @deprecated If you import this module, all icons are bundled, so please import and use the individual icons.
+ * @example
+ * import { AllIcon } from '@channel.io/bezier-icons'
+ */
+export declare const icons: Record<IconName, BezierIcon>
 `.trim()
 
 const entryTypesContent = `${iconUtilTypes}\n\n${iconComponentTypes.join('\n')}\n`
