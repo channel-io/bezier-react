@@ -1,8 +1,3 @@
-/**
- * TODO
- * - [ ] Generate type declaration file
- */
-
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -37,7 +32,7 @@ const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8')
 const iconImportLines = []
 const iconExportLines = []
 const iconObjectLines = []
-const iconTypes = []
+const iconComponentTypes = []
 
 function toPascalCase(str) {
   return str
@@ -52,24 +47,48 @@ iconFileNames.forEach((iconFileName) => {
   iconImportLines.push(`import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`)
   iconExportLines.push(`${iconModuleName},`)
   iconObjectLines.push(`'${iconName}': ${iconModuleName},`)
-  iconTypes.push(`export declare const ${iconModuleName}: BezierIcon`)
+  iconComponentTypes.push(`export declare const ${iconModuleName}: BezierIcon`)
 })
 
 const ICONS_OBJECT = 'icons'
 
-const iconsObject = `
-  const ${ICONS_OBJECT} = { ${iconObjectLines.join('\n')} }
-`
+const iconsObject = `const ${ICONS_OBJECT} = { ${iconObjectLines.join('\n')} }`
 
-const exports = `
-  export { ${iconExportLines.concat(`${ICONS_OBJECT},`).join('\n')} }
-`
+const exports = `export { ${iconExportLines.concat(`${ICONS_OBJECT},`).join('\n')} }`
 
-const entryModuleContent = `
-  ${iconImportLines.join('\n')}
-  ${iconsObject}
-  ${exports}
-`
+const entryModuleContent = iconImportLines
+  .concat(iconsObject)
+  .concat(exports)
+  .join('\n')
+
+const iconUtilTypes = `
+export declare type IconSource = (props: SVGProps<SVGSVGElement>) => JSX.Element
+export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
+export declare function isBezierIcon(arg: unknown): arg is BezierIcon
+export declare function createBezierIcon(icon: IconSource): BezierIcon
+`.trim()
+
+const entryTypesContent = `${iconUtilTypes}\n\n${iconComponentTypes.join('\n')}\n`
+
+/**
+ * @type {import('rollup').PluginImpl}
+ */
+function emitFile({ fileName, source }) {
+  return {
+    name: 'emit-file',
+    buildEnd() {
+      if (source.length === 0) {
+        this.warn('source content is empty')
+      }
+
+      this.emitFile({
+        type: 'asset',
+        fileName,
+        source,
+      })
+    },
+  }
+}
 
 /**
  * @type {import('rollup').PluginImpl}
@@ -254,6 +273,10 @@ export default defineConfig([
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
         envName: 'production',
         babelHelpers: 'bundled',
+      }),
+      emitFile({
+        fileName: 'index.d.ts',
+        source: entryTypesContent,
       }),
       terser(),
       visualizer(),

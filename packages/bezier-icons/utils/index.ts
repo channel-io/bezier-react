@@ -1,20 +1,19 @@
-import { type SVGProps } from 'react'
+/**
+ * The type is custom generated during the build process,
+ * so set the type inside this module to 'any'.
+ */
 
 const BEZIER_ICON_SYMBOL = Symbol('bezier.icon')
 
-export type IconSource = (props: SVGProps<SVGSVGElement>) => JSX.Element
-
-export type BezierIcon = IconSource & { [BEZIER_ICON_SYMBOL]: true }
-
-export function isBezierIcon(arg: unknown): arg is BezierIcon {
+export function isBezierIcon(arg: any) {
   return (
     typeof arg === 'function' &&
-    (arg as BezierIcon)[BEZIER_ICON_SYMBOL] === true
+    arg[BEZIER_ICON_SYMBOL] === true
   )
 }
 
-export function createBezierIcon(source: IconSource): BezierIcon {
-  const clone = source as BezierIcon
+export function createBezierIcon(source: any) {
+  const clone = source
   clone[BEZIER_ICON_SYMBOL] = true
   return clone
 }
