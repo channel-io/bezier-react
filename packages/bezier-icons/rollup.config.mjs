@@ -1,7 +1,6 @@
 /**
  * TODO
  * - [ ] Generate type declaration file
- * - [ ] Export IconsNames, Icons
  */
 
 import * as fs from 'fs'
@@ -9,6 +8,7 @@ import * as path from 'path'
 
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
+import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import virtual from '@rollup/plugin-virtual'
 import { createFilter } from '@rollup/pluginutils'
@@ -32,22 +32,44 @@ const config = {
 const iconBasePath = new URL(`./${config.input.icons}`, import.meta.url).pathname
 const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathname
 
+const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8')
+
+const iconImportLines = []
+const iconExportLines = []
+const iconObjectLines = []
+const iconTypes = []
+
 function toPascalCase(str) {
   return str
     .replace(/[-_](.)/g, (_, c) => c.toUpperCase())
     .replace(/^(.)/, (_, c) => c.toUpperCase())
 }
 
-function getIconModuleName(iconFileName) {
-  return toPascalCase(iconFileName).replace('.svg', 'Icon')
-}
+iconFileNames.forEach((iconFileName) => {
+  const iconName = iconFileName.replace('.svg', '')
+  const iconModuleName = `${toPascalCase(iconName)}Icon`
 
-const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8')
+  iconImportLines.push(`import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`)
+  iconExportLines.push(`${iconModuleName},`)
+  iconObjectLines.push(`'${iconName}': ${iconModuleName},`)
+  iconTypes.push(`export declare const ${iconModuleName}: BezierIcon`)
+})
 
-const entryModuleContent = iconFileNames
-  .map((iconFileName) => `export { default as ${getIconModuleName(iconFileName)} } from '../${config.input.icons}/${iconFileName}'`)
-  .concat(`export * from '${config.input.utils}'`)
-  .join('\n')
+const ICONS_OBJECT = 'icons'
+
+const iconsObject = `
+  const ${ICONS_OBJECT} = { ${iconObjectLines.join('\n')} }
+`
+
+const exports = `
+  export { ${iconExportLines.concat(`${ICONS_OBJECT},`).join('\n')} }
+`
+
+const entryModuleContent = `
+  ${iconImportLines.join('\n')}
+  ${iconsObject}
+  ${exports}
+`
 
 /**
  * @type {import('rollup').PluginImpl}
@@ -233,6 +255,7 @@ export default defineConfig([
         envName: 'production',
         babelHelpers: 'bundled',
       }),
+      terser(),
       visualizer(),
     ],
   },
