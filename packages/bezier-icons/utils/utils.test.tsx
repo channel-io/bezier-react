@@ -1,7 +1,7 @@
 import {
   createBezierIcon,
   isBezierIcon,
-} from './utils'
+} from '.'
 
 describe('Icon utils', () => {
   describe('createBezierIcon', () => {
