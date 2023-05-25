@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.0.0-next-v1.214
+
+### Patch Changes
+
+- [#1364](https://github.com/channel-io/bezier-react/pull/1364) [`9dc15667`](https://github.com/channel-io/bezier-react/commit/9dc15667625bdbf5a352346a6d1e09d0a545f4aa) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix status wrapper of avatar to grow in size to fit its children
+
 ## 1.0.0-next-v1.213
 
 ### Minor Changes
