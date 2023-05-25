@@ -4,7 +4,6 @@
     "utils/**/*",
     "scripts/**/*",
     ".eslintrc.js",
-    "svgo.config.js",
     "babel.config.js",
     "rollup.config.mjs",
   ],
