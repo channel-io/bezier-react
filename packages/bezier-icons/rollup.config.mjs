@@ -63,31 +63,30 @@ const entryModuleContent = iconImportLines
   .concat(exports)
   .join('\n')
 
-const iconUtilTypes = `
-export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+const entryTypesContent = `
+export declare type IconSource = (props: SVGProps<SVGSVGElement>) => JSX.Element
 export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
 
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
 export declare function createBezierIcon(icon: IconSource): BezierIcon
 
 export declare type IconName = ${iconNames.join(' | ')}
-
 /**
  * @deprecated If you import this module, all icons are bundled, so please import and use the individual icons.
  * @example
  * import { AllIcon } from '@channel.io/bezier-icons'
  */
 export declare const icons: Record<IconName, BezierIcon>
-`.trim()
 
-const entryTypesContent = `${iconUtilTypes}\n\n${iconComponentTypes.join('\n')}\n`
+${iconComponentTypes.join('\n')}
+`.trim()
 
 /**
  * @type {import('rollup').PluginImpl}
  */
 function emitFile({ fileName, source }) {
   return {
-    name: 'emit-file',
+    name: 'emitFile',
     buildEnd() {
       if (source.length === 0) {
         this.warn('source content is empty')
@@ -157,7 +156,7 @@ function svgBuild(options = {}) {
   const optimizedSvgs = []
 
   return {
-    name: 'buildSvg',
+    name: 'svgBuild',
     async transform(code, id) {
       if (!filter(id) || !id.endsWith('.svg')) { return null }
 
@@ -242,56 +241,54 @@ function manualChunks(id) {
   return undefined
 }
 
-export default defineConfig([
-  {
+export default defineConfig({
+  /**
+   * Instead of the actual src/index.ts, use a virtual entry point via virtual plugin.
+   */
+  input: 'src/index.ts',
+  output: [
+    {
+      dir: 'dist',
+      format: 'cjs',
+      entryFileNames: '[name].js',
+      chunkFileNames: '[name].js',
+      interop,
+      manualChunks,
+    },
+    {
+      dir: 'dist',
+      format: 'esm',
+      entryFileNames: '[name].mjs',
+      chunkFileNames: '[name].mjs',
+      interop,
+      manualChunks,
+    },
+  ],
+  external: ['react'],
+  plugins: [
+    virtual({ 'src/index.ts': entryModuleContent }),
+    typescript(),
+    svgBuild({ include: `${iconBasePath}/*.svg` }),
     /**
-     * Instead of the actual src/index.ts, use a virtual entry point via virtual plugin.
+     * Module resolution is not working well inside the virtual module, so use the alias plugin to resolve the module manually.
      */
-    input: 'src/index.ts',
-    output: [
-      {
-        dir: 'dist',
-        format: 'cjs',
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        interop,
-        manualChunks,
-      },
-      {
-        dir: 'dist',
-        format: 'esm',
-        entryFileNames: '[name].mjs',
-        chunkFileNames: '[name].mjs',
-        interop,
-        manualChunks,
-      },
-    ],
-    external: ['react'],
-    plugins: [
-      virtual({ 'src/index.ts': entryModuleContent }),
-      typescript(),
-      svgBuild({ include: `${iconBasePath}/*.svg` }),
-      /**
-       * The module is not resolving well, so use the alias plugin to resolve the module.
-       */
-      alias({
-        entries: [{
-          find: config.input.utils,
-          replacement: utilBasePath,
-        }],
-      }),
-      babel({
-        exclude: 'node_modules/**',
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
-        envName: 'production',
-        babelHelpers: 'bundled',
-      }),
-      emitFile({
-        fileName: 'index.d.ts',
-        source: entryTypesContent,
-      }),
-      terser(),
-      visualizer(),
-    ],
-  },
-])
+    alias({
+      entries: [{
+        find: config.input.utils,
+        replacement: utilBasePath,
+      }],
+    }),
+    babel({
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
+      envName: 'production',
+      babelHelpers: 'bundled',
+    }),
+    emitFile({
+      fileName: 'index.d.ts',
+      source: entryTypesContent,
+    }),
+    terser(),
+    visualizer(),
+  ],
+})
