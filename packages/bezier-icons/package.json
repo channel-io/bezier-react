@@ -26,13 +26,11 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "optimize": "svgo -f ./icons -o ./dist",
-    "generate": "run-p 'generate:*'",
-    "generate:react": "./scripts/react/generate-icon.sh",
     "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --build --verbose",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
-    "clean:cache": "rm -rf node_modules .turbo .eslintcache tsconfig.tsbuildinfo coverage"
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
   },
   "keywords": [
     "channel",
@@ -52,9 +50,8 @@
     "@rollup/plugin-typescript": "^11.1.1",
     "@rollup/plugin-virtual": "^3.0.1",
     "@rollup/pluginutils": "^5.0.2",
-    "@svgr/cli": "^8.0.1",
     "@svgr/core": "^8.0.0",
-    "@types/react": "^18.2.7",
+    "@svgr/plugin-jsx": "^8.0.1",
     "eslint-config-bezier": "workspace:^",
     "rollup": "^3.22.0",
     "rollup-plugin-visualizer": "^5.9.0",
