@@ -16,10 +16,10 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
-    "./dist/assets/*.svg": "./dist/assets/*.svg"
+    "./*.svg": "./dist/svg/*.svg"
   },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "sideEffects": [
     "*.svg"

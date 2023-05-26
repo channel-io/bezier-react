@@ -18,8 +18,8 @@ const config = {
     utils: 'utils',
   },
   output: {
-    icons: 'assets',
-    react: 'icons',
+    icons: 'svg',
+    react: 'react',
     utils: 'utils',
   },
 }
@@ -64,6 +64,11 @@ const entryModuleContent = iconImportLines
   .join('\n')
 
 const entryTypesContent = `
+declare module '*.svg' {
+  const content: string
+  export default content
+}
+
 export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
 
