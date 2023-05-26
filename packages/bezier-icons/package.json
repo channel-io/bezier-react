@@ -28,6 +28,7 @@
     "build": "rollup -c",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --build --verbose",
+    "test": "jest --onlyChanged",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
@@ -53,6 +54,7 @@
     "@svgr/core": "^8.0.0",
     "@svgr/plugin-jsx": "^8.0.1",
     "eslint-config-bezier": "workspace:^",
+    "jest": "^29.5.0",
     "rollup": "^3.22.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "svgo": "^3.0.2",
