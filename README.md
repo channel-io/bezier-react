@@ -9,6 +9,7 @@
 | Name | Description |
 |---|---|
 | [bezier-react](packages/bezier-react) | React components library that implements Bezier Design System. |
+| [bezier-icons](packages/bezier-icons) | Icon library that implements the Bezier Design System. |
 | [bezier-figma-plugin](packages/bezier-figma-plugin) | Figma plugin that helps build Bezier Design System and increase productivity. |
 
 ## Commands
@@ -44,7 +45,7 @@ yarn storybook
 | `yarn dev` | Runs Storybook and Builds Figma plugin in watch mode |
 | `yarn test` | Tests all workspaces |
 | `yarn lint` | Lints all workspaces |
-| `yarn typecheck` | Compiles `bezier-react` |
+| `yarn typecheck` | Type checks all workspaces |
 | `yarn clean` | Remove generated files |
 | `yarn update-snapshot` | Update test snapshots of `bezier-react` |
 
