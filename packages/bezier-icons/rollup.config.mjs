@@ -54,14 +54,12 @@ iconFileNames.forEach((iconFileName) => {
 
 const ICONS_OBJECT = 'icons'
 
-const iconsObject = `const ${ICONS_OBJECT} = { ${iconObjectLines.join('\n')} }`
-
-const exports = `export { ${iconExportLines.concat(`${ICONS_OBJECT},`).join('\n')} }`
-
-const entryModuleContent = iconImportLines
-  .concat(iconsObject)
-  .concat(exports)
-  .join('\n')
+const entryModuleContent = `
+  ${iconImportLines.join('\n')}
+  const ${ICONS_OBJECT} = { ${iconObjectLines.join('\n')} }
+  export { ${iconExportLines.concat(`${ICONS_OBJECT},`).join('\n')} }
+  export * from '${config.input.utils}'
+`
 
 const entryTypesContent = `
 declare module '*.svg' {
