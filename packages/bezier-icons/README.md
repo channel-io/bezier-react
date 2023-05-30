@@ -1,6 +1,6 @@
 # Bezier Icons
 
-Bezier Icons is a icon library that implements the Bezier Design System.
+Bezier Icons is a icon library that implements Bezier design system.
 
 ## Installation
 

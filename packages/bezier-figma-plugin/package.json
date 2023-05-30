@@ -2,7 +2,7 @@
   "name": "bezier-figma-plugin",
   "version": "0.2.2",
   "private": true,
-  "description": "Figma plugin that helps build the Bezier design system and increase productivity.",
+  "description": "Figma plugin that helps build Bezier design system and increase productivity.",
   "repository": {
     "type": "git",
     "url": "https://github.com/channel-io/bezier-react",
