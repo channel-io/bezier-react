@@ -35,21 +35,20 @@ yarn build --filter=<workspace>
 ### Run Storybook
 
 ```bash
-yarn storybook
+yarn dev
 ```
 
 ### Other Commands
 
 | Command | Description |
 |---|---|
-| `yarn dev` | Runs Storybook and Builds Figma plugin in watch mode |
 | `yarn test` | Tests all workspaces |
 | `yarn lint` | Lints all workspaces |
 | `yarn typecheck` | Type checks all workspaces |
 | `yarn clean` | Remove generated files |
 | `yarn update-snapshot` | Update test snapshots of `bezier-react` |
 
-## Contribute
+## Contributing
 
 See [contribution guide](CONTRIBUTING.md).
 
