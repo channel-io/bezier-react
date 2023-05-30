@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 
 /* eslint-disable no-restricted-imports */
-import { Icon } from '../Icon'
-import icons from '../generated'
+import { icons } from '@channel.io/bezier-icons'
 
-/* eslint-enable no-restricted-imports */
+import { Icon } from '../Icon'
+
 import type LegacyIconProps from './LegacyIcon.types'
+/* eslint-enable no-restricted-imports */
 
 /**
  * @deprecated Please import and use individual icons.

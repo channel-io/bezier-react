@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-imports */
+import { type IconName } from '@channel.io/bezier-icons'
+
 import { type IconProps } from '../Icon.types'
-import { type IconName } from '../generated'
 /* eslint-enable no-restricted-imports */
 
 interface LegacyIconOptions {

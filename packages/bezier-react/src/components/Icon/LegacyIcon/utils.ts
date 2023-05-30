@@ -1,5 +1,7 @@
-// eslint-disable-next-line no-restricted-imports
-import icons, { type IconName } from '../generated'
+import {
+  type IconName,
+  icons,
+} from '@channel.io/bezier-icons'
 
 /**
  * @deprecated Please import and use individual icons.
