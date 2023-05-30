@@ -11,7 +11,7 @@
 - [ ] I added an appropriate **label** to the PR.
 - [ ] I wrote a commit message in **English**.
 - [ ] I wrote a commit message according to [**the Conventional Commits specification**](https://www.conventionalcommits.org/en/v1.0.0/).
-- [ ] [I added the appropriate **changeset**](https://github.com/channel-io/bezier-react/blob/next-v1/CONTRIBUTING.md#add-a-changeset) for the changes.
+- [ ] [I added the appropriate **changeset**](https://github.com/channel-io/bezier-react/blob/main/CONTRIBUTING.md#add-a-changeset) for the changes.
 - [ ] [Component] I wrote **a unit test** about the implementation.
 - [ ] [Component] I wrote **a storybook document** about the implementation.
 - [ ] [Component] I tested the implementation in **various browsers**.
