@@ -26,6 +26,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "dev": "rollup -c -w",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --build --verbose",
     "test": "jest --onlyChanged",
