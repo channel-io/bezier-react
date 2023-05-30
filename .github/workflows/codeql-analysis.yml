@@ -13,9 +13,9 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [master, next-v1]
+    branches: main
   pull_request:
-    branches: [next-v1]
+    branches: main
   schedule:
     #        ┌───────────── minute (0 - 59)
     #        │  ┌───────────── hour (0 - 23)
