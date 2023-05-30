@@ -1774,17 +1774,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/changelog-github@npm:^0.4.7":
-  version: 0.4.8
-  resolution: "@changesets/changelog-github@npm:0.4.8"
-  dependencies:
-    "@changesets/get-github-info": ^0.5.2
-    "@changesets/types": ^5.2.1
-    dotenv: ^8.1.0
-  checksum: 8a357cc08757e0eeca267ee05141f68bef936582abef8b78a5d30d99f5a86e41b7d3debba70992b73b2f57b0fc6201ec1cc3c65116930167ee3197b427b865c5
-  languageName: node
-  linkType: hard
-
 "@changesets/cli@npm:^2.23.0":
   version: 2.26.1
   resolution: "@changesets/cli@npm:2.26.1"
@@ -10880,7 +10869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^8.0.0, dotenv@npm:^8.1.0":
+"dotenv@npm:^8.0.0":
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
@@ -20031,8 +20020,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@changesets/changelog-github": ^0.4.7
     "@changesets/cli": ^2.23.0
+    "@changesets/get-github-info": ^0.5.2
+    "@changesets/types": ^5.2.1
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^17.2.0
     "@commitlint/config-conventional": ^13.1.0
