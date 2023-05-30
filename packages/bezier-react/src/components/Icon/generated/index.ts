@@ -168,6 +168,7 @@ import Cookie from './Cookie'
 import Coupon from './Coupon'
 import Credit from './Credit'
 import Creditcard from './Creditcard'
+import Crop from './Crop'
 import CrownFilled from './CrownFilled'
 import Data from './Data'
 import Desktop from './Desktop'
@@ -375,6 +376,8 @@ import Repeat from './Repeat'
 import Rotate from './Rotate'
 import Row from './Row'
 import Ruler from './Ruler'
+import ScreenshareFilled from './ScreenshareFilled'
+import Screenshare from './Screenshare'
 import SearchBold from './SearchBold'
 import Search from './Search'
 import SecurityPerson from './SecurityPerson'
@@ -663,6 +666,7 @@ const icons = {
   coupon: Coupon,
   credit: Credit,
   creditcard: Creditcard,
+  crop: Crop,
   'crown-filled': CrownFilled,
   data: Data,
   desktop: Desktop,
@@ -870,6 +874,8 @@ const icons = {
   rotate: Rotate,
   row: Row,
   ruler: Ruler,
+  'screenshare-filled': ScreenshareFilled,
+  screenshare: Screenshare,
   'search-bold': SearchBold,
   search: Search,
   'security-person': SecurityPerson,
@@ -1174,6 +1180,7 @@ export {
   Coupon as CouponIcon,
   Credit as CreditIcon,
   Creditcard as CreditcardIcon,
+  Crop as CropIcon,
   CrownFilled as CrownFilledIcon,
   Data as DataIcon,
   Desktop as DesktopIcon,
@@ -1381,6 +1388,8 @@ export {
   Rotate as RotateIcon,
   Row as RowIcon,
   Ruler as RulerIcon,
+  ScreenshareFilled as ScreenshareFilledIcon,
+  Screenshare as ScreenshareIcon,
   SearchBold as SearchBoldIcon,
   Search as SearchIcon,
   SecurityPerson as SecurityPersonIcon,
