@@ -18,7 +18,7 @@ Open the Figma desktop app
 Plugins > Development > Import plugin from manifest
 ```
 
-## Contribute
+## Contributing
 
 See [contribution guide](../../CONTRIBUTING.md).
 

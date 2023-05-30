@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig/eslint.json",
+  "include": [
+    "utils/**/*",
+    "scripts/**/*",
+    ".eslintrc.js",
+    "babel.config.js",
+    "rollup.config.mjs",
+  ],
+}

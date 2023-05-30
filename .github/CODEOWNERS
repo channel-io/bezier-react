@@ -6,6 +6,10 @@
 
 /packages/bezier-figma-plugin/ @sungik-choi
 
+# Owner of bezier-icons
+
+/packages/bezier-icons/ @sungik-choi
+
 # Owner of bezier-react
 
 /packages/bezier-react/src/components/AutoFocus/ @sungik-choi
