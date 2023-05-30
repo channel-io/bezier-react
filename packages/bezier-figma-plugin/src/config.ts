@@ -2,7 +2,7 @@ const config = {
   repository: {
     name: 'bezier-react',
     iconExtractPath: 'packages/bezier-react/src/components/Icon/assets',
-    baseBranchName: 'next-v1',
+    baseBranchName: 'main',
     owner: 'channel-io',
   },
   commit: {

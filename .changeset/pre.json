@@ -1,5 +1,5 @@
 {
-  "mode": "pre",
+  "mode": "exit",
   "tag": "next-v1",
   "initialVersions": {
     "bezier-figma-plugin": "0.1.0",
