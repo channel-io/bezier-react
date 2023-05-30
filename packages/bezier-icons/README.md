@@ -4,8 +4,6 @@ Bezier Icons is a icon library that implements the Bezier Design System.
 
 ## Installation
 
-> **NOTE**: The current version of `@channel.io/bezier-react` that provides the `Icon` component for use with `@channel.io/bezier-icons` is the `next-v1` pre-release version.
-
 1. (Recommend) Install `@channel.io/bezier-react` if you haven’t already.
 2. Install `@channel.io/bezier-icons` as a dependency.
 
