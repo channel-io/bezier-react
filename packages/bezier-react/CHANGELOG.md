@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.1.0
+
+### Minor Changes
+
+- [#1371](https://github.com/channel-io/bezier-react/pull/1371) [`11e393f7`](https://github.com/channel-io/bezier-react/commit/11e393f795845571e00c8f13671dbf60bf554445) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Release v1.1.0
+
 ## 1.0.0
 
 ### Minor Changes
