@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "channel-io/bezier-react" }],
+  "changelog": ["./changelog-format.js", { "repo": "channel-io/bezier-react" }],
   "commit": false,
   "fixed": [],
   "linked": [],
