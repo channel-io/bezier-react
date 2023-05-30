@@ -13,7 +13,9 @@ const changelogFunctions = {
   getDependencyReleaseLine: async (_, dependenciesUpdated, options) => {
     optionChecker(options)
 
-    if (dependenciesUpdated.length === 0) return ""
+    if (dependenciesUpdated.length === 0) {
+      return ""
+    }
 
     const updatedDependenciesList = dependenciesUpdated.map((dependency) =>
       `  - ${dependency.name}@${dependency.newVersion}`
@@ -31,7 +33,7 @@ const changelogFunctions = {
     let releaseLine = `\n\n- ${firstLine}`
 
     if (changeset.commit) {
-      let { links, user } = await getInfo({
+      const { links, user } = await getInfo({
         repo: options.repo,
         commit: changeset.commit,
       })
