@@ -2,15 +2,17 @@
   "extends": "tsconfig/script.json",
   "include": [
     "bin/**/*",
-    "manipulators/**/*",
+    "transforms/**/*",
   ],
   "exclude": [
     "node_modules",
+    "**/tests/fixtures/**/*",
   ],
   "compilerOptions": {
     "noEmit": true,
     "strict": true,
     "skipLibCheck": true,
-    "types": [],
+    "lib": ["es2020"],
+    "types": ["node", "jest"],
   },
 }

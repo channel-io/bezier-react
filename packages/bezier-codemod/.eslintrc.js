@@ -6,6 +6,7 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
+    'no-restricted-imports': 'off',
     'sort-imports': [
       'error',
       {

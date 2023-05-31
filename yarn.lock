@@ -7594,6 +7594,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.2.5":
+  version: 20.2.5
+  resolution: "@types/node@npm:20.2.5"
+  checksum: 38ce7c7e9d76880dc632f71d71e0d5914fcda9d5e9a7095d6c339abda55ca4affb0f2a882aeb29398f8e09d2c5151f0b6586c81c8ccdfe529c34b1ea3337425e
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.1
   resolution: "@types/normalize-package-data@npm:2.4.1"
@@ -9904,6 +9911,7 @@ __metadata:
   resolution: "bezier-codemod@workspace:packages/bezier-codemod"
   dependencies:
     "@types/jest": ^29.5.1
+    "@types/node": ^20.2.5
     eslint-config-bezier: "workspace:*"
     jest: ^29.5.0
     ts-jest: ^29.1.0

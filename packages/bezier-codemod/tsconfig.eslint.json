@@ -2,8 +2,11 @@
   "extends": "tsconfig/eslint.json",
   "include": [
     "bin/**/*",
-    "manipulators/**/*",
+    "transforms/**/*",
     ".eslintrc.js",
     "jest.config.js",
   ],
+  "exclude": [
+    "**/tests/fixtures/**/*",
+  ]
 }

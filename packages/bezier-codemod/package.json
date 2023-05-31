@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
+    "@types/node": "^20.2.5",
     "eslint-config-bezier": "workspace:*",
     "jest": "^29.5.0",
     "ts-jest": "^29.1.0",
