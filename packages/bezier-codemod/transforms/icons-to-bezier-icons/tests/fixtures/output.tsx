@@ -1,4 +1,4 @@
-/* eslint-disable */
+// @ts-nocheck
 /* External dependencies */
 import React from 'react'
 import { type IconName, AllIcon, CheckIcon as CheckIconSource } from '@channel.io/bezier-icons'
