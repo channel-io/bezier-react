@@ -1,6 +1,6 @@
 # Bezier Figma Plugin
 
-Bezier Figma Plugin is a Figma plugin that helps build Bezier Design System and increase productivity.
+Bezier Figma Plugin is a Figma plugin that helps build Bezier design system and increase productivity.
 
 ## Usage
 
