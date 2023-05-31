@@ -6,7 +6,4 @@
     ".eslintrc.js",
     "jest.config.js",
   ],
-  "exclude": [
-    "**/tests/fixtures/**/*",
-  ]
 }
