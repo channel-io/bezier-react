@@ -11,7 +11,7 @@ import {
 import iconsToBezierIcons from '../icons-to-bezier-icons'
 
 describe('iconsToBezierIcons', () => {
-  it('should transform import statements correctly', () => {
+  it('should transform import statements correctly', async () => {
     const project = new Project({
       manipulationSettings: {
         indentationText: IndentationText.TwoSpaces,
@@ -29,7 +29,7 @@ describe('iconsToBezierIcons', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    iconsToBezierIcons(sourceFile)
+    await iconsToBezierIcons(sourceFile)
 
     const transformedCode = sourceFile.getText()
     expect(transformedCode).toBe(outputCode)
