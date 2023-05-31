@@ -9904,9 +9904,11 @@ __metadata:
   resolution: "bezier-codemod@workspace:packages/bezier-codemod"
   dependencies:
     "@types/jest": ^29.5.1
+    eslint-config-bezier: "workspace:*"
     jest: ^29.5.0
     ts-jest: ^29.1.0
     ts-morph: ^18.0.0
+    tsconfig: "workspace:*"
   bin:
     bezier-codemod: ./bin/bezier-codemod.ts
   languageName: unknown

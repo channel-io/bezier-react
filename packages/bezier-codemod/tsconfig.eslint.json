@@ -1,0 +1,9 @@
+{
+  "extends": "tsconfig/eslint.json",
+  "include": [
+    "bin/**/*",
+    "manipulators/**/*",
+    ".eslintrc.js",
+    "jest.config.js",
+  ],
+}

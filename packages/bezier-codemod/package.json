@@ -4,7 +4,10 @@
   "description": "",
   "bin": "./bin/bezier-codemod.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --build --verbose",
+    "clean": "rm -rf node_modules .turbo .eslintcache"
   },
   "author": "Sungik Choi <sungik.dev@gmail.com> (http://sungikchoi.com/)",
   "license": "ISC",
@@ -13,7 +16,9 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
+    "eslint-config-bezier": "workspace:*",
     "jest": "^29.5.0",
-    "ts-jest": "^29.1.0"
+    "ts-jest": "^29.1.0",
+    "tsconfig": "workspace:*"
   }
 }
