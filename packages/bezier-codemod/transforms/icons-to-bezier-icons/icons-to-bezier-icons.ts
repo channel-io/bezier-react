@@ -18,7 +18,7 @@ interface CollectResult {
   topLevelCommentStatements: CommentStatement[]
 }
 
-const collect = async (sourceFile: SourceFile): Promise<CollectResult> => {
+const collect = (sourceFile: SourceFile): CollectResult | null => {
   let bezierReactImportDeclaration: ImportDeclaration | undefined
   let bezierReactImportDeclarationIndex: number = 0
   const topLevelCommentStatements: CommentStatement[] = []
@@ -45,7 +45,7 @@ const collect = async (sourceFile: SourceFile): Promise<CollectResult> => {
   })
 
   if (!bezierReactImportDeclaration) {
-    throw new Error('Not subject to migration.')
+    return null
   }
 
   return {
@@ -55,11 +55,11 @@ const collect = async (sourceFile: SourceFile): Promise<CollectResult> => {
   }
 }
 
-const migrate = (sourceFile: SourceFile) => async ({
+const migrate = (sourceFile: SourceFile) => ({
   bezierReactImportDeclaration,
   bezierReactImportDeclarationIndex,
   topLevelCommentStatements,
-}: CollectResult): Promise<void> => {
+}: CollectResult): void => {
   const bezierReactNamedImports = bezierReactImportDeclaration.getNamedImports()
 
   const bezierReactImportsToRemove: ImportSpecifier[] = []
@@ -95,21 +95,19 @@ const migrate = (sourceFile: SourceFile) => async ({
     sourceFile.insertStatements(0,
       topLevelCommentStatements.map((statement) => statement.getText()),
     )
-
-    return
   }
-
-  throw new Error('Not subject to migration.')
 }
 
-async function iconsToBezierIcons(sourceFile: SourceFile) {
-  await collect(sourceFile)
-    .then(migrate(sourceFile))
-    .then(() => {
-      sourceFile.formatText({
-        semicolons: ts.SemicolonPreference.Remove,
-      })
+function iconsToBezierIcons(sourceFile: SourceFile) {
+  const collectResult = collect(sourceFile)
+
+  if (collectResult) {
+    migrate(sourceFile)(collectResult)
+
+    sourceFile.formatText({
+      semicolons: ts.SemicolonPreference.Remove,
     })
+  }
 }
 
 export default iconsToBezierIcons
