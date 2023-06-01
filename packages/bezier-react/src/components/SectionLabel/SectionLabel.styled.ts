@@ -2,7 +2,7 @@ import { styled } from '~/src/foundation'
 
 import { type InterpolationProps } from '~/src/types/Foundation'
 
-import { LegacyIcon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 interface ClickableElementProps {

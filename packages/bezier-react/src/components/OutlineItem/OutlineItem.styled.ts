@@ -8,10 +8,8 @@ import { type ColorProps } from '~/src/types/ComponentProps'
 import { type InterpolationProps } from '~/src/types/Foundation'
 import { isNil } from '~/src/utils/typeUtils'
 
-import {
-  Icon,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import type OutlineItemProps from './OutlineItem.types'
 

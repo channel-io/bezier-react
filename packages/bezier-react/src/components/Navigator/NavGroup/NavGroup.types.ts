@@ -1,3 +1,5 @@
+import { type IconName } from '@channel.io/bezier-icons'
+
 import type {
   ActivatableProps,
   BezierComponentProps,
@@ -5,8 +7,6 @@ import type {
   ContentProps,
   SideContentProps,
 } from '~/src/types/ComponentProps'
-
-import { type IconName } from '~/src/components/Icon'
 
 interface NavGroupOptions {
   open?: boolean

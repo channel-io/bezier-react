@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react'
 
+import { CancelSmallIcon } from '@channel.io/bezier-icons'
+
 import {
   isEmpty,
   isNil,
 } from '~/src/utils/typeUtils'
 
-import { CancelSmallIcon } from '~/src/components/Icon'
 import {
   TAG_BADGE_ICON_SIZE,
   TAG_TEXT_HORIZONTAL_PADDING,

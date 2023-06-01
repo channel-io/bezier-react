@@ -22,10 +22,8 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { Divider } from '~/src/components/Divider'
-import {
-  IconSize,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Tooltip } from '~/src/components/Tooltip'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'

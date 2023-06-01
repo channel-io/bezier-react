@@ -1,14 +1,14 @@
 import type React from 'react'
 
+import {
+  type BezierIcon,
+  type IconName,
+} from '@channel.io/bezier-icons'
+
 import type {
   BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
-
-import type {
-  BezierIcon,
-  IconName,
-} from '~/src/components/Icon'
 
 interface KeyItemOptions {
   keyIcon?: IconName | BezierIcon | React.ReactNode

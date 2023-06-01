@@ -3,6 +3,7 @@ import React, {
   useState,
 } from 'react'
 
+import { InboxIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -11,8 +12,6 @@ import base from 'paths.macro'
 
 import { compact } from '~/src/utils/arrayUtils'
 import { getTitle } from '~/src/utils/storyUtils'
-
-import { InboxIcon } from '~/src/components/Icon'
 
 import ListItem from './ListItem'
 import type ListItemProps from './ListItem.types'

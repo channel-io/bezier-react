@@ -1,5 +1,10 @@
 import type React from 'react'
 
+import {
+  type BezierIcon,
+  type IconName,
+} from '@channel.io/bezier-icons'
+
 import type {
   AdditionalColorProps,
   AdditionalStylableProps,
@@ -11,10 +16,6 @@ import type {
 
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
 
 export enum TextFieldType {
   Search = 'search',

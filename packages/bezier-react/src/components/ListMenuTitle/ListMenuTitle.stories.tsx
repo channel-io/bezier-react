@@ -8,10 +8,8 @@ import base from 'paths.macro'
 
 import { getTitle } from '~/src/utils/storyUtils'
 
-import {
-  IconSize,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import ListMenuTitle from './ListMenuTitle'
 import type ListMenuTitleProps from './ListMenuTitle.types'

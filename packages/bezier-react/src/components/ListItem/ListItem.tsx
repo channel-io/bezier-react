@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
@@ -18,11 +19,8 @@ import {
   isString,
 } from '~/src/utils/typeUtils'
 
-import {
-  IconSize,
-  isBezierIcon,
-  isIconName,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
+import { isIconName } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type ListItemProps from './ListItem.types'

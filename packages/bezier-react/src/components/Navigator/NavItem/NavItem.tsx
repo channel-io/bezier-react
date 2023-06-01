@@ -7,11 +7,11 @@ import { Typography } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
 
+import { IconSize } from '~/src/components/Icon'
 import {
-  IconSize,
   LegacyIcon,
   isIconName,
-} from '~/src/components/Icon'
+} from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type NavItemProps from './NavItem.types'

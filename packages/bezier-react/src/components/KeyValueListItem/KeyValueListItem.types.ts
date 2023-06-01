@@ -1,15 +1,15 @@
 import type React from 'react'
 
+import {
+  type BezierIcon,
+  type IconName,
+} from '@channel.io/bezier-icons'
+
 import type {
   AdditionalStylableProps,
   BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
-
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
 
 import { type KeyValueListItemActionProps } from './common'
 
