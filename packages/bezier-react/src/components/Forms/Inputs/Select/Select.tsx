@@ -21,9 +21,7 @@ import {
   ChevronUpIcon,
   Icon,
   IconSize,
-  LegacyIcon,
   isBezierIcon,
-  isIconName,
 } from '~/src/components/Icon'
 import { OverlayPosition } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
@@ -99,17 +97,6 @@ forwardedRef: Ref<SelectRef>,
       )
     }
 
-    if (isIconName(leftContent)) {
-      return (
-        <LegacyIcon
-          name={leftContent}
-          size={IconSize.XS}
-          color={iconColor}
-          marginRight={6}
-        />
-      )
-    }
-
     return leftContent
   }, [
     leftContent,
@@ -124,17 +111,6 @@ forwardedRef: Ref<SelectRef>,
           size={IconSize.XS}
           marginRight={6}
           color={iconColor}
-        />
-      )
-    }
-
-    if (isIconName(rightContent)) {
-      return (
-        <LegacyIcon
-          name={rightContent}
-          size={IconSize.XS}
-          color={iconColor}
-          marginRight={6}
         />
       )
     }
