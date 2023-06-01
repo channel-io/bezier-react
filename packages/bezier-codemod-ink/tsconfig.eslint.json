@@ -1,8 +1,0 @@
-{
-  "extends": "tsconfig/eslint.json",
-  "include": [
-    "src/**/*",
-    ".eslintrc.cjs",
-    "jest.config.cjs",
-  ],
-}

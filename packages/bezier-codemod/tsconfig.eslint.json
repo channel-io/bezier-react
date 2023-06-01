@@ -1,9 +1,8 @@
 {
   "extends": "tsconfig/eslint.json",
   "include": [
-    "bin/**/*",
-    "transforms/**/*",
-    ".eslintrc.js",
-    "jest.config.js",
+    "src/**/*",
+    ".eslintrc.cjs",
+    "jest.config.cjs",
   ],
 }

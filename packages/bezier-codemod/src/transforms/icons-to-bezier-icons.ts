@@ -49,7 +49,7 @@ const collect = (sourceFile: SourceFile): CollectResult | null => {
 const migrate = (sourceFile: SourceFile) => ({
   bezierReactImportDeclaration,
   bezierReactImportDeclarationIndex,
-}: CollectResult): void => {
+}: CollectResult): true | void => {
   const bezierReactNamedImports = bezierReactImportDeclaration.getNamedImports()
 
   const bezierReactImportsToRemove: ImportSpecifier[] = []
@@ -81,18 +81,32 @@ const migrate = (sourceFile: SourceFile) => ({
       moduleSpecifier: '@channel.io/bezier-icons',
     })
 
+    /**
+     * FIXME: Needs to be modified to communicate with the App
+     * and display it on the screen via react.
+     */
+    // eslint-disable-next-line no-console
+    console.debug(`- ${sourceFile.getBaseName()}`)
+
     sourceFile.formatText({
       semicolons: ts.SemicolonPreference.Remove,
     })
+
+    /**
+     * NOTE: Transformed successfully.
+     */
+    return true
   }
 }
 
-function iconsToBezierIcons(sourceFile: SourceFile) {
+function iconsToBezierIcons(sourceFile: SourceFile): true | void {
   const collectResult = collect(sourceFile)
 
   if (collectResult) {
-    migrate(sourceFile)(collectResult)
+    return migrate(sourceFile)(collectResult)
   }
+
+  return undefined
 }
 
 export default iconsToBezierIcons

@@ -1,25 +1,38 @@
 {
-  "name": "bezier-codemod",
-  "version": "0.0.0",
-  "description": "",
-  "bin": "./bin/bezier-codemod.ts",
-  "scripts": {
-    "test": "jest",
-    "lint": "TIMING=1 eslint --cache .",
-    "typecheck": "tsc --build --verbose",
-    "clean": "rm -rf node_modules .turbo .eslintcache"
-  },
-  "author": "Sungik Choi <sungik.dev@gmail.com> (http://sungikchoi.com/)",
-  "license": "ISC",
-  "dependencies": {
-    "ts-morph": "^18.0.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.1",
-    "@types/node": "^20.2.5",
-    "eslint-config-bezier": "workspace:*",
-    "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
-    "tsconfig": "workspace:*"
-  }
+	"name": "bezier-codemod",
+	"version": "0.0.0",
+	"license": "MIT",
+	"bin": "dist/cli.js",
+	"type": "module",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"build": "tsc --build --verbose",
+		"dev": "tsc --watch",
+		"lint": "TIMING=1 eslint --cache .",
+		"typecheck": "tsc --noEmit",
+		"test": "jest",
+		"clean": "rm -rf dist node_modules .turbo .eslintcache"
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"@inkjs/ui": "^1.0.0",
+		"ink": "^4.1.0",
+		"meow": "^11.0.0",
+		"react": "^18.2.0",
+		"ts-morph": "^18.0.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.1",
+		"@types/node": "^20.2.5",
+		"@types/react": "^18.0.32",
+		"eslint-config-bezier": "workspace:*",
+		"jest": "^29.5.0",
+		"ts-jest": "^29.1.0",
+		"ts-node": "^10.9.1",
+		"tsconfig": "workspace:*"
+	}
 }
