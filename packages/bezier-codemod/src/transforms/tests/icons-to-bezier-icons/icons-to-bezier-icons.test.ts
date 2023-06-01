@@ -1,27 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 
-import {
-  IndentationText,
-  NewLineKind,
-  Project,
-  QuoteKind,
-} from 'ts-morph'
-
+import project from '../../../project.js'
 import iconsToBezierIcons from '../../icons-to-bezier-icons.js'
 
 describe('iconsToBezierIcons', () => {
   it('should transform import statements correctly', () => {
-    const project = new Project({
-      manipulationSettings: {
-        indentationText: IndentationText.TwoSpaces,
-        newLineKind: NewLineKind.LineFeed,
-        quoteKind: QuoteKind.Single,
-        usePrefixAndSuffixTextForRename: false,
-        useTrailingCommas: false,
-      },
-    })
-
     const inputPath = path.join(__dirname, 'fixtures', 'input.tsx')
     const outputPath = path.join(__dirname, 'fixtures', 'output.tsx')
 

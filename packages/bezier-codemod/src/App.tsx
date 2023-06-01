@@ -16,24 +16,9 @@ import {
   Text,
   useApp,
 } from 'ink'
-import {
-  IndentationText,
-  NewLineKind,
-  Project,
-  QuoteKind,
-} from 'ts-morph'
 
+import project from './project.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
-
-const project = new Project({
-  manipulationSettings: {
-    indentationText: IndentationText.TwoSpaces,
-    newLineKind: NewLineKind.LineFeed,
-    quoteKind: QuoteKind.Single,
-    usePrefixAndSuffixTextForRename: true,
-    useTrailingCommas: false,
-  },
-})
 
 enum Step {
   SelectTransformer,
