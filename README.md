@@ -10,6 +10,7 @@
 |---|---|
 | [bezier-react](packages/bezier-react) | React components library that implements Bezier design system. |
 | [bezier-icons](packages/bezier-icons) | Icon library that implements Bezier design system. |
+| [bezier-codemod](packages/bezier-codemod) | Codemod transformations to help upgrade app using Bezier design system. |
 | [bezier-figma-plugin](packages/bezier-figma-plugin) | Figma plugin that helps build Bezier design system and increase productivity. |
 
 ## Commands
