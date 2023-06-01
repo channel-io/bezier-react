@@ -12,6 +12,7 @@ import { getTitle } from '~/src/utils/storyUtils'
 import {
   Icon,
   IconSize,
+  SettingsIcon,
 } from '~/src/components/Icon'
 import { NavItem } from '~/src/components/Navigator/NavItem'
 
@@ -54,6 +55,6 @@ Primary.args = {
   active: false,
   name: 'general',
   content: '일반 설정',
-  leftIcon: 'settings',
+  leftIcon: SettingsIcon,
   rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
 }

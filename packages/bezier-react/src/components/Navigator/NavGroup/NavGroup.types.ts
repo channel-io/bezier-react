@@ -1,4 +1,4 @@
-import { type IconName } from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
@@ -10,7 +10,7 @@ import type {
 
 interface NavGroupOptions {
   open?: boolean
-  leftIcon: IconName
+  leftIcon: BezierIcon
   name: string
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }

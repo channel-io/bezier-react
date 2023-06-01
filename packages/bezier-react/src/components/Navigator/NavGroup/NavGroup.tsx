@@ -17,10 +17,6 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import {
-  LegacyIcon,
-  isIconName,
-} from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type NavGroupProps from './NavGroup.types'
@@ -61,7 +57,6 @@ function NavGroup({
 
   const hasChildren = !isNil(children)
   const chevronIconSource = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
-  const showLeftIcon = isIconName(leftIcon)
   const ariaName = `${name}Menu`
 
   return (
@@ -80,14 +75,12 @@ function NavGroup({
         aria-controls={ariaName}
       >
         <LeftIconWrapper>
-          { showLeftIcon && (
-            <LegacyIcon
-              testId={NAV_GROUP_LEFT_ICON_TEST_ID}
-              name={leftIcon}
-              size={IconSize.S}
-              color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
-            />
-          ) }
+          <Icon
+            testId={NAV_GROUP_LEFT_ICON_TEST_ID}
+            source={leftIcon}
+            size={IconSize.S}
+            color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
+          />
         </LeftIconWrapper>
 
         <Text typo={Typography.Size14} truncated>
