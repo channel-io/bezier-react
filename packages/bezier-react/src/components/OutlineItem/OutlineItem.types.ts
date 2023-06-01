@@ -11,10 +11,7 @@ import type {
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
+import { type BezierIcon } from '~/src/components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',
@@ -25,7 +22,7 @@ interface OutlineItemOptions {
   open?: boolean
   active?: boolean
   focused?: boolean
-  leftIcon?: IconName | BezierIcon
+  leftIcon?: BezierIcon
   hide?: boolean
   disableIconActive?: boolean
   disableChevron?: boolean

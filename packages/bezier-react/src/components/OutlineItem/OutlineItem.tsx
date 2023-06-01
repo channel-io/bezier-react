@@ -13,8 +13,6 @@ import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
   IconSize,
-  isBezierIcon,
-  isIconName,
 } from '~/src/components/Icon'
 
 import type OutlineItemProps from './OutlineItem.types'
@@ -27,7 +25,6 @@ import {
   GroupItemWrapper,
   LeftContentWrapper,
   StyledIcon,
-  StyledLegacyIcon,
 } from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
@@ -169,24 +166,7 @@ function OutlineItem(
       )
     }
 
-    if (isIconName(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledLegacyIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            name={leftIcon}
-            size={IconSize.S}
-            active={active}
-            disableIconActive={disableIconActive}
-            color={leftIconColor}
-          />
-        </LeftContentWrapper>
-      )
-    }
-
-    if (isBezierIcon(leftIcon)) {
+    if (leftIcon) {
       return (
         <LeftContentWrapper>
           <StyledIcon

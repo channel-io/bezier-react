@@ -8,10 +8,7 @@ import { type ColorProps } from '~/src/types/ComponentProps'
 import { type InterpolationProps } from '~/src/types/Foundation'
 import { isNil } from '~/src/utils/typeUtils'
 
-import {
-  Icon,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 
 import type OutlineItemProps from './OutlineItem.types'
 
@@ -74,15 +71,6 @@ export const LeftContentWrapper = styled.div`
 `
 
 interface StyledIconProps extends InterpolationProps, ColorProps {}
-
-export const StyledLegacyIcon = styled(LegacyIcon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
-  color: ${props => {
-    if (!props.disableIconActive && props.active) { return props.foundation?.theme['bgtxt-blue-normal'] }
-    return props.foundation?.theme?.[props.color || 'txt-black-dark']
-  }};
-
-  ${({ interpolation }) => interpolation}
-`
 
 export const StyledIcon = styled(Icon)<StyledIconProps & Pick<OutlineItemProps, 'active' | 'disableIconActive'>>`
   color: ${props => {
