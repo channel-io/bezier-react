@@ -1,0 +1,49 @@
+{
+	"name": "@channel.io/bezier-codemod",
+	"version": "0.0.0",
+	"description": "Codemod transformations to help upgrade app using Bezier design system.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/channel-io/bezier-react",
+		"directory": "packages/bezier-codemod"
+	},
+	"author": "Channel Corp.",
+	"license": "Apache-2.0",
+	"bin": "dist/cli.js",
+	"type": "module",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"build": "tsc --build --verbose",
+		"dev": "tsc --watch",
+		"lint": "TIMING=1 eslint --cache .",
+		"typecheck": "tsc --noEmit",
+		"test": "jest --onlyChanged",
+		"clean": "rm -rf dist node_modules .turbo .eslintcache"
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"@inkjs/ui": "^1.0.0",
+		"ink": "^4.1.0",
+		"meow": "^11.0.0",
+		"react": "^18.2.0",
+		"ts-morph": "^18.0.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.1",
+		"@types/node": "^20.2.5",
+		"@types/react": "^18.0.32",
+		"eslint-config-bezier": "workspace:*",
+		"jest": "^29.5.0",
+		"ts-jest": "^29.1.0",
+		"ts-node": "^10.9.1",
+		"tsconfig": "workspace:*"
+	},
+	"keywords": [
+		"codemod",
+		"channel"
+	]
+}
