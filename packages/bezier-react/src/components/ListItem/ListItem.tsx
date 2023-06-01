@@ -21,7 +21,6 @@ import {
 import {
   IconSize,
   isBezierIcon,
-  isIconName,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
@@ -39,7 +38,6 @@ import {
   LeftContentWrapper,
   RightContent,
   StyledIcon,
-  StyledLegacyIcon,
   Title,
   TitleWrapper,
   Wrapper,
@@ -146,20 +144,6 @@ forwardedRef: React.Ref<ListItemRef>,
       return (
         <LeftContentWrapper>
           { leftContent }
-        </LeftContentWrapper>
-      )
-    }
-
-    if (isIconName(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledLegacyIcon
-            className={iconClassName}
-            name={leftIcon}
-            size={IconSize.S}
-            active={isActive}
-            variant={variant}
-          />
         </LeftContentWrapper>
       )
     }

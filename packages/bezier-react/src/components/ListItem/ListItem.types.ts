@@ -13,10 +13,7 @@ import type {
   VariantProps,
 } from '~/src/types/ComponentProps'
 
-import type {
-  BezierIcon,
-  IconName,
-} from '~/src/components/Icon'
+import type { BezierIcon } from '~/src/components/Icon'
 
 export enum ListItemSize {
   S = 's',
@@ -39,7 +36,7 @@ interface ListItemOptions {
   name?: string
   hide?: boolean
   nested?: boolean
-  leftIcon?: IconName | BezierIcon
+  leftIcon?: BezierIcon
   focused?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number
