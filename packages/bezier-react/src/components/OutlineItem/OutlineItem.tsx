@@ -166,7 +166,7 @@ function OutlineItem(
       )
     }
 
-    if (leftIcon) {
+    if (!isNil(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon

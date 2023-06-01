@@ -18,10 +18,7 @@ import {
   isString,
 } from '~/src/utils/typeUtils'
 
-import {
-  IconSize,
-  isBezierIcon,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import type ListItemProps from './ListItem.types'
@@ -148,7 +145,7 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (isBezierIcon(leftIcon)) {
+    if (!isNil(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon
