@@ -9816,6 +9816,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
+    "@channel.io/bezier-icons": ^0.1.0
     "@channel.io/bezier-react": "workspace:^"
     "@figma/plugin-typings": "*"
     "@types/react": ^18.0.9
