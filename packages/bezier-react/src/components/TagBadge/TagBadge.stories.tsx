@@ -13,6 +13,21 @@ import { getTitle } from '~/src/utils/storyUtils'
 import { gap } from '~/src/utils/styleUtils'
 
 import {
+  ArchiveIcon,
+  BlockIcon,
+  BookmarkFilledIcon,
+  CancelIcon,
+  CheckAllIcon,
+  ClockIcon,
+  ErrorTriangleFilledIcon,
+  HeartFilledIcon,
+  LightningFilledIcon,
+  StarFilledIcon,
+  TimeElapsedIcon,
+  TrendingUpIcon,
+  ViewIcon,
+} from '~/src/components/Icon'
+import {
   HStack,
   StackItem,
   VStack,
@@ -61,20 +76,20 @@ export const Overview: Story<{}> = () => (
     </StackItem>
     <StackItem>
       <Container>
-        <Badge iconName="clock" variant={TagBadgeVariant.Default}>default</Badge>
-        <Badge iconName="bookmark-filled" variant={TagBadgeVariant.Blue}>blue</Badge>
-        <Badge iconName="time-elapsed" variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
-        <Badge iconName="view" variant={TagBadgeVariant.Teal}>teal</Badge>
-        <Badge iconName="lightning-filled" variant={TagBadgeVariant.Green}>green</Badge>
-        <Badge iconName="check-all" variant={TagBadgeVariant.Olive}>olive</Badge>
-        <Badge iconName="heart-filled" variant={TagBadgeVariant.Pink}>pink</Badge>
-        <Badge iconName="archive" variant={TagBadgeVariant.Navy}>navy</Badge>
-        <Badge iconName="star-filled" variant={TagBadgeVariant.Yellow}>yellow</Badge>
-        <Badge iconName="error-triangle-filled" variant={TagBadgeVariant.Orange}>orange</Badge>
-        <Badge iconName="block" variant={TagBadgeVariant.Red}>red</Badge>
-        <Badge iconName="trending-up" variant={TagBadgeVariant.Purple}>purple</Badge>
-        <Badge iconName="clock" variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
-        <Badge iconName="cancel" variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
+        <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>default</Badge>
+        <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>blue</Badge>
+        <Badge icon={TimeElapsedIcon} variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
+        <Badge icon={ViewIcon} variant={TagBadgeVariant.Teal}>teal</Badge>
+        <Badge icon={LightningFilledIcon} variant={TagBadgeVariant.Green}>green</Badge>
+        <Badge icon={CheckAllIcon} variant={TagBadgeVariant.Olive}>olive</Badge>
+        <Badge icon={HeartFilledIcon} variant={TagBadgeVariant.Pink}>pink</Badge>
+        <Badge icon={ArchiveIcon} variant={TagBadgeVariant.Navy}>navy</Badge>
+        <Badge icon={StarFilledIcon} variant={TagBadgeVariant.Yellow}>yellow</Badge>
+        <Badge icon={ErrorTriangleFilledIcon} variant={TagBadgeVariant.Orange}>orange</Badge>
+        <Badge icon={BlockIcon} variant={TagBadgeVariant.Red}>red</Badge>
+        <Badge icon={TrendingUpIcon} variant={TagBadgeVariant.Purple}>purple</Badge>
+        <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
+        <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
       </Container>
     </StackItem>
   </VStack>
@@ -83,13 +98,13 @@ export const Overview: Story<{}> = () => (
 export const BadgeWithoutText: Story<{}> = () => (
   <HStack spacing={4}>
     <StackItem>
-      <Badge variant={TagBadgeVariant.Red} iconName="block" />
+      <Badge variant={TagBadgeVariant.Red} icon={BlockIcon} />
     </StackItem>
     <StackItem>
-      <Badge variant={TagBadgeVariant.Orange} iconName="error-triangle-filled" />
+      <Badge variant={TagBadgeVariant.Orange} icon={ErrorTriangleFilledIcon} />
     </StackItem>
     <StackItem>
-      <Badge variant={TagBadgeVariant.Green} iconName="lightning-filled" />
+      <Badge variant={TagBadgeVariant.Green} icon={LightningFilledIcon} />
     </StackItem>
   </HStack>
 )
@@ -129,20 +144,20 @@ const Items = styled.div`
 
 export const Gap: Story<{}> = () => (
   <Items>
-    <Badge iconName="clock" variant={TagBadgeVariant.Default}>default</Badge>
-    <Badge iconName="bookmark-filled" variant={TagBadgeVariant.Blue}>blue</Badge>
-    <Badge iconName="time-elapsed" variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
-    <Badge iconName="view" variant={TagBadgeVariant.Teal}>teal</Badge>
-    <Badge iconName="lightning-filled" variant={TagBadgeVariant.Green}>green</Badge>
-    <Badge iconName="check-all" variant={TagBadgeVariant.Olive}>olive</Badge>
-    <Badge iconName="heart-filled" variant={TagBadgeVariant.Pink}>pink</Badge>
-    <Badge iconName="archive" variant={TagBadgeVariant.Navy}>navy</Badge>
-    <Badge iconName="star-filled" variant={TagBadgeVariant.Yellow}>yellow</Badge>
-    <Badge iconName="error-triangle-filled" variant={TagBadgeVariant.Orange}>orange</Badge>
-    <Badge iconName="block" variant={TagBadgeVariant.Red}>red</Badge>
-    <Badge iconName="trending-up" variant={TagBadgeVariant.Purple}>purple</Badge>
-    <Badge iconName="clock" variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
-    <Badge iconName="cancel" variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
+    <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>default</Badge>
+    <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>blue</Badge>
+    <Badge icon={TimeElapsedIcon} variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
+    <Badge icon={ViewIcon} variant={TagBadgeVariant.Teal}>teal</Badge>
+    <Badge icon={LightningFilledIcon} variant={TagBadgeVariant.Green}>green</Badge>
+    <Badge icon={CheckAllIcon} variant={TagBadgeVariant.Olive}>olive</Badge>
+    <Badge icon={HeartFilledIcon} variant={TagBadgeVariant.Pink}>pink</Badge>
+    <Badge icon={ArchiveIcon} variant={TagBadgeVariant.Navy}>navy</Badge>
+    <Badge icon={StarFilledIcon} variant={TagBadgeVariant.Yellow}>yellow</Badge>
+    <Badge icon={ErrorTriangleFilledIcon} variant={TagBadgeVariant.Orange}>orange</Badge>
+    <Badge icon={BlockIcon} variant={TagBadgeVariant.Red}>red</Badge>
+    <Badge icon={TrendingUpIcon} variant={TagBadgeVariant.Purple}>purple</Badge>
+    <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
+    <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
   </Items>
 )
 
@@ -164,7 +179,7 @@ export const SizeVariant: Story<{}> = () => (
                 <Tag size={size}>{ label }</Tag>
               </StackItem>
               <StackItem>
-                <Badge size={size} iconName="clock">{ label }</Badge>
+                <Badge size={size} icon={ClockIcon}>{ label }</Badge>
               </StackItem>
             </HStack>
           </StackItem>
@@ -201,7 +216,7 @@ export const Variant: Story<{}> = () => (
                 <Tag variant={variant}>{ label }</Tag>
               </StackItem>
               <StackItem>
-                <Badge iconName="clock" variant={variant}>{ label }</Badge>
+                <Badge icon={ClockIcon} variant={variant}>{ label }</Badge>
               </StackItem>
             </HStack>
           </StackItem>

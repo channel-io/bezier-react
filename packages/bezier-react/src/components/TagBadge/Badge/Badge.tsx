@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 
 import { isEmpty } from '~/src/utils/typeUtils'
 
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import { Icon } from '~/src/components/Icon'
 import {
   BADGE_TEXT_HORIZONTAL_PADDING,
   TAG_BADGE_ICON_SIZE,
@@ -25,7 +25,7 @@ export const BADGE_TEST_ID = 'bezier-react-badge'
 export const Badge = React.memo(function Badge({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
-  iconName,
+  icon,
   children,
   className,
   interpolation,
@@ -37,14 +37,14 @@ export const Badge = React.memo(function Badge({
   const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
   const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
 
-  const IconComponent = useMemo(() => (iconName && (
-    <LegacyIcon
-      name={iconName}
+  const IconComponent = useMemo(() => (icon && (
+    <Icon
+      source={icon}
       size={TAG_BADGE_ICON_SIZE}
       color={textSemanticName}
     />
   )), [
-    iconName,
+    icon,
     textSemanticName,
   ])
 

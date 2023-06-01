@@ -8,6 +8,7 @@ import { base } from 'paths.macro'
 
 import { getTitle } from '~/src/utils/storyUtils'
 
+import { AppleIcon } from '~/src/components/Icon'
 import {
   TagBadgeSize,
   TagBadgeVariant,
@@ -48,6 +49,6 @@ export const Primary: Story<BadgeProps> = Template.bind({})
 Primary.args = {
   children: 'Design',
   size: TagBadgeSize.M,
-  iconName: 'apple',
+  icon: AppleIcon,
   variant: TagBadgeVariant.Default,
 }

@@ -1,4 +1,4 @@
-import { type IconName } from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
   type BezierComponentProps,
@@ -16,7 +16,7 @@ interface BadgeOptions {
   /**
    * Icon to be shown on the left side of the badge.
    */
-  iconName?: IconName
+  icon?: BezierIcon
 }
 
 interface BadgeProps extends
