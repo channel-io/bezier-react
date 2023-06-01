@@ -1,6 +1,6 @@
 # Bezier Codemod
 
-Codemod transformations to help upgrade your using Bezier design system.
+Codemod transformations to help upgrade app using Bezier design system.
 
 ## Usage
 

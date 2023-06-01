@@ -1,7 +1,7 @@
 {
 	"name": "@channel.io/bezier-codemod",
 	"version": "0.0.0",
-	"description": "Codemod transformations to help upgrade your using Bezier design system.",
+	"description": "Codemod transformations to help upgrade app using Bezier design system.",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/channel-io/bezier-react",
