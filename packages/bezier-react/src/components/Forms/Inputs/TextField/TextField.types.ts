@@ -11,10 +11,7 @@ import type {
 
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
+import { type BezierIcon } from '~/src/components/Icon'
 
 export enum TextFieldType {
   Search = 'search',
@@ -42,7 +39,7 @@ export enum TextFieldVariant {
 }
 
 export type TextFieldItemProps = {
-  icon: IconName | BezierIcon
+  icon: BezierIcon
   onClick?: React.MouseEventHandler
 } & AdditionalColorProps<'icon'> | React.ReactElement
 

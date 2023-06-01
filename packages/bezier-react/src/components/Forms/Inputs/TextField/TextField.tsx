@@ -26,8 +26,6 @@ import {
   CancelCircleFilledIcon,
   Icon,
   IconSize,
-  LegacyIcon,
-  isIconName,
 } from '~/src/components/Icon'
 
 import {
@@ -272,18 +270,6 @@ forwardedRef: Ref<TextFieldRef>,
 
   const renderLeftItem = useCallback((item: TextFieldItemProps) => {
     if ('icon' in item) {
-      if (isIconName(item.icon)) {
-        return (
-          <Styled.LeftLegacyIcon
-            name={item.icon}
-            size={IconSize.S}
-            color={item.iconColor ?? 'txt-black-dark'}
-            clickable={!isNil(item.onClick)}
-            onClick={item.onClick}
-          />
-        )
-      }
-
       return (
         <Styled.LeftIcon
           source={item.icon}
@@ -325,22 +311,6 @@ forwardedRef: Ref<TextFieldRef>,
 
   const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
     if ('icon' in item) {
-      if (isIconName(item.icon)) {
-        return (
-          <Styled.RightItemWrapper
-            key={key}
-            clickable={!isNil(item.onClick)}
-            onClick={item.onClick}
-          >
-            <LegacyIcon
-              name={item.icon}
-              size={IconSize.XS}
-              color={item.iconColor ?? 'txt-black-dark'}
-            />
-          </Styled.RightItemWrapper>
-        )
-      }
-
       return (
         <Styled.RightItemWrapper
           key={key}
