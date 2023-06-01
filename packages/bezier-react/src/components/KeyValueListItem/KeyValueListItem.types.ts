@@ -6,15 +6,12 @@ import type {
   ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
+import { type BezierIcon } from '~/src/components/Icon'
 
 import { type KeyValueListItemActionProps } from './common'
 
 interface KeyValueListItemOptions {
-  keyIcon?: IconName | BezierIcon | React.ReactNode
+  keyIcon?: BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
   actions?: KeyValueListItemActionProps | KeyValueListItemActionProps[]
 }
