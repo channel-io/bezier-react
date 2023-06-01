@@ -2812,6 +2812,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/bezier-codemod@workspace:packages/bezier-codemod":
+  version: 0.0.0-use.local
+  resolution: "@channel.io/bezier-codemod@workspace:packages/bezier-codemod"
+  dependencies:
+    "@inkjs/ui": ^1.0.0
+    "@types/jest": ^29.5.1
+    "@types/node": ^20.2.5
+    "@types/react": ^18.0.32
+    eslint-config-bezier: "workspace:*"
+    ink: ^4.1.0
+    jest: ^29.5.0
+    meow: ^11.0.0
+    react: ^18.2.0
+    ts-jest: ^29.1.0
+    ts-morph: ^18.0.0
+    ts-node: ^10.9.1
+    tsconfig: "workspace:*"
+  bin:
+    bezier-codemod: dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
@@ -9953,28 +9975,6 @@ __metadata:
   checksum: 5392dbe04e7fe68b944eb37961d9dfa147aaac3ee9ee3f6e13d42e2c9fbe949e68d16e896c14ee9016fa5f8e6e53ec7fd8b5f01b50a32067a7d94ac9cfb9a050
   languageName: node
   linkType: hard
-
-"bezier-codemod@workspace:packages/bezier-codemod":
-  version: 0.0.0-use.local
-  resolution: "bezier-codemod@workspace:packages/bezier-codemod"
-  dependencies:
-    "@inkjs/ui": ^1.0.0
-    "@types/jest": ^29.5.1
-    "@types/node": ^20.2.5
-    "@types/react": ^18.0.32
-    eslint-config-bezier: "workspace:*"
-    ink: ^4.1.0
-    jest: ^29.5.0
-    meow: ^11.0.0
-    react: ^18.2.0
-    ts-jest: ^29.1.0
-    ts-morph: ^18.0.0
-    ts-node: ^10.9.1
-    tsconfig: "workspace:*"
-  bin:
-    bezier-codemod: dist/cli.js
-  languageName: unknown
-  linkType: soft
 
 "bezier-figma-plugin@workspace:packages/bezier-figma-plugin":
   version: 0.0.0-use.local

@@ -1,14 +1,14 @@
 {
 	"name": "@channel.io/bezier-codemod",
 	"version": "0.0.0",
-  "description": "Codemod transformations to help upgrade your app using Bezier design system.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/channel-io/bezier-react",
-    "directory": "packages/bezier-codemod"
-  },
-  "author": "Channel Corp.",
-  "license": "Apache-2.0",
+	"description": "Codemod transformations to help upgrade your app using Bezier design system.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/channel-io/bezier-react",
+		"directory": "packages/bezier-codemod"
+	},
+	"author": "Channel Corp.",
+	"license": "Apache-2.0",
 	"bin": "dist/cli.js",
 	"type": "module",
 	"engines": {
@@ -42,8 +42,8 @@
 		"ts-node": "^10.9.1",
 		"tsconfig": "workspace:*"
 	},
-  "keywords": [
-    "codemod",
-    "channel"
-  ]
+	"keywords": [
+		"codemod",
+		"channel"
+	]
 }
