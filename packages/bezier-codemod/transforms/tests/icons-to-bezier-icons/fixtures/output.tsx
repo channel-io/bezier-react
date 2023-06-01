@@ -1,10 +1,7 @@
-// @ts-nocheck
-/* External dependencies */
 import React from 'react'
-import { type IconName, AllIcon, CheckIcon as CheckIconSource } from '@channel.io/bezier-icons'
+import { AllIcon, CheckIcon as CheckIconSource, type IconName } from '@channel.io/bezier-icons'
 import { Button, Icon, IconSize } from '@channel.io/bezier-react'
 
-/* Internal dependencies */
 import { Foo } from './foo'
 
 interface ComponentProps {

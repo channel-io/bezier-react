@@ -8,7 +8,7 @@ import {
   QuoteKind,
 } from 'ts-morph'
 
-import iconsToBezierIcons from '../icons-to-bezier-icons'
+import iconsToBezierIcons from '../../icons-to-bezier-icons'
 
 describe('iconsToBezierIcons', () => {
   it('should transform import statements correctly', () => {

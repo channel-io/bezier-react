@@ -1,5 +1,4 @@
 import {
-  type CommentStatement,
   type ImportDeclaration,
   type ImportSpecifier,
   type ImportSpecifierStructure,
@@ -15,30 +14,23 @@ const iconModuleNames = ['isBezierIcon', 'createBezierIcon', 'IconSource', 'Bezi
 interface CollectResult {
   bezierReactImportDeclaration: ImportDeclaration
   bezierReactImportDeclarationIndex: number
-  topLevelCommentStatements: CommentStatement[]
 }
 
 const collect = (sourceFile: SourceFile): CollectResult | null => {
   let bezierReactImportDeclaration: ImportDeclaration | undefined
   let bezierReactImportDeclarationIndex: number = 0
-  const topLevelCommentStatements: CommentStatement[] = []
-
-  let metImportDeclaration = false
 
   sourceFile.getStatementsWithComments().some((statement, index) => {
-    if (Node.isCommentNode(statement) && !metImportDeclaration) {
-      topLevelCommentStatements.push(statement)
+    if (!Node.isImportDeclaration(statement)) {
       return false
     }
 
-    if (Node.isImportDeclaration(statement)) {
-      metImportDeclaration = true
+    const isBezierReactImport = statement.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react'
 
-      if (statement.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react') {
-        bezierReactImportDeclaration = statement
-        bezierReactImportDeclarationIndex = index
-        return true
-      }
+    if (isBezierReactImport) {
+      bezierReactImportDeclaration = statement
+      bezierReactImportDeclarationIndex = index
+      return true
     }
 
     return false
@@ -51,14 +43,12 @@ const collect = (sourceFile: SourceFile): CollectResult | null => {
   return {
     bezierReactImportDeclaration,
     bezierReactImportDeclarationIndex,
-    topLevelCommentStatements,
   }
 }
 
 const migrate = (sourceFile: SourceFile) => ({
   bezierReactImportDeclaration,
   bezierReactImportDeclarationIndex,
-  topLevelCommentStatements,
 }: CollectResult): void => {
   const bezierReactNamedImports = bezierReactImportDeclaration.getNamedImports()
 
@@ -91,10 +81,9 @@ const migrate = (sourceFile: SourceFile) => ({
       moduleSpecifier: '@channel.io/bezier-icons',
     })
 
-    // TODO: Not working
-    sourceFile.insertStatements(0,
-      topLevelCommentStatements.map((statement) => statement.getText()),
-    )
+    sourceFile.formatText({
+      semicolons: ts.SemicolonPreference.Remove,
+    })
   }
 }
 
@@ -103,10 +92,6 @@ function iconsToBezierIcons(sourceFile: SourceFile) {
 
   if (collectResult) {
     migrate(sourceFile)(collectResult)
-
-    sourceFile.formatText({
-      semicolons: ts.SemicolonPreference.Remove,
-    })
   }
 }
 
