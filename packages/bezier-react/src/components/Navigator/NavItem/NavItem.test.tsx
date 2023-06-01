@@ -4,6 +4,8 @@ import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { render } from '~/src/utils/testUtils'
 
+import { DotIcon } from '~/src/components/Icon'
+
 import NavItem, {
   NAV_ITEM_LEFT_ICON_TEST_ID,
   NAV_ITEM_TEST_ID,
@@ -15,7 +17,7 @@ describe('NavItem Test >', () => {
 
   beforeEach(() => {
     props = {
-      leftIcon: 'dot',
+      leftIcon: DotIcon,
       name: 'general',
       content: 'test-content',
     }

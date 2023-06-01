@@ -7,11 +7,10 @@ import { Typography } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
 
-import { IconSize } from '~/src/components/Icon'
 import {
-  LegacyIcon,
-  isIconName,
-} from '~/src/components/LegacyIcon'
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import type NavItemProps from './NavItem.types'
@@ -48,8 +47,6 @@ function NavItem({
     onClick,
   ])
 
-  const showLeftIcon = isIconName(leftIcon)
-
   return (
     <Wrapper role="none">
       <Item
@@ -65,10 +62,10 @@ function NavItem({
         role="menuitem"
       >
         <LeftIconWrapper>
-          { showLeftIcon && (
-            <LegacyIcon
+          { leftIcon && (
+            <Icon
               testId={NAV_ITEM_LEFT_ICON_TEST_ID}
-              name={leftIcon}
+              source={leftIcon}
               size={IconSize.S}
               color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
