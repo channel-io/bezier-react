@@ -19,7 +19,7 @@
 		"dev": "tsc --watch",
 		"lint": "TIMING=1 eslint --cache .",
 		"typecheck": "tsc --noEmit",
-		"test": "jest",
+		"test": "jest --onlyChanged",
 		"clean": "rm -rf dist node_modules .turbo .eslintcache"
 	},
 	"files": [
