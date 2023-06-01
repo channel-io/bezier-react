@@ -3,6 +3,8 @@ import {
   renderHook,
 } from '@testing-library/react'
 
+import { InfoFilledIcon } from '~/src/components/Icon'
+
 import {
   ToastAppearance,
   type ToastType,
@@ -35,7 +37,7 @@ describe('ToastService', () => {
       expect.objectContaining({
         id: expect.stringMatching(UUID_V4_REGEX),
         content: '0',
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
@@ -87,7 +89,7 @@ describe('ToastService', () => {
       expect.objectContaining({
         id: expect.stringMatching(UUID_V4_REGEX),
         content: '0',
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
@@ -112,7 +114,7 @@ describe('ToastService', () => {
       expect.objectContaining({
         id: expect.stringMatching(UUID_V4_REGEX),
         content: '0',
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
@@ -139,7 +141,7 @@ describe('ToastService', () => {
       expect.objectContaining({
         id: expect.stringMatching(UUID_V4_REGEX),
         content: '0',
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,

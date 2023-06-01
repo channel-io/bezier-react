@@ -4,7 +4,10 @@ import {
 } from 'react'
 import type React from 'react'
 
-import { type IconName } from '@channel.io/bezier-icons'
+import {
+  type BezierIcon,
+  InfoFilledIcon,
+} from '@channel.io/bezier-icons'
 
 import { type TransitionDuration } from '~/src/foundation'
 
@@ -44,13 +47,13 @@ export enum ToastPreset {
 
 export interface ToastPresetType {
   appearance: ToastAppearance
-  iconName: IconName
+  icon: BezierIcon
 }
 
 interface ToastElementOptions {
   preset?: ToastPreset
   appearance?: ToastAppearance
-  iconName?: IconName
+  icon?: BezierIcon
   /**
    * @deprecated use React.ReactNode content props instead.
    */
@@ -81,7 +84,7 @@ export type OnDismissCallback = (id: ToastId) => void
 
 export type ToastOptions = {
   preset?: ToastPreset
-  iconName?: IconName
+  icon?: BezierIcon
   appearance?: ToastAppearance
   actionContent?: string
   autoDismiss?: boolean
@@ -92,7 +95,7 @@ export type ToastOptions = {
 }
 
 export const defaultOptions: ToastOptions = {
-  iconName: 'info-filled',
+  icon: InfoFilledIcon,
   appearance: ToastAppearance.Info,
   autoDismiss: false,
   onDismiss: noop,

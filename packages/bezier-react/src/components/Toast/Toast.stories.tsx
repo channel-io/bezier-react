@@ -24,6 +24,7 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
+import { ChannelSmileFilledIcon } from '~/src/components/Icon'
 import { ProgressBar } from '~/src/components/ProgressBar'
 import {
   StackItem,
@@ -59,7 +60,7 @@ export default {
         },
       },
     },
-    iconName: {
+    icon: {
       control: {
         type: 'select',
         options: [
@@ -100,7 +101,7 @@ Primary.args = {
   content: '안내문구입니다.\nnewLine',
   preset: ToastPreset.Default,
   appearance: undefined,
-  iconName: undefined,
+  icon: undefined,
   actionContent: '새로고침',
   onClick: noop,
 }
@@ -109,7 +110,7 @@ function Div({
   content,
   preset,
   appearance,
-  iconName,
+  icon,
   actionContent,
 }) {
   const toast = useToast()
@@ -127,7 +128,7 @@ function Div({
     toast.addToast(currentContent, {
       preset,
       appearance,
-      iconName,
+      icon,
       actionContent,
       onClick: () => handleAction(currentContent),
     })
@@ -137,7 +138,7 @@ function Div({
 
   const handleNeverDismiss = () => toast.addToast('이건 사라지지 않아요!', {
     appearance: ToastAppearance.Success,
-    iconName: 'channel-smile-filled',
+    icon: ChannelSmileFilledIcon,
     autoDismiss: false,
   })
 
@@ -168,7 +169,7 @@ export const WithAction: Story<ToastProps & WithActionProps> = ({
   content,
   preset,
   appearance,
-  iconName,
+  icon,
   actionContent,
 }) => (
   <Container id="story-wrapper">
@@ -179,7 +180,7 @@ export const WithAction: Story<ToastProps & WithActionProps> = ({
         content={content}
         preset={preset}
         appearance={appearance}
-        iconName={iconName}
+        icon={icon}
         actionContent={actionContent}
       />
     </ToastProvider>
@@ -191,7 +192,7 @@ WithAction.args = {
   content: '안내문구입니다.',
   preset: ToastPreset.Default,
   appearance: undefined,
-  iconName: undefined,
+  icon: undefined,
   actionContent: '액션 함수 테스트',
 }
 

@@ -43,7 +43,7 @@ function ToastProvider({
         content,
         preset,
         appearance,
-        iconName,
+        icon,
         actionContent,
         onClick,
         id,
@@ -62,7 +62,7 @@ function ToastProvider({
           preset={preset}
           appearance={appearance}
           content={content}
-          iconName={iconName}
+          icon={icon}
           component={ToastElement}
           onDismiss={() => dismiss(id, onDismiss)}
           transform={css``}
