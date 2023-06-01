@@ -97,6 +97,8 @@ const migrate = (sourceFile: SourceFile) => ({
      */
     return true
   }
+
+  return undefined
 }
 
 function iconsToBezierIcons(sourceFile: SourceFile): true | void {
