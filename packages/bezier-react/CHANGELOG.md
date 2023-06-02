@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.3.0
+
+### Minor Changes
+
+- **BREAKING CHANGE**: No longer exports IconSource related modules. Now import from the `@channel.io/bezier-icons` package. ([#1375](https://github.com/channel-io/bezier-react/pull/1375)) by @sungik-choi
+
+  For more details see: [@channel.io/bezier-codemod - transformations](https://github.com/channel-io/bezier-react/tree/main/packages/bezier-codemod#transformations)
+
 ## 1.2.0
 
 ### Minor Changes
