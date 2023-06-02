@@ -8,7 +8,7 @@ import {
   ts,
 } from 'ts-morph'
 
-const iconSourceNamePattern = /^[A-Z][a-zA-Z]*Icon$/
+const iconSourceNamePattern = /^(?!LegacyIcon$)[A-Z][a-zA-Z]*Icon$/
 const iconModuleNames = ['isBezierIcon', 'createBezierIcon', 'IconSource', 'BezierIcon', 'IconName']
 
 interface CollectResult {

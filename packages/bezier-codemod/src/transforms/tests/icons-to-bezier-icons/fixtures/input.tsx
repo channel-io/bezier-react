@@ -1,5 +1,5 @@
 import React from 'react'
-import { AllIcon, Button, CheckIcon as CheckIconSource, Icon, type IconName, IconSize } from '@channel.io/bezier-react'
+import { AllIcon, Button, CheckIcon as CheckIconSource, Icon, type IconName, IconSize, LegacyIcon } from '@channel.io/bezier-react'
 
 import { Foo } from './foo'
 
