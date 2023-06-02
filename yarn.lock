@@ -2834,10 +2834,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@channel.io/bezier-icons@npm:0.1.0"
-  checksum: 6b4356af704e4c42572152566da70619161dd491ce5669979c06812a9056449b6d9f5e88e92857537c6fe11d4f04b3d4b0889923929fca98edc3bdb444d06524
+"@channel.io/bezier-icons@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@channel.io/bezier-icons@npm:0.1.1"
+  checksum: 8fedb5142e6ff158b8e07e04f1defd8ec3a595b29558fdefc345af8ff20da6478d05bc0dea82ba58f153571ad96bb25716b76ef92d1027c30747afa13b100f51
   languageName: node
   linkType: hard
 
@@ -2876,7 +2876,7 @@ __metadata:
     "@babel/preset-react": ^7.12.10
     "@babel/preset-typescript": ^7.12.7
     "@babel/runtime": ^7.12.13
-    "@channel.io/bezier-icons": ^0.1.0
+    "@channel.io/bezier-icons": ^0.1.1
     "@channel.io/react-docgen-typescript-plugin": ^1.0.0
     "@mdx-js/react": ^1.6.22
     "@radix-ui/react-checkbox": ^1.0.3
@@ -9816,7 +9816,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-icons": ^0.1.0
+    "@channel.io/bezier-icons": ^0.1.1
     "@channel.io/bezier-react": "workspace:^"
     "@figma/plugin-typings": "*"
     "@types/react": ^18.0.9

@@ -116,7 +116,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
-    "@channel.io/bezier-icons": "^0.1.0",
+    "@channel.io/bezier-icons": "^0.1.1",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-radio-group": "^1.1.0",
