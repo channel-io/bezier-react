@@ -6,10 +6,8 @@ import {
 import { type AdditionalColorProps } from '~/src/types/ComponentProps'
 import { isNil } from '~/src/utils/typeUtils'
 
-import {
-  Icon,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Tooltip } from '~/src/components/Tooltip'
 
 export const ItemActionWrapper = styled.div`

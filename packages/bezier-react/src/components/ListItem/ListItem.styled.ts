@@ -9,10 +9,8 @@ import {
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'
 
-import {
-  Icon,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import {
   type ListItemSize,

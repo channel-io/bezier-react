@@ -18,7 +18,6 @@ module.exports = {
   },
   collectCoverage: true,
   coveragePathIgnorePatterns: [
-    'src/components/Icon/generated/',
     'src/index.ts',
   ],
   collectCoverageFrom: [

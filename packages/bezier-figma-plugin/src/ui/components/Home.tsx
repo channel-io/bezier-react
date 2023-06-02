@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
+import { HexahedronIcon } from '@channel.io/bezier-icons'
 import {
   ListItem,
   ListItemSize,
@@ -21,7 +22,7 @@ function Home() {
       <StackItem>
         <ListItem
           size={ListItemSize.XL}
-          leftIcon="hexahedron"
+          leftIcon={HexahedronIcon}
           content="아이콘 추출"
           onClick={handleClickExtract}
         />

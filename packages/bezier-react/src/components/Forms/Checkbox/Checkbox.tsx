@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react'
 
+import {
+  CheckBoldIcon,
+  HyphenBoldIcon,
+} from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import useId from '~/src/hooks/useId'
 
 import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import {
-  CheckBoldIcon,
-  HyphenBoldIcon,
-  IconSize,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
 
 import {
   type CheckboxProps,

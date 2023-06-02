@@ -3,14 +3,13 @@ import React, {
   useContext,
 } from 'react'
 
+import { OpenInNewIcon } from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import { isNil } from '~/src/utils/typeUtils'
 
-import {
-  IconSize,
-  OpenInNewIcon,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import TabListContext from './TabListContext'

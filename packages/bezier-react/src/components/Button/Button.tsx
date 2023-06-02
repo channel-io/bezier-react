@@ -14,11 +14,11 @@ import { flattenDeep } from '~/src/utils/arrayUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { isArray } from '~/src/utils/typeUtils'
 
+import { IconSize } from '~/src/components/Icon'
 import {
-  IconSize,
   LegacyIcon,
   isIconName,
-} from '~/src/components/Icon'
+} from '~/src/components/LegacyIcon'
 import {
   Spinner,
   SpinnerSize,

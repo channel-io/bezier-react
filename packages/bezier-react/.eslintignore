@@ -2,5 +2,3 @@ node_modules
 build
 coverage
 __mocks__
-
-src/components/Icon/generated/*.tsx

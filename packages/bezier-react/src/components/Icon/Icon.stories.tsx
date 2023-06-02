@@ -1,6 +1,26 @@
 import React, { useState } from 'react'
 
 import {
+  ArrowLeftIcon,
+  BookmarkFilledIcon,
+  CallInProgressIcon,
+  ChannelBtnSmileFilledIcon,
+  ChannelIcon,
+  CheckCircleIcon,
+  ChevronDownDoubleIcon,
+  ChevronRightIcon,
+  ClockIcon,
+  EditIcon,
+  EmailIcon,
+  ErrorTriangleFilledIcon,
+  InboxIcon,
+  InfoFilledIcon,
+  SendForwardFilledIcon,
+  SettingsIcon,
+  TrashIcon,
+  icons,
+} from '@channel.io/bezier-icons'
+import {
   type Meta,
   type Story,
 } from '@storybook/react'
@@ -35,25 +55,6 @@ import {
   type IconProps,
   IconSize,
 } from './Icon.types'
-import icons, {
-  ArrowLeftIcon,
-  BookmarkFilledIcon,
-  CallInProgressIcon,
-  ChannelBtnSmileFilledIcon,
-  ChannelIcon,
-  CheckCircleIcon,
-  ChevronDownDoubleIcon,
-  ChevronRightIcon,
-  ClockIcon,
-  EditIcon,
-  EmailIcon,
-  ErrorTriangleFilledIcon,
-  InboxIcon,
-  InfoFilledIcon,
-  SendForwardFilledIcon,
-  SettingsIcon,
-  TrashIcon,
-} from './generated'
 
 export default {
   title: getTitle(base),

@@ -1,4 +1,7 @@
-import Icons, { type IconName } from '~/src/components/Icon/generated'
+import {
+  type IconName,
+  icons,
+} from '@channel.io/bezier-icons'
 
 import { isNaN } from './typeUtils'
 
@@ -8,7 +11,7 @@ export const getTitle = (baseDir: string) => {
   return filePath.slice(2, filePath.length - 1).join('/')
 }
 
-export const iconList: IconName[] = Object.keys(Icons) as IconName[]
+export const iconList: IconName[] = Object.keys(icons) as IconName[]
 
 interface Enum {
   [id: string]: string | number

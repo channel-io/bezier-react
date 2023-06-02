@@ -5,6 +5,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import { isString } from '~/src/utils/typeUtils'
@@ -12,11 +14,12 @@ import { isString } from '~/src/utils/typeUtils'
 import {
   Icon,
   IconSize,
-  LegacyIcon,
-  isBezierIcon,
-  isIconName,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import {
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/LegacyIcon'
 
 import { type KeyItemProps } from './KeyItem.types'
 

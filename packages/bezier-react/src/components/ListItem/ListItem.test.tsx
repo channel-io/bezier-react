@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { CheckIcon } from '@channel.io/bezier-icons'
 import {
   getDocument,
   getWindow,
@@ -9,8 +10,6 @@ import { v4 as uuid } from 'uuid'
 import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
-
-import { CheckIcon } from '~/src/components/Icon'
 
 import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
 import type ListItemProps from './ListItem.types'

@@ -17,10 +17,8 @@ import {
   inputTextStyle,
   inputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
-import {
-  Icon,
-  LegacyIcon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import {
   TextFieldSize,

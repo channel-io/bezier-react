@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 
 import { isEmpty } from '~/src/utils/typeUtils'
 
-import { LegacyIcon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import {
   BADGE_TEXT_HORIZONTAL_PADDING,
   TAG_BADGE_ICON_SIZE,

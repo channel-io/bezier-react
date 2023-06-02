@@ -1,3 +1,4 @@
+import { CheckIcon as CheckIconSource } from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import {
@@ -13,10 +14,7 @@ import {
   AvatarSize,
   Avatar as BaseAvatar,
 } from '~/src/components/Avatars/Avatar'
-import {
-  CheckIcon as CheckIconSource,
-  Icon,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 
 export const Avatar = styled(BaseAvatar)``
 

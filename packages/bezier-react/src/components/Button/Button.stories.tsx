@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { TagIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -15,7 +16,6 @@ import { getTitle } from '~/src/utils/storyUtils'
 
 import { Avatar } from '~/src/components/Avatars/Avatar'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
-import { TagIcon } from '~/src/components/Icon'
 import { ListItem } from '~/src/components/ListItem'
 import {
   Overlay,
