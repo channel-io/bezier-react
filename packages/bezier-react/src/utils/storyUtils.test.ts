@@ -1,4 +1,4 @@
-import { type IconName } from '~/src/components/Icon'
+import { type IconName } from '@channel.io/bezier-icons'
 
 import {
   getObjectFromEnum,

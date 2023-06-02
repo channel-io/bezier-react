@@ -1,5 +1,7 @@
 import type React from 'react'
 
+import { type IconName } from '@channel.io/bezier-icons'
+
 import type {
   AdditionalColorProps,
   AdditionalStylableProps,
@@ -9,10 +11,7 @@ import type {
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-import type {
-  IconName,
-  IconSize,
-} from '~/src/components/Icon'
+import type { IconSize } from '~/src/components/Icon'
 
 interface IconInfo extends AdditionalColorProps<'icon'> {
   icon: IconName

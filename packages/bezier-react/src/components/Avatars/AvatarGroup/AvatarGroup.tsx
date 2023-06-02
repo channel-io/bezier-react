@@ -4,6 +4,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import { MoreIcon } from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import { isLastIndex } from '~/src/utils/arrayUtils'
@@ -20,7 +22,6 @@ import {
 import {
   Icon,
   IconSize,
-  MoreIcon,
 } from '~/src/components/Icon'
 
 import {

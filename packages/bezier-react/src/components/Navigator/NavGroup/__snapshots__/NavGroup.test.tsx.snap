@@ -120,12 +120,10 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     class="c1"
   >
     <svg
-      aria-hidden="true"
       class="c2"
       color="bgtxt-blue-normal"
       data-testid="bezier-react-nav-group-left-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="20"
       marginbottom="0"
@@ -143,11 +141,6 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Dot
-    </span>
   </div>
   <span
     class="c3"
@@ -159,12 +152,10 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     class="c4"
   >
     <svg
-      aria-hidden="true"
       class="c5"
       color="bgtxt-orange-normal"
       data-testid="bezier-react-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="16"
       marginbottom="0"
@@ -182,11 +173,6 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Dot
-    </span>
   </div>
 </button>
 `;
@@ -318,12 +304,10 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     class="c1"
   >
     <svg
-      aria-hidden="true"
       class="c2"
       color="txt-black-dark"
       data-testid="bezier-react-nav-group-left-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="20"
       marginbottom="0"
@@ -341,11 +325,6 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Dot
-    </span>
   </div>
   <span
     class="c3"
@@ -357,12 +336,10 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     class="c4"
   >
     <svg
-      aria-hidden="true"
       class="c5"
       color="bgtxt-orange-normal"
       data-testid="bezier-react-icon"
       fill="none"
-      focusable="false"
       foundation="[object Object]"
       height="16"
       marginbottom="0"
@@ -380,11 +357,6 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-    >
-      Dot
-    </span>
   </div>
 </button>
 `;

@@ -2,7 +2,7 @@ import { styled } from '~/src/foundation'
 
 import type { VariantProps } from '~/src/types/ComponentProps'
 
-import { LegacyIcon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import {
   StackItem as BaseStackItem,
   HStack,

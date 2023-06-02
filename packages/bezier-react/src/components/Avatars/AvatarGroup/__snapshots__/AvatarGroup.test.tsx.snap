@@ -40,6 +40,9 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   all: unset;
   position: relative;
   display: block;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
 }
 
 .c1.disabled {
@@ -307,6 +310,9 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   all: unset;
   position: relative;
   display: block;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
 }
 
 .c1.disabled {
@@ -522,12 +528,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       style="--bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
-        aria-hidden="true"
         class="c6"
         color="bgtxt-absolute-white-dark"
         data-testid="bezier-react-icon"
         fill="none"
-        focusable="false"
         foundation="[object Object]"
         height="16"
         marginbottom="0"
@@ -545,11 +549,6 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <span
-        style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-      >
-        More
-      </span>
     </div>
     <div
       class="c1 size-24"

@@ -1,11 +1,11 @@
+import { type BezierIcon } from '@channel.io/bezier-icons'
+
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type ContentProps,
   type DisableProps,
 } from '~/src/types/ComponentProps'
-
-import { type BezierIcon } from '~/src/components/Icon'
 
 /**
  * An enumeration that determines the position of `Tooltip`.

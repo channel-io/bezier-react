@@ -12,6 +12,7 @@ export const AvatarWrapper = styled.div<InterpolationProps>`
   all: unset;
   position: relative;
   display: block;
+  flex: none;
 
   &.disabled {
     pointer-events: none;
@@ -88,4 +89,5 @@ export const StatusWrapper = styled.div`
   position: absolute;
   right: var(--bezier-avatar-computed-status-gap, 0);
   bottom: var(--bezier-avatar-computed-status-gap, 0);
+  display: flex;
 `

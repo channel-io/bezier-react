@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { CalendarIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -11,7 +12,6 @@ import {
   getTitle,
 } from '~/src/utils/storyUtils'
 
-import { CalendarIcon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import Select from './Select'

@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { HelpFilledIcon } from '@channel.io/bezier-icons'
+
 import { isEmpty } from '~/src/utils/typeUtils'
 
-import {
-  HelpFilledIcon,
-  IconSize,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
 
 import type HelpProps from './Help.types'
 

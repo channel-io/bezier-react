@@ -19,12 +19,12 @@ export enum IconSize {
 interface IconOptions {
   /**
    * Controls which icon should be rendered.
-   *
-   * Use the icon components exported from bezier-react for this prop.
+   * Inject the icon component from the @channel.io/bezier-icons package into this prop.
    *
    * @example
    * ```tsx
-   * import { Icon, HeartFilledIcon } from '@channel.io/bezier-react'
+   * import { HeartFilledIcon } from '@channel.io/bezier-icons'
+   * import { Icon } from '@channel.io/bezier-react'
    *
    * <Icon source={HeartFilledIcon} {...} />
    * ```

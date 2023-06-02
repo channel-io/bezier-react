@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { type IconName } from '@channel.io/bezier-icons'
+
 import type {
   AdditionalColorProps,
   BezierComponentProps,
@@ -8,7 +10,6 @@ import type {
 } from '~/src/types/ComponentProps'
 
 import type { ButtonProps } from '~/src/components/Button'
-import type { IconName } from '~/src/components/Icon'
 
 export enum BannerVariant {
   Default = 'default',

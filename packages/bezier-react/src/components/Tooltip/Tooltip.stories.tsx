@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { TranslateIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -12,7 +13,6 @@ import {
 } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
-import { TranslateIcon } from '~/src/components/Icon'
 
 import {
   Tooltip,

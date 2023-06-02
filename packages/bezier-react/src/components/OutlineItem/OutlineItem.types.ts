@@ -1,3 +1,8 @@
+import {
+  type BezierIcon,
+  type IconName,
+} from '@channel.io/bezier-icons'
+
 import type {
   ActivatableProps,
   AdditionalColorProps,
@@ -10,11 +15,6 @@ import type {
   OptionItemProps,
   SideContentProps,
 } from '~/src/types/ComponentProps'
-
-import {
-  type BezierIcon,
-  type IconName,
-} from '~/src/components/Icon'
 
 export enum ChevronIconType {
   Normal = 'chevron',

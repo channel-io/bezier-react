@@ -1,8 +1,8 @@
 # Bezier React
 
-Bezier React is a React components library that implements Bezier Design System.
+Bezier React is a React components library that implements Bezier design system.
 
-## Install
+## Installation
 
 ### npm
 
@@ -38,7 +38,7 @@ root.render(
 )
 ```
 
-## Contribute
+## Contributing
 
 See [contribution guide](../../CONTRIBUTING.md).
 

@@ -9,6 +9,7 @@ import React, {
   useState,
 } from 'react'
 
+import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
 import { window } from '~/src/utils/domUtils'
@@ -23,12 +24,13 @@ import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 import {
-  CancelCircleFilledIcon,
   Icon,
   IconSize,
+} from '~/src/components/Icon'
+import {
   LegacyIcon,
   isIconName,
-} from '~/src/components/Icon'
+} from '~/src/components/LegacyIcon'
 
 import {
   type SelectionRangeDirections,

@@ -3,19 +3,24 @@ import React, {
   useCallback,
 } from 'react'
 
+import {
+  ChevronSmallDownIcon,
+  ChevronSmallRightIcon,
+} from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
 
 import {
-  ChevronSmallDownIcon,
-  ChevronSmallRightIcon,
   Icon,
   IconSize,
+} from '~/src/components/Icon'
+import {
   LegacyIcon,
   isIconName,
-} from '~/src/components/Icon'
+} from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type NavGroupProps from './NavGroup.types'

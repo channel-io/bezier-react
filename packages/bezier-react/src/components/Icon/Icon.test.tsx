@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { AllIcon } from '@channel.io/bezier-icons'
+
 import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
@@ -9,7 +11,6 @@ import {
   Icon,
 } from './Icon'
 import { type IconProps } from './Icon.types'
-import { AllIcon } from './generated'
 
 describe('Icon test >', () => {
   let props: IconProps

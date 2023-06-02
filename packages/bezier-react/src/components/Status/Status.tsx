@@ -3,13 +3,14 @@ import React, {
   memo,
 } from 'react'
 
-import type { SemanticNames } from '~/src/foundation'
-
 import {
-  IconSize,
   LockIcon,
   MoonFilledIcon,
-} from '~/src/components/Icon'
+} from '@channel.io/bezier-icons'
+
+import type { SemanticNames } from '~/src/foundation'
+
+import { IconSize } from '~/src/components/Icon'
 
 import {
   type StatusProps,

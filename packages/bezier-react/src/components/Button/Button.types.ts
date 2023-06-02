@@ -1,11 +1,11 @@
+import { type IconName } from '@channel.io/bezier-icons'
+
 import {
   type BezierComponentProps,
   type DisableProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
-
-import type { IconName } from '~/src/components/Icon'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

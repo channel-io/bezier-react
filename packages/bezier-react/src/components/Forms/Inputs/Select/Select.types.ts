@@ -1,3 +1,5 @@
+import { type BezierIcon } from '@channel.io/bezier-icons'
+
 import type {
   AdditionalColorProps,
   AdditionalStylableProps,
@@ -10,7 +12,6 @@ import type {
 
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
-import type { BezierIcon } from '~/src/components/Icon'
 import type { OverlayProps } from '~/src/components/Overlay'
 
 export enum SelectSize {
