@@ -2,9 +2,7 @@
 "@channel.io/bezier-react": minor
 ---
 
-Re-implement `Tooltip` component.
-
-BREAKING CHANGES
+**BREAKING CHANGES**: Re-implement `Tooltip` component.
 
 - No longer render div elements outside of the trigger(children) component.
 - The legacy tooltip is now exported with the name `LegacyTooltip`.
