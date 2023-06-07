@@ -22475,8 +22475,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^2.50.5":
-  version: 2.75.7
-  resolution: "rollup@npm:2.75.7"
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -22484,13 +22484,13 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: a6331d46b01062b184efdcb42ce12caf2e1575f989963944534b02f5855f6f3bc239ed0c1a18893572d7695af6d83166f3aef59dbd0365084e1531cb67824674
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 
 "rollup@npm:^3.22.0":
-  version: 3.23.0
-  resolution: "rollup@npm:3.23.0"
+  version: 3.23.1
+  resolution: "rollup@npm:3.23.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -22498,7 +22498,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 0721065cf725c5611815be61d2b01f20b4d0027e17035f6e76384d38396b56cf6ed21a3db78eb004d9db4d24c8a6a19da4563b4ff96b5dd36f0a0f7a3baf85e8
+  checksum: 4b3b3bbfd490b41ec5473d1141fe2beb0c86f600b56378fce97e0485192818256f8cbf4d43450b097ee7042e6629fb0187488807e2d15050860718f458c44685
   languageName: node
   linkType: hard
 
