@@ -4864,21 +4864,28 @@ __metadata:
   linkType: hard
 
 "@radix-ui/react-switch@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "@radix-ui/react-switch@npm:1.0.2"
+  version: 1.0.3
+  resolution: "@radix-ui/react-switch@npm:1.0.3"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@radix-ui/primitive": 1.0.0
-    "@radix-ui/react-compose-refs": 1.0.0
-    "@radix-ui/react-context": 1.0.0
-    "@radix-ui/react-primitive": 1.0.2
-    "@radix-ui/react-use-controllable-state": 1.0.0
-    "@radix-ui/react-use-previous": 1.0.0
-    "@radix-ui/react-use-size": 1.0.0
+    "@radix-ui/primitive": 1.0.1
+    "@radix-ui/react-compose-refs": 1.0.1
+    "@radix-ui/react-context": 1.0.1
+    "@radix-ui/react-primitive": 1.0.3
+    "@radix-ui/react-use-controllable-state": 1.0.1
+    "@radix-ui/react-use-previous": 1.0.1
+    "@radix-ui/react-use-size": 1.0.1
   peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 51dda47620938504e540383435a1b8f038fa8ce1e0179a0ce32be500fa39e7a40ac518d9a2f223f7cac4d5fac1c1b8a1a8c5f75104c54bea1431dfdfa76cb1e5
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: de18a802f317804d94315b1035d03a9cabef53317c148027f0f382bc2653723532691b65090596140737bb055e3affff977f5d73fe6caf8c526c6158baa811cc
   languageName: node
   linkType: hard
 
