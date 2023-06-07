@@ -6,14 +6,15 @@ import React, {
   useState,
 } from 'react'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isNil } from '~/src/utils/typeUtils'
-
 import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
-  IconSize,
-} from '~/src/components/Icon'
+} from '@channel.io/bezier-icons'
+
+import { noop } from '~/src/utils/functionUtils'
+import { isNil } from '~/src/utils/typeUtils'
+
+import { IconSize } from '~/src/components/Icon'
 
 import type OutlineItemProps from './OutlineItem.types'
 import { OutlineItemContext } from './OutlineItemContext'

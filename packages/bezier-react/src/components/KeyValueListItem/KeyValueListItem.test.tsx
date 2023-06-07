@@ -1,13 +1,13 @@
 import React from 'react'
 
+import {
+  AppleIcon,
+  BadgeIcon,
+} from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/testUtils'
 
-import {
-  AppleIcon,
-  BadgeIcon,
-} from '~/src/components/Icon'
 import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
 
 import KeyValueListItem from './KeyValueListItem'

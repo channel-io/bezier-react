@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react'
 
+import { SearchIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -14,8 +15,6 @@ import {
   getObjectFromEnum,
   getTitle,
 } from '~/src/utils/storyUtils'
-
-import { SearchIcon } from '~/src/components/Icon'
 
 import TextField from './TextField'
 import {

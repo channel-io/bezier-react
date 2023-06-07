@@ -9,6 +9,12 @@ import React, {
   useState,
 } from 'react'
 
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  isBezierIcon,
+} from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
@@ -17,11 +23,8 @@ import { isEmpty } from '~/src/utils/typeUtils'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {
-  ChevronDownIcon,
-  ChevronUpIcon,
   Icon,
   IconSize,
-  isBezierIcon,
 } from '~/src/components/Icon'
 import { OverlayPosition } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'

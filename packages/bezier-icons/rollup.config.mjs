@@ -220,14 +220,6 @@ function svgBuild(options = {}) {
 }
 
 /**
- * We know react only ships cjs with a default export. By being explicit here,
- * we get to shave off some unneeded interop code
- */
-function interop(id) {
-  return id === 'react' ? 'defaultOnly' : 'auto'
-}
-
-/**
  * Split into individual chunks for smooth tree shaking.
  */
 function manualChunks(id) {
@@ -255,7 +247,15 @@ export default defineConfig({
       format: 'cjs',
       entryFileNames: '[name].js',
       chunkFileNames: '[name].js',
-      interop,
+      /**
+       * "auto" combines both "esModule" and "default" by injecting helpers that contain code that detects at runtime
+       * if the required value contains the __esModule property.
+       * Adding this property is a hack implemented by TypeScript esModuleInterop,
+       * Babel and other tools to signify that the required value is the namespace of a transpiled ES module.:
+       *
+       * @see: https://rollupjs.org/configuration-options/#output-interop
+       */
+      interop: 'auto',
       manualChunks,
     },
     {
@@ -263,7 +263,6 @@ export default defineConfig({
       format: 'esm',
       entryFileNames: '[name].mjs',
       chunkFileNames: '[name].mjs',
-      interop,
       manualChunks,
     },
   ],

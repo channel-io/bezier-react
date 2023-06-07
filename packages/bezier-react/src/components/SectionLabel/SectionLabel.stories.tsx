@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
 import {
+  StarFilledIcon,
+  ViewIcon,
+} from '@channel.io/bezier-icons'
+import {
   type Meta,
   type Story,
 } from '@storybook/react'
@@ -14,10 +18,6 @@ import {
 import { noop } from '~/src/utils/functionUtils'
 import { getTitle } from '~/src/utils/storyUtils'
 
-import {
-  StarFilledIcon,
-  ViewIcon,
-} from '~/src/components/Icon'
 import { ListItem } from '~/src/components/ListItem'
 import type { ListItemProps } from '~/src/components/ListItem'
 import { Text } from '~/src/components/Text'

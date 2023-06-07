@@ -1,5 +1,20 @@
 # bezier-figma-plugin
 
+## 0.3.1
+
+### Patch Changes
+
+- Change icons to use from `@channel.io/bezier-icons`. ([#1375](https://github.com/channel-io/bezier-react/pull/1375)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.3.0
+
+## 0.3.0
+
+### Minor Changes
+
+- Change settings to match the new icon package ([#1376](https://github.com/channel-io/bezier-react/pull/1376)) by @sungik-choi
+
 ## 0.2.2
 
 ### Patch Changes

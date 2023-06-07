@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ErrorFilledIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -9,7 +10,6 @@ import base from 'paths.macro'
 import { getTitle } from '~/src/utils/storyUtils'
 
 import {
-  ErrorFilledIcon,
   Icon,
   IconSize,
 } from '~/src/components/Icon'

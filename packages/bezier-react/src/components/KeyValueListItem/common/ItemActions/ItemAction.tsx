@@ -16,11 +16,9 @@ import {
   isNil,
 } from '~/src/utils/typeUtils'
 
-import {
-  IconSize,
-  isIconName,
-} from '~/src/components/Icon'
+import { IconSize } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import { isIconName } from '~/src/components/LegacyIcon'
 
 import {
   type ItemActionProps,

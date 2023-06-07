@@ -2,6 +2,10 @@
 import React from 'react'
 
 import {
+  BadgeIcon,
+  EditIcon,
+} from '@channel.io/bezier-icons'
+import {
   type Meta,
   type Story,
 } from '@storybook/react'
@@ -14,10 +18,6 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import {
-  BadgeIcon,
-  EditIcon,
-} from '~/src/components/Icon'
 
 import KeyValueListItem from './KeyValueListItem'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'

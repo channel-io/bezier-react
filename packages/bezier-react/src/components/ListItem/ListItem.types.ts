@@ -1,5 +1,7 @@
 import type React from 'react'
 
+import { type BezierIcon } from '@channel.io/bezier-icons'
+
 import type {
   ActivatableProps,
   AdditionalStylableProps,
@@ -12,8 +14,6 @@ import type {
   SizeProps,
   VariantProps,
 } from '~/src/types/ComponentProps'
-
-import type { BezierIcon } from '~/src/components/Icon'
 
 export enum ListItemSize {
   S = 's',

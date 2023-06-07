@@ -4,6 +4,14 @@ import React, {
 } from 'react'
 
 import {
+  AppPushIcon,
+  DotIcon,
+  EmailIcon,
+  EmailUnreadIcon,
+  SecurityIcon,
+  SmsIcon,
+} from '@channel.io/bezier-icons'
+import {
   type Meta,
   type Story,
 } from '@storybook/react'
@@ -16,14 +24,6 @@ import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
-import {
-  AppPushIcon,
-  DotIcon,
-  EmailIcon,
-  EmailUnreadIcon,
-  SecurityIcon,
-  SmsIcon,
-} from '~/src/components/Icon'
 
 import OutlineItem from './OutlineItem'
 import type OutlineItemProps from './OutlineItem.types'
