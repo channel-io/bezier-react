@@ -1,22 +1,21 @@
-import { styled } from '~/src/foundation'
+import {
+  css,
+  styled,
+} from '~/src/foundation'
 
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
-interface ClickableElementProps {
-  clickable: boolean
-}
+const clickableElementStyle = css`
+  &.clickable {
+    cursor: pointer;
+  }
+`
 
-function clickableElementStyle(clickable: boolean): string | false {
-  return clickable && `
-  cursor: pointer;
-  `
-}
-
-const LeftIcon = styled(LegacyIcon)<ClickableElementProps>`
-  ${({ clickable }) => clickableElementStyle(clickable)}
+const LeftIcon = styled(LegacyIcon)`
+  ${clickableElementStyle}
 `
 
 const LeftContentWrapper = styled.div<InterpolationProps>`
@@ -58,26 +57,26 @@ const RightContentWrapper = styled.div<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-const RightItemWrapper = styled.div<ClickableElementProps>`
+const RightItemWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
 
-  ${({ clickable }) => clickableElementStyle(clickable)}
+  ${clickableElementStyle}
 `
 
 const ChildrenWrapper = styled.div<{ show: boolean }>`
   display: ${({ show }) => (show ? 'unset' : 'none')};
 `
 
-const Wrapper = styled.div<ClickableElementProps & InterpolationProps>`
+const Wrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   height: 28px;
 
-  ${({ clickable }) => clickableElementStyle(clickable)}
+  ${clickableElementStyle}
 
   ${({ interpolation }) => interpolation}
 `
