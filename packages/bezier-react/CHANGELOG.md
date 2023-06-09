@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 1.4.0
+
+### Minor Changes
+
+- **Important notice:** Changed the way icon component uniqueness is checked in the @channel.io/bezier-icons package, please use with the @channel.io/bezier-icons@0.2.0 version for normal behavior. ([#1414](https://github.com/channel-io/bezier-react/pull/1414)) by @sungik-choi
+
+### Patch Changes
+
+- Changed the styling of the active state of `OutlineItem`'s icon and the clickable state of `SectionLabel` to classname-based styling. ([#1312](https://github.com/channel-io/bezier-react/pull/1312)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.2.0
+
 ## 1.3.0
 
 ### Minor Changes

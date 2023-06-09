@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.2.0
+
+### Minor Changes
+
+- Change the identifier of the bezier icon to a string literal instead of a symbol ([#1411](https://github.com/channel-io/bezier-react/pull/1411)) by @sungik-choi
+
 ## 0.1.1
 
 ### Patch Changes
