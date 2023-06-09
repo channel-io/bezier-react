@@ -15,9 +15,7 @@
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "release": "turbo run build --filter='@channel.io/*' && changeset publish",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
-    "pre-commit": "run-s verify lint-staged typecheck test",
     "verify": "ts-node -P ./supports/tsconfig/script.json ./scripts/check-yarn-version.ts",
-    "lint-staged": "lint-staged",
     "changeset": "changeset",
     "postinstall": "husky install"
   },
@@ -32,7 +30,6 @@
     "eslint": "^7.32.0",
     "eslint-config-bezier": "workspace:*",
     "husky": "^8.0.3",
-    "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
     "stylelint": "^13.8.0",
     "ts-node": "^10.9.1",
