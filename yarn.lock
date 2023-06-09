@@ -2834,14 +2834,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@channel.io/bezier-icons@npm:0.1.1"
-  checksum: 8fedb5142e6ff158b8e07e04f1defd8ec3a595b29558fdefc345af8ff20da6478d05bc0dea82ba58f153571ad96bb25716b76ef92d1027c30747afa13b100f51
-  languageName: node
-  linkType: hard
-
-"@channel.io/bezier-icons@workspace:packages/bezier-icons":
+"@channel.io/bezier-icons@^0.1.1, @channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
   dependencies:
