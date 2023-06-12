@@ -25,14 +25,14 @@ const getComponentsToMigrate = (sourceFile: SourceFile) => (component: string) =
     return tagName.getText().includes(component)
   })
 
-const isIconName = (maybeIconName: string) => regex.test(maybeIconName)
-
 const bezierIconFromName = (iconName: string) => {
   const words = iconName.split('-')
   const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1))
   const bezierIcon = `${capitalizedWords.join('')}Icon`
   return bezierIcon
 }
+
+const isIconName = (maybeIconName: string) => regex.test(maybeIconName)
 
 const isStringLiteral = (expression: Expression): expression is StringLiteral => expression.getKindName() === StringLiteral.name
 
@@ -74,7 +74,7 @@ const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxS
   return false
 }
 
-export const iconNameInButtonToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
+export const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
   const components = getComponentsToMigrate(sourceFile)(component)
 
   let total = 0
