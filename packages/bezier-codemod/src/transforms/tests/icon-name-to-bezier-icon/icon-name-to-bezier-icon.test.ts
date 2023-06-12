@@ -13,8 +13,9 @@ describe('iconsToBezierIcons', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    iconNameToBezierIcon(sourceFile)
+    const migratedComponents = iconNameToBezierIcon(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
+    expect(migratedComponents).toBe(1)
   })
 })

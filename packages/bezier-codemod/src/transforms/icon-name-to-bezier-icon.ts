@@ -7,6 +7,7 @@ import {
   type SourceFile,
   StringLiteral,
   SyntaxKind,
+  ts,
 } from 'ts-morph'
 
 type ComponentName = string
@@ -66,6 +67,10 @@ const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxS
 
     addIconImport(sourceFile)(bezierIcon)
 
+    sourceFile.formatText({
+      semicolons: ts.SemicolonPreference.Remove,
+    })
+
     leftContentAttribute?.setInitializer(`{${bezierIcon}}`)
 
     return true
@@ -77,12 +82,12 @@ const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxS
 export const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
   const components = getComponentsToMigrate(sourceFile)(component)
 
-  let total = 0
-  for (const _component of components) {
-    for (const attribute of attributes) {
-      total += changeIconNameToBezierIcon(sourceFile)(_component, attribute) ? 1 : 0
-    }
-  }
+  const migratedComponents = components.reduce((_acc, cur) => {
+    const isMigrated = attributes
+      .map(attribute => changeIconNameToBezierIcon(sourceFile)(cur, attribute))
+      .some(v => v) ? 1 : 0
+    return acc + isMigrated
+  }, 0)
 
-  return acc + total
+  return acc + migratedComponents
 }, 0)
