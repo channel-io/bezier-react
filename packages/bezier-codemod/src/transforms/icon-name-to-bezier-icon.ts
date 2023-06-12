@@ -13,6 +13,9 @@ import {
 type ComponentName = string
 type Attributes = string[]
 
+/**
+ * NOTE: add other components or attributes if necessary
+ */
 const meta: Array<[ComponentName, Attributes]> = [
   ['Button', ['leftContent', 'rightContent']],
 ]
