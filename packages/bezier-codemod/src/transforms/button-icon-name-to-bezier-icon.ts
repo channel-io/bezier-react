@@ -66,4 +66,6 @@ export const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElemen
 export const iconNameInButtonToBezierIcon = (sourceFile: SourceFile) => {
   const buttons = getButtons(sourceFile)
   buttons.map(changeIconNameToBezierIcon(sourceFile))
+
+  return buttons.length > 0
 }
