@@ -1,8 +1,13 @@
 /* External dependencies */
-import React, { useCallback, useMemo } from 'react'
+import React from 'react'
+import { Button } from '@channel.io/bezier-react'
 import { ArrowLeftIcon, AllIcon } from '@channel.io/bezier-icons'
 
+/* Internal dependencies */
+import useTranslator from 'Hooks/useTranslator'
+
 export default function CancelButton() {
+  const { translate } = useTranslator()
   return (
     <Button
       leftContent={ArrowLeftIcon}

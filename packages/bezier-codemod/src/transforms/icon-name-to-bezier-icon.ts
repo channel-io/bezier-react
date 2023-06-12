@@ -44,12 +44,17 @@ const isBezierIconImport = (declaration: ImportDeclaration) => declaration.getMo
 
 const isReactImport = (declaration: ImportDeclaration) => declaration.getModuleSpecifier().getLiteralValue() === 'react'
 
+const isBezierReactImport = (declaration: ImportDeclaration) => declaration.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react'
+
 const addIconImport = (sourceFile: SourceFile) => (icon: string) => {
-  const reactImportIndex = sourceFile.getStatementsWithComments().findIndex((statement) => Node.isImportDeclaration(statement) && isReactImport(statement))
+  const statements = sourceFile.getStatementsWithComments()
+  const bezierReactImport = statements.findIndex((statement) => Node.isImportDeclaration(statement) && isBezierReactImport(statement))
+  const reactImportIndex = statements.findIndex((statement) => Node.isImportDeclaration(statement) && isReactImport(statement))
   const bezierIconImport = sourceFile.getImportDeclarations().find(isBezierIconImport)
+  const importIndex = bezierReactImport > -1 ? bezierReactImport + 1 : reactImportIndex + 1
 
   if (!bezierIconImport) {
-    sourceFile.insertImportDeclaration(reactImportIndex + 1, {
+    sourceFile.insertImportDeclaration(importIndex, {
       namedImports: [icon],
       moduleSpecifier: '@channel.io/bezier-icons',
     })

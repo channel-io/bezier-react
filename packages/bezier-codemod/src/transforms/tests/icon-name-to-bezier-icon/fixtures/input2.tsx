@@ -1,6 +1,10 @@
 /* External dependencies */
-import React, { useCallback, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import { Button } from '@channel.io/bezier-react'
 import { ArrowRightIcon } from '@channel.io/bezier-icons'
+
+/* Internal dependencies */
+import useTranslator from 'Hooks/useTranslator'
 
 export default function CancelButton() {
   const OtherButton = useMemo(() => (
