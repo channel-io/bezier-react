@@ -9,13 +9,20 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
+type ComponentName = string
+type Attributes = string[]
+
+const meta: Array<[ComponentName, Attributes]> = [
+  ['Button', ['leftContent', 'rightContent']],
+]
+
 const regex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
-const getButtons = (sourceFile: SourceFile) => sourceFile
+const getComponentsToMigrate = (sourceFile: SourceFile) => (component: string) => sourceFile
   .getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
   .filter((jsxElement) => {
     const tagName = jsxElement.getTagNameNode()
-    return tagName.getText().includes('Button')
+    return tagName.getText().includes(component)
   })
 
 const isIconName = (maybeIconName: string) => regex.test(maybeIconName)
@@ -49,8 +56,8 @@ const addIconImport = (sourceFile: SourceFile) => (icon: string) => {
   }
 }
 
-export const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxSelfClosingElement) => {
-  const leftContentAttribute = jsxElement.getAttribute('leftContent') as JsxAttribute | undefined
+const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxSelfClosingElement, attribute: string) => {
+  const leftContentAttribute = jsxElement.getAttribute(attribute) as JsxAttribute | undefined
 
   const expression = leftContentAttribute?.getInitializer()
 
@@ -60,12 +67,22 @@ export const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElemen
     addIconImport(sourceFile)(bezierIcon)
 
     leftContentAttribute?.setInitializer(`{${bezierIcon}}`)
+
+    return true
   }
+
+  return false
 }
 
-export const iconNameInButtonToBezierIcon = (sourceFile: SourceFile) => {
-  const buttons = getButtons(sourceFile)
-  buttons.map(changeIconNameToBezierIcon(sourceFile))
+export const iconNameInButtonToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
+  const components = getComponentsToMigrate(sourceFile)(component)
 
-  return buttons.length > 0
-}
+  let total = 0
+  for (const _component of components) {
+    for (const attribute of attributes) {
+      total += changeIconNameToBezierIcon(sourceFile)(_component, attribute) ? 1 : 0
+    }
+  }
+
+  return acc + total
+}, 0)
