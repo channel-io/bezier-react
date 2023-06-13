@@ -1,7 +1,4 @@
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
@@ -25,7 +22,7 @@ interface OutlineItemOptions {
   open?: boolean
   active?: boolean
   focused?: boolean
-  leftIcon?: IconName | BezierIcon
+  leftIcon?: BezierIcon
   hide?: boolean
   disableIconActive?: boolean
   disableChevron?: boolean

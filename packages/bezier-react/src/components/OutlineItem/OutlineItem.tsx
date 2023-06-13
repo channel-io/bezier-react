@@ -17,7 +17,6 @@ import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
 
 import { IconSize } from '~/src/components/Icon'
-import { isIconName } from '~/src/components/LegacyIcon'
 
 import type OutlineItemProps from './OutlineItem.types'
 import { OutlineItemContext } from './OutlineItemContext'
@@ -29,7 +28,6 @@ import {
   GroupItemWrapper,
   LeftContentWrapper,
   StyledIcon,
-  StyledLegacyIcon,
 } from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
@@ -171,10 +169,9 @@ function OutlineItem(
       )
     }
 
-    const isLegacyIcon = isIconName(leftIcon)
     const isIcon = isBezierIcon(leftIcon)
 
-    if (isLegacyIcon || isIcon) {
+    if (isIcon) {
       const iconProps = {
         testId: leftIconTestId,
         className: classNames(
@@ -187,14 +184,6 @@ function OutlineItem(
       }
 
       const Icon = (() => {
-        if (isLegacyIcon) {
-          return (
-            <StyledLegacyIcon
-              {...iconProps}
-              name={leftIcon}
-            />
-          )
-        }
         if (isIcon) {
           return (
             <StyledIcon

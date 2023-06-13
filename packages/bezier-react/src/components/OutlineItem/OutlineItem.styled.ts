@@ -8,7 +8,6 @@ import { type InterpolationProps } from '~/src/types/Foundation'
 import { isNil } from '~/src/utils/typeUtils'
 
 import { Icon } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 interface WrapperProps extends InterpolationProps {
   active: boolean
@@ -66,14 +65,6 @@ export const LeftContentWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-right: 8px;
-`
-
-export const StyledLegacyIcon = styled(LegacyIcon)<InterpolationProps>`
-  &.active {
-    color: var(--bgtxt-blue-normal);
-  }
-
-  ${({ interpolation }) => interpolation}
 `
 
 export const StyledIcon = styled(Icon)<InterpolationProps>`

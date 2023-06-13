@@ -16,10 +16,6 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
-import {
-  LegacyIcon,
-  isIconName,
-} from '~/src/components/LegacyIcon'
 
 import { type KeyItemProps } from './KeyItem.types'
 
@@ -37,16 +33,6 @@ function KeyItem(
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const KeyIcon = useMemo(() => {
-    if (isIconName(keyIcon)) {
-      return (
-        <LegacyIcon
-          size={IconSize.S}
-          name={keyIcon}
-          color="txt-black-dark"
-        />
-      )
-    }
-
     if (isBezierIcon(keyIcon)) {
       return (
         <Icon

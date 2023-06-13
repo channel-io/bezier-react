@@ -10,7 +10,6 @@ import {
 import disabledOpacity from '~/src/constants/DisabledOpacity'
 
 import { Icon } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import {
   type ListItemSize,
@@ -109,14 +108,6 @@ interface IconWrapperProps {
   active?: boolean
 }
 
-export const StyledLegacyIcon = styled(LegacyIcon)<IconWrapperProps>`
-  color: ${({ foundation, variant, active }) => (
-    foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
-  )};
-  
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
-`
-
 export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, variant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
@@ -158,7 +149,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
     ${focused && css`
       ${FocusedItemStyle}
 
-      ${StyledLegacyIcon},
       ${StyledIcon} {
         ${FocusedIconStyle}
       }
@@ -166,10 +156,6 @@ export const Wrapper = styled.div<StyledWrapperProps>`
 
     &:hover {
       ${FocusedItemStyle}
-    }
-
-    &:hover ${StyledLegacyIcon} {
-      ${FocusedIconStyle}
     }
 
     &:hover ${StyledIcon} {

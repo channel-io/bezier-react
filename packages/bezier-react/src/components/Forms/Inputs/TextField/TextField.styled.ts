@@ -18,7 +18,6 @@ import {
   inputWrapperStyle,
 } from '~/src/components/Forms/Inputs/mixins'
 import { Icon } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import {
   TextFieldSize,
@@ -49,10 +48,6 @@ const Input = styled.input<InterpolationProps>`
   ${inputPlaceholderStyle}
 
   ${({ interpolation }) => interpolation}
-`
-
-const LeftLegacyIcon = styled(LegacyIcon)<ClickableElementProps>`
-  ${({ clickable }) => clickable && clickableElementStyle}
 `
 
 const LeftIcon = styled(Icon)<ClickableElementProps>`
@@ -156,7 +151,6 @@ const Wrapper = styled.div<WrapperProps & InterpolationProps>`
 
 export default {
   Input,
-  LeftLegacyIcon,
   LeftIcon,
   LeftContentWrapper,
   RightItemWrapper,
