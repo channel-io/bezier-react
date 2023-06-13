@@ -44,6 +44,16 @@ jobs:
           paths:
             - .
 
+  build:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: yarn build --filter=bezier-icons
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - .
+
   lint:
     <<: *defaults
     steps:
@@ -70,12 +80,15 @@ workflows:
   lint_and_test:
     jobs:
       - install
+      - build:
+          requires:
+            - install
       - lint:
           requires:
-            - install
+            - build
       - typecheck:
           requires:
-            - install
+            - build
       - test:
           requires:
-            - install
+            - build

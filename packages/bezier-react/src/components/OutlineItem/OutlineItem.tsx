@@ -9,7 +9,9 @@ import React, {
 import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
+  isBezierIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
@@ -51,7 +53,7 @@ function OutlineItem(
     focused = false,
     leftContent,
     leftIcon,
-    leftIconColor,
+    leftIconColor = 'txt-black-dark',
     disableChevron = false,
     disableIconActive = false,
     name,
@@ -167,19 +169,35 @@ function OutlineItem(
       )
     }
 
-    if (!isNil(leftIcon)) {
+    const isIcon = isBezierIcon(leftIcon)
+
+    if (isIcon) {
+      const iconProps = {
+        testId: leftIconTestId,
+        className: classNames(
+          iconClassName,
+          (!disableIconActive && active) && 'active',
+        ),
+        interpolation: iconInterpolation,
+        size: IconSize.S,
+        color: leftIconColor,
+      }
+
+      const Icon = (() => {
+        if (isIcon) {
+          return (
+            <StyledIcon
+              {...iconProps}
+              source={leftIcon}
+            />
+          )
+        }
+        return <></>
+      })()
+
       return (
         <LeftContentWrapper>
-          <StyledIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            source={leftIcon}
-            size={IconSize.S}
-            active={active}
-            disableIconActive={disableIconActive}
-            color={leftIconColor}
-          />
+          { Icon }
         </LeftContentWrapper>
       )
     }

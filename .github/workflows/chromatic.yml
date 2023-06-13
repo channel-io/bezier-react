@@ -40,6 +40,9 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
+      - name: Build Packages
+        run: yarn build --filter=bezier-icons
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         id: chromatic

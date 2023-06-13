@@ -68,7 +68,7 @@ declare module '*.svg' {
 }
 
 export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-export declare type BezierIcon = IconSource & { __type: 'BezierIcon' }
+export declare type BezierIcon = IconSource & { __bezier__icon: true }
 
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
 export declare function createBezierIcon(icon: IconSource): BezierIcon
