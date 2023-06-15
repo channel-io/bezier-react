@@ -12,25 +12,26 @@
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.mjs"
     }
   },
   "sideEffects": false,
   "files": [
     "dist",
+    "!dist/*.tsbuildinfo",
     "src"
   ],
   "scripts": {
-    "build": "rm -rf dist && run-s build:types build:js",
+    "build": "run-p 'build:*'",
     "build:js": "rollup -c",
-    "build:types": "tsc --build",
+    "build:types": "tsc --build --verbose ./tsconfig.build.json",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
     "lint:style": "stylelint --cache '**/*.styled.{js,ts}'",
-    "typecheck": "yarn find-deadcode && tsc --noEmit",
+    "typecheck": "yarn find-deadcode && tsc --build --verbose",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "test": "jest",
     "test:ci": "jest --ci --coverage",
@@ -112,10 +113,12 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.9.2",
     "styled-components": "^5.3.5",
+    "ts-patch": "^3.0.0",
     "ts-prune": "^0.10.3",
     "tsc-alias": "^1.8.6",
     "tsconfig": "workspace:*",
-    "tsconfig-paths-webpack-plugin": "^3.5.2"
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",

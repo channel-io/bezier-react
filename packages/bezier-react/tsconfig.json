@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./",
-    "declarationDir": "dist/types",
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationMap": true,
+    "rootDir": "./src",
+    "noEmit": true,
     "module": "esnext",
     "target": "es6",
     "lib": ["dom", "ESNext"],
@@ -28,10 +25,4 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "__mocks__",
-  ]
 }
