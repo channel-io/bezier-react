@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.5.0
+
+### Minor Changes
+
+- Remove `LegacyIcon` used in `ListItem`, `Select`, `TextField`, `KeyValueListItem`, `OutlineItem`. ([#1383](https://github.com/channel-io/bezier-react/pull/1383)) by @yangwooseong
+
+  **BREAKING CHANGE**: No more support for `IconName` type with `icon` prop in these components.
+
 ## 1.4.0
 
 ### Minor Changes
