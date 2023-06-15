@@ -1,14 +1,10 @@
 {
   "extends": "tsconfig/eslint.json",
   "include": [
+    "src/**/*",
     "*.ts",
     "*.js",
     ".*.js",
-    "src/**/*",
+    "*.mjs",
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-  ]
 }
