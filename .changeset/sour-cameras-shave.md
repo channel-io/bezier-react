@@ -1,7 +1,7 @@
 ---
-"@channel.io/bezier-react": patch
+"@channel.io/bezier-react": minor
 ---
 
-Remove LegacyIcon used in ListItem, Select, TextField, KeyValueListItem, OutlineItem
+Remove `LegacyIcon` used in `ListItem`, `Select`, `TextField`, `KeyValueListItem`, `OutlineItem`.
 
-breaking change: no more support for IconName type with icon prop in these components
+**BREAKING CHANGE**: No more support for `IconName` type with `icon` prop in these components.
