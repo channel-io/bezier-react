@@ -31,7 +31,7 @@
   ],
   "exclude": [
     "node_modules",
-    "build",
+    "dist",
     "coverage",
     "__mocks__",
   ]

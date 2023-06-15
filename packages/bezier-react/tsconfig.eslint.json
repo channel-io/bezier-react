@@ -5,11 +5,10 @@
     "*.js",
     ".*.js",
     "src/**/*",
-    "scripts/**/*",
   ],
   "exclude": [
     "node_modules",
-    "build",
+    "dist",
     "coverage",
   ]
 }

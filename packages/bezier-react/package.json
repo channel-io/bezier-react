@@ -7,12 +7,12 @@
     "url": "https://github.com/channel-io/bezier-react",
     "directory": "packages/bezier-react"
   },
-  "main": "build/index.cjs.js",
-  "module": "build/src/index.js",
-  "types": "build/src/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "sideEffects": false,
   "files": [
-    "build",
+    "dist",
     "src"
   ],
   "scripts": {

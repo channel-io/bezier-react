@@ -196,7 +196,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # Build files
-build/
+dist/
 
 # Story book
 storybook-static/

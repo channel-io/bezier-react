@@ -36,7 +36,7 @@ const typescriptPlugin = typescript({
       './src/utils/storyUtils.ts',
       './src/utils/testUtils.tsx',
       'node_modules',
-      'build',
+      'dist',
     ],
   },
 })
@@ -90,7 +90,7 @@ export default [
   // ESModules
   configGenerator({
     output: {
-      dir: 'build',
+      dir: 'dist',
       format: 'esm',
       preserveModules: true,
       preserveModulesRoot: '.',
