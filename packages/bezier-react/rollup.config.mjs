@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import url from '@rollup/plugin-url'
+import { defineConfig } from 'rollup'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { visualizer } from 'rollup-plugin-visualizer'
 
@@ -31,6 +32,7 @@ function tscAlias() {
 
 const commonPlugins = [
   commonjs(),
+  nodeResolve({ extensions }),
   typescript({
     tsconfig: './tsconfig.json',
     exclude: [
@@ -50,15 +52,13 @@ const commonPlugins = [
   peerDepsExternal(),
   url(),
   tscAlias(),
-  visualizer({
-    filename: 'stats.html',
-  }),
+  visualizer({ filename: 'stats.html' }),
 ]
 
-const configGenerator = ({
+const generateConfig = ({
   output: _output,
   plugins: _plugins,
-}) => ({
+}) => defineConfig({
   input: 'src/index.ts',
   output: {
     ..._output,
@@ -71,32 +71,19 @@ const configGenerator = ({
   external: [/@babel\/runtime/],
 })
 
-export default [
-  // CommonJS
-  configGenerator({
+export default defineConfig([
+  generateConfig({
     output: {
       file: 'dist/index.cjs.js',
       format: 'cjs',
     },
-    plugins: [
-      nodeResolve({
-        mainFields: ['main', 'module'],
-        extensions,
-      }),
-    ],
   }),
-  // ESModules
-  configGenerator({
+  generateConfig({
     output: {
       dir: 'dist',
       format: 'esm',
       preserveModules: true,
       preserveModulesRoot: '.',
     },
-    plugins: [
-      nodeResolve({
-        extensions,
-      }),
-    ],
   }),
-]
+])
