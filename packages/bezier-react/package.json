@@ -49,12 +49,12 @@
     "not ie <= 11"
   ],
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/preset-typescript": "^7.12.7",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@channel.io/react-docgen-typescript-plugin": "^1.0.0",
     "@mdx-js/react": "^1.6.22",
     "@rollup/plugin-babel": "^6.0.3",
@@ -114,7 +114,7 @@
     "styled-components": ">=5"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.13",
+    "@babel/runtime": "^7.22.5",
     "@channel.io/bezier-icons": "^0.2.0",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.2",
