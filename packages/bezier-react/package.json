@@ -7,23 +7,32 @@
     "url": "https://github.com/channel-io/bezier-react",
     "directory": "packages/bezier-react"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -rf dist && run-s build:types build:js",
+    "build:js": "rollup -c",
+    "build:types": "tsc --build",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
     "lint:style": "stylelint --cache '**/*.styled.{js,ts}'",
-    "typecheck": "yarn find-deadcode && tsc --build --verbose",
+    "typecheck": "yarn find-deadcode && tsc --noEmit",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
-    "test": "jest --onlyChanged",
+    "test": "jest",
     "test:ci": "jest --ci --coverage",
     "test:watch": "jest --watch",
     "update-snapshot": "jest --updateSnapshot",
@@ -91,6 +100,7 @@
     "core-js": "^3.8.1",
     "eslint-config-bezier": "workspace:*",
     "eslint-plugin-storybook": "^0.6.0",
+    "glob": "^10.2.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-styled-components": "^7.1.1",
