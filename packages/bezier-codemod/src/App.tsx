@@ -18,6 +18,7 @@ import {
 } from 'ink'
 
 import project from './project.js'
+import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 
 enum Step {
@@ -29,6 +30,7 @@ enum Step {
 
 enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
+  IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   Exit = 'Exit',
 }
 
@@ -36,6 +38,7 @@ type TransformName = Exclude<Option, Option.Exit>
 
 const transformMap = {
   [Option.IconsToBezierIcons]: iconsToBezierIcons,
+  [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
