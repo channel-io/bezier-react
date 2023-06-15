@@ -13,10 +13,10 @@ describe('iconsToBezierIcons', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    const migratedComponents = iconNameToBezierIcon(sourceFile)
+    const isMigrated = iconNameToBezierIcon(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
-    expect(migratedComponents).toBe(1)
+    expect(isMigrated).toBe(true)
   })
 })
 
@@ -29,9 +29,9 @@ describe('iconsToBezierIcons', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    const migratedComponents = iconNameToBezierIcon(sourceFile)
+    const isMigrated = iconNameToBezierIcon(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
-    expect(migratedComponents).toBe(1)
+    expect(isMigrated).toBe(true)
   })
 })

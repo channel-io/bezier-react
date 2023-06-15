@@ -98,6 +98,6 @@ const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [comp
   }, 0)
 
   return acc + migratedComponents
-}, 0)
+}, 0) > 0
 
 export default iconNameToBezierIcon
