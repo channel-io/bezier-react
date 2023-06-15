@@ -2861,7 +2861,7 @@ __metadata:
     eslint-config-bezier: "workspace:^"
     jest: ^29.5.0
     rollup: ^3.25.1
-    rollup-plugin-visualizer: ^5.9.0
+    rollup-plugin-visualizer: ^5.9.2
     svgo: ^3.0.2
     tsconfig: "workspace:^"
   languageName: unknown
@@ -2936,7 +2936,7 @@ __metadata:
     rollup: ^3.25.1
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
-    rollup-plugin-visualizer: ^5.8.3
+    rollup-plugin-visualizer: ^5.9.2
     ssr-window: ^3.0.0
     styled-components: ^5.3.5
     ts-prune: ^0.10.3
@@ -22162,27 +22162,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-visualizer@npm:^5.8.3":
-  version: 5.8.3
-  resolution: "rollup-plugin-visualizer@npm:5.8.3"
-  dependencies:
-    open: ^8.4.0
-    source-map: ^0.7.4
-    yargs: ^17.5.1
-  peerDependencies:
-    rollup: 2.x || 3.x
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  bin:
-    rollup-plugin-visualizer: dist/bin/cli.js
-  checksum: 0ed4b4b49be8c38fa4820190286daf6f94446a05190a6f1932f2718cb8d7e2a1afacc9f94bf75934087ec856a634a5c9355c078d77482a5796465d15deb988c9
-  languageName: node
-  linkType: hard
-
-"rollup-plugin-visualizer@npm:^5.9.0":
-  version: 5.9.0
-  resolution: "rollup-plugin-visualizer@npm:5.9.0"
+"rollup-plugin-visualizer@npm:^5.9.2":
+  version: 5.9.2
+  resolution: "rollup-plugin-visualizer@npm:5.9.2"
   dependencies:
     open: ^8.4.0
     picomatch: ^2.3.1
@@ -22195,7 +22177,7 @@ __metadata:
       optional: true
   bin:
     rollup-plugin-visualizer: dist/bin/cli.js
-  checksum: 362d4fac0295c14bd205dbc85c20c31f4b6c47604868da21d9565ed47e0333759f08b9fe0acb82f78221f5173ea01e4eb70d47351eb6012216afe71b5492ed5f
+  checksum: ab2adf322e3b20bffc94a8dc804f46be8840a9fcbab4f872dcc2dec205cdd7752e4d2d90cfcf00783bfb5209c5a8bb4e591984e8b61bca41fd048fb7deb0ed4e
   languageName: node
   linkType: hard
 

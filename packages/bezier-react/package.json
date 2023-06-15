@@ -99,7 +99,7 @@
     "rollup": "^3.25.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.31.1",
-    "rollup-plugin-visualizer": "^5.8.3",
+    "rollup-plugin-visualizer": "^5.9.2",
     "styled-components": "^5.3.5",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
