@@ -2860,7 +2860,7 @@ __metadata:
     "@svgr/plugin-jsx": ^8.0.1
     eslint-config-bezier: "workspace:^"
     jest: ^29.5.0
-    rollup: ^3.22.0
+    rollup: ^3.25.1
     rollup-plugin-visualizer: ^5.9.0
     svgo: ^3.0.2
     tsconfig: "workspace:^"
@@ -2934,7 +2934,7 @@ __metadata:
     react-resize-detector: ^7.1.1
     react-textarea-autosize: ^8.4.1
     regenerator-runtime: ^0.13.11
-    rollup: ^2.50.5
+    rollup: ^3.25.1
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.31.1
     rollup-plugin-visualizer: ^5.8.3
@@ -22221,9 +22221,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.50.5":
-  version: 2.79.1
-  resolution: "rollup@npm:2.79.1"
+"rollup@npm:^3.25.1":
+  version: 3.25.1
+  resolution: "rollup@npm:3.25.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -22231,21 +22231,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
-  languageName: node
-  linkType: hard
-
-"rollup@npm:^3.22.0":
-  version: 3.23.1
-  resolution: "rollup@npm:3.23.1"
-  dependencies:
-    fsevents: ~2.3.2
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    rollup: dist/bin/rollup
-  checksum: 4b3b3bbfd490b41ec5473d1141fe2beb0c86f600b56378fce97e0485192818256f8cbf4d43450b097ee7042e6629fb0187488807e2d15050860718f458c44685
+  checksum: f483b28a0605097a725b080c088262b0fa21f7bce66f741df73d9ff0be6a3baaf2927916b094ce95412f4f15cc59bb5eae020f59cae3d3a6993d123faceb5b41
   languageName: node
   linkType: hard
 
