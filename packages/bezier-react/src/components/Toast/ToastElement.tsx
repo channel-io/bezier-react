@@ -15,7 +15,6 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type ToastProps from './Toast.types'
