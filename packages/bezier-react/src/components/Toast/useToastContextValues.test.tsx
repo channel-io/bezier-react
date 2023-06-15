@@ -1,9 +1,8 @@
+import { InfoFilledIcon } from '@channel.io/bezier-icons'
 import {
   act,
   renderHook,
 } from '@testing-library/react'
-
-import { InfoFilledIcon } from '~/src/components/Icon'
 
 import {
   ToastAppearance,

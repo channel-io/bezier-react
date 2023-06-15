@@ -1,12 +1,12 @@
-import { css } from '~/src/foundation'
-
 import {
   CheckCircleFilledIcon,
   ErrorTriangleFilledIcon,
   InfoFilledIcon,
   WifiIcon,
   WifiOffIcon,
-} from '~/src/components/Icon'
+} from '@channel.io/bezier-icons'
+
+import { css } from '~/src/foundation'
 
 import {
   ToastAppearance,

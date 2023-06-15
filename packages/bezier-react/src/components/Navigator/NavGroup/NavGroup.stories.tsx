@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { DotIcon } from '@channel.io/bezier-icons'
+import {
+  DotIcon,
+  SettingsIcon,
+} from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -12,7 +15,6 @@ import { getTitle } from '~/src/utils/storyUtils'
 import {
   Icon,
   IconSize,
-  SettingsIcon,
 } from '~/src/components/Icon'
 import { NavItem } from '~/src/components/Navigator/NavItem'
 

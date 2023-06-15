@@ -1,18 +1,6 @@
 import React from 'react'
 
 import {
-  type Meta,
-  type Story,
-} from '@storybook/react'
-import base from 'paths.macro'
-
-import { styled } from '~/src/foundation'
-
-import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
-import { gap } from '~/src/utils/styleUtils'
-
-import {
   ArchiveIcon,
   BlockIcon,
   BookmarkFilledIcon,
@@ -26,7 +14,19 @@ import {
   TimeElapsedIcon,
   TrendingUpIcon,
   ViewIcon,
-} from '~/src/components/Icon'
+} from '@channel.io/bezier-icons'
+import {
+  type Meta,
+  type Story,
+} from '@storybook/react'
+import base from 'paths.macro'
+
+import { styled } from '~/src/foundation'
+
+import { noop } from '~/src/utils/functionUtils'
+import { getTitle } from '~/src/utils/storyUtils'
+import { gap } from '~/src/utils/styleUtils'
+
 import {
   HStack,
   StackItem,

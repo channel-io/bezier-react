@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { AppleIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -8,7 +9,6 @@ import { base } from 'paths.macro'
 
 import { getTitle } from '~/src/utils/storyUtils'
 
-import { AppleIcon } from '~/src/components/Icon'
 import {
   TagBadgeSize,
   TagBadgeVariant,

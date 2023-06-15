@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react'
 
+import { ChannelSmileFilledIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -24,7 +25,6 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { ChannelSmileFilledIcon } from '~/src/components/Icon'
 import { ProgressBar } from '~/src/components/ProgressBar'
 import {
   StackItem,

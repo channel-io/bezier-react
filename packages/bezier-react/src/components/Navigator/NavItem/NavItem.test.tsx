@@ -1,10 +1,10 @@
 import React from 'react'
 
+import { DotIcon } from '@channel.io/bezier-icons'
+
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { render } from '~/src/utils/testUtils'
-
-import { DotIcon } from '~/src/components/Icon'
 
 import NavItem, {
   NAV_ITEM_LEFT_ICON_TEST_ID,

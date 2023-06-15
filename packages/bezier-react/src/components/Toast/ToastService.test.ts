@@ -1,4 +1,4 @@
-import { InfoFilledIcon } from '~/src/components/Icon'
+import { InfoFilledIcon } from '@channel.io/bezier-icons'
 
 import { type ToastType } from './Toast.types'
 import ToastService from './ToastService'
