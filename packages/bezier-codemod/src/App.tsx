@@ -18,7 +18,7 @@ import {
 } from 'ink'
 
 import project from './project.js'
-import { iconNameToBezierIcon } from './transforms/icon-name-to-bezier-icon.js'
+import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 
 enum Step {

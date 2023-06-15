@@ -87,7 +87,7 @@ const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxS
   return false
 }
 
-export const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
+const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
   const components = getComponentsToMigrate(sourceFile)(component)
 
   const migratedComponents = components.reduce((_acc, cur) => {
@@ -99,3 +99,5 @@ export const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc
 
   return acc + migratedComponents
 }, 0)
+
+export default iconNameToBezierIcon
