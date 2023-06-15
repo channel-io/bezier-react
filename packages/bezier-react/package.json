@@ -16,7 +16,7 @@
     "src"
   ],
   "scripts": {
-    "build": "cross-env BABEL_ENV=production rollup -c",
+    "build": "rollup -c",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
@@ -87,7 +87,6 @@
     "babel-preset-react-app": "^10.0.0",
     "chromatic": "^6.11.4",
     "core-js": "^3.8.1",
-    "cross-env": "^7.0.3",
     "eslint-config-bezier": "workspace:*",
     "eslint-plugin-storybook": "^0.6.0",
     "identity-obj-proxy": "^3.0.0",
