@@ -1,48 +1,46 @@
+import { exec } from 'child_process'
+
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
 import url from '@rollup/plugin-url'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import typescript from 'rollup-plugin-typescript2'
 import { visualizer } from 'rollup-plugin-visualizer'
 
-import packageJson from './package.json'
+const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
-const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
+/**
+ * @type {import('rollup').PluginImpl}
+ */
+function tscAlias() {
+  return {
+    name: 'tscAlias',
+    writeBundle: () => new Promise((resolve, reject) => {
+      exec('tsc-alias', function callback(error, stdout, stderr) {
+        if (stderr || error) {
+          reject(stderr || error)
+        } else {
+          resolve(stdout)
+        }
+      })
+    }),
+  }
+}
 
-// Order Matters, must after rollup-plugin-node-resolve
-// See Also: https://www.npmjs.com/package/rollup-plugin-typescript2
-const typescriptPlugin = typescript({
-  typescript: require('ttypescript'),
-  tsconfig: './tsconfig.json',
-  useTsconfigDeclarationDir: true,
-  tsconfigDefaults: {
-    emitDeclarationOnly: true,
-    compilerOptions: {
-      plugins: [
-        { transform: 'typescript-transform-paths' },
-        { transform: 'typescript-transform-paths', afterDeclarations: true },
-      ],
-    },
-  },
-  tsconfigOverride: {
-    noEmit: false,
+const commonPlugins = [
+  commonjs(),
+  typescript({
+    tsconfig: './tsconfig.json',
     exclude: [
-      '**/__mocks__/*',
       '**/*.stories.tsx',
       '**/*.test.ts',
       '**/*.test.tsx',
       './src/utils/storyUtils.ts',
       './src/utils/testUtils.tsx',
-      'node_modules',
-      'dist',
     ],
-  },
-})
-
-const commonPlugins = [
-  commonjs(),
+  }),
   babel({
     babelHelpers: 'runtime',
     skipPreflightCheck: true,
@@ -51,6 +49,7 @@ const commonPlugins = [
   }),
   peerDepsExternal(),
   url(),
+  tscAlias(),
   visualizer({
     filename: 'stats.html',
   }),
@@ -76,7 +75,7 @@ export default [
   // CommonJS
   configGenerator({
     output: {
-      file: packageJson.main,
+      file: 'dist/index.cjs.js',
       format: 'cjs',
     },
     plugins: [
@@ -84,7 +83,6 @@ export default [
         mainFields: ['main', 'module'],
         extensions,
       }),
-      typescriptPlugin,
     ],
   }),
   // ESModules
@@ -99,7 +97,6 @@ export default [
       nodeResolve({
         extensions,
       }),
-      typescriptPlugin,
     ],
   }),
 ]
