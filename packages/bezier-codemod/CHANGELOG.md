@@ -1,5 +1,11 @@
 # @channel.io/bezier-codemod
 
+## 0.2.0
+
+### Minor Changes
+
+- Add migration function that changes iconName to BezierIcon ([#1418](https://github.com/channel-io/bezier-react/pull/1418)) by @yangwooseong
+
 ## 0.1.1
 
 ### Patch Changes
