@@ -2936,7 +2936,6 @@ __metadata:
     tsconfig-paths-webpack-plugin: ^3.5.2
     tslib: ^2.3.1
     ttypescript: ^1.5.13
-    typesafe-actions: ^5.1.0
     typescript-transform-paths: ^3.3.1
     uuid: ^9.0.0
   peerDependencies:
@@ -24743,13 +24742,6 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
-  languageName: node
-  linkType: hard
-
-"typesafe-actions@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "typesafe-actions@npm:5.1.0"
-  checksum: 63f973ca93fcd2a037bf994ec6b173a5bf2fe2eba04ea64d8ddc49f3fcac5506d4209d61e020ab07dd39a21539d9f03fbf7c9ed7a22244c3c6c0758e438f6ef5
   languageName: node
   linkType: hard
 
