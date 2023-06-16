@@ -65,7 +65,7 @@ const ToastElement = (
 
   const {
     appearance: presetAppearance,
-    icon: presetIconName,
+    icon: presetIcon,
   } = useMemo(() => getToastPreset(preset), [preset])
 
   return (
@@ -78,7 +78,7 @@ const ToastElement = (
         appearance={appearance ?? presetAppearance}
       >
         <Icon
-          source={icon ?? presetIconName}
+          source={icon ?? presetIcon}
           size={IconSize.S}
         />
       </IconWrapper>
