@@ -18,8 +18,6 @@ import {
 
 import { IconSize } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
-import { isIconName } from '~/src/components/LegacyIcon'
-import { Tooltip } from '~/src/components/Tooltip'
 
 import {
   type ItemActionProps,
@@ -33,16 +31,6 @@ function ActionIcon({
   icon,
   iconColor,
 }: ItemActionWithIcon) {
-  if (isIconName(icon)) {
-    return (
-      <Styled.ActionLegacyIcon
-        name={icon}
-        color={iconColor ?? 'txt-black-dark'}
-        size={IconSize.XS}
-      />
-    )
-  }
-
   return (
     <Styled.ActionIcon
       source={icon}

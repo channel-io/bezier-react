@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -12,7 +9,7 @@ import type {
 } from '~/src/types/ComponentProps'
 
 export type ItemActionWithIcon = {
-  icon: IconName | BezierIcon
+  icon: BezierIcon
   tooltip?: string
   show?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
