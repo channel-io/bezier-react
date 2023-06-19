@@ -13,9 +13,6 @@
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
-    // typescript-transform-paths must be used with ttypescript.
-    // If you upgrade to typescript v5 or later, you will need to use a package other than ttypescript.
-    // See: https://github.com/cevek/ttypescript/issues/147
     "plugins": [
       { "transform": "typescript-transform-paths" },
       { "transform": "typescript-transform-paths", "afterDeclarations": true },
