@@ -3591,7 +3591,7 @@ __metadata:
     react-textarea-autosize: ^8.4.1
     regenerator-runtime: ^0.13.11
     rollup: ^3.25.1
-    rollup-plugin-peer-deps-external: ^2.2.4
+    rollup-plugin-node-externals: ^6.1.1
     rollup-plugin-visualizer: ^5.9.2
     ssr-window: ^3.0.0
     styled-components: ^5.3.5
@@ -22800,12 +22800,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-peer-deps-external@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "rollup-plugin-peer-deps-external@npm:2.2.4"
+"rollup-plugin-node-externals@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "rollup-plugin-node-externals@npm:6.1.1"
   peerDependencies:
-    rollup: "*"
-  checksum: 597bc7631f4e3cfc066a7da4e09e507258aba932008148328c1a4b48e7ffa755592ef4bcf0165320bbd5019afbdd326f569cd0c68406d820da9ab52e971c009b
+    rollup: ^3.0.0
+  checksum: 9f11e7d2632628094fd0846571fba275ef60d9775ad2957edd68efa5c87e9201610e0f6f7cce9b1d22412322120ba74f9f47ee435511bbe5351c14199686b272
   languageName: node
   linkType: hard
 

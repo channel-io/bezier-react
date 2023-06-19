@@ -9,7 +9,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import { defineConfig } from 'rollup'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import nodeExternals from 'rollup-plugin-node-externals'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(
@@ -34,7 +34,16 @@ const generateConfig = ({
         replacement: rootDir,
       }],
     }),
-    peerDepsExternal(),
+    /**
+     * **IMPORTANT**: Order matters!
+     * If you're also using @rollup/plugin-node-resolve, make sure this plugin comes before it in the plugins array
+     * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
+     */
+    nodeExternals({
+      deps: false,
+      peerDeps: true,
+      packagePath: './package.json',
+    }),
     nodeResolve({ extensions }),
     /**
      * **IMPORTANT**: Order matters!
