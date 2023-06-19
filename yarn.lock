@@ -3602,9 +3602,13 @@ __metadata:
     typescript-transform-paths: ^3.4.6
     uuid: ^9.0.0
   peerDependencies:
+    "@channel.io/bezier-icons": ">=0.2.0"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     styled-components: ">=5"
+  peerDependenciesMeta:
+    "@channel.io/bezier-icons":
+      optional: true
   languageName: unknown
   linkType: soft
 
