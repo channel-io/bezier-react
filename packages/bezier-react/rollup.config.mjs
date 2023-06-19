@@ -36,10 +36,15 @@ const generateConfig = ({
     }),
     peerDepsExternal(),
     nodeResolve({ extensions }),
+    /**
+     * **IMPORTANT**: Order matters!
+     * When using @rollup/plugin-babel with @rollup/plugin-commonjs in the same Rollup configuration,
+     * it's important to note that @rollup/plugin-commonjs must be placed before this plugin in the plugins array for the two to work together properly.
+     * @see https://github.com/rollup/plugins/tree/master/packages/babel#using-with-rollupplugin-commonjs
+     */
     commonjs(),
     babel({
       babelHelpers: 'runtime',
-      skipPreflightCheck: true,
       exclude: 'node_modules/**',
       extensions,
     }),
