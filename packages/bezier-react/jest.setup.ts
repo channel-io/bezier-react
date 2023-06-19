@@ -36,3 +36,11 @@ afterEach(() => {
   // @ts-ignore
   window.requestAnimationFrame.mockRestore()
 })
+
+/**
+ * react-textarea-autosize@8.4.1 uses the APIs below, but the DOM in jest (JSDOM) hasn't implemented them.
+ * @see https://github.com/Andarist/react-textarea-autosize/issues/368
+ */
+Object.defineProperty(document, 'fonts', {
+  value: { addEventListener() {}, removeEventListener() {} },
+})
