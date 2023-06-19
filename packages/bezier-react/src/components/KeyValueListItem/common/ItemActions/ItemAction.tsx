@@ -18,6 +18,7 @@ import {
 
 import { IconSize } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import { Tooltip } from '~/src/components/Tooltip'
 
 import {
   type ItemActionProps,
