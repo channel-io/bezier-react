@@ -6,7 +6,7 @@
 
 - Updated dependencies
   - @channel.io/bezier-icons@0.3.0
-  - @channel.io/bezier-react@2.0.0
+  - @channel.io/bezier-react@1.6.0
 
 ## 0.3.3
 
