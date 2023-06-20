@@ -1,5 +1,7 @@
+/** @type {import('jest').Config} */
 module.exports = {
   roots: ['./src'],
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['./jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   transformIgnorePatterns: [],
