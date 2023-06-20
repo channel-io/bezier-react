@@ -11,6 +11,7 @@ import { isNumber } from '~/src/utils/typeUtils'
 import {
   Tooltip,
   TooltipPosition,
+  type TooltipProps,
 } from '~/src/components/Tooltip'
 
 import type SliderProps from './Slider.types'
@@ -41,7 +42,7 @@ const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
   const value = props?.['aria-valuenow']
 
   // NOTE: Prevents the tooltip from closing when the thumb is clicked.
-  const onPointerDownOutside = useCallback((e: MouseEvent) => {
+  const onPointerDownOutside = useCallback<Required<TooltipProps>['onPointerDownOutside']>((e) => {
     e.preventDefault()
   }, [])
 
