@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 1.6.0
+
+### Minor Changes
+
+- Add @channel.io/bezier-icons >= 0.2.0 as a peer dependency of bezier-react, bezier-icons is no longer bundled. ([#1424](https://github.com/channel-io/bezier-react/pull/1424)) by @sungik-choi
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.3.0
+
 ## 1.5.0
 
 ### Minor Changes
