@@ -35,7 +35,7 @@ interface SectionLabelOptions {
 
 export default interface SectionLabelProps extends
   BezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick' | keyof ContentProps>,
   ContentProps,
   ChildrenProps,
   SideContentProps<SectionLabelItemProps, SectionLabelItemProps | SectionLabelItemProps[]>,

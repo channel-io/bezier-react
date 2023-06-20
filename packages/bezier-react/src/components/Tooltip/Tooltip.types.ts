@@ -26,7 +26,7 @@ export default interface TooltipProps extends
   ContentProps,
   DisableProps,
   AdditionalStylableProps<'content' | 'contentWrapper'>,
-  React.HTMLAttributes<HTMLDivElement>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
   TooltipOptions {
 }
 
