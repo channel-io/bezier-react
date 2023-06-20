@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/testUtils'
 
-import { TOOLTIP_TEST_ID } from '~/src/components/Tooltip/Tooltip'
+import { TOOLTIP_TEST_ID } from '~/src/components/LegacyTooltip/LegacyTooltip'
 
 import KeyValueListItem from './KeyValueListItem'
 import { TEST_ID_MAP } from './KeyValueListItem.const'

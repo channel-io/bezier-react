@@ -1,105 +1,66 @@
 import React from 'react'
 
+import { TranslateIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
 } from '@storybook/react'
 import { base } from 'paths.macro'
 
-import { styled } from '~/src/foundation'
+import {
+  getObjectFromEnum,
+  getTitle,
+} from '~/src/utils/storyUtils'
 
-import { getTitle } from '~/src/utils/storyUtils'
+import { Button } from '~/src/components/Button'
 
-import Tooltip from './Tooltip'
-import type TooltipProps from './Tooltip.types'
-import { TooltipPosition } from './Tooltip.types'
+import {
+  Tooltip,
+  TooltipProvider,
+} from './Tooltip'
+import {
+  TooltipPosition,
+  type TooltipProps,
+} from './Tooltip.types'
 
 export default {
   title: getTitle(base),
   component: Tooltip,
+  subcomponents: { TooltipProvider },
   argTypes: {
-    content: {
+    offset: {
       control: {
-        type: 'text',
+        type: 'range',
       },
     },
     placement: {
       control: {
-        type: 'radio',
-        options: [
-          TooltipPosition.TopCenter,
-          TooltipPosition.TopLeft,
-          TooltipPosition.TopRight,
-          TooltipPosition.RightCenter,
-          TooltipPosition.RightTop,
-          TooltipPosition.RightBottom,
-          TooltipPosition.BottomCenter,
-          TooltipPosition.BottomLeft,
-          TooltipPosition.BottomRight,
-          TooltipPosition.LeftCenter,
-          TooltipPosition.LeftTop,
-          TooltipPosition.LeftBottom,
-        ],
-      },
-    },
-    offset: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 50,
-        step: 1,
-      },
-    },
-    delayShow: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 5000,
-        step: 100,
-      },
-    },
-    delayHide: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 5000,
-        step: 100,
+        type: 'select',
+        options: getObjectFromEnum(TooltipPosition),
       },
     },
   },
-} as Meta
+} as Meta<TooltipProps>
 
-const Target = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 40px;
-  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
-  border-radius: 4px;
-`
-
-const Template: Story<TooltipProps> = (props) => (
-  <Tooltip
-    {...props}
-  >
-    <Target>
-      Target
-    </Target>
+const Template: Story<TooltipProps> = ({ children, ...rest }) => (
+  <Tooltip {...rest}>
+    { children }
   </Tooltip>
 )
 
 export const Primary = Template.bind({})
 
 Primary.args = {
-  // eslint-disable-next-line max-len
-  content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-  lazy: true,
+  defaultShow: false,
   placement: TooltipPosition.BottomCenter,
   offset: 4,
   disabled: false,
-  keepInContainer: false,
+  keepInContainer: true,
   allowHover: false,
   delayShow: 0,
   delayHide: 0,
+  children: (<Button text="Button" />),
+  content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+  description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  icon: TranslateIcon,
 }

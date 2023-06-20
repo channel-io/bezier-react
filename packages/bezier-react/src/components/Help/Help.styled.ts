@@ -1,7 +1,7 @@
 import { styled } from '~/src/foundation'
 
 import { Icon as BaseIcon } from '~/src/components/Icon'
-import { Tooltip as BaseTooltip } from '~/src/components/Tooltip'
+import { LegacyTooltip as BaseTooltip } from '~/src/components/LegacyTooltip'
 
 export const Icon = styled(BaseIcon)``
 

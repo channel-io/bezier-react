@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -8,146 +7,288 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import type TooltipProps from './Tooltip.types'
-import { TooltipPosition } from './Tooltip.types'
-import TooltipContent from './TooltipContent'
+import { document } from '~/src/utils/domUtils'
+import { isBoolean } from '~/src/utils/typeUtils'
 
-import { Container } from './Tooltip.styled'
+import {
+  TooltipPosition,
+  type TooltipProps,
+  type TooltipProviderProps,
+} from './Tooltip.types'
 
-export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
-export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
+import * as Styled from './Tooltip.styled'
 
-function Tooltip(
-  {
-    as,
-    testId = TOOLTIP_TEST_ID,
-    contentTestId = TOOLTIP_CONTENT_TEST_ID,
-    className,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    content = null,
-    lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
-    placement = TooltipPosition.BottomCenter,
-    disabled = false,
-    offset = 4,
-    keepInContainer = false,
-    allowHover = false,
-    delayShow = 0,
-    delayHide = 0,
-    children,
-    ...otherProps
-  }: TooltipProps,
-  forwardedRef: Ref<any>,
+// TODO: (@ed) Evolve it into a commonly reusable function
+// FIXME: duplicate
+function createContext<ContextValue>(
+  providerName: string,
+  defaultValue: ContextValue,
 ) {
-  const [show, setShow] = useState(false)
-  const [didMount, setDidMount] = useState(show)
+  const Context = React.createContext<ContextValue>(defaultValue)
 
-  const tooltipContainerRef = useRef<HTMLDivElement>(null)
-  const timerRef = useRef<ReturnType<Window['setTimeout']>>()
+  function useContext(consumerName: string) {
+    const contextValue = React.useContext(Context)
 
-  useEffect(function hideTooltipContentWhenDisabled() {
-    if (disabled) {
-      setShow(false)
-    }
-  }, [disabled])
-
-  useEffect(function updateDidMount() {
-    setDidMount((prev) => prev || show)
-  }, [show])
-
-  const handleMouseEnter = useCallback(() => {
-    if (disabled) {
-      return
+    if (!contextValue) {
+      throw new Error(`'${consumerName}' must be used within '${providerName}'`)
     }
 
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(true)
-    }, delayShow)
-  }, [
-    delayShow,
-    disabled,
-  ])
-
-  const handleMouseLeave = useCallback(() => {
-    if (disabled) {
-      return
-    }
-
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(false)
-    }, delayHide)
-  }, [
-    delayHide,
-    disabled,
-  ])
-
-  const TooltipComponent = useMemo(() => {
-    if (!lazy || didMount) {
-      return (
-        <TooltipContent
-          as={as}
-          content={content}
-          contentClassName={contentClassName}
-          contentInterpolation={contentInterpolation}
-          contentWrapperStyle={contentWrapperStyle}
-          disabled={disabled}
-          placement={placement}
-          offset={offset}
-          allowHover={allowHover}
-          keepInContainer={keepInContainer}
-          tooltipContainer={tooltipContainerRef.current}
-          forwardedRef={forwardedRef}
-          testId={contentTestId}
-        />
-      )
-    }
-
-    return null
-  }, [
-    lazy,
-    didMount,
-    as,
-    content,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    disabled,
-    placement,
-    offset,
-    allowHover,
-    keepInContainer,
-    forwardedRef,
-    contentTestId,
-  ])
-
-  if (!children) {
-    return null
+    return contextValue
   }
 
+  return [
+    Context.Provider,
+    useContext,
+  ] as const
+}
+
+function getSideAndAlign(
+  placement: TooltipPosition,
+): Pick<TooltipPrimitive.TooltipContentProps, 'side' | 'align'> {
+  switch (placement) {
+    case TooltipPosition.TopCenter:
+      return {
+        side: 'top',
+        align: 'center',
+      }
+    case TooltipPosition.TopLeft:
+      return {
+        side: 'top',
+        align: 'start',
+      }
+    case TooltipPosition.TopRight:
+      return {
+        side: 'top',
+        align: 'end',
+      }
+    case TooltipPosition.RightCenter:
+      return {
+        side: 'right',
+        align: 'center',
+      }
+    case TooltipPosition.RightTop:
+      return {
+        side: 'right',
+        align: 'start',
+      }
+    case TooltipPosition.RightBottom:
+      return {
+        side: 'right',
+        align: 'end',
+      }
+    case TooltipPosition.BottomCenter:
+      return {
+        side: 'bottom',
+        align: 'center',
+      }
+    case TooltipPosition.BottomLeft:
+      return {
+        side: 'bottom',
+        align: 'start',
+      }
+    case TooltipPosition.BottomRight:
+      return {
+        side: 'bottom',
+        align: 'end',
+      }
+    case TooltipPosition.LeftCenter:
+      return {
+        side: 'left',
+        align: 'center',
+      }
+    case TooltipPosition.LeftTop:
+      return {
+        side: 'left',
+        align: 'start',
+      }
+    case TooltipPosition.LeftBottom:
+      return {
+        side: 'left',
+        align: 'end',
+      }
+    default:
+      // NOTE: should not reach here
+      return {
+        side: undefined,
+        align: undefined,
+      }
+  }
+}
+
+const [
+  /**
+   * NOTE: Custom context use because the radix-ui doesn't support `delayHide`.
+   */
+  TooltipGlobalContextProvider,
+  useTooltipGlobalContext,
+] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>('TooltipProvider', null)
+
+/**
+ * `TooltipProvider` is used to globally provide props to child tooltips.
+ *
+ * @example
+ *
+ * ```tsx
+ * <TooltipProvider allowHover delayShow={1000}>
+ *   <Tooltip />
+ * </TooltipProvider>
+ * ```
+ */
+export function TooltipProvider({
+  children,
+  allowHover = false,
+  delayShow = 0,
+  delayHide = 0,
+  skipDelayShow = 0,
+}: TooltipProviderProps) {
+  const contextValue = useMemo(() => ({
+    delayHide,
+  }), [delayHide])
+
   return (
-    <Container
-      ref={tooltipContainerRef}
-      data-testid={testId}
-      className={className}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...otherProps}
+    <TooltipPrimitive.Provider
+      delayDuration={delayShow}
+      skipDelayDuration={skipDelayShow}
+      disableHoverableContent={!allowHover}
     >
-      { children }
-      { show && TooltipComponent }
-    </Container>
+      <TooltipGlobalContextProvider value={contextValue}>
+        { children }
+      </TooltipGlobalContextProvider>
+    </TooltipPrimitive.Provider>
   )
 }
 
-export default React.memo(forwardRef(Tooltip))
+/**
+ * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Tooltip
+ * <TooltipProvider>
+ *   <Tooltip />
+ * </TooltipProvider>
+ *
+ * // Example of a Tooltip with a button
+ * <Tooltip content="Ta-da!">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ * ```
+ */
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
+  as,
+  children,
+  defaultShow,
+  onShow: onShowProp,
+  onHide: onHideProp,
+  disabled,
+  content,
+  description,
+  icon,
+  placement = TooltipPosition.BottomCenter,
+  offset = 4,
+  container = document.body,
+  keepInContainer = true,
+  allowHover,
+  delayShow,
+  delayHide: delayHideProp,
+  ...rest
+}, forwardedRef) {
+  const [show, setShow] = useState<boolean>(defaultShow ?? false)
+  const timeoutRef = useRef<NodeJS.Timeout>()
+  const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
+
+  const delayHide = delayHideProp ?? globalDelayHide
+
+  useEffect(function cleanUpTimeout() {
+    return function cleanUp() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
+  const onShow = useCallback(() => {
+    setShow(true)
+    onShowProp?.()
+  }, [onShowProp])
+
+  const onHide = useCallback(() => {
+    setShow(false)
+    onHideProp?.()
+  }, [onHideProp])
+
+  const onOpenChange = useCallback((open: boolean) => {
+    if (disabled) { return }
+
+    if (open) {
+      onShow()
+      return
+    }
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+      timeoutRef.current = undefined
+    }
+
+    if (delayHide > 0) {
+      timeoutRef.current = setTimeout(() => {
+        onHide()
+      }, delayHide)
+      return
+    }
+
+    onHide()
+  }, [
+    disabled,
+    delayHide,
+    onShow,
+    onHide,
+  ])
+
+  return (
+    <TooltipPrimitive.Root
+      open={show}
+      defaultOpen={defaultShow}
+      delayDuration={delayShow}
+      disableHoverableContent={isBoolean(allowHover) ? !allowHover : undefined}
+      onOpenChange={onOpenChange}
+    >
+      <TooltipPrimitive.Trigger asChild>
+        { children }
+      </TooltipPrimitive.Trigger>
+
+      <TooltipPrimitive.Portal container={container}>
+        <TooltipPrimitive.Content
+          {...rest}
+          {...getSideAndAlign(placement)}
+          asChild
+          ref={forwardedRef}
+          sideOffset={offset}
+          avoidCollisions={keepInContainer}
+          collisionPadding={8}
+        >
+          <Styled.TooltipContent forwardedAs={as}>
+            <div>
+              <Styled.Content>
+                { content }
+              </Styled.Content>
+
+              { description && (
+                <Styled.Description>
+                  { description }
+                </Styled.Description>
+              ) }
+            </div>
+
+            { icon && (
+              <Styled.Icon source={icon} />
+            ) }
+          </Styled.TooltipContent>
+        </TooltipPrimitive.Content>
+      </TooltipPrimitive.Portal>
+    </TooltipPrimitive.Root>
+  )
+})
