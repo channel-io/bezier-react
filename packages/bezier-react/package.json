@@ -88,7 +88,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^29.5.2",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "@types/styled-components": "^5.1.26",
@@ -101,7 +101,7 @@
     "eslint-config-bezier": "workspace:*",
     "eslint-plugin-storybook": "^0.6.12",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
+    "jest": "^29.5.0",
     "jest-styled-components": "^7.1.1",
     "paths.macro": "^3.0.1",
     "react": "^18.2.0",
@@ -113,7 +113,7 @@
     "styled-components": "^5.3.11",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
   },
@@ -141,9 +141,9 @@
     "@radix-ui/react-toolbar": "^1.0.4",
     "@radix-ui/react-visually-hidden": "^1.0.3",
     "classnames": "^2.3.2",
-    "react-resize-detector": "^7.1.2",
+    "react-resize-detector": "^9.1.0",
     "react-textarea-autosize": "^8.4.1",
-    "ssr-window": "^3.0.0",
+    "ssr-window": "^4.0.2",
     "uuid": "^9.0.0"
   }
 }

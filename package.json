@@ -26,7 +26,7 @@
     "@changesets/types": "^5.2.1",
     "@channel.io/stylelint-config": "^1.2.0",
     "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/config-conventional": "^17.6.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-bezier": "workspace:*",
