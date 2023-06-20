@@ -26,7 +26,7 @@ export interface LegacyTooltipProps extends
   ContentProps,
   DisableProps,
   AdditionalStylableProps<'content' | 'contentWrapper'>,
-  React.HTMLAttributes<HTMLDivElement>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
   LegacyTooltipOptions {
 }
 

@@ -119,5 +119,5 @@ export interface TooltipProps extends
   ChildrenProps,
   ContentProps,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'content'>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
   TooltipOptions {}
