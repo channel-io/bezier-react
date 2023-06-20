@@ -5,7 +5,6 @@ import React, {
   useState,
 } from 'react'
 
-import { isBezierIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
@@ -20,7 +19,6 @@ import {
 } from '~/src/utils/typeUtils'
 
 import { IconSize } from '~/src/components/Icon'
-import { isIconName } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type ListItemProps from './ListItem.types'
@@ -37,7 +35,6 @@ import {
   LeftContentWrapper,
   RightContent,
   StyledIcon,
-  StyledLegacyIcon,
   Title,
   TitleWrapper,
   Wrapper,
@@ -148,21 +145,7 @@ forwardedRef: React.Ref<ListItemRef>,
       )
     }
 
-    if (isIconName(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledLegacyIcon
-            className={iconClassName}
-            name={leftIcon}
-            size={IconSize.S}
-            active={isActive}
-            variant={variant}
-          />
-        </LeftContentWrapper>
-      )
-    }
-
-    if (isBezierIcon(leftIcon)) {
+    if (!isNil(leftIcon)) {
       return (
         <LeftContentWrapper>
           <StyledIcon

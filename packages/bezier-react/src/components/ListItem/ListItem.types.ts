@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
@@ -39,7 +36,7 @@ interface ListItemOptions {
   name?: string
   hide?: boolean
   nested?: boolean
-  leftIcon?: IconName | BezierIcon
+  leftIcon?: BezierIcon
   focused?: boolean
   disableIconActive?: boolean
   descriptionMaxLines?: number

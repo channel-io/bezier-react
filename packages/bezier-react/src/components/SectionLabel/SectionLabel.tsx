@@ -3,6 +3,7 @@ import React, {
   useMemo,
 } from 'react'
 
+import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
@@ -37,6 +38,10 @@ export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-le
 export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
 export const SECTION_LABEL_TEST_HELP_CONTENT_ID = 'bezier-react-section-label-help-content'
 
+function clickableClassName(onClick?: React.MouseEventHandler) {
+  return !isNil(onClick) ? 'clickable' : undefined
+}
+
 function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string): React.ReactElement {
   if (!('icon' in props)) {
     return React.cloneElement(props, { key })
@@ -52,7 +57,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
     return (
       <Styled.RightItemWrapper
         key={key}
-        clickable={!isNil(onClick)}
+        className={clickableClassName(onClick)}
         onClick={onClick}
       >
         <LegacyIcon
@@ -118,10 +123,10 @@ function SectionLabel({
     'icon' in item
       ? (
         <Styled.LeftIcon
+          className={clickableClassName(item.onClick)}
           name={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
-          clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         />
       ) : item
@@ -194,8 +199,10 @@ function SectionLabel({
     <div data-testid={SECTION_LABEL_TEST_ID}>
       { divider && <Divider orientation="horizontal" /> }
       <Styled.Wrapper
-        className={wrapperClassName}
-        clickable={!isNil(onClick)}
+        className={classNames(
+          wrapperClassName,
+          clickableClassName(onClick),
+        )}
         onClick={onClick}
         interpolation={wrapperInterpolation}
         {...props}

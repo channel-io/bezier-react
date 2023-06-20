@@ -1,5 +1,43 @@
 # @channel.io/bezier-react
 
+## 1.6.1
+
+### Patch Changes
+
+- Update the following packages to the latest versions: `react-resize-detector`, `ssr-window` ([#1429](https://github.com/channel-io/bezier-react/pull/1429)) by @sungik-choi
+
+## 1.6.0
+
+### Minor Changes
+
+- Add @channel.io/bezier-icons >= 0.2.0 as a peer dependency of bezier-react, bezier-icons is no longer bundled. ([#1424](https://github.com/channel-io/bezier-react/pull/1424)) by @sungik-choi
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.3.0
+
+## 1.5.0
+
+### Minor Changes
+
+- Remove `LegacyIcon` used in `ListItem`, `Select`, `TextField`, `KeyValueListItem`, `OutlineItem`. ([#1383](https://github.com/channel-io/bezier-react/pull/1383)) by @yangwooseong
+
+  **BREAKING CHANGE**: No more support for `IconName` type with `icon` prop in these components.
+
+## 1.4.0
+
+### Minor Changes
+
+- **Important notice:** Changed the way icon component uniqueness is checked in the @channel.io/bezier-icons package, please use with the @channel.io/bezier-icons@0.2.0 version for normal behavior. ([#1414](https://github.com/channel-io/bezier-react/pull/1414)) by @sungik-choi
+
+### Patch Changes
+
+- Changed the styling of the active state of `OutlineItem`'s icon and the clickable state of `SectionLabel` to classname-based styling. ([#1312](https://github.com/channel-io/bezier-react/pull/1312)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.2.0
+
 ## 1.3.0
 
 ### Minor Changes

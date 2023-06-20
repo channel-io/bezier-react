@@ -1,6 +1,11 @@
 import '@testing-library/jest-dom'
 import 'jest-styled-components'
 
+Object.defineProperty(window, 'requestAnimationFrame', {
+  writable: true,
+  value: callback => callback(),
+})
+
 /**
  * @see https://github.com/radix-ui/primitives/blob/83a8c13bf66f3d9f17d77caeb187a69eb146930b/scripts/setup-tests.ts
  */
@@ -27,12 +32,10 @@ global.ResizeObserver = class ResizeObserver {
 window.HTMLElement.prototype.hasPointerCapture = jest.fn()
 window.HTMLElement.prototype.setPointerCapture = jest.fn()
 
-beforeEach(() => {
-  // @ts-ignore
-  jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
-})
-
-afterEach(() => {
-  // @ts-ignore
-  window.requestAnimationFrame.mockRestore()
+/**
+ * react-textarea-autosize@8.4.1 uses the APIs below, but the DOM in jest (JSDOM) hasn't implemented them.
+ * @see https://github.com/Andarist/react-textarea-autosize/issues/368
+ */
+Object.defineProperty(document, 'fonts', {
+  value: { addEventListener() {}, removeEventListener() {} },
 })

@@ -1,4 +1,0 @@
-{
-  "**/*.(js|ts)?(x)": "yarn lint:js",
-  "**/*.styled.{js,ts}": "yarn lint:style"
-}

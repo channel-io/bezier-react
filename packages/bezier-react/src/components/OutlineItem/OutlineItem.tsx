@@ -11,12 +11,12 @@ import {
   ChevronSmallRightIcon,
   isBezierIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
 
 import { IconSize } from '~/src/components/Icon'
-import { isIconName } from '~/src/components/LegacyIcon'
 
 import type OutlineItemProps from './OutlineItem.types'
 import { OutlineItemContext } from './OutlineItemContext'
@@ -28,7 +28,6 @@ import {
   GroupItemWrapper,
   LeftContentWrapper,
   StyledIcon,
-  StyledLegacyIcon,
 } from './OutlineItem.styled'
 
 const LIST_GROUP_PADDING_LEFT = 16
@@ -54,7 +53,7 @@ function OutlineItem(
     focused = false,
     leftContent,
     leftIcon,
-    leftIconColor,
+    leftIconColor = 'txt-black-dark',
     disableChevron = false,
     disableIconActive = false,
     name,
@@ -170,36 +169,35 @@ function OutlineItem(
       )
     }
 
-    if (isIconName(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledLegacyIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            name={leftIcon}
-            size={IconSize.S}
-            active={active}
-            disableIconActive={disableIconActive}
-            color={leftIconColor}
-          />
-        </LeftContentWrapper>
-      )
-    }
+    const isIcon = isBezierIcon(leftIcon)
 
-    if (isBezierIcon(leftIcon)) {
+    if (isIcon) {
+      const iconProps = {
+        testId: leftIconTestId,
+        className: classNames(
+          iconClassName,
+          (!disableIconActive && active) && 'active',
+        ),
+        interpolation: iconInterpolation,
+        size: IconSize.S,
+        color: leftIconColor,
+      }
+
+      const Icon = (() => {
+        if (isIcon) {
+          return (
+            <StyledIcon
+              {...iconProps}
+              source={leftIcon}
+            />
+          )
+        }
+        return <></>
+      })()
+
       return (
         <LeftContentWrapper>
-          <StyledIcon
-            testId={leftIconTestId}
-            className={iconClassName}
-            interpolation={iconInterpolation}
-            source={leftIcon}
-            size={IconSize.S}
-            active={active}
-            disableIconActive={disableIconActive}
-            color={leftIconColor}
-          />
+          { Icon }
         </LeftContentWrapper>
       )
     }

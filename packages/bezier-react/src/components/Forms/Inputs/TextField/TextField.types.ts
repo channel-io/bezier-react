@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -43,7 +40,7 @@ export enum TextFieldVariant {
 }
 
 export type TextFieldItemProps = {
-  icon: IconName | BezierIcon
+  icon: BezierIcon
   onClick?: React.MouseEventHandler
 } & AdditionalColorProps<'icon'> | React.ReactElement
 

@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalStylableProps,
@@ -14,7 +11,7 @@ import type {
 import { type KeyValueListItemActionProps } from './common'
 
 interface KeyValueListItemOptions {
-  keyIcon?: IconName | BezierIcon | React.ReactNode
+  keyIcon?: BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
   actions?: KeyValueListItemActionProps | KeyValueListItemActionProps[]
 }

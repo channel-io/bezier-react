@@ -196,7 +196,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # Build files
-build/
+dist/
 
 # Story book
 storybook-static/
@@ -212,3 +212,6 @@ stats.html
 
 # Stylelint cache
 .stylelintcache
+
+# Rollup cache
+.rollup.cache
