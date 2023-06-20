@@ -25,7 +25,7 @@ import {
 import { Divider } from '~/src/components/Divider'
 import { IconSize } from '~/src/components/Icon'
 import { LegacyIcon } from '~/src/components/LegacyIcon'
-import { Tooltip } from '~/src/components/Tooltip'
+import { LegacyTooltip } from '~/src/components/LegacyTooltip'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -181,7 +181,7 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <Tooltip
+    <LegacyTooltip
       content={help.tooltipContent}
       allowHover
     >
@@ -192,7 +192,7 @@ function SectionLabel({
           color={help.iconColor ?? 'txt-black-dark'}
         />
       </Styled.HelpIconWrapper>
-    </Tooltip>
+    </LegacyTooltip>
   ), [help])
 
   return (

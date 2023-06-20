@@ -1,12 +1,12 @@
-import Tooltip from './Tooltip'
-import { TooltipPosition } from './Tooltip.types'
-import type TooltipProps from './Tooltip.types'
+export {
+  Tooltip,
+  TooltipProvider,
+} from './Tooltip'
+
+export { TooltipPosition } from './Tooltip.types'
 
 export type {
   TooltipProps,
-}
+  TooltipProviderProps,
+} from './Tooltip.types'
 
-export {
-  Tooltip,
-  TooltipPosition,
-}
