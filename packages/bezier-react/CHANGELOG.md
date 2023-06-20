@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.6.1
+
+### Patch Changes
+
+- Update the following packages to the latest versions: `react-resize-detector`, `ssr-window` ([#1429](https://github.com/channel-io/bezier-react/pull/1429)) by @sungik-choi
+
 ## 1.6.0
 
 ### Minor Changes
