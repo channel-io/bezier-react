@@ -232,5 +232,12 @@ describe('Slider', () => {
       await user.click(sliderThumb)
       expect(getAllByText('0')[0]).toBeInTheDocument()
     })
+
+    it('should not show tooltip when disableTooltip is true', async () => {
+      const { getByRole, queryAllByText } = renderSlider({ defaultValue: [0], disableTooltip: true })
+      const sliderThumb = getByRole('slider')
+      await user.click(sliderThumb)
+      expect(queryAllByText('0')[0]).toBeUndefined()
+    })
   })
 })

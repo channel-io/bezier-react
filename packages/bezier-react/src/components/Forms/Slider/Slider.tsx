@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   memo,
-  useCallback,
 } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
@@ -11,7 +10,6 @@ import { isNumber } from '~/src/utils/typeUtils'
 import {
   Tooltip,
   TooltipPosition,
-  type TooltipProps,
 } from '~/src/components/Tooltip'
 
 import type SliderProps from './Slider.types'
@@ -35,27 +33,31 @@ const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function Slide
 })
 
 /* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
-const SliderThumb = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function SliderThumb(
-  props,
-  forwardedRef,
-) {
-  const value = props?.['aria-valuenow']
+const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip'> & React.HTMLAttributes<HTMLDivElement>>(function SliderThumb({
+  disableTooltip,
+  ...rest
+}, forwardedRef) {
+  const value = rest?.['aria-valuenow']
 
-  // NOTE: Prevents the tooltip from closing when the thumb is clicked.
-  const onPointerDownOutside = useCallback<Required<TooltipProps>['onPointerDownOutside']>((e) => {
-    e.preventDefault()
-  }, [])
+  if (disableTooltip) {
+    return (
+      <Styled.SliderThumb
+        ref={forwardedRef}
+        {...rest}
+      />
+    )
+  }
 
   return (
     <Tooltip
       content={value}
       offset={6}
       placement={TooltipPosition.TopCenter}
-      onPointerDownOutside={onPointerDownOutside}
+      onPointerDownOutside={e => e.preventDefault()}
     >
       <Styled.SliderThumb
         ref={forwardedRef}
-        {...props}
+        {...rest}
       />
     </Tooltip>
   )
@@ -89,6 +91,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
   max = 10,
   step = 1,
   minStepsBetweenThumbs = 0,
+  disableTooltip = false,
   ...rest
 }, forwardedRef) {
   const targetValue = value || defaultValue
@@ -134,7 +137,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
           key={`slider-thumb-${i}`}
           asChild
         >
-          <SliderThumb />
+          <SliderThumb disableTooltip={disableTooltip} />
         </SliderPrimitive.Thumb>
       )) }
     </Styled.SliderPrimitiveRoot>

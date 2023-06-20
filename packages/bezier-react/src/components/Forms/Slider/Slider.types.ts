@@ -50,6 +50,11 @@ interface SliderOptions {
    */
   minStepsBetweenThumbs?: number
   /**
+   * Whether to show the tooltip for the thumbs.
+   * @default false
+   */
+  disableTooltip?: boolean
+  /**
    * Event handler called when the value changes.
    */
   onValueChange?: (value: number[]) => void
