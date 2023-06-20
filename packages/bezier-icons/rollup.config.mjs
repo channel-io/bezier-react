@@ -1,16 +1,19 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
+import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
-import typescript from '@rollup/plugin-typescript'
 import virtual from '@rollup/plugin-virtual'
 import { createFilter } from '@rollup/pluginutils'
 import { transform } from '@svgr/core'
 import { defineConfig } from 'rollup'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { optimize } from 'svgo'
+
+const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx', '.svg']
 
 const config = {
   input: {
@@ -269,7 +272,7 @@ export default defineConfig({
   external: ['react'],
   plugins: [
     virtual({ 'src/index.ts': entryModuleContent }),
-    typescript(),
+    nodeResolve({ extensions }),
     svgBuild({ include: `${iconBasePath}/*.svg` }),
     /**
      * Module resolution is not working well inside the virtual module, so use the alias plugin to resolve the module manually.
@@ -282,7 +285,7 @@ export default defineConfig({
     }),
     babel({
       exclude: 'node_modules/**',
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
+      extensions,
       envName: 'production',
       babelHelpers: 'bundled',
     }),

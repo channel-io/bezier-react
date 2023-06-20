@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
     "composite": true,
-    "rootDir": ".",
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "build",
+    "rootDir": "./src",
     "noEmit": true,
     "module": "esnext",
-    "target": "es6",
-    "lib": ["dom", "ESNext"],
-    "sourceMap": true,
+    "target": "es2020",
+    "lib": ["dom", "es2020"],
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -29,10 +25,4 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "build",
-    "coverage",
-    "__mocks__",
-  ]
 }
