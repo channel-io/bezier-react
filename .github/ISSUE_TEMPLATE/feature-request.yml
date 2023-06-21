@@ -1,6 +1,6 @@
 name: "Feature request"
 description: "Suggest addition of new features (components, etc.) or improvement of existing features"
-labels: ["need triage"]
+labels: ["status:need triage"]
 body:
   - type: "markdown"
     attributes:
