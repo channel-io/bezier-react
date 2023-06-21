@@ -6,11 +6,11 @@ import { render } from '~/src/utils/testUtils'
 
 import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
 import { DIVIDER_TEST_ID } from '~/src/components/Divider/Divider'
+import { HELP_TEST_ID } from '~/src/components/Help/Help'
 import { ICON_TEST_ID } from '~/src/components/Icon/Icon'
 
 import SectionLabel, {
   SECTION_LABEL_TEST_CONTENT_ID,
-  SECTION_LABEL_TEST_HELP_CONTENT_ID,
   SECTION_LABEL_TEST_ID,
   SECTION_LABEL_TEST_LEFT_CONTENT_ID,
   SECTION_LABEL_TEST_RIGHT_CONTENT_ID,
@@ -83,15 +83,12 @@ describe('SectionLabel', () => {
     expect(leftIcon?.id).toBe('foo')
   })
 
-  it('renders help content with default color if the help prop exists', () => {
+  it('renders help icon if help prop exists', () => {
     const { getByTestId } = renderComponent({
       help: <div>happy</div>,
     })
-    const helpContent = getByTestId(SECTION_LABEL_TEST_HELP_CONTENT_ID)
-
-    const helpIcon = helpContent.children.item(0)
-    expect(helpIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
-    expect(helpIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+    const helpContent = getByTestId(HELP_TEST_ID)
+    expect(helpContent).toBeInTheDocument()
   })
 
   it('does not render right content if given null', () => {

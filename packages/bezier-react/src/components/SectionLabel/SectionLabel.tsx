@@ -35,7 +35,6 @@ export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
 export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
 export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
 export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
-export const SECTION_LABEL_TEST_HELP_CONTENT_ID = 'bezier-react-section-label-help-content'
 
 function clickableClassName(onClick?: React.MouseEventHandler) {
   return !isNil(onClick) ? 'clickable' : undefined
@@ -180,7 +179,7 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <Styled.Help data-testid={SECTION_LABEL_TEST_HELP_CONTENT_ID}>
+    <Styled.Help>
       { help }
     </Styled.Help>
   ), [help])

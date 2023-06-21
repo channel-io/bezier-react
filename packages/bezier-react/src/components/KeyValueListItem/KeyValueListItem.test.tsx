@@ -8,8 +8,6 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/testUtils'
 
-import { TOOLTIP_TEST_ID } from '~/src/components/LegacyTooltip/LegacyTooltip'
-
 import KeyValueListItem from './KeyValueListItem'
 import { TEST_ID_MAP } from './KeyValueListItem.const'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
@@ -168,11 +166,17 @@ describe('KeyValueListItem', () => {
         expect(actions.onClick).toBeCalledTimes(2)
       })
 
-      it('actions의 tooltip이 있으면, tooltip이 렌더링된다.', () => {
+      it('actions의 tooltip이 있으면, tooltip이 렌더링된다.', async () => {
+        const user = userEvent.setup()
+
         const actions: KeyValueListItemActionProps = { icon: BadgeIcon, tooltip: 'tooltip' }
-        const { getByTestId } = renderComponent({ actions })
-        const rendered = getByTestId(TOOLTIP_TEST_ID)
-        expect(rendered).toBeInTheDocument()
+        const { getByRole, getByTestId } = renderComponent({ actions })
+        const rendered = getByTestId(TEST_ID_MAP.ACTIONS_ITEM)
+        const actionItemIconWrapper = rendered?.firstChild
+        const actionItemIcon = actionItemIconWrapper?.firstChild
+
+        await user.hover(actionItemIcon as HTMLElement)
+        expect(getByRole('tooltip')).toBeInTheDocument()
       })
     })
 
