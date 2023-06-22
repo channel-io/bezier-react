@@ -269,6 +269,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
           sideOffset={offset}
           avoidCollisions={keepInContainer}
           collisionPadding={8}
+          hideWhenDetached
         >
           <Styled.TooltipContent forwardedAs={as}>
             <div>

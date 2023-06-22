@@ -19,6 +19,7 @@ import {
 import { IconSize } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 import { isIconName } from '~/src/components/LegacyIcon'
+import { Tooltip } from '~/src/components/Tooltip'
 
 import {
   type ItemActionProps,
@@ -75,9 +76,12 @@ function ItemAction(
 
       if (!isEmpty(action.tooltip)) {
         return (
-          <Styled.ActionIconTooltip key={key} content={action.tooltip}>
+          <Tooltip
+            key={key}
+            content={action.tooltip}
+          >
             { iconElement }
-          </Styled.ActionIconTooltip>
+          </Tooltip>
         )
       }
       return iconElement

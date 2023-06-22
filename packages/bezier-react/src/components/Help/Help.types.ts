@@ -3,9 +3,9 @@ import {
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import { type LegacyTooltipProps } from '~/src/components/LegacyTooltip'
+import { type TooltipProps } from '~/src/components/Tooltip'
 
 export default interface HelpProps extends
   BezierComponentProps,
   ChildrenProps,
-  Omit<LegacyTooltipProps, 'content'> {}
+  Omit<TooltipProps, 'content'> {}

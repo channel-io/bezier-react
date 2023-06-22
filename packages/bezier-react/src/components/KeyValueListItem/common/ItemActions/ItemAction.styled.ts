@@ -8,7 +8,6 @@ import { isNil } from '~/src/utils/typeUtils'
 
 import { Icon } from '~/src/components/Icon'
 import { LegacyIcon } from '~/src/components/LegacyIcon'
-import { LegacyTooltip } from '~/src/components/LegacyTooltip'
 
 export const ItemActionWrapper = styled.div`
   display: flex;
@@ -21,7 +20,9 @@ interface ActionWrapperProps extends AdditionalColorProps<['hoverBackground', 'h
 export const ActionIcon = styled(Icon)``
 export const ActionLegacyIcon = styled(LegacyIcon)``
 
-export const ActionIconWrapper = styled.div<ActionWrapperProps>`
+export const ActionIconWrapper = styled.button<ActionWrapperProps>`
+  all: unset;
+
   display: ${({ show }) => (show ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
@@ -31,7 +32,8 @@ export const ActionIconWrapper = styled.div<ActionWrapperProps>`
 
   ${({ foundation }) => foundation?.rounding?.round6}
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     ${({ foundation, hoverBackgroundColor }) => !isNil(hoverBackgroundColor) && css`
       background-color: ${foundation?.theme?.[hoverBackgroundColor]};
     `}
@@ -48,8 +50,4 @@ export const ActionIconWrapper = styled.div<ActionWrapperProps>`
       `}
     }
   }
-`
-
-export const ActionIconTooltip = styled(LegacyTooltip)`
-  margin-left: auto;
 `

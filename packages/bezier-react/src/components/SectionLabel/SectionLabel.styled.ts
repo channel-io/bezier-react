@@ -5,6 +5,7 @@ import {
 
 import { type InterpolationProps } from '~/src/types/Foundation'
 
+import { Help as BaseHelp } from '~/src/components/Help'
 import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
@@ -42,9 +43,7 @@ const ContentWrapper = styled.div<InterpolationProps>`
   ${({ interpolation }) => interpolation}
 `
 
-const HelpIconWrapper = styled.div`
-  width: 16px;
-  height: 16px;
+const Help = styled(BaseHelp)`
   margin-left: 8px;
 `
 
@@ -86,7 +85,7 @@ export default {
   LeftContentWrapper,
   ContentText,
   ContentWrapper,
-  HelpIconWrapper,
+  Help,
   RightContentWrapper,
   RightItemWrapper,
   ChildrenWrapper,
