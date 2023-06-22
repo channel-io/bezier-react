@@ -3,14 +3,14 @@ import { getRootElement } from '~/src/utils/domUtils'
 import {
   type GetReplacement,
   type GetTooltipStyle,
-  LegacyTooltipPosition,
-} from './LegacyTooltip.types'
+  TooltipPosition,
+} from './Tooltip.types'
 
 export function getReplacement({
   tooltip,
   keepInContainer,
   placement,
-}: GetReplacement): LegacyTooltipPosition {
+}: GetReplacement): TooltipPosition {
   if (!keepInContainer) {
     return placement
   }
@@ -36,42 +36,42 @@ export function getReplacement({
 
   if (isOverTop) {
     if (isOverLeft) {
-      return LegacyTooltipPosition.BottomLeft
+      return TooltipPosition.BottomLeft
     }
     if (isOverRight) {
-      return LegacyTooltipPosition.BottomRight
+      return TooltipPosition.BottomRight
     }
-    return LegacyTooltipPosition.BottomCenter
+    return TooltipPosition.BottomCenter
   }
 
   if (isOverBottom) {
     if (isOverLeft) {
-      return LegacyTooltipPosition.TopLeft
+      return TooltipPosition.TopLeft
     }
     if (isOverRight) {
-      return LegacyTooltipPosition.TopRight
+      return TooltipPosition.TopRight
     }
-    return LegacyTooltipPosition.TopCenter
+    return TooltipPosition.TopCenter
   }
 
   if (isOverLeft) {
     if (isOverTop) {
-      return LegacyTooltipPosition.RightTop
+      return TooltipPosition.RightTop
     }
     if (isOverBottom) {
-      return LegacyTooltipPosition.RightBottom
+      return TooltipPosition.RightBottom
     }
-    return LegacyTooltipPosition.RightCenter
+    return TooltipPosition.RightCenter
   }
 
   if (isOverRight) {
     if (isOverTop) {
-      return LegacyTooltipPosition.LeftTop
+      return TooltipPosition.LeftTop
     }
     if (isOverBottom) {
-      return LegacyTooltipPosition.LeftBottom
+      return TooltipPosition.LeftBottom
     }
-    return LegacyTooltipPosition.LeftCenter
+    return TooltipPosition.LeftCenter
   }
 
   return placement
@@ -102,50 +102,50 @@ export function getTooltipStyle({
   let offsetStyle = {}
 
   switch (placement) {
-    case LegacyTooltipPosition.TopCenter:
-    case LegacyTooltipPosition.TopLeft:
-    case LegacyTooltipPosition.TopRight:
+    case TooltipPosition.TopCenter:
+    case TooltipPosition.TopLeft:
+    case TooltipPosition.TopRight:
       translateY = -100
       offsetBottom = offset
       break
-    case LegacyTooltipPosition.RightCenter:
-    case LegacyTooltipPosition.RightTop:
-    case LegacyTooltipPosition.RightBottom:
+    case TooltipPosition.RightCenter:
+    case TooltipPosition.RightTop:
+    case TooltipPosition.RightBottom:
       left += containerWidth
       offsetLeft = offset
       break
-    case LegacyTooltipPosition.BottomCenter:
-    case LegacyTooltipPosition.BottomLeft:
-    case LegacyTooltipPosition.BottomRight:
+    case TooltipPosition.BottomCenter:
+    case TooltipPosition.BottomLeft:
+    case TooltipPosition.BottomRight:
       top += containerHeight
       offsetTop = offset
       break
-    case LegacyTooltipPosition.LeftCenter:
-    case LegacyTooltipPosition.LeftTop:
-    case LegacyTooltipPosition.LeftBottom:
+    case TooltipPosition.LeftCenter:
+    case TooltipPosition.LeftTop:
+    case TooltipPosition.LeftBottom:
       translateX = -100
       offsetRight = offset
       break
   }
 
   switch (placement) {
-    case LegacyTooltipPosition.TopCenter:
-    case LegacyTooltipPosition.BottomCenter:
+    case TooltipPosition.TopCenter:
+    case TooltipPosition.BottomCenter:
       translateX = -50
       left += (containerWidth / 2)
       break
-    case LegacyTooltipPosition.TopRight:
-    case LegacyTooltipPosition.BottomRight:
+    case TooltipPosition.TopRight:
+    case TooltipPosition.BottomRight:
       translateX = -100
       left += containerWidth
       break
-    case LegacyTooltipPosition.RightCenter:
-    case LegacyTooltipPosition.LeftCenter:
+    case TooltipPosition.RightCenter:
+    case TooltipPosition.LeftCenter:
       translateY = -50
       top += (containerHeight / 2)
       break
-    case LegacyTooltipPosition.RightBottom:
-    case LegacyTooltipPosition.LeftBottom:
+    case TooltipPosition.RightBottom:
+    case TooltipPosition.LeftBottom:
       translateY = -100
       top += containerHeight
       break

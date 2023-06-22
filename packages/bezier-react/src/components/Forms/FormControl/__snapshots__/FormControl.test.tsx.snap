@@ -20,6 +20,26 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   justify-content: var(--bezier-alpha-stack-justify);
 }
 
+.c1 {
+  position: relative;
+}
+
+.c2 {
+  padding: 0 2px;
+  margin-bottom: 4px;
+}
+
+.c10 {
+  padding: 0 2px;
+  margin-top: 4px;
+}
+
+.c5 {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -52,26 +72,6 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c1 {
-  position: relative;
-}
-
-.c2 {
-  padding: 0 2px;
-  margin-bottom: 4px;
-}
-
-.c10 {
-  padding: 0 2px;
-  margin-top: 4px;
-}
-
-.c5 {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
 }
 
 .c12 {
@@ -320,57 +320,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   justify-content: var(--bezier-alpha-stack-justify);
 }
 
-.c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c8 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c15 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -422,6 +371,57 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+.c3 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000D9;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c8 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000D9;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c15 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: #00000066;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c16 {
@@ -670,6 +670,20 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   justify-content: var(--bezier-alpha-stack-justify);
 }
 
+.c1 {
+  position: relative;
+}
+
+.c2 {
+  padding: 0 2px;
+  margin-bottom: 4px;
+}
+
+.c8 {
+  padding: 0 2px;
+  margin-top: 4px;
+}
+
 .c3 {
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -702,20 +716,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   transition-duration: 150ms;
   -webkit-transition-property: color;
   transition-property: color;
-}
-
-.c1 {
-  position: relative;
-}
-
-.c2 {
-  padding: 0 2px;
-  margin-bottom: 4px;
-}
-
-.c8 {
-  padding: 0 2px;
-  margin-top: 4px;
 }
 
 .c10 {
@@ -850,40 +850,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 `;
 
 exports[`FormControl > Snapshot > With single field and left label position 1`] = `
-.c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: #000000D9;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c10 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -924,6 +890,40 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 .c9 {
   grid-row: 2 / 2;
   grid-column: 2;
+}
+
+.c3 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000D9;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
+}
+
+.c10 {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin: 0px 0px 0px 0px;
+  font-style: normal;
+  font-weight: normal;
+  color: #00000066;
+  -webkit-transition-delay: 0ms;
+  transition-delay: 0ms;
+  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
+  transition-timing-function: cubic-bezier(.3,0,0,1);
+  -webkit-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -webkit-transition-property: color;
+  transition-property: color;
 }
 
 .c11 {
