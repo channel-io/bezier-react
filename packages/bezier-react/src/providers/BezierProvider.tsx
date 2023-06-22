@@ -9,6 +9,8 @@ import {
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
 
+import { TooltipProvider } from '~/src/components/Tooltip'
+
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp
   children: React.ReactNode
@@ -22,12 +24,14 @@ function BezierProvider({
 }: BezierProviderProps) {
   return (
     <FoundationProvider foundation={foundation}>
-      <GlobalStyle foundation={foundation} />
-      <ThemeVars
-        foundation={foundation}
-        scope={themeVarsScope}
-      />
-      { children }
+      <TooltipProvider>
+        <GlobalStyle foundation={foundation} />
+        <ThemeVars
+          foundation={foundation}
+          scope={themeVarsScope}
+        />
+        { children }
+      </TooltipProvider>
     </FoundationProvider>
   )
 }
