@@ -128,10 +128,10 @@ export interface ModalFooterProps extends
   ModalFooterOptions {}
 
 export interface ModalTriggerProps extends
-  ChildrenProps<React.ReactElement> {}
+  ChildrenProps {}
 
 export interface ModalCloseProps extends
-  ChildrenProps<React.ReactElement> {}
+  ChildrenProps {}
 
 export interface ModalContentContextValue extends
   NonNullable<Pick<ModalContentOptions, 'showCloseIcon'>> {}
