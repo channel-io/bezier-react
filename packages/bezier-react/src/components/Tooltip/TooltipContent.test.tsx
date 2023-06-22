@@ -5,21 +5,20 @@ import { act } from '@testing-library/react'
 
 import { render } from '~/src/utils/testUtils'
 
-import {
-  LegacyTooltip,
+import Tooltip, {
   TOOLTIP_CONTENT_TEST_ID,
   TOOLTIP_TEST_ID,
-} from './LegacyTooltip'
-import { type LegacyTooltipProps } from './LegacyTooltip.types'
+} from './Tooltip'
+import type TooltipProps from './Tooltip.types'
 
-const RootTooltip: React.FC<LegacyTooltipProps> = ({ children, ...rests }) => (
-  <LegacyTooltip {...rests}>
+const RootTooltip: React.FC<TooltipProps> = ({ children, ...rests }) => (
+  <Tooltip {...rests}>
     { children }
-  </LegacyTooltip>
+  </Tooltip>
 )
 
 describe('TooltipContent test >', () => {
-  let props: LegacyTooltipProps
+  let props: TooltipProps
 
   const PLAIN_TEXT_CONTENT = 'plain text content'
 
@@ -45,7 +44,7 @@ describe('TooltipContent test >', () => {
     jest.useRealTimers()
   })
 
-  const renderTooltip = (optionProps?: LegacyTooltipProps) => render(
+  const renderTooltip = (optionProps?: TooltipProps) => render(
     <RootTooltip {...props} {...optionProps} />,
   )
 

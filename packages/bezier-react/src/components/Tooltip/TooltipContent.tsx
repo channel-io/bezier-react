@@ -22,9 +22,9 @@ import {
 import { Text } from '~/src/components/Text'
 
 import {
-  type LegacyTooltipContentProps,
-  LegacyTooltipPosition,
-} from './LegacyTooltip.types'
+  type TooltipContentProps,
+  TooltipPosition,
+} from './Tooltip.types'
 import {
   getReplacement,
   getTooltipStyle,
@@ -34,7 +34,7 @@ import {
   Content,
   ContentWrapper,
   EllipsisableContent,
-} from './LegacyTooltip.styled'
+} from './Tooltip.styled'
 
 function getNewLineComponent(strContent: string) {
   return (
@@ -77,7 +77,7 @@ function getContentComponent(content?: React.ReactNode) {
   return content
 }
 
-export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
+const TooltipContent: React.FC<TooltipContentProps> = ({
   as,
   content,
   contentClassName,
@@ -85,7 +85,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   contentWrapperStyle: givenContentWrapperStyle,
   disabled = false,
   keepInContainer = false,
-  placement = LegacyTooltipPosition.BottomCenter,
+  placement = TooltipPosition.BottomCenter,
   tooltipContainer,
   offset = 4,
   allowHover = false,
@@ -164,3 +164,4 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   )
 }
 
+export default TooltipContent
