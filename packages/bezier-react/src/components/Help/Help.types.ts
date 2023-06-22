@@ -8,4 +8,4 @@ import { type TooltipProps } from '~/src/components/Tooltip'
 export default interface HelpProps extends
   BezierComponentProps,
   ChildrenProps,
-  Omit<TooltipProps, 'content'> {}
+  Omit<TooltipProps, 'content' | 'children'> {}
