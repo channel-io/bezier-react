@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.6.2
+
+### Patch Changes
+
+- Fixes an issue where `styled` functions are not interpreted correctly when using the `.mjs` extension in the Next.js environment. ([#1437](https://github.com/channel-io/bezier-react/pull/1437)) by @sungik-choi
+
 ## 1.6.1
 
 ### Patch Changes
