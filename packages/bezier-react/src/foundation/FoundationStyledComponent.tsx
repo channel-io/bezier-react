@@ -26,6 +26,7 @@ import styled, {
   type StyledComponentInnerAttrs,
   type StyledComponentInnerComponent,
   type StyledComponentInnerOtherProps,
+  type StyledInterface,
   type ThemedStyledFunction,
   type ThemedStyledProps,
   css as baseCSS,
@@ -35,6 +36,21 @@ import styled, {
 
 import { type Foundation } from './Foundation'
 import domElements from './utils/domElements'
+
+/**
+ * When interpreting the `.mjs` extension in the Next.js environment,
+ * default imported `styled` function are not interpreted correctly.
+ *
+ * We add `.default` to cover situation where the module is interpreted in CJS.
+ *
+ * This is code that can be removed when the major version of `styled-components` is updated (v6)
+ * and `styled` functions are changed to named import.
+ *
+ * @see https://github.com/rollup/rollup/issues/4438
+ * @see https://github.com/styled-components/styled-components/issues/115
+ */
+// @ts-expect-error
+const safetyStyledInNextJs = (styled.default ?? styled) as StyledInterface
 
 const FoundationContext = createContext<Foundation | null>(null)
 
@@ -105,7 +121,7 @@ function templateFunctionGenerator(BaseComponentGenerator: ThemedStyledFunction<
 
 /* eslint-disable-next-line func-names */ /* @ts-ignore */
 const FoundationStyled: FoundationStyledInterface = (tag) => {
-  const tagTemplate = styled(tag)
+  const tagTemplate = safetyStyledInNextJs(tag)
   return templateFunctionGenerator(tagTemplate)
 };
 
