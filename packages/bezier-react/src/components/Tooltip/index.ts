@@ -9,4 +9,3 @@ export type {
   TooltipProps,
   TooltipProviderProps,
 } from './Tooltip.types'
-
