@@ -10,6 +10,7 @@ import React, {
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { document } from '~/src/utils/domUtils'
+import { createContext } from '~/src/utils/reactUtils'
 import { isBoolean } from '~/src/utils/typeUtils'
 
 import {
@@ -19,30 +20,6 @@ import {
 } from './Tooltip.types'
 
 import * as Styled from './Tooltip.styled'
-
-// TODO: (@ed) Evolve it into a commonly reusable function
-// FIXME: duplicate
-function createContext<ContextValue>(
-  providerName: string,
-  defaultValue: ContextValue,
-) {
-  const Context = React.createContext<ContextValue>(defaultValue)
-
-  function useContext(consumerName: string) {
-    const contextValue = React.useContext(Context)
-
-    if (!contextValue) {
-      throw new Error(`'${consumerName}' must be used within '${providerName}'`)
-    }
-
-    return contextValue
-  }
-
-  return [
-    Context.Provider,
-    useContext,
-  ] as const
-}
 
 function getSideAndAlign(
   placement: TooltipPosition,
@@ -123,7 +100,7 @@ const [
    */
   TooltipGlobalContextProvider,
   useTooltipGlobalContext,
-] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>('TooltipProvider', null)
+] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>(null, 'TooltipProvider')
 
 /**
  * `TooltipProvider` is used to globally provide props to child tooltips.
