@@ -1,6 +1,6 @@
 export { FormControl } from './FormControl'
 
-export { FormControlContext } from './FormControlContext'
+export { useFormControlContext } from './FormControlContext'
 
 export type {
   FormControlProps,

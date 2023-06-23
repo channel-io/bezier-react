@@ -7,7 +7,7 @@ import { Typography } from '~/src/foundation'
 
 import { isEmpty } from '~/src/utils/typeUtils'
 
-import useFormControlContext from '~/src/components/Forms/useFormControlContext'
+import { useFormControlContext } from '~/src/components/Forms/FormControl'
 import { Help } from '~/src/components/Help'
 import { HELP_DISPLAY_NAME } from '~/src/components/Help/Help'
 import {

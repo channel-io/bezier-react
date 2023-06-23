@@ -1,5 +1,8 @@
-import { createContext } from 'react'
+import { createContext } from '~/src/utils/reactUtils'
 
 import { type FormControlContextValue } from '~/src/components/Forms/FormControl'
 
-export const FormControlContext = createContext<FormControlContextValue | undefined>(undefined)
+export const [
+  FormControlContextProvider,
+  useFormControlContext,
+] = createContext<FormControlContextValue | undefined>(undefined)

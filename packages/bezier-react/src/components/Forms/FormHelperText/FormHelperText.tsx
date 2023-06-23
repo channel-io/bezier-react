@@ -9,7 +9,7 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/functionUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
-import useFormControlContext from '~/src/components/Forms/useFormControlContext'
+import { useFormControlContext } from '~/src/components/Forms/FormControl'
 
 import type {
   BaseHelperTextProps,
