@@ -1,12 +1,13 @@
-import { createContext } from 'react'
+import { createContext } from '~/src/utils/reactUtils'
 
 import {
   type TabListContextValue,
   TabSize,
 } from './Tabs.types'
 
-const TabListContext = createContext<TabListContextValue>({
+export const [
+  TabListContextProvider,
+  useTabListContext,
+] = createContext<TabListContextValue>({
   size: TabSize.M,
 })
-
-export default TabListContext

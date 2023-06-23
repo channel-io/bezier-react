@@ -3,7 +3,7 @@ import React, {
   useMemo,
 } from 'react'
 
-import TabListContext from './TabListContext'
+import { TabListContextProvider } from './TabListContext'
 import {
   type TabListProps,
   TabSize,
@@ -36,7 +36,7 @@ export const TabList = forwardRef(function TabList({
   }), [size])
 
   return (
-    <TabListContext.Provider value={heightContextValue}>
+    <TabListContextProvider value={heightContextValue}>
       <Styled.TabList
         size={size}
         ref={forwardedRef}
@@ -47,6 +47,6 @@ export const TabList = forwardRef(function TabList({
       >
         { children }
       </Styled.TabList>
-    </TabListContext.Provider>
+    </TabListContextProvider>
   )
 })

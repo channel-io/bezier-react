@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useContext,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import * as Tabs from '@radix-ui/react-tabs'
 
@@ -11,7 +8,7 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 
-import TabListContext from './TabListContext'
+import { useTabListContext } from './TabListContext'
 import {
   type TabItemProps,
   TabSize,
@@ -40,7 +37,7 @@ export const TabItem = forwardRef(function TabItem({
   children,
   ...rest
 }: TabItemProps, forwardedRef: React.Ref<HTMLButtonElement>) {
-  const { size } = useContext(TabListContext)
+  const { size } = useTabListContext()
 
   if (typeof children !== 'string') {
     return null
