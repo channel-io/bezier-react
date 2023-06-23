@@ -134,4 +134,4 @@ export interface ModalCloseProps extends
   ChildrenProps<React.ReactElement> {}
 
 export interface ModalContentContextValue extends
-  NonNullable<Pick<ModalContentOptions, 'showCloseIcon'>> {}
+  Required<Pick<ModalContentOptions, 'showCloseIcon'>> {}

@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useContext,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
@@ -14,7 +11,7 @@ import {
   type ModalHeaderProps,
   ModalTitleSize,
 } from './Modal.types'
-import ModalContentContext from './ModalContentContext'
+import { useModalContentContext } from './ModalContentContext'
 
 import * as Styled from './Modal.styled'
 
@@ -82,7 +79,7 @@ export const ModalHeader = forwardRef(function ModalHeader({
   hidden = false,
   ...rest
 }: ModalHeaderProps, forwardedRef: React.Ref<HTMLElement>) {
-  const { showCloseIcon } = useContext(ModalContentContext)
+  const { showCloseIcon } = useModalContentContext()
   const hasTitleArea = title || showCloseIcon
   const Hidden = hidden ? VisuallyHidden : React.Fragment
 
