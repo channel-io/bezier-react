@@ -19,8 +19,10 @@ import { isNil } from '~/src/utils/typeUtils'
 import { IconSize } from '~/src/components/Icon'
 
 import type OutlineItemProps from './OutlineItem.types'
-import { OutlineItemContext } from './OutlineItemContext'
-import useOutlineItemContext from './useOutlineItemContext'
+import {
+  OutlineItemContextProvider,
+  useOutlineItemContext,
+} from './OutlineItemContext'
 
 import {
   ChevronWrapper,
@@ -250,9 +252,9 @@ function OutlineItem(
       }
 
       return (
-        <OutlineItemContext.Provider value={passedContext}>
+        <OutlineItemContextProvider value={passedContext}>
           { element }
-        </OutlineItemContext.Provider>
+        </OutlineItemContextProvider>
       )
     })
   ), [

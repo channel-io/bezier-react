@@ -85,7 +85,7 @@ function ModalComposition({
 
         <ModalBody>
           <FormControl labelPosition="left">
-            <FormLabel>Name</FormLabel>
+            <FormLabel help="Lorem Ipsum">Name</FormLabel>
             <Select text="Lorem Ipsum">
               { Array.from({ length: 20 }).map((_, index) => (
                 <ListItem
