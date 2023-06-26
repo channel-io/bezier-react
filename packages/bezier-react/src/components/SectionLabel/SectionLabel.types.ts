@@ -33,4 +33,5 @@ export default interface SectionLabelProps extends
   ChildrenProps,
   SideContentProps<SectionLabelItemProps, SectionLabelItemProps | SectionLabelItemProps[]>,
   AdditionalStylableProps<['wrapper', 'contentWrapper', 'leftWrapper', 'rightWrapper']>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'content' | 'onClick'>,
   SectionLabelOptions {}
