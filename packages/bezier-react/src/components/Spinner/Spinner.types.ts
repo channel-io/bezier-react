@@ -21,7 +21,8 @@ export enum SpinnerThickness {
 export default interface SpinnerProps extends
   BezierComponentProps,
   SizeProps<SpinnerSize>,
-  ColorProps {}
+  ColorProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
 
 export interface StyledSpinnerProps extends SpinnerProps {
   size: NonNullable<SpinnerProps['size']>
