@@ -1,4 +1,7 @@
-import React, { useCallback } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+} from 'react'
 
 import { noop } from '~/src/utils/functionUtils'
 import { isNil } from '~/src/utils/typeUtils'
@@ -12,17 +15,17 @@ import {
 
 export const SIDEBAR_MENU_TITLE_TEST_ID = 'bezier-react-sidebar-menu-title'
 
-function ListMenuTitle({
+const ListMenuTitle = forwardRef<HTMLDivElement, ListMenuTitleProps>(function ListMenuTitle({
   as,
   testId = SIDEBAR_MENU_TITLE_TEST_ID,
   content,
   hide = false,
   rightAction = null,
-  onClick = noop,
   onClickAction = noop,
   style,
   className,
-}: ListMenuTitleProps) {
+  ...rest
+}, forwardedRef) {
   const handleClickAction = useCallback((ev: React.MouseEvent<HTMLDivElement>) => {
     ev.stopPropagation()
     onClickAction()
@@ -34,11 +37,12 @@ function ListMenuTitle({
 
   return (
     <Wrapper
+      {...rest}
+      ref={forwardedRef}
       data-testid={testId}
       as={as}
       style={style}
       className={className}
-      onClick={onClick}
     >
       <TitleWrapper>
         { content }
@@ -54,6 +58,6 @@ function ListMenuTitle({
       }
     </Wrapper>
   )
-}
+})
 
 export default ListMenuTitle
