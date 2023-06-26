@@ -1,4 +1,8 @@
-import React, { useMemo } from 'react'
+import React, {
+  forwardRef,
+  memo,
+  useMemo,
+} from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
 
@@ -27,7 +31,7 @@ import Styled from './Tag.styled'
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'
 
-export const Tag = React.memo(function Tag({
+export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
   color: givenColor,
@@ -38,7 +42,7 @@ export const Tag = React.memo(function Tag({
   interpolation,
   testId = TAG_TEST_ID,
   ...props
-}: TagProps) {
+}, forwardedRef) {
   const hasChildren = useMemo(() => !isEmpty(children), [children])
 
   const bgSemanticName = useMemo(() => (
@@ -60,6 +64,7 @@ export const Tag = React.memo(function Tag({
   return (
     <TagBadgeStyled.Wrapper
       {...props}
+      ref={forwardedRef}
       className={className}
       interpolation={interpolation}
       data-testid={testId}
@@ -79,4 +84,4 @@ export const Tag = React.memo(function Tag({
       { CloseIconComponent }
     </TagBadgeStyled.Wrapper>
   )
-})
+}))

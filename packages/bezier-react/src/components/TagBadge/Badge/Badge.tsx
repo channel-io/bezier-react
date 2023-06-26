@@ -1,4 +1,8 @@
-import React, { useMemo } from 'react'
+import React, {
+  forwardRef,
+  memo,
+  useMemo,
+} from 'react'
 
 import { isEmpty } from '~/src/utils/typeUtils'
 
@@ -22,7 +26,7 @@ import type BadgeProps from './Badge.types'
 // TODO: 테스트 코드 작성
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
-export const Badge = React.memo(function Badge({
+export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
   size = TagBadgeSize.M,
   variant = TagBadgeVariant.Default,
   iconName,
@@ -31,7 +35,7 @@ export const Badge = React.memo(function Badge({
   interpolation,
   testId = BADGE_TEST_ID,
   ...props
-}: BadgeProps) {
+}, forwardedRef) {
   const hasChildren = !isEmpty(children)
 
   const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
@@ -51,6 +55,7 @@ export const Badge = React.memo(function Badge({
   return (
     <TagBadgeStyled.Wrapper
       {...props}
+      ref={forwardedRef}
       className={className}
       interpolation={interpolation}
       data-testid={testId}
@@ -71,4 +76,4 @@ export const Badge = React.memo(function Badge({
       ) }
     </TagBadgeStyled.Wrapper>
   )
-})
+}))
