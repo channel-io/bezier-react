@@ -1,3 +1,11 @@
+import {
+  CheckCircleFilledIcon,
+  ErrorTriangleFilledIcon,
+  InfoFilledIcon,
+  WifiIcon,
+  WifiOffIcon,
+} from '@channel.io/bezier-icons'
+
 import { css } from '~/src/foundation'
 
 import {
@@ -61,28 +69,28 @@ const getToastPreset = (preset: ToastPreset): ToastPresetType => {
   switch (preset) {
     case ToastPreset.Success:
       return {
-        iconName: 'check-circle-filled',
+        icon: CheckCircleFilledIcon,
         appearance: ToastAppearance.Success,
       }
     case ToastPreset.Error:
       return {
-        iconName: 'error-triangle-filled',
+        icon: ErrorTriangleFilledIcon,
         appearance: ToastAppearance.Error,
       }
     case ToastPreset.Offline:
       return {
-        iconName: 'wifi-off',
+        icon: WifiOffIcon,
         appearance: ToastAppearance.Warning,
       }
     case ToastPreset.Online:
       return {
-        iconName: 'wifi',
+        icon: WifiIcon,
         appearance: ToastAppearance.Success,
       }
     case ToastPreset.Default:
     default:
       return {
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         appearance: ToastAppearance.Info,
       }
   }

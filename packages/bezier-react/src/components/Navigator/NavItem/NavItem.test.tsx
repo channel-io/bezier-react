@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { DotIcon } from '@channel.io/bezier-icons'
+
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { render } from '~/src/utils/testUtils'
@@ -15,7 +17,7 @@ describe('NavItem Test >', () => {
 
   beforeEach(() => {
     props = {
-      leftIcon: 'dot',
+      leftIcon: DotIcon,
       name: 'general',
       content: 'test-content',
     }

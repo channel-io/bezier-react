@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { DotIcon } from '@channel.io/bezier-icons'
+import {
+  DotIcon,
+  SettingsIcon,
+} from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -54,6 +57,6 @@ Primary.args = {
   active: false,
   name: 'general',
   content: '일반 설정',
-  leftIcon: 'settings',
+  leftIcon: SettingsIcon,
   rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
 }

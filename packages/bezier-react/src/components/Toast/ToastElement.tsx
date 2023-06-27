@@ -15,7 +15,6 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import type ToastProps from './Toast.types'
@@ -41,7 +40,7 @@ const ToastElement = (
     preset = ToastPreset.Default,
     content = '',
     appearance,
-    iconName,
+    icon,
     actionContent,
     onClick,
     onDismiss,
@@ -66,7 +65,7 @@ const ToastElement = (
 
   const {
     appearance: presetAppearance,
-    iconName: presetIconName,
+    icon: presetIcon,
   } = useMemo(() => getToastPreset(preset), [preset])
 
   return (
@@ -78,8 +77,8 @@ const ToastElement = (
       <IconWrapper
         appearance={appearance ?? presetAppearance}
       >
-        <LegacyIcon
-          name={iconName ?? presetIconName}
+        <Icon
+          source={icon ?? presetIcon}
           size={IconSize.S}
         />
       </IconWrapper>

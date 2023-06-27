@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   BezierComponentProps,
@@ -11,7 +8,7 @@ import type {
 } from '~/src/types/ComponentProps'
 
 interface KeyItemOptions {
-  keyIcon?: IconName | BezierIcon | React.ReactNode
+  keyIcon?: BezierIcon | React.ReactNode
 }
 
 export interface KeyItemProps extends

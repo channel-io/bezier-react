@@ -1,3 +1,5 @@
+import { InfoFilledIcon } from '@channel.io/bezier-icons'
+
 import { type ToastType } from './Toast.types'
 import ToastService from './ToastService'
 
@@ -43,7 +45,7 @@ describe('ToastService', () => {
         appearance: 'info',
         autoDismiss: false,
         content: '0',
-        iconName: 'info-filled',
+        icon: InfoFilledIcon,
         rightSide: false,
         version: 0,
       }),

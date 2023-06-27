@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { AppleIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -48,6 +49,6 @@ export const Primary: Story<BadgeProps> = Template.bind({})
 Primary.args = {
   children: 'Design',
   size: TagBadgeSize.M,
-  iconName: 'apple',
+  icon: AppleIcon,
   variant: TagBadgeVariant.Default,
 }
