@@ -230,13 +230,15 @@ describe('Slider', () => {
       const { getByRole, getAllByText } = renderSlider({ defaultValue: [0] })
       const sliderThumb = getByRole('slider')
       await user.click(sliderThumb)
+      expect(getByRole('tooltip')).toBeInTheDocument()
       expect(getAllByText('0')[0]).toBeInTheDocument()
     })
 
     it('should not show tooltip when disableTooltip is true', async () => {
-      const { getByRole, queryAllByText } = renderSlider({ defaultValue: [0], disableTooltip: true })
+      const { getByRole, queryByRole, queryAllByText } = renderSlider({ defaultValue: [0], disableTooltip: true })
       const sliderThumb = getByRole('slider')
       await user.click(sliderThumb)
+      expect(queryByRole('tooltip')).not.toBeInTheDocument()
       expect(queryAllByText('0')[0]).toBeUndefined()
     })
   })
