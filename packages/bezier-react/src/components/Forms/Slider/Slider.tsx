@@ -1,124 +1,145 @@
 import React, {
   forwardRef,
-  useCallback,
-  useEffect,
-  useState,
+  memo,
 } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import { noop } from '~/src/utils/functionUtils'
+import { isNumber } from '~/src/utils/typeUtils'
+
+import {
+  Tooltip,
+  TooltipPosition,
+} from '~/src/components/Tooltip'
 
 import type SliderProps from './Slider.types'
 
 import * as Styled from './Slider.styled'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
-export const SLIDER_THUMB_TEST_ID = 'bezier-react-slider-thumb'
 
-export const Slider = forwardRef(function Slider(
-  {
-    width = 36,
-    guide,
-    onThumbPointerDown = noop,
-    onThumbPointerUp = noop,
-    defaultValue = [5],
-    value,
-    disabled = false,
-    min = 0,
-    max = 10,
-    step = 1,
-    onValueChange = noop,
-    minStepsBetweenThumbs = 0,
-    ...rest
-  }: SliderProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const [currentValue, setCurrentValue] = useState<number[]>(value ?? defaultValue)
+const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
+  min,
+  max,
+  value,
+}) {
+  return (
+    <Styled.SliderGuide
+      style={{
+        '--bezier-slider-guide-left': `${(value / (max - min)) * 100}%`,
+      } as React.CSSProperties}
+    />
+  )
+})
 
-  useEffect(function updateCurrentValue() {
-    if (value) {
-      setCurrentValue(value)
-      onValueChange(value)
-    }
-  }, [
-    value,
-    onValueChange,
-  ])
+/* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
+const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip'> & React.HTMLAttributes<HTMLDivElement>>(function SliderThumb({
+  disableTooltip,
+  ...rest
+}, forwardedRef) {
+  const value = rest?.['aria-valuenow']
 
-  const handleValueChange: (value: number[]) => void = useCallback((_value) => {
-    setCurrentValue(_value)
-    onValueChange(_value)
-  }, [onValueChange])
-
-  const handlePointerDown: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled) {
-      onThumbPointerDown(currentValue)
-    }
-  }, [
-    disabled,
-    onThumbPointerDown,
-    currentValue,
-  ])
-
-  const handlePointerUp: React.PointerEventHandler<HTMLElement> = useCallback(() => {
-    if (!disabled) {
-      onThumbPointerUp(currentValue)
-    }
-  }, [
-    disabled,
-    onThumbPointerUp,
-    currentValue,
-  ])
+  if (disableTooltip) {
+    return (
+      <Styled.SliderThumb
+        ref={forwardedRef}
+        {...rest}
+      />
+    )
+  }
 
   return (
-    <SliderPrimitive.Root
-      asChild
+    <Tooltip
+      content={value}
+      offset={6}
+      placement={TooltipPosition.TopCenter}
+      onPointerDownOutside={e => e.preventDefault()}
+    >
+      <Styled.SliderThumb
+        ref={forwardedRef}
+        {...rest}
+      />
+    </Tooltip>
+  )
+})
+
+/**
+ * An input component where the user selects a value from within a given range.
+ * The value of the slider is shown in a tooltip, and in some cases you can add a guide scale.
+ *
+ * @example
+ *
+ * ```tsx
+ * const [value, setValue] = useState([1])
+ * // Controlled
+ * <Slider
+ *   value={value}
+ *   onValueChange={setValue}
+ * />
+ * // Uncontrolled
+ * <Slider defaultValue={[1]} />
+ * ```
+ */
+export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
+  style,
+  width = 36,
+  guide,
+  defaultValue = [0],
+  value,
+  disabled = false,
+  min = 0,
+  max = 10,
+  step = 1,
+  minStepsBetweenThumbs = 0,
+  disableTooltip = false,
+  ...rest
+}, forwardedRef) {
+  const targetValue = value || defaultValue
+
+  return (
+    <Styled.SliderPrimitiveRoot
+      style={{
+        ...style,
+        '--bezier-slider-width': isNumber(width) ? `${width}px` : width,
+      }}
+      data-testid={SLIDER_TEST_ID}
+      ref={forwardedRef}
+      orientation="horizontal"
       defaultValue={defaultValue}
-      value={currentValue}
+      value={value}
       disabled={disabled}
       min={min}
       max={max}
       step={step}
-      onValueChange={handleValueChange}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
+      {...rest}
     >
-      <Styled.SliderRoot
-        width={width}
-        disabled={disabled}
-        ref={forwardedRef}
-        data-testid={SLIDER_TEST_ID}
-        {...rest}
-      >
-        <SliderPrimitive.Track asChild>
-          <Styled.SliderTrack>
-            <SliderPrimitive.Range asChild>
-              <Styled.SliderRange />
-            </SliderPrimitive.Range>
-          </Styled.SliderTrack>
-        </SliderPrimitive.Track>
-        { guide?.map((guideValue) => (
-          <Styled.SliderGuide
-            key={`slider-guide-${guideValue}`}
-            min={min}
-            max={max}
-            guideValue={guideValue}
-          />
-        )) }
-        { currentValue.map((v, i) => (
-          <SliderPrimitive.Thumb
-            asChild
-            // eslint-disable-next-line react/no-array-index-key
-            key={`slider-thumb-${i}`}
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
-          >
-            <Styled.SliderThumb
-              data-testid={SLIDER_THUMB_TEST_ID}
-            />
-          </SliderPrimitive.Thumb>
-        )) }
-      </Styled.SliderRoot>
-    </SliderPrimitive.Root>
+      <Styled.SliderPrimitiveTrack>
+        <Styled.SliderPrimitiveRange />
+
+        { guide && (
+          <Styled.GuideContainer>
+            { guide.map((guideValue) => (
+              <SliderGuide
+                key={`slider-guide-${guideValue}`}
+                min={min}
+                max={max}
+                value={guideValue}
+              />
+            )) }
+          </Styled.GuideContainer>
+        ) }
+      </Styled.SliderPrimitiveTrack>
+
+      { targetValue.map((_, i) => (
+        <SliderPrimitive.Thumb
+          // eslint-disable-next-line react/no-array-index-key
+          key={`slider-thumb-${i}`}
+          asChild
+        >
+          <SliderThumb disableTooltip={disableTooltip} />
+        </SliderPrimitive.Thumb>
+      )) }
+    </Styled.SliderPrimitiveRoot>
   )
 })

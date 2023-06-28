@@ -1,34 +1,72 @@
-import type { SliderProps as SliderPrimitiveProps } from '@radix-ui/react-slider'
-
-import type { BezierComponentProps } from '~/src/types/ComponentProps'
+import type {
+  BezierComponentProps,
+  DisableProps,
+} from '~/src/types/ComponentProps'
 
 interface SliderOptions {
   /**
-   * CSS Width of entire slider.
-   * If given value is number or doesn't end with proper unit, `defaultUnit` is suffixed to given value.
-   *
-   * @see /packages/bezier-react/src/utils/styleUtils.ts
+   * Width of the slider.
    * @default 36
    */
-  width?: number | string
-
+  width?: React.CSSProperties['width']
   /**
-   * When array of number `guide` is provided, guide mark will be shown above track regard to given value(s).
+   * When array of number `guide` is provided, guide scale will be shown above track regard to given value(s).
    */
   guide?: number[]
-
   /**
-   * Callback of slider thumb's `onpointerdown` event.
+   * The value of the slider when initially rendered.
+   * Use when you do not need to control the state of the slider.
+   * @default [0]
    */
-  onThumbPointerDown?: (value: number[]) => void
-
+  defaultValue?: number[]
   /**
-   * Callback of slider thumb's `onpointerup` event.
+   * The controlled value of the slider.
+   * Must be used in conjunction with `onValueChange`.
    */
-  onThumbPointerUp?: (value: number[]) => void
+  value?: number[]
+  /**
+   * The name of the slider.
+   * Submitted with its owning form as part of a name/value pair.
+   */
+  name?: string
+  /**
+   * The minimum value for the range.
+   * @default 0
+   */
+  min?: number
+  /**
+   * The maximum value for the range.
+   * @default 10
+   */
+  max?: number
+  /**
+   * The stepping interval.
+   * @default 1
+   */
+  step?: number
+  /**
+   * The minimum permitted steps between multiple thumbs.
+   * @default 0
+   */
+  minStepsBetweenThumbs?: number
+  /**
+   * Whether to show the tooltip for the thumbs.
+   * @default false
+   */
+  disableTooltip?: boolean
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: number[]) => void
+  /**
+   * Event handler called when the value changes at the end of an interaction.
+   * Useful when you only need to capture a final value (e.g. to update a backend service).
+   */
+  onValueCommit?: (value: number[]) => void
 }
 
 export default interface SliderProps extends
   BezierComponentProps,
-  SliderPrimitiveProps,
+  DisableProps,
+  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions>,
   SliderOptions {}
