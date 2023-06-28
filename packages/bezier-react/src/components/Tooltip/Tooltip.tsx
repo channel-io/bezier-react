@@ -272,7 +272,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
           hideWhenDetached
         >
           <Styled.TooltipContent forwardedAs={as}>
-            <div>
+            <Styled.TextContainer>
               <Styled.Content>
                 { content }
               </Styled.Content>
@@ -282,7 +282,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                   { description }
                 </Styled.Description>
               ) }
-            </div>
+            </Styled.TextContainer>
 
             { icon && (
               <Styled.Icon source={icon} />
