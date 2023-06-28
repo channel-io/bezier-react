@@ -1,5 +1,62 @@
 # @channel.io/bezier-react
 
+## 1.7.0
+
+### Minor Changes
+
+- Change icon prop type from `iconName` to `BezierIcon` ([#1423](https://github.com/channel-io/bezier-react/pull/1423)) by @yangwooseong
+
+- Add `Tooltip` to the thumb of `Slider`. ([#1324](https://github.com/channel-io/bezier-react/pull/1324)) by @sungik-choi
+
+  - `disableTooltip` property is added to `SliderProps`.
+  - The default value of `defaultValue` property of `SliderProps` is changed from `[5]` to `[0]`.
+
+- Apply the re-implemented `Tooltip` component to `Help`, `KeyValueListItem`, and `SectionLabel` components. ([#1293](https://github.com/channel-io/bezier-react/pull/1293)) by @sungik-choi
+
+  - Change onClick handler type of `ItemAction` of `KeyValueListItem` to the correct one.
+  - The type of `help` property of `SectionLabel` is changed to `React.ReactNode`.
+
+- **BREAKING CHANGES**: Re-implement `Tooltip` component. ([#1438](https://github.com/channel-io/bezier-react/pull/1438)) by @sungik-choi
+
+  - No longer render div elements outside of the trigger(children) component.
+  - The legacy tooltip is now exported with the name `LegacyTooltip`.
+  - The `keepInContainer` property defaults from false to true.
+
+  `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+
+  ```tsx
+  // Anatomy of the Tooltip
+  <TooltipProvider>
+    <Tooltip />
+  </TooltipProvider>
+
+  // Example of a Tooltip with a button
+  <Tooltip content="Ta-da!">
+    <button>Hover me</button>
+  </Tooltip>
+  ```
+
+- Correctly change `children` prop on components that pass `children` prop directly to radix-ui `Slot`. ([#1438](https://github.com/channel-io/bezier-react/pull/1438)) by @sungik-choi
+
+  **BREAKING_CHANGE**: `children` prop of the following components will be changed from `React.ReactNode` to `React.ReactElement`.
+
+  - `Tooltip`
+  - `ModalTrigger`
+  - `ModalClose`
+  - `VisuallyHidden`
+
+### Patch Changes
+
+- Now below components forward the ref. ([#1449](https://github.com/channel-io/bezier-react/pull/1449)) by @sungik-choi
+
+  - `Tag`
+  - `Badge`
+  - `SectionLabel`
+  - `NavGroup`
+  - `NavItem`
+  - `ListMenuTitle`
+  - `Help`
+
 ## 1.6.2
 
 ### Patch Changes
