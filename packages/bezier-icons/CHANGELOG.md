@@ -1,5 +1,13 @@
 # @channel.io/bezier-icons
 
+## 0.4.0
+
+### Minor Changes
+
+- Update icons ([#1452](https://github.com/channel-io/bezier-react/pull/1452)) by @Jamie-channel
+
+  - **NEW**: ArrowDownSmallCircle, ChatLightningFilled, ErrorDiamondFilled
+
 ## 0.3.0
 
 ### Minor Changes
