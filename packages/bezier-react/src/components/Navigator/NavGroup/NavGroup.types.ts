@@ -21,4 +21,5 @@ export default interface NavGroupProps extends
   ContentProps,
   Pick<SideContentProps, 'rightContent'>,
   Pick<ActivatableProps, 'active'>,
+  Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick' | 'content'>,
   NavGroupOptions {}

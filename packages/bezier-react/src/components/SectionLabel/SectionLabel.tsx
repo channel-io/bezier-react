@@ -1,4 +1,5 @@
 import React, {
+  forwardRef,
   useCallback,
   useMemo,
 } from 'react'
@@ -80,7 +81,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
   )
 }
 
-function SectionLabel({
+const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function SectionLabel({
   content: givenContent,
   open = true,
   divider = false,
@@ -98,7 +99,7 @@ function SectionLabel({
   rightWrapperClassName,
   rightWrapperInterpolation,
   ...props
-}: SectionLabelProps) {
+}, forwardedRef) {
   const content = useMemo(() => (
     <Styled.ContentWrapper
       className={contentWrapperClassName}
@@ -191,6 +192,7 @@ function SectionLabel({
     <div data-testid={SECTION_LABEL_TEST_ID}>
       { divider && <Divider orientation="horizontal" /> }
       <Styled.Wrapper
+        ref={forwardedRef}
         className={classNames(
           wrapperClassName,
           clickableClassName(onClick),
@@ -211,6 +213,6 @@ function SectionLabel({
       ) }
     </div>
   )
-}
+})
 
 export default SectionLabel

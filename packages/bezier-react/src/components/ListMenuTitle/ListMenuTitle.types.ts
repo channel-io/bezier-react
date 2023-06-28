@@ -8,13 +8,13 @@ import {
 interface ListMenuTitleOptions {
   rightAction?: React.ReactNode
   hide?: boolean
-  onClick?: React.MouseEventHandler
   onClickAction?: () => void
 }
 
 export default interface ListMenuTitleProps extends
   BezierComponentProps,
   ContentProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'content'>,
   ListMenuTitleOptions {}
 
 export interface StyledWrapperProps extends BezierComponentProps {}

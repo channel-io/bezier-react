@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import { HelpFilledIcon } from '@channel.io/bezier-icons'
 
@@ -14,15 +14,16 @@ import * as Styled from './Help.styled'
 export const HELP_TEST_ID = 'bezier-react-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
-function Help({
+const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
   children,
   ...rest
-}: HelpProps) {
+}, forwardedRef) {
   if (isEmpty(children)) { return null }
 
   return (
     <Tooltip
       {...rest}
+      ref={forwardedRef}
       content={children}
     >
       <Styled.Trigger>
@@ -35,7 +36,7 @@ function Help({
       </Styled.Trigger>
     </Tooltip>
   )
-}
+})
 
 Help.displayName = HELP_DISPLAY_NAME
 

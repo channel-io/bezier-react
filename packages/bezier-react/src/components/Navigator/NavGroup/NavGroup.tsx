@@ -1,4 +1,5 @@
 import React, {
+  forwardRef,
   memo,
   useCallback,
 } from 'react'
@@ -33,7 +34,7 @@ import {
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
 export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
 
-function NavGroup({
+const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup({
   as,
   testId = NAV_GROUP_TEST_ID,
   name,
@@ -47,7 +48,8 @@ function NavGroup({
   open,
   active,
   onClick = noop,
-}: NavGroupProps) {
+  ...rest
+}, forwardedRef) {
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)
   }, [
@@ -62,6 +64,8 @@ function NavGroup({
   return (
     <Wrapper role="none">
       <Item
+        {...rest}
+        ref={forwardedRef}
         as={as}
         active={active}
         style={style}
@@ -114,6 +118,6 @@ function NavGroup({
       ) }
     </Wrapper>
   )
-}
+})
 
 export default memo(NavGroup)

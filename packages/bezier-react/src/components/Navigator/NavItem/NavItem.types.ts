@@ -21,4 +21,5 @@ export default interface NavItemProps extends
   LinkProps,
   Pick<SideContentProps, 'rightContent'>,
   Pick<ActivatableProps, 'active'>,
+  Omit<React.HTMLAttributes<HTMLAnchorElement>, 'onClick' | 'content'>,
   NavItemOptions {}
