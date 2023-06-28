@@ -113,6 +113,10 @@ export const TooltipContent = styled(AlphaStack).attrs({
   ${({ interpolation }) => interpolation}
 `
 
+export const TextContainer = styled.div`
+  overflow: hidden;
+`
+
 export const Content = styled(Text).attrs({ typo: Typography.Size13 })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   /* NOTE: Line height of Typography.Size13  */
