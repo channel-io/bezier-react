@@ -23,6 +23,7 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { Divider } from '~/src/components/Divider'
+import { Help } from '~/src/components/Help'
 import { IconSize } from '~/src/components/Icon'
 import { LegacyIcon } from '~/src/components/LegacyIcon'
 
@@ -179,9 +180,11 @@ function SectionLabel({
   ])
 
   const helpContent = useMemo(() => !isNil(help) && (
-    <Styled.Help>
-      { help }
-    </Styled.Help>
+    <Styled.HelpContainer>
+      <Help allowHover>
+        { help }
+      </Help>
+    </Styled.HelpContainer>
   ), [help])
 
   return (
