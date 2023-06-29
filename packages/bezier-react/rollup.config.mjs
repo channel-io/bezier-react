@@ -26,7 +26,6 @@ const generateConfig = ({
 }) => defineConfig({
   input: 'src/index.ts',
   output,
-  external: [/@babel\/runtime/],
   plugins: [
     alias({
       entries: [{
@@ -53,7 +52,7 @@ const generateConfig = ({
      */
     commonjs(),
     babel({
-      babelHelpers: 'runtime',
+      babelHelpers: 'bundled',
       exclude: 'node_modules/**',
       extensions,
     }),

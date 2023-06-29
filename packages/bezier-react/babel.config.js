@@ -10,7 +10,6 @@ module.exports = {
     ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
   ],
   plugins: [
-    '@babel/plugin-transform-runtime',
     ['babel-plugin-styled-components', {
       minify: true,
       pure: true,
