@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.7.1
+
+### Patch Changes
+
+- Fix module resolve errors that occur in CJS environments. ([#1459](https://github.com/channel-io/bezier-react/pull/1459)) by @sungik-choi
+
 ## 1.7.0
 
 ### Minor Changes
