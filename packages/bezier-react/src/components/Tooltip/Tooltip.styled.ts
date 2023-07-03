@@ -1,10 +1,7 @@
 import {
   LineHeightAbsoluteNumber,
-  TransitionDuration,
   Typography,
-  css,
   ellipsis,
-  keyframes,
   styled,
 } from '~/src/foundation'
 
@@ -18,64 +15,6 @@ import {
 import { Text } from '~/src/components/Text'
 
 import { type TooltipProps } from './Tooltip.types'
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`
-
-const SLIDE_OFFSET = 2
-
-const slideUp = keyframes`
-  from {
-    transform: translateY(${SLIDE_OFFSET}px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-`
-
-const slideRight = keyframes`
-  from {
-    transform: translateX(-${SLIDE_OFFSET}px);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-`
-
-const slideDown = keyframes`
-  from {
-    transform: translateY(-${SLIDE_OFFSET}px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-`
-
-const slideLeft = keyframes`
-  from {
-    transform: translateX(${SLIDE_OFFSET}px);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-`
-
-const getSlideAnimation = (frames: ReturnType<typeof keyframes>) => css`
-  animation-name: ${() => frames}, ${() => fadeIn};
-  animation-duration: ${TransitionDuration.M}ms;
-  animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
-`
 
 export const TooltipContent = styled(AlphaStack).attrs({
   direction: 'horizontal',
@@ -93,22 +32,6 @@ export const TooltipContent = styled(AlphaStack).attrs({
 
   ${({ foundation }) => foundation?.elevation?.ev3(true)};
   ${({ foundation }) => foundation?.rounding?.round8};
-
-  &[data-side="top"] {
-    ${getSlideAnimation(slideUp)}
-  }
-
-  &[data-side="right"] {
-    ${getSlideAnimation(slideRight)}
-  }
-
-  &[data-side="bottom"] {
-    ${getSlideAnimation(slideDown)}
-  }
-
-  &[data-side="left"] {
-    ${getSlideAnimation(slideLeft)}
-  }
 
   ${({ interpolation }) => interpolation}
 `
