@@ -22,7 +22,10 @@ describe('Tooltip', () => {
     children,
     ...rest
   }: TooltipProps = {}) => render(
-    <Tooltip {...rest}>
+    <Tooltip
+      delayShow={0}
+      {...rest}
+    >
       <button type="button">
         Trigger
       </button>
@@ -127,7 +130,10 @@ describe('TooltipProvider', () => {
     children,
     ...rest
   }: TooltipProviderProps = {}) => render(
-    <TooltipProvider {...rest}>
+    <TooltipProvider
+      delayShow={0}
+      {...rest}
+    >
       <Tooltip>
         <button type="button">
           Trigger
