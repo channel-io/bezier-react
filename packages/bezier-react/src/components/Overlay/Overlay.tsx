@@ -21,6 +21,8 @@ import {
 } from '~/src/utils/domUtils'
 import { noop } from '~/src/utils/functionUtils'
 
+import { useModalContainerContext } from '~/src/components/Modals'
+
 import type OverlayProps from './Overlay.types'
 import {
   type ContainerRectAttr,
@@ -46,7 +48,7 @@ function Overlay(
     style,
     containerClassName = '',
     containerStyle,
-    container,
+    container: givenContainer,
     target,
     position = OverlayPosition.LeftCenter,
     marginX = 0,
@@ -73,29 +75,36 @@ function Overlay(
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
+  const defaultContainer = getRootElement()
+  const modalContainer = useModalContainerContext()
+
+  const hasContainer = Boolean(givenContainer || modalContainer)
+  const container = givenContainer ?? modalContainer ?? defaultContainer
+
   const handleOverlayForceUpdate = useCallback(() => {
     forceUpdate()
   }, [])
 
   const handleContainerRect = useCallback(() => {
-    const containerElement = container || getRootElement()
-
     const {
       width: containerWidth,
       height: containerHeight,
       top: containerTop,
       left: containerLeft,
-    } = containerElement.getBoundingClientRect()
+    } = container.getBoundingClientRect()
 
     containerRect.current = {
       containerWidth,
       containerHeight,
       containerTop,
       containerLeft,
-      scrollTop: container ? container.scrollTop : 0,
-      scrollLeft: container ? container.scrollLeft : 0,
+      scrollTop: hasContainer ? container.scrollTop : 0,
+      scrollLeft: hasContainer ? container.scrollLeft : 0,
     }
-  }, [container])
+  }, [
+    container,
+    hasContainer,
+  ])
 
   useLayoutEffect(function initContainerRect() {
     if (show) {
@@ -292,7 +301,7 @@ function Overlay(
 
   return ReactDOM.createPortal(
     overlay,
-    container || getRootElement(),
+    container,
   )
 }
 
