@@ -11,7 +11,7 @@ import {
   type ModalHeaderProps,
   ModalTitleSize,
 } from './Modal.types'
-import { useModalContentContext } from './ModalContentContext'
+import { useModalContentPropsContext } from './ModalContentContext'
 
 import * as Styled from './Modal.styled'
 
@@ -79,7 +79,7 @@ export const ModalHeader = forwardRef(function ModalHeader({
   hidden = false,
   ...rest
 }: ModalHeaderProps, forwardedRef: React.Ref<HTMLElement>) {
-  const { showCloseIcon } = useModalContentContext()
+  const { showCloseIcon } = useModalContentPropsContext()
   const hasTitleArea = title || showCloseIcon
   const Hidden = hidden ? VisuallyHidden : React.Fragment
 

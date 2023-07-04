@@ -10,10 +10,10 @@ import { document } from '~/src/utils/domUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
 import {
-  type ModalContentContextValue,
   type ModalContentProps,
+  type ModalContentPropsContextValue,
 } from './Modal.types'
-import { ModalContentContextProvider } from './ModalContentContext'
+import { ModalContentPropsContextProvider } from './ModalContentContext'
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
@@ -52,7 +52,7 @@ export const ModalContent = forwardRef(function ModalContent({
     height,
   ])
 
-  const contextValue = useMemo((): ModalContentContextValue => ({
+  const contextValue = useMemo((): ModalContentPropsContextValue => ({
     showCloseIcon,
   }), [showCloseIcon])
 
@@ -67,9 +67,9 @@ export const ModalContent = forwardRef(function ModalContent({
             {...rest}
           >
             <Styled.Section>
-              <ModalContentContextProvider value={contextValue}>
+              <ModalContentPropsContextProvider value={contextValue}>
                 { children }
-              </ModalContentContextProvider>
+              </ModalContentPropsContextProvider>
 
               { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
               { showCloseIcon && (
