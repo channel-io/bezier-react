@@ -61,10 +61,9 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  // NOTE: DOM render 가 필요한지 여부를 결정하는 state
   const [shouldRender, setShouldRender] = useState(false)
-  // NOTE: 화면에 실제 표현해야 하는지 여부를 결정하는 state
   const [shouldShow, setShouldShow] = useState(false)
+
   const containerRect = useRef<ContainerRectAttr | null>(null)
   const targetRect = useRef<TargetRectAttr | null>(null)
 
