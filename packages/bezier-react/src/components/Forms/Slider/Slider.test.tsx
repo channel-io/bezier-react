@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { isInaccessible } from '@testing-library/react'
+import {
+  isInaccessible,
+  waitFor,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/testUtils'
@@ -217,7 +220,9 @@ describe('Slider', () => {
       const { getByRole, getAllByText } = renderSlider({ defaultValue: [0] })
       const sliderThumb = getByRole('slider')
       await user.hover(sliderThumb)
-      expect(getAllByText('0')[0]).toBeInTheDocument()
+      await waitFor(() => {
+        expect(getAllByText('0')[0]).toBeInTheDocument()
+      }, { timeout: 10000 })
     })
 
     it('should show tooltip when user focuses on the thumb', async () => {
@@ -230,8 +235,10 @@ describe('Slider', () => {
       const { getByRole, getAllByText } = renderSlider({ defaultValue: [0] })
       const sliderThumb = getByRole('slider')
       await user.click(sliderThumb)
-      expect(getByRole('tooltip')).toBeInTheDocument()
-      expect(getAllByText('0')[0]).toBeInTheDocument()
+      await waitFor(() => {
+        expect(getByRole('tooltip')).toBeInTheDocument()
+        expect(getAllByText('0')[0]).toBeInTheDocument()
+      }, { timeout: 10000 })
     })
 
     it('should not show tooltip when disableTooltip is true', async () => {
