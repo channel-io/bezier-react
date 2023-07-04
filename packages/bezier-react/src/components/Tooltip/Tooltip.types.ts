@@ -73,6 +73,7 @@ interface TooltipOptions {
   offset?: number
   /**
    * Specify a container element to portal the content into.
+   * @note When placed inside a `Modal`, default value is the container element of `Modal`.
    * @default document.body
    */
   container?: HTMLElement | null
