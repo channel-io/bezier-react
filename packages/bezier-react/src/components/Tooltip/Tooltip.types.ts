@@ -33,7 +33,7 @@ interface TooltipProviderOptions {
   allowHover?: boolean
   /**
    * The delay from when the mouse enters a tooltip trigger until the tooltip opens.
-   * @default 0
+   * @default 300
    */
   delayShow?: number
   /**
@@ -43,7 +43,7 @@ interface TooltipProviderOptions {
   delayHide?: number
   /**
    * How much time a user has to enter another trigger without incurring a delay again.
-   * @default 0
+   * @default 500
    */
   skipDelayShow?: number
 }
@@ -91,7 +91,7 @@ interface TooltipOptions {
   /**
    * The delay from when the mouse enters a tooltip trigger until the tooltip opens.
    * Inherits from the nearest `TooltipProvider`.
-   * @default 0
+   * @default 300
    */
   delayShow?: number
   /**

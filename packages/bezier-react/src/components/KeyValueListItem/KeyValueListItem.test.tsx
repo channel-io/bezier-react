@@ -4,6 +4,7 @@ import {
   AppleIcon,
   BadgeIcon,
 } from '@channel.io/bezier-icons'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/testUtils'
@@ -176,7 +177,9 @@ describe('KeyValueListItem', () => {
         const actionItemIcon = actionItemIconWrapper?.firstChild
 
         await user.hover(actionItemIcon as HTMLElement)
-        expect(getByRole('tooltip')).toBeInTheDocument()
+        await waitFor(() => {
+          expect(getByRole('tooltip')).toBeInTheDocument()
+        }, { timeout: 10000 })
       })
     })
 

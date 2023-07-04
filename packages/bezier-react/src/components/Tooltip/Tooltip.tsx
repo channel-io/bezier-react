@@ -139,9 +139,9 @@ const [
 export function TooltipProvider({
   children,
   allowHover = false,
-  delayShow = 0,
+  delayShow = 300,
   delayHide = 0,
-  skipDelayShow = 0,
+  skipDelayShow = 500,
 }: TooltipProviderProps) {
   const contextValue = useMemo(() => ({
     delayHide,
