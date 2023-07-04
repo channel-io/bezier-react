@@ -13,7 +13,7 @@ import {
   type ModalContentProps,
   type ModalContentPropsContextValue,
 } from './Modal.types'
-import { ModalContentPropsContextProvider } from './ModalContentContext'
+import { ModalContentPropsContextProvider } from './ModalContext'
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'

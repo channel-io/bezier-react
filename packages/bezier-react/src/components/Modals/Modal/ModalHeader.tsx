@@ -11,7 +11,7 @@ import {
   type ModalHeaderProps,
   ModalTitleSize,
 } from './Modal.types'
-import { useModalContentPropsContext } from './ModalContentContext'
+import { useModalContentPropsContext } from './ModalContext'
 
 import * as Styled from './Modal.styled'
 
