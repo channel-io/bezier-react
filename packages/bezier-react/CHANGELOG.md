@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.7.2
+
+### Patch Changes
+
+- Removes the animation of `Tooltip`. Changes the default values of `delayShow` and `skipDelayShow` of `TooltipProvider`. ([#1469](https://github.com/channel-io/bezier-react/pull/1469)) by @sungik-choi
+
 ## 1.7.1
 
 ### Patch Changes
