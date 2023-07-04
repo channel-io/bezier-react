@@ -8,3 +8,8 @@ export const [
 ] = createContext<ModalContentPropsContextValue>({
   showCloseIcon: false,
 })
+
+export const [
+  ModalContainerContextProvider,
+  useModalContainerContext,
+] = createContext<HTMLElement | undefined>(undefined)

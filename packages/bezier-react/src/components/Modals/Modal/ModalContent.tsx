@@ -1,11 +1,14 @@
 import React, {
   forwardRef,
+  useCallback,
   useMemo,
+  useState,
 } from 'react'
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { document } from '~/src/utils/domUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
@@ -13,7 +16,10 @@ import {
   type ModalContentProps,
   type ModalContentPropsContextValue,
 } from './Modal.types'
-import { ModalContentPropsContextProvider } from './ModalContext'
+import {
+  ModalContainerContextProvider,
+  ModalContentPropsContextProvider,
+} from './ModalContext'
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
@@ -33,6 +39,15 @@ export const ModalContent = forwardRef(function ModalContent({
   zIndex = ZIndex.Modal,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const [contentContainer, setContentContainer] = useState<HTMLElement>()
+
+  const contentRef = useMergeRefs(
+    forwardedRef,
+    useCallback((node: HTMLElement | null) => {
+      setContentContainer(node ?? undefined)
+    }, []),
+  )
+
   const overlayStyle = useMemo((): React.CSSProperties & {
     '--bezier-modal-z-index': ModalContentProps['zIndex']
   } => ({
@@ -52,7 +67,7 @@ export const ModalContent = forwardRef(function ModalContent({
     height,
   ])
 
-  const contextValue = useMemo((): ModalContentPropsContextValue => ({
+  const propsContextValue = useMemo((): ModalContentPropsContextValue => ({
     showCloseIcon,
   }), [showCloseIcon])
 
@@ -62,14 +77,16 @@ export const ModalContent = forwardRef(function ModalContent({
         <DialogPrimitive.Content asChild>
           <Styled.Content
             aria-modal
-            ref={forwardedRef}
+            ref={contentRef}
             style={contentStyle}
             {...rest}
           >
             <Styled.Section>
-              <ModalContentPropsContextProvider value={contextValue}>
-                { children }
-              </ModalContentPropsContextProvider>
+              <ModalContainerContextProvider value={contentContainer}>
+                <ModalContentPropsContextProvider value={propsContextValue}>
+                  { children }
+                </ModalContentPropsContextProvider>
+              </ModalContainerContextProvider>
 
               { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
               { showCloseIcon && (
