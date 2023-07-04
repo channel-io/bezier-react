@@ -9,7 +9,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { document } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/domUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
 import {
@@ -32,7 +32,7 @@ import * as Styled from './Modal.styled'
 export const ModalContent = forwardRef(function ModalContent({
   children,
   style,
-  container = document.body,
+  container = getRootElement(),
   showCloseIcon = false,
   width = 'max-content',
   height = 'fit-content',

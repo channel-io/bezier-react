@@ -9,7 +9,7 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { document } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
 import { isBoolean } from '~/src/utils/typeUtils'
 
@@ -166,7 +166,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   icon,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
-  container = document.body,
+  container = getRootElement(),
   keepInContainer = true,
   allowHover,
   delayShow,
