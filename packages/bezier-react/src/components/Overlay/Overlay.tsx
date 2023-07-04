@@ -225,7 +225,7 @@ function Overlay(
   ])
 
   const overlay = useMemo(() => {
-    if (container) {
+    if (hasContainer) {
       return Content
     }
 
@@ -243,7 +243,7 @@ function Overlay(
       </Styled.DefaultContainer>
     )
   }, [
-    container,
+    hasContainer,
     containerClassName,
     show,
     containerStyle,
