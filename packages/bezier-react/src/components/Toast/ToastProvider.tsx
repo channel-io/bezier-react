@@ -15,12 +15,10 @@ import {
   type ToastType,
 } from './Toast.types'
 import ToastContainer from './ToastContainer'
-import ToastContext from './ToastContext'
+import { ToastContextProvider } from './ToastContext'
 import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
-
-const { Provider } = ToastContext
 
 function ToastProvider({
   autoDismissTimeout = 3000,
@@ -77,7 +75,7 @@ function ToastProvider({
   ])
 
   return (
-    <Provider value={toastContextValue}>
+    <ToastContextProvider value={toastContextValue}>
       { children }
       { createPortal(
         [
@@ -86,7 +84,7 @@ function ToastProvider({
         ],
         getRootElement(),
       ) }
-    </Provider>
+    </ToastContextProvider>
   )
 }
 

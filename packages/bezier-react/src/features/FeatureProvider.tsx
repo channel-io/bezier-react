@@ -1,10 +1,10 @@
 import React, {
-  createContext,
-  useContext,
   useLayoutEffect,
   useMemo,
   useState,
 } from 'react'
+
+import { createContext } from '~/src/utils/reactUtils'
 
 import {
   type Feature,
@@ -17,7 +17,10 @@ const initialFeatureFlag: FeatureFlag = {
   [FeatureType.SmoothCorners]: false,
 }
 
-const FeatureFlagContext = createContext<FeatureFlag>(initialFeatureFlag)
+const [
+  FeatureFlagContextProvider,
+  useFeatureFlagContext,
+] = createContext<FeatureFlag>(initialFeatureFlag)
 
 interface FeatureProviderProps {
   children: React.ReactNode
@@ -64,14 +67,14 @@ export function FeatureProvider({
   }, [features])
 
   return (
-    <FeatureFlagContext.Provider value={featureFlag}>
+    <FeatureFlagContextProvider value={featureFlag}>
       { children }
-    </FeatureFlagContext.Provider>
+    </FeatureFlagContextProvider>
   )
 }
 
 export function useFeatureFlag(featureType: FeatureType) {
-  const contextValue = useContext(FeatureFlagContext)
+  const contextValue = useFeatureFlagContext()
 
   return useMemo(() => (
     contextValue[featureType]

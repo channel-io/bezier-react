@@ -1,10 +1,12 @@
-import { createContext } from 'react'
-
 import { noop } from '~/src/utils/functionUtils'
+import { createContext } from '~/src/utils/reactUtils'
 
 import { type ToastContextType } from './Toast.types'
 
-const ToastContext = createContext<ToastContextType>({
+export const [
+  ToastContextProvider,
+  useToastContext,
+] = createContext<ToastContextType>({
   add: () => '',
   update: () => '',
   remove: noop,
@@ -12,5 +14,3 @@ const ToastContext = createContext<ToastContextType>({
   leftToasts: [],
   rightToasts: [],
 })
-
-export default ToastContext

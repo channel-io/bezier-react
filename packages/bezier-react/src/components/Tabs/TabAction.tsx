@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useContext,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
 
@@ -12,7 +9,7 @@ import { isNil } from '~/src/utils/typeUtils'
 import { IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import TabListContext from './TabListContext'
+import { useTabListContext } from './TabListContext'
 import {
   type TabActionElement,
   type TabActionProps,
@@ -52,7 +49,7 @@ export const TabAction = forwardRef(function TabAction<Link extends string | und
   ...rest
 }: TabActionProps<Link>, forwardedRef: React.Ref<TabActionElement<Link>>,
 ) {
-  const { size } = useContext(TabListContext)
+  const { size } = useTabListContext()
 
   return (
     isNil(href) ? (

@@ -1,23 +1,23 @@
 import type React from 'react'
-import { createContext } from 'react'
 
 import { noop } from '~/src/utils/functionUtils'
+import { createContext } from '~/src/utils/reactUtils'
 
-export interface OutlineItemContextProps {
+interface OutlineItemContextProps {
   depth: number
   paddingLeft: number
   active: boolean
   onClick: (event?: React.MouseEvent<Element>, name?: string) => void
 }
 
-export const defaultOutlineItemContext = {
+const defaultOutlineItemContext = {
   depth: 0,
   paddingLeft: 0,
   active: false,
   onClick: noop,
 }
 
-export function mergeOutlineItemContexts(
+function mergeOutlineItemContexts(
   inherited: OutlineItemContextProps,
   props: Partial<Omit<OutlineItemContextProps, 'depth'>>,
   indent: number,
@@ -33,4 +33,15 @@ export function mergeOutlineItemContexts(
   }
 }
 
-export const OutlineItemContext = createContext<OutlineItemContextProps>(defaultOutlineItemContext)
+const [
+  OutlineItemContextProvider,
+  useOutlineItemContextBase,
+] = createContext<OutlineItemContextProps>(defaultOutlineItemContext)
+
+export { OutlineItemContextProvider }
+
+export const useOutlineItemContext = (props: Partial<Omit<OutlineItemContextProps, 'depth'>>, indent: number) => {
+  const inheritedContext = useOutlineItemContextBase() ?? defaultOutlineItemContext
+  const context = mergeOutlineItemContexts(inheritedContext, props, indent)
+  return context
+}

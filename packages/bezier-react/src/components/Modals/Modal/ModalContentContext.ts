@@ -1,9 +1,10 @@
-import React from 'react'
+import { createContext } from '~/src/utils/reactUtils'
 
 import { type ModalContentContextValue } from './Modal.types'
 
-const ModalContentContext = React.createContext<ModalContentContextValue>({
+export const [
+  ModalContentContextProvider,
+  useModalContentContext,
+] = createContext<ModalContentContextValue>({
   showCloseIcon: false,
 })
-
-export default ModalContentContext

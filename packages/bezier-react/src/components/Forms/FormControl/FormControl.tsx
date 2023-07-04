@@ -28,7 +28,7 @@ import {
   type HelperTextPropsGetter,
   type LabelPropsGetter,
 } from './FormControl.types'
-import { FormControlContext } from './FormControlContext'
+import { FormControlContextProvider } from './FormControlContext'
 
 import * as Styled from './FormControl.styled'
 
@@ -203,7 +203,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   if (!children) { return null }
 
   return (
-    <FormControlContext.Provider value={contextValue}>
+    <FormControlContextProvider value={contextValue}>
       <Container
         {...bezierProps}
         ref={forwardedRef}
@@ -213,6 +213,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
       >
         { children }
       </Container>
-    </FormControlContext.Provider>
+    </FormControlContextProvider>
   )
 })

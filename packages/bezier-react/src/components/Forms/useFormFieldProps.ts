@@ -3,8 +3,7 @@ import { useMemo } from 'react'
 import { ariaAttr } from '~/src/utils/domUtils'
 
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
-
-import useFormControlContext from './useFormControlContext'
+import { useFormControlContext } from '~/src/components/Forms/FormControl'
 
 // TODO: 테스트 추가
 function useFormFieldProps<Props extends FormComponentProps>(props?: Props) {

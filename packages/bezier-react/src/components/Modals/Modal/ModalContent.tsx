@@ -13,7 +13,7 @@ import {
   type ModalContentContextValue,
   type ModalContentProps,
 } from './Modal.types'
-import ModalContentContext from './ModalContentContext'
+import { ModalContentContextProvider } from './ModalContentContext'
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
@@ -67,9 +67,9 @@ export const ModalContent = forwardRef(function ModalContent({
             {...rest}
           >
             <Styled.Section>
-              <ModalContentContext.Provider value={contextValue}>
+              <ModalContentContextProvider value={contextValue}>
                 { children }
-              </ModalContentContext.Provider>
+              </ModalContentContextProvider>
 
               { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
               { showCloseIcon && (

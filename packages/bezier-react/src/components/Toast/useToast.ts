@@ -1,12 +1,10 @@
-import { useContext } from 'react'
-
-import ToastContext from './ToastContext'
+import { useToastContext } from './ToastContext'
 
 export default function useToast() {
-  const context = useContext(ToastContext)
+  const context = useToastContext()
 
   if (!context) {
-    throw Error('ToastProvider가 필요합니다.')
+    throw Error('\'useToast\' must be used within \'ToastProvider\'')
   }
 
   return {
