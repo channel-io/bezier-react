@@ -46,6 +46,11 @@ export enum OverlayPosition {
 
 interface OverlayOptions {
   show?: boolean
+  /**
+   * Specify a container element to portal the content into.
+   * @note When placed inside a `Modal`, default value is the container element of `Modal`.
+   * @default document.body
+   */
   container?: HTMLElement | null
   target?: HTMLElement | null
   position?: OverlayPosition

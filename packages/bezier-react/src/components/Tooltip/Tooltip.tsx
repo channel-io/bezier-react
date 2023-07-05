@@ -9,9 +9,11 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { document } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
 import { isBoolean } from '~/src/utils/typeUtils'
+
+import { useModalContainerContext } from '~/src/components/Modals'
 
 import {
   TooltipPosition,
@@ -166,7 +168,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   icon,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
-  container = document.body,
+  container: givenContainer,
   keepInContainer = true,
   allowHover,
   delayShow,
@@ -175,9 +177,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 }, forwardedRef) {
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
-  const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
 
+  const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
   const delayHide = delayHideProp ?? globalDelayHide
+
+  const defaultContainer = getRootElement()
+  const modalContainer = useModalContainerContext()
+  const container = givenContainer ?? modalContainer ?? defaultContainer
 
   useEffect(function cleanUpTimeout() {
     return function cleanUp() {

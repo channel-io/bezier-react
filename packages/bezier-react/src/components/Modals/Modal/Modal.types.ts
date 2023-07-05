@@ -133,5 +133,5 @@ export interface ModalTriggerProps extends
 export interface ModalCloseProps extends
   ChildrenProps<React.ReactElement> {}
 
-export interface ModalContentContextValue extends
+export interface ModalContentPropsContextValue extends
   Required<Pick<ModalContentOptions, 'showCloseIcon'>> {}

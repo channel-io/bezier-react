@@ -21,6 +21,8 @@ import {
 } from '~/src/utils/domUtils'
 import { noop } from '~/src/utils/functionUtils'
 
+import { useModalContainerContext } from '~/src/components/Modals'
+
 import type OverlayProps from './Overlay.types'
 import {
   type ContainerRectAttr,
@@ -46,7 +48,7 @@ function Overlay(
     style,
     containerClassName = '',
     containerStyle,
-    container,
+    container: givenContainer,
     target,
     position = OverlayPosition.LeftCenter,
     marginX = 0,
@@ -61,10 +63,9 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  // NOTE: DOM render 가 필요한지 여부를 결정하는 state
   const [shouldRender, setShouldRender] = useState(false)
-  // NOTE: 화면에 실제 표현해야 하는지 여부를 결정하는 state
   const [shouldShow, setShouldShow] = useState(false)
+
   const containerRect = useRef<ContainerRectAttr | null>(null)
   const targetRect = useRef<TargetRectAttr | null>(null)
 
@@ -74,29 +75,36 @@ function Overlay(
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
+  const defaultContainer = getRootElement()
+  const modalContainer = useModalContainerContext()
+
+  const hasContainer = Boolean(givenContainer || modalContainer)
+  const container = givenContainer ?? modalContainer ?? defaultContainer
+
   const handleOverlayForceUpdate = useCallback(() => {
     forceUpdate()
   }, [])
 
   const handleContainerRect = useCallback(() => {
-    const containerElement = container || getRootElement()
-
     const {
       width: containerWidth,
       height: containerHeight,
       top: containerTop,
       left: containerLeft,
-    } = containerElement.getBoundingClientRect()
+    } = container.getBoundingClientRect()
 
     containerRect.current = {
       containerWidth,
       containerHeight,
       containerTop,
       containerLeft,
-      scrollTop: container ? container.scrollTop : 0,
-      scrollLeft: container ? container.scrollLeft : 0,
+      scrollTop: hasContainer ? container.scrollTop : 0,
+      scrollLeft: hasContainer ? container.scrollLeft : 0,
     }
-  }, [container])
+  }, [
+    container,
+    hasContainer,
+  ])
 
   useLayoutEffect(function initContainerRect() {
     if (show) {
@@ -217,7 +225,7 @@ function Overlay(
   ])
 
   const overlay = useMemo(() => {
-    if (container) {
+    if (hasContainer) {
       return Content
     }
 
@@ -235,7 +243,7 @@ function Overlay(
       </Styled.DefaultContainer>
     )
   }, [
-    container,
+    hasContainer,
     containerClassName,
     show,
     containerStyle,
@@ -293,7 +301,7 @@ function Overlay(
 
   return ReactDOM.createPortal(
     overlay,
-    container || getRootElement(),
+    container,
   )
 }
 

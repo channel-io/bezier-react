@@ -5,6 +5,8 @@ export { ModalBody } from './ModalBody'
 export { ModalFooter } from './ModalFooter'
 export { ModalTrigger, ModalClose } from './ModalHelpers'
 
+export { useModalContainerContext } from './ModalContext'
+
 export {
   ModalTitleSize,
   type ModalProps,
