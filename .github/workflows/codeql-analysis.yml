@@ -15,9 +15,11 @@ on:
   push:
     branches:
       - main
+      - alpha
   pull_request:
     branches:
       - main
+      - alpha
   schedule:
     #        ┌───────────── minute (0 - 59)
     #        │  ┌───────────── hour (0 - 23)
