@@ -1,0 +1,13 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@channel.io/bezier-codemod": "0.2.1",
+    "bezier-figma-plugin": "0.3.9",
+    "@channel.io/bezier-icons": "0.4.0",
+    "@channel.io/bezier-react": "1.7.2",
+    "eslint-config-bezier": "0.0.1",
+    "tsconfig": "0.0.1"
+  },
+  "changesets": []
+}
