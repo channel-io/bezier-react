@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.8.0-alpha.0
+
+### Minor Changes
+
+- Change default value of `container` for `Overlay`, `Tooltip` placed inside `Modal` to container element of `Modal`. ([#1472](https://github.com/channel-io/bezier-react/pull/1472)) by @sungik-choi
+
 ## 1.7.2
 
 ### Patch Changes
