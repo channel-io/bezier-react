@@ -1,0 +1,12 @@
+@use 'sass:meta';
+
+@layer tokens {
+  :where(:root, :host) {
+    @include meta.load-css('core');
+    @include meta.load-css('semantic/light-theme');
+
+    [data-theme="dark"] {
+      @include meta.load-css('semantic/dark-theme');
+    }
+  }
+}
