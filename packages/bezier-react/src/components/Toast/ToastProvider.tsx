@@ -19,11 +19,14 @@ import { ToastContextProvider } from './ToastContext'
 import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
+import useIsMounted from '~/src/hooks/useIsMounted'
 
 function ToastProvider({
   autoDismissTimeout = 3000,
   children = [],
 }: ToastProviderProps) {
+  const isMounted = useIsMounted()
+
   const toastContextValue = useToastProviderValues()
   const {
     leftToasts,
@@ -77,12 +80,12 @@ function ToastProvider({
   return (
     <ToastContextProvider value={toastContextValue}>
       { children }
-      { createPortal(
+      { isMounted && document.body && createPortal(
         [
           createContainer(ToastPlacement.BottomLeft, leftToasts),
           createContainer(ToastPlacement.BottomRight, rightToasts),
         ],
-        getRootElement(),
+        document.body,
       ) }
     </ToastContextProvider>
   )
