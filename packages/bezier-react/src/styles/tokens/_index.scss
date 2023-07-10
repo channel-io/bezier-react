@@ -5,7 +5,7 @@
   @include core.tokens;
   @include semantic.light-theme-tokens;
 
-  [data-theme="dark"] {
+  [data-bezier-theme="dark"] {
     @include semantic.dark-theme-tokens;
   }
 }
