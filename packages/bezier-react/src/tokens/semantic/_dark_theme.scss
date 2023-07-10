@@ -1,0 +1,157 @@
+/* TODO: Reference core token */
+@mixin dark-theme {
+  --bg-blue-dark: #5E56F0;
+  --bg-blue-normal: #6687FF;
+  --bg-blue-light: rgba(102, 135, 255, 0.4);
+  --bg-blue-lighter: rgba(102, 135, 255, 0.3);
+  --bg-blue-lightest: rgba(102, 135, 255, 0.2);
+
+  --bg-red-dark: #E94E58;
+  --bg-red-normal: #FF5C5C;
+  --bg-red-light: rgba(255, 92, 92, 0.3);
+  --bg-red-lighter: rgba(255, 92, 92, 0.2);
+  --bg-red-lightest: rgba(255, 92, 92, 0.2);
+
+  --bg-orange-dark: #F4800B;
+  --bg-orange-normal: #FFAB5C;
+  --bg-orange-light: rgba(255, 171, 92, 0.4);
+  --bg-orange-lighter: rgba(255, 171, 92, 0.3);
+  --bg-orange-lightest: rgba(255, 171, 92, 0.2);
+
+  --bg-yellow-dark: #EDBC40;
+  --bg-yellow-normal: #FDD353;
+  --bg-yellow-light: rgba(253, 211, 83, 0.4);
+  --bg-yellow-lighter: rgba(253, 211, 83, 0.3);
+  --bg-yellow-lightest: rgba(253, 211, 83, 0.2);
+  
+  --bg-olive-dark: #A0A540;
+  --bg-olive-normal: #CAD548;
+  --bg-olive-light: rgba(202, 213, 72, 0.4);
+  --bg-olive-lighter: rgba(202, 213, 72, 0.3);
+  --bg-olive-lightest: rgba(202, 213, 72, 0.2);
+
+  --bg-green-dark: #31A552;
+  --bg-green-normal: #3ACF5A;
+  --bg-green-light: rgba(58, 207, 90, 0.4);
+  --bg-green-lighter: rgba(58, 207, 90, 0.3);
+  --bg-green-lightest: rgba(58, 207, 90, 0.2);
+
+  --bg-teal-dark: #0FB3A3;
+  --bg-teal-normal: #3CDDCD;
+  --bg-teal-light: rgba(60, 221, 205, 0.4);
+  --bg-teal-lighter: rgba(60, 221, 205, 0.3);
+  --bg-teal-lightest: rgba(60, 221, 205, 0.2);
+
+  --bg-cobalt-dark: #329BE7;
+  --bg-cobalt-normal: #47C8FF;
+  --bg-cobalt-light: rgba(71, 200, 255, 0.4);
+  --bg-cobalt-lighter: rgba(71, 200, 255, 0.3);
+  --bg-cobalt-lightest: rgba(71, 200, 255, 0.2);
+
+  --bg-navy-dark: #3A4F8D;
+  --bg-navy-normal: #647CC9;
+  --bg-navy-light: rgba(100, 124, 201, 0.4);
+  --bg-navy-lighter: rgba(100, 124, 201, 0.3);
+  --bg-navy-lightest: rgba(100, 124, 201, 0.2);
+
+  --bg-purple-dark: #915CE0;
+  --bg-purple-normal: #B570FF;
+  --bg-purple-light: rgba(181, 112, 255, 0.4);
+  --bg-purple-lighter: rgba(181, 112, 255, 0.3);
+  --bg-purple-lightest: rgba(181, 112, 255, 0.2);
+
+  --bg-pink-dark: #CB48AD;
+  --bg-pink-normal: #EC6FD3;
+  --bg-pink-light: rgba(236, 111, 211, 0.4);
+  --bg-pink-lighter: rgba(236, 111, 211, 0.3);
+  --bg-pink-lightest: rgba(236, 111, 211, 0.2);
+
+  --bg-white-highest: #464748;
+  --bg-white-higher: #313234;
+  --bg-white-normal: #242428;
+
+  --bg-black-darkest: rgba(255, 255, 255, 0.6);
+  --bg-black-darker: rgba(255, 255, 255, 0.4);
+  --bg-black-dark: rgba(255, 255, 255, 0.2);
+  --bg-black-light: rgba(255, 255, 255, 0.12);
+  --bg-black-lighter: rgba(255, 255, 255, 0.08);
+  --bg-black-lightest: rgba(255, 255, 255, 0.05);
+
+  --bg-grey-darkest: #FFFFFF;
+  --bg-grey-dark: #A7A7AA;
+  --bg-grey-light: #464748;
+  --bg-grey-lighter: #313234;
+  --bg-grey-lightest: #2A2B2D;
+
+  --bg-alpha-white-lightest: rgba(49, 50, 52, 0.8);
+  --bg-alpha-white-lighter: rgba(0, 0, 0, 0.6);
+  --bg-alpha-white-light: rgba(0, 0, 0, 0.2);
+  --bg-alpha-grey-darkest: rgba(70, 71, 72, 0.8);
+  --bg-alpha-grey-darker: rgba(36, 36, 40, 0.9);
+  --bg-alpha-grey-dark: rgba(42, 43, 45, 0.8);
+  --bg-alpha-grey-light: rgba(49, 50, 52, 0.8);
+
+  --bg-absolute-white-dark: #FFFFFF;
+  --bg-absolute-white-normal: rgba(255, 255, 255, 0.9);
+  --bg-absolute-white-light: rgba(255, 255, 255, 0.6);
+  --bg-absolute-white-lighter: rgba(255, 255, 255, 0.4);
+  --bg-absolute-white-lightest: rgba(255, 255, 255, 0.2);
+
+  --bg-absolute-black-dark: #000000;
+  --bg-absolute-black-normal: rgba(0, 0, 0, 0.85);
+  --bg-absolute-black-light: rgba(0, 0, 0, 0.6);
+  --bg-absolute-black-lighter: rgba(0, 0, 0, 0.4);
+  --bg-absolute-black-lightest: rgba(0, 0, 0, 0.2);
+
+  --fg-red: #FF5C5C;
+  --fg-orange: #FFAB5C;
+  --fg-yellow: #FDD353;
+  --fg-olive: #CAD548;
+  --fg-green: #3ACF5A;
+  --fg-teal: #3CDDCD;
+  --fg-cobalt: #47C8FF;
+  --fg-blue: #6687FF;
+  --fg-navy: #647CC9;
+  --fg-purple: #B570FF;
+  --fg-pink: #EC6FD3;
+
+  --fg-black-darkest: rgba(255, 255, 255, 0.8);
+  --fg-black-darker: rgba(255, 255, 255, 0.6);
+  --fg-black-dark: rgba(255, 255, 255, 0.4);
+
+  --fg-white-normal: #242428;
+  --fg-absolute-white-dark: #FFFFFF;
+  --fg-absolute-white-normal: rgba(255, 255, 255, 0.9);
+  --fg-absolute-white-light: rgba(255, 255, 255, 0.6);
+  --fg-absolute-white-lighter: rgba(255, 255, 255, 0.4);
+  --fg-absolute-white-lightest: rgba(255, 255, 255, 0.2);
+  --fg-absolute-black-dark: #000000;
+  --fg-absolute-black-normal: rgba(0, 0, 0, 0.85);
+  --fg-absolute-black-light: rgba(0, 0, 0, 0.6);
+  --fg-absolute-black-lighter: rgba(0, 0, 0, 0.4);
+  --fg-absolute-black-lightest: rgba(0, 0, 0, 0.2);
+
+  --surface-lowest: #313234; /* edit marketing */
+  --surface-lower: #2A2B2D; /* edit support-bot, report, mobile 2-depth */
+  --surface-normal: #242428;
+
+  --shadow-xl: rgba(0, 0, 0, 0.6);
+  --shadow-l: rgba(0, 0, 0, 0.4);
+  --shadow-m: rgba(0, 0, 0, 0.2);
+  --shadow-s: rgba(0, 0, 0, 0.15);
+  --shadow-base: rgba(0, 0, 0, 0.08);
+  --shadow-base-inner: rgba(255, 255, 255, 0.08);
+
+  --bdr-black-dark: rgba(255, 255, 255, 0.2);
+  --bdr-black-light: rgba(255, 255, 255, 0.12);
+  --bdr-black-lightest: rgba(255, 255, 255, 0.05);
+  --bdr-grey: #464748;
+  --bdr-white: #464748;
+
+  --dim-black: rgba(0, 0, 0, 0.4);
+
+  --gradient-green: linear-gradient(90deg, #31A552 0%, #3ACF5A 100%); /* progress, line-banner */
+  --gradient-purple: linear-gradient(90deg, #915CE0 0%, #B570FF 100%); /* line-banner */
+  --gradient-orange: linear-gradient(90deg, #F4800B 0%, #FFAB5C 100%); /* line-banner */
+  --gradient-grey: linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.15) 100%); /* progress */
+}
