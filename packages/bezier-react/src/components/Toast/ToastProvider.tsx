@@ -7,7 +7,7 @@ import {
   css,
 } from '~/src/foundation'
 
-import { getRootElement } from '~/src/utils/domUtils'
+import useIsMounted from '~/src/hooks/useIsMounted'
 
 import {
   ToastPlacement,
@@ -19,7 +19,6 @@ import { ToastContextProvider } from './ToastContext'
 import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
-import useIsMounted from '~/src/hooks/useIsMounted'
 
 function ToastProvider({
   autoDismissTimeout = 3000,
