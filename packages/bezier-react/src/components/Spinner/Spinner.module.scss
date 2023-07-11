@@ -1,0 +1,60 @@
+@layer components {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .Spinner {
+    --bezier-spinner-color: inherit;
+
+    display: inline-block;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: var(--bezier-spinner-color);
+    border-bottom-color: var(--bezier-spinner-color);
+    border-left-color: var(--bezier-spinner-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+    &.xl {
+      width: 40px;
+      height: 40px;
+      border-width: 4px;
+    }
+
+    &.l,
+    &.m {
+      border-width: 3px;
+    }
+
+    &.l {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.m {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.s,
+    &.xs {
+      border-width: 2px;
+    }
+
+    &.s {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.xs {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

@@ -5,13 +5,14 @@ import {
 } from '~/src/types/ComponentProps'
 
 export enum SpinnerSize {
-  XL = 50,
-  L = 24,
-  M = 20,
-  S = 16,
-  XS = 12,
+  XL = 'xl',
+  L = 'l',
+  M = 'm',
+  S = 's',
+  XS = 'xs',
 }
 
+/** @deprecated */
 export enum SpinnerThickness {
   Bold = 4,
   Normal = 3,
