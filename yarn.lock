@@ -3002,6 +3002,7 @@ __metadata:
     sass: ^1.63.6
     ssr-window: ^4.0.2
     styled-components: ^5.3.11
+    the-new-css-reset: ^1.9.0
     ts-prune: ^0.10.3
     tsconfig: "workspace:*"
     tsconfig-paths-webpack-plugin: ^4.0.1
@@ -22791,6 +22792,13 @@ __metadata:
   version: 0.2.0
   resolution: "text-table@npm:0.2.0"
   checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
+  languageName: node
+  linkType: hard
+
+"the-new-css-reset@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "the-new-css-reset@npm:1.9.0"
+  checksum: 07cdae4ef811e34de45d694a512d5a89dec9925da9905f0eeabcc03476bbac2f0f586476fba7e5afdb6f945bb11013f5de44c94632b65b44b4ed4950a258eefb
   languageName: node
   linkType: hard
 

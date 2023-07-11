@@ -111,6 +111,7 @@
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.63.6",
     "styled-components": "^5.3.11",
+    "the-new-css-reset": "^1.9.0",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
