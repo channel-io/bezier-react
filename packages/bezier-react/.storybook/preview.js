@@ -12,6 +12,8 @@ import {
 import BezierProvider from '~/src/providers/BezierProvider'
 import { Text } from '~/src/components/Text'
 
+import '../src/styles/index.scss'
+
 const FoundationKeyword = {
   Light: 'light',
   Dark: 'dark',
