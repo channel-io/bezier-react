@@ -1,0 +1,18 @@
+$fallback-fonts: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif;
+
+html {
+  font-family: 'Inter', 'NotoSansKR', 'NotoSansJP', $fallback-fonts;
+
+  :lang(ja) {
+    font-family: 'Inter', 'NotoSansJP', 'NotoSansKR', $fallback-fonts;
+  }
+}
+
+code {
+  font-family: Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
+}
+
+::placeholder {
+  color: var(--fg-black-dark);
+  opacity: 1;
+}
