@@ -24,7 +24,3 @@ export default interface SpinnerProps extends
   SizeProps<SpinnerSize>,
   ColorProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
-
-export interface StyledSpinnerProps extends SpinnerProps {
-  size: NonNullable<SpinnerProps['size']>
-}
