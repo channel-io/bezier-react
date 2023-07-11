@@ -1,6 +1,7 @@
 @use 'sass:meta';
 
-@layer reset, base, tokens, components;
+// TODO: components, utilities layers
+@layer reset, base, tokens, components, utilities;
 
 @layer reset {
   @include meta.load-css("reset")
