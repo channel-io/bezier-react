@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.8.0
+
+### Minor Changes
+
+- Change root element of `createPortal` in `<ToastProvider />`. ([#1485](https://github.com/channel-io/bezier-react/pull/1485)) by @GwangYeol-Im
+
+- Change default value of `container` for `Overlay`, `Tooltip` placed inside `Modal` to container element of `Modal`. ([#1472](https://github.com/channel-io/bezier-react/pull/1472)) by @sungik-choi
+
 ## 1.7.2
 
 ### Patch Changes
