@@ -18,10 +18,10 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
   color,
   ...rest
 }, forwardedRef) {
-  const Component = as || 'div'
+  const Element = as || 'div'
 
   return (
-    <Component
+    <Element
       {...rest}
       ref={forwardedRef}
       style={{
