@@ -46,7 +46,7 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: './**/*.styled',
+            pattern: './**/*.+(styled|scss)',
             group: 'sibling',
             position: 'after',
           },
