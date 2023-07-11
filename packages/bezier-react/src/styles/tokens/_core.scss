@@ -1,0 +1,205 @@
+@mixin tokens {
+  --radius-2: 2px;
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-32: 32px;
+  --radius-44: 44px;
+  --radius-100: 100%;
+  --radius-smooth-corners: 42%;
+
+  --blue-300: #6687FF;
+  --blue-400: #5E56F0;
+  --blue-500: #4E40C9;
+  --blue-400-30: rgba(94, 86, 240, 0.3);
+  --blue-400-20: rgba(94, 86, 240, 0.2);
+  --blue-400-10: rgba(94, 86, 240, 0.1);
+  --blue-300-40: rgba(102, 135, 255, 0.4);
+  --blue-300-30: rgba(102, 135, 255, 0.3);
+  --blue-300-20: rgba(102, 135, 255, 0.2);
+
+  --cobalt-300: #47C8FF;
+  --cobalt-400: #329BE7;
+  --cobalt-500: #327AB8;
+  --cobalt-400-30: rgba(50, 155, 231, 0.3);
+  --cobalt-400-20: rgba(50, 155, 231, 0.2);
+  --cobalt-400-10: rgba(50, 155, 231, 0.1);
+  --cobalt-300-40: rgba(71, 200, 255, 0.4);
+  --cobalt-300-30: rgba(71, 200, 255, 0.3);
+  --cobalt-300-20: rgba(71, 200, 255, 0.2);
+
+  --green-300: #3ACF5A;
+  --green-400: #31A552;
+  --green-500: #41904F;
+  --green-400-30: rgba(49, 165, 82, 0.3);
+  --green-400-20: rgba(49, 165, 82, 0.2);
+  --green-400-10: rgba(49, 165, 82, 0.1);
+  --green-300-40: rgba(58, 207, 90, 0.4);
+  --green-300-30: rgba(58, 207, 90, 0.3);
+  --green-300-20: rgba(58, 207, 90, 0.2);
+
+  --red-300: #FF5C5C;
+  --red-400: #E94E58;
+  --red-500: #AC3E46;
+  --red-400-30: rgba(233, 78, 88, 0.3);
+  --red-400-20: rgba(233, 78, 88, 0.2);
+  --red-400-10: rgba(233, 78, 88, 0.1);
+  --red-300-40: rgba(255, 92, 92, 0.4);
+  --red-300-30: rgba(255, 92, 92, 0.3);
+  --red-300-20: rgba(255, 92, 92, 0.2);
+
+  --black-3: rgba(0, 0, 0, 0.03);
+  --black-5: rgba(0, 0, 0, 0.05);
+  --black-8: rgba(0, 0, 0, 0.08);
+  --black-15: rgba(0, 0, 0, 0.15);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-22: rgba(0, 0, 0, 0.22);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --black-60: rgba(0, 0, 0, 0.6);
+  --black-85: rgba(0, 0, 0, 0.85);
+  --black-100: #000000;
+
+  --white-0: rgba(255, 255, 255, 0);
+  --white-5: rgba(255, 255, 255, 0.05);
+  --white-8: rgba(255, 255, 255, 0.08);
+  --white-12: rgba(255, 255, 255, 0.12);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-100: #FFFFFF;
+
+  --orange-300: #FFAB5C;
+  --orange-400: #F4800B;
+  --orange-500: #C57417;
+  --orange-900: #544A3F;
+  --orange-400-30: rgba(244, 128, 11, 0.3);
+  --orange-400-20: rgba(244, 128, 11, 0.2);
+  --orange-400-10: rgba(244, 128, 11, 0.1);
+  --orange-300-40: rgba(255, 171, 92, 0.4);
+  --orange-300-30: rgba(255, 171, 92, 0.3);
+  --orange-300-20: rgba(255, 171, 92, 0.2);
+
+  --yellow-300: #FDD353;
+  --yellow-400: #EDBC40;
+  --yellow-500: #C39E37;
+  --yellow-400-30: rgba(237, 188, 64, 0.3);
+  --yellow-400-20: rgba(237, 188, 64, 0.2);
+  --yellow-400-10: rgba(237, 188, 64, 0.1);
+  --yellow-300-40: rgba(253, 211, 83, 0.4);
+  --yellow-300-30: rgba(253, 211, 83, 0.3);
+  --yellow-300-20: rgba(253, 211, 83, 0.2);
+
+  --pink-300: #EC6FD3;
+  --pink-400: #CB48AD;
+  --pink-500: #A32E92;
+  --pink-400-30: rgba(203, 72, 173, 0.3);
+  --pink-400-20: rgba(203, 72, 173, 0.2);
+  --pink-400-10: rgba(203, 72, 173, 0.1);
+  --pink-300-40: rgba(236, 111, 211, 0.4);
+  --pink-300-30: rgba(236, 111, 211, 0.3);
+  --pink-300-20: rgba(236, 111, 211, 0.2);
+
+  --purple-300: #B570FF;
+  --purple-400: #915CE0;
+  --purple-500: #6B23B3;
+  --purple-400-30: rgba(145, 92, 224, 0.3);
+  --purple-400-20: rgba(145, 92, 224, 0.2);
+  --purple-400-10: rgba(145, 92, 224, 0.1);
+  --purple-300-40: rgba(181, 112, 255, 0.4);
+  --purple-300-30: rgba(181, 112, 255, 0.3);
+  --purple-300-20: rgba(181, 112, 255, 0.2);
+
+  --navy-300: #647CC9;
+  --navy-400: #3A4F8D;
+  --navy-500: #333D5B;
+  --navy-400-30: rgba(58, 79, 141, 0.3);
+  --navy-400-20: rgba(58, 79, 141, 0.2);
+  --navy-400-10: rgba(58, 79, 141, 0.1);
+  --navy-300-40: rgba(100, 124, 201, 0.4);
+  --navy-300-30: rgba(100, 124, 201, 0.3);
+  --navy-300-20: rgba(100, 124, 201, 0.2);
+
+  --teal-300: #3CDDCD;
+  --teal-400: #0FB3A3;
+  --teal-500: #449C8A;
+  --teal-400-30: rgba(15, 179, 163, 0.3);
+  --teal-400-20: rgba(15, 179, 163, 0.2);
+  --teal-400-10: rgba(15, 179, 163, 0.1);
+  --teal-300-40: rgba(60, 221, 205, 0.4);
+  --teal-300-30: rgba(60, 221, 205, 0.3);
+  --teal-300-20: rgba(60, 221, 205, 0.2);
+
+  --olive-300: #CAD548;
+  --olive-400: #A0A540;
+  --olive-500: #818628;
+  --olive-400-30: rgba(160, 165, 64, 0.3);
+  --olive-400-20: rgba(160, 165, 64, 0.2);
+  --olive-400-10: rgba(160, 165, 64, 0.1);
+  --olive-300-40: rgba(202, 213, 72, 0.4);
+  --olive-300-30: rgba(202, 213, 72, 0.3);
+  --olive-300-20: rgba(202, 213, 72, 0.2);
+
+  --grey-50: #FCFCFC;
+  --grey-100: #F7F7F8;
+  --grey-200: #EFEFF0;
+  --grey-500: #A7A7AA;
+  --grey-700: #464748;
+  --grey-800: #313234;
+  --grey-850: #2A2B2D;
+  --grey-900: #242428;
+  --grey-900-90: rgba(36, 36, 40, 0.9);
+  --grey-850-80: rgba(42, 43, 45, 0.8);
+  --grey-800-80: rgba(49, 50, 52, 0.8);
+  --grey-700-80: rgba(70, 71, 72, 0.8);
+  --grey-200-80: rgba(239, 239, 240, 0.8);
+  --grey-100-80: rgba(247, 247, 248, 0.8);
+  --grey-50-80: rgba(252, 252, 252, 0.8);
+
+  --line-height-16: 16px;
+  --line-height-18: 18px;
+  --line-height-20: 20px;
+  --line-height-22: 22px;
+  --line-height-24: 24px;
+  --line-height-28: 28px;
+  --line-height-32: 32px;
+  --line-height-44: 44px;
+
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-15: 15px;
+  --font-size-16: 16px;
+  --font-size-17: 17px;
+  --font-size-18: 18px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-36: 36px;
+
+  --letter-spacing-0: 0;
+  --letter-spacing-01: -0.1;
+  --letter-spacing-04: -0.4;
+  --letter-spacing-1: -1;
+
+  --paragraph-spacing-0: 0;
+
+  --text-case-none: none;
+  --text-decoration-none: none;
+
+  --back-drop: 60px;
+
+  --animation-duration-50: animation-duration: 50ms;;
+  --animation-easing: animation-timing-function: ease-out;;
+}
