@@ -7,6 +7,7 @@ import {
   css,
 } from '~/src/foundation'
 
+import useIsMounted from '~/src/hooks/useIsMounted'
 import { getRootElement } from '~/src/utils/domUtils'
 
 import {
@@ -24,6 +25,8 @@ function ToastProvider({
   autoDismissTimeout = 3000,
   children = [],
 }: ToastProviderProps) {
+  const isMounted = useIsMounted()
+
   const toastContextValue = useToastProviderValues()
   const {
     leftToasts,
@@ -77,7 +80,7 @@ function ToastProvider({
   return (
     <ToastContextProvider value={toastContextValue}>
       { children }
-      { createPortal(
+      { isMounted && createPortal(
         [
           createContainer(ToastPlacement.BottomLeft, leftToasts),
           createContainer(ToastPlacement.BottomRight, rightToasts),
