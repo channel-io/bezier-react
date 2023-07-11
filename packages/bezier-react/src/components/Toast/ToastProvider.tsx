@@ -8,6 +8,7 @@ import {
 } from '~/src/foundation'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
+import { getRootElement } from '~/src/utils/domUtils'
 
 import {
   ToastPlacement,
@@ -79,12 +80,12 @@ function ToastProvider({
   return (
     <ToastContextProvider value={toastContextValue}>
       { children }
-      { isMounted && document.body && createPortal(
+      { isMounted && createPortal(
         [
           createContainer(ToastPlacement.BottomLeft, leftToasts),
           createContainer(ToastPlacement.BottomRight, rightToasts),
         ],
-        document.body,
+        getRootElement(),
       ) }
     </ToastContextProvider>
   )
