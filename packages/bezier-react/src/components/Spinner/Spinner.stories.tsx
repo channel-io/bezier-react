@@ -6,8 +6,6 @@ import {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-import { styled } from '~/src/foundation'
-
 import { getTitle } from '~/src/utils/storyUtils'
 
 import Spinner from './Spinner'
@@ -33,11 +31,7 @@ export default {
   },
 } as Meta
 
-const Foo = styled(Spinner)`
-  border-right-color: red;
-`
-
-const Template: Story<SpinnerProps> = ({ ...args }) => <Foo {...args} />
+const Template: Story<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
