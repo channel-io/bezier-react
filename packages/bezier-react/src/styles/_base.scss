@@ -1,15 +1,15 @@
-$fallback-fonts: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif;
+$system-fonts: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif;
 
 html {
-  font-family: 'Inter', 'NotoSansKR', 'NotoSansJP', $fallback-fonts;
+  font-family: 'Inter', 'NotoSansKR', 'NotoSansJP', $system-fonts;
 
   :lang(ja) {
-    font-family: 'Inter', 'NotoSansJP', 'NotoSansKR', $fallback-fonts;
+    font-family: 'Inter', 'NotoSansJP', 'NotoSansKR', $system-fonts;
   }
 }
 
 code {
-  font-family: Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 ::placeholder {
