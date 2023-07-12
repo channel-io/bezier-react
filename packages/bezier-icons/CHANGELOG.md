@@ -1,5 +1,23 @@
 # @channel.io/bezier-icons
 
+## 0.5.0
+
+### Minor Changes
+
+- Update icons ([#1489](https://github.com/channel-io/bezier-react/pull/1489)) by @Jamie-channel
+
+  **NEW**
+
+  - AutoWriting
+  - ChatSuggestion
+  - GooglePlay
+  - NoteWriting
+  - ShoppingFilled
+
+  **REMOVED**
+
+  - ArrowDownSmallCircle
+
 ## 0.4.0
 
 ### Minor Changes
