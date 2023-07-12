@@ -3,18 +3,11 @@ import React from 'react'
 import { render } from '~/src/utils/testUtils'
 
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
-import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'
 
 describe('Spinner >', () => {
-  let props: SpinnerProps
-
-  beforeEach(() => {
-    props = {}
-  })
-
-  const renderSpinner = (optionProps?: SpinnerProps) => render(
-    <Spinner {...props} {...optionProps} />,
+  const renderSpinner = (props?: React.ComponentProps<typeof Spinner>) => render(
+    <Spinner {...props} />,
   )
 
   it('should render', () => {
@@ -33,6 +26,12 @@ describe('Spinner >', () => {
     const { getByTestId } = renderSpinner({ as: 'span' })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
     expect(renderedSpinner.tagName).toBe('SPAN')
+  })
+
+  it('should forward ref', () => {
+    const ref = React.createRef<HTMLDivElement>()
+    renderSpinner({ ref })
+    expect(ref.current).toBeInTheDocument()
   })
 
   it('should receive style', () => {
