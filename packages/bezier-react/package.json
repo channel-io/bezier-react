@@ -15,9 +15,16 @@
       "types": "./dist/types/index.d.ts",
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.mjs"
+    },
+    "./style.css": {
+      "require": "./dist/cjs/style.css",
+      "import": "./dist/esm/style.css"
     }
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "files": [
     "dist",
     "!dist/*.tsbuildinfo",
