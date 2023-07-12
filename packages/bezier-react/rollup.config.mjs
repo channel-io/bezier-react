@@ -8,8 +8,10 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
+import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'rollup'
 import nodeExternals from 'rollup-plugin-node-externals'
+import postcss from 'rollup-plugin-postcss'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const pkg = JSON.parse(
@@ -32,6 +34,11 @@ const generateConfig = ({
         find: '~',
         replacement: rootDir,
       }],
+    }),
+    postcss({
+      extract: 'style.css',
+      autoModules: true,
+      plugins: [autoprefixer()],
     }),
     /**
      * **IMPORTANT**: Order matters!
