@@ -1,3 +1,8 @@
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
 @layer components {
   @keyframes spin {
     0% {
@@ -22,8 +27,7 @@
     animation: spin 1s linear infinite;
 
     &.xl {
-      width: 50px;
-      height: 50px;
+      @include size(50px);
       border-width: 4px;
     }
 
@@ -33,13 +37,11 @@
     }
 
     &.l {
-      width: 24px;
-      height: 24px;
+      @include size(24px);
     }
 
     &.m {
-      width: 20px;
-      height: 20px;
+      @include size(20px);
     }
 
     &.s,
@@ -48,13 +50,11 @@
     }
 
     &.s {
-      width: 16px;
-      height: 16px;
+      @include size(16px);
     }
 
     &.xs {
-      width: 12px;
-      height: 12px;
+      @include size(12px);
     }
   }
 }
