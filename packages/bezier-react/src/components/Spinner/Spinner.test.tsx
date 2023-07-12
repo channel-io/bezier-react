@@ -4,6 +4,7 @@ import { render } from '~/src/utils/testUtils'
 
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
 import type SpinnerProps from './Spinner.types'
+import { SpinnerSize } from './Spinner.types'
 
 describe('Spinner >', () => {
   let props: SpinnerProps
@@ -19,7 +20,36 @@ describe('Spinner >', () => {
   it('should render', () => {
     const { getByTestId } = renderSpinner()
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-
     expect(renderedSpinner).toBeInTheDocument()
+  })
+
+  it('should render as a div by default', () => {
+    const { getByTestId } = renderSpinner()
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner.tagName).toBe('DIV')
+  })
+
+  it('should render as a different element depending on `as` prop', () => {
+    const { getByTestId } = renderSpinner({ as: 'span' })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner.tagName).toBe('SPAN')
+  })
+
+  it('should receive style', () => {
+    const { getByTestId } = renderSpinner({ style: { color: 'red' } })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveStyle('color: red')
+  })
+
+  it('should receive class name', () => {
+    const { getByTestId } = renderSpinner({ className: 'test-class' })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveClass('test-class')
+  })
+
+  it('should receive size', () => {
+    const { getByTestId } = renderSpinner({ size: SpinnerSize.M })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveClass(SpinnerSize.M)
   })
 })
