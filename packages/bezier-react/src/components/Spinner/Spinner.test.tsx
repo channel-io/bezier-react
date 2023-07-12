@@ -46,6 +46,13 @@ describe('Spinner >', () => {
     expect(renderedSpinner).toHaveClass('test-class')
   })
 
+  it('should recieve color', () => {
+    const color = 'bg-black-lighter'
+    const { getByTestId } = renderSpinner({ color })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveStyle(`--bezier-spinner-color: var(--${color})`)
+  })
+
   it('should receive size', () => {
     const { getByTestId } = renderSpinner({ size: SpinnerSize.M })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
