@@ -1,6 +1,7 @@
 $system-fonts: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif;
 
 html {
+  font-size: 62.5%; // 10/16 = 0.625. Make REM calculations easier.
   font-family: 'Inter', 'NotoSansKR', 'NotoSansJP', $system-fonts;
 
   :lang(ja) {
