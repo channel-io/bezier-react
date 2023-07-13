@@ -1,3 +1,5 @@
+import '~/src/styles/index.scss'
+
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
 
