@@ -1,5 +1,13 @@
 # @channel.io/bezier-icons
 
+## 0.6.0
+
+### Minor Changes
+
+- Update icons ([#1494](https://github.com/channel-io/bezier-react/pull/1494)) by @Jamie-channel
+
+  - **NEW**: Sproute
+
 ## 0.5.0
 
 ### Minor Changes
