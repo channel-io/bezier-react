@@ -9,5 +9,7 @@
     "eslint-config-bezier": "0.0.1",
     "tsconfig": "0.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "tall-maps-lick"
+  ]
 }

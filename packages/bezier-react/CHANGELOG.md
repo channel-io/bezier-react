@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.0
+
+### Major Changes
+
+- Export the css style sheet for the new design system. ([#1492](https://github.com/channel-io/bezier-react/pull/1492)) by @sungik-choi
+
 ## 1.8.0
 
 ### Minor Changes
