@@ -34,6 +34,7 @@ export interface StylableComponentProps {
   className?: string
 
   /**
+   * @deprecated
    * Customized style interpolation for this component.
    */
   interpolation?: InjectedInterpolation

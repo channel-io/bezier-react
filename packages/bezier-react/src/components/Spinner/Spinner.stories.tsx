@@ -36,4 +36,5 @@ const Template: Story<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
   size: SpinnerSize.M,
+  color: 'bg-black-dark',
 }
