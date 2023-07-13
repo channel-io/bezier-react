@@ -15,9 +15,16 @@
       "types": "./dist/types/index.d.ts",
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.mjs"
+    },
+    "./style.css": {
+      "require": "./dist/cjs/style.css",
+      "import": "./dist/esm/style.css"
     }
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "files": [
     "dist",
     "!dist/*.tsbuildinfo",
@@ -92,6 +99,7 @@
     "@types/react-dom": "^18.2.6",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "^9.0.2",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "babel-plugin-styled-components": "^2.1.3",
     "babel-preset-react-app": "^10.0.1",
@@ -108,6 +116,7 @@
     "react-dom": "^18.2.0",
     "rollup": "^3.25.1",
     "rollup-plugin-node-externals": "^6.1.1",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.63.6",
     "styled-components": "^5.3.11",
