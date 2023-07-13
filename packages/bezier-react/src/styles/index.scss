@@ -1,6 +1,5 @@
 @use 'sass:meta';
 
-// TODO: components, utilities layers
 @layer reset, base, tokens, components, utilities;
 
 @layer reset {
