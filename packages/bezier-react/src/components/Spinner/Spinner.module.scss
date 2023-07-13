@@ -1,0 +1,60 @@
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
+@layer components {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .Spinner {
+    --bezier-spinner-color: inherit;
+
+    display: inline-block;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: var(--bezier-spinner-color);
+    border-bottom-color: var(--bezier-spinner-color);
+    border-left-color: var(--bezier-spinner-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+    &.xl {
+      @include size(50px);
+      border-width: 4px;
+    }
+
+    &.l,
+    &.m {
+      border-width: 3px;
+    }
+
+    &.l {
+      @include size(24px);
+    }
+
+    &.m {
+      @include size(20px);
+    }
+
+    &.s,
+    &.xs {
+      border-width: 2px;
+    }
+
+    &.s {
+      @include size(16px);
+    }
+
+    &.xs {
+      @include size(12px);
+    }
+  }
+}

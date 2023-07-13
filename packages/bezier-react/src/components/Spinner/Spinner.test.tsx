@@ -1,102 +1,61 @@
 import React from 'react'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/testUtils'
 
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
-import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'
 
-describe('Spinner test >', () => {
-  let props: SpinnerProps
-
-  beforeEach(() => {
-    props = {}
-  })
-
-  const renderSpinner = (optionProps?: SpinnerProps) => render(
-    <Spinner {...props} {...optionProps} />,
+describe('Spinner >', () => {
+  const renderSpinner = (props?: React.ComponentProps<typeof Spinner>) => render(
+    <Spinner {...props} />,
   )
 
-  it('Spinner has default style', () => {
+  it('should render', () => {
     const { getByTestId } = renderSpinner()
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-
-    expect(renderedSpinner).toHaveStyle('width: 20px;')
-    expect(renderedSpinner).toHaveStyle('height: 20px;')
-    expect(renderedSpinner).toHaveStyle('border-style: solid;')
-    expect(renderedSpinner).toHaveStyle('border-width: 3px;')
-    expect(renderedSpinner).toHaveStyle('border-radius: 50%;')
+    expect(renderedSpinner).toBeInTheDocument()
   })
 
-  describe('Color >', () => {
-    it('Default color is inherited color', () => {
-      const { getByTestId } = renderSpinner()
-      const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-
-      expect(renderedSpinner).toHaveStyle('border-top-color: transparent;')
-      expect(renderedSpinner).toHaveStyle('border-right-color: inherit;')
-      expect(renderedSpinner).toHaveStyle('border-bottom-color: inherit;')
-      expect(renderedSpinner).toHaveStyle('border-left-color: inherit;')
-    })
-
-    it('Spinner received SemanticNames', () => {
-      const targetSemanticName = 'bgtxt-blue-normal'
-      const { getByTestId } = renderSpinner({ color: targetSemanticName })
-      const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-
-      expect(renderedSpinner).toHaveStyle('border-top-color: transparent;')
-      expect(renderedSpinner).toHaveStyle(`border-right-color: ${LightFoundation.theme[targetSemanticName]};`)
-      expect(renderedSpinner).toHaveStyle(`border-bottom-color: ${LightFoundation.theme[targetSemanticName]};`)
-      expect(renderedSpinner).toHaveStyle(`border-left-color: ${LightFoundation.theme[targetSemanticName]};`)
-    })
+  it('should render as a div by default', () => {
+    const { getByTestId } = renderSpinner()
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner.tagName).toBe('DIV')
   })
 
-  describe('Spinner Size >', () => {
-    it('Size XL', () => {
-      const { getByTestId } = renderSpinner({ size: SpinnerSize.XL })
-      const xlSpinner = getByTestId(SPINNER_TEST_ID)
+  it('should render as a different element depending on `as` prop', () => {
+    const { getByTestId } = renderSpinner({ as: 'span' })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner.tagName).toBe('SPAN')
+  })
 
-      expect(xlSpinner).toHaveStyle('width: 50px;')
-      expect(xlSpinner).toHaveStyle('height: 50px;')
-      expect(xlSpinner).toHaveStyle('border-width: 4px;')
-    })
+  it('should forward ref', () => {
+    const ref = React.createRef<HTMLDivElement>()
+    renderSpinner({ ref })
+    expect(ref.current).toBeInTheDocument()
+  })
 
-    it('Size L', () => {
-      const { getByTestId } = renderSpinner({ size: SpinnerSize.L })
-      const lSpinner = getByTestId(SPINNER_TEST_ID)
+  it('should receive style', () => {
+    const { getByTestId } = renderSpinner({ style: { color: 'red' } })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveStyle('color: red')
+  })
 
-      expect(lSpinner).toHaveStyle('width: 24px;')
-      expect(lSpinner).toHaveStyle('height: 24px;')
-      expect(lSpinner).toHaveStyle('border-width: 3px;')
-    })
+  it('should receive class name', () => {
+    const { getByTestId } = renderSpinner({ className: 'test-class' })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveClass('test-class')
+  })
 
-    it('Size M', () => {
-      const { getByTestId } = renderSpinner({ size: SpinnerSize.M })
-      const mSpinner = getByTestId(SPINNER_TEST_ID)
+  it('should recieve color', () => {
+    const color = 'bg-black-lighter'
+    const { getByTestId } = renderSpinner({ color })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveStyle(`--bezier-spinner-color: var(--${color})`)
+  })
 
-      expect(mSpinner).toHaveStyle('width: 20px;')
-      expect(mSpinner).toHaveStyle('height: 20px;')
-      expect(mSpinner).toHaveStyle('border-width: 3px;')
-    })
-
-    it('Size S', () => {
-      const { getByTestId } = renderSpinner({ size: SpinnerSize.S })
-      const sSpinner = getByTestId(SPINNER_TEST_ID)
-
-      expect(sSpinner).toHaveStyle('width: 16px;')
-      expect(sSpinner).toHaveStyle('height: 16px;')
-      expect(sSpinner).toHaveStyle('border-width: 2px;')
-    })
-
-    it('Size XS', () => {
-      const { getByTestId } = renderSpinner({ size: SpinnerSize.XS })
-      const xsSpinner = getByTestId(SPINNER_TEST_ID)
-
-      expect(xsSpinner).toHaveStyle('width: 12px;')
-      expect(xsSpinner).toHaveStyle('height: 12px;')
-      expect(xsSpinner).toHaveStyle('border-width: 2px;')
-    })
+  it('should receive size', () => {
+    const { getByTestId } = renderSpinner({ size: SpinnerSize.M })
+    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
+    expect(renderedSpinner).toHaveClass(SpinnerSize.M)
   })
 })

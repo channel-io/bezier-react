@@ -16,6 +16,14 @@ module.exports = {
     '@storybook/addon-toolbars',
     '@storybook/addon-docs',
     '@storybook/addon-backgrounds',
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        sass: {
+          implementation: require('sass'),
+        },
+      },
+    },
   ],
   features: {
     postcss: false,

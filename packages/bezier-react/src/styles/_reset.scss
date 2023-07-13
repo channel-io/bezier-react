@@ -1,4 +1,5 @@
-@use "the-new-css-reset/css/reset.css";
+// FIXME: Use absolute paths, change to resolve in bundler(rollup, webpack in storybook)
+@use "../../node_modules/the-new-css-reset/css/reset.css";
 
 * {
   font-variant-ligatures: none;
