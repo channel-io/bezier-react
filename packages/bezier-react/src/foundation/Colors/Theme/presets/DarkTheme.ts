@@ -12,7 +12,7 @@ const DarkTheme: ThemeType = {
   'bg-navi': Palette.grey800_80,
   'bg-header': Palette.grey800,
   'bg-header-float': Palette.grey800_80,
-  'bg-lounge': Palette.grey900_90,
+  'bg-lounge': Palette.grey800_90,
 
   // Mono Background
   'bg-black-darkest': Palette.white_60,
