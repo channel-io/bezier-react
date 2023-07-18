@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 1.9.0
+
+### Minor Changes
+
+- Update foundation ([#1506](https://github.com/channel-io/bezier-react/pull/1506)) by @sungik-choi
+
+  - Add semantic color `txt-black-pure`
+  - Add palette `grey800_80` and modify `bg-lounge` color to reference it
+
+### Patch Changes
+
+- add type cast to fix incorrect type infer in `TabAction` component ([#1497](https://github.com/channel-io/bezier-react/pull/1497)) by @yangwooseong
+
 ## 1.8.0
 
 ### Minor Changes

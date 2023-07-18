@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.7.0
+
+### Minor Changes
+
+- Update icons ([#1502](https://github.com/channel-io/bezier-react/pull/1502)) by @Jamie-channel
+
+  **NEW**
+
+  - Line
+  - NaverTalktalk
+
 ## 0.6.0
 
 ### Minor Changes
