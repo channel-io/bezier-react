@@ -42,12 +42,12 @@ const getIconSizeBy = (size: TabSize) => {
  * `TabAction` is a button for more action to open a new link or navigate to a different url.
  * If it has `href` props, it should act as a link.
  */
-export const TabAction = forwardRef(function TabAction<Link extends string | undefined>({
+export const TabAction = forwardRef(function TabAction({
   href,
   children,
   onClick,
   ...rest
-}: TabActionProps<Link>, forwardedRef: React.Ref<TabActionElement<Link>>,
+}, forwardedRef,
 ) {
   const { size } = useTabListContext()
 
@@ -88,4 +88,8 @@ export const TabAction = forwardRef(function TabAction<Link extends string | und
       </Styled.ToolbarLink>
     )
   )
-})
+}) as <Link extends string | undefined>(
+  props: TabActionProps<Link> & {
+    ref?: React.ForwardedRef<TabActionElement<Link>>
+  }
+) => JSX.Element
