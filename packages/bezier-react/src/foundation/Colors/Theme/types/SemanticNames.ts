@@ -28,6 +28,7 @@ type ElevationBackgroundColor =
   | 'bg-white-low'
 
 type TextColor =
+  | `txt-${BasePaletteKey.Black}-pure`
   | `txt-${BasePaletteKey.Black}-darkest`
   | `txt-${BasePaletteKey.Black}-darker`
   | `txt-${BasePaletteKey.Black}-dark`

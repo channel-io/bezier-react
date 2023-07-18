@@ -99,6 +99,7 @@ const DarkTheme: ThemeType = {
   'bgtxt-navy-lightest': Palette.navy300_20,
 
   // Text
+  'txt-black-pure': Palette.white,
   'txt-black-darkest': Palette.white_80,
   'txt-black-darker': Palette.white_60,
   'txt-black-dark': Palette.white_40,

@@ -100,6 +100,7 @@ const LightTheme: ThemeType = {
   'bgtxt-navy-lightest': Palette.navy400_10,
 
   // Text
+  'txt-black-pure': Palette.black,
   'txt-black-darkest': Palette.black_85,
   'txt-black-darker': Palette.black_60,
   'txt-black-dark': Palette.black_40,
