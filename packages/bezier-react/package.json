@@ -62,7 +62,7 @@
     "> 1% in KR",
     "> 1% in JP",
     "> 1% in US",
-    "not ie <= 11"
+    "not dead"
   ],
   "devDependencies": {
     "@babel/core": "^7.22.17",
