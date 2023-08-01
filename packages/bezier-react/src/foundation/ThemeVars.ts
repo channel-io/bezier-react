@@ -7,7 +7,7 @@ import { createGlobalStyle } from './FoundationStyledComponent'
 type ThemeRecord = Record<string, string>
 
 export interface ThemeVarsAdditionalType {
-  scope?: AnyStyledComponent
+  scope?: AnyStyledComponent | string
 }
 
 function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
