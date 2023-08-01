@@ -1,4 +1,5 @@
 {
+  "name": "bezier-react-monorepo",
   "private": true,
   "license": "Apache-2.0",
   "workspaces": [
