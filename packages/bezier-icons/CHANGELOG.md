@@ -1,5 +1,22 @@
 # @channel.io/bezier-icons
 
+## 0.8.0
+
+### Minor Changes
+
+- Update icons ([#1509](https://github.com/channel-io/bezier-react/pull/1509)) by @Jamie-channel
+
+  **NEW**
+
+  - Shipping
+  - Spotify
+  - Thread
+
+  **CHANGED**
+
+  - Package
+  - Recipet
+
 ## 0.7.0
 
 ### Minor Changes

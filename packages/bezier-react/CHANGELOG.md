@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.10.0
+
+### Minor Changes
+
+- - Add Shadow DOM root element(`:host`) to the default `scope` of `ThemeVars`, and allow selectors to be injected into the `scope` type. ([#1521](https://github.com/channel-io/bezier-react/pull/1521)) by @dinohan
+
+- `Button` : Change the text color of monochrome dark - primary variant ([#1523](https://github.com/channel-io/bezier-react/pull/1523)) by @sungik-choi
+
 ## 1.9.0
 
 ### Minor Changes
