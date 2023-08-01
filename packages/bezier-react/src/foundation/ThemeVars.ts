@@ -20,7 +20,7 @@ function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
 }
 
 export const ThemeVars = createGlobalStyle<ThemeVarsAdditionalType>`
-  ${({ scope }) => scope ?? ':root'} {
+  ${({ scope }) => scope ?? ':root, :host'} {
     ${({ foundation }) => generateCSSVar(foundation?.theme)}
     ${({ foundation }) => generateCSSVar(foundation?.subTheme, 'inverted')}
   }
