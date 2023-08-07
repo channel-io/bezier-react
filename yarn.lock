@@ -3010,12 +3010,12 @@ __metadata:
   linkType: soft
 
 "@channel.io/eslint-config@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@channel.io/eslint-config@npm:1.5.0"
+  version: 1.5.1
+  resolution: "@channel.io/eslint-config@npm:1.5.1"
   peerDependencies:
     "@channel.io/eslint-plugin": ^1.2.0
-    "@typescript-eslint/eslint-plugin": ^5.35.1
-    "@typescript-eslint/parser": ^5.35.1
+    "@typescript-eslint/eslint-plugin": ^5.44.0
+    "@typescript-eslint/parser": ^5.44.0
     babel-eslint: ^8.2.6
     eslint: ^7.0.0
     eslint-config-airbnb-typescript: ^12.0.0
@@ -3028,7 +3028,7 @@ __metadata:
     eslint-plugin-react: ^7.29.4
     eslint-plugin-react-hooks: ^4.2.0
     typescript: ^4.2.3
-  checksum: 0d84a20e77b3dfdec9fafcab900486dd4bfc269864425bceb83d64fa767825ecf82aa4296f18e57a1a5fb157e87a42323aa1781f440a1d67c5b18f861dff23f1
+  checksum: 3ecfd1faeedcbd4d978c3b784b3afa393b1b4a1aa7b4155e1efd13e0d7999c30d03278af101128af3ecb6c175a290a0c82599b5fe05a37f9d23e31f64f627e7d
   languageName: node
   linkType: hard
 
