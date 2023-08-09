@@ -343,6 +343,22 @@ export const Variant: Story<{}> = () => (
         </StackItem>
       </HStack>
     </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem>
+          <Text color="txt-black-darkest">green-alt</Text>
+        </StackItem>
+        <Spacer />
+        <StackItem>
+          <ProgressBar
+            size={ProgressBarSize.M}
+            variant={ProgressBarVariant.GreenAlt}
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
   </VStack>
 )
 
