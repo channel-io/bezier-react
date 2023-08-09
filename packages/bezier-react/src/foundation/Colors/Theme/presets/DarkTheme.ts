@@ -22,6 +22,7 @@ const DarkTheme: ThemeType = {
   'bg-black-lighter': Palette.white_8,
   'bg-black-lightest': Palette.white_5,
 
+  'bg-grey-darkest': Palette.white,
   'bg-grey-dark': Palette.grey500,
   'bg-grey-dim-lightest': Palette.grey850_80,
   'bg-grey-light': Palette.grey700,
