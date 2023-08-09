@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.10.1
+
+### Patch Changes
+
+- Add ProgressBar `GreenAlt` variant ([#1536](https://github.com/channel-io/bezier-react/pull/1536)) by @Dogdriip
+
+- Add bg-black-darkest color to DarkTheme ([#1535](https://github.com/channel-io/bezier-react/pull/1535)) by @Dogdriip
+
 ## 1.10.0
 
 ### Minor Changes
