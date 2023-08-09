@@ -66,11 +66,13 @@ describe('ProgressBar', () => {
 
   describe('specify variant props', () => {
     it('should render ProgressBar with variant Green', () => {
-      const { getByTestId } = renderComponent({
+      const { getByRole, getByTestId } = renderComponent({
         variant: ProgressBarVariant.Green,
       })
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-light']}`)
       expect(progressBarActive).toHaveStyle(`background: linear-gradient(
         90deg,
         ${LightFoundation.theme['bgtxt-green-normal']} 0%,
@@ -79,15 +81,31 @@ describe('ProgressBar', () => {
     })
 
     it('should render ProgressBar with variant Monochrome', () => {
-      const { getByTestId } = renderComponent({
+      const { getByRole, getByTestId } = renderComponent({
         variant: ProgressBarVariant.Monochrome,
       })
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-light']}`)
       expect(progressBarActive).toHaveStyle(`background: linear-gradient(
         90deg,
         ${LightFoundation.theme['bg-black-light']} 0%,
         ${LightFoundation.theme['bg-black-dark']} 100%
+      )`)
+    })
+    it('should render ProgressBar with variant GreenAlt', () => {
+      const { getByRole, getByTestId } = renderComponent({
+        variant: ProgressBarVariant.GreenAlt,
+      })
+      const progressBar = getByRole('progressbar')
+      const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
+
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-absolute-white-normal']}`)
+      expect(progressBarActive).toHaveStyle(`background: linear-gradient(
+        90deg,
+        ${LightFoundation.theme['bgtxt-green-normal']} 0%,
+        ${LightFoundation.subTheme?.['bgtxt-green-normal']} 100%
       )`)
     })
   })
