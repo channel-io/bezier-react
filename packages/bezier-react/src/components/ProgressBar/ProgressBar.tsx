@@ -40,6 +40,7 @@ export const ProgressBar = memo(forwardRef(function ProgressBar(
       ref={forwardedRef}
       size={size}
       width={width}
+      variant={variant}
       role="progressbar"
       aria-valuemin="0"
       aria-valuemax="1"

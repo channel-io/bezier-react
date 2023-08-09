@@ -13,6 +13,7 @@ export enum ProgressBarSize {
 
 export enum ProgressBarVariant {
   Green = 'green',
+  GreenAlt = 'green-alt',
   Monochrome = 'monochrome',
 }
 
