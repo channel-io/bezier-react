@@ -1,5 +1,20 @@
 # @channel.io/bezier-icons
 
+## 0.9.0
+
+### Minor Changes
+
+- Update icons ([#1526](https://github.com/channel-io/bezier-react/pull/1526)) by @Jamie-channel
+
+  **NEW**
+
+  - ChatBubbleAltAdd
+  - Feed
+
+  **CHANGED**
+
+  - Inbox
+
 ## 0.8.0
 
 ### Minor Changes
