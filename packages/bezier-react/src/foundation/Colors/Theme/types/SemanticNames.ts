@@ -51,6 +51,7 @@ type MonoAbsoluteTextAndBackgroundColor =
 type BorderColor =
   | 'bdr-black-dark'
   | 'bdr-black-light'
+  | 'bdr-black-lightest'
   | 'bdr-grey-light'
   | 'bdr-white'
 

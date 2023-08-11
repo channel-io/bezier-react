@@ -122,6 +122,7 @@ const DarkTheme: ThemeType = {
   // Border
   'bdr-black-dark': Palette.white_20,
   'bdr-black-light': Palette.white_12,
+  'bdr-black-lightest': Palette.white_5,
   'bdr-grey-light': Palette.grey700,
   'bdr-white': Palette.grey700,
 
