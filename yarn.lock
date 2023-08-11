@@ -10320,13 +10320,13 @@ __metadata:
   linkType: hard
 
 "chromatic@npm:^6.19.8":
-  version: 6.19.9
-  resolution: "chromatic@npm:6.19.9"
+  version: 6.21.0
+  resolution: "chromatic@npm:6.21.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 50552c3043d96e7badb0d16ddd1839c0601d0f5e0c2c573acda5d6b0d0fad96067f0c659ad0a2b278d8b28b46670549b4bcedfd2d350a9077975aff203c29193
+  checksum: f30903455790099566c8701b8e4c9419cab288b598b6cd28f34e457ff9879cdc31e4d34b377ba962b014ac6b52d17c506d044cf5cb0b2031340f6068d350a139
   languageName: node
   linkType: hard
 
@@ -10983,9 +10983,9 @@ __metadata:
   linkType: hard
 
 "core-js@npm:^3.0.4, core-js@npm:^3.31.0, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
-  version: 3.31.1
-  resolution: "core-js@npm:3.31.1"
-  checksum: 14519213a63c55cf188bdd2f4dece54583feaf6b90e75d6c65e07f509cd487055bf64898aeda7c97c36029ac1ea2f2ed8e4b02281553f6a257e7143a32a14015
+  version: 3.32.0
+  resolution: "core-js@npm:3.32.0"
+  checksum: 52921395028550e4c9d21d47b9836439bb5b6b9eefc34d45a3948a68d81fdd093acc0fadf69f9cf632b82f01f95f22f484408a93dd9e940b19119ac204cd2925
   languageName: node
   linkType: hard
 
