@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.10.2
+
+### Patch Changes
+
+- Fixed a bug where tooltips prevented focus from moving inside a modal. As a side-effect of #1472, revert the tooltip to be rendered on the root element. ([#1540](https://github.com/channel-io/bezier-react/pull/1540)) by @sungik-choi
+
+- Add bdr-black-lightest color to Light/DarkTheme ([#1538](https://github.com/channel-io/bezier-react/pull/1538)) by @heech1013
+
 ## 1.10.1
 
 ### Patch Changes
