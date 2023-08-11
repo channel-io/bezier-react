@@ -13,8 +13,6 @@ import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
 import { isBoolean } from '~/src/utils/typeUtils'
 
-import { useModalContainerContext } from '~/src/components/Modals'
-
 import {
   TooltipPosition,
   type TooltipProps,
@@ -182,8 +180,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   const delayHide = delayHideProp ?? globalDelayHide
 
   const defaultContainer = getRootElement()
-  const modalContainer = useModalContainerContext()
-  const container = givenContainer ?? modalContainer ?? defaultContainer
+  const container = givenContainer ?? defaultContainer
 
   useEffect(function cleanUpTimeout() {
     return function cleanUp() {
