@@ -147,7 +147,6 @@ exports[`Slider Snapshot should match snapshot 1`] = `
         data-radix-collection-item=""
         data-state="closed"
         role="slider"
-        style=""
         tabindex="0"
       />
     </span>
