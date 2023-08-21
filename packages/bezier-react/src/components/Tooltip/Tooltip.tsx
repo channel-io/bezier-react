@@ -13,7 +13,7 @@ import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
 import {
   isBoolean,
-  isNil,
+  isEmpty,
 } from '~/src/utils/typeUtils'
 
 import {
@@ -280,7 +280,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   content,
   ...rest
 }, forwardedRef) {
-  if (disabled || isNil(content)) {
+  if (disabled || isEmpty(content)) {
     return children ?? null
   }
 
