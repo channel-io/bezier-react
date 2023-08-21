@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react'
 
-import { type IconName } from '@channel.io/bezier-icons'
+import {
+  type BezierIcon,
+  type IconName,
+} from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -75,7 +78,7 @@ interface BannerOptions {
    *
    * FIXME(@ed): 새로운 아이콘 방식으로 변경
    */
-  actionIcon?: IconName
+  actionIcon?: BezierIcon
 
   /**
    * Handler to be executed when the action icon button is clicked.

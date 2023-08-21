@@ -5,7 +5,7 @@ import {
 
 import { type InterpolationProps } from '~/src/types/Foundation'
 
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 const clickableElementStyle = css`
@@ -14,7 +14,7 @@ const clickableElementStyle = css`
   }
 `
 
-const LeftIcon = styled(LegacyIcon)`
+const LeftIcon = styled(Icon)`
   ${clickableElementStyle}
 `
 

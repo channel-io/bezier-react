@@ -1,6 +1,6 @@
 import type React from 'react'
 
-import { type IconName } from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -12,7 +12,7 @@ import type {
 } from '~/src/types/ComponentProps'
 
 interface IconInfo extends AdditionalColorProps<'icon'> {
-  icon: IconName
+  icon: BezierIcon
 }
 
 export type SectionLabelItemProps = (IconInfo & {

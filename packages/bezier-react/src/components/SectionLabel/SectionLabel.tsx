@@ -25,8 +25,10 @@ import {
 } from '~/src/components/Button'
 import { Divider } from '~/src/components/Divider'
 import { Help } from '~/src/components/Help'
-import { IconSize } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -60,8 +62,8 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
         className={clickableClassName(onClick)}
         onClick={onClick}
       >
-        <LegacyIcon
-          name={icon}
+        <Icon
+          source={icon}
           size={IconSize.XS}
           color={iconColor}
         />
@@ -124,7 +126,7 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
       ? (
         <Styled.LeftIcon
           className={clickableClassName(item.onClick)}
-          name={item.icon}
+          source={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
           onClick={item.onClick}

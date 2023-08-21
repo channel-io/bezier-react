@@ -5,6 +5,8 @@ import React, {
   useState,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
+
 import {
   type SemanticNames,
   Typography,
@@ -14,7 +16,10 @@ import { flattenDeep } from '~/src/utils/arrayUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { isArray } from '~/src/utils/typeUtils'
 
-import { IconSize } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
@@ -225,6 +230,16 @@ export const Button = forwardRef(function Button(
       return (
         <LegacyIcon
           name={content}
+          size={iconSize}
+          color={overridedIconAndSpinnerColor}
+        />
+      )
+    }
+
+    if (isBezierIcon(content)) {
+      return (
+        <Icon
+          source={content}
           size={iconSize}
           color={overridedIconAndSpinnerColor}
         />
