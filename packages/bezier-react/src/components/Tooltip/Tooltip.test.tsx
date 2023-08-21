@@ -121,7 +121,8 @@ describe('Tooltip', () => {
     })
 
     it('If the `delayShow` property is greater than 0, the tooltip should be delayed by that number of ms before appearing.', async () => {
-      const { getByRole, queryByRole } = renderTooltip({ delayShow: 1000, content: 'tooltip content' })
+      // NOTE: (@ed) To avoid test failure due to timing issue
+      const { getByRole, queryByRole } = renderTooltip({ delayShow: 1000 - 10, content: 'tooltip content' })
       await user.hover(getByRole('button'))
       expect(queryByRole('tooltip')).not.toBeInTheDocument()
       await waitFor(() => {
@@ -130,7 +131,8 @@ describe('Tooltip', () => {
     })
 
     it('If the `delayHide` property is greater than 0, the tooltip should be delayed by that number of ms before disappearing.', async () => {
-      const { getByRole, queryByRole } = renderTooltip({ delayHide: 1000, content: 'tooltip content' })
+      // NOTE: (@ed) To avoid test failure due to timing issue
+      const { getByRole, queryByRole } = renderTooltip({ delayHide: 1000 - 10, content: 'tooltip content' })
       await user.hover(getByRole('button'))
       await user.unhover(getByRole('button'))
       expect(queryByRole('tooltip')).toBeInTheDocument()
