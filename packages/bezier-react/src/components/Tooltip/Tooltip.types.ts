@@ -125,10 +125,13 @@ export interface TooltipProviderProps extends
   ChildrenProps,
   TooltipProviderOptions {}
 
-export interface TooltipProps extends
+export interface TooltipImplProps extends
   BezierComponentProps,
   ChildrenProps<React.ReactElement>,
   ContentProps,
-  DisableProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps | keyof ChildrenProps>,
   TooltipOptions {}
+
+export interface TooltipProps extends
+  DisableProps,
+  TooltipImplProps {}

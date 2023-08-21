@@ -11,9 +11,13 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
-import { isBoolean } from '~/src/utils/typeUtils'
+import {
+  isBoolean,
+  isNil,
+} from '~/src/utils/typeUtils'
 
 import {
+  type TooltipImplProps,
   TooltipPosition,
   type TooltipProps,
   type TooltipProviderProps,
@@ -137,30 +141,12 @@ export function TooltipProvider({
   )
 }
 
-/**
- * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
- *
- * @example
- *
- * ```tsx
- * // Anatomy of the Tooltip
- * <TooltipProvider>
- *   <Tooltip />
- * </TooltipProvider>
- *
- * // Example of a Tooltip with a button
- * <Tooltip content="Ta-da!">
- *   <button>Hover me</button>
- * </Tooltip>
- * ```
- */
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
+const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function TooltipImpl({
   as,
   children,
   defaultShow,
   onShow: onShowProp,
   onHide: onHideProp,
-  disabled,
   content,
   description,
   icon,
@@ -201,8 +187,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   }, [onHideProp])
 
   const onOpenChange = useCallback((open: boolean) => {
-    if (disabled) { return }
-
     if (open) {
       onShow()
       return
@@ -222,7 +206,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
     onHide()
   }, [
-    disabled,
     delayHide,
     onShow,
     onHide,
@@ -271,5 +254,43 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
+  )
+})
+
+/**
+ * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Tooltip
+ * <TooltipProvider>
+ *   <Tooltip />
+ * </TooltipProvider>
+ *
+ * // Example of a Tooltip with a button
+ * <Tooltip content="Ta-da!">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ * ```
+ */
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
+  children,
+  disabled,
+  content,
+  ...rest
+}, forwardedRef) {
+  if (disabled || isNil(content)) {
+    return children ?? null
+  }
+
+  return (
+    <TooltipImpl
+      ref={forwardedRef}
+      content={content}
+      {...rest}
+    >
+      { children }
+    </TooltipImpl>
   )
 })
