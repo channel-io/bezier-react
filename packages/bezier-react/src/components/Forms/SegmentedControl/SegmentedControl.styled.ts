@@ -20,9 +20,13 @@ export const ItemContainer = styled(AlphaStack).attrs({
   spacing: 2,
 })`
   z-index: ${ZIndex.Float};
+  overflow: hidden;
 `
 
-export const ItemLabel = styled(Text).attrs({ bold: true })`
+export const ItemLabel = styled(Text).attrs({
+  bold: true,
+  truncated: true,
+})`
   padding: 1px 4px;
 `
 
@@ -34,6 +38,7 @@ export const Item = styled.button`
   flex: 1;
   align-items: center;
   justify-content: center;
+  min-width: 0;
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('background-color')}
 
