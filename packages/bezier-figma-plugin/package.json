@@ -1,6 +1,6 @@
 {
   "name": "bezier-figma-plugin",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "private": true,
   "description": "Figma plugin that helps build Bezier design system and increase productivity.",
   "repository": {
