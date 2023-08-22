@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 1.11.0
+
+### Minor Changes
+
+- `Tooltip`: If `content` property has a nil or empty string value, it will no longer render the content. ([#1552](https://github.com/channel-io/bezier-react/pull/1552)) by @sungik-choi
+
+### Patch Changes
+
+- `SegmentedControl`: Apply the text ellipsis style to each item label. ([#1557](https://github.com/channel-io/bezier-react/pull/1557)) by @sungik-choi
+
 ## 1.10.2
 
 ### Patch Changes
