@@ -17,7 +17,6 @@ import {
 } from '~/src/utils/typeUtils'
 
 import {
-  type TooltipImplProps,
   TooltipPosition,
   type TooltipProps,
   type TooltipProviderProps,
@@ -141,12 +140,30 @@ export function TooltipProvider({
   )
 }
 
-const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function TooltipImpl({
+/**
+ * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+ *
+ * @example
+ *
+ * ```tsx
+ * // Anatomy of the Tooltip
+ * <TooltipProvider>
+ *   <Tooltip />
+ * </TooltipProvider>
+ *
+ * // Example of a Tooltip with a button
+ * <Tooltip content="Ta-da!">
+ *   <button>Hover me</button>
+ * </Tooltip>
+ * ```
+ */
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function TooltipImpl({
   as,
   children,
   defaultShow,
   onShow: onShowProp,
   onHide: onHideProp,
+  disabled,
   content,
   description,
   icon,
@@ -168,13 +185,12 @@ const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function Toolti
   const defaultContainer = getRootElement()
   const container = givenContainer ?? defaultContainer
 
-  useEffect(function cleanUpTimeout() {
-    return function cleanUp() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
+  const shouldBeHidden = useMemo(() => (
+    disabled || isEmpty(content)
+  ), [
+    disabled,
+    content,
+  ])
 
   const onShow = useCallback(() => {
     setShow(true)
@@ -186,7 +202,28 @@ const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function Toolti
     onHideProp?.()
   }, [onHideProp])
 
+  useEffect(function forceHide() {
+    if (shouldBeHidden) {
+      onHide()
+    }
+  }, [
+    shouldBeHidden,
+    onHide,
+  ])
+
+  useEffect(function cleanUpTimeout() {
+    return function cleanUp() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
   const onOpenChange = useCallback((open: boolean) => {
+    if (shouldBeHidden) {
+      return
+    }
+
     if (open) {
       onShow()
       return
@@ -206,6 +243,7 @@ const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function Toolti
 
     onHide()
   }, [
+    shouldBeHidden,
     delayHide,
     onShow,
     onHide,
@@ -254,43 +292,5 @@ const TooltipImpl = forwardRef<HTMLDivElement, TooltipImplProps>(function Toolti
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
-  )
-})
-
-/**
- * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
- *
- * @example
- *
- * ```tsx
- * // Anatomy of the Tooltip
- * <TooltipProvider>
- *   <Tooltip />
- * </TooltipProvider>
- *
- * // Example of a Tooltip with a button
- * <Tooltip content="Ta-da!">
- *   <button>Hover me</button>
- * </Tooltip>
- * ```
- */
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
-  children,
-  disabled,
-  content,
-  ...rest
-}, forwardedRef) {
-  if (disabled || isEmpty(content)) {
-    return children ?? null
-  }
-
-  return (
-    <TooltipImpl
-      ref={forwardedRef}
-      content={content}
-      {...rest}
-    >
-      { children }
-    </TooltipImpl>
   )
 })
