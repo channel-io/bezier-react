@@ -217,7 +217,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         clearTimeout(timeoutRef.current)
       }
     }
-  }, [])
+  }, [shouldBeHidden])
 
   const onOpenChange = useCallback((open: boolean) => {
     if (shouldBeHidden) {
