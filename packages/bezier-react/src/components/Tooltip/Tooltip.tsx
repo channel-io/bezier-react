@@ -157,7 +157,7 @@ export function TooltipProvider({
  * </Tooltip>
  * ```
  */
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function TooltipImpl({
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
   as,
   children,
   defaultShow,
