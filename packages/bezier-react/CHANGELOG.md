@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.11.1
+
+### Patch Changes
+
+- `Tooltip`: Removes the risk of infinite loop. removes conditional rendering logic based on disabled prop. ([#1558](https://github.com/channel-io/bezier-react/pull/1558)) by @sungik-choi
+
 ## 1.11.0
 
 ### Minor Changes
