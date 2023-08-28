@@ -21,6 +21,10 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import {
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/LegacyIcon'
+import {
   Spinner,
   SpinnerSize,
 } from '~/src/components/Spinner'
@@ -222,6 +226,19 @@ export const Button = forwardRef(function Button(
   ])
 
   const renderSideContent = useCallback((content?: SideContent) => {
+    /**
+     * @deprecated: support for iconName type will be deprecated from version 2.x.x
+     */
+    if (isIconName(content)) {
+      return (
+        <LegacyIcon
+          name={content}
+          size={iconSize}
+          color={overridedIconAndSpinnerColor}
+        />
+      )
+    }
+
     if (isBezierIcon(content)) {
       return (
         <Icon

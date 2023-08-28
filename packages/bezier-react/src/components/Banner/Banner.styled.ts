@@ -3,6 +3,7 @@ import { styled } from '~/src/foundation'
 import type { VariantProps } from '~/src/types/ComponentProps'
 
 import { Icon } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 import {
   StackItem as BaseStackItem,
   HStack,
@@ -19,6 +20,7 @@ import type { BannerVariant } from './Banner.types'
 type BannerVariantProps = Required<VariantProps<BannerVariant>>
 
 const BannerIcon = styled(Icon)``
+const BannerLegacyIcon = styled(LegacyIcon)``
 
 const ContentWrapper = styled.div<BannerVariantProps>`
   color: ${({ foundation, variant }) => foundation?.theme?.[TEXT_COLORS[variant]]};
@@ -51,6 +53,7 @@ const StackItem = styled(BaseStackItem)`
 
 export default {
   BannerIcon,
+  BannerLegacyIcon,
   ContentWrapper,
   Link,
   Stack,

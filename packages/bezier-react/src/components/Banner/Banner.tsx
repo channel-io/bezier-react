@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
 import {
@@ -97,11 +99,19 @@ export const Banner = forwardRef(function Banner(
     >
       { !isNil(icon) && (
         <Styled.StackItem>
-          <Styled.BannerIcon
-            source={icon}
-            color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
-            size={IconSize.S}
-          />
+          { isBezierIcon(icon) ? (
+            <Styled.BannerIcon
+              source={icon}
+              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              size={IconSize.S}
+            />
+          ) : (
+            <Styled.BannerLegacyIcon
+              name={icon}
+              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              size={IconSize.S}
+            />
+          ) }
         </Styled.StackItem>
       ) }
 

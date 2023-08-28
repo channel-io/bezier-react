@@ -4,6 +4,7 @@ import React, {
   useMemo,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
@@ -29,6 +30,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import { LegacyIcon } from '~/src/components/LegacyIcon'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -62,11 +64,13 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
         className={clickableClassName(onClick)}
         onClick={onClick}
       >
-        <Icon
-          source={icon}
-          size={IconSize.XS}
-          color={iconColor}
-        />
+        { isBezierIcon(icon) ? (
+          <Icon
+            source={icon}
+            size={IconSize.XS}
+            color={iconColor}
+          />
+        ) : <LegacyIcon name={icon} size={IconSize.XS} color={iconColor} /> }
       </Styled.RightItemWrapper>
     )
   }
@@ -121,18 +125,34 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
     contentWrapperInterpolation,
   ])
 
-  const renderLeftItem = useCallback((item: SectionLabelItemProps) => (
-    'icon' in item
-      ? (
-        <Styled.LeftIcon
+  const renderLeftItem = useCallback((item: SectionLabelItemProps) => {
+    if ('icon' in item) {
+      if (isBezierIcon(item.icon)) {
+        return (
+          <Styled.LeftIcon
+            className={clickableClassName(item.onClick)}
+            source={item.icon}
+            size={IconSize.S}
+            color={item.iconColor ?? 'txt-black-dark'}
+            onClick={item.onClick}
+          />
+        )
+      }
+
+      return (
+        <Styled.LegacyLeftIcon
           className={clickableClassName(item.onClick)}
-          source={item.icon}
+          name={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
           onClick={item.onClick}
         />
-      ) : item
-  ), [])
+      )
+    }
+
+    return item
+  },
+  [])
 
   const leftComponent = useMemo(() => {
     if (isNil(leftContent)) {
