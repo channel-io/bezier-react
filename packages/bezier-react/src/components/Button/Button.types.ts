@@ -39,7 +39,7 @@ export enum ButtonSize {
   XL = 'XL',
 }
 
-export type SideContent = React.ReactElement | BezierIcon
+export type SideContent = React.ReactNode | BezierIcon
 
 export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
 type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
