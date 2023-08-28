@@ -98,7 +98,7 @@ export const Banner = forwardRef(function Banner(
       { !isNil(icon) && (
         <Styled.StackItem>
           <Styled.BannerIcon
-            name={icon}
+            source={icon}
             color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
             size={IconSize.S}
           />

@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -35,7 +32,7 @@ interface BannerOptions {
    *
    * If `null` is given, no icon will be displayed.
    */
-  icon: IconName | null
+  icon: BezierIcon | null
 
   /**
    * Whether to display link at the end of banner content.
@@ -75,8 +72,6 @@ interface BannerOptions {
 
   /**
    * Specifies which icon button to display at the top right of the banner.
-   *
-   * FIXME(@ed): 새로운 아이콘 방식으로 변경
    */
   actionIcon?: BezierIcon
 
