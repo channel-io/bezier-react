@@ -15,6 +15,7 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { IconSize } from '~/src/components/Icon'
+import { isIconName } from '~/src/components/LegacyIcon'
 import { StackItem } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
@@ -86,6 +87,11 @@ export const Banner = forwardRef(function Banner(
     onClickAction,
     testId = BANNER_TEST_ID,
   } = props
+
+  if (isIconName(icon)) {
+    // eslint-disable-next-line no-console
+    console.warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
+  }
 
   return (
     <Styled.Stack

@@ -30,7 +30,10 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import {
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/LegacyIcon'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -52,6 +55,10 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
   }
 
   const { icon, iconColor, onClick } = props
+  if (isIconName(icon)) {
+    // eslint-disable-next-line no-console
+    console.warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
+  }
 
   if (!isNil(iconColor)) {
     /*

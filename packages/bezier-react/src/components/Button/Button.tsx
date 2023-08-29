@@ -230,6 +230,8 @@ export const Button = forwardRef(function Button(
      * @deprecated: support for iconName type will be deprecated from version 2.x.x
      */
     if (isIconName(content)) {
+      // eslint-disable-next-line no-console
+      console.warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
       return (
         <LegacyIcon
           name={content}
