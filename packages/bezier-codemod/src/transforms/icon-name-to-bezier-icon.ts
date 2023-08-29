@@ -13,11 +13,9 @@ import {
 type ComponentName = string
 type Attributes = string[]
 
-/**
- * NOTE: add other components or attributes if necessary
- */
-const meta: Array<[ComponentName, Attributes]> = [
+const transformationTargets: Array<[ComponentName, Attributes]> = [
   ['Button', ['leftContent', 'rightContent']],
+  ['Banner', ['icon', 'actionIcon']],
 ]
 
 const regex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -87,7 +85,7 @@ const changeIconNameToBezierIcon = (sourceFile: SourceFile) => (jsxElement: JsxS
   return false
 }
 
-const iconNameToBezierIcon = (sourceFile: SourceFile) => meta.reduce((acc, [component, attributes]) => {
+const iconNameToBezierIcon = (sourceFile: SourceFile) => transformationTargets.reduce((acc, [component, attributes]) => {
   const components = getComponentsToMigrate(sourceFile)(component)
 
   const migratedComponents = components.reduce((_acc, cur) => {
