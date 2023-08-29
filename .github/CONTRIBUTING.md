@@ -8,6 +8,10 @@ Welcome to bezier-react. We want to make contributing to this project as easy an
 - Proposing new features
 - Becoming a maintainer
 
+## Code of conduct
+
+We expect all participants to read our [code of conduct](./CODE_OF_CONDUCT.md) to understand which actions are and aren’t tolerated.
+
 ## We Develop with GitHub
 
 We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.

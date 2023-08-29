@@ -51,7 +51,7 @@ yarn dev
 
 ## Contributing
 
-See [contribution guide](CONTRIBUTING.md).
+See [contribution guide](./.github/CONTRIBUTING.md).
 
 ## Maintainers
 
