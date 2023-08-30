@@ -1,5 +1,15 @@
 # @channel.io/bezier-icons
 
+## 0.10.0
+
+### Minor Changes
+
+- Update icons ([#1569](https://github.com/channel-io/bezier-react/pull/1569)) by @kimminkyung94
+
+  **NEW**
+
+  - SecurityFilled
+
 ## 0.9.0
 
 ### Minor Changes
