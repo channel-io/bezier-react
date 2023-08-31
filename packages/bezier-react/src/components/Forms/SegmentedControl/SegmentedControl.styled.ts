@@ -40,7 +40,6 @@ export const Indicator = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: ${ZIndex.Float};
 
   width: var(--bezier-react-segmented-control-indicator-width);
   height: var(--bezier-react-segmented-control-indicator-height);
