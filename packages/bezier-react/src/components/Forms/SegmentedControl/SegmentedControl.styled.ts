@@ -38,9 +38,8 @@ export const Indicator = styled.div`
   --bezier-react-segmented-control-indicator-height: auto;
 
   position: absolute;
-  top: --bezier-react-segmented-control-indicator-top;
-  left: 0;
-
+  top: 50%;
+  left: var(--bezier-react-segmented-control-indicator-left);
   width: var(--bezier-react-segmented-control-indicator-width);
   height: var(--bezier-react-segmented-control-indicator-height);
 
@@ -48,7 +47,7 @@ export const Indicator = styled.div`
   /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
   background-color: var(--bg-white-high);
 
-  transform: translateX(var(--bezier-react-segmented-control-indicator-translateX));
+  transform: translateX(var(--bezier-react-segmented-control-indicator-translateX)) translateY(-50%);
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
 `
 
