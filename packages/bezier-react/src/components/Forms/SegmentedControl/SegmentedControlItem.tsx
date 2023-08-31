@@ -1,12 +1,11 @@
 import React, {
   forwardRef,
-  useCallback,
+  useEffect,
 } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { ariaAttr } from '~/src/utils/domUtils'
 
 import {
@@ -51,24 +50,20 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
     ? (rest as ItemProps<typeof type>)?.['data-state'] === 'checked'
     : (rest as ItemProps<typeof type>)?.['data-state'] === 'active'
 
-  // TODO[@epic=segmented-control]: setIndex when clicked
-  const ref = useMergeRefs(
-    forwardedRef,
-    useCallback(() => {
-      if (checked) {
-        setIndex(index)
-      }
-    }, [
-      checked,
-      index,
-      setIndex,
-    ]),
-  )
+  useEffect(function setSelectedItemIndex() {
+    if (checked) {
+      setIndex(index)
+    }
+  }, [
+    checked,
+    index,
+    setIndex,
+  ])
 
   return (
     <Styled.Item
       {...rest}
-      ref={ref}
+      ref={forwardedRef}
       type="button"
       data-checked={ariaAttr(checked)}
     >
