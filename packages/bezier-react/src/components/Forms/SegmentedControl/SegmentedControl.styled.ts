@@ -38,7 +38,7 @@ export const Indicator = styled.div`
   --bezier-react-segmented-control-indicator-height: auto;
 
   position: absolute;
-  top: 0;
+  top: --bezier-react-segmented-control-indicator-top;
   left: 0;
 
   width: var(--bezier-react-segmented-control-indicator-width);
@@ -48,7 +48,7 @@ export const Indicator = styled.div`
   /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
   background-color: var(--bg-white-high);
 
-  transform: var(--bezier-react-segmented-control-indicator-transform);
+  transform: translateX(var(--bezier-react-segmented-control-indicator-translateX));
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
 `
 
@@ -116,13 +116,6 @@ export const Item = styled.button`
 
   &:not([data-checked]):not(&:disabled):hover {
     background-color: var(--bg-black-light);
-  }
-
-  &[data-checked] ~ ${Indicator} {
-    transform: translateX(var(--bezier-react-segmented-control-indicator-translateX));
-    width: var(--bezier-react-segmented-control-indicator-width);
-    height: var(--bezier-react-segmented-control-indicator-height);
-    top: var(--bezier-react-segmented-control-indicator-top);
   }
 `
 
