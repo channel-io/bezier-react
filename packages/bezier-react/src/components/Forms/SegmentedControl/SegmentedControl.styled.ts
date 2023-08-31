@@ -28,7 +28,7 @@ export const paddingBySegmentedControlSize = {
   [SegmentedControlSize.L]: 4,
 }
 
-export const indicatorTransitionMeta = {
+const indicatorTransitionMeta = {
   duration: Transition.TransitionDuration.M,
 }
 

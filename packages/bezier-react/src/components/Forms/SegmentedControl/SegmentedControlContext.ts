@@ -18,12 +18,10 @@ export type SegmentedControlItemListContextValue = {
   setIndex: (index: number | null) => void
 }
 
-export type SegmentedControlItemContextValue = number
-
 export const [
   SegmentedControlItemContextProvider,
   useSegmentedControlItemContext,
-] = createContext<SegmentedControlItemContextValue | null>(null, 'SegmentedControlItem')
+] = createContext<number | null>(null, 'SegmentedControlItem')
 
 export const [
   SegmentedControlItemListContextProvider,
