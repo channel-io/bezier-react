@@ -26,6 +26,7 @@ import {
 import {
   SegmentedControlContextProvider,
   SegmentedControlItemListContextProvider,
+  type SegmentedControlItemListContextValue,
   useSegmentedControlContext,
 } from './SegmentedControlContext'
 import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
@@ -42,6 +43,7 @@ function SegmentedControlItemListImpl<
   ...rest
 }: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
+  const [index, setIndex] = useState<number | null>(null)
 
   const {
     type,
@@ -57,9 +59,15 @@ function SegmentedControlItemListImpl<
     refs: [forwardedRef],
   })
 
-  const contextValue = useMemo(() => ({
+  const contextValue: SegmentedControlItemListContextValue = useMemo(() => ({
     setSelectedElement,
-  }), [])
+    index,
+    length: React.Children.count(children),
+    setIndex,
+  }), [
+    children,
+    index,
+  ])
 
   const style = useMemo(() => ({
     ...styleProp,
@@ -88,11 +96,10 @@ function SegmentedControlItemListImpl<
     >
       <Styled.Container>
         <SegmentedControlItemListContextProvider value={contextValue}>
-          { renderIndicator() }
-
+          { /* index props 을 노출안하게 */ }
           { React.Children.map(children, (child, index) => {
             if (index === 0) {
-              return child
+              return React.cloneElement(child, { index })
             }
 
             return (
@@ -101,10 +108,12 @@ function SegmentedControlItemListImpl<
                   withoutParallelIndent
                   orientation="vertical"
                 />
-                { child }
+                { React.cloneElement(child, { index }) }
               </>
             )
           }) }
+
+          { renderIndicator() }
         </SegmentedControlItemListContextProvider>
       </Styled.Container>
     </SegmentedControlItemList>
