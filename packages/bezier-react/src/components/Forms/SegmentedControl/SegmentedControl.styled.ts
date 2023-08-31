@@ -14,6 +14,20 @@ import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
 
+export const heightBySegmentedControlSize = {
+  [SegmentedControlSize.XS]: 24,
+  [SegmentedControlSize.S]: 28,
+  [SegmentedControlSize.M]: 36,
+  [SegmentedControlSize.L]: 44,
+}
+
+export const paddingBySegmentedControlSize = {
+  [SegmentedControlSize.XS]: 1,
+  [SegmentedControlSize.S]: 2,
+  [SegmentedControlSize.M]: 2,
+  [SegmentedControlSize.L]: 4,
+}
+
 export const ItemContainer = styled(AlphaStack).attrs({
   direction: 'horizontal',
   align: 'center',
@@ -79,6 +93,13 @@ export const Item = styled.button`
   &:not([data-checked]):not(&:disabled):hover {
     background-color: var(--bg-black-light);
   }
+
+  &[data-checked] ~ ${Indicator} {
+    transform: translateX(var(--bezier-react-segmented-control-indicator-translateX));
+    width: var(--bezier-react-segmented-control-indicator-width);
+    height: var(--bezier-react-segmented-control-indicator-height);
+    top: var(--bezier-react-segmented-control-indicator-top);
+  }
 `
 
 export const indicatorTransitionMeta = {
@@ -116,8 +137,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   background-color: var(--bg-black-lighter);
 
   &.${SegmentedControlSize.XS} {
-    height: 24px;
-    padding: 1px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.XS]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.XS]}px;
     border-radius: 6px;
     ${Typography.Size13}
 
@@ -132,8 +153,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.S} {
-    height: 28px;
-    padding: 2px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.S]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.S]}px;
     border-radius: 8px;
     ${Typography.Size14}
 
@@ -148,8 +169,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.M} {
-    height: 36px;
-    padding: 2px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.M]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.M]}px;
     border-radius: 8px;
     ${Typography.Size14}
 
@@ -164,8 +185,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.L} {
-    height: 44px;
-    padding: 4px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.L]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.L]}px;
     border-radius: 12px;
     ${Typography.Size14}
 

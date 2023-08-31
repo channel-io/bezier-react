@@ -8,6 +8,11 @@ import { useResizeDetector } from 'react-resize-detector'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
+import {
+  useSegmentedControlContext,
+  useSegmentedControlItemListContext,
+} from './SegmentedControlContext'
+
 import * as Styled from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
@@ -23,65 +28,75 @@ const SegmentedControlIndicator = function SegmentedControlIndicator({
 }) {
   const [indicatorNode, setIndicatorNode] = useState<HTMLDivElement | null>(null)
   const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({})
+  const { index, length } = useSegmentedControlItemListContext('SegmentedControlIndicator')
+  const { size } = useSegmentedControlContext('SegmentedControlIndicator')
+  
+  const style = {
+    '--bezier-react-segmented-control-indicator-translateX': `${index * 100}%`,
+    '--bezier-react-segmented-control-indicator-width': `calc((100% - ${length - 1}px) / ${length})`,
+    '--bezier-react-segmented-control-indicator-height': `${Styled.heightBySegmentedControlSize[size] - (Styled.paddingBySegmentedControlSize[size] * 2)}px`,
+    '--bezier-react-segmented-control-indicator-top': `${Styled.paddingBySegmentedControlSize[size]}px`,
+  }
 
-  useLayoutEffect(function pauseTransitionOnMount() {
-    let timer: NodeJS.Timeout | undefined
+  // useLayoutEffect(function pauseTransitionOnMount() {
+  //   let timer: NodeJS.Timeout | undefined
 
-    if (indicatorNode) {
-      setIndicatorStyle(prev => ({
-        ...prev,
-        transition: 'none',
-      }))
+  //   if (indicatorNode) {
+  //     setIndicatorStyle(prev => ({
+  //       ...prev,
+  //       transition: 'none',
+  //     }))
 
-      timer = setTimeout(() => {
-        setIndicatorStyle(prev => ({
-          ...prev,
-          transition: undefined,
-        }))
-      }, Styled.indicatorTransitionMeta.duration)
-    }
+  //     timer = setTimeout(() => {
+  //       setIndicatorStyle(prev => ({
+  //         ...prev,
+  //         transition: undefined,
+  //       }))
+  //     }, Styled.indicatorTransitionMeta.duration)
+  //   }
 
-    return function cleanUp() {
-      clearTimeout(timer)
-    }
-  }, [indicatorNode])
+  //   return function cleanUp() {
+  //     clearTimeout(timer)
+  //   }
+  // }, [indicatorNode])
 
-  useLayoutEffect(function updatePosition() {
-    if (indicatorNode && container && target) {
-      const {
-        top,
-        left,
-        width: selectedElementWidth,
-        height: selectedElementHeight,
-      } = target.getBoundingClientRect()
+  // useLayoutEffect(function updatePosition() {
+  //   if (indicatorNode && container && target) {
+  //     const {
+  //       top,
+  //       left,
+  //       width: selectedElementWidth,
+  //       height: selectedElementHeight,
+  //     } = target.getBoundingClientRect()
 
-      const {
-        top: containerTop,
-        left: containerLeft,
-      } = container.getBoundingClientRect()
+  //     const {
+  //       top: containerTop,
+  //       left: containerLeft,
+  //     } = container.getBoundingClientRect()
 
-      setIndicatorStyle(prev => ({
-        ...prev,
-        '--bezier-react-segmented-control-indicator-transform': `translate(${left - containerLeft}px, ${top - containerTop}px)`,
-        '--bezier-react-segmented-control-indicator-width': `${selectedElementWidth}px`,
-        '--bezier-react-segmented-control-indicator-height': `${selectedElementHeight}px`,
-      }))
-    }
-  }, [
-    // NOTE: (@ed) to force update indicator position on container size change
-    updateKey,
-    indicatorNode,
-    container,
-    target,
-  ])
+  //     setIndicatorStyle(prev => ({
+  //       ...prev,
+  //       '--bezier-react-segmented-control-indicator-transform': `translate(${left - containerLeft}px, ${top - containerTop}px)`,
+  //       '--bezier-react-segmented-control-indicator-width': `${selectedElementWidth}px`,
+  //       '--bezier-react-segmented-control-indicator-height': `${selectedElementHeight}px`,
+  //     }))
+  //   }
+  // }, [
+  //   // NOTE: (@ed) to force update indicator position on container size change
+  //   updateKey,
+  //   indicatorNode,
+  //   container,
+  //   target,
+  // ])
 
   if (!target) { return null }
 
   return (
     <Styled.Indicator
       ref={setIndicatorNode}
-      style={indicatorStyle}
+      // style={indicatorStyle}
       data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
+      style={style as React.CSSProperties}
     />
   )
 }
