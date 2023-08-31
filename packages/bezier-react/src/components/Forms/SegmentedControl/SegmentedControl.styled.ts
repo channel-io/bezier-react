@@ -28,6 +28,31 @@ export const paddingBySegmentedControlSize = {
   [SegmentedControlSize.L]: 4,
 }
 
+export const indicatorTransitionMeta = {
+  duration: Transition.TransitionDuration.M,
+}
+
+export const Indicator = styled.div`
+  --bezier-react-segmented-control-indicator-transform: none;
+  --bezier-react-segmented-control-indicator-width: auto;
+  --bezier-react-segmented-control-indicator-height: auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: ${ZIndex.Float};
+
+  width: var(--bezier-react-segmented-control-indicator-width);
+  height: var(--bezier-react-segmented-control-indicator-height);
+
+  ${({ foundation }) => foundation?.elevation.ev1()}
+  /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
+  background-color: var(--bg-white-high);
+
+  transform: var(--bezier-react-segmented-control-indicator-transform);
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
+`
+
 export const ItemContainer = styled(AlphaStack).attrs({
   direction: 'horizontal',
   align: 'center',
@@ -100,31 +125,6 @@ export const Item = styled.button`
     height: var(--bezier-react-segmented-control-indicator-height);
     top: var(--bezier-react-segmented-control-indicator-top);
   }
-`
-
-export const indicatorTransitionMeta = {
-  duration: Transition.TransitionDuration.M,
-}
-
-export const Indicator = styled.div`
-  --bezier-react-segmented-control-indicator-transform: none;
-  --bezier-react-segmented-control-indicator-width: auto;
-  --bezier-react-segmented-control-indicator-height: auto;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: ${ZIndex.Float};
-
-  width: var(--bezier-react-segmented-control-indicator-width);
-  height: var(--bezier-react-segmented-control-indicator-height);
-
-  ${({ foundation }) => foundation?.elevation.ev1()}
-  /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
-  background-color: var(--bg-white-high);
-
-  transform: var(--bezier-react-segmented-control-indicator-transform);
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
 `
 
 export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
