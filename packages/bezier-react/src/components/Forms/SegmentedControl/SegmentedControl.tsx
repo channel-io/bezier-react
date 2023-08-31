@@ -29,7 +29,7 @@ import {
   type SegmentedControlItemListContextValue,
   useSegmentedControlContext,
 } from './SegmentedControlContext'
-import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
+import { SegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
@@ -41,8 +41,7 @@ function SegmentedControlItemListImpl<
   style: styleProp,
   className: classNameProp,
   ...rest
-}: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
+}: SegmentedControlItemListProps<Type, Value>) {
   const [index, setIndex] = useState<number | null>(null)
 
   const {
@@ -51,16 +50,7 @@ function SegmentedControlItemListImpl<
     width,
   } = useSegmentedControlContext('SegmentedControlItemList')
 
-  const {
-    containerRef: ref,
-    render: renderIndicator,
-  } = useSegmentedControlIndicator({
-    target: selectedElement,
-    refs: [forwardedRef],
-  })
-
   const contextValue: SegmentedControlItemListContextValue = useMemo(() => ({
-    setSelectedElement,
     index,
     length: React.Children.count(children),
     setIndex,
@@ -89,7 +79,6 @@ function SegmentedControlItemListImpl<
   return (
     <SegmentedControlItemList
       asChild
-      ref={ref}
       style={style}
       className={className}
       {...rest}
@@ -113,7 +102,7 @@ function SegmentedControlItemListImpl<
             )
           }) }
 
-          { renderIndicator() }
+          <SegmentedControlIndicator />
         </SegmentedControlItemListContextProvider>
       </Styled.Container>
     </SegmentedControlItemList>

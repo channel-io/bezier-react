@@ -33,7 +33,7 @@ type ItemProps<Type extends SegmentedControlType> = (
 & Partial<SegmentedControlItemProps<Type>>
 & Required<Pick<SegmentedControlProps<Type, string>, 'type'>>
 /**
- * TODO: index prop 을 노출시키지 않게 변경
+ * TODO[@epic=segmented-control]: index prop 을 노출시키지 않게 변경
  */
 & { index: number }
 
@@ -45,24 +45,23 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   index,
   ...rest
 }, forwardedRef) {
-  const { setSelectedElement, setIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
+  const { setIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
 
   const checked = type === 'radiogroup'
     ? (rest as ItemProps<typeof type>)?.['data-state'] === 'checked'
     : (rest as ItemProps<typeof type>)?.['data-state'] === 'active'
 
+  // TODO[@epic=segmented-control]: setIndex when clicked
   const ref = useMergeRefs(
     forwardedRef,
-    useCallback((node: HTMLButtonElement | null) => {
+    useCallback(() => {
       if (checked) {
-        setSelectedElement(node)
         setIndex(index)
       }
     }, [
       checked,
       index,
       setIndex,
-      setSelectedElement,
     ]),
   )
 

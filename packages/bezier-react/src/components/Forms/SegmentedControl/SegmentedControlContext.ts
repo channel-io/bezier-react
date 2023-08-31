@@ -13,7 +13,6 @@ export const [
 ] = createContext<SegmentedControlContextValue | null>(null, 'SegmentedControl')
 
 export type SegmentedControlItemListContextValue = {
-  setSelectedElement: (node: HTMLButtonElement | null) => void
   length: number
   index: number | null
   setIndex: (index: number | null) => void
