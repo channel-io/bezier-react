@@ -25,6 +25,7 @@ import {
 } from './SegmentedControl.types'
 import {
   SegmentedControlContextProvider,
+  SegmentedControlItemContextProvider,
   SegmentedControlItemListContextProvider,
   type SegmentedControlItemListContextValue,
   useSegmentedControlContext,
@@ -85,23 +86,19 @@ function SegmentedControlItemListImpl<
     >
       <Styled.Container>
         <SegmentedControlItemListContextProvider value={contextValue}>
-          { /* index props 을 노출안하게 */ }
-          { React.Children.map(children, (child, index) => {
-            if (index === 0) {
-              return React.cloneElement(child, { index })
-            }
-
-            return (
-              <>
+          { React.Children.map(children, (child, _index) => (
+            <>
+              { _index !== 0 && (
                 <Divider
                   withoutParallelIndent
                   orientation="vertical"
                 />
-                { React.cloneElement(child, { index }) }
-              </>
-            )
-          }) }
-
+              ) }
+              <SegmentedControlItemContextProvider value={_index}>
+                { child }
+              </SegmentedControlItemContextProvider>
+            </>
+          )) }
           <SegmentedControlIndicator />
         </SegmentedControlItemListContextProvider>
       </Styled.Container>

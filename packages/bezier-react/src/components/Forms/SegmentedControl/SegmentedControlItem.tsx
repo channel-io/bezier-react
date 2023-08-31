@@ -15,6 +15,7 @@ import {
 } from './SegmentedControl.types'
 import {
   useSegmentedControlContext,
+  useSegmentedControlItemContext,
   useSegmentedControlItemListContext,
 } from './SegmentedControlContext'
 
@@ -31,20 +32,16 @@ type ItemProps<Type extends SegmentedControlType> = (
 & React.HTMLAttributes<HTMLButtonElement>
 & Partial<SegmentedControlItemProps<Type>>
 & Required<Pick<SegmentedControlProps<Type, string>, 'type'>>
-/**
- * TODO[@epic=segmented-control]: index prop 을 노출시키지 않게 변경
- */
-& { index: number }
 
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(function Item({
   children,
   type,
   leftContent,
   rightContent,
-  index,
   ...rest
 }, forwardedRef) {
   const { setIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
+  const index = useSegmentedControlItemContext('SegmentedControlItem')
 
   const checked = type === 'radiogroup'
     ? (rest as ItemProps<typeof type>)?.['data-state'] === 'checked'
