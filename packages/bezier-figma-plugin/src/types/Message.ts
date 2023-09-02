@@ -3,7 +3,7 @@ export interface ExtractIconPluginMessage {
   payload: {
     fileKey: string
     ids: string
-    nodes: Array<{ id: string, name: string }>
+    svgByName: { [id: string]: object }
   }
 }
 

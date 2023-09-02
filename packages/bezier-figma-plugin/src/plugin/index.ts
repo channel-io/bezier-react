@@ -4,21 +4,33 @@ import {
   type UIMessage,
 } from '../types/Message'
 
-import {
-  findAllComponentNode,
-  flatten,
-} from './utils'
+import { findAllComponentNode } from './utils'
 
 // eslint-disable-next-line no-console
 console.info('Figma file key: ', figma.fileKey)
 
 figma.showUI(__html__, { width: 400, height: 300 })
 
-function extractIcon() {
+async function extractIcon() {
   const componentNodes = figma.currentPage.selection
     .map(findAllComponentNode)
-    .reduce(flatten, [])
-    .map(({ id, name }) => ({ id, name }))
+    .flatMap(v => v)
+
+  const svgs = await Promise.all(componentNodes.map((
+    async (node) => {
+      const svg = await node.exportAsync({ format: 'SVG_STRING' })
+      const id = node.name
+      return {
+        svg,
+        id,
+      }
+    }
+  )))
+
+  const svgByName = svgs.reduce((acc, cur) => {
+    acc[cur.id] = cur
+    return acc
+  }, {} as { [id: string]: object })
 
   const componentNodesIdsQuery = componentNodes
     .map(({ id }) => id)
@@ -29,7 +41,7 @@ function extractIcon() {
     payload: {
       fileKey: figma.fileKey as string,
       ids: componentNodesIdsQuery,
-      nodes: componentNodes,
+      svgByName,
     },
   }
 

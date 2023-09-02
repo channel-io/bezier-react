@@ -1,5 +1,3 @@
-export const flatten = <T>(a: T[], b: T[]) => [...a, ...b]
-
 export const isComponentNode = (node: SceneNode): node is ComponentNode => node.type === 'COMPONENT'
 
 export const findAllComponentNode = (rootNode: SceneNode) => {

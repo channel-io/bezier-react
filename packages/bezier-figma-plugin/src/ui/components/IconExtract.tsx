@@ -99,7 +99,11 @@ function Progress({
 
       if (type === 'extractIcon') {
         try {
-          const { fileKey, ids, nodes } = payload
+          const { fileKey, ids, svgByName } = payload
+
+          console.log('LOG: ', svgByName)
+
+          return
 
           const getSvgImagesFromFigma = async () => {
             const { images } = await figmaAPI.getSvg({ fileKey, ids })
