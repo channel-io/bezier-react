@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { DIVIDER_THICKNESS } from '~/src/components/Divider'
+
 import {
   useSegmentedControlContext,
   useSegmentedControlItemListContext,
@@ -8,8 +10,6 @@ import {
 import * as Styled from './SegmentedControl.styled'
 
 export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
-
-const DIVIDER_THICKNESS = 1
 
 export function SegmentedControlIndicator() {
   const { selectedItemIndex, itemCount } = useSegmentedControlItemListContext('SegmentedControlIndicator')
