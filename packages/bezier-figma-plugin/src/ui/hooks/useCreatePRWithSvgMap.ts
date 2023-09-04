@@ -33,7 +33,7 @@ export function useCreatePRWithSvgMap({
       }],
     })
     const commit = await githubAPI.createGitCommit({
-      message: 'icon-update',
+      message: 'feat(bezier-icons): add icons.json file',
       tree: tree.sha,
       parents: [baseBranchSha],
       author: {
@@ -45,16 +45,32 @@ export function useCreatePRWithSvgMap({
   }, [githubAPI])
 
   const createPullRequest = useCallback((commitSha: string) => async () => {
-    const newBranchName = `icon-${new Date().getTime()}`
+    const newBranchName = `icon-update-${new Date().getTime()}`
 
-    await githubAPI.createGitRef({ branchName: newBranchName, sha: commitSha })
-    return githubAPI.createPullRequest({ title: config.pr.title, body: config.pr.body, head: newBranchName, base: config.repository.baseBranchName })
+    await githubAPI.createGitRef({
+      branchName: newBranchName,
+      sha: commitSha,
+    })
+
+    const pr = await githubAPI.createPullRequest({
+      title: config.pr.title,
+      body: config.pr.body,
+      head: newBranchName,
+      base: config.repository.baseBranchName,
+    })
+
+    await githubAPI.addLabels({
+      issueNumber: pr.number,
+      labels: config.pr.labels,
+    })
+
+    return pr
   }, [githubAPI])
 
   const createPRWithSvgMap = useCallback(async (svgByName: SvgByName) => {
     const mainBranch = await progress({
       callback: getMainBranch('main'),
-      title: '📦 깃헙에서 레포지토리 정보를 가져오는 중...',
+      title: '📦 깃헙에서 아이콘 정보를 읽는 중...',
       successValueOffset: 0.3,
     })
 

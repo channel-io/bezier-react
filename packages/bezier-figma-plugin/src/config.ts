@@ -3,6 +3,7 @@ const config = {
     name: 'bezier-react',
     iconExtractPath: 'packages/bezier-icons/icons',
     baseBranchName: 'main',
+    // TODO[@epic='plugin']: change below
     owner: 'yangwooseong',
   },
   commit: {
