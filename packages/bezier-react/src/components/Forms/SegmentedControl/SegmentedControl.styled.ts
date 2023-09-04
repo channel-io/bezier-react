@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
 import {
-  Transition,
+  TransitionDuration,
   Typography,
   styled,
 } from '~/src/foundation'
@@ -28,10 +28,6 @@ export const paddingBySegmentedControlSize = {
   [SegmentedControlSize.L]: 4,
 }
 
-const indicatorTransitionMeta = {
-  duration: Transition.TransitionDuration.M,
-}
-
 export const Indicator = styled.div`
   --bezier-react-segmented-control-indicator-translateX: none;
   --bezier-react-segmented-control-indicator-left: auto;
@@ -49,7 +45,7 @@ export const Indicator = styled.div`
   background-color: var(--bg-white-high);
 
   transform: translateX(var(--bezier-react-segmented-control-indicator-translateX)) translateY(-50%);
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', TransitionDuration.M)}
 `
 
 export const ItemContainer = styled(AlphaStack).attrs({
