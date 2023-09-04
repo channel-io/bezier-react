@@ -32,15 +32,9 @@ async function extractIcon() {
     return acc
   }, {} as { [id: string]: object })
 
-  const componentNodesIdsQuery = componentNodes
-    .map(({ id }) => id)
-    .join(',')
-
   const pluginMessage: ExtractIconPluginMessage = {
     type: 'extractIcon',
     payload: {
-      fileKey: figma.fileKey as string,
-      ids: componentNodesIdsQuery,
       svgByName,
     },
   }
