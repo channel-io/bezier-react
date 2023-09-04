@@ -29,6 +29,7 @@ import type { PluginMessage } from '../../types/Message'
 import useFigmaAPI from '../hooks/useFigmaAPI'
 import useGithubAPI from '../hooks/useGithubAPI'
 import { createSvgGitBlob } from '../utils'
+import { useCreatePRWithSvgMap } from '../hooks/useCreatePRWithSvgMap'
 
 enum Step {
   Pending,
@@ -93,6 +94,8 @@ function Progress({
     repo: config.repository.name,
   })
 
+  const createPr = useCreatePRWithSvgMap(githubToken)
+
   useEffect(function bindOnMessageHandler() {
     window.onmessage = async (event: MessageEvent<PluginMessage>) => {
       const { type, payload } = event.data.pluginMessage
@@ -101,7 +104,7 @@ function Progress({
         try {
           const { fileKey, ids, svgByName } = payload
 
-          console.log('LOG: ', svgByName)
+          createPr(svgByName)
 
           return
 

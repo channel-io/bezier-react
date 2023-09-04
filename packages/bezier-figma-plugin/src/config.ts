@@ -3,7 +3,7 @@ const config = {
     name: 'bezier-react',
     iconExtractPath: 'packages/bezier-icons/icons',
     baseBranchName: 'main',
-    owner: 'channel-io',
+    owner: 'yangwooseong',
   },
   commit: {
     message: 'feat(bezier-icons): update icons',
