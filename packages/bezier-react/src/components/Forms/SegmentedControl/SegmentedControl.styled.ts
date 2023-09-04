@@ -33,7 +33,8 @@ const indicatorTransitionMeta = {
 }
 
 export const Indicator = styled.div`
-  --bezier-react-segmented-control-indicator-transform: none;
+  --bezier-react-segmented-control-indicator-translateX: none;
+  --bezier-react-segmented-control-indicator-left: auto;
   --bezier-react-segmented-control-indicator-width: auto;
   --bezier-react-segmented-control-indicator-height: auto;
 
