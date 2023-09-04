@@ -40,21 +40,21 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   rightContent,
   ...rest
 }, forwardedRef) {
-  const { setIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
+  const { setSelectedItemIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
   const index = useSegmentedControlItemContext('SegmentedControlItem')
 
   const checked = type === 'radiogroup'
     ? (rest as ItemProps<typeof type>)?.['data-state'] === 'checked'
     : (rest as ItemProps<typeof type>)?.['data-state'] === 'active'
 
-  useEffect(function setSelectedItemIndex() {
+  useEffect(function setSelectedItem() {
     if (checked) {
-      setIndex(index)
+      setSelectedItemIndex(index)
     }
   }, [
     checked,
     index,
-    setIndex,
+    setSelectedItemIndex,
   ])
 
   return (

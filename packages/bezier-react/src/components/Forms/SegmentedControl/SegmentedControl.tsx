@@ -43,7 +43,7 @@ function SegmentedControlItemListImpl<
   className: classNameProp,
   ...rest
 }: SegmentedControlItemListProps<Type, Value>) {
-  const [index, setIndex] = useState<number | null>(null)
+  const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null)
 
   const {
     type,
@@ -52,12 +52,12 @@ function SegmentedControlItemListImpl<
   } = useSegmentedControlContext('SegmentedControlItemList')
 
   const contextValue: SegmentedControlItemListContextValue = useMemo(() => ({
-    index,
-    length: React.Children.count(children),
-    setIndex,
+    selectedItemIndex,
+    itemCount: React.Children.count(children),
+    setSelectedItemIndex,
   }), [
     children,
-    index,
+    selectedItemIndex,
   ])
 
   const style = useMemo(() => ({
@@ -86,15 +86,15 @@ function SegmentedControlItemListImpl<
     >
       <Styled.Container>
         <SegmentedControlItemListContextProvider value={contextValue}>
-          { React.Children.map(children, (child, _index) => (
+          { React.Children.map(children, (child, index) => (
             <>
-              { _index !== 0 && (
+              { index !== 0 && (
                 <Divider
                   withoutParallelIndent
                   orientation="vertical"
                 />
               ) }
-              <SegmentedControlItemContextProvider value={_index}>
+              <SegmentedControlItemContextProvider value={index}>
                 { child }
               </SegmentedControlItemContextProvider>
             </>
