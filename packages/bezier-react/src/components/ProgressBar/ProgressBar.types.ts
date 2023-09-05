@@ -6,16 +6,9 @@ import type {
   VariantProps,
 } from '~/src/types/ComponentProps'
 
-export enum ProgressBarSize {
-  M = 'm',
-  S = 's',
-}
+export type ProgressBarSize = 'm' | 's'
 
-export enum ProgressBarVariant {
-  Green = 'green',
-  GreenAlt = 'green-alt',
-  Monochrome = 'monochrome',
-}
+export type ProgressBarVariant = 'green' | 'green-alt' | 'monochrome'
 
 interface ProgressBarOptions {
   /**

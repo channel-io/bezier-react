@@ -9,10 +9,6 @@ import {
   ProgressBar,
 } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  ProgressBarSize,
-  ProgressBarVariant,
-} from './ProgressBar.types'
 
 describe('ProgressBar', () => {
   const renderComponent = (props?: Partial<ProgressBarProps>) => render(
@@ -43,7 +39,7 @@ describe('ProgressBar', () => {
   describe('specify size props', () => {
     it('should render ProgressBar with size M', () => {
       const { getByRole, getByTestId } = renderComponent({
-        size: ProgressBarSize.M,
+        size: 'm',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -54,7 +50,7 @@ describe('ProgressBar', () => {
 
     it('should render ProgressBar with size S', () => {
       const { getByRole, getByTestId } = renderComponent({
-        size: ProgressBarSize.S,
+        size: 's',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -67,7 +63,7 @@ describe('ProgressBar', () => {
   describe('specify variant props', () => {
     it('should render ProgressBar with variant Green', () => {
       const { getByRole, getByTestId } = renderComponent({
-        variant: ProgressBarVariant.Green,
+        variant: 'green',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -82,7 +78,7 @@ describe('ProgressBar', () => {
 
     it('should render ProgressBar with variant Monochrome', () => {
       const { getByRole, getByTestId } = renderComponent({
-        variant: ProgressBarVariant.Monochrome,
+        variant: 'monochrome',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -96,7 +92,7 @@ describe('ProgressBar', () => {
     })
     it('should render ProgressBar with variant GreenAlt', () => {
       const { getByRole, getByTestId } = renderComponent({
-        variant: ProgressBarVariant.GreenAlt,
+        variant: 'green-alt',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)

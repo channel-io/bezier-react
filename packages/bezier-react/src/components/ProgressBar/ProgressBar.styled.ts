@@ -8,13 +8,13 @@ import { toLength } from '~/src/utils/styleUtils'
 
 import type ProgressBarProps from './ProgressBar.types'
 import {
-  ProgressBarSize,
-  ProgressBarVariant,
+  type ProgressBarSize,
+  type ProgressBarVariant,
 } from './ProgressBar.types'
 
 const PROGRESS_BAR_HEIGHT: Record<ProgressBarSize, number> = {
-  [ProgressBarSize.S]: 4,
-  [ProgressBarSize.M]: 6,
+  s: 4,
+  m: 6,
 }
 
 interface GetProgressBarStyleProps {
@@ -27,8 +27,8 @@ const getProgressBarActiveGradient = ({
   variant,
 }: GetProgressBarStyleProps) => {
   switch (variant) {
-    case ProgressBarVariant.Green:
-    case ProgressBarVariant.GreenAlt: {
+    case 'green':
+    case 'green-alt': {
       return css`
         background: linear-gradient(
           90deg,
@@ -37,7 +37,7 @@ const getProgressBarActiveGradient = ({
         );
       `
     }
-    case ProgressBarVariant.Monochrome:
+    case 'monochrome':
     default: {
       return css`
         background: linear-gradient(
@@ -55,13 +55,13 @@ const getProgressBarBackgroundColor = ({
   variant,
 }: GetProgressBarStyleProps) => {
   switch (variant) {
-    case ProgressBarVariant.GreenAlt: {
+    case 'green-alt': {
       return css`
         background-color: ${foundation?.theme?.['bgtxt-absolute-white-normal']};
       `
     }
-    case ProgressBarVariant.Green:
-    case ProgressBarVariant.Monochrome:
+    case 'green':
+    case 'monochrome':
     default: {
       return css`
         background-color: ${foundation?.theme?.['bg-black-light']};

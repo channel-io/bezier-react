@@ -1,13 +1,13 @@
 import { ProgressBar } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
 import {
-  ProgressBarSize,
-  ProgressBarVariant,
+  type ProgressBarSize,
+  type ProgressBarVariant,
 } from './ProgressBar.types'
 
 export {
   ProgressBar,
   type ProgressBarProps,
-  ProgressBarSize,
-  ProgressBarVariant,
+  type ProgressBarSize,
+  type ProgressBarVariant,
 }
