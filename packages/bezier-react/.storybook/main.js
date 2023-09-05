@@ -20,6 +20,12 @@ module.exports = {
     postcss: false,
   },
   typescript: {
+    /**
+     * @note
+     *
+     * `react-docgen-typescript-plugin` introduces significant overhead
+     * when HMR is enabled, so we enable it only in production.
+     */
     reactDocgen: process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
