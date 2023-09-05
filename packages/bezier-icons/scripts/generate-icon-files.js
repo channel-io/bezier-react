@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-const svgo = require('svgo')
-
 const bezierIconsDirectory = path.resolve(__dirname, '..')
 const iconsJson = path.resolve(bezierIconsDirectory, 'icons.json')
 const iconsDir = path.join(bezierIconsDirectory, 'icons')
@@ -18,15 +16,8 @@ const flushAndMakeIconsDirectory = () => {
 const makeSvgFiles = ([iconName, svgObject]) => {
   const svgPath = path.resolve(iconsDir, `${iconName}.svg`)
   const { svg } = svgObject
-  const svgElement = svgo.optimize(svg, {
-    js2svg: {
-      indent: 0,
-      pretty: true,
-    },
-    plugins: [],
-  }).data
 
-  fs.writeFileSync(svgPath, svgElement, 'utf-8')
+  fs.writeFileSync(svgPath, svg, 'utf-8')
 }
 
 const generateSVGFilesFromMap = () => {
