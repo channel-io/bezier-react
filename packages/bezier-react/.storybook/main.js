@@ -1,4 +1,3 @@
-const ReactDocgenTypescriptPlugin = require('@channel.io/react-docgen-typescript-plugin').default
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
@@ -21,15 +20,11 @@ module.exports = {
     postcss: false,
   },
   typescript: {
-    /**
-     * @note
-     * 
-     * default `typescript.reactDocgen` option is to use `react-docgen-typescript-plugin`,
-     * which is not compatible with TS <= 4.3
-     * 
-     * so we need to disable and override it with our own plugin (@channel-io/react-docgen-typescript-plugin).
-     */
-    reactDocgen: false,
+    reactDocgen: process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
   },
   webpackFinal: async (config) => {
     // Apply tsconfig alias path
@@ -47,19 +42,6 @@ module.exports = {
     })
 
     config.resolve.extensions.push('.ts', '.tsx')
-
-    if (process.env.NODE_ENV === 'production') {
-      /**
-       * @note
-       * 
-       * `react-docgen-typescript-plugin` introduces significant overhead
-       * when HMR is enabled, so we enable it only in production.
-       */
-      config.plugins.push(new ReactDocgenTypescriptPlugin({
-        shouldExtractLiteralValuesFromEnum: true,
-        propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-      }))
-    }
 
     return config
   }
