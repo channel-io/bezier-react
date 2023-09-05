@@ -1,6 +1,7 @@
 import {
   type ExtractIconPluginMessage,
   type GetTokenPluginMessage,
+  type SvgByName,
   type UIMessage,
 } from '../types/Message'
 
@@ -30,7 +31,7 @@ async function extractIcon() {
   const svgByName = svgs.reduce((acc, cur) => {
     acc[cur.id] = cur
     return acc
-  }, {} as { [id: string]: object })
+  }, {} as SvgByName)
 
   const pluginMessage: ExtractIconPluginMessage = {
     type: 'extractIcon',
