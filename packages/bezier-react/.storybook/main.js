@@ -56,6 +56,7 @@ module.exports = {
        * when HMR is enabled, so we enable it only in production.
        */
       config.plugins.push(new ReactDocgenTypescriptPlugin({
+        shouldRemoveUndefinedFromOptional: true,
         shouldExtractLiteralValuesFromEnum: true,
         propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
       }))
