@@ -32,8 +32,7 @@
     "test": "jest --onlyChanged",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
-    "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html",
-    "generate-icon-files": "node scripts/generate-icon-files"
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
   },
   "keywords": [
     "channel",
