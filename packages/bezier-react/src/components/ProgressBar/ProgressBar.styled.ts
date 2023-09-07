@@ -7,19 +7,15 @@ import {
 import { toLength } from '~/src/utils/styleUtils'
 
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  type ProgressBarSize,
-  type ProgressBarVariant,
-} from './ProgressBar.types'
 
-const PROGRESS_BAR_HEIGHT: Record<ProgressBarSize, number> = {
+const PROGRESS_BAR_HEIGHT: Record<NonNullable<ProgressBarProps['size']>, number> = {
   s: 4,
   m: 6,
 }
 
 interface GetProgressBarStyleProps {
   foundation?: Foundation
-  variant: ProgressBarVariant
+  variant: NonNullable<ProgressBarProps['variant']>
 }
 
 const getProgressBarActiveGradient = ({

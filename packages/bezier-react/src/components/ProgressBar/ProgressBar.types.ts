@@ -35,9 +35,9 @@ export enum ProgressBarVariant {
   Monochrome = 'monochrome',
 }
 
-export type ProgressBarSizeType = 'm' | 's'
+type ProgressBarSizeType = 'm' | 's'
 
-export type ProgressBarVariantType = 'green' | 'green-alt' | 'monochrome'
+type ProgressBarVariantType = 'green' | 'green-alt' | 'monochrome'
 
 interface ProgressBarOptions {
   /**
