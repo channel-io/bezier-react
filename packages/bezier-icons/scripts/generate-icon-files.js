@@ -22,8 +22,7 @@ const makeSvgFiles = ([iconName, svgObject]) => {
 
 const generateSVGFilesFromMap = () => {
   Object.entries(svgByName)
-    .sort(([iconName1], [iconName2]) => iconName1.localeCompare(iconName2))
-    .map(makeSvgFiles)
+    .forEach(makeSvgFiles)
 }
 
 const generateIconFiles = () => {
