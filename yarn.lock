@@ -9057,13 +9057,13 @@ __metadata:
   linkType: hard
 
 "chromatic@npm:^6.19.8":
-  version: 6.21.0
-  resolution: "chromatic@npm:6.21.0"
+  version: 6.24.1
+  resolution: "chromatic@npm:6.24.1"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: f30903455790099566c8701b8e4c9419cab288b598b6cd28f34e457ff9879cdc31e4d34b377ba962b014ac6b52d17c506d044cf5cb0b2031340f6068d350a139
+  checksum: 1ca3c11ac53401e822e372c47ccbb69d06c0e6f3028a0f8d952bcfed4e1a9b9944e9d6c52d2f91b4a5cdc5296817e0430635ad44754fc5c23cfae0dcb26c9e01
   languageName: node
   linkType: hard
 
@@ -19502,8 +19502,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^3.25.1":
-  version: 3.27.2
-  resolution: "rollup@npm:3.27.2"
+  version: 3.28.1
+  resolution: "rollup@npm:3.28.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -19511,7 +19511,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 524477e73885bafd2df395c12db330f3893e1f8eca67e811fb1423a4f6318451987e978607c75f8115bd9ce7fa834460969b0c39b797d45da87fa42fef9bafa8
+  checksum: 1fcab0929c16130218447c76c19b56ccc0e677110552462297e3679188fc70185a6ec418cef8ce138ec9fb78fd5188537a3f5d28762788e8c88b12a7fb8ba0fb
   languageName: node
   linkType: hard
 
@@ -22662,8 +22662,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:>=4.43.0 <6.0.0, webpack@npm:^5.87.0, webpack@npm:^5.9.0":
-  version: 5.87.0
-  resolution: "webpack@npm:5.87.0"
+  version: 5.88.2
+  resolution: "webpack@npm:5.88.2"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.0
@@ -22694,7 +22694,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: b7d0e390f9d30627e303d54b17cb87b62f49ecffe2d35481f830679904993bae208e23748ffe0e6091b6dd4810562b2f2e88bb0f23b96515d74fb1e3c2898210
+  checksum: 79476a782da31a21f6dd38fbbd06b68da93baf6a62f0d08ca99222367f3b8668f5a1f2086b7bb78e23172e31fa6df6fa7ab09b25e827866c4fc4dc2b30443ce2
   languageName: node
   linkType: hard
 
