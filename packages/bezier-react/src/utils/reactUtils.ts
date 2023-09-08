@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { assert } from './assertUtils'
+
 export const getReactVersion = () => {
   const [major, minor, patch] = React.version.split('.').map(Number)
   return { major, minor, patch }
@@ -33,9 +35,10 @@ export function createContext<ContextValue extends StrictContextValue>(
   function useContext(consumerName?: any) {
     const contextValue = React.useContext(Context)
 
-    if (contextValue === null) {
-      throw new Error(`'${consumerName}' must be used within '${providerName}'`)
-    }
+    assert(
+      contextValue !== null,
+      `'${consumerName}' must be used within '${providerName}'`,
+    )
 
     return contextValue
   }
