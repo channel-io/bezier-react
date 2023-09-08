@@ -34,5 +34,5 @@ jobs:
       - name: Delete icons.json files
         run: |
           git rm packages/bezier-icons/icons.json
-          git commit -m 'feat(bezier-icons): remove icons.json'
+          git commit -m "feat(bezier-icons): remove icons.json"
           git push
