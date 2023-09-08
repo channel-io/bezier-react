@@ -1,4 +1,4 @@
-export function isDev() {
+function isDev() {
   return process.env.NODE_ENV !== 'production'
 }
 
