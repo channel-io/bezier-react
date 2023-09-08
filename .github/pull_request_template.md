@@ -7,30 +7,28 @@
 
 ## Self Checklist
 
-- [ ] I wrote a PR title in **English**.
-- [ ] I added an appropriate **label** to the PR.
-- [ ] I wrote a commit message in **English**.
-- [ ] I wrote a commit message according to [**the Conventional Commits specification**](https://www.conventionalcommits.org/en/v1.0.0/).
-- [ ] [I added the appropriate **changeset**](https://github.com/channel-io/bezier-react/blob/main/CONTRIBUTING.md#add-a-changeset) for the changes.
-- [ ] [Component] I wrote **a unit test** about the implementation.
-- [ ] [Component] I wrote **a storybook document** about the implementation.
-- [ ] [Component] I tested the implementation in **various browsers**.
+- [ ] I wrote a PR title in **English** and added an appropriate **label** to the PR.
+- [ ] I wrote the commit message in **English** and to follow [**the Conventional Commits specification**](https://www.conventionalcommits.org/en/v1.0.0/).
+- [ ] I [added the **changeset**](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) about the changes that needed to be released. (or didn't have to)
+- [ ] I wrote or updated **documentation** related to the changes. (or didn't have to)
+- [ ] I wrote or updated **tests** related to the changes. (or didn't have to)
+- [ ] I tested the changes in various browsers. (or didn't have to)
   - Windows: Chrome, Edge, (Optional) Firefox
   - macOS: Chrome, Edge, Safari, (Optional) Firefox
-- [ ] [*New* Component] I added my username to the correct directory in the `CODEOWNERS` file.
 
 ## Related Issue
+<!-- Please link to issue if one exists -->
 
-Fixes #0000 <!-- Please link to issue if one exists -->
+<!-- Fixes #0000 -->
 
 ## Summary
-<!-- Please add a summary of the modification. -->
+<!-- Please brief explanation of the changes made -->
 
 ## Details
-<!-- Please add a detailed description of the modification. (such as AS-IS/TO-DO)-->
+<!-- Please elaborate description of the changes -->
 
-## Breaking change or not (Yes/No)
+### Breaking change? (Yes/No)
 <!-- If Yes, please describe the impact and migration path for users -->
 
 ## References
-<!-- External documents based on workarounds or reviewers should refer to -->
+<!-- Please list any other resources or points the reviewer should be aware of -->

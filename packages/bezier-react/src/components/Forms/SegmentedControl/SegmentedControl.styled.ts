@@ -1,6 +1,6 @@
 /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
 import {
-  Transition,
+  TransitionDuration,
   Typography,
   styled,
 } from '~/src/foundation'
@@ -13,6 +13,40 @@ import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
+
+export const heightBySegmentedControlSize = {
+  [SegmentedControlSize.XS]: 24,
+  [SegmentedControlSize.S]: 28,
+  [SegmentedControlSize.M]: 36,
+  [SegmentedControlSize.L]: 44,
+}
+
+export const paddingBySegmentedControlSize = {
+  [SegmentedControlSize.XS]: 1,
+  [SegmentedControlSize.S]: 2,
+  [SegmentedControlSize.M]: 2,
+  [SegmentedControlSize.L]: 4,
+}
+
+export const Indicator = styled.div`
+  --bezier-react-segmented-control-indicator-translateX: none;
+  --bezier-react-segmented-control-indicator-left: auto;
+  --bezier-react-segmented-control-indicator-width: auto;
+  --bezier-react-segmented-control-indicator-height: auto;
+
+  position: absolute;
+  top: 50%;
+  left: var(--bezier-react-segmented-control-indicator-left);
+  width: var(--bezier-react-segmented-control-indicator-width);
+  height: var(--bezier-react-segmented-control-indicator-height);
+
+  ${({ foundation }) => foundation?.elevation.ev1()}
+  /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
+  background-color: var(--bg-white-high);
+
+  transform: translateX(var(--bezier-react-segmented-control-indicator-translateX)) translateY(-50%);
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', TransitionDuration.M)}
+`
 
 export const ItemContainer = styled(AlphaStack).attrs({
   direction: 'horizontal',
@@ -81,31 +115,6 @@ export const Item = styled.button`
   }
 `
 
-export const indicatorTransitionMeta = {
-  duration: Transition.TransitionDuration.M,
-}
-
-export const Indicator = styled.div`
-  --bezier-react-segmented-control-indicator-transform: none;
-  --bezier-react-segmented-control-indicator-width: auto;
-  --bezier-react-segmented-control-indicator-height: auto;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: ${ZIndex.Float};
-
-  width: var(--bezier-react-segmented-control-indicator-width);
-  height: var(--bezier-react-segmented-control-indicator-height);
-
-  ${({ foundation }) => foundation?.elevation.ev1()}
-  /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
-  background-color: var(--bg-white-high);
-
-  transform: var(--bezier-react-segmented-control-indicator-transform);
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', indicatorTransitionMeta.duration)}
-`
-
 export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   --bezier-react-segmented-control-width: auto;
 
@@ -116,8 +125,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   background-color: var(--bg-black-lighter);
 
   &.${SegmentedControlSize.XS} {
-    height: 24px;
-    padding: 1px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.XS]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.XS]}px;
     border-radius: 6px;
     ${Typography.Size13}
 
@@ -132,8 +141,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.S} {
-    height: 28px;
-    padding: 2px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.S]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.S]}px;
     border-radius: 8px;
     ${Typography.Size14}
 
@@ -148,8 +157,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.M} {
-    height: 36px;
-    padding: 2px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.M]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.M]}px;
     border-radius: 8px;
     ${Typography.Size14}
 
@@ -164,8 +173,8 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &.${SegmentedControlSize.L} {
-    height: 44px;
-    padding: 4px;
+    height: ${heightBySegmentedControlSize[SegmentedControlSize.L]}px;
+    padding: ${paddingBySegmentedControlSize[SegmentedControlSize.L]}px;
     border-radius: 12px;
     ${Typography.Size14}
 
