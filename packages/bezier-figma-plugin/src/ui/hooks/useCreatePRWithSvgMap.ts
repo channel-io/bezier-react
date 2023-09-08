@@ -73,7 +73,7 @@ export function useCreatePRWithSvgMap({
   const createPRWithSvgMap = useCallback(async (svgByName: SvgByName) => {
     const mainBranch = await progress({
       callback: getMainBranch('main'),
-      title: '📦 깃헙에서 아이콘 정보를 읽는 중...',
+      title: '📦 깃헙에서 정보를 가져오는 중...',
       successValueOffset: 0.3,
     })
 
