@@ -25,10 +25,12 @@ import {
 } from './SegmentedControl.types'
 import {
   SegmentedControlContextProvider,
+  SegmentedControlItemContextProvider,
   SegmentedControlItemListContextProvider,
+  type SegmentedControlItemListContextValue,
   useSegmentedControlContext,
 } from './SegmentedControlContext'
-import { useSegmentedControlIndicator } from './SegmentedControlIndicator'
+import { SegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
 
@@ -40,8 +42,8 @@ function SegmentedControlItemListImpl<
   style: styleProp,
   className: classNameProp,
   ...rest
-}: SegmentedControlItemListProps<Type, Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const [selectedElement, setSelectedElement] = useState<HTMLButtonElement | null>(null)
+}: SegmentedControlItemListProps<Type, Value>) {
+  const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null)
 
   const {
     type,
@@ -49,17 +51,14 @@ function SegmentedControlItemListImpl<
     width,
   } = useSegmentedControlContext('SegmentedControlItemList')
 
-  const {
-    containerRef: ref,
-    render: renderIndicator,
-  } = useSegmentedControlIndicator({
-    target: selectedElement,
-    refs: [forwardedRef],
-  })
-
-  const contextValue = useMemo(() => ({
-    setSelectedElement,
-  }), [])
+  const contextValue: SegmentedControlItemListContextValue = useMemo(() => ({
+    selectedItemIndex,
+    itemCount: React.Children.count(children),
+    setSelectedItemIndex,
+  }), [
+    children,
+    selectedItemIndex,
+  ])
 
   const style = useMemo(() => ({
     ...styleProp,
@@ -81,30 +80,26 @@ function SegmentedControlItemListImpl<
   return (
     <SegmentedControlItemList
       asChild
-      ref={ref}
       style={style}
       className={className}
       {...rest}
     >
       <Styled.Container>
         <SegmentedControlItemListContextProvider value={contextValue}>
-          { renderIndicator() }
-
-          { React.Children.map(children, (child, index) => {
-            if (index === 0) {
-              return child
-            }
-
-            return (
-              <>
+          { React.Children.map(children, (child, index) => (
+            <>
+              { index !== 0 && (
                 <Divider
                   withoutParallelIndent
                   orientation="vertical"
                 />
+              ) }
+              <SegmentedControlItemContextProvider value={index}>
                 { child }
-              </>
-            )
-          }) }
+              </SegmentedControlItemContextProvider>
+            </>
+          )) }
+          <SegmentedControlIndicator />
         </SegmentedControlItemListContextProvider>
       </Styled.Container>
     </SegmentedControlItemList>
