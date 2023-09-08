@@ -45,6 +45,9 @@ export function useCreatePRWithSvgMap({
   }, [githubAPI])
 
   const createPullRequest = useCallback((commitSha: string) => async () => {
+    /**
+     * NOTE: this branch name is used in ./github/workflows/generate-icon-files.yml
+     */
     const newBranchName = `icon-update-${new Date().getTime()}`
 
     await githubAPI.createGitRef({
