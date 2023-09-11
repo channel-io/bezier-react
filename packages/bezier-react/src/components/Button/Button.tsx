@@ -13,6 +13,7 @@ import {
 } from '~/src/foundation'
 
 import { flattenDeep } from '~/src/utils/arrayUtils'
+import { warn } from '~/src/utils/assertUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { isArray } from '~/src/utils/typeUtils'
 
@@ -231,7 +232,7 @@ export const Button = forwardRef(function Button(
      */
     if (isIconName(content)) {
       // eslint-disable-next-line no-console
-      console.warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
+      warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
       return (
         <LegacyIcon
           name={content}
