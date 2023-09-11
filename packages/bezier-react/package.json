@@ -108,7 +108,7 @@
     "rollup": "^3.29.1",
     "rollup-plugin-node-externals": "^6.1.1",
     "rollup-plugin-visualizer": "^5.9.2",
-    "styled-components": "^5.3.11",
+    "styled-components": "^6.0.0",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
