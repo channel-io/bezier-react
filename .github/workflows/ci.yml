@@ -32,9 +32,9 @@ jobs:
             **/.jestcache
             **/.turbo
             node_modules/.cache/turbo
-          key: ${{ runner.os }}-test-${{ github.sha }}
+          key: ${{ runner.os }}-validate-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-test-
+            ${{ runner.os }}-validate-
 
       - name: Install dependencies
         run: yarn

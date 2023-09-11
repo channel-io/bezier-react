@@ -29,14 +29,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            **/.eslintcache
-            **/.stylelintcache
-            **/.jestcache
             **/.turbo
             node_modules/.cache/turbo
-          key: ${{ runner.os }}-test-${{ github.sha }}
+          key: ${{ runner.os }}-chromatic-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-test-
+            ${{ runner.os }}-chromatic-
 
       - name: Install dependencies
         run: yarn
