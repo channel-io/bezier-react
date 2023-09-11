@@ -53,6 +53,7 @@ function ModalComposition({
   description,
   titleSize,
   hidden,
+  preventHideOnOutsideClick,
 }: ModalCompositionProps) {
   const [show, setShow] = useState(false)
 
@@ -63,6 +64,7 @@ function ModalComposition({
   return (
     <Modal
       show={show}
+      preventHideOnOutsideClick={preventHideOnOutsideClick}
       onShow={() => setShow(true)}
       onHide={() => setShow(false)}
     >
@@ -166,4 +168,5 @@ Composition.args = {
   description: 'Make changes to your profile here. Click save when you\'re done.',
   titleSize: ModalTitleSize.L,
   hidden: false,
+  preventHideOnOutsideClick: false,
 }

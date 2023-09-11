@@ -13,3 +13,8 @@ export const [
   ModalContainerContextProvider,
   useModalContainerContext,
 ] = createContext<HTMLElement | undefined>(undefined)
+
+export const [
+  ModalContextProvider,
+  useModalContext,
+] = createContext<boolean>(false)

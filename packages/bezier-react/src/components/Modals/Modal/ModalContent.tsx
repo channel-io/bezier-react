@@ -19,6 +19,7 @@ import {
 import {
   ModalContainerContextProvider,
   ModalContentPropsContextProvider,
+  useModalContext,
 } from './ModalContext'
 import { ModalClose } from './ModalHelpers'
 
@@ -40,6 +41,7 @@ export const ModalContent = forwardRef(function ModalContent({
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
+  const preventHideOnOutsideClick = useModalContext()
 
   const contentRef = useMergeRefs(
     forwardedRef,
@@ -74,7 +76,14 @@ export const ModalContent = forwardRef(function ModalContent({
   return (
     <DialogPrimitive.Portal container={container}>
       <Styled.DialogPrimitiveOverlay style={overlayStyle}>
-        <DialogPrimitive.Content asChild>
+        <DialogPrimitive.Content
+          asChild
+          onPointerDownOutside={(e) => {
+            if (preventHideOnOutsideClick) {
+              e.preventDefault()
+            }
+          }}
+        >
           <Styled.Content
             aria-modal
             ref={contentRef}

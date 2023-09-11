@@ -23,6 +23,12 @@ interface ModalOptions {
   defaultShow?: boolean
 
   /**
+   * Decides whether modal closes when clicked outside
+   * @default: false
+   */
+  preventHideOnOutsideClick?: boolean
+
+  /**
    * Callback function to be called when the modal is opened.
    * @default noop
    */

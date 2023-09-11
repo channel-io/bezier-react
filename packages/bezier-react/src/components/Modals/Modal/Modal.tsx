@@ -5,6 +5,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { noop } from '~/src/utils/functionUtils'
 
 import { type ModalProps } from './Modal.types'
+import { ModalContextProvider } from './ModalContext'
 
 /**
  * `Modal` is a dialog that appears on top of the page.
@@ -31,6 +32,7 @@ export function Modal({
   children,
   show,
   defaultShow,
+  preventHideOnOutsideClick = false,
   onShow = noop,
   onHide = noop,
 }: ModalProps) {
@@ -48,7 +50,9 @@ export function Modal({
       defaultOpen={defaultShow}
       onOpenChange={onOpenChange}
     >
-      { children }
+      <ModalContextProvider value={preventHideOnOutsideClick}>
+        { children }
+      </ModalContextProvider>
     </DialogPrimitive.Root>
   )
 }
