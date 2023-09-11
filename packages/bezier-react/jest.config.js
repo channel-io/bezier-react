@@ -26,4 +26,5 @@ module.exports = {
     '**/*.{ts,tsx,js,jsx}',
     '!**/*.stories.tsx',
   ],
+  cacheDirectory: '.jestcache',
 }
