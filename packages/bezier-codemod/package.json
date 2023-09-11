@@ -20,7 +20,7 @@
 		"lint": "TIMING=1 eslint --cache .",
 		"typecheck": "tsc --noEmit",
 		"test": "jest",
-		"clean": "rm -rf dist node_modules .turbo .eslintcache"
+		"clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache"
 	},
 	"files": [
 		"dist"
