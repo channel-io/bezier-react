@@ -39,17 +39,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build packages
-        run: yarn build
-
-      - name: Lint
-        run: yarn lint
-
-      - name: Type check
-        run: yarn typecheck
-
-      - name: Test
-        run: yarn test
+      - name: Validate packages
+        run: yarn validate
 
       - name: Upload test coverage to Codecov
         uses: codecov/codecov-action@v3
