@@ -1,4 +1,13 @@
 import { Canvas, Story, Meta } from '@storybook/addon-docs'
+import { 
+  ArrowRightUpIcon, 
+  CommentIcon,
+  EditIcon,
+  FaceSmileAddIcon, 
+  LinkIcon, 
+  MoreVerticalIcon, 
+  SplitRightIcon, 
+} from '@channel.io/bezier-icons'
 import { Button, ButtonColorVariant, ButtonStyleVariant } from '~/src/components/Button'
 import { Tooltip } from '~/src/components/Tooltip'
 import { css } from '~/src/foundation'
@@ -67,10 +76,10 @@ bezier-react를 사용하는 사람들은 스토리북을 통해 다음과 같�
     <Button text="Cancel" styleVariant={ButtonStyleVariant.Secondary} colorVariant={ButtonColorVariant.Red} />
   </Story>
   <Story name="Button:Overview.CopyLink">
-    <Button text="Copy Link" leftContent="link" styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
+    <Button text="Copy Link" leftContent={LinkIcon} styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
   </Story>
   <Story name="Button:Overview.Jump">
-    <Button text="Jump" leftContent="arrow-right-up" styleVariant={ButtonStyleVariant.Floating} />
+    <Button text="Jump" leftContent={ArrowRightUpIcon} styleVariant={ButtonStyleVariant.Floating} />
   </Story>
 </Canvas>
 ```
@@ -92,10 +101,10 @@ bezier-react를 사용하는 사람들은 스토리북을 통해 다음과 같�
     <Button text="Cancel" styleVariant={ButtonStyleVariant.Secondary} colorVariant={ButtonColorVariant.Red} />
   </Story>
   <Story name="Button:Overview.CopyLink">
-    <Button text="Copy Link" leftContent="link" styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
+    <Button text="Copy Link" leftContent={LinkIcon} styleVariant={ButtonStyleVariant.Tertiary} colorVariant={ButtonColorVariant.MonochromeLight} />
   </Story>
   <Story name="Button:Overview.Jump">
-    <Button text="Jump" leftContent="arrow-right-up" styleVariant={ButtonStyleVariant.Floating} />
+    <Button text="Jump" leftContent={ArrowRightUpIcon} styleVariant={ButtonStyleVariant.Floating} />
   </Story>
 </Canvas>
 
@@ -122,11 +131,11 @@ CTA를 명확하게 유도할 수 있도록 Primary 버튼은 그룹 안에서 1
     `} />
   </Story>
   <Story name="Button:ButtonGroup.Actions">
-    <Button leftContent="face-smile-add" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="comment" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="edit" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="more-vertical" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button active leftContent="split-right" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={FaceSmileAddIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={CommentIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={EditIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={MoreVerticalIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button active leftContent={SplitRightIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
   </Story>
 </Canvas>
 ```
@@ -147,11 +156,11 @@ CTA를 명확하게 유도할 수 있도록 Primary 버튼은 그룹 안에서 1
     `} />
   </Story>
   <Story name="Button:ButtonGroup.Actions">
-    <Button leftContent="face-smile-add" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="comment" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="edit" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button leftContent="more-vertical" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
-    <Button active leftContent="split-right" colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={FaceSmileAddIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={CommentIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={EditIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button leftContent={MoreVerticalIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
+    <Button active leftContent={SplitRightIcon} colorVariant={ButtonColorVariant.MonochromeDark} styleVariant={ButtonStyleVariant.Tertiary} />
   </Story>
 </Canvas>
 

@@ -1,5 +1,16 @@
 import React from 'react'
 
+import {
+  BlockIcon,
+  CancelIcon,
+  CancelSmallIcon,
+  ChannelIcon,
+  CheckCircleFilledIcon,
+  ErrorTriangleFilledIcon,
+  Hourglass3Icon,
+  InfoIcon,
+  LightbulbIcon,
+} from '@channel.io/bezier-icons'
 import type {
   Meta,
   Story,
@@ -66,9 +77,9 @@ export const Playground: Story<BannerProps> = props => <Banner {...props} />
 
 Playground.args = {
   variant: BannerVariant.Default,
-  icon: 'lightbulb',
+  icon: LightbulbIcon,
   content: 'Information here.',
-  actionIcon: 'cancel-small',
+  actionIcon: CancelSmallIcon,
   onClickAction: noop,
 }
 
@@ -77,50 +88,50 @@ export const Overview: Story<{}> = () => (
     <StackItem>
       <Banner
         variant={BannerVariant.Default}
-        icon="lightbulb"
+        icon={LightbulbIcon}
         content="Information here."
-        actionIcon="cancel"
+        actionIcon={CancelIcon}
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Blue}
-        icon="lightbulb"
+        icon={LightbulbIcon}
         content="Information here."
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Cobalt}
-        icon="info"
+        icon={InfoIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Green}
-        icon="check-circle-filled"
+        icon={CheckCircleFilledIcon}
         content="Now Running..."
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Red}
-        icon="block"
+        icon={BlockIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Alt}
-        icon="hourglass-3"
+        icon={Hourglass3Icon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
@@ -132,7 +143,7 @@ export const UsageMinWidth: Story<{}> = () => (
     <StackItem>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="네."
       />
     </StackItem>
@@ -146,21 +157,21 @@ export const UsageFullWidth: Story<{}> = () => (
     <StackItem style={{ width: 360, border: '1px solid red' }}>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
     <StackItem style={{ width: 480, border: '1px solid red' }}>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
     <StackItem style={{ width: 720, border: '1px solid red' }}>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </StackItem>
@@ -174,7 +185,7 @@ export const UsageMaxWidth: Story<{}> = () => (
     <StackItem>
       <Banner
         variant={BannerVariant.Cobalt}
-        icon="info"
+        icon={InfoIcon}
         // eslint-disable-next-line max-len
         content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis laoreet felis. Fusce sit amet blandit sem. Aliquam erat volutpat. Pellentesque tempor arcu non scelerisque rutrum. Proin placerat imperdiet gravida. In efficitur augue ut maximus placerat. Quisque vitae pellentesque urna. Sed sagittis enim quis laoreet dictum. Morbi fringilla, justo sit amet dapibus bibendum, nisl nisl suscipit dolor, eget venenatis urna velit in dolor.\n\nNunc accumsan ligula sit amet interdum accumsan. Etiam gravida est risus, in interdum elit egestas ut. Aliquam sit amet lorem malesuada, commodo tortor eu, semper dui. Integer ultricies porta ex sed tincidunt. Sed accumsan orci eu arcu facilisis congue ac hendrerit lacus. Etiam erat velit, interdum auctor cursus at, interdum vel augue. Integer gravida, nibh vel lacinia blandit, ex quam dapibus lectus, at sollicitudin lorem purus vel nulla. Suspendisse ac tellus eget risus condimentum facilisis sed vitae turpis. Fusce fringilla commodo aliquam. Quisque eget justo purus. Suspendisse ut lobortis turpis, vitae fermentum augue. Donec viverra, orci ut lobortis euismod, est nibh iaculis metus, sit amet mattis ex elit eget tellus.'}
       />
@@ -189,7 +200,7 @@ export const UsageConsecutive: Story<{}> = () => (
     <StackItem>
       <Banner
         variant={BannerVariant.Cobalt}
-        icon="info"
+        icon={InfoIcon}
         content="전화번호 설정하는 게 좋아요."
         hasLink
         linkText="설정하기"
@@ -198,18 +209,18 @@ export const UsageConsecutive: Story<{}> = () => (
     <StackItem>
       <Banner
         variant={BannerVariant.Orange}
-        icon="error-triangle-filled"
+        icon={ErrorTriangleFilledIcon}
         content="빠진 내용을 모두 입력해주세요."
       />
     </StackItem>
     <StackItem>
       <Banner
         variant={BannerVariant.Default}
-        icon="info"
+        icon={InfoIcon}
         content="아래 내용을 입력해주세요."
         hasLink
         linkText="사용안내"
-        actionIcon="cancel"
+        actionIcon={CancelIcon}
       />
     </StackItem>
   </VStack>
@@ -232,11 +243,11 @@ UsageNoIcon.storyName = 'Usage (no icon)'
 export const UsageLink: Story<{}> = () => (
   <Banner
     variant={BannerVariant.Default}
-    icon="info"
+    icon={InfoIcon}
     content="아래 내용을 입력해주세요."
     hasLink
     linkText="사용안내"
-    actionIcon="cancel"
+    actionIcon={CancelIcon}
   />
 )
 
@@ -245,12 +256,12 @@ UsageLink.storyName = 'Usage (link)'
 export const UsageLinkTo: Story<{}> = () => (
   <Banner
     variant={BannerVariant.Cobalt}
-    icon="channel"
+    icon={ChannelIcon}
     content="채널톡 정말 좋은 서비스에요."
     hasLink
     linkText="사용안내"
     linkTo="https://channel.io"
-    actionIcon="cancel"
+    actionIcon={CancelIcon}
   />
 )
 

@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { SendForwardIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -8,8 +9,10 @@ import base from 'paths.macro'
 
 import { getTitle } from '~/src/utils/storyUtils'
 
-import { IconSize } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 
 import ListMenuTitle from './ListMenuTitle'
 import type ListMenuTitleProps from './ListMenuTitle.types'
@@ -19,7 +22,7 @@ export default {
 } as Meta
 
 const Template: Story<ListMenuTitleProps> = ({
-  rightAction = (<div><LegacyIcon name="send-forward" size={IconSize.XS} /></div>),
+  rightAction = (<div><Icon source={SendForwardIcon} size={IconSize.XS} /></div>),
   ...otherListItemProps
 }) => (
   <div style={{ width: 240 }}>

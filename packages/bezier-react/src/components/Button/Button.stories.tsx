@@ -1,6 +1,24 @@
 import React, { useState } from 'react'
 
-import { TagIcon } from '@channel.io/bezier-icons'
+import {
+  ArrowRightIcon,
+  CalendarIcon,
+  CancelIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  EditIcon,
+  HeartFilledIcon,
+  LightningIcon,
+  OpenInNewIcon,
+  PeopleIcon,
+  PlayIcon,
+  PlusIcon,
+  TagIcon,
+  TrashIcon,
+  TriangleDownIcon,
+  VideocamIcon,
+} from '@channel.io/bezier-icons'
 import {
   type Meta,
   type Story,
@@ -85,8 +103,8 @@ Playground.args = {
   disabled: false,
   active: false,
   loading: false,
-  leftContent: 'plus',
-  rightContent: 'arrow-right',
+  leftContent: PlusIcon,
+  rightContent: ArrowRightIcon,
   size: ButtonSize.M,
   styleVariant: ButtonStyleVariant.Primary,
   colorVariant: ButtonColorVariant.Blue,
@@ -114,7 +132,7 @@ export const OverviewCTA: Story<{}> = () => (
     </StackItem>
     <StackItem>
       <Button
-        leftContent="open-in-new"
+        leftContent={OpenInNewIcon}
         text="Open link"
         colorVariant={ButtonColorVariant.Blue}
         styleVariant={ButtonStyleVariant.Secondary}
@@ -122,7 +140,7 @@ export const OverviewCTA: Story<{}> = () => (
     </StackItem>
     <StackItem>
       <Button
-        leftContent="check"
+        leftContent={CheckIcon}
         text="Publish"
         colorVariant={ButtonColorVariant.Green}
         styleVariant={ButtonStyleVariant.Primary}
@@ -137,7 +155,7 @@ export const OverviewFloating: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
       <Button
-        leftContent="chevron-down"
+        leftContent={ChevronDownIcon}
         text="New messages"
         colorVariant={ButtonColorVariant.Cobalt}
         styleVariant={ButtonStyleVariant.Floating}
@@ -156,7 +174,7 @@ export const UsageCTA: Story<{}> = () => (
       styleVariant={ButtonStyleVariant.Secondary}
     />
     <Button
-      leftContent="play"
+      leftContent={PlayIcon}
       text="퍼블리시"
       colorVariant={ButtonColorVariant.Green}
       styleVariant={ButtonStyleVariant.Primary}
@@ -180,13 +198,13 @@ export const UsageCTA2: Story<{}> = () => (
       styleVariant={ButtonStyleVariant.Secondary}
     />
     <Button
-      leftContent="play"
+      leftContent={PlayIcon}
       text="퍼블리시"
       colorVariant={ButtonColorVariant.Green}
       styleVariant={ButtonStyleVariant.Primary}
     />
     <Button
-      leftContent="cancel"
+      leftContent={CancelIcon}
       colorVariant={ButtonColorVariant.MonochromeLight}
       styleVariant={ButtonStyleVariant.Tertiary}
     />
@@ -199,22 +217,22 @@ export const UsageWebLinks: Story<{}> = () => (
   <HStack justify="center" spacing={6}>
     <StackItem>
       <Button
-        leftContent="open-in-new"
+        leftContent={OpenInNewIcon}
         text="See guide"
-        rightContent="arrow-right"
+        rightContent={ArrowRightIcon}
         styleVariant={ButtonStyleVariant.Tertiary}
       />
     </StackItem>
     <StackItem>
       <Button
         text="See guide"
-        rightContent="arrow-right"
+        rightContent={ArrowRightIcon}
         styleVariant={ButtonStyleVariant.Tertiary}
       />
     </StackItem>
     <StackItem>
       <Button
-        leftContent="open-in-new"
+        leftContent={OpenInNewIcon}
         text="See guide"
         styleVariant={ButtonStyleVariant.Tertiary}
       />
@@ -238,12 +256,12 @@ export const UsageComposite: Story<{}> = () => (
         <VStack align="stretch">
           <StackItem>
             <SectionLabel
-              leftContent={{ icon: 'people' }}
+              leftContent={{ icon: PeopleIcon }}
               content="태그 ∙ 2"
               rightContent={(
                 <Button
                   size={ButtonSize.XS}
-                  leftContent="chevron-down"
+                  leftContent={ChevronDownIcon}
                   styleVariant={ButtonStyleVariant.Tertiary}
                   colorVariant={ButtonColorVariant.MonochromeLight}
                 />
@@ -259,7 +277,7 @@ export const UsageComposite: Story<{}> = () => (
                   <StackItem>
                     <Button
                       size={ButtonSize.XS}
-                      leftContent="edit"
+                      leftContent={EditIcon}
                       styleVariant={ButtonStyleVariant.Tertiary}
                       colorVariant={ButtonColorVariant.MonochromeLight}
                     />
@@ -267,7 +285,7 @@ export const UsageComposite: Story<{}> = () => (
                   <StackItem>
                     <Button
                       size={ButtonSize.XS}
-                      leftContent="cancel"
+                      leftContent={CancelIcon}
                       styleVariant={ButtonStyleVariant.Tertiary}
                       colorVariant={ButtonColorVariant.MonochromeLight}
                     />
@@ -285,7 +303,7 @@ export const UsageComposite: Story<{}> = () => (
                   <StackItem>
                     <Button
                       size={ButtonSize.XS}
-                      leftContent="edit"
+                      leftContent={EditIcon}
                       styleVariant={ButtonStyleVariant.Tertiary}
                       colorVariant={ButtonColorVariant.MonochromeLight}
                     />
@@ -293,7 +311,7 @@ export const UsageComposite: Story<{}> = () => (
                   <StackItem>
                     <Button
                       size={ButtonSize.XS}
-                      leftContent="cancel"
+                      leftContent={CancelIcon}
                       styleVariant={ButtonStyleVariant.Tertiary}
                       colorVariant={ButtonColorVariant.MonochromeLight}
                     />
@@ -314,9 +332,9 @@ export const UsageVariousContentsComposite: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
       <Button
-        leftContent="play"
+        leftContent={PlayIcon}
         text="퍼블리시"
-        rightContent="arrow-right"
+        rightContent={ArrowRightIcon}
         colorVariant={ButtonColorVariant.Green}
       />
     </StackItem>
@@ -329,7 +347,7 @@ export const UsageVariousContentsIconOnly: Story<{}> = () => (
   <HStack justify="center">
     <StackItem>
       <Button
-        leftContent="plus"
+        leftContent={PlusIcon}
         colorVariant={ButtonColorVariant.MonochromeLight}
         styleVariant={ButtonStyleVariant.Secondary}
       />
@@ -385,7 +403,7 @@ const AsyncActionButton = () => {
   }
   return (
     <Button
-      leftContent="play"
+      leftContent={PlayIcon}
       text="Click Me!"
       colorVariant={ButtonColorVariant.Cobalt}
       styleVariant={ButtonStyleVariant.Primary}
@@ -422,7 +440,7 @@ const OpenDropdownButton = () => {
       <Button
         ref={setTarget}
         text="Select"
-        rightContent="triangle-down"
+        rightContent={TriangleDownIcon}
         active={isOpen}
         colorVariant={ButtonColorVariant.MonochromeLight}
         styleVariant={ButtonStyleVariant.Tertiary}
@@ -462,7 +480,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Blue</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="plus" text="Invite" colorVariant={ButtonColorVariant.Blue} />
+          <Button leftContent={PlusIcon} text="Invite" colorVariant={ButtonColorVariant.Blue} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -472,7 +490,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Red</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="trash" text="Remove" colorVariant={ButtonColorVariant.Red} />
+          <Button leftContent={TrashIcon} text="Remove" colorVariant={ButtonColorVariant.Red} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -482,7 +500,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Green</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="play" text="Publish" colorVariant={ButtonColorVariant.Green} />
+          <Button leftContent={PlayIcon} text="Publish" colorVariant={ButtonColorVariant.Green} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -492,7 +510,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Cobalt</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="videocam" text="Join" colorVariant={ButtonColorVariant.Cobalt} />
+          <Button leftContent={VideocamIcon} text="Join" colorVariant={ButtonColorVariant.Cobalt} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -502,7 +520,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Orange</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="heart-filled" text="Warn" colorVariant={ButtonColorVariant.Orange} />
+          <Button leftContent={HeartFilledIcon} text="Warn" colorVariant={ButtonColorVariant.Orange} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -512,7 +530,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Pink</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="videocam" text="Pink" colorVariant={ButtonColorVariant.Pink} />
+          <Button leftContent={VideocamIcon} text="Pink" colorVariant={ButtonColorVariant.Pink} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -522,7 +540,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Purple</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="videocam" text="Purple" colorVariant={ButtonColorVariant.Purple} />
+          <Button leftContent={VideocamIcon} text="Purple" colorVariant={ButtonColorVariant.Purple} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -532,7 +550,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Monochrome Dark</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="lightning" text="Dark" colorVariant={ButtonColorVariant.MonochromeDark} />
+          <Button leftContent={LightningIcon} text="Dark" colorVariant={ButtonColorVariant.MonochromeDark} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -542,7 +560,7 @@ export const VariantsColor: Story<{}> = () => (
           <Text typo={Typography.Size13}>Monochrome Light</Text>
         </StackItem>
         <StackItem>
-          <Button leftContent="lightning" text="Light alpha" colorVariant={ButtonColorVariant.MonochromeLight} />
+          <Button leftContent={LightningIcon} text="Light alpha" colorVariant={ButtonColorVariant.MonochromeLight} />
         </StackItem>
       </HStack>
     </StackItem>
@@ -562,8 +580,8 @@ export const VariantsStyle: Story<{}> = () => (
             </StackItem>
             <StackItem>
               <Button
-                leftContent="plus"
-                rightContent="chevron-right"
+                leftContent={PlusIcon}
+                rightContent={ChevronRightIcon}
                 text="Invite"
                 colorVariant={ButtonColorVariant.Blue}
                 styleVariant={styleVariant}
@@ -588,8 +606,8 @@ export const VariantsSize: Story<{}> = () => (
             </StackItem>
             <StackItem>
               <Button
-                leftContent="calendar"
-                rightContent="triangle-down"
+                leftContent={CalendarIcon}
+                rightContent={TriangleDownIcon}
                 text="Join"
                 size={size}
                 colorVariant={ButtonColorVariant.Blue}
