@@ -227,9 +227,6 @@ export const Button = forwardRef(function Button(
   ])
 
   const renderSideContent = useCallback((content?: SideContent) => {
-    /**
-     * @deprecated: support for iconName type will be deprecated from version 2.x.x
-     */
     if (isIconName(content)) {
       warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
       return (
