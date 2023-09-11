@@ -2704,7 +2704,7 @@ __metadata:
     babel-loader: ^9.1.3
     babel-plugin-styled-components: ^2.1.4
     babel-preset-react-app: ^10.0.1
-    chromatic: ^6.24.1
+    chromatic: ^7.0.0
     classnames: ^2.3.2
     core-js: ^3.32.2
     eslint-config-bezier: "workspace:*"
@@ -9656,14 +9656,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.24.1":
-  version: 6.24.1
-  resolution: "chromatic@npm:6.24.1"
+"chromatic@npm:^7.0.0":
+  version: 7.1.0
+  resolution: "chromatic@npm:7.1.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 1ca3c11ac53401e822e372c47ccbb69d06c0e6f3028a0f8d952bcfed4e1a9b9944e9d6c52d2f91b4a5cdc5296817e0430635ad44754fc5c23cfae0dcb26c9e01
+  checksum: 0b948419867b95731e522265c5a891d5996ca56837fce853897978c4b504033fe509934b6a39f1d356725c38b39b6a2be1c862f6c0cbc3d95ffd3543c9fc3279
   languageName: node
   linkType: hard
 
