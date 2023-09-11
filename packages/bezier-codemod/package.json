@@ -39,7 +39,6 @@
 		"eslint-config-bezier": "workspace:*",
 		"jest": "^29.6.4",
 		"ts-jest": "^29.1.1",
-		"ts-node": "^10.9.1",
 		"tsconfig": "workspace:*"
 	},
 	"keywords": [
