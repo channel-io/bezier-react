@@ -4,6 +4,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
+import { warn } from '~/src/utils/assertUtils'
 import {
   isNil,
   isString,
@@ -89,8 +90,7 @@ export const Banner = forwardRef(function Banner(
   } = props
 
   if (isIconName(icon)) {
-    // eslint-disable-next-line no-console
-    console.warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
+    warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
   }
 
   return (

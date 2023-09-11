@@ -10,6 +10,7 @@ import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
 
+import { warn } from '~/src/utils/assertUtils'
 import {
   isArray,
   isEmpty,
@@ -56,8 +57,7 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
 
   const { icon, iconColor, onClick } = props
   if (isIconName(icon)) {
-    // eslint-disable-next-line no-console
-    console.warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
+    warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
   }
 
   if (!isNil(iconColor)) {
