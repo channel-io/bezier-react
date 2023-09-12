@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.11.0
+
+### Minor Changes
+
+- Add script for generating svg file from icons.json ([#1596](https://github.com/channel-io/bezier-react/pull/1596)) by @yangwooseong
+
 ## 0.10.0
 
 ### Minor Changes

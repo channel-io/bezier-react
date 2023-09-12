@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 1.12.0
+
+### Minor Changes
+
+- Allow `iconName` prop of `Button`, `Banner`, `SectionLabel` component to include `BezierIcon` type ([#1562](https://github.com/channel-io/bezier-react/pull/1562)) by @yangwooseong
+
+### Patch Changes
+
+- Fixed a rendering bug that occurs when using `react-resize-detector` and `asChild`prop of `radix-ui` simultaneously. ([#1577](https://github.com/channel-io/bezier-react/pull/1577)) by @yangwooseong
+
+  - Removed indicator adjusting logic by `react-resize-detector` using css transform property
+
+- Replace `@channel.io/react-docgen-typescript-plugin` with Storybook's `reactDocgen` option ([#1594](https://github.com/channel-io/bezier-react/pull/1594)) by @Dogdriip
+
 ## 1.11.1
 
 ### Patch Changes
