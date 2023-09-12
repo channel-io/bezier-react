@@ -1,5 +1,19 @@
 # bezier-figma-plugin
 
+## 0.4.0
+
+### Minor Changes
+
+- Enhance bezier-figma-plugin running performance ([#1596](https://github.com/channel-io/bezier-react/pull/1596)) by @yangwooseong
+  - Remove svg extract process using FigmaAPI and merely send json file that contains svg string
+  - Make icon files based on given json file during Github Action
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.12.0
+  - @channel.io/bezier-icons@0.11.0
+
 ## 0.3.19
 
 ### Patch Changes
