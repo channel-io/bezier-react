@@ -2622,7 +2622,6 @@ __metadata:
     react: ^18.2.0
     ts-jest: ^29.1.1
     ts-morph: ^19.0.0
-    ts-node: ^10.9.1
     tsconfig: "workspace:*"
   bin:
     bezier-codemod: dist/cli.js

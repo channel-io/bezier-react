@@ -17,7 +17,6 @@
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
     "release": "turbo run build --filter='@channel.io/*' && changeset publish",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
-    "verify": "ts-node -P ./supports/tsconfig/script.json ./scripts/check-yarn-version.ts",
     "changeset": "changeset",
     "postinstall": "husky install"
   },
