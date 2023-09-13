@@ -5,16 +5,22 @@ import React, {
   useState,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
+
 import {
   type SemanticNames,
   Typography,
 } from '~/src/foundation'
 
 import { flattenDeep } from '~/src/utils/arrayUtils'
+import { warn } from '~/src/utils/assertUtils'
 import { noop } from '~/src/utils/functionUtils'
 import { isArray } from '~/src/utils/typeUtils'
 
-import { IconSize } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
@@ -222,9 +228,20 @@ export const Button = forwardRef(function Button(
 
   const renderSideContent = useCallback((content?: SideContent) => {
     if (isIconName(content)) {
+      warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
       return (
         <LegacyIcon
           name={content}
+          size={iconSize}
+          color={overridedIconAndSpinnerColor}
+        />
+      )
+    }
+
+    if (isBezierIcon(content)) {
+      return (
+        <Icon
+          source={content}
           size={iconSize}
           color={overridedIconAndSpinnerColor}
         />

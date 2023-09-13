@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 
 import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  PlusCircleFilledIcon,
+  PlusCircleIcon,
   StarFilledIcon,
   ViewIcon,
 } from '@channel.io/bezier-icons'
@@ -64,7 +69,7 @@ const Template: Story<SectionLabelProps & {
       />
       <SectionLabel
         rightContent={{
-          icon: 'plus-circle',
+          icon: PlusCircleIcon,
           iconColor: 'bgtxt-teal-normal',
           onClick: noop,
         }}
@@ -77,12 +82,12 @@ const Template: Story<SectionLabelProps & {
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftContent={{ icon: 'star-filled' }}
+        leftContent={{ icon: StarFilledIcon }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
         leftContent={{
-          icon: 'star-filled',
+          icon: StarFilledIcon,
           iconColor: 'bgtxt-yellow-normal',
           onClick: noop,
         }}
@@ -95,22 +100,22 @@ const Template: Story<SectionLabelProps & {
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        leftContent={{ icon: 'star-filled' }}
+        leftContent={{ icon: StarFilledIcon }}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"
       />
       <SectionLabel
-        leftContent={{ icon: 'star-filled' }}
+        leftContent={{ icon: StarFilledIcon }}
         rightContent={[
           testNumberLabel,
-          { icon: 'plus-circle-filled', onClick: noop },
-          { icon: 'chevron-up', iconColor: 'txt-black-darkest', onClick: noop },
+          { icon: PlusCircleFilledIcon, onClick: noop },
+          { icon: ChevronUpIcon, iconColor: 'txt-black-darkest', onClick: noop },
         ]}
         {...otherSectionLabelProps}
         content="Teams • 3141592653589794626"
       />
       <SectionLabel
-        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? ChevronDownIcon : ChevronRightIcon }}
         {...otherSectionLabelProps}
         open={open}
         onClick={toggle}
@@ -128,11 +133,11 @@ const Template: Story<SectionLabelProps & {
       </SectionLabel>
       <SectionLabel
         help="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? ChevronDownIcon : ChevronRightIcon }}
         {...otherSectionLabelProps}
       />
       <SectionLabel
-        rightContent={{ icon: open ? 'chevron-down' : 'chevron-right' }}
+        rightContent={{ icon: open ? ChevronDownIcon : ChevronRightIcon }}
         wrapperInterpolation={testWrapperInterpolation}
         {...otherSectionLabelProps}
       />

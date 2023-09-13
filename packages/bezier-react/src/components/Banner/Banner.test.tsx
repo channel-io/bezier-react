@@ -1,5 +1,9 @@
 import React from 'react'
 
+import {
+  AllIcon,
+  InfoIcon,
+} from '@channel.io/bezier-icons'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '~/src/utils/testUtils'
@@ -15,7 +19,7 @@ describe('Banner >', () => {
 
   beforeEach(() => {
     props = {
-      icon: 'info',
+      icon: InfoIcon,
       content: 'Lorem ipsum dolor amet.',
       hasLink: false,
     }
@@ -40,7 +44,7 @@ describe('Banner >', () => {
 
   it('renders action button if actionIcon is correct value', () => {
     const onClickAction = jest.fn()
-    const { getByRole } = renderBanner({ actionIcon: 'all', onClickAction })
+    const { getByRole } = renderBanner({ actionIcon: AllIcon, onClickAction })
     const actionButton = getByRole('button')
 
     fireEvent.click(actionButton)

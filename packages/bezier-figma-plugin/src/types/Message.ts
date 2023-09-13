@@ -1,9 +1,8 @@
+export type SvgByName = { [id: string]: object }
 export interface ExtractIconPluginMessage {
   type: 'extractIcon'
   payload: {
-    fileKey: string
-    ids: string
-    nodes: Array<{ id: string, name: string }>
+    svgByName: SvgByName
   }
 }
 

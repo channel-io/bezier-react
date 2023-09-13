@@ -4,11 +4,13 @@ import React, {
   useMemo,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
 
+import { warn } from '~/src/utils/assertUtils'
 import {
   isArray,
   isEmpty,
@@ -25,8 +27,14 @@ import {
 } from '~/src/components/Button'
 import { Divider } from '~/src/components/Divider'
 import { Help } from '~/src/components/Help'
-import { IconSize } from '~/src/components/Icon'
-import { LegacyIcon } from '~/src/components/LegacyIcon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/LegacyIcon'
 
 import { type SectionLabelItemProps } from './SectionLabel.types'
 import type SectionLabelProps from './SectionLabel.types'
@@ -48,6 +56,9 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
   }
 
   const { icon, iconColor, onClick } = props
+  if (isIconName(icon)) {
+    warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
+  }
 
   if (!isNil(iconColor)) {
     /*
@@ -60,11 +71,13 @@ function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string
         className={clickableClassName(onClick)}
         onClick={onClick}
       >
-        <LegacyIcon
-          name={icon}
-          size={IconSize.XS}
-          color={iconColor}
-        />
+        { isBezierIcon(icon) ? (
+          <Icon
+            source={icon}
+            size={IconSize.XS}
+            color={iconColor}
+          />
+        ) : <LegacyIcon name={icon} size={IconSize.XS} color={iconColor} /> }
       </Styled.RightItemWrapper>
     )
   }
@@ -119,18 +132,34 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
     contentWrapperInterpolation,
   ])
 
-  const renderLeftItem = useCallback((item: SectionLabelItemProps) => (
-    'icon' in item
-      ? (
-        <Styled.LeftIcon
+  const renderLeftItem = useCallback((item: SectionLabelItemProps) => {
+    if ('icon' in item) {
+      if (isBezierIcon(item.icon)) {
+        return (
+          <Styled.LeftIcon
+            className={clickableClassName(item.onClick)}
+            source={item.icon}
+            size={IconSize.S}
+            color={item.iconColor ?? 'txt-black-dark'}
+            onClick={item.onClick}
+          />
+        )
+      }
+
+      return (
+        <Styled.LegacyLeftIcon
           className={clickableClassName(item.onClick)}
           name={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
           onClick={item.onClick}
         />
-      ) : item
-  ), [])
+      )
+    }
+
+    return item
+  },
+  [])
 
   const leftComponent = useMemo(() => {
     if (isNil(leftContent)) {

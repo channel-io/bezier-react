@@ -1,5 +1,11 @@
 # @channel.io/bezier-codemod
 
+## 0.3.0
+
+### Minor Changes
+
+- Add Banner to iconName transformation target ([#1562](https://github.com/channel-io/bezier-react/pull/1562)) by @yangwooseong
+
 ## 0.2.1
 
 ### Patch Changes

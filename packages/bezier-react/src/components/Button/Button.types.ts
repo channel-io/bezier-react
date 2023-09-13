@@ -1,4 +1,4 @@
-import { type IconName } from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
   type BezierComponentProps,
@@ -39,7 +39,7 @@ export enum ButtonSize {
   XL = 'XL',
 }
 
-export type SideContent = IconName | React.ReactNode
+export type SideContent = React.ReactNode | BezierIcon
 
 export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
 type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
