@@ -83,6 +83,11 @@ export const ModalContent = forwardRef(function ModalContent({
               e.preventDefault()
             }
           }}
+          onInteractOutside={(e) => {
+            if (preventHideOnOutsideClick) {
+              e.preventDefault()
+            }
+          }}
         >
           <Styled.Content
             aria-modal
