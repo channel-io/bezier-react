@@ -19,7 +19,6 @@ import {
 import {
   ModalContainerContextProvider,
   ModalContentPropsContextProvider,
-  useModalContext,
 } from './ModalContext'
 import { ModalClose } from './ModalHelpers'
 
@@ -35,13 +34,13 @@ export const ModalContent = forwardRef(function ModalContent({
   style,
   container = getRootElement(),
   showCloseIcon = false,
+  preventHideOnOutsideClick = false,
   width = 'max-content',
   height = 'fit-content',
   zIndex = ZIndex.Modal,
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
-  const preventHideOnOutsideClick = useModalContext()
 
   const contentRef = useMergeRefs(
     forwardedRef,

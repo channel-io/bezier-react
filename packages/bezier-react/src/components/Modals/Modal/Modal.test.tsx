@@ -176,9 +176,8 @@ describe('Modal', () => {
 
       it('should keep modal open when the user clicks outside of the modal if preventHideOnOutsideClick property is true', async () => {
         const { queryByRole, container } = renderOpenedModal({
-          modalProps: {
+          modalContentProps: {
             preventHideOnOutsideClick: true,
-            defaultShow: true,
           },
         })
         await user.click(container)

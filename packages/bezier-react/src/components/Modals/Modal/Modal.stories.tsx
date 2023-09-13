@@ -64,7 +64,6 @@ function ModalComposition({
   return (
     <Modal
       show={show}
-      preventHideOnOutsideClick={preventHideOnOutsideClick}
       onShow={() => setShow(true)}
       onHide={() => setShow(false)}
     >
@@ -74,6 +73,7 @@ function ModalComposition({
 
       <ModalContent
         showCloseIcon={showCloseIcon}
+        preventHideOnOutsideClick={preventHideOnOutsideClick}
         width={width}
         height={height}
       >
