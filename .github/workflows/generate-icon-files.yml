@@ -29,7 +29,7 @@ jobs:
         run: |
           node packages/bezier-icons/scripts/generate-icon-files.js
           git add .
-          git commit -m "feat(bezier-icons): generate icon files from icons.json"
+          git commit -m "feat(bezier-icons): generate icon files from icons.json" || echo "skipped commit due to no update"
       
       - name: Delete icons.json files
         run: |
