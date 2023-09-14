@@ -28,6 +28,7 @@ module.exports = {
      */
     reactDocgen: process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
+      shouldRemoveUndefinedFromOptional: true,
       shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
