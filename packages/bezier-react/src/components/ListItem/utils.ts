@@ -22,7 +22,7 @@ export function getStyleOfSize(size?: ListItemSize) {
     case ListItemSize.M:
     default:
       return css`
-        padding: 6px;
+        padding: 4px;
         ${({ foundation }) => foundation?.rounding.round6};
       `
   }
