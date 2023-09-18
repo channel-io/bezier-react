@@ -1,5 +1,17 @@
 # @channel.io/bezier-react
 
+## 1.13.0
+
+### Minor Changes
+
+- Add `preventHideOnOutsideClick` property to `Modal` component ([#1617](https://github.com/channel-io/bezier-react/pull/1617)) by @yangwooseong
+
+### Patch Changes
+
+- Fixes an issue where the height of `TextArea` component is not specified correctly. Modify the build settings to match the package.json exports fields change in 8.5.0 of `react-textarea-autosize`. ([#1637](https://github.com/channel-io/bezier-react/pull/1637)) by @sungik-choi
+
+- Add `ProgressBarSize`, `ProgressBarVariant` string literal type and deprecate enum ([#1595](https://github.com/channel-io/bezier-react/pull/1595)) by @Dogdriip
+
 ## 1.12.0
 
 ### Minor Changes
