@@ -5,8 +5,7 @@ import project from '../../../project.js'
 import enumMemberToStringLiteral from '../../enum-member-to-string-literal.js'
 
 describe('enumMemberToStringLiteral', () => {
-  // TODO(@aru): 테스트 이름 변경
-  it('ASDF1', () => {
+  it('should transform enum members to string literals correctly', () => {
     const inputPath = path.join(__dirname, 'fixtures', 'input1.tsx')
     const outputPath = path.join(__dirname, 'fixtures', 'output1.tsx')
 
@@ -20,8 +19,7 @@ describe('enumMemberToStringLiteral', () => {
     expect(isMigrated).toBe(true)
   })
 
-  // TODO(@aru): 테스트 이름 변경
-  it('ASDF2', () => {
+  it('should transform enum members to string literals correctly with type imports', () => {
     const inputPath = path.join(__dirname, 'fixtures', 'input2.tsx')
     const outputPath = path.join(__dirname, 'fixtures', 'output2.tsx')
 

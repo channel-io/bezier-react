@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProgressBar, ProgressBarSize } from '@channel.io/bezier-react'
+import { ProgressBar, type ProgressBarSize } from '@channel.io/bezier-react'
 
 export default function UploadProgress({
   uploadProgressPercentage,
