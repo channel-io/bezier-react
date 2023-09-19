@@ -32,4 +32,18 @@ describe('enumMemberToStringLiteral', () => {
     expect(sourceFile.getFullText()).toBe(outputCode)
     expect(isMigrated).toBe(true)
   })
+
+  it('should transform enum members to string literals correctly with mixed imports', () => {
+    const inputPath = path.join(__dirname, 'fixtures', 'input3.tsx')
+    const outputPath = path.join(__dirname, 'fixtures', 'output3.tsx')
+
+    const inputCode = fs.readFileSync(inputPath, 'utf-8')
+    const outputCode = fs.readFileSync(outputPath, 'utf-8')
+    const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
+
+    const isMigrated = enumMemberToStringLiteral(sourceFile)
+
+    expect(sourceFile.getFullText()).toBe(outputCode)
+    expect(isMigrated).toBe(true)
+  })
 })

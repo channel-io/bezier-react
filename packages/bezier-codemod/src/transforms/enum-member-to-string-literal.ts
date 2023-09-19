@@ -17,12 +17,17 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile) {
         const memberValueDeclaration = lastIdentifier.getSymbol()?.getValueDeclaration()
 
         if (Node.isEnumMember(memberValueDeclaration)) {
-          const enumUsage = node.getFirstAncestorByKind(SyntaxKind.JsxExpression)
           const enumName = declarationSymbol?.getName()
           const enumMemberValue = memberValueDeclaration.getInitializer()?.getText()
 
-          if (enumUsage && enumName && enumMemberValue) {
-            enumUsage.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
+          if (enumName && enumMemberValue) {
+            const ancestor = node.getFirstAncestor()
+            if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
+              ancestor.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
+            } else {
+              node.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
+            }
+
             enumNames.push(enumName)
           }
         }
