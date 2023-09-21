@@ -17,7 +17,7 @@ import { Typography } from './Typography'
 import mdx from './Typography.mdx'
 
 export default {
-  title: '~/src/foundation/Typography',
+  title: 'Foundation/Typography',
   parameters: {
     docs: {
       page: mdx,
