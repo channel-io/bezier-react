@@ -8,14 +8,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
 export default {
-  title: getTitle(base),
   argTypes: {
     property: {
       control: {

@@ -4,15 +4,11 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import FormLabel from './FormLabel'
 import type FormLabelProps from './FormLabel.types'
 
 export default {
-  title: getTitle(base),
   component: FormLabel,
   argTypes: {
     children: {

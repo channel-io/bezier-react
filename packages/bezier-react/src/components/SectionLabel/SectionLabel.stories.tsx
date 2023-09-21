@@ -13,7 +13,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Typography,
@@ -21,7 +20,6 @@ import {
 } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { ListItem } from '~/src/components/ListItem'
 import type { ListItemProps } from '~/src/components/ListItem'
@@ -31,7 +29,6 @@ import SectionLabel from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 
 export default {
-  title: getTitle(base),
   component: SectionLabel,
 } as Meta
 

@@ -4,15 +4,11 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import Help from './Help'
 import type HelpProps from './Help.types'
 
 export default {
-  title: getTitle(base),
   component: Help,
   argTypes: {
     children: {

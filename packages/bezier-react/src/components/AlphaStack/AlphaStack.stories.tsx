@@ -4,12 +4,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { css } from '~/src/foundation/FoundationStyledComponent'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { AlphaStack } from './AlphaStack'
 import { type AlphaStackProps } from './AlphaStack.types'
@@ -17,7 +15,6 @@ import { type AlphaStackProps } from './AlphaStack.types'
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
 export default {
-  title: getTitle(base),
   component: AlphaStack,
   argTypes: {
     spacing: {

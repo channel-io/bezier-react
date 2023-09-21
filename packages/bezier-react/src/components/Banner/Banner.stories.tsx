@@ -15,13 +15,9 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { noop } from '~/src/utils/functionUtils'
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import {
   StackItem,
@@ -36,7 +32,6 @@ import {
 } from './Banner.types'
 
 export default {
-  title: getTitle(base),
   component: Banner,
   parameters: {
     docs: {

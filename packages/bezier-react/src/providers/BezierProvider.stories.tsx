@@ -4,15 +4,12 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   DarkFoundation,
   LightFoundation,
   styled,
 } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -28,7 +25,6 @@ interface BezierProviderStorybookProps {
 }
 
 export default {
-  title: getTitle(base),
   component: BezierProvider,
   argTypes: {
     foundation: {

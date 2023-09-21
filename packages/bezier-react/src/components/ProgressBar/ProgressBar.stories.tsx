@@ -4,9 +4,6 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -22,7 +19,6 @@ import mdx from './ProgressBar.mdx'
 import type ProgressBarProps from './ProgressBar.types'
 
 export default {
-  title: getTitle(base),
   component: ProgressBar,
   parameters: {
     docs: {

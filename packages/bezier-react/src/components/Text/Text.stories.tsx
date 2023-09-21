@@ -4,15 +4,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import Text from './Text'
 import type TextProps from './Text.types'
 
 export default {
-  title: getTitle(base),
   component: Text,
   argTypes: {
     /**

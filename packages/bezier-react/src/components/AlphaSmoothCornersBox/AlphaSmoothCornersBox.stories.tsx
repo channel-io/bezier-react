@@ -4,15 +4,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
 export default {
-  title: getTitle(base),
   component: AlphaSmoothCornersBox,
 } as Meta
 

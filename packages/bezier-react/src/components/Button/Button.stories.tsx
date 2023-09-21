@@ -23,14 +23,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Typography,
   styled,
 } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Avatar } from '~/src/components/Avatars/Avatar'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
@@ -58,7 +55,6 @@ import {
 } from './Button.types'
 
 export default {
-  title: getTitle(base),
   component: Button,
   parameters: {
     docs: {

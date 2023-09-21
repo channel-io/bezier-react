@@ -4,9 +4,6 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Checkbox } from '~/src/components/Forms/Checkbox'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
@@ -32,7 +29,6 @@ import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 
 export default {
-  title: getTitle(base),
   component: FormControl,
   argTypes: {
     labelPosition: {

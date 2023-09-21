@@ -4,9 +4,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   TagBadgeSize,
@@ -17,7 +14,6 @@ import { Tag } from './Tag'
 import type TagProps from './Tag.types'
 
 export default {
-  title: getTitle(base),
   component: Tag,
   argTypes: {
     size: {

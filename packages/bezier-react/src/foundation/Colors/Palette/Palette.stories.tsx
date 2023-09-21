@@ -1,15 +1,10 @@
 import React from 'react'
 
-import base from 'paths.macro'
-
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Palette } from './index'
 
 export default {
-  title: getTitle(base),
   parameters: {
     layout: 'fullscreen',
   },

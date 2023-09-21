@@ -4,15 +4,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import TagBadgeText from './TagBadgeText'
 import type TagBadgeTextProps from './TagBadgeText.types'
 
 export default {
-  title: getTitle(base),
   component: TagBadgeText,
   argTypes: {
     horizontalPadding: {

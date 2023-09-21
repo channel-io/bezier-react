@@ -4,15 +4,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Slider } from './Slider'
 import type SliderProps from './Slider.types'
 
 export default {
-  title: getTitle(base),
   component: Slider,
   argTypes: {
     value: {

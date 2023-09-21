@@ -4,11 +4,9 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
 
 import { StatusType } from '~/src/components/Status'
@@ -27,7 +25,6 @@ const statusTypeList = Object.keys(StatusType)
   .map(key => StatusType[key])
 
 export default {
-  title: getTitle(base),
   component: Avatar,
   argTypes: {
     size: {

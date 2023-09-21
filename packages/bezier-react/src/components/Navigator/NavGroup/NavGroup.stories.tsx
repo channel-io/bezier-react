@@ -8,9 +8,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Icon,
@@ -22,7 +19,6 @@ import NavGroup from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
 
 export default {
-  title: getTitle(base),
   component: NavGroup,
 } as Meta
 

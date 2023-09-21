@@ -12,12 +12,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
 import { Icon } from '~/src/components/Icon'
@@ -28,7 +26,6 @@ import type LegacySegmentedControlProps from './LegacySegmentedControl.types'
 import { LegacySegmentedControlSize } from './LegacySegmentedControl.types'
 
 export default {
-  title: getTitle(base),
   component: LegacySegmentedControl,
   argTypes: {
     width: {

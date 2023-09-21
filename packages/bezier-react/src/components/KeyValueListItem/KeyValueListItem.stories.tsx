@@ -10,9 +10,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -25,7 +22,6 @@ import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
 export default {
-  title: getTitle(base),
   component: KeyValueListItem,
 } as Meta
 

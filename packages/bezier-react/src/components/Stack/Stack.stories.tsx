@@ -4,7 +4,6 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   type SemanticNames,
@@ -14,7 +13,6 @@ import {
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -31,7 +29,6 @@ import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
 
 export default {
-  title: getTitle(base),
   parameters: {
     docs: {
       page: mdx,

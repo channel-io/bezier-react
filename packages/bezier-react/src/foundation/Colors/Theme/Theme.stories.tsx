@@ -4,17 +4,13 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Themes,
   styled,
 } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
 export default {
-  title: getTitle(base),
   parameters: {
     layout: 'fullscreen',
   },

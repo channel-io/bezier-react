@@ -8,10 +8,8 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { compact } from '~/src/utils/arrayUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import ListItem from './ListItem'
 import type ListItemProps from './ListItem.types'
@@ -21,7 +19,6 @@ import {
 } from './ListItem.types'
 
 export default {
-  title: getTitle(base),
   component: ListItem,
 } as Meta
 

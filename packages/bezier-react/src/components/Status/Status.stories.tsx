@@ -4,11 +4,8 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Status } from './Status'
 import {
@@ -18,7 +15,6 @@ import {
 } from './Status.types'
 
 export default {
-  title: getTitle(base),
   component: Status,
   argTypes: {
     type: {

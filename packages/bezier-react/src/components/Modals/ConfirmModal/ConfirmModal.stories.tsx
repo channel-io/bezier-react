@@ -8,9 +8,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -94,7 +91,6 @@ function ConfirmModalComposition({
 }
 
 export default {
-  title: getTitle(base),
   component: ConfirmModalComposition,
   subcomponents: {
     ConfirmModal,

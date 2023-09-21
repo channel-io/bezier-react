@@ -15,10 +15,7 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Avatar,
@@ -29,7 +26,6 @@ import OutlineItem from './OutlineItem'
 import type OutlineItemProps from './OutlineItem.types'
 
 export default {
-  title: getTitle(base),
   component: OutlineItem,
   argTypes: {
     open: {

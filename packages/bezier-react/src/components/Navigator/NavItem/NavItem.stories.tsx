@@ -5,9 +5,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Icon,
@@ -18,7 +15,6 @@ import NavItem from './NavItem'
 import type NavItemProps from './NavItem.types'
 
 export default {
-  title: getTitle(base),
   component: NavItem,
 } as Meta
 

@@ -9,12 +9,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 import { isFunction } from '~/src/utils/typeUtils'
 
 import { Text } from '~/src/components/Text'
@@ -120,7 +118,6 @@ function TabsComposition({
 }
 
 export default {
-  title: getTitle(base),
   component: TabsComposition,
   subcomponents: {
     Tabs,

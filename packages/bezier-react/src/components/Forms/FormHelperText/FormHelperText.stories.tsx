@@ -4,9 +4,6 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   FormErrorMessage,
@@ -18,7 +15,6 @@ import {
 } from './FormHelperText.types'
 
 export default {
-  title: getTitle(base),
   component: FormHelperText,
 } as Meta
 

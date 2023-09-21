@@ -4,7 +4,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Spacing,
@@ -12,12 +11,10 @@ import {
 } from '~/src/foundation'
 
 import { type Entries } from '~/src/types/Utils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
 export default {
-  title: getTitle(base),
 } as Meta
 
 interface SpacingRectProps {

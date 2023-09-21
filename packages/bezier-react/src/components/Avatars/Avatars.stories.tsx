@@ -4,12 +4,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Avatar,
@@ -35,13 +33,13 @@ import { Text } from '~/src/components/Text'
 import mdx from './Avatars.mdx'
 
 export default {
-  title: getTitle(base),
+  component: Avatar,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-} as Meta
+} as Meta<typeof Avatar>
 
 const SAMPLE_AVATARS = [
   {

@@ -4,14 +4,10 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import Emoji from './Emoji'
 import type EmojiProps from './Emoji.types'
@@ -20,7 +16,6 @@ import { EmojiSize } from './Emoji.types'
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/blush.png'
 
 export default {
-  title: getTitle(base),
   component: Emoji,
   argTypes: {
     size: {

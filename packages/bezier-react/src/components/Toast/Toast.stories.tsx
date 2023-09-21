@@ -10,15 +10,11 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import {
-  getTitle,
-  iconList,
-} from '~/src/utils/storyUtils'
+import { iconList } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -42,7 +38,6 @@ import ToastProvider from './ToastProvider'
 import useToast from './useToast'
 
 export default {
-  title: getTitle(base),
   component: ToastElement,
   argTypes: {
     preset: {

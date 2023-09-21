@@ -4,11 +4,8 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { ListItem } from '~/src/components/ListItem'
 
@@ -16,7 +13,6 @@ import Divider from './Divider'
 import type DividerProps from './Divider.types'
 
 export default {
-  title: getTitle(base),
   component: Divider,
   argTypes: {
     orientation: {

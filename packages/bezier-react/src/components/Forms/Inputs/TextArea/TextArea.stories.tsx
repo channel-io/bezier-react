@@ -7,19 +7,14 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import TextArea from './TextArea'
 import type TextAreaProps from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'
 
 export default {
-  title: getTitle(base),
   component: TextArea,
   argTypes: {
     minRows: {

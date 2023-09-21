@@ -5,12 +5,8 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
@@ -19,7 +15,6 @@ import type SelectProps from './Select.types'
 import { SelectSize } from './Select.types'
 
 export default {
-  title: getTitle(base),
   component: Select,
   argTypes: {
     size: {

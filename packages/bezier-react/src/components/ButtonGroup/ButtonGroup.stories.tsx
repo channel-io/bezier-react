@@ -4,11 +4,8 @@ import type {
   Meta,
   Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -24,7 +21,6 @@ import mdx from './ButtonGroup.mdx'
 import type ButtonGroupProps from './ButtonGroup.types'
 
 export default {
-  title: getTitle(base),
   component: ButtonGroup,
   parameters: {
     docs: {

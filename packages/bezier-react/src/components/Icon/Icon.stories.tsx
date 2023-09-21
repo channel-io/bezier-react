@@ -24,7 +24,6 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   LightFoundation,
@@ -35,7 +34,6 @@ import {
 
 import {
   getObjectFromEnum,
-  getTitle,
   iconList,
 } from '~/src/utils/storyUtils'
 import { camelCase } from '~/src/utils/stringUtils'
@@ -57,7 +55,6 @@ import {
 } from './Icon.types'
 
 export default {
-  title: getTitle(base),
   component: Icon,
   parameters: {
     docs: {

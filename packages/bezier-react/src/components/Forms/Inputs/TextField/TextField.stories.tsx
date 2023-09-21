@@ -9,12 +9,8 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import TextField from './TextField'
 import {
@@ -25,7 +21,6 @@ import {
 } from './TextField.types'
 
 export default {
-  title: getTitle(base),
   component: TextField,
 } as Meta
 

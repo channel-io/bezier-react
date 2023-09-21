@@ -4,9 +4,7 @@ import {
   type Meta,
   type Story,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
-import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
 
 import {
@@ -26,7 +24,6 @@ const avatarSizeList = Object.keys(AvatarSize)
   .map(key => AvatarSize[key])
 
 export default {
-  title: getTitle(base),
   component: AvatarGroup,
   argTypes: {
     ellipsisType: {
