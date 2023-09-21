@@ -40,6 +40,7 @@ import {
 import mdx from './TagBadge.mdx'
 
 export default {
+  component: Badge,
   parameters: {
     docs: {
       page: mdx,

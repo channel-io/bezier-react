@@ -29,6 +29,7 @@ import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
 
 export default {
+  component: Stack,
   parameters: {
     docs: {
       page: mdx,

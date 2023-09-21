@@ -8,6 +8,7 @@ import {
 import { styled } from '~/src/foundation'
 
 export default {
+  title: 'Foundation/Border',
   argTypes: {
     top: { control: 'boolean' },
     right: { control: 'boolean' },

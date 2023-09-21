@@ -12,6 +12,7 @@ import {
 import { styled } from '~/src/foundation'
 
 export default {
+  title: 'Foundation/Transition',
   argTypes: {
     property: {
       control: {

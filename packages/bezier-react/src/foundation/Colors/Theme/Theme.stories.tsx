@@ -11,6 +11,7 @@ import {
 } from '~/src/foundation'
 
 export default {
+  title: 'Foundation/Theme',
   parameters: {
     layout: 'fullscreen',
   },

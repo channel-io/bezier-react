@@ -15,6 +15,7 @@ import ListMenuTitle from './ListMenuTitle'
 import type ListMenuTitleProps from './ListMenuTitle.types'
 
 export default {
+  component: ListMenuTitle,
 } as Meta
 
 const Template: Story<ListMenuTitleProps> = ({

@@ -8,6 +8,7 @@ import {
 import { styled } from '~/src/foundation'
 
 export default {
+  title: 'Foundation/Rounding',
   argTypes: {
     round: {
       control: {

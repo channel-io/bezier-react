@@ -8,6 +8,7 @@ import {
 import { styled } from '~/src/foundation'
 
 export default {
+  title: 'Foundation/Elevation',
   argTypes: {
     ev: {
       control: {

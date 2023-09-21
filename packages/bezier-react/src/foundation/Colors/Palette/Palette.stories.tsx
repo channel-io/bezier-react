@@ -5,6 +5,7 @@ import { styled } from '~/src/foundation'
 import { Palette } from './index'
 
 export default {
+  title: 'Foundation/Palette',
   parameters: {
     layout: 'fullscreen',
   },

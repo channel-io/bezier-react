@@ -15,6 +15,7 @@ import { type Entries } from '~/src/types/Utils'
 import { Text } from '~/src/components/Text'
 
 export default {
+  title: 'Foundation/Spacing',
 } as Meta
 
 interface SpacingRectProps {
