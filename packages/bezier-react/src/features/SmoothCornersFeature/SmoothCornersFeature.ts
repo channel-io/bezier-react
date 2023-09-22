@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-restricted-imports
 import {
-  Feature,
+  type Feature,
   FeatureType,
 } from '../Feature'
 
@@ -34,7 +34,9 @@ declare global {
  * Instead of CSS border-radius, Use *Superellipse* masking using the CSS Houdini API.
  * When enabled, the feature will be applied to components with the `smoothCorners` property set to `true`.
  */
-class SmoothCornersFeature extends Feature {
+class SmoothCornersFeature implements Feature {
+  readonly name = FeatureType.SmoothCorners
+
   private globalObject: typeof globalThis | null = null
 
   /**
@@ -75,4 +77,4 @@ class SmoothCornersFeature extends Feature {
   }
 }
 
-export default new SmoothCornersFeature(FeatureType.SmoothCorners)
+export default new SmoothCornersFeature()
