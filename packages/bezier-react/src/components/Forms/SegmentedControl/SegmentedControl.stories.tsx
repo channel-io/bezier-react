@@ -65,7 +65,7 @@ const VALUES = [
 ]
 
 const Template: StoryFn<
-SegmentedControlProps<SegmentedControlType, string>
+SegmentedControlProps<'radiogroup', string>
 > = ({ type, ...rest }) => (
   <div style={{ width: 500 }}>
     <SegmentedControl
