@@ -2,7 +2,8 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
 
 import {
@@ -18,18 +19,22 @@ export default {
   component: FormHelperText,
 } as Meta
 
-const Template: Story<FormHelperTextProps> = props => <FormHelperText {...props} />
-
-export const Primary: Story<FormHelperTextProps> = Template.bind({})
-Primary.args = {
-  id: 'test',
-  children: 'Description',
+export const Primary: StoryObj<FormHelperTextProps> = {
+  args: {
+    id: 'test',
+    children: 'Description',
+  },
 }
 
-const ErrorMessageTemplate: Story<FormErrorMessageProps> = props => <FormErrorMessage {...props} />
+const ErrorMessageTemplate: StoryFn<FormErrorMessageProps> = (props) => (
+  <FormErrorMessage {...props} />
+)
 
-export const ErrorMessage: Story<FormErrorMessageProps> = ErrorMessageTemplate.bind({})
-ErrorMessage.args = {
-  id: 'test',
-  children: 'Error!',
+export const ErrorMessage: StoryObj<FormErrorMessageProps> = {
+  render: ErrorMessageTemplate,
+
+  args: {
+    id: 'test',
+    children: 'Error!',
+  },
 }

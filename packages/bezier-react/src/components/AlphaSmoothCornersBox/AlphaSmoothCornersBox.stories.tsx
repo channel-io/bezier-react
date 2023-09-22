@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
@@ -12,7 +12,10 @@ export default {
   component: AlphaSmoothCornersBox,
 } as Meta
 
-const Template: Story<AlphaSmoothCornersBoxProps> = ({ children, ...otherCheckboxProps }) => (
+const Template: StoryFn<AlphaSmoothCornersBoxProps> = ({
+  children,
+  ...otherCheckboxProps
+}) => (
   <AlphaSmoothCornersBox
     style={{ width: 200, height: 200 }}
     {...otherCheckboxProps}
@@ -21,18 +24,21 @@ const Template: Story<AlphaSmoothCornersBoxProps> = ({ children, ...otherCheckbo
   </AlphaSmoothCornersBox>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  disabled: false,
-  borderRadius: '42%',
-  shadow: {
-    offsetX: 0,
-    offsetY: 0,
-    blurRadius: 10,
-    spreadRadius: 10,
-    color: 'bg-black-dark',
+export const Primary = {
+  render: Template,
+
+  args: {
+    disabled: false,
+    borderRadius: '42%',
+    shadow: {
+      offsetX: 0,
+      offsetY: 0,
+      blurRadius: 10,
+      spreadRadius: 10,
+      color: 'bg-black-dark',
+    },
+    margin: 0,
+    backgroundColor: 'bgtxt-absolute-white-normal',
+    backgroundImage: '',
   },
-  margin: 0,
-  backgroundColor: 'bgtxt-absolute-white-normal',
-  backgroundImage: '',
 }

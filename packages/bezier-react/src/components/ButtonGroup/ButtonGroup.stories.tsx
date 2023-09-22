@@ -2,7 +2,8 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -37,26 +38,23 @@ const Wrapper = styled.div`
   height: 200px;
 `
 
-const Template: Story<ButtonGroupProps> = (props) => (
+const Template: StoryFn<ButtonGroupProps> = (props) => (
   <Wrapper>
     <Spacer />
     <StackItem>
       <ButtonGroup {...props}>
-        <Button
-          text="취소"
-          styleVariant={ButtonStyleVariant.Secondary}
-        />
-        <Button
-          text="확인"
-          styleVariant={ButtonStyleVariant.Primary}
-        />
+        <Button text="취소" styleVariant={ButtonStyleVariant.Secondary} />
+        <Button text="확인" styleVariant={ButtonStyleVariant.Primary} />
       </ButtonGroup>
     </StackItem>
     <Spacer />
   </Wrapper>
 )
 
-export const Playground: Story<ButtonGroupProps> = Template.bind({})
-Playground.args = {
-  withoutSpacing: false,
+export const Playground: StoryObj<ButtonGroupProps> = {
+  render: Template,
+
+  args: {
+    withoutSpacing: false,
+  },
 }

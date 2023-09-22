@@ -5,7 +5,7 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -32,14 +32,17 @@ export default {
   },
 } as Meta
 
-const Template: Story<TextAreaProps> = (args) => {
+const Template: StoryFn<TextAreaProps> = (args) => {
   const [value, setValue] = useState('12345')
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    // eslint-disable-next-line no-console
-    console.log(e)
-    setValue(e.target.value)
-  }, [])
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      // eslint-disable-next-line no-console
+      console.log(e)
+      setValue(e.target.value)
+    },
+    [],
+  )
 
   return (
     <div style={{ width: 500 }}>
@@ -52,14 +55,16 @@ const Template: Story<TextAreaProps> = (args) => {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  autoFocus: true,
-  readOnly: false,
-  disabled: false,
-  hasError: false,
-  minRows: TextAreaHeight.Row6,
-  maxRows: TextAreaHeight.Row10,
-  placeholder: 'say hi to autoResizable textarea!',
+  args: {
+    autoFocus: true,
+    readOnly: false,
+    disabled: false,
+    hasError: false,
+    minRows: TextAreaHeight.Row6,
+    maxRows: TextAreaHeight.Row10,
+    placeholder: 'say hi to autoResizable textarea!',
+  },
 }

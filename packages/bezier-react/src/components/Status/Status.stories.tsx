@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -35,14 +36,17 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<StatusProps> = (args) => (
+const Template: StoryFn<StatusProps> = (args) => (
   <Wrapper>
     <Status {...args} />
   </Wrapper>
 )
 
-export const Primary: Story<StatusProps> = Template.bind({})
-Primary.args = {
-  type: StatusType.Online,
-  size: StatusSize.M,
+export const Primary: StoryObj<StatusProps> = {
+  render: Template,
+
+  args: {
+    type: StatusType.Online,
+    size: StatusSize.M,
+  },
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -32,13 +32,11 @@ export default {
   },
 } as Meta
 
-const Template: Story<EmojiProps> = (args) => <Emoji {...args} />
-
-export const Primary = Template.bind({})
-
-Primary.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+export const Primary = {
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }
 
 const Wrapper = styled.button`
@@ -56,20 +54,22 @@ const Wrapper = styled.button`
   }
 `
 
-const HoverTemplate: Story<EmojiProps> = (args) => (
+const HoverTemplate: StoryFn<EmojiProps> = (args) => (
   <Wrapper>
     <Emoji {...args} />
   </Wrapper>
 )
 
-export const WithHover = HoverTemplate.bind({})
+export const WithHover = {
+  render: HoverTemplate,
 
-WithHover.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }
 
-const MultipleTemplate: Story<EmojiProps> = (args) => (
+const MultipleTemplate: StoryFn<EmojiProps> = (args) => (
   <>
     <Wrapper>
       <Emoji {...args} />
@@ -89,9 +89,11 @@ const MultipleTemplate: Story<EmojiProps> = (args) => (
   </>
 )
 
-export const WithMultipleEmoji = MultipleTemplate.bind({})
+export const WithMultipleEmoji = {
+  render: MultipleTemplate,
 
-WithMultipleEmoji.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }

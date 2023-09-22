@@ -1,8 +1,6 @@
-import React from 'react'
-
 import type {
   Meta,
-  Story,
+  StoryObj,
 } from '@storybook/react'
 
 import Help from './Help'
@@ -19,9 +17,8 @@ export default {
   },
 } as Meta
 
-const Template: Story<HelpProps> = props => <Help {...props} />
-
-export const Primary: Story<HelpProps> = Template.bind({})
-Primary.args = {
-  children: 'Lorem ipsum',
+export const Primary: StoryObj<HelpProps> = {
+  args: {
+    children: 'Lorem ipsum',
+  },
 }

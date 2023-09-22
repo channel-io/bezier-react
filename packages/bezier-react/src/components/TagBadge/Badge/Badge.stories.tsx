@@ -3,7 +3,8 @@ import React from 'react'
 import { AppleIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import {
@@ -32,19 +33,17 @@ export default {
   },
 } as Meta
 
-const Template: Story<BadgeProps> = ({
-  children,
-  ...badgeProps
-}) => (
-  <Badge {...badgeProps}>
-    { children }
-  </Badge>
+const Template: StoryFn<BadgeProps> = ({ children, ...badgeProps }) => (
+  <Badge {...badgeProps}>{ children }</Badge>
 )
 
-export const Primary: Story<BadgeProps> = Template.bind({})
-Primary.args = {
-  children: 'Design',
-  size: TagBadgeSize.M,
-  icon: AppleIcon,
-  variant: TagBadgeVariant.Default,
+export const Primary: StoryObj<BadgeProps> = {
+  render: Template,
+
+  args: {
+    children: 'Design',
+    size: TagBadgeSize.M,
+    icon: AppleIcon,
+    variant: TagBadgeVariant.Default,
+  },
 }

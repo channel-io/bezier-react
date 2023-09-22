@@ -6,7 +6,8 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import {
@@ -22,7 +23,7 @@ export default {
   component: NavGroup,
 } as Meta
 
-const Template: Story<NavGroupProps> = (args) => (
+const Template: StoryFn<NavGroupProps> = (args) => (
   <nav
     style={{ width: '240px', padding: '6px' }}
     aria-label="navgroup storybook"
@@ -46,13 +47,17 @@ const Template: Story<NavGroupProps> = (args) => (
   </nav>
 )
 
-export const Primary: Story<NavGroupProps> = Template.bind({})
+export const Primary: StoryObj<NavGroupProps> = {
+  render: Template,
 
-Primary.args = {
-  open: true,
-  active: false,
-  name: 'general',
-  content: '일반 설정',
-  leftIcon: SettingsIcon,
-  rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
+  args: {
+    open: true,
+    active: false,
+    name: 'general',
+    content: '일반 설정',
+    leftIcon: SettingsIcon,
+    rightContent: (
+      <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />
+    ),
+  },
 }

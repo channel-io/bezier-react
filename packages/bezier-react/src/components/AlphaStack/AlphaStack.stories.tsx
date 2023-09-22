@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { css } from '~/src/foundation/FoundationStyledComponent'
@@ -43,7 +43,7 @@ export default {
   },
 } as Meta<AlphaStackProps>
 
-const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
+const Template: StoryFn<AlphaStackProps> = ({ children, ...rest }) => (
   <AlphaStack {...rest}>
     <>
       { range(4).map((i) =>
@@ -53,12 +53,16 @@ const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
   </AlphaStack>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  style: {
-    width: '200px',
-    height: '200px',
+  args: {
+    style: {
+      width: '200px',
+      height: '200px',
+    },
+    interpolation: css`
+      background-color: blue;
+    `,
   },
-  interpolation: css`background-color: blue;`,
 }

@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import {
@@ -31,17 +32,18 @@ export default {
   },
 } as Meta
 
-const Template: Story<TagProps> = ({ children, ...otherProps }) => (
-  <Tag {...otherProps}>
-    { children }
-  </Tag>
+const Template: StoryFn<TagProps> = ({ children, ...otherProps }) => (
+  <Tag {...otherProps}>{ children }</Tag>
 )
 
-export const Primary: Story<TagProps> = Template.bind({})
-Primary.args = {
-  children: 'Design',
-  size: TagBadgeSize.M,
-  variant: TagBadgeVariant.Default,
-  // eslint-disable-next-line no-console
-  onDelete: console.log,
+export const Primary: StoryObj<TagProps> = {
+  render: Template,
+
+  args: {
+    children: 'Design',
+    size: TagBadgeSize.M,
+    variant: TagBadgeVariant.Default,
+    // eslint-disable-next-line no-console
+    onDelete: console.log,
+  },
 }

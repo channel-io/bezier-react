@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import TagBadgeText from './TagBadgeText'
@@ -24,18 +25,18 @@ export default {
      * 임시로 typo 를 controls 에서 제거하였음.
      */
     typo: { table: { disable: true } },
-
   },
 } as Meta
 
-const Template: Story<TagBadgeTextProps> = ({ children, ...otherProps }) => (
-  <TagBadgeText {...otherProps}>
-    { children }
-  </TagBadgeText>
+const Template: StoryFn<TagBadgeTextProps> = ({ children, ...otherProps }) => (
+  <TagBadgeText {...otherProps}>{ children }</TagBadgeText>
 )
 
-export const Primary: Story<TagBadgeTextProps> = Template.bind({})
-Primary.args = {
-  children: 'hello',
-  horizontalPadding: 4,
+export const Primary: StoryObj<TagBadgeTextProps> = {
+  render: Template,
+
+  args: {
+    children: 'hello',
+    horizontalPadding: 4,
+  },
 }

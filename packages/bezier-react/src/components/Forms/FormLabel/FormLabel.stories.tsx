@@ -1,8 +1,6 @@
-import React from 'react'
-
 import type {
   Meta,
-  Story,
+  StoryObj,
 } from '@storybook/react'
 
 import FormLabel from './FormLabel'
@@ -24,11 +22,10 @@ export default {
   },
 } as Meta
 
-const Template: Story<FormLabelProps> = props => <FormLabel {...props} />
-
-export const Primary: Story<FormLabelProps> = Template.bind({})
-Primary.args = {
-  htmlFor: 'test',
-  help: 'Lorem ipsum',
-  children: 'Label',
+export const Primary: StoryObj<FormLabelProps> = {
+  args: {
+    htmlFor: 'test',
+    help: 'Lorem ipsum',
+    children: 'Label',
+  },
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { Checkbox } from './Checkbox'
@@ -27,26 +27,31 @@ export default {
   },
 } as Meta
 
-const Template: Story<CheckboxProps<CheckedState>> = ({ children, ...otherCheckboxProps }) => (
-  <Checkbox {...otherCheckboxProps}>
-    { children }
-  </Checkbox>
-)
+const Template: StoryFn<CheckboxProps<CheckedState>> = ({
+  children,
+  ...otherCheckboxProps
+}) => <Checkbox {...otherCheckboxProps}>{ children }</Checkbox>
 
-export const Controlled = Template.bind({})
-Controlled.args = {
-  checked: true,
-  disabled: false,
-  required: false,
-  hasError: false,
-  children: 'Option',
+export const Controlled = {
+  render: Template,
+
+  args: {
+    checked: true,
+    disabled: false,
+    required: false,
+    hasError: false,
+    children: 'Option',
+  },
 }
 
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-  defaultChecked: true,
-  disabled: false,
-  required: false,
-  hasError: false,
-  children: 'Option',
+export const Uncontrolled = {
+  render: Template,
+
+  args: {
+    defaultChecked: true,
+    disabled: false,
+    required: false,
+    hasError: false,
+    children: 'Option',
+  },
 }

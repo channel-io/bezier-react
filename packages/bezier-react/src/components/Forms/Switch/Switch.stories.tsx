@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -36,17 +36,25 @@ export default {
   },
 } as Meta
 
-const Template: Story<SwitchProps> = ({ ...otherSwitchProps }) => <Switch {...otherSwitchProps} />
+const Template: StoryFn<SwitchProps> = ({ ...otherSwitchProps }) => (
+  <Switch {...otherSwitchProps} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  size: SwitchSize.M,
-  checked: true,
-  disabled: false,
+export const Primary = {
+  render: Template,
+
+  args: {
+    size: SwitchSize.M,
+    checked: true,
+    disabled: false,
+  },
 }
 
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-  size: SwitchSize.M,
-  disabled: false,
+export const Uncontrolled = {
+  render: Template,
+
+  args: {
+    size: SwitchSize.M,
+    disabled: false,
+  },
 }

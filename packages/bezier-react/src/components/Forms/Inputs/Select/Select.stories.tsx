@@ -3,7 +3,7 @@ import React from 'react'
 import { CalendarIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -32,21 +32,27 @@ export default {
   },
 } as Meta
 
-const Template: Story<SelectProps & { wrapperSize: number }> = ({ wrapperSize, ...args }) => (
+const Template: StoryFn<SelectProps & { wrapperSize: number }> = ({
+  wrapperSize,
+  ...args
+}) => (
   <div style={{ width: wrapperSize }}>
     <Select {...args} />
   </div>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  placeholder: '날짜를 선택해주세요',
-  text: '2022. 7. 14.',
-  leftContent: CalendarIcon,
-  rightContent: (<Text marginLeft={4}>일</Text>),
-  disabled: false,
-  readOnly: false,
-  withoutChevron: false,
-  hasError: false,
-  size: SelectSize.M,
+export const Primary = {
+  render: Template,
+
+  args: {
+    placeholder: '날짜를 선택해주세요',
+    text: '2022. 7. 14.',
+    leftContent: CalendarIcon,
+    rightContent: <Text marginLeft={4}>일</Text>,
+    disabled: false,
+    readOnly: false,
+    withoutChevron: false,
+    hasError: false,
+    size: SelectSize.M,
+  },
 }

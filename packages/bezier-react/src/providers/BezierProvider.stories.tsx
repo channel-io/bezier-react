@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import {
@@ -30,10 +31,7 @@ export default {
     foundation: {
       control: {
         type: 'select',
-        options: [
-          'light',
-          'dark',
-        ],
+        options: ['light', 'dark'],
       },
     },
   },
@@ -41,7 +39,7 @@ export default {
 
 const ButtonWrapper = styled(Button)``
 
-const Template: Story<BezierProviderStorybookProps> = ({ foundation }) => (
+const Template: StoryFn<BezierProviderStorybookProps> = ({ foundation }) => (
   <BezierProvider
     foundation={foundation === 'dark' ? DarkFoundation : LightFoundation}
     themeVarsScope={ButtonWrapper}
@@ -55,7 +53,10 @@ const Template: Story<BezierProviderStorybookProps> = ({ foundation }) => (
   </BezierProvider>
 )
 
-export const Primary: Story<BezierProviderStorybookProps> = Template.bind({})
-Primary.args = {
-  foundation: 'light',
+export const Primary: StoryObj<BezierProviderStorybookProps> = {
+  render: Template,
+
+  args: {
+    foundation: 'light',
+  },
 }

@@ -7,7 +7,8 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -31,10 +32,9 @@ import {
   type TabsProps,
 } from './Tabs.types'
 
-type TabsCompositionProps =
-  & TabsProps
-  & TabListProps
-  & TabActionProps<string | undefined>
+type TabsCompositionProps = TabsProps &
+TabListProps &
+TabActionProps<string | undefined>
 
 const Wrapper = styled.div`
   display: flex;
@@ -140,21 +140,27 @@ export default {
   },
 } as Meta<TabsProps>
 
-const Template: Story<TabsCompositionProps> = TabsComposition
+const Template: StoryFn<TabsCompositionProps> = TabsComposition
 
-export const Composition: Story<TabsCompositionProps> = Template.bind({})
-Composition.args = {
-  size: TabSize.M,
-  onValueChange: noop,
-  defaultValue: undefined,
-  activationMode: 'automatic',
-  value: 'One',
+export const Composition: StoryObj<TabsCompositionProps> = {
+  render: Template,
+
+  args: {
+    size: TabSize.M,
+    onValueChange: noop,
+    defaultValue: undefined,
+    activationMode: 'automatic',
+    value: 'One',
+  },
 }
 
-export const UnControlled: Story<TabsCompositionProps> = Template.bind({})
-UnControlled.args = {
-  size: TabSize.M,
-  onValueChange: noop,
-  defaultValue: 'One',
-  activationMode: 'automatic',
+export const UnControlled: StoryObj<TabsCompositionProps> = {
+  render: Template,
+
+  args: {
+    size: TabSize.M,
+    onValueChange: noop,
+    defaultValue: 'One',
+    activationMode: 'automatic',
+  },
 }

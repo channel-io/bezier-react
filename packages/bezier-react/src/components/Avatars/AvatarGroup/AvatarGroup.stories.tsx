@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { isNaN } from '~/src/utils/typeUtils'
@@ -63,22 +64,21 @@ export default {
   },
 } as Meta
 
-const Template: Story<AvatarGroupProps> = (args) => (
+const Template: StoryFn<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>
     { MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
-      <Avatar
-        key={id}
-        avatarUrl={avatarUrl}
-        name={name}
-      />
+      <Avatar key={id} avatarUrl={avatarUrl} name={name} />
     )) }
   </AvatarGroup>
 )
 
-export const Primary: Story<AvatarGroupProps> = Template.bind({})
-Primary.args = {
-  max: 5,
-  size: AvatarSize.Size30,
-  ellipsisType: AvatarGroupEllipsisType.Icon,
-  spacing: 4,
+export const Primary: StoryObj<AvatarGroupProps> = {
+  render: Template,
+
+  args: {
+    max: 5,
+    size: AvatarSize.Size30,
+    ellipsisType: AvatarGroupEllipsisType.Icon,
+    spacing: 4,
+  },
 }

@@ -61,4 +61,6 @@ const Template = () => (
   </PaletteChipArtBoard>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
+}

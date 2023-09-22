@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -22,7 +22,6 @@ import {
 import { SegmentedControlItem } from './SegmentedControlItem'
 
 export default {
-
   component: SegmentedControl,
   argTypes: {
     type: {
@@ -65,11 +64,9 @@ const VALUES = [
   },
 ]
 
-const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({
-  children,
-  type,
-  ...rest
-}) => (
+const Template: StoryFn<
+SegmentedControlProps<SegmentedControlType, string>
+> = ({ type, ...rest }) => (
   <div style={{ width: 500 }}>
     <SegmentedControl
       type={type}
@@ -113,13 +110,15 @@ const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({
   </div>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  type: 'radiogroup',
-  size: SegmentedControlSize.XS,
-  width: '100%',
-  value: undefined,
-  defaultValue: undefined,
-  disabled: false,
+  args: {
+    type: 'radiogroup',
+    size: SegmentedControlSize.XS,
+    width: '100%',
+    value: undefined,
+    defaultValue: undefined,
+    disabled: false,
+  },
 }

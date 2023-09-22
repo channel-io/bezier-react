@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -44,14 +44,17 @@ const BorderChip = styled.div<BorderChipProps>`
     foundation?.border?.getBorder(width, color, { top, right, bottom, left })};
 `
 
-const Template: Story<BorderChipProps> = (args) => <BorderChip {...args} />
+const Template: StoryFn<BorderChipProps> = (args) => <BorderChip {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-  width: 1,
-  color: 'black',
-  top: true,
-  right: true,
-  bottom: true,
-  left: true,
+export const Primary = {
+  render: Template,
+
+  args: {
+    width: 1,
+    color: 'black',
+    top: true,
+    right: true,
+    bottom: true,
+    left: true,
+  },
 }

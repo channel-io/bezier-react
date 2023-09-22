@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -82,7 +83,7 @@ const NAVER_TALK_AVATAR = {
   avatarUrl: 'https://cf.channel.io/asset/plugin/images/app-messenger-naver-talk.png',
 }
 
-export const Overview: Story<{}> = () => (
+export const Overview: StoryFn<{}> = () => (
   <VStack spacing={16}>
     <StackItem>
       <HStack spacing={16}>
@@ -146,33 +147,29 @@ export const Overview: Story<{}> = () => (
       <HStack spacing={16}>
         <StackItem>
           <AvatarGroup max={4} size={AvatarSize.Size36}>
-            { range(6).map(i => (
-              <Avatar
-                key={i}
-                {...SAMPLE_AVATARS[0]}
-              />
+            { range(6).map((i) => (
+              <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
         </StackItem>
 
         <StackItem>
           <AvatarGroup max={4} spacing={-8} size={AvatarSize.Size36}>
-            { range(6).map(i => (
-              <Avatar
-                key={i}
-                {...SAMPLE_AVATARS[0]}
-              />
+            { range(6).map((i) => (
+              <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
         </StackItem>
 
         <StackItem>
-          <AvatarGroup max={4} spacing={-8} ellipsisType={AvatarGroupEllipsisType.Count} size={AvatarSize.Size36}>
-            { range(6).map(i => (
-              <Avatar
-                key={i}
-                {...SAMPLE_AVATARS[0]}
-              />
+          <AvatarGroup
+            max={4}
+            spacing={-8}
+            ellipsisType={AvatarGroupEllipsisType.Count}
+            size={AvatarSize.Size36}
+          >
+            { range(6).map((i) => (
+              <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
         </StackItem>
@@ -181,31 +178,30 @@ export const Overview: Story<{}> = () => (
   </VStack>
 )
 
-export const UsageBasic: Story<{}> = () => (
-  <HStack spacing={16}>
-    { SAMPLE_AVATARS.map(meta => (
-      <StackItem key={meta.name}>
-        <Avatar
-          {...meta}
-          size={AvatarSize.Size36}
-        />
-      </StackItem>
-    )) }
-  </HStack>
-)
+export const UsageBasic: StoryObj<{}> = {
+  render: () => (
+    <HStack spacing={16}>
+      { SAMPLE_AVATARS.map((meta) => (
+        <StackItem key={meta.name}>
+          <Avatar {...meta} size={AvatarSize.Size36} />
+        </StackItem>
+      )) }
+    </HStack>
+  ),
 
-UsageBasic.storyName = 'Usage (basic)'
+  name: 'Usage (basic)',
+}
 
-export const UsagePresetStatus: Story<{}> = () => (
-  <HStack spacing={16}>
-    { [
-      StatusType.Online,
-      StatusType.Offline,
-      StatusType.Lock,
-      StatusType.OnlineCrescent,
-      StatusType.OfflineCrescent,
-    ]
-      .map(status => (
+export const UsagePresetStatus: StoryObj<{}> = {
+  render: () => (
+    <HStack spacing={16}>
+      { [
+        StatusType.Online,
+        StatusType.Offline,
+        StatusType.Lock,
+        StatusType.OnlineCrescent,
+        StatusType.OfflineCrescent,
+      ].map((status) => (
         <StackItem key={status}>
           <Avatar
             {...SAMPLE_AVATARS[0]}
@@ -214,15 +210,16 @@ export const UsagePresetStatus: Story<{}> = () => (
           />
         </StackItem>
       )) }
-  </HStack>
-)
+    </HStack>
+  ),
 
-UsagePresetStatus.storyName = 'Usage (with preset status)'
+  name: 'Usage (with preset status)',
+}
 
-export const UsagePresetStatusWithSize: Story<{}> = () => (
-  <HStack spacing={16}>
-    { [AvatarSize.Size24, AvatarSize.Size36, AvatarSize.Size48]
-      .map(size => (
+export const UsagePresetStatusWithSize: StoryObj<{}> = {
+  render: () => (
+    <HStack spacing={16}>
+      { [AvatarSize.Size24, AvatarSize.Size36, AvatarSize.Size48].map((size) => (
         <StackItem key={size}>
           <Avatar
             {...SAMPLE_AVATARS[0]}
@@ -231,10 +228,11 @@ export const UsagePresetStatusWithSize: Story<{}> = () => (
           />
         </StackItem>
       )) }
-  </HStack>
-)
+    </HStack>
+  ),
 
-UsagePresetStatusWithSize.storyName = 'Usage (with preset status and size)'
+  name: 'Usage (with preset status and size)',
+}
 
 const EmojiStatusWrapper = styled.div`
   display: flex;
@@ -246,206 +244,186 @@ const EmojiStatusWrapper = styled.div`
   border-radius: 42%;
 `
 
-export const UsageCustomStatus: Story<{}> = () => (
-  <HStack spacing={16}>
-    <StackItem>
-      <Avatar
-        {...SAMPLE_AVATARS[0]}
-        size={AvatarSize.Size36}
-      >
-        <Avatar
-          {...KAKAO_AVATAR}
-          size={AvatarSize.Size20}
-          showBorder
-        />
-      </Avatar>
-    </StackItem>
+export const UsageCustomStatus: StoryObj<{}> = {
+  render: () => (
+    <HStack spacing={16}>
+      <StackItem>
+        <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
+          <Avatar {...KAKAO_AVATAR} size={AvatarSize.Size20} showBorder />
+        </Avatar>
+      </StackItem>
 
-    <StackItem>
-      <Avatar
-        {...SAMPLE_AVATARS[0]}
-        size={AvatarSize.Size36}
-      >
-        <Avatar
-          {...NAVER_TALK_AVATAR}
-          size={AvatarSize.Size20}
-          showBorder
-        />
-      </Avatar>
-    </StackItem>
+      <StackItem>
+        <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
+          <Avatar {...NAVER_TALK_AVATAR} size={AvatarSize.Size20} showBorder />
+        </Avatar>
+      </StackItem>
 
-    <StackItem>
-      <Avatar
-        {...SAMPLE_AVATARS[0]}
-        size={AvatarSize.Size36}
-      >
-        <Avatar
-          {...SAMPLE_AVATARS[0]}
-          size={AvatarSize.Size20}
-          showBorder
-        />
-      </Avatar>
-    </StackItem>
+      <StackItem>
+        <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
+          <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size20} showBorder />
+        </Avatar>
+      </StackItem>
 
-    <StackItem>
-      <Avatar
-        {...SAMPLE_AVATARS[0]}
-        size={AvatarSize.Size36}
-      >
-        <EmojiStatusWrapper>
-          <Emoji
-            name="smile"
-            imageUrl="https://cf.channel.io/asset/emoji/images/80/smile.png"
-            size={EmojiSize.Size20}
-          />
-        </EmojiStatusWrapper>
-      </Avatar>
-    </StackItem>
-  </HStack>
-)
+      <StackItem>
+        <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
+          <EmojiStatusWrapper>
+            <Emoji
+              name="smile"
+              imageUrl="https://cf.channel.io/asset/emoji/images/80/smile.png"
+              size={EmojiSize.Size20}
+            />
+          </EmojiStatusWrapper>
+        </Avatar>
+      </StackItem>
+    </HStack>
+  ),
 
-UsageCustomStatus.storyName = 'Usage (with custom status)'
+  name: 'Usage (with custom status)',
+}
 
-export const UsageCustomStatusAvatar: Story<{}> = () => (
-  <Avatar
-    {...SAMPLE_AVATARS[0]}
-    size={AvatarSize.Size48}
-  >
-    <Avatar
-      {...KAKAO_AVATAR}
-      size={AvatarSize.Size20}
-      showBorder
-    />
-  </Avatar>
-)
+export const UsageCustomStatusAvatar: StoryObj<{}> = {
+  render: () => (
+    <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size48}>
+      <Avatar {...KAKAO_AVATAR} size={AvatarSize.Size20} showBorder />
+    </Avatar>
+  ),
 
-UsageCustomStatusAvatar.storyName = 'Usage (avatar as custom status)'
+  name: 'Usage (avatar as custom status)',
+}
 
-export const UsageDisabled: Story<{}> = () => (
-  <Avatar
-    {...SAMPLE_AVATARS[0]}
-    size={AvatarSize.Size36}
-    disabled
-  />
-)
+export const UsageDisabled: StoryObj<{}> = {
+  render: () => (
+    <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36} disabled />
+  ),
 
-UsageDisabled.storyName = 'Usage (disabled)'
+  name: 'Usage (disabled)',
+}
 
-export const UsageCheckableAvatar: Story<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <HStack align="center" spacing={24}>
-        <StackItem size={270}>
-          <Text color="txt-black-darkest">Checkable (checked=false)</Text>
-        </StackItem>
+export const UsageCheckableAvatar: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      <StackItem>
+        <HStack align="center" spacing={24}>
+          <StackItem size={270}>
+            <Text color="txt-black-darkest">Checkable (checked=false)</Text>
+          </StackItem>
 
-        <StackItem>
-          <CheckableAvatar
-            {...SAMPLE_AVATARS[0]}
-            size={AvatarSize.Size36}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
+          <StackItem>
+            <CheckableAvatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36} />
+          </StackItem>
+        </HStack>
+      </StackItem>
 
-    <StackItem>
-      <HStack align="center" spacing={24}>
-        <StackItem size={270}>
-          <Text color="txt-black-darkest">Checkable (checked=false, disabled)</Text>
-        </StackItem>
+      <StackItem>
+        <HStack align="center" spacing={24}>
+          <StackItem size={270}>
+            <Text color="txt-black-darkest">
+              Checkable (checked=false, disabled)
+            </Text>
+          </StackItem>
 
-        <StackItem>
-          <CheckableAvatar
-            {...SAMPLE_AVATARS[0]}
-            size={AvatarSize.Size36}
-            disabled
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
+          <StackItem>
+            <CheckableAvatar
+              {...SAMPLE_AVATARS[0]}
+              size={AvatarSize.Size36}
+              disabled
+            />
+          </StackItem>
+        </HStack>
+      </StackItem>
 
-    <StackItem>
-      <HStack align="center" spacing={24}>
-        <StackItem size={270}>
-          <Text color="txt-black-darkest">Checkable (checked=true)</Text>
-        </StackItem>
+      <StackItem>
+        <HStack align="center" spacing={24}>
+          <StackItem size={270}>
+            <Text color="txt-black-darkest">Checkable (checked=true)</Text>
+          </StackItem>
 
-        <StackItem>
-          <CheckableAvatar
-            {...SAMPLE_AVATARS[0]}
-            size={AvatarSize.Size36}
-            checked
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+          <StackItem>
+            <CheckableAvatar
+              {...SAMPLE_AVATARS[0]}
+              size={AvatarSize.Size36}
+              checked
+            />
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-UsageCheckableAvatar.storyName = 'Usage (checkable avatars)'
+  name: 'Usage (checkable avatars)',
+}
 
-export const UsageGroupEllipsis: Story<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <HStack align="center" spacing={24}>
-        <StackItem size={150}>
-          <Text color="txt-black-darkest">Ellipsis type = Icon</Text>
-        </StackItem>
+export const UsageGroupEllipsis: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      <StackItem>
+        <HStack align="center" spacing={24}>
+          <StackItem size={150}>
+            <Text color="txt-black-darkest">Ellipsis type = Icon</Text>
+          </StackItem>
 
-        <StackItem>
-          <AvatarGroup max={4} size={AvatarSize.Size36}>
-            { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
-          </AvatarGroup>
-        </StackItem>
-      </HStack>
-    </StackItem>
+          <StackItem>
+            <AvatarGroup max={4} size={AvatarSize.Size36}>
+              { SAMPLE_AVATARS.map((meta) => (
+                <Avatar key={meta.name} {...meta} />
+              )) }
+            </AvatarGroup>
+          </StackItem>
+        </HStack>
+      </StackItem>
 
-    <StackItem>
-      <HStack align="center" spacing={24}>
-        <StackItem size={150}>
-          <Text color="txt-black-darkest">Ellipsis type = Count</Text>
-        </StackItem>
+      <StackItem>
+        <HStack align="center" spacing={24}>
+          <StackItem size={150}>
+            <Text color="txt-black-darkest">Ellipsis type = Count</Text>
+          </StackItem>
 
-        <StackItem>
-          <AvatarGroup max={4} size={AvatarSize.Size36} ellipsisType={AvatarGroupEllipsisType.Count}>
-            { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
-          </AvatarGroup>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+          <StackItem>
+            <AvatarGroup max={4} size={AvatarSize.Size36} ellipsisType={AvatarGroupEllipsisType.Count}>
+              { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+            </AvatarGroup>
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-UsageGroupEllipsis.storyName = 'Usage (avatar group with ellipsis)'
+  name: 'Usage (avatar group with ellipsis)',
+}
 
-export const UsageGroupSpacing: Story<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <AvatarGroup max={4} spacing={8}>
-        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
-      </AvatarGroup>
-    </StackItem>
+export const UsageGroupSpacing: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      <StackItem>
+        <AvatarGroup max={4} spacing={8}>
+          { SAMPLE_AVATARS.map((meta) => (
+            <Avatar key={meta.name} {...meta} />
+          )) }
+        </AvatarGroup>
+      </StackItem>
 
-    <StackItem>
-      <AvatarGroup max={4} spacing={2}>
-        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
-      </AvatarGroup>
-    </StackItem>
+      <StackItem>
+        <AvatarGroup max={4} spacing={2}>
+          { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+        </AvatarGroup>
+      </StackItem>
 
-    <StackItem>
-      <AvatarGroup max={4} spacing={-8}>
-        { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
-      </AvatarGroup>
-    </StackItem>
-  </VStack>
-)
+      <StackItem>
+        <AvatarGroup max={4} spacing={-8}>
+          { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+        </AvatarGroup>
+      </StackItem>
+    </VStack>
+  ),
 
-UsageGroupSpacing.storyName = 'Usage (avatar group with spacing)'
+  name: 'Usage (avatar group with spacing)',
+}
 
-export const VariantsSize: Story<{}> = () => (
-  <VStack spacing={16}>
-    {
-      [
+export const VariantsSize: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      { [
         AvatarSize.Size20,
         AvatarSize.Size24,
         AvatarSize.Size30,
@@ -470,9 +448,9 @@ export const VariantsSize: Story<{}> = () => (
               </StackItem>
             </HStack>
           </StackItem>
-        ))
-    }
-  </VStack>
-)
+        )) }
+    </VStack>
+  ),
 
-VariantsSize.storyName = 'Variants (size)'
+  name: 'Variants (size)',
+}

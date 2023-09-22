@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import {
@@ -52,9 +52,11 @@ const ColorName = styled.span`
   word-break: break-all;
 `
 
-const Template: Story<{ theme: ReturnType<typeof Themes['createThemes']> }> = ({ theme }) => (
+const Template: StoryFn<{
+  theme: ReturnType<(typeof Themes)['createThemes']>
+}> = ({ theme }) => (
   <ColorChipArtBoard>
-    { Object.keys(theme).map(semanticName => (
+    { Object.keys(theme).map((semanticName) => (
       <ColorChip key={semanticName}>
         <Color color={theme[semanticName]} />
         <ColorName>{ semanticName }</ColorName>
@@ -63,12 +65,18 @@ const Template: Story<{ theme: ReturnType<typeof Themes['createThemes']> }> = ({
   </ColorChipArtBoard>
 )
 
-export const LightTheme = Template.bind({})
-LightTheme.args = {
-  theme: Themes.LightTheme,
+export const LightTheme = {
+  render: Template,
+
+  args: {
+    theme: Themes.LightTheme,
+  },
 }
 
-export const DarkTheme = Template.bind({})
-DarkTheme.args = {
-  theme: Themes.DarkTheme,
+export const DarkTheme = {
+  render: Template,
+
+  args: {
+    theme: Themes.DarkTheme,
+  },
 }

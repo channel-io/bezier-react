@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -37,9 +37,14 @@ const ElevationChip = styled.div<ElevationChipProps>`
   ${({ foundation }) => foundation?.rounding?.round16};
 `
 
-const Template: Story<ElevationChipProps> = (args) => <ElevationChip {...args} />
+const Template: StoryFn<ElevationChipProps> = (args) => (
+  <ElevationChip {...args} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  ev: 'ev1',
+export const Primary = {
+  render: Template,
+
+  args: {
+    ev: 'ev1',
+  },
 }

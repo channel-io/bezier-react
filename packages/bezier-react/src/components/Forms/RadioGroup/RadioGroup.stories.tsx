@@ -5,7 +5,7 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { Radio } from './Radio'
@@ -31,7 +31,7 @@ export default {
   },
 } as Meta<RadioGroupProps<Theme>>
 
-const Template: Story<RadioGroupProps<Theme>> = ({
+const Template: StoryFn<RadioGroupProps<Theme>> = ({
   value: valueProp,
   ...props
 }) => {
@@ -54,11 +54,14 @@ const Template: Story<RadioGroupProps<Theme>> = ({
   )
 }
 
-export const Primary = Template.bind({})
-Primary.args = {
-  value: Theme.System,
-  disabled: false,
-  required: false,
-  direction: 'vertical',
-  spacing: 0,
+export const Primary = {
+  render: Template,
+
+  args: {
+    value: Theme.System,
+    disabled: false,
+    required: false,
+    direction: 'vertical',
+    spacing: 0,
+  },
 }

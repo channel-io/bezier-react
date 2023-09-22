@@ -5,7 +5,7 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -53,9 +53,12 @@ function ModalComposition({
 }: ModalCompositionProps) {
   const [show, setShow] = useState(false)
 
-  useEffect(function watchShowToChange() {
-    setShow(showProp)
-  }, [showProp])
+  useEffect(
+    function watchShowToChange() {
+      setShow(showProp)
+    },
+    [showProp],
+  )
 
   return (
     <Modal
@@ -150,18 +153,22 @@ export default {
       },
     },
   },
-} as Meta<ModalProps>
+} as Meta<ModalCompositionProps>
 
-const Template: Story<ModalCompositionProps> = ModalComposition
+const Template: StoryFn<ModalCompositionProps> = ModalComposition
 
-export const Composition = Template.bind({})
-Composition.args = {
-  show: false,
-  showCloseIcon: false,
-  title: 'Edit profile',
-  subtitle: 'Profile Settings',
-  description: 'Make changes to your profile here. Click save when you\'re done.',
-  titleSize: ModalTitleSize.L,
-  hidden: false,
-  preventHideOnOutsideClick: false,
+export const Composition = {
+  render: Template,
+
+  args: {
+    show: false,
+    showCloseIcon: false,
+    title: 'Edit profile',
+    subtitle: 'Profile Settings',
+    description:
+      "Make changes to your profile here. Click save when you're done.",
+    titleSize: ModalTitleSize.L,
+    hidden: false,
+    preventHideOnOutsideClick: false,
+  },
 }

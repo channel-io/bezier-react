@@ -1,12 +1,6 @@
-import React from 'react'
-
-import {
-  type Meta,
-  type Story,
-} from '@storybook/react'
+import { type Meta } from '@storybook/react'
 
 import { Slider } from './Slider'
-import type SliderProps from './Slider.types'
 
 export default {
   component: Slider,
@@ -30,17 +24,16 @@ export default {
   },
 } as Meta
 
-const Template: Story<SliderProps> = (args) => <Slider {...args} />
-
-export const Primary = Template.bind({})
-Primary.args = {
-  width: 285,
-  defaultValue: [5],
-  value: undefined,
-  disabled: false,
-  guide: [5],
-  min: 0,
-  max: 10,
-  step: 1,
-  disableTooltip: false,
+export const Primary = {
+  args: {
+    width: 285,
+    defaultValue: [5],
+    value: undefined,
+    disabled: false,
+    guide: [5],
+    min: 0,
+    max: 10,
+    step: 1,
+    disableTooltip: false,
+  },
 }

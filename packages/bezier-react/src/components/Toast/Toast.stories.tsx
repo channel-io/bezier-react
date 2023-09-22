@@ -8,7 +8,8 @@ import React, {
 import { ChannelSmileFilledIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -58,10 +59,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: [
-          ...iconList,
-          undefined,
-        ],
+        options: [...iconList, undefined],
       },
     },
     content: {
@@ -88,17 +86,15 @@ const Container = styled.div`
   border: 1px solid grey;
 `
 
-const Template: Story<ToastProps> = (args) => <ToastElement {...args} />
-
-export const Primary = Template.bind({})
-
-Primary.args = {
-  content: '안내문구입니다.\nnewLine',
-  preset: ToastPreset.Default,
-  appearance: undefined,
-  icon: undefined,
-  actionContent: '새로고침',
-  onClick: noop,
+export const Primary = {
+  args: {
+    content: '안내문구입니다.\nnewLine',
+    preset: ToastPreset.Default,
+    appearance: undefined,
+    icon: undefined,
+    actionContent: '새로고침',
+    onClick: noop,
+  },
 }
 
 function Div({
@@ -159,36 +155,36 @@ interface WithActionProps {
   autoDismissTimeout: number
 }
 
-export const WithAction: Story<ToastProps & WithActionProps> = ({
-  autoDismissTimeout,
-  content,
-  preset,
-  appearance,
-  icon,
-  actionContent,
-}) => (
-  <Container id="story-wrapper">
-    <ToastProvider
-      autoDismissTimeout={autoDismissTimeout}
-    >
-      <Div
-        content={content}
-        preset={preset}
-        appearance={appearance}
-        icon={icon}
-        actionContent={actionContent}
-      />
-    </ToastProvider>
-  </Container>
-)
+export const WithAction: StoryObj<ToastProps & WithActionProps> = {
+  render: ({
+    autoDismissTimeout,
+    content,
+    preset,
+    appearance,
+    icon,
+    actionContent,
+  }) => (
+    <Container id="story-wrapper">
+      <ToastProvider autoDismissTimeout={autoDismissTimeout}>
+        <Div
+          content={content}
+          preset={preset}
+          appearance={appearance}
+          icon={icon}
+          actionContent={actionContent}
+        />
+      </ToastProvider>
+    </Container>
+  ),
 
-WithAction.args = {
-  autoDismissTimeout: 2000,
-  content: '안내문구입니다.',
-  preset: ToastPreset.Default,
-  appearance: undefined,
-  icon: undefined,
-  actionContent: '액션 함수 테스트',
+  args: {
+    autoDismissTimeout: 2000,
+    content: '안내문구입니다.',
+    preset: ToastPreset.Default,
+    appearance: undefined,
+    icon: undefined,
+    actionContent: '액션 함수 테스트',
+  },
 }
 
 function ZIndexController() {
@@ -220,7 +216,7 @@ const Box = styled.div`
   background-color: ${({ foundation }) => foundation?.theme['bgtxt-orange-lighter']};
 `
 
-export const WithZIndex: Story<ToastProps> = () => (
+export const WithZIndex: StoryFn<ToastProps> = () => (
   <Container id="story-wrapper">
     <ToastProvider>
       <ZIndexController />
@@ -273,7 +269,7 @@ function CustomContentToastController() {
   )
 }
 
-export const CustomContent: Story<ToastProps> = () => (
+export const CustomContent: StoryFn<ToastProps> = () => (
   <Container id="story-wrapper">
     <ToastProvider>
       <CustomContentToastController />
@@ -353,7 +349,7 @@ function UpdateContentToastController() {
   )
 }
 
-export const UpdateContentToast: Story<ToastProps> = () => (
+export const UpdateContentToast: StoryFn<ToastProps> = () => (
   <Container id="story-wrapper">
     <ToastProvider>
       <UpdateContentToastController />

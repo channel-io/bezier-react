@@ -6,7 +6,7 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -43,19 +43,16 @@ interface ElementProps {
   left?: number
 }
 
-const Element = styled.div.attrs<ElementProps>(({
-  top,
-  right,
-  bottom,
-  left,
-}) => ({
-  style: {
-    top,
-    right,
-    bottom,
-    left,
-  },
-}))`
+const Element = styled.div.attrs<ElementProps>(
+  ({ top, right, bottom, left }) => ({
+    style: {
+      top,
+      right,
+      bottom,
+      left,
+    },
+  }),
+)`
   position: absolute;
   width: 100px;
   height: 100px;
@@ -67,7 +64,7 @@ const Element = styled.div.attrs<ElementProps>(({
   )};
 `
 
-const Template: Story<{ property: keyof ElementProps }> = (args) => {
+const Template: StoryFn<{ property: keyof ElementProps }> = (args) => {
   const [isEntered, setIsEntered] = useState(false)
 
   const handleClick = useCallback(() => setIsEntered(prevEntered => !prevEntered), [])
@@ -122,7 +119,10 @@ const Template: Story<{ property: keyof ElementProps }> = (args) => {
   )
 }
 
-export const Top = Template.bind({})
-Top.args = {
-  property: 'top',
+export const Top = {
+  render: Template,
+
+  args: {
+    property: 'top',
+  },
 }

@@ -2,7 +2,8 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
 
 import { Checkbox } from '~/src/components/Forms/Checkbox'
@@ -40,7 +41,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<FormControlProps> = (args) => (
+const Template: StoryFn<FormControlProps> = (args) => (
   <FormControl style={{ width: 400 }} {...args}>
     <FormLabel help="Lorem Ipsum">Label</FormLabel>
     <TextField placeholder="Placeholder" />
@@ -49,24 +50,28 @@ const Template: Story<FormControlProps> = (args) => (
   </FormControl>
 )
 
-export const Primary: Story<FormControlProps> = Template.bind({})
-Primary.args = {
-  id: 'form',
-  labelPosition: 'top',
-  leftLabelWrapperHeight: undefined,
-  hasError: false,
-  disabled: false,
-  readOnly: false,
-  required: false,
+export const Primary: StoryObj<FormControlProps> = {
+  render: Template,
+
+  args: {
+    id: 'form',
+    labelPosition: 'top',
+    leftLabelWrapperHeight: undefined,
+    hasError: false,
+    disabled: false,
+    readOnly: false,
+    required: false,
+  },
 }
 
-const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 16,
-    width: 500,
-  }}
+const WithMultiFormTemplate: StoryFn<FormControlProps> = (args) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 16,
+      width: 500,
+    }}
   >
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
@@ -135,12 +140,15 @@ const WithMultiFormTemplate: Story<FormControlProps> = (args) => (
   </div>
 )
 
-export const WithMultiForm: Story<FormControlProps> = WithMultiFormTemplate.bind({})
-WithMultiForm.args = {
-  labelPosition: 'top',
-  leftLabelWrapperHeight: undefined,
-  hasError: false,
-  disabled: false,
-  readOnly: false,
-  required: false,
+export const WithMultiForm: StoryObj<FormControlProps> = {
+  render: WithMultiFormTemplate,
+
+  args: {
+    labelPosition: 'top',
+    leftLabelWrapperHeight: undefined,
+    hasError: false,
+    disabled: false,
+    readOnly: false,
+    required: false,
+  },
 }

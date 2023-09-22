@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -64,23 +65,26 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<AvatarProps> = (args) => (
+const Template: StoryFn<AvatarProps> = (args) => (
   <Wrapper>
     <Avatar {...args} />
   </Wrapper>
 )
 
-export const Primary: Story<AvatarProps> = Template.bind({})
-Primary.args = {
-  avatarUrl: MOCK_AVATAR_URL,
-  name: 'Channel',
-  size: AvatarSize.Size24,
-  showBorder: false,
-  disabled: false,
-  smoothCorners: true,
+export const Primary: StoryObj<AvatarProps> = {
+  render: Template,
+
+  args: {
+    avatarUrl: MOCK_AVATAR_URL,
+    name: 'Channel',
+    size: AvatarSize.Size24,
+    showBorder: false,
+    disabled: false,
+    smoothCorners: true,
+  },
 }
 
-const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
+const TemplateWithCustomStatus: StoryFn<AvatarProps> = (args) => (
   <Wrapper>
     <Avatar {...args}>
       <Avatar
@@ -93,11 +97,14 @@ const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
   </Wrapper>
 )
 
-export const WithCustomStatus: Story<AvatarProps> = TemplateWithCustomStatus.bind({})
-WithCustomStatus.args = {
-  avatarUrl: MOCK_AVATAR_URL,
-  name: 'Channel',
-  size: AvatarSize.Size48,
-  showBorder: false,
-  disabled: false,
+export const WithCustomStatus: StoryObj<AvatarProps> = {
+  render: TemplateWithCustomStatus,
+
+  args: {
+    avatarUrl: MOCK_AVATAR_URL,
+    name: 'Channel',
+    size: AvatarSize.Size48,
+    showBorder: false,
+    disabled: false,
+  },
 }

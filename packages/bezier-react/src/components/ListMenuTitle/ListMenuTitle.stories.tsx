@@ -3,7 +3,7 @@ import React from 'react'
 import { SendForwardIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import {
@@ -18,8 +18,12 @@ export default {
   component: ListMenuTitle,
 } as Meta
 
-const Template: Story<ListMenuTitleProps> = ({
-  rightAction = (<div><Icon source={SendForwardIcon} size={IconSize.XS} /></div>),
+const Template: StoryFn<ListMenuTitleProps> = ({
+  rightAction = (
+    <div>
+      <Icon source={SendForwardIcon} size={IconSize.XS} />
+    </div>
+  ),
   ...otherListItemProps
 }) => (
   <div style={{ width: 240 }}>
@@ -28,11 +32,12 @@ const Template: Story<ListMenuTitleProps> = ({
       {...otherListItemProps}
     />
   </div>
-
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  content: 'this is title',
+  args: {
+    content: 'this is title',
+  },
 }

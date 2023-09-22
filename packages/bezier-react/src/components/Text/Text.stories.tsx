@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import Text from './Text'
@@ -34,43 +34,49 @@ export default {
   },
 } as Meta
 
-const Template: Story<TextProps> = ({ children, ...otherTextProps }) => (
-  <Text {...otherTextProps}>
-    { children }
-  </Text>
+const Template: StoryFn<TextProps> = ({ children, ...otherTextProps }) => (
+  <Text {...otherTextProps}>{ children }</Text>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  as: undefined,
-  bold: false,
-  italic: false,
-  truncated: false,
-  style: { color: 'gray' },
-  children: 'hello',
-  marginTop: 0,
-  marginRight: 0,
-  marginBottom: 0,
-  marginLeft: 0,
-  marginVertical: 0,
-  marginHorizontal: 0,
-  marginAll: 0,
+export const Primary = {
+  render: Template,
+
+  args: {
+    as: undefined,
+    bold: false,
+    italic: false,
+    truncated: false,
+    style: { color: 'gray' },
+    children: 'hello',
+    marginTop: 0,
+    marginRight: 0,
+    marginBottom: 0,
+    marginLeft: 0,
+    marginVertical: 0,
+    marginHorizontal: 0,
+    marginAll: 0,
+  },
 }
 
-const Truncated: Story<TextProps & { width: string }> = ({ children, width, ...otherTextProps }) => (
+const Truncated: StoryFn<TextProps & { width: string }> = ({
+  children,
+  width,
+  ...otherTextProps
+}) => (
   <div style={{ width }}>
-    <Text {...otherTextProps}>
-      { children }
-    </Text>
+    <Text {...otherTextProps}>{ children }</Text>
   </div>
 )
 
-export const Secondary = Truncated.bind({})
-Secondary.args = {
-  width: '100px',
-  truncated: true,
-  style: { color: 'gray' },
-  children: 'test truncated long text',
-}
+export const Secondary = {
+  render: Truncated,
 
-Secondary.storyName = 'Usage (truncated)'
+  args: {
+    width: '100px',
+    truncated: true,
+    style: { color: 'gray' },
+    children: 'test truncated long text',
+  },
+
+  name: 'Usage (truncated)',
+}

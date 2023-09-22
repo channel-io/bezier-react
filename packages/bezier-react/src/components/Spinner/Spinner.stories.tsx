@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import Spinner from './Spinner'
@@ -27,9 +27,12 @@ export default {
   },
 } as Meta
 
-const Template: Story<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
+const Template: StoryFn<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-  size: SpinnerSize.M,
+export const Primary = {
+  render: Template,
+
+  args: {
+    size: SpinnerSize.M,
+  },
 }

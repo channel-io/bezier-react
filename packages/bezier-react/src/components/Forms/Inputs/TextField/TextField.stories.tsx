@@ -7,7 +7,7 @@ import React, {
 import { SearchIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/storyUtils'
@@ -24,13 +24,16 @@ export default {
   component: TextField,
 } as Meta
 
-const PrimaryTemplate: Story<TextFieldProps> = ({ ...otherProps }) => {
+const PrimaryTemplate: StoryFn<TextFieldProps> = ({ ...otherProps }) => {
   const inputRef = useRef<TextFieldRef>(null)
   const [value, setValue] = useState('12345')
 
-  const handleChangeValue = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.currentTarget.value)
-  }, [])
+  const handleChangeValue = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(event.currentTarget.value)
+    },
+    [],
+  )
 
   const handleClickLeftIcon = useCallback(() => {
     inputRef.current?.selectAll()
@@ -53,32 +56,33 @@ const PrimaryTemplate: Story<TextFieldProps> = ({ ...otherProps }) => {
   )
 }
 
-export const Primary = PrimaryTemplate.bind({})
+export const Primary = {
+  render: PrimaryTemplate,
 
-Primary.args = {
-  variant: TextFieldVariant.Primary,
-  size: TextFieldSize.M,
-  disabled: false,
-  readOnly: false,
-  allowClear: true,
-  hasError: false,
-  selectAllOnFocus: false,
-  maxLength: 10,
-  placeholder: 'this is placeholder',
-}
+  args: {
+    variant: TextFieldVariant.Primary,
+    size: TextFieldSize.M,
+    disabled: false,
+    readOnly: false,
+    allowClear: true,
+    hasError: false,
+    selectAllOnFocus: false,
+    maxLength: 10,
+    placeholder: 'this is placeholder',
+  },
 
-Primary.argTypes = {
-  size: {
-    control: {
-      type: 'radio', // type 'select' is automatically inferred when 'options' is defined
-      options: getObjectFromEnum(TextFieldSize),
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio', // type 'select' is automatically inferred when 'options' is defined
+        options: getObjectFromEnum(TextFieldSize),
+      },
+    },
+    variant: {
+      control: {
+        type: 'radio',
+        options: getObjectFromEnum(TextFieldVariant),
+      },
     },
   },
-  variant: {
-    control: {
-      type: 'radio',
-      options: getObjectFromEnum(TextFieldVariant),
-    },
-  },
 }
-

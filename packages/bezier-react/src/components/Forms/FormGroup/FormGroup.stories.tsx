@@ -2,7 +2,8 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
 
 import { Checkbox } from '~/src/components/Forms/Checkbox'
@@ -21,16 +22,13 @@ export default {
     direction: {
       control: {
         type: 'radio',
-        options: [
-          'horizontal',
-          'vertical',
-        ],
+        options: ['horizontal', 'vertical'],
       },
     },
   },
 } as Meta
 
-const Template: Story<FormGroupProps> = props => (
+const Template: StoryFn<FormGroupProps> = (props) => (
   <FormGroup {...props}>
     <Checkbox>Option</Checkbox>
     <Checkbox>Option</Checkbox>
@@ -39,8 +37,11 @@ const Template: Story<FormGroupProps> = props => (
   </FormGroup>
 )
 
-export const Primary: Story<FormGroupProps> = Template.bind({})
-Primary.args = {
-  spacing: 0,
-  direction: 'vertical',
+export const Primary: StoryObj<FormGroupProps> = {
+  render: Template,
+
+  args: {
+    spacing: 0,
+    direction: 'vertical',
+  },
 }
