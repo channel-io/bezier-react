@@ -17,11 +17,10 @@ import {
 import {
   type SegmentedControlProps,
   SegmentedControlSize,
-  type SegmentedControlType,
 } from './SegmentedControl.types'
 import { SegmentedControlItem } from './SegmentedControlItem'
 
-export default {
+const meta: Meta<typeof SegmentedControl> = {
   component: SegmentedControl,
   argTypes: {
     type: {
@@ -47,7 +46,8 @@ export default {
       },
     },
   },
-} as Meta<SegmentedControlProps<SegmentedControlType, string>>
+}
+export default meta
 
 const VALUES = [
   {

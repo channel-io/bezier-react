@@ -17,7 +17,7 @@ import { Text } from '~/src/components/Text'
 import { Typography } from './Typography'
 import mdx from './Typography.mdx'
 
-export default {
+const meta: Meta = {
   title: 'Foundation/Typography',
   parameters: {
     docs: {
@@ -32,7 +32,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Span = styled.span<{ typography: keyof typeof Typography }>`
   ${({ typography }) => Typography[typography]}

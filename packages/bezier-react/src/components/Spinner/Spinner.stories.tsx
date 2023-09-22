@@ -9,7 +9,7 @@ import Spinner from './Spinner'
 import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'
 
-export default {
+const meta: Meta<typeof Spinner> = {
   component: Spinner,
   argTypes: {
     size: {
@@ -25,7 +25,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<SpinnerProps> = ({ ...args }) => <Spinner {...args} />
 

@@ -19,9 +19,10 @@ import {
   ListItemVariant,
 } from './ListItem.types'
 
-export default {
+const meta: Meta<typeof ListItem> = {
   component: ListItem,
-} as Meta
+}
+export default meta
 
 interface ArgTypes extends ListItemProps {
   width: number

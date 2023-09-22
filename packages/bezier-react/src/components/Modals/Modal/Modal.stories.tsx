@@ -124,17 +124,8 @@ function ModalComposition({
   )
 }
 
-export default {
+const meta: Meta<typeof ModalComposition> = {
   component: ModalComposition,
-  subcomponents: {
-    Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    ModalTrigger,
-    ModalClose,
-  },
   argTypes: {
     width: {
       control: {
@@ -153,7 +144,8 @@ export default {
       },
     },
   },
-} as Meta<ModalCompositionProps>
+}
+export default meta
 
 const Template: StoryFn<ModalCompositionProps> = ModalComposition
 

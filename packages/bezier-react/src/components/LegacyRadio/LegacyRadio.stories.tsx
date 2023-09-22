@@ -13,16 +13,16 @@ import { Typography } from '~/src/foundation'
 import { Text } from '~/src/components/Text'
 
 import { LegacyRadio } from './LegacyRadio'
-import { type LegacyRadioProps } from './LegacyRadio.types'
 
-export default {
+const meta: Meta<typeof LegacyRadio> = {
   component: LegacyRadio,
   argTypes: {
     onClick: { action: 'onClick' },
   },
-} as Meta
+}
+export default meta
 
-const Template: StoryFn<LegacyRadioProps> = ({
+const Template: StoryFn<typeof LegacyRadio> = ({
   children,
   ...otherRadioProps
 }) => (

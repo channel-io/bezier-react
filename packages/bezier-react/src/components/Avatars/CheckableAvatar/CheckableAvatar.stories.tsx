@@ -13,7 +13,7 @@ import { AvatarSize } from '~/src/components/Avatars/Avatar'
 import { CheckableAvatar } from './CheckableAvatar'
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
-export default {
+const meta: Meta<typeof CheckableAvatar> = {
   component: CheckableAvatar,
   argTypes: {
     checked: {
@@ -28,7 +28,8 @@ export default {
       },
     },
   },
-} as Meta<CheckableAvatarProps>
+}
+export default meta
 
 const Template: StoryFn<CheckableAvatarProps> = ({ children, ...rest }) => (
   <CheckableAvatar {...rest}>{ children }</CheckableAvatar>

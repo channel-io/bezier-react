@@ -18,9 +18,8 @@ enum Theme {
   Dark = 'Dark',
 }
 
-export default {
+const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
-  subcomponents: { Radio },
   argTypes: {
     direction: {
       control: {
@@ -29,7 +28,8 @@ export default {
       },
     },
   },
-} as Meta<RadioGroupProps<Theme>>
+}
+export default meta
 
 const Template: StoryFn<RadioGroupProps<Theme>> = ({
   value: valueProp,

@@ -40,14 +40,15 @@ import {
 
 import mdx from './TagBadge.mdx'
 
-export default {
+const meta: Meta<typeof Badge> = {
   component: Badge,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-} as Meta
+}
+export default meta
 
 const Container = styled.div`
   display: flex;

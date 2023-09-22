@@ -10,18 +10,14 @@ import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 
-import {
-  Tooltip,
-  TooltipProvider,
-} from './Tooltip'
+import { Tooltip } from './Tooltip'
 import {
   TooltipPosition,
   type TooltipProps,
 } from './Tooltip.types'
 
-export default {
+const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
-  subcomponents: { TooltipProvider },
   argTypes: {
     offset: {
       control: {
@@ -31,11 +27,13 @@ export default {
     placement: {
       control: {
         type: 'select',
+        // TODO[@epic="storybook"]: figure out why this does not work
         options: getObjectFromEnum(TooltipPosition),
       },
     },
   },
-} as Meta<TooltipProps>
+}
+export default meta
 
 const Template: StoryFn<TooltipProps> = ({ children, ...rest }) => (
   <Tooltip {...rest}>{ children }</Tooltip>

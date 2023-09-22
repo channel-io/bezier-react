@@ -20,9 +20,10 @@ import {
   TextFieldVariant,
 } from './TextField.types'
 
-export default {
+const meta: Meta<typeof TextField> = {
   component: TextField,
-} as Meta
+}
+export default meta
 
 const PrimaryTemplate: StoryFn<TextFieldProps> = ({ ...otherProps }) => {
   const inputRef = useRef<TextFieldRef>(null)

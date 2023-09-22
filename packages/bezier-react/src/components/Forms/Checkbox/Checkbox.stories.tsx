@@ -11,7 +11,7 @@ import {
   type CheckedState,
 } from './Checkbox.types'
 
-export default {
+const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   argTypes: {
     checked: {
@@ -25,7 +25,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<CheckboxProps<CheckedState>> = ({
   children,

@@ -11,7 +11,7 @@ import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
-export default {
+const meta: Meta<typeof Switch> = {
   component: Switch,
   argTypes: {
     size: {
@@ -34,7 +34,8 @@ export default {
       action: 'onCheckedChange',
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<SwitchProps> = ({ ...otherSwitchProps }) => (
   <Switch {...otherSwitchProps} />

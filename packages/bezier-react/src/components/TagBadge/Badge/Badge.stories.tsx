@@ -15,7 +15,7 @@ import {
 import { Badge } from './Badge'
 import type BadgeProps from './Badge.types'
 
-export default {
+const meta:Meta<typeof Badge> = {
   component: Badge,
   argTypes: {
     size: {
@@ -31,7 +31,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<BadgeProps> = ({ children, ...badgeProps }) => (
   <Badge {...badgeProps}>{ children }</Badge>

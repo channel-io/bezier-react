@@ -2,7 +2,7 @@ import { type Meta } from '@storybook/react'
 
 import { Slider } from './Slider'
 
-export default {
+const meta: Meta<typeof Slider> = {
   component: Slider,
   argTypes: {
     value: {
@@ -22,7 +22,8 @@ export default {
       action: 'onValueCommit',
     },
   },
-} as Meta
+}
+export default meta
 
 export const Primary = {
   args: {

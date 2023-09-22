@@ -33,14 +33,15 @@ import { Text } from '~/src/components/Text'
 
 import mdx from './Avatars.mdx'
 
-export default {
+const meta: Meta<typeof Avatar> = {
   component: Avatar,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-} as Meta<typeof Avatar>
+}
+export default meta
 
 const SAMPLE_AVATARS = [
   {
@@ -181,9 +182,9 @@ export const Overview: StoryFn<{}> = () => (
 export const UsageBasic: StoryObj<{}> = {
   render: () => (
     <HStack spacing={16}>
-      { SAMPLE_AVATARS.map((meta) => (
-        <StackItem key={meta.name}>
-          <Avatar {...meta} size={AvatarSize.Size36} />
+      { SAMPLE_AVATARS.map((avatar) => (
+        <StackItem key={avatar.name}>
+          <Avatar {...avatar} size={AvatarSize.Size36} />
         </StackItem>
       )) }
     </HStack>
@@ -365,8 +366,8 @@ export const UsageGroupEllipsis: StoryObj<{}> = {
 
           <StackItem>
             <AvatarGroup max={4} size={AvatarSize.Size36}>
-              { SAMPLE_AVATARS.map((meta) => (
-                <Avatar key={meta.name} {...meta} />
+              { SAMPLE_AVATARS.map((avatar) => (
+                <Avatar key={avatar.name} {...avatar} />
               )) }
             </AvatarGroup>
           </StackItem>
@@ -381,7 +382,7 @@ export const UsageGroupEllipsis: StoryObj<{}> = {
 
           <StackItem>
             <AvatarGroup max={4} size={AvatarSize.Size36} ellipsisType={AvatarGroupEllipsisType.Count}>
-              { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+              { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
             </AvatarGroup>
           </StackItem>
         </HStack>
@@ -397,21 +398,21 @@ export const UsageGroupSpacing: StoryObj<{}> = {
     <VStack spacing={16}>
       <StackItem>
         <AvatarGroup max={4} spacing={8}>
-          { SAMPLE_AVATARS.map((meta) => (
-            <Avatar key={meta.name} {...meta} />
+          { SAMPLE_AVATARS.map((avatar) => (
+            <Avatar key={avatar.name} {...avatar} />
           )) }
         </AvatarGroup>
       </StackItem>
 
       <StackItem>
         <AvatarGroup max={4} spacing={2}>
-          { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+          { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
         </AvatarGroup>
       </StackItem>
 
       <StackItem>
         <AvatarGroup max={4} spacing={-8}>
-          { SAMPLE_AVATARS.map(meta => <Avatar key={meta.name} {...meta} />) }
+          { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
         </AvatarGroup>
       </StackItem>
     </VStack>

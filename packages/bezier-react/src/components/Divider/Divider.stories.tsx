@@ -13,7 +13,7 @@ import { ListItem } from '~/src/components/ListItem'
 import Divider from './Divider'
 import type DividerProps from './Divider.types'
 
-export default {
+const meta:Meta<typeof Divider> = {
   component: Divider,
   argTypes: {
     orientation: {
@@ -38,7 +38,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface WrapperProps {
   direction?: 'column' | 'row'

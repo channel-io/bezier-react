@@ -8,7 +8,7 @@ import {
 import Text from './Text'
 import type TextProps from './Text.types'
 
-export default {
+const meta: Meta<typeof Text> = {
   component: Text,
   argTypes: {
     /**
@@ -32,7 +32,8 @@ export default {
 
     style: { control: 'object' },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<TextProps> = ({ children, ...otherTextProps }) => (
   <Text {...otherTextProps}>{ children }</Text>

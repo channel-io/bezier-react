@@ -21,9 +21,10 @@ import KeyValueListItem from './KeyValueListItem'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
-export default {
+const meta:Meta<typeof KeyValueListItem> = {
   component: KeyValueListItem,
-} as Meta
+}
+export default meta
 
 interface KeyValueListItemStorybookProps extends KeyValueListItemProps {
   containerWidth: number

@@ -4,9 +4,8 @@ import type {
 } from '@storybook/react'
 
 import Help from './Help'
-import type HelpProps from './Help.types'
 
-export default {
+const meta: Meta<typeof Help> = {
   component: Help,
   argTypes: {
     children: {
@@ -15,9 +14,10 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
-export const Primary: StoryObj<HelpProps> = {
+export const Primary: StoryObj<typeof Help> = {
   args: {
     children: 'Lorem ipsum',
   },

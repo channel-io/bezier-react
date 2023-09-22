@@ -7,7 +7,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-export default {
+const meta: Meta = {
   title: 'Foundation/Rounding',
   argTypes: {
     round: {
@@ -26,7 +26,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface RoundingChipProps {
   round: string

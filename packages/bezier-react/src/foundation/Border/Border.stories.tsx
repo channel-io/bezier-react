@@ -7,7 +7,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-export default {
+const meta:Meta = {
   title: 'Foundation/Border',
   argTypes: {
     top: { control: 'boolean' },
@@ -24,7 +24,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface BorderChipProps {
   width: number

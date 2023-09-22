@@ -15,9 +15,10 @@ import {
   type FormHelperTextProps,
 } from './FormHelperText.types'
 
-export default {
+const meta: Meta<typeof FormHelperText> = {
   component: FormHelperText,
-} as Meta
+}
+export default meta
 
 export const Primary: StoryObj<FormHelperTextProps> = {
   args: {

@@ -15,7 +15,7 @@ import {
   StatusType,
 } from './Status.types'
 
-export default {
+const meta:Meta<typeof Status> = {
   component: Status,
   argTypes: {
     type: {
@@ -25,7 +25,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Wrapper = styled.div`
   display: flex;

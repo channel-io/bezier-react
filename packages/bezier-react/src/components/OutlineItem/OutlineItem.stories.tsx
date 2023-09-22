@@ -26,7 +26,7 @@ import {
 import OutlineItem from './OutlineItem'
 import type OutlineItemProps from './OutlineItem.types'
 
-export default {
+const meta: Meta<typeof OutlineItem> = {
   component: OutlineItem,
   argTypes: {
     open: {
@@ -35,7 +35,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<OutlineItemProps> = (args) => {
   const [open, setOpen] = useState(true)

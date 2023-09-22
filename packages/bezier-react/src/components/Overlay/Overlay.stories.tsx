@@ -15,7 +15,10 @@ import Overlay from './Overlay'
 import type OverlayProps from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
 
-export default {
+const meta: Meta<OverlayProps & {
+  containerWidth: number
+  containerHeight: number
+}> = {
   component: Overlay,
   argTypes: {
     position: {
@@ -74,7 +77,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface ContainerProps {
   width?: number

@@ -15,9 +15,10 @@ import {
 import NavItem from './NavItem'
 import type NavItemProps from './NavItem.types'
 
-export default {
+const meta: Meta = {
   component: NavItem,
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<NavItemProps> = (args) => (
   <div style={{ width: '240px', padding: '6px' }}>

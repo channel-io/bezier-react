@@ -21,14 +21,15 @@ import { ButtonGroup } from './ButtonGroup'
 import mdx from './ButtonGroup.mdx'
 import type ButtonGroupProps from './ButtonGroup.types'
 
-export default {
+const meta: Meta<typeof ButtonGroup> = {
   component: ButtonGroup,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-} as Meta
+}
+export default meta
 
 const Wrapper = styled.div`
   display: flex;

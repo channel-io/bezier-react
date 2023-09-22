@@ -11,7 +11,7 @@ import { Checkbox } from '~/src/components/Forms/Checkbox'
 import FormGroup from './FormGroup'
 import type FormGroupProps from './FormGroup.types'
 
-export default {
+const meta: Meta<typeof FormGroup> = {
   component: FormGroup,
   argTypes: {
     spacing: {
@@ -26,7 +26,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<FormGroupProps> = (props) => (
   <FormGroup {...props}>

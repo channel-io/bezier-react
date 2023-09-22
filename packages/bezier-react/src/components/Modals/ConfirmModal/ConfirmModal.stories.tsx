@@ -22,7 +22,6 @@ import {
   type ConfirmModalHeaderProps,
   type ConfirmModalProps,
 } from './ConfirmModal.types'
-import { ConfirmModalBody } from './ConfirmModalBody'
 import { ConfirmModalContent } from './ConfirmModalContent'
 import { ConfirmModalFooter } from './ConfirmModalFooter'
 import { ConfirmModalHeader } from './ConfirmModalHeader'
@@ -95,17 +94,8 @@ function ConfirmModalComposition({
   )
 }
 
-export default {
+const meta: Meta<typeof ConfirmModalComposition> = {
   component: ConfirmModalComposition,
-  subcomponents: {
-    ConfirmModal,
-    ConfirmModalContent,
-    ConfirmModalHeader,
-    ConfirmModalBody,
-    ConfirmModalFooter,
-    ConfirmModalTrigger,
-    ConfirmModalClose,
-  },
   argTypes: {
     width: {
       control: {
@@ -118,7 +108,8 @@ export default {
       },
     },
   },
-} as Meta<ConfirmModalCompositionProps>
+}
+export default meta
 
 const Template: StoryFn<ConfirmModalCompositionProps> = ConfirmModalComposition
 

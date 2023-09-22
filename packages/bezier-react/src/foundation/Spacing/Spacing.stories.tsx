@@ -14,9 +14,10 @@ import { type Entries } from '~/src/types/Utils'
 
 import { Text } from '~/src/components/Text'
 
-export default {
+const meta:Meta = {
   title: 'Foundation/Spacing',
-} as Meta
+}
+export default meta
 
 interface SpacingRectProps {
   spacing: keyof typeof Spacing

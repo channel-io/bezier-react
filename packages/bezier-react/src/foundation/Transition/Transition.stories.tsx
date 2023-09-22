@@ -11,7 +11,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-export default {
+const meta: Meta = {
   title: 'Foundation/Transition',
   argTypes: {
     property: {
@@ -26,7 +26,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const ElementWrapper = styled.div`
   position: relative;

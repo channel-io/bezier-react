@@ -23,13 +23,18 @@ import { Text } from '~/src/components/Text'
 
 import { HStack } from './HStack'
 import { Spacer } from './Spacer'
-import { Stack } from './Stack'
+import {
+  Stack,
+  type StackProps,
+} from './Stack'
 import mdx from './Stack.mdx'
 import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
 
-export default {
+const meta: Meta<StackProps & {
+  containerSize: number
+}> = {
   component: Stack,
   parameters: {
     docs: {
@@ -72,7 +77,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const randomColor = (): SemanticNames =>
   Object.values(LightTheme)[Math.floor(Math.random() * Object.keys(LightTheme).length)] as SemanticNames

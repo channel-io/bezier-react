@@ -29,7 +29,7 @@ import { Switch } from '~/src/components/Forms/Switch'
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 
-export default {
+const meta: Meta<typeof FormControl> = {
   component: FormControl,
   argTypes: {
     labelPosition: {
@@ -39,7 +39,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<FormControlProps> = (args) => (
   <FormControl style={{ width: 400 }} {...args}>

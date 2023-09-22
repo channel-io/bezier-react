@@ -3,6 +3,7 @@ import React from 'react'
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { css } from '~/src/foundation/FoundationStyledComponent'
@@ -14,7 +15,7 @@ import { type AlphaStackProps } from './AlphaStack.types'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
-export default {
+const meta: Meta<typeof AlphaStack> = {
   component: AlphaStack,
   argTypes: {
     spacing: {
@@ -41,9 +42,11 @@ export default {
       },
     },
   },
-} as Meta<AlphaStackProps>
+}
+export default meta
 
 const Template: StoryFn<AlphaStackProps> = ({ children, ...rest }) => (
+  // TODO[@epic="storybook"]: resolves type error
   <AlphaStack {...rest}>
     <>
       { range(4).map((i) =>
@@ -53,7 +56,7 @@ const Template: StoryFn<AlphaStackProps> = ({ children, ...rest }) => (
   </AlphaStack>
 )
 
-export const Primary = {
+export const Primary: StoryObj<typeof AlphaStack> = {
   render: Template,
 
   args: {

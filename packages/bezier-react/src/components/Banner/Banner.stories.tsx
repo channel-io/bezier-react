@@ -32,7 +32,7 @@ import {
   BannerVariant,
 } from './Banner.types'
 
-export default {
+const meta: Meta<typeof Banner> = {
   component: Banner,
   parameters: {
     docs: {
@@ -44,11 +44,6 @@ export default {
       control: {
         type: 'radio',
         options: getObjectFromEnum(BannerVariant),
-      },
-    },
-    dismissible: {
-      control: {
-        type: 'boolean',
       },
     },
     hasLink: {
@@ -67,7 +62,8 @@ export default {
       },
     },
   },
-} as Meta<BannerProps>
+}
+export default meta
 
 export const Playground: StoryObj<BannerProps> = {
   args: {

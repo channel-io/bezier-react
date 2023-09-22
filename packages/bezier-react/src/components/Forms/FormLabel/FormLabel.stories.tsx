@@ -6,7 +6,7 @@ import type {
 import FormLabel from './FormLabel'
 import type FormLabelProps from './FormLabel.types'
 
-export default {
+const meta: Meta<typeof FormLabel> = {
   component: FormLabel,
   argTypes: {
     children: {
@@ -20,7 +20,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 export const Primary: StoryObj<FormLabelProps> = {
   args: {

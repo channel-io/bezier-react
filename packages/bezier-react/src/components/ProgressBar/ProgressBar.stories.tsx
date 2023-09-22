@@ -19,7 +19,7 @@ import { ProgressBar } from './ProgressBar'
 import mdx from './ProgressBar.mdx'
 import type ProgressBarProps from './ProgressBar.types'
 
-export default {
+const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
   parameters: {
     docs: {
@@ -51,7 +51,8 @@ export default {
       },
     },
   },
-} as Meta<ProgressBarProps>
+}
+export default meta
 
 export const Playground: StoryObj<ProgressBarProps> = {
   args: {

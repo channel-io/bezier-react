@@ -14,7 +14,7 @@ import TextArea from './TextArea'
 import type TextAreaProps from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'
 
-export default {
+const meta: Meta<typeof TextArea> = {
   component: TextArea,
   argTypes: {
     minRows: {
@@ -30,7 +30,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<TextAreaProps> = (args) => {
   const [value, setValue] = useState('12345')

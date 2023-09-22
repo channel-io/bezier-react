@@ -14,9 +14,10 @@ import {
 import ListMenuTitle from './ListMenuTitle'
 import type ListMenuTitleProps from './ListMenuTitle.types'
 
-export default {
+const meta: Meta<typeof ListMenuTitle> = {
   component: ListMenuTitle,
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<ListMenuTitleProps> = ({
   rightAction = (

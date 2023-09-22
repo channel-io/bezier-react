@@ -15,7 +15,7 @@ import { EmojiSize } from './Emoji.types'
 
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/blush.png'
 
-export default {
+const meta: Meta<typeof Emoji> = {
   component: Emoji,
   argTypes: {
     size: {
@@ -30,7 +30,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 export const Primary = {
   args: {

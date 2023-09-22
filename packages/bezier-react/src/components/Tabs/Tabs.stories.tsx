@@ -117,16 +117,8 @@ function TabsComposition({
   )
 }
 
-export default {
+const meta: Meta<TabsCompositionProps> = {
   component: TabsComposition,
-  subcomponents: {
-    Tabs,
-    TabItems,
-    TabItem,
-    TabActions,
-    TabAction,
-    TabContent,
-  },
   argTypes: {
     size: {
       control: {
@@ -138,7 +130,8 @@ export default {
       action: 'clicked',
     },
   },
-} as Meta<TabsProps>
+}
+export default meta
 
 const Template: StoryFn<TabsCompositionProps> = TabsComposition
 

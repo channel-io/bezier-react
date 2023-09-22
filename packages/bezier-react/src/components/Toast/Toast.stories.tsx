@@ -38,7 +38,9 @@ import ToastElement from './ToastElement'
 import ToastProvider from './ToastProvider'
 import useToast from './useToast'
 
-export default {
+const meta: Meta<ToastProps & {
+  autoDismissTimeout: number
+}> = {
   component: ToastElement,
   argTypes: {
     preset: {
@@ -76,7 +78,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Container = styled.div`
   position: relative;

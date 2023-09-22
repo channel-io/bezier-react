@@ -10,9 +10,10 @@ import { Text } from '~/src/components/Text'
 import { AlphaCenter } from './AlphaCenter'
 import { type AlphaCenterProps } from './AlphaCenter.types'
 
-export default {
+const meta: Meta<typeof AlphaCenter> = {
   component: AlphaCenter,
-} as Meta<AlphaCenterProps>
+}
+export default meta
 
 const Template: StoryFn<AlphaCenterProps> = ({ children, ...rest }) => (
   <AlphaCenter {...rest}>

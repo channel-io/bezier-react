@@ -25,7 +25,7 @@ interface BezierProviderStorybookProps {
   foundation: 'dark' | 'light'
 }
 
-export default {
+const meta: Meta<typeof BezierProvider> = {
   component: BezierProvider,
   argTypes: {
     foundation: {
@@ -35,7 +35,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const ButtonWrapper = styled(Button)``
 

@@ -12,9 +12,8 @@ import {
 } from '~/src/components/TagBadge'
 
 import { Tag } from './Tag'
-import type TagProps from './Tag.types'
 
-export default {
+const meta: Meta<typeof Tag> = {
   component: Tag,
   argTypes: {
     size: {
@@ -30,13 +29,14 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: StoryFn<TagProps> = ({ children, ...otherProps }) => (
+const Template: StoryFn<typeof Tag> = ({ children, ...otherProps }) => (
   <Tag {...otherProps}>{ children }</Tag>
 )
 
-export const Primary: StoryObj<TagProps> = {
+export const Primary: StoryObj<typeof Tag> = {
   render: Template,
 
   args: {

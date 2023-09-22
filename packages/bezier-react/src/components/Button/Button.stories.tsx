@@ -54,7 +54,7 @@ import {
   ButtonStyleVariant,
 } from './Button.types'
 
-export default {
+const meta: Meta<typeof Button> = {
   component: Button,
   parameters: {
     docs: {
@@ -82,7 +82,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 export const Playground: StoryObj<ButtonProps> = {
   args: {

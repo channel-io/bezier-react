@@ -9,7 +9,7 @@ import {
 import TagBadgeText from './TagBadgeText'
 import type TagBadgeTextProps from './TagBadgeText.types'
 
-export default {
+const meta: Meta<typeof TagBadgeText> = {
   component: TagBadgeText,
   argTypes: {
     horizontalPadding: {
@@ -26,7 +26,8 @@ export default {
      */
     typo: { table: { disable: true } },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<TagBadgeTextProps> = ({ children, ...otherProps }) => (
   <TagBadgeText {...otherProps}>{ children }</TagBadgeText>

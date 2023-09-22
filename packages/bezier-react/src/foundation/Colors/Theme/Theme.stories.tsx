@@ -10,12 +10,13 @@ import {
   styled,
 } from '~/src/foundation'
 
-export default {
+const meta: Meta<typeof Themes> = {
   title: 'Foundation/Theme',
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta
+}
+export default meta
 
 interface ColorProps {
   color: string

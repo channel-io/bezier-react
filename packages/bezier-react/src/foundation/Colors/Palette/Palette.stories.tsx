@@ -1,15 +1,18 @@
 import React from 'react'
 
+import { type Meta } from '@storybook/react'
+
 import { styled } from '~/src/foundation'
 
 import { Palette } from './index'
 
-export default {
+const meta: Meta = {
   title: 'Foundation/Palette',
   parameters: {
     layout: 'fullscreen',
   },
 }
+export default meta
 
 interface PaletteProps {
   color: string

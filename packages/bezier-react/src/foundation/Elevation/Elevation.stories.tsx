@@ -7,7 +7,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-export default {
+const meta: Meta = {
   title: 'Foundation/Elevation',
   argTypes: {
     ev: {
@@ -24,7 +24,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface ElevationChipProps {
   ev: string

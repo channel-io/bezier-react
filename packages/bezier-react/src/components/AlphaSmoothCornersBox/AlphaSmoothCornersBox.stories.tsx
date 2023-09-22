@@ -8,9 +8,10 @@ import {
 import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
-export default {
+const meta:Meta = {
   component: AlphaSmoothCornersBox,
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<AlphaSmoothCornersBoxProps> = ({
   children,

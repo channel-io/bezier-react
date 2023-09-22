@@ -28,9 +28,10 @@ import { Text } from '~/src/components/Text'
 import SectionLabel from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 
-export default {
+const meta: Meta<typeof SectionLabel> = {
   component: SectionLabel,
-} as Meta
+}
+export default meta
 
 const testNumberLabel = (
   <div

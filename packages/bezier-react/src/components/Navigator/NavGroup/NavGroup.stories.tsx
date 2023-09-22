@@ -19,9 +19,10 @@ import { NavItem } from '~/src/components/Navigator/NavItem'
 import NavGroup from './NavGroup'
 import type NavGroupProps from './NavGroup.types'
 
-export default {
+const meta: Meta<typeof NavGroup> = {
   component: NavGroup,
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<NavGroupProps> = (args) => (
   <nav

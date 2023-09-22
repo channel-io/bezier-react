@@ -24,7 +24,7 @@ const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
-export default {
+const meta: Meta<typeof AvatarGroup> = {
   component: AvatarGroup,
   argTypes: {
     ellipsisType: {
@@ -62,7 +62,8 @@ export default {
       action: 'mouseLeave',
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>

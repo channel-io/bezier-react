@@ -11,7 +11,7 @@ import { LegacyTooltip } from './LegacyTooltip'
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'
 
-export default {
+const meta: Meta<typeof LegacyTooltip> = {
   component: LegacyTooltip,
   argTypes: {
     content: {
@@ -63,7 +63,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Target = styled.div`
   display: flex;

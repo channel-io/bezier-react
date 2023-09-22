@@ -14,7 +14,9 @@ import Select from './Select'
 import type SelectProps from './Select.types'
 import { SelectSize } from './Select.types'
 
-export default {
+const meta: Meta<SelectProps & {
+  wrapperSize: number
+}> = {
   component: Select,
   argTypes: {
     size: {
@@ -30,7 +32,8 @@ export default {
       defaultValue: 200,
     },
   },
-} as Meta
+}
+export default meta
 
 const Template: StoryFn<SelectProps & { wrapperSize: number }> = ({
   wrapperSize,

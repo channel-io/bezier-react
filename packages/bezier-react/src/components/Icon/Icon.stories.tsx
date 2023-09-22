@@ -55,7 +55,7 @@ import {
   IconSize,
 } from './Icon.types'
 
-export default {
+const meta: Meta<typeof Icon> = {
   component: Icon,
   parameters: {
     docs: {
@@ -70,7 +70,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const IconInfo = styled.div`
   display: inline-flex;
