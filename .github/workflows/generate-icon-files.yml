@@ -30,10 +30,16 @@ jobs:
           node packages/bezier-icons/scripts/generate-icon-files.js
           git add .
           git commit -m "feat(bezier-icons): generate icon files from icons.json" || echo "skipped commit due to no update"
-      
+
+      - name: Get Pull request Number
+        id: pr
+        run: echo "::set-output name=pull_request_number::$(gh pr view --json number -q .number || echo "")"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
       - name: Add pr description
         run: |
-          node packages/bezier-icons/scripts/make-pr-description.js  ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
+          node packages/bezier-icons/scripts/make-pr-description.js  ${{ secrets.GITHUB_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
       
       - name: Delete icons.json files
         run: |
