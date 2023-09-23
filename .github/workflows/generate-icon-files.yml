@@ -31,6 +31,10 @@ jobs:
           git add .
           git commit -m "feat(bezier-icons): generate icon files from icons.json" || echo "skipped commit due to no update"
       
+      - name: Add pr description
+        run: |
+          node packages/bezier-icons/scripts/make-pr-description.js  ${{ secrets.GITHUB_TOKEN }} ${{ github.event.number }}
+      
       - name: Delete icons.json files
         run: |
           git rm packages/bezier-icons/icons.json
