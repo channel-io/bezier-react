@@ -25,11 +25,21 @@ jobs:
           git config --global user.email "eng@channel.io"
           git config --global user.name "ch-builder"
 
-      - name: Generate Svg files from icons.json
+      - name: Generate svg files from icons.json
         run: |
           node packages/bezier-icons/scripts/generate-icon-files.js
           git add .
           git commit -m "feat(bezier-icons): generate icon files from icons.json" || echo "skipped commit due to no update"
+
+      - name: Get PR number
+        id: pr
+        run: echo "::set-output name=pull_request_number::$(gh pr view --json number -q .number || echo "")"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
+      - name: Add pr description
+        run: |
+          node packages/bezier-icons/scripts/make-pr-description.js ${{ secrets.GITHUB_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
       
       - name: Delete icons.json files
         run: |
