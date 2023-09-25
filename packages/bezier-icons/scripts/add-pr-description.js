@@ -1,45 +1,10 @@
 /* eslint-disable no-console */
+import { getDescription } from './getPrDescription'
+
 const { exec } = require('child_process')
 
 const githubToken = process.argv[2]
 const pullNumber = process.argv[3]
-
-const keyToStatus = {
-  M: 'Modified 🖊️',
-  A: 'Added 🎨',
-  D: 'Deleted 🗑️',
-}
-
-const getIconName = path => path.split('/').at(-1)
-
-const getDescription = gitLog => {
-  let description = '### Icon update is ready to be merged! 🎉\n\n'
-
-  const statusAndIconArray = gitLog
-    .trim()
-    .split('\n')
-    .map(line => line.split('\t'))
-    .filter(line => line[1].endsWith('.svg'))
-    .reduce((acc, cur) => {
-      const [key, file] = cur
-      const status = keyToStatus[key]
-      const icon = `- ${getIconName(file)}`
-
-      if (!acc[status]) {
-        acc[status] = [icon]
-      } else {
-        acc[status].push(icon)
-      }
-      return acc
-    }, {})
-
-  for (const [status, icons] of Object.entries(statusAndIconArray)) {
-    description += `${icons.length} icon(s) ${status}\n`
-    description += icons.join('\n')
-  }
-
-  return description
-}
 
 const updateDescription = async (description) => {
   try {
