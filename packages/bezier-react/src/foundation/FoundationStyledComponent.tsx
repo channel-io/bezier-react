@@ -22,6 +22,7 @@ import styled, {
   type Interpolation,
   type InterpolationFunction,
   ServerStyleSheet,
+  StyleSheetManager,
   type SimpleInterpolation,
   type StyledComponentInnerAttrs,
   type StyledComponentInnerComponent,
@@ -190,5 +191,6 @@ export {
   FoundationProvider,
   useFoundation,
   keyframes,
+  StyleSheetManager,
   ServerStyleSheet,
 }
