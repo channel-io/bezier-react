@@ -43,7 +43,7 @@ import Foo from './foo'
 
 ### Enum Member to String Literal
 
-**`enum-member-to-string-literal`**
+#### `enum-member-to-string-literal`
 
 Replace deprecated enum usage to string literal.
 
