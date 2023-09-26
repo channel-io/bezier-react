@@ -4,8 +4,8 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
-function transformEnumMemberToStringLiteral(sourceFile: SourceFile, targetEnums: string[]) {
-  const enumNames: string[] = []
+function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransforms: EnumTransforms) {
+  const transformedEnumNames: string[] = []
 
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.PropertyAccessExpression)) {
@@ -14,28 +14,30 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile, targetEnums:
 
       if (firstIdentifier && lastIdentifier) {
         const declarationSymbol = firstIdentifier.getSymbol()
-        const memberValueDeclaration = lastIdentifier.getSymbol()?.getValueDeclaration()
+        const memberSymbol = lastIdentifier.getSymbol()
+        const memberValueDeclaration = memberSymbol?.getValueDeclaration()
 
         if (Node.isEnumMember(memberValueDeclaration)) {
           const enumName = declarationSymbol?.getName()
-          const enumMemberValue = memberValueDeclaration.getInitializer()?.getText()
+          const enumMember = memberSymbol?.getName()
 
-          if (enumName && enumMemberValue && targetEnums.includes(enumName)) {
+          if (enumName && enumMember) {
+            const newEnumMemberValue = enumTransforms[enumName][enumMember]
             const ancestor = node.getFirstAncestor()
             if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
-              ancestor.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
+              ancestor.replaceWithText(`'${newEnumMemberValue}'`)
             } else {
-              node.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
+              node.replaceWithText(`'${newEnumMemberValue}'`)
             }
 
-            enumNames.push(enumName)
+            transformedEnumNames.push(enumName)
           }
         }
       }
     }
   })
 
-  if (enumNames.length > 0) {
+  if (transformedEnumNames.length > 0) {
     sourceFile.fixUnusedIdentifiers()
     return true
   }
@@ -43,8 +45,10 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile, targetEnums:
   return undefined
 }
 
-const enumMemberToStringLiteral = (targetEnums: string[]) => (sourceFile: SourceFile): true | void => (
-  transformEnumMemberToStringLiteral(sourceFile, targetEnums)
+type EnumTransforms = Record<string, Record<string, string>>
+
+const enumMemberToStringLiteral = (enumTransforms: EnumTransforms) => (sourceFile: SourceFile): true | void => (
+  transformEnumMemberToStringLiteral(sourceFile, enumTransforms)
 )
 
 export default enumMemberToStringLiteral
