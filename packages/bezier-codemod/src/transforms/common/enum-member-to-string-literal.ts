@@ -4,7 +4,7 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
-function transformEnumMemberToStringLiteral(sourceFile: SourceFile) {
+function transformEnumMemberToStringLiteral(sourceFile: SourceFile, targetEnums: string[]) {
   const enumNames: string[] = []
 
   sourceFile.forEachDescendant((node) => {
@@ -20,7 +20,7 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile) {
           const enumName = declarationSymbol?.getName()
           const enumMemberValue = memberValueDeclaration.getInitializer()?.getText()
 
-          if (enumName && enumMemberValue) {
+          if (enumName && enumMemberValue && targetEnums.includes(enumName)) {
             const ancestor = node.getFirstAncestor()
             if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
               ancestor.replaceWithText(`'${enumMemberValue.slice(1, -1)}'`)
@@ -43,8 +43,8 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile) {
   return undefined
 }
 
-function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
-  return transformEnumMemberToStringLiteral(sourceFile)
-}
+const enumMemberToStringLiteral = (targetEnums: string[]) => (sourceFile: SourceFile): true | void => (
+  transformEnumMemberToStringLiteral(sourceFile, targetEnums)
+)
 
 export default enumMemberToStringLiteral
