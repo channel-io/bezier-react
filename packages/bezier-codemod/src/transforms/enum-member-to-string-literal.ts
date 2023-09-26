@@ -4,6 +4,8 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
+type EnumTransforms = Record<string, Record<string, string>>
+
 function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransforms: EnumTransforms) {
   const transformedEnumNames: string[] = []
 
@@ -45,10 +47,19 @@ function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransfor
   return undefined
 }
 
-type EnumTransforms = Record<string, Record<string, string>>
-
-const enumMemberToStringLiteral = (enumTransforms: EnumTransforms) => (sourceFile: SourceFile): true | void => (
-  transformEnumMemberToStringLiteral(sourceFile, enumTransforms)
-)
+function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
+  const enumTransforms: EnumTransforms = {
+    ProgressBarSize: {
+      M: 'm',
+      S: 's',
+    },
+    ProgressBarVariant: {
+      Green: 'green',
+      GreenAlt: 'green-alt',
+      Monochrome: 'monochrome',
+    },
+  }
+  return transformEnumMemberToStringLiteral(sourceFile, enumTransforms)
+}
 
 export default enumMemberToStringLiteral

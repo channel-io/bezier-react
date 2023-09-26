@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 
 import project from '../../../project.js'
-import progressBarStringLiteralVariants from '../../progress-bar-string-literal-variants.js'
+import enumMemberToStringLiteral from '../../enum-member-to-string-literal.js'
 
-describe('progressBarStringLiteralVariants', () => {
+describe('enumMemberToStringLiteral', () => {
   it('should transform enum members to string literals correctly', () => {
     const inputPath = path.join(__dirname, 'fixtures', 'input1.tsx')
     const outputPath = path.join(__dirname, 'fixtures', 'output1.tsx')
@@ -13,7 +13,7 @@ describe('progressBarStringLiteralVariants', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    const isMigrated = progressBarStringLiteralVariants(sourceFile)
+    const isMigrated = enumMemberToStringLiteral(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
     expect(isMigrated).toBe(true)
@@ -27,7 +27,7 @@ describe('progressBarStringLiteralVariants', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    const isMigrated = progressBarStringLiteralVariants(sourceFile)
+    const isMigrated = enumMemberToStringLiteral(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
     expect(isMigrated).toBe(true)
@@ -41,7 +41,7 @@ describe('progressBarStringLiteralVariants', () => {
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
     const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
 
-    const isMigrated = progressBarStringLiteralVariants(sourceFile)
+    const isMigrated = enumMemberToStringLiteral(sourceFile)
 
     expect(sourceFile.getFullText()).toBe(outputCode)
     expect(isMigrated).toBe(true)
