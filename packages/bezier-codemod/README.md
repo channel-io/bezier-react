@@ -14,7 +14,7 @@ npx @channel.io/bezier-codemod
 
 ### Icons to Bezier icons
 
-#### `icons-to-bezier-icons`
+**`icons-to-bezier-icons`**
 
 Update the import syntax for the icon source moved from `@channel.io/bezier-react` to `@channel.io/bezier-icons`.
 
@@ -37,13 +37,9 @@ import { Button, Icon, IconSize } from '@channel.io/bezier-react'
 import Foo from './foo'
 ```
 
-#### Changelogs
-
-- `0.2.0`: add transform
-
 ### Enum Member to String Literal
 
-#### `enum-member-to-string-literal`
+**`enum-member-to-string-literal`**
 
 Replace deprecated enum usage to string literal.
 
@@ -76,8 +72,3 @@ export default () => (
   />
 )
 ```
-
-#### Changelogs
-
-- `0.4.0`: add transform with following supports:
-  - `ProgressBarSize`, `ProgressBarVariants`
