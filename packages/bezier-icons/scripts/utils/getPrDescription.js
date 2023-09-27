@@ -1,20 +1,18 @@
-type IconsByStatus = Record<string, string[]>
-
-const statusByKey: Record<string, string> = {
+const statusByKey = {
   M: 'modified',
   A: 'added',
   D: 'deleted',
 }
 
-const emojiByKey: Record<string, string> = {
+const emojiByKey = {
   M: '✏️',
   A: '🆕',
   D: '🗑️',
 }
 
-const getIconName = (path: string) => path.split('/').at(-1)
+const getIconName = (path) => path.split('/').at(-1)
 
-const getSummary = (iconsByStatus: IconsByStatus) => {
+const getSummary = (iconsByStatus) => {
   let res = ''
 
   for (const [key, icons] of Object.entries(iconsByStatus)) {
@@ -24,7 +22,7 @@ const getSummary = (iconsByStatus: IconsByStatus) => {
   return res
 }
 
-const getTable = (iconsByStatus: IconsByStatus) => {
+const getTable = (iconsByStatus) => {
   let res = '| Name | Status |\n|--|--|\n'
 
   for (const [key, icons] of Object.entries(iconsByStatus)) {
@@ -36,7 +34,7 @@ const getTable = (iconsByStatus: IconsByStatus) => {
   return res
 }
 
-export const getDescription = (gitLog: string) => {
+const getDescription = (gitLog) => {
   let description = '### Icon update is ready to be merged! 🎉\n\n'
 
   const iconsByStatus = gitLog
@@ -56,11 +54,15 @@ export const getDescription = (gitLog: string) => {
         acc[key].push(icon)
       }
       return acc
-    }, {} as Record<string, string[]>)
+    }, {})
 
   description += getSummary(iconsByStatus)
   description += '\n'
   description += getTable(iconsByStatus)
 
   return description.trim()
+}
+
+module.exports = {
+  getDescription,
 }

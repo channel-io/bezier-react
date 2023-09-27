@@ -1,13 +1,13 @@
-import fs from 'fs'
-import path from 'path'
+const fs = require('fs')
+const path = require('path')
 
-import { generateIconFiles } from './generateIconFilesFromJson'
+const { generateIconFiles } = require('./generateIconFilesFromJson')
 
 jest.mock('fs', () => ({
   existsSync: () => false,
   rmSync: () => {},
   mkdirSync: () => {},
-  readFileSync: (v: string) => v,
+  readFileSync: (v) => v,
   writeFileSync: jest.fn(),
 }))
 

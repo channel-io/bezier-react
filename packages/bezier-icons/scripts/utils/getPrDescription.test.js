@@ -1,4 +1,4 @@
-import { getDescription } from './getPrDescription'
+const { getDescription } = require('./getPrDescription.js/index.js')
 
 describe('getDescription function', () => {
   test('generates pr description from git log', () => {

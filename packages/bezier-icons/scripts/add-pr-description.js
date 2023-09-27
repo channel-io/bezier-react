@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { getDescription } from './utils/getPrDescription'
-
 const { exec } = require('child_process')
+
+const { getDescription } = require('./utils/getPrDescription')
 
 const githubToken = process.argv[2]
 const pullNumber = process.argv[3]
