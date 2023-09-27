@@ -1,5 +1,11 @@
 # @channel.io/bezier-codemod
 
+## 0.4.0
+
+### Minor Changes
+
+- Implement codemod transform which replaces enum usage with string literal ([#1639](https://github.com/channel-io/bezier-react/pull/1639)) by @Dogdriip
+
 ## 0.3.0
 
 ### Minor Changes
