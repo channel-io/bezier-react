@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getDescription } from './getPrDescription'
+import { getDescription } from './utils/getPrDescription'
 
 const { exec } = require('child_process')
 
