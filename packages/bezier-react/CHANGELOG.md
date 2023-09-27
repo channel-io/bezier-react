@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 1.14.0
+
+### Minor Changes
+
+- Added StyleSheetManager to export ([#1645](https://github.com/channel-io/bezier-react/pull/1645)) by @leejiwoo2002
+
+### Patch Changes
+
+- Implement the feature to add scripts by injecting a window object into the `activate` function of `SmoothCornersFeatures`, if needed. ([#1642](https://github.com/channel-io/bezier-react/pull/1642)) by @sungik-choi
+
+  ```tsx
+  SmoothCornersFeature.activate(window);
+  ```
+
 ## 1.13.0
 
 ### Minor Changes

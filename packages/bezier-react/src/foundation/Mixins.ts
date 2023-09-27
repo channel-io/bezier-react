@@ -102,7 +102,7 @@ export const smoothCorners = ({
     border-radius: ${borderRadius};
   `}
 
-  ${SmoothCornersFeature.activated && css`
+  ${SmoothCornersFeature.activated.get(globalThis) && css`
     @supports (background: paint(smooth-corners)) {
       padding: ${shadowBlur * 2}px;
       margin: ${-(shadowBlur * 2) + margin}px;
