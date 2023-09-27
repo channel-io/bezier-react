@@ -1,37 +1,66 @@
-const keyToStatus: Record<string, string> = {
-  M: 'Modified 🖊️',
-  A: 'Added 🎨',
-  D: 'Deleted 🗑️',
+type IconsByStatus = Record<string, string[]>
+
+const statusByKey: Record<string, string> = {
+  M: 'modified',
+  A: 'added',
+  D: 'deleted',
+}
+
+const emojiByKey: Record<string, string> = {
+  M: '✏️',
+  A: '🆕',
+  D: '🗑️',
 }
 
 const getIconName = (path: string) => path.split('/').at(-1)
 
+const getSummary = (iconsByStatus: IconsByStatus) => {
+  let res = ''
+
+  for (const [key, icons] of Object.entries(iconsByStatus)) {
+    res += `- ${icons.length} icon(s) ${statusByKey[key]}\n`
+  }
+
+  return res
+}
+
+const getTable = (iconsByStatus: IconsByStatus) => {
+  let res = '| Name | Status |\n|--|--|\n'
+
+  for (const [key, icons] of Object.entries(iconsByStatus)) {
+    for (const icon of icons) {
+      res += `| ${getIconName(icon)} | ${emojiByKey[key]} |\n`
+    }
+  }
+
+  return res
+}
+
 export const getDescription = (gitLog: string) => {
   let description = '### Icon update is ready to be merged! 🎉\n\n'
 
-  const statusAndIconArray = gitLog
+  const iconsByStatus = gitLog
     .trim()
     .split('\n')
     .map(line => line.split('\t'))
     .filter(line => line[1].endsWith('.svg'))
     .reduce((acc, cur) => {
       const [key, file] = cur
-      const status = keyToStatus[key]
-      const icon = `- ${getIconName(file)}`
+      const icon = getIconName(file)
 
-      if (!acc[status]) {
-        acc[status] = [icon]
+      if (!icon) { return acc }
+
+      if (!acc[key]) {
+        acc[key] = [icon]
       } else {
-        acc[status].push(icon)
+        acc[key].push(icon)
       }
       return acc
     }, {} as Record<string, string[]>)
 
-  for (const [status, icons] of Object.entries(statusAndIconArray)) {
-    description += `${icons.length} icon(s) ${status}\n`
-    description += icons.join('\n')
-    description += '\n\n'
-  }
+  description += getSummary(iconsByStatus)
+  description += '\n'
+  description += getTable(iconsByStatus)
 
   return description.trim()
 }
