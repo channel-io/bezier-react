@@ -123,8 +123,8 @@ const meta: Meta<TabsCompositionProps> = {
     size: {
       control: {
         type: 'radio',
-        options: [TabSize.S, TabSize.M, TabSize.L],
       },
+      options: [TabSize.S, TabSize.M, TabSize.L],
     },
     onValueChange: {
       action: 'clicked',

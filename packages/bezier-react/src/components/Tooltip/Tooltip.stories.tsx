@@ -27,9 +27,8 @@ const meta: Meta<typeof Tooltip> = {
     placement: {
       control: {
         type: 'select',
-        // TODO[@epic="storybook"]: figure out why this does not work
-        options: getObjectFromEnum(TooltipPosition),
       },
+      options: getObjectFromEnum(TooltipPosition),
     },
   },
 }

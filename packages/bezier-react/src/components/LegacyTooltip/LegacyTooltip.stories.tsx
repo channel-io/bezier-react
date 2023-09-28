@@ -22,21 +22,21 @@ const meta: Meta<typeof LegacyTooltip> = {
     placement: {
       control: {
         type: 'radio',
-        options: [
-          LegacyTooltipPosition.TopCenter,
-          LegacyTooltipPosition.TopLeft,
-          LegacyTooltipPosition.TopRight,
-          LegacyTooltipPosition.RightCenter,
-          LegacyTooltipPosition.RightTop,
-          LegacyTooltipPosition.RightBottom,
-          LegacyTooltipPosition.BottomCenter,
-          LegacyTooltipPosition.BottomLeft,
-          LegacyTooltipPosition.BottomRight,
-          LegacyTooltipPosition.LeftCenter,
-          LegacyTooltipPosition.LeftTop,
-          LegacyTooltipPosition.LeftBottom,
-        ],
       },
+      options: [
+        LegacyTooltipPosition.TopCenter,
+        LegacyTooltipPosition.TopLeft,
+        LegacyTooltipPosition.TopRight,
+        LegacyTooltipPosition.RightCenter,
+        LegacyTooltipPosition.RightTop,
+        LegacyTooltipPosition.RightBottom,
+        LegacyTooltipPosition.BottomCenter,
+        LegacyTooltipPosition.BottomLeft,
+        LegacyTooltipPosition.BottomRight,
+        LegacyTooltipPosition.LeftCenter,
+        LegacyTooltipPosition.LeftTop,
+        LegacyTooltipPosition.LeftBottom,
+      ],
     },
     offset: {
       control: {

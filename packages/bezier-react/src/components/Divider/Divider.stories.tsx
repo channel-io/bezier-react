@@ -19,8 +19,8 @@ const meta:Meta<typeof Divider> = {
     orientation: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
     withoutSideIndent: {
       control: {

@@ -35,8 +35,8 @@ const meta: Meta<typeof FormControl> = {
     labelPosition: {
       control: {
         type: 'radio',
-        options: ['top', 'left', undefined],
       },
+      options: ['top', 'left', undefined],
     },
   },
 }

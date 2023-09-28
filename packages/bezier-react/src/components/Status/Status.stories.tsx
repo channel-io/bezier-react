@@ -21,8 +21,8 @@ const meta:Meta<typeof Status> = {
     type: {
       control: {
         type: 'radio',
-        options: StatusType,
       },
+      options: StatusType,
     },
   },
 }

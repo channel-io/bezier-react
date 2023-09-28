@@ -43,8 +43,8 @@ const meta: Meta<typeof Banner> = {
     variant: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(BannerVariant),
       },
+      options: getObjectFromEnum(BannerVariant),
     },
     hasLink: {
       control: {

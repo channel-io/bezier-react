@@ -53,20 +53,20 @@ const meta: Meta<StackProps & {
     direction: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
     justify: {
       control: {
         type: 'radio',
-        options: ['start', 'center', 'end', 'stretch'],
       },
+      options: ['start', 'center', 'end', 'stretch'],
     },
     align: {
       control: {
         type: 'radio',
-        options: ['start', 'center', 'end', 'stretch'],
       },
+      options: ['start', 'center', 'end', 'stretch'],
     },
     spacing: {
       control: {

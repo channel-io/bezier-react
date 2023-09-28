@@ -76,14 +76,14 @@ export const Primary = {
     size: {
       control: {
         type: 'radio', // type 'select' is automatically inferred when 'options' is defined
-        options: getObjectFromEnum(TextFieldSize),
       },
+      options: getObjectFromEnum(TextFieldSize),
     },
     variant: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(TextFieldVariant),
       },
+      options: getObjectFromEnum(TextFieldVariant),
     },
   },
 }

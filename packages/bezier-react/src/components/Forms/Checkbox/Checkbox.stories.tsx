@@ -17,12 +17,12 @@ const meta: Meta<typeof Checkbox> = {
     checked: {
       control: {
         type: 'radio',
-        options: [
-          true,
-          false,
-          'indeterminate',
-        ],
       },
+      options: [
+        true,
+        false,
+        'indeterminate',
+      ],
     },
   },
 }

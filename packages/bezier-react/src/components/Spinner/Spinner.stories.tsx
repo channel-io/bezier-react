@@ -15,14 +15,14 @@ const meta: Meta<typeof Spinner> = {
     size: {
       control: {
         type: 'radio',
-        options: [
-          SpinnerSize.XL,
-          SpinnerSize.L,
-          SpinnerSize.M,
-          SpinnerSize.S,
-          SpinnerSize.XS,
-        ],
       },
+      options: [
+        SpinnerSize.XL,
+        SpinnerSize.L,
+        SpinnerSize.M,
+        SpinnerSize.S,
+        SpinnerSize.XS,
+      ],
     },
   },
 }

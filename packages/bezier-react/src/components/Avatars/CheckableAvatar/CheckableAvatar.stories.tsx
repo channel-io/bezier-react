@@ -24,8 +24,8 @@ const meta: Meta<typeof CheckableAvatar> = {
     size: {
       control: {
         type: 'select',
-        options: getObjectFromEnum(AvatarSize),
       },
+      options: getObjectFromEnum(AvatarSize),
     },
   },
 }

@@ -31,8 +31,8 @@ const meta: Meta<typeof BezierProvider> = {
     foundation: {
       control: {
         type: 'select',
-        options: ['light', 'dark'],
       },
+      options: ['light', 'dark'],
     },
   },
 }

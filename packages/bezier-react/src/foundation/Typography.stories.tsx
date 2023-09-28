@@ -28,8 +28,8 @@ const meta: Meta = {
     typography: {
       control: {
         type: 'radio',
-        options: Object.keys(Typography),
       },
+      options: Object.keys(Typography),
     },
   },
 }

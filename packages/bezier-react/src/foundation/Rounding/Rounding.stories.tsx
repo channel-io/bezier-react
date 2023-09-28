@@ -13,17 +13,17 @@ const meta: Meta = {
     round: {
       control: {
         type: 'radio',
-        options: [
-          'round3',
-          'round4',
-          'round6',
-          'round8',
-          'round12',
-          'round16',
-          'round20',
-          'round32',
-        ],
       },
+      options: [
+        'round3',
+        'round4',
+        'round6',
+        'round8',
+        'round12',
+        'round16',
+        'round20',
+        'round32',
+      ],
     },
   },
 }

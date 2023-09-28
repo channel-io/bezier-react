@@ -26,14 +26,14 @@ const meta: Meta<typeof SegmentedControl> = {
     type: {
       control: {
         type: 'radio',
-        options: ['radiogroup', 'tabs'],
       },
+      options: ['radiogroup', 'tabs'],
     },
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SegmentedControlSize),
       },
+      options: getObjectFromEnum(SegmentedControlSize),
     },
     value: {
       control: {

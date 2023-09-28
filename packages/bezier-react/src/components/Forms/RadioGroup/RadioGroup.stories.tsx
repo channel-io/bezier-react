@@ -24,8 +24,8 @@ const meta: Meta<typeof RadioGroup> = {
     direction: {
       control: {
         type: 'radio',
-        options: ['vertical', 'horizontal'],
       },
+      options: ['vertical', 'horizontal'],
     },
   },
 }

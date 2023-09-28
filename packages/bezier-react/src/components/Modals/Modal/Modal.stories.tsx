@@ -140,8 +140,8 @@ const meta: Meta<typeof ModalComposition> = {
     titleSize: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(ModalTitleSize),
       },
+      options: getObjectFromEnum(ModalTitleSize),
     },
   },
 }

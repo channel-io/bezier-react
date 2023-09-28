@@ -15,8 +15,8 @@ const meta: Meta<typeof TagBadgeText> = {
     horizontalPadding: {
       control: {
         type: 'radio',
-        options: [2, 4],
       },
+      options: [2, 4],
     },
     /**
      * FIXME:

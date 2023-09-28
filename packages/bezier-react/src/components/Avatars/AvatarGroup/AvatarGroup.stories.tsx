@@ -30,14 +30,14 @@ const meta: Meta<typeof AvatarGroup> = {
     ellipsisType: {
       control: {
         type: 'radio',
-        options: AvatarGroupEllipsisType,
       },
+      options: AvatarGroupEllipsisType,
     },
     size: {
       control: {
         type: 'radio',
-        options: avatarSizeList,
       },
+      options: avatarSizeList,
     },
     max: {
       control: {

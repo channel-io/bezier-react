@@ -36,8 +36,8 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [...Object.values(LegacySegmentedControlSize)],
       },
+      options: [...Object.values(LegacySegmentedControlSize)],
     },
   },
 } as Meta

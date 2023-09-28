@@ -21,14 +21,14 @@ const meta:Meta<typeof Badge> = {
     size: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
       },
+      options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
     },
     variant: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
       },
+      options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
     },
   },
 }

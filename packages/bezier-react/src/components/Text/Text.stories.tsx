@@ -21,13 +21,13 @@ const meta: Meta<typeof Text> = {
     as: {
       control: {
         type: 'select',
-        options: [
-          undefined,
-          'h1',
-          'h2',
-          'button',
-        ],
       },
+      options: [
+        undefined,
+        'h1',
+        'h2',
+        'button',
+      ],
     },
 
     style: { control: 'object' },

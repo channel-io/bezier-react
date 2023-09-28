@@ -20,14 +20,14 @@ const meta: Meta<typeof TextArea> = {
     minRows: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(TextAreaHeight),
       },
+      options: getObjectFromEnum(TextAreaHeight),
     },
     maxRows: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(TextAreaHeight),
       },
+      options: getObjectFromEnum(TextAreaHeight),
     },
   },
 }

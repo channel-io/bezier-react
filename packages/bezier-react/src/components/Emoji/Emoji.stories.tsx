@@ -21,8 +21,8 @@ const meta: Meta<typeof Emoji> = {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(EmojiSize),
       },
+      options: getObjectFromEnum(EmojiSize),
     },
     imageUrl: {
       control: {

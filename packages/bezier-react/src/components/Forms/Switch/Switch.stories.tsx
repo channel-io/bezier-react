@@ -17,8 +17,8 @@ const meta: Meta<typeof Switch> = {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SwitchSize),
       },
+      options: getObjectFromEnum(SwitchSize),
     },
     checked: {
       control: {

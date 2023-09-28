@@ -13,6 +13,7 @@ const meta: Meta = {
     ev: {
       control: {
         type: 'radio',
+      },
         options: [
           'ev1',
           'ev2',
@@ -21,7 +22,6 @@ const meta: Meta = {
           'ev5',
           'ev6',
         ],
-      },
     },
   },
 }

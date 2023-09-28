@@ -22,8 +22,8 @@ const meta: Meta<SelectProps & {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SelectSize),
       },
+      options: getObjectFromEnum(SelectSize),
     },
     wrapperSize: {
       control: {

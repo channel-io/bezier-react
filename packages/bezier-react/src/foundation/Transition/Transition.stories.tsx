@@ -17,13 +17,13 @@ const meta: Meta = {
     property: {
       control: {
         type: 'radio',
-        options: [
-          'top',
-          'right',
-          'bottom',
-          'left',
-        ],
       },
+      options: [
+        'top',
+        'right',
+        'bottom',
+        'left',
+      ],
     },
   },
 }

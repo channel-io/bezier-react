@@ -19,14 +19,14 @@ const meta: Meta<typeof Tag> = {
     size: {
       control: {
         type: 'radio',
-        options: TagBadgeSize,
       },
+      options: TagBadgeSize,
     },
     variant: {
       control: {
         type: 'radio',
-        options: TagBadgeVariant,
       },
+      options: TagBadgeVariant,
     },
   },
 }

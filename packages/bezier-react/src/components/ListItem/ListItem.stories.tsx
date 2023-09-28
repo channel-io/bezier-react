@@ -65,11 +65,16 @@ export const Primary = {
     variant: {
       control: {
         type: 'radio',
-        options: [...Object.values(ListItemVariant)],
       },
+      options: [...Object.values(ListItemVariant)],
     },
     active: { control: { type: 'boolean' } },
-    size: { control: { type: 'select', options: ListItemSize } },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ListItemSize,
+    },
   },
 }
 

@@ -66,8 +66,8 @@ const meta: Meta<typeof Icon> = {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(IconSize),
       },
+      options: getObjectFromEnum(IconSize),
     },
   },
 }

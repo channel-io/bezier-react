@@ -31,17 +31,17 @@ const meta:Meta<typeof Avatar> = {
     size: {
       control: {
         type: 'radio',
-        options: avatarSizeList,
       },
+      options: avatarSizeList,
     },
     status: {
       control: {
         type: 'radio',
-        options: [
-          undefined,
-          ...statusTypeList,
-        ],
       },
+      options: [
+        undefined,
+        ...statusTypeList,
+      ],
     },
     onClick: {
       action: 'clicked',

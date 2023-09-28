@@ -66,20 +66,20 @@ const meta: Meta<typeof Button> = {
     size: {
       control: {
         type: 'radio',
-        options: [...Object.values(ButtonSize)],
       },
+      options: Object.values(ButtonSize),
     },
     styleVariant: {
       control: {
         type: 'radio',
-        options: [...Object.values(ButtonStyleVariant)],
       },
+      options: Object.values(ButtonStyleVariant),
     },
     colorVariant: {
       control: {
         type: 'radio',
-        options: [...Object.values(ButtonColorVariant)],
       },
+      options: Object.values(ButtonColorVariant),
     },
   },
 }

@@ -22,8 +22,8 @@ const meta: Meta<typeof FormGroup> = {
     direction: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
   },
 }

@@ -46,23 +46,23 @@ const meta: Meta<ToastProps & {
     preset: {
       control: {
         type: 'select',
-        options: ToastPreset,
       },
+      options: ToastPreset,
     },
     appearance: {
       control: {
         type: 'radio',
-        options: {
-          ...ToastAppearance,
-          undefined,
-        },
+      },
+      options: {
+        ...ToastAppearance,
+        undefined,
       },
     },
     icon: {
       control: {
         type: 'select',
-        options: [...iconList, undefined],
       },
+      options: [...iconList, undefined],
     },
     content: {
       control: {
