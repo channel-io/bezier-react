@@ -1,4 +1,4 @@
-const { getDescription } = require('./getPrDescription.js/index.js')
+const { getDescription } = require('./getPrDescription')
 
 describe('getDescription function', () => {
   test('generates pr description from git log', () => {
@@ -8,14 +8,15 @@ A\tpackages/bezier-icons/icons/people.svg
 A\tpackages/bezier-icons/icons/chevron-right.svg`
     expect(getDescription(gitLog)).toBe(`### Icon update is ready to be merged! 🎉
 
-1 icon(s) Modified 🖊️
-- all.svg
+- 1 icon(s) modified
+- 1 icon(s) deleted
+- 2 icon(s) added
 
-1 icon(s) Deleted 🗑️
-- home.svg
-
-2 icon(s) Added 🎨
-- people.svg
-- chevron-right.svg`)
+| Name | Status |
+|--|--|
+| all.svg | ✏️ |
+| home.svg | 🗑️ |
+| people.svg | 🆕 |
+| chevron-right.svg | 🆕 |`)
   })
 })
