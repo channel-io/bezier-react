@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.email "eng@channel.io"
           git config --global user.name "ch-builder"
-      
+
       - name: Generate svg files from icons.json
         id: generate-svg-files
         run: |
