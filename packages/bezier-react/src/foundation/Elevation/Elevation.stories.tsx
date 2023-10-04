@@ -14,14 +14,14 @@ const meta: Meta = {
       control: {
         type: 'radio',
       },
-        options: [
-          'ev1',
-          'ev2',
-          'ev3',
-          'ev4',
-          'ev5',
-          'ev6',
-        ],
+      options: [
+        'ev1',
+        'ev2',
+        'ev3',
+        'ev4',
+        'ev5',
+        'ev6',
+      ],
     },
   },
 }
