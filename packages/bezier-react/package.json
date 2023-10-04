@@ -63,7 +63,7 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
-    "@channel.io/bezier-icons": "^0.12.0",
+    "@channel.io/bezier-icons": "^0.13.0",
     "@mdx-js/react": "^1.6.22",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
