@@ -1,8 +1,13 @@
-import { dirname, join } from "path";
+import { dirname, join } from "path"
 
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import { type StorybookConfig } from '@storybook/react-webpack5'
 
-module.exports = {
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")))
+}
+
+const config: StorybookConfig = {
   stories: [
     '../src/stories/Intro.stories.mdx',
     '../src/**/*.stories.(tsx|mdx)',
@@ -17,10 +22,6 @@ module.exports = {
     getAbsolutePath("@storybook/addon-backgrounds"),
     getAbsolutePath("@storybook/addon-mdx-gfm")
   ],
-
-  features: {
-    postcss: false,
-  },
 
   typescript: {
     /**
@@ -38,27 +39,38 @@ module.exports = {
   },
 
   webpackFinal: async (config) => {
-    // Apply tsconfig alias path
-    config.resolve.plugins = [
-      ...(config.resolve.plugins || []),
+    config.resolve = {
+      ...config.resolve,
+      // Apply tsconfig alias path
+      plugins: [
+      ...(config?.resolve?.plugins ?? []),
       new TsconfigPathsPlugin({}),
-    ]
+      ],
+      extensions: [
+        ...(config.resolve?.extensions ?? []),
+        '.ts',
+        '.tsx',
+      ]
+    }
 
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve('babel-loader'),
-      options: {
-        presets: [['react-app', { flow: false, typescript: true }]],
-      },
-    })
-
-    config.resolve.extensions.push('.ts', '.tsx')
+    config.module = {
+      ...config.module,
+      rules: [
+        ...(config.module?.rules ?? []), {
+        test: /\.(ts|tsx)$/,
+        loader: require.resolve('babel-loader'),
+        options: {
+          presets: [['react-app', { flow: false, typescript: true }]],
+          }
+        }
+      ]
+    }
 
     return config
   },
 
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: '@storybook/react-webpack5',
     options: {}
   },
 
@@ -67,6 +79,4 @@ module.exports = {
   }
 }
 
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}
+export default config
