@@ -75,7 +75,6 @@
     "@storybook/addon-backgrounds": "^7.4.2",
     "@storybook/addon-controls": "^7.4.2",
     "@storybook/addon-docs": "^7.4.2",
-    "@storybook/addon-mdx-gfm": "^7.4.2",
     "@storybook/addon-toolbars": "^7.4.2",
     "@storybook/react": "^7.4.2",
     "@storybook/react-webpack5": "^7.4.2",

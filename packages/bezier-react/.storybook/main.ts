@@ -20,7 +20,6 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-toolbars"),
     getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@storybook/addon-backgrounds"),
-    getAbsolutePath("@storybook/addon-mdx-gfm")
   ],
 
   typescript: {
