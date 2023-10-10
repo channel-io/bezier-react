@@ -36,8 +36,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build packages
-        run: yarn build
+      - name: Build bezier-react's dependencies
+        run: yarn build --filter=@channel.io/bezier-react^...
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
