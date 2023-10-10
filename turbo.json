@@ -38,6 +38,28 @@
     },
     "clean": {
       "cache": false
+    },
+    "@channel.io/bezier-react#typecheck": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "@channel.io/bezier-react#test": {
+      "outputs": [
+        ".jestcache"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "@channel.io/bezier-codemod#test": {
+      "outputs": [
+        ".jestcache"
+      ],
+      "dependsOn": [
+        "@channel.io/bezier-react#build"
+      ]
     }
   }
 }
