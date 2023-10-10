@@ -164,6 +164,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   onShow: onShowProp,
   onHide: onHideProp,
   disabled,
+  title,
   content,
   description,
   icon,
@@ -274,6 +275,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         >
           <Styled.TooltipContent forwardedAs={as}>
             <Styled.TextContainer>
+              { title && (<Styled.Title>{ title } </Styled.Title>) }
+
               <Styled.Content>
                 { content }
               </Styled.Content>

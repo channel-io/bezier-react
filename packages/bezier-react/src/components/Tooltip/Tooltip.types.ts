@@ -54,6 +54,10 @@ interface TooltipOptions {
    */
   defaultShow?: boolean
   /**
+   * An element that sits above the tooltip content.
+   */
+  title?: React.ReactNode
+  /**
    * An element that sits below the tooltip content.
    */
   description?: React.ReactNode
@@ -130,5 +134,5 @@ export interface TooltipProps extends
   ChildrenProps<React.ReactElement>,
   ContentProps,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps | keyof ChildrenProps>,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | keyof ContentProps | keyof ChildrenProps>,
   TooltipOptions {}
