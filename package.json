@@ -13,7 +13,6 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
-    "validate": "yarn build && run-p lint typecheck test --concurrency=100%",
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
     "release": "turbo run build --filter='@channel.io/*' && changeset publish",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
