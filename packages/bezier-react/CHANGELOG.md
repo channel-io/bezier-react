@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.15.0
+
+### Minor Changes
+
+- Add `title` props on `Tooltip` ([#1666](https://github.com/channel-io/bezier-react/pull/1666)) by @nabi-chan
+
 ## 1.14.0
 
 ### Minor Changes
