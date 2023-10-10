@@ -36,3 +36,39 @@ import { Button, Icon, IconSize } from '@channel.io/bezier-react'
 
 import Foo from './foo'
 ```
+
+### Enum Member to String Literal
+
+**`enum-member-to-string-literal`**
+
+Replace deprecated enum usage to string literal.
+
+For example:
+
+```tsx
+import { ProgressBar, ProgressBarSize, ProgressBarVariant } from '@channel.io/bezier-react'
+
+export default () => (
+  <ProgressBar
+    width='100%'
+    size={ProgressBarSize.M}
+    variant={ProgressBarVariant.GreenAlt}
+    value={uploadProgressPercentage / 100}
+  />
+)
+```
+
+Transforms into:
+
+```tsx
+import { ProgressBar } from '@channel.io/bezier-react'
+
+export default () => (
+  <ProgressBar
+    width='100%'
+    size='m'
+    variant='green-alt'
+    value={uploadProgressPercentage / 100}
+  />
+)
+```
