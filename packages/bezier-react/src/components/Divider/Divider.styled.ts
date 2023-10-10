@@ -5,7 +5,7 @@ import {
 
 import type DividerProps from './Divider.types'
 
-const DIVIDER_THICKNESS = 1
+export const DIVIDER_THICKNESS = 1
 const DIVIDER_INDENT_SIZE = 6
 
 interface StyledDividerProps extends DividerProps {

@@ -1,5 +1,10 @@
 import React from 'react'
 
+import {
+  TagIcon,
+  ToolIcon,
+} from '@channel.io/bezier-icons'
+
 import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
@@ -56,7 +61,7 @@ describe('SectionLabel', () => {
   })
 
   it('renders left content with specified icon and default icon color', () => {
-    const { getByTestId } = renderComponent({ leftContent: { icon: 'tag' } })
+    const { getByTestId } = renderComponent({ leftContent: { icon: TagIcon } })
     const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
 
     const leftIcon = leftContent.children.item(0)
@@ -66,7 +71,7 @@ describe('SectionLabel', () => {
   })
 
   it('renders left content with specified icon and icon color', () => {
-    const { getByTestId } = renderComponent({ leftContent: { icon: 'tag', iconColor: 'bgtxt-orange-normal' } })
+    const { getByTestId } = renderComponent({ leftContent: { icon: TagIcon, iconColor: 'bgtxt-orange-normal' } })
     const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
 
     const leftIcon = leftContent.children.item(0)
@@ -102,7 +107,7 @@ describe('SectionLabel', () => {
   })
 
   it('renders right content as button if only icon is specified', () => {
-    const { getByTestId } = renderComponent({ rightContent: { icon: 'tag' } })
+    const { getByTestId } = renderComponent({ rightContent: { icon: TagIcon } })
     const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)
 
     expect(rightContent.children.length).toBe(1)
@@ -116,8 +121,8 @@ describe('SectionLabel', () => {
   it('renders multiple right contents, and item with iconColor is not rendered as button', () => {
     const { getByTestId } = renderComponent({
       rightContent: [
-        { icon: 'tag' },
-        { icon: 'tool', iconColor: 'bgtxt-green-normal' },
+        { icon: TagIcon },
+        { icon: ToolIcon, iconColor: 'bgtxt-green-normal' },
       ],
     })
     const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)

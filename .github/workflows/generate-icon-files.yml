@@ -1,0 +1,51 @@
+name: Generate icon files from icons.json file
+
+on:
+  push:
+    branches:
+      - icon-update-*
+    paths:
+      - packages/bezier-icons/icons.json
+
+jobs:
+  generate-svg:
+    name: Generate icon files from icons.json file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.17.1
+
+      - name: Git Config
+        run: |
+          git config --global user.email "eng@channel.io"
+          git config --global user.name "ch-builder"
+
+      - name: Generate svg files from icons.json
+        id: generate-svg-files
+        run: |
+          node packages/bezier-icons/scripts/generate-icon-files.js
+          git add .
+          git commit -m "feat(bezier-icons): generate icon files from icons.json" || echo "icon_not_changed=1" >> $GITHUB_OUTPUT
+
+      - name: Get PR number
+        id: pr
+        if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
+        run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
+      - name: Add pr description
+        if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
+        run: |
+          node packages/bezier-icons/scripts/add-pr-description.js ${{ secrets.GITHUB_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
+      
+      - name: Delete icons.json files
+        run: |
+          git rm packages/bezier-icons/icons.json
+          git commit -m "feat(bezier-icons): remove icons.json"
+          git push

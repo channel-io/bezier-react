@@ -6,6 +6,105 @@
 
 - Export the css style sheet for the new design system. ([#1492](https://github.com/channel-io/bezier-react/pull/1492)) by @sungik-choi
 
+## 1.15.0
+
+### Minor Changes
+
+- Add `title` props on `Tooltip` ([#1666](https://github.com/channel-io/bezier-react/pull/1666)) by @nabi-chan
+
+## 1.14.0
+
+### Minor Changes
+
+- Added StyleSheetManager to export ([#1645](https://github.com/channel-io/bezier-react/pull/1645)) by @leejiwoo2002
+
+### Patch Changes
+
+- Implement the feature to add scripts by injecting a window object into the `activate` function of `SmoothCornersFeatures`, if needed. ([#1642](https://github.com/channel-io/bezier-react/pull/1642)) by @sungik-choi
+
+  ```tsx
+  SmoothCornersFeature.activate(window);
+  ```
+
+## 1.13.0
+
+### Minor Changes
+
+- Add `preventHideOnOutsideClick` property to `Modal` component ([#1617](https://github.com/channel-io/bezier-react/pull/1617)) by @yangwooseong
+
+### Patch Changes
+
+- Fixes an issue where the height of `TextArea` component is not specified correctly. Modify the build settings to match the package.json exports fields change in 8.5.0 of `react-textarea-autosize`. ([#1637](https://github.com/channel-io/bezier-react/pull/1637)) by @sungik-choi
+
+- Add `ProgressBarSize`, `ProgressBarVariant` string literal type and deprecate enum ([#1595](https://github.com/channel-io/bezier-react/pull/1595)) by @Dogdriip
+
+## 1.12.0
+
+### Minor Changes
+
+- Allow `iconName` prop of `Button`, `Banner`, `SectionLabel` component to include `BezierIcon` type ([#1562](https://github.com/channel-io/bezier-react/pull/1562)) by @yangwooseong
+
+### Patch Changes
+
+- Fixed a rendering bug that occurs when using `react-resize-detector` and `asChild`prop of `radix-ui` simultaneously. ([#1577](https://github.com/channel-io/bezier-react/pull/1577)) by @yangwooseong
+
+  - Removed indicator adjusting logic by `react-resize-detector` using css transform property
+
+- Replace `@channel.io/react-docgen-typescript-plugin` with Storybook's `reactDocgen` option ([#1594](https://github.com/channel-io/bezier-react/pull/1594)) by @Dogdriip
+
+## 1.11.1
+
+### Patch Changes
+
+- `Tooltip`: Removes the risk of infinite loop. removes conditional rendering logic based on disabled prop. ([#1558](https://github.com/channel-io/bezier-react/pull/1558)) by @sungik-choi
+
+## 1.11.0
+
+### Minor Changes
+
+- `Tooltip`: If `content` property has a nil or empty string value, it will no longer render the content. ([#1552](https://github.com/channel-io/bezier-react/pull/1552)) by @sungik-choi
+
+### Patch Changes
+
+- `SegmentedControl`: Apply the text ellipsis style to each item label. ([#1557](https://github.com/channel-io/bezier-react/pull/1557)) by @sungik-choi
+
+## 1.10.2
+
+### Patch Changes
+
+- Fixed a bug where tooltips prevented focus from moving inside a modal. As a side-effect of #1472, revert the tooltip to be rendered on the root element. ([#1540](https://github.com/channel-io/bezier-react/pull/1540)) by @sungik-choi
+
+- Add bdr-black-lightest color to Light/DarkTheme ([#1538](https://github.com/channel-io/bezier-react/pull/1538)) by @heech1013
+
+## 1.10.1
+
+### Patch Changes
+
+- Add ProgressBar `GreenAlt` variant ([#1536](https://github.com/channel-io/bezier-react/pull/1536)) by @Dogdriip
+
+- Add bg-black-darkest color to DarkTheme ([#1535](https://github.com/channel-io/bezier-react/pull/1535)) by @Dogdriip
+
+## 1.10.0
+
+### Minor Changes
+
+- - Add Shadow DOM root element(`:host`) to the default `scope` of `ThemeVars`, and allow selectors to be injected into the `scope` type. ([#1521](https://github.com/channel-io/bezier-react/pull/1521)) by @dinohan
+
+- `Button` : Change the text color of monochrome dark - primary variant ([#1523](https://github.com/channel-io/bezier-react/pull/1523)) by @sungik-choi
+
+## 1.9.0
+
+### Minor Changes
+
+- Update foundation ([#1506](https://github.com/channel-io/bezier-react/pull/1506)) by @sungik-choi
+
+  - Add semantic color `txt-black-pure`
+  - Add palette `grey800_80` and modify `bg-lounge` color to reference it
+
+### Patch Changes
+
+- add type cast to fix incorrect type infer in `TabAction` component ([#1497](https://github.com/channel-io/bezier-react/pull/1497)) by @yangwooseong
+
 ## 1.8.0
 
 ### Minor Changes

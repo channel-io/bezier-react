@@ -6,10 +6,7 @@ import type {
 } from '@storybook/react'
 import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getTitle } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -23,10 +20,6 @@ import { Text } from '~/src/components/Text'
 import { ProgressBar } from './ProgressBar'
 import mdx from './ProgressBar.mdx'
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  ProgressBarSize,
-  ProgressBarVariant,
-} from './ProgressBar.types'
 
 export default {
   title: getTitle(base),
@@ -40,13 +33,11 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(ProgressBarSize),
       },
     },
     variant: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(ProgressBarVariant),
       },
     },
     width: {
@@ -67,8 +58,8 @@ export default {
 
 export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
 Playground.args = {
-  size: ProgressBarSize.M,
-  variant: ProgressBarVariant.Green,
+  size: 'm',
+  variant: 'green',
   width: '36',
   value: 0.5,
 }
@@ -86,32 +77,32 @@ export const Overview: Story<{}> = () => {
         <VStack spacing={6} align="stretch">
           <StackItem>
             <ProgressBar
-              size={ProgressBarSize.M}
-              variant={ProgressBarVariant.Green}
+              size="m"
+              variant="green"
               width={200}
               value={values[0]}
             />
           </StackItem>
           <StackItem>
             <ProgressBar
-              size={ProgressBarSize.M}
-              variant={ProgressBarVariant.Monochrome}
+              size="m"
+              variant="monochrome"
               width={200}
               value={values[1]}
             />
           </StackItem>
           <StackItem>
             <ProgressBar
-              size={ProgressBarSize.S}
-              variant={ProgressBarVariant.Green}
+              size="s"
+              variant="green"
               width={200}
               value={values[2]}
             />
           </StackItem>
           <StackItem>
             <ProgressBar
-              size={ProgressBarSize.S}
-              variant={ProgressBarVariant.Monochrome}
+              size="s"
+              variant="monochrome"
               width={200}
               value={values[3]}
             />
@@ -280,8 +271,8 @@ export const SizeVariant: Story<{}> = () => (
         <Spacer />
         <StackItem>
           <ProgressBar
-            size={ProgressBarSize.M}
-            variant={ProgressBarVariant.Green}
+            size="m"
+            variant="green"
             width={200}
             value={0.5}
           />
@@ -296,8 +287,8 @@ export const SizeVariant: Story<{}> = () => (
         <Spacer />
         <StackItem>
           <ProgressBar
-            size={ProgressBarSize.S}
-            variant={ProgressBarVariant.Green}
+            size="s"
+            variant="green"
             width={200}
             value={0.5}
           />
@@ -319,8 +310,8 @@ export const Variant: Story<{}> = () => (
         <Spacer />
         <StackItem>
           <ProgressBar
-            size={ProgressBarSize.M}
-            variant={ProgressBarVariant.Green}
+            size="m"
+            variant="green"
             width={200}
             value={0.5}
           />
@@ -335,8 +326,24 @@ export const Variant: Story<{}> = () => (
         <Spacer />
         <StackItem>
           <ProgressBar
-            size={ProgressBarSize.M}
-            variant={ProgressBarVariant.Monochrome}
+            size="m"
+            variant="monochrome"
+            width={200}
+            value={0.5}
+          />
+        </StackItem>
+      </HStack>
+    </StackItem>
+    <StackItem>
+      <HStack spacing={8} align="center">
+        <StackItem>
+          <Text color="txt-black-darkest">green-alt</Text>
+        </StackItem>
+        <Spacer />
+        <StackItem>
+          <ProgressBar
+            size="m"
+            variant="green-alt"
             width={200}
             value={0.5}
           />

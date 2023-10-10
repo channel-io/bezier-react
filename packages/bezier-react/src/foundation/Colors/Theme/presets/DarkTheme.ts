@@ -12,7 +12,7 @@ const DarkTheme: ThemeType = {
   'bg-navi': Palette.grey800_80,
   'bg-header': Palette.grey800,
   'bg-header-float': Palette.grey800_80,
-  'bg-lounge': Palette.grey900_90,
+  'bg-lounge': Palette.grey800_90,
 
   // Mono Background
   'bg-black-darkest': Palette.white_60,
@@ -22,6 +22,7 @@ const DarkTheme: ThemeType = {
   'bg-black-lighter': Palette.white_8,
   'bg-black-lightest': Palette.white_5,
 
+  'bg-grey-darkest': Palette.white,
   'bg-grey-dark': Palette.grey500,
   'bg-grey-dim-lightest': Palette.grey850_80,
   'bg-grey-light': Palette.grey700,
@@ -99,6 +100,7 @@ const DarkTheme: ThemeType = {
   'bgtxt-navy-lightest': Palette.navy300_20,
 
   // Text
+  'txt-black-pure': Palette.white,
   'txt-black-darkest': Palette.white_80,
   'txt-black-darker': Palette.white_60,
   'txt-black-dark': Palette.white_40,
@@ -120,6 +122,7 @@ const DarkTheme: ThemeType = {
   // Border
   'bdr-black-dark': Palette.white_20,
   'bdr-black-light': Palette.white_12,
+  'bdr-black-lightest': Palette.white_5,
   'bdr-grey-light': Palette.grey700,
   'bdr-white': Palette.grey700,
 

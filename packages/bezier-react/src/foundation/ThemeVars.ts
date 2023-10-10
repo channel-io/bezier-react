@@ -7,7 +7,7 @@ import { createGlobalStyle } from './FoundationStyledComponent'
 type ThemeRecord = Record<string, string>
 
 export interface ThemeVarsAdditionalType {
-  scope?: AnyStyledComponent
+  scope?: AnyStyledComponent | string
 }
 
 function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
@@ -20,7 +20,7 @@ function generateCSSVar(theme?: ThemeRecord, prefix?: string) {
 }
 
 export const ThemeVars = createGlobalStyle<ThemeVarsAdditionalType>`
-  ${({ scope }) => scope ?? ':root'} {
+  ${({ scope }) => scope ?? ':root, :host'} {
     ${({ foundation }) => generateCSSVar(foundation?.theme)}
     ${({ foundation }) => generateCSSVar(foundation?.subTheme, 'inverted')}
   }

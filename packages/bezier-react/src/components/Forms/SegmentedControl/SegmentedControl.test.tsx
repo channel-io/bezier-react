@@ -305,18 +305,7 @@ describe('SegmentedControl >', () => {
   })
 
   describe('Indicator', () => {
-    const targetDOMRect = { top: 10, left: 10, width: 100, height: 100 } as DOMRect
-    const containerDOMRect = { top: 5, left: 5 } as DOMRect
-
-    beforeEach(() => {
-      jest.spyOn(Element.prototype, 'getBoundingClientRect')
-        // NOTE: (@ed): Order matters. 1. target DOMRect
-        .mockImplementationOnce(jest.fn(() => targetDOMRect))
-        // NOTE: (@ed): Order matters. 2. container DOMRect
-        .mockImplementationOnce(jest.fn(() => containerDOMRect))
-    })
-
-    it('The size of the indicator should be the same as that of the selected item', () => {
+    it('has appropriate css variable in style', () => {
       const { getByTestId } = renderComponent({
         type: 'radiogroup',
         value: MOCK_UI_DATA[0].value,
@@ -324,22 +313,9 @@ describe('SegmentedControl >', () => {
 
       const indicator = getByTestId(SEGMENTED_CONTROL_INDICATOR_TEST_ID)
 
-      expect(indicator).toHaveStyle(`--bezier-react-segmented-control-indicator-width: ${targetDOMRect.width}px`)
-      expect(indicator).toHaveStyle(`--bezier-react-segmented-control-indicator-height: ${targetDOMRect.height}px`)
       expect(indicator).toHaveStyle('width: var(--bezier-react-segmented-control-indicator-width)')
       expect(indicator).toHaveStyle('height: var(--bezier-react-segmented-control-indicator-height)')
-    })
-
-    it('The position of the indicator should be the same as that of the selected item', () => {
-      const { getByTestId } = renderComponent({
-        type: 'radiogroup',
-        value: MOCK_UI_DATA[0].value,
-      })
-
-      const indicator = getByTestId(SEGMENTED_CONTROL_INDICATOR_TEST_ID)
-
-      expect(indicator).toHaveStyle(`--bezier-react-segmented-control-indicator-transform: translate(${targetDOMRect.left - containerDOMRect.left}px, ${targetDOMRect.top - containerDOMRect.top}px)`)
-      expect(indicator).toHaveStyle('transform: var(--bezier-react-segmented-control-indicator-transform)')
+      expect(indicator).toHaveStyle('transform: translateX(var(--bezier-react-segmented-control-indicator-translateX)) translateY(-50%)')
     })
   })
 

@@ -7,10 +7,6 @@ import React, {
 import { clamp } from '~/src/utils/numberUtils'
 
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  ProgressBarSize,
-  ProgressBarVariant,
-} from './ProgressBar.types'
 
 import {
   StyledProgressBarActive,
@@ -21,8 +17,8 @@ export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
 
 export const ProgressBar = memo(forwardRef(function ProgressBar(
   {
-    size = ProgressBarSize.M,
-    variant = ProgressBarVariant.Green,
+    size = 'm',
+    variant = 'green',
     width = 36,
     value = 0,
     activeClassName,
@@ -40,6 +36,7 @@ export const ProgressBar = memo(forwardRef(function ProgressBar(
       ref={forwardedRef}
       size={size}
       width={width}
+      variant={variant}
       role="progressbar"
       aria-valuemin="0"
       aria-valuemax="1"

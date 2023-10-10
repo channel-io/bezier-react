@@ -7,27 +7,24 @@ import {
 import { toLength } from '~/src/utils/styleUtils'
 
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  ProgressBarSize,
-  ProgressBarVariant,
-} from './ProgressBar.types'
 
-const PROGRESS_BAR_HEIGHT: Record<ProgressBarSize, number> = {
-  [ProgressBarSize.S]: 4,
-  [ProgressBarSize.M]: 6,
+const PROGRESS_BAR_HEIGHT: Record<NonNullable<ProgressBarProps['size']>, number> = {
+  s: 4,
+  m: 6,
 }
 
-interface GetProgressBarActiveGradientProps {
+interface GetProgressBarStyleProps {
   foundation?: Foundation
-  variant: ProgressBarVariant
+  variant: NonNullable<ProgressBarProps['variant']>
 }
 
 const getProgressBarActiveGradient = ({
   foundation,
   variant,
-}: GetProgressBarActiveGradientProps) => {
+}: GetProgressBarStyleProps) => {
   switch (variant) {
-    case ProgressBarVariant.Green: {
+    case 'green':
+    case 'green-alt': {
       return css`
         background: linear-gradient(
           90deg,
@@ -36,7 +33,7 @@ const getProgressBarActiveGradient = ({
         );
       `
     }
-    case ProgressBarVariant.Monochrome:
+    case 'monochrome':
     default: {
       return css`
         background: linear-gradient(
@@ -49,16 +46,37 @@ const getProgressBarActiveGradient = ({
   }
 }
 
+const getProgressBarBackgroundColor = ({
+  foundation,
+  variant,
+}: GetProgressBarStyleProps) => {
+  switch (variant) {
+    case 'green-alt': {
+      return css`
+        background-color: ${foundation?.theme?.['bgtxt-absolute-white-normal']};
+      `
+    }
+    case 'green':
+    case 'monochrome':
+    default: {
+      return css`
+        background-color: ${foundation?.theme?.['bg-black-light']};
+      `
+    }
+  }
+}
+
 interface StyledProgressBarWrapperProps extends ProgressBarProps {
   size: NonNullable<ProgressBarProps['size']>
   width: NonNullable<ProgressBarProps['width']>
+  variant: NonNullable<ProgressBarProps['variant']>
 }
 
 export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps>`
   width: ${({ width }) => toLength(width, '36px')};
   height: ${({ size }) => PROGRESS_BAR_HEIGHT[size]}px;
 
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-black-light']};
+  ${getProgressBarBackgroundColor}
   ${({ foundation }) => foundation?.rounding?.round3}
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('width')};

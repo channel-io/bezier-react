@@ -4,6 +4,7 @@ import React from 'react'
 import {
   BadgeIcon,
   EditIcon,
+  PlayIcon,
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
@@ -62,7 +63,7 @@ const SingleLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWi
     <KeyValueListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
     <KeyValueListItem {...otherProps}>
       <Button
-        leftContent="play"
+        leftContent={PlayIcon}
         text="높이 테스트"
         colorVariant={ButtonColorVariant.Green}
         styleVariant={ButtonStyleVariant.Primary}

@@ -2,14 +2,7 @@ export enum FeatureType {
   SmoothCorners = 'smooth-corners',
 }
 
-export class Feature {
-  name: FeatureType
-
-  constructor(name: FeatureType) {
-    this.name = name
-  }
-
-  async activate() {
-    return Promise.resolve(false)
-  }
+export interface Feature {
+  readonly name: FeatureType
+  activate: () => Promise<boolean>
 }

@@ -11,9 +11,10 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { getRootElement } from '~/src/utils/domUtils'
 import { createContext } from '~/src/utils/reactUtils'
-import { isBoolean } from '~/src/utils/typeUtils'
-
-import { useModalContainerContext } from '~/src/components/Modals'
+import {
+  isBoolean,
+  isEmpty,
+} from '~/src/utils/typeUtils'
 
 import {
   TooltipPosition,
@@ -163,6 +164,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   onShow: onShowProp,
   onHide: onHideProp,
   disabled,
+  title,
   content,
   description,
   icon,
@@ -182,16 +184,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   const delayHide = delayHideProp ?? globalDelayHide
 
   const defaultContainer = getRootElement()
-  const modalContainer = useModalContainerContext()
-  const container = givenContainer ?? modalContainer ?? defaultContainer
+  const container = givenContainer ?? defaultContainer
 
-  useEffect(function cleanUpTimeout() {
-    return function cleanUp() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [])
+  const shouldBeHidden = useMemo(() => (
+    disabled || isEmpty(content)
+  ), [
+    disabled,
+    content,
+  ])
 
   const onShow = useCallback(() => {
     setShow(true)
@@ -203,8 +203,27 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
     onHideProp?.()
   }, [onHideProp])
 
+  useEffect(function forceHide() {
+    if (shouldBeHidden) {
+      onHide()
+    }
+  }, [
+    shouldBeHidden,
+    onHide,
+  ])
+
+  useEffect(function cleanUpTimeout() {
+    return function cleanUp() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [shouldBeHidden])
+
   const onOpenChange = useCallback((open: boolean) => {
-    if (disabled) { return }
+    if (shouldBeHidden) {
+      return
+    }
 
     if (open) {
       onShow()
@@ -225,7 +244,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
     onHide()
   }, [
-    disabled,
+    shouldBeHidden,
     delayHide,
     onShow,
     onHide,
@@ -256,6 +275,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         >
           <Styled.TooltipContent forwardedAs={as}>
             <Styled.TextContainer>
+              { title && (<Styled.Title>{ title }</Styled.Title>) }
+
               <Styled.Content>
                 { content }
               </Styled.Content>

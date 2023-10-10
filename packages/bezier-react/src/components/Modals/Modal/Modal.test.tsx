@@ -168,10 +168,20 @@ describe('Modal', () => {
     })
 
     describe('User Interactions', () => {
-      it('should close the modal when the user clicks the outside of the modal', async () => {
+      it('should close the modal when the user clicks outside of the modal', async () => {
         const { queryByRole, container } = renderOpenedModal()
         await user.click(container)
         expect(queryByRole('dialog')).not.toBeInTheDocument()
+      })
+
+      it('should keep modal open when the user clicks outside of the modal if preventHideOnOutsideClick property is true', async () => {
+        const { queryByRole, container } = renderOpenedModal({
+          modalContentProps: {
+            preventHideOnOutsideClick: true,
+          },
+        })
+        await user.click(container)
+        expect(queryByRole('dialog')).toBeInTheDocument()
       })
 
       it('should close the modal when the user clicks close icon button', async () => {

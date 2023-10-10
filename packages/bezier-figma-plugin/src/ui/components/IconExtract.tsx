@@ -26,9 +26,7 @@ import {
 
 import config from '../../config'
 import type { PluginMessage } from '../../types/Message'
-import useFigmaAPI from '../hooks/useFigmaAPI'
-import useGithubAPI from '../hooks/useGithubAPI'
-import { createSvgGitBlob } from '../utils'
+import { useCreatePRWithSvgMap } from '../hooks/useCreatePRWithSvgMap'
 
 enum Step {
   Pending,
@@ -42,7 +40,7 @@ interface ProgressProps {
   onError: (msg: string) => void
 }
 
-function useProgress() {
+export function useProgress() {
   const [progressTitle, setProgressTitle] = useState('')
   const [progressValue, setProgressValue] = useState(0)
 
@@ -85,13 +83,7 @@ function Progress({
     progressValue,
   } = useProgress()
 
-  const figmaAPI = useFigmaAPI({ token: figmaToken })
-
-  const githubAPI = useGithubAPI({
-    auth: githubToken,
-    owner: config.repository.owner,
-    repo: config.repository.name,
-  })
+  const createPr = useCreatePRWithSvgMap({ progress, githubToken })
 
   useEffect(function bindOnMessageHandler() {
     window.onmessage = async (event: MessageEvent<PluginMessage>) => {
@@ -99,146 +91,9 @@ function Progress({
 
       if (type === 'extractIcon') {
         try {
-          const { fileKey, ids, nodes } = payload
+          const { svgByName } = payload
 
-          const getSvgImagesFromFigma = async () => {
-            const { images } = await figmaAPI.getSvg({ fileKey, ids })
-            if (!images) {
-              throw new Error('선택된 아이콘이 없거나 잘못된 피그마 토큰입니다.')
-            }
-            return images
-          }
-
-          const createSvgGitBlobsFromSvgImages = (images: Record<string, string>) => async () => {
-            const gitBlobs = await Promise.all(
-              nodes.map(async ({ id, name }) => {
-                const response = await fetch(images[id])
-                const svg = await response.text()
-                const { sha } = await githubAPI.createGitBlob(svg)
-                return { name, sha }
-              }),
-            )
-
-            const svgGitBlobs = gitBlobs.reduce((acc, { name, sha }) => {
-              const path = `${name}.svg`
-              return { ...acc, [path]: createSvgGitBlob(path, sha) }
-            }, {} as Record<string, ReturnType<typeof createSvgGitBlob>>)
-
-            return svgGitBlobs
-          }
-
-          const createNewGitCommitFromSvgGitBlobs = (svgGitBlobs: Record<string, ReturnType<typeof createSvgGitBlob>>) => async () => {
-            const newSvgBlobs = Object.values(svgGitBlobs)
-
-            const baseRef = await githubAPI.getGitRef(config.repository.baseBranchName)
-            const headCommit = await githubAPI.getGitCommit(baseRef.sha)
-            const headTree = await githubAPI.getGitTree(headCommit.sha)
-
-            const splittedPaths = config.repository.iconExtractPath.split('/')
-
-            const parentTrees: Awaited<ReturnType<typeof githubAPI['getGitTree']>>[] = []
-
-            const prevSvgBlobsTree = await splittedPaths.reduce(async (parentTreePromise, splittedPath) => {
-              const parentTree = await parentTreePromise
-              const targetTree = parentTree.find(({ path }) => path === splittedPath)
-              if (!targetTree || !targetTree.sha) {
-                throw new Error(`${splittedPath} 경로가 없습니다. 올바른 경로를 입력했는지 확인해주세요.`)
-              }
-              parentTrees.push(parentTree)
-              return githubAPI.getGitTree(targetTree.sha)
-            }, Promise.resolve(headTree))
-
-            const newSvgBlobsTree = [
-              ...prevSvgBlobsTree.map((blob) => {
-                const overridedBlob = svgGitBlobs[blob.path as string]
-                if (overridedBlob) {
-                  delete svgGitBlobs[blob.path as string]
-                  return { ...blob, ...overridedBlob }
-                }
-                return null
-              }).filter(Boolean),
-              ...newSvgBlobs,
-            ]
-
-            const newGitSvgTree = await githubAPI.createGitTree({
-              // @ts-ignore
-              tree: newSvgBlobsTree,
-            })
-
-            const gitTree = await splittedPaths.reduceRight(async (prevTreePromise, cur, index) => {
-              const parentTree = parentTrees[index]
-              const targetTree = parentTree.find(({ path }) => path === cur)
-              const { sha } = await prevTreePromise
-              return githubAPI.createGitTree({
-                tree: [
-                  // @ts-ignore
-                  ...parentTree.filter(({ path }) => path !== cur), { ...targetTree, sha },
-                ],
-              })
-            }, Promise.resolve(newGitSvgTree))
-
-            const now = new Date()
-            const commit = await githubAPI.createGitCommit({
-              message: config.commit.message,
-              author: {
-                ...config.commit.author,
-                date: now.toISOString(),
-              },
-              parents: [headCommit.sha],
-              tree: gitTree.sha,
-            })
-
-            return commit
-          }
-
-          const createGitPullRequestFromGitCommit = (commit: Awaited<ReturnType<typeof githubAPI['createGitCommit']>>) => async () => {
-            const now = new Date()
-            const newBranchName = `update-icons-${now.valueOf()}`
-
-            await githubAPI.createGitRef({
-              branchName: newBranchName,
-              sha: commit.sha,
-            })
-
-            const { labels, ...rest } = config.pr
-
-            const { html_url, number } = await githubAPI.createPullRequest({
-              ...rest,
-              head: newBranchName,
-              base: config.repository.baseBranchName,
-            })
-
-            await githubAPI.addLabels({
-              issueNumber: number,
-              labels,
-            })
-
-            return html_url
-          }
-
-          const svgImages = await progress({
-            callback: getSvgImagesFromFigma,
-            title: '🚚 피그마에서 svg를 가져오는 중...',
-            successValueOffset: 0.2,
-          })
-
-          const svgGitBlobs = await progress({
-            callback: createSvgGitBlobsFromSvgImages(svgImages),
-            title: '📦 svg를 파일로 만드는 중...',
-            successValueOffset: 0.3,
-          })
-
-          const gitCommit = await progress({
-            callback: createNewGitCommitFromSvgGitBlobs(svgGitBlobs),
-            title: '📦 svg 파일을 변환하는 중...',
-            successValueOffset: 0.3,
-          })
-
-          const pullRequestUrl = await progress({
-            callback: createGitPullRequestFromGitCommit(gitCommit),
-            title: '🚚 PR을 업로드하는 중...',
-            successValueOffset: 0.2,
-          })
+          const prUrl = await createPr(svgByName)
 
           parent.postMessage({
             pluginMessage: {
@@ -247,7 +102,7 @@ function Progress({
             },
           }, '*')
 
-          navigate('../extract_success', { state: { url: pullRequestUrl } })
+          navigate('../extract_success', { state: { url: prUrl } })
         } catch (e: any) {
           onError(e?.message)
         }

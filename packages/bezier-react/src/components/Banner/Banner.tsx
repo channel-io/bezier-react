@@ -1,7 +1,10 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
+
 import { Typography } from '~/src/foundation'
 
+import { warn } from '~/src/utils/assertUtils'
 import {
   isNil,
   isString,
@@ -13,6 +16,7 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { IconSize } from '~/src/components/Icon'
+import { isIconName } from '~/src/components/LegacyIcon'
 import { StackItem } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
@@ -85,6 +89,10 @@ export const Banner = forwardRef(function Banner(
     testId = BANNER_TEST_ID,
   } = props
 
+  if (isIconName(icon)) {
+    warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
+  }
+
   return (
     <Styled.Stack
       ref={forwardedRef}
@@ -97,11 +105,19 @@ export const Banner = forwardRef(function Banner(
     >
       { !isNil(icon) && (
         <Styled.StackItem>
-          <Styled.BannerIcon
-            name={icon}
-            color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
-            size={IconSize.S}
-          />
+          { isBezierIcon(icon) ? (
+            <Styled.BannerIcon
+              source={icon}
+              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              size={IconSize.S}
+            />
+          ) : (
+            <Styled.BannerLegacyIcon
+              name={icon}
+              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              size={IconSize.S}
+            />
+          ) }
         </Styled.StackItem>
       ) }
 

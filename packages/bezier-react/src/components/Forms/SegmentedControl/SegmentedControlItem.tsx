@@ -1,12 +1,11 @@
 import React, {
   forwardRef,
-  useCallback,
+  useEffect,
 } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { ariaAttr } from '~/src/utils/domUtils'
 
 import {
@@ -16,6 +15,7 @@ import {
 } from './SegmentedControl.types'
 import {
   useSegmentedControlContext,
+  useSegmentedControlItemContext,
   useSegmentedControlItemListContext,
 } from './SegmentedControlContext'
 
@@ -40,28 +40,27 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   rightContent,
   ...rest
 }, forwardedRef) {
-  const { setSelectedElement } = useSegmentedControlItemListContext('SegmentedControlItem')
+  const { setSelectedItemIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
+  const index = useSegmentedControlItemContext('SegmentedControlItem')
 
   const checked = type === 'radiogroup'
     ? (rest as ItemProps<typeof type>)?.['data-state'] === 'checked'
     : (rest as ItemProps<typeof type>)?.['data-state'] === 'active'
 
-  const ref = useMergeRefs(
-    forwardedRef,
-    useCallback((node: HTMLButtonElement | null) => {
-      if (checked) {
-        setSelectedElement(node)
-      }
-    }, [
-      checked,
-      setSelectedElement,
-    ]),
-  )
+  useEffect(function setSelectedItem() {
+    if (checked) {
+      setSelectedItemIndex(index)
+    }
+  }, [
+    checked,
+    index,
+    setSelectedItemIndex,
+  ])
 
   return (
     <Styled.Item
       {...rest}
-      ref={ref}
+      ref={forwardedRef}
       type="button"
       data-checked={ariaAttr(checked)}
     >

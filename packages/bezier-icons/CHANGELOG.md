@@ -1,5 +1,100 @@
 # @channel.io/bezier-icons
 
+## 0.13.0
+
+### Minor Changes
+
+- Update icons ([#1647](https://github.com/channel-io/bezier-react/pull/1647)) by @Jamie-channel
+
+  **ADD**
+
+  - eraser
+
+  **CHANGE**
+
+  - marker-pen
+
+- Add a job that adds description about icon change triggered by figma-plugin ([#1644](https://github.com/channel-io/bezier-react/pull/1644)) by @yangwooseong
+
+## 0.12.0
+
+### Minor Changes
+
+- Update icons ([#1640](https://github.com/channel-io/bezier-react/pull/1640)) by @kimminkyung94
+
+  **CHANGE**
+
+  - PageDownload
+  - PageZip
+  - Page
+
+## 0.11.0
+
+### Minor Changes
+
+- Add script for generating svg file from icons.json ([#1596](https://github.com/channel-io/bezier-react/pull/1596)) by @yangwooseong
+
+## 0.10.0
+
+### Minor Changes
+
+- Update icons ([#1569](https://github.com/channel-io/bezier-react/pull/1569)) by @kimminkyung94
+
+  **NEW**
+
+  - SecurityFilled
+
+## 0.9.0
+
+### Minor Changes
+
+- Update icons ([#1526](https://github.com/channel-io/bezier-react/pull/1526)) by @Jamie-channel
+
+  **NEW**
+
+  - ChatBubbleAltAdd
+  - Feed
+
+  **CHANGED**
+
+  - Inbox
+
+## 0.8.0
+
+### Minor Changes
+
+- Update icons ([#1509](https://github.com/channel-io/bezier-react/pull/1509)) by @Jamie-channel
+
+  **NEW**
+
+  - Shipping
+  - Spotify
+  - Thread
+
+  **CHANGED**
+
+  - Package
+  - Recipet
+
+## 0.7.0
+
+### Minor Changes
+
+- Update icons ([#1502](https://github.com/channel-io/bezier-react/pull/1502)) by @Jamie-channel
+
+  **NEW**
+
+  - Line
+  - NaverTalktalk
+
+## 0.6.0
+
+### Minor Changes
+
+- Update icons ([#1494](https://github.com/channel-io/bezier-react/pull/1494)) by @Jamie-channel
+
+  - **NEW**: Sproute
+
 ## 0.5.0
 
 ### Minor Changes

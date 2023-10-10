@@ -1,11 +1,109 @@
 # bezier-figma-plugin
 
-## 0.3.12-alpha.0
+## 0.4.4
 
 ### Patch Changes
 
 - Updated dependencies
-  - @channel.io/bezier-react@2.0.0-alpha.0
+  - @channel.io/bezier-react@1.15.0
+
+## 0.4.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.13.0
+  - @channel.io/bezier-react@1.14.0
+
+## 0.4.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.12.0
+  - @channel.io/bezier-react@1.14.0
+
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.13.0
+
+## 0.4.0
+
+### Minor Changes
+
+- Enhance bezier-figma-plugin running performance ([#1596](https://github.com/channel-io/bezier-react/pull/1596)) by @yangwooseong
+  - Remove svg extract process using FigmaAPI and merely send json file that contains svg string
+  - Make icon files based on given json file during Github Action
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.12.0
+  - @channel.io/bezier-icons@0.11.0
+
+## 0.3.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.10.0
+  - @channel.io/bezier-react@1.11.1
+
+## 0.3.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.11.1
+
+## 0.3.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.11.0
+
+## 0.3.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.10.2
+  - @channel.io/bezier-icons@0.9.0
+
+## 0.3.15
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.10.1
+
+## 0.3.14
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.8.0
+  - @channel.io/bezier-react@1.10.0
+
+## 0.3.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@1.9.0
+  - @channel.io/bezier-icons@0.7.0
+
+## 0.3.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.6.0
+  - @channel.io/bezier-react@1.8.0
 
 ## 0.3.11
 

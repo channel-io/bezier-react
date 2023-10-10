@@ -1,3 +1,4 @@
+import { CancelIcon } from '@channel.io/bezier-icons'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import {
@@ -152,7 +153,7 @@ const CLOSE_ICON_BUTTON_MARGIN_Y = -6
 
 export const CloseIconButton = styled(Button).attrs({
   size: CLOSE_ICON_BUTTON_SIZE,
-  leftContent: 'cancel',
+  leftContent: CancelIcon,
   colorVariant: ButtonColorVariant.MonochromeDark,
   styleVariant: ButtonStyleVariant.Tertiary,
 })`

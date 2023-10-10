@@ -9,10 +9,6 @@ import {
   ProgressBar,
 } from './ProgressBar'
 import type ProgressBarProps from './ProgressBar.types'
-import {
-  ProgressBarSize,
-  ProgressBarVariant,
-} from './ProgressBar.types'
 
 describe('ProgressBar', () => {
   const renderComponent = (props?: Partial<ProgressBarProps>) => render(
@@ -43,7 +39,7 @@ describe('ProgressBar', () => {
   describe('specify size props', () => {
     it('should render ProgressBar with size M', () => {
       const { getByRole, getByTestId } = renderComponent({
-        size: ProgressBarSize.M,
+        size: 'm',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -54,7 +50,7 @@ describe('ProgressBar', () => {
 
     it('should render ProgressBar with size S', () => {
       const { getByRole, getByTestId } = renderComponent({
-        size: ProgressBarSize.S,
+        size: 's',
       })
       const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
@@ -66,11 +62,13 @@ describe('ProgressBar', () => {
 
   describe('specify variant props', () => {
     it('should render ProgressBar with variant Green', () => {
-      const { getByTestId } = renderComponent({
-        variant: ProgressBarVariant.Green,
+      const { getByRole, getByTestId } = renderComponent({
+        variant: 'green',
       })
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-light']}`)
       expect(progressBarActive).toHaveStyle(`background: linear-gradient(
         90deg,
         ${LightFoundation.theme['bgtxt-green-normal']} 0%,
@@ -79,15 +77,31 @@ describe('ProgressBar', () => {
     })
 
     it('should render ProgressBar with variant Monochrome', () => {
-      const { getByTestId } = renderComponent({
-        variant: ProgressBarVariant.Monochrome,
+      const { getByRole, getByTestId } = renderComponent({
+        variant: 'monochrome',
       })
+      const progressBar = getByRole('progressbar')
       const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
 
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bg-black-light']}`)
       expect(progressBarActive).toHaveStyle(`background: linear-gradient(
         90deg,
         ${LightFoundation.theme['bg-black-light']} 0%,
         ${LightFoundation.theme['bg-black-dark']} 100%
+      )`)
+    })
+    it('should render ProgressBar with variant GreenAlt', () => {
+      const { getByRole, getByTestId } = renderComponent({
+        variant: 'green-alt',
+      })
+      const progressBar = getByRole('progressbar')
+      const progressBarActive = getByTestId(PROGRESS_BAR_ACTIVE_TEST_ID)
+
+      expect(progressBar).toHaveStyle(`background-color: ${LightFoundation.theme['bgtxt-absolute-white-normal']}`)
+      expect(progressBarActive).toHaveStyle(`background: linear-gradient(
+        90deg,
+        ${LightFoundation.theme['bgtxt-green-normal']} 0%,
+        ${LightFoundation.subTheme?.['bgtxt-green-normal']} 100%
       )`)
     })
   })

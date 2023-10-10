@@ -49,6 +49,12 @@ interface ModalContentOptions {
   showCloseIcon?: boolean
 
   /**
+   * Decides whether modal closes when clicked outside
+   * @default: false
+   */
+  preventHideOnOutsideClick?: boolean
+
+  /**
    * Width of the modal.
    * @default 'max-content'
    */

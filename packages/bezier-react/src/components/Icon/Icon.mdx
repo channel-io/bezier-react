@@ -85,21 +85,18 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 ### Composite usage
 
 `bezier-react`의 많은 컴포넌트는 아이콘을 포함하고 있습니다.
-어떤 아이콘을 지정할지 커스터마이징할 수 있다면, 보통 `IconName` type을 가지는 prop을 통해 지정하게 됩니다.
+어떤 아이콘을 지정할지 커스터마이징할 수 있다면, 보통 `BezierIcon` type을 가지는 prop을 통해 지정하게 됩니다.
 
 이에 대한 예시로는 `Button` 컴포넌트가 있습니다.
-`Button`의 `leftContent`, `rightContent` prop에 icon name을 지정하면, 원하는 아이콘을 버튼에 표시할 수 있습니다.
+`Button`의 `leftContent`, `rightContent` prop에 `BezierIcon` 을 지정하면, 원하는 아이콘을 버튼에 표시할 수 있습니다.
 
 ```tsx
 <Button
-  leftContent="plus"
+  leftContent={PlusIcon}
   text="Add content"
-  rightContent="arrow-right"
+  rightContent={ArrowRightIcon}
 />
 ```
-
-> 💡 현재 composite component가 아이콘을 사용하는 방식으로는 tree-shaking 효과를 얻기가 어렵습니다.
-> Icon name을 prop으로 전달하는 방법은 다른 패턴으로 개선되어야 합니다.
 
 ### How to add new icons to `bezier-react`
 

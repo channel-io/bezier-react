@@ -56,7 +56,10 @@ const generateConfig = ({
       peerDeps: true,
       packagePath: './package.json',
     }),
-    nodeResolve({ extensions }),
+    nodeResolve({
+      browser: true,
+      extensions,
+    }),
     /**
      * **IMPORTANT**: Order matters!
      * When using @rollup/plugin-babel with @rollup/plugin-commonjs in the same Rollup configuration,

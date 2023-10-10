@@ -2,6 +2,10 @@ import {
   useState,
 } from 'react'
 import {
+  PlayIcon,
+  TriangleDownIcon,
+} from '@channel.io/bezier-icons'
+import {
   ArgsTable,
   Canvas,
   Story,
@@ -107,7 +111,7 @@ ButtonGroup에 대해 더 알아보려면 [스토리](/docs/components-buttongro
 
 ### Recipe: Button with various contents
 
-- 기본적으로 `leftContent`, `rightContent` prop에 icon name에 해당하는 string을 지정하여 좌우측에 아이콘이 들어가는 형태를 표현합니다.
+- 기본적으로 `leftContent`, `rightContent` prop에 `BezierIcon`을 지정하여 좌우측에 아이콘이 들어가는 형태를 표현합니다.
 
 <Canvas>
   <Story id="components-button--usage-various-contents-composite" />
@@ -140,7 +144,7 @@ const AsyncActionButton = () => {
   }
   return (
     <Button
-      leftContent="play"
+      leftContent={PlayIcon}
       text="Click Me!"
       colorVariant={ButtonColorVariant.Cobalt}
       styleVariant={ButtonStyleVariant.Primary}
@@ -169,7 +173,7 @@ const OpenDropdownButton = () => {
     <div>
       <Button
         text="Select"
-        rightContent="triangle-down"
+        rightContent={TriangleDownIcon}
         active={isOpen}
         colorVariant={ButtonColorVariant.MonochromeLight}
         styleVariant={ButtonStyleVariant.Tertiary}

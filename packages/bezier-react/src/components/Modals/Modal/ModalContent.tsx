@@ -34,6 +34,7 @@ export const ModalContent = forwardRef(function ModalContent({
   style,
   container = getRootElement(),
   showCloseIcon = false,
+  preventHideOnOutsideClick = false,
   width = 'max-content',
   height = 'fit-content',
   zIndex = ZIndex.Modal,
@@ -74,7 +75,19 @@ export const ModalContent = forwardRef(function ModalContent({
   return (
     <DialogPrimitive.Portal container={container}>
       <Styled.DialogPrimitiveOverlay style={overlayStyle}>
-        <DialogPrimitive.Content asChild>
+        <DialogPrimitive.Content
+          asChild
+          onPointerDownOutside={(e) => {
+            if (preventHideOnOutsideClick) {
+              e.preventDefault()
+            }
+          }}
+          onInteractOutside={(e) => {
+            if (preventHideOnOutsideClick) {
+              e.preventDefault()
+            }
+          }}
+        >
           <Styled.Content
             aria-modal
             ref={contentRef}
