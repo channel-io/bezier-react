@@ -2,4 +2,4 @@
 "@channel.io/bezier-react": minor
 ---
 
-Add title props on tooltip
+Add `title` props on `Tooltip`
