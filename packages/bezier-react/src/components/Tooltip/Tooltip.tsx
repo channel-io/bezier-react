@@ -275,7 +275,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
         >
           <Styled.TooltipContent forwardedAs={as}>
             <Styled.TextContainer>
-              { title && (<Styled.Title>{ title } </Styled.Title>) }
+              { title && (<Styled.Title>{ title }</Styled.Title>) }
 
               <Styled.Content>
                 { content }
