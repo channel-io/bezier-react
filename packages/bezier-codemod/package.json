@@ -36,7 +36,6 @@
 		"@types/node": "^20.6.0",
 		"@types/react": "^18.2.21",
 		"eslint-config-bezier": "workspace:*",
-		"ts-node": "^10.9.1",
 		"tsconfig": "workspace:*"
 	},
 	"keywords": [
