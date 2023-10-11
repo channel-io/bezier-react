@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.15.1
+
+### Patch Changes
+
+- Fix return type of `TextFieldRef.getDOMNode()` to `HTMLInputElement | null` ([#1668](https://github.com/channel-io/bezier-react/pull/1668)) by @sungik-choi
+
 ## 1.15.0
 
 ### Minor Changes
