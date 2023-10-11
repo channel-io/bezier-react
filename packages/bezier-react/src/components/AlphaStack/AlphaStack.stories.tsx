@@ -14,7 +14,7 @@ import { AlphaStack } from './AlphaStack'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
-const meta: Meta<typeof AlphaStack> = {
+const meta = {
   component: AlphaStack,
   argTypes: {
     spacing: {
@@ -41,8 +41,11 @@ const meta: Meta<typeof AlphaStack> = {
       options: FLEX_PROPERTIES,
     },
   },
-}
+} satisfies Meta<typeof AlphaStack>
+
 export default meta
+
+type Story = StoryObj<typeof meta>
 
 const Template: StoryFn<typeof AlphaStack> = (args) => (
   <AlphaStack {...args}>
@@ -54,10 +57,11 @@ const Template: StoryFn<typeof AlphaStack> = (args) => (
   </AlphaStack>
 )
 
-export const Primary: StoryObj<typeof AlphaStack> = {
+export const Primary: Story = {
   render: Template,
 
   args: {
+    direction: 'vertical',
     style: {
       width: '200px',
       height: '200px',
