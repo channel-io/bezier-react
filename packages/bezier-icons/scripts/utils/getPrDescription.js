@@ -1,3 +1,5 @@
+const { getIconNamesByStatus } = require('./getIconNamesByStatus')
+
 const statusByKey = {
   M: 'modified',
   A: 'added',
@@ -9,8 +11,6 @@ const emojiByKey = {
   A: '🆕',
   D: '🗑️',
 }
-
-const getIconName = (path) => path.split('/').at(-1)
 
 const getSummary = (iconsByStatus) => {
   let res = ''
@@ -27,31 +27,12 @@ const getTable = (iconsByStatus) => {
 
   for (const [key, icons] of Object.entries(iconsByStatus)) {
     for (const icon of icons) {
-      res += `| ${getIconName(icon)} | ${emojiByKey[key]} |\n`
+      res += `| ${icon} | ${emojiByKey[key]} |\n`
     }
   }
 
   return res
 }
-
-const getIconNamesByStatus = (gitLog) => gitLog
-  .trim()
-  .split('\n')
-  .map(line => line.split('\t'))
-  .filter(line => line[1].endsWith('.svg'))
-  .reduce((acc, cur) => {
-    const [key, file] = cur
-    const icon = getIconName(file)
-
-    if (!icon) { return acc }
-
-    if (!acc[key]) {
-      acc[key] = [icon]
-    } else {
-      acc[key].push(icon)
-    }
-    return acc
-  }, {})
 
 const getDescription = (gitLog) => {
   const iconsByStatus = getIconNamesByStatus(gitLog)
