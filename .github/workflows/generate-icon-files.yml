@@ -38,12 +38,19 @@ jobs:
         run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
+
       - name: Add pr description
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: |
           node packages/bezier-icons/scripts/add-pr-description.js ${{ secrets.GITHUB_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
-      
+
+      - name: Add changeset
+        if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
+        run: |
+          node packages/bezier-icons/scripts/generate-changeset.js
+          git add .
+          git commit -m "chore(bezier-icons): add changeset"
+
       - name: Delete icons.json files
         run: |
           git rm packages/bezier-icons/icons.json
