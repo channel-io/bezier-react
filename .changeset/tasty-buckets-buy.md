@@ -2,4 +2,4 @@
 "@channel.io/bezier-icons": minor
 ---
 
-Add auto generating job to workflow
+Add changeset auto generating job to workflow
