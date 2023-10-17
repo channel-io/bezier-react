@@ -1,5 +1,25 @@
 # @channel.io/bezier-icons
 
+## 0.14.0
+
+### Minor Changes
+
+- Update icons ([#1672](https://github.com/channel-io/bezier-react/pull/1672)) by @Jamie-channel
+
+  **ADD**
+
+  - ai.svg
+  - limit.svg
+  - call-push-off-filled.svg
+  - call-push-on-filled.svg
+
+  **CHANGE**
+
+  - goal-off.svg
+  - goal.svg
+
+- Add changeset auto generating job to workflow ([#1676](https://github.com/channel-io/bezier-react/pull/1676)) by @yangwooseong
+
 ## 0.13.0
 
 ### Minor Changes
