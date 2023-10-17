@@ -215,3 +215,6 @@ stats.html
 
 # Rollup cache
 .rollup.cache
+
+# Jest cache
+.jestcache

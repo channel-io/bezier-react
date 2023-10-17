@@ -12,13 +12,13 @@ jobs:
     name: Generate icon files from icons.json file
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.17.1
+          node-version-file: .nvmrc
 
       - name: Git Config
         run: |

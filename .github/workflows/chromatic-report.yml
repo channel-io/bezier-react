@@ -12,7 +12,7 @@ jobs:
     name: Chromatic Report
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Download artifact
