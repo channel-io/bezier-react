@@ -103,7 +103,6 @@ jobs:
 
 workflows:
   ci:
-    name: CI
     jobs:
       - install
       - build:
