@@ -24,7 +24,7 @@
     },
     "test": {
       "outputs": [
-        ".jestcache"
+        ".jestcache/**"
       ],
       "inputs": [
         "src/**/*.tsx",
