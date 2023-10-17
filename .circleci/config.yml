@@ -7,25 +7,22 @@ orbs:
 references:
   workspace_root: &workspace_root
     /home/circleci/bezier-react
-
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
   
-  build_cache_paths: &build_cache_paths
+  cache_paths: &cache_paths
     paths:
       - node_modules/.cache/turbo
 
-  lint_cache_paths: &lint_cache_paths
-    paths:
+      - packages/bezier-react/.turbo
+      - packages/bezier-icons/.turbo
+      - packages/bezier-figma-plugin/.turbo
+      - packages/bezier-codemod/.turbo
+
       - packages/bezier-react/.stylelintcache
       - packages/bezier-react/.eslintcache
       - packages/bezier-icons/.eslintcache
       - packages/bezier-figma-plugin/.eslintcache
       - packages/bezier-codemod/.eslintcache
 
-  test_cache_paths: &test_cache_paths
-    paths:
       - packages/bezier-react/.jestcache
       - packages/bezier-icons/.jestcache
       - packages/bezier-figma-plugin/.jestcache
@@ -39,81 +36,25 @@ executors:
     working_directory: *workspace_root
 
 jobs:
-  install:
+  build:
     executor: node_executor
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - .
-
-  build:
-    executor: node_executor
-    steps:
-      - *attach_workspace
       - restore_cache:
           keys:
-          - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-          - build-{{ .Environment.CACHE_VERSION }}-
+          - ci-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+          - ci-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
+      - run: yarn lint typecheck test
       - save_cache:
-          key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *build_cache_paths
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - .
-
-  lint:
-    executor: node_executor
-    steps:
-      - *attach_workspace
-      - restore_cache:
-          keys:
-          - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-          - lint-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn lint
-      - save_cache:
-          key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *lint_cache_paths
-
-  typecheck:
-    executor: node_executor
-    steps:
-      - *attach_workspace
-      - run: yarn typecheck
-
-  test:
-    executor: node_executor
-    steps:
-      - *attach_workspace
-      - restore_cache:
-          keys:
-          - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-          - test-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn test
+          key: ci-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *cache_paths
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
-      - save_cache:
-          key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *test_cache_paths
 
 workflows:
   ci:
     jobs:
-      - install
-      - build:
-          requires:
-            - install
-      - lint:
-          requires:
-            - build
-      - typecheck:
-          requires:
-            - build
-      - test:
-          requires:
-            - build
+      - build
