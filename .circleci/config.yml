@@ -35,7 +35,7 @@ executors:
   node_executor:
     docker:
       - image: node:18.17.1
-    resource_class: large
+    resource_class: xlarge
     working_directory: *workspace_root
 
 jobs:
@@ -94,7 +94,7 @@ jobs:
           keys:
           - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
           - test-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn test --concurrency=1
+      - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
