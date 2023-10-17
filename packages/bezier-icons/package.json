@@ -28,7 +28,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "TIMING=1 eslint --cache .",
-    "typecheck": "tsc --build --verbose",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",

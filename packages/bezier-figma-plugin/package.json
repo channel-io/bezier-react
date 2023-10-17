@@ -14,6 +14,7 @@
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
     "lint:style": "stylelint --allow-empty-input --cache '**/*.styled.{js,ts}'",
+    "typecheck": "tsc --noEmit",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache .jestcache"
