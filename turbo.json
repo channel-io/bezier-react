@@ -39,6 +39,12 @@
     "clean": {
       "cache": false
     },
+    "bezier-figma-plugin#typecheck": {
+      "outputs": [],
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "@channel.io/bezier-react#typecheck": {
       "outputs": [],
       "dependsOn": [
