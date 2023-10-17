@@ -4784,18 +4784,18 @@ __metadata:
   linkType: hard
 
 "@rollup/plugin-url@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "@rollup/plugin-url@npm:8.0.1"
+  version: 8.0.2
+  resolution: "@rollup/plugin-url@npm:8.0.2"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     make-dir: ^3.1.0
     mime: ^3.0.0
   peerDependencies:
-    rollup: ^1.20.0||^2.0.0||^3.0.0
+    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 25a16622feeec63d958117f7ab65b3a4f72bab4ab86a4c7d5447ec646e88b5ac47186e344a2fdf179e1c12b5a9e76b8edbf568f5f76f7c25e0168ddd6374501e
+  checksum: 181cddda6a08ac9199ef3ac345ae01c4a27e456d501e180891d5f05d6eb86ce5dabd9b50c2280604258d2d8dc6581a98f9134d1631a1c8ca5d521494bdf80fbb
   languageName: node
   linkType: hard
 
