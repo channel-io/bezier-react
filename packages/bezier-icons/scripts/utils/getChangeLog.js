@@ -7,13 +7,13 @@ const yamlFrontMatter =
 `
 
 const statusByKey = {
-  M: '**CHANGE**',
-  A: '**ADD**',
-  D: '**DELETE**',
+  M: 'Modified',
+  A: 'Added',
+  D: 'Deleted',
 }
 
 const getIconChangeLog = (iconsByStatus) => {
-  let changeLog = 'Icon Update\n\n'
+  let changeLog = 'Update icons\n\n'
 
   for (const [key, icons] of Object.entries(iconsByStatus)) {
     changeLog += statusByKey[key]

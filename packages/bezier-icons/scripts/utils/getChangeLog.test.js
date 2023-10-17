@@ -13,17 +13,17 @@ A\tpackages/bezier-icons/icons/chevron-right.svg`
 "@channel.io/bezier-icons": minor
 ---
 
-Icon Update
+Update icons
 
-**CHANGE**
+Modified
 
 - all.svg
 
-**DELETE**
+Deleted
 
 - home.svg
 
-**ADD**
+Added
 
 - people.svg
 - chevron-right.svg`)
