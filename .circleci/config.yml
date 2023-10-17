@@ -94,7 +94,7 @@ jobs:
           keys:
           - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
           - test-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn test
+      - run: yarn test --concurrency=2
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
