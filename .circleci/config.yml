@@ -97,7 +97,6 @@ jobs:
       - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
-          token: $CODECOV_TOKEN
       - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *test_cache_paths
