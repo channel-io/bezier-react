@@ -12,6 +12,11 @@ references:
     paths:
       - node_modules/.cache/turbo
 
+      - packages/bezier-react/.turbo
+      - packages/bezier-icons/.turbo
+      - packages/bezier-figma-plugin/.turbo
+      - packages/bezier-codemod/.turbo
+
       - packages/bezier-react/.stylelintcache
       - packages/bezier-react/.eslintcache
       - packages/bezier-icons/.eslintcache
@@ -42,7 +47,9 @@ jobs:
           - ci-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
           - ci-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
+      - run: yarn build --dry-run=json
       - run: yarn lint typecheck test
+      - run: yarn lint typecheck test --dry-run=json
       - save_cache:
           key: ci-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *cache_paths
