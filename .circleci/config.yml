@@ -12,11 +12,6 @@ references:
     paths:
       - node_modules/.cache/turbo
 
-      - packages/bezier-react/.turbo
-      - packages/bezier-icons/.turbo
-      - packages/bezier-figma-plugin/.turbo
-      - packages/bezier-codemod/.turbo
-
       - packages/bezier-react/.stylelintcache
       - packages/bezier-react/.eslintcache
       - packages/bezier-icons/.eslintcache
