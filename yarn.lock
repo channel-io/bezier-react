@@ -2556,6 +2556,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@channel.io/bezier-tokens@workspace:packages/bezier-tokens":
+  version: 0.0.0-use.local
+  resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
+  dependencies:
+    style-dictionary: ^3.8.0
+  languageName: unknown
+  linkType: soft
+
 "@channel.io/eslint-config@npm:^1.5.1":
   version: 1.5.1
   resolution: "@channel.io/eslint-config@npm:1.5.1"
@@ -9830,6 +9838,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"capital-case@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "capital-case@npm:1.0.4"
+  dependencies:
+    no-case: ^3.0.4
+    tslib: ^2.0.3
+    upper-case-first: ^2.0.2
+  checksum: 41fa8fa87f6d24d0835a2b4a9341a3eaecb64ac29cd7c5391f35d6175a0fa98ab044e7f2602e1ec3afc886231462ed71b5b80c590b8b41af903ec2c15e5c5931
+  languageName: node
+  linkType: hard
+
 "case-sensitive-paths-webpack-plugin@npm:^2.4.0":
   version: 2.4.0
   resolution: "case-sensitive-paths-webpack-plugin@npm:2.4.0"
@@ -9872,6 +9891,26 @@ __metadata:
   version: 5.2.0
   resolution: "chalk@npm:5.2.0"
   checksum: 03d8060277de6cf2fd567dc25fcf770593eb5bb85f460ce443e49255a30ff1242edd0c90a06a03803b0466ff0687a939b41db1757bec987113e83de89a003caa
+  languageName: node
+  linkType: hard
+
+"change-case@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "change-case@npm:4.1.2"
+  dependencies:
+    camel-case: ^4.1.2
+    capital-case: ^1.0.4
+    constant-case: ^3.0.4
+    dot-case: ^3.0.4
+    header-case: ^2.0.4
+    no-case: ^3.0.4
+    param-case: ^3.0.4
+    pascal-case: ^3.1.2
+    path-case: ^3.0.4
+    sentence-case: ^3.0.4
+    snake-case: ^3.0.4
+    tslib: ^2.0.3
+  checksum: e4bc4a093a1f7cce8b33896665cf9e456e3bc3cc0def2ad7691b1994cfca99b3188d0a513b16855b01a6bd20692fcde12a7d4d87a5615c4c515bbbf0e651f116
   languageName: node
   linkType: hard
 
@@ -10394,6 +10433,17 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
+  languageName: node
+  linkType: hard
+
+"constant-case@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "constant-case@npm:3.0.4"
+  dependencies:
+    no-case: ^3.0.4
+    tslib: ^2.0.3
+    upper-case: ^2.0.2
+  checksum: 6c3346d51afc28d9fae922e966c68eb77a19d94858dba230dd92d7b918b37d36db50f0311e9ecf6847e43e934b1c01406a0936973376ab17ec2c471fbcfb2cf3
   languageName: node
   linkType: hard
 
@@ -14000,6 +14050,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"header-case@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "header-case@npm:2.0.4"
+  dependencies:
+    capital-case: ^1.0.4
+    tslib: ^2.0.3
+  checksum: 571c83eeb25e8130d172218712f807c0b96d62b020981400bccc1503a7cf14b09b8b10498a962d2739eccf231d950e3848ba7d420b58a6acd2f9283439546cd9
+  languageName: node
+  linkType: hard
+
 "hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.0":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
@@ -16012,7 +16072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:^3.2.0":
+"jsonc-parser@npm:^3.0.0, jsonc-parser@npm:^3.2.0":
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
   checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
@@ -18004,6 +18064,16 @@ __metadata:
   version: 1.0.1
   resolution: "path-browserify@npm:1.0.1"
   checksum: c6d7fa376423fe35b95b2d67990060c3ee304fc815ff0a2dc1c6c3cfaff2bd0d572ee67e18f19d0ea3bbe32e8add2a05021132ac40509416459fffee35200699
+  languageName: node
+  linkType: hard
+
+"path-case@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "path-case@npm:3.0.4"
+  dependencies:
+    dot-case: ^3.0.4
+    tslib: ^2.0.3
+  checksum: 61de0526222629f65038a66f63330dd22d5b54014ded6636283e1d15364da38b3cf29e4433aa3f9d8b0dba407ae2b059c23b0104a34ee789944b1bc1c5c7e06d
   languageName: node
   linkType: hard
 
@@ -20689,6 +20759,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sentence-case@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "sentence-case@npm:3.0.4"
+  dependencies:
+    no-case: ^3.0.4
+    tslib: ^2.0.3
+    upper-case-first: ^2.0.2
+  checksum: 3cfe6c0143e649132365695706702d7f729f484fa7b25f43435876efe7af2478243eefb052bacbcce10babf9319fd6b5b6bc59b94c80a1c819bcbb40651465d5
+  languageName: node
+  linkType: hard
+
 "serialize-javascript@npm:^6.0.1":
   version: 6.0.1
   resolution: "serialize-javascript@npm:6.0.1"
@@ -21386,6 +21467,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"style-dictionary@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "style-dictionary@npm:3.8.0"
+  dependencies:
+    chalk: ^4.0.0
+    change-case: ^4.1.2
+    commander: ^8.3.0
+    fs-extra: ^10.0.0
+    glob: ^7.2.0
+    json5: ^2.2.2
+    jsonc-parser: ^3.0.0
+    lodash: ^4.17.15
+    tinycolor2: ^1.4.1
+  bin:
+    style-dictionary: bin/style-dictionary
+  checksum: ed2440c2d1bd84593f9f60ffbfbb7c85c9592d125e169ea63e2044fe681191e8c9c156853d82ae606f9adf6aacbaa162e03d5ef85b80be334d76e28a57bfc189
+  languageName: node
+  linkType: hard
+
 "style-inject@npm:^0.3.0":
   version: 0.3.0
   resolution: "style-inject@npm:0.3.0"
@@ -21932,6 +22032,13 @@ __metadata:
   version: 1.3.1
   resolution: "tiny-invariant@npm:1.3.1"
   checksum: 872dbd1ff20a21303a2fd20ce3a15602cfa7fcf9b228bd694a52e2938224313b5385a1078cb667ed7375d1612194feaca81c4ecbe93121ca1baebe344de4f84c
+  languageName: node
+  linkType: hard
+
+"tinycolor2@npm:^1.4.1":
+  version: 1.6.0
+  resolution: "tinycolor2@npm:1.6.0"
+  checksum: 6df4d07fceeedc0a878d7bac47e2cd47c1ceeb1078340a9eb8a295bc0651e17c750f73d47b3028d829f30b85c15e0572c0fd4142083e4c21a30a597e47f47230
   languageName: node
   linkType: hard
 
@@ -22841,6 +22948,24 @@ __metadata:
   bin:
     update-browserslist-db: cli.js
   checksum: 1e47d80182ab6e4ad35396ad8b61008ae2a1330221175d0abd37689658bdb61af9b705bfc41057fd16682474d79944fb2d86767c5ed5ae34b6276b9bed353322
+  languageName: node
+  linkType: hard
+
+"upper-case-first@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "upper-case-first@npm:2.0.2"
+  dependencies:
+    tslib: ^2.0.3
+  checksum: 4487db4701effe3b54ced4b3e4aa4d9ab06c548f97244d04aafb642eedf96a76d5a03cf5f38f10f415531d5792d1ac6e1b50f2a76984dc6964ad530f12876409
+  languageName: node
+  linkType: hard
+
+"upper-case@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "upper-case@npm:2.0.2"
+  dependencies:
+    tslib: ^2.0.3
+  checksum: 508723a2b03ab90cf1d6b7e0397513980fab821cbe79c87341d0e96cedefadf0d85f9d71eac24ab23f526a041d585a575cfca120a9f920e44eb4f8a7cf89121c
   languageName: node
   linkType: hard
 
