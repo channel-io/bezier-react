@@ -1,0 +1,23 @@
+{
+  "name": "@channel.io/bezier-tokens",
+  "version": "0.1.0",
+  "description": "Design tokens of Bezier design system.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-tokens"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "channel",
+    "design",
+    "tokens",
+    "design tokens"
+  ],
+  "author": "Channel Corp.",
+  "license": "Apache-2.0"
+}
+
