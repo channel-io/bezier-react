@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "co build"
   },
   "keywords": [
     "channel",
@@ -20,6 +20,9 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "style-dictionary": "^3.8.0"
+    "@cobalt-ui/cli": "^1.6.0",
+    "@cobalt-ui/plugin-css": "^1.5.0",
+    "@cobalt-ui/plugin-js": "^1.4.1",
+    "@cobalt-ui/plugin-sass": "^1.3.0"
   }
 }
