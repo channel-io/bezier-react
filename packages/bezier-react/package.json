@@ -135,7 +135,7 @@
     "@radix-ui/react-visually-hidden": "^1.0.3",
     "classnames": "^2.3.2",
     "react-resize-detector": "^9.1.0",
-    "react-textarea-autosize": "^8.5.3",
+    "react-textarea-autosize": "8.3.4",
     "ssr-window": "^4.0.2",
     "uuid": "^9.0.0"
   }
