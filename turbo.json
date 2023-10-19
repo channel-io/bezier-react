@@ -23,15 +23,8 @@
       ]
     },
     "test": {
-      "inputs": [
-        "src/**/*.tsx",
-        "src/**/*.ts",
-        "src/**/*.js"
-      ]
-    },
-    "test:ci": {
       "outputs": [
-        "coverage/**"
+        ".jestcache/**"
       ],
       "inputs": [
         "src/**/*.tsx",

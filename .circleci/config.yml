@@ -1,7 +1,8 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@1.2.0
+  node: circleci/node@5.1.0
+  codecov: codecov/codecov@3.3.0
 
 references:
   workspace_root: &workspace_root
@@ -10,74 +11,98 @@ references:
   attach_workspace: &attach_workspace
     attach_workspace:
       at: *workspace_root
+  
+  build_cache_paths: &build_cache_paths
+    paths:
+      - node_modules/.cache/turbo
 
-defaults: &defaults
-  resource_class: xlarge
-  working_directory: *workspace_root
+  lint_cache_paths: &lint_cache_paths
+    paths:
+      - packages/bezier-react/.stylelintcache
+      - packages/bezier-react/.eslintcache
+      - packages/bezier-icons/.eslintcache
+      - packages/bezier-figma-plugin/.eslintcache
+      - packages/bezier-codemod/.eslintcache
 
-  docker:
-    - image: node:18.17.1
+  test_cache_paths: &test_cache_paths
+    paths:
+      - packages/bezier-react/.jestcache
+      - packages/bezier-icons/.jestcache
+      - packages/bezier-figma-plugin/.jestcache
+      - packages/bezier-codemod/.jestcache
 
-filter_only_tagged: &filter_only_tagged
-  filters:
-    tags:
-      only: /^v.*/
-    branches:
-      ignore: /.*/
+executors:
+  node_executor:
+    docker:
+      - image: node:18.17.1
+    resource_class: xlarge
+    working_directory: *workspace_root
 
 jobs:
   install:
-    <<: *defaults
+    executor: node_executor
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - bezier-react-dependencies-{{ checksum "yarn.lock" }}
-      - run: yarn install
-      - save_cache:
-          paths:
-            - .yarn/cache
-            - .yarn/unplugged
-          key: bezier-react-dependencies-{{ checksum "yarn.lock" }}
+      - node/install-packages:
+          pkg-manager: yarn
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - .
 
   build:
-    <<: *defaults
+    executor: node_executor
     steps:
       - *attach_workspace
-      - run: yarn build --filter=bezier-icons
+      - restore_cache:
+          keys:
+          - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+          - build-{{ .Environment.CACHE_VERSION }}-
+      - run: yarn build
+      - save_cache:
+          key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *build_cache_paths
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - .
 
   lint:
-    <<: *defaults
+    executor: node_executor
     steps:
       - *attach_workspace
+      - restore_cache:
+          keys:
+          - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+          - lint-{{ .Environment.CACHE_VERSION }}-
       - run: yarn lint
+      - save_cache:
+          key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *lint_cache_paths
 
   typecheck:
-    <<: *defaults
+    executor: node_executor
     steps:
       - *attach_workspace
       - run: yarn typecheck
 
   test:
-    <<: *defaults
+    executor: node_executor
     steps:
       - *attach_workspace
-      - run: yarn test:ci
+      - restore_cache:
+          keys:
+          - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+          - test-{{ .Environment.CACHE_VERSION }}-
+      - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
-          token: $CODECOV_TOKEN
+      - save_cache:
+          key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *test_cache_paths
 
 workflows:
-  version: 2
-  lint_and_test:
+  ci:
     jobs:
       - install
       - build:

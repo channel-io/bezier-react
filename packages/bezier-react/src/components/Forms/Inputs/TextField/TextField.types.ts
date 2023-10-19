@@ -52,7 +52,7 @@ export interface TextFieldRef {
   selectAll(): void
   unselect(): void
   getBoundingClientRect(): ClientRect | DOMRect
-  getDOMNode(): Element | Text | null
+  getDOMNode(): HTMLInputElement | null
 }
 
 type ChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>

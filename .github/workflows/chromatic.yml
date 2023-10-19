@@ -6,7 +6,6 @@ on:
       - main
       - alpha
   pull_request:
-    types: [opened, reopened, synchronize]
     paths:
       - packages/bezier-react/**
 
@@ -16,11 +15,7 @@ jobs:
     name: Chromatic
     runs-on: ubuntu-latest
     steps:
-      - name: Get Yarn cache path
-        id: yarn-cache
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -28,21 +23,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.17.1
+          node-version-file: .nvmrc
+          cache: yarn
 
-      - name: Load Yarn cache
+      - name: Restore cache
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            **/.turbo
+            node_modules/.cache/turbo
+          key: ${{ runner.os }}-chromatic-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-chromatic-
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: yarn
 
-      - name: Build Packages
-        run: yarn build --filter=bezier-icons
+      - name: Build bezier-react's dependencies
+        run: yarn build --filter=@channel.io/bezier-react^...
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1

@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-icons",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Icon library that implements Bezier design system.",
   "repository": {
     "type": "git",
@@ -28,8 +28,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "TIMING=1 eslint --cache .",
-    "typecheck": "tsc --build --verbose",
-    "test": "jest --onlyChanged",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
@@ -56,7 +56,6 @@
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "eslint-config-bezier": "workspace:^",
-    "jest": "^29.6.4",
     "rollup": "^3.29.1",
     "rollup-plugin-visualizer": "^5.9.2",
     "svgo": "^3.0.2",
