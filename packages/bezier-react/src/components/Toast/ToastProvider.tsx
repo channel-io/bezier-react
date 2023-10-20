@@ -23,6 +23,7 @@ import useToastProviderValues from './useToastContextValues'
 
 function ToastProvider({
   autoDismissTimeout = 3000,
+  container: givenContainer,
   children = [],
 }: ToastProviderProps) {
   const isMounted = useIsMounted()
@@ -33,6 +34,7 @@ function ToastProvider({
     rightToasts,
     dismiss,
   } = toastContextValue
+  const container = givenContainer ?? getRootElement()
 
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
     <ToastContainer
@@ -85,7 +87,7 @@ function ToastProvider({
           createContainer(ToastPlacement.BottomLeft, leftToasts),
           createContainer(ToastPlacement.BottomRight, rightToasts),
         ],
-        getRootElement(),
+        container,
       ) }
     </ToastContextProvider>
   )
