@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.16.0
+
+### Minor Changes
+
+- Fix "document is not defined" error when building in SSR frameworks like Next.js. ([#1688](https://github.com/channel-io/bezier-react/pull/1688)) by @sungik-choi
+
 ## 1.15.1
 
 ### Patch Changes
