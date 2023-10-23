@@ -12071,8 +12071,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-storybook@npm:^0.6.13":
-  version: 0.6.14
-  resolution: "eslint-plugin-storybook@npm:0.6.14"
+  version: 0.6.15
+  resolution: "eslint-plugin-storybook@npm:0.6.15"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/utils": ^5.45.0
@@ -12080,7 +12080,7 @@ __metadata:
     ts-dedent: ^2.2.0
   peerDependencies:
     eslint: ">=6"
-  checksum: f2ba1d77da273a3294416394573edc60d780bc1d7ac177eb921f25b32b90bb87a549698126ce572211067130b93974cc812b594d726d234c41f71f163edd56d8
+  checksum: e2c4d7be3e695c88d7194c363fba8ac644b36583bf9d608aa59dcd53cc5e422f7828611ee49c7934639ce827c0206d33fa94b3ea452ffbd2c8e7254ed90bc412
   languageName: node
   linkType: hard
 
