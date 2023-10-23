@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.17.0
+
+### Minor Changes
+
+- Add container prop to ToastProvider ([#1692](https://github.com/channel-io/bezier-react/pull/1692)) by @leejiwoo2002
+
 ## 1.16.0
 
 ### Minor Changes
