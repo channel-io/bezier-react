@@ -20238,11 +20238,11 @@ __metadata:
   linkType: hard
 
 "rollup-plugin-node-externals@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "rollup-plugin-node-externals@npm:6.1.1"
+  version: 6.1.2
+  resolution: "rollup-plugin-node-externals@npm:6.1.2"
   peerDependencies:
-    rollup: ^3.0.0
-  checksum: 9f11e7d2632628094fd0846571fba275ef60d9775ad2957edd68efa5c87e9201610e0f6f7cce9b1d22412322120ba74f9f47ee435511bbe5351c14199686b272
+    rollup: ^3.0.0 || ^4.0.0
+  checksum: fd139d95dd46b04cc5d337322724455b6d30971d99b9a303fef61d54c1b6a9f2be5b4d22e98c16670fd216e2d275db8fc842d7f395ddd78e0535b699fbbe1155
   languageName: node
   linkType: hard
 
