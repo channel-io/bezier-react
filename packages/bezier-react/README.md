@@ -7,22 +7,22 @@ Bezier React is a React components library that implements Bezier design system.
 ### npm
 
 ```bash
-npm i @channel.io/bezier-react styled-components
-npm i -D @types/styled-components
+npm i @channel.io/bezier-react styled-components@5
+npm i -D @types/styled-components@5
 ```
 
 ### yarn
 
 ```bash
-yarn add @channel.io/bezier-react styled-components
-yarn add -D @types/styled-components
+yarn add @channel.io/bezier-react styled-components@5
+yarn add -D @types/styled-components@5
 ```
 
 ### pnpm
 
 ```bash
-pnpm install @channel.io/bezier-react styled-components
-pnpm install -D @types/styled-components
+pnpm install @channel.io/bezier-react styled-components@5
+pnpm install -D @types/styled-components@5
 ```
 
 **bezier-react has [styled-components](https://styled-components.com/) as peer dependency** so don't forget to install it.
