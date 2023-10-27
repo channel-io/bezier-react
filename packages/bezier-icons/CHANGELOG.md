@@ -1,5 +1,22 @@
 # @channel.io/bezier-icons
 
+## 0.15.0
+
+### Minor Changes
+
+- Update icons ([#1704](https://github.com/channel-io/bezier-react/pull/1704)) by @yangwooseong
+
+  Added
+
+  - auto-close.svg
+  - circle-small.svg
+  - circle.svg
+  - vertical-bar-bold.svg
+
+  Modified
+
+  - cancel-circle-filled.svg
+
 ## 0.14.0
 
 ### Minor Changes
