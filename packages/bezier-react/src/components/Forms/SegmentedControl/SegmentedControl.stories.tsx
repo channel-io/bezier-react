@@ -2,14 +2,10 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
@@ -21,25 +17,23 @@ import {
 import {
   type SegmentedControlProps,
   SegmentedControlSize,
-  type SegmentedControlType,
 } from './SegmentedControl.types'
 import { SegmentedControlItem } from './SegmentedControlItem'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof SegmentedControl> = {
   component: SegmentedControl,
   argTypes: {
     type: {
       control: {
         type: 'radio',
-        options: ['radiogroup', 'tabs'],
       },
+      options: ['radiogroup', 'tabs'],
     },
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SegmentedControlSize),
       },
+      options: getObjectFromEnum(SegmentedControlSize),
     },
     value: {
       control: {
@@ -52,7 +46,8 @@ export default {
       },
     },
   },
-} as Meta<SegmentedControlProps<SegmentedControlType, string>>
+}
+export default meta
 
 const VALUES = [
   {
@@ -69,11 +64,9 @@ const VALUES = [
   },
 ]
 
-const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({
-  children,
-  type,
-  ...rest
-}) => (
+const Template: StoryFn<
+SegmentedControlProps<'radiogroup', string>
+> = ({ type, ...rest }) => (
   <div style={{ width: 500 }}>
     <SegmentedControl
       type={type}
@@ -117,13 +110,15 @@ const Template: Story<SegmentedControlProps<SegmentedControlType, string>> = ({
   </div>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  type: 'radiogroup',
-  size: SegmentedControlSize.XS,
-  width: '100%',
-  value: undefined,
-  defaultValue: undefined,
-  disabled: false,
+  args: {
+    type: 'radiogroup',
+    size: SegmentedControlSize.XS,
+    width: '100%',
+    value: undefined,
+    defaultValue: undefined,
+    disabled: false,
+  },
 }

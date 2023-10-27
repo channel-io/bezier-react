@@ -1,19 +1,18 @@
 import React from 'react'
 
-import base from 'paths.macro'
+import { type Meta } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
 import { Palette } from './index'
 
-export default {
-  title: getTitle(base),
+const meta: Meta = {
+  title: 'Foundation/Palette',
   parameters: {
     layout: 'fullscreen',
   },
 }
+export default meta
 
 interface PaletteProps {
   color: string
@@ -65,4 +64,6 @@ const Template = () => (
   </PaletteChipArtBoard>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
+}

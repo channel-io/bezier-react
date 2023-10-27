@@ -2,34 +2,32 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
-export default {
-  title: getTitle(base),
+const meta: Meta = {
+  title: 'Foundation/Rounding',
   argTypes: {
     round: {
       control: {
         type: 'radio',
-        options: [
-          'round3',
-          'round4',
-          'round6',
-          'round8',
-          'round12',
-          'round16',
-          'round20',
-          'round32',
-        ],
       },
+      options: [
+        'round3',
+        'round4',
+        'round6',
+        'round8',
+        'round12',
+        'round16',
+        'round20',
+        'round32',
+      ],
     },
   },
-} as Meta
+}
+export default meta
 
 interface RoundingChipProps {
   round: string
@@ -42,9 +40,14 @@ const RoundingChip = styled.div<RoundingChipProps>`
   ${({ foundation }) => foundation?.elevation?.ev3()};
 `
 
-const Template: Story<RoundingChipProps> = (args) => <RoundingChip {...args} />
+const Template: StoryFn<RoundingChipProps> = (args) => (
+  <RoundingChip {...args} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  round: 'round4',
+export const Primary = {
+  render: Template,
+
+  args: {
+    round: 'round4',
+  },
 }

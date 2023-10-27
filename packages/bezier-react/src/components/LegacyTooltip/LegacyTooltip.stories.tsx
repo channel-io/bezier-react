@@ -2,20 +2,16 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { LegacyTooltip } from './LegacyTooltip'
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof LegacyTooltip> = {
   component: LegacyTooltip,
   argTypes: {
     content: {
@@ -26,21 +22,21 @@ export default {
     placement: {
       control: {
         type: 'radio',
-        options: [
-          LegacyTooltipPosition.TopCenter,
-          LegacyTooltipPosition.TopLeft,
-          LegacyTooltipPosition.TopRight,
-          LegacyTooltipPosition.RightCenter,
-          LegacyTooltipPosition.RightTop,
-          LegacyTooltipPosition.RightBottom,
-          LegacyTooltipPosition.BottomCenter,
-          LegacyTooltipPosition.BottomLeft,
-          LegacyTooltipPosition.BottomRight,
-          LegacyTooltipPosition.LeftCenter,
-          LegacyTooltipPosition.LeftTop,
-          LegacyTooltipPosition.LeftBottom,
-        ],
       },
+      options: [
+        LegacyTooltipPosition.TopCenter,
+        LegacyTooltipPosition.TopLeft,
+        LegacyTooltipPosition.TopRight,
+        LegacyTooltipPosition.RightCenter,
+        LegacyTooltipPosition.RightTop,
+        LegacyTooltipPosition.RightBottom,
+        LegacyTooltipPosition.BottomCenter,
+        LegacyTooltipPosition.BottomLeft,
+        LegacyTooltipPosition.BottomRight,
+        LegacyTooltipPosition.LeftCenter,
+        LegacyTooltipPosition.LeftTop,
+        LegacyTooltipPosition.LeftBottom,
+      ],
     },
     offset: {
       control: {
@@ -67,7 +63,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const Target = styled.div`
   display: flex;
@@ -79,27 +76,26 @@ const Target = styled.div`
   border-radius: 4px;
 `
 
-const Template: Story<LegacyTooltipProps> = (props) => (
-  <LegacyTooltip
-    {...props}
-  >
-    <Target>
-      Target
-    </Target>
+const Template: StoryFn<LegacyTooltipProps> = (props) => (
+  <LegacyTooltip {...props}>
+    <Target>Target</Target>
   </LegacyTooltip>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  // eslint-disable-next-line max-len
-  content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-  lazy: true,
-  placement: LegacyTooltipPosition.BottomCenter,
-  offset: 4,
-  disabled: false,
-  keepInContainer: false,
-  allowHover: false,
-  delayShow: 0,
-  delayHide: 0,
+  args: {
+    // eslint-disable-next-line max-len
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    lazy: true,
+    placement: LegacyTooltipPosition.BottomCenter,
+    offset: 4,
+    disabled: false,
+    keepInContainer: false,
+    allowHover: false,
+    delayShow: 0,
+    delayHide: 0,
+  },
 }

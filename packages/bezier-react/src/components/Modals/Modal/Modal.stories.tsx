@@ -5,14 +5,10 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -57,9 +53,12 @@ function ModalComposition({
 }: ModalCompositionProps) {
   const [show, setShow] = useState(false)
 
-  useEffect(function watchShowToChange() {
-    setShow(showProp)
-  }, [showProp])
+  useEffect(
+    function watchShowToChange() {
+      setShow(showProp)
+    },
+    [showProp],
+  )
 
   return (
     <Modal
@@ -125,18 +124,8 @@ function ModalComposition({
   )
 }
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof ModalComposition> = {
   component: ModalComposition,
-  subcomponents: {
-    Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    ModalTrigger,
-    ModalClose,
-  },
   argTypes: {
     width: {
       control: {
@@ -151,22 +140,27 @@ export default {
     titleSize: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(ModalTitleSize),
       },
+      options: getObjectFromEnum(ModalTitleSize),
     },
   },
-} as Meta<ModalProps>
+}
+export default meta
 
-const Template: Story<ModalCompositionProps> = ModalComposition
+const Template: StoryFn<ModalCompositionProps> = ModalComposition
 
-export const Composition = Template.bind({})
-Composition.args = {
-  show: false,
-  showCloseIcon: false,
-  title: 'Edit profile',
-  subtitle: 'Profile Settings',
-  description: 'Make changes to your profile here. Click save when you\'re done.',
-  titleSize: ModalTitleSize.L,
-  hidden: false,
-  preventHideOnOutsideClick: false,
+export const Composition = {
+  render: Template,
+
+  args: {
+    show: false,
+    showCloseIcon: false,
+    title: 'Edit profile',
+    subtitle: 'Profile Settings',
+    description:
+      "Make changes to your profile here. Click save when you're done.",
+    titleSize: ModalTitleSize.L,
+    hidden: false,
+    preventHideOnOutsideClick: false,
+  },
 }

@@ -2,11 +2,9 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   TagBadgeSize,
@@ -14,38 +12,38 @@ import {
 } from '~/src/components/TagBadge'
 
 import { Tag } from './Tag'
-import type TagProps from './Tag.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Tag> = {
   component: Tag,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: TagBadgeSize,
       },
+      options: TagBadgeSize,
     },
     variant: {
       control: {
         type: 'radio',
-        options: TagBadgeVariant,
       },
+      options: TagBadgeVariant,
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<TagProps> = ({ children, ...otherProps }) => (
-  <Tag {...otherProps}>
-    { children }
-  </Tag>
+const Template: StoryFn<typeof Tag> = ({ children, ...otherProps }) => (
+  <Tag {...otherProps}>{ children }</Tag>
 )
 
-export const Primary: Story<TagProps> = Template.bind({})
-Primary.args = {
-  children: 'Design',
-  size: TagBadgeSize.M,
-  variant: TagBadgeVariant.Default,
-  // eslint-disable-next-line no-console
-  onDelete: console.log,
+export const Primary: StoryObj<typeof Tag> = {
+  render: Template,
+
+  args: {
+    children: 'Design',
+    size: TagBadgeSize.M,
+    variant: TagBadgeVariant.Default,
+    // eslint-disable-next-line no-console
+    onDelete: console.log,
+  },
 }

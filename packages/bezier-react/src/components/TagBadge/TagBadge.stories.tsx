@@ -17,14 +17,13 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 import { gap } from '~/src/utils/styleUtils'
 
 import {
@@ -41,14 +40,15 @@ import {
 
 import mdx from './TagBadge.mdx'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Badge> = {
+  component: Badge,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-} as Meta
+}
+export default meta
 
 const Container = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const Container = styled.div`
   ${gap(4)}
 `
 
-export const Overview: Story<{}> = () => (
+export const Overview: StoryFn<{}> = () => (
   <VStack spacing={16}>
     <StackItem>
       <Container>
@@ -95,26 +95,31 @@ export const Overview: Story<{}> = () => (
   </VStack>
 )
 
-export const BadgeWithoutText: Story<{}> = () => (
-  <HStack spacing={4}>
-    <StackItem>
-      <Badge variant={TagBadgeVariant.Red} icon={BlockIcon} />
-    </StackItem>
-    <StackItem>
-      <Badge variant={TagBadgeVariant.Orange} icon={ErrorTriangleFilledIcon} />
-    </StackItem>
-    <StackItem>
-      <Badge variant={TagBadgeVariant.Green} icon={LightningFilledIcon} />
-    </StackItem>
-  </HStack>
-)
+export const BadgeWithoutText: StoryObj<{}> = {
+  render: () => (
+    <HStack spacing={4}>
+      <StackItem>
+        <Badge variant={TagBadgeVariant.Red} icon={BlockIcon} />
+      </StackItem>
+      <StackItem>
+        <Badge
+          variant={TagBadgeVariant.Orange}
+          icon={ErrorTriangleFilledIcon}
+        />
+      </StackItem>
+      <StackItem>
+        <Badge variant={TagBadgeVariant.Green} icon={LightningFilledIcon} />
+      </StackItem>
+    </HStack>
+  ),
 
-BadgeWithoutText.storyName = 'Usage (badges without text)'
+  name: 'Usage (badges without text)',
+}
 
-export const DismissibleTag: Story<{}> = () => (
-  <VStack spacing={4}>
-    {
-      [
+export const DismissibleTag: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={4}>
+      { [
         [TagBadgeVariant.Red, 'red'] as const,
         [TagBadgeVariant.Orange, 'orange'] as const,
         [TagBadgeVariant.Yellow, 'yellow'] as const,
@@ -127,12 +132,12 @@ export const DismissibleTag: Story<{}> = () => (
           <StackItem key={variant}>
             <Tag variant={variant} onDelete={noop}>{ label }</Tag>
           </StackItem>
-        ))
-    }
-  </VStack>
-)
+        )) }
+    </VStack>
+  ),
 
-DismissibleTag.storyName = 'Usage (dismissible tags)'
+  name: 'Usage (dismissible tags)',
+}
 
 const Items = styled.div`
   display: flex;
@@ -142,31 +147,61 @@ const Items = styled.div`
   ${gap(4)}
 `
 
-export const Gap: Story<{}> = () => (
-  <Items>
-    <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>default</Badge>
-    <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>blue</Badge>
-    <Badge icon={TimeElapsedIcon} variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
-    <Badge icon={ViewIcon} variant={TagBadgeVariant.Teal}>teal</Badge>
-    <Badge icon={LightningFilledIcon} variant={TagBadgeVariant.Green}>green</Badge>
-    <Badge icon={CheckAllIcon} variant={TagBadgeVariant.Olive}>olive</Badge>
-    <Badge icon={HeartFilledIcon} variant={TagBadgeVariant.Pink}>pink</Badge>
-    <Badge icon={ArchiveIcon} variant={TagBadgeVariant.Navy}>navy</Badge>
-    <Badge icon={StarFilledIcon} variant={TagBadgeVariant.Yellow}>yellow</Badge>
-    <Badge icon={ErrorTriangleFilledIcon} variant={TagBadgeVariant.Orange}>orange</Badge>
-    <Badge icon={BlockIcon} variant={TagBadgeVariant.Red}>red</Badge>
-    <Badge icon={TrendingUpIcon} variant={TagBadgeVariant.Purple}>purple</Badge>
-    <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
-    <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
-  </Items>
-)
+export const Gap: StoryObj<{}> = {
+  render: () => (
+    <Items>
+      <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>
+        default
+      </Badge>
+      <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>
+        blue
+      </Badge>
+      <Badge icon={TimeElapsedIcon} variant={TagBadgeVariant.Cobalt}>
+        cobalt
+      </Badge>
+      <Badge icon={ViewIcon} variant={TagBadgeVariant.Teal}>
+        teal
+      </Badge>
+      <Badge icon={LightningFilledIcon} variant={TagBadgeVariant.Green}>
+        green
+      </Badge>
+      <Badge icon={CheckAllIcon} variant={TagBadgeVariant.Olive}>
+        olive
+      </Badge>
+      <Badge icon={HeartFilledIcon} variant={TagBadgeVariant.Pink}>
+        pink
+      </Badge>
+      <Badge icon={ArchiveIcon} variant={TagBadgeVariant.Navy}>
+        navy
+      </Badge>
+      <Badge icon={StarFilledIcon} variant={TagBadgeVariant.Yellow}>
+        yellow
+      </Badge>
+      <Badge icon={ErrorTriangleFilledIcon} variant={TagBadgeVariant.Orange}>
+        orange
+      </Badge>
+      <Badge icon={BlockIcon} variant={TagBadgeVariant.Red}>
+        red
+      </Badge>
+      <Badge icon={TrendingUpIcon} variant={TagBadgeVariant.Purple}>
+        purple
+      </Badge>
+      <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>
+        monochrome-dark
+      </Badge>
+      <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>
+        monochrome-light
+      </Badge>
+    </Items>
+  ),
 
-Gap.storyName = 'Usage (multiple tags or badges with gap)'
+  name: 'Usage (multiple tags or badges with gap)',
+}
 
-export const SizeVariant: Story<{}> = () => (
-  <VStack spacing={16}>
-    {
-      [
+export const SizeVariant: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      { [
         [TagBadgeSize.XS, 'XS (18px)'] as const,
         [TagBadgeSize.S, 'S (20px)'] as const,
         [TagBadgeSize.M, 'M (20px)'] as const,
@@ -183,17 +218,17 @@ export const SizeVariant: Story<{}> = () => (
               </StackItem>
             </HStack>
           </StackItem>
-        ))
-    }
-  </VStack>
-)
+        )) }
+    </VStack>
+  ),
 
-SizeVariant.storyName = 'Variant (size)'
+  name: 'Variant (size)',
+}
 
-export const Variant: Story<{}> = () => (
-  <VStack spacing={16}>
-    {
-      [
+export const Variant: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16}>
+      { [
         [TagBadgeVariant.Default, 'default'] as const,
         [TagBadgeVariant.Blue, 'blue'] as const,
         [TagBadgeVariant.Cobalt, 'cobalt'] as const,
@@ -220,9 +255,9 @@ export const Variant: Story<{}> = () => (
               </StackItem>
             </HStack>
           </StackItem>
-        ))
-    }
-  </VStack>
-)
+        )) }
+    </VStack>
+  ),
 
-Variant.storyName = 'Variant (color)'
+  name: 'Variant (color)',
+}

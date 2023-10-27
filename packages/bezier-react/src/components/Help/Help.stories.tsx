@@ -1,18 +1,11 @@
-import React from 'react'
-
 import type {
   Meta,
-  Story,
+  StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import Help from './Help'
-import type HelpProps from './Help.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Help> = {
   component: Help,
   argTypes: {
     children: {
@@ -21,11 +14,11 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<HelpProps> = props => <Help {...props} />
-
-export const Primary: Story<HelpProps> = Template.bind({})
-Primary.args = {
-  children: 'Lorem ipsum',
+export const Primary: StoryObj<typeof Help> = {
+  args: {
+    children: 'Lorem ipsum',
+  },
 }

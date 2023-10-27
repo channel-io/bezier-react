@@ -13,12 +13,10 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 import { v4 as uuid } from 'uuid'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Avatar,
@@ -28,8 +26,7 @@ import {
 import OutlineItem from './OutlineItem'
 import type OutlineItemProps from './OutlineItem.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof OutlineItem> = {
   component: OutlineItem,
   argTypes: {
     open: {
@@ -38,14 +35,15 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<OutlineItemProps> = (args) => {
+const Template: StoryFn<OutlineItemProps> = (args) => {
   const [open, setOpen] = useState(true)
   const [idx, setIdx] = useState(null)
 
   const handleToggle = useCallback(() => {
-    setOpen(v => !v)
+    setOpen((v) => !v)
     //  if you want to manually activate specific element
     // setIdx(0)
   }, [])
@@ -147,16 +145,17 @@ const Template: Story<OutlineItemProps> = (args) => {
           leftIcon={SecurityIcon}
         />
       </div>
-
     </div>
   )
 }
 
-export const Primary: Story<OutlineItemProps> = Template.bind({})
+export const Primary: StoryObj<OutlineItemProps> = {
+  render: Template,
 
-Primary.args = {
-  name: 'sample group',
-  content: 'KR',
-  leftIcon: DotIcon,
-  leftIconColor: 'bgtxt-pink-normal',
+  args: {
+    name: 'sample group',
+    content: 'KR',
+    leftIcon: DotIcon,
+    leftIconColor: 'bgtxt-pink-normal',
+  },
 }

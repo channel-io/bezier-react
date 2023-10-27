@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { styled } from '~/src/foundation'
@@ -16,8 +17,8 @@ import { Text } from '~/src/components/Text'
 import { Typography } from './Typography'
 import mdx from './Typography.mdx'
 
-export default {
-  title: '~/src/foundation/Typography',
+const meta: Meta = {
+  title: 'Foundation/Typography',
   parameters: {
     docs: {
       page: mdx,
@@ -27,29 +28,32 @@ export default {
     typography: {
       control: {
         type: 'radio',
-        options: Object.keys(Typography),
       },
+      options: Object.keys(Typography),
     },
   },
-} as Meta
+}
+export default meta
 
 const Span = styled.span<{ typography: keyof typeof Typography }>`
   ${({ typography }) => Typography[typography]}
 `
 
-export const Primary: Story<{
+export const Primary: StoryObj<{
   typography: keyof typeof Typography
-}> = ({ typography }) => (
-  <Span typography={typography}>
-    Channel.io, an all-in-one business solution.
-  </Span>
-)
+}> = {
+  render: ({ typography }) => (
+    <Span typography={typography}>
+      Channel.io, an all-in-one business solution.
+    </Span>
+  ),
 
-Primary.args = {
-  typography: 'Size13',
+  args: {
+    typography: 'Size13',
+  },
 }
 
-export const Overview: Story<{}> = () => (
+export const Overview: StoryFn<{}> = () => (
   <VStack spacing={16}>
     <StackItem>
       <Text
@@ -134,33 +138,38 @@ export const Overview: Story<{}> = () => (
   </VStack>
 )
 
-/* eslint-disable max-len */
-export const UsageText: Story<{}> = () => (
-  <Text
-    as="p"
-    typo={Typography.Size15}
-    color="txt-black-darkest"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum elit erat, eu euismod odio tincidunt vel. Nulla non consequat ligula. Nulla quis justo at enim sodales aliquet. Proin placerat varius elit, et molestie erat ornare ut. Ut pharetra ultrices lacus. Morbi vehicula auctor lectus ac convallis. Etiam scelerisque feugiat lectus, nec gravida enim mollis eu. Cras ut urna imperdiet, blandit nisi nec, auctor ipsum. Aliquam eu nisl tellus. Phasellus non porta dui. Pellentesque fringilla enim ut volutpat commodo. In hac habitasse platea dictumst.
-  </Text>
-)
-/* eslint-enable max-len */
+export const UsageText: StoryObj<{}> = {
+  render: () => (
+    <Text as="p" typo={Typography.Size15} color="txt-black-darkest">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum
+      elit erat, eu euismod odio tincidunt vel. Nulla non consequat ligula.
+      Nulla quis justo at enim sodales aliquet. Proin placerat varius elit, et
+      molestie erat ornare ut. Ut pharetra ultrices lacus. Morbi vehicula auctor
+      lectus ac convallis. Etiam scelerisque feugiat lectus, nec gravida enim
+      mollis eu. Cras ut urna imperdiet, blandit nisi nec, auctor ipsum. Aliquam
+      eu nisl tellus. Phasellus non porta dui. Pellentesque fringilla enim ut
+      volutpat commodo. In hac habitasse platea dictumst.
+    </Text>
+  ),
 
-UsageText.storyName = 'Usage (via Text)'
+  name: 'Usage (via Text)',
+}
 
 const TypographicCode = styled.code`
   ${Typography.Size15}
   color: ${({ foundation }) => foundation?.theme['txt-black-darkest']};
 `
 
-export const UsageInterpolation: Story<{}> = () => (
-  <pre>
-    <TypographicCode>
-      { `function main() {
-  console.log('hello, world!');
-}` }
-    </TypographicCode>
-  </pre>
-)
+export const UsageInterpolation: StoryObj<{}> = {
+  render: () => (
+    <pre>
+      <TypographicCode>
+        { `function main() {
+    console.log('hello, world!');
+  }` }
+      </TypographicCode>
+    </pre>
+  ),
 
-UsageInterpolation.storyName = 'Usage (via interpolation)'
+  name: 'Usage (via interpolation)',
+}

@@ -2,13 +2,11 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Status } from './Status'
 import {
@@ -17,18 +15,18 @@ import {
   StatusType,
 } from './Status.types'
 
-export default {
-  title: getTitle(base),
+const meta:Meta<typeof Status> = {
   component: Status,
   argTypes: {
     type: {
       control: {
         type: 'radio',
-        options: StatusType,
       },
+      options: StatusType,
     },
   },
-} as Meta
+}
+export default meta
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,14 +37,17 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<StatusProps> = (args) => (
+const Template: StoryFn<StatusProps> = (args) => (
   <Wrapper>
     <Status {...args} />
   </Wrapper>
 )
 
-export const Primary: Story<StatusProps> = Template.bind({})
-Primary.args = {
-  type: StatusType.Online,
-  size: StatusSize.M,
+export const Primary: StoryObj<StatusProps> = {
+  render: Template,
+
+  args: {
+    type: StatusType.Online,
+    size: StatusSize.M,
+  },
 }

@@ -3,11 +3,9 @@ import React from 'react'
 import { AppleIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   TagBadgeSize,
@@ -17,38 +15,36 @@ import {
 import { Badge } from './Badge'
 import type BadgeProps from './Badge.types'
 
-export default {
-  title: getTitle(base),
+const meta:Meta<typeof Badge> = {
   component: Badge,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
       },
+      options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
     },
     variant: {
       control: {
         type: 'radio',
-        options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
       },
+      options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<BadgeProps> = ({
-  children,
-  ...badgeProps
-}) => (
-  <Badge {...badgeProps}>
-    { children }
-  </Badge>
+const Template: StoryFn<BadgeProps> = ({ children, ...badgeProps }) => (
+  <Badge {...badgeProps}>{ children }</Badge>
 )
 
-export const Primary: Story<BadgeProps> = Template.bind({})
-Primary.args = {
-  children: 'Design',
-  size: TagBadgeSize.M,
-  icon: AppleIcon,
-  variant: TagBadgeVariant.Default,
+export const Primary: StoryObj<BadgeProps> = {
+  render: Template,
+
+  args: {
+    children: 'Design',
+    size: TagBadgeSize.M,
+    icon: AppleIcon,
+    variant: TagBadgeVariant.Default,
+  },
 }

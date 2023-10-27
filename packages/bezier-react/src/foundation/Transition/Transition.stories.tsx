@@ -6,30 +6,28 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
-export default {
-  title: getTitle(base),
+const meta: Meta = {
+  title: 'Foundation/Transition',
   argTypes: {
     property: {
       control: {
         type: 'radio',
-        options: [
-          'top',
-          'right',
-          'bottom',
-          'left',
-        ],
       },
+      options: [
+        'top',
+        'right',
+        'bottom',
+        'left',
+      ],
     },
   },
-} as Meta
+}
+export default meta
 
 const ElementWrapper = styled.div`
   position: relative;
@@ -46,19 +44,16 @@ interface ElementProps {
   left?: number
 }
 
-const Element = styled.div.attrs<ElementProps>(({
-  top,
-  right,
-  bottom,
-  left,
-}) => ({
-  style: {
-    top,
-    right,
-    bottom,
-    left,
-  },
-}))`
+const Element = styled.div.attrs<ElementProps>(
+  ({ top, right, bottom, left }) => ({
+    style: {
+      top,
+      right,
+      bottom,
+      left,
+    },
+  }),
+)`
   position: absolute;
   width: 100px;
   height: 100px;
@@ -70,7 +65,7 @@ const Element = styled.div.attrs<ElementProps>(({
   )};
 `
 
-const Template: Story<{ property: keyof ElementProps }> = (args) => {
+const Template: StoryFn<{ property: keyof ElementProps }> = (args) => {
   const [isEntered, setIsEntered] = useState(false)
 
   const handleClick = useCallback(() => setIsEntered(prevEntered => !prevEntered), [])
@@ -125,7 +120,10 @@ const Template: Story<{ property: keyof ElementProps }> = (args) => {
   )
 }
 
-export const Top = Template.bind({})
-Top.args = {
-  property: 'top',
+export const Top = {
+  render: Template,
+
+  args: {
+    property: 'top',
+  },
 }

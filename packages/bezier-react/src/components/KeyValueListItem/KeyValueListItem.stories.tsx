@@ -8,11 +8,8 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -24,10 +21,10 @@ import KeyValueListItem from './KeyValueListItem'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
-export default {
-  title: getTitle(base),
+const meta:Meta<typeof KeyValueListItem> = {
   component: KeyValueListItem,
-} as Meta
+}
+export default meta
 
 interface KeyValueListItemStorybookProps extends KeyValueListItemProps {
   containerWidth: number
@@ -49,7 +46,10 @@ function onClickValue() {
   console.log('Value')
 }
 
-const SingleLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWidth, ...otherProps }) => (
+const SingleLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
+  containerWidth,
+  ...otherProps
+}) => (
   <div
     style={{
       width: `${containerWidth}px`,
@@ -72,7 +72,10 @@ const SingleLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWi
   </div>
 )
 
-const MultiLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWidth, ...otherProps }) => (
+const MultiLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
+  containerWidth,
+  ...otherProps
+}) => (
   <div
     style={{
       width: `${containerWidth}px`,
@@ -87,13 +90,19 @@ const MultiLineTemplate: Story<KeyValueListItemStorybookProps> = ({ containerWid
   </div>
 )
 
-export const SingleLine = SingleLineTemplate.bind({})
-SingleLine.args = {
-  ...DEFAULT_ARGS,
-  actions: { icon: EditIcon, onClick: console.log, tooltip: '수정하기' },
+export const SingleLine = {
+  render: SingleLineTemplate,
+
+  args: {
+    ...DEFAULT_ARGS,
+    actions: { icon: EditIcon, onClick: console.log, tooltip: '수정하기' },
+  },
 }
 
-export const MultiLine = MultiLineTemplate.bind({})
-MultiLine.args = {
-  ...DEFAULT_ARGS,
+export const MultiLine = {
+  render: MultiLineTemplate,
+
+  args: {
+    ...DEFAULT_ARGS,
+  },
 }

@@ -3,11 +3,9 @@ import React from 'react'
 import { ErrorFilledIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Icon,
@@ -17,24 +15,32 @@ import {
 import NavItem from './NavItem'
 import type NavItemProps from './NavItem.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta = {
   component: NavItem,
-} as Meta
+}
+export default meta
 
-const Template: Story<NavItemProps> = (args) => (
+const Template: StoryFn<NavItemProps> = (args) => (
   <div style={{ width: '240px', padding: '6px' }}>
     <NavItem {...args} />
   </div>
 )
 
-export const Primary: Story<NavItemProps> = Template.bind({})
+export const Primary: StoryObj<NavItemProps> = {
+  render: Template,
 
-Primary.args = {
-  active: false,
-  name: 'general',
-  content: '일반 설정',
-  href: 'https://google.com',
-  leftIcon: undefined,
-  rightContent: <Icon source={ErrorFilledIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
+  args: {
+    active: false,
+    name: 'general',
+    content: '일반 설정',
+    href: 'https://google.com',
+    leftIcon: undefined,
+    rightContent: (
+      <Icon
+        source={ErrorFilledIcon}
+        size={IconSize.XS}
+        color="bgtxt-orange-normal"
+      />
+    ),
+  },
 }

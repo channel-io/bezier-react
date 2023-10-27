@@ -2,22 +2,19 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { css } from '~/src/foundation/FoundationStyledComponent'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { AlphaStack } from './AlphaStack'
-import { type AlphaStackProps } from './AlphaStack.types'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
-export default {
-  title: getTitle(base),
+const meta = {
   component: AlphaStack,
   argTypes: {
     spacing: {
@@ -28,26 +25,30 @@ export default {
     direction: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
     justify: {
       control: {
         type: 'radio',
-        options: FLEX_PROPERTIES,
       },
+      options: FLEX_PROPERTIES,
     },
     align: {
       control: {
         type: 'radio',
-        options: FLEX_PROPERTIES,
       },
+      options: FLEX_PROPERTIES,
     },
   },
-} as Meta<AlphaStackProps>
+} satisfies Meta<typeof AlphaStack>
 
-const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
-  <AlphaStack {...rest}>
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const Template: StoryFn<typeof AlphaStack> = (args) => (
+  <AlphaStack {...args}>
     <>
       { range(4).map((i) =>
         <div style={{ height: '30px', width: '30px', backgroundColor: 'red' }} key={`item-${i}`}>{ i }</div>,
@@ -56,12 +57,17 @@ const Template: Story<AlphaStackProps> = ({ children, ...rest }) => (
   </AlphaStack>
 )
 
-export const Primary = Template.bind({})
+export const Primary: Story = {
+  render: Template,
 
-Primary.args = {
-  style: {
-    width: '200px',
-    height: '200px',
+  args: {
+    direction: 'vertical',
+    style: {
+      width: '200px',
+      height: '200px',
+    },
+    interpolation: css`
+      background-color: blue;
+    `,
   },
-  interpolation: css`background-color: blue;`,
 }

@@ -2,16 +2,13 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
-export default {
-  title: getTitle(base),
+const meta:Meta = {
+  title: 'Foundation/Border',
   argTypes: {
     top: { control: 'boolean' },
     right: { control: 'boolean' },
@@ -27,7 +24,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface BorderChipProps {
   width: number
@@ -47,14 +45,17 @@ const BorderChip = styled.div<BorderChipProps>`
     foundation?.border?.getBorder(width, color, { top, right, bottom, left })};
 `
 
-const Template: Story<BorderChipProps> = (args) => <BorderChip {...args} />
+const Template: StoryFn<BorderChipProps> = (args) => <BorderChip {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-  width: 1,
-  color: 'black',
-  top: true,
-  right: true,
-  bottom: true,
-  left: true,
+export const Primary = {
+  render: Template,
+
+  args: {
+    width: 1,
+    color: 'black',
+    top: true,
+    right: true,
+    bottom: true,
+    left: true,
+  },
 }

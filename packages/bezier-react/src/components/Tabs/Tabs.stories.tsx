@@ -7,14 +7,13 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 import { isFunction } from '~/src/utils/typeUtils'
 
 import { Text } from '~/src/components/Text'
@@ -33,10 +32,9 @@ import {
   type TabsProps,
 } from './Tabs.types'
 
-type TabsCompositionProps =
-  & TabsProps
-  & TabListProps
-  & TabActionProps<string | undefined>
+type TabsCompositionProps = TabsProps &
+TabListProps &
+TabActionProps<string | undefined>
 
 const Wrapper = styled.div`
   display: flex;
@@ -119,45 +117,43 @@ function TabsComposition({
   )
 }
 
-export default {
-  title: getTitle(base),
+const meta: Meta<TabsCompositionProps> = {
   component: TabsComposition,
-  subcomponents: {
-    Tabs,
-    TabItems,
-    TabItem,
-    TabActions,
-    TabAction,
-    TabContent,
-  },
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: [TabSize.S, TabSize.M, TabSize.L],
       },
+      options: [TabSize.S, TabSize.M, TabSize.L],
     },
     onValueChange: {
       action: 'clicked',
     },
   },
-} as Meta<TabsProps>
+}
+export default meta
 
-const Template: Story<TabsCompositionProps> = TabsComposition
+const Template: StoryFn<TabsCompositionProps> = TabsComposition
 
-export const Composition: Story<TabsCompositionProps> = Template.bind({})
-Composition.args = {
-  size: TabSize.M,
-  onValueChange: noop,
-  defaultValue: undefined,
-  activationMode: 'automatic',
-  value: 'One',
+export const Composition: StoryObj<TabsCompositionProps> = {
+  render: Template,
+
+  args: {
+    size: TabSize.M,
+    onValueChange: noop,
+    defaultValue: undefined,
+    activationMode: 'automatic',
+    value: 'One',
+  },
 }
 
-export const UnControlled: Story<TabsCompositionProps> = Template.bind({})
-UnControlled.args = {
-  size: TabSize.M,
-  onValueChange: noop,
-  defaultValue: 'One',
-  activationMode: 'automatic',
+export const UnControlled: StoryObj<TabsCompositionProps> = {
+  render: Template,
+
+  args: {
+    size: TabSize.M,
+    onValueChange: noop,
+    defaultValue: 'One',
+    activationMode: 'automatic',
+  },
 }

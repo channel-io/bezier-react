@@ -6,12 +6,11 @@ import React, {
 import { InboxIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { compact } from '~/src/utils/arrayUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import ListItem from './ListItem'
 import type ListItemProps from './ListItem.types'
@@ -20,60 +19,63 @@ import {
   ListItemVariant,
 } from './ListItem.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof ListItem> = {
   component: ListItem,
-} as Meta
+}
+export default meta
 
 interface ArgTypes extends ListItemProps {
   width: number
 }
 
-const Template: Story<ArgTypes> = ({ width, ...listItemProps }) => (
+const Template: StoryFn<ArgTypes> = ({ width, ...listItemProps }) => (
   <div style={{ width }}>
-    <ListItem
-      optionKey="menu-item-0"
-      {...listItemProps}
-    />
+    <ListItem optionKey="menu-item-0" {...listItemProps} />
   </div>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  width: 388,
-  size: ListItemSize.M,
-  content: '상담이 열릴 때',
-  description: '고객이 첫 메시지를 보내거나, 매니저가 상담을 다시 열거나, 자동으로 리오픈되면 트리거됩니다.',
-  rightContent: '',
-  leftIcon: InboxIcon,
-  active: false,
-  focused: false,
-  disableIconActive: false,
-  descriptionMaxLines: 0,
-  href: '',
-}
+  args: {
+    width: 388,
+    size: ListItemSize.M,
+    content: '상담이 열릴 때',
+    description:
+      '고객이 첫 메시지를 보내거나, 매니저가 상담을 다시 열거나, 자동으로 리오픈되면 트리거됩니다.',
+    rightContent: '',
+    leftIcon: InboxIcon,
+    active: false,
+    focused: false,
+    disableIconActive: false,
+    descriptionMaxLines: 0,
+    href: '',
+  },
 
-Primary.argTypes = {
-  width: {
-    control: {
-      type: 'range',
-      min: 50,
-      max: 500,
-      step: 1,
+  argTypes: {
+    width: {
+      control: {
+        type: 'range',
+        min: 50,
+        max: 500,
+        step: 1,
+      },
+    },
+    disabled: { control: { type: 'boolean' } },
+    variant: {
+      control: {
+        type: 'radio',
+      },
+      options: [...Object.values(ListItemVariant)],
+    },
+    active: { control: { type: 'boolean' } },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ListItemSize,
     },
   },
-  disabled: { control: { type: 'boolean' } },
-  variant: {
-    control: {
-      type: 'radio',
-      options: [
-        ...Object.values(ListItemVariant),
-      ],
-    },
-  },
-  active: { control: { type: 'boolean' } },
-  size: { control: { type: 'select', options: ListItemSize } },
 }
 
 interface CompositionProps {
@@ -114,18 +116,20 @@ const CompositionTemplate = ({ listRange }: CompositionProps) => {
   )
 }
 
-export const Composition: Story<CompositionProps> = CompositionTemplate.bind({})
+export const Composition: StoryObj<CompositionProps> = {
+  render: CompositionTemplate,
 
-Composition.args = {
-  listRange: 10,
-}
+  args: {
+    listRange: 10,
+  },
 
-Composition.argTypes = {
-  listRange: {
-    control: {
-      type: 'range',
-      min: 2,
-      max: 20,
+  argTypes: {
+    listRange: {
+      control: {
+        type: 'range',
+        min: 2,
+        max: 20,
+      },
     },
   },
 }

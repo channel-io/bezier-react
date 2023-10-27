@@ -10,14 +10,12 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
 import { Icon } from '~/src/components/Icon'
@@ -28,7 +26,6 @@ import type LegacySegmentedControlProps from './LegacySegmentedControl.types'
 import { LegacySegmentedControlSize } from './LegacySegmentedControl.types'
 
 export default {
-  title: getTitle(base),
   component: LegacySegmentedControl,
   argTypes: {
     width: {
@@ -39,8 +36,8 @@ export default {
     size: {
       control: {
         type: 'radio',
-        options: [...Object.values(LegacySegmentedControlSize)],
       },
+      options: [...Object.values(LegacySegmentedControlSize)],
     },
   },
 } as Meta
@@ -126,7 +123,12 @@ const Input = styled.input`
   }
 `
 
-const PrimaryStory: Story<LegacySegmentedControlProps> = ({ size, width, selectedOptionIndex, ...otherProps }) => (
+const PrimaryStory: StoryFn<LegacySegmentedControlProps> = ({
+  size,
+  width,
+  selectedOptionIndex,
+  ...otherProps
+}) => (
   <LegacySegmentedControl
     size={size}
     width={width}
@@ -137,7 +139,11 @@ const PrimaryStory: Story<LegacySegmentedControlProps> = ({ size, width, selecte
   </LegacySegmentedControl>
 )
 
-const PlaygroundStory: Story<LegacySegmentedControlProps> = ({ size, width, ...otherProps }) => {
+const PlaygroundStory: StoryFn<LegacySegmentedControlProps> = ({
+  size,
+  width,
+  ...otherProps
+}) => {
   const inputWrapper = useRef<HTMLInputElement>(null)
 
   const [items, setItems] = useState<any>(range(0, 5) as any[])
@@ -157,7 +163,7 @@ const PlaygroundStory: Story<LegacySegmentedControlProps> = ({ size, width, ...o
 
   const handleClickAddIcon = useCallback(() => {
     if (inputWrapper.current && inputWrapper.current.value) {
-      setItems(prev => [...prev, inputWrapper.current!.value])
+      setItems((prev) => [...prev, inputWrapper.current!.value])
       inputWrapper.current.value = ''
     }
   }, [])
@@ -220,19 +226,23 @@ const PlaygroundStory: Story<LegacySegmentedControlProps> = ({ size, width, ...o
   )
 }
 
-export const Primary = PrimaryStory.bind({})
+export const Primary = {
+  render: PrimaryStory,
 
-export const Playground = PlaygroundStory.bind({})
-
-Primary.args = {
-  disabled: false,
-  size: LegacySegmentedControlSize.M,
-  width: '400px',
-  selectedOptionIndex: 0,
+  args: {
+    disabled: false,
+    size: LegacySegmentedControlSize.M,
+    width: '400px',
+    selectedOptionIndex: 0,
+  },
 }
 
-Playground.args = {
-  disabled: false,
-  size: LegacySegmentedControlSize.M,
-  width: '400px',
+export const Playground = {
+  render: PlaygroundStory,
+
+  args: {
+    disabled: false,
+    size: LegacySegmentedControlSize.M,
+    width: '400px',
+  },
 }
