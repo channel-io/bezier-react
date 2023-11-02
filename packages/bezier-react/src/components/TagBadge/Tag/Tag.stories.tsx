@@ -45,5 +45,7 @@ export const Primary: StoryObj<typeof Tag> = {
     variant: TagBadgeVariant.Default,
     // eslint-disable-next-line no-console
     onDelete: console.log,
+    // eslint-disable-next-line no-console
+    onClick: console.log,
   },
 }

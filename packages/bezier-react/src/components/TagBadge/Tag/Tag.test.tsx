@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { fireEvent } from '@testing-library/dom'
+import { within } from '@testing-library/react'
+
 import { RoundAbsoluteNumber } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
@@ -11,6 +14,7 @@ import {
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
 
 import {
+  TAG_DELETE_TEST_ID,
   TAG_TEST_ID,
   Tag,
 } from './Tag'
@@ -65,6 +69,31 @@ describe('Tag test >', () => {
 
       expect(lTag).toHaveStyle(`padding: ${TAGBADGE_VERTICAL_PADDING}px ${getProperTagBadgePadding(size)}px`)
       expect(lTag).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R6}px`)
+    })
+  })
+
+  describe('Click Event Test >', () => {
+    it('onClick', () => {
+      const onClickFn = jest.fn()
+      const { getByTestId } = renderTag({ onClick: onClickFn })
+      const tag = getByTestId(TAG_TEST_ID)
+      tag.click()
+
+      expect(onClickFn).toBeCalled()
+    })
+
+    it('onDelete', () => {
+      const onClickFn = jest.fn()
+      const onDeleteFn = jest.fn()
+      const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
+      const tag = getByTestId(TAG_TEST_ID)
+      const deleteButton = within(tag).getByTestId(TAG_DELETE_TEST_ID)
+
+      expect(deleteButton).toBeInTheDocument()
+
+      fireEvent.click(deleteButton)
+      expect(onDeleteFn).toBeCalled()
+      expect(onClickFn).not.toBeCalled()
     })
   })
 })
