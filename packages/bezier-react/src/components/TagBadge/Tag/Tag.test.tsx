@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { RoundAbsoluteNumber } from '~/src/foundation'
@@ -74,11 +73,11 @@ describe('Tag test >', () => {
   })
 
   describe('Click Event Test >', () => {
-    it('onClick function should be called when the tag is clicked', () => {
+    it('onClick function should be called when the tag is clicked', async () => {
       const onClickFn = jest.fn()
       const { getByTestId } = renderTag({ onClick: onClickFn })
-      const tag = getByTestId(TAG_TEST_ID)
-      tag.click()
+
+      await user.click(getByTestId(TAG_TEST_ID))
 
       expect(onClickFn).toBeCalled()
     })
@@ -87,12 +86,8 @@ describe('Tag test >', () => {
       const onClickFn = jest.fn()
       const onDeleteFn = jest.fn()
       const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
-      const tag = getByTestId(TAG_TEST_ID)
-      const deleteButton = within(tag).getByTestId(TAG_DELETE_TEST_ID)
 
-      expect(deleteButton).toBeInTheDocument()
-
-      await user.click(deleteButton)
+      await user.click(getByTestId(TAG_DELETE_TEST_ID))
 
       expect(onDeleteFn).toBeCalled()
     })
@@ -101,12 +96,8 @@ describe('Tag test >', () => {
       const onClickFn = jest.fn()
       const onDeleteFn = jest.fn()
       const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
-      const tag = getByTestId(TAG_TEST_ID)
-      const deleteButton = within(tag).getByTestId(TAG_DELETE_TEST_ID)
 
-      expect(deleteButton).toBeInTheDocument()
-
-      await user.click(deleteButton)
+      await user.click(getByTestId(TAG_DELETE_TEST_ID))
 
       expect(onClickFn).not.toBeCalled()
     })
