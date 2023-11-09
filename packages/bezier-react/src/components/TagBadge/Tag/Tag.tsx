@@ -30,7 +30,7 @@ import Styled from './Tag.styled'
 
 // TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'
-export const TAG_DELETE_TEST_ID = 'bezier-react-icon'
+export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
 
 export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
   size = TagBadgeSize.M,
@@ -57,6 +57,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
     <Styled.CloseIcon
       source={CancelSmallIcon}
       size={TAG_BADGE_ICON_SIZE}
+      testId={TAG_DELETE_TEST_ID}
       color="txt-black-darker"
       onClick={(e) => {
         e.stopPropagation()
