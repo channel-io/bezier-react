@@ -118,7 +118,7 @@ forwardedRef: Ref<TextFieldRef>,
   ), [value])
 
   const activeInput = !disabled && !readOnly
-  const activeClear = activeInput && allowClear && !!normalizedValue
+  const activeClear = activeInput && allowClear && !isEmpty(normalizedValue)
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -364,7 +364,7 @@ forwardedRef: Ref<TextFieldRef>,
       onClick={handleClear}
     >
       {
-        normalizedValue && normalizedValue.length > 0 && (focused || hovered) && (
+        (focused || hovered) && (
           <Icon
             testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
             source={CancelCircleFilledIcon}
@@ -377,7 +377,6 @@ forwardedRef: Ref<TextFieldRef>,
     focused,
     handleClear,
     hovered,
-    normalizedValue,
   ])
 
   return (
