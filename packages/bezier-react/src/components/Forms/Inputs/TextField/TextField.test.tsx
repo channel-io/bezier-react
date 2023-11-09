@@ -5,6 +5,7 @@ import {
   act,
   within,
 } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { LightFoundation } from '~/src/foundation'
 
@@ -23,6 +24,7 @@ import {
 import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 describe('TextField', () => {
+  const user = userEvent.setup()
   let props: TextFieldProps
 
   beforeEach(() => {
@@ -293,13 +295,13 @@ describe('TextField', () => {
   })
 
   describe('show remove button only when it is filled and focused/hovered', () => {
-    it('disappear when empty & focused/hovered', () => {
+    it('disappear when empty & focused/hovered', async () => {
       const { getByTestId } = renderComponent({ value: '', allowClear: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
 
-      act(() => {
-        fireEvent.mouseOver(input)
+      await act(async () => {
+        await user.hover(input)
         input.focus()
       })
 
@@ -315,13 +317,13 @@ describe('TextField', () => {
       expect(clearButton).toBeNull()
     })
 
-    it('appear when filled & hovered', () => {
+    it('appear when filled & hovered', async () => {
       const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
 
-      act(() => {
-        fireEvent.mouseOver(input)
+      await act(async () => {
+        await user.hover(input)
       })
 
       const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
