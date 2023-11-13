@@ -47,7 +47,7 @@ interface SelectProps extends
   SizeProps<SelectSize>,
   SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
-  AdditionalStylableProps<'dropdown'>,
+  AdditionalStylableProps<['dropdown', 'content']>,
   AdditionalColorProps<['icon', 'text']>,
   FormComponentProps,
   SelectOptions {}

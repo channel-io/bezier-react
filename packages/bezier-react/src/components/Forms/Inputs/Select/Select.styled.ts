@@ -81,10 +81,12 @@ export const Trigger = styled.button<TriggerProps>`
   `}
 `
 
-export const MainContentWrapper = styled.div`
+export const MainContentWrapper = styled.div<InterpolationProps>`
   display: flex;
   align-items: center;
   overflow: hidden;
+
+  ${({ interpolation }) => interpolation}
 `
 
 interface DropdownProps extends InterpolationProps {

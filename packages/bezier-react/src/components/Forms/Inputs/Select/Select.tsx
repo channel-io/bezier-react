@@ -52,6 +52,7 @@ function Select({
   style,
   className,
   interpolation,
+  contentInterpolation,
   dropdownInterpolation,
   size = SelectSize.M,
   defaultFocus = false,
@@ -183,7 +184,7 @@ forwardedRef: Ref<SelectRef>,
         onClick={handleClickTrigger}
         {...ownProps}
       >
-        <Styled.MainContentWrapper>
+        <Styled.MainContentWrapper interpolation={contentInterpolation}>
           { LeftComponent }
           <Text
             testId={triggerTextTestId}
