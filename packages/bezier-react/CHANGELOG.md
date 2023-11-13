@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 1.17.1
+
+### Patch Changes
+
+- Show clear button in TextField only when its value is not empty and focused/hovered. ([#1713](https://github.com/channel-io/bezier-react/pull/1713)) by @jintak0401
+
+- fix onDelete function to prevent it from being called when a tag is clicked. ([#1712](https://github.com/channel-io/bezier-react/pull/1712)) by @jintak0401
+
 ## 1.17.0
 
 ### Minor Changes
