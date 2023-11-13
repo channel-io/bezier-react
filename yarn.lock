@@ -6804,13 +6804,13 @@ __metadata:
   linkType: hard
 
 "@types/styled-components@npm:^5.1.27":
-  version: 5.1.29
-  resolution: "@types/styled-components@npm:5.1.29"
+  version: 5.1.30
+  resolution: "@types/styled-components@npm:5.1.30"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
     csstype: ^3.0.2
-  checksum: 9447f26056d05268fb271024388f636c0cb27fc53181baf411c46332c76efa7bf130148ff6c4b1b5565e758ce7dbdc402027ec8ee0e7bdc17418e3d745d06eae
+  checksum: 22948191a2de0187ab20383c1d9a6b7c9dfda9e6d58f104e03fd8bb8f3ee150b800806e90efa888f1d0fbb53d404613e4b6cccf0c77eb4287e8b1aeb1d7c1cb5
   languageName: node
   linkType: hard
 
