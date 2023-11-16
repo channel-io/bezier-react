@@ -2,19 +2,16 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Checkbox } from '~/src/components/Forms/Checkbox'
 
 import FormGroup from './FormGroup'
 import type FormGroupProps from './FormGroup.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof FormGroup> = {
   component: FormGroup,
   argTypes: {
     spacing: {
@@ -25,16 +22,14 @@ export default {
     direction: {
       control: {
         type: 'radio',
-        options: [
-          'horizontal',
-          'vertical',
-        ],
       },
+      options: ['horizontal', 'vertical'],
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<FormGroupProps> = props => (
+const Template: StoryFn<FormGroupProps> = (props) => (
   <FormGroup {...props}>
     <Checkbox>Option</Checkbox>
     <Checkbox>Option</Checkbox>
@@ -43,8 +38,11 @@ const Template: Story<FormGroupProps> = props => (
   </FormGroup>
 )
 
-export const Primary: Story<FormGroupProps> = Template.bind({})
-Primary.args = {
-  spacing: 0,
-  direction: 'vertical',
+export const Primary: StoryObj<FormGroupProps> = {
+  render: Template,
+
+  args: {
+    spacing: 0,
+    direction: 'vertical',
+  },
 }

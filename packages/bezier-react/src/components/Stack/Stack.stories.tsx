@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   type SemanticNames,
@@ -14,7 +14,6 @@ import {
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
 import { range } from '~/src/utils/numberUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -24,14 +23,19 @@ import { Text } from '~/src/components/Text'
 
 import { HStack } from './HStack'
 import { Spacer } from './Spacer'
-import { Stack } from './Stack'
+import {
+  Stack,
+  type StackProps,
+} from './Stack'
 import mdx from './Stack.mdx'
 import { StackItem } from './StackItem'
 import { VStack } from './VStack'
 import type { AxisAlignment } from './types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<StackProps & {
+  containerSize: number
+}> = {
+  component: Stack,
   parameters: {
     docs: {
       page: mdx,
@@ -49,20 +53,20 @@ export default {
     direction: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
     justify: {
       control: {
         type: 'radio',
-        options: ['start', 'center', 'end', 'stretch'],
       },
+      options: ['start', 'center', 'end', 'stretch'],
     },
     align: {
       control: {
         type: 'radio',
-        options: ['start', 'center', 'end', 'stretch'],
       },
+      options: ['start', 'center', 'end', 'stretch'],
     },
     spacing: {
       control: {
@@ -73,7 +77,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 const randomColor = (): SemanticNames =>
   Object.values(LightTheme)[Math.floor(Math.random() * Object.keys(LightTheme).length)] as SemanticNames
@@ -92,8 +97,8 @@ const Item = ({
   return (
     <div
       style={{
-        width: (fixedSize && direction === 'vertical') ? alignSize : '100%',
-        height: (fixedSize && direction === 'horizontal') ? alignSize : '100%',
+        width: fixedSize && direction === 'vertical' ? alignSize : '100%',
+        height: fixedSize && direction === 'horizontal' ? alignSize : '100%',
         backgroundColor: color,
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
@@ -122,7 +127,7 @@ interface StackPreviewProps {
   itemMarginAfters: (number | undefined)[]
 }
 
-const Template: Story<StackPreviewProps> = ({
+const Template: StoryFn<StackPreviewProps> = ({
   containerSize,
 
   direction,
@@ -178,31 +183,30 @@ const Template: Story<StackPreviewProps> = ({
   </>
 )
 
-export const Primary: Story<StackPreviewProps> = Template.bind({})
-Primary.args = {
-  containerSize: 800,
+export const Primary: StoryObj<StackPreviewProps> = {
+  render: Template,
 
-  direction: 'horizontal',
-  justify: 'start',
-  align: 'start',
-  spacing: 0,
+  args: {
+    containerSize: 800,
 
-  itemJustifies: [],
-  itemAligns: [],
-  itemSizes: [120, 240, 180, 120],
-  itemWeights: [],
-  itemGrows: [],
-  itemShrinks: [],
-  itemMarginBefores: [],
-  itemMarginAfters: [],
+    direction: 'horizontal',
+    justify: 'start',
+    align: 'start',
+    spacing: 0,
+
+    itemJustifies: [],
+    itemAligns: [],
+    itemSizes: [120, 240, 180, 120],
+    itemWeights: [],
+    itemGrows: [],
+    itemShrinks: [],
+    itemMarginBefores: [],
+    itemMarginAfters: [],
+  },
 }
 
-export const Overview: Story<{}> = () => (
-  <VStack
-    style={{ width: '400px' }}
-    spacing={16}
-    align="stretch"
-  >
+export const Overview: StoryFn<{}> = () => (
+  <VStack style={{ width: '400px' }} spacing={16} align="stretch">
     <StackItem>
       <Text
         as="h3"
@@ -242,348 +246,298 @@ export const Overview: Story<{}> = () => (
   </VStack>
 )
 
-export const DirectionHorizontal: Story<{}> = () => (
-  <HStack
-    style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-    align="stretch"
-  >
-    <StackItem
-      size={120}
-      style={{ backgroundColor: '#ccc' }}
+export const DirectionHorizontal: StoryObj<{}> = {
+  render: () => (
+    <HStack
+      style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
+      align="stretch"
     >
-      <Text typo={Typography.Size18}>Item 1</Text>
-    </StackItem>
-    <StackItem
-      size={180}
-      style={{ backgroundColor: '#eee' }}
+      <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+        <Text typo={Typography.Size18}>Item 1</Text>
+      </StackItem>
+      <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+        <Text typo={Typography.Size18}>Item 2</Text>
+      </StackItem>
+      <StackItem size={180} style={{ backgroundColor: '#888' }}>
+        <Text typo={Typography.Size18}>Item 3</Text>
+      </StackItem>
+      <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+        <Text typo={Typography.Size18}>Item 4</Text>
+      </StackItem>
+    </HStack>
+  ),
+
+  name: 'Horizontal stack',
+}
+
+export const DirectionVertical: StoryObj<{}> = {
+  render: () => (
+    <VStack
+      style={{ width: '200px', height: '600px', border: '1px solid #ffc0c0' }}
+      align="start"
     >
-      <Text typo={Typography.Size18}>Item 2</Text>
-    </StackItem>
-    <StackItem
-      size={180}
-      style={{ backgroundColor: '#888' }}
-    >
-      <Text typo={Typography.Size18}>Item 3</Text>
-    </StackItem>
-    <StackItem
-      size={80}
-      style={{ backgroundColor: '#aaa' }}
-    >
-      <Text typo={Typography.Size18}>Item 4</Text>
-    </StackItem>
-  </HStack>
-)
+      <StackItem size={120} style={{ width: '80px', backgroundColor: '#ccc' }}>
+        <Text typo={Typography.Size18}>Item 1</Text>
+      </StackItem>
+      <StackItem size={180} style={{ width: '150px', backgroundColor: '#eee' }}>
+        <Text typo={Typography.Size18}>Item 2</Text>
+      </StackItem>
+      <StackItem size={180} style={{ width: '200px', backgroundColor: '#888' }}>
+        <Text typo={Typography.Size18}>Item 3</Text>
+      </StackItem>
+      <StackItem size={80} style={{ width: '120px', backgroundColor: '#aaa' }}>
+        <Text typo={Typography.Size18}>Item 4</Text>
+      </StackItem>
+    </VStack>
+  ),
 
-DirectionHorizontal.storyName = 'Horizontal stack'
+  name: 'Vertical stack',
+}
 
-export const DirectionVertical: Story<{}> = () => (
-  <VStack
-    style={{ width: '200px', height: '600px', border: '1px solid #ffc0c0' }}
-    align="start"
-  >
-    <StackItem
-      size={120}
-      style={{ width: '80px', backgroundColor: '#ccc' }}
-    >
-      <Text typo={Typography.Size18}>Item 1</Text>
-    </StackItem>
-    <StackItem
-      size={180}
-      style={{ width: '150px', backgroundColor: '#eee' }}
-    >
-      <Text typo={Typography.Size18}>Item 2</Text>
-    </StackItem>
-    <StackItem
-      size={180}
-      style={{ width: '200px', backgroundColor: '#888' }}
-    >
-      <Text typo={Typography.Size18}>Item 3</Text>
-    </StackItem>
-    <StackItem
-      size={80}
-      style={{ width: '120px', backgroundColor: '#aaa' }}
-    >
-      <Text typo={Typography.Size18}>Item 4</Text>
-    </StackItem>
-  </VStack>
-)
+export const AlignmentJustify: StoryObj<{}> = {
+  render: () => (
+    <VStack align="stretch" spacing={8}>
+      <StackItem>
+        <Text typo={Typography.Size14}>justify = &quot;start&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '60px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="start"
+          align="stretch"
+        >
+          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem marginBefore={16}>
+        <Text typo={Typography.Size14}>justify = &quot;center&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '60px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="center"
+          align="stretch"
+        >
+          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem marginBefore={16}>
+        <Text typo={Typography.Size14}>justify = &quot;end&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '60px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="end"
+          align="stretch"
+        >
+          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-DirectionVertical.storyName = 'Vertical stack'
+  name: 'Alignment (justify)',
+}
 
-export const AlignmentJustify: Story<{}> = () => (
-  <VStack align="stretch" spacing={8}>
-    <StackItem>
-      <Text typo={Typography.Size14}>
-        justify = &quot;start&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
+export const AlignmentAlign: StoryObj<{}> = {
+  render: () => (
+    <VStack align="stretch" spacing={8}>
+      <StackItem>
+        <Text typo={Typography.Size14}>align = &quot;start&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '80px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="start"
+          align="start"
         >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
+          <StackItem
+            size={120}
+            style={{ height: '40px', backgroundColor: '#ccc' }}
+          >
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '60px', backgroundColor: '#eee' }}
+          >
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '50px', backgroundColor: '#888' }}
+          >
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem marginBefore={16}>
+        <Text typo={Typography.Size14}>align = &quot;center&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '80px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="start"
+          align="center"
         >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
+          <StackItem
+            size={120}
+            style={{ height: '40px', backgroundColor: '#ccc' }}
+          >
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '60px', backgroundColor: '#eee' }}
+          >
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '50px', backgroundColor: '#888' }}
+          >
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem marginBefore={16}>
+        <Text typo={Typography.Size14}>align = &quot;end&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '80px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="start"
+          align="end"
         >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
+          <StackItem
+            size={120}
+            style={{ height: '40px', backgroundColor: '#ccc' }}
+          >
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '60px', backgroundColor: '#eee' }}
+          >
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '50px', backgroundColor: '#888' }}
+          >
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem marginBefore={16}>
+        <Text typo={Typography.Size14}>align = &quot;stretch&quot;</Text>
+      </StackItem>
+      <StackItem>
+        <HStack
+          style={{
+            width: '720px',
+            height: '80px',
+            border: '1px solid #ffc0c0',
+          }}
+          justify="start"
+          align="stretch"
         >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        justify = &quot;center&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="center"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        justify = &quot;end&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
-        justify="end"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+          <StackItem
+            size={120}
+            style={{ height: '40px', backgroundColor: '#ccc' }}
+          >
+            <Text typo={Typography.Size18}>Item 1</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '60px', backgroundColor: '#eee' }}
+          >
+            <Text typo={Typography.Size18}>Item 2</Text>
+          </StackItem>
+          <StackItem
+            size={180}
+            style={{ height: '50px', backgroundColor: '#888' }}
+          >
+            <Text typo={Typography.Size18}>Item 3</Text>
+          </StackItem>
+          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+            <Text typo={Typography.Size18}>Item 4</Text>
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-AlignmentJustify.storyName = 'Alignment (justify)'
+  name: 'Alignment (align)',
+}
 
-export const AlignmentAlign: Story<{}> = () => (
-  <VStack align="stretch" spacing={8}>
-    <StackItem>
-      <Text typo={Typography.Size14}>
-        align = &quot;start&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="start"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = &quot;center&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="center"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = &quot;end&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="end"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem marginBefore={16}>
-      <Text typo={Typography.Size14}>
-        align = &quot;stretch&quot;
-      </Text>
-    </StackItem>
-    <StackItem>
-      <HStack
-        style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-        justify="start"
-        align="stretch"
-      >
-        <StackItem
-          size={120}
-          style={{ height: '40px', backgroundColor: '#ccc' }}
-        >
-          <Text typo={Typography.Size18}>Item 1</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '60px', backgroundColor: '#eee' }}
-        >
-          <Text typo={Typography.Size18}>Item 2</Text>
-        </StackItem>
-        <StackItem
-          size={180}
-          style={{ height: '50px', backgroundColor: '#888' }}
-        >
-          <Text typo={Typography.Size18}>Item 3</Text>
-        </StackItem>
-        <StackItem
-          size={80}
-          style={{ backgroundColor: '#aaa' }}
-        >
-          <Text typo={Typography.Size18}>Item 4</Text>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
-
-AlignmentAlign.storyName = 'Alignment (align)'
-
-export const Spacing: Story<{}> = () => (
+export const Spacing: StoryFn<{}> = () => (
   <HStack
     style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
     justify="start"
@@ -618,7 +572,7 @@ export const Spacing: Story<{}> = () => (
   </HStack>
 )
 
-export const Expanded: Story<{}> = () => (
+export const Expanded: StoryFn<{}> = () => (
   <HStack
     style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
     justify="start"
@@ -653,50 +607,42 @@ export const Expanded: Story<{}> = () => (
   </HStack>
 )
 
-export const WeightSpacer: Story<{}> = () => (
-  <HStack
-    style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
-    justify="start"
-    align="stretch"
-  >
-    <StackItem
-      size={120}
-      style={{ backgroundColor: '#ccc' }}
+export const WeightSpacer: StoryObj<{}> = {
+  render: () => (
+    <HStack
+      style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
+      justify="start"
+      align="stretch"
     >
-      <Text typo={Typography.Size18}>Item 1</Text>
-    </StackItem>
-    <Spacer />
-    <StackItem
-      size={80}
-      style={{ backgroundColor: '#aaa' }}
-    >
-      <Text typo={Typography.Size18}>Item 2</Text>
-    </StackItem>
-  </HStack>
-)
+      <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+        <Text typo={Typography.Size18}>Item 1</Text>
+      </StackItem>
+      <Spacer />
+      <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+        <Text typo={Typography.Size18}>Item 2</Text>
+      </StackItem>
+    </HStack>
+  ),
 
-WeightSpacer.storyName = 'Spacer'
+  name: 'Spacer',
+}
 
-export const WeightFixed: Story<{}> = () => (
-  <HStack
-    style={{ width: '100px', height: '80px', border: '1px solid #ffc0c0' }}
-    justify="start"
-    align="stretch"
-  >
-    <StackItem
-      size={80}
-      style={{ backgroundColor: '#ccc' }}
+export const WeightFixed: StoryObj<{}> = {
+  render: () => (
+    <HStack
+      style={{ width: '100px', height: '80px', border: '1px solid #ffc0c0' }}
+      justify="start"
+      align="stretch"
     >
-      <Text typo={Typography.Size18}>Item 1</Text>
-    </StackItem>
-    <Spacer />
-    <StackItem
-      size={80}
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
-    >
-      <Text typo={Typography.Size18}>Item 2</Text>
-    </StackItem>
-  </HStack>
-)
+      <StackItem size={80} style={{ backgroundColor: '#ccc' }}>
+        <Text typo={Typography.Size18}>Item 1</Text>
+      </StackItem>
+      <Spacer />
+      <StackItem size={80} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <Text typo={Typography.Size18}>Item 2</Text>
+      </StackItem>
+    </HStack>
+  ),
 
-WeightFixed.storyName = 'Fix-sized item'
+  name: 'Fix-sized item',
+}

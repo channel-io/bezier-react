@@ -19,35 +19,6 @@ const FoundationKeyword = {
   Dark: 'dark',
 }
 
-export const parameters = {
-  layout: 'centered',
-  backgrounds: {
-    default: 'light',
-    values: [
-      {
-        name: 'light',
-        value: 'white',
-      },
-      {
-        name: 'dark',
-        value: '#2f3233',
-      },
-    ],
-  }
-}
-
-export const globalTypes = {
-  Foundation: {
-    name: 'Foundation',
-    description: 'Global Foundation for components',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'circlehollow',
-      items: [FoundationKeyword.Light, FoundationKeyword.Dark],
-    },
-  },
-};
-
 function getFoundation(keyword) {
   const isDarkFoundation = keyword === FoundationKeyword.Dark
   return {
@@ -89,7 +60,7 @@ const innerWrapperStyle = {
   borderRadius: 20,
 }
 
-function withFoundationProvider(Story, context) {
+export function WithFoundationProvider(Story, context) {
   const {
     isDarkFoundation,
     foundation,
@@ -145,5 +116,3 @@ function withFoundationProvider(Story, context) {
     </FeatureProvider>
   )
 }
-
-export const decorators = [withFoundationProvider]

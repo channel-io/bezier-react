@@ -75,6 +75,7 @@ export default interface ToastElementProps extends
 
 export interface ToastProviderProps {
   autoDismissTimeout?: number
+  container?: HTMLElement | null
   children?: ReactNode[] | ReactNode
 }
 

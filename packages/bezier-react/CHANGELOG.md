@@ -6,6 +6,26 @@
 
 - Export the css style sheet for the new design system. ([#1492](https://github.com/channel-io/bezier-react/pull/1492)) by @sungik-choi
 
+## 1.17.1
+
+### Patch Changes
+
+- Show clear button in TextField only when its value is not empty and focused/hovered. ([#1713](https://github.com/channel-io/bezier-react/pull/1713)) by @jintak0401
+
+- fix onDelete function to prevent it from being called when a tag is clicked. ([#1712](https://github.com/channel-io/bezier-react/pull/1712)) by @jintak0401
+
+## 1.17.0
+
+### Minor Changes
+
+- Add container prop to ToastProvider ([#1692](https://github.com/channel-io/bezier-react/pull/1692)) by @leejiwoo2002
+
+## 1.16.0
+
+### Minor Changes
+
+- Fix "document is not defined" error when building in SSR frameworks like Next.js. ([#1688](https://github.com/channel-io/bezier-react/pull/1688)) by @sungik-choi
+
 ## 1.15.1
 
 ### Patch Changes

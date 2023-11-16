@@ -2,32 +2,30 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
-
-export default {
-  title: getTitle(base),
+const meta: Meta = {
+  title: 'Foundation/Elevation',
   argTypes: {
     ev: {
       control: {
         type: 'radio',
-        options: [
-          'ev1',
-          'ev2',
-          'ev3',
-          'ev4',
-          'ev5',
-          'ev6',
-        ],
       },
+      options: [
+        'ev1',
+        'ev2',
+        'ev3',
+        'ev4',
+        'ev5',
+        'ev6',
+      ],
     },
   },
-} as Meta
+}
+export default meta
 
 interface ElevationChipProps {
   ev: string
@@ -40,9 +38,14 @@ const ElevationChip = styled.div<ElevationChipProps>`
   ${({ foundation }) => foundation?.rounding?.round16};
 `
 
-const Template: Story<ElevationChipProps> = (args) => <ElevationChip {...args} />
+const Template: StoryFn<ElevationChipProps> = (args) => (
+  <ElevationChip {...args} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  ev: 'ev1',
+export const Primary = {
+  render: Template,
+
+  args: {
+    ev: 'ev1',
+  },
 }

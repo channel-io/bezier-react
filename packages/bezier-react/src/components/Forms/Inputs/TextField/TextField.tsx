@@ -45,6 +45,7 @@ import {
 import Styled from './TextField.styled'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
+export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
 
 function TextFieldComponent({
   name,
@@ -117,7 +118,7 @@ forwardedRef: Ref<TextFieldRef>,
   ), [value])
 
   const activeInput = !disabled && !readOnly
-  const activeClear = activeInput && allowClear
+  const activeClear = activeInput && allowClear && !isEmpty(normalizedValue)
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -363,8 +364,9 @@ forwardedRef: Ref<TextFieldRef>,
       onClick={handleClear}
     >
       {
-        normalizedValue && normalizedValue.length > 0 && (focused || hovered) && (
+        (focused || hovered) && (
           <Icon
+            testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
             source={CancelCircleFilledIcon}
             size={IconSize.XS}
           />
@@ -375,7 +377,6 @@ forwardedRef: Ref<TextFieldRef>,
     focused,
     handleClear,
     hovered,
-    normalizedValue,
   ])
 
   return (

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import userEvent from '@testing-library/user-event'
+
 import { RoundAbsoluteNumber } from '~/src/foundation'
 
 import { render } from '~/src/utils/testUtils'
@@ -11,12 +13,14 @@ import {
 import { TAGBADGE_VERTICAL_PADDING } from '~/src/components/TagBadge/TagBadgeCommon/constants/TagBadgeStyle'
 
 import {
+  TAG_DELETE_TEST_ID,
   TAG_TEST_ID,
   Tag,
 } from './Tag'
 import type TagProps from './Tag.types'
 
 describe('Tag test >', () => {
+  const user = userEvent.setup()
   let props: TagProps
 
   beforeEach(() => {
@@ -65,6 +69,37 @@ describe('Tag test >', () => {
 
       expect(lTag).toHaveStyle(`padding: ${TAGBADGE_VERTICAL_PADDING}px ${getProperTagBadgePadding(size)}px`)
       expect(lTag).toHaveStyle(`border-radius: ${RoundAbsoluteNumber.R6}px`)
+    })
+  })
+
+  describe('Click Event Test >', () => {
+    it('onClick function should be called when the tag is clicked', async () => {
+      const onClickFn = jest.fn()
+      const { getByTestId } = renderTag({ onClick: onClickFn })
+
+      await user.click(getByTestId(TAG_TEST_ID))
+
+      expect(onClickFn).toBeCalled()
+    })
+
+    it('onDelete function should be called when the delete icon is clicked', async () => {
+      const onClickFn = jest.fn()
+      const onDeleteFn = jest.fn()
+      const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
+
+      await user.click(getByTestId(TAG_DELETE_TEST_ID))
+
+      expect(onDeleteFn).toBeCalled()
+    })
+
+    it('onClick function should not be called when the delete icon is clicked', async () => {
+      const onClickFn = jest.fn()
+      const onDeleteFn = jest.fn()
+      const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
+
+      await user.click(getByTestId(TAG_DELETE_TEST_ID))
+
+      expect(onClickFn).not.toBeCalled()
     })
   })
 })

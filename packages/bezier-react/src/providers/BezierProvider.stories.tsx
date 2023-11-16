@@ -2,17 +2,15 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   DarkFoundation,
   LightFoundation,
   styled,
 } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -27,25 +25,22 @@ interface BezierProviderStorybookProps {
   foundation: 'dark' | 'light'
 }
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof BezierProvider> = {
   component: BezierProvider,
   argTypes: {
     foundation: {
       control: {
         type: 'select',
-        options: [
-          'light',
-          'dark',
-        ],
       },
+      options: ['light', 'dark'],
     },
   },
-} as Meta
+}
+export default meta
 
 const ButtonWrapper = styled(Button)``
 
-const Template: Story<BezierProviderStorybookProps> = ({ foundation }) => (
+const Template: StoryFn<BezierProviderStorybookProps> = ({ foundation }) => (
   <BezierProvider
     foundation={foundation === 'dark' ? DarkFoundation : LightFoundation}
     themeVarsScope={ButtonWrapper}
@@ -59,7 +54,10 @@ const Template: Story<BezierProviderStorybookProps> = ({ foundation }) => (
   </BezierProvider>
 )
 
-export const Primary: Story<BezierProviderStorybookProps> = Template.bind({})
-Primary.args = {
-  foundation: 'light',
+export const Primary: StoryObj<BezierProviderStorybookProps> = {
+  render: Template,
+
+  args: {
+    foundation: 'light',
+  },
 }

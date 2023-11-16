@@ -11,9 +11,8 @@ import {
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Typography,
@@ -21,7 +20,6 @@ import {
 } from '~/src/foundation'
 
 import { noop } from '~/src/utils/functionUtils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { ListItem } from '~/src/components/ListItem'
 import type { ListItemProps } from '~/src/components/ListItem'
@@ -30,10 +28,10 @@ import { Text } from '~/src/components/Text'
 import SectionLabel from './SectionLabel'
 import type SectionLabelProps from './SectionLabel.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof SectionLabel> = {
   component: SectionLabel,
-} as Meta
+}
+export default meta
 
 const testNumberLabel = (
   <div
@@ -55,10 +53,12 @@ const testWrapperInterpolation = css`
   background-color: red;
 `
 
-const Template: Story<SectionLabelProps & {
+const Template: StoryFn<
+SectionLabelProps & {
   listItemProps: ListItemProps
   wrapperWidth: number
-}> = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
+}
+> = ({ listItemProps, wrapperWidth, ...otherSectionLabelProps }) => {
   const [open, setOpen] = useState(true)
   const toggle = () => setOpen(v => !v)
 
@@ -145,21 +145,23 @@ const Template: Story<SectionLabelProps & {
   )
 }
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
 
-Primary.args = {
-  content: 'Teams • 6',
-  divider: false,
-  listItemProps: {},
-  wrapperWidth: 200,
-}
+  args: {
+    content: 'Teams • 6',
+    divider: false,
+    listItemProps: {},
+    wrapperWidth: 200,
+  },
 
-Primary.argTypes = {
-  wrapperWidth: {
-    control: {
-      type: 'range',
-      min: 100,
-      max: 300,
+  argTypes: {
+    wrapperWidth: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 300,
+      },
     },
   },
 }

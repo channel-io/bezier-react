@@ -2,28 +2,25 @@ import React from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { ListItem } from '~/src/components/ListItem'
 
 import Divider from './Divider'
 import type DividerProps from './Divider.types'
 
-export default {
-  title: getTitle(base),
+const meta:Meta<typeof Divider> = {
   component: Divider,
   argTypes: {
     orientation: {
       control: {
         type: 'radio',
-        options: ['horizontal', 'vertical'],
       },
+      options: ['horizontal', 'vertical'],
     },
     withoutSideIndent: {
       control: {
@@ -41,7 +38,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface WrapperProps {
   direction?: 'column' | 'row'
@@ -56,29 +54,35 @@ const Wrapper = styled.div<WrapperProps>`
   height: 200px;
 `
 
-const Template: Story<DividerProps> = props => (
+const Template: StoryFn<DividerProps> = (props) => (
   <Wrapper>
     <Divider {...props} />
   </Wrapper>
 )
 
-export const Primary: Story<DividerProps> = Template.bind({})
-Primary.args = {
-  orientation: 'horizontal',
+export const Primary: StoryObj<DividerProps> = {
+  render: Template,
+
+  args: {
+    orientation: 'horizontal',
+  },
 }
 
-const CompositionTemplate: Story<DividerProps> = ({ orientation, ...rest }) => (
+const CompositionTemplate: StoryFn<DividerProps> = ({
+  orientation,
+  ...rest
+}) => (
   <Wrapper direction={orientation === 'horizontal' ? 'column' : 'row'}>
     <ListItem content="Channel" />
-    <Divider
-      orientation={orientation}
-      {...rest}
-    />
+    <Divider orientation={orientation} {...rest} />
     <ListItem content="Bezier" />
   </Wrapper>
 )
 
-export const Composition: Story<DividerProps> = CompositionTemplate.bind({})
-Composition.args = {
-  orientation: 'horizontal',
+export const Composition: StoryObj<DividerProps> = {
+  render: CompositionTemplate,
+
+  args: {
+    orientation: 'horizontal',
+  },
 }

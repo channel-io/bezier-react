@@ -6,11 +6,8 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import {
   Button,
@@ -25,7 +22,6 @@ import {
   type ConfirmModalHeaderProps,
   type ConfirmModalProps,
 } from './ConfirmModal.types'
-import { ConfirmModalBody } from './ConfirmModalBody'
 import { ConfirmModalContent } from './ConfirmModalContent'
 import { ConfirmModalFooter } from './ConfirmModalFooter'
 import { ConfirmModalHeader } from './ConfirmModalHeader'
@@ -34,7 +30,9 @@ import {
   ConfirmModalTrigger,
 } from './ConfirmModalHelpers'
 
-type ConfirmModalCompositionProps = ConfirmModalProps & ConfirmModalContentProps & ConfirmModalHeaderProps
+type ConfirmModalCompositionProps = ConfirmModalProps &
+ConfirmModalContentProps &
+ConfirmModalHeaderProps
 
 function ConfirmModalComposition({
   show: showProp = false,
@@ -45,9 +43,12 @@ function ConfirmModalComposition({
 }: ConfirmModalCompositionProps) {
   const [show, setShow] = useState(false)
 
-  useEffect(function watchShowToChange() {
-    setShow(showProp)
-  }, [showProp])
+  useEffect(
+    function watchShowToChange() {
+      setShow(showProp)
+    },
+    [showProp],
+  )
 
   return (
     <ConfirmModal
@@ -93,18 +94,8 @@ function ConfirmModalComposition({
   )
 }
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof ConfirmModalComposition> = {
   component: ConfirmModalComposition,
-  subcomponents: {
-    ConfirmModal,
-    ConfirmModalContent,
-    ConfirmModalHeader,
-    ConfirmModalBody,
-    ConfirmModalFooter,
-    ConfirmModalTrigger,
-    ConfirmModalClose,
-  },
   argTypes: {
     width: {
       control: {
@@ -117,13 +108,18 @@ export default {
       },
     },
   },
-} as Meta<ConfirmModalProps>
+}
+export default meta
 
-const Template: Story<ConfirmModalCompositionProps> = ConfirmModalComposition
+const Template: StoryFn<ConfirmModalCompositionProps> = ConfirmModalComposition
 
-export const Composition = Template.bind({})
-Composition.args = {
-  show: false,
-  title: 'Are you absolutely sure?',
-  description: 'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
+export const Composition = {
+  render: Template,
+
+  args: {
+    show: false,
+    title: 'Are you absolutely sure?',
+    description:
+      'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
+  },
 }

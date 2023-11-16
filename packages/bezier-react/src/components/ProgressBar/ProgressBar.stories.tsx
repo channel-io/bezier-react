@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 
 import type {
   Meta,
-  Story,
+  StoryFn,
+  StoryObj,
 } from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -21,8 +19,7 @@ import { ProgressBar } from './ProgressBar'
 import mdx from './ProgressBar.mdx'
 import type ProgressBarProps from './ProgressBar.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
   parameters: {
     docs: {
@@ -54,17 +51,19 @@ export default {
       },
     },
   },
-} as Meta<ProgressBarProps>
+}
+export default meta
 
-export const Playground: Story<ProgressBarProps> = (props) => <ProgressBar {...props} />
-Playground.args = {
-  size: 'm',
-  variant: 'green',
-  width: '36',
-  value: 0.5,
+export const Playground: StoryObj<ProgressBarProps> = {
+  args: {
+    size: 'm',
+    variant: 'green',
+    width: '36',
+    value: 0.5,
+  },
 }
 
-export const Overview: Story<{}> = () => {
+export const Overview: StoryFn<{}> = () => {
   const [values, setValues] = useState<number[]>([0.25, 0.5, 0.75, 1])
 
   const handleSetRandomValues = () => {
@@ -119,238 +118,198 @@ export const Overview: Story<{}> = () => {
   )
 }
 
-export const UsageWidth: Story<{}> = () => (
-  <VStack spacing={6} align="stretch">
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">36px (default)</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">80px</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={80}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">200px</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+export const UsageWidth: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={6} align="stretch">
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">36px (default)</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">80px</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={80} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">200px</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-UsageWidth.storyName = 'Usage (width)'
+  name: 'Usage (width)',
+}
 
-export const UsageValue: Story<{}> = () => (
-  <VStack spacing={6} align="stretch">
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">0 (default)</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">0.25</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={0.25}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">0.5</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">0.75</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={0.75}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">1</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={1}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">-1 (invalid value)</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={-1}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem style={{ width: 120 }}>
-          <Text color="txt-black-darkest">3 (invalid value)</Text>
-        </StackItem>
-        <StackItem grow shrink weight={1}>
-          <ProgressBar
-            width={200}
-            value={3}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+export const UsageValue: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={6} align="stretch">
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">0 (default)</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">0.25</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={0.25} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">0.5</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">0.75</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={0.75} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">1</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={1} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">-1 (invalid value)</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={-1} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem style={{ width: 120 }}>
+            <Text color="txt-black-darkest">3 (invalid value)</Text>
+          </StackItem>
+          <StackItem grow shrink weight={1}>
+            <ProgressBar width={200} value={3} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-UsageValue.storyName = 'Usage (value)'
+  name: 'Usage (value)',
+}
 
-export const SizeVariant: Story<{}> = () => (
-  <VStack spacing={16} align="stretch">
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem>
-          <Text color="txt-black-darkest">M (6px)</Text>
-        </StackItem>
-        <Spacer />
-        <StackItem>
-          <ProgressBar
-            size="m"
-            variant="green"
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem>
-          <Text color="txt-black-darkest">S (4px)</Text>
-        </StackItem>
-        <Spacer />
-        <StackItem>
-          <ProgressBar
-            size="s"
-            variant="green"
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+export const SizeVariant: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16} align="stretch">
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem>
+            <Text color="txt-black-darkest">M (6px)</Text>
+          </StackItem>
+          <Spacer />
+          <StackItem>
+            <ProgressBar size="m" variant="green" width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem>
+            <Text color="txt-black-darkest">S (4px)</Text>
+          </StackItem>
+          <Spacer />
+          <StackItem>
+            <ProgressBar size="s" variant="green" width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-SizeVariant.storyName = 'Variant (size)'
+  name: 'Variant (size)',
+}
 
-export const Variant: Story<{}> = () => (
-  <VStack spacing={16} align="stretch">
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem>
-          <Text color="txt-black-darkest">green</Text>
-        </StackItem>
-        <Spacer />
-        <StackItem>
-          <ProgressBar
-            size="m"
-            variant="green"
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem>
-          <Text color="txt-black-darkest">monochrome</Text>
-        </StackItem>
-        <Spacer />
-        <StackItem>
-          <ProgressBar
-            size="m"
-            variant="monochrome"
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8} align="center">
-        <StackItem>
-          <Text color="txt-black-darkest">green-alt</Text>
-        </StackItem>
-        <Spacer />
-        <StackItem>
-          <ProgressBar
-            size="m"
-            variant="green-alt"
-            width={200}
-            value={0.5}
-          />
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
-)
+export const Variant: StoryObj<{}> = {
+  render: () => (
+    <VStack spacing={16} align="stretch">
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem>
+            <Text color="txt-black-darkest">green</Text>
+          </StackItem>
+          <Spacer />
+          <StackItem>
+            <ProgressBar size="m" variant="green" width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem>
+            <Text color="txt-black-darkest">monochrome</Text>
+          </StackItem>
+          <Spacer />
+          <StackItem>
+            <ProgressBar
+              size="m"
+              variant="monochrome"
+              width={200}
+              value={0.5}
+            />
+          </StackItem>
+        </HStack>
+      </StackItem>
+      <StackItem>
+        <HStack spacing={8} align="center">
+          <StackItem>
+            <Text color="txt-black-darkest">green-alt</Text>
+          </StackItem>
+          <Spacer />
+          <StackItem>
+            <ProgressBar size="m" variant="green-alt" width={200} value={0.5} />
+          </StackItem>
+        </HStack>
+      </StackItem>
+    </VStack>
+  ),
 
-Variant.storyName = 'Variant (color)'
+  name: 'Variant (color)',
+}

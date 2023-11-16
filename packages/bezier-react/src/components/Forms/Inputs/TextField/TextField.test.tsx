@@ -1,7 +1,11 @@
 import React from 'react'
 
 import { fireEvent } from '@testing-library/dom'
-import { act } from '@testing-library/react'
+import {
+  act,
+  within,
+} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { LightFoundation } from '~/src/foundation'
 
@@ -9,7 +13,10 @@ import { render } from '~/src/utils/testUtils'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 
-import TextField, { TEXT_INPUT_TEST_ID } from './TextField'
+import TextField, {
+  TEXT_INPUT_CLEAR_ICON_TEST_ID,
+  TEXT_INPUT_TEST_ID,
+} from './TextField'
 import {
   type TextFieldProps,
   TextFieldVariant,
@@ -17,6 +24,7 @@ import {
 import { getProperTextFieldBgColor } from './TextFieldUtils'
 
 describe('TextField', () => {
+  const user = userEvent.setup()
   let props: TextFieldProps
 
   beforeEach(() => {
@@ -283,6 +291,56 @@ describe('TextField', () => {
         fireEvent.keyUp(input, { key, isComposing: isCompositionStartFired })
         expect(onKeyUp).not.toBeCalled()
       })
+    })
+  })
+
+  describe('show remove button only when it is filled and focused/hovered', () => {
+    it('disappear when empty & focused/hovered', async () => {
+      const { getByTestId } = renderComponent({ value: '', allowClear: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      await act(async () => {
+        await user.hover(input)
+        input.focus()
+      })
+
+      const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      expect(clearButton).toBeNull()
+    })
+
+    it('disappear when filled & not focused/hovered', () => {
+      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+
+      const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      expect(clearButton).toBeNull()
+    })
+
+    it('appear when filled & hovered', async () => {
+      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      await act(async () => {
+        await user.hover(input)
+      })
+
+      const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      expect(clearButton).toBeInTheDocument()
+    })
+
+    it('appear when filled & focused', () => {
+      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      act(() => {
+        input.focus()
+      })
+
+      const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      expect(clearButton).toBeInTheDocument()
     })
   })
 })

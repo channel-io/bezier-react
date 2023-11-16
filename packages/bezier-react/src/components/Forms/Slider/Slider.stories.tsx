@@ -1,18 +1,8 @@
-import React from 'react'
-
-import {
-  type Meta,
-  type Story,
-} from '@storybook/react'
-import base from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
+import { type Meta } from '@storybook/react'
 
 import { Slider } from './Slider'
-import type SliderProps from './Slider.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Slider> = {
   component: Slider,
   argTypes: {
     value: {
@@ -32,19 +22,19 @@ export default {
       action: 'onValueCommit',
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<SliderProps> = (args) => <Slider {...args} />
-
-export const Primary = Template.bind({})
-Primary.args = {
-  width: 285,
-  defaultValue: [5],
-  value: undefined,
-  disabled: false,
-  guide: [5],
-  min: 0,
-  max: 10,
-  step: 1,
-  disableTooltip: false,
+export const Primary = {
+  args: {
+    width: 285,
+    defaultValue: [5],
+    value: undefined,
+    disabled: false,
+    guide: [5],
+    min: 0,
+    max: 10,
+    step: 1,
+    disableTooltip: false,
+  },
 }

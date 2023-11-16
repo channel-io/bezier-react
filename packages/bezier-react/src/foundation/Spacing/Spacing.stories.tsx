@@ -2,9 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import {
   Spacing,
@@ -12,13 +11,13 @@ import {
 } from '~/src/foundation'
 
 import { type Entries } from '~/src/types/Utils'
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
-export default {
-  title: getTitle(base),
-} as Meta
+const meta:Meta = {
+  title: 'Foundation/Spacing',
+}
+export default meta
 
 interface SpacingRectProps {
   spacing: keyof typeof Spacing
@@ -56,7 +55,7 @@ const SpacingRect = styled.div<SpacingRectProps>`
   background-color: ${({ foundation }) => foundation?.theme?.['bgtxt-blue-normal']};
 `
 
-const Template: Story<SpacingRectProps> = () => (
+const Template: StoryFn<SpacingRectProps> = () => (
   <Wrapper>
     <Row key="head">
       <Cell>
@@ -85,4 +84,6 @@ const Template: Story<SpacingRectProps> = () => (
   </Wrapper>
 )
 
-export const Primary = Template.bind({})
+export const Primary = {
+  render: Template,
+}

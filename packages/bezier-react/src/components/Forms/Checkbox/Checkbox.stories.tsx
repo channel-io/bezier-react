@@ -2,11 +2,8 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import { base } from 'paths.macro'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import { Checkbox } from './Checkbox'
 import {
@@ -14,43 +11,48 @@ import {
   type CheckedState,
 } from './Checkbox.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   argTypes: {
     checked: {
       control: {
         type: 'radio',
-        options: [
-          true,
-          false,
-          'indeterminate',
-        ],
       },
+      options: [
+        true,
+        false,
+        'indeterminate',
+      ],
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<CheckboxProps<CheckedState>> = ({ children, ...otherCheckboxProps }) => (
-  <Checkbox {...otherCheckboxProps}>
-    { children }
-  </Checkbox>
-)
+const Template: StoryFn<CheckboxProps<CheckedState>> = ({
+  children,
+  ...otherCheckboxProps
+}) => <Checkbox {...otherCheckboxProps}>{ children }</Checkbox>
 
-export const Controlled = Template.bind({})
-Controlled.args = {
-  checked: true,
-  disabled: false,
-  required: false,
-  hasError: false,
-  children: 'Option',
+export const Controlled = {
+  render: Template,
+
+  args: {
+    checked: true,
+    disabled: false,
+    required: false,
+    hasError: false,
+    children: 'Option',
+  },
 }
 
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-  defaultChecked: true,
-  disabled: false,
-  required: false,
-  hasError: false,
-  children: 'Option',
+export const Uncontrolled = {
+  render: Template,
+
+  args: {
+    defaultChecked: true,
+    disabled: false,
+    required: false,
+    hasError: false,
+    children: 'Option',
+  },
 }

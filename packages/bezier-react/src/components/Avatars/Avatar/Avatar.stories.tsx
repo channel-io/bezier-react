@@ -2,13 +2,12 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
 
 import { StatusType } from '~/src/components/Status'
@@ -26,24 +25,23 @@ const avatarSizeList = Object.keys(AvatarSize)
 const statusTypeList = Object.keys(StatusType)
   .map(key => StatusType[key])
 
-export default {
-  title: getTitle(base),
+const meta:Meta<typeof Avatar> = {
   component: Avatar,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: avatarSizeList,
       },
+      options: avatarSizeList,
     },
     status: {
       control: {
         type: 'radio',
-        options: [
-          undefined,
-          ...statusTypeList,
-        ],
       },
+      options: [
+        undefined,
+        ...statusTypeList,
+      ],
     },
     onClick: {
       action: 'clicked',
@@ -55,7 +53,8 @@ export default {
       action: 'mouseLeave',
     },
   },
-} as Meta
+}
+export default meta
 
 // NOTE: (@ed) border 색상을 명확하게 보여주기 위해 회색의 Wrapper를 추가했습니다
 const Wrapper = styled.div`
@@ -67,23 +66,26 @@ const Wrapper = styled.div`
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
 `
 
-const Template: Story<AvatarProps> = (args) => (
+const Template: StoryFn<AvatarProps> = (args) => (
   <Wrapper>
     <Avatar {...args} />
   </Wrapper>
 )
 
-export const Primary: Story<AvatarProps> = Template.bind({})
-Primary.args = {
-  avatarUrl: MOCK_AVATAR_URL,
-  name: 'Channel',
-  size: AvatarSize.Size24,
-  showBorder: false,
-  disabled: false,
-  smoothCorners: true,
+export const Primary: StoryObj<AvatarProps> = {
+  render: Template,
+
+  args: {
+    avatarUrl: MOCK_AVATAR_URL,
+    name: 'Channel',
+    size: AvatarSize.Size24,
+    showBorder: false,
+    disabled: false,
+    smoothCorners: true,
+  },
 }
 
-const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
+const TemplateWithCustomStatus: StoryFn<AvatarProps> = (args) => (
   <Wrapper>
     <Avatar {...args}>
       <Avatar
@@ -96,11 +98,14 @@ const TemplateWithCustomStatus: Story<AvatarProps> = (args) => (
   </Wrapper>
 )
 
-export const WithCustomStatus: Story<AvatarProps> = TemplateWithCustomStatus.bind({})
-WithCustomStatus.args = {
-  avatarUrl: MOCK_AVATAR_URL,
-  name: 'Channel',
-  size: AvatarSize.Size48,
-  showBorder: false,
-  disabled: false,
+export const WithCustomStatus: StoryObj<AvatarProps> = {
+  render: TemplateWithCustomStatus,
+
+  args: {
+    avatarUrl: MOCK_AVATAR_URL,
+    name: 'Channel',
+    size: AvatarSize.Size48,
+    showBorder: false,
+    disabled: false,
+  },
 }

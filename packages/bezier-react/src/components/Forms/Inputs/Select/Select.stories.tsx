@@ -3,14 +3,10 @@ import React from 'react'
 import { CalendarIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import { Text } from '~/src/components/Text'
 
@@ -18,15 +14,16 @@ import Select from './Select'
 import type SelectProps from './Select.types'
 import { SelectSize } from './Select.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<SelectProps & {
+  wrapperSize: number
+}> = {
   component: Select,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SelectSize),
       },
+      options: getObjectFromEnum(SelectSize),
     },
     wrapperSize: {
       control: {
@@ -35,23 +32,30 @@ export default {
       defaultValue: 200,
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<SelectProps & { wrapperSize: number }> = ({ wrapperSize, ...args }) => (
+const Template: StoryFn<SelectProps & { wrapperSize: number }> = ({
+  wrapperSize,
+  ...args
+}) => (
   <div style={{ width: wrapperSize }}>
     <Select {...args} />
   </div>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  placeholder: '날짜를 선택해주세요',
-  text: '2022. 7. 14.',
-  leftContent: CalendarIcon,
-  rightContent: (<Text marginLeft={4}>일</Text>),
-  disabled: false,
-  readOnly: false,
-  withoutChevron: false,
-  hasError: false,
-  size: SelectSize.M,
+export const Primary = {
+  render: Template,
+
+  args: {
+    placeholder: '날짜를 선택해주세요',
+    text: '2022. 7. 14.',
+    leftContent: CalendarIcon,
+    rightContent: <Text marginLeft={4}>일</Text>,
+    disabled: false,
+    readOnly: false,
+    withoutChevron: false,
+    hasError: false,
+    size: SelectSize.M,
+  },
 }

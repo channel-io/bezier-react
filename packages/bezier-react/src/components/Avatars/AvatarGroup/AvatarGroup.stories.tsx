@@ -2,11 +2,10 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
-import { getTitle } from '~/src/utils/storyUtils'
 import { isNaN } from '~/src/utils/typeUtils'
 
 import {
@@ -25,21 +24,20 @@ const avatarSizeList = Object.keys(AvatarSize)
   .filter(value => isNaN(Number(value)) === true)
   .map(key => AvatarSize[key])
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof AvatarGroup> = {
   component: AvatarGroup,
   argTypes: {
     ellipsisType: {
       control: {
         type: 'radio',
-        options: AvatarGroupEllipsisType,
       },
+      options: AvatarGroupEllipsisType,
     },
     size: {
       control: {
         type: 'radio',
-        options: avatarSizeList,
       },
+      options: avatarSizeList,
     },
     max: {
       control: {
@@ -64,24 +62,24 @@ export default {
       action: 'mouseLeave',
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<AvatarGroupProps> = (args) => (
+const Template: StoryFn<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>
     { MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
-      <Avatar
-        key={id}
-        avatarUrl={avatarUrl}
-        name={name}
-      />
+      <Avatar key={id} avatarUrl={avatarUrl} name={name} />
     )) }
   </AvatarGroup>
 )
 
-export const Primary: Story<AvatarGroupProps> = Template.bind({})
-Primary.args = {
-  max: 5,
-  size: AvatarSize.Size30,
-  ellipsisType: AvatarGroupEllipsisType.Icon,
-  spacing: 4,
+export const Primary: StoryObj<AvatarGroupProps> = {
+  render: Template,
+
+  args: {
+    max: 5,
+    size: AvatarSize.Size30,
+    ellipsisType: AvatarGroupEllipsisType.Icon,
+    spacing: 4,
+  },
 }

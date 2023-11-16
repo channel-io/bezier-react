@@ -2,28 +2,23 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import { Switch } from './Switch'
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Switch> = {
   component: Switch,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(SwitchSize),
       },
+      options: getObjectFromEnum(SwitchSize),
     },
     checked: {
       control: {
@@ -39,19 +34,28 @@ export default {
       action: 'onCheckedChange',
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<SwitchProps> = ({ ...otherSwitchProps }) => <Switch {...otherSwitchProps} />
+const Template: StoryFn<SwitchProps> = ({ ...otherSwitchProps }) => (
+  <Switch {...otherSwitchProps} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  size: SwitchSize.M,
-  checked: true,
-  disabled: false,
+export const Primary = {
+  render: Template,
+
+  args: {
+    size: SwitchSize.M,
+    checked: true,
+    disabled: false,
+  },
 }
 
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-  size: SwitchSize.M,
-  disabled: false,
+export const Uncontrolled = {
+  render: Template,
+
+  args: {
+    size: SwitchSize.M,
+    disabled: false,
+  },
 }

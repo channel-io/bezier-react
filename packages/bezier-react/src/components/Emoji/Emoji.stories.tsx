@@ -2,16 +2,12 @@ import React from 'react'
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import base from 'paths.macro'
 
 import { styled } from '~/src/foundation'
 
-import {
-  getObjectFromEnum,
-  getTitle,
-} from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/storyUtils'
 
 import Emoji from './Emoji'
 import type EmojiProps from './Emoji.types'
@@ -19,15 +15,14 @@ import { EmojiSize } from './Emoji.types'
 
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/blush.png'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<typeof Emoji> = {
   component: Emoji,
   argTypes: {
     size: {
       control: {
         type: 'radio',
-        options: getObjectFromEnum(EmojiSize),
       },
+      options: getObjectFromEnum(EmojiSize),
     },
     imageUrl: {
       control: {
@@ -35,15 +30,14 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
-const Template: Story<EmojiProps> = (args) => <Emoji {...args} />
-
-export const Primary = Template.bind({})
-
-Primary.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+export const Primary = {
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }
 
 const Wrapper = styled.button`
@@ -61,20 +55,22 @@ const Wrapper = styled.button`
   }
 `
 
-const HoverTemplate: Story<EmojiProps> = (args) => (
+const HoverTemplate: StoryFn<EmojiProps> = (args) => (
   <Wrapper>
     <Emoji {...args} />
   </Wrapper>
 )
 
-export const WithHover = HoverTemplate.bind({})
+export const WithHover = {
+  render: HoverTemplate,
 
-WithHover.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }
 
-const MultipleTemplate: Story<EmojiProps> = (args) => (
+const MultipleTemplate: StoryFn<EmojiProps> = (args) => (
   <>
     <Wrapper>
       <Emoji {...args} />
@@ -94,9 +90,11 @@ const MultipleTemplate: Story<EmojiProps> = (args) => (
   </>
 )
 
-export const WithMultipleEmoji = MultipleTemplate.bind({})
+export const WithMultipleEmoji = {
+  render: MultipleTemplate,
 
-WithMultipleEmoji.args = {
-  size: EmojiSize.Size24,
-  imageUrl: MOCK_EMOJI_URL,
+  args: {
+    size: EmojiSize.Size24,
+    imageUrl: MOCK_EMOJI_URL,
+  },
 }

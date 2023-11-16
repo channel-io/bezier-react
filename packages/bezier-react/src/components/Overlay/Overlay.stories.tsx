@@ -6,44 +6,43 @@ import React, {
 
 import {
   type Meta,
-  type Story,
+  type StoryFn,
 } from '@storybook/react'
-import { base } from 'paths.macro'
 
 import { styled } from '~/src/foundation'
-
-import { getTitle } from '~/src/utils/storyUtils'
 
 import Overlay from './Overlay'
 import type OverlayProps from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
 
-export default {
-  title: getTitle(base),
+const meta: Meta<OverlayProps & {
+  containerWidth: number
+  containerHeight: number
+}> = {
   component: Overlay,
   argTypes: {
     position: {
       control: {
         type: 'radio',
-        options: [
-          OverlayPosition.TopCenter,
-          OverlayPosition.TopLeft,
-          OverlayPosition.TopRight,
-          OverlayPosition.RightCenter,
-          OverlayPosition.RightTop,
-          OverlayPosition.RightBottom,
-          OverlayPosition.BottomCenter,
-          OverlayPosition.BottomLeft,
-          OverlayPosition.BottomRight,
-          OverlayPosition.LeftCenter,
-          OverlayPosition.LeftTop,
-          OverlayPosition.LeftBottom,
-          OverlayPosition.InnerLeftTop,
-          OverlayPosition.InnerLeftBottom,
-          OverlayPosition.InnerRightTop,
-          OverlayPosition.InnerRightBottom,
-        ],
       },
+      options: [
+        OverlayPosition.TopCenter,
+        OverlayPosition.TopLeft,
+        OverlayPosition.TopRight,
+        OverlayPosition.RightCenter,
+        OverlayPosition.RightTop,
+        OverlayPosition.RightBottom,
+        OverlayPosition.BottomCenter,
+        OverlayPosition.BottomLeft,
+        OverlayPosition.BottomRight,
+        OverlayPosition.LeftCenter,
+        OverlayPosition.LeftTop,
+        OverlayPosition.LeftBottom,
+        OverlayPosition.InnerLeftTop,
+        OverlayPosition.InnerLeftBottom,
+        OverlayPosition.InnerRightTop,
+        OverlayPosition.InnerRightBottom,
+      ],
     },
     marginX: {
       control: {
@@ -78,7 +77,8 @@ export default {
       },
     },
   },
-} as Meta
+}
+export default meta
 
 interface ContainerProps {
   width?: number
@@ -159,7 +159,7 @@ const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
   )
 }
 
-const Template: Story = (props) => (
+const Template: StoryFn = (props) => (
   <OverlayTemplate {...props}>
     <Children>
       <ScrollContent>
@@ -179,24 +179,27 @@ const Template: Story = (props) => (
   </OverlayTemplate>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
-  show: false,
-  position: OverlayPosition.BottomCenter,
-  marginX: 0,
-  marginY: 0,
-  keepInContainer: false,
-  withTransition: false,
+export const Primary = {
+  render: Template,
+
+  args: {
+    show: false,
+    position: OverlayPosition.BottomCenter,
+    marginX: 0,
+    marginY: 0,
+    keepInContainer: false,
+    withTransition: false,
+  },
 }
 
-const StressTestTemplate: Story<OverlayProps> = (props) => {
+const StressTestTemplate: StoryFn<OverlayProps> = (props) => {
   const targetRef = useRef<any>()
   const containerRef = useRef<any>()
   const [, reload] = useState(0)
 
   useEffect(() => {
     setInterval(() => {
-      reload(prev => prev + 1)
+      reload((prev) => prev + 1)
     }, 100)
   }, [])
 
@@ -227,12 +230,15 @@ const StressTestTemplate: Story<OverlayProps> = (props) => {
   )
 }
 
-export const StressTest = StressTestTemplate.bind({})
-StressTest.args = {
-  enableClickOutside: false,
+export const StressTest = {
+  render: StressTestTemplate,
+
+  args: {
+    enableClickOutside: false,
+  },
 }
 
-const ChangeableChildrenTemplate: Story<OverlayProps> = (props) => {
+const ChangeableChildrenTemplate: StoryFn<OverlayProps> = (props) => {
   const [items, setItems] = useState<number[]>([])
 
   const addItem = React.useCallback(() => {
@@ -257,13 +263,16 @@ const ChangeableChildrenTemplate: Story<OverlayProps> = (props) => {
   )
 }
 
-export const ChangeableChildren = ChangeableChildrenTemplate.bind({})
-ChangeableChildren.args = {
-  show: false,
-  position: OverlayPosition.BottomCenter,
-  marginX: 0,
-  marginY: 0,
-  keepInContainer: false,
-  withTransition: false,
-  enableClickOutside: true,
+export const ChangeableChildren = {
+  render: ChangeableChildrenTemplate,
+
+  args: {
+    show: false,
+    position: OverlayPosition.BottomCenter,
+    marginX: 0,
+    marginY: 0,
+    keepInContainer: false,
+    withTransition: false,
+    enableClickOutside: true,
+  },
 }
