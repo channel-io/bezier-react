@@ -1,7 +1,7 @@
 {
   "name": "@channel.io/bezier-tokens",
   "version": "0.1.0",
-  "description": "Design tokens of Bezier design system.",
+  "description": "Design tokens for Bezier design system.",
   "repository": {
     "type": "git",
     "url": "https://github.com/channel-io/bezier-react",
@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "co build"
+    "build": "rm -rf dist && style-dictionary build --config ./config.js"
   },
   "keywords": [
     "channel",
@@ -20,9 +20,6 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@cobalt-ui/cli": "^1.6.0",
-    "@cobalt-ui/plugin-css": "^1.5.0",
-    "@cobalt-ui/plugin-js": "^1.4.1",
-    "@cobalt-ui/plugin-sass": "^1.3.0"
+    "style-dictionary": "^3.9.0"
   }
 }
