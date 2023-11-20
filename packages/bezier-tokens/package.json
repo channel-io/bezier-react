@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && style-dictionary build --config ./config.js"
+    "build": "rm -rf dist && node ./scripts/build.js"
   },
   "keywords": [
     "channel",
