@@ -9,6 +9,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import autoprefixer from 'autoprefixer'
+import postcssPresetEnv from 'postcss-preset-env'
 import { defineConfig } from 'rollup'
 import nodeExternals from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
@@ -44,7 +45,10 @@ const generateConfig = ({
          */
         generateScopedName: 'Bezier-[folder]__[local]__[hash:base64:5]',
       },
-      plugins: [autoprefixer()],
+      plugins: [
+        autoprefixer(),
+        postcssPresetEnv(),
+      ],
     }),
     /**
      * **IMPORTANT**: Order matters!
