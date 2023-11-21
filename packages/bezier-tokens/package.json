@@ -34,7 +34,11 @@
     "build:tokens": "ts-node-esm scripts/build-tokens.ts",
     "build:js-index": "ts-node-esm scripts/build-js-index.ts",
     "build:types": "tsc -p tsconfig.build.json",
-    "clean:build": "rm -rf dist"
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache"
   },
   "keywords": [
     "channel",
@@ -45,6 +49,8 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "style-dictionary": "^3.9.0"
+    "eslint-config-bezier": "workspace:*",
+    "style-dictionary": "^3.9.0",
+    "tsconfig": "workspace:*"
   }
 }

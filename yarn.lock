@@ -2560,7 +2560,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
+    eslint-config-bezier: "workspace:*"
     style-dictionary: ^3.9.0
+    tsconfig: "workspace:*"
   languageName: unknown
   linkType: soft
 
