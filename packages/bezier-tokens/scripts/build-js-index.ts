@@ -30,7 +30,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
     if (isCjs) {
       exportStatements += `var ${moduleName} = require('./${moduleName}');\n`;
     } else {
-      exportStatements += `export * from './${moduleName}';\n`;
+      exportStatements += `export * from './${file}';\n`;
     }
   });
 
