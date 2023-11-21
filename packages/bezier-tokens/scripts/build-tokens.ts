@@ -1,6 +1,7 @@
 import StyleDictionary, { Config } from "style-dictionary";
 import { customFontPxToRem } from "./lib/transform";
 import { customJsCjs, customJsEsm } from "./lib/format";
+import { toCamelCase } from "./lib/utils";
 
 const TokenBuilder = StyleDictionary.registerTransform(customFontPxToRem)
   .registerFormat(customJsCjs)
@@ -35,7 +36,7 @@ function defineConfig({
         buildPath: "dist/cjs/",
         files: [
           {
-            destination: `${destination}.js`,
+            destination: `${toCamelCase(destination)}.js`,
             format: customJsCjs.name,
             filter: (token) => token.filePath.includes(destination),
           },
@@ -46,7 +47,7 @@ function defineConfig({
         buildPath: "dist/esm/",
         files: [
           {
-            destination: `${destination}.mjs`,
+            destination: `${toCamelCase(destination)}.mjs`,
             format: customJsEsm.name,
             filter: (token) => token.filePath.includes(destination),
           },
@@ -55,7 +56,7 @@ function defineConfig({
       css: {
         transforms: COMMON_WEB_TRANSFORMS,
         basePxFontSize: 10,
-        buildPath: `dist/css/`,
+        buildPath: "dist/css/",
         files: [
           {
             destination: `${destination}.css`,

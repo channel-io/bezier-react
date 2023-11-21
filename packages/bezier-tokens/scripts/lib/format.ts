@@ -4,10 +4,7 @@ type CustomFormat = Named<Format>;
 
 const { fileHeader } = formatHelpers;
 
-const toCamelCase = (str: string) =>
-  str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase());
-
-const fileName = (path: string) => toCamelCase(path.split(".")[0]);
+const fileName = (path: string) => path.split(".")[0];
 
 export const customJsCjs: CustomFormat = {
   name: "custom/js/cjs",

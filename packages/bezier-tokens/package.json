@@ -9,7 +9,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && ts-node-esm ./build.ts"
+    "build": "run-s 'build:*'",
+    "build:tokens": "ts-node-esm scripts/build-tokens.ts",
+    "build:js-index": "ts-node-esm scripts/build-js-index.ts"
   },
   "keywords": [
     "channel",
