@@ -9,9 +9,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "run-s 'build:*'",
+    "build": "run-s clean:build build:tokens build:js-index build:types",
     "build:tokens": "ts-node-esm scripts/build-tokens.ts",
-    "build:js-index": "ts-node-esm scripts/build-js-index.ts"
+    "build:js-index": "ts-node-esm scripts/build-js-index.ts",
+    "build:types": "tsc -p tsconfig.build.json",
+    "clean:build": "rm -rf dist"
   },
   "keywords": [
     "channel",
