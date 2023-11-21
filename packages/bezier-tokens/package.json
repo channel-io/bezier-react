@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && node ./scripts/build.js"
+    "build": "rm -rf dist && ts-node-esm ./build.ts"
   },
   "keywords": [
     "channel",
