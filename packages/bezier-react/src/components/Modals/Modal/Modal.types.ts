@@ -9,6 +9,8 @@ export enum ModalTitleSize {
   M = 'M',
 }
 
+type BoxSide = 'top' | 'right' | 'bottom' | 'left'
+
 interface ModalOptions {
   /**
    * The controlled open state of the modal.
@@ -72,6 +74,8 @@ interface ModalContentOptions {
    * @default ZIndex.Modal
    */
   zIndex?: React.CSSProperties['zIndex']
+
+  collisionPadding?: number | Partial<Record<BoxSide, number>>
 }
 
 interface ModalHeaderOptions {
