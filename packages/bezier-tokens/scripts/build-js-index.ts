@@ -11,7 +11,7 @@ const getFileExtensionByModuleSystem = (isCjs: boolean) =>
 
 function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   const fileExtension = getFileExtensionByModuleSystem(isCjs)
-
+  const indexFile = `index${fileExtension}`
   let exportStatements = ''
 
   if (!fs.existsSync(buildPath)) {
@@ -25,27 +25,33 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   console.log(`Reading files in ${buildPath}:`, files)
 
   files.forEach((file) => {
-    if (!file.endsWith(fileExtension)) {
-      return
-    }
-    const moduleName = file.replace(fileExtension, '')
-    if (isCjs) {
-      exportStatements += `var ${moduleName} = require('./${moduleName}');\n`
-    } else {
-      exportStatements += `export * from './${file}';\n`
+    if (file.endsWith(fileExtension) && file !== indexFile) {
+      const moduleName = file.replace(fileExtension, '')
+      if (!isCjs) {
+        exportStatements += `import ${moduleName} from './${file}';\n`
+      }
     }
   })
 
   if (isCjs) {
-    exportStatements += '\nmodule.exports = {\n'
-    files.forEach((file) => {
-      const moduleName = file.replace(fileExtension, '')
-      exportStatements += `  ...${moduleName},\n`
-    })
-    exportStatements += '};\n'
+    exportStatements += 'exports.tokens = Object.freeze({\n'
+  } else {
+    exportStatements += '\nexport const tokens = Object.freeze({\n'
   }
 
-  const indexFile = `index${fileExtension}`
+  files.forEach((file) => {
+    if (file.endsWith(fileExtension) && file !== indexFile) {
+      const moduleName = file.replace(fileExtension, '')
+      if (isCjs) {
+        exportStatements += `  ${moduleName}: require('./${moduleName}'),\n`
+      } else {
+        exportStatements += `  ${moduleName},\n`
+      }
+    }
+  })
+
+  exportStatements += '});\n'
+
   fs.writeFileSync(path.join(buildPath, indexFile), exportStatements)
   // eslint-disable-next-line no-console
   console.log(`✅ Created ${indexFile} in ${buildPath}`)

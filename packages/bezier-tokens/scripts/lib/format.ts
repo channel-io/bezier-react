@@ -8,14 +8,12 @@ type CustomFormat = Named<Format>
 
 const { fileHeader } = formatHelpers
 
-const fileName = (path: string) => path.split('.')[0]
-
 export const customJsCjs: CustomFormat = {
   name: 'custom/js/cjs',
   formatter({ dictionary, file }) {
     return (
       `${fileHeader({ file })
-      }exports.${fileName(file.destination)} = {` +
+      }module.exports = {` +
       `\n${
         dictionary.allTokens
           .map((token) => `  "${token.name}": ${JSON.stringify(token.value)},`)
@@ -31,7 +29,7 @@ export const customJsEsm: CustomFormat = {
   formatter({ dictionary, file }) {
     return (
       `${fileHeader({ file })
-      }export const ${fileName(file.destination)} = {` +
+      }export default {` +
       `\n${
         dictionary.allTokens
           .map((token) => `  "${token.name}": ${JSON.stringify(token.value)},`)
