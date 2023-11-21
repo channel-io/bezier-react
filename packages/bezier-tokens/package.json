@@ -17,14 +17,13 @@
         "default": "./dist/cjs/index.js"
       },
       "import": {
-        "types": "./dist/types/esm/index.d.ts",
+        "types": "./dist/types/esm/index.d.mts",
         "default": "./dist/esm/index.mjs"
       }
     }
   },
   "sideEffects": [
-    "**/*.css",
-    "**/*.scss"
+    "**/*.css"
   ],
   "files": [
     "dist"
