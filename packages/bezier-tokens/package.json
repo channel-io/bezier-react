@@ -20,7 +20,8 @@
         "types": "./dist/types/esm/index.d.mts",
         "default": "./dist/esm/index.mjs"
       }
-    }
+    },
+    "./css/*": "./dist/css/*"
   },
   "sideEffects": [
     "**/*.css"
