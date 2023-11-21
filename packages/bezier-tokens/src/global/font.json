@@ -1,21 +1,94 @@
 {
-  "size": {
-    "font": {
-      "small" : {
-        "value": "0.75",
-        "comment": "the small size of the font"
+  "font": {
+    "size": {
+      "11": {
+        "value": "11"
       },
-      "medium": {
-        "value": "1",
-        "comment": "the medium size of the font"
+      "12": {
+        "value": "12"
       },
-      "large" : {
-        "value": "2",
-        "comment": "the large size of the font"
+      "13": {
+        "value": "13"
       },
-      "base"  : {
-        "value": "{size.font.medium.value}",
-        "comment": "the base size of the font"
+      "14": {
+        "value": "14"
+      },
+      "15": {
+        "value": "15"
+      },
+      "16": {
+        "value": "16"
+      },
+      "17": {
+        "value": "17"
+      },
+      "18": {
+        "value": "18"
+      },
+      "22": {
+        "value": "22"
+      },
+      "24": {
+        "value": "24"
+      },
+      "30": {
+        "value": "30"
+      },
+      "36": {
+        "value": "36"
+      }
+    },
+    "line-height": {
+      "16": {
+        "value": "16"
+      },
+      "18": {
+        "value": "18"
+      },
+      "20": {
+        "value": "20"
+      },
+      "22": {
+        "value": "22"
+      },
+      "24": {
+        "value": "24"
+      },
+      "28": {
+        "value": "28"
+      },
+      "32": {
+        "value": "32"
+      },
+      "36": {
+        "value": "36"
+      },
+      "44": {
+        "value": "44"
+      }
+    },
+    "weight": {
+      "400": {
+        "value": "400"
+      },
+      "700": {
+        "value": "700"
+      }
+    },
+    "family": {
+      "sans": {
+        "system": {
+          "value": "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
+        },
+        "kr": {
+          "value": "'Inter', 'NotoSansKR', 'NotoSansJP', {font.family.sans.system}"
+        },
+        "jp": {
+          "value": "'Inter', 'NotoSansJP', 'NotoSansKR', {font.family.sans.system}"
+        }
+      },
+      "mono": {
+        "value": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace"
       }
     }
   }
