@@ -1,4 +1,6 @@
-export const px = <Value extends number | undefined>(value: Value) => (value ? `${value}px` as const : undefined)
+import { isNil } from './typeUtils'
+
+export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
 
 export const cssVarName = <ComponentName extends string>(componentName: ComponentName) => <PropertyName extends string>(propertyName: PropertyName) => `--bezier-${componentName}-${propertyName}` as const
 
@@ -7,8 +9,8 @@ export function cssVarValue<
   DeclarationValue extends string | number | undefined,
 >(propertyName: PropertyName, declarationValue?: DeclarationValue) {
   /* eslint-disable no-nested-ternary */
-  return propertyName
-    ? declarationValue
+  return !isNil(propertyName)
+    ? !isNil(declarationValue)
       ? `var(--${propertyName}, ${declarationValue})` as const
       : `var(--${propertyName})` as const
     : undefined
