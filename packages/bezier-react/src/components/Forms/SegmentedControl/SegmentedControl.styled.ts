@@ -29,22 +29,22 @@ export const paddingBySegmentedControlSize = {
 }
 
 export const Indicator = styled.div`
-  --bezier-react-segmented-control-indicator-translateX: none;
-  --bezier-react-segmented-control-indicator-left: auto;
-  --bezier-react-segmented-control-indicator-width: auto;
-  --bezier-react-segmented-control-indicator-height: auto;
+  --bezier-segmented-control-indicator-translateX: none;
+  --bezier-segmented-control-indicator-left: auto;
+  --bezier-segmented-control-indicator-width: auto;
+  --bezier-segmented-control-indicator-height: auto;
 
   position: absolute;
   top: 50%;
-  left: var(--bezier-react-segmented-control-indicator-left);
-  width: var(--bezier-react-segmented-control-indicator-width);
-  height: var(--bezier-react-segmented-control-indicator-height);
+  left: var(--bezier-segmented-control-indicator-left);
+  width: var(--bezier-segmented-control-indicator-width);
+  height: var(--bezier-segmented-control-indicator-height);
 
   ${({ foundation }) => foundation?.elevation.ev1()}
   /* NOTE: (@ed) Overrides the elevation mixin. Do not change the order! */
   background-color: var(--bg-white-high);
 
-  transform: translateX(var(--bezier-react-segmented-control-indicator-translateX)) translateY(-50%);
+  transform: translateX(var(--bezier-segmented-control-indicator-translateX)) translateY(-50%);
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', TransitionDuration.M)}
 `
 
@@ -116,12 +116,12 @@ export const Item = styled.button`
 `
 
 export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
-  --bezier-react-segmented-control-width: auto;
+  --bezier-segmented-control-width: auto;
 
   position: relative;
   z-index: ${ZIndex.Base};
   box-sizing: border-box;
-  width: var(--bezier-react-segmented-control-width);
+  width: var(--bezier-segmented-control-width);
   background-color: var(--bg-black-lighter);
 
   &.${SegmentedControlSize.XS} {
