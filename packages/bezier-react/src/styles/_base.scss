@@ -1,16 +1,14 @@
-$system-fonts: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif;
-
 html {
   font-size: 62.5%; // 10/16 = 0.625. Make REM calculations easier.
-  font-family: 'Inter', 'NotoSansKR', 'NotoSansJP', $system-fonts;
+  font-family: var(--font-family-sans-kr);
+}
 
-  :lang(ja) {
-    font-family: 'Inter', 'NotoSansJP', 'NotoSansKR', $system-fonts;
-  }
+:lang(ja) {
+  font-family: var(--font-family-sans-jp);
 }
 
 code {
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: var(--font-family-mono);
 }
 
 ::placeholder {
