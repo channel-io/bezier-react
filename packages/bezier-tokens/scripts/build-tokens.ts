@@ -1,23 +1,36 @@
-import StyleDictionary, { type Config } from 'style-dictionary'
+import StyleDictionary, {
+  type Config,
+  type Platform,
+} from 'style-dictionary'
 
 import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import { customFontPxToRem } from './lib/transform'
+import {
+  customFontRem,
+  customRadiusPx,
+} from './lib/transform'
 import { toCamelCase } from './lib/utils'
 
-const TokenBuilder = StyleDictionary.registerTransform(customFontPxToRem)
+const TokenBuilder = StyleDictionary
+  .registerTransform(customFontRem)
+  .registerTransform(customRadiusPx)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
-const COMMON_WEB_TRANSFORMS = [
-  'attribute/cti',
-  'name/cti/kebab',
-  'size/rem',
-  'color/css',
-  customFontPxToRem.name,
-]
+function defineWebPlatform(options: Platform): Platform {
+  return {
+    transforms: [
+      'attribute/cti',
+      'name/cti/kebab',
+      customFontRem.name,
+      customRadiusPx.name,
+    ],
+    basePxFontSize: 10,
+    ...options,
+  }
+}
 
 interface DefineConfigOptions {
   source: string[]
@@ -35,8 +48,7 @@ function defineConfig({
   return {
     source,
     platforms: {
-      'js/cjs': {
-        transforms: COMMON_WEB_TRANSFORMS,
+      'web/cjs': defineWebPlatform({
         buildPath: 'dist/cjs/',
         files: [
           {
@@ -45,9 +57,8 @@ function defineConfig({
             filter: (token) => token.filePath.includes(destination),
           },
         ],
-      },
-      'js/esm': {
-        transforms: COMMON_WEB_TRANSFORMS,
+      }),
+      'web/esm': defineWebPlatform({
         buildPath: 'dist/esm/',
         files: [
           {
@@ -56,10 +67,8 @@ function defineConfig({
             filter: (token) => token.filePath.includes(destination),
           },
         ],
-      },
-      css: {
-        transforms: COMMON_WEB_TRANSFORMS,
-        basePxFontSize: 10,
+      }),
+      'web/css': defineWebPlatform({
         buildPath: 'dist/css/',
         files: [
           {
@@ -72,7 +81,7 @@ function defineConfig({
             },
           },
         ],
-      },
+      }),
     },
   }
 }
