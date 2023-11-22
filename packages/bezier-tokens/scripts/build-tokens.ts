@@ -48,7 +48,7 @@ function defineConfig({
   return {
     source,
     platforms: {
-      'js/cjs': defineWebPlatform({
+      'web/cjs': defineWebPlatform({
         buildPath: 'dist/cjs/',
         files: [
           {
@@ -58,7 +58,7 @@ function defineConfig({
           },
         ],
       }),
-      'js/esm': defineWebPlatform({
+      'web/esm': defineWebPlatform({
         buildPath: 'dist/esm/',
         files: [
           {
@@ -68,7 +68,7 @@ function defineConfig({
           },
         ],
       }),
-      css: defineWebPlatform({
+      'web/css': defineWebPlatform({
         buildPath: 'dist/css/',
         files: [
           {
