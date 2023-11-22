@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.16.0
+
+### Minor Changes
+
+- Update icons ([#1746](https://github.com/channel-io/bezier-react/pull/1746)) by @kimminkyung94
+
+  Modified
+
+  - checkbox-filled.svg
+  - checkbox.svg
+
 ## 0.15.0
 
 ### Minor Changes
