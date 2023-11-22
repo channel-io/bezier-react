@@ -77,14 +77,11 @@
     },
     "family": {
       "sans": {
-        "system": {
-          "value": "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
-        },
         "kr": {
-          "value": "'Inter', 'NotoSansKR', 'NotoSansJP', {font.family.sans.system}"
+          "value": "'Inter', 'NotoSansKR', 'NotoSansJP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
         },
         "jp": {
-          "value": "'Inter', 'NotoSansJP', 'NotoSansKR', {font.family.sans.system}"
+          "value": "'Inter', 'NotoSansJP', 'NotoSansKR', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
         }
       },
       "mono": {
