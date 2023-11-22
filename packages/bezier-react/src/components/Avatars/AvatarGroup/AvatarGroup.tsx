@@ -9,11 +9,11 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import { Typography } from '~/src/foundation'
 
 import { isLastIndex } from '~/src/utils/arrayUtils'
+import { noop } from '~/src/utils/functionUtils'
 import {
   cssVarName,
   px,
-} from '~/src/utils/css'
-import { noop } from '~/src/utils/functionUtils'
+} from '~/src/utils/styleUtils'
 
 import {
   type AvatarProps,

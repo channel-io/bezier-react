@@ -11,7 +11,7 @@ import classNames from 'classnames'
 import {
   cssVarName,
   px,
-} from '~/src/utils/css'
+} from '~/src/utils/styleUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
 import { Divider } from '~/src/components/Divider'

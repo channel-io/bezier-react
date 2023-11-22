@@ -9,11 +9,11 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { getRootElement } from '~/src/utils/domUtils'
 import {
   cssVarName,
   px,
-} from '~/src/utils/css'
-import { getRootElement } from '~/src/utils/domUtils'
+} from '~/src/utils/styleUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
 import {

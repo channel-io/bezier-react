@@ -9,13 +9,13 @@ import { Typography } from '~/src/foundation'
 
 import useId from '~/src/hooks/useId'
 import {
-  cssVarName,
-  px,
-} from '~/src/utils/css'
-import {
   omitBezierComponentProps,
   pickBezierComponentProps,
 } from '~/src/utils/propsUtils'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/styleUtils'
 import { isNil } from '~/src/utils/typeUtils'
 
 import { AlphaStack } from '~/src/components/AlphaStack'

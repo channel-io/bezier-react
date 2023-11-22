@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import {
   cssVarName,
   px,
-} from '~/src/utils/css'
+} from '~/src/utils/styleUtils'
 import { isEmpty } from '~/src/utils/typeUtils'
 
 import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
