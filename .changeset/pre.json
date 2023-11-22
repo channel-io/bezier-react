@@ -7,9 +7,11 @@
     "@channel.io/bezier-icons": "0.4.0",
     "@channel.io/bezier-react": "1.8.0",
     "eslint-config-bezier": "0.0.1",
-    "tsconfig": "0.0.1"
+    "tsconfig": "0.0.1",
+    "@channel.io/bezier-tokens": "0.0.0"
   },
   "changesets": [
+    "rare-coats-sing",
     "tall-maps-lick"
   ]
 }
