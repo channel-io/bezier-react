@@ -34,6 +34,7 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
+  padding: var(--bezier-modal-collision-padding);
   overflow-y: auto;
   background-color: var(--bgtxt-absolute-black-lighter);
 
