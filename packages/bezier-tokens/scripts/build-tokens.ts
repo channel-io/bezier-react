@@ -4,19 +4,23 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import { customFontPxToRem } from './lib/transform'
+import {
+  customFontPxToRem,
+  customRadiusPx,
+} from './lib/transform'
 import { toCamelCase } from './lib/utils'
 
-const TokenBuilder = StyleDictionary.registerTransform(customFontPxToRem)
+const TokenBuilder = StyleDictionary
+  .registerTransform(customFontPxToRem)
+  .registerTransform(customRadiusPx)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
 const COMMON_WEB_TRANSFORMS = [
   'attribute/cti',
   'name/cti/kebab',
-  'size/rem',
-  'color/css',
   customFontPxToRem.name,
+  customRadiusPx.name,
 ]
 
 interface DefineConfigOptions {
