@@ -7,8 +7,8 @@ import { endsWithNumber } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 
-export const customFontPxToRem: CustomTransform = {
-  name: 'custom/font/pxToRem',
+export const customFontRem: CustomTransform = {
+  name: 'custom/font/rem',
   type: 'value',
   transitive: true,
   matcher(token) {
