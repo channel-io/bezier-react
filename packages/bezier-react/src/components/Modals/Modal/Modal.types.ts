@@ -52,7 +52,7 @@ interface ModalContentOptions {
 
   /**
    * Decides whether modal closes when clicked outside
-   * @default: false
+   * @default false
    */
   preventHideOnOutsideClick?: boolean
 
@@ -75,6 +75,10 @@ interface ModalContentOptions {
    */
   zIndex?: React.CSSProperties['zIndex']
 
+  /**
+   * Determine padding of overlay that contains modal content.
+   * @default { top: 40, bottom: 40 }
+   */
   collisionPadding?: number | Partial<Record<BoxSide, number>>
 }
 
