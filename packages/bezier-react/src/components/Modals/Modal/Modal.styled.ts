@@ -25,11 +25,7 @@ import {
 
 import ModalAnimation from './ModalAnimation.styled'
 
-interface DialogPrimitiveOverlayProps {
-  padding: string
-}
-
-export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)<DialogPrimitiveOverlayProps>`
+export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   position: fixed;
   top: 0;
   right: 0;
@@ -38,7 +34,6 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)<DialogPrim
   z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
-  padding: ${({ padding }) => padding};
   overflow-y: auto;
   background-color: var(--bgtxt-absolute-black-lighter);
 
