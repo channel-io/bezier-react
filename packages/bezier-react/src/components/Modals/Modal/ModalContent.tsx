@@ -9,6 +9,10 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/css'
 import { getRootElement } from '~/src/utils/domUtils'
 import { isNumber } from '~/src/utils/typeUtils'
 
@@ -23,6 +27,8 @@ import {
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
+
+const cv = cssVarName('modal')
 
 /**
  * `ModalContent` is a container of the modal content.
@@ -49,20 +55,15 @@ export const ModalContent = forwardRef(function ModalContent({
     }, []),
   )
 
-  const overlayStyle = useMemo((): React.CSSProperties & {
-    '--bezier-modal-z-index': ModalContentProps['zIndex']
-  } => ({
-    '--bezier-modal-z-index': zIndex,
-  }), [zIndex])
+  const overlayStyle = useMemo(() => ({
+    [cv('z-index')]: zIndex,
+  } as React.CSSProperties), [zIndex])
 
-  const contentStyle = useMemo((): React.CSSProperties & {
-    '--bezier-modal-width': ModalContentProps['width']
-    '--bezier-modal-height': ModalContentProps['height']
-  } => ({
+  const contentStyle = useMemo(() => ({
     ...style,
-    '--bezier-modal-width': isNumber(width) ? `${width}px` : width,
-    '--bezier-modal-height': isNumber(height) ? `${height}px` : height,
-  }), [
+    [cv('width')]: isNumber(width) ? px(width) : width,
+    [cv('height')]: isNumber(height) ? px(height) : height,
+  } as React.CSSProperties), [
     style,
     width,
     height,

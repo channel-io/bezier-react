@@ -10,6 +10,12 @@ import {
 
 import type { SemanticNames } from '~/src/foundation'
 
+import {
+  cssVarName,
+  cssVarValue,
+  px,
+} from '~/src/utils/css'
+
 import { IconSize } from '~/src/components/Icon'
 
 import {
@@ -19,6 +25,8 @@ import {
 } from './Status.types'
 
 import * as Styled from './Status.styled'
+
+const cv = cssVarName('status')
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.OnlineCrescent,
@@ -53,9 +61,9 @@ export const Status = memo(forwardRef(function Status({
       ref={forwardedRef}
       style={{
         ...style,
-        '--bezier-status-size': `${size}px`,
-        '--bezier-status-bg-color': `var(--${backgroundColor})`,
-        '--bezier-status-border-width': `${getStatusCircleBorderWidth(size)}px`,
+        [cv('size')]: px(size),
+        [cv('bg-color')]: cssVarValue(backgroundColor),
+        [cv('border-width')]: px(getStatusCircleBorderWidth(size)),
       }}
       {...rest}
     >
