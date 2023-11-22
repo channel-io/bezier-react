@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'

@@ -8,7 +8,7 @@ import {
   RelativeUnit,
 } from '~/src/types/CSS'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
-import { has } from '~/src/utils/objectUtils'
+import { has } from '~/src/utils/object'
 import {
   isEmpty,
   isNaN,
@@ -16,9 +16,9 @@ import {
   isNumber,
   isObject,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
-import { isNumberString } from './stringUtils'
+import { isNumberString } from './string'
 
 export const UnitValues: string[] = [
   ...Object.values(AbsoluteUnit),

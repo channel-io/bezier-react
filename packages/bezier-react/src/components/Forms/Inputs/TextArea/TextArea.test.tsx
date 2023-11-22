@@ -6,7 +6,7 @@ import { act } from '@testing-library/react'
 import { LightFoundation } from '~/src/foundation'
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 

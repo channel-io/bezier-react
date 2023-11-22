@@ -2,7 +2,7 @@ import React from 'react'
 
 import { LightFoundation } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Divider, { DIVIDER_TEST_ID } from './Divider'
 import type DividerProps from './Divider.types'

@@ -4,7 +4,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import { toLength } from '~/src/utils/styleUtils'
+import { toLength } from '~/src/utils/style'
 
 import type ProgressBarProps from './ProgressBar.types'
 

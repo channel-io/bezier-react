@@ -1,4 +1,4 @@
-import { noop } from './functionUtils'
+import { noop } from './function'
 
 describe('functionUtils', () => {
   describe('noop', () => {

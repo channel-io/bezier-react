@@ -18,8 +18,8 @@ import {
 import { Typography } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { noop } from '~/src/utils/functionUtils'
-import { isEmpty } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isEmpty } from '~/src/utils/type'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import {

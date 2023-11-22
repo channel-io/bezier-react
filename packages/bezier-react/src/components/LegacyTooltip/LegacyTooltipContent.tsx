@@ -12,12 +12,12 @@ import { Typography } from '~/src/foundation'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getRootElement } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/dom'
 import {
   isArray,
   isEmpty,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import { Text } from '~/src/components/Text'
 

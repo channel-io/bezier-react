@@ -8,8 +8,8 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+} from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import {
   Tooltip,

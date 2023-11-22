@@ -4,7 +4,7 @@ import {
   isNumber,
   isString,
   isSymbol,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 export function mergeClassNames(className?: string, ...otherClassNames: Array<string | undefined>): string | undefined {
   if (!isEmpty(className) || !isEmpty(otherClassNames)) {

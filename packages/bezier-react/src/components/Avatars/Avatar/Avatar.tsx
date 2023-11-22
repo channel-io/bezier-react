@@ -8,8 +8,8 @@ import classNames from 'classnames'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
-import { isEmpty } from '~/src/utils/typeUtils'
+} from '~/src/utils/style'
+import { isEmpty } from '~/src/utils/type'
 
 import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'

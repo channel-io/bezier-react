@@ -8,7 +8,7 @@ import {
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   BUTTON_INNER_CONTENT_TEST_ID,

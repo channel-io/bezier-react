@@ -3,7 +3,7 @@ import React from 'react'
 import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   FormControl,

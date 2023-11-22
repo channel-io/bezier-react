@@ -9,7 +9,7 @@ import { CancelSmallIcon } from '@channel.io/bezier-icons'
 import {
   isEmpty,
   isNil,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import {
   TAG_BADGE_ICON_SIZE,

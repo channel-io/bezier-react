@@ -15,8 +15,8 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { range } from '~/src/utils/numberUtils'
-import { isEmpty } from '~/src/utils/typeUtils'
+import { range } from '~/src/utils/number'
+import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'

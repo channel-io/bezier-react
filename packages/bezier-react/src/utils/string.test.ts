@@ -4,7 +4,7 @@ import {
   kebabCase,
   mergeClassNames,
   toString,
-} from './stringUtils'
+} from './string'
 
 describe('mergeClassNames()', () => {
   test('mergeClassNames() function should returns className string when 1st argument given', () => {

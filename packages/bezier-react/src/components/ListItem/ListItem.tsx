@@ -10,13 +10,13 @@ import { v4 as uuid } from 'uuid'
 import { Typography } from '~/src/foundation'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/functionUtils'
-import { mergeClassNames } from '~/src/utils/stringUtils'
+import { noop } from '~/src/utils/function'
+import { mergeClassNames } from '~/src/utils/string'
 import {
   isEmpty,
   isNil,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'

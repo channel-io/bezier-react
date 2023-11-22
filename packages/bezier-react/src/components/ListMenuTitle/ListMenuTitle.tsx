@@ -3,8 +3,8 @@ import React, {
   useCallback,
 } from 'react'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isNil } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isNil } from '~/src/utils/type'
 
 import type ListMenuTitleProps from './ListMenuTitle.types'
 

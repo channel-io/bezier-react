@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import { window } from '~/src/utils/dom'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'

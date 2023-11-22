@@ -12,10 +12,10 @@ import {
   Typography,
 } from '~/src/foundation'
 
-import { flattenDeep } from '~/src/utils/arrayUtils'
-import { warn } from '~/src/utils/assertUtils'
-import { noop } from '~/src/utils/functionUtils'
-import { isArray } from '~/src/utils/typeUtils'
+import { flattenDeep } from '~/src/utils/array'
+import { warn } from '~/src/utils/assert'
+import { noop } from '~/src/utils/function'
+import { isArray } from '~/src/utils/type'
 
 import {
   Icon,

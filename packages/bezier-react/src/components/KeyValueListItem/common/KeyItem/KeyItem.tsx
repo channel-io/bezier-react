@@ -9,7 +9,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { isString } from '~/src/utils/typeUtils'
+import { isString } from '~/src/utils/type'
 
 import {
   Icon,

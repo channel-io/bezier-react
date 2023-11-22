@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 

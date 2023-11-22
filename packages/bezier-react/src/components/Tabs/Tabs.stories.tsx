@@ -13,8 +13,8 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isFunction } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isFunction } from '~/src/utils/type'
 
 import { Text } from '~/src/components/Text'
 

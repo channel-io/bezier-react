@@ -10,7 +10,7 @@ import useId from '~/src/hooks/useId'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'

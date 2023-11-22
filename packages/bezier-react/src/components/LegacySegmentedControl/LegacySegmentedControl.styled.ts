@@ -6,7 +6,7 @@ import {
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'
 import type { BezierComponentProps } from '~/src/types/ComponentProps'
-import { toLength } from '~/src/utils/styleUtils'
+import { toLength } from '~/src/utils/style'
 
 import {
   SIZE_TO_DIVIDER_VERTICAL_MARGIN,

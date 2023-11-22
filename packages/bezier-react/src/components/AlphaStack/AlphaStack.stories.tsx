@@ -8,7 +8,7 @@ import {
 
 import { css } from '~/src/foundation/FoundationStyledComponent'
 
-import { range } from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/number'
 
 import { AlphaStack } from './AlphaStack'
 

@@ -9,12 +9,12 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getRootElement } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/dom'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+} from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import {
   type ModalContentProps,

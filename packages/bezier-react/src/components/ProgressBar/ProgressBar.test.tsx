@@ -2,7 +2,7 @@ import React from 'react'
 
 import { LightFoundation } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   PROGRESS_BAR_ACTIVE_TEST_ID,

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 
 import { HelpFilledIcon } from '@channel.io/bezier-icons'
 
-import { isEmpty } from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
 import { Tooltip } from '~/src/components/Tooltip'

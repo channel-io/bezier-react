@@ -76,9 +76,9 @@ export { default as useMergeRefs } from '~/src/hooks/useMergeRefs'
 export { default as useId } from '~/src/hooks/useId'
 
 /* Utils */
-export { getRootElement } from '~/src/utils/domUtils'
-export * as StyleUtils from '~/src/utils/styleUtils'
-export * as StringUtils from '~/src/utils/stringUtils'
+export { getRootElement } from '~/src/utils/dom'
+export * as StyleUtils from '~/src/utils/style'
+export * as StringUtils from '~/src/utils/string'
 
 /* Features */
 export * from '~/src/features'

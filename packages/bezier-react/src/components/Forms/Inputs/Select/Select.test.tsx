@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event'
 import { LightFoundation } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Select, {
   SELECT_CONTAINER_TEST_ID,

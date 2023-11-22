@@ -8,7 +8,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { isNaN } from '~/src/utils/typeUtils'
+import { isNaN } from '~/src/utils/type'
 
 import { StatusType } from '~/src/components/Status'
 

@@ -1,4 +1,4 @@
-import { isArray } from '~/src/utils/typeUtils'
+import { isArray } from '~/src/utils/type'
 
 // eslint-disable-next-line no-restricted-imports
 import { css } from '../FoundationStyledComponent'

@@ -7,7 +7,7 @@ import {
   isBoxSizingUnit,
   isExplicitDefaulting,
   toLength,
-} from './styleUtils'
+} from './style'
 
 const ExplicitDefaultingValues = Object.values(ExplicitDefaulting)
 const BoxSizingUnitValues = Object.values(BoxSizingUnit)

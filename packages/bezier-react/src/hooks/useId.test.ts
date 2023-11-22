@@ -1,4 +1,4 @@
-import { renderHook } from '~/src/utils/testUtils'
+import { renderHook } from '~/src/utils/test'
 
 import useId, { useIdLegacy } from './useId'
 

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { ariaAttr } from '~/src/utils/domUtils'
+import { ariaAttr } from '~/src/utils/dom'
 
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 import { useFormControlContext } from '~/src/components/Forms/FormControl'

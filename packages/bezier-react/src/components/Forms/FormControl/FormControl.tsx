@@ -11,12 +11,12 @@ import useId from '~/src/hooks/useId'
 import {
   omitBezierComponentProps,
   pickBezierComponentProps,
-} from '~/src/utils/propsUtils'
+} from '~/src/utils/props'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
-import { isNil } from '~/src/utils/typeUtils'
+} from '~/src/utils/style'
+import { isNil } from '~/src/utils/type'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
 

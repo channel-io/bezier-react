@@ -8,13 +8,13 @@ import React, {
 
 import { v4 as uuid } from 'uuid'
 
-import { noop } from '~/src/utils/functionUtils'
+import { noop } from '~/src/utils/function'
 import {
   isArray,
   isBoolean,
   isEmpty,
   isNil,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'

@@ -4,8 +4,8 @@ import {
   getObjectFromEnum,
   getTitle,
   iconList,
-} from './storyUtils'
-import { isArray } from './typeUtils'
+} from './story'
+import { isArray } from './type'
 
 describe('storyUtils Test >', () => {
   describe('getTitle Test >', () => {

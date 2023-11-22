@@ -12,13 +12,13 @@ import React, {
 import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
-import { window } from '~/src/utils/domUtils'
-import { toString } from '~/src/utils/stringUtils'
+import { window } from '~/src/utils/dom'
+import { toString } from '~/src/utils/string'
 import {
   isArray,
   isEmpty,
   isNil,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'

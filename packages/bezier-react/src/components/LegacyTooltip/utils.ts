@@ -1,4 +1,4 @@
-import { getRootElement } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/dom'
 
 import {
   type GetReplacement,

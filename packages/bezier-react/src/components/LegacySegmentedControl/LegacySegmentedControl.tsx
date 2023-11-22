@@ -11,9 +11,9 @@ import { useResizeDetector } from 'react-resize-detector'
 import { v4 as uuid } from 'uuid'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/functionUtils'
-import { range } from '~/src/utils/numberUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { range } from '~/src/utils/number'
+import { isNumber } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'

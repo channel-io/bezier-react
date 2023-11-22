@@ -3,7 +3,7 @@ import React from 'react'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { DIVIDER_THICKNESS } from '~/src/components/Divider'
 

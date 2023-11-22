@@ -6,7 +6,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { isNaN } from '~/src/utils/typeUtils'
+import { isNaN } from '~/src/utils/type'
 
 import {
   Avatar,

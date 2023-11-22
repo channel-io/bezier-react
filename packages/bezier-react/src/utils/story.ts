@@ -3,7 +3,7 @@ import {
   icons,
 } from '@channel.io/bezier-icons'
 
-import { isNaN } from './typeUtils'
+import { isNaN } from './type'
 
 export const getTitle = (baseDir: string) => {
   const filePath = baseDir.split('/')

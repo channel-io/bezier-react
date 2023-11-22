@@ -5,7 +5,7 @@ import React, {
 
 import { backgroundImageVariable } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
+import { noop } from '~/src/utils/function'
 
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
