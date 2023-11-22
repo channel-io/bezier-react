@@ -1,4 +1,7 @@
-import StyleDictionary, { type Config } from 'style-dictionary'
+import StyleDictionary, {
+  type Config,
+  type Platform,
+} from 'style-dictionary'
 
 import {
   customJsCjs,
@@ -16,12 +19,18 @@ const TokenBuilder = StyleDictionary
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
-const COMMON_WEB_TRANSFORMS = [
-  'attribute/cti',
-  'name/cti/kebab',
-  customFontPxToRem.name,
-  customRadiusPx.name,
-]
+function defineWebPlatform(options: Platform): Platform {
+  return {
+    transforms: [
+      'attribute/cti',
+      'name/cti/kebab',
+      customFontPxToRem.name,
+      customRadiusPx.name,
+    ],
+    basePxFontSize: 10,
+    ...options,
+  }
+}
 
 interface DefineConfigOptions {
   source: string[]
@@ -39,8 +48,7 @@ function defineConfig({
   return {
     source,
     platforms: {
-      'js/cjs': {
-        transforms: COMMON_WEB_TRANSFORMS,
+      'js/cjs': defineWebPlatform({
         buildPath: 'dist/cjs/',
         files: [
           {
@@ -49,9 +57,8 @@ function defineConfig({
             filter: (token) => token.filePath.includes(destination),
           },
         ],
-      },
-      'js/esm': {
-        transforms: COMMON_WEB_TRANSFORMS,
+      }),
+      'js/esm': defineWebPlatform({
         buildPath: 'dist/esm/',
         files: [
           {
@@ -60,10 +67,8 @@ function defineConfig({
             filter: (token) => token.filePath.includes(destination),
           },
         ],
-      },
-      css: {
-        transforms: COMMON_WEB_TRANSFORMS,
-        basePxFontSize: 10,
+      }),
+      css: defineWebPlatform({
         buildPath: 'dist/css/',
         files: [
           {
@@ -76,7 +81,7 @@ function defineConfig({
             },
           },
         ],
-      },
+      }),
     },
   }
 }
