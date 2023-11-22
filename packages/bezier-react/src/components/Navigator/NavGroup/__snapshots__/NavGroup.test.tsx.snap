@@ -136,7 +136,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -168,7 +168,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -320,7 +320,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
       />
@@ -352,7 +352,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     >
       <path
         clip-rule="evenodd"
-        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
       />
