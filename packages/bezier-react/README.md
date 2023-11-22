@@ -49,7 +49,7 @@ root.render(
 
 ## Contributing
 
-See [contribution guide](../../CONTRIBUTING.md).
+See [contribution guide](https://github.com/channel-io/bezier-react/wiki/Contribute).
 
 ## Maintainers
 

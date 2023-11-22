@@ -1,0 +1,18 @@
+{
+  "transition": {
+    "easing": {
+      "value": "cubic-bezier(.3,0,0,1)"
+    },
+    "duration": {
+      "s": {
+        "value": "150ms"
+      },
+      "m": {
+        "value": "300ms"
+      },
+      "l": {
+        "value": "450ms"
+      }
+    }
+  }
+}
