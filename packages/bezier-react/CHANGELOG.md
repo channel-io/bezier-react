@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 1.18.0
+
+### Minor Changes
+
+- Add ModalContent's prop to allow custom value for overlay padding ([#1747](https://github.com/channel-io/bezier-react/pull/1747)) by @Tanney-102
+
 ## 1.17.1
 
 ### Patch Changes
