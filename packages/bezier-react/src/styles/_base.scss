@@ -1,6 +1,16 @@
 html {
   font-size: 62.5%; // 10/16 = 0.625. Make REM calculations easier.
   font-family: var(--font-family-sans-kr);
+
+  color-scheme: light;
+
+  &[data-bezier-theme='light'] {
+    color-scheme: light;
+  }
+
+  &[data-bezier-theme='dark'] {
+    color-scheme: dark;
+  }
 }
 
 :lang(ja) {
