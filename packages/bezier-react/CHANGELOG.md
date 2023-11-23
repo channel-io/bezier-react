@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.1
+
+### Minor Changes
+
+- Apply bezier-tokens to bezier-react's style sheet and fix some invalid css selector. ([#1495](https://github.com/channel-io/bezier-react/pull/1495)) by @sungik-choi
+
 ## 2.0.0-alpha.0
 
 ### Major Changes
