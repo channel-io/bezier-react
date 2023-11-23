@@ -75,7 +75,7 @@ export const ModalContent = forwardRef(function ModalContent({
 
     return ({
       [cv('z-index')]: zIndex,
-      padding,
+      [cv('collision-padding')]: padding,
     } as React.CSSProperties)
   }, [
     collisionPadding,
