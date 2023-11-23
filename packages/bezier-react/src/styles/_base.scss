@@ -4,10 +4,12 @@ html {
 
   color-scheme: light;
 
+  // TODO: Change data attribute constant to import from bezier-tokens
   &[data-bezier-theme='light'] {
     color-scheme: light;
   }
 
+  // TODO: Change data attribute constant to import from bezier-tokens
   &[data-bezier-theme='dark'] {
     color-scheme: dark;
   }
