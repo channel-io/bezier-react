@@ -44,6 +44,7 @@ export const ModalContent = forwardRef(function ModalContent({
   width = 'max-content',
   height = 'fit-content',
   zIndex = ZIndex.Modal,
+  collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
@@ -55,9 +56,31 @@ export const ModalContent = forwardRef(function ModalContent({
     }, []),
   )
 
-  const overlayStyle = useMemo(() => ({
-    [cv('z-index')]: zIndex,
-  } as React.CSSProperties), [zIndex])
+  const overlayStyle = useMemo(() => {
+    const padding = (() => {
+      if (isNumber(collisionPadding)) {
+        return `${collisionPadding}px`
+      }
+
+      const { top, right, bottom, left } = {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        ...collisionPadding,
+      }
+
+      return `${top}px ${right}px ${bottom}px ${left}px`
+    })()
+
+    return ({
+      [cv('z-index')]: zIndex,
+      [cv('collision-padding')]: padding,
+    } as React.CSSProperties)
+  }, [
+    collisionPadding,
+    zIndex,
+  ])
 
   const contentStyle = useMemo(() => ({
     ...style,
