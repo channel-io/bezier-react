@@ -2,7 +2,7 @@ import React from 'react'
 
 import { RoundAbsoluteNumber } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   TagBadgeSize,

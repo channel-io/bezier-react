@@ -6,7 +6,7 @@ import {
 } from '@channel.io/bezier-icons'
 import { fireEvent } from '@testing-library/react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   BANNER_LINK_TEST_ID,

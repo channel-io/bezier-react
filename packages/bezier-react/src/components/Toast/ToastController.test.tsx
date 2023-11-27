@@ -7,8 +7,8 @@ import {
   css,
 } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
-import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/function'
+import { render } from '~/src/utils/test'
 
 import {
   type ToastControllerProps,

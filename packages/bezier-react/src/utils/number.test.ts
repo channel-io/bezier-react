@@ -1,7 +1,7 @@
 import {
   clamp,
   range,
-} from '~/src/utils/numberUtils'
+} from '~/src/utils/number'
 
 describe('numberUtils', () => {
   describe('range', () => {

@@ -7,7 +7,7 @@ import React, {
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { flex } from '~/src/components/Stack/util'
 

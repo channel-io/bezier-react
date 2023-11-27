@@ -6,7 +6,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import { gap } from '~/src/utils/styleUtils'
+import { gap } from '~/src/utils/style'
 
 import {
   Button,

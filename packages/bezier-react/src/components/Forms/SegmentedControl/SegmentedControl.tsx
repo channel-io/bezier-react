@@ -11,8 +11,8 @@ import classNames from 'classnames'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+} from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'

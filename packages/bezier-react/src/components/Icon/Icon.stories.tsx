@@ -36,8 +36,8 @@ import {
 import {
   getObjectFromEnum,
   iconList,
-} from '~/src/utils/storyUtils'
-import { camelCase } from '~/src/utils/stringUtils'
+} from '~/src/utils/story'
+import { camelCase } from '~/src/utils/string'
 
 import { Select } from '~/src/components/Forms/Inputs/Select'
 import { ListItem } from '~/src/components/ListItem'

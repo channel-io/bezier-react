@@ -16,7 +16,7 @@ import {
   type ContentProps,
 } from '~/src/types/ComponentProps'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
-import { noop } from '~/src/utils/functionUtils'
+import { noop } from '~/src/utils/function'
 
 export enum ToastPlacement {
   BottomLeft = 'bottomLeft',

@@ -6,7 +6,7 @@ import React, {
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { TabListContextProvider } from './TabListContext'
 import {

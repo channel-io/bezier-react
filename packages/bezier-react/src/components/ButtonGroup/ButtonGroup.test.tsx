@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { Button } from '~/src/components/Button'
 

@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 import { LightFoundation } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   SWITCH_HANDLE_TEST_ID,

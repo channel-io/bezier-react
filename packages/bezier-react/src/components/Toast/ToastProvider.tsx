@@ -8,7 +8,7 @@ import {
 } from '~/src/foundation'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
-import { getRootElement } from '~/src/utils/domUtils'
+import { getRootElement } from '~/src/utils/dom'
 
 import {
   ToastPlacement,

@@ -9,12 +9,12 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { getRootElement } from '~/src/utils/domUtils'
-import { createContext } from '~/src/utils/reactUtils'
+import { getRootElement } from '~/src/utils/dom'
+import { createContext } from '~/src/utils/react'
 import {
   isBoolean,
   isEmpty,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import {
   TooltipPosition,

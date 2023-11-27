@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Themes } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   LegacyRadio,

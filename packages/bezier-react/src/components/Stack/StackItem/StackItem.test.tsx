@@ -2,7 +2,7 @@ import React from 'react'
 
 import { css } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { Stack } from '~/src/components/Stack'
 

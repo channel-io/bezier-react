@@ -19,7 +19,7 @@ import {
   css,
 } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
+import { noop } from '~/src/utils/function'
 
 import { ListItem } from '~/src/components/ListItem'
 import type { ListItemProps } from '~/src/components/ListItem'

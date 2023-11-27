@@ -2,7 +2,7 @@ import React from 'react'
 
 import { LightFoundation } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   FORM_ERROR_MESSAGE_TEST_ID,

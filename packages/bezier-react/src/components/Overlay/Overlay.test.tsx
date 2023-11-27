@@ -5,7 +5,7 @@ import { getWindow } from 'ssr-window'
 
 import { TransitionDuration } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Overlay, {
   CONTAINER_TEST_ID,

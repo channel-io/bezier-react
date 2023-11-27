@@ -18,8 +18,8 @@ import {
   document,
   getRootElement,
   window,
-} from '~/src/utils/domUtils'
-import { noop } from '~/src/utils/functionUtils'
+} from '~/src/utils/dom'
+import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modals'
 

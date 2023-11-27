@@ -6,7 +6,7 @@ import React, {
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 
-import { ariaAttr } from '~/src/utils/domUtils'
+import { ariaAttr } from '~/src/utils/dom'
 
 import {
   type SegmentedControlItemProps,

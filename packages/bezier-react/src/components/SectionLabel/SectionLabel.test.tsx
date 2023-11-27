@@ -7,7 +7,7 @@ import {
 
 import { LightFoundation } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
 import { DIVIDER_TEST_ID } from '~/src/components/Divider/Divider'

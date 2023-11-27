@@ -5,7 +5,7 @@ import { act } from '@testing-library/react'
 
 import { css } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   LegacyTooltip,

@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import { window } from '~/src/utils/dom'
 
 import { type ToastControllerProps } from './Toast.types'
 import {

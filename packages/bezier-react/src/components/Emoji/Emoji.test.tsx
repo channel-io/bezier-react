@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Emoji, { EMOJI_TEST_ID } from './Emoji'
 import type EmojiProps from './Emoji.types'

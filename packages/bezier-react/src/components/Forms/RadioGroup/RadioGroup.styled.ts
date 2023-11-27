@@ -7,7 +7,7 @@ import {
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { touchableHover } from '~/src/utils/styleUtils'
+import { touchableHover } from '~/src/utils/style'
 
 import { FormFieldSize } from '~/src/components/Forms'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'

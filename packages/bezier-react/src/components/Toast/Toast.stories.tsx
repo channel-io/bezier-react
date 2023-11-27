@@ -14,8 +14,8 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
-import { iconList } from '~/src/utils/storyUtils'
+import { noop } from '~/src/utils/function'
+import { iconList } from '~/src/utils/story'
 
 import {
   Button,

@@ -8,12 +8,12 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { isLastIndex } from '~/src/utils/arrayUtils'
-import { noop } from '~/src/utils/functionUtils'
+import { isLastIndex } from '~/src/utils/array'
+import { noop } from '~/src/utils/function'
 import {
   cssVarName,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import {
   type AvatarProps,

@@ -6,8 +6,8 @@ import React, {
 import { Typography } from '~/src/foundation'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/functionUtils'
-import { isEmpty } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
 

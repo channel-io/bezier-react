@@ -12,7 +12,7 @@ import {
   cssVarName,
   cssVarValue,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 

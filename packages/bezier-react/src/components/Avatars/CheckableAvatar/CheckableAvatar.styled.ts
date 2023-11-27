@@ -8,7 +8,7 @@ import {
 } from '~/src/foundation'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { touchableHover } from '~/src/utils/styleUtils'
+import { touchableHover } from '~/src/utils/style'
 
 import {
   AvatarSize,

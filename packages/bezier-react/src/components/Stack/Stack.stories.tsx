@@ -13,7 +13,7 @@ import {
 
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
-import { range } from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/number'
 
 import {
   Button,

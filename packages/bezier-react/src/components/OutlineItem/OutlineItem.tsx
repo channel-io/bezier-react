@@ -13,8 +13,8 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isNil } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isNil } from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
 

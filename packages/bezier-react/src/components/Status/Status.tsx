@@ -14,7 +14,7 @@ import {
   cssVarName,
   cssVarValue,
   px,
-} from '~/src/utils/styleUtils'
+} from '~/src/utils/style'
 
 import { IconSize } from '~/src/components/Icon'
 

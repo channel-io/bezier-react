@@ -7,7 +7,7 @@ import {
 import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import KeyValueListItem from './KeyValueListItem'
 import { TEST_ID_MAP } from './KeyValueListItem.const'

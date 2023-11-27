@@ -4,7 +4,7 @@ import React, {
   useMemo,
 } from 'react'
 
-import { isEmpty } from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import {
