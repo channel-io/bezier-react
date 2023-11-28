@@ -1,23 +1,10 @@
 import React, { useEffect } from 'react'
 
-import { tokens } from '@channel.io/bezier-tokens'
-
-import { TokenContextProvider } from '~/src/hooks/useToken'
+import {
+  type ThemeName,
+  TokenProvider,
+} from '~/src/hooks/useToken'
 import { document } from '~/src/utils/domUtils'
-
-// TODO: Change theme name constant to import from bezier-tokens
-export type ThemeName = 'light' | 'dark'
-
-const tokenSet = Object.freeze({
-  light: {
-    ...tokens.global,
-    ...tokens.lightTheme,
-  },
-  dark: {
-    ...tokens.global,
-    ...tokens.darkTheme,
-  },
-} as const)
 
 interface AlphaBezierProviderProps {
   themeName?: ThemeName
@@ -38,9 +25,9 @@ function AlphaBezierProvider({
   }, [themeName])
 
   return (
-    <TokenContextProvider value={tokenSet[themeName]}>
+    <TokenProvider themeName={themeName}>
       { children }
-    </TokenContextProvider>
+    </TokenProvider>
   )
 }
 
