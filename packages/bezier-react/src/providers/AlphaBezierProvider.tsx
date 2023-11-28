@@ -6,6 +6,8 @@ import {
 } from '~/src/hooks/useToken'
 import { document } from '~/src/utils/domUtils'
 
+import { TooltipProvider } from '~/src/components/Tooltip'
+
 interface AlphaBezierProviderProps {
   children: React.ReactNode
   themeName?: ThemeName
@@ -26,7 +28,9 @@ function AlphaBezierProvider({
 
   return (
     <TokenProvider themeName={themeName}>
-      { children }
+      <TooltipProvider>
+        { children }
+      </TooltipProvider>
     </TokenProvider>
   )
 }
