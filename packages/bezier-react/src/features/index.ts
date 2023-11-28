@@ -1,3 +1,4 @@
+export type { Feature } from './Feature'
 export { FeatureType } from './Feature'
 
 export {
