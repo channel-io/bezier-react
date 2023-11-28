@@ -12,19 +12,19 @@ import { document } from '~/src/utils/domUtils'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
-interface AlphaBezierProviderProps {
+interface AlphaAppProviderProps {
   children: React.ReactNode
   themeName?: ThemeName
   features?: Feature[]
   root?: HTMLElement
 }
 
-function AlphaBezierProvider({
+function AlphaAppProvider({
   children,
   themeName = 'light',
   features = [],
   root = document.documentElement,
-}: AlphaBezierProviderProps) {
+}: AlphaAppProviderProps) {
   useEffect(function updateThemeDataAttribute() {
     // TODO: Change data attribute constant to import from bezier-tokens
     root.setAttribute('data-bezier-theme', themeName)
@@ -47,4 +47,4 @@ function AlphaBezierProvider({
   )
 }
 
-export default AlphaBezierProvider
+export default AlphaAppProvider
