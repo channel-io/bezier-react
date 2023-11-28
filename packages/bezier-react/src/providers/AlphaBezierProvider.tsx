@@ -7,13 +7,13 @@ import {
 import { document } from '~/src/utils/domUtils'
 
 interface AlphaBezierProviderProps {
-  themeName?: ThemeName
   children: React.ReactNode
+  themeName?: ThemeName
 }
 
 function AlphaBezierProvider({
-  themeName = 'light',
   children,
+  themeName = 'light',
 }: AlphaBezierProviderProps) {
   useEffect(function updateThemeDataAttribute() {
     const root = document.documentElement

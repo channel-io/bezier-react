@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { tokens } from '@channel.io/bezier-tokens'
 
@@ -7,15 +7,19 @@ import { createContext } from '~/src/utils/reactUtils'
 type Tokens = typeof tokens
 type GlobalTokens = Tokens['global']
 type SemanticTokens = Omit<Tokens, 'global'>
-
-export type TokenContextValue = GlobalTokens & SemanticTokens[keyof SemanticTokens]
-
-const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
+type FlattedTokens = GlobalTokens & SemanticTokens[keyof SemanticTokens]
 
 // TODO: Change theme name constant to import from bezier-tokens
 export type ThemeName = 'light' | 'dark'
 
-const tokenSet: Record<ThemeName, TokenContextValue> = Object.freeze({
+export interface TokenContextValue {
+  themeName: ThemeName
+  tokens: FlattedTokens
+}
+
+const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
+
+const tokenSet: Record<ThemeName, FlattedTokens> = Object.freeze({
   light: {
     ...tokens.global,
     ...tokens.lightTheme,
@@ -44,14 +48,22 @@ export function TokenProvider({
   children,
 }: TokenProviderProps) {
   return (
-    <TokenContextProvider value={tokenSet[themeName]}>
+    <TokenContextProvider value={useMemo(() => ({
+      themeName,
+      tokens: tokenSet[themeName],
+    }), [themeName])}
+    >
       { children }
     </TokenContextProvider>
   )
 }
 
+export function useThemeName() {
+  return useTokenContext('useThemeName').themeName
+}
+
 function useToken() {
-  return useTokenContext('useToken')
+  return useTokenContext('useToken').tokens
 }
 
 export default useToken
