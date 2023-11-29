@@ -12,7 +12,7 @@ import { Typography } from '~/src/foundation'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getRootElement } from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 import {
   isArray,
   isEmpty,
@@ -92,6 +92,8 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   testId,
   forwardedRef,
 }) => {
+  const { getRootElement } = useWindow()
+
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
@@ -109,9 +111,11 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
       tooltip: tooltipRef.current,
       keepInContainer,
       placement,
+      rootElement: getRootElement(),
     })
     setReplacement(newPlacement)
   }, [
+    getRootElement,
     keepInContainer,
     placement,
   ])

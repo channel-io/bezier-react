@@ -8,7 +8,7 @@ import {
 } from '~/src/foundation'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
-import { getRootElement } from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 
 import {
   ToastPlacement,
@@ -26,6 +26,7 @@ function ToastProvider({
   container: givenContainer,
   children = [],
 }: ToastProviderProps) {
+  const { getRootElement } = useWindow()
   const isMounted = useIsMounted()
 
   const toastContextValue = useToastProviderValues()

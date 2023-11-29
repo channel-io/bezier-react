@@ -15,7 +15,6 @@ import ReactDOM from 'react-dom'
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
-import { getRootElement } from '~/src/utils/dom'
 import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modals'
@@ -60,6 +59,7 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
+  const { getRootElement } = useWindow()
   const { window, document } = useWindow()
 
   const [shouldRender, setShouldRender] = useState(false)

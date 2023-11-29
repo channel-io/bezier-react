@@ -9,7 +9,7 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { getRootElement } from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 import { createContext } from '~/src/utils/react'
 import {
   isBoolean,
@@ -177,6 +177,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   delayHide: delayHideProp,
   ...rest
 }, forwardedRef) {
+  const { getRootElement } = useWindow()
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
