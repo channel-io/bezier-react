@@ -4,7 +4,17 @@ import '~/src/styles/index.scss'
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
 export * from '~/src/providers/WindowProvider'
 export * from '~/src/providers/AlphaAppProvider'
-export * from '~/src/providers/ThemeProvider'
+export {
+  useThemeName,
+  useToken,
+  ThemeProvider,
+  LightTheme,
+  DarkTheme,
+  InvertedTheme,
+  type ThemeName,
+  type ThemeProviderProps,
+  type FixedThemeProviderProps,
+} from '~/src/providers/ThemeProvider'
 
 /* Foundation */
 export * from '~/src/foundation'

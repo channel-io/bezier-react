@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
   type Feature,
@@ -10,7 +10,7 @@ import { TooltipProvider } from '~/src/components/Tooltip'
 
 import {
   type ThemeName,
-  ThemeProvider,
+  TokenProvider,
 } from './ThemeProvider'
 import { WindowProvider } from './WindowProvider'
 
@@ -59,16 +59,26 @@ export function AlphaAppProvider({
   features = [],
   window = defaultWindow,
 }: AlphaAppProviderProps) {
+  useEffect(function updateThemeDataAttribute() {
+    const rootElement = window.document.documentElement
+    // TODO: Change data attribute constant to import from bezier-tokens
+    rootElement.setAttribute('data-bezier-theme', themeName)
+    return function cleanup() {
+      rootElement.removeAttribute('data-bezier-theme')
+    }
+  }, [
+    window,
+    themeName,
+  ])
+
   return (
     <WindowProvider window={window}>
       <FeatureProvider features={features}>
-        <TooltipProvider>
-          <ThemeProvider themeName={themeName}>
-            <div data-bezier-root>
-              { children }
-            </div>
-          </ThemeProvider>
-        </TooltipProvider>
+        <TokenProvider themeName={themeName}>
+          <TooltipProvider>
+            { children }
+          </TooltipProvider>
+        </TokenProvider>
       </FeatureProvider>
     </WindowProvider>
   )

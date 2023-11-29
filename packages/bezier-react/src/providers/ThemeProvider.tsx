@@ -39,7 +39,10 @@ interface TokenProviderProps {
   children: React.ReactNode
 }
 
-function TokenProvider({
+/**
+ * @private For internal use only.
+ */
+export function TokenProvider({
   themeName,
   children,
 }: TokenProviderProps) {
@@ -120,7 +123,7 @@ export const DarkTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(functi
   return (
     <ThemeProvider
       ref={forwardedRef}
-      themeName="light"
+      themeName="dark"
     >
       { children }
     </ThemeProvider>
