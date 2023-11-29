@@ -30,11 +30,7 @@ const tokenSet: Record<ThemeName, FlattedTokens> = Object.freeze({
   },
 })
 
-/**
- * For internal use only.
- * @private
- */
-export interface TokenProviderProps {
+interface TokenProviderProps {
   themeName: ThemeName
   children: React.ReactNode
 }
