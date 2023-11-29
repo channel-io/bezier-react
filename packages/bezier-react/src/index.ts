@@ -1,5 +1,6 @@
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
+export { default as WindowProvider, useWindow } from '~/src/providers/WindowProvider'
 
 /* Foundation */
 export * from '~/src/foundation'

@@ -9,7 +9,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getRootElement } from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 import {
   cssVarName,
   px,
@@ -38,7 +38,7 @@ const cv = cssVarName('modal')
 export const ModalContent = forwardRef(function ModalContent({
   children,
   style,
-  container = getRootElement(),
+  container: givenContainer,
   showCloseIcon = false,
   preventHideOnOutsideClick = false,
   width = 'max-content',
@@ -47,6 +47,8 @@ export const ModalContent = forwardRef(function ModalContent({
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const { rootElement } = useWindow()
+  const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
 
   const contentRef = useMergeRefs(

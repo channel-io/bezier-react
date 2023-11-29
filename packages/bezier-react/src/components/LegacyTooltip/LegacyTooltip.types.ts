@@ -51,6 +51,7 @@ export interface GetTooltipStyle extends Required<Pick<LegacyTooltipOptions, 'pl
 
 export interface GetReplacement extends Required<Pick<LegacyTooltipOptions, 'placement' | 'keepInContainer'>> {
   tooltip: HTMLDivElement
+  rootElement: HTMLElement
 }
 
 export enum LegacyTooltipPosition {

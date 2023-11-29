@@ -14,11 +14,7 @@ import ReactDOM from 'react-dom'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import {
-  document,
-  getRootElement,
-  window,
-} from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modals'
@@ -63,6 +59,9 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
+  const { rootElement } = useWindow()
+  const { window, document } = useWindow()
+
   const [shouldRender, setShouldRender] = useState(false)
   const [shouldShow, setShouldShow] = useState(false)
 
@@ -75,7 +74,7 @@ function Overlay(
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
-  const defaultContainer = getRootElement()
+  const defaultContainer = rootElement
   const modalContainer = useModalContainerContext()
 
   const hasContainer = Boolean(givenContainer || modalContainer)
@@ -295,6 +294,7 @@ function Overlay(
     withTransition,
     shouldRender,
     shouldShow,
+    window,
   ])
 
   if (!shouldRender) { return null }
