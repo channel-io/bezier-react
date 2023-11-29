@@ -19,10 +19,23 @@ export function useWindow() {
 }
 
 interface WindowProviderProps extends PropsWithChildren {
+  /**
+   * injected window
+   * @required
+   */
   window: Window
+
+  /**
+   * injected document
+   * @required
+   */
   document: Document
 }
 
+/**
+ * A Provider that provides window and document object
+ * you can use this provider to inject an external window
+ */
 function WindowProvider({ window, document, children }: WindowProviderProps) {
   const getRootElement = useCallback(() => document.body, [document.body])
 
