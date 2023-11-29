@@ -29,7 +29,7 @@ interface WindowProviderProps extends PropsWithChildren {
  * A Provider that provides window and document object
  * you can use this provider to inject an external window
  */
-function WindowProvider({ window, children }: WindowProviderProps) {
+export function WindowProvider({ window, children }: WindowProviderProps) {
   const document = window.document
   const rootElement = document.body
 
@@ -47,5 +47,3 @@ function WindowProvider({ window, children }: WindowProviderProps) {
     <WindowContextProvider value={value}>{ children }</WindowContextProvider>
   )
 }
-
-export default WindowProvider

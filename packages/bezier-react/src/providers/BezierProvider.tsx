@@ -13,7 +13,7 @@ import { window as defaultWindow } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
-import WindowProvider from './WindowProvider'
+import { WindowProvider } from './WindowProvider'
 
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp

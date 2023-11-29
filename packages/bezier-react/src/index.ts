@@ -2,9 +2,9 @@ import '~/src/styles/index.scss'
 
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
-export { default as WindowProvider, useWindow } from '~/src/providers/WindowProvider'
+export * from '~/src/providers/WindowProvider'
 export * from '~/src/providers/AlphaAppProvider'
-export * from '~/src/providers/FixedThemeProvider'
+export * from '~/src/providers/ThemeProvider'
 
 /* Foundation */
 export * from '~/src/foundation'
@@ -79,11 +79,6 @@ export { ZIndex } from '~/src/constants/ZIndex'
 export { default as useEventHandler } from '~/src/hooks/useEventHandler'
 export { default as useMergeRefs } from '~/src/hooks/useMergeRefs'
 export { default as useId } from '~/src/hooks/useId'
-export {
-  useToken,
-  useThemeName,
-  type ThemeName,
-} from '~/src/hooks/useToken'
 
 /* Utils */
 export { getRootElement } from '~/src/utils/dom'
