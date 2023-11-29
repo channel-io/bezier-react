@@ -16,23 +16,23 @@ interface AlphaAppProviderProps {
   children: React.ReactNode
   themeName?: ThemeName
   features?: Feature[]
-  root?: HTMLElement
+  rootElement?: HTMLElement
 }
 
 function AlphaAppProvider({
   children,
   themeName = 'light',
   features = [],
-  root = document.documentElement,
+  rootElement = document.documentElement,
 }: AlphaAppProviderProps) {
   useEffect(function updateThemeDataAttribute() {
     // TODO: Change data attribute constant to import from bezier-tokens
-    root.setAttribute('data-bezier-theme', themeName)
+    rootElement.setAttribute('data-bezier-theme', themeName)
     return function cleanup() {
-      root.removeAttribute('data-bezier-theme')
+      rootElement.removeAttribute('data-bezier-theme')
     }
   }, [
-    root,
+    rootElement,
     themeName,
   ])
 
