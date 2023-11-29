@@ -29,6 +29,9 @@ function FixedThemeProviderBuilder({
   )
 }
 
+/**
+ * `LightTheme` is a wrapper component that provides light theme context.
+ */
 export function LightTheme({ children }: FixedThemeProviderProps) {
   return (
     <FixedThemeProviderBuilder themeName="light">
@@ -37,6 +40,9 @@ export function LightTheme({ children }: FixedThemeProviderProps) {
   )
 }
 
+/**
+ * `DarkTheme` is a wrapper component that provides dark theme context.
+ */
 export function DarkTheme({ children }: FixedThemeProviderProps) {
   return (
     <FixedThemeProviderBuilder themeName="dark">
@@ -45,6 +51,9 @@ export function DarkTheme({ children }: FixedThemeProviderProps) {
   )
 }
 
+/**
+ * `InvertedTheme` is a wrapper component that provides inverted theme context.
+ */
 export function InvertedTheme({ children }: FixedThemeProviderProps) {
   return (
     <FixedThemeProviderBuilder themeName={useThemeName() === 'light' ? 'dark' : 'light'}>

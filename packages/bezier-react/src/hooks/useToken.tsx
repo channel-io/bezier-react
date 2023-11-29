@@ -58,10 +58,16 @@ export function TokenProvider({
   )
 }
 
+/**
+ * `useThemeName` is a hook that returns the current theme name.
+ */
 export function useThemeName() {
   return useTokenContext('useThemeName').themeName
 }
 
+/**
+ * `useToken` is a hook that returns the design token for the current theme.
+ */
 function useToken() {
   return useTokenContext('useToken').tokens
 }
