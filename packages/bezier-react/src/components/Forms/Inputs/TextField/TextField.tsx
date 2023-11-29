@@ -12,7 +12,7 @@ import React, {
 import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
-import { window } from '~/src/utils/dom'
+import { useWindow } from '~/src/providers/WindowProvider'
 import { toString } from '~/src/utils/string'
 import {
   isArray,
@@ -80,6 +80,8 @@ function TextFieldComponent({
 }: TextFieldProps,
 forwardedRef: Ref<TextFieldRef>,
 ) {
+  const { window } = useWindow()
+
   const {
     disabled,
     readOnly,
@@ -127,14 +129,14 @@ forwardedRef: Ref<TextFieldRef>,
     focusTimeout.current = window.setTimeout(() => {
       inputRef.current?.focus()
     }, 0)
-  }, [])
+  }, [window])
 
   const blur = useCallback(() => {
     clearTimeout(blurTimeout.current)
     blurTimeout.current = window.setTimeout(() => {
       inputRef.current?.blur()
     }, 0)
-  }, [])
+  }, [window])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
     if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
