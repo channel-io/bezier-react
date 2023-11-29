@@ -14,16 +14,48 @@ import { TooltipProvider } from '~/src/components/Tooltip'
 
 interface AlphaAppProviderProps {
   children: React.ReactNode
+  /**
+   * Name of the theme to use for the app.
+   * @default 'light'
+   */
   themeName?: ThemeName
+  /**
+   * List of features to enable for the app.
+   * @default []
+   */
   features?: Feature[]
+  /**
+   * Root element to apply theme data attribute to.
+   * @default document.body
+   */
   rootElement?: HTMLElement
 }
 
+/**
+ * `AlphaAppProvider` is a required wrapper component that provides context for the app.
+ *
+ * @example
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { createRoot } from 'react-dom/client'
+ * import { AlphaAppProvider } from '@channel.io/bezier-react'
+ *
+ * const container = document.getElementById('root')
+ * const root = createRoot(container)
+ *
+ * root.render(
+ *   <AlphaAppProvider themeName="light">
+ *     <App />
+ *   </AlphaAppProvider>,
+ * )
+ * ```
+ */
 function AlphaAppProvider({
   children,
   themeName = 'light',
   features = [],
-  rootElement = document.documentElement,
+  rootElement = document.body,
 }: AlphaAppProviderProps) {
   useEffect(function updateThemeDataAttribute() {
     // TODO: Change data attribute constant to import from bezier-tokens
