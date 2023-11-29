@@ -12,7 +12,7 @@ import { document } from '~/src/utils/domUtils'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
-interface AlphaAppProviderProps {
+export interface AlphaAppProviderProps {
   children: React.ReactNode
   /**
    * Name of the theme to use for the app.
@@ -51,7 +51,7 @@ interface AlphaAppProviderProps {
  * )
  * ```
  */
-function AlphaAppProvider({
+export function AlphaAppProvider({
   children,
   themeName = 'light',
   features = [],
@@ -78,5 +78,3 @@ function AlphaAppProvider({
     </TokenProvider>
   )
 }
-
-export default AlphaAppProvider

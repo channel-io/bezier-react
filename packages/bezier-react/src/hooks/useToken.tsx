@@ -12,7 +12,7 @@ type FlattedTokens = GlobalTokens & SemanticTokens[keyof SemanticTokens]
 // TODO: Change theme name constant to import from bezier-tokens
 export type ThemeName = 'light' | 'dark'
 
-export interface TokenContextValue {
+interface TokenContextValue {
   themeName: ThemeName
   tokens: FlattedTokens
 }
@@ -68,8 +68,6 @@ export function useThemeName() {
 /**
  * `useToken` is a hook that returns the design token for the current theme.
  */
-function useToken() {
+export function useToken() {
   return useTokenContext('useToken').tokens
 }
-
-export default useToken
