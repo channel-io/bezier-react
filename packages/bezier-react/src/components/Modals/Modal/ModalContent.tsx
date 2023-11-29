@@ -47,8 +47,8 @@ export const ModalContent = forwardRef(function ModalContent({
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  const { getRootElement } = useWindow()
-  const container = givenContainer ?? getRootElement()
+  const { rootElement } = useWindow()
+  const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
 
   const contentRef = useMergeRefs(

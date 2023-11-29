@@ -26,7 +26,7 @@ function ToastProvider({
   container: givenContainer,
   children = [],
 }: ToastProviderProps) {
-  const { getRootElement } = useWindow()
+  const { rootElement } = useWindow()
   const isMounted = useIsMounted()
 
   const toastContextValue = useToastProviderValues()
@@ -35,7 +35,7 @@ function ToastProvider({
     rightToasts,
     dismiss,
   } = toastContextValue
-  const container = givenContainer ?? getRootElement()
+  const container = givenContainer ?? rootElement
 
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
     <ToastContainer

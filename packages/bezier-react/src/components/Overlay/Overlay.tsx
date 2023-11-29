@@ -59,7 +59,7 @@ function Overlay(
   }: OverlayProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  const { getRootElement } = useWindow()
+  const { rootElement } = useWindow()
   const { window, document } = useWindow()
 
   const [shouldRender, setShouldRender] = useState(false)
@@ -74,7 +74,7 @@ function Overlay(
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
-  const defaultContainer = getRootElement()
+  const defaultContainer = rootElement
   const modalContainer = useModalContainerContext()
 
   const hasContainer = Boolean(givenContainer || modalContainer)

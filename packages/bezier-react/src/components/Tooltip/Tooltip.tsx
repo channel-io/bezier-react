@@ -177,14 +177,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   delayHide: delayHideProp,
   ...rest
 }, forwardedRef) {
-  const { getRootElement } = useWindow()
+  const { rootElement } = useWindow()
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
   const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
   const delayHide = delayHideProp ?? globalDelayHide
 
-  const defaultContainer = getRootElement()
+  const defaultContainer = rootElement
   const container = givenContainer ?? defaultContainer
 
   const shouldBeHidden = useMemo(() => (

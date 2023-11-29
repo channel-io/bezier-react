@@ -92,7 +92,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   testId,
   forwardedRef,
 }) => {
-  const { getRootElement } = useWindow()
+  const { rootElement } = useWindow()
 
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)
@@ -111,11 +111,11 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
       tooltip: tooltipRef.current,
       keepInContainer,
       placement,
-      rootElement: getRootElement(),
+      rootElement,
     })
     setReplacement(newPlacement)
   }, [
-    getRootElement,
+    rootElement,
     keepInContainer,
     placement,
   ])
@@ -163,7 +163,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
           </EllipsisableContent>
         </Content>
       </ContentWrapper>,
-      getRootElement(),
+      rootElement,
     )
   )
 }
