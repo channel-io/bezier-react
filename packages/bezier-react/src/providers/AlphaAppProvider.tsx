@@ -8,9 +8,11 @@ import {
   type ThemeName,
   TokenProvider,
 } from '~/src/hooks/useToken'
-import { document } from '~/src/utils/dom'
+import { window as defaultWindow } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
+
+import WindowProvider from './WindowProvider'
 
 export interface AlphaAppProviderProps {
   children: React.ReactNode
@@ -25,8 +27,13 @@ export interface AlphaAppProviderProps {
    */
   features?: Feature[]
   /**
-   * Root element to apply theme data attribute to.
-   * @default document.body
+   * Window object to use for the app.
+   * @default window
+   */
+  window?: Window
+  /**
+   * Root element to apply theme data attribute to. window of default value is a window object passed by `window` prop
+   * @default window.document.body
    */
   rootElement?: HTMLElement
 }
@@ -55,7 +62,8 @@ export function AlphaAppProvider({
   children,
   themeName = 'light',
   features = [],
-  rootElement = document.body,
+  window = defaultWindow,
+  rootElement = window.document.body,
 }: AlphaAppProviderProps) {
   useEffect(function updateThemeDataAttribute() {
     // TODO: Change data attribute constant to import from bezier-tokens
@@ -69,12 +77,14 @@ export function AlphaAppProvider({
   ])
 
   return (
-    <TokenProvider themeName={themeName}>
-      <FeatureProvider features={features}>
-        <TooltipProvider>
-          { children }
-        </TooltipProvider>
-      </FeatureProvider>
-    </TokenProvider>
+    <WindowProvider window={window}>
+      <TokenProvider themeName={themeName}>
+        <FeatureProvider features={features}>
+          <TooltipProvider>
+            { children }
+          </TooltipProvider>
+        </FeatureProvider>
+      </TokenProvider>
+    </WindowProvider>
   )
 }
