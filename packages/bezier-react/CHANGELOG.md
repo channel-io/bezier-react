@@ -1,5 +1,31 @@
 # @channel.io/bezier-react
 
+## 1.19.0
+
+### Minor Changes
+
+- Allow external window for bezier ([#1764](https://github.com/channel-io/bezier-react/pull/1764)) by @Tanney-102
+
+  - You can inject window object with WindowProvider.
+
+    - example
+
+      ```ts
+      <WindowProvider
+        window={givenExternalWindow ?? window}
+        document={givenExternalDocument ?? window.document}
+      >
+        // ...
+      </WindowProvider>;
+
+      // use window in context with useWindow
+      const { window, document } = useWindow();
+      ```
+
+  - BezierProvider includes WindowProvider so that inject external window with BezierProvider.
+  - WindowProvider also provide getRootElement function that returns window.document.
+  - Migrate Bezier components to use useWindow instead of functions in utils/dom.ts
+
 ## 1.18.0
 
 ### Minor Changes
