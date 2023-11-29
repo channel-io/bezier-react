@@ -11,28 +11,34 @@ import {
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
+import WindowProvider from './WindowProvider'
+
 interface BezierProviderProps {
   foundation: Foundation & GlobalStyleProp
   children: React.ReactNode
   themeVarsScope?: ThemeVarsAdditionalType['scope']
+  externalWindow?: Window
 }
 
 function BezierProvider({
   foundation,
   children,
   themeVarsScope,
+  externalWindow,
 }: BezierProviderProps) {
   return (
-    <FoundationProvider foundation={foundation}>
-      <TooltipProvider>
-        <GlobalStyle foundation={foundation} />
-        <ThemeVars
-          foundation={foundation}
-          scope={themeVarsScope}
-        />
-        { children }
-      </TooltipProvider>
-    </FoundationProvider>
+    <WindowProvider externalWindow={externalWindow}>
+      <FoundationProvider foundation={foundation}>
+        <TooltipProvider>
+          <GlobalStyle foundation={foundation} />
+          <ThemeVars
+            foundation={foundation}
+            scope={themeVarsScope}
+          />
+          { children }
+        </TooltipProvider>
+      </FoundationProvider>
+    </WindowProvider>
   )
 }
 
