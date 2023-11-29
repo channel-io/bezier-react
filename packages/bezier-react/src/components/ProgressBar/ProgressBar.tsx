@@ -4,7 +4,7 @@ import React, {
   memo,
 } from 'react'
 
-import { clamp } from '~/src/utils/numberUtils'
+import { clamp } from '~/src/utils/number'
 
 import type ProgressBarProps from './ProgressBar.types'
 

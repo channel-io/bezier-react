@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Spinner, { SPINNER_TEST_ID } from './Spinner'
 import { SpinnerSize } from './Spinner.types'

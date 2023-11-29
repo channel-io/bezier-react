@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import { useWindow } from '~/src/providers/WindowProvider'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'
@@ -43,6 +43,8 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   }: LegacyTooltipProps,
   forwardedRef: Ref<any>,
 ) {
+  const { window } = useWindow()
+
   const [show, setShow] = useState(false)
   const [didMount, setDidMount] = useState(show)
 
@@ -74,6 +76,7 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   }, [
     delayShow,
     disabled,
+    window,
   ])
 
   const handleMouseLeave = useCallback(() => {
@@ -91,6 +94,7 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   }, [
     delayHide,
     disabled,
+    window,
   ])
 
   const TooltipComponent = useMemo(() => {

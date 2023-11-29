@@ -5,7 +5,11 @@ import React, {
 
 import classNames from 'classnames'
 
-import { isEmpty } from '~/src/utils/typeUtils'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/style'
+import { isEmpty } from '~/src/utils/type'
 
 import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
@@ -23,6 +27,8 @@ import { AvatarSize } from './Avatar.types'
 import useProgressiveImage from './useProgressiveImage'
 
 import * as Styled from './Avatar.styled'
+
+const cv = cssVarName('avatar')
 
 const shadow: BoxShadow = {
   spreadRadius: 2,
@@ -90,7 +96,7 @@ export const Avatar = forwardRef(function Avatar({
   )
 
   const avatarStyle = useMemo(() => ({
-    '--bezier-avatar-status-gap': `${size >= AvatarSize.Size72 ? 4 : -2}px`,
+    [cv('status-gap')]: px(size >= AvatarSize.Size72 ? 4 : -2),
   } as React.CSSProperties), [size])
 
   return (

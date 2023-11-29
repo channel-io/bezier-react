@@ -4,7 +4,7 @@ import { AllIcon } from '@channel.io/bezier-icons'
 
 import { LightFoundation } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   ICON_TEST_ID,

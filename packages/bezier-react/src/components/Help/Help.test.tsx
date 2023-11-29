@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import Help, { HELP_TEST_ID } from './Help'
 import type HelpProps from './Help.types'

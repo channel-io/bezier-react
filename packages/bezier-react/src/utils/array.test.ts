@@ -1,7 +1,7 @@
 import {
   compact,
   flattenDeep,
-} from './arrayUtils'
+} from './array'
 
 describe('arrayUtils', () => {
   describe('compact', () => {

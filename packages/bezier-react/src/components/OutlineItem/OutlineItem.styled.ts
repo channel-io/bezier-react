@@ -5,7 +5,7 @@ import {
 } from '~/src/foundation'
 
 import { type InterpolationProps } from '~/src/types/Foundation'
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 

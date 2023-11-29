@@ -1,7 +1,7 @@
 import type React from 'react'
 
-import { noop } from '~/src/utils/functionUtils'
-import { createContext } from '~/src/utils/reactUtils'
+import { noop } from '~/src/utils/function'
+import { createContext } from '~/src/utils/react'
 
 interface OutlineItemContextProps {
   depth: number

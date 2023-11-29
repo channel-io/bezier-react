@@ -3,7 +3,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import { flex } from '~/src/components/Stack/util'
 

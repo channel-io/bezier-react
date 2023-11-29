@@ -6,7 +6,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/story'
 
 import { AvatarSize } from '~/src/components/Avatars/Avatar'
 

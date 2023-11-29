@@ -1,4 +1,4 @@
-import { createContext } from '~/src/utils/reactUtils'
+import { createContext } from '~/src/utils/react'
 
 import {
   type SegmentedControlProps,

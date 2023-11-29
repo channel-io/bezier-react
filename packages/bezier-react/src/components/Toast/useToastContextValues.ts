@@ -4,7 +4,7 @@ import {
   useState,
 } from 'react'
 
-import { noop } from '~/src/utils/functionUtils'
+import { noop } from '~/src/utils/function'
 
 import {
   type OnDismissCallback,

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import { StatusType } from '~/src/components/Status'
 

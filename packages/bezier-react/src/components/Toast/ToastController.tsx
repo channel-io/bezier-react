@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react'
 
-import { window } from '~/src/utils/domUtils'
+import { useWindow } from '~/src/providers/WindowProvider'
 
 import { type ToastControllerProps } from './Toast.types'
 import {
@@ -23,6 +23,8 @@ function ToastController({
   version = 0,
   ...props
 }: ToastControllerProps) {
+  const { window } = useWindow()
+
   const [transform, setTransform] = useState(showedToastTranslateXStyle)
   const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
 
@@ -35,6 +37,7 @@ function ToastController({
     onDismiss,
     placement,
     transitionDuration,
+    window,
   ])
 
   const startDismissTimer = useCallback(() => {
@@ -42,6 +45,7 @@ function ToastController({
   }, [
     autoDismissTimeout,
     handleDismiss,
+    window,
   ])
 
   const clearDismissTimer = useCallback(() => {

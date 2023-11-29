@@ -10,7 +10,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { compact } from '~/src/utils/arrayUtils'
+import { compact } from '~/src/utils/array'
 
 import ListItem from './ListItem'
 import type ListItemProps from './ListItem.types'

@@ -8,8 +8,12 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { isLastIndex } from '~/src/utils/arrayUtils'
-import { noop } from '~/src/utils/functionUtils'
+import { isLastIndex } from '~/src/utils/array'
+import { noop } from '~/src/utils/function'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/style'
 
 import {
   type AvatarProps,
@@ -30,6 +34,8 @@ import {
 } from './AvatarGroup.types'
 
 import * as Styled from './AvatarGroup.styled'
+
+const cv = cssVarName('avatar-group')
 
 const MAX_AVATAR_LIST_COUNT = 99
 
@@ -163,8 +169,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
             { AvatarElement }
             <Styled.AvatarEllipsisCountWrapper
               style={{
-                '--bezier-avatar-group-ellipsis-mr': `${getProperEllipsisCountMarginRight(size)}px`,
-                '--bezier-avatar-group-ellipsis-ml': `${Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)}px`,
+                [cv('ellipsis-mr')]: px(getProperEllipsisCountMarginRight(size)),
+                [cv('ellipsis-ml')]: px(Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)),
               } as React.CSSProperties}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
@@ -203,8 +209,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
       className={className}
       style={{
         ...style,
-        '--bezier-avatar-group-spacing': `${spacing}px`,
-        '--bezier-avatar-group-size': `${size}px`,
+        [cv('spacing')]: px(spacing),
+        [cv('size')]: px(size),
       } as React.CSSProperties}
       {...rest}
     >

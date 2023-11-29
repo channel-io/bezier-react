@@ -8,7 +8,7 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { range } from '~/src/utils/numberUtils'
+import { range } from '~/src/utils/number'
 
 import {
   Avatar,

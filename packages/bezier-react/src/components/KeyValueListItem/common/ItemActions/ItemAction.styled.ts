@@ -4,7 +4,7 @@ import {
 } from '~/src/foundation'
 
 import { type AdditionalColorProps } from '~/src/types/ComponentProps'
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 

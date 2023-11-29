@@ -34,7 +34,7 @@ references:
 executors:
   node_executor:
     docker:
-      - image: node:18.17.1
+      - image: node:18.18.2
     resource_class: xlarge
     working_directory: *workspace_root
 

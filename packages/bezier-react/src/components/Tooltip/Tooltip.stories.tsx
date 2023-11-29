@@ -6,7 +6,7 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/storyUtils'
+import { getObjectFromEnum } from '~/src/utils/story'
 
 import { Button } from '~/src/components/Button'
 

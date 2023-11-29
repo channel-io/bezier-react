@@ -4,7 +4,7 @@ import type { Ref } from 'react'
 import {
   isInteger,
   isNil,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import type StackItemProps from './StackItem.types'
 

@@ -5,7 +5,7 @@ import React, {
 
 import { Typography } from '~/src/foundation'
 
-import { isEmpty } from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
 import { Help } from '~/src/components/Help'

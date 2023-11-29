@@ -8,8 +8,8 @@ import {
 import { DarkTheme } from '~/src/foundation/Colors/Theme'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { noop } from '~/src/utils/functionUtils'
-import { render } from '~/src/utils/testUtils'
+import { noop } from '~/src/utils/function'
+import { render } from '~/src/utils/test'
 
 import type ToastElementProps from './Toast.types'
 import {

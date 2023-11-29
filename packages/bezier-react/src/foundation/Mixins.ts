@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import type { SimpleInterpolation } from 'styled-components'
 
 import { SmoothCornersFeature } from '~/src/features'
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import { css } from './FoundationStyledComponent'
 

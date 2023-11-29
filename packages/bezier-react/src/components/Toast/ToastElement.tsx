@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
 
-import { isString } from '~/src/utils/typeUtils'
+import { isString } from '~/src/utils/type'
 
 import {
   Icon,

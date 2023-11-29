@@ -4,11 +4,18 @@ import React, {
   useMemo,
 } from 'react'
 
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/style'
+
 import { flex } from '~/src/components/Stack/util'
 
 import type { AlphaStackProps } from './AlphaStack.types'
 
 import * as Styled from './AlphaStack.styled'
+
+const cv = cssVarName('alpha-stack')
 
 /**
  * `AlphaStack` provides an abstraction of **flex layout** so that
@@ -46,10 +53,10 @@ export const AlphaStack = forwardRef(function AlphaStack(
 ) {
   const stackStyle = useMemo(() => ({
     ...style,
-    '--bezier-alpha-stack-direction': direction === 'horizontal' ? 'row' : 'column',
-    '--bezier-alpha-stack-justify': flex(justify),
-    '--bezier-alpha-stack-align': flex(align),
-    '--bezier-alpha-stack-spacing': `${spacing}px`,
+    [cv('direction')]: direction === 'horizontal' ? 'row' : 'column',
+    [cv('justify')]: flex(justify),
+    [cv('align')]: flex(align),
+    [cv('spacing')]: px(spacing),
   } as React.CSSProperties),
   [
     align,

@@ -17,8 +17,8 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import { noop } from '~/src/utils/functionUtils'
-import { getObjectFromEnum } from '~/src/utils/storyUtils'
+import { noop } from '~/src/utils/function'
+import { getObjectFromEnum } from '~/src/utils/story'
 
 import {
   StackItem,

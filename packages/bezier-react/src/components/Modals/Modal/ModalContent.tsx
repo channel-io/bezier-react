@@ -9,8 +9,12 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getRootElement } from '~/src/utils/domUtils'
-import { isNumber } from '~/src/utils/typeUtils'
+import { useWindow } from '~/src/providers/WindowProvider'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import {
   type ModalContentProps,
@@ -24,6 +28,8 @@ import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
 
+const cv = cssVarName('modal')
+
 /**
  * `ModalContent` is a container of the modal content.
  * It creates a portal to render the modal content outside of the DOM tree
@@ -32,14 +38,17 @@ import * as Styled from './Modal.styled'
 export const ModalContent = forwardRef(function ModalContent({
   children,
   style,
-  container = getRootElement(),
+  container: givenContainer,
   showCloseIcon = false,
   preventHideOnOutsideClick = false,
   width = 'max-content',
   height = 'fit-content',
   zIndex = ZIndex.Modal,
+  collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  const { rootElement } = useWindow()
+  const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
 
   const contentRef = useMergeRefs(
@@ -49,20 +58,37 @@ export const ModalContent = forwardRef(function ModalContent({
     }, []),
   )
 
-  const overlayStyle = useMemo((): React.CSSProperties & {
-    '--bezier-modal-z-index': ModalContentProps['zIndex']
-  } => ({
-    '--bezier-modal-z-index': zIndex,
-  }), [zIndex])
+  const overlayStyle = useMemo(() => {
+    const padding = (() => {
+      if (isNumber(collisionPadding)) {
+        return `${collisionPadding}px`
+      }
 
-  const contentStyle = useMemo((): React.CSSProperties & {
-    '--bezier-modal-width': ModalContentProps['width']
-    '--bezier-modal-height': ModalContentProps['height']
-  } => ({
+      const { top, right, bottom, left } = {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        ...collisionPadding,
+      }
+
+      return `${top}px ${right}px ${bottom}px ${left}px`
+    })()
+
+    return ({
+      [cv('z-index')]: zIndex,
+      [cv('collision-padding')]: padding,
+    } as React.CSSProperties)
+  }, [
+    collisionPadding,
+    zIndex,
+  ])
+
+  const contentStyle = useMemo(() => ({
     ...style,
-    '--bezier-modal-width': isNumber(width) ? `${width}px` : width,
-    '--bezier-modal-height': isNumber(height) ? `${height}px` : height,
-  }), [
+    [cv('width')]: isNumber(width) ? px(width) : width,
+    [cv('height')]: isNumber(height) ? px(height) : height,
+  } as React.CSSProperties), [
     style,
     width,
     height,

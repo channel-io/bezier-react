@@ -1,4 +1,4 @@
-import { noop } from './functionUtils'
+import { noop } from './function'
 import {
   isArray,
   isBoolean,
@@ -12,7 +12,7 @@ import {
   isRegExp,
   isString,
   isSymbol,
-} from './typeUtils'
+} from './type'
 
 describe('typeUtils', () => {
   describe('isFunction', () => {

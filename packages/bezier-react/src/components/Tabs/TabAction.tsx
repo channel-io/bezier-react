@@ -4,7 +4,7 @@ import { OpenInNewIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { isNil } from '~/src/utils/typeUtils'
+import { isNil } from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'

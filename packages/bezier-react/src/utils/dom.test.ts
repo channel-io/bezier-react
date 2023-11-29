@@ -2,7 +2,7 @@ import {
   document,
   getRootElement,
   window,
-} from './domUtils'
+} from './dom'
 
 describe('domUtils', () => {
   describe('document', () => {

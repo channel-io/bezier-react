@@ -2,7 +2,7 @@ import { type BezierComponentProps } from '~/src/types/ComponentProps'
 import {
   omit,
   pick,
-} from '~/src/utils/objectUtils'
+} from '~/src/utils/object'
 
 const bezierComponentPropsKeys: Array<keyof BezierComponentProps> = [
   'as',

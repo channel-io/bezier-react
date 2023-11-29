@@ -8,7 +8,11 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
 
-import { isNumber } from '~/src/utils/typeUtils'
+import {
+  cssVarName,
+  px,
+} from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -33,6 +37,8 @@ import {
 import { SegmentedControlIndicator } from './SegmentedControlIndicator'
 
 import * as Styled from './SegmentedControl.styled'
+
+const cv = cssVarName('segmented-control')
 
 function SegmentedControlItemListImpl<
   Type extends SegmentedControlType,
@@ -62,7 +68,7 @@ function SegmentedControlItemListImpl<
 
   const style = useMemo(() => ({
     ...styleProp,
-    '--bezier-react-segmented-control-width': isNumber(width) ? `${width}px` : width,
+    [cv('width')]: isNumber(width) ? px(width) : width,
   } as React.CSSProperties), [
     styleProp,
     width,

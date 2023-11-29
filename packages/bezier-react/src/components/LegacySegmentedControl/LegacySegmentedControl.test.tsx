@@ -3,8 +3,8 @@ import React from 'react'
 import { LightFoundation } from '~/src/foundation'
 
 import disabledOpacity from '~/src/constants/DisabledOpacity'
-import { range } from '~/src/utils/numberUtils'
-import { render } from '~/src/utils/testUtils'
+import { range } from '~/src/utils/number'
+import { render } from '~/src/utils/test'
 
 import { Text } from '~/src/components/Text'
 

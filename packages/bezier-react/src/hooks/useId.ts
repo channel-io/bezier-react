@@ -4,8 +4,8 @@ import React, {
   useState,
 } from 'react'
 
-import { compact } from '~/src/utils/arrayUtils'
-import { getReactVersion } from '~/src/utils/reactUtils'
+import { compact } from '~/src/utils/array'
+import { getReactVersion } from '~/src/utils/react'
 
 /* @see https://github.com/chakra-ui/chakra-ui/blob/fa474bea3dcbdd4bbf2a26925f938d6e75a50c6d/packages/hooks/src/use-id.ts */
 const idRef = Object.seal({ current: 1 })

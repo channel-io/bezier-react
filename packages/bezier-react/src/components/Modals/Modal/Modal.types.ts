@@ -9,6 +9,8 @@ export enum ModalTitleSize {
   M = 'M',
 }
 
+type BoxSide = 'top' | 'right' | 'bottom' | 'left'
+
 interface ModalOptions {
   /**
    * The controlled open state of the modal.
@@ -50,7 +52,7 @@ interface ModalContentOptions {
 
   /**
    * Decides whether modal closes when clicked outside
-   * @default: false
+   * @default false
    */
   preventHideOnOutsideClick?: boolean
 
@@ -72,6 +74,12 @@ interface ModalContentOptions {
    * @default ZIndex.Modal
    */
   zIndex?: React.CSSProperties['zIndex']
+
+  /**
+   * Determine padding of overlay that contains modal content.
+   * @default { top: 40, bottom: 40 }
+   */
+  collisionPadding?: number | Partial<Record<BoxSide, number>>
 }
 
 interface ModalHeaderOptions {

@@ -23,8 +23,8 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
-import { gap } from '~/src/utils/styleUtils'
+import { noop } from '~/src/utils/function'
+import { gap } from '~/src/utils/style'
 
 import {
   HStack,

@@ -11,8 +11,8 @@ import {
 
 import { Typography } from '~/src/foundation'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isNil } from '~/src/utils/typeUtils'
+import { noop } from '~/src/utils/function'
+import { isNil } from '~/src/utils/type'
 
 import {
   Icon,

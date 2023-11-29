@@ -6,7 +6,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import { gap } from '~/src/utils/styleUtils'
+import { gap } from '~/src/utils/style'
 
 import {
   Button,
@@ -34,7 +34,7 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   z-index: var(--bezier-modal-z-index);
   display: grid;
   place-items: center;
-  padding: 40px 0;
+  padding: var(--bezier-modal-collision-padding);
   overflow-y: auto;
   background-color: var(--bgtxt-absolute-black-lighter);
 

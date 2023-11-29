@@ -9,12 +9,12 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { getRootElement } from '~/src/utils/domUtils'
-import { createContext } from '~/src/utils/reactUtils'
+import { useWindow } from '~/src/providers/WindowProvider'
+import { createContext } from '~/src/utils/react'
 import {
   isBoolean,
   isEmpty,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import {
   TooltipPosition,
@@ -177,13 +177,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   delayHide: delayHideProp,
   ...rest
 }, forwardedRef) {
+  const { rootElement } = useWindow()
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
   const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
   const delayHide = delayHideProp ?? globalDelayHide
 
-  const defaultContainer = getRootElement()
+  const defaultContainer = rootElement
   const container = givenContainer ?? defaultContainer
 
   const shouldBeHidden = useMemo(() => (

@@ -5,8 +5,8 @@ import { v4 as uuid } from 'uuid'
 
 import { LightFoundation } from '~/src/foundation'
 
-import { range } from '~/src/utils/numberUtils'
-import { render } from '~/src/utils/testUtils'
+import { range } from '~/src/utils/number'
+import { render } from '~/src/utils/test'
 
 import OutlineItem, {
   OUTLINE_ITEM_LEFT_ICON_TEST_ID,

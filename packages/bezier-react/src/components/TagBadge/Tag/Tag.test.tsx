@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 
 import { RoundAbsoluteNumber } from '~/src/foundation'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   TagBadgeSize,

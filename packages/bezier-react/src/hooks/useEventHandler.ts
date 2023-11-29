@@ -4,12 +4,12 @@ import {
   useRef,
 } from 'react'
 
-import { noop } from '~/src/utils/functionUtils'
-import { isEqual } from '~/src/utils/objectUtils'
+import { noop } from '~/src/utils/function'
+import { isEqual } from '~/src/utils/object'
 import {
   isFunction,
   isNil,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 interface HandlerOptionsProps {
   capture?: boolean

@@ -1,6 +1,6 @@
 import { type AnyStyledComponent } from 'styled-components'
 
-import { isEmpty } from '~/src/utils/typeUtils'
+import { isEmpty } from '~/src/utils/type'
 
 import { createGlobalStyle } from './FoundationStyledComponent'
 

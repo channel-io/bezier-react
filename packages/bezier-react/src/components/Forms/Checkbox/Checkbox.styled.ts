@@ -7,7 +7,7 @@ import {
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { touchableHover } from '~/src/utils/styleUtils'
+import { touchableHover } from '~/src/utils/style'
 
 import {
   erroredInputWrapperStyle,

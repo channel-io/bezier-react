@@ -10,14 +10,14 @@ import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
 
-import { warn } from '~/src/utils/assertUtils'
+import { warn } from '~/src/utils/assert'
 import {
   isArray,
   isEmpty,
   isNil,
   isNumber,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import {
   Button,

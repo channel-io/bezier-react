@@ -2,7 +2,7 @@ import React from 'react'
 
 import { isInaccessible } from '@testing-library/react'
 
-import { render } from '~/src/utils/testUtils'
+import { render } from '~/src/utils/test'
 
 import {
   FORM_CONTROL_TEST_ID,

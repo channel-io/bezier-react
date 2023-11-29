@@ -5,8 +5,8 @@ import {
 } from '~/src/foundation'
 
 import DisabledOpacity from '~/src/constants/DisabledOpacity'
-import { gap } from '~/src/utils/styleUtils'
-import { isEmpty } from '~/src/utils/typeUtils'
+import { gap } from '~/src/utils/style'
+import { isEmpty } from '~/src/utils/type'
 
 import { Text } from '~/src/components/Text'
 

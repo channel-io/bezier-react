@@ -8,7 +8,7 @@ import {
   RelativeUnit,
 } from '~/src/types/CSS'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
-import { has } from '~/src/utils/objectUtils'
+import { has } from '~/src/utils/object'
 import {
   isEmpty,
   isNaN,
@@ -16,9 +16,9 @@ import {
   isNumber,
   isObject,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
-import { isNumberString } from './stringUtils'
+import { isNumberString } from './string'
 
 export const UnitValues: string[] = [
   ...Object.values(AbsoluteUnit),
@@ -116,12 +116,19 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
   `
 }
 
-export function cssVar(customPropertyName: string | undefined, declarationValue?: string) {
+export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
+
+export const cssVarName = <ComponentName extends string>(componentName: ComponentName) => <PropertyName extends string>(propertyName: PropertyName) => `--bezier-${componentName}-${propertyName}` as const
+
+export function cssVarValue<
+  PropertyName extends string | undefined,
+  DeclarationValue extends string | number | undefined,
+>(propertyName: PropertyName, declarationValue?: DeclarationValue) {
   /* eslint-disable no-nested-ternary */
-  return customPropertyName
-    ? declarationValue
-      ? `var(--${customPropertyName}, ${declarationValue})`
-      : `var(--${customPropertyName})`
+  return !isNil(propertyName)
+    ? !isNil(declarationValue)
+      ? `var(--${propertyName}, ${declarationValue})` as const
+      : `var(--${propertyName})` as const
     : undefined
   /* eslint-enable no-nested-ternary */
 }

@@ -4,11 +4,11 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { warn } from '~/src/utils/assertUtils'
+import { warn } from '~/src/utils/assert'
 import {
   isNil,
   isString,
-} from '~/src/utils/typeUtils'
+} from '~/src/utils/type'
 
 import {
   Button,
