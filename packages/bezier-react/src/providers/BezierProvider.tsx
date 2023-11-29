@@ -9,6 +9,11 @@ import {
   type ThemeVarsAdditionalType,
 } from '~/src/foundation'
 
+import {
+  document as defaultDocument,
+  window as defaultWindow,
+} from '~/src/utils/dom'
+
 import { TooltipProvider } from '~/src/components/Tooltip'
 
 import WindowProvider from './WindowProvider'
@@ -27,7 +32,10 @@ function BezierProvider({
   externalWindow,
 }: BezierProviderProps) {
   return (
-    <WindowProvider externalWindow={externalWindow}>
+    <WindowProvider
+      window={externalWindow ?? defaultWindow}
+      document={externalWindow?.document ?? defaultDocument}
+    >
       <FoundationProvider foundation={foundation}>
         <TooltipProvider>
           <GlobalStyle foundation={foundation} />

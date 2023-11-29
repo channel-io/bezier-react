@@ -3,10 +3,6 @@ import React, {
   useMemo,
 } from 'react'
 
-import {
-  document,
-  window,
-} from '~/src/utils/dom'
 import { createContext } from '~/src/utils/react'
 
 interface WindowContextValue {
@@ -21,14 +17,18 @@ export function useWindow() {
 }
 
 interface WindowProviderProps extends PropsWithChildren {
-  externalWindow?: Window
+  window: Window
+  document: Document
 }
 
-function WindowProvider({ externalWindow, children }: WindowProviderProps) {
+function WindowProvider({ window, document, children }: WindowProviderProps) {
   const value = useMemo(() => ({
-    window: externalWindow ?? window,
-    document: externalWindow?.document ?? document,
-  }), [externalWindow])
+    window,
+    document,
+  }), [
+    document,
+    window,
+  ])
 
   return (
     <WindowContextProvider value={value}>{ children }</WindowContextProvider>
