@@ -14,9 +14,11 @@ interface WindowContextValue {
   document: Document
 }
 
-const [Provider, useContext] = createContext<WindowContextValue>({ window: {} as Window, document: {} as Document })
+const [WindowContextProvider, useWindowContext] = createContext<WindowContextValue | null>(null, 'WindowProvider')
 
-export const useWindow = useContext
+export function useWindow() {
+  return useWindowContext('useWindow')
+}
 
 interface WindowProviderProps extends PropsWithChildren {
   externalWindow?: Window
@@ -29,7 +31,7 @@ function WindowProvider({ externalWindow, children }: WindowProviderProps) {
   }), [externalWindow])
 
   return (
-    <Provider value={value}>{ children }</Provider>
+    <WindowContextProvider value={value}>{ children }</WindowContextProvider>
   )
 }
 
