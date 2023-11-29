@@ -8,7 +8,7 @@ import {
   type ThemeName,
   TokenProvider,
 } from '~/src/hooks/useToken'
-import { document } from '~/src/utils/domUtils'
+import { document } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
