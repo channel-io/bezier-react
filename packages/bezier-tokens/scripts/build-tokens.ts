@@ -7,12 +7,18 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import { customFontRem } from './lib/transform'
 import { dtcgTokenJsonParser } from './lib/parser'
+import {
+  customCubicBezier,
+  customFontFamily,
+  customFontRem,
+} from './lib/transform'
 import { toCamelCase } from './lib/utils'
 
 const TokenBuilder = StyleDictionary
   .registerParser(dtcgTokenJsonParser)
+  .registerTransform(customCubicBezier)
+  .registerTransform(customFontFamily)
   .registerTransform(customFontRem)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
@@ -22,6 +28,8 @@ function defineWebPlatform(options: Platform): Platform {
     transforms: [
       'attribute/cti',
       'name/cti/kebab',
+      customCubicBezier.name,
+      customFontFamily.name,
       customFontRem.name,
     ],
     basePxFontSize: 10,
