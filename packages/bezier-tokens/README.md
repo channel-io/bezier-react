@@ -17,8 +17,8 @@ You can access and use values by token group.
 ```ts
 import { tokens } from '@channel.io/bezier-tokens'
 
-console.log(tokens.global['blue-300']) // "#..."
-console.log(tokens.lightTheme['bg-black-dark']) // "#..."
+console.log(tokens.global.color['blue-300']) // "#..."
+console.log(tokens.lightTheme.color['bg-black-dark']) // "#..."
 ```
 
 ### CSS
