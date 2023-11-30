@@ -11,26 +11,30 @@ import { createContext } from '~/src/utils/react'
 type Tokens = typeof tokens
 type GlobalTokens = Tokens['global']
 type SemanticTokens = Omit<Tokens, 'global'>
-type FlattedTokens = GlobalTokens & SemanticTokens[keyof SemanticTokens]
+
+interface ThemedTokenSet {
+  global: GlobalTokens
+  semantic: SemanticTokens[keyof SemanticTokens]
+}
 
 // TODO: Change theme name constant to import from bezier-tokens
 export type ThemeName = 'light' | 'dark'
 
 interface TokenContextValue {
   themeName: ThemeName
-  tokens: FlattedTokens
+  tokens: ThemedTokenSet
 }
 
 const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
 
-const tokenSet: Record<ThemeName, FlattedTokens> = Object.freeze({
+const tokenSet: Record<ThemeName, ThemedTokenSet> = Object.freeze({
   light: {
-    ...tokens.global,
-    ...tokens.lightTheme,
+    global: tokens.global,
+    semantic: tokens.lightTheme,
   },
   dark: {
-    ...tokens.global,
-    ...tokens.darkTheme,
+    global: tokens.global,
+    semantic: tokens.darkTheme,
   },
 })
 
