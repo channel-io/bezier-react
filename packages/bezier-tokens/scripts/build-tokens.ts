@@ -13,7 +13,6 @@ import {
   customFontFamily,
   customFontRem,
 } from './lib/transform'
-import { toCamelCase } from './lib/utils'
 
 const TokenBuilder = StyleDictionary
   .registerParser(dtcgTokenJsonParser)
@@ -57,7 +56,7 @@ function defineConfig({
         buildPath: 'dist/cjs/',
         files: [
           {
-            destination: `${toCamelCase(destination)}.js`,
+            destination: `${destination}.js`,
             format: customJsCjs.name,
             filter: (token) => token.filePath.includes(destination),
           },
@@ -67,7 +66,7 @@ function defineConfig({
         buildPath: 'dist/esm/',
         files: [
           {
-            destination: `${toCamelCase(destination)}.mjs`,
+            destination: `${destination}.mjs`,
             format: customJsEsm.name,
             filter: (token) => token.filePath.includes(destination),
           },
@@ -102,8 +101,8 @@ function main() {
     ),
     TokenBuilder.extend(
       defineConfig({
-        source: ['src/global/*.json', 'src/semantic/light-theme/*.json'],
-        destination: 'light-theme',
+        source: ['src/global/*.json', 'src/semantic/lightTheme/*.json'],
+        destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
         },
@@ -111,8 +110,8 @@ function main() {
     ),
     TokenBuilder.extend(
       defineConfig({
-        source: ['src/global/*.json', 'src/semantic/dark-theme/*.json'],
-        destination: 'dark-theme',
+        source: ['src/global/*.json', 'src/semantic/darkTheme/*.json'],
+        destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       }),
     ),
