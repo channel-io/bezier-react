@@ -21,8 +21,6 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   }
 
   const files = fs.readdirSync(buildPath)
-  // eslint-disable-next-line no-console
-  console.log(`Reading files in ${buildPath}:`, files)
 
   files.forEach((file) => {
     if (file.endsWith(fileExtension) && file !== indexFile) {
@@ -54,7 +52,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
 
   fs.writeFileSync(path.join(buildPath, indexFile), exportStatements)
   // eslint-disable-next-line no-console
-  console.log(`✅ Created ${indexFile} in ${buildPath}`)
+  console.log(`\n✔︎ Created ${indexFile} in ${buildPath}`)
 }
 
 function main() {

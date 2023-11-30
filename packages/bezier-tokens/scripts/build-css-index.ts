@@ -4,7 +4,7 @@ import path from 'path'
 const directory = 'dist/css'
 const outputFile = 'styles.css'
 
-function concatenateStyles() {
+function buildConcatenateStylesheet() {
   const files = fs.readdirSync(directory)
   const outputData = files
     .filter(file => file.endsWith('.css') && file !== outputFile)
@@ -12,6 +12,8 @@ function concatenateStyles() {
     .join('\n')
 
   fs.writeFileSync(path.join(directory, outputFile), outputData)
+  // eslint-disable-next-line no-console
+  console.log(`\n✔︎ Created ${outputFile} in ${directory}`)
 }
 
 function cleanUp() {
@@ -19,12 +21,14 @@ function cleanUp() {
   files.forEach(file => {
     if (file !== outputFile) {
       fs.unlinkSync(path.join(directory, file))
+      // eslint-disable-next-line no-console
+      console.log(`  ✔︎ Clean up ${file} in ${directory}`)
     }
   })
 }
 
 function main() {
-  concatenateStyles()
+  buildConcatenateStylesheet()
   cleanUp()
 }
 

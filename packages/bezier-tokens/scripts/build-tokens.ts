@@ -1,8 +1,10 @@
 import StyleDictionary, {
   type Config,
+  type Options,
   type Platform,
 } from 'style-dictionary'
 
+import { customFileHeader } from './lib/fileHeader'
 import {
   customJsCjs,
   customJsEsm,
@@ -21,8 +23,9 @@ const TokenBuilder = StyleDictionary
   .registerTransform(customFontRem)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
+  .registerFileHeader(customFileHeader)
 
-function defineWebPlatform(options: Platform): Platform {
+function defineWebPlatform({ options, ...rest }: Platform): Platform {
   return {
     transforms: [
       'attribute/cti',
@@ -32,14 +35,18 @@ function defineWebPlatform(options: Platform): Platform {
       customFontRem.name,
     ],
     basePxFontSize: 10,
-    ...options,
+    options: {
+      fileHeader: customFileHeader.name,
+      ...options,
+    },
+    ...rest,
   }
 }
 
 interface DefineConfigOptions {
   source: string[]
   destination: string
-  options?: {
+  options?: Options & {
     cssSelector: string
   }
 }
