@@ -3,10 +3,7 @@ import type {
   Transform,
 } from 'style-dictionary'
 
-import {
-  endsWithNumber,
-  extractNumber,
-} from './utils'
+import { extractNumber } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 
@@ -23,15 +20,3 @@ export const customFontRem: CustomTransform = {
   },
 }
 
-export const customRadiusPx: CustomTransform = {
-  name: 'custom/radius/px',
-  type: 'value',
-  transitive: true,
-  matcher(token) {
-    const { attributes: { category } = {} } = token
-    return category === 'radius'
-  },
-  transformer(token) {
-    return endsWithNumber(token.value) ? `${token.value}px` : token.value
-  },
-}

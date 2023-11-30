@@ -7,15 +7,11 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import {
-  customFontRem,
-  customRadiusPx,
-} from './lib/transform'
+import { customFontRem } from './lib/transform'
 import { toCamelCase } from './lib/utils'
 
 const TokenBuilder = StyleDictionary
   .registerTransform(customFontRem)
-  .registerTransform(customRadiusPx)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -25,7 +21,6 @@ function defineWebPlatform(options: Platform): Platform {
       'attribute/cti',
       'name/cti/kebab',
       customFontRem.name,
-      customRadiusPx.name,
     ],
     basePxFontSize: 10,
     ...options,
