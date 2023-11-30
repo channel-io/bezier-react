@@ -16,7 +16,7 @@ export const customFontRem: CustomTransform = {
   transitive: true,
   matcher(token) {
     const { attributes: { category, type } = {} } = token
-    return category === 'font' && (type === 'size' || type === 'line-height')
+    return category === 'font' && (type === 'size' || type === 'lineHeight')
   },
   transformer(token, options) {
     return `${parseFloat(extractNumber(token.value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`
