@@ -11,15 +11,25 @@ const { fileHeader } = formatHelpers
 export const customJsCjs: CustomFormat = {
   name: 'custom/js/cjs',
   formatter({ dictionary, file }) {
+    const categorizedTokens = dictionary.allTokens.reduce((acc, token) => {
+      const fileNameWithoutExtension = token.filePath.split('/').pop()!.split('.').shift()!
+      acc[fileNameWithoutExtension] = acc[fileNameWithoutExtension] || []
+      acc[fileNameWithoutExtension].push(token)
+      return acc
+    }, {} as Record<string, typeof dictionary.allTokens>)
+
     return (
       `${fileHeader({ file })
       }module.exports = {` +
-      `\n${
-        dictionary.allTokens
-          .map((token) => `  "${token.name}": ${JSON.stringify(token.value)},`)
-          .join('\n')
-      }\n` +
-      '}'
+      `${Object.keys(categorizedTokens).map(category => (
+        `\n  "${category}": {\n` +
+          `${
+            categorizedTokens[category]
+              .map((token) => `    "${token.name}": ${JSON.stringify(token.value)},`)
+              .join('\n')
+          }\n  }`
+      ))}\n` +
+      '}\n'
     )
   },
 }
@@ -27,15 +37,25 @@ export const customJsCjs: CustomFormat = {
 export const customJsEsm: CustomFormat = {
   name: 'custom/js/esm',
   formatter({ dictionary, file }) {
+    const categorizedTokens = dictionary.allTokens.reduce((acc, token) => {
+      const fileNameWithoutExtension = token.filePath.split('/').pop()!.split('.').shift()!
+      acc[fileNameWithoutExtension] = acc[fileNameWithoutExtension] || []
+      acc[fileNameWithoutExtension].push(token)
+      return acc
+    }, {} as Record<string, typeof dictionary.allTokens>)
+
     return (
       `${fileHeader({ file })
       }export default {` +
-      `\n${
-        dictionary.allTokens
-          .map((token) => `  "${token.name}": ${JSON.stringify(token.value)},`)
-          .join('\n')
-      }\n` +
-      '}'
+      `${Object.keys(categorizedTokens).map(category => (
+        `\n  "${category}": {\n` +
+          `${
+            categorizedTokens[category]
+              .map((token) => `    "${token.name}": ${JSON.stringify(token.value)},`)
+              .join('\n')
+          }\n  }`
+      ))}\n` +
+      '}\n'
     )
   },
 }
