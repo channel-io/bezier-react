@@ -78,14 +78,14 @@
     "family": {
       "sans": {
         "kr": {
-          "value": "'Inter', 'NotoSansKR', 'NotoSansJP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
+          "value": ["Inter", "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"]
         },
         "jp": {
-          "value": "'Inter', 'NotoSansJP', 'NotoSansKR', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Roboto', system-ui, sans-serif"
+          "value": ["Inter", "NotoSansJP", "NotoSansKR", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"]
         }
       },
       "mono": {
-        "value": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace"
+        "value": ["ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"]
       }
     }
   }
