@@ -3,7 +3,10 @@ import type {
   Transform,
 } from 'style-dictionary'
 
-import { endsWithNumber } from './utils'
+import {
+  endsWithNumber,
+  extractNumber,
+} from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 
@@ -16,7 +19,7 @@ export const customFontRem: CustomTransform = {
     return category === 'font' && (type === 'size' || type === 'line-height')
   },
   transformer(token, options) {
-    return `${token.value / ((options && options.basePxFontSize) || 16)}rem`
+    return `${parseFloat(extractNumber(token.value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`
   },
 }
 
