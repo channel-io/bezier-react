@@ -8,9 +8,11 @@ import {
   customJsEsm,
 } from './lib/format'
 import { customFontRem } from './lib/transform'
+import { dtcgTokenJsonParser } from './lib/parser'
 import { toCamelCase } from './lib/utils'
 
 const TokenBuilder = StyleDictionary
+  .registerParser(dtcgTokenJsonParser)
   .registerTransform(customFontRem)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)

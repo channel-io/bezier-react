@@ -19,4 +19,3 @@ export const customFontRem: CustomTransform = {
     return `${parseFloat(extractNumber(token.value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`
   },
 }
-

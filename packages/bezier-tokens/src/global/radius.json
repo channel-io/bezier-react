@@ -1,46 +1,46 @@
 {
   "radius": {
     "2": {
-      "value": "2px"
+      "$value": "2px"
     },
     "3": {
-      "value": "3px"
+      "$value": "3px"
     },
     "4": {
-      "value": "4px"
+      "$value": "4px"
     },
     "6": {
-      "value": "6px"
+      "$value": "6px"
     },
     "8": {
-      "value": "8px"
+      "$value": "8px"
     },
     "10": {
-      "value": "10px"
+      "$value": "10px"
     },
     "12": {
-      "value": "12px"
+      "$value": "12px"
     },
     "14": {
-      "value": "14px"
+      "$value": "14px"
     },
     "16": {
-      "value": "16px"
+      "$value": "16px"
     },
     "20": {
-      "value": "20px"
+      "$value": "20px"
     },
     "32": {
-      "value": "32px"
+      "$value": "32px"
     },
     "44": {
-      "value": "44px"
+      "$value": "44px"
     },
     "42-p": {
-      "value": "42%"
+      "$value": "42%"
     },
     "100-p": {
-      "value": "100%"
+      "$value": "100%"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "duration": {
     "s": {
-      "value": "150ms"
+      "$value": "150ms"
     },
     "m": {
-      "value": "300ms"
+      "$value": "300ms"
     },
     "l": {
-      "value": "450ms"
+      "$value": "450ms"
     }
   }
 }
