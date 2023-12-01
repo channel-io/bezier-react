@@ -1,3 +1,21 @@
-@use "../../node_modules/@channel.io/bezier-tokens/dist/css/global.css";
-@use "../../node_modules/@channel.io/bezier-tokens/dist/css/light-theme.css";
-@use "../../node_modules/@channel.io/bezier-tokens/dist/css/dark-theme.css";
+@use "../../node_modules/@channel.io/bezier-tokens/dist/css/styles.css";
+
+// NOTE: Tokens located here:
+// 1. Composition token. It's hard to handle via style-dictionary used in bezier-tokens
+// 2. Not clearly categorized
+:where(:root, :host) {
+  // Elevation
+  --box-shadow-inner: inset 0 0 2px 0 var(--shdw-inner-base);
+  --box-shadow-base: 0 0 2px 0 var(--shdw-base);
+  --ev-1: var(--box-shadow-inner), var(--box-shadow-base), 0 1px 2px var(--shdw-small);
+  --ev-2: var(--box-shadow-inner), var(--box-shadow-base), 0 2px 6px var(--shdw-small);
+  --ev-3: var(--box-shadow-inner), var(--box-shadow-base), 0 4px 12px var(--shdw-medium);
+  --ev-4: var(--box-shadow-inner), var(--box-shadow-base), 0 4px 20px var(--shdw-large);
+  --ev-5: var(--box-shadow-inner), var(--box-shadow-base), 0 6px 40px var(--shdw-xlarge);
+  --ev-6: var(--box-shadow-inner), var(--box-shadow-base), 0 12px 60px var(--shdw-xlarge);
+
+  // Input
+  --input-box-shadow: 0 1px 2px var(--bg-black-lighter), inset 0 0 0 1px var(--bg-black-dark);
+  --input-box-shadow-focused: 0 0 0 3px var(--bgtxt-blue-light), inset 0 0 0 1px var(--bgtxt-blue-normal);
+  --input-box-shadow-invalid: 0 0 0 3px var(--bgtxt-orange-light), inset 0 0 0 1px var(--bgtxt-orange-normal);
+}
