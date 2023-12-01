@@ -1,0 +1,224 @@
+{
+  "font": {
+    "size": {
+      "11": {
+        "value": "11px"
+      },
+      "12": {
+        "value": "12px"
+      },
+      "13": {
+        "value": "13px"
+      },
+      "14": {
+        "value": "14px"
+      },
+      "15": {
+        "value": "15px"
+      },
+      "16": {
+        "value": "16px"
+      },
+      "17": {
+        "value": "17px"
+      },
+      "18": {
+        "value": "18px"
+      },
+      "22": {
+        "value": "22px"
+      },
+      "24": {
+        "value": "24px"
+      },
+      "30": {
+        "value": "30px"
+      },
+      "36": {
+        "value": "36px"
+      }
+    },
+    "line-height": {
+      "16": {
+        "value": "16px"
+      },
+      "18": {
+        "value": "18px"
+      },
+      "20": {
+        "value": "20px"
+      },
+      "22": {
+        "value": "22px"
+      },
+      "24": {
+        "value": "24px"
+      },
+      "28": {
+        "value": "28px"
+      },
+      "32": {
+        "value": "32px"
+      },
+      "36": {
+        "value": "36px"
+      },
+      "44": {
+        "value": "44px"
+      }
+    },
+    "weight": {
+      "400": {
+        "value": 400
+      },
+      "700": {
+        "value": 700
+      }
+    },
+    "family": {
+      "sans": {
+        "kr": {
+          "value": ["Inter", "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
+          "$type": "fontFamily"
+        },
+        "jp": {
+          "value": ["Inter", "NotoSansJP", "NotoSansKR", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
+          "$type": "fontFamily"
+        }
+      },
+      "mono": {
+        "value": ["ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"],
+        "$type": "fontFamily"
+      }
+    },
+    "letter-spacing": {
+      "1": {
+        "value": "-0.1px"
+      },
+      "2": {
+        "value": "-0.4px"
+      }
+    }
+  },
+  "typography": {
+    "size": {
+      "11": {
+        "font-size": {
+          "value": "{font.size.11}"
+        },
+        "line-height": {
+          "value": "{font.line-height.16}"
+        }
+      },
+      "12": {
+        "font-size": {
+          "value": "{font.size.12}"
+        },
+        "line-height": {
+          "value": "{font.line-height.16}"
+        }
+      },
+      "13": {
+        "font-size": {
+          "value": "{font.size.13}"
+        },
+        "line-height": {
+          "value": "{font.line-height.18}"
+        }
+      },
+      "14": {
+        "font-size": {
+          "value": "{font.size.14}"
+        },
+        "line-height": {
+          "value": "{font.line-height.18}"
+        }
+      },
+      "15": {
+        "font-size": {
+          "value": "{font.size.15}"
+        },
+        "line-height": {
+          "value": "{font.line-height.20}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.1}"
+        }
+      },
+      "16": {
+        "font-size": {
+          "value": "{font.size.16}"
+        },
+        "line-height": {
+          "value": "{font.line-height.22}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.1}"
+        }
+      },
+      "17": {
+        "font-size": {
+          "value": "{font.size.17}"
+        },
+        "line-height": {
+          "value": "{font.line-height.22}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.1}"
+        }
+      },
+      "18": {
+        "font-size": {
+          "value": "{font.size.18}"
+        },
+        "line-height": {
+          "value": "{font.line-height.24}"
+        }
+      },
+      "22": {
+        "font-size": {
+          "value": "{font.size.22}"
+        },
+        "line-height": {
+          "value": "{font.line-height.28}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.2}"
+        }
+      },
+      "24": {
+        "font-size": {
+          "value": "{font.size.24}"
+        },
+        "line-height": {
+          "value": "{font.line-height.32}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.2}"
+        }
+      },
+      "30": {
+        "font-size": {
+          "value": "{font.size.30}"
+        },
+        "line-height": {
+          "value": "{font.line-height.36}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.2}"
+        }
+      },
+      "36": {
+        "font-size": {
+          "value": "{font.size.36}"
+        },
+        "line-height": {
+          "value": "{font.line-height.44}"
+        },
+        "letter-spacing": {
+          "value": "{font.letter-spacing.2}"
+        }
+      }
+    }
+  }
+}
