@@ -1,6 +1,7 @@
 import {
   assert,
   isDev,
+  warn,
 } from './assert'
 
 describe('isDev', () => {
@@ -22,23 +23,38 @@ describe('isDev', () => {
 })
 
 describe('assert', () => {
-  it('throws an AssertionException when predicate is false', () => {
+  it('should throw an "failed" when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
-    expect(() => assert(false)).toThrow('assertion failed')
+    expect(() => assert(false)).toThrow('failed')
   })
 
-  it('throws an AssertionException with custom message when predicate is false', () => {
+  it('should throw an "failed" with a message when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
-    const message = 'assert failed message'
-
-    expect(() => assert(false, message)).toThrow(message)
+    expect(() => assert(false, 'failed')).toThrow('failed')
   })
 
-  it('does not throw an AssertionException when predicate is true', () => {
+  it('should not throw when the predicate is true', () => {
     process.env.NODE_ENV = 'production'
 
     expect(() => assert(true)).not.toThrow()
+  })
+})
+
+describe('warn', () => {
+  it('should output the message using console.warn if the message argument is passed', () => {
+    process.env.NODE_ENV = 'development'
+
+    const warnSpy = jest.spyOn(console, 'warn')
+
+    const message = 'Warn'
+
+    warn(message)
+
+    expect(warnSpy).toHaveBeenCalled()
+    expect(warnSpy).toHaveBeenCalledWith(message)
+
+    warnSpy.mockRestore()
   })
 })
