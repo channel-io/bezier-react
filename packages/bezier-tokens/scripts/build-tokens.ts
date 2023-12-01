@@ -9,7 +9,6 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import { dtcgTokenJsonParser } from './lib/parser'
 import {
   customCubicBezier,
   customFontFamily,
@@ -17,7 +16,6 @@ import {
 } from './lib/transform'
 
 const TokenBuilder = StyleDictionary
-  .registerParser(dtcgTokenJsonParser)
   .registerTransform(customCubicBezier)
   .registerTransform(customFontFamily)
   .registerTransform(customFontRem)
