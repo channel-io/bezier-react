@@ -103,9 +103,9 @@ export const ThemeProvider = forwardRef<HTMLElement, ThemeProviderProps>(functio
 })
 
 /**
- * `LightTheme` is a wrapper component that provides light theme context.
+ * `LightThemeProvider` is a wrapper component that provides light theme context.
  */
-export const LightTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(function LightTheme({
+export const LightThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function LightTheme({
   children,
 }, forwardedRef) {
   return (
@@ -119,9 +119,9 @@ export const LightTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(funct
 })
 
 /**
- * `DarkTheme` is a wrapper component that provides dark theme context.
+ * `DarkThemeProvider` is a wrapper component that provides dark theme context.
  */
-export const DarkTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(function DarkTheme({
+export const DarkThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function DarkTheme({
   children,
 }, forwardedRef) {
   return (
@@ -135,9 +135,9 @@ export const DarkTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(functi
 })
 
 /**
- * `InvertedTheme` is a wrapper component that provides inverted theme context.
+ * `InvertedThemeProvider` is a wrapper component that provides inverted theme context.
  */
-export const InvertedTheme = forwardRef<HTMLElement, FixedThemeProviderProps>(function InvertedTheme({
+export const InvertedThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function InvertedTheme({
   children,
 }, forwardedRef) {
   return (
