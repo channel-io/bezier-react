@@ -4,7 +4,6 @@ import StyleDictionary, {
   type Platform,
 } from 'style-dictionary'
 
-import { customFileHeader } from './lib/fileHeader'
 import {
   customJsCjs,
   customJsEsm,
@@ -21,7 +20,6 @@ const TokenBuilder = StyleDictionary
   .registerTransform(customFontRem)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
-  .registerFileHeader(customFileHeader)
 
 function defineWebPlatform({ options, ...rest }: Platform): Platform {
   return {
@@ -34,7 +32,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
     ],
     basePxFontSize: 10,
     options: {
-      fileHeader: customFileHeader.name,
+      showFileHeader: false,
       ...options,
     },
     ...rest,
