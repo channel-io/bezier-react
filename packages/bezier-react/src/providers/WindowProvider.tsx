@@ -23,19 +23,14 @@ interface WindowProviderProps extends PropsWithChildren {
    * @required
    */
   window: Window
-
-  /**
-   * injected document
-   * @required
-   */
-  document: Document
 }
 
 /**
  * A Provider that provides window and document object
  * you can use this provider to inject an external window
  */
-function WindowProvider({ window, document, children }: WindowProviderProps) {
+export function WindowProvider({ window, children }: WindowProviderProps) {
+  const document = window.document
   const rootElement = document.body
 
   const value = useMemo(() => ({
@@ -43,8 +38,8 @@ function WindowProvider({ window, document, children }: WindowProviderProps) {
     document,
     rootElement,
   }), [
-    document,
     window,
+    document,
     rootElement,
   ])
 
@@ -52,5 +47,3 @@ function WindowProvider({ window, document, children }: WindowProviderProps) {
     <WindowContextProvider value={value}>{ children }</WindowContextProvider>
   )
 }
-
-export default WindowProvider

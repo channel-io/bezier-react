@@ -2,7 +2,19 @@ import '~/src/styles/index.scss'
 
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
-export { default as WindowProvider, useWindow } from '~/src/providers/WindowProvider'
+export * from '~/src/providers/WindowProvider'
+export * from '~/src/providers/AlphaAppProvider'
+export {
+  useThemeName,
+  useToken,
+  ThemeProvider,
+  LightThemeProvider,
+  DarkThemeProvider,
+  InvertedThemeProvider,
+  type ThemeName,
+  type ThemeProviderProps,
+  type FixedThemeProviderProps,
+} from '~/src/providers/ThemeProvider'
 
 /* Foundation */
 export * from '~/src/foundation'
