@@ -9,7 +9,7 @@ export function warn(message: string) {
   }
 }
 
-class AssertionException extends Error {
+export class AssertionException extends Error {
   constructor(message?: string) {
     super()
 
