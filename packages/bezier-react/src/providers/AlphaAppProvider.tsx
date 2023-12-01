@@ -59,7 +59,7 @@ export function AlphaAppProvider({
   features = [],
   window = defaultWindow,
 }: AlphaAppProviderProps) {
-  useEffect(function updateThemeDataAttribute() {
+  useEffect(function updateRootThemeDataAttribute() {
     const rootElement = window.document.documentElement
     // TODO: Change data attribute constant to import from bezier-tokens
     rootElement.setAttribute('data-bezier-theme', themeName)
