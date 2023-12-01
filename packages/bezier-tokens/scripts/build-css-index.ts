@@ -1,34 +1,34 @@
 import fs from 'fs'
 import path from 'path'
 
-const directory = 'dist/css'
-const outputFile = 'styles.css'
+const buildPath = 'dist/css'
+const destination = 'styles.css'
 
-function buildConcatenateStylesheet() {
-  const files = fs.readdirSync(directory)
+function concatenateStylesheet() {
+  const files = fs.readdirSync(buildPath)
   const outputData = files
-    .filter(file => file.endsWith('.css') && file !== outputFile)
-    .map(file => fs.readFileSync(path.join(directory, file), 'utf8'))
+    .filter(file => file.endsWith('.css') && file !== destination)
+    .map(file => fs.readFileSync(path.join(buildPath, file), 'utf8'))
     .join('\n')
 
-  fs.writeFileSync(path.join(directory, outputFile), outputData)
+  fs.writeFileSync(path.join(buildPath, destination), outputData)
   // eslint-disable-next-line no-console
-  console.log(`\n✔︎ Created ${outputFile} in ${directory}`)
+  console.log(`\n✔︎ Created ${buildPath}/${destination}`)
 }
 
 function cleanUp() {
-  const files = fs.readdirSync(directory)
+  const files = fs.readdirSync(buildPath)
   files.forEach(file => {
-    if (file !== outputFile) {
-      fs.unlinkSync(path.join(directory, file))
+    if (file !== destination) {
+      fs.unlinkSync(path.join(buildPath, file))
       // eslint-disable-next-line no-console
-      console.log(`  ✔︎ Clean up ${file} in ${directory}`)
+      console.log(`  ✔︎ Removed ${buildPath}/${file}`)
     }
   })
 }
 
 function main() {
-  buildConcatenateStylesheet()
+  concatenateStylesheet()
   cleanUp()
 }
 
