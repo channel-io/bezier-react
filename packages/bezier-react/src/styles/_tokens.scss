@@ -14,6 +14,11 @@
   --ev-5: var(--box-shadow-inner), var(--box-shadow-base), 0 6px 40px var(--shdw-xlarge);
   --ev-6: var(--box-shadow-inner), var(--box-shadow-base), 0 12px 60px var(--shdw-xlarge);
 
+  // Transition
+  --transition-s: var(--transition-duration-s) var(--transition-timing-function-default);
+  --transition-m: var(--transition-duration-m) var(--transition-timing-function-default);
+  --transition-l: var(--transition-duration-l) var(--transition-timing-function-default);
+
   // Input
   --input-box-shadow: 0 1px 2px var(--bg-black-lighter), inset 0 0 0 1px var(--bg-black-dark);
   --input-box-shadow-focused: 0 0 0 3px var(--bgtxt-blue-light), inset 0 0 0 1px var(--bgtxt-blue-normal);
