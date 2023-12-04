@@ -6,6 +6,17 @@ import {
 } from './assert'
 
 describe('isDev', () => {
+  const ORIGINAL_ENV = process.env
+
+  beforeEach(() => {
+    jest.resetModules()
+    process.env = { ...ORIGINAL_ENV }
+  })
+
+  afterAll(() => {
+    process.env = ORIGINAL_ENV
+  })
+
   it('should return true when NODE_ENV is not production', () => {
     process.env.NODE_ENV = 'development'
 
@@ -24,6 +35,17 @@ describe('isDev', () => {
 })
 
 describe('assert', () => {
+  const ORIGINAL_ENV = process.env
+
+  beforeEach(() => {
+    jest.resetModules()
+    process.env = { ...ORIGINAL_ENV }
+  })
+
+  afterAll(() => {
+    process.env = ORIGINAL_ENV
+  })
+
   it('should throw an assertion exception error in development environment when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
@@ -44,6 +66,17 @@ describe('assert', () => {
 })
 
 describe('warn', () => {
+  const ORIGINAL_ENV = process.env
+
+  beforeEach(() => {
+    jest.resetModules()
+    process.env = { ...ORIGINAL_ENV }
+  })
+
+  afterAll(() => {
+    process.env = ORIGINAL_ENV
+  })
+
   it('should output the message using console.warn if the message argument is passed', () => {
     process.env.NODE_ENV = 'development'
 
