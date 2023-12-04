@@ -52,6 +52,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",
+    "minimatch": "^9.0.3",
     "style-dictionary": "^3.9.0",
     "tsconfig": "workspace:*"
   }
