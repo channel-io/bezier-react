@@ -5,7 +5,7 @@ import {
 } from './assert'
 
 describe('isDev', () => {
-  it('should return true when NODE_ENV is development', () => {
+  it('should return true when NODE_ENV is not production', () => {
     process.env.NODE_ENV = 'development'
 
     const result = isDev()
