@@ -8,7 +8,7 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 
 import { Typography } from '~/src/foundation'
 
-import { isLastIndex } from '~/src/utils/array'
+import { isLastArrayIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
 import {
   cssVarName,
@@ -135,7 +135,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       const AvatarElement = renderAvatarElement(avatar, slicedAvatarList.length)
 
-      if (!isLastIndex(arr, index)) {
+      if (!isLastArrayIndex(arr, index)) {
         return AvatarElement
       }
 
