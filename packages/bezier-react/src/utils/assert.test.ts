@@ -1,4 +1,5 @@
 import {
+  AssertionException,
   assert,
   isDev,
   warn,
@@ -23,22 +24,22 @@ describe('isDev', () => {
 })
 
 describe('assert', () => {
-  it('should throw an "failed" when the predicate is false', () => {
+  it('should throw an assertion exception error in development environment when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
-    expect(() => assert(false)).toThrow('failed')
+    expect(() => assert(false)).toThrow(new AssertionException())
   })
 
-  it('should throw an "failed" with a message when the predicate is false', () => {
+  it('should throw an "failed" with a error in development environment when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
-    expect(() => assert(false, 'failed')).toThrow('failed')
+    expect(() => assert(false, 'failed')).toThrow(new AssertionException('failed'))
   })
 
-  it('should not throw when the predicate is true', () => {
+  it('should not throw in production environment when the predicate is true', () => {
     process.env.NODE_ENV = 'production'
 
-    expect(() => assert(true)).not.toThrow()
+    expect(() => assert(true)).not.toThrow(new AssertionException())
   })
 })
 
