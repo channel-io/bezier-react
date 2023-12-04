@@ -48,12 +48,10 @@ describe('warn', () => {
 
     const warnSpy = jest.spyOn(console, 'warn')
 
-    const message = 'Warn'
-
-    warn(message)
+    warn('Warn')
 
     expect(warnSpy).toHaveBeenCalled()
-    expect(warnSpy).toHaveBeenCalledWith(message)
+    expect(warnSpy).toHaveBeenCalledWith('Warn')
 
     warnSpy.mockRestore()
   })
