@@ -1,6 +1,6 @@
 import { isArray } from './type'
 
-export function isLastIndex(array: any[], index: number) {
+export function isLastIndex(array: ArrayLike<unknown>, index: number) {
   return array.length - 1 === index
 }
 
