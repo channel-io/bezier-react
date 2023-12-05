@@ -11,7 +11,7 @@ const getFileExtensionByModuleSystem = (isCjs: boolean) =>
 
 function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   const fileExtension = getFileExtensionByModuleSystem(isCjs)
-  const indexFile = `index${fileExtension}`
+  const destination = `index${fileExtension}`
   let exportStatements = ''
 
   if (!fs.existsSync(buildPath)) {
@@ -21,11 +21,9 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   }
 
   const files = fs.readdirSync(buildPath)
-  // eslint-disable-next-line no-console
-  console.log(`Reading files in ${buildPath}:`, files)
 
   files.forEach((file) => {
-    if (file.endsWith(fileExtension) && file !== indexFile) {
+    if (file.endsWith(fileExtension) && file !== destination) {
       const moduleName = file.replace(fileExtension, '')
       if (!isCjs) {
         exportStatements += `import ${moduleName} from './${file}';\n`
@@ -40,7 +38,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   }
 
   files.forEach((file) => {
-    if (file.endsWith(fileExtension) && file !== indexFile) {
+    if (file.endsWith(fileExtension) && file !== destination) {
       const moduleName = file.replace(fileExtension, '')
       if (isCjs) {
         exportStatements += `  ${moduleName}: require('./${moduleName}'),\n`
@@ -52,9 +50,9 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
 
   exportStatements += '});\n'
 
-  fs.writeFileSync(path.join(buildPath, indexFile), exportStatements)
+  fs.writeFileSync(path.join(buildPath, destination), exportStatements)
   // eslint-disable-next-line no-console
-  console.log(`✅ Created ${indexFile} in ${buildPath}`)
+  console.log(`\n✔︎ Created ${buildPath}/${destination}`)
 }
 
 function main() {

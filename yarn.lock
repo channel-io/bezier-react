@@ -2562,6 +2562,7 @@ __metadata:
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
     eslint-config-bezier: "workspace:*"
+    minimatch: ^9.0.3
     style-dictionary: ^3.9.0
     tsconfig: "workspace:*"
   languageName: unknown
@@ -17043,7 +17044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^9.0.1":
+"minimatch@npm:^9.0.1, minimatch@npm:^9.0.3":
   version: 9.0.3
   resolution: "minimatch@npm:9.0.3"
   dependencies:

@@ -3,7 +3,7 @@ import type {
   Transform,
 } from 'style-dictionary'
 
-import { endsWithNumber } from './utils'
+import { extractNumber } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 
@@ -11,24 +11,29 @@ export const customFontRem: CustomTransform = {
   name: 'custom/font/rem',
   type: 'value',
   transitive: true,
-  matcher(token) {
-    const { attributes: { category, type } = {} } = token
-    return category === 'font' && (type === 'size' || type === 'line-height')
-  },
-  transformer(token, options) {
-    return `${token.value / ((options && options.basePxFontSize) || 16)}rem`
-  },
+  matcher: ({ attributes: { category, type } = {} }) =>
+    category === 'font' && (type === 'size' || type === 'line-height'),
+  transformer: ({ value }: { value: string }, options) =>
+    `${parseFloat(extractNumber(value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`,
 }
 
-export const customRadiusPx: CustomTransform = {
-  name: 'custom/radius/px',
+export const customFontFamily: CustomTransform = {
+  name: 'custom/font/family',
   type: 'value',
   transitive: true,
-  matcher(token) {
-    const { attributes: { category } = {} } = token
-    return category === 'radius'
-  },
-  transformer(token) {
-    return endsWithNumber(token.value) ? `${token.value}px` : token.value
-  },
+  matcher: ({ original: { $type } }) => $type === 'fontFamily',
+  transformer: ({ value }: { value: string[] }) =>
+    /**
+     * @see {@link https://stackoverflow.com/questions/13751412/why-would-font-names-need-quotes}
+     */
+    value.map((fontFamily) => `'${fontFamily}'`).join(', '),
+}
+
+export const customCubicBezier: CustomTransform = {
+  name: 'custom/cubicBezier',
+  type: 'value',
+  transitive: true,
+  matcher: ({ original: { $type } }) => $type === 'cubicBezier',
+  transformer: ({ value: [x1, y1, x2, y2] }: { value: [number, number, number, number] }) =>
+    `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`,
 }

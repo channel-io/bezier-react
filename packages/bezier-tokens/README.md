@@ -26,9 +26,7 @@ console.log(tokens.lightTheme.color['bg-black-dark']) // "#..."
 Provide all design tokens as CSS variables. If you want to apply dark theme tokens, add the `data-bezier-theme="dark"` attribute to the parent element. The default is light theme tokens, which can also be applied by adding the `data-bezier-theme="light"` attribute to the parent element.
 
 ```ts
-import '@channel.io/bezier-tokens/css/global.css'
-import '@channel.io/bezier-tokens/css/light-theme.css'
-import '@channel.io/bezier-tokens/css/dark-theme.css'
+import '@channel.io/bezier-tokens/css/styles.css'
 
 div {
   background: var(--bg-black-dark);

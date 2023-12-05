@@ -30,9 +30,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean:build build:tokens build:js-index build:types",
+    "build": "run-s clean:build build:tokens build:web build:types",
     "build:tokens": "ts-node-esm scripts/build-tokens.ts",
-    "build:js-index": "ts-node-esm scripts/build-js-index.ts",
+    "build:web": "run-p 'build:web:*'",
+    "build:web:index-js": "ts-node-esm scripts/build-js-index.ts",
+    "build:web:index-css": "ts-node-esm scripts/build-css-index.ts",
     "build:types": "tsc -p tsconfig.build.json",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
@@ -50,6 +52,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",
+    "minimatch": "^9.0.3",
     "style-dictionary": "^3.9.0",
     "tsconfig": "workspace:*"
   }

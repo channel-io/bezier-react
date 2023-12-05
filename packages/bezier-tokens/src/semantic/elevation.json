@@ -1,0 +1,28 @@
+{
+  "ev": {
+    "inner": {
+      "value": "inset 0 0 2px 0 {shdw.inner.base}"
+    },
+    "base": {
+      "value": "0 0 2px 0 {shdw.base}"
+    },
+    "1": {
+      "value": "{ev.inner}, {ev.base}, 0 1px 2px {shdw.small}"
+    },
+    "2": {
+      "value": "{ev.inner}, {ev.base}, 0 2px 6px {shdw.small}"
+    },
+    "3": {
+      "value": "{ev.inner}, {ev.base}, 0 4px 12px {shdw.medium}"
+    },
+    "4": {
+      "value": "{ev.inner}, {ev.base}, 0 4px 20px {shdw.large}"
+    },
+    "5": {
+      "value": "{ev.inner}, {ev.base}, 0 6px 40px {shdw.xlarge}"
+    },
+    "6": {
+      "value": "{ev.inner}, {ev.base}, 0 12px 60px {shdw.xlarge}"
+    }
+  }
+}

@@ -1,5 +1,7 @@
+import { minimatch } from 'minimatch'
 import StyleDictionary, {
   type Config,
+  type Options,
   type Platform,
 } from 'style-dictionary'
 
@@ -8,53 +10,61 @@ import {
   customJsEsm,
 } from './lib/format'
 import {
+  customCubicBezier,
+  customFontFamily,
   customFontRem,
-  customRadiusPx,
 } from './lib/transform'
-import { toCamelCase } from './lib/utils'
 
-const TokenBuilder = StyleDictionary
+const TokenBuilder = StyleDictionary.registerTransform(customCubicBezier)
+  .registerTransform(customFontFamily)
   .registerTransform(customFontRem)
-  .registerTransform(customRadiusPx)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
-function defineWebPlatform(options: Platform): Platform {
+function defineWebPlatform({ options, ...rest }: Platform): Platform {
   return {
     transforms: [
       'attribute/cti',
       'name/cti/kebab',
+      customCubicBezier.name,
+      customFontFamily.name,
       customFontRem.name,
-      customRadiusPx.name,
     ],
     basePxFontSize: 10,
-    ...options,
+    options: {
+      showFileHeader: false,
+      ...options,
+    },
+    ...rest,
   }
 }
 
 interface DefineConfigOptions {
   source: string[]
+  reference?: string[]
   destination: string
-  options?: {
+  options?: Options & {
     cssSelector: string
   }
 }
 
 function defineConfig({
   source,
+  reference = [],
   destination,
   options,
 }: DefineConfigOptions): Config {
   return {
-    source,
+    source: [...source, ...reference],
     platforms: {
       'web/cjs': defineWebPlatform({
         buildPath: 'dist/cjs/',
         files: [
           {
-            destination: `${toCamelCase(destination)}.js`,
+            destination: `${destination}.js`,
             format: customJsCjs.name,
-            filter: (token) => token.filePath.includes(destination),
+            filter: ({ filePath }) =>
+              source.some((src) => minimatch(filePath, src)),
           },
         ],
       }),
@@ -62,9 +72,10 @@ function defineConfig({
         buildPath: 'dist/esm/',
         files: [
           {
-            destination: `${toCamelCase(destination)}.mjs`,
+            destination: `${destination}.mjs`,
             format: customJsEsm.name,
-            filter: (token) => token.filePath.includes(destination),
+            filter: ({ filePath }) =>
+              source.some((src) => minimatch(filePath, src)),
           },
         ],
       }),
@@ -74,7 +85,8 @@ function defineConfig({
           {
             destination: `${destination}.css`,
             format: 'css/variables',
-            filter: (token) => token.filePath.includes(destination),
+            filter: ({ filePath }) =>
+              source.some((src) => minimatch(filePath, src)),
             options: {
               selector: options?.cssSelector,
               outputReferences: true,
@@ -97,8 +109,9 @@ function main() {
     ),
     TokenBuilder.extend(
       defineConfig({
-        source: ['src/global/*.json', 'src/semantic/light-theme/*.json'],
-        destination: 'light-theme',
+        source: ['src/semantic/*.json', 'src/semantic/light-theme/*.json'],
+        reference: ['src/global/*.json'],
+        destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
         },
@@ -106,8 +119,9 @@ function main() {
     ),
     TokenBuilder.extend(
       defineConfig({
-        source: ['src/global/*.json', 'src/semantic/dark-theme/*.json'],
-        destination: 'dark-theme',
+        source: ['src/semantic/*.json', 'src/semantic/dark-theme/*.json'],
+        reference: ['src/global/*.json'],
+        destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       }),
     ),

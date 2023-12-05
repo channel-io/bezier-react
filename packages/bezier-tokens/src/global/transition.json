@@ -1,18 +1,33 @@
 {
   "transition": {
-    "easing": {
-      "value": "cubic-bezier(.3,0,0,1)"
+    "timing-function": {
+      "default": {
+        "value": [0.3, 0, 0, 1],
+        "$type": "cubicBezier"
+      }
     },
     "duration": {
       "s": {
-        "value": "150ms"
+        "value": "150ms",
+        "$type": "duration"
       },
       "m": {
-        "value": "300ms"
+        "value": "300ms",
+        "$type": "duration"
       },
       "l": {
-        "value": "450ms"
+        "value": "450ms",
+        "$type": "duration"
       }
+    },
+    "s": {
+      "value": "{transition.duration.s} {transition.timing-function.default}"
+    },
+    "m": {
+      "value": "{transition.duration.m} {transition.timing-function.default}"
+    },
+    "l": {
+      "value": "{transition.duration.l} {transition.timing-function.default}"
     }
   }
 }
