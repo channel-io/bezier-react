@@ -1,14 +1,14 @@
 import {
   compact,
   flattenDeep,
-  isLastArrayIndex,
+  isLastIndex,
 } from './array'
 
-describe('isLastArrayIndex', () => {
+describe('isLastIndex', () => {
   it('should return true when the last array index', () => {
     const arr = [0, 1, 2, 3, 4]
 
-    const result = isLastArrayIndex(arr, 4)
+    const result = isLastIndex(arr, 4)
 
     expect(result).toBe(true)
   })
@@ -16,7 +16,7 @@ describe('isLastArrayIndex', () => {
   it('should return false when not the last array index', () => {
     const arr = [0, 1, 2, 3, 4]
 
-    const result = isLastArrayIndex(arr, 1)
+    const result = isLastIndex(arr, 1)
 
     expect(result).toBe(false)
   })
