@@ -14,13 +14,16 @@ export const customFontRem: CustomTransform = {
   name: 'custom/font/rem',
   type: 'value',
   transitive: true,
-  matcher: ({ attributes: { category, type } = {} }) =>
-    category === 'font' && (type === 'size' || type === 'line-height'),
-  transformer: ({ value }: { value: string }, options) =>
-    `${
-      parseFloat(extractNumber(value) ?? '') /
+  matcher: (token) =>
+    token.attributes?.category === 'font' && token.type === 'dimension',
+  transformer: ({ value }: { value: string }, options) => {
+    const extractedNumber = extractNumber(value)
+    const isNegative = value.trim().startsWith('-')
+    const numberValue =
+      parseFloat(extractedNumber ?? '') /
       ((options && options.basePxFontSize) || 16)
-    }rem`,
+    return `${isNegative ? -numberValue : numberValue}rem`
+  },
 }
 
 export const customFontFamily: CustomTransform = {
