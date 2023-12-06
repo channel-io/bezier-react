@@ -19,6 +19,27 @@
         "value": "450ms",
         "type": "duration"
       }
+    },
+    "s": {
+      "value": {
+        "duration": "{transition.duration.s}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
+    },
+    "m": {
+      "value": {
+        "duration": "{transition.duration.m}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
+    },
+    "l": {
+      "value": {
+        "duration": "{transition.duration.l}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
     }
   }
 }
