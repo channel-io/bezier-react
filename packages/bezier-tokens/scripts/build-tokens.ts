@@ -9,20 +9,14 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import {
-  customCubicBezier,
-  customFontFamily,
-  customFontRem,
-  customShadow,
-  customTransition,
-} from './lib/transform'
+import { CSSTransforms } from './lib/transform'
 
-const TokenBuilder = StyleDictionary
-  .registerTransform(customCubicBezier)
-  .registerTransform(customFontFamily)
-  .registerTransform(customFontRem)
-  .registerTransform(customShadow)
-  .registerTransform(customTransition)
+const CustomTransforms = [...Object.values(CSSTransforms)]
+
+const TokenBuilder = CustomTransforms.reduce(
+  (builder, transform) => builder.registerTransform(transform),
+  StyleDictionary,
+)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -31,11 +25,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
     transforms: [
       'attribute/cti',
       'name/cti/kebab',
-      customCubicBezier.name,
-      customFontFamily.name,
-      customFontRem.name,
-      customShadow.name,
-      customTransition.name,
+      ...CustomTransforms.map((transform) => transform.name),
     ],
     basePxFontSize: 10,
     options: {
@@ -48,7 +38,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
 
 interface DefineConfigOptions {
   source: string[]
-  reference?: string[]
+  include?: string[]
   destination: string
   options?: Options & {
     cssSelector: string
@@ -57,12 +47,13 @@ interface DefineConfigOptions {
 
 function defineConfig({
   source,
-  reference = [],
+  include,
   destination,
   options,
 }: DefineConfigOptions): Config {
   return {
-    source: [...source, ...reference],
+    source,
+    include,
     platforms: {
       'web/cjs': defineWebPlatform({
         buildPath: 'dist/cjs/',
@@ -117,7 +108,7 @@ function main() {
     TokenBuilder.extend(
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/light-theme/*.json'],
-        reference: ['src/global/*.json'],
+        include: ['src/global/*.json'],
         destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
@@ -127,7 +118,7 @@ function main() {
     TokenBuilder.extend(
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/dark-theme/*.json'],
-        reference: ['src/global/*.json'],
+        include: ['src/global/*.json'],
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       }),
