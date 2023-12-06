@@ -13,11 +13,14 @@ import {
   customCubicBezier,
   customFontFamily,
   customFontRem,
+  customShadow,
 } from './lib/transform'
 
-const TokenBuilder = StyleDictionary.registerTransform(customCubicBezier)
+const TokenBuilder = StyleDictionary
+  .registerTransform(customCubicBezier)
   .registerTransform(customFontFamily)
   .registerTransform(customFontRem)
+  .registerTransform(customShadow)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -29,6 +32,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
       customCubicBezier.name,
       customFontFamily.name,
       customFontRem.name,
+      customShadow.name,
     ],
     basePxFontSize: 10,
     options: {
