@@ -79,16 +79,16 @@
       "sans": {
         "kr": {
           "value": ["Inter", "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
-          "$type": "fontFamily"
+          "type": "fontFamily"
         },
         "jp": {
           "value": ["Inter", "NotoSansJP", "NotoSansKR", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
-          "$type": "fontFamily"
+          "type": "fontFamily"
         }
       },
       "mono": {
         "value": ["ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"],
-        "$type": "fontFamily"
+        "type": "fontFamily"
       }
     },
     "letter-spacing": {

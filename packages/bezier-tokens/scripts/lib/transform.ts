@@ -27,7 +27,7 @@ export const customFontFamily: CustomTransform = {
   name: 'custom/font/family',
   type: 'value',
   transitive: true,
-  matcher: ({ $type }) => $type === 'fontFamily',
+  matcher: (token) => token.type === 'fontFamily',
   transformer: ({ value }: { value: string[] }) =>
     /**
      * @see {@link https://stackoverflow.com/questions/13751412/why-would-font-names-need-quotes}
@@ -39,7 +39,7 @@ export const customCubicBezier: CustomTransform = {
   name: 'custom/cubicBezier',
   type: 'value',
   transitive: true,
-  matcher: ({ $type }) => $type === 'cubicBezier',
+  matcher: (token) => token.type === 'cubicBezier',
   transformer: ({
     value: [x1, y1, x2, y2],
   }: {
@@ -51,21 +51,20 @@ export const customShadow: CustomTransform = {
   name: 'custom/css/shadow',
   type: 'value',
   transitive: true,
-  matcher: ({ type }) => type === 'shadow',
+  matcher: (token) => token.type === 'shadow',
   transformer: ({ value }) => {
     function transform(shadow?: {
       offsetX?: string
       offsetY?: string
       blur?: string
       spread?: string
-      color?: string
-      type?: string
+      color: string
+      type: 'dropShadow' | 'innerShadow'
     }) {
       if (typeof shadow !== 'object') {
         return shadow
       }
-      const { offsetX, offsetY, blur, spread } = shadow
-      const { color, type } = shadow
+      const { offsetX, offsetY, blur, spread, color, type } = shadow
       return `${type === 'innerShadow' ? 'inset ' : ''}${
         offsetX ? toCSSDimension(offsetX) : 0
       } ${offsetY ? toCSSDimension(offsetY) : 0} ${
