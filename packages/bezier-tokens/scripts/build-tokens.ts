@@ -14,6 +14,7 @@ import {
   customFontFamily,
   customFontRem,
   customShadow,
+  customTransition,
 } from './lib/transform'
 
 const TokenBuilder = StyleDictionary
@@ -21,6 +22,7 @@ const TokenBuilder = StyleDictionary
   .registerTransform(customFontFamily)
   .registerTransform(customFontRem)
   .registerTransform(customShadow)
+  .registerTransform(customTransition)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -33,6 +35,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
       customFontFamily.name,
       customFontRem.name,
       customShadow.name,
+      customTransition.name,
     ],
     basePxFontSize: 10,
     options: {

@@ -79,3 +79,19 @@ export const customShadow: CustomTransform = {
       : transform(value)
   },
 }
+
+export const customTransition: CustomTransform = {
+  name: 'custom/css/transition',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => token.type === 'transition',
+  transformer: ({
+    value: { duration, timingFunction, delay },
+  }: {
+    value: {
+      duration: string
+      timingFunction?: string
+      delay?: string
+    }
+  }) => `${`${duration} ` || ''}${timingFunction || ''}${delay || ''}`.trim(),
+}
