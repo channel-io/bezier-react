@@ -19,6 +19,11 @@ import {
 
 import project from './project.js'
 import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal.js'
+import foundationToCssVariableBorder from './transforms/foundation-to-css-variable-border.js'
+import foundationToCssVariableElevation from './transforms/foundation-to-css-variable-elevation.js'
+import foundationToCssVariableRounding from './transforms/foundation-to-css-variable-rounding.js'
+import foundationToCssVariableTheme from './transforms/foundation-to-css-variable-theme.js'
+import foundationToCssVariableTransition from './transforms/foundation-to-css-variable-transition.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 
@@ -33,6 +38,11 @@ enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   EnumMemberToStringLiteral = 'enum-member-to-string-literal',
+  FoundationToCssVariableTheme = 'css-variable-to-css-variable-theme',
+  FoundationToCssVariableBorder = 'css-variable-to-css-variable-border',
+  FoundationToCssVariableElevation = 'css-variable-to-css-variable-elevation',
+  FoundationToCssVariableRounding = 'css-variable-to-css-variable-rounding',
+  FoundationToCssVariableTransition = 'css-variable-to-css-variable-transition',
   Exit = 'Exit',
 }
 
@@ -42,6 +52,11 @@ const transformMap = {
   [Option.IconsToBezierIcons]: iconsToBezierIcons,
   [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
   [Option.EnumMemberToStringLiteral]: enumMemberToStringLiteral,
+  [Option.FoundationToCssVariableTheme]: foundationToCssVariableTheme,
+  [Option.FoundationToCssVariableBorder]: foundationToCssVariableBorder,
+  [Option.FoundationToCssVariableElevation]: foundationToCssVariableElevation,
+  [Option.FoundationToCssVariableRounding]: foundationToCssVariableRounding,
+  [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
