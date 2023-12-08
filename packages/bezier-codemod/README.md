@@ -21,20 +21,31 @@ Update the import syntax for the icon source moved from `@channel.io/bezier-reac
 For example:
 
 ```tsx
-import React from 'react'
-import { AllIcon, Button, CheckIcon as CheckIconSource, Icon, type IconName, IconSize } from '@channel.io/bezier-react'
+import React from "react";
+import {
+  AllIcon,
+  Button,
+  CheckIcon as CheckIconSource,
+  Icon,
+  type IconName,
+  IconSize,
+} from "@channel.io/bezier-react";
 
-import Foo from './foo'
+import Foo from "./foo";
 ```
 
 Transforms into:
 
 ```tsx
-import React from 'react'
-import { AllIcon, CheckIcon as CheckIconSource, type IconName } from '@channel.io/bezier-icons'
-import { Button, Icon, IconSize } from '@channel.io/bezier-react'
+import React from "react";
+import {
+  AllIcon,
+  CheckIcon as CheckIconSource,
+  type IconName,
+} from "@channel.io/bezier-icons";
+import { Button, Icon, IconSize } from "@channel.io/bezier-react";
 
-import Foo from './foo'
+import Foo from "./foo";
 ```
 
 ### Enum Member to String Literal
@@ -46,29 +57,73 @@ Replace deprecated enum usage to string literal.
 For example:
 
 ```tsx
-import { ProgressBar, ProgressBarSize, ProgressBarVariant } from '@channel.io/bezier-react'
+import {
+  ProgressBar,
+  ProgressBarSize,
+  ProgressBarVariant,
+} from "@channel.io/bezier-react";
 
 export default () => (
   <ProgressBar
-    width='100%'
+    width="100%"
     size={ProgressBarSize.M}
     variant={ProgressBarVariant.GreenAlt}
     value={uploadProgressPercentage / 100}
   />
-)
+);
 ```
 
 Transforms into:
 
 ```tsx
-import { ProgressBar } from '@channel.io/bezier-react'
+import { ProgressBar } from "@channel.io/bezier-react";
 
 export default () => (
   <ProgressBar
-    width='100%'
-    size='m'
-    variant='green-alt'
+    width="100%"
+    size="m"
+    variant="green-alt"
     value={uploadProgressPercentage / 100}
   />
-)
+);
+```
+
+### Foundation to CSS Variable
+
+**`css-variable-to-css-variable`**
+
+Replace foundation to css variable
+You can also use individual transform function such as `css-variable-to-css-theme`, `css-variable-to-css-rounding`, and so on.
+
+For example:
+
+```tsx
+import { styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  color: ${({ foundation }) => foundation?.theme?.["txt-black-dark"]};
+  ${({ foundation }) => foundation?.rounding.round12};
+  ${({ foundation }) =>
+    foundation?.border?.getBorder(0.5, foundation.theme["bdr-black-light"], {
+      top: false,
+      right: false,
+      left: false,
+    })};
+  ${({ foundation }) => foundation?.elevation?.ev1()};
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS("color")};
+`;
+```
+
+Transforms into:
+
+```tsx
+import { styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  color: var(--txt-black-dark);
+  border-radius: var(--radius-12);
+  border-bottom: 0.5px solid var(--bdr-black-light);
+  box-shadow: var(--ev-1);
+  transition: color var(--transition-duration-s) cubic-bezier(0.3, 0, 0, 1);
+`;
 ```
