@@ -1,19 +1,6 @@
 const div = styled.div`
-  all: unset;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
   color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
   background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-lighter']};
-`
-
-
-const UploadButton = styled.div`
-  background-color: ${({ foundation }) =>
-    foundation?.theme?.['bg-white-normal']};
 `
 
 const CountryNumberSelect = styled(BaseCountryNumberSelect)`
@@ -45,14 +32,8 @@ const MessageContainer = styled.div`
 
 const Wrapper = styled.div`
   .video-react {
-    box-sizing: content-box !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    font-family: inherit !important;
-    background-color: transparent !important;
     border: 1px solid
       ${({ foundation }) => foundation?.theme?.['bdr-black-light']} !important;
-    border-radius: 6px !important;
 `
 
 const Row = styled.div`
@@ -82,11 +63,4 @@ const MessageWrapper = styled.div`
     foundation?.theme?.['bgtxt-absolute-white-dark']};
   ${({ foundation }) =>
     foundation?.border.getBorder(1, foundation?.theme?.['bdr-black-light'])};
-`
-
-const div = styled.div`
-  background-color: ${({ foundation, colorVariant }) =>
-  colorVariant === MessageButtonColorVariant.Null
-    ? foundation?.theme?.['bg-grey-dark']
-    : foundation?.theme?.[SemanticNameByMessageButtonColor[colorVariant]]};
 `

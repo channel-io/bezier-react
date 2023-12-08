@@ -29,8 +29,3 @@ const div = styled.div`
   border-radius: var(--radius-12);
   border-radius: var(--radius-12);
 `
-
-const div = styled.div`
-  ${({ foundation, isRounding }) =>
-  isRounding && foundation?.elevation?.ev3()};
-`

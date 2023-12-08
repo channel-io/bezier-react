@@ -28,16 +28,3 @@ const Command = styled.div`
 const div = styled.div`
   transition: background-color var(--transition-duration-m) cubic-bezier(.3,0,0,1);
 `
-
-const div = styled.div`
-  ${({ foundation }) =>
-  foundation?.transition.getTransitionsCSS(
-    ['top', 'opacity'],
-    foundation?.transition.TransitionDuration.S
-  )}
-`
-
-const transitionStyleOf = (properties: string | string[]) => css`
-  ${({ foundation }) =>
-    foundation?.transition.getTransitionsCSS(properties, TransitionDuration.M)}
-`

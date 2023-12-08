@@ -29,8 +29,3 @@ const div = styled.div`
   ${({ foundation }) => foundation?.rounding.round12}
   ${({ foundation }) => foundation?.rounding.round12}
 `
-
-const div = styled.div`
-  ${({ foundation, isRounding }) =>
-  isRounding && foundation?.elevation?.ev3()};
-`

@@ -19,10 +19,14 @@ const replaceTheme = (sourceFile: SourceFile) => {
       themeArrowFunctions
         .map(v => v.getText())
         .forEach(text => {
-          node.replaceWithText(
-            node.getText()
-              .replace(`\${${text}}`, `var(--${getColor(text)})`),
-          )
+          const color = getColor(text)
+
+          if (color) {
+            node.replaceWithText(
+              node.getText()
+                .replace(`\${${text}}`, `var(--${getColor(text)})`),
+            )
+          }
         })
     }
   })
