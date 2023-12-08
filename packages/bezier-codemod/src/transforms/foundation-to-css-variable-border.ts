@@ -1,12 +1,13 @@
 /* eslint-disable no-template-curly-in-string */
 import {
-  type ArrowFunction,
   type CallExpression,
   Node,
   type SourceFile,
   SyntaxKind,
   type ts,
 } from 'ts-morph'
+
+import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
 
 const getBorderStyle = (borderCallExpression: CallExpression<ts.CallExpression>) => {
   const thinkNess = borderCallExpression
@@ -61,8 +62,7 @@ const getBorderStyle = (borderCallExpression: CallExpression<ts.CallExpression>)
   return borderStyle
 }
 
-const hasBorderFoundation = (text: string) =>
-  text.includes('getBorder')
+const hasBorderFoundation = (node: Node) => node.getText().includes('getBorder')
 
 const replaceBorder = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
@@ -70,24 +70,26 @@ const replaceBorder = (sourceFile: SourceFile) => {
     if (Node.isTemplateExpression(node)) {
       const borderCallExpression = node
         .getDescendantsOfKind(SyntaxKind.CallExpression)
-        .find(v => hasBorderFoundation(v.getText()))
+        .find(hasBorderFoundation)
 
       if (!borderCallExpression) { return }
 
-      const borderArrowFunction = node
-        .getDescendantsOfKind(SyntaxKind.ArrowFunction)
-        .reverse()
-        ?.find((v: ArrowFunction) => hasBorderFoundation(v.getText()))
-
+      const borderArrowFunctions = getArrowFunctionsWithOneArgument(
+        node, hasBorderFoundation,
+      )
       const borderStyle = getBorderStyle(borderCallExpression)
 
       if (!borderStyle) { return }
 
-      node.replaceWithText(
-        node.getText()
-          .replace(`\${${borderArrowFunction?.getText()}};\n` ?? '', borderStyle)
-          .replace(`\${${borderArrowFunction?.getText()}}\n` ?? '', borderStyle),
-      )
+      borderArrowFunctions
+        .map((v) => v.getText())
+        .forEach((text) => {
+          node.replaceWithText(
+            node.getText()
+              .replace(`\${${text}};\n` ?? '', borderStyle)
+              .replace(`\${${text}}\n` ?? '', borderStyle),
+          )
+        })
     }
   })
   return sourceFile.getText() !== oldSourceFileText

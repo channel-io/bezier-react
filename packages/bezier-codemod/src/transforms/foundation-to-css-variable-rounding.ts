@@ -5,27 +5,28 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
+import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
+
 const getRound = (text: string) => text.match(/round(\d+)/)?.[1]
 
-const isRoundingTheme = (text: string) => text.includes('foundation?.rounding')
+const isRoundingTheme = (node: Node) => node.getText().includes('foundation?.rounding')
 
 const replaceRound = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
-      const roundArrowFunctions = node
-        .getDescendantsOfKind(SyntaxKind.ArrowFunction)
-        .filter(v => isRoundingTheme(v.getText()))
-        .filter(v => v.getDescendantsOfKind(SyntaxKind.BindingElement).length === 1)
-        .map(v => v.getText())
-
-      roundArrowFunctions.forEach(text => {
-        node.replaceWithText(
-          node.getText()
-            .replace(`\${${text}}`, `border-radius: var(--radius-${getRound(text)});`)
-            .replaceAll(';;', ';'),
-        )
-      })
+      const roundArrowFunctions = getArrowFunctionsWithOneArgument(
+        node, isRoundingTheme,
+      )
+      roundArrowFunctions
+        .map((v) => v.getText())
+        .forEach(text => {
+          node.replaceWithText(
+            node.getText()
+              .replace(`\${${text}}`, `border-radius: var(--radius-${getRound(text)});`)
+              .replaceAll(';;', ';'),
+          )
+        })
     }
   })
   return oldSourceFileText !== sourceFile.getText()

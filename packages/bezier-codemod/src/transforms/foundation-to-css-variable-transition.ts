@@ -7,6 +7,8 @@ import {
   type ts,
 } from 'ts-morph'
 
+import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
+
 const cssVarByDuration: Record<string, string> = {
   'TransitionDuration.S': 'var(--transition-duration-s)',
   'TransitionDuration.M': 'var(--transition-duration-m)',
@@ -31,7 +33,7 @@ const getTransitionStyle = (transitionCallExpression: CallExpression<ts.CallExpr
   return transitionStyle
 }
 
-const hasTransitionFoundation = (text: string) => text.includes('getTransitionsCSS')
+const hasTransitionFoundation = (node: Node) => node.getText().includes('getTransitionsCSS')
 
 const replaceTransitionsCSS = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
@@ -39,25 +41,26 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
     if (Node.isTemplateExpression(node)) {
       const transitionCallExpression = node
         .getDescendantsOfKind(SyntaxKind.CallExpression)
-        .find(v => hasTransitionFoundation(v.getText()))
+        .find(hasTransitionFoundation)
 
       if (!transitionCallExpression) { return }
 
-      const transitionArrowFunction = node
-        .getDescendantsOfKind(SyntaxKind.ArrowFunction)
-        .filter(v => v.getDescendantsOfKind(SyntaxKind.BindingElement).length === 1)
-        .reverse()
-        .find(v => hasTransitionFoundation(v.getText()))
-
+      const transitionArrowFunctions = getArrowFunctionsWithOneArgument(
+        node, hasTransitionFoundation,
+      )
       const transitionStyle = getTransitionStyle(transitionCallExpression)
 
       if (!transitionStyle) { return }
 
-      node.replaceWithText(
-        node.getText()
-          .replace(`\${${transitionArrowFunction?.getText()}};\n` ?? '', transitionStyle)
-          .replace(`\${${transitionArrowFunction?.getText()}}\n` ?? '', transitionStyle),
-      )
+      transitionArrowFunctions
+        .map(v => v.getText())
+        .forEach((text) => {
+          node.replaceWithText(
+            node.getText()
+              .replace(`\${${text}};\n` ?? '', transitionStyle)
+              .replace(`\${${text}}\n` ?? '', transitionStyle),
+          )
+        })
     }
   })
   return oldSourceFileText !== sourceFile.getText()
