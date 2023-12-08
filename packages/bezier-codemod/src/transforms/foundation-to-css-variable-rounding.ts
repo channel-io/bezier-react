@@ -2,7 +2,6 @@
 import {
   Node,
   type SourceFile,
-  SyntaxKind,
 } from 'ts-morph'
 
 import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
@@ -32,12 +31,4 @@ const replaceRound = (sourceFile: SourceFile) => {
   return oldSourceFileText !== sourceFile.getText()
 }
 
-const transform = (sourceFile: SourceFile) => {
-  try {
-    return replaceRound(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-export default transform
+export default replaceRound

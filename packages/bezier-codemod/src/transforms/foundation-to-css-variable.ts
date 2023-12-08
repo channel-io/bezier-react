@@ -8,15 +8,11 @@ import themeTransform from './foundation-to-css-variable-theme.js'
 import transitionTransform from './foundation-to-css-variable-transition.js'
 
 const transform = (sourceFile: SourceFile) => {
-  try {
-    transitionTransform(sourceFile)
-    themeTransform(sourceFile)
-    elevationTransform(sourceFile)
-    roundingTransform(sourceFile)
-    borderTransform(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
+  transitionTransform(sourceFile)
+  themeTransform(sourceFile)
+  elevationTransform(sourceFile)
+  roundingTransform(sourceFile)
+  borderTransform(sourceFile)
 }
 
 export default transform

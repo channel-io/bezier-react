@@ -95,12 +95,4 @@ const replaceBorder = (sourceFile: SourceFile) => {
   return sourceFile.getText() !== oldSourceFileText
 }
 
-const transform = (sourceFile: SourceFile) => {
-  try {
-    return replaceBorder(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-export default transform
+export default replaceBorder

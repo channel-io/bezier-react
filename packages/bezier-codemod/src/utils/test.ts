@@ -5,9 +5,9 @@ import { type SourceFile } from 'ts-morph'
 
 import project from '../project.js'
 
-export const testTransformFunction = (fileName: string, transform: (sourceFile: SourceFile) => void) => {
-  const inputPath = path.join(__dirname, 'fixtures', `${fileName}.input.tsx`)
-  const outputPath = path.join(__dirname, 'fixtures', `${fileName}.output.tsx`)
+export const testTransformFunction = (dirName: string, fileName: string, transform: (sourceFile: SourceFile) => void) => {
+  const inputPath = path.join(dirName, 'fixtures', `${fileName}.input.tsx`)
+  const outputPath = path.join(dirName, 'fixtures', `${fileName}.output.tsx`)
 
   const inputCode = fs.readFileSync(inputPath, 'utf-8')
   const outputCode = fs.readFileSync(outputPath, 'utf-8')

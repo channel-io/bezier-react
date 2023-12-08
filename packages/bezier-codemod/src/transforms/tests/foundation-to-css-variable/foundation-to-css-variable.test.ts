@@ -7,30 +7,30 @@ import transitionTransform from '../../foundation-to-css-variable-transition.js'
 
 describe('theme transform', () => {
   it('should transform foundation to css variable', () => {
-    testTransformFunction('theme', themeTransform)
+    testTransformFunction(__dirname, 'theme', themeTransform)
   })
 })
 
 describe('rounding transform', () => {
   it('should transform foundation to css variable', () => {
-    testTransformFunction('rounding', roundingTransform)
+    testTransformFunction(__dirname, 'rounding', roundingTransform)
   })
 })
 
 describe('border transform', () => {
   it('should transform foundation to css variable', () => {
-    testTransformFunction('border', borderTransform)
+    testTransformFunction(__dirname, 'border', borderTransform)
   })
 })
 
 describe('elevation transform', () => {
   it('should transform foundation to css variable', () => {
-    testTransformFunction('elevation', elevationTransform)
+    testTransformFunction(__dirname, 'elevation', elevationTransform)
   })
 })
 
 describe('transition transform', () => {
   it('should transform foundation to css variable', () => {
-    testTransformFunction('transition', transitionTransform)
+    testTransformFunction(__dirname, 'transition', transitionTransform)
   })
 })

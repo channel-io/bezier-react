@@ -66,12 +66,4 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
   return oldSourceFileText !== sourceFile.getText()
 }
 
-const transform = (sourceFile: SourceFile) => {
-  try {
-    return replaceTransitionsCSS(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-export default transform
+export default replaceTransitionsCSS

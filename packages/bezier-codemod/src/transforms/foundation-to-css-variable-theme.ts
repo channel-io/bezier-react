@@ -2,7 +2,6 @@
 import {
   Node,
   type SourceFile,
-  SyntaxKind,
 } from 'ts-morph'
 
 import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
@@ -30,12 +29,4 @@ const replaceTheme = (sourceFile: SourceFile) => {
   return sourceFile.getText() !== oldSourceFileText
 }
 
-const transform = (sourceFile: SourceFile) => {
-  try {
-    return replaceTheme(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-export default transform
+export default replaceTheme

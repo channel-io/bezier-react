@@ -32,13 +32,4 @@ const replaceElevation = (sourceFile: SourceFile) => {
   return sourceFile.getText() !== oldSourceFileText
 }
 
-const transform = (sourceFile: SourceFile) => {
-  // replaceTransitionsCSS should precede replaceTheme
-  try {
-    return replaceElevation(sourceFile)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-export default transform
+export default replaceElevation
