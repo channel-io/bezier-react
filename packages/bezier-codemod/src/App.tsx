@@ -24,6 +24,7 @@ import foundationToCssVariableElevation from './transforms/foundation-to-css-var
 import foundationToCssVariableRounding from './transforms/foundation-to-css-variable-rounding.js'
 import foundationToCssVariableTheme from './transforms/foundation-to-css-variable-theme.js'
 import foundationToCssVariableTransition from './transforms/foundation-to-css-variable-transition.js'
+import foundationToCssVariable from './transforms/foundation-to-css-variable.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 
@@ -43,6 +44,7 @@ enum Option {
   FoundationToCssVariableElevation = 'css-variable-to-css-variable-elevation',
   FoundationToCssVariableRounding = 'css-variable-to-css-variable-rounding',
   FoundationToCssVariableTransition = 'css-variable-to-css-variable-transition',
+  FoundationToCssVariable = 'css-variable-to-css-variable',
   Exit = 'Exit',
 }
 
@@ -57,6 +59,7 @@ const transformMap = {
   [Option.FoundationToCssVariableElevation]: foundationToCssVariableElevation,
   [Option.FoundationToCssVariableRounding]: foundationToCssVariableRounding,
   [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
+  [Option.FoundationToCssVariable]: foundationToCssVariable,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
