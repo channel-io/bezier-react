@@ -18164,21 +18164,21 @@ __metadata:
   linkType: hard
 
 "rollup-plugin-visualizer@npm:^5.9.2":
-  version: 5.9.2
-  resolution: "rollup-plugin-visualizer@npm:5.9.2"
+  version: 5.11.0
+  resolution: "rollup-plugin-visualizer@npm:5.11.0"
   dependencies:
     open: ^8.4.0
     picomatch: ^2.3.1
     source-map: ^0.7.4
     yargs: ^17.5.1
   peerDependencies:
-    rollup: 2.x || 3.x
+    rollup: 2.x || 3.x || 4.x
   peerDependenciesMeta:
     rollup:
       optional: true
   bin:
     rollup-plugin-visualizer: dist/bin/cli.js
-  checksum: ab2adf322e3b20bffc94a8dc804f46be8840a9fcbab4f872dcc2dec205cdd7752e4d2d90cfcf00783bfb5209c5a8bb4e591984e8b61bca41fd048fb7deb0ed4e
+  checksum: 9f4469f83a63f57462258f7e4327cb85f5218cc3e49de9f06213728e35aff72f613d48331788e3e666bb16ccd5a9ab7e478cc1dd8cbceafb78bf397c8e30cc4d
   languageName: node
   linkType: hard
 
