@@ -91,6 +91,6 @@ export const CSSTransforms = {
         timingFunction?: string
         delay?: string
       }
-    }) => `${`${duration} ` || ''}${timingFunction || ''}${delay || ''}`.trim(),
+    }) => `${duration} ${timingFunction || ''}${delay || ''}`.trim(),
   },
 } satisfies Transforms
