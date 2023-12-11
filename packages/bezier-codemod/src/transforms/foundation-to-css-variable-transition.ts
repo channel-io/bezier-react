@@ -10,9 +10,9 @@ import {
 import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
 
 const cssVarByDuration: Record<string, string> = {
-  'TransitionDuration.S': 'var(--transition-duration-s)',
-  'TransitionDuration.M': 'var(--transition-duration-m)',
-  'TransitionDuration.L': 'var(--transition-duration-l)',
+  'TransitionDuration.S': 'var(--transition-s)',
+  'TransitionDuration.M': 'var(--transition-m)',
+  'TransitionDuration.L': 'var(--transition-l)',
 }
 
 const getTransitionStyle = (transitionCallExpression: CallExpression<ts.CallExpression>) => {
@@ -28,7 +28,7 @@ const getTransitionStyle = (transitionCallExpression: CallExpression<ts.CallExpr
 
   if (!cssVarByDuration[duration]) { return null }
 
-  const transitionStyle = `transition: ${properties.map((property) => `${property} ${cssVarByDuration[duration]} cubic-bezier(.3,0,0,1)${delay}`).join(', ')};\n`
+  const transitionStyle = `transition: ${properties.map((property) => `${property} ${cssVarByDuration[duration]}${delay}`).join(', ')};\n`
 
   return transitionStyle
 }

@@ -1,13 +1,13 @@
 const BackIcon = styled(Icon)`
-  transition: color var(--transition-duration-s) cubic-bezier(.3,0,0,1);
+  transition: color var(--transition-s);
 `
 
 const Block = styled.div`
-  transition: background-color var(--transition-duration-s) cubic-bezier(.3,0,0,1);
+  transition: background-color var(--transition-s);
 `
 
 const Wrapper = styled.div`
-  transition: background-color var(--transition-duration-s) cubic-bezier(.3,0,0,1), color var(--transition-duration-s) cubic-bezier(.3,0,0,1);
+  transition: background-color var(--transition-s), color var(--transition-s);
 `
 
 const Wrapper = styled.div`
@@ -20,11 +20,11 @@ const Command = styled.div`
     disabled &&
     css`
       &&& {
-        transition: background-color var(--transition-duration-s) cubic-bezier(.3,0,0,1), color var(--transition-duration-s) cubic-bezier(.3,0,0,1), opacity var(--transition-duration-s) cubic-bezier(.3,0,0,1);
+        transition: background-color var(--transition-s), color var(--transition-s), opacity var(--transition-s);
       }
     `}
 `
 
 const div = styled.div`
-  transition: background-color var(--transition-duration-m) cubic-bezier(.3,0,0,1);
+  transition: background-color var(--transition-m);
 `
