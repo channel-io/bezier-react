@@ -123,7 +123,8 @@ const Wrapper = styled.div`
   color: var(--txt-black-dark);
   border-radius: var(--radius-12);
   border-bottom: 0.5px solid var(--bdr-black-light);
+  background-color: var(--bg-white-low);
   box-shadow: var(--ev-1);
-  transition: color var(--transition-duration-s) cubic-bezier(0.3, 0, 0, 1);
+  transition: color var(--transition-s);
 `;
 ```
