@@ -39,12 +39,12 @@ enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   EnumMemberToStringLiteral = 'enum-member-to-string-literal',
-  FoundationToCssVariableTheme = 'css-variable-to-css-variable-theme',
-  FoundationToCssVariableBorder = 'css-variable-to-css-variable-border',
-  FoundationToCssVariableElevation = 'css-variable-to-css-variable-elevation',
-  FoundationToCssVariableRounding = 'css-variable-to-css-variable-rounding',
-  FoundationToCssVariableTransition = 'css-variable-to-css-variable-transition',
-  FoundationToCssVariable = 'css-variable-to-css-variable',
+  FoundationToCssVariableTheme = 'foundation-to-css-variable-theme',
+  FoundationToCssVariableBorder = 'foundation-to-css-variable-border',
+  FoundationToCssVariableElevation = 'foundation-to-css-variable-elevation',
+  FoundationToCssVariableRounding = 'foundation-to-css-variable-rounding',
+  FoundationToCssVariableTransition = 'foundation-to-css-variable-transition',
+  FoundationToCssVariable = 'foundation-to-css-variable',
   Exit = 'Exit',
 }
 

@@ -90,10 +90,10 @@ export default () => (
 
 ### Foundation to CSS Variable
 
-**`css-variable-to-css-variable`**
+**`foundation-to-css-variable`**
 
 Replace foundation to css variable
-You can also use individual transform function such as `css-variable-to-css-theme`, `css-variable-to-css-rounding`, and so on.
+You can also use individual transform function such as `foundation-to-css-theme`, `foundation-to-css-rounding`, and so on.
 
 For example:
 
