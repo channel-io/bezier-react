@@ -122,6 +122,7 @@
     "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "ttypescript": "^1.5.15",
+    "typescript-plugin-css-modules": "^5.0.2",
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
