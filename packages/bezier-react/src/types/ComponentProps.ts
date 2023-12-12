@@ -150,12 +150,12 @@ export interface LayoutProps extends MarginProps {
   pb?: CSSProperties['paddingBottom']
   pl?: CSSProperties['paddingLeft']
 
-  w?: CSSProperties['width']
-  h?: CSSProperties['height']
-  maxW?: CSSProperties['maxWidth']
-  minW?: CSSProperties['minWidth']
-  maxH?: CSSProperties['maxHeight']
-  minH?: CSSProperties['minHeight']
+  width?: CSSProperties['width']
+  height?: CSSProperties['height']
+  maxWidth?: CSSProperties['maxWidth']
+  minWidth?: CSSProperties['minWidth']
+  maxHeight?: CSSProperties['maxHeight']
+  minHeight?: CSSProperties['minHeight']
 
   position?: CSSProperties['position']
   inset?: CSSProperties['inset']
@@ -167,18 +167,18 @@ export interface LayoutProps extends MarginProps {
   shrink?: CSSProperties['flexShrink']
   grow?: CSSProperties['flexGrow']
 
-  bg?: BackgroundSemanticColor | BackgroundTextSemanticColor
+  bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
 
-  bdrColor?: BorderSemanticColor
-  bdrRadius?: Radius
-  bdrWidth?: CSSProperties['borderWidth']
-  bdrTopWidth?: CSSProperties['borderTopWidth']
-  bdrRightWidth?: CSSProperties['borderRightWidth']
-  bdrBottomWidth?: CSSProperties['borderBottomWidth']
-  bdrLeftWidth?: CSSProperties['borderLeftWidth']
-  bdrStyle?: CSSProperties['borderStyle']
+  borderColor?: BorderSemanticColor
+  borderRadius?: Radius
+  borderWidth?: CSSProperties['borderWidth']
+  borderTopWidth?: CSSProperties['borderTopWidth']
+  borderRightWidth?: CSSProperties['borderRightWidth']
+  borderBottomWidth?: CSSProperties['borderBottomWidth']
+  borderLeftWidth?: CSSProperties['borderLeftWidth']
+  borderStyle?: CSSProperties['borderStyle']
 
-  ev?: Elevation
+  elevation?: Elevation
 
   zIndex?: ZIndex
 
