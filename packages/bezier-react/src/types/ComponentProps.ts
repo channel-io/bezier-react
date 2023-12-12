@@ -4,6 +4,14 @@ import type React from 'react'
 import type { SemanticNames } from '~/src/foundation'
 
 import type { InjectedInterpolation } from './Foundation'
+import type {
+  BackgroundSemanticColor,
+  BackgroundTextSemanticColor,
+  BorderSemanticColor,
+  Elevation,
+  Radius,
+  ZIndex,
+} from './Token'
 
 /* Component Base Props */
 export interface RenderConfigProps {
@@ -122,3 +130,87 @@ export interface ActivatableProps extends AdditionalStylableProps<'active'> {
 export interface LinkProps {
   href?: string
 }
+
+export interface MarginProps {
+  m?: CSSProperties['margin']
+  mx?: CSSProperties['margin']
+  my?: CSSProperties['margin']
+  mt?: CSSProperties['marginTop']
+  mr?: CSSProperties['marginRight']
+  mb?: CSSProperties['marginBottom']
+  ml?: CSSProperties['marginLeft']
+}
+
+interface PaddingProps {
+  p?: CSSProperties['padding']
+  px?: CSSProperties['padding']
+  py?: CSSProperties['padding']
+  pt?: CSSProperties['paddingTop']
+  pr?: CSSProperties['paddingRight']
+  pb?: CSSProperties['paddingBottom']
+  pl?: CSSProperties['paddingLeft']
+}
+
+interface ContentAreaProps {
+  w?: CSSProperties['width']
+  h?: CSSProperties['height']
+  maxW?: CSSProperties['maxWidth']
+  minW?: CSSProperties['minWidth']
+  maxH?: CSSProperties['maxHeight']
+  minH?: CSSProperties['minHeight']
+}
+
+interface PositionProps {
+  position?: CSSProperties['position']
+  inset?: CSSProperties['inset']
+  top?: CSSProperties['top']
+  right?: CSSProperties['right']
+  bottom?: CSSProperties['bottom']
+  left?: CSSProperties['left']
+}
+
+interface FlexItemProps {
+  shrink?: CSSProperties['flexShrink']
+  grow?: CSSProperties['flexGrow']
+}
+
+interface BackgroundProps {
+  bg?: BackgroundSemanticColor | BackgroundTextSemanticColor
+}
+
+interface BorderProps {
+  bdrColor?: BorderSemanticColor
+  bdrRadius?: Radius
+  bdrWidth?: CSSProperties['borderWidth']
+  bdrTopWidth?: CSSProperties['borderTopWidth']
+  bdrRightWidth?: CSSProperties['borderRightWidth']
+  bdrBottomWidth?: CSSProperties['borderBottomWidth']
+  bdrLeftWidth?: CSSProperties['borderLeftWidth']
+  bdrStyle?: CSSProperties['borderStyle']
+}
+
+interface ElevationProps {
+  ev?: Elevation
+}
+
+interface ZIndexProps {
+  zIndex?: ZIndex
+}
+
+interface OverflowProps {
+  overflow?: CSSProperties['overflow']
+  overflowX?: CSSProperties['overflowX']
+  overflowY?: CSSProperties['overflowY']
+}
+
+export interface LayoutProps extends
+  MarginProps,
+  PaddingProps,
+  ContentAreaProps,
+  PositionProps,
+  FlexItemProps,
+  BackgroundProps,
+  BorderProps,
+  ElevationProps,
+  ZIndexProps,
+  OverflowProps {}
