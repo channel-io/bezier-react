@@ -1,12 +1,14 @@
 
 const Wrapper = styled.div`
-  border-bottom: 0.5px solid var(--bdr-black-light);
+  border-color: var(--bdr-black-light);
+  border-style: none none solid none;
+  border-width: 0.5px;
 `
 
 const Wrapper = styled.div`
-  border-top: 1px solid var(--bg-txt-black);
-  border-right: 1px solid var(--bg-txt-black);
-  border-left: 1px solid var(--bg-txt-black);
+  border-color: var(--bg-txt-black);
+  border-style: solid solid none solid;
+  border-width: 1px;
 `
 
 const Wrapper = styled.div`
@@ -21,6 +23,8 @@ const div = style.div`
   ${({ divider }) =>
     divider &&
     css`
-      border-bottom: 1px solid var(--bdr-black-light);
+      border-color: var(--bdr-black-light);
+  border-style: none none solid none;
+  border-width: 1px;
     `}
 `
