@@ -1,4 +1,4 @@
-function isDev() {
+export function isDev() {
   return process.env.NODE_ENV !== 'production'
 }
 
@@ -9,7 +9,7 @@ export function warn(message: string) {
   }
 }
 
-class AssertionException extends Error {
+export class AssertionException extends Error {
   constructor(message?: string) {
     super()
 
