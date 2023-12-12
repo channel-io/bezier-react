@@ -2,69 +2,90 @@
   "font": {
     "size": {
       "11": {
-        "value": "11px"
+        "value": "11px",
+        "type": "dimension"
       },
       "12": {
-        "value": "12px"
+        "value": "12px",
+        "type": "dimension"
       },
       "13": {
-        "value": "13px"
+        "value": "13px",
+        "type": "dimension"
       },
       "14": {
-        "value": "14px"
+        "value": "14px",
+        "type": "dimension"
       },
       "15": {
-        "value": "15px"
+        "value": "15px",
+        "type": "dimension"
       },
       "16": {
-        "value": "16px"
+        "value": "16px",
+        "type": "dimension"
       },
       "17": {
-        "value": "17px"
+        "value": "17px",
+        "type": "dimension"
       },
       "18": {
-        "value": "18px"
+        "value": "18px",
+        "type": "dimension"
       },
       "22": {
-        "value": "22px"
+        "value": "22px",
+        "type": "dimension"
       },
       "24": {
-        "value": "24px"
+        "value": "24px",
+        "type": "dimension"
       },
       "30": {
-        "value": "30px"
+        "value": "30px",
+        "type": "dimension"
       },
       "36": {
-        "value": "36px"
+        "value": "36px",
+        "type": "dimension"
       }
     },
     "line-height": {
       "16": {
-        "value": "16px"
+        "value": "16px",
+        "type": "dimension"
       },
       "18": {
-        "value": "18px"
+        "value": "18px",
+        "type": "dimension"
       },
       "20": {
-        "value": "20px"
+        "value": "20px",
+        "type": "dimension"
       },
       "22": {
-        "value": "22px"
+        "value": "22px",
+        "type": "dimension"
       },
       "24": {
-        "value": "24px"
+        "value": "24px",
+        "type": "dimension"
       },
       "28": {
-        "value": "28px"
+        "value": "28px",
+        "type": "dimension"
       },
       "32": {
-        "value": "32px"
+        "value": "32px",
+        "type": "dimension"
       },
       "36": {
-        "value": "36px"
+        "value": "36px",
+        "type": "dimension"
       },
       "44": {
-        "value": "44px"
+        "value": "44px",
+        "type": "dimension"
       }
     },
     "weight": {
@@ -79,24 +100,26 @@
       "sans": {
         "kr": {
           "value": ["Inter", "NotoSansKR", "NotoSansJP", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
-          "$type": "fontFamily"
+          "type": "fontFamily"
         },
         "jp": {
           "value": ["Inter", "NotoSansJP", "NotoSansKR", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Roboto", "system-ui", "sans-serif"],
-          "$type": "fontFamily"
+          "type": "fontFamily"
         }
       },
       "mono": {
         "value": ["ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"],
-        "$type": "fontFamily"
+        "type": "fontFamily"
       }
     },
     "letter-spacing": {
       "1": {
-        "value": "-0.1px"
+        "value": "-0.1px",
+        "type": "dimension"
       },
       "2": {
-        "value": "-0.4px"
+        "value": "-0.4px",
+        "type": "dimension"
       }
     }
   }

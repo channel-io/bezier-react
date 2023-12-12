@@ -3,31 +3,43 @@
     "timing-function": {
       "default": {
         "value": [0.3, 0, 0, 1],
-        "$type": "cubicBezier"
+        "type": "cubicBezier"
       }
     },
     "duration": {
       "s": {
         "value": "150ms",
-        "$type": "duration"
+        "type": "duration"
       },
       "m": {
         "value": "300ms",
-        "$type": "duration"
+        "type": "duration"
       },
       "l": {
         "value": "450ms",
-        "$type": "duration"
+        "type": "duration"
       }
     },
     "s": {
-      "value": "{transition.duration.s} {transition.timing-function.default}"
+      "value": {
+        "duration": "{transition.duration.s}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
     },
     "m": {
-      "value": "{transition.duration.m} {transition.timing-function.default}"
+      "value": {
+        "duration": "{transition.duration.m}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
     },
     "l": {
-      "value": "{transition.duration.l} {transition.timing-function.default}"
+      "value": {
+        "duration": "{transition.duration.l}",
+        "timingFunction": "{transition.timing-function.default}"
+      },
+      "type": "transition"
     }
   }
 }

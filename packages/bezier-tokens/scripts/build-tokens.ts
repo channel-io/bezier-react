@@ -1,23 +1,18 @@
 import { minimatch } from 'minimatch'
-import StyleDictionary, {
-  type Config,
-  type Options,
-  type Platform,
-} from 'style-dictionary'
+import StyleDictionary, { type Platform } from 'style-dictionary'
 
 import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import {
-  customCubicBezier,
-  customFontFamily,
-  customFontRem,
-} from './lib/transform'
+import { CSSTransforms } from './lib/transform'
 
-const TokenBuilder = StyleDictionary.registerTransform(customCubicBezier)
-  .registerTransform(customFontFamily)
-  .registerTransform(customFontRem)
+const CustomTransforms = [...Object.values(CSSTransforms)]
+
+const TokenBuilder = CustomTransforms.reduce(
+  (builder, transform) => builder.registerTransform(transform),
+  StyleDictionary,
+)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -26,9 +21,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
     transforms: [
       'attribute/cti',
       'name/cti/kebab',
-      customCubicBezier.name,
-      customFontFamily.name,
-      customFontRem.name,
+      ...CustomTransforms.map((transform) => transform.name),
     ],
     basePxFontSize: 10,
     options: {
@@ -39,93 +32,146 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
   }
 }
 
-interface DefineConfigOptions {
-  source: string[]
-  reference?: string[]
-  destination: string
-  options?: Options & {
-    cssSelector: string
-  }
-}
+const PATH = {
+  GLOBAL: 'src/global/*.json',
+  SEMANTIC_COMMON: 'src/semantic/*.json',
+  SEMANTIC_LIGHT: 'src/semantic/light-theme/*.json',
+  SEMANTIC_DARK: 'src/semantic/dark-theme/*.json',
+} as const
 
-function defineConfig({
-  source,
-  reference = [],
-  destination,
-  options,
-}: DefineConfigOptions): Config {
-  return {
-    source: [...source, ...reference],
+function main() {
+  TokenBuilder.extend({
+    source: [PATH.GLOBAL, PATH.SEMANTIC_COMMON, PATH.SEMANTIC_LIGHT],
     platforms: {
-      'web/cjs': defineWebPlatform({
+      'web/cjs/global': defineWebPlatform({
         buildPath: 'dist/cjs/',
         files: [
           {
-            destination: `${destination}.js`,
+            destination: 'global.js',
             format: customJsCjs.name,
             filter: ({ filePath }) =>
-              source.some((src) => minimatch(filePath, src)),
+              [PATH.GLOBAL].some((src) => minimatch(filePath, src)),
           },
         ],
       }),
-      'web/esm': defineWebPlatform({
+      'web/esm/global': defineWebPlatform({
         buildPath: 'dist/esm/',
         files: [
           {
-            destination: `${destination}.mjs`,
+            destination: 'global.mjs',
             format: customJsEsm.name,
             filter: ({ filePath }) =>
-              source.some((src) => minimatch(filePath, src)),
+              [PATH.GLOBAL].some((src) => minimatch(filePath, src)),
           },
         ],
       }),
-      'web/css': defineWebPlatform({
+      'web/css/global': defineWebPlatform({
         buildPath: 'dist/css/',
         files: [
           {
-            destination: `${destination}.css`,
+            destination: 'global.css',
             format: 'css/variables',
             filter: ({ filePath }) =>
-              source.some((src) => minimatch(filePath, src)),
+              [PATH.GLOBAL, PATH.SEMANTIC_COMMON].some((src) =>
+                minimatch(filePath, src),
+              ),
             options: {
-              selector: options?.cssSelector,
+              selector: ':where(:root, :host)',
+              outputReferences: true,
+            },
+          },
+        ],
+      }),
+      'web/cjs/light-theme': defineWebPlatform({
+        buildPath: 'dist/cjs/',
+        files: [
+          {
+            destination: 'lightTheme.js',
+            format: customJsCjs.name,
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_COMMON, PATH.SEMANTIC_LIGHT].some((src) =>
+                minimatch(filePath, src),
+              ),
+          },
+        ],
+      }),
+      'web/esm/light-theme': defineWebPlatform({
+        buildPath: 'dist/esm/',
+        files: [
+          {
+            destination: 'lightTheme.mjs',
+            format: customJsEsm.name,
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_COMMON, PATH.SEMANTIC_LIGHT].some((src) =>
+                minimatch(filePath, src),
+              ),
+          },
+        ],
+      }),
+      'web/css/light-theme': defineWebPlatform({
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: 'light-theme.css',
+            format: 'css/variables',
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_LIGHT].some((src) => minimatch(filePath, src)),
+            options: {
+              selector: ':where(:root, :host), [data-bezier-theme="light"]',
               outputReferences: true,
             },
           },
         ],
       }),
     },
-  }
-}
+  }).buildAllPlatforms()
 
-function main() {
-  [
-    TokenBuilder.extend(
-      defineConfig({
-        source: ['src/global/*.json'],
-        destination: 'global',
-        options: { cssSelector: ':where(:root, :host)' },
+  TokenBuilder.extend({
+    source: [PATH.GLOBAL, PATH.SEMANTIC_COMMON, PATH.SEMANTIC_DARK],
+    platforms: {
+      'web/cjs/dark-theme': defineWebPlatform({
+        buildPath: 'dist/cjs/',
+        files: [
+          {
+            destination: 'darkTheme.js',
+            format: customJsCjs.name,
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_COMMON, PATH.SEMANTIC_DARK].some((src) =>
+                minimatch(filePath, src),
+              ),
+          },
+        ],
       }),
-    ),
-    TokenBuilder.extend(
-      defineConfig({
-        source: ['src/semantic/*.json', 'src/semantic/light-theme/*.json'],
-        reference: ['src/global/*.json'],
-        destination: 'lightTheme',
-        options: {
-          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
-        },
+      'web/esm/dark-theme': defineWebPlatform({
+        buildPath: 'dist/esm/',
+        files: [
+          {
+            destination: 'darkTheme.mjs',
+            format: customJsEsm.name,
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_COMMON, PATH.SEMANTIC_DARK].some((src) =>
+                minimatch(filePath, src),
+              ),
+          },
+        ],
       }),
-    ),
-    TokenBuilder.extend(
-      defineConfig({
-        source: ['src/semantic/*.json', 'src/semantic/dark-theme/*.json'],
-        reference: ['src/global/*.json'],
-        destination: 'darkTheme',
-        options: { cssSelector: '[data-bezier-theme="dark"]' },
+      'web/css/dark-theme': defineWebPlatform({
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: 'darkTheme.css',
+            format: 'css/variables',
+            filter: ({ filePath }) =>
+              [PATH.SEMANTIC_DARK].some((src) => minimatch(filePath, src)),
+            options: {
+              selector: '[data-bezier-theme="dark"]',
+              outputReferences: true,
+            },
+          },
+        ],
       }),
-    ),
-  ].forEach((builder) => builder.buildAllPlatforms())
+    },
+  }).buildAllPlatforms()
 }
 
 main()
