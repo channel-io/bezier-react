@@ -11,9 +11,16 @@
     "@channel.io/bezier-tokens": "0.0.0"
   },
   "changesets": [
+    "chilled-dots-divide",
+    "large-pants-brush",
+    "little-bikes-obey",
+    "metal-planets-peel",
+    "mighty-hornets-promise",
     "rare-coats-sing",
+    "silent-falcons-behave",
     "silver-pets-hammer",
     "tall-maps-lick",
+    "tough-lions-change",
     "wicked-months-sparkle"
   ]
 }

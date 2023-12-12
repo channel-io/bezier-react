@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.2
+
+### Minor Changes
+
+- Implement multi theme feature based on data attributes. ([#1756](https://github.com/channel-io/bezier-react/pull/1756)) by @sungik-choi
+
 ## 2.0.0-alpha.1
 
 ### Minor Changes
