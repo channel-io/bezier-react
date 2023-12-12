@@ -5,6 +5,12 @@ import {
   ts,
 } from 'ts-morph'
 
+import {
+  getImportDeclaration,
+  hasNamedImport,
+  removeNamedImport,
+} from '../utils/import.js'
+
 const cssVariableByMixin = {
   inputTextStyle: 'color: var(--txt-black-darkest);',
   inputWrapperStyle: 'box-shadow: var(--input-box-shadow);',
@@ -28,8 +34,8 @@ const replaceMixin = (sourceFile: SourceFile) => {
           )
         }
 
-        const bezierReactImport = sourceFile.getImportDeclarations().find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react')
-        const hasCssImport = sourceFile.getImportDeclarations().flatMap((declaration) => declaration.getNamedImports()).some((namedImport) => namedImport.getText() === 'css')
+        const bezierReactImport = getImportDeclaration(sourceFile, '@channel.io/bezier-react')
+        const hasCssImport = hasNamedImport(sourceFile, 'css')
 
         if (!node.wasForgotten() && node.getText().includes(mixin)) {
           if (!hasCssImport) {
@@ -55,12 +61,8 @@ const replaceMixin = (sourceFile: SourceFile) => {
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
-    sourceFile
-      .getImportDeclarations()
-      .find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react')
-      ?.getNamedImports()
-      .filter(v => Object.keys(cssVariableByMixin).includes(v.getText()))
-      .forEach(v => v.remove())
+    Object.keys(cssVariableByMixin)
+      .forEach(v => removeNamedImport(sourceFile, v))
 
     sourceFile.formatText({
       semicolons: ts.SemicolonPreference.Remove,
