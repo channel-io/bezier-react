@@ -10,6 +10,13 @@ const getRound = (text: string) => text.match(/round(\d+)/)?.[1]
 
 const isRoundingTheme = (node: Node) => node.getText().includes('foundation?.rounding')
 
+const getRoundStyle = (text: string) => {
+  let roundStyle = ''
+  roundStyle += 'overflow: hidden;\n'
+  roundStyle += `  border-radius: var(--radius-${getRound(text)});`
+  return roundStyle
+}
+
 const replaceRound = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
@@ -22,7 +29,7 @@ const replaceRound = (sourceFile: SourceFile) => {
         .forEach(text => {
           node.replaceWithText(
             node.getText()
-              .replace(`\${${text}}`, `border-radius: var(--radius-${getRound(text)});`)
+              .replace(`\${${text}}`, getRoundStyle(text))
               .replaceAll(';;', ';'),
           )
         })
