@@ -102,14 +102,18 @@ import { styled } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
   color: ${({ foundation }) => foundation?.theme?.["txt-black-dark"]};
+
   ${({ foundation }) => foundation?.rounding.round12};
+
   ${({ foundation }) =>
     foundation?.border?.getBorder(0.5, foundation.theme["bdr-black-light"], {
       top: false,
       right: false,
       left: false,
     })};
+
   ${({ foundation }) => foundation?.elevation?.ev1()};
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS("color")};
 `;
 ```
@@ -121,10 +125,58 @@ import { styled } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
   color: var(--txt-black-dark);
+
+  overflow: hidden;
   border-radius: var(--radius-12);
-  border-bottom: 0.5px solid var(--bdr-black-light);
+
+  border-color: var(--bdr-black-light);
+  border-style: none none solid none;
+  border-width: 0.5px;
+
   background-color: var(--bg-white-low);
   box-shadow: var(--ev-1);
+
   transition: color var(--transition-s);
 `;
+```
+
+### Mixin interpolation to CSS Variable
+
+**`mixin-to-css-variable`**
+
+Replace mixin interpolation to css variable
+For example:
+
+```tsx
+import {
+  styled,
+  inputWrapperStyle,
+  focusedInputWrapperStyle,
+  erroredInputWrapperStyle,
+} from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  ${inputWrapperStyle};
+
+  ${({ focus }) => focus && focusedInputWrapperStyle};
+
+  ${({ focus, whisper }) => focus && whisper && erroredInputWrapperStyle};
+`;
+```
+
+Transforms into:
+
+```tsx
+import { styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  box-shadow: var(--input-box-shadow);
+
+  ${({ focus }) => focus && css`
+  box-shadow: var(--input-box-shadow-focused);
+`};
+
+  ${({ focus, whisper }) => focus && whisper && css`
+  box-shadow: var(--input-box-shadow-invalid);
+`};
 ```
