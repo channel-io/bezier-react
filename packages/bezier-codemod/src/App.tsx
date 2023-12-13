@@ -27,6 +27,7 @@ import foundationToCssVariableTransition from './transforms/foundation-to-css-va
 import foundationToCssVariable from './transforms/foundation-to-css-variable.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
+import styledToStyledComponents from './transforms/import-styled-from-styled-component.js'
 import mixinToCssVariable from './transforms/mixin-to-css-variable.js'
 
 enum Step {
@@ -47,6 +48,7 @@ enum Option {
   FoundationToCssVariableTransition = 'foundation-to-css-variable-transition',
   FoundationToCssVariable = 'foundation-to-css-variable',
   MixinToCssVariable = 'mixin-to-css-variable',
+  StyledToStyledComponents = 'styled-to-styled-components',
   Exit = 'Exit',
 }
 
@@ -63,6 +65,7 @@ const transformMap = {
   [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
   [Option.FoundationToCssVariable]: foundationToCssVariable,
   [Option.MixinToCssVariable]: mixinToCssVariable,
+  [Option.StyledToStyledComponents]: styledToStyledComponents,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
