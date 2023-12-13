@@ -70,9 +70,9 @@ const generateConfig = ({
       autoModules: true,
       modules: {
         /**
-         * ex. Bezier-Button__Button__1w3e4
+         * ex. b-Button__1w3e4
          */
-        generateScopedName: 'Bezier-[folder]__[local]__[hash:base64:5]',
+        generateScopedName: 'b-[local]__[hash:base64:5]',
       },
       plugins: [
         autoprefixer(),
