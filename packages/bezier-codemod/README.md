@@ -180,3 +180,25 @@ const Wrapper = styled.div`
   box-shadow: var(--input-box-shadow-invalid);
 `};
 ```
+
+### Mixin interpolation to CSS Variable
+
+**`styled-to-styled-components`**
+
+Switch library to import `styled` object from `@channel.io/bezier-react` to `styled-components`
+For example:
+
+```tsx
+import { styled, Button } from "@channel.io/bezier-react";
+
+export const Wrapper = styled(Button)``;
+```
+
+Transforms into:
+
+```tsx
+import styled from "styled-components";
+import { Button } from "@channel.io/bezier-react";
+
+export const Wrapper = styled(Button)``;
+```
