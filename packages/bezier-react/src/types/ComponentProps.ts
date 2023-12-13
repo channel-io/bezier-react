@@ -131,6 +131,16 @@ export interface LinkProps {
   href?: string
 }
 
+/**
+ * TODO: Migrate to `BezierComponentProps` after removing styled-components dependency.
+ */
+export interface AlphaBezierComponentProps extends
+  Omit<StylableComponentProps, 'interpolation'> {}
+
+export interface PolymorphicProps<T extends React.ElementType> {
+  as?: T
+}
+
 export interface MarginProps {
   m?: CSSProperties['margin']
   mx?: CSSProperties['margin']

@@ -1,5 +1,17 @@
 @layer components {
   .Box {
     box-sizing: border-box;
+
+    .display-block {
+      display: block;
+    }
+
+    .display-inline-block {
+      display: inline-block;
+    }
+
+    .display-inline {
+      display: inline;
+    }
   }
 }

@@ -54,16 +54,4 @@
     overflow-x: var(--b-overflow-x, var(--overflow));
     overflow-y: var(--b-overflow-y, var(--overflow));
   }
-
-  .display-block {
-    display: block;
-  }
-
-  .display-inline-block {
-    display: inline-block;
-  }
-
-  .display-inline {
-    display: inline;
-  }
 }
