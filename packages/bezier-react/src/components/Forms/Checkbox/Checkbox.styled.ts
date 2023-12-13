@@ -94,7 +94,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  height: var(--bezier-checkbox-height);
+  height: var(--b-checkbox-height);
   cursor: pointer;
 
   &[data-disabled] {

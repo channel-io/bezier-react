@@ -31,10 +31,10 @@ export const DialogPrimitiveOverlay = styled(DialogPrimitive.Overlay)`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--bezier-modal-z-index);
+  z-index: var(--b-modal-z-index);
   display: grid;
   place-items: center;
-  padding: var(--bezier-modal-collision-padding);
+  padding: var(--b-modal-collision-padding);
   overflow-y: auto;
   background-color: var(--bgtxt-absolute-black-lighter);
 
@@ -49,10 +49,10 @@ export const Content = styled.div<ModalContentProps>`
 
   position: relative;
   box-sizing: border-box;
-  width: var(--bezier-modal-width);
+  width: var(--b-modal-width);
   min-width: 360px;
   max-width: 100vw;
-  height: var(--bezier-modal-height);
+  height: var(--b-modal-height);
   max-height: 100%;
   overflow: visible;
   color: var(--bg-grey-darkest);

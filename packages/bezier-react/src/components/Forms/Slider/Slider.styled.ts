@@ -8,14 +8,14 @@ import type { InterpolationProps } from '~/src/types/Foundation'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 
 export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationProps>`
-  --bezier-slider-width: auto;
-  --bezier-slider-thumb-size: 20px;
+  --b-slider-width: auto;
+  --b-slider-thumb-size: 20px;
 
   position: relative;
   display: flex;
   align-items: center;
-  width: var(--bezier-slider-width);
-  height: var(--bezier-slider-thumb-size);
+  width: var(--b-slider-width);
+  height: var(--b-slider-thumb-size);
   touch-action: none;
   cursor: pointer;
   user-select: none;
@@ -45,22 +45,22 @@ export const SliderPrimitiveRange = styled(SliderPrimitive.Range)`
 `
 
 export const GuideContainer = styled.div`
-  --bezier-slider-guide-height: 8px;
+  --b-slider-guide-height: 8px;
 
   position: absolute;
-  top: calc(-1 * (var(--bezier-slider-guide-height) + 3px));
-  left: calc(var(--bezier-slider-thumb-size) / 2);
-  width: calc(100% - var(--bezier-slider-thumb-size));
+  top: calc(-1 * (var(--b-slider-guide-height) + 3px));
+  left: calc(var(--b-slider-thumb-size) / 2);
+  width: calc(100% - var(--b-slider-thumb-size));
 `
 
 export const SliderGuide = styled.div`
-  --bezier-slider-guide-left: 0;
+  --b-slider-guide-left: 0;
 
   position: absolute;
   top: 0;
-  left: var(--bezier-slider-guide-left);
+  left: var(--b-slider-guide-left);
   width: 2px;
-  height: var(--bezier-slider-guide-height);
+  height: var(--b-slider-guide-height);
   background-color: var(--bg-black-light);
   border-radius: 1px;
   transform: translateX(-50%);
@@ -69,8 +69,8 @@ export const SliderGuide = styled.div`
 export const SliderThumb = styled.div`
   all: unset;
   display: block;
-  width: var(--bezier-slider-thumb-size);
-  height: var(--bezier-slider-thumb-size);
+  width: var(--b-slider-thumb-size);
+  height: var(--b-slider-thumb-size);
   border-radius: 12px;
 
   ${({ foundation }) => foundation?.elevation?.ev2()}

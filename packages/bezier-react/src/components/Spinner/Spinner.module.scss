@@ -12,45 +12,45 @@
   }
 
   .Spinner {
-    --bezier-spinner-color: inherit;
+    --b-spinner-color: inherit;
 
     display: inline-block;
     border-style: solid;
     border-top-color: transparent;
-    border-right-color: var(--bezier-spinner-color);
-    border-bottom-color: var(--bezier-spinner-color);
-    border-left-color: var(--bezier-spinner-color);
+    border-right-color: var(--b-spinner-color);
+    border-bottom-color: var(--b-spinner-color);
+    border-left-color: var(--b-spinner-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 
-    &.xl {
+    &.size-xl {
       @include dimension.square(50px);
       border-width: 4px;
     }
 
-    &.l,
-    &.m {
+    &.size-l,
+    &.size-m {
       border-width: 3px;
     }
 
-    &.l {
+    &.size-l {
       @include dimension.square(24px);
     }
 
-    &.m {
+    &.size-m {
       @include dimension.square(20px);
     }
 
-    &.s,
-    &.xs {
+    &.size-s,
+    &.size-xs {
       border-width: 2px;
     }
 
-    &.s {
+    &.size-s {
       @include dimension.square(16px);
     }
 
-    &.xs {
+    &.size-xs {
       @include dimension.square(12px);
     }
   }

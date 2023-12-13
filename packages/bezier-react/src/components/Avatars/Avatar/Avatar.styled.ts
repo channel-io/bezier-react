@@ -68,7 +68,7 @@ export const AvatarWrapper = styled.div<InterpolationProps>`
 `
 
 export const AvatarImage = styled(AlphaSmoothCornersBox)`
-  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
+  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
 
   position: relative;
   box-sizing: content-box;
@@ -81,13 +81,13 @@ export const AvatarImage = styled(AlphaSmoothCornersBox)`
   outline: none;
 
   &.bordered[data-state="enabled"] {
-    --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+    --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
   }
 `
 
 export const StatusWrapper = styled.div`
   position: absolute;
-  right: var(--bezier-avatar-computed-status-gap, 0);
-  bottom: var(--bezier-avatar-computed-status-gap, 0);
+  right: var(--b-avatar-computed-status-gap, 0);
+  bottom: var(--b-avatar-computed-status-gap, 0);
   display: flex;
 `

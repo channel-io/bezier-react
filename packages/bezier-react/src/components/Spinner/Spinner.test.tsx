@@ -50,7 +50,7 @@ describe('Spinner >', () => {
     const color = 'bg-black-lighter'
     const { getByTestId } = renderSpinner({ color })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-    expect(renderedSpinner).toHaveStyle(`--bezier-spinner-color: var(--${color})`)
+    expect(renderedSpinner).toHaveStyle(`--b-spinner-color: var(--${color})`)
   })
 
   it('should receive size', () => {

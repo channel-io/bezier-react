@@ -118,7 +118,7 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
 
 export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
 
-export const cssVarName = <ComponentName extends string>(componentName: ComponentName) => <PropertyName extends string>(propertyName: PropertyName) => `--bezier-${componentName}-${propertyName}` as const
+export const cssVarName = <ComponentName extends string>(componentName: ComponentName) => <PropertyName extends string>(propertyName: PropertyName) => `--b-${componentName}-${propertyName}` as const
 
 export function cssVarValue<
   PropertyName extends string | undefined,

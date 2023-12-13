@@ -33,7 +33,7 @@ export const LeftLabelWrapper = styled(Box)`
   grid-column: 1 / 1;
   align-items: center;
   align-self: start;
-  height: var(--bezier-form-control-left-label-wrapper-height);
+  height: var(--b-form-control-left-label-wrapper-height);
 `
 
 export const LeftHelperTextWrapper = styled(TopHelperTextWrapper)`
