@@ -1,58 +1,58 @@
 @layer components {
   .margin {
-    --margin-all: var(--bezier-margin-all, 0);
+    --margin-all: var(--b-margin-all, 0);
 
     margin:
-      var(--bezier-margin-top, var(--bezier-margin-y, var(--margin-all)))
-      var(--bezier-margin-right, var(--bezier-margin-x, var(--margin-all)))
-      var(--bezier-margin-bottom, var(--bezier-margin-y, var(--margin-all)))
-      var(--bezier-margin-left, var(--bezier-margin-x, var(--margin-all)));
+      var(--b-margin-top, var(--b-margin-y, var(--margin-all)))
+      var(--b-margin-right, var(--b-margin-x, var(--margin-all)))
+      var(--b-margin-bottom, var(--b-margin-y, var(--margin-all)))
+      var(--b-margin-left, var(--b-margin-x, var(--margin-all)));
   }
 
   .layout {
-    --padding-all: var(--bezier-padding-all, 0);
-    --border-width: var(--bezier-border-width, 0);
-    --overflow: var(--bezier-overflow, visible);
+    --padding-all: var(--b-padding-all, 0);
+    --border-width: var(--b-border-width, 0);
+    --overflow: var(--b-overflow, visible);
 
     padding:
-      var(--bezier-padding-top, var(--bezier-padding-y, var(--padding-all)))
-      var(--bezier-padding-right, var(--bezier-padding-x, var(--padding-all)))
-      var(--bezier-padding-bottom, var(--bezier-padding-y, var(--padding-all)))
-      var(--bezier-padding-left, var(--bezier-padding-x, var(--padding-all)));
+      var(--b-padding-top, var(--b-padding-y, var(--padding-all)))
+      var(--b-padding-right, var(--b-padding-x, var(--padding-all)))
+      var(--b-padding-bottom, var(--b-padding-y, var(--padding-all)))
+      var(--b-padding-left, var(--b-padding-x, var(--padding-all)));
 
-    width: var(--bezier-width, auto);
-    height: var(--bezier-height, auto);
-    max-width: var(--bezier-max-width, none);
-    max-height: var(--bezier-max-height, none);
-    min-width: var(--bezier-min-width, none);
-    min-height: var(--bezier-min-height, none);
+    width: var(--b-width, auto);
+    height: var(--b-height, auto);
+    max-width: var(--b-max-width, none);
+    max-height: var(--b-max-height, none);
+    min-width: var(--b-min-width, none);
+    min-height: var(--b-min-height, none);
 
-    position: var(--bezier-position, static);
-    inset: var(--bezier-inset, auto);
-    top: var(--bezier-top, auto);
-    right: var(--bezier-right, auto);
-    bottom: var(--bezier-bottom, auto);
-    left: var(--bezier-left, auto);
+    position: var(--b-position, static);
+    inset: var(--b-inset, auto);
+    top: var(--b-top, auto);
+    right: var(--b-right, auto);
+    bottom: var(--b-bottom, auto);
+    left: var(--b-left, auto);
 
-    flex-shrink: var(--bezier-flex-shrink, 1);
-    flex-grow: var(--bezier-flex-grow, 0);
+    flex-shrink: var(--b-flex-shrink, 1);
+    flex-grow: var(--b-flex-grow, 0);
 
-    background-color: var(--bezier-background-color, transparent);
+    background-color: var(--b-background-color, transparent);
 
-    border-color: var(--bezier-border-color, transparent);
-    border-radius: var(--bezier-border-radius, 0);
-    border-top-width: var(--bezier-border-top-width, var(--border-width));
-    border-right-width: var(--bezier-border-right-width, var(--border-width));
-    border-bottom-width: var(--bezier-border-bottom-width, var(--border-width));
-    border-left-width: var(--bezier-border-left-width, var(--border-width));
-    border-style: var(--bezier-border-style, solid);
+    border-color: var(--b-border-color, transparent);
+    border-radius: var(--b-border-radius, 0);
+    border-top-width: var(--b-border-top-width, var(--border-width));
+    border-right-width: var(--b-border-right-width, var(--border-width));
+    border-bottom-width: var(--b-border-bottom-width, var(--border-width));
+    border-left-width: var(--b-border-left-width, var(--border-width));
+    border-style: var(--b-border-style, solid);
 
-    box-shadow: var(--bezier-elevation, none);
+    box-shadow: var(--b-elevation, none);
 
-    z-index: var(--bezier-z-index, auto);
+    z-index: var(--b-z-index, auto);
 
-    overflow-x: var(--bezier-overflow-x, var(--overflow));
-    overflow-y: var(--bezier-overflow-y, var(--overflow));
+    overflow-x: var(--b-overflow-x, var(--overflow));
+    overflow-y: var(--b-overflow-y, var(--overflow));
   }
 
   .display-block {
