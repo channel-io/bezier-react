@@ -1,9 +1,21 @@
-import { type SourceFile } from 'ts-morph'
+import {
+  type SourceFile,
+  SyntaxKind,
+} from 'ts-morph'
 
 export const getImportDeclaration = (sourceFile: SourceFile, specifier: string) =>
   sourceFile
     .getImportDeclarations()
     .find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
+
+export const removeImportDeclarationWithoutImport = (sourceFile: SourceFile) => {
+  sourceFile
+    .getDescendantsOfKind(SyntaxKind.ImportDeclaration)
+    .filter((v) => v.getDescendantsOfKind(SyntaxKind.ImportClause).length === 0)
+    .forEach((v) => {
+      v.remove()
+    })
+}
 
 export const getNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   sourceFile
