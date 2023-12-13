@@ -21,7 +21,7 @@ const pkg = JSON.parse(
 )
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
-const styleSheetDir = 'style.css'
+const styleSheetDir = 'styles.css'
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
