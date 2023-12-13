@@ -20,7 +20,7 @@ export {
 export * from '~/src/foundation'
 
 /* Components */
-export * from '~/src/components/AlphaBox'
+export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatars/Avatar'
 export * from '~/src/components/Avatars/AvatarGroup'

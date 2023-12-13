@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import sharedStyles from '~/src/components/shared.module.scss'
 
-import styles from './AlphaBox.module.scss'
+import styles from './Box.module.scss'
 
 function getDisplayClassName(display) {
   switch (display) {
@@ -19,7 +19,7 @@ function getDisplayClassName(display) {
   }
 }
 
-export function AlphaBox({ display }) {
+export function Box({ display }) {
   return (
     <div className={classNames(
       styles.Box,
