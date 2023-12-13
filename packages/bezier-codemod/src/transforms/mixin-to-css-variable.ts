@@ -18,9 +18,7 @@ const cssVariableByMixin = {
   erroredInputWrapperStyle: 'box-shadow: var(--input-box-shadow-invalid);',
 }
 
-const replaceMixin = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
-
+const replaceTemplateExpression = (sourceFile: SourceFile) => {
   sourceFile
     .getDescendantsOfKind(SyntaxKind.TemplateExpression).forEach((node) => {
       for (const [mixin, cssVariable] of Object.entries(cssVariableByMixin)) {
@@ -58,12 +56,21 @@ const replaceMixin = (sourceFile: SourceFile) => {
         }
       }
     })
+}
+
+const removeMixinImports = (sourceFile: SourceFile) => {
+  Object.keys(cssVariableByMixin)
+    .forEach(v => removeNamedImport(sourceFile, v))
+}
+
+const replaceMixin = (sourceFile: SourceFile) => {
+  const oldSourceFileText = sourceFile.getText()
+
+  replaceTemplateExpression(sourceFile)
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
-    Object.keys(cssVariableByMixin)
-      .forEach(v => removeNamedImport(sourceFile, v))
-
+    removeMixinImports(sourceFile)
     sourceFile.formatText({
       semicolons: ts.SemicolonPreference.Remove,
     })
