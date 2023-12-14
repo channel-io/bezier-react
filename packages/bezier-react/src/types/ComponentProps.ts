@@ -151,7 +151,7 @@ export interface MarginProps {
   ml?: CSSProperties['marginLeft']
 }
 
-export interface LayoutProps extends MarginProps {
+export interface LayoutProps {
   p?: CSSProperties['padding']
   px?: CSSProperties['padding']
   py?: CSSProperties['padding']

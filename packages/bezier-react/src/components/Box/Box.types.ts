@@ -2,6 +2,7 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type LayoutProps,
+  type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
@@ -20,4 +21,5 @@ export interface BoxProps extends
   PolymorphicProps<BoxElementType>,
   ChildrenProps,
   LayoutProps,
+  MarginProps,
   BoxOwnProps {}
