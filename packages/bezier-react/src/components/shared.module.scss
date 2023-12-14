@@ -34,10 +34,10 @@
     bottom: var(--b-bottom, auto);
     left: var(--b-left, auto);
 
-    flex-shrink: var(--b-flex-shrink, 1);
-    flex-grow: var(--b-flex-grow, 0);
+    flex-shrink: var(--b-shrink, 1);
+    flex-grow: var(--b-grow, 0);
 
-    background-color: var(--b-background-color, transparent);
+    background-color: var(--b-bg-color, transparent);
 
     border-color: var(--b-border-color, transparent);
     border-radius: var(--b-border-radius, 0);
