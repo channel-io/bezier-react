@@ -181,7 +181,7 @@ const Wrapper = styled.div`
 `};
 ```
 
-### Mixin interpolation to CSS Variable
+### Styled from @channel.io/bezier-react to styled-components
 
 **`styled-to-styled-components`**
 
