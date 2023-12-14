@@ -9,10 +9,16 @@ type StartsWithPrefix<
   Prefix extends string,
   Value extends string,
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-> = Value extends `${Prefix}-${infer Rest}` ? Value : never
+  > = Value extends `${Prefix}-${infer Rest}` ? Value : never
+
+type ExtractKeys<T> = T extends Record<infer K, any> ? K : never
 
 export type GlobalToken = typeof tokens.global
 export type SemanticToken = typeof tokens.lightTheme | typeof tokens.darkTheme
+
+export type FlattenGlobalToken = ExtractKeys<GlobalToken[keyof GlobalToken]>
+export type FlattenSemanticToken = ExtractKeys<SemanticToken[keyof SemanticToken]>
+export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
 
 export enum TokenPrefix {
   Font = 'font',

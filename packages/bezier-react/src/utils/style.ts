@@ -1,7 +1,11 @@
 import { css } from '~/src/foundation'
 
 import { type InjectedInterpolation } from '~/src/types/Foundation'
-import { isNil } from '~/src/utils/type'
+import { type FlattenAllToken } from '~/src/types/Token'
+import {
+  isEmpty,
+  isNil,
+} from '~/src/utils/type'
 
 export function gap(spacing: number): InjectedInterpolation {
   return css`
@@ -37,7 +41,12 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
 
 export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
 
-export const cssVarName = <ComponentName extends string>(componentName: ComponentName) => <PropertyName extends string>(propertyName: PropertyName) => `--b-${componentName}-${propertyName}` as const
+export const cssVarName = <ComponentName extends string>(componentName?: ComponentName) =>
+  <PropertyName extends string>(propertyName: PropertyName) => (
+    isEmpty(componentName)
+      ? `--b-${propertyName}` as const
+      : `--b-${componentName}-${propertyName}` as const
+  )
 
 export function cssVarValue<
   PropertyName extends string | undefined,
@@ -50,6 +59,13 @@ export function cssVarValue<
       : `var(--${propertyName})` as const
     : undefined
   /* eslint-enable no-nested-ternary */
+}
+
+export function tokenCssVarValue<
+  PropertyName extends FlattenAllToken | undefined,
+  DeclarationValue extends string | number | undefined,
+>(propertyName: PropertyName, declarationValue?: DeclarationValue) {
+  return cssVarValue(propertyName, declarationValue)
 }
 
 export function cssUrl(url: string | undefined) {
