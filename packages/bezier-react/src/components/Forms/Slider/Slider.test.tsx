@@ -205,13 +205,13 @@ describe('Slider', () => {
     it('should render Slider with given width (number)', () => {
       const { getByTestId } = renderSlider({ width: 300 })
       const slider = getByTestId(SLIDER_TEST_ID)
-      expect(slider).toHaveStyle('--bezier-slider-width: 300px')
+      expect(slider).toHaveStyle('--b-slider-width: 300px')
     })
 
     it('should render Slider with given width (string)', () => {
       const { getByTestId } = renderSlider({ width: '500px' })
       const slider = getByTestId(SLIDER_TEST_ID)
-      expect(slider).toHaveStyle('--bezier-slider-width: 500px')
+      expect(slider).toHaveStyle('--b-slider-width: 500px')
     })
   })
 

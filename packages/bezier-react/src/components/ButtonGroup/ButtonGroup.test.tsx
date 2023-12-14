@@ -21,8 +21,8 @@ describe('ButtonGroup', () => {
 
     const buttonGroup = getByRole('group')
 
-    expect(buttonGroup).toHaveStyle('gap: var(--bezier-alpha-stack-spacing)')
-    expect(buttonGroup).toHaveStyle('--bezier-alpha-stack-spacing: 6px')
+    expect(buttonGroup).toHaveStyle('gap: var(--b-alpha-stack-spacing)')
+    expect(buttonGroup).toHaveStyle('--b-alpha-stack-spacing: 6px')
   })
 
   it('creates a button group without spacing', () => {
@@ -38,7 +38,7 @@ describe('ButtonGroup', () => {
 
     const buttonGroup = getByRole('group')
 
-    expect(buttonGroup).toHaveStyle('gap: var(--bezier-alpha-stack-spacing)')
-    expect(buttonGroup).toHaveStyle('--bezier-alpha-stack-spacing: 0px')
+    expect(buttonGroup).toHaveStyle('gap: var(--b-alpha-stack-spacing)')
+    expect(buttonGroup).toHaveStyle('--b-alpha-stack-spacing: 0px')
   })
 })

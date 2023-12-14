@@ -7,18 +7,18 @@ interface ContainerProps extends
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  align-items: var(--bezier-alpha-stack-align);
-  justify-content: var(--bezier-alpha-stack-justify);
+  flex-direction: var(--b-alpha-stack-direction);
+  gap: var(--b-alpha-stack-spacing);
+  align-items: var(--b-alpha-stack-align);
+  justify-content: var(--b-alpha-stack-justify);
 
-  @supports not(gap: var(--bezier-alpha-stack-spacing)) {
-    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
-    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+  @supports not(gap: var(--b-alpha-stack-spacing)) {
+    margin-top: calc(var(--b-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--b-alpha-stack-spacing) * -1);
 
     > * {
-      margin-top: var(--bezier-alpha-stack-spacing);
-      margin-left: var(--bezier-alpha-stack-spacing);
+      margin-top: var(--b-alpha-stack-spacing);
+      margin-left: var(--b-alpha-stack-spacing);
     }
   }
   ${({ interpolation }) => interpolation}

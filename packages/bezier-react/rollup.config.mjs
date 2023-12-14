@@ -9,6 +9,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import autoprefixer from 'autoprefixer'
+import { transform } from 'lightningcss'
 import postcssPresetEnv from 'postcss-preset-env'
 import { defineConfig } from 'rollup'
 import nodeExternals from 'rollup-plugin-node-externals'
@@ -20,8 +21,36 @@ const pkg = JSON.parse(
 )
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
+const styleSheetDir = 'styles.css'
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
+
+/**
+ * @type {import('rollup').PluginImpl}
+ */
+function minifycss() {
+  return {
+    name: 'minify-css',
+    generateBundle(options, bundle) {
+      const styleSheetFile = bundle[styleSheetDir]
+      const { code: optimizedSource } = transform({
+        code: styleSheetFile.source,
+        minify: true,
+      })
+
+      /**
+       * NOTE: To avoid the following error:
+       * (!) The emitted file 'style.css' overwrites a previously emitted file of the same name.
+       */
+      delete bundle[styleSheetDir]
+
+      this.emitFile({
+        ...styleSheetFile,
+        source: optimizedSource,
+      })
+    },
+  }
+}
 
 const generateConfig = ({
   output = [],
@@ -37,13 +66,13 @@ const generateConfig = ({
       }],
     }),
     postcss({
-      extract: 'style.css',
+      extract: styleSheetDir,
       autoModules: true,
       modules: {
         /**
-         * ex. Bezier-Button__Button__1w3e4
+         * ex. b-Button__1w3e4
          */
-        generateScopedName: 'Bezier-[folder]__[local]__[hash:base64:5]',
+        generateScopedName: 'b-[local]__[hash:base64:5]',
       },
       plugins: [
         autoprefixer(),
@@ -75,6 +104,7 @@ const generateConfig = ({
     }),
     url(),
     visualizer({ filename: 'stats.html' }),
+    minifycss(),
     ...plugins,
   ],
 })

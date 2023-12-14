@@ -82,17 +82,17 @@ const focusStyles = {
 
     /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
     ${Avatar} > div {
-      --bezier-alpha-smooth-corners-box-background-image: none !important;
+      --b-alpha-smooth-corners-box-background-image: none !important;
     }
   `,
   unchecked: css`
     ${Avatar} > div {
-      --bezier-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
+      --b-alpha-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
     }
   `,
   checked: css`
     ${Avatar} > div {
-      --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
+      --b-alpha-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
     }
     /* stylelint-enable declaration-block-semicolon-newline-after, rule-empty-line-before */
   `,
@@ -120,8 +120,8 @@ export const CheckboxPrimitiveRoot = styled(CheckboxPrimitive.Root)`
 
     /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before */
     ${Avatar} > div {
-      --bezier-alpha-smooth-corners-box-background-image: none !important;
-      --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
+      --b-alpha-smooth-corners-box-background-image: none !important;
+      --b-alpha-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
     }
     /* stylelint-enable declaration-block-semicolon-newline-after, rule-empty-line-before */
   }

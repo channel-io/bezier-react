@@ -340,7 +340,7 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
     class="c4"
   >
     <div
-      class="Spinner s"
+      class="Spinner size-s"
       data-testid="bezier-react-spinner"
     />
   </div>

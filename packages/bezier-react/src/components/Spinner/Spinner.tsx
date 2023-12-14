@@ -2,12 +2,19 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
+import {
+  cssVarName,
+  cssVarValue,
+} from '~/src/utils/style'
+
 import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'
 
 import styles from './Spinner.module.scss'
 
 export const SPINNER_TEST_ID = 'bezier-react-spinner'
+
+const cv = cssVarName('spinner')
 
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
   testId = SPINNER_TEST_ID,
@@ -25,12 +32,12 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
       {...rest}
       ref={forwardedRef}
       style={{
-        '--bezier-spinner-color': color ? `var(--${color})` as const : undefined,
+        [cv('color')]: cssVarValue(color),
         ...style,
       }}
       className={classNames(
         styles.Spinner,
-        styles[size],
+        styles[`size-${size}`],
         className,
       )}
       key="spinner"

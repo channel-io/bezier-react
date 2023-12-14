@@ -19,21 +19,21 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 .c2 {
-  --bezier-alpha-smooth-corners-box-border-radius: 0;
-  --bezier-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --bezier-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0px;
-  --bezier-alpha-smooth-corners-box-margin: 0px;
-  --bezier-alpha-smooth-corners-box-background-color: transparent;
-  margin: var(--bezier-alpha-smooth-corners-box-margin);
-  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
-  background-image: var(--bezier-alpha-smooth-corners-box-background-image);
+  --b-alpha-smooth-corners-box-border-radius: 0;
+  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
+  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
+  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
+  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
+  --b-alpha-smooth-corners-box-shadow-color: transparent;
+  --b-alpha-smooth-corners-box-padding: 0px;
+  --b-alpha-smooth-corners-box-margin: 0px;
+  --b-alpha-smooth-corners-box-background-color: transparent;
+  margin: var(--b-alpha-smooth-corners-box-margin);
+  background-color: var(--b-alpha-smooth-corners-box-background-color);
+  background-image: var(--b-alpha-smooth-corners-box-background-image);
   background-size: cover;
-  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
 }
 
 .c1 {
@@ -96,7 +96,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 .c3 {
-  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
+  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -120,7 +120,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 .c3.bordered[data-state="enabled"] {
-  --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+  --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
 }
 
 .c6 {
@@ -133,7 +133,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: var(--bezier-avatar-group-size);
+  height: var(--b-avatar-group-size);
   color: var(--txt-black-dark);
 }
 
@@ -147,37 +147,37 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 .c0 > * + * {
-  margin-left: var(--bezier-avatar-group-spacing);
+  margin-left: var(--b-avatar-group-spacing);
 }
 
 .c4 {
-  padding-right: var(--bezier-avatar-group-ellipsis-mr);
+  padding-right: var(--b-avatar-group-ellipsis-mr);
 }
 
 .c4.c4 {
-  margin-left: var(--bezier-avatar-group-ellipsis-ml);
+  margin-left: var(--b-avatar-group-ellipsis-ml);
 }
 
 @supports (background:paint(smooth-corners)) {
   .c2[data-state="enabled"] {
-    padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
+    padding: var(--b-alpha-smooth-corners-box-padding);
+    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
-    border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
+    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
     box-shadow: none;
-    --smooth-corners: var(--bezier-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--bezier-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--bezier-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--bezier-alpha-smooth-corners-box-border-radius-type);
+    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
+    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
+    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
+    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
+    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
   }
 }
 
 <div
   class="c0"
   role="group"
-  style="--bezier-avatar-group-spacing: 4px; --bezier-avatar-group-size: 24px;"
+  style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
     class="c1 size-24"
@@ -189,7 +189,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -202,7 +202,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -215,7 +215,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -228,7 +228,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -241,7 +241,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -254,12 +254,12 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
     class="c4"
-    style="--bezier-avatar-group-ellipsis-mr: 5px; --bezier-avatar-group-ellipsis-ml: 4px;"
+    style="--b-avatar-group-ellipsis-mr: 5px; --b-avatar-group-ellipsis-ml: 4px;"
   >
     <span
       class="c5 c6"
@@ -289,21 +289,21 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 .c2 {
-  --bezier-alpha-smooth-corners-box-border-radius: 0;
-  --bezier-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --bezier-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --bezier-alpha-smooth-corners-box-shadow-color: transparent;
-  --bezier-alpha-smooth-corners-box-padding: 0px;
-  --bezier-alpha-smooth-corners-box-margin: 0px;
-  --bezier-alpha-smooth-corners-box-background-color: transparent;
-  margin: var(--bezier-alpha-smooth-corners-box-margin);
-  background-color: var(--bezier-alpha-smooth-corners-box-background-color);
-  background-image: var(--bezier-alpha-smooth-corners-box-background-image);
+  --b-alpha-smooth-corners-box-border-radius: 0;
+  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
+  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
+  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
+  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
+  --b-alpha-smooth-corners-box-shadow-color: transparent;
+  --b-alpha-smooth-corners-box-padding: 0px;
+  --b-alpha-smooth-corners-box-margin: 0px;
+  --b-alpha-smooth-corners-box-background-color: transparent;
+  margin: var(--b-alpha-smooth-corners-box-margin);
+  background-color: var(--b-alpha-smooth-corners-box-background-color);
+  background-image: var(--b-alpha-smooth-corners-box-background-image);
   background-size: cover;
-  border-radius: var(--bezier-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
+  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
+  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
 }
 
 .c1 {
@@ -366,7 +366,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 .c3 {
-  --bezier-avatar-computed-status-gap: var(--bezier-avatar-status-gap);
+  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
   position: relative;
   box-sizing: content-box;
   display: -webkit-box;
@@ -390,7 +390,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 .c3.bordered[data-state="enabled"] {
-  --bezier-avatar-computed-status-gap: calc(var(--bezier-avatar-status-gap) + (2 * var(--bezier-alpha-smooth-corners-box-shadow-spread-radius)));
+  --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
 }
 
 .c0 {
@@ -403,7 +403,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 .c0 > * + * {
-  margin-left: var(--bezier-avatar-group-spacing);
+  margin-left: var(--b-avatar-group-spacing);
 }
 
 .c4 {
@@ -434,24 +434,24 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 
 @supports (background:paint(smooth-corners)) {
   .c2[data-state="enabled"] {
-    padding: var(--bezier-alpha-smooth-corners-box-padding);
-    margin: calc(var(--bezier-alpha-smooth-corners-box-margin) + (-1 * var(--bezier-alpha-smooth-corners-box-padding)));
+    padding: var(--b-alpha-smooth-corners-box-padding);
+    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
     border-radius: 0;
-    border-image-source: var(--bezier-alpha-smooth-corners-box-background-image);
+    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
     box-shadow: none;
-    --smooth-corners: var(--bezier-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--bezier-alpha-smooth-corners-box-shadow-offset-x) var(--bezier-alpha-smooth-corners-box-shadow-offset-y) var(--bezier-alpha-smooth-corners-box-shadow-blur-radius) var(--bezier-alpha-smooth-corners-box-shadow-spread-radius) var(--bezier-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--bezier-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--bezier-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--bezier-alpha-smooth-corners-box-border-radius-type);
+    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
+    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
+    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
+    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
+    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
   }
 }
 
 <div
   class="c0"
   role="group"
-  style="--bezier-avatar-group-spacing: 4px; --bezier-avatar-group-size: 24px;"
+  style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
     class="c1 size-24"
@@ -463,7 +463,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -476,7 +476,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -489,7 +489,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -502,7 +502,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -515,7 +515,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="c2 c3"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -525,7 +525,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     <div
       class="c2 c5"
       data-state="disabled"
-      style="--bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
         class="c6"
@@ -560,7 +560,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
         class="c2 c3"
         data-state="disabled"
         data-testid="bezier-react-avatar"
-        style="--bezier-avatar-status-gap: -2px; --bezier-alpha-smooth-corners-box-border-radius: 42%; --bezier-alpha-smooth-corners-box-border-radius-type: string; --bezier-alpha-smooth-corners-box-shadow-blur-radius: 0px; --bezier-alpha-smooth-corners-box-shadow-spread-radius: 0px; --bezier-alpha-smooth-corners-box-padding: 0px; --bezier-alpha-smooth-corners-box-margin: 0px; --bezier-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --bezier-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+        style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
       />
     </div>
   </div>

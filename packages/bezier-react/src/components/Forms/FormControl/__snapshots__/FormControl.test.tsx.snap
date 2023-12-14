@@ -6,18 +6,18 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
+  -webkit-flex-direction: var(--b-alpha-stack-direction);
+  -ms-flex-direction: var(--b-alpha-stack-direction);
+  flex-direction: var(--b-alpha-stack-direction);
+  gap: var(--b-alpha-stack-spacing);
+  -webkit-align-items: var(--b-alpha-stack-align);
+  -webkit-box-align: var(--b-alpha-stack-align);
+  -ms-flex-align: var(--b-alpha-stack-align);
+  align-items: var(--b-alpha-stack-align);
+  -webkit-box-pack: var(--b-alpha-stack-justify);
+  -webkit-justify-content: var(--b-alpha-stack-justify);
+  -ms-flex-pack: var(--b-alpha-stack-justify);
+  justify-content: var(--b-alpha-stack-justify);
 }
 
 .c3 {
@@ -179,15 +179,15 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   line-height: 1.8rem;
 }
 
-@supports not(gap:var(--bezier-alpha-stack-spacing)) {
+@supports not(gap:var(--b-alpha-stack-spacing)) {
   .c0 {
-    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
-    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+    margin-top: calc(var(--b-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--b-alpha-stack-spacing) * -1);
   }
 
   .c0 > * {
-    margin-top: var(--bezier-alpha-stack-spacing);
-    margin-left: var(--bezier-alpha-stack-spacing);
+    margin-top: var(--b-alpha-stack-spacing);
+    margin-left: var(--b-alpha-stack-spacing);
   }
 }
 
@@ -195,7 +195,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   <div
     class="c0"
     data-testid="bezier-react-form-control"
-    style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+    style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
   >
     <div
       class="c1 c2"
@@ -216,12 +216,12 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       data-testid="bezier-react-form-group"
       id="form-group"
       role="group"
-      style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 6px;"
+      style="--b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 6px;"
     >
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
       >
         <div
           class="c1 c2"
@@ -253,7 +253,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
       >
         <div
           class="c1 c2"
@@ -306,18 +306,18 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
+  -webkit-flex-direction: var(--b-alpha-stack-direction);
+  -ms-flex-direction: var(--b-alpha-stack-direction);
+  flex-direction: var(--b-alpha-stack-direction);
+  gap: var(--b-alpha-stack-spacing);
+  -webkit-align-items: var(--b-alpha-stack-align);
+  -webkit-box-align: var(--b-alpha-stack-align);
+  -ms-flex-align: var(--b-alpha-stack-align);
+  align-items: var(--b-alpha-stack-align);
+  -webkit-box-pack: var(--b-alpha-stack-justify);
+  -webkit-justify-content: var(--b-alpha-stack-justify);
+  -ms-flex-pack: var(--b-alpha-stack-justify);
+  justify-content: var(--b-alpha-stack-justify);
 }
 
 .c3 {
@@ -410,7 +410,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
-  height: var(--bezier-form-control-left-label-wrapper-height);
+  height: var(--b-form-control-left-label-wrapper-height);
 }
 
 .c14 {
@@ -529,15 +529,15 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   line-height: 1.8rem;
 }
 
-@supports not(gap:var(--bezier-alpha-stack-spacing)) {
+@supports not(gap:var(--b-alpha-stack-spacing)) {
   .c5 {
-    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
-    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+    margin-top: calc(var(--b-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--b-alpha-stack-spacing) * -1);
   }
 
   .c5 > * {
-    margin-top: var(--bezier-alpha-stack-spacing);
-    margin-left: var(--bezier-alpha-stack-spacing);
+    margin-top: var(--b-alpha-stack-spacing);
+    margin-left: var(--b-alpha-stack-spacing);
   }
 }
 
@@ -545,7 +545,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
   <div
     class="c0 c1"
     data-testid="bezier-react-form-control"
-    style="--bezier-form-control-left-label-wrapper-height: 36px;"
+    style="--b-form-control-left-label-wrapper-height: 36px;"
   >
     <div
       class="c0 c2"
@@ -566,12 +566,12 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       data-testid="bezier-react-form-group"
       id="form-group"
       role="group"
-      style="--bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 6px;"
+      style="--b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 6px;"
     >
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
       >
         <div
           class="c0 c7"
@@ -603,7 +603,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
       >
         <div
           class="c0 c7"
@@ -656,18 +656,18 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: var(--bezier-alpha-stack-direction);
-  -ms-flex-direction: var(--bezier-alpha-stack-direction);
-  flex-direction: var(--bezier-alpha-stack-direction);
-  gap: var(--bezier-alpha-stack-spacing);
-  -webkit-align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-align: var(--bezier-alpha-stack-align);
-  -ms-flex-align: var(--bezier-alpha-stack-align);
-  align-items: var(--bezier-alpha-stack-align);
-  -webkit-box-pack: var(--bezier-alpha-stack-justify);
-  -webkit-justify-content: var(--bezier-alpha-stack-justify);
-  -ms-flex-pack: var(--bezier-alpha-stack-justify);
-  justify-content: var(--bezier-alpha-stack-justify);
+  -webkit-flex-direction: var(--b-alpha-stack-direction);
+  -ms-flex-direction: var(--b-alpha-stack-direction);
+  flex-direction: var(--b-alpha-stack-direction);
+  gap: var(--b-alpha-stack-spacing);
+  -webkit-align-items: var(--b-alpha-stack-align);
+  -webkit-box-align: var(--b-alpha-stack-align);
+  -ms-flex-align: var(--b-alpha-stack-align);
+  align-items: var(--b-alpha-stack-align);
+  -webkit-box-pack: var(--b-alpha-stack-justify);
+  -webkit-justify-content: var(--b-alpha-stack-justify);
+  -ms-flex-pack: var(--b-alpha-stack-justify);
+  justify-content: var(--b-alpha-stack-justify);
 }
 
 .c3 {
@@ -790,22 +790,22 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   line-height: 1.8rem;
 }
 
-@supports not(gap:var(--bezier-alpha-stack-spacing)) {
+@supports not(gap:var(--b-alpha-stack-spacing)) {
   .c0 {
-    margin-top: calc(var(--bezier-alpha-stack-spacing) * -1);
-    margin-left: calc(var(--bezier-alpha-stack-spacing) * -1);
+    margin-top: calc(var(--b-alpha-stack-spacing) * -1);
+    margin-left: calc(var(--b-alpha-stack-spacing) * -1);
   }
 
   .c0 > * {
-    margin-top: var(--bezier-alpha-stack-spacing);
-    margin-left: var(--bezier-alpha-stack-spacing);
+    margin-top: var(--b-alpha-stack-spacing);
+    margin-left: var(--b-alpha-stack-spacing);
   }
 }
 
 <div
   class="c0"
   data-testid="bezier-react-form-control"
-  style="--bezier-form-control-left-label-wrapper-height: 36px; --bezier-alpha-stack-direction: column; --bezier-alpha-stack-justify: flex-start; --bezier-alpha-stack-align: stretch; --bezier-alpha-stack-spacing: 0px;"
+  style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
 >
   <div
     class="c1 c2"
@@ -918,7 +918,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
-  height: var(--bezier-form-control-left-label-wrapper-height);
+  height: var(--b-form-control-left-label-wrapper-height);
 }
 
 .c9 {
@@ -1001,7 +1001,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
 <div
   class="c0 c1"
   data-testid="bezier-react-form-control"
-  style="--bezier-form-control-left-label-wrapper-height: 36px;"
+  style="--b-form-control-left-label-wrapper-height: 36px;"
 >
   <div
     class="c0 c2"

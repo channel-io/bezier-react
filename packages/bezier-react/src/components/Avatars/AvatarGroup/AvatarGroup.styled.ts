@@ -10,7 +10,7 @@ export const AvatarEllipsisCount = styled(Text)`
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--bezier-avatar-group-size);
+  height: var(--b-avatar-group-size);
   color: var(--txt-black-dark);
 
   ${({ interpolation }) => interpolation}
@@ -22,7 +22,7 @@ export const AvatarGroup = styled.div`
   display: flex;
 
   & > * + * {
-    margin-left: var(--bezier-avatar-group-spacing);
+    margin-left: var(--b-avatar-group-spacing);
   }
 `
 
@@ -33,10 +33,10 @@ export const AvatarEllipsisIconWrapper = styled.div<InterpolationProps>`
 `
 
 export const AvatarEllipsisCountWrapper = styled.div`
-  padding-right: var(--bezier-avatar-group-ellipsis-mr);
+  padding-right: var(--b-avatar-group-ellipsis-mr);
 
   && {
-    margin-left: var(--bezier-avatar-group-ellipsis-ml);
+    margin-left: var(--b-avatar-group-ellipsis-ml);
   }
 `
 

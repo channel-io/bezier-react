@@ -138,16 +138,16 @@ describe('SegmentedControl >', () => {
     describe('"radiogroup" type', () => {
       it('when changing the width property, the width style should be applied to the outer wrapper', () => {
         const { getByRole } = renderComponent({ type: 'radiogroup', width: '100%' })
-        expect(getByRole('radiogroup')).toHaveStyle('--bezier-segmented-control-width: 100%')
-        expect(getByRole('radiogroup')).toHaveStyle('width: var(--bezier-segmented-control-width)')
+        expect(getByRole('radiogroup')).toHaveStyle('--b-segmented-control-width: 100%')
+        expect(getByRole('radiogroup')).toHaveStyle('width: var(--b-segmented-control-width)')
       })
     })
 
     describe('"tabs" type', () => {
       it('when changing the width property, the width style should be applied to the outer wrapper', () => {
         const { getByRole } = renderComponent({ type: 'tabs', width: '100%' })
-        expect(getByRole('tablist')).toHaveStyle('--bezier-segmented-control-width: 100%')
-        expect(getByRole('tablist')).toHaveStyle('width: var(--bezier-segmented-control-width)')
+        expect(getByRole('tablist')).toHaveStyle('--b-segmented-control-width: 100%')
+        expect(getByRole('tablist')).toHaveStyle('width: var(--b-segmented-control-width)')
       })
     })
   })
@@ -313,9 +313,9 @@ describe('SegmentedControl >', () => {
 
       const indicator = getByTestId(SEGMENTED_CONTROL_INDICATOR_TEST_ID)
 
-      expect(indicator).toHaveStyle('width: var(--bezier-segmented-control-indicator-width)')
-      expect(indicator).toHaveStyle('height: var(--bezier-segmented-control-indicator-height)')
-      expect(indicator).toHaveStyle('transform: translateX(var(--bezier-segmented-control-indicator-translateX)) translateY(-50%)')
+      expect(indicator).toHaveStyle('width: var(--b-segmented-control-indicator-width)')
+      expect(indicator).toHaveStyle('height: var(--b-segmented-control-indicator-height)')
+      expect(indicator).toHaveStyle('transform: translateX(var(--b-segmented-control-indicator-translateX)) translateY(-50%)')
     })
   })
 

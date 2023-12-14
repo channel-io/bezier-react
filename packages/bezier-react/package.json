@@ -105,6 +105,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "identity-obj-proxy": "^3.0.0",
     "jest-styled-components": "^7.1.1",
+    "lightningcss": "^1.22.1",
     "paths.macro": "^3.0.1",
     "postcss-preset-env": "^9.3.0",
     "react": "^18.2.0",
