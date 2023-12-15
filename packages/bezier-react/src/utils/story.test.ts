@@ -2,19 +2,11 @@ import { type IconName } from '@channel.io/bezier-icons'
 
 import {
   getObjectFromEnum,
-  getTitle,
   iconList,
 } from './story'
 import { isArray } from './type'
 
 describe('storyUtils Test >', () => {
-  describe('getTitle Test >', () => {
-    it('정상 동작 테스트들', () => {
-      expect(getTitle('/src/layout/GlobalHeader/')).toBe('layout/GlobalHeader')
-      expect(getTitle('/foo/bar/ipsum/')).toBe('bar/ipsum')
-    })
-  })
-
   describe('iconList Test >', () => {
     it('iconList는 리스트이다', () => {
       expect(isArray(iconList)).toBe(true)
