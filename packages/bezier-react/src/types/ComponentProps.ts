@@ -135,6 +135,7 @@ export interface LinkProps {
  * TODO: Migrate to `BezierComponentProps` after removing styled-components dependency.
  */
 export interface AlphaBezierComponentProps extends
+  Omit<RenderConfigProps, 'as'>,
   Omit<StylableComponentProps, 'interpolation'> {}
 
 export interface PolymorphicProps<T extends React.ElementType> {
