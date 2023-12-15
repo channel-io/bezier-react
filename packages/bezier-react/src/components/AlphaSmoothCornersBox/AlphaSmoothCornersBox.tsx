@@ -9,7 +9,6 @@ import {
 } from '~/src/features'
 import {
   cssUrl,
-  cssVarName,
   cssVarValue,
   px,
 } from '~/src/utils/style'
@@ -17,8 +16,6 @@ import {
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
 import * as Styled from './AlphaSmoothCornersBox.styled'
-
-const cv = cssVarName('alpha-smooth-corners-box')
 
 /**
  * `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
@@ -50,21 +47,21 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
 
   const style = useMemo(() => ({
     ...styleProp,
-    [cv('border-radius')]: borderRadius,
-    [cv('border-radius-type')]: typeof borderRadius,
-    [cv('shadow-offset-x')]: shadow?.offsetX,
-    [cv('shadow-offset-y')]: shadow?.offsetY,
-    [cv('shadow-blur-radius')]: px(shadow?.blurRadius ?? 0),
-    [cv('shadow-spread-radius')]: px(shadowSpreadRadius),
-    [cv('shadow-color')]: cssVarValue(shadow?.color),
+    '--b-alpha-smooth-corners-box-border-radius': borderRadius,
+    '--b-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
+    '--b-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
+    '--b-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
+    '--b-alpha-smooth-corners-box-shadow-blur-radius': px(shadow?.blurRadius ?? 0),
+    '--b-alpha-smooth-corners-box-shadow-spread-radius': px(shadowSpreadRadius),
+    '--b-alpha-smooth-corners-box-shadow-color': cssVarValue(shadow?.color),
     /**
      * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
-    [cv('padding')]: px(shadowSpreadRadius * 2),
-    [cv('margin')]: px(margin ?? 0),
-    [cv('background-color')]: cssVarValue(backgroundColor),
-    [cv('background-image')]: cssUrl(backgroundImage),
+    '--b-alpha-smooth-corners-box-padding': px(shadowSpreadRadius * 2),
+    '--b-alpha-smooth-corners-box-margin': px(margin ?? 0),
+    '--b-alpha-smooth-corners-box-background-color': cssVarValue(backgroundColor),
+    '--b-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
     styleProp,
     borderRadius,

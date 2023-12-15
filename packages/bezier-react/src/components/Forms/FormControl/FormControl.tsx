@@ -9,10 +9,7 @@ import { Typography } from '~/src/foundation'
 
 import useId from '~/src/hooks/useId'
 import { splitByBezierComponentProps } from '~/src/utils/props'
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
@@ -32,8 +29,6 @@ import {
 import { FormControlContextProvider } from './FormControlContext'
 
 import * as Styled from './FormControl.styled'
-
-const cv = cssVarName('form-control')
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
@@ -196,7 +191,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
 
   const containerStyle = useMemo(() => ({
     ...style,
-    [cv('left-label-wrapper-height')]: px(leftLabelWrapperHeight),
+    '--b-form-control-left-label-wrapper-height': px(leftLabelWrapperHeight),
   } as React.CSSProperties), [
     style,
     leftLabelWrapperHeight,

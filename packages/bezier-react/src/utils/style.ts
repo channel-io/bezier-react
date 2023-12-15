@@ -2,10 +2,7 @@ import { css } from '~/src/foundation'
 
 import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { type FlattenAllToken } from '~/src/types/Token'
-import {
-  isEmpty,
-  isNil,
-} from '~/src/utils/type'
+import { isNil } from '~/src/utils/type'
 
 export function gap(spacing: number): InjectedInterpolation {
   return css`
@@ -40,13 +37,6 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
 }
 
 export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
-
-export const cssVarName = <ComponentName extends string>(componentName?: ComponentName) =>
-  <PropertyName extends string>(propertyName: PropertyName) => (
-    isEmpty(componentName)
-      ? `--b-${propertyName}` as const
-      : `--b-${componentName}-${propertyName}` as const
-  )
 
 export function cssVarValue<
   PropertyName extends string | undefined,
