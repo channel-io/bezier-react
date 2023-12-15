@@ -10,14 +10,16 @@ import {
   tokenCssVarValue,
 } from './style'
 
-export const splitByBezierComponentProps = <Props extends BezierComponentProps>({
-  as,
-  testId,
-  style,
-  className,
-  interpolation,
-  ...rest
-}: Props): [BezierComponentProps, Omit<Props, keyof BezierComponentProps>] => ([
+export const splitByBezierComponentProps = <
+  Props extends BezierComponentProps,
+>({
+    as,
+    testId,
+    style,
+    className,
+    interpolation,
+    ...rest
+  }: Props): [BezierComponentProps, Omit<Props, keyof BezierComponentProps>] => [
     {
       as,
       testId,
@@ -26,7 +28,7 @@ export const splitByBezierComponentProps = <Props extends BezierComponentProps>(
       interpolation,
     },
     rest,
-  ])
+  ]
 
 export const splitByMarginProps = <Props extends MarginProps>({
   m,
@@ -37,7 +39,7 @@ export const splitByMarginProps = <Props extends MarginProps>({
   mb,
   ml,
   ...rest
-}: Props): [MarginProps, Omit<Props, keyof MarginProps>] => ([
+}: Props): [MarginProps, Omit<Props, keyof MarginProps>] => [
     {
       m,
       mx,
@@ -48,7 +50,7 @@ export const splitByMarginProps = <Props extends MarginProps>({
       ml,
     },
     rest,
-  ])
+  ]
 
 export const splitByLayoutProps = <Props extends LayoutProps>({
   p,
@@ -87,7 +89,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   overflowX,
   overflowY,
   ...rest
-}: Props): [LayoutProps, Omit<Props, keyof LayoutProps>] => ([
+}: Props): [LayoutProps, Omit<Props, keyof LayoutProps>] => [
     {
       p,
       px,
@@ -126,11 +128,17 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
       overflowY,
     },
     rest,
-  ])
+  ]
 
-export function getMarginStyle<Props extends MarginProps>(props: Props) {
-  const { m, mx, my, mt, mr, mb, ml } = props
-  return {
+export const getMarginStyle = <Props extends MarginProps>({
+  m,
+  mx,
+  my,
+  mt,
+  mr,
+  mb,
+  ml,
+}: Props) => ({
     '--b-margin-all': m,
     '--b-margin-x': mx,
     '--b-margin-y': my,
@@ -138,48 +146,45 @@ export function getMarginStyle<Props extends MarginProps>(props: Props) {
     '--b-margin-right': mr,
     '--b-margin-bottom': mb,
     '--b-margin-left': ml,
-  }
-}
+  })
 
-export function getLayoutStyle<Props extends LayoutProps>(props: Props) {
-  const {
-    p,
-    px,
-    py,
-    pt,
-    pr,
-    pb,
-    pl,
-    width,
-    height,
-    maxWidth,
-    minWidth,
-    maxHeight,
-    minHeight,
-    position,
-    inset,
-    top,
-    right,
-    bottom,
-    left,
-    shrink,
-    grow,
-    bgColor,
-    borderColor,
-    borderRadius,
-    borderWidth,
-    borderTopWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderLeftWidth,
-    borderStyle,
-    elevation,
-    zIndex,
-    overflow,
-    overflowX,
-    overflowY,
-  } = props
-  return {
+export const getLayoutStyle = <Props extends LayoutProps>({
+  p,
+  px,
+  py,
+  pt,
+  pr,
+  pb,
+  pl,
+  width,
+  height,
+  maxWidth,
+  minWidth,
+  maxHeight,
+  minHeight,
+  position,
+  inset,
+  top,
+  right,
+  bottom,
+  left,
+  shrink,
+  grow,
+  bgColor,
+  borderColor,
+  borderRadius,
+  borderWidth,
+  borderTopWidth,
+  borderRightWidth,
+  borderBottomWidth,
+  borderLeftWidth,
+  borderStyle,
+  elevation,
+  zIndex,
+  overflow,
+  overflowX,
+  overflowY,
+}: Props) => ({
     '--b-padding-all': p,
     '--b-padding-x': px,
     '--b-padding-y': py,
@@ -215,5 +220,4 @@ export function getLayoutStyle<Props extends LayoutProps>(props: Props) {
     '--b-overflow': overflow,
     '--b-overflow-x': overflowX,
     '--b-overflow-y': overflowY,
-  }
-}
+  })
