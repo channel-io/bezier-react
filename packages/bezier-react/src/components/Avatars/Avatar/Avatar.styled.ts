@@ -1,7 +1,6 @@
 /* stylelint-disable function-whitespace-after */
 import { styled } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
@@ -16,7 +15,7 @@ export const AvatarWrapper = styled.div<InterpolationProps>`
 
   &.disabled {
     pointer-events: none;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
   }
 
   &.size-${AvatarSize.Size20} {

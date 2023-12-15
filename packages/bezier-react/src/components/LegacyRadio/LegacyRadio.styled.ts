@@ -3,7 +3,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 
 import {
   type LegacyRadioProps,
@@ -17,7 +17,7 @@ export const StyledRadioWrapper = styled.div<LegacyRadioProps>`
     if (disabled) { return 'auto' }
     return 'pointer'
   }};
-  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
+  opacity: ${({ disabled }) => (disabled ? 'var(--opacity-disabled)' : 1)};
 `
 
 const StyledRadioHandleDot = css<StyledRadioHandleProps>`

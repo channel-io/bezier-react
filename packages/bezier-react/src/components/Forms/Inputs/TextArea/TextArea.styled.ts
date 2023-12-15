@@ -7,7 +7,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 import {
@@ -32,7 +32,7 @@ const Wrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
-  opacity: ${({ disabled }) => disabled && DisabledOpacity};
+  opacity: ${({ disabled }) => disabled && 'var(--opacity-disabled)'};
 
   ${({ focused }) => focused && focusedInputWrapperStyle}
 

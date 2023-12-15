@@ -6,7 +6,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { touchableHover } from '~/src/utils/style'
 
 import {
@@ -99,7 +99,7 @@ export const Container = styled.div`
 
   &[data-disabled] {
     cursor: not-allowed;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
   }
 `
 

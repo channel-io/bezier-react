@@ -1,6 +1,6 @@
 import { styled } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 
@@ -54,7 +54,7 @@ export const SwitchRoot = styled.button<SwitchRootProps>`
 
   &:disabled {
     cursor: not-allowed;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
   }
 
   &:focus-visible {

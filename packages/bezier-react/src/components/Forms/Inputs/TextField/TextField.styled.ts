@@ -7,7 +7,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import { type InterpolationProps } from '~/src/types/Foundation'
 
 import {
@@ -134,7 +134,7 @@ const Wrapper = styled.div<WrapperProps & InterpolationProps>`
   background-color: ${({ foundation, bgColor }) => foundation?.theme?.[bgColor]};
 
   ${({ borderRadius }) => borderRadius}
-  opacity: ${({ disabled }) => disabled && DisabledOpacity};
+  opacity: ${({ disabled }) => disabled && 'var(--opacity-disabled)'};
 
   ${({ variant }) => variant === TextFieldVariant.Primary && inputWrapperStyle}
   ${({ focused }) => focused && focusedInputWrapperStyle}

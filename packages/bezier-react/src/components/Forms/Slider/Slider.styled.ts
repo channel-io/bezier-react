@@ -2,7 +2,7 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import { styled } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
+
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
@@ -22,7 +22,7 @@ export const SliderPrimitiveRoot = styled(SliderPrimitive.Root)<InterpolationPro
 
   &[data-disabled] {
     cursor: not-allowed;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
   }
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['opacity'])};

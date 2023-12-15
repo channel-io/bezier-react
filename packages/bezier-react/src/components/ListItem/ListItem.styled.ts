@@ -7,7 +7,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import disabledOpacity from '~/src/constants/DisabledOpacity'
+
 
 import { Icon } from '~/src/components/Icon'
 
@@ -112,7 +112,7 @@ export const StyledIcon = styled(Icon)<IconWrapperProps>`
   color: ${({ foundation, variant, active }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, active ? 'bgtxt-blue-normal' : 'txt-black-dark')]
   )};
-  
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color', TransitionDuration.M)};
 `
 
@@ -138,10 +138,10 @@ export const Wrapper = styled.div<StyledWrapperProps>`
   color: ${({ foundation, variant }) => (
     foundation?.theme?.[getColorFromColorVariantWithDefaultValue(variant, 'txt-black-darkest')]
   )};
-  
+
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  opacity: ${({ disabled }) => (disabled ? disabledOpacity : 1)};
+  opacity: ${({ disabled }) => (disabled ? 'var(--opacity-disabled)' : 1)};
 
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS(['background-color'])};
 

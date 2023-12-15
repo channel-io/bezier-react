@@ -1,6 +1,5 @@
 import React from 'react'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/test'
 
 import { StatusType } from '~/src/components/Status'
@@ -48,7 +47,7 @@ describe('Avatar >', () => {
     const { getByTestId } = renderAvatar({ disabled: true })
     const wrapper = getByTestId(AVATAR_WRAPPER_TEST_ID)
 
-    expect(wrapper).toHaveStyle(`opacity: ${DisabledOpacity}`)
+    expect(wrapper).toHaveStyle('opacity: var(--opacity-disabled)')
   })
 
   it('renders border style', () => {

@@ -4,7 +4,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { gap } from '~/src/utils/style'
 import { isEmpty } from '~/src/utils/type'
 
@@ -427,7 +426,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   border: none;
   outline: none;
-  opacity: ${({ disabled }) => (disabled ? DisabledOpacity : 1)};
+  opacity: ${({ disabled }) => (disabled ? 'var(--opacity-disabled)' : 1)};
 
   &:focus:not(:disabled) {
     box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
