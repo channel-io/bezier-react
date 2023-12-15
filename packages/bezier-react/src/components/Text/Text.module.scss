@@ -74,5 +74,17 @@
       line-height: var(--typography-size-24-line-height);
       letter-spacing: var(--typography-size-24-letter-spacing);
     }
+
+    &.typo-30 {
+      font-size: var(--typography-size-30-font-size);
+      line-height: var(--typography-size-30-line-height);
+      letter-spacing: var(--typography-size-30-letter-spacing);
+    }
+
+    &.typo-36 {
+      font-size: var(--typography-size-36-font-size);
+      line-height: var(--typography-size-36-line-height);
+      letter-spacing: var(--typography-size-36-letter-spacing);
+    }
   }
 }
