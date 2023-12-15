@@ -81,14 +81,14 @@ const meta: Meta<OverlayProps & {
 export default meta
 
 interface ContainerProps {
-  width?: number
-  height?: number
+  containerWidth?: number
+  containerHeight?: number
 }
 
 const Container = styled.div<ContainerProps>`
   position: relative;
-  width: ${({ width }) => width ?? 600}px;
-  height: ${({ height }) => height ?? 500}px;
+  width: ${({ containerWidth }) => containerWidth ?? 600}px;
+  height: ${({ containerHeight }) => containerHeight ?? 500}px;
   overflow: hidden;
   border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
@@ -139,8 +139,8 @@ const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
 
   return (
     <Container
-      width={containerWidth}
-      height={containerHeight}
+      containerWidth={containerWidth}
+      containerHeight={containerHeight}
       ref={containerRef}
     >
       <Wrapper>
