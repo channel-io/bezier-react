@@ -22,6 +22,9 @@ interface BezierProviderProps {
   externalWindow?: Window
 }
 
+/**
+ * @deprecated Migration to `AlphaAppProvider` is in progress.
+ */
 function BezierProvider({
   foundation,
   children,
