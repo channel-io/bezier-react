@@ -4,7 +4,7 @@
     "**/*.stories.tsx",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "./src/utils/testUtils.tsx",
+    "./src/utils/test.tsx",
     "./src/utils/story.ts",
   ],
   "compilerOptions": {

@@ -5,13 +5,13 @@ import React, {
   useState,
 } from 'react'
 
+import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
 import { Typography } from '~/src/foundation'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
-import { mergeClassNames } from '~/src/utils/string'
 import {
   isEmpty,
   isNil,
@@ -98,7 +98,7 @@ forwardedRef: React.Ref<ListItemRef>,
   useAdjacentElementBorderRadius(listItemElement, filterActiveItem, isActive)
 
   const mergedClassName = useMemo(() => (
-    mergeClassNames(className, ((isActive && activeClassName) || undefined))
+    classNames(className, isActive && activeClassName)
   ), [
     className,
     activeClassName,
