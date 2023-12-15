@@ -5,76 +5,128 @@ import {
 } from '~/src/types/ComponentProps'
 import { TokenPrefix } from '~/src/types/Token'
 
-import { split } from './object'
 import {
   cssVarValue,
   tokenCssVarValue,
 } from './style'
 
-const bezierComponentProps: Array<keyof BezierComponentProps> = [
-  'as',
-  'testId',
-  'style',
-  'className',
-  'interpolation',
-]
+export const splitByBezierComponentProps = <Props extends BezierComponentProps>({
+  as,
+  testId,
+  style,
+  className,
+  interpolation,
+  ...rest
+}: Props): [BezierComponentProps, Omit<Props, keyof BezierComponentProps>] => ([
+    {
+      as,
+      testId,
+      style,
+      className,
+      interpolation,
+    },
+    rest,
+  ])
 
-const marginProps: Array<keyof MarginProps> = [
-  'm',
-  'mx',
-  'my',
-  'mt',
-  'mr',
-  'mb',
-  'ml',
-]
+export const splitByMarginProps = <Props extends MarginProps>({
+  m,
+  mx,
+  my,
+  mt,
+  mr,
+  mb,
+  ml,
+  ...rest
+}: Props): [MarginProps, Omit<Props, keyof MarginProps>] => ([
+    {
+      m,
+      mx,
+      my,
+      mt,
+      mr,
+      mb,
+      ml,
+    },
+    rest,
+  ])
 
-const layoutProps: Array<keyof LayoutProps> = [
-  'p',
-  'px',
-  'py',
-  'pt',
-  'pr',
-  'pb',
-  'pl',
-  'width',
-  'height',
-  'maxWidth',
-  'minWidth',
-  'maxHeight',
-  'minHeight',
-  'position',
-  'inset',
-  'top',
-  'right',
-  'bottom',
-  'left',
-  'shrink',
-  'grow',
-  'bgColor',
-  'borderColor',
-  'borderRadius',
-  'borderWidth',
-  'borderTopWidth',
-  'borderRightWidth',
-  'borderBottomWidth',
-  'borderLeftWidth',
-  'borderStyle',
-  'elevation',
-  'zIndex',
-  'overflow',
-  'overflowX',
-  'overflowY',
-]
-
-export const splitByBezierComponentProps = <Props extends BezierComponentProps>(props: Props) =>
-  split(props, bezierComponentProps)
-
-export const splitByMarginProps = <Props extends MarginProps>(props: Props) =>
-  split(props, marginProps)
-
-export const splitByLayoutProps = <Props extends LayoutProps>(props: Props) =>
-  split(props, layoutProps)
+export const splitByLayoutProps = <Props extends LayoutProps>({
+  p,
+  px,
+  py,
+  pt,
+  pr,
+  pb,
+  pl,
+  width,
+  height,
+  maxWidth,
+  minWidth,
+  maxHeight,
+  minHeight,
+  position,
+  inset,
+  top,
+  right,
+  bottom,
+  left,
+  shrink,
+  grow,
+  bgColor,
+  borderColor,
+  borderRadius,
+  borderWidth,
+  borderTopWidth,
+  borderRightWidth,
+  borderBottomWidth,
+  borderLeftWidth,
+  borderStyle,
+  elevation,
+  zIndex,
+  overflow,
+  overflowX,
+  overflowY,
+  ...rest
+}: Props): [LayoutProps, Omit<Props, keyof LayoutProps>] => ([
+    {
+      p,
+      px,
+      py,
+      pt,
+      pr,
+      pb,
+      pl,
+      width,
+      height,
+      maxWidth,
+      minWidth,
+      maxHeight,
+      minHeight,
+      position,
+      inset,
+      top,
+      right,
+      bottom,
+      left,
+      shrink,
+      grow,
+      bgColor,
+      borderColor,
+      borderRadius,
+      borderWidth,
+      borderTopWidth,
+      borderRightWidth,
+      borderBottomWidth,
+      borderLeftWidth,
+      borderStyle,
+      elevation,
+      zIndex,
+      overflow,
+      overflowX,
+      overflowY,
+    },
+    rest,
+  ])
 
 export function getMarginStyle<Props extends MarginProps>(props: Props) {
   const { m, mx, my, mt, mr, mb, ml } = props

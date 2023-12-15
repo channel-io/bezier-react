@@ -1,8 +1,6 @@
 import {
   has,
   isEqual,
-  omit,
-  pick,
 } from '~/src/utils/object'
 
 describe('objectUtils', () => {
@@ -21,34 +19,6 @@ describe('objectUtils', () => {
         id: 1,
       }
       expect(has(obj, 'age')).toBe(false)
-    })
-  })
-
-  describe('pick', () => {
-    test('should pick given properties', () => {
-      const input = {
-        as: 'test',
-        testId: 123,
-        style: null,
-        className: null,
-        interpolation: null,
-      }
-      const result = pick(input, ['as', 'testId'])
-      expect(result).toEqual({ as: 'test', testId: 123 })
-    })
-  })
-
-  describe('omit', () => {
-    test('should omit given properties', () => {
-      const input = {
-        as: 'test',
-        testId: 123,
-        style: null,
-        className: null,
-        interpolation: null,
-      }
-      const result = omit(input, ['style', 'className', 'interpolation'])
-      expect(result).toEqual({ as: 'test', testId: 123 })
     })
   })
 
