@@ -18,6 +18,23 @@ import { type BoxProps } from './Box.types'
 
 import styles from './Box.module.scss'
 
+/**
+ * `Box` is the primitive component responsible for layout. It provides an easy way to access design tokens.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Box
+ *   width="100px"
+ *   height="100px"
+ *   p="6px"
+ *   m="6px"
+ *   bgColor="bg-black-light"
+ * >
+ *   <div>{ ... }</div>
+ * </Box>
+ * ```
+ */
 export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
@@ -33,6 +50,7 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
 
   /**
    * NOTE: Using the createElement function directly because of a ref type related error.
+   * TODO: Fix type error.
    */
   return createElement(as, {
     ref: forwardedRef,

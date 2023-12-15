@@ -138,10 +138,16 @@ export interface AlphaBezierComponentProps extends
   Omit<RenderConfigProps, 'as'>,
   Omit<StylableComponentProps, 'interpolation'> {}
 
+/**
+ * TODO: Add JSDoc
+ */
 export interface PolymorphicProps<T extends React.ElementType> {
   as?: T
 }
 
+/**
+ * TODO: Add JSDoc
+ */
 export interface MarginProps {
   m?: CSSProperties['margin']
   mx?: CSSProperties['margin']
@@ -152,6 +158,9 @@ export interface MarginProps {
   ml?: CSSProperties['marginLeft']
 }
 
+/**
+ * TODO: Add JSDoc
+ */
 export interface LayoutProps {
   p?: CSSProperties['padding']
   px?: CSSProperties['padding']
