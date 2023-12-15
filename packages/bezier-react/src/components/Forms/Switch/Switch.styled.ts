@@ -1,7 +1,5 @@
 import { styled } from '~/src/foundation'
 
-
-
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
 
 import type SwitchProps from './Switch.types'

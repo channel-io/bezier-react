@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event'
 
 import { LightFoundation } from '~/src/foundation'
 
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -113,7 +112,7 @@ describe('Switch', () => {
       })
       const switchComponent = getByTestId(SWITCH_TEST_ID)
 
-      expect(switchComponent).toHaveStyle(`opacity: var(--opacity-disabled)`)
+      expect(switchComponent).toHaveStyle('opacity: var(--opacity-disabled)')
       expect(switchComponent).toHaveStyle('cursor: not-allowed')
     })
   })

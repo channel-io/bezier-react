@@ -3,7 +3,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import {

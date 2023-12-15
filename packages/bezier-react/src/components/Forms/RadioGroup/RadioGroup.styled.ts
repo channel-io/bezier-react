@@ -6,7 +6,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-
 import { touchableHover } from '~/src/utils/style'
 
 import { FormFieldSize } from '~/src/components/Forms'

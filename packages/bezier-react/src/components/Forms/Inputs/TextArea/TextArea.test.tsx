@@ -5,7 +5,6 @@ import { act } from '@testing-library/react'
 
 import { LightFoundation } from '~/src/foundation'
 
-
 import { render } from '~/src/utils/test'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
@@ -64,7 +63,7 @@ describe('TextArea 테스트 >', () => {
   it('disabled prop이 주입되었을 때는 root wrapper의 opacity가 0.4이어야 한다', () => {
     const { getByTestId } = renderComponent({ disabled: true })
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
-    expect(rendered).toHaveStyle(`opacity: var(--opacity-disabled)`)
+    expect(rendered).toHaveStyle('opacity: var(--opacity-disabled)')
   })
 
   it('focus 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {

@@ -3,8 +3,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-
-
 import {
   type LegacyRadioProps,
   type StyledRadioHandleProps,
