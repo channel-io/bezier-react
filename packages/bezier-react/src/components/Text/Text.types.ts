@@ -1,30 +1,56 @@
-import { type css } from 'styled-components'
-
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
-  type ColorProps,
-  type IdentifierProps,
+  type MarginProps,
+  type PolymorphicProps,
 } from '~/src/types/ComponentProps'
+import { type SemanticColor } from '~/src/types/Token'
 
-interface TextOptions {
+type Typography =
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16'
+  | '17'
+  | '18'
+  | '22'
+  | '24'
+  | '30'
+  | '36'
+
+type TextElementType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'span'
+  | 'small'
+  | 'em'
+  | 'i'
+  | 'b'
+  | 'strong'
+  | 'legend'
+  | 'span'
+  | 'label'
+  | 'div'
+
+interface TextOwnProps {
+  typo?: Typography
+  color?: SemanticColor
   bold?: boolean
   italic?: boolean
-  typo?: ReturnType<typeof css>
   truncated?: boolean
-  marginTop?: number
-  marginRight?: number
-  marginBottom?: number
-  marginLeft?: number
-  marginVertical?: number
-  marginHorizontal?: number
-  marginAll?: number
-  onClick?: React.MouseEventHandler
 }
 
-export default interface TextProps extends
-  BezierComponentProps,
+export interface TextProps extends
+  AlphaBezierComponentProps,
+  Omit<React.HTMLAttributes<HTMLElement>, keyof TextOwnProps>,
+  PolymorphicProps<TextElementType>,
   ChildrenProps,
-  ColorProps,
-  Partial<IdentifierProps>,
-  TextOptions {}
+  MarginProps,
+  TextOwnProps {}
