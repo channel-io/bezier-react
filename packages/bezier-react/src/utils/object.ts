@@ -10,9 +10,8 @@ export function has(object: unknown, key: string): boolean {
   return object != null && Object.prototype.hasOwnProperty.call(object, key)
 }
 
-export function pick<T, K extends keyof T>(object: T, paths: K[]): Pick<T, K> {
+export function pick<T extends object, K extends keyof T>(object: T, paths: K[]): Pick<T, K> {
   const result = {} as Pick<T, K>
-  if (!isObject(object)) { return result }
 
   Object.entries(object).forEach(([key, value]) => {
     if (paths.includes(key as K)) {
@@ -22,9 +21,8 @@ export function pick<T, K extends keyof T>(object: T, paths: K[]): Pick<T, K> {
   return result
 }
 
-export function omit<T, K extends keyof T>(object: T, paths: K[]): Omit<T, K> {
+export function omit<T extends object, K extends keyof T>(object: T, paths: K[]): Omit<T, K> {
   const result = {} as Omit<T, K>
-  if (!isObject(object)) { return result }
 
   Object.entries(object).forEach(([key, value]) => {
     if (!paths.includes(key as K)) {
@@ -32,6 +30,20 @@ export function omit<T, K extends keyof T>(object: T, paths: K[]): Omit<T, K> {
     }
   })
   return result
+}
+
+export function split<T extends object, K extends keyof T>(object: T, paths: K[]): [Pick<T, K>, Omit<T, K>] {
+  const picked = {} as Pick<T, K>
+  const omitted = {} as Omit<T, K>
+
+  Object.entries(object).forEach(([key, value]) => {
+    if (paths.includes(key as K)) {
+      picked[key] = value
+    } else {
+      omitted[key] = value
+    }
+  })
+  return [picked, omitted]
 }
 
 export function isEqual(source: unknown, other: unknown): boolean {

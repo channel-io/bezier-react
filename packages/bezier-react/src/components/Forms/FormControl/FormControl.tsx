@@ -8,10 +8,7 @@ import React, {
 import { Typography } from '~/src/foundation'
 
 import useId from '~/src/hooks/useId'
-import {
-  omitBezierComponentProps,
-  pickBezierComponentProps,
-} from '~/src/utils/props'
+import { splitByBezierComponentProps } from '~/src/utils/props'
 import {
   cssVarName,
   px,
@@ -105,8 +102,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     helperTextId,
   ])
 
-  const bezierProps = useMemo(() => pickBezierComponentProps(rest), [rest])
-  const formCommonProps = useMemo(() => omitBezierComponentProps(rest), [rest])
+  const [bezierProps, formCommonProps] = useMemo(() => splitByBezierComponentProps(rest), [rest])
 
   const getGroupProps = useCallback<GroupPropsGetter>(ownProps => ({
     id: groupId,

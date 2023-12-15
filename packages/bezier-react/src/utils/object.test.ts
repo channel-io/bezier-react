@@ -36,11 +36,6 @@ describe('objectUtils', () => {
       const result = pick(input, ['as', 'testId'])
       expect(result).toEqual({ as: 'test', testId: 123 })
     })
-    test('should return empty object, if the first argument is not an object', () => {
-      const input = 'test'
-      const result = pick(input, [])
-      expect(result).toEqual({})
-    })
   })
 
   describe('omit', () => {
@@ -54,11 +49,6 @@ describe('objectUtils', () => {
       }
       const result = omit(input, ['style', 'className', 'interpolation'])
       expect(result).toEqual({ as: 'test', testId: 123 })
-    })
-    test('should return empty object, if the first argument is not an object', () => {
-      const input = 'test'
-      const result = omit(input, [])
-      expect(result).toEqual({})
     })
   })
 
