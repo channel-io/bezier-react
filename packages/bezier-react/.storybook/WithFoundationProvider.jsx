@@ -10,8 +10,6 @@ import { AlphaAppProvider } from '~/src/providers/AlphaAppProvider'
 import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { Text } from '~/src/components/Text'
 
-import '~/src/styles/index.scss'
-
 const FoundationKeyword = {
   Light: 'light',
   Dark: 'dark',

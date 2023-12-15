@@ -5,71 +5,71 @@
     font-weight: var(--font-weight-400);
     transition: color var(--transition-s);
 
-    .bold {
+    &.bold {
       font-weight: var(--font-weight-700);
     }
 
-    .italic {
+    &.italic {
       font-style: italic;
     }
 
-    .truncated {
+    &.truncated {
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    .typo-11 {
+    &.typo-11 {
       font-size: var(--typography-size-11-font-size);
       line-height: var(--typography-size-11-line-height);
     }
 
-    .typo-12 {
+    &.typo-12 {
       font-size: var(--typography-size-12-font-size);
       line-height: var(--typography-size-12-line-height);
     }
 
-    .typo-13 {
+    &.typo-13 {
       font-size: var(--typography-size-13-font-size);
       line-height: var(--typography-size-13-line-height);
     }
 
-    .typo-14 {
+    &.typo-14 {
       font-size: var(--typography-size-14-font-size);
       line-height: var(--typography-size-14-line-height);
     }
 
-    .typo-15 {
+    &.typo-15 {
       font-size: var(--typography-size-15-font-size);
       line-height: var(--typography-size-15-line-height);
       letter-spacing: var(--typography-size-15-letter-spacing);
     }
 
-    .typo-16 {
+    &.typo-16 {
       font-size: var(--typography-size-16-font-size);
       line-height: var(--typography-size-16-line-height);
       letter-spacing: var(--typography-size-16-letter-spacing);
     }
 
-    .typo-17 {
+    &.typo-17 {
       font-size: var(--typography-size-17-font-size);
       line-height: var(--typography-size-17-line-height);
       letter-spacing: var(--typography-size-17-letter-spacing);
     }
 
-    .typo-18 {
+    &.typo-18 {
       font-size: var(--typography-size-18-font-size);
       line-height: var(--typography-size-18-line-height);
     }
 
-    .typo-22 {
+    &.typo-22 {
       font-size: var(--typography-size-22-font-size);
       line-height: var(--typography-size-22-line-height);
       letter-spacing: var(--typography-size-22-letter-spacing);
     }
 
-    .typo-24 {
+    &.typo-24 {
       font-size: var(--typography-size-24-font-size);
       line-height: var(--typography-size-24-line-height);
       letter-spacing: var(--typography-size-24-letter-spacing);
