@@ -43,7 +43,7 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
     style,
     className,
     as = 'div',
-    display = 'block',
+    display,
     testId = 'bezier-react-box',
     ...rest
   } = layoutRest
@@ -63,7 +63,7 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
       sharedStyles.margin,
       sharedStyles.layout,
       styles.Box,
-      styles[`display-${display}`],
+      display && styles[`display-${display}`],
       className,
     ),
     'data-testid': testId,
