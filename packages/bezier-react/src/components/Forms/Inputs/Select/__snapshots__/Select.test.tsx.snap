@@ -82,7 +82,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 
 .c1:disabled {
   cursor: not-allowed;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
 }
 
 .c1:not(:disabled):focus {
@@ -235,7 +235,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
 
 .c1:disabled {
   cursor: not-allowed;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
 }
 
 .c1:not(:disabled):focus {

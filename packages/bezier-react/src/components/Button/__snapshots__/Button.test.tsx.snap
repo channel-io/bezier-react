@@ -149,7 +149,7 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
   cursor: not-allowed;
   border: none;
   outline: none;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);

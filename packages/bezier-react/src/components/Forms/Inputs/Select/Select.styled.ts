@@ -3,7 +3,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import {
@@ -67,7 +66,7 @@ export const Trigger = styled.button<TriggerProps>`
 
   &:disabled {
     cursor: not-allowed;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
   }
 
   &:not(:disabled):focus {

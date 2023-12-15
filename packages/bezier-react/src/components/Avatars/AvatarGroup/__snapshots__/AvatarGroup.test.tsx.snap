@@ -47,7 +47,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 
 .c1.disabled {
   pointer-events: none;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
 }
 
 .c1.size-20 {
@@ -317,7 +317,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 
 .c1.disabled {
   pointer-events: none;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
 }
 
 .c1.size-20 {

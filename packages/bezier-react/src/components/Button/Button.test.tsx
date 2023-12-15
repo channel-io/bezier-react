@@ -7,7 +7,6 @@ import {
   TypoAbsoluteNumber,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { render } from '~/src/utils/test'
 
 import {
@@ -130,7 +129,7 @@ describe('Button Test >', () => {
       const disabledButton = getByTestId(BUTTON_TEST_ID)
 
       expect(disabledButton).toBeDisabled()
-      expect(disabledButton).toHaveStyle(`opacity: ${DisabledOpacity};`)
+      expect(disabledButton).toHaveStyle('opacity: var(--opacity-disabled);')
       expect(disabledButton).toHaveStyle('cursor: not-allowed;')
 
       expect(disabledButton).toMatchSnapshot()

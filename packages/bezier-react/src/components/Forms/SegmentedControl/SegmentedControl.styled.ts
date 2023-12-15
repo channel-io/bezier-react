@@ -5,7 +5,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { ZIndex } from '~/src/constants/ZIndex'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
@@ -189,7 +188,7 @@ export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
   }
 
   &[data-disabled] {
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
 
     ${Item},
     ${Indicator} {

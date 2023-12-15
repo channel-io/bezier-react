@@ -6,7 +6,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-import DisabledOpacity from '~/src/constants/DisabledOpacity'
 import { touchableHover } from '~/src/utils/style'
 
 import { FormFieldSize } from '~/src/components/Forms'
@@ -72,7 +71,7 @@ export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioPro
 
   &[data-disabled] {
     cursor: not-allowed;
-    opacity: ${DisabledOpacity};
+    opacity: var(--opacity-disabled);
 
     &::before {
       background-color: var(--bg-black-dark);
