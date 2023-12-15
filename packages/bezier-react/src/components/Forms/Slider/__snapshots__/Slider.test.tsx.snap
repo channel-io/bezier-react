@@ -33,7 +33,7 @@ exports[`Slider Snapshot should match snapshot 1`] = `
 
 .c0[data-disabled] {
   cursor: not-allowed;
-  opacity: 0.4;
+  opacity: var(--opacity-disabled);
 }
 
 .c1 {

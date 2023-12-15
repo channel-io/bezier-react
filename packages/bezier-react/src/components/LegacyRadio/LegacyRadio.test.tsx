@@ -53,6 +53,6 @@ describe('Radio test >', () => {
 
     const renderedRadio = getByTestId(RADIO_TEST_ID)
 
-    expect(renderedRadio).toHaveStyle('opacity: 0.4;')
+    expect(renderedRadio).toHaveStyle('opacity: var(--opacity-disabled);')
   })
 })

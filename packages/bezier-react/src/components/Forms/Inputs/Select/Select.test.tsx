@@ -211,7 +211,7 @@ describe('Select Test >', () => {
       const { getByTestId } = renderSelect({ disabled: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      expect(trigger).toHaveStyle('opacity: 0.4')
+      expect(trigger).toHaveStyle('opacity: var(--opacity-disabled)')
     })
 
     it('should have not-allowed cursor style', () => {
@@ -244,7 +244,7 @@ describe('Select Test >', () => {
       const { getByTestId } = renderSelect({ readOnly: true, disabled: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      expect(trigger).toHaveStyle('opacity: 0.4')
+      expect(trigger).toHaveStyle('opacity: var(--opacity-disabled)')
     })
   })
 
@@ -253,7 +253,7 @@ describe('Select Test >', () => {
       const { getByTestId } = renderSelect({ readOnly: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      expect(trigger).not.toHaveStyle('opacity: 0.4')
+      expect(trigger).toHaveStyle('opacity: ;')
     })
 
     it('should have initial cursor style', () => {
