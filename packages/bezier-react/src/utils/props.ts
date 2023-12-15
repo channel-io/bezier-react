@@ -7,7 +7,6 @@ import { TokenPrefix } from '~/src/types/Token'
 
 import { split } from './object'
 import {
-  cssVarName,
   cssVarValue,
   tokenCssVarValue,
 } from './style'
@@ -77,18 +76,16 @@ export const splitByMarginProps = <Props extends MarginProps>(props: Props) =>
 export const splitByLayoutProps = <Props extends LayoutProps>(props: Props) =>
   split(props, layoutProps)
 
-const cv = cssVarName()
-
 export function getMarginStyle<Props extends MarginProps>(props: Props) {
   const { m, mx, my, mt, mr, mb, ml } = props
   return {
-    [cv('margin-all')]: m,
-    [cv('margin-x')]: mx,
-    [cv('margin-y')]: my,
-    [cv('margin-top')]: mt,
-    [cv('margin-right')]: mr,
-    [cv('margin-bottom')]: mb,
-    [cv('margin-left')]: ml,
+    '--b-margin-all': m,
+    '--b-margin-x': mx,
+    '--b-margin-y': my,
+    '--b-margin-top': mt,
+    '--b-margin-right': mr,
+    '--b-margin-bottom': mb,
+    '--b-margin-left': ml,
   }
 }
 
@@ -131,40 +128,40 @@ export function getLayoutStyle<Props extends LayoutProps>(props: Props) {
     overflowY,
   } = props
   return {
-    [cv('padding-all')]: p,
-    [cv('padding-x')]: px,
-    [cv('padding-y')]: py,
-    [cv('padding-top')]: pt,
-    [cv('padding-right')]: pr,
-    [cv('padding-bottom')]: pb,
-    [cv('padding-left')]: pl,
-    [cv('width')]: width,
-    [cv('height')]: height,
-    [cv('max-width')]: maxWidth,
-    [cv('min-width')]: minWidth,
-    [cv('max-height')]: maxHeight,
-    [cv('min-height')]: minHeight,
-    [cv('position')]: position,
-    [cv('inset')]: inset,
-    [cv('top')]: top,
-    [cv('right')]: right,
-    [cv('bottom')]: bottom,
-    [cv('left')]: left,
-    [cv('shrink')]: shrink,
-    [cv('grow')]: grow,
-    [cv('bg-color')]: cssVarValue(bgColor),
-    [cv('border-color')]: cssVarValue(borderColor),
-    [cv('border-radius')]: tokenCssVarValue(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
-    [cv('border-width')]: borderWidth,
-    [cv('border-top-width')]: borderTopWidth,
-    [cv('border-right-width')]: borderRightWidth,
-    [cv('border-bottom-width')]: borderBottomWidth,
-    [cv('border-left-width')]: borderLeftWidth,
-    [cv('border-style')]: borderStyle,
-    [cv('elevation')]: tokenCssVarValue(elevation && `${TokenPrefix.Elevation}-${elevation}`),
-    [cv('z-index')]: tokenCssVarValue(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
-    [cv('overflow')]: overflow,
-    [cv('overflow-x')]: overflowX,
-    [cv('overflow-y')]: overflowY,
+    '--b-padding-all': p,
+    '--b-padding-x': px,
+    '--b-padding-y': py,
+    '--b-padding-top': pt,
+    '--b-padding-right': pr,
+    '--b-padding-bottom': pb,
+    '--b-padding-left': pl,
+    '--b-width': width,
+    '--b-height': height,
+    '--b-max-width': maxWidth,
+    '--b-min-width': minWidth,
+    '--b-max-height': maxHeight,
+    '--b-min-height': minHeight,
+    '--b-position': position,
+    '--b-inset': inset,
+    '--b-top': top,
+    '--b-right': right,
+    '--b-bottom': bottom,
+    '--b-left': left,
+    '--b-shrink': shrink,
+    '--b-grow': grow,
+    '--b-bg-color': cssVarValue(bgColor),
+    '--b-border-color': cssVarValue(borderColor),
+    '--b-border-radius': tokenCssVarValue(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
+    '--b-border-width': borderWidth,
+    '--b-border-top-width': borderTopWidth,
+    '--b-border-right-width': borderRightWidth,
+    '--b-border-bottom-width': borderBottomWidth,
+    '--b-border-left-width': borderLeftWidth,
+    '--b-border-style': borderStyle,
+    '--b-elevation': tokenCssVarValue(elevation && `${TokenPrefix.Elevation}-${elevation}`),
+    '--b-z-index': tokenCssVarValue(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
+    '--b-overflow': overflow,
+    '--b-overflow-x': overflowX,
+    '--b-overflow-y': overflowY,
   }
 }

@@ -50,22 +50,18 @@ export const cssVarName = <ComponentName extends string>(componentName?: Compone
 
 export function cssVarValue<
   PropertyName extends string | undefined,
-  DeclarationValue extends string | number | undefined,
->(propertyName: PropertyName, declarationValue?: DeclarationValue) {
+>(propertyName: PropertyName) {
   /* eslint-disable no-nested-ternary */
   return !isNil(propertyName)
-    ? !isNil(declarationValue)
-      ? `var(--${propertyName}, ${declarationValue})` as const
-      : `var(--${propertyName})` as const
+    ? `var(--${propertyName})` as const
     : undefined
   /* eslint-enable no-nested-ternary */
 }
 
 export function tokenCssVarValue<
   PropertyName extends FlattenAllToken | undefined,
-  DeclarationValue extends string | number | undefined,
->(propertyName: PropertyName, declarationValue?: DeclarationValue) {
-  return cssVarValue(propertyName, declarationValue)
+>(propertyName: PropertyName) {
+  return cssVarValue(propertyName)
 }
 
 export function cssUrl(url: string | undefined) {
