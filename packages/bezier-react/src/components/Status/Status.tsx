@@ -11,7 +11,7 @@ import {
 import type { SemanticNames } from '~/src/foundation'
 
 import {
-  cssVarValue,
+  cssVar,
   px,
 } from '~/src/utils/style'
 
@@ -59,7 +59,7 @@ export const Status = memo(forwardRef(function Status({
       style={{
         ...style,
         '--b-status-size': px(size),
-        '--b-status-bg-color': cssVarValue(backgroundColor),
+        '--b-status-bg-color': cssVar(backgroundColor),
         '--b-status-border-width': px(getStatusCircleBorderWidth(size)),
       }}
       {...rest}

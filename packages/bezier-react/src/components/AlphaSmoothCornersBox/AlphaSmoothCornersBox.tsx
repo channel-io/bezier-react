@@ -9,7 +9,7 @@ import {
 } from '~/src/features'
 import {
   cssUrl,
-  cssVarValue,
+  cssVar,
   px,
 } from '~/src/utils/style'
 
@@ -53,14 +53,14 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersB
     '--b-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
     '--b-alpha-smooth-corners-box-shadow-blur-radius': px(shadow?.blurRadius ?? 0),
     '--b-alpha-smooth-corners-box-shadow-spread-radius': px(shadowSpreadRadius),
-    '--b-alpha-smooth-corners-box-shadow-color': cssVarValue(shadow?.color),
+    '--b-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
     /**
      * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
      * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
      */
     '--b-alpha-smooth-corners-box-padding': px(shadowSpreadRadius * 2),
     '--b-alpha-smooth-corners-box-margin': px(margin ?? 0),
-    '--b-alpha-smooth-corners-box-background-color': cssVarValue(backgroundColor),
+    '--b-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
     '--b-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
   }), [
     styleProp,

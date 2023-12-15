@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import { cssVarValue } from '~/src/utils/style'
+import { cssVar } from '~/src/utils/style'
 
 import type SpinnerProps from './Spinner.types'
 import { SpinnerSize } from './Spinner.types'
@@ -27,7 +27,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
       {...rest}
       ref={forwardedRef}
       style={{
-        '--b-spinner-color': cssVarValue(color),
+        '--b-spinner-color': cssVar(color),
         ...style,
       }}
       className={classNames(
