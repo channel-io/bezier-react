@@ -160,26 +160,21 @@ export interface LayoutProps {
   pr?: CSSProperties['paddingRight']
   pb?: CSSProperties['paddingBottom']
   pl?: CSSProperties['paddingLeft']
-
   width?: CSSProperties['width']
   height?: CSSProperties['height']
   maxWidth?: CSSProperties['maxWidth']
   minWidth?: CSSProperties['minWidth']
   maxHeight?: CSSProperties['maxHeight']
   minHeight?: CSSProperties['minHeight']
-
   position?: CSSProperties['position']
   inset?: CSSProperties['inset']
   top?: CSSProperties['top']
   right?: CSSProperties['right']
   bottom?: CSSProperties['bottom']
   left?: CSSProperties['left']
-
   shrink?: CSSProperties['flexShrink']
   grow?: CSSProperties['flexGrow']
-
   bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
-
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
   borderWidth?: CSSProperties['borderWidth']
@@ -188,11 +183,8 @@ export interface LayoutProps {
   borderBottomWidth?: CSSProperties['borderBottomWidth']
   borderLeftWidth?: CSSProperties['borderLeftWidth']
   borderStyle?: CSSProperties['borderStyle']
-
   elevation?: Elevation
-
   zIndex?: ZIndex
-
   overflow?: CSSProperties['overflow']
   overflowX?: CSSProperties['overflowX']
   overflowY?: CSSProperties['overflowY']
