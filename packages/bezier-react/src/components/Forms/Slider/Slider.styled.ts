@@ -2,7 +2,6 @@ import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import { styled } from '~/src/foundation'
 
-
 import type { InterpolationProps } from '~/src/types/Foundation'
 
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'

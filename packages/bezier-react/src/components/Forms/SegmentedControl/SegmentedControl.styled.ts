@@ -5,7 +5,6 @@ import {
   styled,
 } from '~/src/foundation'
 
-
 import { ZIndex } from '~/src/constants/ZIndex'
 
 import { AlphaStack } from '~/src/components/AlphaStack'
