@@ -195,7 +195,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
   <div
     class="c0"
     data-testid="bezier-react-form-control"
-    style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+    style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
   >
     <div
       class="c1 c2"
@@ -221,7 +221,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
       >
         <div
           class="c1 c2"
@@ -253,7 +253,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       <div
         class="c0"
         data-testid="bezier-react-form-control"
-        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
       >
         <div
           class="c1 c2"
@@ -571,7 +571,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
       >
         <div
           class="c0 c7"
@@ -603,7 +603,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       <div
         class="c5"
         data-testid="bezier-react-form-control"
-        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+        style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
       >
         <div
           class="c0 c7"
@@ -805,7 +805,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 <div
   class="c0"
   data-testid="bezier-react-form-control"
-  style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0px;"
+  style="--b-form-control-left-label-wrapper-height: 36px; --b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 0;"
 >
   <div
     class="c1 c2"
