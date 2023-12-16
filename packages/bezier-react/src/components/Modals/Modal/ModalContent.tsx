@@ -11,8 +11,8 @@ import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
 import {
+  cssDimension,
   cssVarName,
-  px,
 } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
@@ -86,8 +86,8 @@ export const ModalContent = forwardRef(function ModalContent({
 
   const contentStyle = useMemo(() => ({
     ...style,
-    [cv('width')]: isNumber(width) ? px(width) : width,
-    [cv('height')]: isNumber(height) ? px(height) : height,
+    [cv('width')]: cssDimension(width),
+    [cv('height')]: cssDimension(height),
   } as React.CSSProperties), [
     style,
     width,

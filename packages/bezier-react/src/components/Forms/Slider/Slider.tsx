@@ -6,10 +6,9 @@ import React, {
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
 import {
+  cssDimension,
   cssVarName,
-  px,
 } from '~/src/utils/style'
-import { isNumber } from '~/src/utils/type'
 
 import {
   Tooltip,
@@ -106,7 +105,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
     <Styled.SliderPrimitiveRoot
       style={{
         ...style,
-        [cv('width')]: isNumber(width) ? px(width) : width,
+        [cv('width')]: cssDimension(width),
       }}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}

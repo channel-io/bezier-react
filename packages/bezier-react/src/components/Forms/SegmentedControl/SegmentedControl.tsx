@@ -9,10 +9,9 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
 
 import {
+  cssDimension,
   cssVarName,
-  px,
 } from '~/src/utils/style'
-import { isNumber } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -68,7 +67,7 @@ function SegmentedControlItemListImpl<
 
   const style = useMemo(() => ({
     ...styleProp,
-    [cv('width')]: isNumber(width) ? px(width) : width,
+    [cv('width')]: cssDimension(width),
   } as React.CSSProperties), [
     styleProp,
     width,
