@@ -4,6 +4,14 @@ import type React from 'react'
 import type { SemanticNames } from '~/src/foundation'
 
 import type { InjectedInterpolation } from './Foundation'
+import type {
+  BackgroundSemanticColor,
+  BackgroundTextSemanticColor,
+  BorderSemanticColor,
+  Elevation,
+  Radius,
+  ZIndex,
+} from './Token'
 
 /* Component Base Props */
 export interface RenderConfigProps {
@@ -121,4 +129,72 @@ export interface ActivatableProps extends AdditionalStylableProps<'active'> {
 
 export interface LinkProps {
   href?: string
+}
+
+/**
+ * TODO: Migrate to `BezierComponentProps` after removing styled-components dependency.
+ */
+export interface AlphaBezierComponentProps extends
+  Omit<RenderConfigProps, 'as'>,
+  Omit<StylableComponentProps, 'interpolation'> {}
+
+/**
+ * TODO: Add JSDoc
+ */
+export interface PolymorphicProps<T extends React.ElementType> {
+  as?: T
+}
+
+/**
+ * TODO: Add JSDoc
+ */
+export interface MarginProps {
+  m?: CSSProperties['margin']
+  mx?: CSSProperties['margin']
+  my?: CSSProperties['margin']
+  mt?: CSSProperties['marginTop']
+  mr?: CSSProperties['marginRight']
+  mb?: CSSProperties['marginBottom']
+  ml?: CSSProperties['marginLeft']
+}
+
+/**
+ * TODO: Add JSDoc
+ */
+export interface LayoutProps {
+  p?: CSSProperties['padding']
+  px?: CSSProperties['padding']
+  py?: CSSProperties['padding']
+  pt?: CSSProperties['paddingTop']
+  pr?: CSSProperties['paddingRight']
+  pb?: CSSProperties['paddingBottom']
+  pl?: CSSProperties['paddingLeft']
+  width?: CSSProperties['width']
+  height?: CSSProperties['height']
+  maxWidth?: CSSProperties['maxWidth']
+  minWidth?: CSSProperties['minWidth']
+  maxHeight?: CSSProperties['maxHeight']
+  minHeight?: CSSProperties['minHeight']
+  position?: CSSProperties['position']
+  inset?: CSSProperties['inset']
+  top?: CSSProperties['top']
+  right?: CSSProperties['right']
+  bottom?: CSSProperties['bottom']
+  left?: CSSProperties['left']
+  shrink?: CSSProperties['flexShrink']
+  grow?: CSSProperties['flexGrow']
+  bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
+  borderColor?: BorderSemanticColor
+  borderRadius?: Radius
+  borderWidth?: CSSProperties['borderWidth']
+  borderTopWidth?: CSSProperties['borderTopWidth']
+  borderRightWidth?: CSSProperties['borderRightWidth']
+  borderBottomWidth?: CSSProperties['borderBottomWidth']
+  borderLeftWidth?: CSSProperties['borderLeftWidth']
+  borderStyle?: CSSProperties['borderStyle']
+  elevation?: Elevation
+  zIndex?: ZIndex
+  overflow?: CSSProperties['overflow']
+  overflowX?: CSSProperties['overflowX']
+  overflowY?: CSSProperties['overflowY']
 }

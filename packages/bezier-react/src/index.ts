@@ -20,6 +20,7 @@ export {
 export * from '~/src/foundation'
 
 /* Components */
+export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatars/Avatar'
 export * from '~/src/components/Avatars/AvatarGroup'
@@ -80,6 +81,8 @@ export { default as useToast } from '~/src/components/Toast/useToast'
 export * from '~/src/types/ComponentProps'
 export * from '~/src/types/Foundation'
 export * from '~/src/types/Utils'
+// TODO: Remove namespace exports after removing Foundation type
+export * as Token from '~/src/types/Token'
 
 /* Constants */
 export { ZIndex } from '~/src/constants/ZIndex'
