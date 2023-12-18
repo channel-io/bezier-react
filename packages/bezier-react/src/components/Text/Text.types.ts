@@ -29,14 +29,13 @@ type TextElementType =
   | 'h6'
   | 'p'
   | 'span'
+  | 'label'
   | 'small'
   | 'em'
   | 'i'
   | 'b'
   | 'strong'
   | 'legend'
-  | 'span'
-  | 'label'
   | 'div'
 
 interface TextOwnProps {
