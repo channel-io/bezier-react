@@ -30,7 +30,6 @@ import styles from './Text.module.scss'
  *   Hello, Channel!
  * </Text>
  * ```
- *
  */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
