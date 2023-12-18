@@ -1,6 +1,6 @@
 const getTag = (value: unknown): string => Object.prototype.toString.call(value)
 
-export function isFunction(value: unknown): value is (...args: unknown[]) => unknown {
+export function isFunction(value: unknown): value is (...args: any[]) => any {
   return typeof value === 'function'
 }
 
@@ -13,7 +13,7 @@ export function isObject(value: unknown): value is object {
   return value != null && (type === 'object' || type === 'function')
 }
 
-export function isArray(value: unknown): value is unknown[] {
+export function isArray(value: any): value is any[] {
   return Array.isArray(value)
 }
 
