@@ -21,7 +21,7 @@ export const getNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   sourceFile
     .getImportDeclarations()
     .flatMap((declaration) => declaration.getNamedImports())
-    .find((importSpecifier) => importSpecifier.getText() === namedImport)
+    .find((importSpecifier) => importSpecifier.getName() === namedImport)
 
 export const hasNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   !!getNamedImport(sourceFile, namedImport)
