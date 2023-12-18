@@ -1,7 +1,10 @@
 @layer components {
   .Stack {
     box-sizing: border-box;
-    display: flex;
+
+    &.display-flex {
+      display: flex;
+    }
 
     &.display-inline-flex {
       display: inline-flex;
@@ -39,7 +42,7 @@
       justify-content: stretch;
     }
 
-    &.justify-space-between {
+    &.justify-between {
       justify-content: space-between;
     }
 

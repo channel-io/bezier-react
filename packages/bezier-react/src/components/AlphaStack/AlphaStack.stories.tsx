@@ -10,12 +10,12 @@ import { css } from '~/src/foundation/FoundationStyledComponent'
 
 import { range } from '~/src/utils/number'
 
-import { AlphaStack } from './AlphaStack'
+import { Stack } from './AlphaStack'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 
 const meta = {
-  component: AlphaStack,
+  component: Stack,
   argTypes: {
     spacing: {
       control: {
@@ -41,20 +41,20 @@ const meta = {
       options: FLEX_PROPERTIES,
     },
   },
-} satisfies Meta<typeof AlphaStack>
+} satisfies Meta<typeof Stack>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<typeof AlphaStack> = (args) => (
-  <AlphaStack {...args}>
+const Template: StoryFn<typeof Stack> = (args) => (
+  <Stack {...args}>
     <>
       { range(4).map((i) =>
         <div style={{ height: '30px', width: '30px', backgroundColor: 'red' }} key={`item-${i}`}>{ i }</div>,
       ) }
     </>
-  </AlphaStack>
+  </Stack>
 )
 
 export const Primary: Story = {

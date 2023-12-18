@@ -1,16 +1,23 @@
-import React, {
-  type Ref,
+import {
+  createElement,
   forwardRef,
-  useMemo,
 } from 'react'
 
-import { px } from '~/src/utils/style'
+import classNames from 'classnames'
 
-import { flex } from '~/src/components/Stack/util'
+import {
+  getLayoutStyle,
+  getMarginStyle,
+  splitByLayoutProps,
+  splitByMarginProps,
+} from '~/src/utils/props'
+import { cssDimension } from '~/src/utils/style'
+
+import sharedStyles from '~/src/components/shared.module.scss'
 
 import type { StackProps } from './AlphaStack.types'
 
-import * as Styled from './AlphaStack.styled'
+import styles from './Stack.module.scss'
 
 /**
  * `AlphaStack` provides an abstraction of **flex layout** so that
@@ -30,48 +37,45 @@ import * as Styled from './AlphaStack.styled'
  * </AlphaStack>
  * ```
  */
-export const AlphaStack = forwardRef(function AlphaStack(
-  {
-    as = 'div',
-    testId = 'bezier-react-alpha-stack',
-    className,
-    interpolation,
-    style,
+export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+  const {
     children,
-    direction,
-    justify = 'start',
-    align = 'stretch',
-    spacing = 0,
-    ...rest
-  }: StackProps,
-  forwardedRef: Ref<HTMLElement>,
-) {
-  const stackStyle = useMemo(() => ({
-    ...style,
-    '--b-alpha-stack-direction': direction === 'horizontal' ? 'row' : 'column',
-    '--b-alpha-stack-justify': flex(justify),
-    '--b-alpha-stack-align': flex(align),
-    '--b-alpha-stack-spacing': px(spacing),
-  } as React.CSSProperties),
-  [
-    align,
+    style,
+    className,
+    as = 'div',
+    display = 'flex',
     direction,
     justify,
-    spacing,
-    style,
-  ])
+    align,
+    gap,
+    reverse,
+    wrap,
+    testId = 'bezier-react-stack',
+    ...rest
+  } = layoutRest
 
-  return (
-    <Styled.Container
-      ref={forwardedRef}
-      as={as}
-      data-testid={testId}
-      style={stackStyle}
-      className={className}
-      interpolation={interpolation}
-      {...rest}
-    >
-      { children }
-    </Styled.Container>
-  )
+  return createElement(as, {
+    ref: forwardedRef,
+    style: {
+      ...getMarginStyle(marginProps),
+      ...getLayoutStyle(layoutProps),
+      '--b-stack-gap': cssDimension(gap),
+      ...style,
+    },
+    className: classNames(
+      sharedStyles.margin,
+      sharedStyles.layout,
+      styles.Stack,
+      display && styles[`display-${display}`],
+      direction && styles[`direction-${direction}`],
+      justify && styles[`justify-${justify}`],
+      align && styles[`align-${align}`],
+      reverse && styles.reverse,
+      wrap && styles.wrap,
+    ),
+    'data-testid': testId,
+    ...rest,
+  }, children)
 })
