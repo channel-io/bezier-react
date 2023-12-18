@@ -7,10 +7,7 @@ import {
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import useId from '~/src/hooks/useId'
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 
 import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -22,8 +19,6 @@ import {
 } from './Checkbox.types'
 
 import * as Styled from './Checkbox.styled'
-
-const cv = cssVarName('checkbox')
 
 type CheckIconProps = {} | {
   style: React.CSSProperties
@@ -67,7 +62,7 @@ function CheckboxImpl<Checked extends CheckedState>({
   const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
   const containerStyle = {
-    [cv('height')]: children ? px(FormFieldSize.M) : 'auto',
+    '--b-checkbox-height': children ? px(FormFieldSize.M) : 'auto',
   } as React.CSSProperties
 
   return (
