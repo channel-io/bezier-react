@@ -59,9 +59,9 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
   return createElement(as, {
     ref: forwardedRef,
     style: {
+      '--b-stack-gap': cssDimension(gap),
       ...getMarginStyle(marginProps),
       ...getLayoutStyle(layoutProps),
-      '--b-stack-gap': cssDimension(gap),
       ...style,
     },
     className: classNames(
@@ -74,6 +74,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
       align && styles[`align-${align}`],
       reverse && styles.reverse,
       wrap && styles.wrap,
+      className,
     ),
     'data-testid': testId,
     ...rest,
