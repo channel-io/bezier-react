@@ -209,3 +209,65 @@ import { Button } from "@channel.io/bezier-react";
 
 export const Wrapper = styled(Button)``;
 ```
+
+### Remove Alpha prefix from `AlphaStack` and add Legacy prefix to `Stack`
+
+`remove-alpha-from-alpha-stack`
+
+Deprecates current `Stack`, `HStack`, `VStack`, `StackItem`, `Spacer` components and supports `AlphaStack` instead, removing "Alpha" prefix.
+
+For example:
+
+```tsx
+import { VStack, StackItem, AlphaStack } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <VStack>
+      <StackItem>
+        <div />
+      </StackItem>
+      <StackItem>
+        <div />
+      </StackItem>
+    </VStack>
+  );
+}
+
+function Bar() {
+  return (
+    <AlphaStack direction="horizontal">
+      <div />
+      <div />
+    </AlphaStack>
+  );
+}
+```
+
+Transforms into:
+
+```tsx
+import { LegacyVStack, LegacyStackItem, Stack } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <LegacyVStack>
+      <LegacyStackItem>
+        <div />
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <div />
+      </LegacyStackItem>
+    </LegacyVStack>
+  );
+}
+
+function Bar() {
+  return (
+    <Stack direction="horizontal">
+      <div />
+      <div />
+    </Stack>
+  );
+}
+```
