@@ -29,6 +29,7 @@ import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 import styledToStyledComponents from './transforms/import-styled-from-styled-component.js'
 import interpolationToCssVariable from './transforms/interpolation-to-css-variable.js'
+import removeAlphaFromAlphaStack from './transforms/remove-alpha-from-alpha-stack.js'
 
 enum Step {
   SelectTransformer,
@@ -49,6 +50,7 @@ enum Option {
   FoundationToCssVariable = 'foundation-to-css-variable',
   InterpolationToCssVariable = 'interpolation-to-css-variable',
   StyledToStyledComponents = 'styled-to-styled-components',
+  RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
   Exit = 'Exit',
 }
 
@@ -66,6 +68,7 @@ const transformMap = {
   [Option.FoundationToCssVariable]: foundationToCssVariable,
   [Option.InterpolationToCssVariable]: interpolationToCssVariable,
   [Option.StyledToStyledComponents]: styledToStyledComponents,
+  [Option.RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
