@@ -38,6 +38,8 @@ type TextElementType =
   | 'legend'
   | 'div'
 
+type TextAlign = 'left' | 'center' | 'right'
+
 interface TextOwnProps {
   /**
    * Typography style of the text.
@@ -64,6 +66,10 @@ interface TextOwnProps {
    * @default false
    */
   truncated?: boolean
+  /**
+   * Horizontal alignment of the text.
+   */
+  align?: TextAlign
 }
 
 export interface TextProps extends

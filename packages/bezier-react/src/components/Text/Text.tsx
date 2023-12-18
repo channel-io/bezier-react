@@ -44,6 +44,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     bold,
     italic,
     truncated,
+    align,
     ...rest
   } = marginRest
   return createElement(as, {
@@ -60,6 +61,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       bold && styles.bold,
       italic && styles.italic,
       truncated && styles.truncated,
+      align && styles[`align-${align}`],
       className,
     ),
     'data-testid': testId,

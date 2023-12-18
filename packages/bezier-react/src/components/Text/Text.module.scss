@@ -20,6 +20,18 @@
       white-space: nowrap;
     }
 
+    &.align-left {
+      text-align: left;
+    }
+
+    &.align-center {
+      text-align: center;
+    }
+
+    &.align-right {
+      text-align: right;
+    }
+
     &.typo-11 {
       font-size: var(--typography-size-11-font-size);
       line-height: var(--typography-size-11-line-height);
