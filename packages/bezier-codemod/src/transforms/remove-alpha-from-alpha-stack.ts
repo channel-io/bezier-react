@@ -55,8 +55,10 @@ const transformAlphaStack = (sourceFile: SourceFile) => {
 }
 
 const transform = (sourceFile: SourceFile) => {
+  const oldSourceFileText = sourceFile.getText()
   transformLegacyStack(sourceFile)
   transformAlphaStack(sourceFile)
+  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default transform
