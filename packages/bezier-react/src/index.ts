@@ -3,7 +3,7 @@ import '~/src/styles/index.scss'
 /* Provider */
 export { default as BezierProvider } from '~/src/providers/BezierProvider'
 export * from '~/src/providers/WindowProvider'
-export * from '~/src/providers/AlphaAppProvider'
+export * from '~/src/providers/AppProvider'
 export {
   useThemeName,
   useToken,
