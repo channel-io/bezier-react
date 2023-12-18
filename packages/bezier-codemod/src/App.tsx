@@ -122,9 +122,16 @@ function App() {
           sourceFiles.map(async (sourceFile) => {
             if (!transformName) { return }
             const transform = transformMap[transformName]
-            const isTransformed = transform(sourceFile)
-            if (isTransformed) {
-              setTransformedFileNum(prev => prev + 1)
+            try {
+              const isTransformed = transform(sourceFile)
+              if (isTransformed) {
+                setTransformedFileNum(prev => prev + 1)
+              }
+            } catch (e) {
+              /* eslint-disable no-console */
+              console.log(e)
+              console.log(sourceFile.getFilePath())
+              /* eslint-enable no-console */
             }
             await sourceFile.save()
           }),
