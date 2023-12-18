@@ -8,7 +8,7 @@ import { px } from '~/src/utils/style'
 
 import { flex } from '~/src/components/Stack/util'
 
-import type { AlphaStackProps } from './AlphaStack.types'
+import type { StackProps } from './AlphaStack.types'
 
 import * as Styled from './AlphaStack.styled'
 
@@ -43,7 +43,7 @@ export const AlphaStack = forwardRef(function AlphaStack(
     align = 'stretch',
     spacing = 0,
     ...rest
-  }: AlphaStackProps,
+  }: StackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   const stackStyle = useMemo(() => ({

@@ -1,44 +1,58 @@
-import type {
-  BezierComponentProps,
-  ChildrenProps,
+import {
+  type AlphaBezierComponentProps,
+  type ChildrenProps,
+  type LayoutProps,
+  type MarginProps,
+  type PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
-import type { AxisAlignment } from '~/src/components/Stack/types'
+type Display = 'flex' | 'inline-flex'
 
-interface AlphaStackOptions {
+type Direction = 'horizontal' | 'vertical'
+
+type BaseAlignment = 'start' | 'center' | 'end' | 'stretch'
+type Align = BaseAlignment | 'baseline'
+type Justify = BaseAlignment | 'between'
+
+type StackElementType = 'div' | 'section' | 'ul' | 'ol'
+
+interface StackOwnProps {
+  /**
+   * Display type of the stack.
+   * @default 'flex'
+   */
+  display?: Display
   /**
    * Direction of this stack.
    */
-  direction: 'horizontal' | 'vertical'
-
+  direction: Direction
   /**
    * Determines the default aligning of children along the main axis.
-   *
-   * @default start
    */
-  justify?: AxisAlignment
-
+  justify?: Justify
   /**
    * Determines the default aligning of children along the cross axis.
-   *
-   * @default stretch
    */
-  align?: AxisAlignment
-
+  align?: Align
   /**
-   * Default spacing between children, in pixels.
-   *
-   * @remarks
-   * `spacing` could be enumerated in later design, if bezier design system
-   * decides to define a guideline for linear layout.
-   *
-   * @default 0
+   * Spacing between children.
    */
-  spacing?: number
+  gap?: string | number
+  /**
+   * Whether to reverse the order of children.
+   */
+  reverse?: boolean
+  /**
+   * Whether to wrap children to additional rows as needed on small screens.
+   */
+  wrap?: boolean
 }
 
-export interface AlphaStackProps extends
-  BezierComponentProps,
-  ChildrenProps,
+export interface StackProps extends
+  AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLElement>,
-  AlphaStackOptions {}
+  PolymorphicProps<StackElementType>,
+  ChildrenProps,
+  LayoutProps,
+  MarginProps,
+  StackOwnProps {}

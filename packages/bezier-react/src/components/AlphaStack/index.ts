@@ -1,2 +1,2 @@
 export { AlphaStack } from './AlphaStack'
-export type { AlphaStackProps } from './AlphaStack.types'
+export type { StackProps as AlphaStackProps } from './AlphaStack.types'
