@@ -16,9 +16,9 @@
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.mjs"
     },
-    "./style.css": {
-      "require": "./dist/cjs/style.css",
-      "import": "./dist/esm/style.css"
+    "./styles.css": {
+      "require": "./dist/cjs/styles.css",
+      "import": "./dist/esm/styles.css"
     }
   },
   "sideEffects": [
