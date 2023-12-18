@@ -14130,7 +14130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.0.0":
+"glob@npm:^10.0.0, glob@npm:^10.3.10":
   version: 10.3.10
   resolution: "glob@npm:10.3.10"
   dependencies:
@@ -21969,21 +21969,21 @@ __metadata:
   linkType: hard
 
 "style-dictionary@npm:^3.9.0":
-  version: 3.9.0
-  resolution: "style-dictionary@npm:3.9.0"
+  version: 3.9.1
+  resolution: "style-dictionary@npm:3.9.1"
   dependencies:
     chalk: ^4.0.0
     change-case: ^4.1.2
     commander: ^8.3.0
     fs-extra: ^10.0.0
-    glob: ^7.2.0
+    glob: ^10.3.10
     json5: ^2.2.2
     jsonc-parser: ^3.0.0
     lodash: ^4.17.15
     tinycolor2: ^1.4.1
   bin:
     style-dictionary: bin/style-dictionary
-  checksum: 70ac197c75e0d97dcbfeb52ed5292b43fa83c5716c2d5a3217f65eaf4812181e847b78a3227271baffc2f5e60b9de1a7d582a3d886a575570ee658ccd687e5ce
+  checksum: e2ab0c39beb9acda3998b09176bd1537af9a00e883f7bb4fcd1e0f6e2560afd881cee4cdb97a67c2a935ab04767c11ced78eabbd38c246fb5ff3ff970c52c8c4
   languageName: node
   linkType: hard
 
