@@ -18,14 +18,7 @@ export const CSSTransforms = {
     transitive: true,
     matcher: (token) =>
       token.attributes?.category === 'font' && token.type === 'dimension',
-    transformer: ({ value }: { value: string }, options) => {
-      const extractedNumber = extractNumber(value)
-      const isNegative = value.trim().startsWith('-')
-      const numberValue =
-        parseFloat(extractedNumber ?? '') /
-        ((options && options.basePxFontSize) || 16)
-      return `${isNegative ? -numberValue : numberValue}rem`
-    },
+    transformer: ({ value }: { value: string }, options) => `${parseFloat(extractNumber(value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`,
   },
   fontFamily: {
     name: 'custom/css/font/family',
