@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "@changesets/get-github-info": "^0.5.2",
+    "@changesets/get-github-info": "^0.6.0",
     "@changesets/types": "^5.2.1",
     "@channel.io/stylelint-config": "^1.2.0",
     "@commitlint/cli": "^17.7.1",

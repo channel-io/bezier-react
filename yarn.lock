@@ -2724,13 +2724,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-github-info@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "@changesets/get-github-info@npm:0.5.2"
+"@changesets/get-github-info@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@changesets/get-github-info@npm:0.6.0"
   dependencies:
     dataloader: ^1.4.0
     node-fetch: ^2.5.0
-  checksum: 067e07eeaecdbedbd1c715513c4aa6206a941bd1d3af292d067792808c6fa6644caad2b35fba614a44892559c031c234df8028f8d2abd4cb2682d48080ef5df3
+  checksum: 753173bda536aa79cb0502f59ce13889b23ae8463d04893d43ff22966818060837d9db4052b6cbfbd95dfb242fbfd38890a38c56832948e83bf358a47812b708
   languageName: node
   linkType: hard
 
@@ -9788,7 +9788,7 @@ __metadata:
   resolution: "bezier-react-monorepo@workspace:."
   dependencies:
     "@changesets/cli": ^2.26.2
-    "@changesets/get-github-info": ^0.5.2
+    "@changesets/get-github-info": ^0.6.0
     "@changesets/types": ^5.2.1
     "@channel.io/stylelint-config": ^1.2.0
     "@commitlint/cli": ^17.7.1
