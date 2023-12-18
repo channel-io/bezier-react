@@ -6,7 +6,7 @@ import {
 } from '~/src/foundation'
 import { SmoothCornersFeature } from '~/src/features'
 import BezierProvider from '~/src/providers/BezierProvider'
-import { AlphaAppProvider } from '~/src/providers/AlphaAppProvider'
+import { AppProvider } from '~/src/providers/AppProvider'
 import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { Text } from '~/src/components/Text'
 
@@ -52,7 +52,7 @@ const innerWrapperStyle = {
   borderRadius: 20,
 }
 
-// TODO: Migrate to AlphaAppProvider
+// TODO: Migrate to AppProvider
 export function WithFoundationProvider(Story, context) {
   const {
     isDarkFoundation,
@@ -72,7 +72,7 @@ export function WithFoundationProvider(Story, context) {
   })()
 
   return (
-    <AlphaAppProvider
+    <AppProvider
       themeName={isDarkFoundation ? "dark" : "light"}
       features={[SmoothCornersFeature]}
     >
@@ -107,6 +107,6 @@ export function WithFoundationProvider(Story, context) {
           </BezierProvider>
         </div>
       </BezierProvider>
-    </AlphaAppProvider>
+    </AppProvider>
   )
 }

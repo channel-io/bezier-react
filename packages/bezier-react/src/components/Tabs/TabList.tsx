@@ -3,10 +3,7 @@ import React, {
   useMemo,
 } from 'react'
 
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 
 import { TabListContextProvider } from './TabListContext'
 import {
@@ -15,8 +12,6 @@ import {
 } from './Tabs.types'
 
 import * as Styled from './TabList.styled'
-
-const cv = cssVarName('tabs')
 
 const heightBy = (size: TabSize) => {
   switch (size) {
@@ -48,7 +43,7 @@ export const TabList = forwardRef(function TabList({
         size={size}
         ref={forwardedRef}
         style={{
-          [cv('size')]: px(heightBy(size)),
+          '--b-tabs-size': px(heightBy(size)),
         } as React.CSSProperties}
         {...rest}
       >

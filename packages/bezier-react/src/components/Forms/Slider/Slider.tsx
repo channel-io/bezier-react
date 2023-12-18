@@ -5,10 +5,7 @@ import React, {
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 
-import {
-  cssDimension,
-  cssVarName,
-} from '~/src/utils/style'
+import { cssDimension } from '~/src/utils/style'
 
 import {
   Tooltip,
@@ -18,8 +15,6 @@ import {
 import type SliderProps from './Slider.types'
 
 import * as Styled from './Slider.styled'
-
-const cv = cssVarName('slider')
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 
@@ -31,7 +26,7 @@ const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function Slide
   return (
     <Styled.SliderGuide
       style={{
-        [cv('guide-left')]: `${(value / (max - min)) * 100}%`,
+        '--b-slider-guide-left': `${(value / (max - min)) * 100}%`,
       } as React.CSSProperties}
     />
   )
@@ -105,7 +100,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
     <Styled.SliderPrimitiveRoot
       style={{
         ...style,
-        [cv('width')]: cssDimension(width),
+        '--b-slider-width': cssDimension(width),
       }}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}

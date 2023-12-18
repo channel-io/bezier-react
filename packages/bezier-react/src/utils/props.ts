@@ -7,8 +7,8 @@ import { TokenPrefix } from '~/src/types/Token'
 
 import {
   cssDimension,
-  cssVarValue,
-  tokenCssVarValue,
+  cssVar,
+  tokenCssVar,
 } from './style'
 
 export const splitByBezierComponentProps = <
@@ -207,17 +207,17 @@ export const getLayoutStyle = <Props extends LayoutProps>({
     '--b-left': cssDimension(left),
     '--b-shrink': shrink,
     '--b-grow': grow,
-    '--b-bg-color': cssVarValue(bgColor),
-    '--b-border-color': cssVarValue(borderColor),
-    '--b-border-radius': tokenCssVarValue(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
+    '--b-bg-color': cssVar(bgColor),
+    '--b-border-color': cssVar(borderColor),
+    '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
     '--b-border-width': cssDimension(borderWidth),
     '--b-border-top-width': cssDimension(borderTopWidth),
     '--b-border-right-width': cssDimension(borderRightWidth),
     '--b-border-bottom-width': cssDimension(borderBottomWidth),
     '--b-border-left-width': cssDimension(borderLeftWidth),
     '--b-border-style': borderStyle,
-    '--b-elevation': tokenCssVarValue(elevation && `${TokenPrefix.Elevation}-${elevation}`),
-    '--b-z-index': tokenCssVarValue(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
+    '--b-elevation': tokenCssVar(elevation && `${TokenPrefix.Elevation}-${elevation}`),
+    '--b-z-index': tokenCssVar(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
     '--b-overflow': overflow,
     '--b-overflow-x': overflowX,
     '--b-overflow-y': overflowY,

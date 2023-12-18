@@ -3,7 +3,6 @@ import { css } from '~/src/foundation'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { type FlattenAllToken } from '~/src/types/Token'
 import {
-  isEmpty,
   isNil,
   isString,
 } from '~/src/utils/type'
@@ -63,21 +62,20 @@ export function cssDimension<Value extends number | string>(value?: Value) {
   return value as 0
 }
 
-export const cssVarName = <ComponentName extends string>(componentName?: ComponentName) =>
-  <PropertyName extends string>(propertyName: PropertyName) => (
-    isEmpty(componentName)
-      ? `--b-${propertyName}` as const
-      : `--b-${componentName}-${propertyName}` as const
-  )
-
-export function cssVarValue<PropertyName extends string>(propertyName?: PropertyName) {
-  return isNil(propertyName)
-    ? undefined
-    : `var(--${propertyName})` as const
+export function cssVar<
+  PropertyName extends string | undefined,
+>(propertyName: PropertyName) {
+  /* eslint-disable no-nested-ternary */
+  return !isNil(propertyName)
+    ? `var(--${propertyName})` as const
+    : undefined
+  /* eslint-enable no-nested-ternary */
 }
 
-export function tokenCssVarValue<PropertyName extends FlattenAllToken>(propertyName?: PropertyName) {
-  return cssVarValue(propertyName)
+export function tokenCssVar<
+  PropertyName extends FlattenAllToken | undefined,
+>(propertyName: PropertyName) {
+  return cssVar(propertyName)
 }
 
 export function cssUrl(url?: string) {
