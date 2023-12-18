@@ -11,6 +11,7 @@ exports[`Avatar > Snapshot 1`] = `
   --b-alpha-smooth-corners-box-padding: 0px;
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);
@@ -68,7 +69,7 @@ exports[`Avatar > Snapshot 1`] = `
   class="c0 c1"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0; --b-alpha-smooth-corners-box-shadow-spread-radius: 0; --b-alpha-smooth-corners-box-padding: 0; --b-alpha-smooth-corners-box-margin: 0; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
@@ -83,6 +84,7 @@ exports[`Avatar > renders border style 1`] = `
   --b-alpha-smooth-corners-box-padding: 0px;
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);
@@ -140,7 +142,7 @@ exports[`Avatar > renders border style 1`] = `
   class="c0 c1 bordered"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0; --b-alpha-smooth-corners-box-shadow-spread-radius: 2px; --b-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --b-alpha-smooth-corners-box-padding: 4px; --b-alpha-smooth-corners-box-margin: 0; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 2px; --b-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --b-alpha-smooth-corners-box-padding: 4px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 

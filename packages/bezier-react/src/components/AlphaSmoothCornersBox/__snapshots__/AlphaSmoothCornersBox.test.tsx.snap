@@ -11,6 +11,7 @@ exports[`AlphaSmoothCornersBox Style snapshot with default value 1`] = `
   --b-alpha-smooth-corners-box-padding: 0px;
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);
@@ -39,7 +40,7 @@ exports[`AlphaSmoothCornersBox Style snapshot with default value 1`] = `
   <div
     class="c0"
     data-state="disabled"
-    style="--b-alpha-smooth-corners-box-border-radius-type: undefined; --b-alpha-smooth-corners-box-shadow-blur-radius: 0; --b-alpha-smooth-corners-box-shadow-spread-radius: 0; --b-alpha-smooth-corners-box-padding: 0; --b-alpha-smooth-corners-box-margin: 0;"
+    style="--b-alpha-smooth-corners-box-border-radius-type: undefined; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px;"
   />
 </div>
 `;
