@@ -17,6 +17,21 @@ import { type TextProps } from './Text.types'
 
 import styles from './Text.module.scss'
 
+/**
+ * `Text` is a component for representing the typography of a design system.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Text
+ *   typo="15"
+ *   color="txt-black-darkest"
+ * >
+ *   Hello, Channel!
+ * </Text>
+ * ```
+ *
+ */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const {

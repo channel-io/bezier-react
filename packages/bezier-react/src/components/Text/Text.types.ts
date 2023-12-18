@@ -39,10 +39,30 @@ type TextElementType =
   | 'div'
 
 interface TextOwnProps {
+  /**
+   * Typography style of the text.
+   * @default '15'
+   */
   typo?: Typography
+  /**
+   * Color of the text.
+   * @default 'inherit'
+   */
   color?: SemanticColor
+  /**
+   * Whether the text is bold.
+   * @default false
+   */
   bold?: boolean
+  /**
+   * Whether the text is italic.
+   * @default false
+   */
   italic?: boolean
+  /**
+   * Whether the text is truncated.
+   * @default false
+   */
   truncated?: boolean
 }
 
