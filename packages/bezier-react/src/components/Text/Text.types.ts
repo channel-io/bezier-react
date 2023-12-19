@@ -47,8 +47,7 @@ interface TextOwnProps {
    */
   typo?: Typography
   /**
-   * Color of the text.
-   * @default 'inherit'
+   * Color of the text. If no value is specified, it inherits the color of the parent element.
    */
   color?: SemanticColor
   /**
