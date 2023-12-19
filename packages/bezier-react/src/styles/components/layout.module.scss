@@ -1,16 +1,4 @@
 @layer components {
-  .margin {
-    --b-margin: 0;
-    --b-margin-x: var(--b-margin);
-    --b-margin-y: var(--b-margin);
-    --b-margin-top: var(--b-margin-y);
-    --b-margin-right: var(--b-margin-x);
-    --b-margin-bottom: var(--b-margin-y);
-    --b-margin-left: var(--b-margin-x);
-
-    margin: var(--b-margin-top) var(--b-margin-right) var(--b-margin-bottom) var(--b-margin-left);
-  }
-
   .layout {
     --b-padding: 0;
     --b-padding-x: var(--b-padding);
@@ -25,14 +13,11 @@
     --b-max-height: initial;
     --b-min-width: initial;
     --b-min-height: initial;
-    --b-position: initial;
     --b-inset: auto;
     --b-top: var(--b-inset);
     --b-right: var(--b-inset);
     --b-bottom: var(--b-inset);
     --b-left: var(--b-inset);
-    --b-shrink: initial;
-    --b-grow: initial;
     --b-bg-color: initial;
     --b-border-color: initial;
     --b-border-radius: initial;
@@ -41,12 +26,8 @@
     --b-border-right-width: var(--b-border-width);
     --b-border-bottom-width: var(--b-border-width);
     --b-border-left-width: var(--b-border-width);
-    --b-border-style: solid;
     --b-elevation: initial;
     --b-z-index: initial;
-    --b-overflow: initial;
-    --b-overflow-x: var(--b-overflow);
-    --b-overflow-y: var(--b-overflow);
 
     padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom) var(--b-padding-left);
     width: var(--b-width);
@@ -55,17 +36,77 @@
     max-height: var(--b-max-height);
     min-width: var(--b-min-width);
     min-height: var(--b-min-height);
-    position: var(--b-position);
     inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
-    flex-shrink: var(--b-shrink);
-    flex-grow: var(--b-grow);
     background-color: var(--b-bg-color);
     border-color: var(--b-border-color);
     border-radius: var(--b-border-radius);
+    border-style: solid;
     border-width: var(--b-border-top-width) var(--b-border-right-width) var(--b-border-bottom-width) var(--b-border-left-width);
-    border-style: var(--b-border-style);
     box-shadow: var(--b-elevation);
     z-index: var(--b-z-index);
-    overflow: var(--b-overflow-x) var(--b-overflow-y);
+
+    &.position-relative {
+      position: relative;
+    }
+
+    &.position-absolute {
+      position: absolute;
+    }
+
+    &.position-fixed {
+      position: fixed;
+    }
+
+    &.position-sticky {
+      position: sticky;
+    }
+
+    &.shrink-0 {
+      flex-shrink: 0;
+    }
+
+    &.shrink-1 {
+      flex-shrink: 1;
+    }
+
+    &.grow-0 {
+      flex-grow: 0;
+    }
+
+    &.grow-1 {
+      flex-grow: 1;
+    }
+
+    &.overflow-x-visible {
+      overflow-x: visible;
+    }
+
+    &.overflow-x-hidden {
+      overflow-x: hidden;
+    }
+
+    &.overflow-x-scroll {
+      overflow-x: scroll;
+    }
+
+    &.overflow-x-auto {
+      overflow-x: auto;
+    }
+
+    &.overflow-y-visible {
+      overflow-y: visible;
+    }
+
+    &.overflow-y-hidden {
+      overflow-y: hidden;
+    }
+
+    &.overflow-y-scroll {
+      overflow-y: scroll;
+    }
+
+    &.overflow-y-auto {
+      overflow-y: auto;
+    }
   }
 }
