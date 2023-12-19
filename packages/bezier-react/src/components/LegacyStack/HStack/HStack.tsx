@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-import { Stack } from '~/src/components/Stack/Stack'
+import { LegacyStack } from '~/src/components/LegacyStack/Stack'
 
 import type HStackProps from './HStack.types'
 
@@ -12,5 +12,5 @@ export const HStack = forwardRef(function HStack(
   props: HStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
-  return (<Stack ref={forwardedRef} direction="horizontal" {...props} />)
+  return (<LegacyStack ref={forwardedRef} direction="horizontal" {...props} />)
 })

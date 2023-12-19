@@ -41,10 +41,10 @@ import { camelCase } from '~/src/utils/string'
 import { Select } from '~/src/components/Forms/Inputs/Select'
 import { ListItem } from '~/src/components/ListItem'
 import {
-  HStack,
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import { Text } from '~/src/components/Text'
 
 import { Icon } from './Icon'
@@ -115,9 +115,9 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <HStack spacing={8}>
+  <LegacyVStack spacing={16}>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
         {
           [
             ChannelBtnSmileFilledIcon,
@@ -139,15 +139,15 @@ export const Overview: StoryFn<{}> = () => (
           ]
             .map((source, i) => (
               // eslint-disable-next-line react/no-array-index-key
-              <StackItem key={`item-${i}`}>
+              <LegacyStackItem key={`item-${i}`}>
                 <Icon source={source} color="txt-black-darkest" />
-              </StackItem>
+              </LegacyStackItem>
             ))
         }
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8}>
+      </LegacyHStack>
+    </LegacyStackItem>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
         {
           [
             'txt-black-darkest' as const,
@@ -164,15 +164,15 @@ export const Overview: StoryFn<{}> = () => (
             'bgtxt-navy-normal' as const,
           ]
             .map(semanticName => (
-              <StackItem key={semanticName}>
+              <LegacyStackItem key={semanticName}>
                 <Icon source={ChannelBtnSmileFilledIcon} color={semanticName} size={IconSize.L} />
-              </StackItem>
+              </LegacyStackItem>
             ))
         }
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8}>
+      </LegacyHStack>
+    </LegacyStackItem>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
         { [
           IconSize.XXXS,
           IconSize.XXS,
@@ -182,17 +182,17 @@ export const Overview: StoryFn<{}> = () => (
           IconSize.L,
           IconSize.XL,
         ].map((size) => (
-          <StackItem key={size}>
+          <LegacyStackItem key={size}>
             <Icon
               source={ChannelBtnSmileFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
-          </StackItem>
+          </LegacyStackItem>
         )) }
-      </HStack>
-    </StackItem>
-  </VStack>
+      </LegacyHStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const UsageColor: StoryObj<{}> = {
@@ -200,15 +200,15 @@ export const UsageColor: StoryObj<{}> = {
     const [color, setColor] = useState<SemanticNames>('bgtxt-blue-normal')
 
     return (
-      <VStack spacing={16}>
-        <StackItem>
+      <LegacyVStack spacing={16}>
+        <LegacyStackItem>
           <Icon
             source={ChannelBtnSmileFilledIcon}
             color={color}
             size={IconSize.L}
           />
-        </StackItem>
-        <StackItem>
+        </LegacyStackItem>
+        <LegacyStackItem>
           <Select text={color} style={{ width: 200 }}>
             <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
               { Object.keys(LightFoundation.theme).map((semanticName) => (
@@ -220,8 +220,8 @@ export const UsageColor: StoryObj<{}> = {
               )) }
             </div>
           </Select>
-        </StackItem>
-      </VStack>
+        </LegacyStackItem>
+      </LegacyVStack>
     )
   },
 
@@ -229,7 +229,7 @@ export const UsageColor: StoryObj<{}> = {
 }
 
 export const UsageSize: StoryFn<{}> = () => (
-  <VStack spacing={16}>
+  <LegacyVStack spacing={16}>
     { [
       { label: 'XXXS', size: IconSize.XXXS },
       { label: 'XXS', size: IconSize.XXS },
@@ -239,24 +239,24 @@ export const UsageSize: StoryFn<{}> = () => (
       { label: 'L', size: IconSize.L },
       { label: 'XL', size: IconSize.XL },
     ].map(({ label, size }) => (
-      <StackItem key={size}>
-        <HStack spacing={24}>
-          <StackItem size={100}>
+      <LegacyStackItem key={size}>
+        <LegacyHStack spacing={24}>
+          <LegacyStackItem size={100}>
             <Text typo="13" color="txt-black-darkest">
               { `${label} (${size}x${size})` }
             </Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Icon
               source={ChannelBtnSmileFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
     )) }
-  </VStack>
+  </LegacyVStack>
 )
 
 export const TipsMargin: StoryObj<{}> = {

@@ -3,7 +3,7 @@ import type {
   ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import type { AxisAlignment } from '~/src/components/Stack/types'
+import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 
 interface StackItemOptions {
   /**

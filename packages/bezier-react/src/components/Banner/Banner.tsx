@@ -15,7 +15,7 @@ import {
 } from '~/src/components/Button'
 import { IconSize } from '~/src/components/Icon'
 import { isIconName } from '~/src/components/LegacyIcon'
-import { StackItem } from '~/src/components/Stack'
+import { LegacyStackItem } from '~/src/components/LegacyStack'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -119,7 +119,7 @@ export const Banner = forwardRef(function Banner(
         </Styled.StackItem>
       ) }
 
-      <StackItem
+      <LegacyStackItem
         grow
         shrink
         weight={1}
@@ -136,7 +136,7 @@ export const Banner = forwardRef(function Banner(
             </Text>
           ) : content }
         </Styled.ContentWrapper>
-      </StackItem>
+      </LegacyStackItem>
 
       { !isNil(actionIcon) && (
         <Styled.StackItem>

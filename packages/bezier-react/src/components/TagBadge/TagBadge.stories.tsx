@@ -27,10 +27,10 @@ import { noop } from '~/src/utils/function'
 import { gap } from '~/src/utils/style'
 
 import {
-  HStack,
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import {
   Badge,
   Tag,
@@ -57,8 +57,8 @@ const Container = styled.div`
 `
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
+  <LegacyVStack spacing={16}>
+    <LegacyStackItem>
       <Container>
         <Tag variant={TagBadgeVariant.Default}>default</Tag>
         <Tag variant={TagBadgeVariant.Blue}>blue</Tag>
@@ -73,8 +73,8 @@ export const Overview: StoryFn<{}> = () => (
         <Tag variant={TagBadgeVariant.Red}>red</Tag>
         <Tag variant={TagBadgeVariant.Purple}>purple</Tag>
       </Container>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Container>
         <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>default</Badge>
         <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>blue</Badge>
@@ -91,26 +91,26 @@ export const Overview: StoryFn<{}> = () => (
         <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
         <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
       </Container>
-    </StackItem>
-  </VStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const BadgeWithoutText: StoryObj<{}> = {
   render: () => (
-    <HStack spacing={4}>
-      <StackItem>
+    <LegacyHStack spacing={4}>
+      <LegacyStackItem>
         <Badge variant={TagBadgeVariant.Red} icon={BlockIcon} />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Badge
           variant={TagBadgeVariant.Orange}
           icon={ErrorTriangleFilledIcon}
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Badge variant={TagBadgeVariant.Green} icon={LightningFilledIcon} />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (badges without text)',
@@ -118,7 +118,7 @@ export const BadgeWithoutText: StoryObj<{}> = {
 
 export const DismissibleTag: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={4}>
+    <LegacyVStack spacing={4}>
       { [
         [TagBadgeVariant.Red, 'red'] as const,
         [TagBadgeVariant.Orange, 'orange'] as const,
@@ -129,11 +129,11 @@ export const DismissibleTag: StoryObj<{}> = {
         [TagBadgeVariant.Purple, 'purple'] as const,
       ]
         .map(([variant, label]) => (
-          <StackItem key={variant}>
+          <LegacyStackItem key={variant}>
             <Tag variant={variant} onDelete={noop}>{ label }</Tag>
-          </StackItem>
+          </LegacyStackItem>
         )) }
-    </VStack>
+    </LegacyVStack>
   ),
 
   name: 'Usage (dismissible tags)',
@@ -200,7 +200,7 @@ export const Gap: StoryObj<{}> = {
 
 export const SizeVariant: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
+    <LegacyVStack spacing={16}>
       { [
         [TagBadgeSize.XS, 'XS (18px)'] as const,
         [TagBadgeSize.S, 'S (20px)'] as const,
@@ -208,18 +208,18 @@ export const SizeVariant: StoryObj<{}> = {
         [TagBadgeSize.L, 'L (22px)'] as const,
       ]
         .map(([size, label]) => (
-          <StackItem key={size}>
-            <HStack spacing={4}>
-              <StackItem>
+          <LegacyStackItem key={size}>
+            <LegacyHStack spacing={4}>
+              <LegacyStackItem>
                 <Tag size={size}>{ label }</Tag>
-              </StackItem>
-              <StackItem>
+              </LegacyStackItem>
+              <LegacyStackItem>
                 <Badge size={size} icon={ClockIcon}>{ label }</Badge>
-              </StackItem>
-            </HStack>
-          </StackItem>
+              </LegacyStackItem>
+            </LegacyHStack>
+          </LegacyStackItem>
         )) }
-    </VStack>
+    </LegacyVStack>
   ),
 
   name: 'Variant (size)',
@@ -227,7 +227,7 @@ export const SizeVariant: StoryObj<{}> = {
 
 export const Variant: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
+    <LegacyVStack spacing={16}>
       { [
         [TagBadgeVariant.Default, 'default'] as const,
         [TagBadgeVariant.Blue, 'blue'] as const,
@@ -245,18 +245,18 @@ export const Variant: StoryObj<{}> = {
         [TagBadgeVariant.MonochromeLight, 'monochrome-light'] as const,
       ]
         .map(([variant, label]) => (
-          <StackItem key={variant}>
-            <HStack spacing={4}>
-              <StackItem>
+          <LegacyStackItem key={variant}>
+            <LegacyHStack spacing={4}>
+              <LegacyStackItem>
                 <Tag variant={variant}>{ label }</Tag>
-              </StackItem>
-              <StackItem>
+              </LegacyStackItem>
+              <LegacyStackItem>
                 <Badge icon={ClockIcon} variant={variant}>{ label }</Badge>
-              </StackItem>
-            </HStack>
-          </StackItem>
+              </LegacyStackItem>
+            </LegacyHStack>
+          </LegacyStackItem>
         )) }
-    </VStack>
+    </LegacyVStack>
   ),
 
   name: 'Variant (color)',

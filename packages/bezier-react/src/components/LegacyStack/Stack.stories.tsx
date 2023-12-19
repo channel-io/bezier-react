@@ -18,21 +18,21 @@ import {
 } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 
-import { HStack } from './HStack'
-import { Spacer } from './Spacer'
+import { LegacyHStack } from './HStack'
+import { LegacySpacer } from './Spacer'
 import {
-  Stack,
-  type StackProps,
+  LegacyStack,
+  type LegacyStackProps,
 } from './Stack'
 import mdx from './Stack.mdx'
-import { StackItem } from './StackItem'
-import { VStack } from './VStack'
+import { LegacyStackItem } from './StackItem'
+import { LegacyVStack } from './VStack'
 import type { AxisAlignment } from './types'
 
-const meta: Meta<StackProps & {
+const meta: Meta<LegacyStackProps & {
   containerSize: number
 }> = {
-  component: Stack,
+  component: LegacyStack,
   parameters: {
     docs: {
       page: mdx,
@@ -153,7 +153,7 @@ const Template: StoryFn<StackPreviewProps> = ({
         ),
       }}
     >
-      <Stack
+      <LegacyStack
         direction={direction}
         justify={justify}
         align={align}
@@ -161,7 +161,7 @@ const Template: StoryFn<StackPreviewProps> = ({
       >
         { range(4)
           .map(i => (
-            <StackItem
+            <LegacyStackItem
               key={`item-${i}`}
               justify={itemJustifies[i]}
               align={itemAligns[i]}
@@ -173,9 +173,9 @@ const Template: StoryFn<StackPreviewProps> = ({
               marginAfter={itemMarginAfters[i]}
             >
               <Item direction={direction} fixedSize={(align ?? itemAligns[i]) !== 'stretch'} />
-            </StackItem>
+            </LegacyStackItem>
           )) }
-      </Stack>
+      </LegacyStack>
     </div>
   </>
 )
@@ -203,8 +203,8 @@ export const Primary: StoryObj<StackPreviewProps> = {
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack style={{ width: '400px' }} spacing={16} align="stretch">
-    <StackItem>
+  <LegacyVStack style={{ width: '400px' }} spacing={16} align="stretch">
+    <LegacyStackItem>
       <Text
         as="h3"
         style={{
@@ -215,8 +215,8 @@ export const Overview: StoryFn<{}> = () => (
       >
         스택에 대해 더 자세히 알아보세요.
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         as="p"
         style={{
@@ -227,8 +227,8 @@ export const Overview: StoryFn<{}> = () => (
       >
         스택은 flex layout을 서술하는 컴포넌트입니다. 스택과 함께라면 뭐든지 만들 수 있어요. 누가 만들었는지는 모르겠지만, 정말 잘 만든 컴포넌트에요. FormControl과 함께 싸드세요!
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <div
         style={{
           border: '1px solid #ccc',
@@ -239,29 +239,29 @@ export const Overview: StoryFn<{}> = () => (
           text="스택에 대해 더 자세히 알아보기"
         />
       </div>
-    </StackItem>
-  </VStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const DirectionHorizontal: StoryObj<{}> = {
   render: () => (
-    <HStack
+    <LegacyHStack
       style={{ width: '720px', height: '60px', border: '1px solid #ffc0c0' }}
       align="stretch"
     >
-      <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+      <LegacyStackItem size={120} style={{ backgroundColor: '#ccc' }}>
         <Text typo="18">Item 1</Text>
-      </StackItem>
-      <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={180} style={{ backgroundColor: '#eee' }}>
         <Text typo="18">Item 2</Text>
-      </StackItem>
-      <StackItem size={180} style={{ backgroundColor: '#888' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={180} style={{ backgroundColor: '#888' }}>
         <Text typo="18">Item 3</Text>
-      </StackItem>
-      <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
         <Text typo="18">Item 4</Text>
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Horizontal stack',
@@ -269,23 +269,23 @@ export const DirectionHorizontal: StoryObj<{}> = {
 
 export const DirectionVertical: StoryObj<{}> = {
   render: () => (
-    <VStack
+    <LegacyVStack
       style={{ width: '200px', height: '600px', border: '1px solid #ffc0c0' }}
       align="start"
     >
-      <StackItem size={120} style={{ width: '80px', backgroundColor: '#ccc' }}>
+      <LegacyStackItem size={120} style={{ width: '80px', backgroundColor: '#ccc' }}>
         <Text typo="18">Item 1</Text>
-      </StackItem>
-      <StackItem size={180} style={{ width: '150px', backgroundColor: '#eee' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={180} style={{ width: '150px', backgroundColor: '#eee' }}>
         <Text typo="18">Item 2</Text>
-      </StackItem>
-      <StackItem size={180} style={{ width: '200px', backgroundColor: '#888' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={180} style={{ width: '200px', backgroundColor: '#888' }}>
         <Text typo="18">Item 3</Text>
-      </StackItem>
-      <StackItem size={80} style={{ width: '120px', backgroundColor: '#aaa' }}>
+      </LegacyStackItem>
+      <LegacyStackItem size={80} style={{ width: '120px', backgroundColor: '#aaa' }}>
         <Text typo="18">Item 4</Text>
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Vertical stack',
@@ -293,12 +293,12 @@ export const DirectionVertical: StoryObj<{}> = {
 
 export const AlignmentJustify: StoryObj<{}> = {
   render: () => (
-    <VStack align="stretch" spacing={8}>
-      <StackItem>
+    <LegacyVStack align="stretch" spacing={8}>
+      <LegacyStackItem>
         <Text typo="14">justify = &quot;start&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '60px',
@@ -307,25 +307,25 @@ export const AlignmentJustify: StoryObj<{}> = {
           justify="start"
           align="stretch"
         >
-          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+          <LegacyStackItem size={120} style={{ backgroundColor: '#ccc' }}>
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#eee' }}>
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#888' }}>
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem marginBefore={16}>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem marginBefore={16}>
         <Text typo="14">justify = &quot;center&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '60px',
@@ -334,25 +334,25 @@ export const AlignmentJustify: StoryObj<{}> = {
           justify="center"
           align="stretch"
         >
-          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+          <LegacyStackItem size={120} style={{ backgroundColor: '#ccc' }}>
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#eee' }}>
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#888' }}>
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem marginBefore={16}>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem marginBefore={16}>
         <Text typo="14">justify = &quot;end&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '60px',
@@ -361,21 +361,21 @@ export const AlignmentJustify: StoryObj<{}> = {
           justify="end"
           align="stretch"
         >
-          <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+          <LegacyStackItem size={120} style={{ backgroundColor: '#ccc' }}>
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#eee' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#eee' }}>
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem size={180} style={{ backgroundColor: '#888' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={180} style={{ backgroundColor: '#888' }}>
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-    </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Alignment (justify)',
@@ -383,12 +383,12 @@ export const AlignmentJustify: StoryObj<{}> = {
 
 export const AlignmentAlign: StoryObj<{}> = {
   render: () => (
-    <VStack align="stretch" spacing={8}>
-      <StackItem>
+    <LegacyVStack align="stretch" spacing={8}>
+      <LegacyStackItem>
         <Text typo="14">align = &quot;start&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '80px',
@@ -397,34 +397,34 @@ export const AlignmentAlign: StoryObj<{}> = {
           justify="start"
           align="start"
         >
-          <StackItem
+          <LegacyStackItem
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem marginBefore={16}>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem marginBefore={16}>
         <Text typo="14">align = &quot;center&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '80px',
@@ -433,34 +433,34 @@ export const AlignmentAlign: StoryObj<{}> = {
           justify="start"
           align="center"
         >
-          <StackItem
+          <LegacyStackItem
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem marginBefore={16}>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem marginBefore={16}>
         <Text typo="14">align = &quot;end&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '80px',
@@ -469,34 +469,34 @@ export const AlignmentAlign: StoryObj<{}> = {
           justify="start"
           align="end"
         >
-          <StackItem
+          <LegacyStackItem
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem marginBefore={16}>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem marginBefore={16}>
         <Text typo="14">align = &quot;stretch&quot;</Text>
-      </StackItem>
-      <StackItem>
-        <HStack
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
           style={{
             width: '720px',
             height: '80px',
@@ -505,120 +505,120 @@ export const AlignmentAlign: StoryObj<{}> = {
           justify="start"
           align="stretch"
         >
-          <StackItem
+          <LegacyStackItem
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
             <Text typo="18">Item 1</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
             <Text typo="18">Item 2</Text>
-          </StackItem>
-          <StackItem
+          </LegacyStackItem>
+          <LegacyStackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
             <Text typo="18">Item 3</Text>
-          </StackItem>
-          <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+          </LegacyStackItem>
+          <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
             <Text typo="18">Item 4</Text>
-          </StackItem>
-        </HStack>
-      </StackItem>
-    </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Alignment (align)',
 }
 
 export const Spacing: StoryFn<{}> = () => (
-  <HStack
+  <LegacyHStack
     style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
     justify="start"
     align="stretch"
     spacing={16}
   >
-    <StackItem
+    <LegacyStackItem
       size={120}
       style={{ backgroundColor: '#ccc' }}
     >
       <Text typo="18">Item 1</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       size={180}
       style={{ backgroundColor: '#eee' }}
     >
       <Text typo="18">Item 2</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       size={180}
       style={{ backgroundColor: '#888' }}
     >
       <Text typo="18">Item 3</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       size={80}
       style={{ backgroundColor: '#aaa' }}
       marginBefore={40}
     >
       <Text typo="18">Item 4</Text>
-    </StackItem>
-  </HStack>
+    </LegacyStackItem>
+  </LegacyHStack>
 )
 
 export const Expanded: StoryFn<{}> = () => (
-  <HStack
+  <LegacyHStack
     style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
     justify="start"
     align="stretch"
   >
-    <StackItem
+    <LegacyStackItem
       size={120}
       style={{ backgroundColor: '#ccc' }}
     >
       <Text typo="18">Item 1</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       size={180}
       style={{ backgroundColor: '#eee' }}
     >
       <Text typo="18">Item 2</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       grow
       shrink
       weight={1}
       style={{ backgroundColor: '#ffa0a0' }}
     >
       <Text typo="18">Item 3 (Expanded)</Text>
-    </StackItem>
-    <StackItem
+    </LegacyStackItem>
+    <LegacyStackItem
       size={80}
       style={{ backgroundColor: '#aaa' }}
     >
       <Text typo="18">Item 4</Text>
-    </StackItem>
-  </HStack>
+    </LegacyStackItem>
+  </LegacyHStack>
 )
 
 export const WeightSpacer: StoryObj<{}> = {
   render: () => (
-    <HStack
+    <LegacyHStack
       style={{ width: '720px', height: '80px', border: '1px solid #ffc0c0' }}
       justify="start"
       align="stretch"
     >
-      <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
+      <LegacyStackItem size={120} style={{ backgroundColor: '#ccc' }}>
         <Text typo="18">Item 1</Text>
-      </StackItem>
-      <Spacer />
-      <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
+      </LegacyStackItem>
+      <LegacySpacer />
+      <LegacyStackItem size={80} style={{ backgroundColor: '#aaa' }}>
         <Text typo="18">Item 2</Text>
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Spacer',
@@ -626,19 +626,19 @@ export const WeightSpacer: StoryObj<{}> = {
 
 export const WeightFixed: StoryObj<{}> = {
   render: () => (
-    <HStack
+    <LegacyHStack
       style={{ width: '100px', height: '80px', border: '1px solid #ffc0c0' }}
       justify="start"
       align="stretch"
     >
-      <StackItem size={80} style={{ backgroundColor: '#ccc' }}>
+      <LegacyStackItem size={80} style={{ backgroundColor: '#ccc' }}>
         <Text typo="18">Item 1</Text>
-      </StackItem>
-      <Spacer />
-      <StackItem size={80} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+      </LegacyStackItem>
+      <LegacySpacer />
+      <LegacyStackItem size={80} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
         <Text typo="18">Item 2</Text>
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Fix-sized item',

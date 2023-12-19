@@ -6,7 +6,7 @@ import {
 } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms'
-import { type StackProps } from '~/src/components/Stack'
+import { type LegacyStackProps } from '~/src/components/LegacyStack'
 
 interface RadioGroupOptions<Value extends string> {
   /**
@@ -28,12 +28,12 @@ interface RadioGroupOptions<Value extends string> {
    * Default spacing between Radio, in pixels.
    * @default 0
    */
-  spacing?: StackProps['spacing']
+  spacing?: LegacyStackProps['spacing']
   /**
    * Direction of this RadioGroup.
    * @default vertical
    */
-  direction?: StackProps['direction']
+  direction?: LegacyStackProps['direction']
   /**
    * Event handler called when the value changes.
    */

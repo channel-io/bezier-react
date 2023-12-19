@@ -4,7 +4,7 @@ import { css } from '~/src/foundation'
 
 import { render } from '~/src/utils/test'
 
-import { StackItem } from '~/src/components/Stack/StackItem'
+import { LegacyStackItem } from '~/src/components/LegacyStack/StackItem'
 
 import { Stack } from './Stack'
 
@@ -60,9 +60,9 @@ describe('Stack', () => {
 
     const { getByTestId } = render(
       <Stack direction="horizontal" spacing={spacing}>
-        <StackItem testId="one" />
-        <StackItem testId="two" />
-        <StackItem testId="three" />
+        <LegacyStackItem testId="one" />
+        <LegacyStackItem testId="two" />
+        <LegacyStackItem testId="three" />
       </Stack>,
     )
 
@@ -79,9 +79,9 @@ describe('Stack', () => {
         { false }
         { null }
         abc
-        <StackItem testId="one" />
-        <StackItem testId="two" />
-        <StackItem testId="three" />
+        <LegacyStackItem testId="one" />
+        <LegacyStackItem testId="two" />
+        <LegacyStackItem testId="three" />
       </Stack>,
     )
 

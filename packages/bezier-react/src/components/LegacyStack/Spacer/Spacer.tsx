@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-import { StackItem } from '~/src/components/Stack/StackItem'
+import { LegacyStackItem } from '~/src/components/LegacyStack/StackItem'
 
 import type SpacerProps from './Spacer.types'
 
@@ -10,7 +10,7 @@ export const Spacer = forwardRef(function Spacer(
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (
-    <StackItem
+    <LegacyStackItem
       ref={forwardedRef}
       size={0}
       weight={1}
