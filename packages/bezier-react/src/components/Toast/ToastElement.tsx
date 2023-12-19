@@ -7,8 +7,6 @@ import React, {
 import { CancelIcon } from '@channel.io/bezier-icons'
 import { v4 as uuid } from 'uuid'
 
-import { Typography } from '~/src/foundation'
-
 import { isString } from '~/src/utils/type'
 
 import {
@@ -53,7 +51,7 @@ const ToastElement = (
       return content.split('\n').map((str) => (
         <div key={uuid()}>
           <Text
-            typo={Typography.Size14}
+            typo="14"
           >
             { str }
           </Text>
@@ -88,7 +86,7 @@ const ToastElement = (
       >
         <EllipsisableContent>
           <Text
-            typo={Typography.Size14}
+            typo="14"
             style={{
               height: '18px',
             }}

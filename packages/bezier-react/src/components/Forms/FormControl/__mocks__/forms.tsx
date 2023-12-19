@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Typography } from '~/src/foundation'
-
 import { FormControl } from '~/src/components/Forms/FormControl'
 import { FormGroup } from '~/src/components/Forms/FormGroup'
 import {
@@ -31,7 +29,7 @@ export const SingleFieldForm = (
 
 export const SingleFieldFormWithLabelFont = (
   <>
-    <FormLabel typo={Typography.Size18}>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
+    <FormLabel typo='18'>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
     <TextField />
     <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
     <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>

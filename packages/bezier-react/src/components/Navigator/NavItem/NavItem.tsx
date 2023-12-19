@@ -4,8 +4,6 @@ import React, {
   useCallback,
 } from 'react'
 
-import { Typography } from '~/src/foundation'
-
 import { noop } from '~/src/utils/function'
 
 import {
@@ -76,7 +74,7 @@ const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
           ) }
         </LeftIconWrapper>
 
-        <Text typo={Typography.Size14} truncated>
+        <Text typo="14" truncated>
           { content }
         </Text>
 

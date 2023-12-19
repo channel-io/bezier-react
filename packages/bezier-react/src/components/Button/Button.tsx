@@ -7,10 +7,7 @@ import React, {
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 
-import {
-  type SemanticNames,
-  Typography,
-} from '~/src/foundation'
+import { type SemanticNames } from '~/src/foundation'
 
 import { flattenDeep } from '~/src/utils/array'
 import { warn } from '~/src/utils/assert'
@@ -146,14 +143,14 @@ export const Button = forwardRef(function Button(
     switch (size) {
       case ButtonSize.XS:
       case ButtonSize.S:
-        return Typography.Size13
+        return '13'
       case ButtonSize.L:
-        return Typography.Size15
+        return '15'
       case ButtonSize.XL:
-        return Typography.Size18
+        return '18'
       case ButtonSize.M:
       default:
-        return Typography.Size14
+        return '14'
     }
   }, [size])
 

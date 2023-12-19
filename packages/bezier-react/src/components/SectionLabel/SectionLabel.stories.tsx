@@ -14,10 +14,7 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import {
-  Typography,
-  css,
-} from '~/src/foundation'
+import { css } from '~/src/foundation'
 
 import { noop } from '~/src/utils/function'
 
@@ -45,7 +42,7 @@ const testNumberLabel = (
       alignItems: 'center',
     }}
   >
-    <Text typo={Typography.Size13}>1</Text>
+    <Text typo="13">1</Text>
   </div>
 )
 
@@ -77,7 +74,7 @@ SectionLabelProps & {
       />
       <SectionLabel
         rightContent={(
-          <Text typo={Typography.Size13}>5</Text>
+          <Text typo="13">5</Text>
         )}
         {...otherSectionLabelProps}
       />

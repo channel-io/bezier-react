@@ -29,7 +29,6 @@ import {
 import {
   LightFoundation,
   type SemanticNames,
-  Typography,
   styled,
 } from '~/src/foundation'
 
@@ -243,7 +242,7 @@ export const UsageSize: StoryFn<{}> = () => (
       <StackItem key={size}>
         <HStack spacing={24}>
           <StackItem size={100}>
-            <Text typo={Typography.Size13} color="txt-black-darkest">
+            <Text typo="13" color="txt-black-darkest">
               { `${label} (${size}x${size})` }
             </Text>
           </StackItem>

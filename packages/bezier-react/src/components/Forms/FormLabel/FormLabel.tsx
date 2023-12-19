@@ -3,8 +3,6 @@ import React, {
   useMemo,
 } from 'react'
 
-import { Typography } from '~/src/foundation'
-
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
@@ -36,7 +34,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 
   const { Wrapper, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
     Wrapper: React.Fragment,
-    typo: Typography.Size13,
+    typo: '13',
     ...rest,
   }
 

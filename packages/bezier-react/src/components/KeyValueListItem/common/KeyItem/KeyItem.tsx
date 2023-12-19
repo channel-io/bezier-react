@@ -7,8 +7,6 @@ import React, {
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { isString } from '~/src/utils/type'
 
 import {
@@ -49,7 +47,7 @@ function KeyItem(
   const KeyText = useMemo(() => {
     if (isString(children)) {
       return (
-        <Styled.KeyText bold typo={Typography.Size12} truncated>
+        <Styled.KeyText bold typo="12" truncated>
           { children }
         </Styled.KeyText>
       )

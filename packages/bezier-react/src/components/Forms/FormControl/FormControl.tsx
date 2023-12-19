@@ -5,8 +5,6 @@ import React, {
   useState,
 } from 'react'
 
-import { Typography } from '~/src/foundation'
-
 import useId from '~/src/hooks/useId'
 import { splitByBezierComponentProps } from '~/src/utils/props'
 import { px } from '~/src/utils/style'
@@ -114,7 +112,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
-    typo: labelPosition === 'top' ? Typography.Size13 : Typography.Size14,
+    typo: labelPosition === 'top' ? '13' : '14',
     Wrapper: labelPosition === 'top'
       ? Styled.TopLabelWrapper
       : Styled.LeftLabelWrapper,

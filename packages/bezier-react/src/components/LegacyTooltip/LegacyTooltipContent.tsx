@@ -8,8 +8,6 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
-import { Typography } from '~/src/foundation'
-
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
@@ -41,7 +39,7 @@ function getNewLineComponent(strContent: string) {
     strContent.split('\n').map((str, index) => {
       if (index === 0) {
         return (
-          <Text key={str} typo={Typography.Size14}>
+          <Text key={str} typo="14">
             { str }
           </Text>
         )
@@ -50,7 +48,7 @@ function getNewLineComponent(strContent: string) {
       return (
         <React.Fragment key={str}>
           <br />
-          <Text typo={Typography.Size14}>
+          <Text typo="14">
             { str }
           </Text>
         </React.Fragment>

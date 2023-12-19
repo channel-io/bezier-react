@@ -8,8 +8,6 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { Typography } from '~/src/foundation'
-
 import { Text } from '~/src/components/Text'
 
 import { LegacyRadio } from './LegacyRadio'
@@ -50,7 +48,7 @@ export const MultiRadio = {
 
     return (
       <>
-        <Text typo={Typography.Size24}>
+        <Text typo="24">
           selected Option: { selected }
         </Text>
 

@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react'
 
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 
-import { Typography } from '~/src/foundation'
-
 import { Text } from '~/src/components/Text'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
@@ -18,11 +16,11 @@ import * as Styled from './Modal.styled'
 function getTitleTypo(size: ModalTitleSize) {
   switch (size) {
     case ModalTitleSize.L:
-      return Typography.Size24
+      return '24'
     case ModalTitleSize.M:
-      return Typography.Size16
+      return '16'
     default:
-      return Typography.Size16
+      return '16'
   }
 }
 
@@ -51,7 +49,7 @@ function ModalHeaderTitle({
               as="p"
               bold
               color="txt-black-dark"
-              typo={Typography.Size13}
+              typo="13"
             >
               { subtitle }
             </Text>
@@ -112,7 +110,7 @@ export const ModalHeader = forwardRef(function ModalHeader({
             <Text
               as="p"
               color="txt-black-darkest"
-              typo={Typography.Size15}
+              typo="15"
             >
               { description }
             </Text>

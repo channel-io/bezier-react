@@ -24,10 +24,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import {
-  Typography,
-  styled,
-} from '~/src/foundation'
+import { styled } from '~/src/foundation'
 
 import { Avatar } from '~/src/components/Avatars/Avatar'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
@@ -389,7 +386,7 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
           text="New messages"
           rightContent={(
             <AlertBadge>
-              <Text typo={Typography.Size13} color="txt-white-normal">
+              <Text typo="13" color="txt-white-normal">
                 1
               </Text>
             </AlertBadge>
@@ -468,7 +465,7 @@ const OpenDropdownButton = () => {
         marginY={6}
       >
         <Dropdown>
-          <Text typo={Typography.Size13} marginLeft={6}>Dropdown content</Text>
+          <Text typo="13" ml={6}>Dropdown content</Text>
         </Dropdown>
       </Overlay>
     </div>
@@ -493,7 +490,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Blue</Text>
+            <Text typo="13">Blue</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -507,7 +504,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Red</Text>
+            <Text typo="13">Red</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -521,7 +518,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Green</Text>
+            <Text typo="13">Green</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -535,7 +532,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Cobalt</Text>
+            <Text typo="13">Cobalt</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -549,7 +546,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Orange</Text>
+            <Text typo="13">Orange</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -563,7 +560,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Pink</Text>
+            <Text typo="13">Pink</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -577,7 +574,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Purple</Text>
+            <Text typo="13">Purple</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -591,7 +588,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Monochrome Dark</Text>
+            <Text typo="13">Monochrome Dark</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -605,7 +602,7 @@ export const VariantsColor: StoryObj<{}> = {
       <StackItem>
         <HStack spacing={24} align="center">
           <StackItem size={80}>
-            <Text typo={Typography.Size13}>Monochrome Light</Text>
+            <Text typo="13">Monochrome Light</Text>
           </StackItem>
           <StackItem>
             <Button
@@ -629,7 +626,7 @@ export const VariantsStyle: StoryObj<{}> = {
         <StackItem key={styleVariant}>
           <HStack spacing={24} align="center">
             <StackItem size={80}>
-              <Text typo={Typography.Size13}>{ key }</Text>
+              <Text typo="13">{ key }</Text>
             </StackItem>
             <StackItem>
               <Button
@@ -656,7 +653,7 @@ export const VariantsSize: StoryObj<{}> = {
         <StackItem key={key}>
           <HStack spacing={24} align="center">
             <StackItem size={80}>
-              <Text typo={Typography.Size13}>{ key }</Text>
+              <Text typo="13">{ key }</Text>
             </StackItem>
             <StackItem>
               <Button

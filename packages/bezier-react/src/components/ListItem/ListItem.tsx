@@ -8,8 +8,6 @@ import React, {
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
-import { Typography } from '~/src/foundation'
-
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import {
@@ -119,7 +117,7 @@ forwardedRef: React.Ref<ListItemRef>,
     desc.split(LINE_BREAK_CHAR).map((str, index) => {
       if (index === 0) {
         return (
-          <Text key={uuid()} typo={Typography.Size12}>
+          <Text key={uuid()} typo="12">
             { str }
           </Text>
         )
@@ -128,7 +126,7 @@ forwardedRef: React.Ref<ListItemRef>,
       return (
         <React.Fragment key={uuid()}>
           <br />
-          <Text typo={Typography.Size12}>
+          <Text typo="12">
             { str }
           </Text>
         </React.Fragment>
@@ -174,8 +172,8 @@ forwardedRef: React.Ref<ListItemRef>,
         <Title>
           <Text
             typo={size === ListItemSize.XL
-              ? Typography.Size18
-              : Typography.Size14}
+              ? '18'
+              : '14'}
           >
             { content }
           </Text>
