@@ -140,9 +140,9 @@ const Wrapper = styled.div`
 `;
 ```
 
-### Mixin interpolation to CSS Variable
+### Interpolation to CSS Variable
 
-**`mixin-to-css-variable`**
+**`interpolation-to-css-variable`**
 
 Replace mixin interpolation to css variable
 For example:
@@ -153,6 +153,7 @@ import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
+  Typography,
 } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
@@ -161,6 +162,8 @@ const Wrapper = styled.div`
   ${({ focus }) => focus && focusedInputWrapperStyle};
 
   ${({ focus, whisper }) => focus && whisper && erroredInputWrapperStyle};
+
+  ${Typography.Size11};
 `;
 ```
 
@@ -178,6 +181,10 @@ const Wrapper = styled.div`
 
   ${({ focus, whisper }) => focus && whisper && css`
   box-shadow: var(--input-box-shadow-invalid);
+
+  /* NOTE: Do not use font-related css variables below separately, use Text component instead */
+  font-size: var(--typography-size-11-font-size);
+  line-height: var(--typography-size-11-line-height);
 `};
 ```
 
