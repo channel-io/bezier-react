@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-import { Stack } from '~/src/components/Stack'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { Stack } from '~/src/components/Stack'
 
 import { type RadioGroupProps } from './RadioGroup.types'
 

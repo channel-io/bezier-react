@@ -1,12 +1,12 @@
 import type * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms'
-import { type LegacyStackProps } from '~/src/components/LegacyStack'
+import { type StackProps } from '~/src/components/Stack'
 
 interface RadioGroupOptions<Value extends string> {
   /**
@@ -28,12 +28,12 @@ interface RadioGroupOptions<Value extends string> {
    * Default spacing between Radio, in pixels.
    * @default 0
    */
-  spacing?: LegacyStackProps['spacing']
+  spacing?: StackProps['spacing']
   /**
    * Direction of this RadioGroup.
    * @default vertical
    */
-  direction?: LegacyStackProps['direction']
+  direction?: StackProps['direction']
   /**
    * Event handler called when the value changes.
    */
@@ -55,14 +55,14 @@ interface RadioOptions<Value extends string> {
 type RadioFormComponentProps = Pick<FormComponentProps, 'disabled' | 'required'>
 
 export interface RadioGroupProps<Value extends string> extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, keyof RadioGroupOptions<Value> | keyof RadioGroupPrimitive.RadioGroupProps>,
   RadioGroupOptions<Value> {}
 
 export interface RadioProps<Value extends string> extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, keyof RadioOptions<Value>>,
