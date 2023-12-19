@@ -1,6 +1,7 @@
 @layer components {
   .Stack {
     box-sizing: border-box;
+    gap: var(--b-stack-gap, normal);
 
     &.display-flex {
       display: flex;
@@ -64,10 +65,6 @@
 
     &.align-baseline {
       align-items: baseline;
-    }
-
-    &.gap {
-      gap: var(--b-stack-gap);
     }
 
     &.wrap {
