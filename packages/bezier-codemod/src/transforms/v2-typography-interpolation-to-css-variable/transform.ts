@@ -13,10 +13,6 @@ const getLineHeight = (num: number) => `line-height: var(--typography-size-${num
 const getLetterSpacing = (num: number) => `letter-spacing: var(--typography-size-${num}-letter-spacing);`
 
 const cssVariableByInterpolation = {
-  inputTextStyle: 'color: var(--txt-black-darkest);',
-  inputWrapperStyle: 'box-shadow: var(--input-box-shadow);',
-  focusedInputWrapperStyle: 'box-shadow: var(--input-box-shadow-focused);',
-  erroredInputWrapperStyle: 'box-shadow: var(--input-box-shadow-invalid);',
   'Typography.Size11': `${WARNING_COMMENT}\n  ${getFontSize(11)}\n  ${getLineHeight(11)}`,
   'Typography.Size12': `${WARNING_COMMENT}\n  ${getFontSize(12)}\n  ${getLineHeight(12)}`,
   'Typography.Size13': `${WARNING_COMMENT}\n  ${getFontSize(13)}\n  ${getLineHeight(13)}`,
@@ -31,7 +27,7 @@ const cssVariableByInterpolation = {
   'Typography.Size36': `${WARNING_COMMENT}\n  ${getFontSize(36)}\n  ${getLineHeight(36)}\n  ${getLetterSpacing(36)}`,
 }
 
-const replaceInterpolation = (sourceFile: SourceFile) => {
+const replaceTypographyInterpolation = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
 
   interpolationTransform(sourceFile, cssVariableByInterpolation)
@@ -46,4 +42,4 @@ const replaceInterpolation = (sourceFile: SourceFile) => {
   return isChanged
 }
 
-export default replaceInterpolation
+export default replaceTypographyInterpolation

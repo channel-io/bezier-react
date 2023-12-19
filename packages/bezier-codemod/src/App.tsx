@@ -19,17 +19,18 @@ import {
 
 import project from './project.js'
 import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal/transform.js'
-import foundationToCssVariableBorder from './transforms/foundation-to-css-variable/border.js'
-import foundationToCssVariableElevation from './transforms/foundation-to-css-variable/elevation.js'
-import foundationToCssVariableRounding from './transforms/foundation-to-css-variable/rounding.js'
-import foundationToCssVariableTheme from './transforms/foundation-to-css-variable/theme.js'
-import foundationToCssVariable from './transforms/foundation-to-css-variable/transform.js'
-import foundationToCssVariableTransition from './transforms/foundation-to-css-variable/transition.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
-import styledToStyledComponents from './transforms/import-styled-from-styled-components/transform.js'
-import interpolationToCssVariable from './transforms/interpolation-to-css-variable/transform.js'
 import removeAlphaFromAlphaStack from './transforms/remove-alpha-from-alpha-stack.js'
+import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
+import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
+import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
+import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-variable/theme.js'
+import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
+import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
+import styledToStyledComponents from './transforms/v2-import-styled-from-styled-components/transform.js'
+import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
+import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
 
 enum Step {
   SelectTransformer,
@@ -42,15 +43,16 @@ enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   EnumMemberToStringLiteral = 'enum-member-to-string-literal',
-  FoundationToCssVariableTheme = 'foundation-to-css-variable-theme',
-  FoundationToCssVariableBorder = 'foundation-to-css-variable-border',
-  FoundationToCssVariableElevation = 'foundation-to-css-variable-elevation',
-  FoundationToCssVariableRounding = 'foundation-to-css-variable-rounding',
-  FoundationToCssVariableTransition = 'foundation-to-css-variable-transition',
-  FoundationToCssVariable = 'foundation-to-css-variable',
-  InterpolationToCssVariable = 'interpolation-to-css-variable',
-  StyledToStyledComponents = 'styled-to-styled-components',
   RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
+  FoundationToCssVariableTheme = 'v2-foundation-to-css-variable-theme',
+  FoundationToCssVariableBorder = 'v2-foundation-to-css-variable-border',
+  FoundationToCssVariableElevation = 'v2-foundation-to-css-variable-elevation',
+  FoundationToCssVariableRounding = 'v2-foundation-to-css-variable-rounding',
+  FoundationToCssVariableTransition = 'v2-foundation-to-css-variable-transition',
+  FoundationToCssVariable = 'v2-foundation-to-css-variable',
+  InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
+  TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
+  StyledToStyledComponents = 'v2-styled-to-styled-components',
   Exit = 'Exit',
 }
 
@@ -66,7 +68,8 @@ const transformMap = {
   [Option.FoundationToCssVariableRounding]: foundationToCssVariableRounding,
   [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
   [Option.FoundationToCssVariable]: foundationToCssVariable,
-  [Option.InterpolationToCssVariable]: interpolationToCssVariable,
+  [Option.InputInterpolationToCssVariable]: inputInterpolationToCssVariable,
+  [Option.TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
   [Option.StyledToStyledComponents]: styledToStyledComponents,
   [Option.RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
 }

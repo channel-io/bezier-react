@@ -90,7 +90,7 @@ export default () => (
 
 ### Foundation to CSS Variable
 
-**`foundation-to-css-variable`**
+**`v2-foundation-to-css-variable`**
 
 Replace foundation to css variable
 You can also use individual transform function such as `foundation-to-css-theme`, `foundation-to-css-rounding`, and so on.
@@ -142,9 +142,9 @@ const Wrapper = styled.div`
 
 ### Interpolation to CSS Variable
 
-**`interpolation-to-css-variable`**
+**`v2-input-interpolation-to-css-variable`**
 
-Replace mixin interpolation to css variable
+Replace input interpolation to css variable
 For example:
 
 ```tsx
@@ -153,17 +153,12 @@ import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
-  Typography,
 } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
   ${inputWrapperStyle};
 
   ${({ focus }) => focus && focusedInputWrapperStyle};
-
-  ${({ focus, whisper }) => focus && whisper && erroredInputWrapperStyle};
-
-  ${Typography.Size11};
 `;
 ```
 
@@ -175,22 +170,42 @@ import { styled } from "@channel.io/bezier-react";
 const Wrapper = styled.div`
   box-shadow: var(--input-box-shadow);
 
-  ${({ focus }) => focus && css`
-  box-shadow: var(--input-box-shadow-focused);
-`};
+  ${({ focus }) =>
+    focus &&
+    css`
+      box-shadow: var(--input-box-shadow-focused);
+    `};
+`;
+```
 
-  ${({ focus, whisper }) => focus && whisper && css`
-  box-shadow: var(--input-box-shadow-invalid);
+**`v2-typography-interpolation-to-css-variable`**
 
+Replace typography interpolation to css variable
+For example:
+
+```tsx
+import { styled, Typography } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  ${Typography.Size11};
+`;
+```
+
+Transforms into:
+
+```tsx
+import { styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
   /* NOTE: Do not use font-related css variables below separately, use Text component instead */
   font-size: var(--typography-size-11-font-size);
   line-height: var(--typography-size-11-line-height);
-`};
+`;
 ```
 
 ### Styled from @channel.io/bezier-react to styled-components
 
-**`styled-to-styled-components`**
+**`v2-styled-to-styled-components`**
 
 Switch library to import `styled` object from `@channel.io/bezier-react` to `styled-components`
 For example:
