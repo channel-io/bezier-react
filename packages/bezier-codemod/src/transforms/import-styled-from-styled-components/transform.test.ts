@@ -1,5 +1,6 @@
-import { testTransformFunction } from '../../../utils/test.js'
-import importTransform from '../../import-styled-from-styled-components/transform.js'
+import { testTransformFunction } from '../../utils/test.js'
+
+import importTransform from './transform.js'
 
 describe('import transform', () => {
   it('should transform styled import from bezier-react to styled-components (1)', () => {

@@ -1,8 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
-import project from '../../../project.js'
-import iconNameToBezierIcon from '../../icon-name-to-bezier-icons/transform.js'
+import project from '../../project.js'
+
+import iconNameToBezierIcon from './transform.js'
 
 describe('iconsToBezierIcons', () => {
   it('converts iconName prop to BezierIcon source and import icons when bezier is not imported', () => {

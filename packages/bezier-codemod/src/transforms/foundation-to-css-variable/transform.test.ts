@@ -1,9 +1,10 @@
-import { testTransformFunction } from '../../../utils/test.js'
-import borderTransform from '../../foundation-to-css-variable/border.js'
-import elevationTransform from '../../foundation-to-css-variable-elevation.js'
-import roundingTransform from '../../foundation-to-css-variable-rounding.js'
-import themeTransform from '../../foundation-to-css-variable-theme.js'
-import transitionTransform from '../../foundation-to-css-variable-transition.js'
+import { testTransformFunction } from '../../utils/test.js'
+
+import borderTransform from './border.js'
+import elevationTransform from './elevation.js'
+import roundingTransform from './rounding.js'
+import themeTransform from './theme.js'
+import transitionTransform from './transition.js'
 
 describe('theme transform', () => {
   it('should transform foundation to css variable', () => {

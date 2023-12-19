@@ -1,8 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
-import project from '../../../project.js'
-import enumMemberToStringLiteral from '../../enum-member-to-string-literal/transform.js'
+import project from '../../project.js'
+
+import enumMemberToStringLiteral from './transform.js'
 
 describe('enumMemberToStringLiteral', () => {
   it('should transform enum members to string literals correctly', () => {
