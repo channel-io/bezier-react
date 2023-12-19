@@ -15,15 +15,15 @@ describe('Stack', () => {
     })
 
     it('creates a horizontal flexbox when given direction="horizontal"', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" gap={10} />)
+      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" spacing={10} />)
       expect(getByTestId('stack')).toHaveClass(styles['direction-horizontal'])
-      expect(getByTestId('stack')).toHaveStyle('--b-stack-gap: 10px')
+      expect(getByTestId('stack')).toHaveStyle('--b-stack-spacing: 10px')
     })
 
     it('creates a vertical flexbox when given direction="vertical"', () => {
-      const { getByTestId } = render(<Stack direction="vertical" testId="stack" gap={10} />)
+      const { getByTestId } = render(<Stack direction="vertical" testId="stack" spacing={10} />)
       expect(getByTestId('stack')).toHaveClass(styles['direction-vertical'])
-      expect(getByTestId('stack')).toHaveStyle('--b-stack-gap: 10px')
+      expect(getByTestId('stack')).toHaveStyle('--b-stack-spacing: 10px')
     })
   })
 

@@ -24,7 +24,7 @@ function RadioGroupImpl<Value extends string>({
         ref={forwardedRef}
         justify="start"
         align="stretch"
-        gap={spacing}
+        spacing={spacing}
         direction={direction}
       >
         { children }

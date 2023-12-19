@@ -37,7 +37,7 @@ interface StackOwnProps {
   /**
    * Spacing between children.
    */
-  gap?: string | number
+  spacing?: string | number
   /**
    * Whether to reverse the order of children.
    */

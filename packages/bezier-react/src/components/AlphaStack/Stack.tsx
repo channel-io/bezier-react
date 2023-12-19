@@ -50,7 +50,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
     direction,
     justify,
     align,
-    gap,
+    spacing,
     reverse,
     wrap,
     testId = 'bezier-react-stack',
@@ -60,7 +60,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
   return createElement(as, {
     ref: forwardedRef,
     style: {
-      '--b-stack-gap': cssDimension(gap),
+      '--b-stack-spacing': cssDimension(spacing),
       ...getMarginStyle(marginProps),
       ...getLayoutStyle(layoutProps),
       ...style,

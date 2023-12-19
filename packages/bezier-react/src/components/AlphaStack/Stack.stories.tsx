@@ -43,7 +43,7 @@ export const Primary: Story = {
   render: Template,
   args: {
     direction: 'horizontal',
-    gap: 6,
+    spacing: 6,
   },
 }
 
