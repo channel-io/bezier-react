@@ -6,7 +6,7 @@ import {
 
 type EnumTransforms = Record<string, Record<string, string>>
 
-function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransforms: EnumTransforms) {
+export function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransforms: EnumTransforms) {
   const transformedEnumNames: string[] = []
 
   sourceFile.forEachDescendant((node) => {
