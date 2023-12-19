@@ -1,5 +1,4 @@
 import {
-  Node,
   type SourceFile,
   SyntaxKind,
 } from 'ts-morph'
@@ -15,31 +14,24 @@ export function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumT
       const firstIdentifier = node.getFirstChildByKind(SyntaxKind.Identifier)
       const lastIdentifier = node.getLastChildByKind(SyntaxKind.Identifier)
 
-      if (firstIdentifier && lastIdentifier) {
-        const declarationSymbol = firstIdentifier.getSymbol()
-        const memberSymbol = lastIdentifier.getSymbol()
-        const memberValueDeclaration = memberSymbol?.getValueDeclaration()
+      const enumName = firstIdentifier?.getText()
+      const enumValue = lastIdentifier?.getText()
 
-        if (Node.isEnumMember(memberValueDeclaration)) {
-          const enumName = declarationSymbol?.getName()
-          const enumMember = memberSymbol?.getName()
+      if (!enumName || !enumValue) { return }
+      if (!Object.keys(enumTransforms).includes(enumName)) { return }
 
-          if (enumName && enumMember) {
-            const newEnumMemberValue = enumTransforms[enumName]?.[enumMember]
-            const ancestor = node.getFirstAncestor()
+      const newEnumMemberValue = enumTransforms[enumName]?.[enumValue]
+      const ancestor = node.getFirstAncestor()
 
-            if (!newEnumMemberValue) { return }
+      if (!newEnumMemberValue) { return }
 
-            if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
-              ancestor.replaceWithText(`'${newEnumMemberValue}'`)
-            } else {
-              node.replaceWithText(`'${newEnumMemberValue}'`)
-            }
-
-            transformedEnumNames.push(enumName)
-          }
-        }
+      if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
+        ancestor.replaceWithText(`'${newEnumMemberValue}'`)
+      } else {
+        node.replaceWithText(`'${newEnumMemberValue}'`)
       }
+
+      transformedEnumNames.push(enumName)
     })
 
   if (transformedEnumNames.length > 0) {

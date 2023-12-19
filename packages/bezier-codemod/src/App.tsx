@@ -31,6 +31,7 @@ import styledToStyledComponents from './transforms/v2-import-styled-from-styled-
 import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
 import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
 import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
+import zIndexInterpolationToCssVariable from './transforms/v2-z-index-interpolation-to-css-variable/transform.js'
 
 enum Step {
   SelectTransformer,
@@ -52,7 +53,8 @@ enum Option {
   V2InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
   V2TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
   V2StyledToStyledComponents = 'v2-styled-to-styled-components',
-  V2RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
+  V2RemoveAlphaFromAlphaStack = 'v2-remove-alpha-from-alpha-stack',
+  V2ZIndexInterpolationToCssVariable = 'v2-z-index-interpolation-to-css-variable',
   Exit = 'Exit',
 }
 
@@ -72,6 +74,7 @@ const transformMap = {
   [Option.V2TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
   [Option.V2StyledToStyledComponents]: styledToStyledComponents,
   [Option.V2RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
+  [Option.V2ZIndexInterpolationToCssVariable]: zIndexInterpolationToCssVariable,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
