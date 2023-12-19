@@ -1,6 +1,8 @@
 @layer components {
   .Text {
-    color: var(--b-text-color, inherit);
+    --b-text-color: inherit;
+
+    color: var(--b-text-color);
     font-style: normal;
     font-weight: var(--font-weight-400);
     transition: color var(--transition-s);

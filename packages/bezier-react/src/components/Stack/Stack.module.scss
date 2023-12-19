@@ -1,7 +1,9 @@
 @layer components {
   .Stack {
+    --b-stack-spacing: initial;
+
     box-sizing: border-box;
-    gap: var(--b-stack-spacing, normal);
+    gap: var(--b-stack-spacing);
 
     &.display-flex {
       display: flex;

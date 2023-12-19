@@ -140,7 +140,7 @@ export const getMarginStyle = <Props extends MarginProps>({
   mb,
   ml,
 }: Props) => ({
-    '--b-margin-all': cssDimension(m),
+    '--b-margin': cssDimension(m),
     '--b-margin-x': cssDimension(mx),
     '--b-margin-y': cssDimension(my),
     '--b-margin-top': cssDimension(mt),
@@ -186,7 +186,7 @@ export const getLayoutStyle = <Props extends LayoutProps>({
   overflowX,
   overflowY,
 }: Props) => ({
-    '--b-padding-all': cssDimension(p),
+    '--b-padding': cssDimension(p),
     '--b-padding-x': cssDimension(px),
     '--b-padding-y': cssDimension(py),
     '--b-padding-top': cssDimension(pt),
