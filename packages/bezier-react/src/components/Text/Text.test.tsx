@@ -5,60 +5,46 @@ import { render } from '~/src/utils/test'
 import { Text } from './Text'
 import { type TextProps } from './Text.types'
 
+import styles from './Text.module.scss'
+
 const TEXT = 'Hello, Channel!'
 
 describe('Text', () => {
-  let props: TextProps
-
-  beforeEach(() => {
-    props = {
-      children: TEXT,
-    }
-  })
-
-  const renderComponent = (optionProps?: TextProps) => render(<Text {...props} {...optionProps} />)
+  const renderComponent = (props?: TextProps) => render(<Text {...props}>{ TEXT }</Text>)
 
   it('should have default style', () => {
     const { getByText } = renderComponent()
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('color: var(--b-text-color, inherit);')
-    expect(rendered).toHaveStyle('font-style: normal;')
-    expect(rendered).toHaveStyle('font-weight: var(--font-weight-400);')
-    expect(rendered).toHaveStyle('transition: color var(--transition-s);')
+    expect(rendered).toHaveClass(styles.Text)
   })
 
   it('should receives bold style', () => {
     const { getByText } = renderComponent({ bold: true })
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('font-weight: var(--font-weight-700);')
+    expect(rendered).toHaveClass(styles.bold)
   })
 
   it('should receives italic style', () => {
     const { getByText } = renderComponent({ italic: true })
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('font-style: italic;')
+    expect(rendered).toHaveClass(styles.italic)
   })
 
   it('should receives truncated style', () => {
     const { getByText } = renderComponent({ truncated: true })
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('display: block;')
-    expect(rendered).toHaveStyle('overflow: hidden;')
-    expect(rendered).toHaveStyle('text-overflow: ellipsis;')
-    expect(rendered).toHaveStyle('white-space: nowrap;')
+    expect(rendered).toHaveClass(styles.truncated)
   })
 
-  it('should receives style object', () => {
-    const { getByText } = renderComponent({ style: { color: 'skyblue' } })
+  it('should receives align style', () => {
+    const { getByText } = renderComponent({ align: 'center' })
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('color: skyblue;')
+    expect(rendered).toHaveClass(styles['align-center'])
   })
 
   it('should receives typo', () => {
     const { getByText } = renderComponent({ typo: '24' })
     const rendered = getByText(TEXT)
-    expect(rendered).toHaveStyle('font-size: var(--typography-size-24-font-size);')
-    expect(rendered).toHaveStyle('line-height: var(--typography-size-24-line-height);')
-    expect(rendered).toHaveStyle('letter-spacing: var(--typography-size-24-letter-spacing);')
+    expect(rendered).toHaveClass(styles['typo-24'])
   })
 })

@@ -113,7 +113,7 @@ describe('FormControl >', () => {
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
       expect(labelNode).toHaveStyle({
-        'font-size': '1.3rem',
+        'font-size': 'var(--typography-size-13-font-size);',
       })
     })
 
@@ -126,7 +126,7 @@ describe('FormControl >', () => {
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
       expect(labelNode).toHaveStyle({
-        'font-size': '1.4rem',
+        'font-size': 'var(--typography-size-14-font-size);',
       })
     })
 
@@ -139,7 +139,7 @@ describe('FormControl >', () => {
       const labelNode = getByText(MOCK_CONSTS.LABEL_TEXT)
 
       expect(labelNode).toHaveStyle({
-        'font-size': '1.8rem',
+        'font-size': 'var(--typography-size-18-font-size);',
       })
     })
 

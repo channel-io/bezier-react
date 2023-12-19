@@ -494,27 +494,6 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
 `;
 
 exports[`Button Test > Size Test > with text > Size L 1`] = `
-.c2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  -webkit-letter-spacing: -0.1px;
-  -moz-letter-spacing: -0.1px;
-  -ms-letter-spacing: -0.1px;
-  letter-spacing: -0.1px;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -568,7 +547,7 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 4px;
 }
 
@@ -595,8 +574,10 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="L"
+      class="margin Text typo-15 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
@@ -704,23 +685,6 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
 `;
 
 exports[`Button Test > Size Test > with text > Size M 1`] = `
-.c2 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -774,7 +738,7 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 4px;
 }
 
@@ -801,8 +765,10 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="M"
+      class="margin Text typo-14 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
@@ -910,23 +876,6 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
 `;
 
 exports[`Button Test > Size Test > with text > Size S 1`] = `
-.c2 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -980,7 +929,7 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 3px;
 }
 
@@ -1007,8 +956,10 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="S"
+      class="margin Text typo-13 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
@@ -1116,23 +1067,6 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
 `;
 
 exports[`Button Test > Size Test > with text > Size XL 1`] = `
-.c2 {
-  font-size: 1.8rem;
-  line-height: 2.4rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1186,7 +1120,7 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 4px;
 }
 
@@ -1213,8 +1147,10 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="XL"
+      class="margin Text typo-18 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
@@ -1322,23 +1258,6 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
 `;
 
 exports[`Button Test > Size Test > with text > Size XS 1`] = `
-.c2 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1392,7 +1311,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 3px;
 }
 
@@ -1419,8 +1338,10 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="XS"
+      class="margin Text typo-13 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
@@ -1429,23 +1350,6 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
 `;
 
 exports[`Button Test > Size Test > with text > size prop not given, default size is Size M 1`] = `
-.c2 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: bold;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1499,7 +1403,7 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
   background-color: #4E40C9;
 }
 
-.c3 {
+.c2 {
   padding: 0 4px;
 }
 
@@ -1526,8 +1430,10 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
     data-testid="bezier-react-button-inner-content"
   >
     <span
-      class="c2 c3"
+      buttonsize="M"
+      class="margin Text typo-14 bold c2"
       data-testid="bezier-react-button-text"
+      foundation="[object Object]"
     >
       Test Button
     </span>
