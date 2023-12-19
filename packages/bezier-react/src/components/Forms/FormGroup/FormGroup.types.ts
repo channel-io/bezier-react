@@ -1,14 +1,14 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import type { LegacyStackProps } from '~/src/components/LegacyStack'
+import type { StackProps } from '~/src/components/Stack'
 
 interface FormGroupProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
-  Partial<Pick<LegacyStackProps, 'direction' | 'spacing'>>,
+  Partial<Pick<StackProps, 'direction' | 'spacing' | 'wrap'>>,
   React.HTMLAttributes<HTMLDivElement> {}
 
 export default FormGroupProps
