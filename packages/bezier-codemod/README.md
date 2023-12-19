@@ -182,7 +182,7 @@ const Wrapper = styled.div`
   ${({ focus, whisper }) => focus && whisper && css`
   box-shadow: var(--input-box-shadow-invalid);
 
-  // NOTE: Do not use css variable below separately, use Text component instead
+  // NOTE: Do not use font-related css variables below separately, use Text component instead
   font-size: var(--typography-size-11-font-size);
   line-height: var(--typography-size-11-line-height);
 `};

@@ -11,7 +11,7 @@ import {
   removeUnusedNamedImport,
 } from '../utils/import.js'
 
-const WARNING_COMMENT = '// NOTE: Do not use css variable below separately, use Text component instead'
+const WARNING_COMMENT = '// NOTE: Do not use font-related css variables below separately, use Text component instead'
 const getFontSize = (num: number) => `font-size: var(--typography-size-${num}-font-size);`
 const getLineHeight = (num: number) => `line-height: var(--typography-size-${num}-line-height);`
 const getLetterSpacing = (num: number) => `letter-spacing: var(--typography-size-${num}-letter-spacing);`
