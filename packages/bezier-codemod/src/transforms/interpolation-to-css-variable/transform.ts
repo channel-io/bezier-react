@@ -9,7 +9,7 @@ import {
   getImportDeclaration,
   hasNamedImport,
   removeUnusedNamedImport,
-} from '../utils/import.js'
+} from '../../utils/import.js'
 
 const WARNING_COMMENT = '/* NOTE: Do not use font-related css variables below separately, use Text component instead */'
 const getFontSize = (num: number) => `font-size: var(--typography-size-${num}-font-size);`

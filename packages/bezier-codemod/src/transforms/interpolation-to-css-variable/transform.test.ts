@@ -4,6 +4,6 @@ import interpolationTransform from './transform.js'
 
 describe('mixin transform', () => {
   it('should transform mixin interpolation to css variable', () => {
-    testTransformFunction(__dirname, 'mixin1', interpolationTransform)
+    testTransformFunction(__dirname, 'interpolation1', interpolationTransform)
   })
 })

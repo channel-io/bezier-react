@@ -28,7 +28,7 @@ import foundationToCssVariableTransition from './transforms/foundation-to-css-va
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
 import styledToStyledComponents from './transforms/import-styled-from-styled-components/transform.js'
-import interpolationToCssVariable from './transforms/interpolation-to-css-variable.js'
+import interpolationToCssVariable from './transforms/interpolation-to-css-variable/transform.js'
 import removeAlphaFromAlphaStack from './transforms/remove-alpha-from-alpha-stack.js'
 
 enum Step {
