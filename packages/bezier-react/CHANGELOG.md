@@ -1,5 +1,29 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.3
+
+### Major Changes
+
+- Removed `LegacySegmentedControl` component. Previously deprecated in next-v1.204. This component was removed for reasons of web accessibility, keyboard navigation, and design modernization. Use `SegmentedControl` instead. ([#1786](https://github.com/channel-io/bezier-react/pull/1786)) by @sungik-choi
+
+### Minor Changes
+
+- When you pass a value of number type to the dimension-related properties of margin prop and layout prop, they implicitly add px units as a suffix. See: <https://react.dev/reference/react-dom/components/common#common> ([#1823](https://github.com/channel-io/bezier-react/pull/1823)) by @sungik-choi
+
+- Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system. ([#1785](https://github.com/channel-io/bezier-react/pull/1785)) by @sungik-choi
+
+  ```tsx
+  <Box width="100px" height="100px" p="6px" m="6px" bgColor="bg-black-light" />
+  ```
+
+- Rename `AlphaAppProvider` to `AppProvider`. ([#1834](https://github.com/channel-io/bezier-react/pull/1834)) by @sungik-choi
+
+- Rename the `style.css` file to `styles.css`. ([#1791](https://github.com/channel-io/bezier-react/pull/1791)) by @sungik-choi
+
+### Patch Changes
+
+- Minify the CSS output. ([#1791](https://github.com/channel-io/bezier-react/pull/1791)) by @sungik-choi
+
 ## 2.0.0-alpha.2
 
 ### Minor Changes
