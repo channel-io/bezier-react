@@ -7,7 +7,7 @@ import {
   type ts,
 } from 'ts-morph'
 
-import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
+import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
 
 const cssVarByDuration: Record<string, string> = {
   'TransitionDuration.S': 'var(--transition-s)',

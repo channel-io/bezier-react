@@ -4,7 +4,7 @@ import {
   type SourceFile,
 } from 'ts-morph'
 
-import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
+import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
 
 const getElevationNum = (text: string) => text.match(/ev(\d+)/)?.[1]
 

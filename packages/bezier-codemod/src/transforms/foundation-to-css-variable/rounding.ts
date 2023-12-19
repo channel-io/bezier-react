@@ -4,7 +4,7 @@ import {
   type SourceFile,
 } from 'ts-morph'
 
-import { getArrowFunctionsWithOneArgument } from '../utils/function.js'
+import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
 
 const getRound = (text: string) => text.match(/round(\d+)/)?.[1]
 
