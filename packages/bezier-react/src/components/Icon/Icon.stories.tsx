@@ -39,12 +39,12 @@ import {
 import { camelCase } from '~/src/utils/string'
 
 import { Select } from '~/src/components/Forms/Inputs/Select'
-import { ListItem } from '~/src/components/ListItem'
 import {
   LegacyHStack,
   LegacyStackItem,
   LegacyVStack,
 } from '~/src/components/LegacyStack'
+import { ListItem } from '~/src/components/ListItem'
 import { Text } from '~/src/components/Text'
 
 import { Icon } from './Icon'

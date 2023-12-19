@@ -6,11 +6,11 @@ import {
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
-import { Stack } from '~/src/components/Stack'
 import {
   Icon as BaseIcon,
   IconSize,
 } from '~/src/components/Icon'
+import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
 import { type TooltipProps } from './Tooltip.types'

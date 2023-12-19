@@ -28,17 +28,17 @@ import { styled } from '~/src/foundation'
 
 import { Avatar } from '~/src/components/Avatars/Avatar'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
+import {
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import { ListItem } from '~/src/components/ListItem'
 import {
   Overlay,
   OverlayPosition,
 } from '~/src/components/Overlay'
 import { SectionLabel } from '~/src/components/SectionLabel'
-import {
-  LegacyHStack,
-  LegacyStackItem,
-  LegacyVStack,
-} from '~/src/components/LegacyStack'
 import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
 

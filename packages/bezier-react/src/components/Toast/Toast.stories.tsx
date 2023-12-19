@@ -22,11 +22,11 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { ProgressBar } from '~/src/components/ProgressBar'
 import {
   LegacyStackItem,
   LegacyVStack,
 } from '~/src/components/LegacyStack'
+import { ProgressBar } from '~/src/components/ProgressBar'
 
 import type ToastProps from './Toast.types'
 import { type ToastOptions } from './Toast.types'

@@ -7,8 +7,8 @@ import {
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
-import { Stack } from '~/src/components/Stack'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
