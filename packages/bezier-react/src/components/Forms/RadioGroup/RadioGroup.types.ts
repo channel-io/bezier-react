@@ -2,6 +2,7 @@ import type * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 import {
   type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
@@ -62,7 +63,7 @@ export interface RadioGroupProps<Value extends string> extends
   RadioGroupOptions<Value> {}
 
 export interface RadioProps<Value extends string> extends
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, keyof RadioOptions<Value>>,
