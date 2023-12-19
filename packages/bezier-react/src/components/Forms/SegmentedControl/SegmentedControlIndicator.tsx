@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 
 import { DIVIDER_THICKNESS } from '~/src/components/Divider'
 
@@ -13,8 +10,6 @@ import {
 } from './SegmentedControlContext'
 
 import * as Styled from './SegmentedControl.styled'
-
-const cv = cssVarName('segmented-control-indicator')
 
 export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
 
@@ -31,10 +26,10 @@ export function SegmentedControlIndicator() {
   const containerHorizontalPadding = `${2 * containerPadding}px`
 
   const style = {
-    [cv('translateX')]: `calc(${selectedItemIndex * 100}% + ${selectedItemIndex * DIVIDER_THICKNESS}px)`,
-    [cv('width')]: `calc((100% - ${dividerTotalWidth} - ${containerHorizontalPadding}) / ${itemCount})`,
-    [cv('height')]: px(containerHeight - (2 * containerPadding)),
-    [cv('left')]: px(containerPadding),
+    '--b-segmented-control-indicator-translateX': `calc(${selectedItemIndex * 100}% + ${selectedItemIndex * DIVIDER_THICKNESS}px)`,
+    '--b-segmented-control-indicator-width': `calc((100% - ${dividerTotalWidth} - ${containerHorizontalPadding}) / ${itemCount})`,
+    '--b-segmented-control-indicator-height': px(containerHeight - (2 * containerPadding)),
+    '--b-segmented-control-indicator-left': px(containerPadding),
   } as React.CSSProperties
 
   return (

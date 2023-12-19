@@ -12,6 +12,7 @@ export const Box = styled.div`
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
 
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);

@@ -14,7 +14,7 @@ import {
 } from './ThemeProvider'
 import { WindowProvider } from './WindowProvider'
 
-export interface AlphaAppProviderProps {
+export interface AppProviderProps {
   children: React.ReactNode
   /**
    * Name of the theme to use for the app.
@@ -34,31 +34,31 @@ export interface AlphaAppProviderProps {
 }
 
 /**
- * `AlphaAppProvider` is a required wrapper component that provides context for the app.
+ * `AppProvider` is a required wrapper component that provides context for the app.
  *
  * @example
  *
  * ```tsx
  * import React from 'react'
  * import { createRoot } from 'react-dom/client'
- * import { AlphaAppProvider } from '@channel.io/bezier-react'
+ * import { AppProvider } from '@channel.io/bezier-react'
  *
  * const container = document.getElementById('root')
  * const root = createRoot(container)
  *
  * root.render(
- *   <AlphaAppProvider themeName="light">
+ *   <AppProvider themeName="light">
  *     <App />
- *   </AlphaAppProvider>,
+ *   </AppProvider>,
  * )
  * ```
  */
-export function AlphaAppProvider({
+export function AppProvider({
   children,
   themeName = 'light',
   features = [],
   window = defaultWindow,
-}: AlphaAppProviderProps) {
+}: AppProviderProps) {
   useEffect(function updateRootThemeDataAttribute() {
     const rootElement = window.document.documentElement
     // TODO: Change data attribute constant to import from bezier-tokens

@@ -10,10 +10,7 @@ import { Typography } from '~/src/foundation'
 
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 
 import {
   type AvatarProps,
@@ -34,8 +31,6 @@ import {
 } from './AvatarGroup.types'
 
 import * as Styled from './AvatarGroup.styled'
-
-const cv = cssVarName('avatar-group')
 
 const MAX_AVATAR_LIST_COUNT = 99
 
@@ -169,8 +164,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
             { AvatarElement }
             <Styled.AvatarEllipsisCountWrapper
               style={{
-                [cv('ellipsis-mr')]: px(getProperEllipsisCountMarginRight(size)),
-                [cv('ellipsis-ml')]: px(Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)),
+                '--b-avatar-group-ellipsis-mr': px(getProperEllipsisCountMarginRight(size)),
+                '--b-avatar-group-ellipsis-ml': px(Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)),
               } as React.CSSProperties}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
@@ -209,8 +204,8 @@ forwardedRef: React.Ref<HTMLDivElement>,
       className={className}
       style={{
         ...style,
-        [cv('spacing')]: px(spacing),
-        [cv('size')]: px(size),
+        '--b-avatar-group-spacing': px(spacing),
+        '--b-avatar-group-size': px(size),
       } as React.CSSProperties}
       {...rest}
     >

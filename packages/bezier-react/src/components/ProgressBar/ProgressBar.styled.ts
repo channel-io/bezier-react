@@ -4,11 +4,7 @@ import {
   styled,
 } from '~/src/foundation'
 
-import { px } from '~/src/utils/style'
-import {
-  isEmpty,
-  isNumber,
-} from '~/src/utils/type'
+import { cssDimension } from '~/src/utils/style'
 
 import type ProgressBarProps from './ProgressBar.types'
 
@@ -78,7 +74,7 @@ interface StyledProgressBarWrapperProps extends ProgressBarProps {
 
 /* eslint-disable no-nested-ternary */
 export const StyledProgressBarWrapper = styled.div<StyledProgressBarWrapperProps>`
-  width: ${({ width }) => (isNumber(width) ? px(width) : !isEmpty(width) ? width : '36px')};
+  width: ${({ width }) => cssDimension(width) ?? '36px'};
   height: ${({ size }) => PROGRESS_BAR_HEIGHT[size]}px;
 
   ${getProgressBarBackgroundColor}

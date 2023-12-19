@@ -3,8 +3,8 @@ import { css } from '~/src/foundation'
 import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { type FlattenAllToken } from '~/src/types/Token'
 import {
-  isEmpty,
   isNil,
+  isString,
 } from '~/src/utils/type'
 
 export function gap(spacing: number): InjectedInterpolation {
@@ -39,16 +39,30 @@ export function touchableHover(interpolation: InjectedInterpolation): InjectedIn
   `
 }
 
-export const px = <Value extends number | undefined>(value: Value) => (!isNil(value) ? `${value}px` as const : undefined)
+export function px<Value extends number>(value?: Value) {
+  if (isNil(value)) {
+    return undefined
+  }
+  if (value !== 0) {
+    return `${value}px` as const
+  }
+  return value as 0
+}
 
-export const cssVarName = <ComponentName extends string>(componentName?: ComponentName) =>
-  <PropertyName extends string>(propertyName: PropertyName) => (
-    isEmpty(componentName)
-      ? `--b-${propertyName}` as const
-      : `--b-${componentName}-${propertyName}` as const
-  )
+export function cssDimension<Value extends number | string>(value?: Value) {
+  if (isNil(value)) {
+    return undefined
+  }
+  if (isString(value)) {
+    return value
+  }
+  if (value !== 0) {
+    return `${value}px` as const
+  }
+  return value as 0
+}
 
-export function cssVarValue<
+export function cssVar<
   PropertyName extends string | undefined,
 >(propertyName: PropertyName) {
   /* eslint-disable no-nested-ternary */
@@ -58,12 +72,12 @@ export function cssVarValue<
   /* eslint-enable no-nested-ternary */
 }
 
-export function tokenCssVarValue<
+export function tokenCssVar<
   PropertyName extends FlattenAllToken | undefined,
 >(propertyName: PropertyName) {
-  return cssVarValue(propertyName)
+  return cssVar(propertyName)
 }
 
-export function cssUrl(url: string | undefined) {
-  return url ? `url(${url})` : undefined
+export function cssUrl(url?: string) {
+  return isNil(url) ? undefined : `url(${url})`
 }

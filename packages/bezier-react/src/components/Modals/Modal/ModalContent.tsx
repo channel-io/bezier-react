@@ -10,10 +10,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
-import {
-  cssVarName,
-  px,
-} from '~/src/utils/style'
+import { cssDimension } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
 import {
@@ -27,8 +24,6 @@ import {
 import { ModalClose } from './ModalHelpers'
 
 import * as Styled from './Modal.styled'
-
-const cv = cssVarName('modal')
 
 /**
  * `ModalContent` is a container of the modal content.
@@ -76,8 +71,8 @@ export const ModalContent = forwardRef(function ModalContent({
     })()
 
     return ({
-      [cv('z-index')]: zIndex,
-      [cv('collision-padding')]: padding,
+      '--b-modal-z-index': zIndex,
+      '--b-modal-collision-padding': padding,
     } as React.CSSProperties)
   }, [
     collisionPadding,
@@ -86,8 +81,8 @@ export const ModalContent = forwardRef(function ModalContent({
 
   const contentStyle = useMemo(() => ({
     ...style,
-    [cv('width')]: isNumber(width) ? px(width) : width,
-    [cv('height')]: isNumber(height) ? px(height) : height,
+    '--b-modal-width': cssDimension(width),
+    '--b-modal-height': cssDimension(height),
   } as React.CSSProperties), [
     style,
     width,
