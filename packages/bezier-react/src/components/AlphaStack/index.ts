@@ -1,2 +1,2 @@
-export { Stack as AlphaStack } from './AlphaStack'
-export type { StackProps as AlphaStackProps } from './AlphaStack.types'
+export { Stack as AlphaStack } from './Stack'
+export type { StackProps as AlphaStackProps } from './Stack.types'

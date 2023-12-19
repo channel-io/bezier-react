@@ -10,7 +10,7 @@ import { css } from '~/src/foundation/FoundationStyledComponent'
 
 import { range } from '~/src/utils/number'
 
-import { Stack } from './AlphaStack'
+import { Stack } from './Stack'
 
 const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
 

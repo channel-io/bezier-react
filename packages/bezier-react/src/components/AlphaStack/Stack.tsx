@@ -15,7 +15,7 @@ import { cssDimension } from '~/src/utils/style'
 
 import sharedStyles from '~/src/components/shared.module.scss'
 
-import type { StackProps } from './AlphaStack.types'
+import type { StackProps } from './Stack.types'
 
 import styles from './Stack.module.scss'
 

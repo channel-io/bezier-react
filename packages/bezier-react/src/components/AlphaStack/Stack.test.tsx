@@ -4,7 +4,7 @@ import { css } from '~/src/foundation'
 
 import { render } from '~/src/utils/test'
 
-import { Stack } from './AlphaStack'
+import { Stack } from './Stack'
 
 describe('alpha-Stack', () => {
   describe('Flex layout', () => {
