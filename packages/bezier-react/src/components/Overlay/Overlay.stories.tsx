@@ -18,6 +18,9 @@ import { OverlayPosition } from './Overlay.types'
 const meta: Meta<OverlayProps & {
   containerWidth: number
   containerHeight: number
+} & {
+  targetTop: number
+  targetLeft: number
 }> = {
   component: Overlay,
   argTypes: {
@@ -76,19 +79,40 @@ const meta: Meta<OverlayProps & {
         step: 20,
       },
     },
+    targetTop: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 1000,
+        step: 20,
+      },
+    },
+    targetLeft: {
+      control: {
+        type: 'range',
+        min: 100,
+        max: 1000,
+        step: 20,
+      },
+    },
   },
 }
 export default meta
 
 interface ContainerProps {
-  width?: number
-  height?: number
+  containerWidth?: number
+  containerHeight?: number
+}
+
+interface TargetProps {
+  targetTop?: number
+  targetLeft?: number
 }
 
 const Container = styled.div<ContainerProps>`
   position: relative;
-  width: ${({ width }) => width ?? 600}px;
-  height: ${({ height }) => height ?? 500}px;
+  width: ${({ containerWidth }) => containerWidth ?? 600}px;
+  height: ${({ containerHeight }) => containerHeight ?? 500}px;
   overflow: hidden;
   border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
 `
@@ -99,10 +123,10 @@ const Wrapper = styled.div`
   height: 100%;
 `
 
-const Target = styled.div`
+const Target = styled.div<TargetProps>`
   position: absolute;
-  top: 200px;
-  left: 200px;
+  top: ${({ targetTop }) => targetTop ?? 200}px;
+  left: ${({ targetLeft }) => targetLeft ?? 200}px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,10 +152,12 @@ const ScrollContent = styled.div`
   color: white;
 `
 
-const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
+const OverlayTemplate: React.FC<OverlayProps & ContainerProps & TargetProps> = ({
   children,
-  width: containerWidth,
-  height: containerHeight,
+  containerWidth,
+  containerHeight,
+  targetTop,
+  targetLeft,
   ...rests
 }) => {
   const containerRef = useRef<any>(null)
@@ -139,12 +165,16 @@ const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
 
   return (
     <Container
-      width={containerWidth}
-      height={containerHeight}
+      containerWidth={containerWidth}
+      containerHeight={containerHeight}
       ref={containerRef}
     >
       <Wrapper>
-        <Target ref={targetRef}>
+        <Target
+          targetTop={targetTop}
+          targetLeft={targetLeft}
+          ref={targetRef}
+        >
           target
         </Target>
         <Overlay

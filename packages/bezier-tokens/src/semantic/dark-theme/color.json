@@ -26,10 +26,10 @@
       "value": "{grey.800-80}"
     },
     "header": {
-      "value": "{grey.800}",
-      "float": {
-        "value": "{grey.800-80}"
-      }
+      "value": "{grey.800}"
+    },
+    "header-float": {
+      "value": "{grey.800-80}"
     },
     "lounge": {
       "value": "{grey.800-90}"
