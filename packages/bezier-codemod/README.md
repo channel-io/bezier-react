@@ -140,9 +140,9 @@ const Wrapper = styled.div`
 `;
 ```
 
-### Mixin interpolation to CSS Variable
+### Interpolation to CSS Variable
 
-**`mixin-to-css-variable`**
+**`interpolation-to-css-variable`**
 
 Replace mixin interpolation to css variable
 For example:

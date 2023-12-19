@@ -16,7 +16,7 @@ const getFontSize = (num: number) => `font-size: var(--typography-size-${num}-fo
 const getLineHeight = (num: number) => `line-height: var(--typography-size-${num}-line-height);`
 const getLetterSpacing = (num: number) => `letter-spacing: var(--typography-size-${num}-letter-spacing);`
 
-const cssVariableByMixin = {
+const cssVariableByInterpolation = {
   inputTextStyle: 'color: var(--txt-black-darkest);',
   inputWrapperStyle: 'box-shadow: var(--input-box-shadow);',
   focusedInputWrapperStyle: 'box-shadow: var(--input-box-shadow-focused);',
@@ -38,7 +38,7 @@ const cssVariableByMixin = {
 const replaceTemplateExpression = (sourceFile: SourceFile) => {
   sourceFile
     .getDescendantsOfKind(SyntaxKind.TemplateExpression).forEach((node) => {
-      for (const [mixin, cssVariable] of Object.entries(cssVariableByMixin)) {
+      for (const [mixin, cssVariable] of Object.entries(cssVariableByInterpolation)) {
         if (!node.wasForgotten() && node.getText().includes(`\${${mixin}}`)) {
           node.replaceWithText(
             node.getText()
@@ -75,7 +75,7 @@ const replaceTemplateExpression = (sourceFile: SourceFile) => {
     })
 }
 
-const replaceMixin = (sourceFile: SourceFile) => {
+const replaceInterpolation = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
 
   replaceTemplateExpression(sourceFile)
@@ -90,4 +90,4 @@ const replaceMixin = (sourceFile: SourceFile) => {
   return isChanged
 }
 
-export default replaceMixin
+export default replaceInterpolation
