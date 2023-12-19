@@ -31,7 +31,7 @@ import styles from './Stack.module.scss'
  * ```tsx
  * <Stack
  *   direction="horizontal"
- *   gap={6}
+ *   spacing={6}
  * >
  *   <div>{ ... }</div>
  *   <div>{ ... }</div>
