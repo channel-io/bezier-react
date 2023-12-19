@@ -9,8 +9,9 @@ type EnumTransforms = Record<string, Record<string, string>>
 export function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumTransforms: EnumTransforms) {
   const transformedEnumNames: string[] = []
 
-  sourceFile.forEachDescendant((node) => {
-    if (node.isKind(SyntaxKind.PropertyAccessExpression)) {
+  sourceFile
+    .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression)
+    .forEach((node) => {
       const firstIdentifier = node.getFirstChildByKind(SyntaxKind.Identifier)
       const lastIdentifier = node.getLastChildByKind(SyntaxKind.Identifier)
 
@@ -24,8 +25,11 @@ export function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumT
           const enumMember = memberSymbol?.getName()
 
           if (enumName && enumMember) {
-            const newEnumMemberValue = enumTransforms[enumName][enumMember]
+            const newEnumMemberValue = enumTransforms[enumName]?.[enumMember]
             const ancestor = node.getFirstAncestor()
+
+            if (!newEnumMemberValue) { return }
+
             if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
               ancestor.replaceWithText(`'${newEnumMemberValue}'`)
             } else {
@@ -36,8 +40,7 @@ export function transformEnumMemberToStringLiteral(sourceFile: SourceFile, enumT
           }
         }
       }
-    }
-  })
+    })
 
   if (transformedEnumNames.length > 0) {
     sourceFile.fixUnusedIdentifiers()
