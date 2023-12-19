@@ -1,61 +1,41 @@
 import React from 'react'
 
-import { css } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { Stack } from './Stack'
 
-describe('alpha-Stack', () => {
+import styles from './Stack.module.scss'
+
+describe('Stack', () => {
   describe('Flex layout', () => {
     it('creates a flexbox', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" />)
-
-      expect(getByTestId('alpha-stack')).toHaveStyle('display: flex')
+      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" />)
+      expect(getByTestId('stack')).toHaveClass(styles.Stack)
+      expect(getByTestId('stack')).toHaveClass(styles['display-flex'])
     })
 
     it('creates a horizontal flexbox when given direction="horizontal"', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" spacing={10} />)
-
-      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: var(--b-alpha-stack-direction)')
-      expect(getByTestId('alpha-stack')).toHaveStyle('--b-alpha-stack-direction: row')
-      expect(getByTestId('alpha-stack')).toHaveStyle('gap: var(--b-alpha-stack-spacing)')
-      expect(getByTestId('alpha-stack')).toHaveStyle('--b-alpha-stack-spacing: 10px')
+      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" gap={10} />)
+      expect(getByTestId('stack')).toHaveClass(styles['direction-horizontal'])
+      expect(getByTestId('stack')).toHaveStyle('--b-stack-gap: 10px')
     })
 
     it('creates a vertical flexbox when given direction="vertical"', () => {
-      const { getByTestId } = render(<Stack direction="vertical" testId="alpha-stack" spacing={10} />)
-
-      expect(getByTestId('alpha-stack')).toHaveStyle('flex-direction: var(--b-alpha-stack-direction)')
-      expect(getByTestId('alpha-stack')).toHaveStyle('--b-alpha-stack-direction: column')
-      expect(getByTestId('alpha-stack')).toHaveStyle('gap: var(--b-alpha-stack-spacing)')
-      expect(getByTestId('alpha-stack')).toHaveStyle('--b-alpha-stack-spacing: 10px')
+      const { getByTestId } = render(<Stack direction="vertical" testId="stack" gap={10} />)
+      expect(getByTestId('stack')).toHaveClass(styles['direction-vertical'])
+      expect(getByTestId('stack')).toHaveStyle('--b-stack-gap: 10px')
     })
   })
 
   describe('Supports BezierComponentProps interface', () => {
-    it('supports as prop', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" as="main" />)
-
-      expect(getByTestId('alpha-stack').tagName).toBe('MAIN')
-    })
-
     it('supports style prop', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" style={{ backgroundColor: 'red' }} />)
-
-      expect(getByTestId('alpha-stack')).toHaveStyle({ 'background-color': 'red' })
+      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" style={{ backgroundColor: 'red' }} />)
+      expect(getByTestId('stack')).toHaveStyle({ 'background-color': 'red' })
     })
 
     it('supports className prop', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" className="foo" />)
-
-      expect(getByTestId('alpha-stack')).toHaveClass('foo')
-    })
-
-    it('supports interpolation prop', () => {
-      const { getByTestId } = render(<Stack direction="horizontal" testId="alpha-stack" interpolation={css`background-color: red;`} />)
-
-      expect(getByTestId('alpha-stack')).toHaveStyle({ 'background-color': 'red' })
+      const { getByTestId } = render(<Stack direction="horizontal" testId="stack" className="foo" />)
+      expect(getByTestId('stack')).toHaveClass('foo')
     })
   })
 })
