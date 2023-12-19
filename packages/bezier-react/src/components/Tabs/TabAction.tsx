@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { isNil } from '~/src/utils/type'
 
 import { IconSize } from '~/src/components/Icon'
@@ -21,11 +19,11 @@ import * as Styled from './TabAction.styled'
 const getTypoBy = (size: TabSize) => {
   switch (size) {
     case TabSize.L:
-      return Typography.Size14
+      return '14'
     case TabSize.M:
     case TabSize.S:
     default:
-      return Typography.Size13
+      return '13'
   }
 }
 

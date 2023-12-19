@@ -12,8 +12,6 @@ export const AvatarEllipsisCount = styled(Text)`
   align-items: center;
   height: var(--b-avatar-group-size);
   color: var(--txt-black-dark);
-
-  ${({ interpolation }) => interpolation}
 `
 
 export const AvatarGroup = styled.div`

@@ -14,7 +14,7 @@ export interface BaseHelperTextProps extends
   BezierComponentProps,
   ChildrenProps,
   Partial<IdentifierProps>,
-  TextProps,
+  Omit<TextProps, 'as'>,
   BaseHelperTextOptions {}
 
 export interface FormHelperTextProps extends Omit<BaseHelperTextProps, 'type'> {}

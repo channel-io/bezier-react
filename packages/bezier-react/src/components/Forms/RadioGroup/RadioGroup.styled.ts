@@ -1,7 +1,6 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
 import {
-  Typography,
   css,
   styled,
 } from '~/src/foundation'
@@ -105,7 +104,7 @@ export const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item)<RadioPro
 
 export const Label = styled(Text).attrs({
   forwardedAs: 'label',
-  typo: Typography.Size14,
+  typo: '14',
   color: 'txt-black-darkest',
 })`
   padding-left: 12px;

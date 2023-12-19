@@ -9,8 +9,6 @@ import {
   ChevronSmallRightIcon,
 } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { noop } from '~/src/utils/function'
 import { isNil } from '~/src/utils/type'
 
@@ -87,7 +85,7 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
           />
         </LeftIconWrapper>
 
-        <Text typo={Typography.Size14} truncated>
+        <Text typo="14" truncated>
           { content }
         </Text>
 

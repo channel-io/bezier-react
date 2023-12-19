@@ -1,6 +1,5 @@
 import {
   LineHeightAbsoluteNumber,
-  Typography,
   ellipsis,
   styled,
 } from '~/src/foundation'
@@ -40,19 +39,19 @@ export const TextContainer = styled.div`
   overflow: hidden;
 `
 
-export const Title = styled(Text).attrs({ typo: Typography.Size13, bold: true })`
+export const Title = styled(Text).attrs({ typo: '13', bold: true })`
   margin-bottom: 2px;
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
 `
 
-export const Content = styled(Text).attrs({ typo: Typography.Size13 })`
+export const Content = styled(Text).attrs({ typo: '13' })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-darkest']};
   /* NOTE: Line height of Typography.Size13  */
   ${ellipsis(20, LineHeightAbsoluteNumber.Lh18)}
   white-space: pre-wrap;
 `
 
-export const Description = styled(Text).attrs({ typo: Typography.Size12 })`
+export const Description = styled(Text).attrs({ typo: '12' })`
   color: ${({ foundation }) => foundation?.subTheme?.['txt-black-dark']};
 `
 

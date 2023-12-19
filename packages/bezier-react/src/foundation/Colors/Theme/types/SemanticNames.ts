@@ -5,12 +5,12 @@ import {
 import type BasePaletteKey from '~/src/foundation/Colors/Palette/BasePaletteKey'
 
 type MonoBackgroundColor =
-  | `bg-${BaseMonoPaletteKey}-darkest`
-  | `bg-${BaseMonoPaletteKey}-darker`
-  | `bg-${BaseMonoPaletteKey}-dark`
-  | `bg-${BaseMonoPaletteKey}-light`
-  | `bg-${BaseMonoPaletteKey}-lighter`
-  | `bg-${BaseMonoPaletteKey}-lightest`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White>}-darkest`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White | BasePaletteKey.Grey>}-darker`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White>}-dark`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White>}-light`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White>}-lighter`
+  | `bg-${Exclude<BaseMonoPaletteKey, BasePaletteKey.White>}-lightest`
   | `bg-${BasePaletteKey.Grey}-dim-lightest`
   | `bg-${BasePaletteKey.White}-dim-dark`
   | `bg-${BasePaletteKey.White}-dim-light`
@@ -42,11 +42,11 @@ type ColorfulTextAndBackgroundColor =
   | `bgtxt-${BaseColorfulPaletteKey}-lightest`
 
 type MonoAbsoluteTextAndBackgroundColor =
-  | `bgtxt-absolute-${BaseMonoPaletteKey}-dark`
-  | `bgtxt-absolute-${BaseMonoPaletteKey}-normal`
-  | `bgtxt-absolute-${BaseMonoPaletteKey}-light`
-  | `bgtxt-absolute-${BaseMonoPaletteKey}-lighter`
-  | `bgtxt-absolute-${BaseMonoPaletteKey}-lightest`
+  | `bgtxt-absolute-${Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>}-dark`
+  | `bgtxt-absolute-${Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>}-normal`
+  | `bgtxt-absolute-${Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>}-light`
+  | `bgtxt-absolute-${Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>}-lighter`
+  | `bgtxt-absolute-${Exclude<BaseMonoPaletteKey, BasePaletteKey.Grey>}-lightest`
 
 type BorderColor =
   | 'bdr-black-dark'

@@ -1,7 +1,6 @@
 import {
   Rounding,
   type SemanticNames,
-  Typography,
 } from '~/src/foundation'
 
 import TagBadgeSize from './constants/TagBadgeSize'
@@ -31,10 +30,10 @@ export function getProperTagBadgeRounding(size: TagBadgeSize) {
 
 export function getProperTagBadgeTypo(size: TagBadgeSize) {
   return {
-    [TagBadgeSize.XS]: Typography.Size11,
-    [TagBadgeSize.S]: Typography.Size13,
-    [TagBadgeSize.M]: Typography.Size14,
-    [TagBadgeSize.L]: Typography.Size15,
+    [TagBadgeSize.XS]: '11' as const,
+    [TagBadgeSize.S]: '13' as const,
+    [TagBadgeSize.M]: '14' as const,
+    [TagBadgeSize.L]: '15' as const,
   }[size]
 }
 

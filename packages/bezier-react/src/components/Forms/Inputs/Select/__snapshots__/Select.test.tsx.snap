@@ -1,33 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Test > Default Style > Snapshot > 1`] = `
-.c4 {
+.c3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0px 0px 0px 6px;
   color: #00000099;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -120,15 +99,15 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       class="c2"
     >
       <span
-        class="c3"
-        color="txt-black-darkest"
+        class="margin Text typo-14 truncated"
         data-testid="bezier-react-select-trigger-text"
+        style="--b-text-color: var(--txt-black-darkest);"
       >
         foo
       </span>
     </div>
     <svg
-      class="c4"
+      class="c3"
       color="txt-black-darker"
       data-testid="bezier-react-icon"
       fill="none"
@@ -154,33 +133,12 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 `;
 
 exports[`Select Test > rightContent > Snapshot > 1`] = `
-.c4 {
+.c3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0px 0px 0px 6px;
   color: #00000099;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c3 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #000000D9;
   -webkit-transition-delay: 0ms;
   transition-delay: 0ms;
   -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
@@ -273,9 +231,9 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
       class="c2"
     >
       <span
-        class="c3"
-        color="txt-black-darkest"
+        class="margin Text typo-14 truncated"
         data-testid="bezier-react-select-trigger-text"
+        style="--b-text-color: var(--txt-black-darkest);"
       >
         lorem ipsum
       </span>
@@ -284,7 +242,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
       </div>
     </div>
     <svg
-      class="c4"
+      class="c3"
       color="txt-black-darker"
       data-testid="bezier-react-icon"
       fill="none"

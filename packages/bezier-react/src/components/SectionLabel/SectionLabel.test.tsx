@@ -29,24 +29,6 @@ describe('SectionLabel', () => {
     return render(<SectionLabel {...defaultProps} {...props} />)
   }
 
-  it('renders string content as bold Text with Typography.Size13', () => {
-    const { getByTestId } = renderComponent({ content: 'hi' })
-    const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
-
-    expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
-  })
-
-  it('renders number content as bold text with Typography.Size13', () => {
-    const { getByTestId } = renderComponent({ content: 123 })
-    const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
-
-    expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
-  })
-
   it('renders element content as it is', () => {
     const { getByTestId } = renderComponent({ content: <div id="i-am-sectionlabel-content-id" /> })
     const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
