@@ -14,6 +14,6 @@ interface FormLabelOptions {
 export default interface FormLabelProps extends
   BezierComponentProps,
   ChildrenProps,
-  TextProps,
+  Omit<TextProps, 'as'>,
   Partial<IdentifierProps>,
   FormLabelOptions {}
