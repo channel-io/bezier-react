@@ -15,7 +15,11 @@ import { cssDimension } from '~/src/utils/style'
 
 import sharedStyles from '~/src/components/shared.module.scss'
 
-import type { StackProps } from './Stack.types'
+import type {
+  HStackProps,
+  StackProps,
+  VStackProps,
+} from './Stack.types'
 
 import styles from './Stack.module.scss'
 
@@ -76,4 +80,28 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
     'data-testid': testId,
     ...rest,
   }, children)
+})
+
+/**
+ * `HStack` is a shorthand component equivalent to `Stack` with a horizontal direction property.
+ * @see Stack
+ */
+export const HStack = forwardRef<HTMLElement, HStackProps>(function HStack(props, forwardedRef) {
+  return createElement(Stack, {
+    ...props,
+    direction: 'horizontal',
+    ref: forwardedRef,
+  })
+})
+
+/**
+ * `VStack` is a shorthand component equivalent to `Stack` with a vertical direction property.
+ * @see Stack
+ */
+export const VStack = forwardRef<HTMLElement, VStackProps>(function VStack(props, forwardedRef) {
+  return createElement(Stack, {
+    ...props,
+    direction: 'vertical',
+    ref: forwardedRef,
+  })
 })
