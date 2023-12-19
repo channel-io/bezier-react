@@ -1,15 +1,11 @@
 /* eslint-disable no-template-curly-in-string */
 import {
   type SourceFile,
-  SyntaxKind,
   ts,
 } from 'ts-morph'
 
-import {
-  getImportDeclaration,
-  hasNamedImport,
-  removeUnusedNamedImport,
-} from '../../utils/import.js'
+import { removeUnusedNamedImport } from '../../utils/import.js'
+import { interpolationTransform } from '../../utils/interpolation.js'
 
 const WARNING_COMMENT = '/* NOTE: Do not use font-related css variables below separately, use Text component instead */'
 const getFontSize = (num: number) => `font-size: var(--typography-size-${num}-font-size);`
@@ -35,50 +31,10 @@ const cssVariableByInterpolation = {
   'Typography.Size36': `${WARNING_COMMENT}\n  ${getFontSize(36)}\n  ${getLineHeight(36)}\n  ${getLetterSpacing(36)}`,
 }
 
-const replaceTemplateExpression = (sourceFile: SourceFile) => {
-  sourceFile
-    .getDescendantsOfKind(SyntaxKind.TemplateExpression).forEach((node) => {
-      for (const [mixin, cssVariable] of Object.entries(cssVariableByInterpolation)) {
-        if (!node.wasForgotten() && node.getText().includes(`\${${mixin}}`)) {
-          node.replaceWithText(
-            node.getText()
-              .replaceAll(
-                `\${${mixin}}`, cssVariable,
-              )
-              .replaceAll(';;', ';'),
-          )
-        }
-
-        const bezierReactImport = getImportDeclaration(sourceFile, '@channel.io/bezier-react')
-        const hasCssImport = hasNamedImport(sourceFile, 'css')
-
-        if (!node.wasForgotten() && node.getText().includes(mixin)) {
-          if (!hasCssImport) {
-            if (bezierReactImport) {
-              bezierReactImport.addNamedImport('css')
-            } else {
-              sourceFile.insertImportDeclaration(0, {
-                namedImports: ['css'],
-                moduleSpecifier: '@channel.io/bezier-react',
-              })
-            }
-          }
-
-          node.replaceWithText(
-            node
-              .getText()
-              .replaceAll(mixin, `css\`\n  ${cssVariable};\n\``)
-              .replaceAll(';;', ';'),
-          )
-        }
-      }
-    })
-}
-
 const replaceInterpolation = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
 
-  replaceTemplateExpression(sourceFile)
+  interpolationTransform(sourceFile, cssVariableByInterpolation)
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
