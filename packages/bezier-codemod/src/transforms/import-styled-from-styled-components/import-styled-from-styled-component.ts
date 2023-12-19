@@ -8,7 +8,7 @@ import {
   hasNamedImport,
   removeImportDeclarationWithoutImport,
   removeNamedImport,
-} from '../utils/import.js'
+} from '../../utils/import.js'
 
 const STYLED = 'styled'
 const STYLED_COMPONENTS = 'styled-components'
