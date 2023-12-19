@@ -1,5 +1,5 @@
 import { testTransformFunction } from '../../../utils/test.js'
-import borderTransform from '../../foundation-to-css-variable/foundation-to-css-variable-border.js'
+import borderTransform from '../../foundation-to-css-variable/border.js'
 import elevationTransform from '../../foundation-to-css-variable-elevation.js'
 import roundingTransform from '../../foundation-to-css-variable-rounding.js'
 import themeTransform from '../../foundation-to-css-variable-theme.js'

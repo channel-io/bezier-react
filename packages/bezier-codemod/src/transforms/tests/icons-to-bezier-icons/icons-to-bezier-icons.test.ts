@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import project from '../../../project.js'
-import iconsToBezierIcons from '../../icons-to-bezier-icons/icons-to-bezier-icons.js'
+import iconsToBezierIcons from '../../icons-to-bezier-icons/transform.js'
 
 describe('iconsToBezierIcons', () => {
   it('should transform import statements correctly', () => {
