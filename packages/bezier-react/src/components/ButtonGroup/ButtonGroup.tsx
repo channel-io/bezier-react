@@ -18,7 +18,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
   return (
     <AlphaStack
       direction="horizontal"
-      spacing={spacing}
+      gap={spacing}
       justify={justify}
       ref={forwardedRef}
       role="group"

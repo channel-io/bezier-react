@@ -53,7 +53,7 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
     default:
       return (
         <Styled.Grid
-          ref={forwardedRef}
+          ref={forwardedRef as React.ForwardedRef<HTMLDivElement>}
           data-testid={testId}
           {...rest}
         >
