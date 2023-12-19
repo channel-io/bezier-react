@@ -1,5 +1,13 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.1
+
+### Minor Changes
+
+- Added a codemod to switch the library for importing 'styled' object from @channel.io/bezier-react to styled-components ([#1789](https://github.com/channel-io/bezier-react/pull/1789)) by @yangwooseong
+
+- Add codemod for mixin interpolation ([#1787](https://github.com/channel-io/bezier-react/pull/1787)) by @yangwooseong
+
 ## 0.5.0-alpha.0
 
 ### Minor Changes
