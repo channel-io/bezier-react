@@ -21,7 +21,6 @@ import project from './project.js'
 import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal/transform.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
-import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
 import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
 import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
 import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
@@ -30,6 +29,7 @@ import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/
 import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
 import styledToStyledComponents from './transforms/v2-import-styled-from-styled-components/transform.js'
 import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
+import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
 import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
 
 enum Step {
