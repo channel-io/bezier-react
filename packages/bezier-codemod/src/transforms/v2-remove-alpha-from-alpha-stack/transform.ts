@@ -3,7 +3,7 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
-import { renameNamedImport } from '../utils/import.js'
+import { renameNamedImport } from '../../utils/import.js'
 
 const LEGACY_STACKS = ['Stack', 'HStack', 'VStack', 'StackItem', 'Spacer']
 const ALPHA_STACKS = ['AlphaStack']

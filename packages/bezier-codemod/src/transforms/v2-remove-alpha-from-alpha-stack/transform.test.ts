@@ -1,5 +1,6 @@
-import { testTransformFunction } from '../../../utils/test.js'
-import stackTransform from '../../remove-alpha-from-alpha-stack.js'
+import { testTransformFunction } from '../../utils/test.js'
+
+import stackTransform from './transform.js'
 
 describe('import transform', () => {
   it('should add legacy prefix from Stack component in tsx file', () => {
