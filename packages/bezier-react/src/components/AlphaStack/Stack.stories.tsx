@@ -6,68 +6,45 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { css } from '~/src/foundation/FoundationStyledComponent'
-
 import { range } from '~/src/utils/number'
+
+import { Box } from '~/src/components/Box'
 
 import { Stack } from './Stack'
 
-const FLEX_PROPERTIES = ['start', 'center', 'end', 'stretch']
-
 const meta = {
   component: Stack,
-  argTypes: {
-    spacing: {
-      control: {
-        type: 'number',
-      },
-    },
-    direction: {
-      control: {
-        type: 'radio',
-      },
-      options: ['horizontal', 'vertical'],
-    },
-    justify: {
-      control: {
-        type: 'radio',
-      },
-      options: FLEX_PROPERTIES,
-    },
-    align: {
-      control: {
-        type: 'radio',
-      },
-      options: FLEX_PROPERTIES,
-    },
-  },
 } satisfies Meta<typeof Stack>
-
-export default meta
 
 type Story = StoryObj<typeof meta>
 
+function DecorativeBox() {
+  return (
+    <Box
+      width={50}
+      height={50}
+      bgColor="bg-black-light"
+      borderRadius="8"
+      borderWidth={1}
+      borderColor="bdr-black-light"
+    />
+  )
+}
+
 const Template: StoryFn<typeof Stack> = (args) => (
   <Stack {...args}>
-    <>
-      { range(4).map((i) =>
-        <div style={{ height: '30px', width: '30px', backgroundColor: 'red' }} key={`item-${i}`}>{ i }</div>,
-      ) }
-    </>
+    { range(4).map((i) => (
+      <DecorativeBox key={`item-${i}`} />
+    )) }
   </Stack>
 )
 
 export const Primary: Story = {
   render: Template,
-
   args: {
-    direction: 'vertical',
-    style: {
-      width: '200px',
-      height: '200px',
-    },
-    interpolation: css`
-      background-color: blue;
-    `,
+    direction: 'horizontal',
+    gap: 6,
   },
 }
+
+export default meta
