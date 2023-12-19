@@ -23,7 +23,7 @@ interface StackOwnProps {
    */
   display?: Display
   /**
-   * Direction of this stack.
+   * Direction of the stack.
    */
   direction: Direction
   /**

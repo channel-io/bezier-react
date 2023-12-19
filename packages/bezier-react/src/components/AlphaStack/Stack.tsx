@@ -20,21 +20,18 @@ import type { StackProps } from './Stack.types'
 import styles from './Stack.module.scss'
 
 /**
- * `AlphaStack` provides an abstraction of **flex layout** so that
- * rendering of child elements **linearly** can be done
- * with simplified options.
- *
- * `AlphaStack` always fills the parent element.
- *
- * Be reminded that the first depth children element of AlphaStack would be StackItem that is adjusted by flex layout
+ * `Stack` is a layout component used to group elements together and apply a space between them.
  *
  * @example
  *
  * ```tsx
- * <AlphaStack direction="horizontal" spacing={8}>
- *  <div>{ ... }</div>
- *  <div>{ ... }</div>
- * </AlphaStack>
+ * <Stack
+ *   direction="horizontal"
+ *   gap={6}
+ * >
+ *   <div>{ ... }</div>
+ *   <div>{ ... }</div>
+ * </Stack>
  * ```
  */
 export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, forwardedRef) {
