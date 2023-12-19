@@ -39,6 +39,6 @@ describe('ButtonGroup', () => {
     const buttonGroup = getByRole('group')
 
     expect(buttonGroup).toHaveStyle('gap: var(--b-alpha-stack-spacing)')
-    expect(buttonGroup).toHaveStyle('--b-alpha-stack-spacing: 0px')
+    expect(buttonGroup).toHaveStyle('--b-alpha-stack-spacing: 0')
   })
 })

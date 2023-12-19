@@ -10,7 +10,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
-import { px } from '~/src/utils/style'
+import { cssDimension } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
 import {
@@ -81,8 +81,8 @@ export const ModalContent = forwardRef(function ModalContent({
 
   const contentStyle = useMemo(() => ({
     ...style,
-    '--b-modal-width': isNumber(width) ? px(width) : width,
-    '--b-modal-height': isNumber(height) ? px(height) : height,
+    '--b-modal-width': cssDimension(width),
+    '--b-modal-height': cssDimension(height),
   } as React.CSSProperties), [
     style,
     width,
