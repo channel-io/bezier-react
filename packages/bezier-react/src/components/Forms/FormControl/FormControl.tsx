@@ -10,7 +10,7 @@ import { splitByBezierComponentProps } from '~/src/utils/props'
 import { px } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
+import { Stack } from '~/src/components/Stack'
 
 // eslint-disable-next-line no-restricted-imports
 import FormFieldSize from '../FormFieldSize'
@@ -39,14 +39,14 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
   switch (labelPosition) {
     case 'top':
       return (
-        <AlphaStack
+        <Stack
           ref={forwardedRef}
           direction="vertical"
           testId={testId}
           {...rest}
         >
           { children }
-        </AlphaStack>
+        </Stack>
       )
 
     case 'left':

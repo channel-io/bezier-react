@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
+import { Stack } from '~/src/components/Stack'
 
 import type ButtonGroupProps from './ButtonGroup.types'
 
@@ -16,7 +16,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
   const spacing = withoutSpacing ? 0 : 6
 
   return (
-    <AlphaStack
+    <Stack
       direction="horizontal"
       spacing={spacing}
       justify={justify}
@@ -25,6 +25,6 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
       {...props}
     >
       { children }
-    </AlphaStack>
+    </Stack>
   )
 })

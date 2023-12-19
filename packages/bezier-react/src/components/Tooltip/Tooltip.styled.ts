@@ -6,7 +6,7 @@ import {
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
+import { Stack } from '~/src/components/Stack'
 import {
   Icon as BaseIcon,
   IconSize,
@@ -15,7 +15,7 @@ import { Text } from '~/src/components/Text'
 
 import { type TooltipProps } from './Tooltip.types'
 
-export const TooltipContent = styled(AlphaStack).attrs({
+export const TooltipContent = styled(Stack).attrs({
   direction: 'horizontal',
   spacing: 4,
 })<TooltipProps>`

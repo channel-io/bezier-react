@@ -57,7 +57,7 @@ export * from '~/src/components/Overlay'
 export * from '~/src/components/ProgressBar'
 export * from '~/src/components/SectionLabel'
 export * from '~/src/components/Spinner'
-export * from '~/src/components/LegacyStack'
+export * from '~/src/components/Stack'
 export * from '~/src/components/Status'
 export * from '~/src/components/Tabs'
 export * from '~/src/components/TagBadge'
@@ -67,11 +67,11 @@ export * from '~/src/components/Tooltip'
 export * from '~/src/components/VisuallyHidden'
 
 export * from '~/src/components/AlphaCenter'
-export * from '~/src/components/AlphaStack'
 export * from '~/src/components/AlphaSmoothCornersBox'
 
 export * from '~/src/components/LegacyIcon'
 export * from '~/src/components/LegacyRadio'
+export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
 /* Hooks for Component */

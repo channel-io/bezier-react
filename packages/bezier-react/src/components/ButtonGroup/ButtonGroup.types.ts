@@ -3,7 +3,7 @@ import {
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import { type AlphaStackProps } from '~/src/components/AlphaStack'
+import { type StackProps } from '~/src/components/Stack'
 
 interface ButtonGroupOptions {
   /**
@@ -16,5 +16,5 @@ interface ButtonGroupOptions {
 export default interface ButtonGroupProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  Pick<AlphaStackProps, 'justify'>,
+  Pick<StackProps, 'justify'>,
   ButtonGroupOptions {}
