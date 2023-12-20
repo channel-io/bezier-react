@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { Stack } from '~/src/components/Stack'
 
 import { type RadioGroupProps } from './RadioGroup.types'
 
@@ -20,7 +20,7 @@ function RadioGroupImpl<Value extends string>({
       asChild
       {...formFieldProps}
     >
-      <AlphaStack
+      <Stack
         ref={forwardedRef}
         justify="start"
         align="stretch"
@@ -28,7 +28,7 @@ function RadioGroupImpl<Value extends string>({
         direction={direction}
       >
         { children }
-      </AlphaStack>
+      </Stack>
     </RadioGroupPrimitive.Root>
   )
 }

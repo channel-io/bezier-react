@@ -7,8 +7,8 @@ import {
 
 import { ZIndex } from '~/src/constants/ZIndex'
 
-import { AlphaStack } from '~/src/components/AlphaStack'
 import { focusedInputWrapperStyle } from '~/src/components/Forms/Inputs/mixins'
+import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
 import { SegmentedControlSize } from './SegmentedControl.types'
@@ -47,7 +47,7 @@ export const Indicator = styled.div`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('transform', TransitionDuration.M)}
 `
 
-export const ItemContainer = styled(AlphaStack).attrs({
+export const ItemContainer = styled(Stack).attrs({
   direction: 'horizontal',
   align: 'center',
   spacing: 2,
@@ -114,7 +114,7 @@ export const Item = styled.button`
   }
 `
 
-export const Container = styled(AlphaStack).attrs({ direction: 'horizontal' })`
+export const Container = styled(Stack).attrs({ direction: 'horizontal' })`
   --b-segmented-control-width: auto;
 
   position: relative;

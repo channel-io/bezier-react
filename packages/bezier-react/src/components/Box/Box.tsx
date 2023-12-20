@@ -19,7 +19,7 @@ import { type BoxProps } from './Box.types'
 import styles from './Box.module.scss'
 
 /**
- * `Box` is the primitive component responsible for layout. It provides an easy way to access design tokens.
+ * `Box` is a primitive layout component. It provides an easy way to access design tokens.
  *
  * @example
  *

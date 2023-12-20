@@ -24,10 +24,10 @@ import {
   EmojiSize,
 } from '~/src/components/Emoji'
 import {
-  HStack,
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
 
@@ -85,35 +85,35 @@ const NAVER_TALK_AVATAR = {
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <HStack spacing={16}>
+  <LegacyVStack spacing={16}>
+    <LegacyStackItem>
+      <LegacyHStack spacing={16}>
         { [AvatarSize.Size20, AvatarSize.Size36, AvatarSize.Size72, AvatarSize.Size120]
           .map(size => (
-            <StackItem key={size}>
+            <LegacyStackItem key={size}>
               <Avatar
                 {...SAMPLE_AVATARS[0]}
                 size={size}
               />
-            </StackItem>
+            </LegacyStackItem>
           )) }
-      </HStack>
-    </StackItem>
+      </LegacyHStack>
+    </LegacyStackItem>
 
-    <StackItem>
-      <HStack spacing={16}>
+    <LegacyStackItem>
+      <LegacyHStack spacing={16}>
         { [StatusType.Online, StatusType.Offline, StatusType.Lock]
           .map(status => (
-            <StackItem key={status}>
+            <LegacyStackItem key={status}>
               <Avatar
                 {...SAMPLE_AVATARS[0]}
                 status={status}
                 size={AvatarSize.Size36}
               />
-            </StackItem>
+            </LegacyStackItem>
           )) }
 
-        <StackItem>
+        <LegacyStackItem>
           <Avatar
             {...SAMPLE_AVATARS[0]}
             size={AvatarSize.Size36}
@@ -124,45 +124,45 @@ export const Overview: StoryFn<{}> = () => (
               showBorder
             />
           </Avatar>
-        </StackItem>
-      </HStack>
-    </StackItem>
+        </LegacyStackItem>
+      </LegacyHStack>
+    </LegacyStackItem>
 
-    <StackItem>
-      <HStack spacing={16}>
+    <LegacyStackItem>
+      <LegacyHStack spacing={16}>
         { [AvatarSize.Size24, AvatarSize.Size36, AvatarSize.Size42, AvatarSize.Size48]
           .map((size, i) => (
-            <StackItem key={size}>
+            <LegacyStackItem key={size}>
               <CheckableAvatar
                 {...SAMPLE_AVATARS[0]}
                 size={size}
                 checked={i % 2 === 0}
                 disabled={i % 3 === 1}
               />
-            </StackItem>
+            </LegacyStackItem>
           )) }
-      </HStack>
-    </StackItem>
+      </LegacyHStack>
+    </LegacyStackItem>
 
-    <StackItem>
-      <HStack spacing={16}>
-        <StackItem>
+    <LegacyStackItem>
+      <LegacyHStack spacing={16}>
+        <LegacyStackItem>
           <AvatarGroup max={4} size={AvatarSize.Size36}>
             { range(6).map((i) => (
               <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
-        </StackItem>
+        </LegacyStackItem>
 
-        <StackItem>
+        <LegacyStackItem>
           <AvatarGroup max={4} spacing={-8} size={AvatarSize.Size36}>
             { range(6).map((i) => (
               <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
-        </StackItem>
+        </LegacyStackItem>
 
-        <StackItem>
+        <LegacyStackItem>
           <AvatarGroup
             max={4}
             spacing={-8}
@@ -173,21 +173,21 @@ export const Overview: StoryFn<{}> = () => (
               <Avatar key={i} {...SAMPLE_AVATARS[0]} />
             )) }
           </AvatarGroup>
-        </StackItem>
-      </HStack>
-    </StackItem>
-  </VStack>
+        </LegacyStackItem>
+      </LegacyHStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const UsageBasic: StoryObj<{}> = {
   render: () => (
-    <HStack spacing={16}>
+    <LegacyHStack spacing={16}>
       { SAMPLE_AVATARS.map((avatar) => (
-        <StackItem key={avatar.name}>
+        <LegacyStackItem key={avatar.name}>
           <Avatar {...avatar} size={AvatarSize.Size36} />
-        </StackItem>
+        </LegacyStackItem>
       )) }
-    </HStack>
+    </LegacyHStack>
   ),
 
   name: 'Usage (basic)',
@@ -195,7 +195,7 @@ export const UsageBasic: StoryObj<{}> = {
 
 export const UsagePresetStatus: StoryObj<{}> = {
   render: () => (
-    <HStack spacing={16}>
+    <LegacyHStack spacing={16}>
       { [
         StatusType.Online,
         StatusType.Offline,
@@ -203,15 +203,15 @@ export const UsagePresetStatus: StoryObj<{}> = {
         StatusType.OnlineCrescent,
         StatusType.OfflineCrescent,
       ].map((status) => (
-        <StackItem key={status}>
+        <LegacyStackItem key={status}>
           <Avatar
             {...SAMPLE_AVATARS[0]}
             status={status}
             size={AvatarSize.Size24}
           />
-        </StackItem>
+        </LegacyStackItem>
       )) }
-    </HStack>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with preset status)',
@@ -219,17 +219,17 @@ export const UsagePresetStatus: StoryObj<{}> = {
 
 export const UsagePresetStatusWithSize: StoryObj<{}> = {
   render: () => (
-    <HStack spacing={16}>
+    <LegacyHStack spacing={16}>
       { [AvatarSize.Size24, AvatarSize.Size36, AvatarSize.Size48].map((size) => (
-        <StackItem key={size}>
+        <LegacyStackItem key={size}>
           <Avatar
             {...SAMPLE_AVATARS[0]}
             status={StatusType.Online}
             size={size}
           />
-        </StackItem>
+        </LegacyStackItem>
       )) }
-    </HStack>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with preset status and size)',
@@ -247,26 +247,26 @@ const EmojiStatusWrapper = styled.div`
 
 export const UsageCustomStatus: StoryObj<{}> = {
   render: () => (
-    <HStack spacing={16}>
-      <StackItem>
+    <LegacyHStack spacing={16}>
+      <LegacyStackItem>
         <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
           <Avatar {...KAKAO_AVATAR} size={AvatarSize.Size20} showBorder />
         </Avatar>
-      </StackItem>
+      </LegacyStackItem>
 
-      <StackItem>
+      <LegacyStackItem>
         <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
           <Avatar {...NAVER_TALK_AVATAR} size={AvatarSize.Size20} showBorder />
         </Avatar>
-      </StackItem>
+      </LegacyStackItem>
 
-      <StackItem>
+      <LegacyStackItem>
         <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
           <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size20} showBorder />
         </Avatar>
-      </StackItem>
+      </LegacyStackItem>
 
-      <StackItem>
+      <LegacyStackItem>
         <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
           <EmojiStatusWrapper>
             <Emoji
@@ -276,8 +276,8 @@ export const UsageCustomStatus: StoryObj<{}> = {
             />
           </EmojiStatusWrapper>
         </Avatar>
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with custom status)',
@@ -303,53 +303,53 @@ export const UsageDisabled: StoryObj<{}> = {
 
 export const UsageCheckableAvatar: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
-      <StackItem>
-        <HStack align="center" spacing={24}>
-          <StackItem size={270}>
+    <LegacyVStack spacing={16}>
+      <LegacyStackItem>
+        <LegacyHStack align="center" spacing={24}>
+          <LegacyStackItem size={270}>
             <Text color="txt-black-darkest">Checkable (checked=false)</Text>
-          </StackItem>
+          </LegacyStackItem>
 
-          <StackItem>
+          <LegacyStackItem>
             <CheckableAvatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36} />
-          </StackItem>
-        </HStack>
-      </StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
 
-      <StackItem>
-        <HStack align="center" spacing={24}>
-          <StackItem size={270}>
+      <LegacyStackItem>
+        <LegacyHStack align="center" spacing={24}>
+          <LegacyStackItem size={270}>
             <Text color="txt-black-darkest">
               Checkable (checked=false, disabled)
             </Text>
-          </StackItem>
+          </LegacyStackItem>
 
-          <StackItem>
+          <LegacyStackItem>
             <CheckableAvatar
               {...SAMPLE_AVATARS[0]}
               size={AvatarSize.Size36}
               disabled
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
 
-      <StackItem>
-        <HStack align="center" spacing={24}>
-          <StackItem size={270}>
+      <LegacyStackItem>
+        <LegacyHStack align="center" spacing={24}>
+          <LegacyStackItem size={270}>
             <Text color="txt-black-darkest">Checkable (checked=true)</Text>
-          </StackItem>
+          </LegacyStackItem>
 
-          <StackItem>
+          <LegacyStackItem>
             <CheckableAvatar
               {...SAMPLE_AVATARS[0]}
               size={AvatarSize.Size36}
               checked
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-    </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (checkable avatars)',
@@ -357,37 +357,37 @@ export const UsageCheckableAvatar: StoryObj<{}> = {
 
 export const UsageGroupEllipsis: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
-      <StackItem>
-        <HStack align="center" spacing={24}>
-          <StackItem size={150}>
+    <LegacyVStack spacing={16}>
+      <LegacyStackItem>
+        <LegacyHStack align="center" spacing={24}>
+          <LegacyStackItem size={150}>
             <Text color="txt-black-darkest">Ellipsis type = Icon</Text>
-          </StackItem>
+          </LegacyStackItem>
 
-          <StackItem>
+          <LegacyStackItem>
             <AvatarGroup max={4} size={AvatarSize.Size36}>
               { SAMPLE_AVATARS.map((avatar) => (
                 <Avatar key={avatar.name} {...avatar} />
               )) }
             </AvatarGroup>
-          </StackItem>
-        </HStack>
-      </StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
 
-      <StackItem>
-        <HStack align="center" spacing={24}>
-          <StackItem size={150}>
+      <LegacyStackItem>
+        <LegacyHStack align="center" spacing={24}>
+          <LegacyStackItem size={150}>
             <Text color="txt-black-darkest">Ellipsis type = Count</Text>
-          </StackItem>
+          </LegacyStackItem>
 
-          <StackItem>
+          <LegacyStackItem>
             <AvatarGroup max={4} size={AvatarSize.Size36} ellipsisType={AvatarGroupEllipsisType.Count}>
               { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
             </AvatarGroup>
-          </StackItem>
-        </HStack>
-      </StackItem>
-    </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (avatar group with ellipsis)',
@@ -395,27 +395,27 @@ export const UsageGroupEllipsis: StoryObj<{}> = {
 
 export const UsageGroupSpacing: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
-      <StackItem>
+    <LegacyVStack spacing={16}>
+      <LegacyStackItem>
         <AvatarGroup max={4} spacing={8}>
           { SAMPLE_AVATARS.map((avatar) => (
             <Avatar key={avatar.name} {...avatar} />
           )) }
         </AvatarGroup>
-      </StackItem>
+      </LegacyStackItem>
 
-      <StackItem>
+      <LegacyStackItem>
         <AvatarGroup max={4} spacing={2}>
           { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
         </AvatarGroup>
-      </StackItem>
+      </LegacyStackItem>
 
-      <StackItem>
+      <LegacyStackItem>
         <AvatarGroup max={4} spacing={-8}>
           { SAMPLE_AVATARS.map(avatar => <Avatar key={avatar.name} {...avatar} />) }
         </AvatarGroup>
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (avatar group with spacing)',
@@ -423,7 +423,7 @@ export const UsageGroupSpacing: StoryObj<{}> = {
 
 export const VariantsSize: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16}>
+    <LegacyVStack spacing={16}>
       { [
         AvatarSize.Size20,
         AvatarSize.Size24,
@@ -436,21 +436,21 @@ export const VariantsSize: StoryObj<{}> = {
         AvatarSize.Size120,
       ]
         .map(size => (
-          <StackItem key={size}>
-            <HStack spacing={24}>
-              <StackItem>
+          <LegacyStackItem key={size}>
+            <LegacyHStack spacing={24}>
+              <LegacyStackItem>
                 <Text color="txt-black-darkest">{ `Size${size}` }</Text>
-              </StackItem>
-              <StackItem>
+              </LegacyStackItem>
+              <LegacyStackItem>
                 <Avatar
                   {...SAMPLE_AVATARS[0]}
                   size={size}
                 />
-              </StackItem>
-            </HStack>
-          </StackItem>
+              </LegacyStackItem>
+            </LegacyHStack>
+          </LegacyStackItem>
         )) }
-    </VStack>
+    </LegacyVStack>
   ),
 
   name: 'Variants (size)',

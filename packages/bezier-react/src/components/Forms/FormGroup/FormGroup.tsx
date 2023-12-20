@@ -4,10 +4,9 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { Stack } from '~/src/components/Stack'
 
 import type FormGroupProps from './FormGroup.types'
-
-import * as Styled from './FormGroup.styled'
 
 const FORM_GROUP_TEST_ID = 'bezier-react-form-group'
 
@@ -34,10 +33,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
   const mergedRef = useMergeRefs(ref, forwardedRef)
 
   return (
-    <Styled.Stack
+    <Stack
       {...ownProps}
       data-testid={testId}
       ref={mergedRef}
+      wrap
       justify="start"
       align="stretch"
       spacing={spacing}
@@ -45,7 +45,7 @@ forwardedRef: React.Ref<HTMLDivElement>,
       role={role}
     >
       { children }
-    </Styled.Stack>
+    </Stack>
   )
 }
 

@@ -1,47 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormGroup > Snapshot > 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: var(--b-alpha-stack-direction);
-  -ms-flex-direction: var(--b-alpha-stack-direction);
-  flex-direction: var(--b-alpha-stack-direction);
-  gap: var(--b-alpha-stack-spacing);
-  -webkit-align-items: var(--b-alpha-stack-align);
-  -webkit-box-align: var(--b-alpha-stack-align);
-  -ms-flex-align: var(--b-alpha-stack-align);
-  align-items: var(--b-alpha-stack-align);
-  -webkit-box-pack: var(--b-alpha-stack-justify);
-  -webkit-justify-content: var(--b-alpha-stack-justify);
-  -ms-flex-pack: var(--b-alpha-stack-justify);
-  justify-content: var(--b-alpha-stack-justify);
-}
-
-.c1 {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-@supports not(gap:var(--b-alpha-stack-spacing)) {
-  .c0 {
-    margin-top: calc(var(--b-alpha-stack-spacing) * -1);
-    margin-left: calc(var(--b-alpha-stack-spacing) * -1);
-  }
-
-  .c0 > * {
-    margin-top: var(--b-alpha-stack-spacing);
-    margin-left: var(--b-alpha-stack-spacing);
-  }
-}
-
 <div
-  class="c0 c1"
+  class="margin layout Stack display-flex direction-vertical justify-start align-stretch wrap"
   data-testid="bezier-react-form-group"
   role="group"
-  style="--b-alpha-stack-direction: column; --b-alpha-stack-justify: flex-start; --b-alpha-stack-align: stretch; --b-alpha-stack-spacing: 6px;"
+  style="--b-stack-spacing: 6px;"
 />
 `;

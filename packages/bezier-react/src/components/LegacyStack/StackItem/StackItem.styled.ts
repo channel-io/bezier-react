@@ -5,7 +5,7 @@ import {
 
 import { isNil } from '~/src/utils/type'
 
-import { flex } from '~/src/components/Stack/util'
+import { flex } from '~/src/components/LegacyStack/util'
 
 import type StackItemProps from './StackItem.types'
 

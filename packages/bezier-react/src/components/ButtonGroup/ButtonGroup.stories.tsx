@@ -13,9 +13,9 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import {
-  Spacer,
-  StackItem,
-} from '~/src/components/Stack'
+  LegacySpacer,
+  LegacyStackItem,
+} from '~/src/components/LegacyStack'
 
 import { ButtonGroup } from './ButtonGroup'
 import mdx from './ButtonGroup.mdx'
@@ -41,14 +41,14 @@ const Wrapper = styled.div`
 
 const Template: StoryFn<ButtonGroupProps> = (props) => (
   <Wrapper>
-    <Spacer />
-    <StackItem>
+    <LegacySpacer />
+    <LegacyStackItem>
       <ButtonGroup {...props}>
         <Button text="취소" styleVariant={ButtonStyleVariant.Secondary} />
         <Button text="확인" styleVariant={ButtonStyleVariant.Primary} />
       </ButtonGroup>
-    </StackItem>
-    <Spacer />
+    </LegacyStackItem>
+    <LegacySpacer />
   </Wrapper>
 )
 

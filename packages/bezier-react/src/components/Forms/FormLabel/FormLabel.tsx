@@ -9,9 +9,9 @@ import { useFormControlContext } from '~/src/components/Forms/FormControl'
 import { Help } from '~/src/components/Help'
 import { HELP_DISPLAY_NAME } from '~/src/components/Help/Help'
 import {
-  HStack,
-  StackItem,
-} from '~/src/components/Stack'
+  LegacyHStack,
+  LegacyStackItem,
+} from '~/src/components/LegacyStack'
 
 import type FormLabelProps from './FormLabel.types'
 
@@ -86,14 +86,14 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       { !HelpComponent
         ? LabelComponent
         : (
-          <HStack align="center" spacing={6}>
-            <StackItem shrink weight={1}>
+          <LegacyHStack align="center" spacing={6}>
+            <LegacyStackItem shrink weight={1}>
               { LabelComponent }
-            </StackItem>
-            <StackItem>
+            </LegacyStackItem>
+            <LegacyStackItem>
               { HelpComponent }
-            </StackItem>
-          </HStack>
+            </LegacyStackItem>
+          </LegacyHStack>
         ) }
     </Wrapper>
   )

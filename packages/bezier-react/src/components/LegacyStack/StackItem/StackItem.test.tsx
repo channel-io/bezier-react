@@ -4,7 +4,7 @@ import { css } from '~/src/foundation'
 
 import { render } from '~/src/utils/test'
 
-import { Stack } from '~/src/components/Stack'
+import { LegacyStack } from '~/src/components/LegacyStack'
 
 import { StackItem } from './StackItem'
 
@@ -37,11 +37,11 @@ describe('StackItem', () => {
 
   it('inherits main axis alignment of parent stack-item component', () => {
     const { getByTestId } = render(
-      <Stack direction="horizontal" justify="start">
+      <LegacyStack direction="horizontal" justify="start">
         <StackItem testId="item">
           <div />
         </StackItem>
-      </Stack>,
+      </LegacyStack>,
     )
 
     expect(getByTestId('item')).toHaveStyle({ 'justify-content': '' })
@@ -50,7 +50,7 @@ describe('StackItem', () => {
 
   it('can override main axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <Stack direction="horizontal" justify="start">
+      <LegacyStack direction="horizontal" justify="start">
         <StackItem testId="item-start" justify="start">
           <div />
         </StackItem>
@@ -66,7 +66,7 @@ describe('StackItem', () => {
         <StackItem testId="item-stretch" justify="stretch">
           <div />
         </StackItem>
-      </Stack>,
+      </LegacyStack>,
     )
 
     expect(getByTestId('item-start')).toHaveStyle({ 'justify-self': 'flex-start' })
@@ -77,11 +77,11 @@ describe('StackItem', () => {
 
   it('inherits cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <Stack direction="horizontal" align="start">
+      <LegacyStack direction="horizontal" align="start">
         <StackItem testId="item">
           <div />
         </StackItem>
-      </Stack>,
+      </LegacyStack>,
     )
 
     expect(getByTestId('item')).toHaveStyle({ 'align-items': '' })
@@ -90,7 +90,7 @@ describe('StackItem', () => {
 
   it('can override cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <Stack direction="horizontal" align="center">
+      <LegacyStack direction="horizontal" align="center">
         <StackItem testId="item-start" align="start">
           <div />
         </StackItem>
@@ -106,7 +106,7 @@ describe('StackItem', () => {
         <StackItem testId="item-stretch" align="stretch">
           <div />
         </StackItem>
-      </Stack>,
+      </LegacyStack>,
     )
 
     expect(getByTestId('item-start')).toHaveStyle({ 'align-self': 'flex-start' })
@@ -128,12 +128,12 @@ describe('StackItem', () => {
       const TEST_IDS = ['one', 'two', 'three', 'four']
 
       const { getByTestId } = render(
-        <Stack direction="horizontal">
+        <LegacyStack direction="horizontal">
           <StackItem testId="one" />
           <StackItem testId="two" grow shrink weight={1} />
           <StackItem testId="three" marginBefore={16} shrink weight={2} />
           <StackItem testId="four" style={{ color: 'red' }} marginAfter={20} size={32} />
-        </Stack>,
+        </LegacyStack>,
       )
 
       TEST_IDS
