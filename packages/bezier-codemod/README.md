@@ -140,9 +140,9 @@ const Wrapper = styled.div`
 `;
 ```
 
-### Mixin interpolation to CSS Variable
+### Interpolation to CSS Variable
 
-**`mixin-to-css-variable`**
+**`interpolation-to-css-variable`**
 
 Replace mixin interpolation to css variable
 For example:
@@ -153,6 +153,7 @@ import {
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
+  Typography,
 } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
@@ -161,6 +162,8 @@ const Wrapper = styled.div`
   ${({ focus }) => focus && focusedInputWrapperStyle};
 
   ${({ focus, whisper }) => focus && whisper && erroredInputWrapperStyle};
+
+  ${Typography.Size11};
 `;
 ```
 
@@ -178,6 +181,10 @@ const Wrapper = styled.div`
 
   ${({ focus, whisper }) => focus && whisper && css`
   box-shadow: var(--input-box-shadow-invalid);
+
+  /* NOTE: Do not use font-related css variables below separately, use Text component instead */
+  font-size: var(--typography-size-11-font-size);
+  line-height: var(--typography-size-11-line-height);
 `};
 ```
 
@@ -201,4 +208,66 @@ import styled from "styled-components";
 import { Button } from "@channel.io/bezier-react";
 
 export const Wrapper = styled(Button)``;
+```
+
+### Remove Alpha prefix from `AlphaStack` and add Legacy prefix to `Stack`
+
+`remove-alpha-from-alpha-stack`
+
+Deprecates current `Stack`, `HStack`, `VStack`, `StackItem`, `Spacer` components and supports `AlphaStack` instead, removing "Alpha" prefix.
+
+For example:
+
+```tsx
+import { VStack, StackItem, AlphaStack } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <VStack>
+      <StackItem>
+        <div />
+      </StackItem>
+      <StackItem>
+        <div />
+      </StackItem>
+    </VStack>
+  );
+}
+
+function Bar() {
+  return (
+    <AlphaStack direction="horizontal">
+      <div />
+      <div />
+    </AlphaStack>
+  );
+}
+```
+
+Transforms into:
+
+```tsx
+import { LegacyVStack, LegacyStackItem, Stack } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <LegacyVStack>
+      <LegacyStackItem>
+        <div />
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <div />
+      </LegacyStackItem>
+    </LegacyVStack>
+  );
+}
+
+function Bar() {
+  return (
+    <Stack direction="horizontal">
+      <div />
+      <div />
+    </Stack>
+  );
+}
 ```
