@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
-.c5 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c2 {
   --b-alpha-smooth-corners-box-border-radius: 0;
   --b-alpha-smooth-corners-box-shadow-offset-x: 0;
@@ -28,6 +11,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   --b-alpha-smooth-corners-box-padding: 0px;
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);
@@ -123,7 +107,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
 }
 
-.c6 {
+.c5 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -262,8 +246,9 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     style="--b-avatar-group-ellipsis-mr: 5px; --b-avatar-group-ellipsis-ml: 4px;"
   >
     <span
-      class="c5 c6"
+      class="margin Text typo-13 c5"
       data-testid="bezier-react-text"
+      foundation="[object Object]"
     >
       +1
     </span>
@@ -298,6 +283,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   --b-alpha-smooth-corners-box-padding: 0px;
   --b-alpha-smooth-corners-box-margin: 0px;
   --b-alpha-smooth-corners-box-background-color: transparent;
+  box-sizing: content-box;
   margin: var(--b-alpha-smooth-corners-box-margin);
   background-color: var(--b-alpha-smooth-corners-box-background-color);
   background-image: var(--b-alpha-smooth-corners-box-background-image);

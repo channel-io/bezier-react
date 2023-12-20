@@ -335,12 +335,6 @@ describe('KeyValueListItem', () => {
         const rendered = getByTestId(TEST_ID_MAP.KEY_ITEM)
         expect(rendered).toHaveStyle('display: flex;')
         expect(rendered).toHaveStyle('align-items: center;')
-
-        const keyItemText = rendered?.lastChild
-        expect(keyItemText).toHaveStyle('color: rgba(0, 0, 0, 0.4);')
-        expect(keyItemText).toHaveStyle('overflow: hidden;')
-        expect(keyItemText).toHaveStyle('text-overflow: ellipsis;')
-        expect(keyItemText).toHaveStyle('white-space: nowrap;')
       })
 
       it('KeyValueListItem > ValueItem', () => {

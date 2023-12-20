@@ -1,5 +1,13 @@
 # @channel.io/bezier-tokens
 
+## 0.1.0-alpha.3
+
+### Minor Changes
+
+- Add the missing `bg-header-float` semantic color token. ([#1842](https://github.com/channel-io/bezier-react/pull/1842)) by @sungik-choi
+
+- Fix invalid letter spacing token values ([#1821](https://github.com/channel-io/bezier-react/pull/1821)) by @sungik-choi
+
 ## 0.1.0-alpha.2
 
 ### Minor Changes

@@ -11,6 +11,9 @@ type Display = 'block' | 'inline' | 'inline-block'
 type BoxElementType = 'div' | 'span' | 'section' | 'legend' | 'ul' | 'li'
 
 interface BoxOwnProps {
+  /**
+   * Display type of the box.
+   */
   display?: Display
 }
 

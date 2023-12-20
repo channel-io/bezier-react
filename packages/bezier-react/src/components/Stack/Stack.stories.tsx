@@ -6,10 +6,7 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import {
-  type SemanticNames,
-  Typography,
-} from '~/src/foundation'
+import { type SemanticNames } from '~/src/foundation'
 
 import { LightTheme } from '~/src/foundation/Colors/Theme'
 
@@ -213,7 +210,7 @@ export const Overview: StoryFn<{}> = () => (
         style={{
           border: '1px solid #ccc',
         }}
-        typo={Typography.Size24}
+        typo="24"
         bold
       >
         스택에 대해 더 자세히 알아보세요.
@@ -225,7 +222,7 @@ export const Overview: StoryFn<{}> = () => (
         style={{
           border: '1px solid #ccc',
         }}
-        typo={Typography.Size13}
+        typo="13"
         color="txt-black-darker"
       >
         스택은 flex layout을 서술하는 컴포넌트입니다. 스택과 함께라면 뭐든지 만들 수 있어요. 누가 만들었는지는 모르겠지만, 정말 잘 만든 컴포넌트에요. FormControl과 함께 싸드세요!
@@ -253,16 +250,16 @@ export const DirectionHorizontal: StoryObj<{}> = {
       align="stretch"
     >
       <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
-        <Text typo={Typography.Size18}>Item 1</Text>
+        <Text typo="18">Item 1</Text>
       </StackItem>
       <StackItem size={180} style={{ backgroundColor: '#eee' }}>
-        <Text typo={Typography.Size18}>Item 2</Text>
+        <Text typo="18">Item 2</Text>
       </StackItem>
       <StackItem size={180} style={{ backgroundColor: '#888' }}>
-        <Text typo={Typography.Size18}>Item 3</Text>
+        <Text typo="18">Item 3</Text>
       </StackItem>
       <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-        <Text typo={Typography.Size18}>Item 4</Text>
+        <Text typo="18">Item 4</Text>
       </StackItem>
     </HStack>
   ),
@@ -277,16 +274,16 @@ export const DirectionVertical: StoryObj<{}> = {
       align="start"
     >
       <StackItem size={120} style={{ width: '80px', backgroundColor: '#ccc' }}>
-        <Text typo={Typography.Size18}>Item 1</Text>
+        <Text typo="18">Item 1</Text>
       </StackItem>
       <StackItem size={180} style={{ width: '150px', backgroundColor: '#eee' }}>
-        <Text typo={Typography.Size18}>Item 2</Text>
+        <Text typo="18">Item 2</Text>
       </StackItem>
       <StackItem size={180} style={{ width: '200px', backgroundColor: '#888' }}>
-        <Text typo={Typography.Size18}>Item 3</Text>
+        <Text typo="18">Item 3</Text>
       </StackItem>
       <StackItem size={80} style={{ width: '120px', backgroundColor: '#aaa' }}>
-        <Text typo={Typography.Size18}>Item 4</Text>
+        <Text typo="18">Item 4</Text>
       </StackItem>
     </VStack>
   ),
@@ -298,7 +295,7 @@ export const AlignmentJustify: StoryObj<{}> = {
   render: () => (
     <VStack align="stretch" spacing={8}>
       <StackItem>
-        <Text typo={Typography.Size14}>justify = &quot;start&quot;</Text>
+        <Text typo="14">justify = &quot;start&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -311,21 +308,21 @@ export const AlignmentJustify: StoryObj<{}> = {
           align="stretch"
         >
           <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#eee' }}>
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#888' }}>
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
       <StackItem marginBefore={16}>
-        <Text typo={Typography.Size14}>justify = &quot;center&quot;</Text>
+        <Text typo="14">justify = &quot;center&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -338,21 +335,21 @@ export const AlignmentJustify: StoryObj<{}> = {
           align="stretch"
         >
           <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#eee' }}>
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#888' }}>
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
       <StackItem marginBefore={16}>
-        <Text typo={Typography.Size14}>justify = &quot;end&quot;</Text>
+        <Text typo="14">justify = &quot;end&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -365,16 +362,16 @@ export const AlignmentJustify: StoryObj<{}> = {
           align="stretch"
         >
           <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#eee' }}>
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem size={180} style={{ backgroundColor: '#888' }}>
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
@@ -388,7 +385,7 @@ export const AlignmentAlign: StoryObj<{}> = {
   render: () => (
     <VStack align="stretch" spacing={8}>
       <StackItem>
-        <Text typo={Typography.Size14}>align = &quot;start&quot;</Text>
+        <Text typo="14">align = &quot;start&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -404,27 +401,27 @@ export const AlignmentAlign: StoryObj<{}> = {
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
       <StackItem marginBefore={16}>
-        <Text typo={Typography.Size14}>align = &quot;center&quot;</Text>
+        <Text typo="14">align = &quot;center&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -440,27 +437,27 @@ export const AlignmentAlign: StoryObj<{}> = {
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
       <StackItem marginBefore={16}>
-        <Text typo={Typography.Size14}>align = &quot;end&quot;</Text>
+        <Text typo="14">align = &quot;end&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -476,27 +473,27 @@ export const AlignmentAlign: StoryObj<{}> = {
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
       <StackItem marginBefore={16}>
-        <Text typo={Typography.Size14}>align = &quot;stretch&quot;</Text>
+        <Text typo="14">align = &quot;stretch&quot;</Text>
       </StackItem>
       <StackItem>
         <HStack
@@ -512,22 +509,22 @@ export const AlignmentAlign: StoryObj<{}> = {
             size={120}
             style={{ height: '40px', backgroundColor: '#ccc' }}
           >
-            <Text typo={Typography.Size18}>Item 1</Text>
+            <Text typo="18">Item 1</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '60px', backgroundColor: '#eee' }}
           >
-            <Text typo={Typography.Size18}>Item 2</Text>
+            <Text typo="18">Item 2</Text>
           </StackItem>
           <StackItem
             size={180}
             style={{ height: '50px', backgroundColor: '#888' }}
           >
-            <Text typo={Typography.Size18}>Item 3</Text>
+            <Text typo="18">Item 3</Text>
           </StackItem>
           <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-            <Text typo={Typography.Size18}>Item 4</Text>
+            <Text typo="18">Item 4</Text>
           </StackItem>
         </HStack>
       </StackItem>
@@ -548,26 +545,26 @@ export const Spacing: StoryFn<{}> = () => (
       size={120}
       style={{ backgroundColor: '#ccc' }}
     >
-      <Text typo={Typography.Size18}>Item 1</Text>
+      <Text typo="18">Item 1</Text>
     </StackItem>
     <StackItem
       size={180}
       style={{ backgroundColor: '#eee' }}
     >
-      <Text typo={Typography.Size18}>Item 2</Text>
+      <Text typo="18">Item 2</Text>
     </StackItem>
     <StackItem
       size={180}
       style={{ backgroundColor: '#888' }}
     >
-      <Text typo={Typography.Size18}>Item 3</Text>
+      <Text typo="18">Item 3</Text>
     </StackItem>
     <StackItem
       size={80}
       style={{ backgroundColor: '#aaa' }}
       marginBefore={40}
     >
-      <Text typo={Typography.Size18}>Item 4</Text>
+      <Text typo="18">Item 4</Text>
     </StackItem>
   </HStack>
 )
@@ -582,13 +579,13 @@ export const Expanded: StoryFn<{}> = () => (
       size={120}
       style={{ backgroundColor: '#ccc' }}
     >
-      <Text typo={Typography.Size18}>Item 1</Text>
+      <Text typo="18">Item 1</Text>
     </StackItem>
     <StackItem
       size={180}
       style={{ backgroundColor: '#eee' }}
     >
-      <Text typo={Typography.Size18}>Item 2</Text>
+      <Text typo="18">Item 2</Text>
     </StackItem>
     <StackItem
       grow
@@ -596,13 +593,13 @@ export const Expanded: StoryFn<{}> = () => (
       weight={1}
       style={{ backgroundColor: '#ffa0a0' }}
     >
-      <Text typo={Typography.Size18}>Item 3 (Expanded)</Text>
+      <Text typo="18">Item 3 (Expanded)</Text>
     </StackItem>
     <StackItem
       size={80}
       style={{ backgroundColor: '#aaa' }}
     >
-      <Text typo={Typography.Size18}>Item 4</Text>
+      <Text typo="18">Item 4</Text>
     </StackItem>
   </HStack>
 )
@@ -615,11 +612,11 @@ export const WeightSpacer: StoryObj<{}> = {
       align="stretch"
     >
       <StackItem size={120} style={{ backgroundColor: '#ccc' }}>
-        <Text typo={Typography.Size18}>Item 1</Text>
+        <Text typo="18">Item 1</Text>
       </StackItem>
       <Spacer />
       <StackItem size={80} style={{ backgroundColor: '#aaa' }}>
-        <Text typo={Typography.Size18}>Item 2</Text>
+        <Text typo="18">Item 2</Text>
       </StackItem>
     </HStack>
   ),
@@ -635,11 +632,11 @@ export const WeightFixed: StoryObj<{}> = {
       align="stretch"
     >
       <StackItem size={80} style={{ backgroundColor: '#ccc' }}>
-        <Text typo={Typography.Size18}>Item 1</Text>
+        <Text typo="18">Item 1</Text>
       </StackItem>
       <Spacer />
       <StackItem size={80} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-        <Text typo={Typography.Size18}>Item 2</Text>
+        <Text typo="18">Item 2</Text>
       </StackItem>
     </HStack>
   ),

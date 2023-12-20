@@ -15,8 +15,6 @@ import {
   isBezierIcon,
 } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { ZIndex } from '~/src/constants/ZIndex'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
@@ -187,7 +185,7 @@ forwardedRef: Ref<SelectRef>,
           { LeftComponent }
           <Text
             testId={triggerTextTestId}
-            typo={Typography.Size14}
+            typo="14"
             truncated
             color={hasContent ? textColor : 'txt-black-dark'}
           >

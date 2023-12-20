@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-tokens",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Design tokens for Bezier design system.",
   "repository": {
     "type": "git",

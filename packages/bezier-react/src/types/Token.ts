@@ -25,7 +25,6 @@ export enum TokenPrefix {
   Opacity = 'opacity',
   Radius = 'radius',
   Transition = 'transition',
-  Typography = 'typography',
   ZIndex = 'z-index',
   Elevation = 'ev',
   Input = 'input',
@@ -36,7 +35,6 @@ export type Font = RemovePrefix<TokenPrefix.Font, keyof GlobalToken['font']>
 export type Opacity = RemovePrefix<TokenPrefix.Opacity, keyof GlobalToken['opacity']>
 export type Radius = RemovePrefix<TokenPrefix.Radius, keyof GlobalToken['radius']>
 export type Transition = RemovePrefix<TokenPrefix.Transition, keyof GlobalToken['transition']>
-export type Typography = RemovePrefix<TokenPrefix.Typography, keyof GlobalToken['typography']>
 export type ZIndex = RemovePrefix<TokenPrefix.ZIndex, keyof GlobalToken['z-index']>
 
 export type SemanticColor = keyof SemanticToken['color']

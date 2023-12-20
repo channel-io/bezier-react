@@ -1,64 +1,70 @@
-import React, { forwardRef } from 'react'
+import {
+  createElement,
+  forwardRef,
+} from 'react'
 
-import { Typography } from '~/src/foundation'
+import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
+import {
+  getMarginStyle,
+  splitByMarginProps,
+} from '~/src/utils/props'
+import { tokenCssVar } from '~/src/utils/style'
 
-import type TextProps from './Text.types'
+import sharedStyles from '~/src/components/shared.module.scss'
 
-import TextView from './Text.styled'
+import { type TextProps } from './Text.types'
 
-export const TEXT_TEST_ID = 'bezier-react-text'
+import styles from './Text.module.scss'
 
-function Text(
-  {
-    as,
-    testId = TEXT_TEST_ID,
-    bold = false,
-    italic = false,
-    color,
-    typo = Typography.Size15,
-    truncated = false,
-    marginTop = 0,
-    marginRight = 0,
-    marginBottom = 0,
-    marginLeft = 0,
-    marginVertical = 0,
-    marginHorizontal = 0,
-    marginAll = 0,
-    style,
-    id,
-    className,
+/**
+ * `Text` is a component for representing the typography of a design system.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Text
+ *   typo="15"
+ *   color="txt-black-darkest"
+ * >
+ *   Hello, Channel!
+ * </Text>
+ * ```
+ */
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const {
     children,
-    onClick = noop,
-    /** To receive various HTMLElement attributes */
+    style,
+    className,
+    as = 'span',
+    testId = 'bezier-react-text',
+    typo = '15',
+    color,
+    bold,
+    italic,
+    truncated,
+    align,
     ...rest
-  }: TextProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) {
-  return (
-    <TextView
-      {...rest}
-      as={as}
-      id={id}
-      style={style}
-      ref={forwardedRef}
-      className={className}
-      bold={bold}
-      italic={italic}
-      color={color}
-      typo={typo}
-      truncated={truncated}
-      data-testid={testId}
-      margintop={marginTop || marginVertical || marginAll}
-      marginright={marginRight || marginHorizontal || marginAll}
-      marginbottom={marginBottom || marginVertical || marginAll}
-      marginleft={marginLeft || marginHorizontal || marginAll}
-      onClick={onClick}
-    >
-      { children }
-    </TextView>
-  )
-}
-
-export default forwardRef(Text)
+  } = marginRest
+  return createElement(as, {
+    ref: forwardedRef,
+    style: {
+      '--b-text-color': tokenCssVar(color),
+      ...getMarginStyle(marginProps),
+      ...style,
+    },
+    className: classNames(
+      sharedStyles.margin,
+      styles.Text,
+      styles[`typo-${typo}`],
+      bold && styles.bold,
+      italic && styles.italic,
+      truncated && styles.truncated,
+      align && styles[`align-${align}`],
+      className,
+    ),
+    'data-testid': testId,
+    ...rest,
+  }, children)
+})

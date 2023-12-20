@@ -1,30 +1,80 @@
-import { type css } from 'styled-components'
-
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
-  type ColorProps,
-  type IdentifierProps,
+  type MarginProps,
+  type PolymorphicProps,
 } from '~/src/types/ComponentProps'
+import { type SemanticColor } from '~/src/types/Token'
 
-interface TextOptions {
+type Typography =
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16'
+  | '17'
+  | '18'
+  | '22'
+  | '24'
+  | '30'
+  | '36'
+
+type TextElementType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'span'
+  | 'label'
+  | 'small'
+  | 'em'
+  | 'i'
+  | 'b'
+  | 'strong'
+  | 'legend'
+  | 'div'
+
+type TextAlign = 'left' | 'center' | 'right'
+
+interface TextOwnProps {
+  /**
+   * Typography style of the text.
+   * @default '15'
+   */
+  typo?: Typography
+  /**
+   * Color of the text. If no value is specified, it inherits the color of the parent element.
+   */
+  color?: SemanticColor
+  /**
+   * Whether the text is bold.
+   * @default false
+   */
   bold?: boolean
+  /**
+   * Whether the text is italic.
+   * @default false
+   */
   italic?: boolean
-  typo?: ReturnType<typeof css>
+  /**
+   * Whether the text is truncated.
+   * @default false
+   */
   truncated?: boolean
-  marginTop?: number
-  marginRight?: number
-  marginBottom?: number
-  marginLeft?: number
-  marginVertical?: number
-  marginHorizontal?: number
-  marginAll?: number
-  onClick?: React.MouseEventHandler
+  /**
+   * Horizontal alignment of the text.
+   */
+  align?: TextAlign
 }
 
-export default interface TextProps extends
-  BezierComponentProps,
+export interface TextProps extends
+  AlphaBezierComponentProps,
+  Omit<React.HTMLAttributes<HTMLElement>, keyof TextOwnProps>,
+  PolymorphicProps<TextElementType>,
   ChildrenProps,
-  ColorProps,
-  Partial<IdentifierProps>,
-  TextOptions {}
+  MarginProps,
+  TextOwnProps {}

@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
-.c4 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -80,7 +63,7 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
         class="c3"
       >
         <span
-          class="c4"
+          class="margin Text typo-14"
           data-testid="bezier-react-text"
         >
           Hovered
@@ -92,23 +75,6 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
 `;
 
 exports[`Tooltip test > Tooltip with default props 1`] = `
-.c4 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -170,7 +136,7 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
         class="c3"
       >
         <span
-          class="c4"
+          class="margin Text typo-14"
           data-testid="bezier-react-text"
         >
           Hovered

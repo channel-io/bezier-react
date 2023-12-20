@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { warn } from '~/src/utils/assert'
 import {
   isNil,
@@ -62,7 +60,7 @@ function Link({
   return renderLink({
     content: (
       <Styled.Link
-        typo={Typography.Size14}
+        typo="14"
         color={TEXT_COLORS[variant]}
         bold
       >
@@ -130,7 +128,7 @@ export const Banner = forwardRef(function Banner(
         <Styled.ContentWrapper variant={variant}>
           { isString(content) ? (
             <Text
-              typo={Typography.Size14}
+              typo="14"
               color={TEXT_COLORS[variant]}
             >
               { content }

@@ -2,33 +2,17 @@
 
 exports[`FormErrorMessage > Snapshot > 1`] = `
 .c0 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #F4800B;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c1 {
   display: block;
   text-align: left;
 }
 
 <p
   aria-live="polite"
-  class="c0 c1"
-  color="bgtxt-orange-normal"
+  class="margin Text typo-13 c0"
   data-testid="bezier-react-form-error-message"
+  foundation="[object Object]"
   id="test"
+  style="--b-text-color: var(--bgtxt-orange-normal);"
 >
   Lorem ipsum
 </p>
@@ -36,32 +20,16 @@ exports[`FormErrorMessage > Snapshot > 1`] = `
 
 exports[`FormHelperText > Snapshot > 1`] = `
 .c0 {
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c1 {
   display: block;
   text-align: left;
 }
 
 <p
-  class="c0 c1"
-  color="txt-black-dark"
+  class="margin Text typo-13 c0"
   data-testid="bezier-react-form-helper-text"
+  foundation="[object Object]"
   id="test"
+  style="--b-text-color: var(--txt-black-dark);"
 >
   Lorem ipsum
 </p>

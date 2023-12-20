@@ -3,8 +3,6 @@ import React, {
   useMemo,
 } from 'react'
 
-import { Typography } from '~/src/foundation'
-
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
@@ -27,7 +25,7 @@ export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 const BaseHelperText = forwardRef(({
   as = 'p',
   type,
-  typo = Typography.Size13,
+  typo = '13',
   children,
   ...rest
 }: BaseHelperTextProps,

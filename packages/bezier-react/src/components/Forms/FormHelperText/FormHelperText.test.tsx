@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -36,11 +34,11 @@ describe('FormHelperText >', () => {
     expect(helperText).toMatchSnapshot()
   })
 
-  it('renders text with correct style when children prop is not empty', () => {
+  it('renders text when children prop is not empty', () => {
     const { getByTestId } = renderFormHelperText()
     const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
 
-    expect(helperText).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
+    expect(helperText).toBeInTheDocument()
   })
 
   it('renders nothing when children prop is empty', () => {
@@ -72,11 +70,11 @@ describe('FormErrorMessage >', () => {
     expect(rendered).toMatchSnapshot()
   })
 
-  it('renders text with correct style when children prop is not empty', () => {
+  it('renders text when children prop is not empty', () => {
     const { getByTestId } = renderFormHelperText()
     const rendered = getByTestId(FORM_ERROR_MESSAGE_TEST_ID)
 
-    expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-orange-normal']}`)
+    expect(rendered).toBeInTheDocument()
   })
 
   it('renders nothing when children prop is empty', () => {

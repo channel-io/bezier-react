@@ -8,8 +8,6 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
-import { Typography } from '~/src/foundation'
-
 import { warn } from '~/src/utils/assert'
 import {
   isArray,
@@ -121,7 +119,7 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
     >
       { isString(givenContent) || isNumber(givenContent)
         ? (
-          <Styled.ContentText bold typo={Typography.Size13}>
+          <Styled.ContentText bold typo="13">
             { givenContent }
           </Styled.ContentText>
         ) : givenContent }

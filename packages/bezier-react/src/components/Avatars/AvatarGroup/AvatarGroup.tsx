@@ -6,8 +6,6 @@ import React, {
 
 import { MoreIcon } from '@channel.io/bezier-icons'
 
-import { Typography } from '~/src/foundation'
-
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
 import { px } from '~/src/utils/style'
@@ -58,14 +56,14 @@ function getProperIconSize(avatarSize: AvatarSize) {
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: Typography.Size12,
-    [AvatarSize.Size24]: Typography.Size13,
-    [AvatarSize.Size30]: Typography.Size15,
-    [AvatarSize.Size36]: Typography.Size16,
-    [AvatarSize.Size42]: Typography.Size18,
-    [AvatarSize.Size48]: Typography.Size24,
-    [AvatarSize.Size90]: Typography.Size24,
-    [AvatarSize.Size120]: Typography.Size24,
+    [AvatarSize.Size20]: '12',
+    [AvatarSize.Size24]: '13',
+    [AvatarSize.Size30]: '15',
+    [AvatarSize.Size36]: '16',
+    [AvatarSize.Size42]: '18',
+    [AvatarSize.Size48]: '24',
+    [AvatarSize.Size90]: '24',
+    [AvatarSize.Size120]: '24',
   }[avatarSize]
 }
 
@@ -90,7 +88,6 @@ export const AvatarGroup = forwardRef(function AvatarGroup({
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis = noop,
   onMouseLeaveEllipsis = noop,
-  ellipsisInterpolation,
   style,
   className,
   children,
@@ -139,7 +136,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
           <Styled.AvatarEllipsisIconWrapper
             data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
-            interpolation={ellipsisInterpolation}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
@@ -172,7 +168,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
             >
               <Styled.AvatarEllipsisCount
                 forwardedAs="span"
-                interpolation={ellipsisInterpolation}
                 typo={getProperTypoSize(size)}
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
@@ -190,7 +185,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
     children,
     spacing,
     ellipsisType,
-    ellipsisInterpolation,
     avatarListCount,
     renderAvatarElement,
     onMouseEnterEllipsis,

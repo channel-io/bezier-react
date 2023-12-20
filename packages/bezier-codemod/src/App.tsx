@@ -28,7 +28,8 @@ import foundationToCssVariable from './transforms/foundation-to-css-variable.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
 import styledToStyledComponents from './transforms/import-styled-from-styled-component.js'
-import mixinToCssVariable from './transforms/mixin-to-css-variable.js'
+import interpolationToCssVariable from './transforms/interpolation-to-css-variable.js'
+import removeAlphaFromAlphaStack from './transforms/remove-alpha-from-alpha-stack.js'
 
 enum Step {
   SelectTransformer,
@@ -47,8 +48,9 @@ enum Option {
   FoundationToCssVariableRounding = 'foundation-to-css-variable-rounding',
   FoundationToCssVariableTransition = 'foundation-to-css-variable-transition',
   FoundationToCssVariable = 'foundation-to-css-variable',
-  MixinToCssVariable = 'mixin-to-css-variable',
+  InterpolationToCssVariable = 'interpolation-to-css-variable',
   StyledToStyledComponents = 'styled-to-styled-components',
+  RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
   Exit = 'Exit',
 }
 
@@ -64,8 +66,9 @@ const transformMap = {
   [Option.FoundationToCssVariableRounding]: foundationToCssVariableRounding,
   [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
   [Option.FoundationToCssVariable]: foundationToCssVariable,
-  [Option.MixinToCssVariable]: mixinToCssVariable,
+  [Option.InterpolationToCssVariable]: interpolationToCssVariable,
   [Option.StyledToStyledComponents]: styledToStyledComponents,
+  [Option.RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
@@ -122,9 +125,16 @@ function App() {
           sourceFiles.map(async (sourceFile) => {
             if (!transformName) { return }
             const transform = transformMap[transformName]
-            const isTransformed = transform(sourceFile)
-            if (isTransformed) {
-              setTransformedFileNum(prev => prev + 1)
+            try {
+              const isTransformed = transform(sourceFile)
+              if (isTransformed) {
+                setTransformedFileNum(prev => prev + 1)
+              }
+            } catch (e) {
+              /* eslint-disable no-console */
+              console.log(e)
+              console.log(sourceFile.getFilePath())
+              /* eslint-enable no-console */
             }
             await sourceFile.save()
           }),
