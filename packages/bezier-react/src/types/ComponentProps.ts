@@ -178,14 +178,14 @@ export interface LayoutProps {
   minWidth?: CSSProperties['minWidth']
   maxHeight?: CSSProperties['maxHeight']
   minHeight?: CSSProperties['minHeight']
-  position?: CSSProperties['position']
+  position?: 'absolute' | 'fixed' | 'relative' | 'sticky'
   inset?: CSSProperties['inset']
   top?: CSSProperties['top']
   right?: CSSProperties['right']
   bottom?: CSSProperties['bottom']
   left?: CSSProperties['left']
-  shrink?: CSSProperties['flexShrink']
-  grow?: CSSProperties['flexGrow']
+  shrink?: 0 | 1
+  grow?: 0 | 1
   bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
@@ -194,10 +194,8 @@ export interface LayoutProps {
   borderRightWidth?: CSSProperties['borderRightWidth']
   borderBottomWidth?: CSSProperties['borderBottomWidth']
   borderLeftWidth?: CSSProperties['borderLeftWidth']
-  borderStyle?: CSSProperties['borderStyle']
   elevation?: Elevation
   zIndex?: ZIndex
-  overflow?: CSSProperties['overflow']
-  overflowX?: CSSProperties['overflowX']
-  overflowY?: CSSProperties['overflowY']
+  overflowX?: 'auto' | 'hidden' | 'scroll' | 'visible'
+  overflowY?: 'auto' | 'hidden' | 'scroll' | 'visible'
 }
