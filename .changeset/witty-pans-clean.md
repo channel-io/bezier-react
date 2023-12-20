@@ -22,7 +22,7 @@ return (
 /* TO-BE */
 return (
   <Stack direction="horizontal" spacing={8} width={300} height={50}>
-    <Box grow={1} />
+    <Box grow={1} shrink={1} />
     <Stack direction="vertical" shrink={0} width={10} ml={12} />
   </Stack>
 )
