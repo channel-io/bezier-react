@@ -1,7 +1,7 @@
 import { Text, styled } from '@channel.io/bezier-react'
 
 export const Title = styled(Text).attrs({
-  typo: '11',
+  typo: "11",
   m: 1,
   mt: 2,
   mr: 3,

@@ -3,7 +3,7 @@ import { Text } from '@channel.io/bezier-react'
 export function Component () {
   return (
     <Text 
-      typo='14'
+      typo="14"
       m={1}
       mt={3}
       mr={3}
