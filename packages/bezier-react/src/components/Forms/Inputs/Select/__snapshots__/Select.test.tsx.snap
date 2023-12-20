@@ -99,7 +99,7 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       class="c2"
     >
       <span
-        class="margin Text typo-14 truncated"
+        class="Text typo-14 truncated margin"
         data-testid="bezier-react-select-trigger-text"
         style="--b-text-color: var(--txt-black-darkest);"
       >
@@ -231,7 +231,7 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
       class="c2"
     >
       <span
-        class="margin Text typo-14 truncated"
+        class="Text typo-14 truncated margin"
         data-testid="bezier-react-select-trigger-text"
         style="--b-text-color: var(--txt-black-darkest);"
       >

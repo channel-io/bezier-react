@@ -8,7 +8,7 @@ exports[`FormLabel > Snapshot > 1`] = `
 }
 
 <label
-  class="margin Text typo-13 bold c0"
+  class="Text typo-13 bold margin c0"
   data-testid="bezier-react-form-label"
   foundation="[object Object]"
   style="--b-text-color: var(--txt-black-darkest);"

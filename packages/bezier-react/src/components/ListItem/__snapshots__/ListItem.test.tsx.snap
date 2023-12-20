@@ -84,7 +84,7 @@ exports[`ListItem Snapshot > 1`] = `
         class="c3"
       >
         <span
-          class="margin Text typo-14"
+          class="Text typo-14 margin"
           data-testid="bezier-react-text"
         >
           this is content

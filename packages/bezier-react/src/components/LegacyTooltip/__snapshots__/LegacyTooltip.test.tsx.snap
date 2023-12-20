@@ -63,7 +63,7 @@ exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
         class="c3"
       >
         <span
-          class="margin Text typo-14"
+          class="Text typo-14 margin"
           data-testid="bezier-react-text"
         >
           Hovered
@@ -136,7 +136,7 @@ exports[`Tooltip test > Tooltip with default props 1`] = `
         class="c3"
       >
         <span
-          class="margin Text typo-14"
+          class="Text typo-14 margin"
           data-testid="bezier-react-text"
         >
           Hovered
