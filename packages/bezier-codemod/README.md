@@ -258,7 +258,7 @@ export const Wrapper = styled(Button)``;
 
 ### Remove Alpha prefix from `AlphaStack` and add Legacy prefix to `Stack`
 
-`remove-alpha-from-alpha-stack`
+`v2-remove-alpha-from-alpha-stack`
 
 Deprecates current `Stack`, `HStack`, `VStack`, `StackItem`, `Spacer` components and supports `AlphaStack` instead, removing "Alpha" prefix.
 
@@ -316,4 +316,48 @@ function Bar() {
     </Stack>
   );
 }
+```
+
+### Change interface of `Text`
+
+`v2-text-component-interface`
+
+Replace `Typography` enum with string literal and change properties related to margin to be shorthand. **Notice that this transforms all `Typography` enum in styled component, so `v2-typography-interpolation-to-css-variable` should be applied first.**
+
+For example:
+
+```tsx
+import { Text, styled, Typography } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <Text typo={Typography.Size13} marginLeft={4}>
+      title
+    </Text>
+  );
+}
+
+const Title = styled(Text).attrs({
+  typo: Typography.Size13,
+  marginLeft: 4,
+})``;
+```
+
+Transforms into:
+
+```tsx
+import { Text, styled } from "@channel.io/bezier-react";
+
+function Foo() {
+  return (
+    <Text typo="13" ml={4}>
+      title
+    </Text>
+  );
+}
+
+const Title = styled(Text).attrs({
+  typo: "13",
+  ml: 4,
+})``;
 ```
