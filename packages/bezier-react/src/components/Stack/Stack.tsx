@@ -13,8 +13,6 @@ import {
 } from '~/src/utils/props'
 import { cssDimension } from '~/src/utils/style'
 
-import sharedStyles from '~/src/components/shared.module.scss'
-
 import type {
   HStackProps,
   StackProps,
@@ -41,6 +39,9 @@ import styles from './Stack.module.scss'
 export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+  const marginStyle = getMarginStyle(marginProps)
+  const layoutStyle = getLayoutStyle(layoutProps)
+
   const {
     children,
     style,
@@ -61,13 +62,11 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
     ref: forwardedRef,
     style: {
       '--b-stack-spacing': cssDimension(spacing),
-      ...getMarginStyle(marginProps),
-      ...getLayoutStyle(layoutProps),
+      ...marginStyle.style,
+      ...layoutStyle.style,
       ...style,
     },
     className: classNames(
-      sharedStyles.margin,
-      sharedStyles.layout,
       styles.Stack,
       display && styles[`display-${display}`],
       direction && styles[`direction-${direction}`],
@@ -75,6 +74,8 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
       align && styles[`align-${align}`],
       reverse && styles.reverse,
       wrap && styles.wrap,
+      marginStyle.className,
+      layoutStyle.className,
       className,
     ),
     'data-testid': testId,

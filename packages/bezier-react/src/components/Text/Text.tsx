@@ -11,8 +11,6 @@ import {
 } from '~/src/utils/props'
 import { tokenCssVar } from '~/src/utils/style'
 
-import sharedStyles from '~/src/components/shared.module.scss'
-
 import { type TextProps } from './Text.types'
 
 import styles from './Text.module.scss'
@@ -33,6 +31,8 @@ import styles from './Text.module.scss'
  */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyle(marginProps)
+
   const {
     children,
     style,
@@ -47,21 +47,22 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     align,
     ...rest
   } = marginRest
+
   return createElement(as, {
     ref: forwardedRef,
     style: {
       '--b-text-color': tokenCssVar(color),
-      ...getMarginStyle(marginProps),
+      ...marginStyle.style,
       ...style,
     },
     className: classNames(
-      sharedStyles.margin,
       styles.Text,
       styles[`typo-${typo}`],
       bold && styles.bold,
       italic && styles.italic,
       truncated && styles.truncated,
       align && styles[`align-${align}`],
+      marginStyle.className,
       className,
     ),
     'data-testid': testId,
