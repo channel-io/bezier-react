@@ -94,6 +94,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   borderLeftWidth,
   elevation,
   zIndex,
+  overflow,
   overflowX,
   overflowY,
   ...rest
@@ -130,6 +131,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
       borderLeftWidth,
       elevation,
       zIndex,
+      overflow,
       overflowX,
       overflowY,
     },
@@ -191,6 +193,7 @@ export const getLayoutStyle = <Props extends LayoutProps>({
   borderLeftWidth,
   elevation,
   zIndex,
+  overflow,
   overflowX,
   overflowY,
 }: Props) => (
@@ -230,6 +233,7 @@ export const getLayoutStyle = <Props extends LayoutProps>({
         position && layoutStyles[`position-${position}`],
         isNumber(shrink) && layoutStyles[`shrink-${shrink}`],
         isNumber(grow) && layoutStyles[`grow-${grow}`],
+        overflow && layoutStyles[`overflow-${overflow}`],
         overflowX && layoutStyles[`overflow-x-${overflowX}`],
         overflowY && layoutStyles[`overflow-y-${overflowY}`],
       ),

@@ -2,4 +2,4 @@
 "@channel.io/bezier-react": minor
 ---
 
-Remove `overflow`, `borderStyle` prop from Layout props.
+Remove `borderStyle` prop from Layout props.

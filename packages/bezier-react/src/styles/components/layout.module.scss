@@ -77,6 +77,22 @@
       flex-grow: 1;
     }
 
+    &.overflow-visible {
+      overflow: visible;
+    }
+
+    &.overflow-hidden {
+      overflow: hidden;
+    }
+
+    &.overflow-scroll {
+      overflow: scroll;
+    }
+
+    &.overflow-auto {
+      overflow: auto;
+    }
+
     &.overflow-x-visible {
       overflow-x: visible;
     }

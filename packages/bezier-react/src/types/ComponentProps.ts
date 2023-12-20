@@ -161,6 +161,11 @@ export interface MarginProps {
   ml?: CSSProperties['marginLeft']
 }
 
+type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
+type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
+type Shrink = 0 | 1
+type Grow = 0 | 1
+
 /**
  * TODO: Add JSDoc
  */
@@ -178,14 +183,14 @@ export interface LayoutProps {
   minWidth?: CSSProperties['minWidth']
   maxHeight?: CSSProperties['maxHeight']
   minHeight?: CSSProperties['minHeight']
-  position?: 'absolute' | 'fixed' | 'relative' | 'sticky'
+  position?: Position
   inset?: CSSProperties['inset']
   top?: CSSProperties['top']
   right?: CSSProperties['right']
   bottom?: CSSProperties['bottom']
   left?: CSSProperties['left']
-  shrink?: 0 | 1
-  grow?: 0 | 1
+  shrink?: Shrink
+  grow?: Grow
   bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
@@ -196,6 +201,7 @@ export interface LayoutProps {
   borderLeftWidth?: CSSProperties['borderLeftWidth']
   elevation?: Elevation
   zIndex?: ZIndex
-  overflowX?: 'auto' | 'hidden' | 'scroll' | 'visible'
-  overflowY?: 'auto' | 'hidden' | 'scroll' | 'visible'
+  overflow?: Overflow
+  overflowX?: Overflow
+  overflowY?: Overflow
 }
