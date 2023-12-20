@@ -1,12 +1,13 @@
 /* eslint-disable no-template-curly-in-string */
 import { type SourceFile } from 'ts-morph'
 
+import { transformEnumMemberToStringLiteral } from '../../utils/enum.js'
 import { removeUnusedNamedImport } from '../../utils/import.js'
 import { interpolationTransform } from '../../utils/interpolation.js'
-import { transformEnumMemberToStringLiteral } from '../enum-member-to-string-literal/transform.js'
 
 const cssVariableByInterpolation = {
   'ZIndex.Hide': 'var(--z-index-hidden);',
+  'ZIndex.Auto': 'var(--z-index-auto);',
   'ZIndex.Base': 'var(--z-index-base);',
   'ZIndex.Float': 'var(--z-index-float);',
   'ZIndex.Overlay': 'var(--z-index-overlay);',
