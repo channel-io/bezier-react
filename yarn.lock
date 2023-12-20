@@ -2888,7 +2888,39 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-react@workspace:^, @channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@npm:^1.19.0":
+  version: 1.19.0
+  resolution: "@channel.io/bezier-react@npm:1.19.0"
+  dependencies:
+    "@radix-ui/react-checkbox": ^1.0.4
+    "@radix-ui/react-dialog": ^1.0.4
+    "@radix-ui/react-radio-group": ^1.1.3
+    "@radix-ui/react-separator": ^1.0.3
+    "@radix-ui/react-slider": ^1.1.2
+    "@radix-ui/react-slot": ^1.0.2
+    "@radix-ui/react-switch": ^1.0.3
+    "@radix-ui/react-tabs": ^1.0.4
+    "@radix-ui/react-toolbar": ^1.0.4
+    "@radix-ui/react-tooltip": ^1.0.6
+    "@radix-ui/react-visually-hidden": ^1.0.3
+    classnames: ^2.3.2
+    react-resize-detector: ^9.1.0
+    react-textarea-autosize: 8.3.4
+    ssr-window: ^4.0.2
+    uuid: ^9.0.0
+  peerDependencies:
+    "@channel.io/bezier-icons": ">=0.2.0"
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    styled-components: ">=5"
+  peerDependenciesMeta:
+    "@channel.io/bezier-icons":
+      optional: true
+  checksum: a54568d3258c0dd5b53572201fad69702d05eb70dc1e2727be180a478155473728997264de2d36294e3b63d452d330a0aff9d959607d615f0a2fee261e332a6e
+  languageName: node
+  linkType: hard
+
+"@channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -9760,7 +9792,7 @@ __metadata:
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
     "@channel.io/bezier-icons": ^0.16.0
-    "@channel.io/bezier-react": "workspace:^"
+    "@channel.io/bezier-react": ^1.19.0
     "@figma/plugin-typings": ^1.76.0
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
@@ -20243,6 +20275,18 @@ __metadata:
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
   checksum: 55f4abad7f7523d16b081b5ab20f75c539a54a08253ce7e9df473d48386f42ceca6c31584ba9fa26e3528b498ef6685ec77fb9a22cffc97df05fb326d0bf1b26
+  languageName: node
+  linkType: hard
+
+"react-resize-detector@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "react-resize-detector@npm:9.1.0"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 05b263e141fd428eea433e399f88c3e1a379b4a2293958f59b5a5c75dd86c621ce60583724257cc3dc1f5c120a664666ff3fa53d41e6c283687676dc55afa02b
   languageName: node
   linkType: hard
 
