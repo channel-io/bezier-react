@@ -322,7 +322,7 @@ function Bar() {
 
 `v2-text-component-interface`
 
-Replace `Typography` enum with string literal and change properties related to margin to be shorthand. **Notice that this transforms all `Typography` enum in styled component, so `v2-typography-interpolation-to-css-variable` should be applied first.**
+Replace `Typography` enum with string literal and change properties related to margin to be shorthand.
 
 For example:
 
