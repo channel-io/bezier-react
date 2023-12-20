@@ -48,6 +48,9 @@ export interface StylableComponentProps {
   interpolation?: InjectedInterpolation
 }
 
+/**
+ * @deprecated Migration to `AlphaBezierComponentProps` is in progress.
+ */
 export type BezierComponentProps = RenderConfigProps & StylableComponentProps
 
 /* Component Additional Props */
@@ -132,7 +135,7 @@ export interface LinkProps {
 }
 
 /**
- * TODO: Migrate to `BezierComponentProps` after removing styled-components dependency.
+ * TODO: Remove Alpha prefix after removing styled-components dependency.
  */
 export interface AlphaBezierComponentProps extends
   Omit<RenderConfigProps, 'as'>,
