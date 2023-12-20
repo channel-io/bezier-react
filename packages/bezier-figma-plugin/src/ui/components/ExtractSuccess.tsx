@@ -11,6 +11,7 @@ import {
   ButtonStyleVariant,
   StackItem,
   Text,
+  Typography,
   VStack,
 } from '@channel.io/bezier-react'
 
@@ -26,7 +27,7 @@ function ExtractSuccess() {
   return (
     <VStack align="center" justify="center" spacing={2}>
       <StackItem>
-        <Text typo="18">아이콘 추출 성공!</Text>
+        <Text typo={Typography.Size18}>아이콘 추출 성공!</Text>
       </StackItem>
       <StackItem>
         { /* @ts-ignore */ }
