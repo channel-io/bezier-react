@@ -4,8 +4,8 @@ import {
   ts,
 } from 'ts-morph'
 
-import { removeUnusedNamedImport } from '../../utils/import.js'
 import { interpolationTransform } from '../../shared/interpolation.js'
+import { removeUnusedNamedImport } from '../../utils/import.js'
 
 const cssVariableByInterpolation = {
   inputTextStyle: 'color: var(--txt-black-darkest);',
