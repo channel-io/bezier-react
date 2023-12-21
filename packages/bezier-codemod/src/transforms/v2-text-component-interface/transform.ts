@@ -6,7 +6,7 @@ import {
   changeComponentProp,
 } from '../../utils/component.js'
 
-const MARGIN_TRANSFORM_MAP: ComponentTransformMap = {
+const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'm',
@@ -34,7 +34,7 @@ const MARGIN_TRANSFORM_MAP: ComponentTransformMap = {
   },
 }
 
-const TYPOGRAPHY_MAP: ComponentTransformMap = {
+const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'm',
@@ -65,8 +65,8 @@ const TYPOGRAPHY_MAP: ComponentTransformMap = {
 const transformTextComponentProps = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
 
-  changeComponentProp(sourceFile, TYPOGRAPHY_MAP)
-  changeAttrProperty(sourceFile, MARGIN_TRANSFORM_MAP)
+  changeComponentProp(sourceFile, JSX_PROP_TRANSFORM_MAP)
+  changeAttrProperty(sourceFile, STYLED_ATTRS_TRANSFORM_MAP)
 
   sourceFile.fixUnusedIdentifiers()
 
