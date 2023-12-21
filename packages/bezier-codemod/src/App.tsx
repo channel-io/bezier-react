@@ -18,18 +18,19 @@ import {
 } from 'ink'
 
 import project from './project.js'
-import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal.js'
-import foundationToCssVariableBorder from './transforms/foundation-to-css-variable-border.js'
-import foundationToCssVariableElevation from './transforms/foundation-to-css-variable-elevation.js'
-import foundationToCssVariableRounding from './transforms/foundation-to-css-variable-rounding.js'
-import foundationToCssVariableTheme from './transforms/foundation-to-css-variable-theme.js'
-import foundationToCssVariableTransition from './transforms/foundation-to-css-variable-transition.js'
-import foundationToCssVariable from './transforms/foundation-to-css-variable.js'
-import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icon.js'
-import iconsToBezierIcons from './transforms/icons-to-bezier-icons.js'
-import styledToStyledComponents from './transforms/import-styled-from-styled-component.js'
-import interpolationToCssVariable from './transforms/interpolation-to-css-variable.js'
-import removeAlphaFromAlphaStack from './transforms/remove-alpha-from-alpha-stack.js'
+import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal/transform.js'
+import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
+import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
+import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
+import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
+import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
+import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-variable/theme.js'
+import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
+import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
+import styledToStyledComponents from './transforms/v2-import-styled-from-styled-components/transform.js'
+import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
+import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
+import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
 
 enum Step {
   SelectTransformer,
@@ -42,15 +43,16 @@ enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   EnumMemberToStringLiteral = 'enum-member-to-string-literal',
-  FoundationToCssVariableTheme = 'foundation-to-css-variable-theme',
-  FoundationToCssVariableBorder = 'foundation-to-css-variable-border',
-  FoundationToCssVariableElevation = 'foundation-to-css-variable-elevation',
-  FoundationToCssVariableRounding = 'foundation-to-css-variable-rounding',
-  FoundationToCssVariableTransition = 'foundation-to-css-variable-transition',
-  FoundationToCssVariable = 'foundation-to-css-variable',
-  InterpolationToCssVariable = 'interpolation-to-css-variable',
-  StyledToStyledComponents = 'styled-to-styled-components',
-  RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
+  V2FoundationToCssVariableTheme = 'v2-foundation-to-css-variable-theme',
+  V2FoundationToCssVariableBorder = 'v2-foundation-to-css-variable-border',
+  V2FoundationToCssVariableElevation = 'v2-foundation-to-css-variable-elevation',
+  V2FoundationToCssVariableRounding = 'v2-foundation-to-css-variable-rounding',
+  V2FoundationToCssVariableTransition = 'v2-foundation-to-css-variable-transition',
+  V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
+  V2InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
+  V2TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
+  V2StyledToStyledComponents = 'v2-styled-to-styled-components',
+  V2RemoveAlphaFromAlphaStack = 'remove-alpha-from-alpha-stack',
   Exit = 'Exit',
 }
 
@@ -60,15 +62,16 @@ const transformMap = {
   [Option.IconsToBezierIcons]: iconsToBezierIcons,
   [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
   [Option.EnumMemberToStringLiteral]: enumMemberToStringLiteral,
-  [Option.FoundationToCssVariableTheme]: foundationToCssVariableTheme,
-  [Option.FoundationToCssVariableBorder]: foundationToCssVariableBorder,
-  [Option.FoundationToCssVariableElevation]: foundationToCssVariableElevation,
-  [Option.FoundationToCssVariableRounding]: foundationToCssVariableRounding,
-  [Option.FoundationToCssVariableTransition]: foundationToCssVariableTransition,
-  [Option.FoundationToCssVariable]: foundationToCssVariable,
-  [Option.InterpolationToCssVariable]: interpolationToCssVariable,
-  [Option.StyledToStyledComponents]: styledToStyledComponents,
-  [Option.RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
+  [Option.V2FoundationToCssVariableTheme]: foundationToCssVariableTheme,
+  [Option.V2FoundationToCssVariableBorder]: foundationToCssVariableBorder,
+  [Option.V2FoundationToCssVariableElevation]: foundationToCssVariableElevation,
+  [Option.V2FoundationToCssVariableRounding]: foundationToCssVariableRounding,
+  [Option.V2FoundationToCssVariableTransition]: foundationToCssVariableTransition,
+  [Option.V2FoundationToCssVariable]: foundationToCssVariable,
+  [Option.V2InputInterpolationToCssVariable]: inputInterpolationToCssVariable,
+  [Option.V2TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
+  [Option.V2StyledToStyledComponents]: styledToStyledComponents,
+  [Option.V2RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({
