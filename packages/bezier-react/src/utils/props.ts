@@ -138,7 +138,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
     rest,
   ]
 
-export const getMarginStyle = <Props extends MarginProps>({
+export const getMarginStyle = ({
   m,
   mx,
   my,
@@ -146,22 +146,22 @@ export const getMarginStyle = <Props extends MarginProps>({
   mr,
   mb,
   ml,
-}: Props) => (
-    {
-      style: {
-        '--b-margin': cssDimension(m),
-        '--b-margin-x': cssDimension(mx),
-        '--b-margin-y': cssDimension(my),
-        '--b-margin-top': cssDimension(mt),
-        '--b-margin-right': cssDimension(mr),
-        '--b-margin-bottom': cssDimension(mb),
-        '--b-margin-left': cssDimension(ml),
-      },
-      className: marginStyles.margin,
-    }
-  )
+}: MarginProps) => (
+  {
+    style: {
+      '--b-margin': cssDimension(m),
+      '--b-margin-x': cssDimension(mx),
+      '--b-margin-y': cssDimension(my),
+      '--b-margin-top': cssDimension(mt),
+      '--b-margin-right': cssDimension(mr),
+      '--b-margin-bottom': cssDimension(mb),
+      '--b-margin-left': cssDimension(ml),
+    },
+    className: marginStyles.margin,
+  }
+)
 
-export const getLayoutStyle = <Props extends LayoutProps>({
+export const getLayoutStyle = ({
   p,
   px,
   py,
@@ -196,46 +196,46 @@ export const getLayoutStyle = <Props extends LayoutProps>({
   overflow,
   overflowX,
   overflowY,
-}: Props) => (
-    {
-      style: {
-        '--b-padding': cssDimension(p),
-        '--b-padding-x': cssDimension(px),
-        '--b-padding-y': cssDimension(py),
-        '--b-padding-top': cssDimension(pt),
-        '--b-padding-right': cssDimension(pr),
-        '--b-padding-bottom': cssDimension(pb),
-        '--b-padding-left': cssDimension(pl),
-        '--b-width': cssDimension(width),
-        '--b-height': cssDimension(height),
-        '--b-max-width': cssDimension(maxWidth),
-        '--b-min-width': cssDimension(minWidth),
-        '--b-max-height': cssDimension(maxHeight),
-        '--b-min-height': cssDimension(minHeight),
-        '--b-inset': cssDimension(inset),
-        '--b-top': cssDimension(top),
-        '--b-right': cssDimension(right),
-        '--b-bottom': cssDimension(bottom),
-        '--b-left': cssDimension(left),
-        '--b-bg-color': cssVar(bgColor),
-        '--b-border-color': cssVar(borderColor),
-        '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
-        '--b-border-width': cssDimension(borderWidth),
-        '--b-border-top-width': cssDimension(borderTopWidth),
-        '--b-border-right-width': cssDimension(borderRightWidth),
-        '--b-border-bottom-width': cssDimension(borderBottomWidth),
-        '--b-border-left-width': cssDimension(borderLeftWidth),
-        '--b-elevation': tokenCssVar(elevation && `${TokenPrefix.Elevation}-${elevation}`),
-        '--b-z-index': tokenCssVar(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
-      },
-      className: classNames(
-        layoutStyles.layout,
-        position && layoutStyles[`position-${position}`],
-        isNumber(shrink) && layoutStyles[`shrink-${shrink}`],
-        isNumber(grow) && layoutStyles[`grow-${grow}`],
-        overflow && layoutStyles[`overflow-${overflow}`],
-        overflowX && layoutStyles[`overflow-x-${overflowX}`],
-        overflowY && layoutStyles[`overflow-y-${overflowY}`],
-      ),
-    }
-  )
+}: LayoutProps) => (
+  {
+    style: {
+      '--b-padding': cssDimension(p),
+      '--b-padding-x': cssDimension(px),
+      '--b-padding-y': cssDimension(py),
+      '--b-padding-top': cssDimension(pt),
+      '--b-padding-right': cssDimension(pr),
+      '--b-padding-bottom': cssDimension(pb),
+      '--b-padding-left': cssDimension(pl),
+      '--b-width': cssDimension(width),
+      '--b-height': cssDimension(height),
+      '--b-max-width': cssDimension(maxWidth),
+      '--b-min-width': cssDimension(minWidth),
+      '--b-max-height': cssDimension(maxHeight),
+      '--b-min-height': cssDimension(minHeight),
+      '--b-inset': cssDimension(inset),
+      '--b-top': cssDimension(top),
+      '--b-right': cssDimension(right),
+      '--b-bottom': cssDimension(bottom),
+      '--b-left': cssDimension(left),
+      '--b-bg-color': cssVar(bgColor),
+      '--b-border-color': cssVar(borderColor),
+      '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
+      '--b-border-width': cssDimension(borderWidth),
+      '--b-border-top-width': cssDimension(borderTopWidth),
+      '--b-border-right-width': cssDimension(borderRightWidth),
+      '--b-border-bottom-width': cssDimension(borderBottomWidth),
+      '--b-border-left-width': cssDimension(borderLeftWidth),
+      '--b-elevation': tokenCssVar(elevation && `${TokenPrefix.Elevation}-${elevation}`),
+      '--b-z-index': tokenCssVar(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
+    },
+    className: classNames(
+      layoutStyles.layout,
+      position && layoutStyles[`position-${position}`],
+      isNumber(shrink) && layoutStyles[`shrink-${shrink}`],
+      isNumber(grow) && layoutStyles[`grow-${grow}`],
+      overflow && layoutStyles[`overflow-${overflow}`],
+      overflowX && layoutStyles[`overflow-x-${overflowX}`],
+      overflowY && layoutStyles[`overflow-y-${overflowY}`],
+    ),
+  }
+)
