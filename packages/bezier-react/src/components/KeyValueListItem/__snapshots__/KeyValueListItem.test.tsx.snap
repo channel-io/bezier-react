@@ -140,7 +140,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
         />
       </svg>
       <div
-        class="margin Text typo-12 bold truncated c6"
+        class="Text typo-12 bold truncated margin c6"
         data-testid="bezier-react-text"
         foundation="[object Object]"
         style="--b-text-color: var(--txt-black-dark);"

@@ -8,7 +8,7 @@ exports[`FormErrorMessage > Snapshot > 1`] = `
 
 <p
   aria-live="polite"
-  class="margin Text typo-13 c0"
+  class="Text typo-13 margin c0"
   data-testid="bezier-react-form-error-message"
   foundation="[object Object]"
   id="test"
@@ -25,7 +25,7 @@ exports[`FormHelperText > Snapshot > 1`] = `
 }
 
 <p
-  class="margin Text typo-13 c0"
+  class="Text typo-13 margin c0"
   data-testid="bezier-react-form-helper-text"
   foundation="[object Object]"
   id="test"

@@ -8,7 +8,7 @@ import {
 
 type Display = 'block' | 'inline' | 'inline-block'
 
-type BoxElementType = 'div' | 'span' | 'section' | 'legend' | 'ul' | 'li'
+type BoxElementType = 'div' | 'span' | 'section' | 'legend' | 'ul' | 'ol' | 'li'
 
 interface BoxOwnProps {
   /**

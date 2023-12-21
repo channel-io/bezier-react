@@ -1,9 +1,9 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import { type HStackProps } from '~/src/components/Stack'
+import { type StackProps } from '~/src/components/Stack'
 
 interface ButtonGroupOptions {
   /**
@@ -14,7 +14,7 @@ interface ButtonGroupOptions {
 }
 
 export default interface ButtonGroupProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
-  Pick<HStackProps, 'justify'>,
+  Pick<StackProps, 'justify'>,
   ButtonGroupOptions {}

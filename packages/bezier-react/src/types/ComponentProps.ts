@@ -48,6 +48,9 @@ export interface StylableComponentProps {
   interpolation?: InjectedInterpolation
 }
 
+/**
+ * @deprecated Migration to `AlphaBezierComponentProps` is in progress.
+ */
 export type BezierComponentProps = RenderConfigProps & StylableComponentProps
 
 /* Component Additional Props */
@@ -132,7 +135,7 @@ export interface LinkProps {
 }
 
 /**
- * TODO: Migrate to `BezierComponentProps` after removing styled-components dependency.
+ * TODO: Remove Alpha prefix after removing styled-components dependency.
  */
 export interface AlphaBezierComponentProps extends
   Omit<RenderConfigProps, 'as'>,
@@ -158,6 +161,11 @@ export interface MarginProps {
   ml?: CSSProperties['marginLeft']
 }
 
+type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
+type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
+type Shrink = 0 | 1
+type Grow = 0 | 1
+
 /**
  * TODO: Add JSDoc
  */
@@ -175,14 +183,14 @@ export interface LayoutProps {
   minWidth?: CSSProperties['minWidth']
   maxHeight?: CSSProperties['maxHeight']
   minHeight?: CSSProperties['minHeight']
-  position?: CSSProperties['position']
+  position?: Position
   inset?: CSSProperties['inset']
   top?: CSSProperties['top']
   right?: CSSProperties['right']
   bottom?: CSSProperties['bottom']
   left?: CSSProperties['left']
-  shrink?: CSSProperties['flexShrink']
-  grow?: CSSProperties['flexGrow']
+  shrink?: Shrink
+  grow?: Grow
   bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
@@ -191,10 +199,9 @@ export interface LayoutProps {
   borderRightWidth?: CSSProperties['borderRightWidth']
   borderBottomWidth?: CSSProperties['borderBottomWidth']
   borderLeftWidth?: CSSProperties['borderLeftWidth']
-  borderStyle?: CSSProperties['borderStyle']
   elevation?: Elevation
   zIndex?: ZIndex
-  overflow?: CSSProperties['overflow']
-  overflowX?: CSSProperties['overflowX']
-  overflowY?: CSSProperties['overflowY']
+  overflow?: Overflow
+  overflowX?: Overflow
+  overflowY?: Overflow
 }

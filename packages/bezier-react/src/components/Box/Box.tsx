@@ -12,14 +12,12 @@ import {
   splitByMarginProps,
 } from '~/src/utils/props'
 
-import sharedStyles from '~/src/components/shared.module.scss'
-
 import { type BoxProps } from './Box.types'
 
 import styles from './Box.module.scss'
 
 /**
- * `Box` is the primitive component responsible for layout. It provides an easy way to access design tokens.
+ * `Box` is a primitive layout component. It provides an easy way to access design tokens.
  *
  * @example
  *
@@ -38,6 +36,9 @@ import styles from './Box.module.scss'
 export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+  const marginStyle = getMarginStyle(marginProps)
+  const layoutStyle = getLayoutStyle(layoutProps)
+
   const {
     children,
     style,
@@ -55,15 +56,15 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
   return createElement(as, {
     ref: forwardedRef,
     style: {
-      ...getMarginStyle(marginProps),
-      ...getLayoutStyle(layoutProps),
+      ...marginStyle.style,
+      ...layoutStyle.style,
       ...style,
     },
     className: classNames(
-      sharedStyles.margin,
-      sharedStyles.layout,
       styles.Box,
       display && styles[`display-${display}`],
+      marginStyle.className,
+      layoutStyle.className,
       className,
     ),
     'data-testid': testId,

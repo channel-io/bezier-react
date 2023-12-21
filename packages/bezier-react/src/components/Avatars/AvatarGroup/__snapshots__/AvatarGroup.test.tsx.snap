@@ -246,7 +246,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     style="--b-avatar-group-ellipsis-mr: 5px; --b-avatar-group-ellipsis-ml: 4px;"
   >
     <span
-      class="margin Text typo-13 c5"
+      class="Text typo-13 margin c5"
       data-testid="bezier-react-text"
       foundation="[object Object]"
     >

@@ -9,9 +9,9 @@ import {
 import { styled } from '~/src/foundation'
 
 import {
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import { Text } from '~/src/components/Text'
 
 import { Typography } from './Typography'
@@ -54,88 +54,88 @@ export const Primary: StoryObj<{
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
+  <LegacyVStack spacing={16}>
+    <LegacyStackItem>
       <Text
         typo="11"
         color="txt-black-darkest"
       >
         11Aa한글 <b>11Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="12"
         color="txt-black-darkest"
       >
         12Aa한글 <b>12Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="13"
         color="txt-black-darkest"
       >
         13Aa한글 <b>13Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="14"
         color="txt-black-darkest"
       >
         14Aa한글 <b>14Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="15"
         color="txt-black-darkest"
       >
         15Aa한글 <b>15Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="16"
         color="txt-black-darkest"
       >
         16Aa한글 <b>16Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="17"
         color="txt-black-darkest"
       >
         17Aa한글 <b>17Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="18"
         color="txt-black-darkest"
       >
         18Aa한글 <b>18Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="22"
         color="txt-black-darkest"
       >
         22Aa한글 <b>22Aa한글</b>
       </Text>
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Text
         typo="24"
         color="txt-black-darkest"
       >
         24Aa한글 <b>24Aa한글</b>
       </Text>
-    </StackItem>
-  </VStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const UsageText: StoryObj<{}> = {

@@ -1,0 +1,76 @@
+@layer components {
+  .Stack {
+    --b-stack-spacing: initial;
+
+    box-sizing: border-box;
+    gap: var(--b-stack-spacing);
+
+    &.display-flex {
+      display: flex;
+    }
+
+    &.display-inline-flex {
+      display: inline-flex;
+    }
+
+    &.direction-horizontal {
+      flex-direction: row;
+
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &.direction-vertical {
+      flex-direction: column;
+
+      &.reverse {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &.justify-start {
+      justify-content: flex-start;
+    }
+
+    &.justify-end {
+      justify-content: flex-end;
+    }
+
+    &.justify-center {
+      justify-content: center;
+    }
+
+    &.justify-stretch {
+      justify-content: stretch;
+    }
+
+    &.justify-between {
+      justify-content: space-between;
+    }
+
+    &.align-start {
+      align-items: flex-start;
+    }
+
+    &.align-end {
+      align-items: flex-end;
+    }
+
+    &.align-center {
+      align-items: center;
+    }
+
+    &.align-stretch {
+      align-items: stretch;
+    }
+
+    &.align-baseline {
+      align-items: baseline;
+    }
+
+    &.wrap {
+      flex-wrap: wrap;
+    }
+  }
+}

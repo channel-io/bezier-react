@@ -22,11 +22,11 @@ import {
   ButtonColorVariant,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { ProgressBar } from '~/src/components/ProgressBar'
 import {
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
+import { ProgressBar } from '~/src/components/ProgressBar'
 
 import type ToastProps from './Toast.types'
 import { type ToastOptions } from './Toast.types'
@@ -239,22 +239,22 @@ function CustomContentToastController() {
 
   const handleClick = useCallback((option?: ToastOptions) => {
     toast.addToast((
-      <VStack spacing={6} align="stretch">
-        <StackItem>
+      <LegacyVStack spacing={6} align="stretch">
+        <LegacyStackItem>
           <Button
             text="Close All Toasts"
             styleVariant={ButtonStyleVariant.Primary}
             colorVariant={ButtonColorVariant.Blue}
             onClick={onClickCustomButtonInToast}
           />
-        </StackItem>
-        <StackItem>
+        </LegacyStackItem>
+        <LegacyStackItem>
           <ProgressBar
             width="100%"
             value={Math.random()}
           />
-        </StackItem>
-      </VStack>
+        </LegacyStackItem>
+      </LegacyVStack>
     ), {
       preset: ToastPreset.Default,
       ...option,
@@ -290,22 +290,22 @@ function UpdateContentToastController() {
 
   const handleOpenToast = useCallback((option?: ToastOptions) => {
     toastId.current = toast.addToast((
-      <VStack spacing={6} align="stretch">
-        <StackItem>
+      <LegacyVStack spacing={6} align="stretch">
+        <LegacyStackItem>
           <Button
             text="Close All Toasts"
             styleVariant={ButtonStyleVariant.Primary}
             colorVariant={ButtonColorVariant.Blue}
             onClick={onClickCustomButtonInToast}
           />
-        </StackItem>
-        <StackItem>
+        </LegacyStackItem>
+        <LegacyStackItem>
           <ProgressBar
             width="100%"
             value={Math.random()}
           />
-        </StackItem>
-      </VStack>
+        </LegacyStackItem>
+      </LegacyVStack>
     ), {
       preset: ToastPreset.Default,
       ...option,
@@ -318,22 +318,22 @@ function UpdateContentToastController() {
   const handleUpdateToast = useCallback((option?: ToastOptions) => {
     if (toastId.current) {
       toast.updateToast(toastId.current, (
-        <VStack spacing={6} align="stretch">
-          <StackItem>
+        <LegacyVStack spacing={6} align="stretch">
+          <LegacyStackItem>
             <Button
               text="Close All Toasts"
               styleVariant={ButtonStyleVariant.Primary}
               colorVariant={ButtonColorVariant.Blue}
               onClick={onClickCustomButtonInToast}
             />
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <ProgressBar
               width="100%"
               value={Math.random()}
             />
-          </StackItem>
-        </VStack>
+          </LegacyStackItem>
+        </LegacyVStack>
       ), {
         preset: ToastPreset.Default,
         ...option,
