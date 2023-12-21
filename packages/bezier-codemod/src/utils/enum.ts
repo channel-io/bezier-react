@@ -1,38 +1,45 @@
 import {
+  type PropertyAccessExpression,
   type SourceFile,
   SyntaxKind,
 } from 'ts-morph'
+
+import { getNamedImport } from './import.js'
 
 type Name = string
 type Member = string
 type Value = string
 export type EnumTransformMap = Record<Name, Record<Member, Value>>
 
+export const renameEnumMember = (node: PropertyAccessExpression, to: string) => {
+  const ancestor = node.getFirstAncestor()
+
+  if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
+    ancestor.replaceWithText(`'${to}'`)
+  } else {
+    node.replaceWithText(`'${to}'`)
+  }
+}
+
+// add bezier-react import context, and move to shared directory
 export const transformEnumMemberToStringLiteral = (sourceFile: SourceFile, enumTransforms: EnumTransformMap) => {
   const transformedEnumNames: string[] = []
 
-  sourceFile
-    .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression)
-    .forEach((node) => {
-      const firstIdentifier = node.getFirstChildByKind(SyntaxKind.Identifier)
-      const lastIdentifier = node.getLastChildByKind(SyntaxKind.Identifier)
-
-      const enumName = firstIdentifier?.getText()
-      const enumValue = lastIdentifier?.getText()
-
-      if (!enumName || !enumValue) { return }
-      if (!Object.keys(enumTransforms).includes(enumName)) { return }
-
-      const newEnumMemberValue = enumTransforms[enumName]?.[enumValue]
-      const ancestor = node.getFirstAncestor()
-
-      if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
-        ancestor.replaceWithText(`'${newEnumMemberValue}'`)
-      } else {
-        node.replaceWithText(`'${newEnumMemberValue}'`)
+  Object
+    .keys(enumTransforms)
+    .forEach((enumName) => {
+      if (getNamedImport(sourceFile, enumName)) {
+        sourceFile
+          .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression)
+          .filter((node) => node.getFirstChildByKind(SyntaxKind.Identifier)?.getText() === enumName)
+          .forEach((node) => {
+            const enumValue = node.getLastChildByKind(SyntaxKind.Identifier)?.getText()
+            if (enumValue) {
+              renameEnumMember(node, enumTransforms[enumName][enumValue])
+              transformedEnumNames.push(enumName)
+            }
+          })
       }
-
-      transformedEnumNames.push(enumName)
     })
 
   if (transformedEnumNames.length > 0) {
