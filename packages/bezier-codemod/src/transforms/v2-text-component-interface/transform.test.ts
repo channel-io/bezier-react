@@ -10,4 +10,8 @@ describe('Text component transform', () => {
   it('should transform properties in attrs object of styled component', () => {
     testTransformFunction(__dirname, 'text-component-attrs', textTransform)
   })
+
+  it('should transform properties only in attrs object of styled component', () => {
+    testTransformFunction(__dirname, 'text-component-with-interpolation', textTransform)
+  })
 })
