@@ -26,8 +26,6 @@ export const transformEnumMemberToStringLiteral = (sourceFile: SourceFile, enumT
       const newEnumMemberValue = enumTransforms[enumName]?.[enumValue]
       const ancestor = node.getFirstAncestor()
 
-      if (!newEnumMemberValue) { return }
-
       if (ancestor?.isKind(SyntaxKind.JsxExpression)) {
         ancestor.replaceWithText(`'${newEnumMemberValue}'`)
       } else {
