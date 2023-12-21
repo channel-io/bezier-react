@@ -1,7 +1,4 @@
-import {
-  type SourceFile,
-  ts,
-} from 'ts-morph'
+import { type SourceFile } from 'ts-morph'
 
 import {
   getImportDeclaration,
