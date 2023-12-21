@@ -2,7 +2,7 @@
 
 exports[`FormGroup > Snapshot > 1`] = `
 <div
-  class="margin layout Stack display-flex direction-vertical justify-start align-stretch wrap"
+  class="Stack display-flex direction-vertical justify-start align-stretch wrap margin layout"
   data-testid="bezier-react-form-group"
   role="group"
   style="--b-stack-spacing: 6px;"

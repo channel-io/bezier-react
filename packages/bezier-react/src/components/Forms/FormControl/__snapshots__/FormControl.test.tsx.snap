@@ -122,7 +122,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 
 <div>
   <div
-    class="margin layout Stack display-flex direction-vertical"
+    class="Stack display-flex direction-vertical margin layout"
     data-testid="bezier-react-form-control"
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
@@ -130,7 +130,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       class="c0 c1"
     >
       <label
-        class="margin Text typo-13 bold c2"
+        class="Text typo-13 bold margin c2"
         data-testid="bezier-react-form-label"
         foundation="[object Object]"
         id="form-label"
@@ -142,14 +142,14 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     <div
       aria-describedby="form-help-text"
       aria-labelledby="form-label"
-      class="margin layout Stack display-flex direction-vertical justify-start align-stretch wrap"
+      class="Stack display-flex direction-vertical justify-start align-stretch wrap margin layout"
       data-testid="bezier-react-form-group"
       id="form-group"
       role="group"
       style="--b-stack-spacing: 6px;"
     >
       <div
-        class="margin layout Stack display-flex direction-vertical"
+        class="Stack display-flex direction-vertical margin layout"
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
@@ -157,7 +157,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           class="c0 c1"
         >
           <label
-            class="margin Text typo-13 bold c2"
+            class="Text typo-13 bold margin c2"
             data-testid="bezier-react-form-label"
             for="field-:r3:"
             foundation="[object Object]"
@@ -182,7 +182,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         </div>
       </div>
       <div
-        class="margin layout Stack display-flex direction-vertical"
+        class="Stack display-flex direction-vertical margin layout"
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
@@ -190,7 +190,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           class="c0 c1"
         >
           <label
-            class="margin Text typo-13 bold c2"
+            class="Text typo-13 bold margin c2"
             data-testid="bezier-react-form-label"
             for="field-:r4:"
             foundation="[object Object]"
@@ -220,7 +220,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       class="c0 c7"
     >
       <p
-        class="margin Text typo-13 c8"
+        class="Text typo-13 margin c8"
         data-testid="bezier-react-form-helper-text"
         foundation="[object Object]"
         id="form-help-text"
@@ -396,7 +396,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       class="c0 c2"
     >
       <label
-        class="margin Text typo-14 bold c3"
+        class="Text typo-14 bold margin c3"
         data-testid="bezier-react-form-label"
         foundation="[object Object]"
         id="form-label"
@@ -408,14 +408,14 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
     <div
       aria-describedby="form-help-text"
       aria-labelledby="form-label"
-      class="margin layout Stack display-flex direction-vertical justify-start align-stretch wrap"
+      class="Stack display-flex direction-vertical justify-start align-stretch wrap margin layout"
       data-testid="bezier-react-form-group"
       id="form-group"
       role="group"
       style="--b-stack-spacing: 6px;"
     >
       <div
-        class="margin layout Stack display-flex direction-vertical"
+        class="Stack display-flex direction-vertical margin layout"
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
@@ -423,7 +423,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           class="c0 c4"
         >
           <label
-            class="margin Text typo-13 bold c3"
+            class="Text typo-13 bold margin c3"
             data-testid="bezier-react-form-label"
             for="field-:r6:"
             foundation="[object Object]"
@@ -448,7 +448,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         </div>
       </div>
       <div
-        class="margin layout Stack display-flex direction-vertical"
+        class="Stack display-flex direction-vertical margin layout"
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
@@ -456,7 +456,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           class="c0 c4"
         >
           <label
-            class="margin Text typo-13 bold c3"
+            class="Text typo-13 bold margin c3"
             data-testid="bezier-react-form-label"
             for="field-:r7:"
             foundation="[object Object]"
@@ -486,7 +486,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       class="c0 c9 c10"
     >
       <p
-        class="margin Text typo-13 c11"
+        class="Text typo-13 margin c11"
         data-testid="bezier-react-form-helper-text"
         foundation="[object Object]"
         id="form-help-text"
@@ -587,7 +587,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 }
 
 <div
-  class="margin layout Stack display-flex direction-vertical"
+  class="Stack display-flex direction-vertical margin layout"
   data-testid="bezier-react-form-control"
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
@@ -595,7 +595,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     class="c0 c1"
   >
     <label
-      class="margin Text typo-13 bold c2"
+      class="Text typo-13 bold margin c2"
       data-testid="bezier-react-form-label"
       for="form"
       foundation="[object Object]"
@@ -623,7 +623,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     class="c0 c6"
   >
     <p
-      class="margin Text typo-13 c7"
+      class="Text typo-13 margin c7"
       data-testid="bezier-react-form-helper-text"
       foundation="[object Object]"
       id="form-help-text"
@@ -759,7 +759,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     class="c0 c2"
   >
     <label
-      class="margin Text typo-14 bold c3"
+      class="Text typo-14 bold margin c3"
       data-testid="bezier-react-form-label"
       for="form"
       foundation="[object Object]"
@@ -787,7 +787,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     class="c0 c7 c8"
   >
     <p
-      class="margin Text typo-13 c9"
+      class="Text typo-13 margin c9"
       data-testid="bezier-react-form-helper-text"
       foundation="[object Object]"
       id="form-help-text"

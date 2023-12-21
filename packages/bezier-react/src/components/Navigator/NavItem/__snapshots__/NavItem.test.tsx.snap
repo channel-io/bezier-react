@@ -84,7 +84,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
     </svg>
   </div>
   <span
-    class="margin Text typo-14 truncated"
+    class="Text typo-14 truncated margin"
     data-testid="bezier-react-text"
   >
     test-content
@@ -183,7 +183,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
     </svg>
   </div>
   <span
-    class="margin Text typo-14 truncated"
+    class="Text typo-14 truncated margin"
     data-testid="bezier-react-text"
   >
     test-content

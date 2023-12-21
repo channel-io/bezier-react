@@ -83,7 +83,7 @@ exports[`Button Test > Active Test > Active prop change Button to hover style 1`
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -172,7 +172,7 @@ exports[`Button Test > Disabled Test > Button can have disabled attribute 1`] = 
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -284,7 +284,7 @@ exports[`Button Test > Loading Test > Active prop change Button to hover style 1
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -384,7 +384,7 @@ exports[`Button Test > Reset CSS 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -483,7 +483,7 @@ exports[`Button Test > Size Test > with text > Size L - styleVariant: Floating 1
   >
     <span
       buttonsize="L"
-      class="margin Text typo-15 bold c2"
+      class="Text typo-15 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -575,7 +575,7 @@ exports[`Button Test > Size Test > with text > Size L 1`] = `
   >
     <span
       buttonsize="L"
-      class="margin Text typo-15 bold c2"
+      class="Text typo-15 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -674,7 +674,7 @@ exports[`Button Test > Size Test > with text > Size M - styleVariant: Floating 1
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -766,7 +766,7 @@ exports[`Button Test > Size Test > with text > Size M 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -865,7 +865,7 @@ exports[`Button Test > Size Test > with text > Size S - styleVariant: Floating 1
   >
     <span
       buttonsize="S"
-      class="margin Text typo-13 bold c2"
+      class="Text typo-13 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -957,7 +957,7 @@ exports[`Button Test > Size Test > with text > Size S 1`] = `
   >
     <span
       buttonsize="S"
-      class="margin Text typo-13 bold c2"
+      class="Text typo-13 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1056,7 +1056,7 @@ exports[`Button Test > Size Test > with text > Size XL - styleVariant: Floating 
   >
     <span
       buttonsize="XL"
-      class="margin Text typo-18 bold c2"
+      class="Text typo-18 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1148,7 +1148,7 @@ exports[`Button Test > Size Test > with text > Size XL 1`] = `
   >
     <span
       buttonsize="XL"
-      class="margin Text typo-18 bold c2"
+      class="Text typo-18 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1247,7 +1247,7 @@ exports[`Button Test > Size Test > with text > Size XS - styleVariant: Floating 
   >
     <span
       buttonsize="XS"
-      class="margin Text typo-13 bold c2"
+      class="Text typo-13 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1339,7 +1339,7 @@ exports[`Button Test > Size Test > with text > Size XS 1`] = `
   >
     <span
       buttonsize="XS"
-      class="margin Text typo-13 bold c2"
+      class="Text typo-13 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1431,7 +1431,7 @@ exports[`Button Test > Size Test > with text > size prop not given, default size
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -1925,7 +1925,7 @@ exports[`Button Test > StyleVariant Test > Floating 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -2024,7 +2024,7 @@ exports[`Button Test > StyleVariant Test > FloatingAlt 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -2116,7 +2116,7 @@ exports[`Button Test > StyleVariant Test > Primary 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -2208,7 +2208,7 @@ exports[`Button Test > StyleVariant Test > Secondary 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
@@ -2301,7 +2301,7 @@ exports[`Button Test > StyleVariant Test > Tertiary 1`] = `
   >
     <span
       buttonsize="M"
-      class="margin Text typo-14 bold c2"
+      class="Text typo-14 bold margin c2"
       data-testid="bezier-react-button-text"
       foundation="[object Object]"
     >
