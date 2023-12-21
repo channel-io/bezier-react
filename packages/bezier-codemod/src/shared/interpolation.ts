@@ -7,7 +7,7 @@ import {
 import {
   getImportDeclaration,
   hasNamedImport,
-} from './import.js'
+} from '../utils/import.js'
 
 export const interpolationTransform = (sourceFile: SourceFile, fromToObj: Record<string, string>) => {
   sourceFile
