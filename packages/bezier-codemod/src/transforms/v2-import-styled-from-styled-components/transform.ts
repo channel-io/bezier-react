@@ -5,23 +5,24 @@ import {
 
 import {
   getImportDeclaration,
+  getImportDeclarations,
   hasNamedImport,
-  removeImportDeclarationWithoutImport,
   removeNamedImport,
 } from '../../utils/import.js'
 
 const STYLED = 'styled'
+const NAMED_IMPORTS = ['css', 'createGlobalStyle', 'keyframes', 'StyleSheetManager', 'ServerStyleSheet']
 const STYLED_COMPONENTS = 'styled-components'
+const BEZIER_REACT = '@channel.io/bezier-react'
 
-const removeStyledFromBezier = (sourceFile: SourceFile) => {
-  removeNamedImport(sourceFile, STYLED)
-  removeImportDeclarationWithoutImport(sourceFile)
-}
-
-const addStyledToStyledComponents = (sourceFile: SourceFile) => {
+const addImportToStyledComponents = (sourceFile: SourceFile, importSpecifier: string, isDefault: boolean = false) => {
   const styledComponentsImport = getImportDeclaration(sourceFile, STYLED_COMPONENTS)
   if (styledComponentsImport) {
-    styledComponentsImport.setDefaultImport(STYLED)
+    if (isDefault) {
+      styledComponentsImport.setDefaultImport(importSpecifier)
+    } else {
+      styledComponentsImport.addNamedImport(importSpecifier)
+    }
   } else {
     sourceFile.insertImportDeclaration(0, {
       defaultImport: STYLED,
@@ -32,14 +33,25 @@ const addStyledToStyledComponents = (sourceFile: SourceFile) => {
 
 const replaceStyledImport = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
-  if (hasNamedImport(sourceFile, STYLED)) {
-    addStyledToStyledComponents(sourceFile)
-    removeStyledFromBezier(sourceFile)
 
-    sourceFile.formatText({
-      semicolons: ts.SemicolonPreference.Remove,
-    })
+  if (hasNamedImport(sourceFile, STYLED)) {
+    removeNamedImport(sourceFile, STYLED)
+    addImportToStyledComponents(sourceFile, STYLED, true)
   }
+
+  NAMED_IMPORTS.forEach((namedImport) => {
+    if (hasNamedImport(sourceFile, namedImport)) {
+      removeNamedImport(sourceFile, namedImport)
+      addImportToStyledComponents(sourceFile, namedImport, false)
+    }
+  })
+
+  getImportDeclarations(sourceFile, BEZIER_REACT)
+    .forEach((importDeclaration) => {
+      if (!importDeclaration.getImportClause()?.getText()) {
+        importDeclaration.remove()
+      }
+    })
 
   return oldSourceFileText !== sourceFile.getText()
 }

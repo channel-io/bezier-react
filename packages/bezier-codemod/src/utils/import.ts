@@ -8,6 +8,11 @@ export const getImportDeclaration = (sourceFile: SourceFile, specifier: string) 
     .getImportDeclarations()
     .find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
 
+export const getImportDeclarations = (sourceFile: SourceFile, specifier: string) =>
+  sourceFile
+    .getImportDeclarations()
+    .filter((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
+
 export const removeImportDeclarationWithoutImport = (sourceFile: SourceFile) => {
   sourceFile
     .getDescendantsOfKind(SyntaxKind.ImportDeclaration)
