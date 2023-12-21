@@ -14,4 +14,8 @@ describe('z-index interpolation transform', () => {
   it('should transform z-index enum to css variable when used as prop', () => {
     testTransformFunction(__dirname, 'z-index-enum-as-prop', interpolationTransform)
   })
+
+  it('should not transform z-index enum if it is not imported from bezier-react', () => {
+    testTransformFunction(__dirname, 'z-index-enum-not-from-bezier-react', interpolationTransform)
+  })
 })

@@ -3,7 +3,7 @@ import { type SourceFile } from 'ts-morph'
 import {
   type EnumTransformMap,
   transformEnumMemberToStringLiteral,
-} from '../../utils/enum.js'
+} from '../../shared/enum.js'
 
 const ENUM_TRANSFORM_MAP: EnumTransformMap = {
   ProgressBarSize: {
