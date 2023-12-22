@@ -1,5 +1,21 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.2
+
+### Minor Changes
+
+- Add codemod for Stack component ([#1836](https://github.com/channel-io/bezier-react/pull/1836)) by @yangwooseong
+
+- Add codemod to transform interface of `Text` component ([#1849](https://github.com/channel-io/bezier-react/pull/1849)) by @yangwooseong
+
+- Enhance `import-styled-from-styled-component` codemod to cover other APIs from `styled-components` ([#1852](https://github.com/channel-io/bezier-react/pull/1852)) by @yangwooseong
+
+- Add Typography transform logic to interpolation codemod ([#1841](https://github.com/channel-io/bezier-react/pull/1841)) by @yangwooseong
+
+- Add v2 prefix to codemods related to major version 2 ([#1844](https://github.com/channel-io/bezier-react/pull/1844)) by @yangwooseong
+
+- Add codemod for z-index interpolation and enum ([#1845](https://github.com/channel-io/bezier-react/pull/1845)) by @yangwooseong
+
 ## 0.5.0-alpha.1
 
 ### Minor Changes

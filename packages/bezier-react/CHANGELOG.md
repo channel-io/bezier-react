@@ -1,5 +1,91 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.4
+
+### Major Changes
+
+- `typo` prop of `Text` component is changed to a string literal. Please migrate it like below. With the removal of the styled-component from bezier-react, CSS interpolation is no longer available. ([#1820](https://github.com/channel-io/bezier-react/pull/1820)) by @sungik-choi
+
+  ```tsx
+  /* AS-IS */
+  <Text typo={Typography.Size11} />
+  <Text typo={Typography.Size12} />
+  <Text typo={Typography.Size13} />
+  <Text typo={Typography.Size14} />
+  <Text typo={Typography.Size15} />
+  <Text typo={Typography.Size16} />
+  <Text typo={Typography.Size17} />
+  <Text typo={Typography.Size18} />
+  <Text typo={Typography.Size22} />
+  <Text typo={Typography.Size24} />
+  <Text typo={Typography.Size30} />
+  <Text typo={Typography.Size36} />
+
+  /* TO-BE */
+  <Text typo="11" />
+  <Text typo="12" />
+  <Text typo="13" />
+  <Text typo="14" />
+  <Text typo="15" />
+  <Text typo="16" />
+  <Text typo="17" />
+  <Text typo="18" />
+  <Text typo="22" />
+  <Text typo="24" />
+  <Text typo="30" />
+  <Text typo="36" />
+  ```
+
+- `AlphaStack` component has been changed to a `Stack` component, and `Stack` component has been changed to `LegacyStack` component. Changes to remove the dependency of `Stack` and `StackItem` to allow stack layouts to be configured without additional DOM elements. And improved the existing `AlphaStack` to support more Flex layout related properties like reverse, wrap, and more align options, etc. See StackProps for more information. ([#1837](https://github.com/channel-io/bezier-react/pull/1837)) by @sungik-choi
+
+  We also added new `HStack` and `VStack` components, which are shorthand components that fix the direction prop of `AlphaStack`. As mentioned above, the existing components become `LegacyHStack`, `LegacyVStack`.
+
+  The layout implemented by `StackItem` can be partially replaced by the Layout component's `grow`, `shrink` common properties and margin common properties. Note that the `align`, `justify` (align-self, justify-self in CSS flex) properties provided by `StackItem` are not provided by the Layout component.
+
+  ```jsx
+  /* AS-IS */
+  return (
+    <Stack
+      direction="horizontal"
+      spacing={8}
+      style={{ width: 300, height: 50 }}
+    >
+      <StackItem grow shrink weight={1} />
+      <StackItem weight={0} size={10} marginBefore={20}>
+        <Stack direction="vertical" />
+      </StackItem>
+    </Stack>
+  );
+
+  /* TO-BE */
+  return (
+    <Stack direction="horizontal" spacing={8} width={300} height={50}>
+      <Box grow={1} shrink={1} />
+      <Stack direction="vertical" shrink={0} width={10} ml={12} />
+    </Stack>
+  );
+  ```
+
+  The changes also apply to other components that use `Stack` internally, and there are a few changes.
+
+  - `RadioGroup` component no longer supports `as` prop.
+  - `ButtonGroup` component now extends the interfaces of new `Stack`. It no longer supports `as` prop.
+  - `FormGroup` component now extends the interfaces of new `Stack`. It no longer supports `as` prop.
+
+### Minor Changes
+
+- Fixes style inheritance issues by explicitly giving CSS custom properties an initial value. ([#1846](https://github.com/channel-io/bezier-react/pull/1846)) by @sungik-choi
+
+- Add `align` prop to `Text` component. This prop is used to set horizontal alignment of text. ([#1820](https://github.com/channel-io/bezier-react/pull/1820)) by @sungik-choi
+
+  ```tsx
+  <Text align="left" />
+  <Text align="center" />
+  <Text align="right" />
+  ```
+
+- Remove `borderStyle` prop from Layout props. ([#1848](https://github.com/channel-io/bezier-react/pull/1848)) by @sungik-choi
+
 ## 2.0.0-alpha.3
 
 ### Major Changes
