@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import { type SourceFile } from 'ts-morph'
 
-import { transformEnumTostringLiteralInBezier } from '../../shared/enum.js'
+import { transformEnumToStringLiteralInBezier } from '../../shared/enum.js'
 import { interpolationTransform } from '../../shared/interpolation.js'
 import { removeUnusedNamedImport } from '../../utils/import.js'
 
@@ -34,7 +34,7 @@ const replaceZIndexInterpolation = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
 
   interpolationTransform(sourceFile, CSS_VARIABLE_TRANSFORM_MAP)
-  transformEnumTostringLiteralInBezier(sourceFile, ENUM_TRANSFORM_MAP)
+  transformEnumToStringLiteralInBezier(sourceFile, ENUM_TRANSFORM_MAP)
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
