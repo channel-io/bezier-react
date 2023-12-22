@@ -13,15 +13,6 @@ export const getImportDeclarations = (sourceFile: SourceFile, specifier: string)
     .getImportDeclarations()
     .filter((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
 
-export const removeImportDeclarationWithoutImport = (sourceFile: SourceFile) => {
-  sourceFile
-    .getDescendantsOfKind(SyntaxKind.ImportDeclaration)
-    .filter((v) => v.getDescendantsOfKind(SyntaxKind.ImportClause).length === 0)
-    .forEach((v) => {
-      v.remove()
-    })
-}
-
 export const hasNamedImportInImportDeclaration = (sourceFile: SourceFile, namedImport: string, moduleName: string) => {
   const importDeclaration = getImportDeclaration(sourceFile, moduleName)
   return importDeclaration
