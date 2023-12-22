@@ -1,4 +1,7 @@
-import { type SourceFile } from 'ts-morph'
+import {
+  type SourceFile,
+  ts,
+} from 'ts-morph'
 
 import {
   getImportDeclaration,
@@ -35,6 +38,11 @@ const replaceStyledImport = (sourceFile: SourceFile) => {
     removeNamedImport(sourceFile, STYLED)
     addImportToStyledComponents(sourceFile, STYLED, true)
   }
+
+  // NOTE: semicolon 제거를 namedImport 추가 후 하면 ts-morph 에서 runtime error 를 낸다
+  sourceFile.formatText({
+    semicolons: ts.SemicolonPreference.Remove,
+  })
 
   NAMED_IMPORTS.forEach((namedImport) => {
     if (hasNamedImport(sourceFile, namedImport)) {

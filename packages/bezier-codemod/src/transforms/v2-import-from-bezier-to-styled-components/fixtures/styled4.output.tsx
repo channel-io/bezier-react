@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components'
 import type { InterpolationProps } from '@channel.io/bezier-react'
 const Enter = keyframes`
   from {
