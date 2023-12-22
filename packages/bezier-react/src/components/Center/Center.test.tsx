@@ -2,14 +2,14 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import { AlphaCenter } from './AlphaCenter'
-import { type AlphaCenterProps } from './AlphaCenter.types'
+import { Center } from './Center'
+import { type CenterProps } from './Center.types'
 
 const CONTENT = 'Centered content'
 
-describe('AlphaCenter', () => {
-  const renderComponent = ({ children, ...rest }: AlphaCenterProps) => render(
-    <AlphaCenter {...rest}>{ children }</AlphaCenter>,
+describe('Center', () => {
+  const renderComponent = ({ children, ...rest }: CenterProps) => render(
+    <Center {...rest}>{ children }</Center>,
   )
 
   it('should have a centered style', () => {

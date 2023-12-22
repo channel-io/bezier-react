@@ -1,0 +1,14 @@
+@layer components {
+  .Center {
+    align-items: center;
+    justify-content: center;
+
+    &.display-flex {
+      display: flex;
+    }
+
+    &.display-inline-flex {
+      display: inline-flex;
+    }
+  }
+}
