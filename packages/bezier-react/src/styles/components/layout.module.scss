@@ -29,6 +29,7 @@
     --b-elevation: initial;
     --b-z-index: initial;
 
+    box-sizing: border-box;
     padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom) var(--b-padding-left);
     width: var(--b-width);
     height: var(--b-height);

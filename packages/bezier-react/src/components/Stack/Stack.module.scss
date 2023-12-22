@@ -2,7 +2,6 @@
   .Stack {
     --b-stack-spacing: initial;
 
-    box-sizing: border-box;
     gap: var(--b-stack-spacing);
 
     &.display-flex {
