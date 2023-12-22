@@ -17,6 +17,14 @@ export const removeImportDeclarationWithoutImport = (sourceFile: SourceFile) => 
     })
 }
 
+export const hasNamedImportInImportDeclaration = (sourceFile: SourceFile, namedImport: string, moduleName: string) => {
+  const importDeclaration = getImportDeclaration(sourceFile, moduleName)
+  return importDeclaration
+    ?.getNamedImports()
+    .map((node) => node.getText())
+    .includes(namedImport)
+}
+
 export const getNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   sourceFile
     .getImportDeclarations()
