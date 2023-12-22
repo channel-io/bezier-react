@@ -5,6 +5,8 @@ import { render } from '~/src/utils/test'
 import { Center } from './Center'
 import { type CenterProps } from './Center.types'
 
+import styles from './Center.module.scss'
+
 const CONTENT = 'Centered content'
 
 describe('Center', () => {
@@ -16,8 +18,6 @@ describe('Center', () => {
     const { getByText } = renderComponent({ children: CONTENT })
     const rendered = getByText(CONTENT)
 
-    expect(rendered).toHaveStyle('display: flex')
-    expect(rendered).toHaveStyle('align-items: center')
-    expect(rendered).toHaveStyle('justify-content: center')
+    expect(rendered).toHaveClass(styles.Center)
   })
 })
