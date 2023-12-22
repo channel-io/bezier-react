@@ -1,5 +1,5 @@
-import { styled, Text } from '@channel.io/bezier-react'
-import { keyframes } from 'styled-components'
+import { Text, keyframes } from '@channel.io/bezier-react'
+import styled from 'styled-components'
 
 const fadeIn = keyframes`
   0% {

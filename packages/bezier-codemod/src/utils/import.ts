@@ -8,14 +8,10 @@ export const getImportDeclaration = (sourceFile: SourceFile, specifier: string) 
     .getImportDeclarations()
     .find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
 
-export const removeImportDeclarationWithoutImport = (sourceFile: SourceFile) => {
+export const getImportDeclarations = (sourceFile: SourceFile, specifier: string) =>
   sourceFile
-    .getDescendantsOfKind(SyntaxKind.ImportDeclaration)
-    .filter((v) => v.getDescendantsOfKind(SyntaxKind.ImportClause).length === 0)
-    .forEach((v) => {
-      v.remove()
-    })
-}
+    .getImportDeclarations()
+    .filter((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
 
 export const hasNamedImportInImportDeclaration = (sourceFile: SourceFile, namedImport: string, moduleName: string) => {
   const importDeclaration = getImportDeclaration(sourceFile, moduleName)

@@ -203,57 +203,34 @@ const Wrapper = styled.div`
 `;
 ```
 
-**`v2-z-index-interpolation-to-css-variable`**
+### import directly from styled-components
 
-Replace z-index interpolation to css variable
+**`v2-import-from-bezier-to-styled-components`**
+
+Switch library to import `styled`, `css`, `StyleSheetManager`, `keyframes`, `createGlobalStyle`, `ServerStyleSheet` object from `@channel.io/bezier-react` to `styled-components`
 For example:
 
 ```tsx
-import { ZIndex, styled } from "@channel.io/bezier-react";
+import { styled, Button, css } from "@channel.io/bezier-react";
 
-const OVERLAY_POSITION = {
-  zIndex: ZIndex.Modal,
-};
-
-const Wrapper = styled.div`
-  z-index: ${ZIndex.Hide};
+export const Wrapper = styled(Button)`
+  ${css`
+    background: red;
+  `}
 `;
 ```
 
 Transforms into:
 
 ```tsx
-import { styled } from "@channel.io/bezier-react";
-
-const OVERLAY_POSITION = {
-  zIndex: "var(--z-index-modal)",
-};
-
-const Wrapper = styled.div`
-  z-index: var(--z-index-hidden);
-`;
-```
-
-### Styled from @channel.io/bezier-react to styled-components
-
-**`v2-styled-to-styled-components`**
-
-Switch library to import `styled` object from `@channel.io/bezier-react` to `styled-components`
-For example:
-
-```tsx
-import { styled, Button } from "@channel.io/bezier-react";
-
-export const Wrapper = styled(Button)``;
-```
-
-Transforms into:
-
-```tsx
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Button } from "@channel.io/bezier-react";
 
-export const Wrapper = styled(Button)``;
+export const Wrapper = styled(Button)`
+  ${css`
+    background: red;
+  `}
+`;
 ```
 
 ### Remove Alpha prefix from `AlphaStack` and add Legacy prefix to `Stack`
