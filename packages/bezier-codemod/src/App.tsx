@@ -30,6 +30,7 @@ import foundationToCssVariableTransition from './transforms/v2-foundation-to-css
 import styledToStyledComponents from './transforms/v2-import-styled-from-styled-components/transform.js'
 import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
 import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
+import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
 import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
 import zIndexInterpolationToCssVariable from './transforms/v2-z-index-interpolation-to-css-variable/transform.js'
 
@@ -55,6 +56,7 @@ enum Option {
   V2StyledToStyledComponents = 'v2-styled-to-styled-components',
   V2RemoveAlphaFromAlphaStack = 'v2-remove-alpha-from-alpha-stack',
   V2ZIndexInterpolationToCssVariable = 'v2-z-index-interpolation-to-css-variable',
+  V2TextComponentInterface = 'v2-text-component-interface',
   Exit = 'Exit',
 }
 
@@ -75,6 +77,7 @@ const transformMap = {
   [Option.V2StyledToStyledComponents]: styledToStyledComponents,
   [Option.V2RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
   [Option.V2ZIndexInterpolationToCssVariable]: zIndexInterpolationToCssVariable,
+  [Option.V2TextComponentInterface]: textComponentInterface,
 }
 
 const options = (Object.keys(transformMap) as Option[]).map((transformName) => ({

@@ -11,7 +11,7 @@ type Member = string
 type Value = string
 export type EnumTransformMap = Record<Name, Record<Member, Value>>
 
-export const transformEnumMemberToStringLiteral = (sourceFile: SourceFile, enumTransforms: EnumTransformMap) => {
+export const transformEnumToStringLiteralInBezier = (sourceFile: SourceFile, enumTransforms: EnumTransformMap) => {
   const transformedEnumNames: string[] = []
 
   Object
