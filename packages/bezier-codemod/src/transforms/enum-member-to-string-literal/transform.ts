@@ -2,7 +2,7 @@ import { type SourceFile } from 'ts-morph'
 
 import {
   type EnumTransformMap,
-  transformEnumMemberToStringLiteral,
+  transformEnumTostringLiteralInBezier,
 } from '../../shared/enum.js'
 
 const ENUM_TRANSFORM_MAP: EnumTransformMap = {
@@ -18,7 +18,7 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
-  return transformEnumMemberToStringLiteral(sourceFile, ENUM_TRANSFORM_MAP)
+  return transformEnumTostringLiteralInBezier(sourceFile, ENUM_TRANSFORM_MAP)
 }
 
 export default enumMemberToStringLiteral
