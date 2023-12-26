@@ -1,8 +1,11 @@
 import type { SeparatorProps as SeparatorPrimitiveProps } from '@radix-ui/react-separator'
 
-import type { BezierComponentProps } from '~/src/types/ComponentProps'
+import type {
+  AlphaBezierComponentProps,
+  MarginProps,
+} from '~/src/types/ComponentProps'
 
-interface DividerOptions {
+interface DividerOwnProps {
   /**
    * If true, the divider will be rendered without side padding,
    * which stands for the padding on the left and right sides of the horizontal divider,
@@ -30,6 +33,7 @@ interface DividerOptions {
 }
 
 export default interface DividerProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  MarginProps,
   SeparatorPrimitiveProps,
-  DividerOptions {}
+  DividerOwnProps {}
