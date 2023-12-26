@@ -16,6 +16,17 @@ export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
 export const DIVIDER_THICKNESS = 1
 
+/**
+ * `Divider` is a component to visually or semantically separate content.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Divider
+ *   withoutSideIndent
+ * />
+ * ```
+ */
 export const Divider = forwardRef<HTMLDivElement, DividerProps>((
   props,
   forwardedRef,
