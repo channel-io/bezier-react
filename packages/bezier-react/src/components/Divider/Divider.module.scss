@@ -1,0 +1,49 @@
+@layer components {
+  $DIVIDER_THICKNESS: 1;
+  $DIVIDER_INDENT_SIZE: 6;
+
+  .Divider {
+    border-radius: var(--radius-1);
+    background-color: var(--bdr-black-light);
+
+    &.horizontal {
+      width: calc(100% - 2 * #{$DIVIDER_INDENT_SIZE}px);
+      height: #{$DIVIDER_THICKNESS}px;
+      margin: #{$DIVIDER_INDENT_SIZE}px;
+
+      &.without-indent {
+        width: 100%;
+        margin: 0;
+      }
+      &.without-side-indent {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &.without-parallel-indent {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    &.vertical {
+      width: #{$DIVIDER_THICKNESS}px;
+      height: calc(100% - 2 * #{$DIVIDER_INDENT_SIZE}px);
+      margin: #{$DIVIDER_INDENT_SIZE}px;
+
+      &.without-indent {
+        height: 100%;
+        margin: 0;
+      }
+      &.without-side-indent {
+        height: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      &.without-parallel-indent {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
