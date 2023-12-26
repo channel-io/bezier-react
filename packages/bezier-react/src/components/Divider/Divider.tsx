@@ -14,7 +14,7 @@ import styles from './Divider.module.scss'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
-const Divider = forwardRef<HTMLDivElement, DividerProps>((
+export const Divider = forwardRef<HTMLDivElement, DividerProps>((
   props,
   forwardedRef,
 ) => {
@@ -60,5 +60,3 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>((
     </SeparatorPrimitive.Root>
   )
 })
-
-export default Divider

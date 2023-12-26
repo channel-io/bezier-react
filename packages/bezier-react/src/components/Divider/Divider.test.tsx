@@ -2,7 +2,10 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import Divider, { DIVIDER_TEST_ID } from './Divider'
+import {
+  DIVIDER_TEST_ID,
+  Divider,
+} from './Divider'
 import type DividerProps from './Divider.types'
 
 import styles from './Divider.module.scss'
