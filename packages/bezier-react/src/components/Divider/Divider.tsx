@@ -14,6 +14,8 @@ import styles from './Divider.module.scss'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
+export const DIVIDER_THICKNESS = 1
+
 export const Divider = forwardRef<HTMLDivElement, DividerProps>((
   props,
   forwardedRef,
