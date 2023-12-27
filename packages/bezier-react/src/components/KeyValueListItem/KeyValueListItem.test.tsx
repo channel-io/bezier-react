@@ -7,6 +7,7 @@ import {
 import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import { LightThemeProvider } from '~/src/providers/ThemeProvider'
 import { render } from '~/src/utils/test'
 
 import KeyValueListItem from './KeyValueListItem'
@@ -22,11 +23,15 @@ const DEFAULT_PROPS: KeyValueListItemProps = {
 }
 
 const renderComponent = (optionProps?: Partial<KeyValueListItemProps>) => render(
-  <KeyValueListItem {...DEFAULT_PROPS} {...optionProps} />,
+  <LightThemeProvider>
+    <KeyValueListItem {...DEFAULT_PROPS} {...optionProps} />
+  </LightThemeProvider>,
 )
 
 const renderMultilineComponent = (optionProps?: Partial<KeyValueListItemProps>) => render(
-  <KeyValueMultiLineListItem {...DEFAULT_PROPS} {...optionProps} />,
+  <LightThemeProvider>
+    <KeyValueMultiLineListItem {...DEFAULT_PROPS} {...optionProps} />
+  </LightThemeProvider>,
 )
 
 describe('KeyValueListItem', () => {

@@ -6,6 +6,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import { LightThemeProvider } from '~/src/providers/ThemeProvider'
 import { render } from '~/src/utils/test'
 
 import {
@@ -22,14 +23,16 @@ describe('Tooltip', () => {
     children,
     ...rest
   }: TooltipProps = {}) => render(
-    <Tooltip
-      delayShow={0}
-      {...rest}
-    >
-      <button type="button">
-        Trigger
-      </button>
-    </Tooltip>,
+    <LightThemeProvider>
+      <Tooltip
+        delayShow={0}
+        {...rest}
+      >
+        <button type="button">
+          Trigger
+        </button>
+      </Tooltip>
+    </LightThemeProvider>,
   )
 
   let user: ReturnType<typeof userEvent.setup>
@@ -156,16 +159,19 @@ describe('TooltipProvider', () => {
     children,
     ...rest
   }: TooltipProviderProps = {}) => render(
-    <TooltipProvider
-      delayShow={0}
-      {...rest}
-    >
-      <Tooltip content="tooltip content">
-        <button type="button">
-          Trigger
-        </button>
-      </Tooltip>
-    </TooltipProvider>,
+    <LightThemeProvider>
+
+      <TooltipProvider
+        delayShow={0}
+        {...rest}
+      >
+        <Tooltip content="tooltip content">
+          <button type="button">
+            Trigger
+          </button>
+        </Tooltip>
+      </TooltipProvider>
+    </LightThemeProvider>,
   )
 
   let user: ReturnType<typeof userEvent.setup>

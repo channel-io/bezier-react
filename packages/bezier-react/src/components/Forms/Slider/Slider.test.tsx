@@ -6,6 +6,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import { LightThemeProvider } from '~/src/providers/ThemeProvider'
 import { render } from '~/src/utils/test'
 
 import {
@@ -15,7 +16,11 @@ import {
 import type SliderProps from './Slider.types'
 
 describe('Slider', () => {
-  const renderSlider = (props?: Partial<SliderProps>) => render(<Slider {...props} />)
+  const renderSlider = (props?: Partial<SliderProps>) => render(
+    <LightThemeProvider>
+      <Slider {...props} />
+    </LightThemeProvider>,
+  )
 
   let user: ReturnType<typeof userEvent.setup>
 

@@ -92,6 +92,7 @@ exports[`KeyValueListItem Snapshot > 1`] = `
 
 <div
   class="c0 c1"
+  data-bezier-theme="light"
   data-testid="bezier-react-key-value-list-item"
 >
   <div
