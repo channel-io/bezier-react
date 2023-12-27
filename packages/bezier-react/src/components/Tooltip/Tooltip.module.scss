@@ -29,9 +29,9 @@
 
   .icon {
     /**
-    * TODO: padding is not applied properly. 
-    * change to MarginProps of Icon component
+    * TODO: change to MarginProps of Icon component.
+    * For now, it is overridden by component style 
     */
-    padding: 1px;
+    margin: 1px;
   }
 }
