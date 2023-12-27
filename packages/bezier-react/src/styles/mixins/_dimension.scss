@@ -2,19 +2,3 @@
   width: $dimension;
   height: $dimension;
 }
-
-@mixin ellipsis($line, $lineHeight) {
-  @if ($line == null or $line <= 1) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  } @else if ($lineHeight != null ) {
-    display: -webkit-box;
-    max-height: (calc(#{$line} * #{$lineHeight}))rem;
-    overflow: hidden;
-    line-height: #{$lineHeight}rem;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: $line;
-  }
-}
