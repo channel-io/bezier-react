@@ -1,0 +1,37 @@
+@use "../../styles/mixins/dimension";
+
+@layer components {
+  .tooltip-content {
+    z-index: var(--z-index-tooltip);
+
+    box-sizing: border-box;
+    width: max-content;
+    max-width: 260px;
+    height: max-content;
+    padding: 5px 8px;
+    word-break: normal;
+    word-wrap: break-word;
+
+    background-color: var(--bg-white-low);
+    overflow: hidden;
+    border-radius: var(--radius-8);
+    box-shadow: var(--ev-3);
+  }
+
+  .text-container {
+    overflow: hidden;
+  }
+
+  .content {
+    @include dimension.ellipsis(20, 1.8);
+    white-space: pre-wrap;
+  }
+
+  .icon {
+    /**
+    * TODO: padding is not applied properly. 
+    * change to MarginProps of Icon component
+    */
+    padding: 1px;
+  }
+}
