@@ -23,7 +23,7 @@
   }
 
   .content {
-    @include typography.ellipsis(20, 1.8);
+    @include typography.ellipsis(20, var(--font-line-height-18));
     white-space: pre-wrap;
   }
 
