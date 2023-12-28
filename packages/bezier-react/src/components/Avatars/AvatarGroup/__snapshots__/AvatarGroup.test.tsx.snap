@@ -257,22 +257,6 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 `;
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
-.c6 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #FFFFFF;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c2 {
   --b-alpha-smooth-corners-box-border-radius: 0;
   --b-alpha-smooth-corners-box-shadow-offset-x: 0;
@@ -514,16 +498,11 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
-        class="c6"
-        color="bgtxt-absolute-white-dark"
+        class="Icon margin"
         data-testid="bezier-react-icon"
         fill="none"
-        foundation="[object Object]"
         height="16"
-        marginbottom="0"
-        marginleft="0"
-        marginright="0"
-        margintop="0"
+        style="--b-icon-color: var(--bgtxt-absolute-white-dark);"
         viewBox="0 0 24 24"
         width="16"
         xmlns="http://www.w3.org/2000/svg"

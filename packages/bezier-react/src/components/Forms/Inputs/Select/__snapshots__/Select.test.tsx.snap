@@ -1,22 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Test > Default Style > Snapshot > 1`] = `
-.c3 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 6px;
-  color: #00000099;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -107,16 +91,11 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
       </span>
     </div>
     <svg
-      class="c3"
-      color="txt-black-darker"
+      class="Icon margin"
       data-testid="bezier-react-icon"
       fill="none"
-      foundation="[object Object]"
       height="16"
-      marginbottom="0"
-      marginleft="6"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--txt-black-darker); --b-margin-left: 6px;"
       viewBox="0 0 24 24"
       width="16"
       xmlns="http://www.w3.org/2000/svg"
@@ -133,22 +112,6 @@ exports[`Select Test > Default Style > Snapshot > 1`] = `
 `;
 
 exports[`Select Test > rightContent > Snapshot > 1`] = `
-.c3 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 6px;
-  color: #00000099;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c0 {
   position: relative;
 }
@@ -242,16 +205,11 @@ exports[`Select Test > rightContent > Snapshot > 1`] = `
       </div>
     </div>
     <svg
-      class="c3"
-      color="txt-black-darker"
+      class="Icon margin"
       data-testid="bezier-react-icon"
       fill="none"
-      foundation="[object Object]"
       height="16"
-      marginbottom="0"
-      marginleft="6"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--txt-black-darker); --b-margin-left: 6px;"
       viewBox="0 0 24 24"
       width="16"
       xmlns="http://www.w3.org/2000/svg"
