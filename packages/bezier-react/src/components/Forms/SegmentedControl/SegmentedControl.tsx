@@ -55,8 +55,6 @@ const [
   useSegmentedControlItemListContext,
 ] = createContext<SegmentedControlItemListContextValue | null>(null, 'SegmentedControlItemList')
 
-export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
-
 function SegmentedControlItemListImpl<
   Type extends SegmentedControlType,
   Value extends string,
@@ -115,12 +113,10 @@ function SegmentedControlItemListImpl<
             </>
           )) }
           { !isNil(selectedItemIndex) && (
-            <div
-              data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
-              className={classNames(
-                styles.SegmentedControlIndicator,
-                dividerStyles.variables,
-              )}
+            <div className={classNames(
+              styles.SegmentedControlIndicator,
+              dividerStyles.variables,
+            )}
             />
           ) }
         </SegmentedControlItemListContextProvider>

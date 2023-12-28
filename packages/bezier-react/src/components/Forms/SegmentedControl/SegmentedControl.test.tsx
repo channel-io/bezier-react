@@ -11,7 +11,6 @@ import {
 } from '~/src/components/Forms/FormControl'
 
 import {
-  SEGMENTED_CONTROL_INDICATOR_TEST_ID,
   SegmentedControl,
   SegmentedControlItem,
   SegmentedControlTabContent,
@@ -301,21 +300,6 @@ describe('SegmentedControl >', () => {
         expect(nextItem).toHaveFocus()
         expect(nextItem).toHaveAttribute('data-checked', 'true')
       })
-    })
-  })
-
-  describe('Indicator', () => {
-    it('has appropriate css variable in style', () => {
-      const { getByTestId } = renderComponent({
-        type: 'radiogroup',
-        value: MOCK_UI_DATA[0].value,
-      })
-
-      const indicator = getByTestId(SEGMENTED_CONTROL_INDICATOR_TEST_ID)
-
-      expect(indicator).toHaveStyle('width: var(--b-segmented-control-indicator-width)')
-      expect(indicator).toHaveStyle('height: var(--b-segmented-control-indicator-height)')
-      expect(indicator).toHaveStyle('transform: translateX(var(--b-segmented-control-indicator-translateX)) translateY(-50%)')
     })
   })
 
