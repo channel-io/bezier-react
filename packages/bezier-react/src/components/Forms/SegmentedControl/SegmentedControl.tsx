@@ -15,6 +15,7 @@ import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
+import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
@@ -116,7 +117,10 @@ function SegmentedControlItemListImpl<
           { !isNil(selectedItemIndex) && (
             <div
               data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
-              className={styles.SegmentedControlIndicator}
+              className={classNames(
+                styles.SegmentedControlIndicator,
+                dividerStyles.variables,
+              )}
             />
           ) }
         </SegmentedControlItemListContextProvider>
@@ -287,7 +291,10 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
       ref={forwardedRef}
       type="button"
       data-checked={ariaAttr(checked)}
-      className={classNames(styles.SegmentedControlItem, className)}
+      className={classNames(
+        styles.SegmentedControlItem,
+        className,
+      )}
     >
       <HStack
         className={styles.SegmentedControlItemContainer}

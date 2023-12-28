@@ -45,4 +45,9 @@
       }
     }
   }
+
+  /* NOTE: For access from outside the component */
+  .variables {
+    --b-divider-thickness: 1px;
+  }
 }

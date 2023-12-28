@@ -15,7 +15,7 @@
     padding: var(--b-segmented-control-padding);
     background-color: var(--bg-black-lighter);
 
-    /* Override typography style of children */
+    /* NOTE: Override typography style of children */
     &:where(.size-s, .size-m, size-l) * {
       font-size: var(--typography-size-14-font-size);
       line-height: var(--typography-size-14-line-height);
@@ -102,11 +102,11 @@
     position: absolute;
     top: 50%;
     left: var(--b-segmented-control-padding);
-    width: calc((100% - ((var(--b-segmented-control-item-count) - 1) * 1px) - (var(--b-segmented-control-padding) * 2)) / var(--b-segmented-control-item-count));
+    width: calc((100% - ((var(--b-segmented-control-item-count) - 1) * var(--b-divider-thickness)) - (var(--b-segmented-control-padding) * 2)) / var(--b-segmented-control-item-count));
     height: calc(var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2));
     background-color: var(--bg-white-high);
     box-shadow: var(--ev-1);
-    transform: translateX(calc((var(--b-segmented-control-item-index) * 100%) + var(--b-segmented-control-item-index) * 1px)) translateY(-50%);
+    transform: translateX(calc((var(--b-segmented-control-item-index) * 100%) + var(--b-segmented-control-item-index) * var(--b-divider-thickness))) translateY(-50%);
     transition: transform var(--transition-m);
   }
 
@@ -133,7 +133,7 @@
       cursor: not-allowed;
     }
 
-    /* Focus indicator */
+    /* NOTE: Focus indicator */
     &::after {
       position: absolute;
       top: 0;

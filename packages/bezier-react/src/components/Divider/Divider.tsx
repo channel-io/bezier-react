@@ -1,18 +1,13 @@
-import React, {
-  type CSSProperties,
-  forwardRef,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import classNames from 'classnames'
 
-import type DividerProps from './Divider.types'
+import { type DividerProps } from './Divider.types'
 
 import styles from './Divider.module.scss'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
-
-export const DIVIDER_THICKNESS = 1
 
 /**
  * `Divider` is a component to visually or semantically separate content.
@@ -45,12 +40,10 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
     <div
       ref={forwardedRef}
       data-testid={testId}
-      style={{
-        '--b-divider-thickness': `${DIVIDER_THICKNESS}px`,
-        ...style,
-      } as CSSProperties}
+      style={style}
       className={classNames(
         styles.Divider,
+        styles.variables,
         styles[orientation],
         withoutIndent && styles['without-indent'],
         withoutParallelIndent && styles['without-parallel-indent'],
