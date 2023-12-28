@@ -26,12 +26,4 @@
     @include typography.ellipsis(20, var(--font-line-height-18));
     white-space: pre-wrap;
   }
-
-  .icon {
-    /**
-    * TODO: change to MarginProps of Icon component.
-    * For now, it is overridden by component style 
-    */
-    margin: 1px;
-  }
 }

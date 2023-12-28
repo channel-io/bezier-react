@@ -318,7 +318,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                 <Icon
                   size={IconSize.XS}
                   color="txt-black-darkest"
-                  className={styles.icon}
+                  m={1}
                   source={icon}
                 />
               ) }
