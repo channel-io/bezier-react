@@ -1,15 +1,14 @@
 @layer components {
-  $DIVIDER_THICKNESS: 1;
-  $DIVIDER_INDENT_SIZE: 6;
-
   .Divider {
+    --b-divider-indent-size: 6px;
+
     border-radius: var(--radius-1);
     background-color: var(--bdr-black-light);
 
     &.horizontal {
-      width: calc(100% - 2 * #{$DIVIDER_INDENT_SIZE}px);
-      height: #{$DIVIDER_THICKNESS}px;
-      margin: #{$DIVIDER_INDENT_SIZE}px;
+      width: calc(100% - 2 * var(--b-divider-indent-size));
+      height: var(--b-divider-thickness);
+      margin: var(--b-divider-indent-size);
 
       &.without-indent {
         width: 100%;
@@ -27,9 +26,9 @@
     }
 
     &.vertical {
-      width: #{$DIVIDER_THICKNESS}px;
-      height: calc(100% - 2 * #{$DIVIDER_INDENT_SIZE}px);
-      margin: #{$DIVIDER_INDENT_SIZE}px;
+      width: var(--b-divider-thickness);
+      height: calc(100% - 2 * var(--b-divider-indent-size));
+      margin: var(--b-divider-indent-size);
 
       &.without-indent {
         height: 100%;

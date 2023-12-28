@@ -1,4 +1,7 @@
-import React, { forwardRef } from 'react'
+import React, {
+  type CSSProperties,
+  forwardRef,
+} from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import classNames from 'classnames'
@@ -42,7 +45,10 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
     <div
       ref={forwardedRef}
       data-testid={testId}
-      style={style}
+      style={{
+        '--b-divider-thickness': `${DIVIDER_THICKNESS}px`,
+        ...style,
+      } as CSSProperties}
       className={classNames(
         styles.Divider,
         styles[orientation],
