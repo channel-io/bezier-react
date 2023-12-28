@@ -11,7 +11,9 @@ import {
 } from '~/src/components/Forms/FormControl'
 
 import {
+  SEGMENTED_CONTROL_INDICATOR_TEST_ID,
   SegmentedControl,
+  SegmentedControlItem,
   SegmentedControlTabContent,
   SegmentedControlTabList,
 } from './SegmentedControl'
@@ -19,8 +21,6 @@ import {
   type SegmentedControlProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'
-import { SEGMENTED_CONTROL_INDICATOR_TEST_ID } from './SegmentedControlIndicator'
-import { SegmentedControlItem } from './SegmentedControlItem'
 
 const MOCK_UI_DATA = [
   {

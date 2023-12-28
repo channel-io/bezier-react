@@ -11,6 +11,7 @@ import { Text } from '~/src/components/Text'
 
 import {
   SegmentedControl,
+  SegmentedControlItem,
   SegmentedControlTabContent,
   SegmentedControlTabList,
 } from './SegmentedControl'
@@ -18,7 +19,6 @@ import {
   type SegmentedControlProps,
   SegmentedControlSize,
 } from './SegmentedControl.types'
-import { SegmentedControlItem } from './SegmentedControlItem'
 
 const meta: Meta<typeof SegmentedControl> = {
   component: SegmentedControl,
