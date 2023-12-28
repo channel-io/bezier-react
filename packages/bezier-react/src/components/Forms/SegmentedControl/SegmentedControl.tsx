@@ -21,6 +21,8 @@ import {
   Divider,
 } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { HStack } from '~/src/components/Stack'
+import { Text } from '~/src/components/Text'
 
 import {
   type SegmentedControlItemListProps,
@@ -34,6 +36,7 @@ import {
   type SegmentedControlType,
 } from './SegmentedControl.types'
 
+import styles from './SegmentedControl.module.scss'
 import * as Styled from './SegmentedControl.styled'
 
 type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size' | 'width'>>
@@ -81,9 +84,10 @@ function SegmentedControlIndicator() {
   } as React.CSSProperties
 
   return (
-    <Styled.Indicator
+    <div
       data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
       style={style}
+      className={styles.SegmentedControlIndicator}
     />
   )
 }
@@ -93,8 +97,8 @@ function SegmentedControlItemListImpl<
   Value extends string,
 >({
   children,
-  style: styleProp,
-  className: classNameProp,
+  style,
+  className,
   ...rest
 }: SegmentedControlItemListProps<Type, Value>) {
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null)
@@ -114,19 +118,6 @@ function SegmentedControlItemListImpl<
     selectedItemIndex,
   ])
 
-  const style = useMemo(() => ({
-    ...styleProp,
-    '--b-segmented-control-width': cssDimension(width),
-  } as React.CSSProperties), [
-    styleProp,
-    width,
-  ])
-
-  const className = classNames(
-    classNameProp,
-    size,
-  )
-
   const SegmentedControlItemList = type === 'radiogroup'
     ? RadioGroupPrimitive.Root
     : TabsPrimitive.List
@@ -134,11 +125,19 @@ function SegmentedControlItemListImpl<
   return (
     <SegmentedControlItemList
       asChild
-      style={style}
-      className={className}
       {...rest}
     >
-      <Styled.Container>
+      <HStack
+        style={{
+          '--b-segmented-control-width': cssDimension(width),
+          ...style,
+        } as React.CSSProperties}
+        className={classNames(
+          styles.SegmentedControl,
+          styles[`size-${size}`],
+          className,
+        )}
+      >
         <SegmentedControlItemListContextProvider value={contextValue}>
           { React.Children.map(children, (child, index) => (
             <>
@@ -155,7 +154,7 @@ function SegmentedControlItemListImpl<
           )) }
           <SegmentedControlIndicator />
         </SegmentedControlItemListContextProvider>
-      </Styled.Container>
+      </HStack>
     </SegmentedControlItemList>
   )
 }
@@ -296,6 +295,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   type,
   leftContent,
   rightContent,
+  className,
   ...rest
 }, forwardedRef) {
   const { setSelectedItemIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
@@ -316,20 +316,29 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   ])
 
   return (
-    <Styled.Item
+    <button
       {...rest}
       ref={forwardedRef}
       type="button"
       data-checked={ariaAttr(checked)}
+      className={classNames(styles.SegmentedControlItem, className)}
     >
-      <Styled.ItemContainer>
+      <HStack
+        className={styles['item-container']}
+        align="center"
+        spacing={2}
+      >
         { leftContent }
-        <Styled.ItemLabel>
+        <Text
+          className={styles['item-label']}
+          bold
+          truncated
+        >
           { children }
-        </Styled.ItemLabel>
+        </Text>
         { rightContent }
-      </Styled.ItemContainer>
-    </Styled.Item>
+      </HStack>
+    </button>
   )
 })
 
