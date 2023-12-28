@@ -2,7 +2,7 @@
 
 exports[`Help > Snapshot > 1`] = `
 <svg
-  class="Icon margin"
+  class="Icon margin "
   data-testid="bezier-react-help"
   fill="none"
   foundation="[object Object]"
