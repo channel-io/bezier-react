@@ -1,11 +1,18 @@
 @layer components {
   .SegmentedControl {
-    --b-segmented-control-width: auto;
+    --b-segmented-control-width: initial;
+    --b-segmented-control-item-index: -1;
+    --b-segmented-control-item-count: 0;
+
+    --b-segmented-control-height: initial;
+    --b-segmented-control-padding: initial;
 
     position: relative;
     z-index: var(--z-index-base);
     box-sizing: border-box;
     width: var(--b-segmented-control-width);
+    height: var(--b-segmented-control-height);
+    padding: var(--b-segmented-control-padding);
     background-color: var(--bg-black-lighter);
 
     /* Override typography style of children */
@@ -22,23 +29,23 @@
     }
 
     &:where(.size-xs) {
-      height: 24px;
-      padding: 1px;
+      --b-segmented-control-height: 24px;
+      --b-segmented-control-padding: 1px;
       border-radius: 6px;
 
       & :where(.SegmentedControlItem),
       & :where(.SegmentedControlIndicator) {
-        border-radius: 5px;
+        border-radius: 4px;
       }
 
-      & :where(.item) {
+      & :where(.SegmentedControlItem) {
         padding: 1px 0;
       }
     }
 
     &:where(.size-s) {
-      height: 28px;
-      padding: 2px;
+      --b-segmented-control-height: 28px;
+      --b-segmented-control-padding: 2px;
       border-radius: 8px;
 
       & :where(.SegmentedControlItem),
@@ -46,14 +53,14 @@
         border-radius: 6px;
       }
 
-      & :where(.item) {
+      & :where(.SegmentedControlItem) {
         padding: 2px 0;
       }
     }
 
     &:where(.size-m) {
-      height: 36px;
-      padding: 2px;
+      --b-segmented-control-height: 36px;
+      --b-segmented-control-padding: 2px;
       border-radius: 8px;
 
       & :where(.SegmentedControlItem),
@@ -61,14 +68,14 @@
         border-radius: 6px;
       }
 
-      & :where(.item) {
+      & :where(.SegmentedControlItem) {
         padding: 6px 0;
       }
     }
 
     &:where(.size-l) {
-      height: 44px;
-      padding: 4px;
+      --b-segmented-control-height: 44px;
+      --b-segmented-control-padding: 4px;
       border-radius: 12px;
 
       & :where(.SegmentedControlItem),
@@ -76,7 +83,7 @@
         border-radius: 8px;
       }
 
-      & :where(.item) {
+      & :where(.SegmentedControlItem) {
         padding: 8px 0;
       }
     }
@@ -92,19 +99,14 @@
   }
 
   .SegmentedControlIndicator {
-    --b-segmented-control-indicator-translateX: none;
-    --b-segmented-control-indicator-left: auto;
-    --b-segmented-control-indicator-width: auto;
-    --b-segmented-control-indicator-height: auto;
-
     position: absolute;
     top: 50%;
-    left: var(--b-segmented-control-indicator-left);
-    width: var(--b-segmented-control-indicator-width);
-    height: var(--b-segmented-control-indicator-height);
+    left: var(--b-segmented-control-padding);
+    width: calc((100% - ((var(--b-segmented-control-item-count) - 1) * 1px) - (var(--b-segmented-control-padding) * 2)) / var(--b-segmented-control-item-count));
+    height: calc(var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2));
     background-color: var(--bg-white-high);
     box-shadow: var(--ev-1);
-    transform: translateX(var(--b-segmented-control-indicator-translateX)) translateY(-50%);
+    transform: translateX(calc((var(--b-segmented-control-item-index) * 100%) + var(--b-segmented-control-item-index) * 1px)) translateY(-50%);
     transition: transform var(--transition-m);
   }
 
@@ -154,14 +156,14 @@
     &:where(:not([data-checked]):not(&:disabled):hover) {
       background-color: var(--bg-black-light);
     }
+  }
 
-    & :where(.item-container) {
-      z-index: var(--z-index-floating);
-      overflow: hidden;
-    }
+  .SegmentedControlItemContainer {
+    z-index: var(--z-index-floating);
+    overflow: hidden;
+  }
 
-    & :where(.item-label) {
-      padding: 1px 4px;
-    }
+  .SegmentedControlItemLabel {
+    padding: 1px 4px;
   }
 }

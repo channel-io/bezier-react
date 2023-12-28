@@ -11,15 +11,10 @@ import classNames from 'classnames'
 
 import { ariaAttr } from '~/src/utils/dom'
 import { createContext } from '~/src/utils/react'
-import {
-  cssDimension,
-  px,
-} from '~/src/utils/style'
+import { cssDimension } from '~/src/utils/style'
+import { isNil } from '~/src/utils/type'
 
-import {
-  DIVIDER_THICKNESS,
-  Divider,
-} from '~/src/components/Divider'
+import { Divider } from '~/src/components/Divider'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
@@ -37,7 +32,6 @@ import {
 } from './SegmentedControl.types'
 
 import styles from './SegmentedControl.module.scss'
-import * as Styled from './SegmentedControl.styled'
 
 type SegmentedControlContextValue = Required<Pick<SegmentedControlProps<SegmentedControlType, string>, 'type' | 'size' | 'width'>>
 
@@ -47,8 +41,6 @@ const [
 ] = createContext<SegmentedControlContextValue | null>(null, 'SegmentedControl')
 
 type SegmentedControlItemListContextValue = {
-  itemCount: number
-  selectedItemIndex: number | null
   setSelectedItemIndex: (index: number | null) => void
 }
 
@@ -63,34 +55,6 @@ const [
 ] = createContext<SegmentedControlItemListContextValue | null>(null, 'SegmentedControlItemList')
 
 export const SEGMENTED_CONTROL_INDICATOR_TEST_ID = 'bezier-react-segmented-control-indicator'
-
-function SegmentedControlIndicator() {
-  const { selectedItemIndex, itemCount } = useSegmentedControlItemListContext('SegmentedControlIndicator')
-  const { size } = useSegmentedControlContext('SegmentedControlIndicator')
-
-  if (selectedItemIndex === null) { return null }
-
-  const containerPadding = Styled.paddingBySegmentedControlSize[size]
-  const containerHeight = Styled.heightBySegmentedControlSize[size]
-
-  const dividerTotalWidth = `${(itemCount - 1) * DIVIDER_THICKNESS}px`
-  const containerHorizontalPadding = `${2 * containerPadding}px`
-
-  const style = {
-    '--b-segmented-control-indicator-translateX': `calc(${selectedItemIndex * 100}% + ${selectedItemIndex * DIVIDER_THICKNESS}px)`,
-    '--b-segmented-control-indicator-width': `calc((100% - ${dividerTotalWidth} - ${containerHorizontalPadding}) / ${itemCount})`,
-    '--b-segmented-control-indicator-height': px(containerHeight - (2 * containerPadding)),
-    '--b-segmented-control-indicator-left': px(containerPadding),
-  } as React.CSSProperties
-
-  return (
-    <div
-      data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
-      style={style}
-      className={styles.SegmentedControlIndicator}
-    />
-  )
-}
 
 function SegmentedControlItemListImpl<
   Type extends SegmentedControlType,
@@ -110,13 +74,8 @@ function SegmentedControlItemListImpl<
   } = useSegmentedControlContext('SegmentedControlItemList')
 
   const contextValue: SegmentedControlItemListContextValue = useMemo(() => ({
-    selectedItemIndex,
-    itemCount: React.Children.count(children),
     setSelectedItemIndex,
-  }), [
-    children,
-    selectedItemIndex,
-  ])
+  }), [])
 
   const SegmentedControlItemList = type === 'radiogroup'
     ? RadioGroupPrimitive.Root
@@ -130,6 +89,8 @@ function SegmentedControlItemListImpl<
       <HStack
         style={{
           '--b-segmented-control-width': cssDimension(width),
+          '--b-segmented-control-item-index': selectedItemIndex,
+          '--b-segmented-control-item-count': React.Children.count(children),
           ...style,
         } as React.CSSProperties}
         className={classNames(
@@ -152,7 +113,12 @@ function SegmentedControlItemListImpl<
               </SegmentedControlItemContextProvider>
             </>
           )) }
-          <SegmentedControlIndicator />
+          { !isNil(selectedItemIndex) && (
+            <div
+              data-testid={SEGMENTED_CONTROL_INDICATOR_TEST_ID}
+              className={styles.SegmentedControlIndicator}
+            />
+          ) }
         </SegmentedControlItemListContextProvider>
       </HStack>
     </SegmentedControlItemList>
@@ -324,13 +290,13 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
       className={classNames(styles.SegmentedControlItem, className)}
     >
       <HStack
-        className={styles['item-container']}
+        className={styles.SegmentedControlItemContainer}
         align="center"
         spacing={2}
       >
         { leftContent }
         <Text
-          className={styles['item-label']}
+          className={styles.SegmentedControlItemLabel}
           bold
           truncated
         >
