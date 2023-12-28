@@ -2,8 +2,6 @@ import React from 'react'
 
 import { AllIcon } from '@channel.io/bezier-icons'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -33,11 +31,11 @@ describe('Icon test >', () => {
     expect(renderedIcon).toHaveStyle('color: inherit;')
   })
 
-  it('Icon receives custom color Theme Key', () => {
+  it('Icon receives custom color', () => {
     const { getByTestId } = renderIcon({ source: AllIcon, color: 'bgtxt-olive-dark' })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
-    expect(renderedIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-olive-dark']};`)
+    expect(renderedIcon).toHaveStyle('--b-icon-color: var(--bgtxt-olive-dark);')
   })
 })
