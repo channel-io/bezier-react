@@ -108,7 +108,6 @@ exports[`Slider Snapshot should match snapshot 1`] = `
   <span
     aria-disabled="false"
     class="c0"
-    data-bezier-theme="light"
     data-orientation="horizontal"
     data-testid="bezier-react-slider"
     dir="ltr"

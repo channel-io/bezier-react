@@ -7,14 +7,17 @@ import {
 
 import { LightFoundation } from '~/src/foundation'
 
+import { AppProvider } from '~/src/providers/AppProvider'
 import BezierProvider from '~/src/providers/BezierProvider'
 import { type ChildrenProps } from '~/src/types/ComponentProps'
 
 function TestProviders({ children }: ChildrenProps) {
   return (
-    <BezierProvider foundation={LightFoundation}>
-      { children }
-    </BezierProvider>
+    <AppProvider>
+      <BezierProvider foundation={LightFoundation}>
+        { children }
+      </BezierProvider>
+    </AppProvider>
   )
 }
 
