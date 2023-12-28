@@ -8,85 +8,84 @@
     width: var(--b-segmented-control-width);
     background-color: var(--bg-black-lighter);
 
-    &.size-s *,
-    &.size-m *,
-    &.size-l * {
+    /* Override typography style of children */
+    &:where(.size-s, .size-m, size-l) * {
       font-size: var(--typography-size-14-font-size);
       line-height: var(--typography-size-14-line-height);
       letter-spacing: normal;
     }
 
-    &.size-xs * {
+    &:where(.size-xs) * {
       font-size: var(--typography-size-13-font-size);
       line-height: var(--typography-size-13-line-height);
       letter-spacing: normal;
     }
 
-    &.size-xs {
+    &:where(.size-xs) {
       height: 24px;
       padding: 1px;
       border-radius: 6px;
 
-      & .SegmentedControlItem,
-      & .SegmentedControlIndicator {
+      & :where(.SegmentedControlItem),
+      & :where(.SegmentedControlIndicator) {
         border-radius: 5px;
       }
 
-      & .item {
+      & :where(.item) {
         padding: 1px 0;
       }
     }
 
-    &.size-s {
+    &:where(.size-s) {
       height: 28px;
       padding: 2px;
       border-radius: 8px;
 
-      & .SegmentedControlItem,
-      & .SegmentedControlIndicator {
+      & :where(.SegmentedControlItem),
+      & :where(.SegmentedControlIndicator) {
         border-radius: 6px;
       }
 
-      & .item {
+      & :where(.item) {
         padding: 2px 0;
       }
     }
 
-    &.size-m {
+    &:where(.size-m) {
       height: 36px;
       padding: 2px;
       border-radius: 8px;
 
-      & .SegmentedControlItem,
-      & .SegmentedControlIndicator {
+      & :where(.SegmentedControlItem),
+      & :where(.SegmentedControlIndicator) {
         border-radius: 6px;
       }
 
-      & .item {
+      & :where(.item) {
         padding: 6px 0;
       }
     }
 
-    &.size-l {
+    &:where(.size-l) {
       height: 44px;
       padding: 4px;
       border-radius: 12px;
 
-      & .SegmentedControlItem,
-      & .SegmentedControlIndicator {
+      & :where(.SegmentedControlItem),
+      & :where(.SegmentedControlIndicator) {
         border-radius: 8px;
       }
 
-      & .item {
+      & :where(.item) {
         padding: 8px 0;
       }
     }
 
-    &[data-disabled] {
+    &:where([data-disabled]) {
       opacity: var(--opacity-disabled);
 
-      & .SegmentedControlItem,
-      & .SegmentedControlIndicator {
+      & :where(.SegmentedControlItem),
+      & :where(.SegmentedControlIndicator) {
         cursor: not-allowed;
       }
     }
@@ -118,21 +117,21 @@
     min-width: 0;
     transition: background-color var(--transition-s);
 
-    &[data-checked] {
+    &:where([data-checked]) {
       color: var(--txt-black-darkest);
       cursor: default;
     }
 
-    &:not([data-checked]) {
+    &:where(:not([data-checked])) {
       color: var(--txt-black-dark);
       cursor: pointer;
     }
 
-    &:disabled {
+    &:where(:disabled) {
       cursor: not-allowed;
     }
 
-    /* NOTE: (@ed) focus indicator */
+    /* Focus indicator */
     &::after {
       position: absolute;
       top: 0;
@@ -146,22 +145,22 @@
       transition: box-shadow var(--transition-m);
     }
 
-    &:focus-visible {
+    &:where(:focus-visible) {
       &::after {
         box-shadow: var(--input-box-shadow-focused);
       }
     }
 
-    &:not([data-checked]):not(&:disabled):hover {
+    &:where(:not([data-checked]):not(&:disabled):hover) {
       background-color: var(--bg-black-light);
     }
 
-    & .item-container {
+    & :where(.item-container) {
       z-index: var(--z-index-floating);
       overflow: hidden;
     }
 
-    & .item-label {
+    & :where(.item-label) {
       padding: 1px 4px;
     }
   }
