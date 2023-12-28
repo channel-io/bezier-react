@@ -22,7 +22,8 @@ export const ICON_TEST_ID = 'bezier-react-icon'
 
 export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
   props,
-  forwardedRef) {
+  forwardedRef,
+) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyle = getMarginStyle(marginProps)
 
@@ -45,9 +46,9 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
         ...style,
       } as React.CSSProperties}
       className={classNames(
-        className,
         styles.Icon,
         marginStyle.className,
+        className,
       )}
       width={size}
       height={size}
