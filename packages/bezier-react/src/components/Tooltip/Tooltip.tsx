@@ -287,7 +287,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
               spacing={4}
               className={styles.Tooltip}
             >
-              <div className={styles.container}>
+              <div className={styles.TooltipContainer}>
                 { title && (
                   <Text
                     typo="13"
@@ -301,7 +301,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
                 <Text
                   color="txt-black-darkest"
-                  className={styles.content}
+                  className={styles.TooltipContent}
                   truncated={20}
                   typo="13"
                 >
