@@ -47,11 +47,13 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     align,
     ...rest
   } = marginRest
+  const isMultiLineTruncated = typeof truncated === 'number' && truncated >= 1
 
   return createElement(as, {
     ref: forwardedRef,
     style: {
       '--b-text-color': tokenCssVar(color),
+      '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
       ...marginStyle.style,
       ...style,
     },
@@ -60,7 +62,8 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       styles[`typo-${typo}`],
       bold && styles.bold,
       italic && styles.italic,
-      truncated && styles.truncated,
+      truncated === true && styles.truncated,
+      isMultiLineTruncated && styles['multi-line-truncated'],
       align && styles[`align-${align}`],
       marginStyle.className,
       className,
