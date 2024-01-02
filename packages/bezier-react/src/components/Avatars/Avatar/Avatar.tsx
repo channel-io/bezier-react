@@ -12,7 +12,10 @@ import {
 import { px } from '~/src/utils/style'
 import { isEmpty } from '~/src/utils/type'
 
-import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
+import {
+  AlphaSmoothCornersBox,
+  type BoxShadow,
+} from '~/src/components/AlphaSmoothCornersBox'
 import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
 import {
   Status,
@@ -28,7 +31,6 @@ import { AvatarSize } from './Avatar.types'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
-import * as Styled from './Avatar.styled'
 
 const shadow: BoxShadow = {
   spreadRadius: 2,
@@ -87,9 +89,12 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
     })()
 
     return Contents && (
-      <Styled.StatusWrapper data-testid={STATUS_WRAPPER_TEST_ID}>
+      <div
+        data-testid={STATUS_WRAPPER_TEST_ID}
+        className={styles.StatusWrapper}
+      >
         { Contents }
-      </Styled.StatusWrapper>
+      </div>
     )
   }, [
     status,
@@ -118,12 +123,15 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
       }}
       {...rest}
     >
-      <Styled.AvatarImage
+      <AlphaSmoothCornersBox
         ref={forwardedRef}
         data-testid={testId}
         aria-label={name}
         style={avatarStyle}
-        className={showBorder ? 'bordered' : undefined}
+        className={classNames(
+          styles.AvatarImage,
+          showBorder && 'bordered',
+        )}
         disabled={!smoothCorners}
         borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
         shadow={showBorder ? shadow : undefined}
@@ -131,7 +139,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
         backgroundImage={loadedAvatarUrl}
       >
         { StatusComponent }
-      </Styled.AvatarImage>
+      </AlphaSmoothCornersBox>
     </div>
   )
 })
