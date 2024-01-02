@@ -302,6 +302,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                 <Text
                   color="txt-black-darkest"
                   className={styles.content}
+                  truncated={20}
                   typo="13"
                 >
                   { content }

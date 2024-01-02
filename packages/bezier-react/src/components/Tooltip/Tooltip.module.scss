@@ -1,5 +1,3 @@
-@use "../../styles/mixins/typography";
-
 @layer components {
   .Tooltip {
     z-index: var(--z-index-tooltip);
@@ -22,7 +20,6 @@
     }
 
     .content {
-      @include typography.ellipsis(20, var(--font-line-height-18));
       white-space: pre-wrap;
     }
   }
