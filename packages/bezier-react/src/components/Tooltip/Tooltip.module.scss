@@ -1,7 +1,7 @@
 @use "../../styles/mixins/typography";
 
 @layer components {
-  .tooltip-content {
+  .Tooltip {
     z-index: var(--z-index-tooltip);
 
     box-sizing: border-box;
@@ -16,14 +16,14 @@
     overflow: hidden;
     border-radius: var(--radius-8);
     box-shadow: var(--ev-3);
-  }
 
-  .text-container {
-    overflow: hidden;
-  }
+    .container {
+      overflow: hidden;
+    }
 
-  .content {
-    @include typography.ellipsis(20, var(--font-line-height-18));
-    white-space: pre-wrap;
+    .content {
+      @include typography.ellipsis(20, var(--font-line-height-18));
+      white-space: pre-wrap;
+    }
   }
 }

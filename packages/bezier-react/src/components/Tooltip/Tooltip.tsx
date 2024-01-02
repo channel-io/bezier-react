@@ -283,8 +283,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
             collisionPadding={8}
             hideWhenDetached
           >
-            <HStack spacing={4} className={styles['tooltip-content']}>
-              <div className={styles['text-container']}>
+            <HStack
+              spacing={4}
+              className={styles.Tooltip}
+            >
+              <div className={styles.container}>
                 { title && (
                   <Text
                     typo="13"
