@@ -1,7 +1,8 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -19,7 +20,7 @@ export enum AvatarSize {
   Size120 = 120,
 }
 
-interface AvatarOptions {
+interface AvatarOwnProps {
   /**
    * Semantic name of the avatar.
    */
@@ -56,9 +57,10 @@ interface AvatarOptions {
 }
 
 export default interface AvatarProps extends
-  BezierComponentProps,
-  ChildrenProps,
+  AlphaBezierComponentProps,
+  React.HTMLAttributes<HTMLDivElement>,
   SizeProps<AvatarSize>,
   DisableProps,
-  React.HTMLAttributes<HTMLDivElement>,
-  AvatarOptions {}
+  ChildrenProps,
+  MarginProps,
+  AvatarOwnProps {}

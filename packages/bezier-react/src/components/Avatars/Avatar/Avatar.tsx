@@ -5,6 +5,10 @@ import React, {
 
 import classNames from 'classnames'
 
+import {
+  getMarginStyle,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { px } from '~/src/utils/style'
 import { isEmpty } from '~/src/utils/type'
 
@@ -23,6 +27,7 @@ import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 import useProgressiveImage from './useProgressiveImage'
 
+import styles from './Avatar.module.scss'
 import * as Styled from './Avatar.styled'
 
 const shadow: BoxShadow = {
@@ -34,20 +39,28 @@ export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
-export const Avatar = forwardRef(function Avatar({
-  avatarUrl = '',
-  fallbackUrl = defaultAvatarUrl,
-  size = AvatarSize.Size24,
-  name,
-  testId = AVATAR_TEST_ID,
-  disabled = false,
-  showBorder = false,
-  smoothCorners = true,
-  status,
-  className: classNameProp,
-  children,
-  ...rest
-}: AvatarProps, forwardedRef: React.Ref<HTMLDivElement>) {
+/**
+ * `Avatar` is a component for representing user profile image
+ */
+export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyle(marginProps)
+  const {
+    avatarUrl = '',
+    fallbackUrl = defaultAvatarUrl,
+    size = AvatarSize.Size24,
+    name,
+    testId = AVATAR_TEST_ID,
+    disabled = false,
+    showBorder = false,
+    smoothCorners = true,
+    status,
+    className,
+    style,
+    children,
+    ...rest
+  } = marginRest
+
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
 
   const StatusComponent = useMemo(() => {
@@ -84,22 +97,26 @@ export const Avatar = forwardRef(function Avatar({
     children,
   ])
 
-  const className = classNames(
-    classNameProp,
-    size && `size-${size}`,
-    disabled && 'disabled',
-  )
-
   const avatarStyle = useMemo(() => ({
     '--b-avatar-status-gap': px(size >= AvatarSize.Size72 ? 4 : -2),
   } as React.CSSProperties), [size])
 
   return (
-    <Styled.AvatarWrapper
-      {...rest}
+    <div
       data-testid={AVATAR_WRAPPER_TEST_ID}
       data-disabled={disabled}
-      className={className}
+      className={classNames(
+        styles.Avatar,
+        styles[`size-${size}`],
+        disabled && styles.disabled,
+        marginStyle.className,
+        className,
+      )}
+      style={{
+        ...marginStyle.style,
+        ...style,
+      }}
+      {...rest}
     >
       <Styled.AvatarImage
         ref={forwardedRef}
@@ -115,6 +132,6 @@ export const Avatar = forwardRef(function Avatar({
       >
         { StatusComponent }
       </Styled.AvatarImage>
-    </Styled.AvatarWrapper>
+    </div>
   )
 })
