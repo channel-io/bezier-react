@@ -57,6 +57,7 @@
   }
 
   .AvatarImage {
+    --b-avatar-status-gap: 0;
     --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
 
     position: relative;
@@ -76,8 +77,8 @@
 
   .StatusWrapper {
     position: absolute;
-    right: var(--b-avatar-computed-status-gap, 0);
-    bottom: var(--b-avatar-computed-status-gap, 0);
+    right: var(--b-avatar-computed-status-gap);
+    bottom: var(--b-avatar-computed-status-gap);
     display: flex;
   }
 }

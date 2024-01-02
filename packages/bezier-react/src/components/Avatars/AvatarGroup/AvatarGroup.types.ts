@@ -14,7 +14,7 @@ export enum AvatarGroupEllipsisType {
 
 type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
 
-interface AvatarGroupOptions {
+interface AvatarGroupOwnProps {
   /**
    * Maximum number of avatars to display.
    *
@@ -55,4 +55,4 @@ export interface AvatarGroupProps extends
   SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
   React.HTMLAttributes<HTMLDivElement>,
-  AvatarGroupOptions {}
+  AvatarGroupOwnProps {}

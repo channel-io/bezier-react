@@ -42,7 +42,19 @@ export const AVATAR_TEST_ID = 'bezier-react-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
 /**
- * `Avatar` is a component for representing user profile image
+ * `Avatar` is a component for representing some profile image.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Avatar
+ *   avatarUrl="'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
+ *   name="channel"
+ *   size={AvatarSize.Size48}
+ *   showBorder
+ *   disabled
+ * />
+ * ```
  */
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)

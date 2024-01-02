@@ -84,6 +84,23 @@ function getProperEllipsisCountMarginRight(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
+/**
+ * `AvatarGroup` is a component for grouping `Avatar` components
+ *
+ * @example
+ *
+ * ```tsx
+ * <AvatarGroup
+ *  max={2}
+ *  spacing={4}
+ *  ellipsisType={AvatarGroupEllipsisType.Icon}
+ * >
+ *    <Avatar />
+ *    <Avatar />
+ *    <Avatar />
+ * </AvatarGroup>
+ * ```
+ */
 export const AvatarGroup = forwardRef(function AvatarGroup({
   max,
   size = AvatarSize.Size24,
