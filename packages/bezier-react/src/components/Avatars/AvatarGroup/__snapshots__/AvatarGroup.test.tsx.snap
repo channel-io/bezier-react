@@ -37,7 +37,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 <div
-  class="AvatarGroup"
+  class="AvatarGroup margin"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
@@ -170,7 +170,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 <div
-  class="AvatarGroup"
+  class="AvatarGroup margin"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
