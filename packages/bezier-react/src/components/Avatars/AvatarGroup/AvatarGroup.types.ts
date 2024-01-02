@@ -2,6 +2,7 @@ import type {
   AdditionalStylableProps,
   AlphaBezierComponentProps,
   ChildrenProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -55,4 +56,5 @@ export interface AvatarGroupProps extends
   SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
   React.HTMLAttributes<HTMLDivElement>,
+  MarginProps,
   AvatarGroupOwnProps {}

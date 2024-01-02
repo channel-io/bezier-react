@@ -9,6 +9,10 @@ import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
+import {
+  getMarginStyle,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { px } from '~/src/utils/style'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
@@ -101,20 +105,22 @@ function getProperEllipsisCountMarginRight(avatarSize: AvatarSize) {
  * </AvatarGroup>
  * ```
  */
-export const AvatarGroup = forwardRef(function AvatarGroup({
-  max,
-  size = AvatarSize.Size24,
-  spacing = AVATAR_GROUP_DEFAULT_SPACING,
-  ellipsisType = AvatarGroupEllipsisType.Icon,
-  onMouseEnterEllipsis = noop,
-  onMouseLeaveEllipsis = noop,
-  style,
-  className,
-  children,
-  ...rest
-}: AvatarGroupProps,
-forwardedRef: React.Ref<HTMLDivElement>,
-) {
+export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyle(marginProps)
+  const {
+    max,
+    size = AvatarSize.Size24,
+    spacing = AVATAR_GROUP_DEFAULT_SPACING,
+    ellipsisType = AvatarGroupEllipsisType.Icon,
+    onMouseEnterEllipsis = noop,
+    onMouseLeaveEllipsis = noop,
+    style,
+    className,
+    children,
+    ...rest
+  } = marginRest
+
   const renderAvatarElement = useCallback((
     avatar: React.ReactElement<AvatarProps>,
     avatarListCount: number,
@@ -220,9 +226,11 @@ forwardedRef: React.Ref<HTMLDivElement>,
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
+        marginStyle.className,
         className,
       )}
       style={{
+        ...marginStyle.style,
         ...style,
         '--b-avatar-group-spacing': px(spacing),
         '--b-avatar-group-size': px(size),
