@@ -1,0 +1,47 @@
+@layer components {
+  .AvatarGroup {
+    --b-avatar-group-spacing: 0;
+    --b-avatar-group-size: 0;
+
+    position: relative;
+    z-index: var(--z-index-base);
+    display: flex;
+
+    & > * + * {
+      margin-left: var(--b-avatar-group-spacing);
+    }
+  }
+
+  .AvatarEllipsisIconWrapper {
+    position: relative;
+  }
+
+  .AvatarEllipsisIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: var(--z-index-floating);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    outline: none;
+  }
+
+  .AvatarEllipsisCountWrapper {
+    --b-avatar-group-ellipsis-mr: 0;
+    --b-avatar-group-ellipsis-ml: 0;
+
+    padding-right: var(--b-avatar-group-ellipsis-mr);
+    margin-left: var(--b-avatar-group-ellipsis-ml);
+  }
+
+  .AvatarEllipsisCount {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--b-avatar-group-size);
+    color: var(--txt-black-dark);
+  }
+}

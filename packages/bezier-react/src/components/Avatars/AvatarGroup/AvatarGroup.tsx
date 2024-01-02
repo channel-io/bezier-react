@@ -5,11 +5,13 @@ import React, {
 } from 'react'
 
 import { MoreIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
 import { px } from '~/src/utils/style'
 
+import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
   AvatarSize,
@@ -22,13 +24,14 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 
 import {
   AvatarGroupEllipsisType,
   type AvatarGroupProps,
 } from './AvatarGroup.types'
 
-import * as Styled from './AvatarGroup.styled'
+import styles from './AvatarGroup.module.scss'
 
 const MAX_AVATAR_LIST_COUNT = 99
 
@@ -133,24 +136,26 @@ forwardedRef: React.Ref<HTMLDivElement>,
 
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
-          <Styled.AvatarEllipsisIconWrapper
+          <div
             data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
+            className={styles.AvatarEllipsisIconWrapper}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
           >
-            <Styled.AvatarEllipsisIcon
+            <AlphaSmoothCornersBox
               borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
               backgroundColor="bgtxt-absolute-black-lightest"
+              className={styles.AvatarEllipsisIcon}
             >
               <Icon
                 source={MoreIcon}
                 size={getProperIconSize(size)}
                 color="bgtxt-absolute-white-dark"
               />
-            </Styled.AvatarEllipsisIcon>
+            </AlphaSmoothCornersBox>
             { AvatarElement }
-          </Styled.AvatarEllipsisIconWrapper>
+          </div>
         )
       }
 
@@ -158,21 +163,22 @@ forwardedRef: React.Ref<HTMLDivElement>,
         return (
           <React.Fragment key="ellipsis">
             { AvatarElement }
-            <Styled.AvatarEllipsisCountWrapper
+            <div
               style={{
                 '--b-avatar-group-ellipsis-mr': px(getProperEllipsisCountMarginRight(size)),
                 '--b-avatar-group-ellipsis-ml': px(Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)),
               } as React.CSSProperties}
+              className={styles.AvatarEllipsisCountWrapper}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
-              <Styled.AvatarEllipsisCount
-                forwardedAs="span"
+              <Text
                 typo={getProperTypoSize(size)}
+                className={styles.AvatarEllipsisCount}
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
-              </Styled.AvatarEllipsisCount>
-            </Styled.AvatarEllipsisCountWrapper>
+              </Text>
+            </div>
           </React.Fragment>
         )
       }
@@ -192,10 +198,13 @@ forwardedRef: React.Ref<HTMLDivElement>,
   ])
 
   return (
-    <Styled.AvatarGroup
+    <div
       role="group"
       ref={forwardedRef}
-      className={className}
+      className={classNames(
+        styles.AvatarGroup,
+        className,
+      )}
       style={{
         ...style,
         '--b-avatar-group-spacing': px(spacing),
@@ -204,6 +213,6 @@ forwardedRef: React.Ref<HTMLDivElement>,
       {...rest}
     >
       { AvatarListComponent }
-    </Styled.AvatarGroup>
+    </div>
   )
 })
