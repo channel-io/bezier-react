@@ -1,4 +1,5 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
 } from 'react'
@@ -7,15 +8,24 @@ import {
   LockIcon,
   MoonFilledIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import type { SemanticNames } from '~/src/foundation'
 
+import {
+  getMarginStyle,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import {
   cssVar,
   px,
 } from '~/src/utils/style'
 
-import { IconSize } from '~/src/components/Icon'
+import { AlphaCenter } from '~/src/components/AlphaCenter'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 
 import {
   type StatusProps,
@@ -23,7 +33,7 @@ import {
   StatusType,
 } from './Status.types'
 
-import * as Styled from './Status.styled'
+import styles from './Status.module.scss'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.OnlineCrescent,
@@ -40,37 +50,54 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
 }
 
 function getStatusCircleBorderWidth(size: StatusSize) {
-  if (size >= StatusSize.L) { return 3 }
-  return 2
+  return size >= StatusSize.L ? 3 : 2
 }
 
-export const Status = memo(forwardRef(function Status({
-  type,
-  size = StatusSize.M,
-  style,
-  ...rest
-}: StatusProps, forwardedRef: React.Ref<HTMLDivElement>) {
+/**
+ * `Status` is a component to indicate user status.
+ */
+export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Status(props,
+  forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyle(marginProps)
+  const {
+    type,
+    size = StatusSize.M,
+    style,
+    className,
+    ...rest
+  } = marginRest
+
   const withIcon = statusTypesWithIcon.includes(type)
   const backgroundColor = withIcon ? 'bg-white-high' : statusColor[type]
 
   return (
-    <Styled.Circle
+    <div
       ref={forwardedRef}
       style={{
-        ...style,
         '--b-status-size': px(size),
         '--b-status-bg-color': cssVar(backgroundColor),
         '--b-status-border-width': px(getStatusCircleBorderWidth(size)),
-      }}
+        ...marginStyle.style,
+        ...style,
+      } as CSSProperties}
+      className={classNames(
+        styles.Status,
+        marginStyle.className,
+        className,
+      )}
       {...rest}
     >
       { withIcon && (
-        <Styled.Icon
-          source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-          size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
-          color={statusColor[type]}
-        />
+        <AlphaCenter>
+          <Icon
+            source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
+            size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
+            color={statusColor[type]}
+            className={styles.Icon}
+          />
+        </AlphaCenter>
       ) }
-    </Styled.Circle>
+    </div>
   )
 }))

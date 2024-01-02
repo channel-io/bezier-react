@@ -1,5 +1,6 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -16,12 +17,16 @@ export enum StatusSize {
   L = 14,
 }
 
-interface StatusOptions {
+interface StatusOwnProps {
+  /**
+   * Type of Status image.
+   */
   type: StatusType
 }
 
 export interface StatusProps extends
-  BezierComponentProps,
-  SizeProps<StatusSize>,
+  AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLDivElement>,
-  StatusOptions {}
+  SizeProps<StatusSize>,
+  MarginProps,
+  StatusOwnProps {}
