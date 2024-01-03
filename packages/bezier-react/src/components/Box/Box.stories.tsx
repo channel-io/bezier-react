@@ -24,7 +24,7 @@ export const Primary: StoryObj<typeof Box> = {
   args: {
     width: '50px',
     height: '50px',
-    bgColor: 'bg-black-light',
+    backgroundColor: 'bg-black-light',
     borderRadius: '8',
     borderWidth: '1px',
     borderColor: 'bdr-black-light',
