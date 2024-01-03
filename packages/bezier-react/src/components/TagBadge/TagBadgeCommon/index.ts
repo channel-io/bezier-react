@@ -7,8 +7,6 @@ export {
 } from './constants/TagBadgeVariant'
 export {
   TAG_BADGE_ICON_SIZE,
-  BADGE_TEXT_HORIZONTAL_PADDING,
-  TAG_TEXT_HORIZONTAL_PADDING,
 } from './constants/TagBadgeStyle'
 
 /* Utils */

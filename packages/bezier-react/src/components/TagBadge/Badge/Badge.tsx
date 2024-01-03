@@ -14,7 +14,6 @@ import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import {
-  BADGE_TEXT_HORIZONTAL_PADDING,
   TAG_BADGE_ICON_SIZE,
   TagBadgeSize,
   TagBadgeVariant,
@@ -76,7 +75,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
         <Text
           color={textColor}
           typo={getProperTagBadgeTypo(size)}
-          mx={BADGE_TEXT_HORIZONTAL_PADDING}
+          mx={3}
         >
           { children }
         </Text>
