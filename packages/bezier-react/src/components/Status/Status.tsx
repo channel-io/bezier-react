@@ -21,7 +21,6 @@ import {
   px,
 } from '~/src/utils/style'
 
-import { AlphaCenter } from '~/src/components/AlphaCenter'
 import {
   Icon,
   IconSize,
@@ -89,14 +88,12 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
       {...rest}
     >
       { withIcon && (
-        <AlphaCenter>
-          <Icon
-            source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-            size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
-            color={statusColor[type]}
-            className={styles.Icon}
-          />
-        </AlphaCenter>
+        <Icon
+          source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
+          size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
+          color={statusColor[type]}
+          className={styles.Icon}
+        />
       ) }
     </div>
   )
