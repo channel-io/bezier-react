@@ -45,83 +45,83 @@
     box-shadow: var(--b-elevation);
     z-index: var(--b-z-index);
 
-    &.position-relative {
+    &:where(.position-relative) {
       position: relative;
     }
 
-    &.position-absolute {
+    &:where(.position-absolute) {
       position: absolute;
     }
 
-    &.position-fixed {
+    &:where(.position-fixed) {
       position: fixed;
     }
 
-    &.position-sticky {
+    &:where(.position-sticky) {
       position: sticky;
     }
 
-    &.shrink-0 {
+    &:where(.shrink-0) {
       flex-shrink: 0;
     }
 
-    &.shrink-1 {
+    &:where(.shrink-1) {
       flex-shrink: 1;
     }
 
-    &.grow-0 {
+    &:where(.grow-0) {
       flex-grow: 0;
     }
 
-    &.grow-1 {
+    &:where(.grow-1) {
       flex-grow: 1;
     }
 
-    &.overflow-visible {
+    &:where(.overflow-visible) {
       overflow: visible;
     }
 
-    &.overflow-hidden {
+    &:where(.overflow-hidden) {
       overflow: hidden;
     }
 
-    &.overflow-scroll {
+    &:where(.overflow-scroll) {
       overflow: scroll;
     }
 
-    &.overflow-auto {
+    &:where(.overflow-auto) {
       overflow: auto;
     }
 
-    &.overflow-x-visible {
+    &:where(.overflow-x-visible) {
       overflow-x: visible;
     }
 
-    &.overflow-x-hidden {
+    &:where(.overflow-x-hidden) {
       overflow-x: hidden;
     }
 
-    &.overflow-x-scroll {
+    &:where(.overflow-x-scroll) {
       overflow-x: scroll;
     }
 
-    &.overflow-x-auto {
+    &:where(.overflow-x-auto) {
       overflow-x: auto;
     }
 
-    &.overflow-y-visible {
+    &:where(.overflow-y-visible) {
       overflow-y: visible;
     }
 
-    &.overflow-y-hidden {
+    &:where(.overflow-y-hidden) {
       overflow-y: hidden;
     }
 
-    &.overflow-y-scroll {
+    &:where(.overflow-y-scroll) {
       overflow-y: scroll;
     }
 
-    &.overflow-y-auto {
+    &:where(.overflow-y-auto) {
       overflow-y: auto;
     }
   }

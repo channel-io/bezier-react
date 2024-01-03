@@ -2,15 +2,15 @@
   .Box {
     box-sizing: border-box;
 
-    &.display-block {
+    &:where(.display-block) {
       display: block;
     }
 
-    &.display-inline-block {
+    &:where(.display-inline-block) {
       display: inline-block;
     }
 
-    &.display-inline {
+    &:where(.display-inline) {
       display: inline;
     }
   }
