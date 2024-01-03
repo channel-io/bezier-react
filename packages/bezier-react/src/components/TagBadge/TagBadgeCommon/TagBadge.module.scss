@@ -1,5 +1,11 @@
 @layer components {
   .TagBadge {
+    --b-tag-badge-background-color: inherit;
+
+    display: flex;
+    align-items: center;
+    background-color: var(--b-tag-badge-background-color);
+
     &:where(.size-xs) {
       padding: 1px 2px;
       overflow: hidden;

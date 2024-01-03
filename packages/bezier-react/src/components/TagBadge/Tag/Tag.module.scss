@@ -1,12 +1,4 @@
 @layer components {
-  .Tag {
-    --b-tag-background-color: inherit;
-
-    display: flex;
-    align-items: center;
-    background-color: var(--b-tag-background-color);
-  }
-
   .CloseIcon {
     cursor: pointer;
   }

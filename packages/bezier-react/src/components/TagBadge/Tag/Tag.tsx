@@ -52,13 +52,12 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
     ...rest
   } = marginRest
 
-  const badgeColor: SemanticNames = givenColor || getProperTagBadgeBgColor(variant)
+  const bgColor: SemanticNames = givenColor || getProperTagBadgeBgColor(variant)
   const textColor: SemanticNames = givenColor || 'txt-black-darkest'
 
   return (
     <div
       className={classNames(
-        styles.Tag,
         common.TagBadge,
         common[`size-${size}`],
         marginStyle.className,
@@ -67,7 +66,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
       ref={forwardedRef}
       data-testid={testId}
       style={{
-        '--b-tag-background-color': `var(--${badgeColor})`,
+        '--b-tag-badge-background-color': `var(--${bgColor})`,
         ...marginStyle.style,
         ...style,
       } as CSSProperties}
