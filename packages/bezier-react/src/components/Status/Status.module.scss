@@ -1,4 +1,4 @@
-@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/position';
 
 @layer components {
   .Status {
@@ -39,7 +39,7 @@
   }
 
   .Icon {
-    @include dimension.center();
+    @include position.center();
     z-index: var(--z-index-floating);
   }
 }
