@@ -16,10 +16,7 @@ import {
   getMarginStyle,
   splitByMarginProps,
 } from '~/src/utils/props'
-import {
-  cssVar,
-  px,
-} from '~/src/utils/style'
+import { cssVar } from '~/src/utils/style'
 
 import {
   Icon,
@@ -48,10 +45,6 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
   [StatusType.Lock]: 'txt-black-darker',
 }
 
-function getStatusCircleBorderWidth(size: StatusSize) {
-  return size >= StatusSize.L ? 3 : 2
-}
-
 /**
  * `Status` is a component to indicate user status.
  */
@@ -74,14 +67,13 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
     <div
       ref={forwardedRef}
       style={{
-        '--b-status-size': px(size),
         '--b-status-bg-color': cssVar(backgroundColor),
-        '--b-status-border-width': px(getStatusCircleBorderWidth(size)),
         ...marginStyle.style,
         ...style,
       } as CSSProperties}
       className={classNames(
         styles.Status,
+        styles[`size-${size}`],
         marginStyle.className,
         className,
       )}
@@ -90,7 +82,7 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
       { withIcon && (
         <Icon
           source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-          size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
+          size={size === StatusSize.M ? IconSize.XXXS : IconSize.XS}
           color={statusColor[type]}
           className={styles.Icon}
         />

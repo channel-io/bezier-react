@@ -13,8 +13,8 @@ export enum StatusType {
 }
 
 export enum StatusSize {
-  M = 8,
-  L = 14,
+  M = 'm',
+  L = 'l',
 }
 
 interface StatusOwnProps {

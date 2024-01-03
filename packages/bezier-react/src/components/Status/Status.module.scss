@@ -26,6 +26,16 @@
       background-color: var(--b-status-bg-color);
       border-radius: 50%;
     }
+
+    &:where(.size-m) {
+      --b-status-size: 8px;
+      --b-status-border-width: 2px;
+    }
+
+    &:where(.size-l) {
+      --b-status-size: 14px;
+      --b-status-border-width: 3px;
+    }
   }
 
   .Icon {
