@@ -142,7 +142,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
         style={avatarStyle}
         className={classNames(
           styles.AvatarImage,
-          showBorder && 'bordered',
+          showBorder && styles.bordered,
         )}
         disabled={!smoothCorners}
         borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
