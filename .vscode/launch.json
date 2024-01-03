@@ -29,5 +29,13 @@
 		// 	],
 		// 	"outFiles": ["${workspaceRoot}/client/out/test/**/*.js"]
 		// }
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Attach to Server",
+			"port": 6009,
+			"restart": true,
+			"outFiles": ["${workspaceRoot}/packages/lsp-sample/out/**/server.js"]
+		},
 	]
 }
