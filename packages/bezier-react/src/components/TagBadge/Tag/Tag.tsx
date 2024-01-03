@@ -13,6 +13,7 @@ import {
   getMarginStyle,
   splitByMarginProps,
 } from '~/src/utils/props'
+import { cssVar } from '~/src/utils/style'
 import {
   isEmpty,
   isNil,
@@ -65,7 +66,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
       ref={forwardedRef}
       data-testid={testId}
       style={{
-        '--b-tag-badge-background-color': `var(--${bgColor})`,
+        '--b-tag-badge-background-color': cssVar(bgColor),
         ...marginStyle.style,
         ...style,
       } as CSSProperties}

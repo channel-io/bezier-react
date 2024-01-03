@@ -10,6 +10,7 @@ import {
   getMarginStyle,
   splitByMarginProps,
 } from '~/src/utils/props'
+import { cssVar } from '~/src/utils/style'
 import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
@@ -50,7 +51,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       style={{
         ...style,
         ...marginStyle.style,
-        '--b-tag-badge-background-color': `var(--${bgColor})`,
+        '--b-tag-badge-background-color': cssVar(bgColor),
       } as CSSProperties}
       ref={forwardedRef}
       className={classNames(
