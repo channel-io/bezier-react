@@ -29,7 +29,7 @@ const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
       ref={forwardedRef}
       content={children}
     >
-      <div className={styles.Trigger}>
+      <div className={styles.Help}>
         <Icon
           className={styles.Icon}
           testId={HELP_TEST_ID}
