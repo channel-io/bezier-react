@@ -6,6 +6,10 @@ import React, {
 
 import classNames from 'classnames'
 
+import {
+  getMarginStyle,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
@@ -25,17 +29,20 @@ import type BadgeProps from './Badge.types'
 
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
-export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
-  size = TagBadgeSize.M,
-  variant = TagBadgeVariant.Default,
-  icon,
-  children,
-  className,
-  interpolation,
-  testId = BADGE_TEST_ID,
-  style,
-  ...props
-}, forwardedRef) {
+export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyle(marginProps)
+  const {
+    size = TagBadgeSize.M,
+    variant = TagBadgeVariant.Default,
+    icon,
+    children,
+    className,
+    testId = BADGE_TEST_ID,
+    style,
+    ...rest
+  } = marginRest
+
   const bgColor = getProperTagBadgeBgColor(variant)
   const textColor = getProperBadgeTextColor(variant)
 
@@ -43,17 +50,19 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
     <div
       style={{
         ...style,
+        ...marginStyle.style,
         '--b-tag-badge-background-color': `var(--${bgColor})`,
       } as CSSProperties}
       ref={forwardedRef}
       className={classNames(
         common.TagBadge,
         common[`size-${size}`],
+        marginStyle.className,
         className,
       )}
       data-testid={testId}
       color={textColor}
-      {...props}
+      {...rest}
     >
       { icon && (
         <Icon
