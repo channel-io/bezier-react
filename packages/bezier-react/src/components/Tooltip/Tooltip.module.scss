@@ -14,13 +14,13 @@
     overflow: hidden;
     border-radius: var(--radius-8);
     box-shadow: var(--ev-3);
+  }
 
-    .TooltipContainer {
-      overflow: hidden;
-    }
+  .TooltipContainer {
+    overflow: hidden;
+  }
 
-    .TooltipContent {
-      white-space: pre-wrap;
-    }
+  .TooltipContent {
+    white-space: pre-wrap;
   }
 }
