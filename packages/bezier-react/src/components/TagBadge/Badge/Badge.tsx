@@ -1,8 +1,10 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
-  useMemo,
 } from 'react'
+
+import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
@@ -11,19 +13,16 @@ import {
   BADGE_TEXT_HORIZONTAL_PADDING,
   TAG_BADGE_ICON_SIZE,
   TagBadgeSize,
-  TagBadgeStyled,
-  TagBadgeText,
   TagBadgeVariant,
   getProperBadgeTextColor,
   getProperTagBadgeBgColor,
-  getProperTagBadgePadding,
-  getProperTagBadgeRounding,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
+import common from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
+import { Text } from '~/src/components/Text'
 
 import type BadgeProps from './Badge.types'
 
-// TODO: 테스트 코드 작성
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
 export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
@@ -34,46 +33,45 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   className,
   interpolation,
   testId = BADGE_TEST_ID,
+  style,
   ...props
 }, forwardedRef) {
-  const hasChildren = !isEmpty(children)
-
-  const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
-  const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
-
-  const IconComponent = useMemo(() => (icon && (
-    <Icon
-      source={icon}
-      size={TAG_BADGE_ICON_SIZE}
-      color={textSemanticName}
-    />
-  )), [
-    icon,
-    textSemanticName,
-  ])
+  const bgColor = getProperTagBadgeBgColor(variant)
+  const textColor = getProperBadgeTextColor(variant)
 
   return (
-    <TagBadgeStyled.Wrapper
-      {...props}
+    <div
+      style={{
+        ...style,
+        '--b-tag-badge-background-color': `var(--${bgColor})`,
+      } as CSSProperties}
       ref={forwardedRef}
-      className={className}
-      interpolation={interpolation}
+      className={classNames(
+        common.TagBadge,
+        common[`size-${size}`],
+        className,
+      )}
       data-testid={testId}
-      horizontalPadding={getProperTagBadgePadding(size)}
-      rounding={getProperTagBadgeRounding(size)}
-      color={textSemanticName}
-      bgColor={bgSemanticName}
+      color={textColor}
+      {...props}
     >
-      { IconComponent }
-
-      { hasChildren && (
-        <TagBadgeText
-          horizontalPadding={BADGE_TEXT_HORIZONTAL_PADDING}
-          typo={getProperTagBadgeTypo(size)}
-        >
-            { children }
-        </TagBadgeText>
+      { icon && (
+        <Icon
+          source={icon}
+          size={TAG_BADGE_ICON_SIZE}
+          color={textColor}
+        />
       ) }
-    </TagBadgeStyled.Wrapper>
+
+      { !isEmpty(children) && (
+        <Text
+          color={textColor}
+          typo={getProperTagBadgeTypo(size)}
+          mx={BADGE_TEXT_HORIZONTAL_PADDING}
+        >
+          { children }
+        </Text>
+      ) }
+    </div>
   )
 }))
