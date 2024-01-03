@@ -37,6 +37,20 @@ import styles from './Tag.module.scss'
 export const TAG_TEST_ID = 'bezier-react-tag'
 export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
 
+/**
+ * `Tag` is a component for representing tag, which shows close icon when `onDelete` property is specified.
+ *
+ * @example
+ * ```tsx
+ * <Tag
+ *   size={TagBadgeSize.M}
+ *   variant={TagBadgeVariant.Default}
+ *   onDelete={handleDelete}
+ * >
+ *   Payment
+ * </Tag>
+ * ```
+ */
 export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyle = getMarginStyle(marginProps)

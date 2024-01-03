@@ -29,6 +29,20 @@ import type BadgeProps from './Badge.types'
 
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
+/**
+ * `Badge` is a component for representing badge, which consists of text and icon.
+ *
+ * @example
+ * ```tsx
+ * <Badge
+ *   size={TagBadgeSize.XS}
+ *   variant={TagBadgeVariant.Blue}
+ *   icon={AppleIcon}
+ * >
+ *   Beta
+ * </Badge>
+ * ```
+ */
 export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyle = getMarginStyle(marginProps)
