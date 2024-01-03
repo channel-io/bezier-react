@@ -122,11 +122,11 @@ describe('Tabs', () => {
       const tab2 = getByRole('tab', { name: TAB2 })
 
       await user.click(tab2)
-      expect(onValueChange).toBeCalledTimes(1)
+      expect(onValueChange).toHaveBeenCalledTimes(1)
       await user.click(tab1)
-      expect(onValueChange).toBeCalledTimes(2)
+      expect(onValueChange).toHaveBeenCalledTimes(2)
       await user.click(tab1)
-      expect(onValueChange).toBeCalledTimes(2)
+      expect(onValueChange).toHaveBeenCalledTimes(2)
     })
   })
 

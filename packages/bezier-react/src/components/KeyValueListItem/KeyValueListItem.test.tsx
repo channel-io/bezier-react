@@ -162,9 +162,9 @@ describe('KeyValueListItem', () => {
         const actionItemIcon = actionItemIconWrapper?.firstChild
 
         await user.click(actionItemIcon as HTMLElement)
-        expect(actions.onClick).toBeCalledTimes(1)
+        expect(actions.onClick).toHaveBeenCalledTimes(1)
         await user.click(actionItemIcon as HTMLElement)
-        expect(actions.onClick).toBeCalledTimes(2)
+        expect(actions.onClick).toHaveBeenCalledTimes(2)
       })
 
       it('actions의 tooltip이 있으면, tooltip이 렌더링된다.', async () => {
@@ -230,9 +230,9 @@ describe('KeyValueListItem', () => {
         const keyItemContainer = rendered?.firstChild
 
         await user.click(keyItemContainer as Element)
-        expect(props.onClickKey).toBeCalledTimes(1)
+        expect(props.onClickKey).toHaveBeenCalledTimes(1)
         await user.click(keyItemContainer as Element)
-        expect(props.onClickKey).toBeCalledTimes(2)
+        expect(props.onClickKey).toHaveBeenCalledTimes(2)
       })
     })
 
@@ -283,9 +283,9 @@ describe('KeyValueListItem', () => {
         const valueItemContainer = rendered?.lastChild
 
         await user.click(valueItemContainer as Element)
-        expect(props.onClickValue).toBeCalledTimes(1)
+        expect(props.onClickValue).toHaveBeenCalledTimes(1)
         await user.click(valueItemContainer as Element)
-        expect(props.onClickValue).toBeCalledTimes(2)
+        expect(props.onClickValue).toHaveBeenCalledTimes(2)
       })
     })
   })

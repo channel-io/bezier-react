@@ -168,7 +168,7 @@ describe('SegmentedControl >', () => {
         const { getByRole } = renderComponent({ type: 'radiogroup', onValueChange })
         const item = getByRole('radio', { name: MOCK_UI_DATA[1].label })
         await user.click(item)
-        expect(onValueChange).toBeCalledTimes(1)
+        expect(onValueChange).toHaveBeenCalledTimes(1)
       })
 
       it('should focus on the first item item when user presses tab key', async () => {
@@ -256,7 +256,7 @@ describe('SegmentedControl >', () => {
         const { getByRole } = renderComponent({ type: 'tabs', onValueChange })
         const item = getByRole('tab', { name: MOCK_UI_DATA[1].label })
         await user.click(item)
-        expect(onValueChange).toBeCalledTimes(1)
+        expect(onValueChange).toHaveBeenCalledTimes(1)
       })
 
       it('should focus on the first item item when user presses tab key', async () => {

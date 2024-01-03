@@ -78,7 +78,7 @@ describe('CheckableAvatar', () => {
       const { getByRole } = renderCheckableAvatar({ onCheckedChange })
       const checkbox = getByRole('checkbox')
       await user.click(checkbox)
-      expect(onCheckedChange).toBeCalledTimes(1)
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
     })
 
     it('should focus on the first checkbox item when user presses tab key', async () => {
@@ -105,7 +105,7 @@ describe('CheckableAvatar', () => {
       await user.tab()
       expect(checkbox).toHaveFocus()
       await user.keyboard('{ }')
-      expect(onCheckedChange).toBeCalledTimes(1)
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
     })
   })
 })

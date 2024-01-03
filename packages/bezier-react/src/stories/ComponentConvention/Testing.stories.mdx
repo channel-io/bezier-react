@@ -148,8 +148,8 @@ it('should fire onClick handler', () => {
 
   userEvent.click(button)
 
-  expect(onClick).toBeCalled()
-  expect(onClick).toBeCalledTimes(1)
+  expect(onClick).toHaveBeenCalled()
+  expect(onClick).toHaveBeenCalledTimes(1)
 })
 
 // EXAMPLE: disabled=true 인 버튼을 클릭하면, onclick prop으로 제공한 함수가 실행되지 않아야 한다.
@@ -162,7 +162,7 @@ it('should not fire onClick handler if button is disabled', () => {
 
   userEvent.click(button)
 
-  expect(onClick).not.toBeCalled()
+  expect(onClick).not.toHaveBeenCalled()
 })
 
 // EXAMPLE: 버튼에 호버하면, 커서가 "pointer"로 변해야 한다.

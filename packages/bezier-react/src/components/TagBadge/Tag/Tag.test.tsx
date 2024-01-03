@@ -35,7 +35,7 @@ describe('Tag test >', () => {
 
       await user.click(getByTestId(TAG_TEST_ID))
 
-      expect(onClickFn).toBeCalled()
+      expect(onClickFn).toHaveBeenCalled()
     })
 
     it('onDelete function should be called when the delete icon is clicked', async () => {
@@ -45,7 +45,7 @@ describe('Tag test >', () => {
 
       await user.click(getByTestId(TAG_DELETE_TEST_ID))
 
-      expect(onDeleteFn).toBeCalled()
+      expect(onDeleteFn).toHaveBeenCalled()
     })
 
     it('onClick function should not be called when the delete icon is clicked', async () => {
@@ -55,7 +55,7 @@ describe('Tag test >', () => {
 
       await user.click(getByTestId(TAG_DELETE_TEST_ID))
 
-      expect(onClickFn).not.toBeCalled()
+      expect(onClickFn).not.toHaveBeenCalled()
     })
   })
 })

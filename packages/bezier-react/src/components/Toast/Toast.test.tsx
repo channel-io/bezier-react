@@ -117,7 +117,7 @@ describe('Toast test >', () => {
       })
       const closeToast = getByTestId(`${TOAST_TEST_ID}-close`)
       closeToast.click()
-      expect(onDismiss).toBeCalledTimes(1)
+      expect(onDismiss).toHaveBeenCalledTimes(1)
     })
   })
 

@@ -34,7 +34,7 @@ describe('Mixin test >', () => {
       const spyConsole = jest.spyOn(console, 'warn').mockImplementation()
       // @ts-ignore
       const style = ellipsis(5)
-      expect(spyConsole).toBeCalled()
+      expect(spyConsole).toHaveBeenCalled()
       expect(style).toEqual(css``)
     })
 

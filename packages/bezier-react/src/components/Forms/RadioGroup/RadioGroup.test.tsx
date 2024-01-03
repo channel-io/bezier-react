@@ -83,7 +83,7 @@ describe('RadioGroup', () => {
       const { getByRole } = renderRadioGroup({ radioGroupProps: { value: VALUES[0], onValueChange } })
       const radio = getByRole('radio', { name: VALUES[1] })
       await user.click(radio)
-      expect(onValueChange).toBeCalledTimes(1)
+      expect(onValueChange).toHaveBeenCalledTimes(1)
     })
 
     it('should focus on the first radio item when user presses tab key', async () => {

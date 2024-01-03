@@ -100,7 +100,7 @@ describe('TextArea 테스트 >', () => {
         textareaElement.focus()
       })
 
-      expect(onFocus).not.toBeCalled()
+      expect(onFocus).not.toHaveBeenCalled()
     })
 
     it('disabled가 주입됐다면 onFocus 가 안 불려야 한다', () => {
@@ -112,7 +112,7 @@ describe('TextArea 테스트 >', () => {
         textareaElement.focus()
       })
 
-      expect(onFocus).not.toBeCalled()
+      expect(onFocus).not.toHaveBeenCalled()
     })
 
     it('disabled, readOnly가 주입됐다면 onFocus 가 안 불려야 한다', () => {
@@ -124,7 +124,7 @@ describe('TextArea 테스트 >', () => {
         textareaElement.focus()
       })
 
-      expect(onFocus).not.toBeCalled()
+      expect(onFocus).not.toHaveBeenCalled()
     })
 
     it('readOnly, disabled 가 주입되지 않았다면 onFocus는 불려야 한다', () => {
@@ -136,7 +136,7 @@ describe('TextArea 테스트 >', () => {
         textareaElement.focus()
       })
 
-      expect(onFocus).toBeCalled()
+      expect(onFocus).toHaveBeenCalled()
     })
   })
 
@@ -151,7 +151,7 @@ describe('TextArea 테스트 >', () => {
         fireEvent.change(textareaElement, { target: { value: 'test' } })
       })
 
-      expect(onChange).toBeCalled()
+      expect(onChange).toHaveBeenCalled()
     })
   })
 
@@ -165,7 +165,7 @@ describe('TextArea 테스트 >', () => {
         textareaElement.focus()
         textareaElement.blur()
       })
-      expect(onBlur).toBeCalled()
+      expect(onBlur).toHaveBeenCalled()
     })
   })
 
@@ -197,7 +197,7 @@ describe('TextArea 테스트 >', () => {
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
         fireEvent.keyDown(textareaElement, { key, isComposing: isCompositionStartFired })
-        expect(onKeyDown).not.toBeCalled()
+        expect(onKeyDown).not.toHaveBeenCalled()
       })
     })
 
@@ -210,7 +210,7 @@ describe('TextArea 테스트 >', () => {
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         const isCompositionStartFired = fireEvent.compositionStart(textareaElement)
         fireEvent.keyUp(textareaElement, { key, isComposing: isCompositionStartFired })
-        expect(onKeyUp).not.toBeCalled()
+        expect(onKeyUp).not.toHaveBeenCalled()
       })
     })
   })
