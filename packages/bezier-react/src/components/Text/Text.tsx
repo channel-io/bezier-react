@@ -10,6 +10,7 @@ import {
   splitByMarginProps,
 } from '~/src/utils/props'
 import { tokenCssVar } from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
 import { type TextProps } from './Text.types'
 
@@ -47,7 +48,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     align,
     ...rest
   } = marginRest
-  const isMultiLineTruncated = typeof truncated === 'number' && truncated >= 1
+  const isMultiLineTruncated = isNumber(truncated) && truncated >= 1
 
   return createElement(as, {
     ref: forwardedRef,
@@ -62,8 +63,8 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       styles[`typo-${typo}`],
       bold && styles.bold,
       italic && styles.italic,
-      truncated === true && styles.truncated,
-      isMultiLineTruncated && styles['multi-line-truncated'],
+      truncated === true ? styles.truncated :
+        isMultiLineTruncated && styles['multi-line-truncated'],
       align && styles[`align-${align}`],
       marginStyle.className,
       className,
