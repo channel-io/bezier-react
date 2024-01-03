@@ -62,7 +62,7 @@ interface TextOwnProps {
   italic?: boolean
   /**
    * Whether the text is truncated.
-   * If it is a number type, it means the maximum number of lines.
+   * If it is a positive integer, it means the maximum number of lines.
    * @default false
    */
   truncated?: boolean | number
