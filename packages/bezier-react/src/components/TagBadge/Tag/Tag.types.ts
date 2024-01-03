@@ -2,6 +2,7 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type ColorProps,
+  type MarginProps,
   type SizeProps,
   type VariantProps,
 } from '~/src/types/ComponentProps'
@@ -27,6 +28,7 @@ interface TagProps extends
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
   ColorProps,
+  MarginProps,
   TagOwnProps {}
 
 export default TagProps
