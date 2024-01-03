@@ -6,7 +6,7 @@ import {
 import classNames from 'classnames'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { tokenCssVar } from '~/src/utils/style'
@@ -31,7 +31,7 @@ import styles from './Text.module.scss'
  */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyles = getMarginStyles(marginProps)
 
   const {
     children,
@@ -52,7 +52,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     ref: forwardedRef,
     style: {
       '--b-text-color': tokenCssVar(color),
-      ...marginStyle.style,
+      ...marginStyles.style,
       ...style,
     },
     className: classNames(
@@ -62,7 +62,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       italic && styles.italic,
       truncated && styles.truncated,
       align && styles[`align-${align}`],
-      marginStyle.className,
+      marginStyles.className,
       className,
     ),
     'data-testid': testId,

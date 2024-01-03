@@ -6,8 +6,8 @@ import {
 import classNames from 'classnames'
 
 import {
-  getLayoutStyle,
-  getMarginStyle,
+  getLayoutStyles,
+  getMarginStyles,
   splitByLayoutProps,
   splitByMarginProps,
 } from '~/src/utils/props'
@@ -36,8 +36,8 @@ import styles from './Box.module.scss'
 export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
-  const marginStyle = getMarginStyle(marginProps)
-  const layoutStyle = getLayoutStyle(layoutProps)
+  const marginStyles = getMarginStyles(marginProps)
+  const layoutStyles = getLayoutStyles(layoutProps)
 
   const {
     children,
@@ -56,15 +56,15 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
   return createElement(as, {
     ref: forwardedRef,
     style: {
-      ...marginStyle.style,
-      ...layoutStyle.style,
+      ...marginStyles.style,
+      ...layoutStyles.style,
       ...style,
     },
     className: classNames(
       styles.Box,
       display && styles[`display-${display}`],
-      marginStyle.className,
-      layoutStyle.className,
+      marginStyles.className,
+      layoutStyles.className,
       className,
     ),
     'data-testid': testId,

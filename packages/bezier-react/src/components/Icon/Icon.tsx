@@ -6,7 +6,7 @@ import React, {
 import classNames from 'classnames'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { tokenCssVar } from '~/src/utils/style'
@@ -25,7 +25,7 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
   forwardedRef,
 ) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyles = getMarginStyles(marginProps)
 
   const {
     testId = ICON_TEST_ID,
@@ -42,12 +42,12 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
       ref={forwardedRef}
       style={{
         '--b-icon-color': tokenCssVar(color),
-        ...marginStyle.style,
+        ...marginStyles.style,
         ...style,
       } as React.CSSProperties}
       className={classNames(
         styles.Icon,
-        marginStyle.className,
+        marginStyles.className,
         className,
       )}
       width={size}

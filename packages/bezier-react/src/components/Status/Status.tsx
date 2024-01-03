@@ -13,7 +13,7 @@ import classNames from 'classnames'
 import type { SemanticNames } from '~/src/foundation'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { cssVar } from '~/src/utils/style'
@@ -51,7 +51,7 @@ const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
 export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Status(props,
   forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyles = getMarginStyles(marginProps)
   const {
     type,
     size = StatusSize.M,
@@ -68,13 +68,13 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
       ref={forwardedRef}
       style={{
         '--b-status-bg-color': cssVar(backgroundColor),
-        ...marginStyle.style,
+        ...marginStyles.style,
         ...style,
       } as CSSProperties}
       className={classNames(
         styles.Status,
         styles[`size-${size}`],
-        marginStyle.className,
+        marginStyles.className,
         className,
       )}
       {...rest}

@@ -138,7 +138,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
     rest,
   ]
 
-export const getMarginStyle = ({
+export const getMarginStyles = ({
   m,
   mx,
   my,
@@ -161,7 +161,7 @@ export const getMarginStyle = ({
   }
 )
 
-export const getLayoutStyle = ({
+export const getLayoutStyles = ({
   p,
   px,
   py,
