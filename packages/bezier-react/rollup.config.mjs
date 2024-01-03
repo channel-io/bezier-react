@@ -73,6 +73,7 @@ const generateConfig = ({
          * ex. b-Button-disabled_1w3e4
          */
         generateScopedName: 'b-[folder]-[local]_[hash:base64:5]',
+        hashPrefix: 'bezier',
       },
       plugins: [
         autoprefixer(),
