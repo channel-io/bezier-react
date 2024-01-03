@@ -7,13 +7,11 @@ import type {
 import type {
   FoundationProps,
   InjectedInterpolation,
-  InterpolationProps,
 } from '~/src/types/Foundation'
 
 import { TAGBADGE_VERTICAL_PADDING } from './constants/TagBadgeStyle'
 
 interface CommonTagBadgeStyleProps extends
-  InterpolationProps,
   ColorProps,
   Required<AdditionalColorProps<'bg'>> {
   rounding: InjectedInterpolation
@@ -36,8 +34,6 @@ const Wrapper = styled.div.attrs(({
   align-items: center;
 
   ${({ rounding }) => rounding};
-
-  ${({ interpolation }) => interpolation};
 `
 
 export default {

@@ -1,34 +1,33 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
-  useMemo,
 } from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import {
   isEmpty,
   isNil,
 } from '~/src/utils/type'
 
+import { Icon } from '~/src/components/Icon'
 import {
   TAG_BADGE_ICON_SIZE,
   TAG_TEXT_HORIZONTAL_PADDING,
   TagBadgeSize,
-  TagBadgeStyled,
-  TagBadgeText,
   TagBadgeVariant,
   getProperTagBadgeBgColor,
-  getProperTagBadgePadding,
-  getProperTagBadgeRounding,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
+import common from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
+import { Text } from '~/src/components/Text'
 
 import type TagProps from './Tag.types'
 
-import Styled from './Tag.styled'
+import styles from './Tag.module.scss'
 
-// TODO: 테스트 코드 작성
 export const TAG_TEST_ID = 'bezier-react-tag'
 export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
 
@@ -37,56 +36,52 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
   variant = TagBadgeVariant.Default,
   color: givenColor,
   children,
-  // Handlers
-  onDelete,
   className,
-  interpolation,
   testId = TAG_TEST_ID,
+  onDelete,
+  style,
   ...props
 }, forwardedRef) {
-  const hasChildren = useMemo(() => !isEmpty(children), [children])
-
-  const bgSemanticName = useMemo(() => (
-    givenColor || getProperTagBadgeBgColor(variant)
-  ), [
-    givenColor,
-    variant,
-  ])
-
-  const CloseIconComponent = useMemo(() => !isNil(onDelete) && (
-    <Styled.CloseIcon
-      source={CancelSmallIcon}
-      size={TAG_BADGE_ICON_SIZE}
-      testId={TAG_DELETE_TEST_ID}
-      color="txt-black-darker"
-      onClick={(e) => {
-        e.stopPropagation()
-        onDelete(e)
-      }}
-    />
-  ), [onDelete])
+  const bgSemanticName = givenColor || getProperTagBadgeBgColor(variant)
 
   return (
-    <TagBadgeStyled.Wrapper
-      {...props}
+    <div
+      className={classNames(
+        styles.Tag,
+        common.TagBadge,
+        common[`size-${size}`],
+        className,
+      )}
       ref={forwardedRef}
-      className={className}
-      interpolation={interpolation}
       data-testid={testId}
-      horizontalPadding={getProperTagBadgePadding(size)}
-      rounding={getProperTagBadgeRounding(size)}
-      bgColor={bgSemanticName}
+      style={{
+        '--b-tag-background-color': `var(--${bgSemanticName})`,
+        ...style,
+      } as CSSProperties}
+      {...props}
     >
-      { hasChildren && (
-        <TagBadgeText
-          horizontalPadding={TAG_TEXT_HORIZONTAL_PADDING}
+      { !isEmpty(children) && (
+        <Text
           typo={getProperTagBadgeTypo(size)}
+          mx={TAG_TEXT_HORIZONTAL_PADDING}
         >
           { children }
-        </TagBadgeText>
+        </Text>
       ) }
 
-      { CloseIconComponent }
-    </TagBadgeStyled.Wrapper>
+      { !isNil(onDelete) && (
+        <Icon
+          source={CancelSmallIcon}
+          size={TAG_BADGE_ICON_SIZE}
+          testId={TAG_DELETE_TEST_ID}
+          color="txt-black-darker"
+          className={styles.CloseIcon}
+          onClick={(e) => {
+            e.stopPropagation()
+            onDelete(e)
+          }}
+        />
+      ) }
+    </div>
   )
 }))
