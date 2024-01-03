@@ -322,8 +322,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                 <Icon
                   size={IconSize.XS}
                   color="txt-black-darkest"
-                  m={1}
                   source={icon}
+                  className={styles.Icon}
                 />
               ) }
             </HStack>
