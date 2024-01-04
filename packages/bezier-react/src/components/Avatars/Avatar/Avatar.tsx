@@ -9,7 +9,6 @@ import {
   getMarginStyle,
   splitByMarginProps,
 } from '~/src/utils/props'
-import { px } from '~/src/utils/style'
 import { isEmpty } from '~/src/utils/type'
 
 import {
@@ -114,10 +113,6 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
     children,
   ])
 
-  const avatarStyle = useMemo(() => ({
-    '--b-avatar-status-gap': px(size >= AvatarSize.Size72 ? 4 : -2),
-  } as React.CSSProperties), [size])
-
   return (
     <div
       data-testid={AVATAR_WRAPPER_TEST_ID}
@@ -139,9 +134,9 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
         ref={forwardedRef}
         data-testid={testId}
         aria-label={name}
-        style={avatarStyle}
         className={classNames(
           styles.AvatarImage,
+          size >= AvatarSize.Size72 && styles['big-size'],
           showBorder && styles.bordered,
         )}
         disabled={!smoothCorners}

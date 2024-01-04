@@ -57,7 +57,7 @@
   }
 
   .AvatarImage {
-    --b-avatar-status-gap: 0;
+    --b-avatar-status-gap: -2px;
     --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
 
     position: relative;
@@ -69,6 +69,10 @@
     width: 100%;
     height: 100%;
     outline: none;
+    
+    &:where(.big-size) {
+      --b-avatar-status-gap: 4px;
+    }
 
     &:where(.bordered[data-state="enabled"]) {
       --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
