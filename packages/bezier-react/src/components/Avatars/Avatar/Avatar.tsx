@@ -6,7 +6,7 @@ import React, {
 import classNames from 'classnames'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
@@ -57,7 +57,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
  */
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyle = getMarginStyles(marginProps)
   const {
     avatarUrl = '',
     fallbackUrl = defaultAvatarUrl,

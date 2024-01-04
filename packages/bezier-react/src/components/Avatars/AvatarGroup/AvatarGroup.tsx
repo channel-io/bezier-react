@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { px } from '~/src/utils/style'
@@ -90,7 +90,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyle = getMarginStyles(marginProps)
   const {
     max,
     size = AvatarSize.Size24,
