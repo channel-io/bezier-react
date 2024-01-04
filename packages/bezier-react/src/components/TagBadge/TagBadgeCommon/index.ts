@@ -11,7 +11,6 @@ export {
 
 /* Utils */
 export {
-  getProperBadgeTextColor,
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
 } from './utils'
