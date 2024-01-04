@@ -6,8 +6,8 @@ import {
 import classNames from 'classnames'
 
 import {
-  getLayoutStyle,
-  getMarginStyle,
+  getLayoutStyles,
+  getMarginStyles,
   splitByLayoutProps,
   splitByMarginProps,
 } from '~/src/utils/props'
@@ -39,8 +39,8 @@ import styles from './Stack.module.scss'
 export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
-  const marginStyle = getMarginStyle(marginProps)
-  const layoutStyle = getLayoutStyle(layoutProps)
+  const marginStyles = getMarginStyles(marginProps)
+  const layoutStyles = getLayoutStyles(layoutProps)
 
   const {
     children,
@@ -62,8 +62,8 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
     ref: forwardedRef,
     style: {
       '--b-stack-spacing': cssDimension(spacing),
-      ...marginStyle.style,
-      ...layoutStyle.style,
+      ...marginStyles.style,
+      ...layoutStyles.style,
       ...style,
     },
     className: classNames(
@@ -74,8 +74,8 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
       align && styles[`align-${align}`],
       reverse && styles.reverse,
       wrap && styles.wrap,
-      marginStyle.className,
-      layoutStyle.className,
+      marginStyles.className,
+      layoutStyles.className,
       className,
     ),
     'data-testid': testId,

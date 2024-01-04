@@ -6,7 +6,7 @@ import {
 import classNames from 'classnames'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { tokenCssVar } from '~/src/utils/style'
@@ -32,7 +32,7 @@ import styles from './Text.module.scss'
  */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyles = getMarginStyles(marginProps)
 
   const {
     children,
@@ -55,7 +55,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     style: {
       '--b-text-color': tokenCssVar(color),
       '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
-      ...marginStyle.style,
+      ...marginStyles.style,
       ...style,
     },
     className: classNames(
@@ -66,7 +66,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       truncated === true ? styles.truncated :
         isMultiLineTruncated && styles['multi-line-truncated'],
       align && styles[`align-${align}`],
-      marginStyle.className,
+      marginStyles.className,
       className,
     ),
     'data-testid': testId,
