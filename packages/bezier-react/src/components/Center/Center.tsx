@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
 import {
-  getLayoutStyle,
-  getMarginStyle,
+  getLayoutStyles,
+  getMarginStyles,
   splitByLayoutProps,
   splitByMarginProps,
 } from '~/src/utils/props'
@@ -27,8 +27,8 @@ import styles from './Center.module.scss'
 export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
-  const marginStyle = getMarginStyle(marginProps)
-  const layoutStyle = getLayoutStyle(layoutProps)
+  const marginStyles = getMarginStyles(marginProps)
+  const layoutStyles = getLayoutStyles(layoutProps)
 
   const {
     children,
@@ -43,15 +43,15 @@ export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(pr
     <div
       ref={forwardedRef}
       style={{
-        ...marginStyle.style,
-        ...layoutStyle.style,
+        ...marginStyles.style,
+        ...layoutStyles.style,
         ...style,
       }}
       className={classNames(
         styles.Center,
         display && styles[`display-${display}`],
-        marginStyle.className,
-        layoutStyle.className,
+        marginStyles.className,
+        layoutStyles.className,
         className,
       )}
       data-testid={testId}
