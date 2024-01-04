@@ -24,7 +24,7 @@ function DecorativeBox({ children }) {
     <Box
       width={50}
       height={50}
-      bgColor="bg-black-light"
+      backgroundColor="bg-black-light"
       borderRadius="8"
       borderWidth={1}
       borderColor="bdr-black-light"

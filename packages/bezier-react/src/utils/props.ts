@@ -84,7 +84,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   left,
   shrink,
   grow,
-  bgColor,
+  backgroundColor,
   borderColor,
   borderRadius,
   borderWidth,
@@ -121,7 +121,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
       left,
       shrink,
       grow,
-      bgColor,
+      backgroundColor,
       borderColor,
       borderRadius,
       borderWidth,
@@ -138,7 +138,7 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
     rest,
   ]
 
-export const getMarginStyle = ({
+export const getMarginStyles = ({
   m,
   mx,
   my,
@@ -161,7 +161,7 @@ export const getMarginStyle = ({
   }
 )
 
-export const getLayoutStyle = ({
+export const getLayoutStyles = ({
   p,
   px,
   py,
@@ -183,7 +183,7 @@ export const getLayoutStyle = ({
   left,
   shrink,
   grow,
-  bgColor,
+  backgroundColor,
   borderColor,
   borderRadius,
   borderWidth,
@@ -217,7 +217,7 @@ export const getLayoutStyle = ({
       '--b-right': cssDimension(right),
       '--b-bottom': cssDimension(bottom),
       '--b-left': cssDimension(left),
-      '--b-bg-color': cssVar(bgColor),
+      '--b-background-color': cssVar(backgroundColor),
       '--b-border-color': cssVar(borderColor),
       '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
       '--b-border-width': cssDimension(borderWidth),

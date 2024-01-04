@@ -191,7 +191,7 @@ export interface LayoutProps {
   left?: CSSProperties['left']
   shrink?: Shrink
   grow?: Grow
-  bgColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
+  backgroundColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
   borderWidth?: CSSProperties['borderWidth']

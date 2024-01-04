@@ -18,7 +18,7 @@
     --b-right: var(--b-inset);
     --b-bottom: var(--b-inset);
     --b-left: var(--b-inset);
-    --b-bg-color: initial;
+    --b-background-color: initial;
     --b-border-color: initial;
     --b-border-radius: initial;
     --b-border-width: 0;
@@ -37,7 +37,7 @@
     min-width: var(--b-min-width);
     min-height: var(--b-min-height);
     inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
-    background-color: var(--b-bg-color);
+    background-color: var(--b-background-color);
     border-color: var(--b-border-color);
     border-radius: var(--b-border-radius);
     border-style: solid;
