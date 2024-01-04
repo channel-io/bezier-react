@@ -67,7 +67,6 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
   } = marginRest
 
   const bgColor: SemanticNames = givenColor || getProperTagBadgeBgColor(variant)
-  const textColor: SemanticNames = givenColor || 'txt-black-darkest'
 
   return (
     <div
@@ -90,7 +89,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
         <Text
           typo={getProperTagBadgeTypo(size)}
           mx={2}
-          color={textColor}
+          color="txt-black-darkest"
         >
           { children }
         </Text>
