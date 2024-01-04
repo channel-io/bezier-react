@@ -27,7 +27,7 @@ import {
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
-import common from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
+import commonStyles from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
 import { Text } from '~/src/components/Text'
 
 import type TagProps from './Tag.types'
@@ -72,8 +72,8 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
   return (
     <div
       className={classNames(
-        common.TagBadge,
-        common[`size-${size}`],
+        commonStyles.TagBadge,
+        commonStyles[`size-${size}`],
         marginStyle.className,
         className,
       )}
