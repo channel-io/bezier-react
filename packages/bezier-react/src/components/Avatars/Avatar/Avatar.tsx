@@ -15,7 +15,7 @@ import {
   AlphaSmoothCornersBox,
   type BoxShadow,
 } from '~/src/components/AlphaSmoothCornersBox'
-import { useGetAvatarBorderRadius } from '~/src/components/Avatars/useAvatarRadius'
+import { useAvatarRadiusToken } from '~/src/components/Avatars/useAvatarRadiusToken'
 import {
   Status,
   StatusSize,
@@ -75,7 +75,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
   } = marginRest
 
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
-  const AVATAR_BORDER_RADIUS = useGetAvatarBorderRadius()
+  const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
   const StatusComponent = useMemo(() => {
     if (

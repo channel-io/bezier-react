@@ -20,7 +20,7 @@ import {
   type AvatarProps,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
-import { useGetAvatarBorderRadius } from '~/src/components/Avatars/useAvatarRadius'
+import { useAvatarRadiusToken } from '~/src/components/Avatars/useAvatarRadiusToken'
 import {
   Icon,
   IconSize,
@@ -104,7 +104,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
     ...rest
   } = marginRest
 
-  const AVATAR_BORDER_RADIUS = useGetAvatarBorderRadius()
+  const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
   const renderAvatarElement = useCallback((
     avatar: React.ReactElement<AvatarProps>,
@@ -184,6 +184,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
             >
               <Text
                 typo={getProperTypoSize(size)}
+                color="txt-black-dark"
                 className={styles.AvatarEllipsisCount}
               >
                 { getRestAvatarListCountText(avatarListCount, max) }
