@@ -71,20 +71,6 @@ function getProperTypoSize(avatarSize: AvatarSize) {
   }[avatarSize]
 }
 
-// TODO: Not specified
-function getProperEllipsisCountMarginRight(avatarSize: AvatarSize) {
-  return {
-    [AvatarSize.Size20]: 4,
-    [AvatarSize.Size24]: 5,
-    [AvatarSize.Size30]: 6,
-    [AvatarSize.Size36]: 6,
-    [AvatarSize.Size42]: 6,
-    [AvatarSize.Size48]: 6,
-    [AvatarSize.Size90]: 6,
-    [AvatarSize.Size120]: 6,
-  }[avatarSize]
-}
-
 /**
  * `AvatarGroup` is a component for grouping `Avatar` components
  *
@@ -187,10 +173,12 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
             { AvatarElement }
             <div
               style={{
-                '--b-avatar-group-ellipsis-mr': px(getProperEllipsisCountMarginRight(size)),
                 '--b-avatar-group-ellipsis-ml': px(Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)),
               } as React.CSSProperties}
-              className={styles.AvatarEllipsisCountWrapper}
+              className={classNames(
+                styles.AvatarEllipsisCountWrapper,
+                styles[`size-${size}`],
+              )}
               onMouseEnter={onMouseEnterEllipsis}
               onMouseLeave={onMouseLeaveEllipsis}
             >
