@@ -18,4 +18,8 @@ describe('import transform', () => {
   it('should transform styled import from bezier-react to styled-components (4)', () => {
     testTransformFunction(__dirname, 'styled4', importTransform)
   })
+
+  it('should transform styled import from bezier-react to styled-components, and not remove other import declarations', () => {
+    testTransformFunction(__dirname, 'import-without-import-clause', importTransform)
+  })
 })

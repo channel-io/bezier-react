@@ -4,71 +4,71 @@
 
     gap: var(--b-stack-spacing);
 
-    &.display-flex {
+   &:where(.display-flex) {
       display: flex;
     }
 
-    &.display-inline-flex {
+   &:where(.display-inline-flex) {
       display: inline-flex;
     }
 
-    &.direction-horizontal {
+   &:where(.direction-horizontal) {
       flex-direction: row;
 
-      &.reverse {
+     &:where(.reverse) {
         flex-direction: row-reverse;
       }
     }
 
-    &.direction-vertical {
+   &:where(.direction-vertical) {
       flex-direction: column;
 
-      &.reverse {
+     &:where(.reverse) {
         flex-direction: column-reverse;
       }
     }
 
-    &.justify-start {
+   &:where(.justify-start) {
       justify-content: flex-start;
     }
 
-    &.justify-end {
+   &:where(.justify-end) {
       justify-content: flex-end;
     }
 
-    &.justify-center {
+   &:where(.justify-center) {
       justify-content: center;
     }
 
-    &.justify-stretch {
+   &:where(.justify-stretch) {
       justify-content: stretch;
     }
 
-    &.justify-between {
+   &:where(.justify-between) {
       justify-content: space-between;
     }
 
-    &.align-start {
+   &:where(.align-start) {
       align-items: flex-start;
     }
 
-    &.align-end {
+   &:where(.align-end) {
       align-items: flex-end;
     }
 
-    &.align-center {
+   &:where(.align-center) {
       align-items: center;
     }
 
-    &.align-stretch {
+   &:where(.align-stretch) {
       align-items: stretch;
     }
 
-    &.align-baseline {
+   &:where(.align-baseline) {
       align-items: baseline;
     }
 
-    &.wrap {
+   &:where(.wrap) {
       flex-wrap: wrap;
     }
   }

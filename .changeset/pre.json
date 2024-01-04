@@ -11,7 +11,9 @@
     "@channel.io/bezier-tokens": "0.0.0"
   },
   "changesets": [
+    "calm-wasps-tease",
     "chilled-dots-divide",
+    "early-tables-taste",
     "hip-students-care",
     "hot-parrots-shop",
     "large-pants-brush",
@@ -19,18 +21,27 @@
     "metal-planets-peel",
     "mighty-hornets-promise",
     "modern-cups-nail",
+    "modern-houses-give",
+    "moody-snakes-rhyme",
+    "neat-badgers-arrive",
+    "old-rules-breathe",
     "perfect-ears-yawn",
     "purple-dodos-move",
+    "quick-peaches-fail",
     "rare-coats-sing",
     "short-rice-press",
     "silent-falcons-behave",
     "silver-pets-hammer",
+    "slimy-lobsters-sparkle",
     "strange-toes-tap",
     "tall-maps-lick",
     "thirty-dodos-push",
+    "three-mirrors-hunt",
     "tough-lions-change",
+    "tough-rats-drive",
     "tricky-geese-lick",
     "two-adults-pay",
-    "wicked-months-sparkle"
+    "wicked-months-sparkle",
+    "witty-pans-clean"
   ]
 }

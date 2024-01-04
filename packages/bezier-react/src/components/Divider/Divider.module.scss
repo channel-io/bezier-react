@@ -1,0 +1,48 @@
+@layer components {
+  .Divider {
+    --b-divider-indent-size: 6px;
+
+    border-radius: var(--radius-1);
+    background-color: var(--bdr-black-light);
+
+    &:where(.horizontal) {
+      width: calc(100% - 2 * var(--b-divider-indent-size));
+      height: var(--b-divider-thickness);
+      margin: var(--b-divider-indent-size);
+
+      &:where(.without-indent) {
+        width: 100%;
+        margin: 0;
+      }
+      &:where(.without-side-indent) {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &:where(.without-parallel-indent) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    &:where(.vertical) {
+      width: var(--b-divider-thickness);
+      height: calc(100% - 2 * var(--b-divider-indent-size));
+      margin: var(--b-divider-indent-size);
+
+      &:where(.without-indent) {
+        height: 100%;
+        margin: 0;
+      }
+      &:where(.without-side-indent) {
+        height: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      &:where(.without-parallel-indent) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}

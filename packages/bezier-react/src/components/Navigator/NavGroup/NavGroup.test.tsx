@@ -2,8 +2,6 @@ import React from 'react'
 
 import { DotIcon } from '@channel.io/bezier-icons'
 
-import { LightTheme } from '~/src/foundation/Colors/Theme'
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -56,7 +54,7 @@ describe('NavGroup Test >', () => {
 
       const rendered = getByTestId(NAV_GROUP_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightTheme['bgtxt-blue-normal']}`)
+      expect(rendered).toHaveStyle('--b-icon-color: var(--bgtxt-blue-normal)')
     })
 
     it('Icon color should be "txt-black-dark" when active prop is false', () => {
@@ -64,7 +62,7 @@ describe('NavGroup Test >', () => {
 
       const rendered = getByTestId(NAV_GROUP_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightTheme['txt-black-dark']}`)
+      expect(rendered).toHaveStyle('--b-icon-color: var(--txt-black-dark)')
     })
   })
 })

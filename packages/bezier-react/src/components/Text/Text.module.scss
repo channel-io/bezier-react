@@ -1,104 +1,120 @@
 @layer components {
   .Text {
     --b-text-color: inherit;
+    --b-text-line-clamp: 1;
+    --b-text-line-height: initial; 
+    --b-text-font-size: initial;
+    --b-text-letter-spacing: initial;
 
     color: var(--b-text-color);
     font-style: normal;
     font-weight: var(--font-weight-400);
+    font-size: var(--b-text-font-size);
+    line-height: var(--b-text-line-height);
+    letter-spacing: var(--b-text-letter-spacing);
     transition: color var(--transition-s);
 
-    &.bold {
+    &:where(.bold) {
       font-weight: var(--font-weight-700);
     }
 
-    &.italic {
+    &:where(.italic) {
       font-style: italic;
     }
 
-    &.truncated {
+    &:where(.truncated) {
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    &.align-left {
+    &:where(.multi-line-truncated) {
+      display: -webkit-box;
+      max-height: calc(var(--b-text-line-clamp) * var(--b-text-line-height));
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: var(--b-text-line-clamp);
+    }
+
+    &:where(.align-left) {
       text-align: left;
     }
 
-    &.align-center {
+    &:where(.align-center) {
       text-align: center;
     }
 
-    &.align-right {
+    &:where(.align-right) {
       text-align: right;
     }
 
-    &.typo-11 {
-      font-size: var(--typography-size-11-font-size);
-      line-height: var(--typography-size-11-line-height);
+    &:where(.typo-11) {
+      --b-text-font-size: var(--typography-size-11-font-size);
+      --b-text-line-height: var(--typography-size-11-line-height);
     }
 
-    &.typo-12 {
-      font-size: var(--typography-size-12-font-size);
-      line-height: var(--typography-size-12-line-height);
+    &:where(.typo-12) {
+      --b-text-font-size: var(--typography-size-12-font-size);
+      --b-text-line-height: var(--typography-size-12-line-height);
     }
 
-    &.typo-13 {
-      font-size: var(--typography-size-13-font-size);
-      line-height: var(--typography-size-13-line-height);
+    &:where(.typo-13) {
+      --b-text-font-size: var(--typography-size-13-font-size);
+      --b-text-line-height: var(--typography-size-13-line-height);
     }
 
-    &.typo-14 {
-      font-size: var(--typography-size-14-font-size);
-      line-height: var(--typography-size-14-line-height);
+    &:where(.typo-14) {
+      --b-text-font-size: var(--typography-size-14-font-size);
+      --b-text-line-height: var(--typography-size-14-line-height);
     }
 
-    &.typo-15 {
-      font-size: var(--typography-size-15-font-size);
-      line-height: var(--typography-size-15-line-height);
-      letter-spacing: var(--typography-size-15-letter-spacing);
+    &:where(.typo-15) {
+      --b-text-font-size: var(--typography-size-15-font-size);
+      --b-text-letter-spacing: var(--typography-size-15-letter-spacing);
+      --b-text-line-height: var(--typography-size-15-line-height);
     }
 
-    &.typo-16 {
-      font-size: var(--typography-size-16-font-size);
-      line-height: var(--typography-size-16-line-height);
-      letter-spacing: var(--typography-size-16-letter-spacing);
+    &:where(.typo-16) {
+      --b-text-font-size: var(--typography-size-16-font-size);
+      --b-text-letter-spacing: var(--typography-size-16-letter-spacing);
+      --b-text-line-height: var(--typography-size-16-line-height);
     }
 
-    &.typo-17 {
-      font-size: var(--typography-size-17-font-size);
-      line-height: var(--typography-size-17-line-height);
-      letter-spacing: var(--typography-size-17-letter-spacing);
+    &:where(.typo-17) {
+      --b-text-font-size: var(--typography-size-17-font-size);
+      --b-text-letter-spacing: var(--typography-size-17-letter-spacing);
+      --b-text-line-height: var(--typography-size-17-line-height);
     }
 
-    &.typo-18 {
-      font-size: var(--typography-size-18-font-size);
-      line-height: var(--typography-size-18-line-height);
+    &:where(.typo-18) {
+      --b-text-font-size: var(--typography-size-18-font-size);
+      --b-text-line-height: var(--typography-size-18-line-height);
     }
 
-    &.typo-22 {
-      font-size: var(--typography-size-22-font-size);
-      line-height: var(--typography-size-22-line-height);
-      letter-spacing: var(--typography-size-22-letter-spacing);
+    &:where(.typo-22) {
+      --b-text-font-size: var(--typography-size-22-font-size);
+      --b-text-letter-spacing: var(--typography-size-22-letter-spacing);
+      --b-text-line-height: var(--typography-size-22-line-height);
     }
 
-    &.typo-24 {
-      font-size: var(--typography-size-24-font-size);
-      line-height: var(--typography-size-24-line-height);
-      letter-spacing: var(--typography-size-24-letter-spacing);
+    &:where(.typo-24) {
+      --b-text-font-size: var(--typography-size-24-font-size);
+      --b-text-letter-spacing: var(--typography-size-24-letter-spacing);
+      --b-text-line-height: var(--typography-size-24-line-height);
     }
 
-    &.typo-30 {
-      font-size: var(--typography-size-30-font-size);
-      line-height: var(--typography-size-30-line-height);
-      letter-spacing: var(--typography-size-30-letter-spacing);
+    &:where(.typo-30) {
+      --b-text-font-size: var(--typography-size-30-font-size);
+      --b-text-letter-spacing: var(--typography-size-30-letter-spacing);
+      --b-text-line-height: var(--typography-size-30-line-height);
     }
 
-    &.typo-36 {
-      font-size: var(--typography-size-36-font-size);
-      line-height: var(--typography-size-36-line-height);
-      letter-spacing: var(--typography-size-36-letter-spacing);
+    &:where(.typo-36) {
+      --b-text-font-size: var(--typography-size-36-font-size);
+      --b-text-letter-spacing: var(--typography-size-36-letter-spacing);
+      --b-text-line-height: var(--typography-size-36-line-height);
     }
   }
 }

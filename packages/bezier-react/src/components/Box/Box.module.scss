@@ -1,14 +1,16 @@
 @layer components {
   .Box {
-    &.display-block {
+    box-sizing: border-box;
+
+    &:where(.display-block) {
       display: block;
     }
 
-    &.display-inline-block {
+    &:where(.display-inline-block) {
       display: inline-block;
     }
 
-    &.display-inline {
+    &:where(.display-inline) {
       display: inline;
     }
   }

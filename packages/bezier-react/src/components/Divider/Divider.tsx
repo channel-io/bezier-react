@@ -1,41 +1,63 @@
-import React, { forwardRef } from 'react'
+import React, {
+  type CSSProperties,
+  forwardRef,
+} from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
+import classNames from 'classnames'
 
 import type DividerProps from './Divider.types'
 
-import * as Styled from './Divider.styled'
+import styles from './Divider.module.scss'
 
 export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
-const Divider = forwardRef((
-  {
-    testId = DIVIDER_TEST_ID,
-    orientation = 'horizontal',
-    decorative,
-    withoutSideIndent = false,
-    withoutParallelIndent = false,
-    withoutIndent = false,
-    ...rest
-  }: DividerProps,
-  forwardedRef: React.Ref<HTMLElement>,
+export const DIVIDER_THICKNESS = 1
+
+/**
+ * `Divider` is a component to visually or semantically separate content.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Divider
+ *   withoutSideIndent
+ * />
+ * ```
+ */
+export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
+  orientation = 'horizontal',
+  decorative,
+  testId = DIVIDER_TEST_ID,
+  withoutSideIndent = false,
+  withoutParallelIndent = false,
+  withoutIndent = false,
+  style,
+  className,
+  ...rest
+}, forwardedRef,
 ) => (
   <SeparatorPrimitive.Root
     asChild
     orientation={orientation}
     decorative={decorative}
   >
-    <Styled.Divider
+    <div
       ref={forwardedRef}
       data-testid={testId}
-      orientation={orientation}
-      decorative={decorative}
-      withoutSideIndent={withoutSideIndent}
-      withoutParallelIndent={withoutParallelIndent}
-      withoutIndent={withoutIndent}
+      style={{
+        '--b-divider-thickness': `${DIVIDER_THICKNESS}px`,
+        ...style,
+      } as CSSProperties}
+      className={classNames(
+        styles.Divider,
+        styles[orientation],
+        withoutIndent && styles['without-indent'],
+        withoutParallelIndent && styles['without-parallel-indent'],
+        withoutSideIndent && styles['without-side-indent'],
+        className,
+      )}
       {...rest}
     />
   </SeparatorPrimitive.Root>
 ))
-
-export default Divider

@@ -99,14 +99,14 @@ describe('OutlineItem', () => {
       const { getByTestId } = renderComponent({ leftIcon: EditIcon })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+      expect(rendered).toHaveStyle('--b-icon-color: var(--txt-black-dark);')
     })
 
     it('shows given leftIconColor if exists', () => {
       const { getByTestId } = renderComponent({ leftIcon: EditIcon, leftIconColor: 'bgtxt-green-normal' })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-green-normal']};`)
+      expect(rendered).toHaveStyle('--b-icon-color: var(--bgtxt-green-normal);')
     })
 
     it('shows active icon color, ignoring given leftIconColor', () => {
@@ -117,7 +117,7 @@ describe('OutlineItem', () => {
       })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
-      expect(rendered).not.toHaveStyle(`color: ${LightFoundation.theme['bgtxt-blue-normal']};`)
+      expect(rendered).not.toHaveStyle('--b-icon-color: var(--bgtxt-blue-normal);')
     })
 
     it('shows given leftIconColor even if "active = true", if "disableIconActive = true"', () => {
@@ -129,7 +129,7 @@ describe('OutlineItem', () => {
       })
       const rendered = getByTestId(OUTLINE_ITEM_LEFT_ICON_TEST_ID)
 
-      expect(rendered).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-purple-normal']};`)
+      expect(rendered).toHaveStyle('--b-icon-color: var(--bgtxt-purple-normal);')
     })
   })
 })

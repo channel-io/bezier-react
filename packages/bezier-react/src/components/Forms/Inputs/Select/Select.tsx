@@ -92,7 +92,7 @@ forwardedRef: Ref<SelectRef>,
         <Icon
           source={leftContent}
           size={IconSize.XS}
-          marginRight={6}
+          mr={6}
           color={iconColor}
         />
       )
@@ -110,7 +110,7 @@ forwardedRef: Ref<SelectRef>,
         <Icon
           source={rightContent}
           size={IconSize.XS}
-          marginRight={6}
+          mr={6}
           color={iconColor}
         />
       )
@@ -198,7 +198,7 @@ forwardedRef: Ref<SelectRef>,
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
             size={IconSize.XS}
             color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
-            marginLeft={6}
+            ml={6}
           />
         ) }
       </Styled.Trigger>

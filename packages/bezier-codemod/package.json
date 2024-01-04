@@ -1,6 +1,6 @@
 {
 	"name": "@channel.io/bezier-codemod",
-	"version": "0.5.0-alpha.1",
+	"version": "0.5.0-alpha.2",
 	"description": "Codemod transformations to help upgrade app using Bezier design system.",
 	"repository": {
 		"type": "git",

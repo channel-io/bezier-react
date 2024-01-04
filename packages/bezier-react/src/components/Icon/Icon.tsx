@@ -3,40 +3,56 @@ import React, {
   memo,
 } from 'react'
 
+import classNames from 'classnames'
+
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
+import { tokenCssVar } from '~/src/utils/style'
+
 import {
   type IconProps,
   IconSize,
 } from './Icon.types'
 
-import Styled from './Icon.styled'
+import styles from './Icon.module.scss'
 
 export const ICON_TEST_ID = 'bezier-react-icon'
 
-export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon({
-  source,
-  className,
-  color,
-  testId = ICON_TEST_ID,
-  size = IconSize.Normal,
-  marginTop = 0,
-  marginRight = 0,
-  marginBottom = 0,
-  marginLeft = 0,
-  ...rest
-}, forwardedRef) {
+export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
+  props,
+  forwardedRef,
+) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+
+  const {
+    testId = ICON_TEST_ID,
+    className,
+    size = IconSize.Normal,
+    color,
+    source: SourceElement,
+    style,
+    ...rest
+  } = marginRest
+
   return (
-    <Styled
+    <SourceElement
       ref={forwardedRef}
-      as={source}
-      className={className}
-      data-testid={testId}
-      color={color}
+      style={{
+        '--b-icon-color': tokenCssVar(color),
+        ...marginStyles.style,
+        ...style,
+      } as React.CSSProperties}
+      className={classNames(
+        styles.Icon,
+        marginStyles.className,
+        className,
+      )}
       width={size}
       height={size}
-      margintop={marginTop}
-      marginright={marginRight}
-      marginbottom={marginBottom}
-      marginleft={marginLeft}
+      data-testid={testId}
       {...rest}
     />
   )

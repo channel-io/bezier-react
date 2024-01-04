@@ -277,7 +277,7 @@ describe('Select Test >', () => {
       const { getByTestId } = renderSelect({ readOnly: true })
       const trigger = getByTestId(SELECT_TRIGGER_TEST_ID)
 
-      expect(trigger.children.item(1)).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']}`)
+      expect(trigger.children.item(1)).toHaveStyle('--b-icon-color: var(--txt-black-dark)')
     })
   })
 
