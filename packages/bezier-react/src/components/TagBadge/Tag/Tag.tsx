@@ -71,6 +71,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
   return (
     <div
       className={classNames(
+        styles.Tag,
         commonStyles.TagBadge,
         commonStyles[`size-${size}`],
         marginStyle.className,
