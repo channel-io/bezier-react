@@ -126,6 +126,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     <span
       class="Text typo-13 margin AvatarEllipsisCount"
       data-testid="bezier-react-text"
+      style="--b-text-color: var(--txt-black-dark);"
     >
       +1
     </span>
