@@ -20,10 +20,7 @@ import {
   type AvatarProps,
   AvatarSize,
 } from '~/src/components/Avatars/Avatar'
-import {
-  AVATAR_BORDER_RADIUS_PERCENTAGE,
-  AVATAR_GROUP_DEFAULT_SPACING,
-} from '~/src/components/Avatars/AvatarStyle'
+import { useGetAvatarBorderRadius } from '~/src/components/Avatars/useAvatarRadius'
 import {
   Icon,
   IconSize,
@@ -38,7 +35,7 @@ import {
 import styles from './AvatarGroup.module.scss'
 
 const MAX_AVATAR_LIST_COUNT = 99
-
+const AVATAR_GROUP_DEFAULT_SPACING = 4
 export const AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID = 'bezier-react-avatar-group-ellipsis-icon'
 
 function getRestAvatarListCountText(count: number, max: number) {
@@ -121,6 +118,8 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
     ...rest
   } = marginRest
 
+  const AVATAR_BORDER_RADIUS = useGetAvatarBorderRadius()
+
   const renderAvatarElement = useCallback((
     avatar: React.ReactElement<AvatarProps>,
     avatarListCount: number,
@@ -167,7 +166,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
             onMouseLeave={onMouseLeaveEllipsis}
           >
             <AlphaSmoothCornersBox
-              borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
+              borderRadius={AVATAR_BORDER_RADIUS}
               backgroundColor="bgtxt-absolute-black-lightest"
               className={styles.AvatarEllipsisIcon}
             >
@@ -209,15 +208,16 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       return null
     })
   }, [
-    max,
-    size,
-    children,
-    spacing,
-    ellipsisType,
     avatarListCount,
+    max,
+    children,
     renderAvatarElement,
+    ellipsisType,
     onMouseEnterEllipsis,
     onMouseLeaveEllipsis,
+    AVATAR_BORDER_RADIUS,
+    size,
+    spacing,
   ])
 
   return (

@@ -15,7 +15,7 @@ import {
   AlphaSmoothCornersBox,
   type BoxShadow,
 } from '~/src/components/AlphaSmoothCornersBox'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import { useGetAvatarBorderRadius } from '~/src/components/Avatars/useAvatarRadius'
 import {
   Status,
   StatusSize,
@@ -75,6 +75,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
   } = marginRest
 
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
+  const AVATAR_BORDER_RADIUS = useGetAvatarBorderRadius()
 
   const StatusComponent = useMemo(() => {
     if (
@@ -140,7 +141,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
           showBorder && styles.bordered,
         )}
         disabled={!smoothCorners}
-        borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
+        borderRadius={AVATAR_BORDER_RADIUS}
         shadow={showBorder ? shadow : undefined}
         backgroundColor="bg-white-normal"
         backgroundImage={loadedAvatarUrl}
