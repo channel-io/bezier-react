@@ -254,16 +254,15 @@ type ItemProps<Type extends SegmentedControlType> = (
 )
 & React.HTMLAttributes<HTMLButtonElement>
 & Partial<SegmentedControlItemProps<Type>>
-& Required<Pick<SegmentedControlProps<Type, string>, 'type'>>
 
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(function Item({
   children,
-  type,
   leftContent,
   rightContent,
   className,
   ...rest
 }, forwardedRef) {
+  const { type, size } = useSegmentedControlContext('SegmentedControlItem')
   const { setSelectedItemIndex } = useSegmentedControlItemListContext('SegmentedControlItem')
   const index = useSegmentedControlItemContext('SegmentedControlItem')
 
@@ -302,6 +301,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
           className={styles.SegmentedControlItemLabel}
           bold
           truncated
+          typo={size === 'xs' ? '13' : '14'}
         >
           { children }
         </Text>
@@ -327,7 +327,7 @@ function SegmentedControlItemImpl<Value extends string>({
       ref={forwardedRef}
       {...rest}
     >
-      <Item type={type}>
+      <Item>
         { children }
       </Item>
     </SegmentedControlItem>

@@ -15,19 +15,6 @@
     padding: var(--b-segmented-control-padding);
     background-color: var(--bg-black-lighter);
 
-    /* NOTE: Override typography style of children */
-    &:where(.size-s, .size-m, .size-l) * {
-      font-size: var(--typography-size-14-font-size);
-      line-height: var(--typography-size-14-line-height);
-      letter-spacing: normal;
-    }
-
-    &:where(.size-xs) * {
-      font-size: var(--typography-size-13-font-size);
-      line-height: var(--typography-size-13-line-height);
-      letter-spacing: normal;
-    }
-
     &:where(.size-xs) {
       --b-segmented-control-height: 24px;
       --b-segmented-control-padding: 1px;
