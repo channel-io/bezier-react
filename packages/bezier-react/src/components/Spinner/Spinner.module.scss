@@ -23,34 +23,32 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
 
-    &.size-xl {
+    &:where(.size-xl) {
       @include dimension.square(50px);
       border-width: 4px;
     }
 
-    &.size-l,
-    &.size-m {
+    &:where(.size-l, .size-m) {
       border-width: 3px;
     }
 
-    &.size-l {
+    &:where(.size-l) {
       @include dimension.square(24px);
     }
 
-    &.size-m {
+    &:where(.size-m) {
       @include dimension.square(20px);
     }
 
-    &.size-s,
-    &.size-xs {
+    &:where(.size-s, .size-xs) {
       border-width: 2px;
     }
 
-    &.size-s {
+    &:where(.size-s) {
       @include dimension.square(16px);
     }
 
-    &.size-xs {
+    &:where(.size-xs) {
       @include dimension.square(12px);
     }
   }
