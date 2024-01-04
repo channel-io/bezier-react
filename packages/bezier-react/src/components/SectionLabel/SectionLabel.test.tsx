@@ -5,8 +5,6 @@ import {
   ToolIcon,
 } from '@channel.io/bezier-icons'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
@@ -49,7 +47,7 @@ describe('SectionLabel', () => {
     const leftIcon = leftContent.children.item(0)
 
     expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
-    expect(leftIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+    expect(leftIcon).toHaveStyle('--b-icon-color: var(--txt-black-dark)')
   })
 
   it('renders left content with specified icon and icon color', () => {
@@ -59,7 +57,7 @@ describe('SectionLabel', () => {
     const leftIcon = leftContent.children.item(0)
 
     expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
-    expect(leftIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-orange-normal']};`)
+    expect(leftIcon).toHaveStyle('--b-icon-color: var(--bgtxt-orange-normal)')
   })
 
   it('renders left content as it is', () => {

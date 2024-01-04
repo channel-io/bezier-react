@@ -22,8 +22,11 @@ const Template: StoryFn<TextProps> = ({ children, ...rest }) => (
 export const Primary: StoryObj<typeof Text> = {
   render: Template,
   args: {
+    bold: false,
+    italic: false,
     color: 'txt-black-darkest',
     children: 'Hello, Channel!',
+    typo: '15',
   },
 }
 

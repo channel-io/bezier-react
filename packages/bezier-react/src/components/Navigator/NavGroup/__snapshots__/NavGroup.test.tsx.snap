@@ -1,38 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavGroup Test > Snapshot > Active 1`] = `
-.c2 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #5E56F0;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c4 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #F4800B;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -47,7 +15,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   margin-right: 8px;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,16 +67,11 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     class="c1"
   >
     <svg
-      class="c2"
-      color="bgtxt-blue-normal"
+      class="Icon margin"
       data-testid="bezier-react-nav-group-left-icon"
       fill="none"
-      foundation="[object Object]"
       height="20"
-      marginbottom="0"
-      marginleft="0"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--bgtxt-blue-normal);"
       viewBox="0 0 24 24"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
@@ -128,19 +91,14 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
     test-content
   </span>
   <div
-    class="c3"
+    class="c2"
   >
     <svg
-      class="c4"
-      color="bgtxt-orange-normal"
+      class="Icon margin"
       data-testid="bezier-react-icon"
       fill="none"
-      foundation="[object Object]"
       height="16"
-      marginbottom="0"
-      marginleft="0"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--bgtxt-orange-normal);"
       viewBox="0 0 24 24"
       width="16"
       xmlns="http://www.w3.org/2000/svg"
@@ -157,38 +115,6 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
 `;
 
 exports[`NavGroup Test > Snapshot > Not active 1`] = `
-.c2 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c4 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #F4800B;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -203,7 +129,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   margin-right: 8px;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -262,16 +188,11 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     class="c1"
   >
     <svg
-      class="c2"
-      color="txt-black-dark"
+      class="Icon margin"
       data-testid="bezier-react-nav-group-left-icon"
       fill="none"
-      foundation="[object Object]"
       height="20"
-      marginbottom="0"
-      marginleft="0"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--txt-black-dark);"
       viewBox="0 0 24 24"
       width="20"
       xmlns="http://www.w3.org/2000/svg"
@@ -291,19 +212,14 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
     test-content
   </span>
   <div
-    class="c3"
+    class="c2"
   >
     <svg
-      class="c4"
-      color="bgtxt-orange-normal"
+      class="Icon margin"
       data-testid="bezier-react-icon"
       fill="none"
-      foundation="[object Object]"
       height="16"
-      marginbottom="0"
-      marginleft="0"
-      marginright="0"
-      margintop="0"
+      style="--b-icon-color: var(--bgtxt-orange-normal);"
       viewBox="0 0 24 24"
       width="16"
       xmlns="http://www.w3.org/2000/svg"

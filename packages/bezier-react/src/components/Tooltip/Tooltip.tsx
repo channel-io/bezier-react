@@ -9,6 +9,7 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
+import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
 import { createContext } from '~/src/utils/react'
 import {
@@ -17,12 +18,19 @@ import {
 } from '~/src/utils/type'
 
 import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import { HStack } from '~/src/components/Stack'
+import { Text } from '~/src/components/Text'
+
+import {
   TooltipPosition,
   type TooltipProps,
   type TooltipProviderProps,
 } from './Tooltip.types'
 
-import * as Styled from './Tooltip.styled'
+import styles from './Tooltip.module.scss'
 
 function getSideAndAlign(
   placement: TooltipPosition,
@@ -264,36 +272,63 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       </TooltipPrimitive.Trigger>
 
       <TooltipPrimitive.Portal container={container}>
-        <TooltipPrimitive.Content
-          {...rest}
-          {...getSideAndAlign(placement)}
-          asChild
-          ref={forwardedRef}
-          sideOffset={offset}
-          avoidCollisions={keepInContainer}
-          collisionPadding={8}
-          hideWhenDetached
-        >
-          <Styled.TooltipContent forwardedAs={as}>
-            <Styled.TextContainer>
-              { title && (<Styled.Title>{ title }</Styled.Title>) }
+        <InvertedThemeProvider>
+          <TooltipPrimitive.Content
+            {...rest}
+            {...getSideAndAlign(placement)}
+            asChild
+            ref={forwardedRef}
+            sideOffset={offset}
+            avoidCollisions={keepInContainer}
+            collisionPadding={8}
+            hideWhenDetached
+          >
+            <HStack
+              spacing={4}
+              className={styles.Tooltip}
+            >
+              <div className={styles.TooltipContainer}>
+                { title && (
+                  <Text
+                    typo="13"
+                    bold
+                    mb={2}
+                    color="txt-black-darkest"
+                  >
+                    { title }
+                  </Text>
+                ) }
 
-              <Styled.Content>
-                { content }
-              </Styled.Content>
+                <Text
+                  color="txt-black-darkest"
+                  className={styles.TooltipContent}
+                  truncated={20}
+                  typo="13"
+                >
+                  { content }
+                </Text>
 
-              { description && (
-                <Styled.Description>
-                  { description }
-                </Styled.Description>
+                { description && (
+                  <Text
+                    typo="12"
+                    color="txt-black-dark"
+                  >
+                    { description }
+                  </Text>
+                ) }
+              </div>
+
+              { icon && (
+                <Icon
+                  size={IconSize.XS}
+                  color="txt-black-darkest"
+                  source={icon}
+                  className={styles.Icon}
+                />
               ) }
-            </Styled.TextContainer>
-
-            { icon && (
-              <Styled.Icon source={icon} />
-            ) }
-          </Styled.TooltipContent>
-        </TooltipPrimitive.Content>
+            </HStack>
+          </TooltipPrimitive.Content>
+        </InvertedThemeProvider>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>
   )

@@ -1,33 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Help > Snapshot > 1`] = `
-.c0 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0px 0px 0px 0px;
-  color: #00000066;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
 <svg
-  class="c0 "
-  color="txt-black-dark"
+  class="Icon margin Icon"
   data-testid="bezier-react-help"
   fill="none"
-  foundation="[object Object]"
   height="16"
-  marginbottom="0"
-  marginleft="0"
-  marginright="0"
-  margintop="0"
+  style="--b-icon-color: var(--txt-black-dark);"
   viewBox="0 0 24 24"
   width="16"
   xmlns="http://www.w3.org/2000/svg"
