@@ -16,7 +16,7 @@
     background-color: var(--bg-black-lighter);
 
     /* NOTE: Override typography style of children */
-    &:where(.size-s, .size-m, size-l) * {
+    &:where(.size-s, .size-m, .size-l) * {
       font-size: var(--typography-size-14-font-size);
       line-height: var(--typography-size-14-line-height);
       letter-spacing: normal;
@@ -33,8 +33,7 @@
       --b-segmented-control-padding: 1px;
       border-radius: 6px;
 
-      & :where(.SegmentedControlItem),
-      & :where(.SegmentedControlIndicator) {
+      & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
         border-radius: 4px;
       }
 
@@ -48,8 +47,7 @@
       --b-segmented-control-padding: 2px;
       border-radius: 8px;
 
-      & :where(.SegmentedControlItem),
-      & :where(.SegmentedControlIndicator) {
+      & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
         border-radius: 6px;
       }
 
@@ -63,8 +61,7 @@
       --b-segmented-control-padding: 2px;
       border-radius: 8px;
 
-      & :where(.SegmentedControlItem),
-      & :where(.SegmentedControlIndicator) {
+      & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
         border-radius: 6px;
       }
 
@@ -78,8 +75,7 @@
       --b-segmented-control-padding: 4px;
       border-radius: 12px;
 
-      & :where(.SegmentedControlItem),
-      & :where(.SegmentedControlIndicator) {
+      & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
         border-radius: 8px;
       }
 
@@ -91,8 +87,7 @@
     &:where([data-disabled]) {
       opacity: var(--opacity-disabled);
 
-      & :where(.SegmentedControlItem),
-      & :where(.SegmentedControlIndicator) {
+      & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
         cursor: not-allowed;
       }
     }
