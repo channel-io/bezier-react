@@ -136,10 +136,11 @@ function SegmentedControlRadioGroupImpl<Value extends string>({
   children,
   ...rest
 }: SegmentedControlRadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+  const { hasError, ...ownProps } = useFormFieldProps(rest)
   return (
     <SegmentedControlItemList
       ref={forwardedRef}
-      {...useFormFieldProps(rest)}
+      {...ownProps}
     >
       { children }
     </SegmentedControlItemList>
