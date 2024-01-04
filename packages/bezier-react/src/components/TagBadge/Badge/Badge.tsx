@@ -7,7 +7,7 @@ import React, {
 import classNames from 'classnames'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
@@ -44,7 +44,7 @@ export const BADGE_TEST_ID = 'bezier-react-badge'
  */
 export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyle = getMarginStyles(marginProps)
   const {
     size = TagBadgeSize.M,
     variant = TagBadgeVariant.Default,

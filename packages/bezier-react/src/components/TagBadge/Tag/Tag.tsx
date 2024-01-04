@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import { type SemanticNames } from '~/src/foundation'
 
 import {
-  getMarginStyle,
+  getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
 import { cssVar } from '~/src/utils/style'
@@ -53,7 +53,7 @@ export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
  */
 export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyle(marginProps)
+  const marginStyle = getMarginStyles(marginProps)
   const {
     size = TagBadgeSize.M,
     variant = TagBadgeVariant.Default,
