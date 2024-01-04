@@ -6,7 +6,7 @@ import {
   DIVIDER_TEST_ID,
   Divider,
 } from './Divider'
-import type DividerProps from './Divider.types'
+import { type DividerProps } from './Divider.types'
 
 import styles from './Divider.module.scss'
 
