@@ -18,7 +18,7 @@ export enum EmojiSize {
   Size120 = 120,
 }
 
-interface EmojiOptions {
+interface EmojiOwnProps {
   name: string
   imageUrl: string
   onClick?: React.MouseEventHandler
@@ -28,4 +28,4 @@ export interface EmojiProps extends
   AlphaBezierComponentProps,
   SizeProps<EmojiSize>,
   MarginProps,
-  EmojiOptions {}
+  EmojiOwnProps {}
