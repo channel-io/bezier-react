@@ -1,79 +1,94 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
-  useMemo,
 } from 'react'
 
+import classNames from 'classnames'
+
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import {
-  BADGE_TEXT_HORIZONTAL_PADDING,
   TAG_BADGE_ICON_SIZE,
   TagBadgeSize,
-  TagBadgeStyled,
-  TagBadgeText,
   TagBadgeVariant,
-  getProperBadgeTextColor,
-  getProperTagBadgeBgColor,
-  getProperTagBadgePadding,
-  getProperTagBadgeRounding,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadge/TagBadgeCommon'
+import commonStyles from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
+import { Text } from '~/src/components/Text'
 
 import type BadgeProps from './Badge.types'
 
-// TODO: 테스트 코드 작성
+import styles from './Badge.module.scss'
+
 export const BADGE_TEST_ID = 'bezier-react-badge'
 
-export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
-  size = TagBadgeSize.M,
-  variant = TagBadgeVariant.Default,
-  icon,
-  children,
-  className,
-  interpolation,
-  testId = BADGE_TEST_ID,
-  ...props
-}, forwardedRef) {
-  const hasChildren = !isEmpty(children)
-
-  const bgSemanticName = useMemo(() => (getProperTagBadgeBgColor(variant)), [variant])
-  const textSemanticName = useMemo(() => (getProperBadgeTextColor(variant)), [variant])
-
-  const IconComponent = useMemo(() => (icon && (
-    <Icon
-      source={icon}
-      size={TAG_BADGE_ICON_SIZE}
-      color={textSemanticName}
-    />
-  )), [
+/**
+ * `Badge` is a component for representing badge, which consists of text and icon.
+ *
+ * @example
+ * ```tsx
+ * <Badge
+ *   size={TagBadgeSize.XS}
+ *   variant={TagBadgeVariant.Blue}
+ *   icon={AppleIcon}
+ * >
+ *   Beta
+ * </Badge>
+ * ```
+ */
+export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyles(marginProps)
+  const {
+    size = TagBadgeSize.M,
+    variant = TagBadgeVariant.Default,
     icon,
-    textSemanticName,
-  ])
+    children,
+    className,
+    testId = BADGE_TEST_ID,
+    style,
+    ...rest
+  } = marginRest
 
   return (
-    <TagBadgeStyled.Wrapper
-      {...props}
+    <div
+      style={{
+        ...style,
+        ...marginStyle.style,
+      } as CSSProperties}
       ref={forwardedRef}
-      className={className}
-      interpolation={interpolation}
+      className={classNames(
+        styles.Badge,
+        styles[`variant-${variant}`],
+        commonStyles.TagBadge,
+        commonStyles[`size-${size}`],
+        marginStyle.className,
+        className,
+      )}
       data-testid={testId}
-      horizontalPadding={getProperTagBadgePadding(size)}
-      rounding={getProperTagBadgeRounding(size)}
-      color={textSemanticName}
-      bgColor={bgSemanticName}
+      {...rest}
     >
-      { IconComponent }
-
-      { hasChildren && (
-        <TagBadgeText
-          horizontalPadding={BADGE_TEXT_HORIZONTAL_PADDING}
-          typo={getProperTagBadgeTypo(size)}
-        >
-            { children }
-        </TagBadgeText>
+      { icon && (
+        <Icon
+          source={icon}
+          size={TAG_BADGE_ICON_SIZE}
+        />
       ) }
-    </TagBadgeStyled.Wrapper>
+
+      { !isEmpty(children) && (
+        <Text
+          typo={getProperTagBadgeTypo(size)}
+          mx={3}
+        >
+          { children }
+        </Text>
+      ) }
+    </div>
   )
 }))

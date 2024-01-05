@@ -105,7 +105,7 @@ describe('Checkbox', () => {
       const { getByRole } = renderCheckbox({ onCheckedChange })
       const checkbox = getByRole('checkbox')
       await user.click(checkbox)
-      expect(onCheckedChange).toBeCalledTimes(1)
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
     })
 
     it('should focus on the first checkbox item when user presses tab key', async () => {
@@ -132,7 +132,7 @@ describe('Checkbox', () => {
       await user.tab()
       expect(checkbox).toHaveFocus()
       await user.keyboard('{ }')
-      expect(onCheckedChange).toBeCalledTimes(1)
+      expect(onCheckedChange).toHaveBeenCalledTimes(1)
     })
   })
 

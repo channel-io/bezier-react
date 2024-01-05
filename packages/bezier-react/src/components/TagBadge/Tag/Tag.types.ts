@@ -1,7 +1,8 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type ColorProps,
+  type MarginProps,
   type SizeProps,
   type VariantProps,
 } from '~/src/types/ComponentProps'
@@ -11,7 +12,7 @@ import {
   type TagBadgeVariant,
 } from '~/src/components/TagBadge'
 
-interface TagOptions {
+interface TagOwnProps {
   /**
    * Handler to be called when the delete button is clicked.
    *
@@ -21,12 +22,13 @@ interface TagOptions {
 }
 
 interface TagProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
   ColorProps,
-  TagOptions {}
+  MarginProps,
+  TagOwnProps {}
 
 export default TagProps

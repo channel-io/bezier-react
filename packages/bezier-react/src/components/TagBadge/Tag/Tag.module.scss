@@ -1,0 +1,16 @@
+@layer components {
+  .Tag {
+    /**
+    * TODO
+    * @see {@link https://github.com/channel-io/bezier-react/issues/1879}
+    * share background style logic with `Badge` after removing `color` props
+    */
+    --b-tag-badge-background-color: inherit;
+
+    background-color: var(--b-tag-badge-background-color);
+  }
+
+  .CloseIcon {
+    cursor: pointer;
+  }
+}

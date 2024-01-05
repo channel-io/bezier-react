@@ -139,7 +139,7 @@ describe('TextField', () => {
       act(() => {
         input.focus()
       })
-      expect(onFocus).toBeCalled()
+      expect(onFocus).toHaveBeenCalled()
     })
 
     it('onChange', () => {
@@ -150,7 +150,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.change(input, { target: { value: 'test' } })
       })
-      expect(onChange).toBeCalled()
+      expect(onChange).toHaveBeenCalled()
     })
 
     it('onKeyDown', () => {
@@ -161,7 +161,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyDown).toBeCalled()
+      expect(onKeyDown).toHaveBeenCalled()
     })
 
     it('onKeyUp', () => {
@@ -172,7 +172,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyUp).toBeCalled()
+      expect(onKeyUp).toHaveBeenCalled()
     })
   })
 
@@ -185,7 +185,7 @@ describe('TextField', () => {
       act(() => {
         input.focus()
       })
-      expect(onFocus).not.toBeCalled()
+      expect(onFocus).not.toHaveBeenCalled()
     })
 
     it('onFocus, readOnly', () => {
@@ -196,7 +196,7 @@ describe('TextField', () => {
       act(() => {
         input.focus()
       })
-      expect(onFocus).not.toBeCalled()
+      expect(onFocus).not.toHaveBeenCalled()
     })
 
     it('onChange, disabled', () => {
@@ -207,7 +207,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.change(input, { target: { value: 'test' } })
       })
-      expect(onChange).not.toBeCalled()
+      expect(onChange).not.toHaveBeenCalled()
     })
 
     it('onChange, readOnly', () => {
@@ -218,7 +218,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.change(input, { target: { value: 'test' } })
       })
-      expect(onChange).not.toBeCalled()
+      expect(onChange).not.toHaveBeenCalled()
     })
 
     it('onKeyDown, disabled', () => {
@@ -229,7 +229,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyDown).not.toBeCalled()
+      expect(onKeyDown).not.toHaveBeenCalled()
     })
 
     it('onKeyDown, readOnly', () => {
@@ -240,7 +240,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyDown).not.toBeCalled()
+      expect(onKeyDown).not.toHaveBeenCalled()
     })
 
     it('onKeyUp, disabled', () => {
@@ -251,7 +251,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyUp).not.toBeCalled()
+      expect(onKeyUp).not.toHaveBeenCalled()
     })
 
     it('onKeyUp, readOnly', () => {
@@ -262,7 +262,7 @@ describe('TextField', () => {
       act(() => {
         fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       })
-      expect(onKeyUp).not.toBeCalled()
+      expect(onKeyUp).not.toHaveBeenCalled()
     })
   })
 
@@ -276,7 +276,7 @@ describe('TextField', () => {
       COMMON_IME_CONTROL_KEYS.forEach(async (key) => {
         const isCompositionStartFired = fireEvent.compositionStart(input)
         fireEvent.keyDown(input, { key, isComposing: isCompositionStartFired })
-        expect(onKeyDown).not.toBeCalled()
+        expect(onKeyDown).not.toHaveBeenCalled()
       })
     })
 
@@ -289,7 +289,7 @@ describe('TextField', () => {
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         const isCompositionStartFired = fireEvent.compositionStart(input)
         fireEvent.keyUp(input, { key, isComposing: isCompositionStartFired })
-        expect(onKeyUp).not.toBeCalled()
+        expect(onKeyUp).not.toHaveBeenCalled()
       })
     })
   })

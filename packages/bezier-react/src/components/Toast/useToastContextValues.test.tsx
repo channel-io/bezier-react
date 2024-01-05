@@ -150,7 +150,7 @@ describe('ToastService', () => {
     act(() => {
       result.current.dismiss(toastId, onDismiss)
     })
-    expect(onDismiss).toBeCalledTimes(1)
+    expect(onDismiss).toHaveBeenCalledTimes(1)
     expect(result.current.leftToasts).toStrictEqual([])
     expect(result.current.rightToasts).toStrictEqual([])
   })

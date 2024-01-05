@@ -1,0 +1,76 @@
+@layer components {
+  .Badge {
+    background-color: var(--b-tag-badge-background-color);
+    color: var(--b-tag-badge-color);
+
+    &:where(.variant-Default) {
+      --b-tag-badge-background-color: var(--bg-black-lighter);
+      --b-tag-badge-color: var(--txt-black-darkest);
+    }
+
+    &:where(.variant-MonochromeLight) {
+      --b-tag-badge-background-color: var(--bg-black-lighter);
+      --b-tag-badge-color: var(--txt-black-dark);
+    }
+
+    &:where(.variant-MonochromeDark) {
+      --b-tag-badge-background-color: var(--bg-black-darker);
+      --b-tag-badge-color: var(--bgtxt-absolute-white-dark);
+    }
+
+    &:where(.variant-Blue) {
+      --b-tag-badge-background-color: var(--bgtxt-blue-lighter);
+      --b-tag-badge-color: var(--bgtxt-blue-normal);
+    }
+
+    &:where(.variant-Cobalt) {
+      --b-tag-badge-background-color: var(--bgtxt-cobalt-lighter);
+      --b-tag-badge-color: var(--bgtxt-cobalt-normal);
+    }
+
+    &:where(.variant-Teal) {
+      --b-tag-badge-background-color: var(--bgtxt-teal-lighter);
+      --b-tag-badge-color: var(--bgtxt-teal-normal);
+    }
+
+    &:where(.variant-Green) {
+      --b-tag-badge-background-color: var(--bgtxt-green-lighter);
+      --b-tag-badge-color: var(--bgtxt-green-normal);
+    }
+
+    &:where(.variant-Olive) {
+      --b-tag-badge-background-color: var(--bgtxt-olive-lighter);
+      --b-tag-badge-color: var(--bgtxt-olive-normal);
+    }
+
+    &:where(.variant-Pink) {
+      --b-tag-badge-background-color: var(--bgtxt-pink-lighter);
+      --b-tag-badge-color: var(--bgtxt-pink-normal);
+    }
+
+    &:where(.variant-Navy) {
+      --b-tag-badge-background-color: var(--bgtxt-navy-lighter);
+      --b-tag-badge-color: var(--bgtxt-navy-normal);
+    }
+
+    &:where(.variant-Yellow) {
+      --b-tag-badge-background-color: var(--bgtxt-yellow-lighter);
+      --b-tag-badge-color: var(--bgtxt-yellow-normal);
+    }
+
+    &:where(.variant-Orange) {
+      --b-tag-badge-background-color: var(--bgtxt-orange-lighter);
+      --b-tag-badge-color: var(--bgtxt-orange-normal);
+    }
+
+    &:where(.variant-Red) {
+      --b-tag-badge-background-color: var(--bgtxt-red-lighter);
+      --b-tag-badge-color: var(--bgtxt-red-normal);
+    }
+
+    &:where(.variant-Purple) {
+      --b-tag-badge-background-color: var(--bgtxt-purple-lighter);
+      --b-tag-badge-color: var(--bgtxt-purple-normal);
+    }
+  }
+}

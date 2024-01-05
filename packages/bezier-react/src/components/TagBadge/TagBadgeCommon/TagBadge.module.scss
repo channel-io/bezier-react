@@ -1,0 +1,17 @@
+@layer components {
+  .TagBadge {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &:where(.size-xs) {
+      padding: 1px 2px;
+      border-radius: var(--radius-4);
+    }
+
+    &:where(.size-s, .size-m, .size-l) {
+      padding: 1px 4px;
+      border-radius: var(--radius-6);
+    }
+  }
+}

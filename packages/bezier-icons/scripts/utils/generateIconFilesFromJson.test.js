@@ -21,7 +21,7 @@ describe('generate-icon-files script', () => {
   test('writes file with icons.json given by figma-plugin', () => {
     generateIconFiles(iconsJson, bezierIconsDirectory)
 
-    expect(fs.writeFileSync).toBeCalledWith(
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
       path.resolve(`${bezierIconsDirectory}/send.svg`),
       iconSvg,
       'utf-8',

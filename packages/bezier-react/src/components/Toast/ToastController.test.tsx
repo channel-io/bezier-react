@@ -76,11 +76,11 @@ describe('ToastController >', () => {
         renderToastController({
           onDismiss,
         })
-        expect(onDismiss).not.toBeCalled()
+        expect(onDismiss).not.toHaveBeenCalled()
         act(() => {
           jest.runAllTimers()
         })
-        expect(onDismiss).toBeCalledTimes(1)
+        expect(onDismiss).toHaveBeenCalledTimes(1)
       })
     })
 
