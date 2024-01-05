@@ -9,9 +9,11 @@ import { styled } from '~/src/foundation'
 
 import { getObjectFromEnum } from '~/src/utils/story'
 
-import Emoji from './Emoji'
-import type EmojiProps from './Emoji.types'
-import { EmojiSize } from './Emoji.types'
+import { Emoji } from './Emoji'
+import {
+  type EmojiProps,
+  EmojiSize,
+} from './Emoji.types'
 
 const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/blush.png'
 

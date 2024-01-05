@@ -11,17 +11,16 @@ import {
   splitByMarginProps,
 } from '~/src/utils/props'
 
-import type EmojiProps from './Emoji.types'
-import { EmojiSize } from './Emoji.types'
+import {
+  type EmojiProps,
+  EmojiSize,
+} from './Emoji.types'
 
 import styles from './Emoji.module.scss'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
-function Emoji(
-  props,
-  forwardedRef,
-) {
+export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyles = getMarginStyles(marginProps)
   const {
@@ -56,6 +55,4 @@ function Emoji(
       {...rest}
     />
   )
-}
-
-export default forwardRef<HTMLDivElement, EmojiProps>(Emoji)
+})

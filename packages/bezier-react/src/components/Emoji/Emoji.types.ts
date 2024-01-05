@@ -24,7 +24,7 @@ interface EmojiOptions {
   onClick?: React.MouseEventHandler
 }
 
-export default interface EmojiProps extends
+export interface EmojiProps extends
   AlphaBezierComponentProps,
   SizeProps<EmojiSize>,
   MarginProps,
