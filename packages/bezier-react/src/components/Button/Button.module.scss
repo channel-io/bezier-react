@@ -167,10 +167,11 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     }
 
     &:where(.style-tertiary) {
+      background-color: transparent;
+
       @each $colorVariant in $chromaticColorVariants {
         &:where(.color-#{$colorVariant}) {
           color: var(--bgtxt-#{$colorVariant}-normal);
-          background-color: transparent;
 
           &#{$activeSelector} {
             color: var(--bgtxt-#{$colorVariant}-dark);
@@ -181,7 +182,6 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
       &:where(.color-monochrome) {
         color: var(--txt-black-darkest);
-        background-color: transparent;
 
         &#{$activeSelector} {
           background-color: var(--bg-black-lightest);
@@ -190,7 +190,6 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
       &:where(.color-monochrome-light) {
         color: var(--txt-black-darker);
-        background-color: transparent;
 
         &#{$activeSelector} {
           background-color: var(--bg-black-lighter);
@@ -199,7 +198,6 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
       &:where(.color-monochrome-dark) {
         color: var(--txt-black-darkest);
-        background-color: transparent;
 
         &#{$activeSelector} {
           background-color: var(--bg-black-lighter);
@@ -221,6 +219,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
       &:where(.color-monochrome) {
         color: var(--txt-black-darkest);
+        background-color: var(--bg-white-low);
       }
 
       &:where(.color-monochrome-light) {
@@ -253,10 +252,14 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       }
     }
 
-    &:where(.style-floating, .style-floating-alt) {
+    &:is(.style-floating, .style-floating-alt) {
       box-shadow: var(--ev-2);
 
-      &:hover {
+      &:focus:not(:focus-visible) {
+        box-shadow: var(--ev-2);
+      }
+
+      &:is(:hover, :focus:not(:focus-visible):hover) {
         box-shadow: var(--ev-3);
       }
     }
