@@ -1,0 +1,87 @@
+@layer components {
+  .Avatar {
+    position: relative;
+    display: block;
+    flex: none;
+
+    &:where(.disabled) {
+      pointer-events: none;
+      opacity: var(--opacity-disabled);
+    }
+
+    &:where(.size-20) {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:where(.size-24) {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:where(.size-30) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:where(.size-36) {
+      width: 36px;
+      height: 36px;
+    }
+
+    &:where(.size-42) {
+      width: 42px;
+      height: 42px;
+    }
+
+    &:where(.size-48) {
+      width: 48px;
+      height: 48px;
+    }
+
+    &:where(.size-72) {
+      width: 72px;
+      height: 72px;
+    }
+
+    &:where(.size-90) {
+      width: 90px;
+      height: 90px;
+    }
+
+    &:where(.size-120) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .AvatarImage {
+    --b-avatar-status-gap: -2px;
+    --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
+
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    
+    &:where(.big-size) {
+      --b-avatar-status-gap: 4px;
+    }
+
+    &:where(.bordered[data-state="enabled"]) {
+      --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
+    }
+  }
+
+  .StatusWrapper {
+    position: absolute;
+    right: var(--b-avatar-computed-status-gap);
+    bottom: var(--b-avatar-computed-status-gap);
+    display: flex;
+  }
+}

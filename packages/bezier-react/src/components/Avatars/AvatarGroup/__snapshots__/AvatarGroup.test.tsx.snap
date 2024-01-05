@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
-.c2 {
+.c0 {
   --b-alpha-smooth-corners-box-border-radius: 0;
   --b-alpha-smooth-corners-box-shadow-offset-x: 0;
   --b-alpha-smooth-corners-box-shadow-offset-y: 0;
@@ -20,130 +20,8 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
 }
 
-.c1 {
-  all: unset;
-  position: relative;
-  display: block;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-.c1.disabled {
-  pointer-events: none;
-  opacity: var(--opacity-disabled);
-}
-
-.c1.size-20 {
-  width: 20px;
-  height: 20px;
-}
-
-.c1.size-24 {
-  width: 24px;
-  height: 24px;
-}
-
-.c1.size-30 {
-  width: 30px;
-  height: 30px;
-}
-
-.c1.size-36 {
-  width: 36px;
-  height: 36px;
-}
-
-.c1.size-42 {
-  width: 42px;
-  height: 42px;
-}
-
-.c1.size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.c1.size-72 {
-  width: 72px;
-  height: 72px;
-}
-
-.c1.size-90 {
-  width: 90px;
-  height: 90px;
-}
-
-.c1.size-120 {
-  width: 120px;
-  height: 120px;
-}
-
-.c3 {
-  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
-  position: relative;
-  box-sizing: content-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  outline: none;
-}
-
-.c3.bordered[data-state="enabled"] {
-  --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
-}
-
-.c5 {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: var(--b-avatar-group-size);
-  color: var(--txt-black-dark);
-}
-
-.c0 {
-  position: relative;
-  z-index: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c0 > * + * {
-  margin-left: var(--b-avatar-group-spacing);
-}
-
-.c4 {
-  padding-right: var(--b-avatar-group-ellipsis-mr);
-}
-
-.c4.c4 {
-  margin-left: var(--b-avatar-group-ellipsis-ml);
-}
-
 @supports (background:paint(smooth-corners)) {
-  .c2[data-state="enabled"] {
+  .c0[data-state="enabled"] {
     padding: var(--b-alpha-smooth-corners-box-padding);
     margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
@@ -159,96 +37,96 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 <div
-  class="c0"
+  class="AvatarGroup margin"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Christian Nwamba"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Kola Tioluwani"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Kent Dodds"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Ryan Florence"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Dan Abrahmov"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Prosper Otemuyiwa"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c4"
-    style="--b-avatar-group-ellipsis-mr: 5px; --b-avatar-group-ellipsis-ml: 4px;"
+    class="AvatarEllipsisCountWrapper size-24"
+    style="--b-avatar-group-ellipsis-ml: 4px;"
   >
     <span
-      class="Text typo-13 margin c5"
+      class="Text typo-13 margin AvatarEllipsisCount"
       data-testid="bezier-react-text"
-      foundation="[object Object]"
+      style="--b-text-color: var(--txt-black-dark);"
     >
       +1
     </span>
@@ -257,7 +135,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 `;
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
-.c2 {
+.c0 {
   --b-alpha-smooth-corners-box-border-radius: 0;
   --b-alpha-smooth-corners-box-shadow-offset-x: 0;
   --b-alpha-smooth-corners-box-shadow-offset-y: 0;
@@ -276,134 +154,8 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
 }
 
-.c1 {
-  all: unset;
-  position: relative;
-  display: block;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-.c1.disabled {
-  pointer-events: none;
-  opacity: var(--opacity-disabled);
-}
-
-.c1.size-20 {
-  width: 20px;
-  height: 20px;
-}
-
-.c1.size-24 {
-  width: 24px;
-  height: 24px;
-}
-
-.c1.size-30 {
-  width: 30px;
-  height: 30px;
-}
-
-.c1.size-36 {
-  width: 36px;
-  height: 36px;
-}
-
-.c1.size-42 {
-  width: 42px;
-  height: 42px;
-}
-
-.c1.size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.c1.size-72 {
-  width: 72px;
-  height: 72px;
-}
-
-.c1.size-90 {
-  width: 90px;
-  height: 90px;
-}
-
-.c1.size-120 {
-  width: 120px;
-  height: 120px;
-}
-
-.c3 {
-  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
-  position: relative;
-  box-sizing: content-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  outline: none;
-}
-
-.c3.bordered[data-state="enabled"] {
-  --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
-}
-
-.c0 {
-  position: relative;
-  z-index: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c0 > * + * {
-  margin-left: var(--b-avatar-group-spacing);
-}
-
-.c4 {
-  position: relative;
-}
-
-.c5 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  outline: none;
-}
-
 @supports (background:paint(smooth-corners)) {
-  .c2[data-state="enabled"] {
+  .c0[data-state="enabled"] {
     padding: var(--b-alpha-smooth-corners-box-padding);
     margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
     background: paint(smooth-corners);
@@ -419,81 +171,81 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 <div
-  class="c0"
+  class="AvatarGroup margin"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Christian Nwamba"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Kola Tioluwani"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Kent Dodds"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Ryan Florence"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c1 size-24"
+    class="Avatar size-24 margin"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
     <div
       aria-label="Dan Abrahmov"
-      class="c2 c3"
+      class="c0 AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
-    class="c4"
+    class="AvatarEllipsisIconWrapper"
     data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
-      class="c2 c5"
+      class="c0 AvatarEllipsisIcon"
       data-state="disabled"
       style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
@@ -516,16 +268,16 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="c1 size-24"
+      class="Avatar size-24 margin"
       data-disabled="false"
       data-testid="bezier-react-avatar-wrapper"
     >
       <div
         aria-label="Prosper Otemuyiwa"
-        class="c2 c3"
+        class="c0 AvatarImage"
         data-state="disabled"
         data-testid="bezier-react-avatar"
-        style="--b-avatar-status-gap: -2px; --b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+        style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
       />
     </div>
   </div>

@@ -1,7 +1,8 @@
 import type {
   AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -14,7 +15,7 @@ export enum AvatarGroupEllipsisType {
 
 type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
 
-interface AvatarGroupOptions {
+interface AvatarGroupOwnProps {
   /**
    * Maximum number of avatars to display.
    *
@@ -50,9 +51,10 @@ interface AvatarGroupOptions {
 }
 
 export interface AvatarGroupProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   SizeProps<AvatarSize>,
   AdditionalStylableProps<'ellipsis'>,
   React.HTMLAttributes<HTMLDivElement>,
-  AvatarGroupOptions {}
+  MarginProps,
+  AvatarGroupOwnProps {}

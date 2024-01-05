@@ -5,11 +5,17 @@ import React, {
 
 import classNames from 'classnames'
 
-import { px } from '~/src/utils/style'
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
-import { type BoxShadow } from '~/src/components/AlphaSmoothCornersBox'
-import { AVATAR_BORDER_RADIUS_PERCENTAGE } from '~/src/components/Avatars/AvatarStyle'
+import {
+  AlphaSmoothCornersBox,
+  type BoxShadow,
+} from '~/src/components/AlphaSmoothCornersBox'
+import { useAvatarRadiusToken } from '~/src/components/Avatars/useAvatarRadiusToken'
 import {
   Status,
   StatusSize,
@@ -23,7 +29,7 @@ import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 import useProgressiveImage from './useProgressiveImage'
 
-import * as Styled from './Avatar.styled'
+import styles from './Avatar.module.scss'
 
 const shadow: BoxShadow = {
   spreadRadius: 2,
@@ -34,21 +40,42 @@ export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-react-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
-export const Avatar = forwardRef(function Avatar({
-  avatarUrl = '',
-  fallbackUrl = defaultAvatarUrl,
-  size = AvatarSize.Size24,
-  name,
-  testId = AVATAR_TEST_ID,
-  disabled = false,
-  showBorder = false,
-  smoothCorners = true,
-  status,
-  className: classNameProp,
-  children,
-  ...rest
-}: AvatarProps, forwardedRef: React.Ref<HTMLDivElement>) {
+/**
+ * `Avatar` is a component for representing some profile image.
+ *
+ * @example
+ *
+ * ```tsx
+ * <Avatar
+ *   avatarUrl="'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
+ *   name="channel"
+ *   size={AvatarSize.Size48}
+ *   showBorder
+ *   disabled
+ * />
+ * ```
+ */
+export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyle = getMarginStyles(marginProps)
+  const {
+    avatarUrl = '',
+    fallbackUrl = defaultAvatarUrl,
+    size = AvatarSize.Size24,
+    name,
+    testId = AVATAR_TEST_ID,
+    disabled = false,
+    showBorder = false,
+    smoothCorners = true,
+    status,
+    className,
+    style,
+    children,
+    ...rest
+  } = marginRest
+
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
+  const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
   const StatusComponent = useMemo(() => {
     if (
@@ -74,9 +101,12 @@ export const Avatar = forwardRef(function Avatar({
     })()
 
     return Contents && (
-      <Styled.StatusWrapper data-testid={STATUS_WRAPPER_TEST_ID}>
+      <div
+        data-testid={STATUS_WRAPPER_TEST_ID}
+        className={styles.StatusWrapper}
+      >
         { Contents }
-      </Styled.StatusWrapper>
+      </div>
     )
   }, [
     status,
@@ -84,37 +114,40 @@ export const Avatar = forwardRef(function Avatar({
     children,
   ])
 
-  const className = classNames(
-    classNameProp,
-    size && `size-${size}`,
-    disabled && 'disabled',
-  )
-
-  const avatarStyle = useMemo(() => ({
-    '--b-avatar-status-gap': px(size >= AvatarSize.Size72 ? 4 : -2),
-  } as React.CSSProperties), [size])
-
   return (
-    <Styled.AvatarWrapper
-      {...rest}
+    <div
       data-testid={AVATAR_WRAPPER_TEST_ID}
       data-disabled={disabled}
-      className={className}
+      className={classNames(
+        styles.Avatar,
+        styles[`size-${size}`],
+        disabled && styles.disabled,
+        marginStyle.className,
+        className,
+      )}
+      style={{
+        ...marginStyle.style,
+        ...style,
+      }}
+      {...rest}
     >
-      <Styled.AvatarImage
+      <AlphaSmoothCornersBox
         ref={forwardedRef}
         data-testid={testId}
         aria-label={name}
-        style={avatarStyle}
-        className={showBorder ? 'bordered' : undefined}
+        className={classNames(
+          styles.AvatarImage,
+          size >= AvatarSize.Size72 && styles['big-size'],
+          showBorder && styles.bordered,
+        )}
         disabled={!smoothCorners}
-        borderRadius={`${AVATAR_BORDER_RADIUS_PERCENTAGE}%`}
+        borderRadius={AVATAR_BORDER_RADIUS}
         shadow={showBorder ? shadow : undefined}
         backgroundColor="bg-white-normal"
         backgroundImage={loadedAvatarUrl}
       >
         { StatusComponent }
-      </Styled.AvatarImage>
-    </Styled.AvatarWrapper>
+      </AlphaSmoothCornersBox>
+    </div>
   )
 })
