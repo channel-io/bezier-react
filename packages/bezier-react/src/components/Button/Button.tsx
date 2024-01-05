@@ -41,28 +41,25 @@ export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
-export const Button = forwardRef(function Button(
-  {
-    as,
-    className,
-    style,
-    interpolation,
-    testId = BUTTON_TEST_ID,
-    type = 'button',
-    text,
-    disabled = false,
-    loading = false,
-    active = false,
-    size = ButtonSize.M,
-    styleVariant = ButtonStyleVariant.Primary,
-    colorVariant = ButtonColorVariant.Blue,
-    leftContent,
-    rightContent,
-    onClick = noop,
-    ...rest
-  }: ButtonProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
+  as,
+  className,
+  style,
+  interpolation,
+  testId = BUTTON_TEST_ID,
+  type = 'button',
+  text,
+  disabled = false,
+  loading = false,
+  active = false,
+  size = ButtonSize.M,
+  styleVariant = ButtonStyleVariant.Primary,
+  colorVariant = ButtonColorVariant.Blue,
+  leftContent,
+  rightContent,
+  onClick = noop,
+  ...rest
+}, forwardedRef) {
   const typography = useMemo(() => {
     switch (size) {
       case ButtonSize.XS:
