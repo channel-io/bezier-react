@@ -2,17 +2,13 @@ import React, {
   forwardRef,
   useCallback,
   useMemo,
-  useState,
 } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
-import { type SemanticNames } from '~/src/foundation'
-
-import { flattenDeep } from '~/src/utils/array'
 import { warn } from '~/src/utils/assert'
 import { noop } from '~/src/utils/function'
-import { isArray } from '~/src/utils/type'
 
 import {
   Icon,
@@ -26,6 +22,7 @@ import {
   Spinner,
   SpinnerSize,
 } from '~/src/components/Spinner'
+import { Text } from '~/src/components/Text'
 
 import type ButtonProps from './Button.types'
 import {
@@ -38,79 +35,11 @@ import {
   ButtonStyleVariant,
 } from './Button.types'
 
-import * as Styled from './Button.styled'
+import styles from './Button.module.scss'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
-
-type VariantTuple = `${ButtonColorVariant},${ButtonStyleVariant},${ButtonSize}`
-
-function tupleKey(...[colorVariant, styleVariant, size]: [ButtonColorVariant, ButtonStyleVariant, ButtonSize]): VariantTuple {
-  return `${colorVariant},${styleVariant},${size}` as const
-}
-
-function combinations(
-  colors: ButtonColorVariant | ButtonColorVariant[],
-  styles: ButtonStyleVariant | ButtonStyleVariant[],
-  sizes: ButtonSize | ButtonSize[],
-) : VariantTuple[] {
-  function toArray<T>(items: T | T[]): T[] {
-    return isArray(items) ? items : [items]
-  }
-
-  return flattenDeep(
-    toArray(colors).map((color) =>
-      toArray(styles).map((style) =>
-        toArray(sizes).map((size) => tupleKey(color, style, size)))),
-  )
-}
-
-const OVERRIDED_TEXT_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...Object.fromEntries(
-    combinations(
-      ButtonColorVariant.Monochrome,
-      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
-      [ButtonSize.S, ButtonSize.XS],
-    )
-      .map((key) => [key, 'txt-black-darker']),
-  ),
-}
-
-const OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS: { [key in VariantTuple]?: SemanticNames } = {
-  ...Object.fromEntries(
-    combinations(
-      ButtonColorVariant.Monochrome,
-      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
-      [ButtonSize.XL, ButtonSize.L, ButtonSize.M],
-    )
-      .map((key) => [key, 'txt-black-darker']),
-  ),
-  ...Object.fromEntries(
-    combinations(
-      ButtonColorVariant.Monochrome,
-      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary],
-      [ButtonSize.S, ButtonSize.XS],
-    )
-      .map((key) => [key, 'txt-black-dark']),
-  ),
-  ...Object.fromEntries(
-    combinations(
-      ButtonColorVariant.MonochromeLight,
-      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      Object.values(ButtonSize),
-    )
-      .map((key) => [key, 'txt-black-dark']),
-  ),
-  ...Object.fromEntries(
-    combinations(
-      ButtonColorVariant.MonochromeDark,
-      [ButtonStyleVariant.Secondary, ButtonStyleVariant.Tertiary, ButtonStyleVariant.Floating],
-      Object.values(ButtonSize),
-    )
-      .map((key) => [key, 'txt-black-darker']),
-  ),
-}
 
 export const Button = forwardRef(function Button(
   {
@@ -130,15 +59,10 @@ export const Button = forwardRef(function Button(
     leftContent,
     rightContent,
     onClick = noop,
-    onMouseEnter = noop,
-    onMouseLeave = noop,
-    onBlur = noop,
     ...rest
   }: ButtonProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const [isHovered, setIsHovered] = useState(false)
-
   const typography = useMemo(() => {
     switch (size) {
       case ButtonSize.XS:
@@ -181,40 +105,6 @@ export const Button = forwardRef(function Button(
     }
   }, [size])
 
-  const overridedTextColor = useMemo(() => (
-    (active || isHovered)
-      ? undefined
-      : OVERRIDED_TEXT_DEFAULT_COLORS[tupleKey(colorVariant, styleVariant, size)]
-  ), [
-    colorVariant,
-    styleVariant,
-    size,
-    active,
-    isHovered,
-  ])
-
-  const overridedIconAndSpinnerColor = useMemo(() => (
-    (active || isHovered)
-      ? undefined
-      : OVERRIDED_ICON_AND_SPINNER_DEFAULT_COLORS[tupleKey(colorVariant, styleVariant, size)]
-  ), [
-    colorVariant,
-    styleVariant,
-    size,
-    active,
-    isHovered,
-  ])
-
-  const handleMouseEnter = useCallback<MouseEventHandler>((event) => {
-    setIsHovered(true)
-    onMouseEnter(event)
-  }, [onMouseEnter])
-
-  const handleMouseLeave = useCallback<MouseEventHandler>((event) => {
-    setIsHovered(false)
-    onMouseLeave(event)
-  }, [onMouseLeave])
-
   const handleClick = useCallback<MouseEventHandler>((event) => {
     if (!disabled) { onClick(event) }
     return null
@@ -230,7 +120,7 @@ export const Button = forwardRef(function Button(
         <LegacyIcon
           name={content}
           size={iconSize}
-          color={overridedIconAndSpinnerColor}
+          className={styles.ButtonIcon}
         />
       )
     }
@@ -240,69 +130,60 @@ export const Button = forwardRef(function Button(
         <Icon
           source={content}
           size={iconSize}
-          color={overridedIconAndSpinnerColor}
+          className={styles.ButtonIcon}
         />
       )
     }
 
     return content
-  }, [
-    iconSize,
-    overridedIconAndSpinnerColor,
-  ])
+  }, [iconSize])
 
   return (
-    <Styled.ButtonWrapper
-      as={as}
+    <button
+      // eslint-disable-next-line react/button-has-type
       type={type}
-      style={style}
-      className={className}
-      interpolation={interpolation}
       ref={forwardedRef}
-      size={size}
+      style={style}
+      className={classNames(
+        styles.Button,
+        styles[`size-${size}`],
+        styles[`style-${styleVariant}`],
+        styles[`color-${colorVariant}`],
+        active && styles.active,
+      )}
       disabled={disabled}
-      active={active}
-      styleVariant={styleVariant}
-      colorVariant={colorVariant}
-      text={text}
       data-testid={testId}
       data-component="BezierButton"
       onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onBlur={onBlur}
       {...rest}
     >
-      <Styled.ButtonContents
+      <div
+        className={classNames(
+          styles.ButtonContent,
+          loading && styles.hidden,
+        )}
         data-testid={BUTTON_INNER_CONTENT_TEST_ID}
-        visible={!loading}
-        buttonSize={size}
       >
         { renderSideContent(leftContent) }
 
         { text && (
-          <Styled.ContentText
+          <Text
             testId={BUTTON_TEXT_TEST_ID}
             typo={typography}
             bold
-            color={overridedTextColor}
-            buttonSize={size}
           >
             { text }
-          </Styled.ContentText>
+          </Text>
         ) }
 
         { renderSideContent(rightContent) }
-      </Styled.ButtonContents>
+      </div>
 
       { loading && (
-        <Styled.ButtonLoader>
-          <Spinner
-            size={ButtonSpinnerSize}
-            color={overridedIconAndSpinnerColor}
-          />
-        </Styled.ButtonLoader>
+        <div className={styles.ButtonLoader}>
+          <Spinner size={ButtonSpinnerSize} />
+        </div>
       ) }
-    </Styled.ButtonWrapper>
+    </button>
   )
 })
