@@ -53,7 +53,7 @@ interface ButtonOptions {
    *
    * @default 'button'
    */
-  type?: HTMLButtonElement['type']
+  type?: 'button' | 'reset' | 'submit'
 
   /**
    * The text content in the button.
