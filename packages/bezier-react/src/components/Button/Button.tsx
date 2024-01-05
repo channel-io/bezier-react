@@ -7,6 +7,10 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 
 import {
   Icon,
@@ -100,22 +104,28 @@ function ButtonSideContent({
   return <>{ children }</>
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
-  className,
-  testId = BUTTON_TEST_ID,
-  type = 'button',
-  text,
-  disabled = false,
-  loading = false,
-  active = false,
-  size = ButtonSize.M,
-  styleVariant = ButtonStyleVariant.Primary,
-  colorVariant = ButtonColorVariant.Blue,
-  leftContent,
-  rightContent,
-  onClick,
-  ...rest
-}, forwardedRef) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+
+  const {
+    style,
+    className,
+    testId = BUTTON_TEST_ID,
+    type = 'button',
+    text,
+    disabled = false,
+    loading = false,
+    active = false,
+    size = ButtonSize.M,
+    styleVariant = ButtonStyleVariant.Primary,
+    colorVariant = ButtonColorVariant.Blue,
+    leftContent,
+    rightContent,
+    onClick,
+    ...rest
+  } = marginRest
+
   const handleClick = useCallback<MouseEventHandler>((event) => {
     if (!disabled) {
       onClick?.(event)
@@ -130,12 +140,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       // eslint-disable-next-line react/button-has-type
       type={type}
       ref={forwardedRef}
+      style={{
+        ...marginStyles,
+        ...style,
+      }}
       className={classNames(
         styles.Button,
         styles[`size-${size}`],
         styles[`style-${styleVariant}`],
         styles[`color-${colorVariant}`],
         active && styles.active,
+        marginStyles.className,
+        className,
       )}
       disabled={disabled}
       data-testid={testId}

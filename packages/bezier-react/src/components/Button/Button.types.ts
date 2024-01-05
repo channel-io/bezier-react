@@ -3,6 +3,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import {
   type AlphaBezierComponentProps,
   type DisableProps,
+  type MarginProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
@@ -119,4 +120,5 @@ export interface ButtonProps extends
   DisableProps,
   SideContentProps<SideContent, SideContent>,
   React.HTMLAttributes<HTMLButtonElement>,
+  MarginProps,
   ButtonOwnProps {}
