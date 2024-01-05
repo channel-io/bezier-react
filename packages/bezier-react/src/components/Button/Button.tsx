@@ -165,6 +165,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 
         { text && (
           <Text
+            className={styles.ButtonText}
             testId={BUTTON_TEXT_TEST_ID}
             typo={typography}
             bold

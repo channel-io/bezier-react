@@ -1,5 +1,5 @@
 $chromaticColorVariants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
-$activeSelector: ".active, :hover:not(:disabled)";
+$activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
 @layer components {
   .Button {
@@ -27,7 +27,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
       min-width: 20px;
       height: 20px;
 
-      &:where(.style-floating) {
+      &:where(.style-floating, .style-floating-alt) {
         padding: 0 7px;
       }
     }
@@ -37,7 +37,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
       min-width: 24px;
       height: 24px;
 
-      &:where(.style-floating) {
+      &:where(.style-floating, .style-floating-alt) {
         padding: 0 9px;
       }
     }
@@ -47,7 +47,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
       min-width: 36px;
       height: 36px;
 
-      &:where(.style-floating) {
+      &:where(.style-floating, .style-floating-alt) {
         padding: 0 14px;
       }
     }
@@ -57,7 +57,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
       min-width: 44px;
       height: 44px;
 
-      &:where(.style-floating) {
+      &:where(.style-floating, .style-floating-alt) {
         padding: 0 18px;
       }
     }
@@ -67,13 +67,13 @@ $activeSelector: ".active, :hover:not(:disabled)";
       min-width: 54px;
       height: 54px;
 
-      &:where(.style-floating) {
+      &:where(.style-floating, .style-floating-alt) {
         padding: 0 23px;
       }
     }
 
     /* NOTE: If there is no text, button is square, so padding is 0 */
-    &:has(.ButtonText:empty) {
+    &:not(:has(.ButtonText)) {
       padding: 0;
     }
 
@@ -100,7 +100,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
           color: var(--bgtxt-absolute-white-dark);
           background-color: var(--bgtxt-#{$colorVariant}-normal);
 
-          &:where(#{$activeSelector}) {
+          &#{$activeSelector} {
             background-color: var(--bgtxt-#{$colorVariant}-dark);
           }
         }
@@ -110,7 +110,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--bgtxt-absolute-white-dark);
         background-color: var(--bgtxt-absolute-black-lightest);
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bgtxt-absolute-black-lighter);
         }
       }
@@ -132,7 +132,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
           color: var(--bgtxt-#{$colorVariant}-normal);
           background-color: var(--bgtxt-#{$colorVariant}-lightest);
 
-          &:where(#{$activeSelector}) {
+          &#{$activeSelector} {
             background-color: var(--bgtxt-#{$colorVariant}-lighter);
           }
         }
@@ -142,7 +142,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darkest);
         background-color: var(--bg-black-lighter);
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-light);
         }
       }
@@ -151,7 +151,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darker);
         background-color: var(--bg-black-lighter);
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-light);
         }
       }
@@ -160,7 +160,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darkest);
         background-color: var(--bg-black-lighter);
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-light);
         }
       }
@@ -172,7 +172,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
           color: var(--bgtxt-#{$colorVariant}-normal);
           background-color: transparent;
 
-          &:where(#{$activeSelector}) {
+          &#{$activeSelector} {
             color: var(--bgtxt-#{$colorVariant}-dark);
             background-color: var(--bgtxt-#{$colorVariant}-lightest);
           }
@@ -183,7 +183,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darkest);
         background-color: transparent;
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-lightest);
         }
       }
@@ -192,7 +192,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darker);
         background-color: transparent;
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-lighter);
         }
       }
@@ -201,7 +201,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
         color: var(--txt-black-darkest);
         background-color: transparent;
 
-        &:where(#{$activeSelector}) {
+        &#{$activeSelector} {
           background-color: var(--bg-black-lighter);
         }
       }
@@ -213,7 +213,7 @@ $activeSelector: ".active, :hover:not(:disabled)";
           color: var(--bgtxt-absolute-white-dark);
           background-color: var(--bgtxt-#{$colorVariant}-normal);
 
-          &:where(#{$activeSelector}) {
+          &#{$activeSelector} {
             background-color: var(--bgtxt-#{$colorVariant}-dark);
           }
         }
