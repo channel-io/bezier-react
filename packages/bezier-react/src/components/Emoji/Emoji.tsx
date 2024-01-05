@@ -1,16 +1,16 @@
 import React, {
+  type CSSProperties,
   forwardRef,
-  useMemo,
 } from 'react'
 
-import { backgroundImageVariable } from '~/src/foundation'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/function'
 
 import type EmojiProps from './Emoji.types'
 import { EmojiSize } from './Emoji.types'
 
-import { Icon } from './Emoji.styled'
+import styles from './Emoji.module.scss'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
@@ -28,26 +28,23 @@ function Emoji(
   }: EmojiProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const mergedStyle = useMemo(() => ({
-    ...backgroundImageVariable({ imageUrl }),
-    ...style,
-  }), [
-    style,
-    imageUrl,
-  ])
-
   return (
-    <Icon
+    <div
       as={as}
       ref={forwardedRef}
       data-testid={testId}
       role="img"
       aria-label={name}
-      style={mergedStyle}
-      size={size}
-      className={className}
+      style={{
+        '--b-emoji-background-image': `url(${imageUrl})`,
+        ...style,
+      } as CSSProperties}
+      className={classNames(
+        styles.Emoji,
+        styles[`size-${size}`],
+        className,
+      )}
       interpolation={interpolation}
-      imageUrl={imageUrl}
       onClick={onClick}
     />
   )
