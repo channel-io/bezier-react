@@ -117,8 +117,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   ...rest
 }, forwardedRef) {
   const handleClick = useCallback<MouseEventHandler>((event) => {
-    if (!disabled) { onClick?.(event) }
-    return null
+    if (!disabled) {
+      onClick?.(event)
+    }
   }, [
     onClick,
     disabled,
