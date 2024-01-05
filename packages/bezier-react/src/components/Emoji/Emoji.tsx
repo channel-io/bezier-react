@@ -20,6 +20,16 @@ import styles from './Emoji.module.scss'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
+/**
+ * `Emoji` is a component for representing emoji with variant size.
+ *
+ * @example
+ * <Emoji
+ *   name="A"
+ *   imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/a.png"
+ *   size={EmojiSize.Size20}
+ * />
+ */
 export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyles = getMarginStyles(marginProps)
