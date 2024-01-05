@@ -141,7 +141,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       type={type}
       ref={forwardedRef}
       style={{
-        ...marginStyles,
+        ...marginStyles.style,
         ...style,
       }}
       className={classNames(
