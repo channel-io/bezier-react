@@ -17,7 +17,7 @@ import {
   ButtonSize,
   ButtonStyleVariant,
 } from './Button.types'
-import type ButtonProps from './Button.types'
+import type { ButtonProps } from './Button.types'
 
 import {
   BUTTON_HORIZONTAL_PADDING_VALUE,

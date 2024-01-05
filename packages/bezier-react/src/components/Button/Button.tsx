@@ -22,10 +22,10 @@ import {
 } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
-import type ButtonProps from './Button.types'
-import {
-  type MouseEventHandler,
-  type SideContent,
+import type {
+  ButtonProps,
+  MouseEventHandler,
+  SideContent,
 } from './Button.types'
 import {
   ButtonColorVariant,

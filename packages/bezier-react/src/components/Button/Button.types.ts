@@ -113,7 +113,7 @@ interface ButtonOwnProps {
   onBlur?: FocusEventHandler
 }
 
-export default interface ButtonProps extends
+export interface ButtonProps extends
   AlphaBezierComponentProps,
   SizeProps<ButtonSize>,
   DisableProps,
