@@ -27,16 +27,16 @@ export enum ButtonColorVariant {
    * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
    */
   Monochrome = 'monochrome',
-  MonochromeLight = 'monochromeLight',
-  MonochromeDark = 'monochromeDark',
+  MonochromeLight = 'monochrome-light',
+  MonochromeDark = 'monochrome-dark',
 }
 
 export enum ButtonSize {
-  XS = 'XS',
-  S = 'S',
-  M = 'M',
-  L = 'L',
-  XL = 'XL',
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
 }
 
 export type SideContent = React.ReactNode | BezierIcon
