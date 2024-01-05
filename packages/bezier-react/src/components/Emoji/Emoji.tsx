@@ -5,7 +5,6 @@ import React, {
 
 import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
 import {
   getMarginStyles,
   splitByMarginProps,
@@ -40,7 +39,6 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props
     name,
     size = EmojiSize.Size24,
     testId = EMOJI_TEST_ID,
-    onClick = noop,
     ...rest
   } = marginRest
 
@@ -61,7 +59,6 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props
         marginStyles.className,
         className,
       )}
-      onClick={onClick}
       {...rest}
     />
   )
