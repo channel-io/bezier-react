@@ -1,5 +1,6 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -24,6 +25,7 @@ interface EmojiOptions {
 }
 
 export default interface EmojiProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   SizeProps<EmojiSize>,
+  MarginProps,
   EmojiOptions {}
