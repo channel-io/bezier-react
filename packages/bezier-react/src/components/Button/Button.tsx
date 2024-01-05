@@ -7,7 +7,6 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
-import { noop } from '~/src/utils/function'
 
 import {
   Icon,
@@ -81,9 +80,9 @@ function ButtonSideContent({
     warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
     return (
       <LegacyIcon
+        className={styles.ButtonIcon}
         name={children}
         size={getIconSize(size)}
-        className={styles.ButtonIcon}
       />
     )
   }
@@ -91,9 +90,9 @@ function ButtonSideContent({
   if (isBezierIcon(children)) {
     return (
       <Icon
+        className={styles.ButtonIcon}
         source={children}
         size={getIconSize(size)}
-        className={styles.ButtonIcon}
       />
     )
   }
@@ -102,10 +101,7 @@ function ButtonSideContent({
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
-  as,
   className,
-  style,
-  interpolation,
   testId = BUTTON_TEST_ID,
   type = 'button',
   text,
@@ -117,11 +113,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   colorVariant = ButtonColorVariant.Blue,
   leftContent,
   rightContent,
-  onClick = noop,
+  onClick,
   ...rest
 }, forwardedRef) {
   const handleClick = useCallback<MouseEventHandler>((event) => {
-    if (!disabled) { onClick(event) }
+    if (!disabled) { onClick?.(event) }
     return null
   }, [
     onClick,
@@ -133,7 +129,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       // eslint-disable-next-line react/button-has-type
       type={type}
       ref={forwardedRef}
-      style={style}
       className={classNames(
         styles.Button,
         styles[`size-${size}`],
@@ -150,7 +145,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       <div
         className={classNames(
           styles.ButtonContent,
-          loading && styles.hidden,
+          loading && styles.loading,
         )}
         data-testid={BUTTON_INNER_CONTENT_TEST_ID}
       >

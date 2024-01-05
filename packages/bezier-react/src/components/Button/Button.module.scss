@@ -303,7 +303,8 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     align-items: center;
     justify-content: center;
 
-    &:where(.hidden) {
+    /* NOTE: Using the visibility property to preserve content area while loading */
+    &:where(.loading) {
       visibility: hidden;
     }
   }
