@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   useCallback,
-  useMemo,
 } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
@@ -41,6 +40,36 @@ export const BUTTON_TEST_ID = 'bezier-react-button'
 export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
 export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
+function getTypography(size: ButtonSize) {
+  return {
+    [ButtonSize.XS]: '13' as const,
+    [ButtonSize.S]: '13' as const,
+    [ButtonSize.M]: '14' as const,
+    [ButtonSize.L]: '15' as const,
+    [ButtonSize.XL]: '18' as const,
+  }[size]
+}
+
+function getIconSize(size: ButtonSize) {
+  return {
+    [ButtonSize.XS]: IconSize.XS as const,
+    [ButtonSize.S]: IconSize.XS as const,
+    [ButtonSize.M]: IconSize.S as const,
+    [ButtonSize.L]: IconSize.S as const,
+    [ButtonSize.XL]: IconSize.Normal as const,
+  }[size]
+}
+
+function getSpinnerSize(size: ButtonSize) {
+  return {
+    [ButtonSize.XS]: SpinnerSize.XS as const,
+    [ButtonSize.S]: SpinnerSize.XS as const,
+    [ButtonSize.M]: SpinnerSize.S as const,
+    [ButtonSize.L]: SpinnerSize.S as const,
+    [ButtonSize.XL]: SpinnerSize.S as const,
+  }[size]
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   as,
   className,
@@ -60,48 +89,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick = noop,
   ...rest
 }, forwardedRef) {
-  const typography = useMemo(() => {
-    switch (size) {
-      case ButtonSize.XS:
-      case ButtonSize.S:
-        return '13'
-      case ButtonSize.L:
-        return '15'
-      case ButtonSize.XL:
-        return '18'
-      case ButtonSize.M:
-      default:
-        return '14'
-    }
-  }, [size])
-
-  const ButtonSpinnerSize = useMemo(() => {
-    switch (size) {
-      case ButtonSize.S:
-      case ButtonSize.XS:
-        return SpinnerSize.XS
-      case ButtonSize.XL:
-      case ButtonSize.L:
-      case ButtonSize.M:
-      default:
-        return SpinnerSize.S
-    }
-  }, [size])
-
-  const iconSize = useMemo(() => {
-    switch (size) {
-      case ButtonSize.XS:
-      case ButtonSize.S:
-        return IconSize.XS
-      case ButtonSize.XL:
-        return IconSize.Normal
-      case ButtonSize.M:
-      case ButtonSize.L:
-      default:
-        return IconSize.S
-    }
-  }, [size])
-
   const handleClick = useCallback<MouseEventHandler>((event) => {
     if (!disabled) { onClick(event) }
     return null
@@ -116,7 +103,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       return (
         <LegacyIcon
           name={content}
-          size={iconSize}
+          size={getIconSize(size)}
           className={styles.ButtonIcon}
         />
       )
@@ -126,14 +113,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       return (
         <Icon
           source={content}
-          size={iconSize}
+          size={getIconSize(size)}
           className={styles.ButtonIcon}
         />
       )
     }
 
     return content
-  }, [iconSize])
+  }, [size])
 
   return (
     <button
@@ -167,7 +154,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           <Text
             className={styles.ButtonText}
             testId={BUTTON_TEXT_TEST_ID}
-            typo={typography}
+            typo={getTypography(size)}
             bold
           >
             { text }
@@ -179,7 +166,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 
       { loading && (
         <div className={styles.ButtonLoader}>
-          <Spinner size={ButtonSpinnerSize} />
+          <Spinner size={getSpinnerSize(size)} />
         </div>
       ) }
     </button>
