@@ -70,6 +70,37 @@ function getSpinnerSize(size: ButtonSize) {
   }[size]
 }
 
+function ButtonSideContent({
+  size,
+  children,
+}: {
+  size: ButtonSize
+  children: SideContent
+}) {
+  if (isIconName(children)) {
+    warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
+    return (
+      <LegacyIcon
+        name={children}
+        size={getIconSize(size)}
+        className={styles.ButtonIcon}
+      />
+    )
+  }
+
+  if (isBezierIcon(children)) {
+    return (
+      <Icon
+        source={children}
+        size={getIconSize(size)}
+        className={styles.ButtonIcon}
+      />
+    )
+  }
+
+  return <>{ children }</>
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   as,
   className,
@@ -97,31 +128,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     disabled,
   ])
 
-  const renderSideContent = useCallback((content?: SideContent) => {
-    if (isIconName(content)) {
-      warn('Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.')
-      return (
-        <LegacyIcon
-          name={content}
-          size={getIconSize(size)}
-          className={styles.ButtonIcon}
-        />
-      )
-    }
-
-    if (isBezierIcon(content)) {
-      return (
-        <Icon
-          source={content}
-          size={getIconSize(size)}
-          className={styles.ButtonIcon}
-        />
-      )
-    }
-
-    return content
-  }, [size])
-
   return (
     <button
       // eslint-disable-next-line react/button-has-type
@@ -148,7 +154,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
         )}
         data-testid={BUTTON_INNER_CONTENT_TEST_ID}
       >
-        { renderSideContent(leftContent) }
+        <ButtonSideContent size={size}>
+          { leftContent }
+        </ButtonSideContent>
 
         { text && (
           <Text
@@ -161,7 +169,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           </Text>
         ) }
 
-        { renderSideContent(rightContent) }
+        <ButtonSideContent size={size}>
+          { rightContent }
+        </ButtonSideContent>
       </div>
 
       { loading && (
