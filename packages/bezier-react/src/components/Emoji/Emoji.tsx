@@ -16,12 +16,10 @@ export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
 function Emoji(
   {
-    as,
     style,
     imageUrl,
     className,
     name,
-    interpolation,
     size = EmojiSize.Size24,
     testId = EMOJI_TEST_ID,
     onClick = noop,
@@ -30,7 +28,6 @@ function Emoji(
 ) {
   return (
     <div
-      as={as}
       ref={forwardedRef}
       data-testid={testId}
       role="img"
@@ -44,7 +41,6 @@ function Emoji(
         styles[`size-${size}`],
         className,
       )}
-      interpolation={interpolation}
       onClick={onClick}
     />
   )
