@@ -1,7 +1,7 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type DisableProps,
   type SideContentProps,
   type SizeProps,
@@ -44,7 +44,7 @@ export type SideContent = React.ReactNode | BezierIcon
 export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
 type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
 
-interface ButtonOptions {
+interface ButtonOwnProps {
   /**
    * `type` attribute of typical HTML button.
    *
@@ -114,9 +114,9 @@ interface ButtonOptions {
 }
 
 export default interface ButtonProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,
   React.HTMLAttributes<HTMLButtonElement>,
-  ButtonOptions {}
+  ButtonOwnProps {}
