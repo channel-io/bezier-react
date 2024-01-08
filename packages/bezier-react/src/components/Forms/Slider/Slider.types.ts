@@ -68,5 +68,5 @@ interface SliderOptions {
 export default interface SliderProps extends
   BezierComponentProps,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions>,
+  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions | 'dir'>,
   SliderOptions {}
