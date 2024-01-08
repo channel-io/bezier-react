@@ -1,82 +1,80 @@
-@layer components {
-  .AvatarGroup {
-    --b-avatar-group-spacing: 0;
-    --b-avatar-group-size: 0;
+.AvatarGroup {
+  --b-avatar-group-spacing: 0;
+  --b-avatar-group-size: 0;
 
-    position: relative;
-    z-index: var(--z-index-base);
-    display: flex;
+  position: relative;
+  z-index: var(--z-index-base);
+  display: flex;
 
-    & > * + * {
-      margin-left: var(--b-avatar-group-spacing);
-    }
+  & > * + * {
+    margin-left: var(--b-avatar-group-spacing);
+  }
+}
+
+.AvatarEllipsisIconWrapper {
+  position: relative;
+}
+
+.AvatarEllipsisIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-floating);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.AvatarEllipsisCountWrapper {
+  --b-avatar-group-ellipsis-pr: 0;
+  --b-avatar-group-ellipsis-ml: 0;
+
+  &:where(.size-20) {
+    --b-avatar-group-ellipsis-pr: 4px;
   }
 
-  .AvatarEllipsisIconWrapper {
-    position: relative;
+  &:where(.size-24) {
+    --b-avatar-group-ellipsis-pr: 5px;
   }
 
-  .AvatarEllipsisIcon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: var(--z-index-floating);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    outline: none;
+  &:where(.size-30) {
+    --b-avatar-group-ellipsis-pr: 6px;
   }
 
-  .AvatarEllipsisCountWrapper {
-    --b-avatar-group-ellipsis-pr: 0;
-    --b-avatar-group-ellipsis-ml: 0;
-
-    &:where(.size-20) {
-      --b-avatar-group-ellipsis-pr: 4px;
-    }
-
-    &:where(.size-24) {
-      --b-avatar-group-ellipsis-pr: 5px;
-    }
-
-    &:where(.size-30) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-36) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-42) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-48) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-72) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-90) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    &:where(.size-120) {
-      --b-avatar-group-ellipsis-pr: 6px;
-    }
-
-    padding-right: var(--b-avatar-group-ellipsis-pr);
-    margin-left: var(--b-avatar-group-ellipsis-ml);
+  &:where(.size-36) {
+    --b-avatar-group-ellipsis-pr: 6px;
   }
 
-  .AvatarEllipsisCount {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: var(--b-avatar-group-size);
+  &:where(.size-42) {
+    --b-avatar-group-ellipsis-pr: 6px;
   }
+
+  &:where(.size-48) {
+    --b-avatar-group-ellipsis-pr: 6px;
+  }
+
+  &:where(.size-72) {
+    --b-avatar-group-ellipsis-pr: 6px;
+  }
+
+  &:where(.size-90) {
+    --b-avatar-group-ellipsis-pr: 6px;
+  }
+
+  &:where(.size-120) {
+    --b-avatar-group-ellipsis-pr: 6px;
+  }
+
+  padding-right: var(--b-avatar-group-ellipsis-pr);
+  margin-left: var(--b-avatar-group-ellipsis-ml);
+}
+
+.AvatarEllipsisCount {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--b-avatar-group-size);
 }

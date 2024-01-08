@@ -1,45 +1,43 @@
 @use '../../styles/mixins/position';
 
-@layer components {
-  .Status {
-    --b-status-size: 0;
-    --b-status-border-width: 0;
-    --b-status-bg-color: inherit;
+.Status {
+  --b-status-size: 0;
+  --b-status-border-width: 0;
+  --b-status-bg-color: inherit;
 
-    position: relative;
-    z-index: var(--z-index-base);
-    box-sizing: content-box;
+  position: relative;
+  z-index: var(--z-index-base);
+  box-sizing: content-box;
+  width: var(--b-status-size);
+  height: var(--b-status-size);
+  background-color: var(--bg-white-high);
+  border: var(--b-status-border-width) solid var(--bg-white-high);
+  border-radius: 50%;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
     width: var(--b-status-size);
     height: var(--b-status-size);
-    background-color: var(--bg-white-high);
-    border: var(--b-status-border-width) solid var(--bg-white-high);
+    content: '';
+    background-color: var(--b-status-bg-color);
     border-radius: 50%;
-  
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: var(--b-status-size);
-      height: var(--b-status-size);
-      content: '';
-      background-color: var(--b-status-bg-color);
-      border-radius: 50%;
-    }
-
-    &:where(.size-m) {
-      --b-status-size: 8px;
-      --b-status-border-width: 2px;
-    }
-
-    &:where(.size-l) {
-      --b-status-size: 14px;
-      --b-status-border-width: 3px;
-    }
   }
 
-  .Icon {
-    @include position.center();
-    z-index: var(--z-index-floating);
+  &:where(.size-m) {
+    --b-status-size: 8px;
+    --b-status-border-width: 2px;
   }
+
+  &:where(.size-l) {
+    --b-status-size: 14px;
+    --b-status-border-width: 3px;
+  }
+}
+
+.Icon {
+  @include position.center();
+  z-index: var(--z-index-floating);
 }

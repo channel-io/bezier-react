@@ -1,75 +1,73 @@
-@layer components {
-  .Stack {
-    --b-stack-spacing: initial;
+.Stack {
+  --b-stack-spacing: initial;
 
-    gap: var(--b-stack-spacing);
+  gap: var(--b-stack-spacing);
 
-   &:where(.display-flex) {
-      display: flex;
+  &:where(.display-flex) {
+    display: flex;
+  }
+
+  &:where(.display-inline-flex) {
+    display: inline-flex;
+  }
+
+  &:where(.direction-horizontal) {
+    flex-direction: row;
+
+    &:where(.reverse) {
+      flex-direction: row-reverse;
     }
+  }
 
-   &:where(.display-inline-flex) {
-      display: inline-flex;
+  &:where(.direction-vertical) {
+    flex-direction: column;
+
+    &:where(.reverse) {
+      flex-direction: column-reverse;
     }
+  }
 
-   &:where(.direction-horizontal) {
-      flex-direction: row;
+  &:where(.justify-start) {
+    justify-content: flex-start;
+  }
 
-     &:where(.reverse) {
-        flex-direction: row-reverse;
-      }
-    }
+  &:where(.justify-end) {
+    justify-content: flex-end;
+  }
 
-   &:where(.direction-vertical) {
-      flex-direction: column;
+  &:where(.justify-center) {
+    justify-content: center;
+  }
 
-     &:where(.reverse) {
-        flex-direction: column-reverse;
-      }
-    }
+  &:where(.justify-stretch) {
+    justify-content: stretch;
+  }
 
-   &:where(.justify-start) {
-      justify-content: flex-start;
-    }
+  &:where(.justify-between) {
+    justify-content: space-between;
+  }
 
-   &:where(.justify-end) {
-      justify-content: flex-end;
-    }
+  &:where(.align-start) {
+    align-items: flex-start;
+  }
 
-   &:where(.justify-center) {
-      justify-content: center;
-    }
+  &:where(.align-end) {
+    align-items: flex-end;
+  }
 
-   &:where(.justify-stretch) {
-      justify-content: stretch;
-    }
+  &:where(.align-center) {
+    align-items: center;
+  }
 
-   &:where(.justify-between) {
-      justify-content: space-between;
-    }
+  &:where(.align-stretch) {
+    align-items: stretch;
+  }
 
-   &:where(.align-start) {
-      align-items: flex-start;
-    }
+  &:where(.align-baseline) {
+    align-items: baseline;
+  }
 
-   &:where(.align-end) {
-      align-items: flex-end;
-    }
-
-   &:where(.align-center) {
-      align-items: center;
-    }
-
-   &:where(.align-stretch) {
-      align-items: stretch;
-    }
-
-   &:where(.align-baseline) {
-      align-items: baseline;
-    }
-
-   &:where(.wrap) {
-      flex-wrap: wrap;
-    }
+  &:where(.wrap) {
+    flex-wrap: wrap;
   }
 }

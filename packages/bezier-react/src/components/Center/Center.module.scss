@@ -1,14 +1,12 @@
-@layer components {
-  .Center {
-    align-items: center;
-    justify-content: center;
+.Center {
+  align-items: center;
+  justify-content: center;
 
-    &:where(.display-flex) {
-      display: flex;
-    }
+  &:where(.display-flex) {
+    display: flex;
+  }
 
-    &:where(.display-inline-flex) {
-      display: inline-flex;
-    }
+  &:where(.display-inline-flex) {
+    display: inline-flex;
   }
 }

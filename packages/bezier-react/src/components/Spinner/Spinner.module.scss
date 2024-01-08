@@ -1,55 +1,53 @@
 @use "../../styles/mixins/dimension";
 
-@layer components {
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
 
-  .Spinner {
-    --b-spinner-color: inherit;
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-    display: inline-block;
-    border-style: solid;
-    border-top-color: transparent;
-    border-right-color: var(--b-spinner-color);
-    border-bottom-color: var(--b-spinner-color);
-    border-left-color: var(--b-spinner-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.Spinner {
+  --b-spinner-color: inherit;
 
-    &:where(.size-xl) {
-      @include dimension.square(50px);
-      border-width: 4px;
-    }
+  display: inline-block;
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: var(--b-spinner-color);
+  border-bottom-color: var(--b-spinner-color);
+  border-left-color: var(--b-spinner-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 
-    &:where(.size-l, .size-m) {
-      border-width: 3px;
-    }
+  &:where(.size-xl) {
+    @include dimension.square(50px);
+    border-width: 4px;
+  }
 
-    &:where(.size-l) {
-      @include dimension.square(24px);
-    }
+  &:where(.size-l, .size-m) {
+    border-width: 3px;
+  }
 
-    &:where(.size-m) {
-      @include dimension.square(20px);
-    }
+  &:where(.size-l) {
+    @include dimension.square(24px);
+  }
 
-    &:where(.size-s, .size-xs) {
-      border-width: 2px;
-    }
+  &:where(.size-m) {
+    @include dimension.square(20px);
+  }
 
-    &:where(.size-s) {
-      @include dimension.square(16px);
-    }
+  &:where(.size-s, .size-xs) {
+    border-width: 2px;
+  }
 
-    &:where(.size-xs) {
-      @include dimension.square(12px);
-    }
+  &:where(.size-s) {
+    @include dimension.square(16px);
+  }
+
+  &:where(.size-xs) {
+    @include dimension.square(12px);
   }
 }

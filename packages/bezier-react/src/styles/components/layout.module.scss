@@ -1,129 +1,127 @@
-@layer components {
-  .layout {
-    --b-padding: 0;
-    --b-padding-x: var(--b-padding);
-    --b-padding-y: var(--b-padding);
-    --b-padding-top: var(--b-padding-y);
-    --b-padding-right: var(--b-padding-x);
-    --b-padding-bottom: var(--b-padding-y);
-    --b-padding-left: var(--b-padding-x);
-    --b-width: initial;
-    --b-height: initial;
-    --b-max-width: initial;
-    --b-max-height: initial;
-    --b-min-width: initial;
-    --b-min-height: initial;
-    --b-inset: auto;
-    --b-top: var(--b-inset);
-    --b-right: var(--b-inset);
-    --b-bottom: var(--b-inset);
-    --b-left: var(--b-inset);
-    --b-background-color: initial;
-    --b-border-color: initial;
-    --b-border-radius: initial;
-    --b-border-width: 0;
-    --b-border-top-width: var(--b-border-width);
-    --b-border-right-width: var(--b-border-width);
-    --b-border-bottom-width: var(--b-border-width);
-    --b-border-left-width: var(--b-border-width);
-    --b-elevation: initial;
-    --b-z-index: initial;
+.layout {
+  --b-padding: 0;
+  --b-padding-x: var(--b-padding);
+  --b-padding-y: var(--b-padding);
+  --b-padding-top: var(--b-padding-y);
+  --b-padding-right: var(--b-padding-x);
+  --b-padding-bottom: var(--b-padding-y);
+  --b-padding-left: var(--b-padding-x);
+  --b-width: initial;
+  --b-height: initial;
+  --b-max-width: initial;
+  --b-max-height: initial;
+  --b-min-width: initial;
+  --b-min-height: initial;
+  --b-inset: auto;
+  --b-top: var(--b-inset);
+  --b-right: var(--b-inset);
+  --b-bottom: var(--b-inset);
+  --b-left: var(--b-inset);
+  --b-background-color: initial;
+  --b-border-color: initial;
+  --b-border-radius: initial;
+  --b-border-width: 0;
+  --b-border-top-width: var(--b-border-width);
+  --b-border-right-width: var(--b-border-width);
+  --b-border-bottom-width: var(--b-border-width);
+  --b-border-left-width: var(--b-border-width);
+  --b-elevation: initial;
+  --b-z-index: initial;
 
-    box-sizing: border-box;
-    padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom) var(--b-padding-left);
-    width: var(--b-width);
-    height: var(--b-height);
-    max-width: var(--b-max-width);
-    max-height: var(--b-max-height);
-    min-width: var(--b-min-width);
-    min-height: var(--b-min-height);
-    inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
-    background-color: var(--b-background-color);
-    border-color: var(--b-border-color);
-    border-radius: var(--b-border-radius);
-    border-style: solid;
-    border-width: var(--b-border-top-width) var(--b-border-right-width) var(--b-border-bottom-width) var(--b-border-left-width);
-    box-shadow: var(--b-elevation);
-    z-index: var(--b-z-index);
+  box-sizing: border-box;
+  padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom) var(--b-padding-left);
+  width: var(--b-width);
+  height: var(--b-height);
+  max-width: var(--b-max-width);
+  max-height: var(--b-max-height);
+  min-width: var(--b-min-width);
+  min-height: var(--b-min-height);
+  inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
+  background-color: var(--b-background-color);
+  border-color: var(--b-border-color);
+  border-radius: var(--b-border-radius);
+  border-style: solid;
+  border-width: var(--b-border-top-width) var(--b-border-right-width) var(--b-border-bottom-width) var(--b-border-left-width);
+  box-shadow: var(--b-elevation);
+  z-index: var(--b-z-index);
 
-    &:where(.position-relative) {
-      position: relative;
-    }
+  &:where(.position-relative) {
+    position: relative;
+  }
 
-    &:where(.position-absolute) {
-      position: absolute;
-    }
+  &:where(.position-absolute) {
+    position: absolute;
+  }
 
-    &:where(.position-fixed) {
-      position: fixed;
-    }
+  &:where(.position-fixed) {
+    position: fixed;
+  }
 
-    &:where(.position-sticky) {
-      position: sticky;
-    }
+  &:where(.position-sticky) {
+    position: sticky;
+  }
 
-    &:where(.shrink-0) {
-      flex-shrink: 0;
-    }
+  &:where(.shrink-0) {
+    flex-shrink: 0;
+  }
 
-    &:where(.shrink-1) {
-      flex-shrink: 1;
-    }
+  &:where(.shrink-1) {
+    flex-shrink: 1;
+  }
 
-    &:where(.grow-0) {
-      flex-grow: 0;
-    }
+  &:where(.grow-0) {
+    flex-grow: 0;
+  }
 
-    &:where(.grow-1) {
-      flex-grow: 1;
-    }
+  &:where(.grow-1) {
+    flex-grow: 1;
+  }
 
-    &:where(.overflow-visible) {
-      overflow: visible;
-    }
+  &:where(.overflow-visible) {
+    overflow: visible;
+  }
 
-    &:where(.overflow-hidden) {
-      overflow: hidden;
-    }
+  &:where(.overflow-hidden) {
+    overflow: hidden;
+  }
 
-    &:where(.overflow-scroll) {
-      overflow: scroll;
-    }
+  &:where(.overflow-scroll) {
+    overflow: scroll;
+  }
 
-    &:where(.overflow-auto) {
-      overflow: auto;
-    }
+  &:where(.overflow-auto) {
+    overflow: auto;
+  }
 
-    &:where(.overflow-x-visible) {
-      overflow-x: visible;
-    }
+  &:where(.overflow-x-visible) {
+    overflow-x: visible;
+  }
 
-    &:where(.overflow-x-hidden) {
-      overflow-x: hidden;
-    }
+  &:where(.overflow-x-hidden) {
+    overflow-x: hidden;
+  }
 
-    &:where(.overflow-x-scroll) {
-      overflow-x: scroll;
-    }
+  &:where(.overflow-x-scroll) {
+    overflow-x: scroll;
+  }
 
-    &:where(.overflow-x-auto) {
-      overflow-x: auto;
-    }
+  &:where(.overflow-x-auto) {
+    overflow-x: auto;
+  }
 
-    &:where(.overflow-y-visible) {
-      overflow-y: visible;
-    }
+  &:where(.overflow-y-visible) {
+    overflow-y: visible;
+  }
 
-    &:where(.overflow-y-hidden) {
-      overflow-y: hidden;
-    }
+  &:where(.overflow-y-hidden) {
+    overflow-y: hidden;
+  }
 
-    &:where(.overflow-y-scroll) {
-      overflow-y: scroll;
-    }
+  &:where(.overflow-y-scroll) {
+    overflow-y: scroll;
+  }
 
-    &:where(.overflow-y-auto) {
-      overflow-y: auto;
-    }
+  &:where(.overflow-y-auto) {
+    overflow-y: auto;
   }
 }
