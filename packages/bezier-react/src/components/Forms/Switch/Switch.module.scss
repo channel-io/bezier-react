@@ -1,0 +1,80 @@
+@layer components {
+  .Switch {
+    --b-switch-width: auto;
+    --b-switch-height: auto;
+
+    all: unset;
+    position: relative;
+    width: var(--b-switch-width);
+    height: var(--b-switch-height);
+    cursor: pointer;
+
+    &:where(.size-s) {
+      --b-switch-width: 30px;
+      --b-switch-height: 20px;
+    }
+
+    &:where(.size-m) {
+      --b-switch-width: 36px;
+      --b-switch-height: 24px;
+    }
+
+    overflow: hidden;
+    border-radius: var(--radius-12);
+    background-color: var(--bg-black-dark);
+
+    &:where(&[data-state='checked']) {
+      background-color: var(--bgtxt-green-normal);
+
+      &:hover {
+        background-color: var(--bgtxt-green-dark);
+      }
+    }
+
+    opacity: initial;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: var(--opacity-disabled);
+    }
+
+    &:focus-visible {
+      box-shadow: var(--input-box-shadow-focused); 
+    }
+
+    transition: background-color var(--transition-s), opacity var(--transition-s);
+  }
+
+  .SwitchThumb {
+    --b-switch-thumb-size: auto;
+    --b-switch-thumb-padding: 3px;
+
+    all: unset;
+
+    position: absolute;
+    top: var(--b-switch-thumb-padding);
+    left: var(--b-switch-thumb-padding);
+    width: var(--b-switch-thumb-size);
+    height: var(--b-switch-thumb-size);
+
+    &:where(.size-s) {
+      --b-switch-thumb-size: 14px;
+    }
+    
+    &:where(.size-m) {
+      --b-switch-thumb-size: 18px;
+    }
+
+    overflow: hidden;
+    border-radius: var(--radius-12);
+    box-shadow: var(--ev-2);
+    background-color: var(--bgtxt-absolute-white-dark);
+
+    transform: initial;
+    transition: transform var(--transition-s);
+
+    &:where(&[data-state='checked']) {
+      transform: translateX(calc(var(--b-switch-width) - var(--b-switch-thumb-size) - (var(--b-switch-thumb-padding) * 2)));
+    }
+  }
+}

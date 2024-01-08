@@ -5,13 +5,14 @@ import React, {
 } from 'react'
 
 import * as SwitchPrimitive from '@radix-ui/react-switch'
+import classNames from 'classnames'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
 import type SwitchProps from './Switch.types'
 import { SwitchSize } from './Switch.types'
 
-import * as Styled from './Switch.styled'
+import styles from './Switch.module.scss'
 
 export const SWITCH_TEST_ID = 'bezier-react-switch'
 export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
@@ -44,18 +45,25 @@ export const Switch = forwardRef(function Switch(
       disabled={disabled}
       {...ownProps}
     >
-      <Styled.SwitchRoot
+      <button
         ref={forwardedRef}
-        size={size}
         data-testid={testId}
+        className={classNames(
+          styles.Switch,
+          styles[`size-${size}`],
+        )}
+        type="button"
       >
         <SwitchPrimitive.Thumb asChild>
-          <Styled.SwitchThumb
-            size={size}
+          <span
             data-testid={handleTestId}
+            className={classNames(
+              styles.SwitchThumb,
+              styles[`size-${size}`],
+            )}
           />
         </SwitchPrimitive.Thumb>
-      </Styled.SwitchRoot>
+      </button>
     </SwitchPrimitive.Root>
   )
 })
