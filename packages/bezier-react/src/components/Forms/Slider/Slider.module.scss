@@ -25,6 +25,7 @@
     flex: 1;
     height: 6px;
     background-color: var(--bg-black-dark);
+    border-radius: var(--radius-3);
     border-radius: 3px;
   }
 
@@ -32,7 +33,7 @@
     position: absolute;
     height: 100%;
     background-color: var(--bgtxt-green-normal);
-    border-radius: 3px;
+    border-radius: var(--radius-3);
   }
 
   .GuideContainer {
@@ -62,7 +63,7 @@
     display: block;
     width: var(--b-slider-thumb-size);
     height: var(--b-slider-thumb-size);
-    border-radius: 12px;
+    border-radius: var(--radius-12);
 
     box-shadow: var(--ev-2);
     background-color: var(--bgtxt-absolute-white-dark);
