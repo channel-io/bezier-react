@@ -8,7 +8,7 @@ import {
   SWITCH_TEST_ID,
   Switch,
 } from './Switch'
-import type SwitchProps from './Switch.types'
+import { type SwitchProps } from './Switch.types'
 
 describe('Switch', () => {
   const renderComponent = (props?: Partial<SwitchProps>) => render(

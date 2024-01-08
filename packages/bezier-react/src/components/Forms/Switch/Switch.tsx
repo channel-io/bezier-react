@@ -10,8 +10,10 @@ import {
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
-import type SwitchProps from './Switch.types'
-import { SwitchSize } from './Switch.types'
+import {
+  type SwitchProps,
+  SwitchSize,
+} from './Switch.types'
 
 import styles from './Switch.module.scss'
 

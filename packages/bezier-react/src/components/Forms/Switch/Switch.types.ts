@@ -56,7 +56,7 @@ interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   value?: string
 }
 
-export default interface SwitchProps extends
+export interface SwitchProps extends
   AlphaBezierComponentProps,
   SizeProps<SwitchSize>,
   FormComponentProps,
