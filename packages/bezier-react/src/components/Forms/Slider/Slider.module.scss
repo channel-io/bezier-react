@@ -1,0 +1,81 @@
+@layer components {
+  .Slider {
+    --b-slider-width: auto;
+    --b-slider-thumb-size: 20px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: var(--b-slider-width);
+    height: var(--b-slider-thumb-size);
+    touch-action: none;
+    cursor: pointer;
+    user-select: none;
+
+    &[data-disabled] {
+      cursor: not-allowed;
+      opacity: var(--opacity-disabled);
+    }
+
+    transition: opacity var(--transition-s);
+  }
+
+  .SliderPrimitiveTrack {
+    position: relative;
+    flex: 1;
+    height: 6px;
+    background-color: var(--bg-black-dark);
+    border-radius: 3px;
+  }
+
+  .SliderPrimitiveRange {
+    position: absolute;
+    height: 100%;
+    background-color: var(--bgtxt-green-normal);
+    border-radius: 3px;
+  }
+
+  .GuideContainer {
+    --b-slider-guide-height: 8px;
+
+    position: absolute;
+    top: calc(-1 * (var(--b-slider-guide-height) + 3px));
+    left: calc(var(--b-slider-thumb-size) / 2);
+    width: calc(100% - var(--b-slider-thumb-size));
+  }
+
+  .SliderGuide {
+    --b-slider-guide-left: 0;
+
+    position: absolute;
+    top: 0;
+    left: var(--b-slider-guide-left);
+    width: 2px;
+    height: var(--b-slider-guide-height);
+    background-color: var(--bg-black-light);
+    border-radius: 1px;
+    transform: translateX(-50%);
+  }
+
+  .SliderThumb {
+    all: unset;
+    display: block;
+    width: var(--b-slider-thumb-size);
+    height: var(--b-slider-thumb-size);
+    border-radius: 12px;
+
+    box-shadow: var(--ev-2);
+    background-color: var(--bgtxt-absolute-white-dark);
+
+    &:hover {
+      box-shadow: var(--ev-3);
+      background-color: var(--bgtxt-absolute-white-dark);
+    }
+
+    &:focus-visible {
+      box-shadow: var(--input-box-shadow-focused);
+    }
+
+    transition: box-shadow var(--transition-s);
+  }
+}

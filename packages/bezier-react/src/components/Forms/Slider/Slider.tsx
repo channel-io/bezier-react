@@ -1,4 +1,5 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
 } from 'react'
@@ -14,7 +15,7 @@ import {
 
 import type SliderProps from './Slider.types'
 
-import * as Styled from './Slider.styled'
+import styles from './Slider.module.scss'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 
@@ -24,7 +25,8 @@ const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function Slide
   value,
 }) {
   return (
-    <Styled.SliderGuide
+    <div
+      className={styles.SliderGuide}
       style={{
         '--b-slider-guide-left': `${(value / (max - min)) * 100}%`,
       } as React.CSSProperties}
@@ -41,8 +43,9 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
 
   if (disableTooltip) {
     return (
-      <Styled.SliderThumb
+      <div
         ref={forwardedRef}
+        className={styles.SliderThumb}
         {...rest}
       />
     )
@@ -55,8 +58,9 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
       placement={TooltipPosition.TopCenter}
       onPointerDownOutside={e => e.preventDefault()}
     >
-      <Styled.SliderThumb
+      <div
         ref={forwardedRef}
+        className={styles.SliderThumb}
         {...rest}
       />
     </Tooltip>
@@ -97,11 +101,11 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
   const targetValue = value || defaultValue
 
   return (
-    <Styled.SliderPrimitiveRoot
+    <SliderPrimitive.Root
       style={{
         ...style,
         '--b-slider-width': cssDimension(width),
-      }}
+      } as CSSProperties}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}
       orientation="horizontal"
@@ -112,13 +116,14 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       max={max}
       step={step}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
+      className={styles.Slider}
       {...rest}
     >
-      <Styled.SliderPrimitiveTrack>
-        <Styled.SliderPrimitiveRange />
+      <SliderPrimitive.Track className={styles.SliderPrimitiveTrack}>
+        <SliderPrimitive.Range className={styles.SliderPrimitiveRange} />
 
         { guide && (
-          <Styled.GuideContainer>
+          <div className={styles.GuideContainer}>
             { guide.map((guideValue) => (
               <SliderGuide
                 key={`slider-guide-${guideValue}`}
@@ -127,9 +132,9 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
                 value={guideValue}
               />
             )) }
-          </Styled.GuideContainer>
+          </div>
         ) }
-      </Styled.SliderPrimitiveTrack>
+      </SliderPrimitive.Track>
 
       { targetValue.map((_, i) => (
         <SliderPrimitive.Thumb
@@ -137,9 +142,12 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
           key={`slider-thumb-${i}`}
           asChild
         >
-          <SliderThumb disableTooltip={disableTooltip} />
+          <SliderThumb
+            className={styles.SliderThumb}
+            disableTooltip={disableTooltip}
+          />
         </SliderPrimitive.Thumb>
       )) }
-    </Styled.SliderPrimitiveRoot>
+    </SliderPrimitive.Root>
   )
 })
