@@ -16,6 +16,8 @@ import nodeExternals from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
 import { visualizer } from 'rollup-plugin-visualizer'
 
+import postcssAutoLayer from './postcss-auto-layer.mjs'
+
 const pkg = JSON.parse(
   readFileSync(fileURLToPath(new URL('./package.json', import.meta.url))),
 )
@@ -78,6 +80,10 @@ const generateConfig = ({
       plugins: [
         autoprefixer(),
         postcssPresetEnv(),
+        postcssAutoLayer({
+          name: 'components',
+          path: '**/components/**/*.module.scss',
+        }),
       ],
     }),
     /**
