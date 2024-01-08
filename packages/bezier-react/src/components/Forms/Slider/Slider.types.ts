@@ -4,7 +4,7 @@ import type {
   MarginProps,
 } from '~/src/types/ComponentProps'
 
-interface SliderOptions {
+interface SliderOwnProps {
   /**
    * Width of the slider.
    * @default 36
@@ -56,6 +56,11 @@ interface SliderOptions {
    */
   disableTooltip?: boolean
   /**
+   * The reading direction of the slider.
+   * @default 'ltr'
+   */
+  dir?: 'ltr' | 'rtl'
+  /**
    * Event handler called when the value changes.
    */
   onValueChange?: (value: number[]) => void
@@ -69,6 +74,6 @@ interface SliderOptions {
 export default interface SliderProps extends
   AlphaBezierComponentProps,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions>,
+  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOwnProps>,
   MarginProps,
-  SliderOptions {}
+  SliderOwnProps {}

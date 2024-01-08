@@ -103,6 +103,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
     max = 10,
     step = 1,
     minStepsBetweenThumbs = 0,
+    dir = 'ltr',
     disableTooltip = false,
     className,
     ...rest
@@ -126,6 +127,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
       min={min}
       max={max}
       step={step}
+      dir={dir}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
       className={classNames(
         styles.Slider,
