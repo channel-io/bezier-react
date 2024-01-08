@@ -1,135 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider Snapshot should match snapshot 1`] = `
-.c0 {
-  --b-slider-width: auto;
-  --b-slider-thumb-size: 20px;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: var(--b-slider-width);
-  height: var(--b-slider-thumb-size);
-  touch-action: none;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-}
-
-.c0[data-disabled] {
-  cursor: not-allowed;
-  opacity: var(--opacity-disabled);
-}
-
-.c1 {
-  position: relative;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  height: 6px;
-  background-color: var(--bg-black-dark);
-  border-radius: 3px;
-}
-
-.c2 {
-  position: absolute;
-  height: 100%;
-  background-color: var(--bgtxt-green-normal);
-  border-radius: 3px;
-}
-
-.c3 {
-  --b-slider-guide-height: 8px;
-  position: absolute;
-  top: calc(-1 * (var(--b-slider-guide-height) + 3px));
-  left: calc(var(--b-slider-thumb-size) / 2);
-  width: calc(100% - var(--b-slider-thumb-size));
-}
-
-.c4 {
-  --b-slider-guide-left: 0;
-  position: absolute;
-  top: 0;
-  left: var(--b-slider-guide-left);
-  width: 2px;
-  height: var(--b-slider-guide-height);
-  background-color: var(--bg-black-light);
-  border-radius: 1px;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.c5 {
-  all: unset;
-  display: block;
-  width: var(--b-slider-thumb-size);
-  height: var(--b-slider-thumb-size);
-  border-radius: 12px;
-  background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 2px 6px #00000014;
-  background-color: var(--bgtxt-absolute-white-dark);
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: box-shadow;
-  transition-property: box-shadow;
-}
-
-.c5:hover {
-  background-color: #FFFFFF;
-  box-shadow: inset 0 0 2px 0 #FFFFFF1F, 0 0 2px 1px #0000000D, 0 4px 12px #00000026;
-  background-color: var(--bgtxt-absolute-white-dark);
-}
-
-.c5:focus-visible {
-  box-shadow: 0 0 0 3px #5E56F04D, inset 0 0 0 1px #5E56F0;
-}
-
 <div>
   <span
     aria-disabled="false"
-    class="c0"
+    class="Slider margin"
     data-orientation="horizontal"
     data-testid="bezier-react-slider"
     dir="ltr"
-    foundation="[object Object]"
     style="--b-slider-width: 36px; --radix-slider-thumb-transform: translateX(-50%);"
   >
     <span
-      class="c1"
+      class="SliderPrimitiveTrack"
       data-orientation="horizontal"
-      foundation="[object Object]"
     >
       <span
-        class="c2"
+        class="SliderPrimitiveRange"
         data-orientation="horizontal"
-        foundation="[object Object]"
         style="left: 0%; right: 50%;"
       />
       <div
-        class="c3"
+        class="GuideContainer"
       >
         <div
-          class="c4"
+          class="SliderGuide"
           style="--b-slider-guide-left: 50%;"
         />
       </div>
@@ -142,7 +36,7 @@ exports[`Slider Snapshot should match snapshot 1`] = `
         aria-valuemax="10"
         aria-valuemin="0"
         aria-valuenow="5"
-        class="c5"
+        class="SliderThumb"
         data-orientation="horizontal"
         data-radix-collection-item=""
         data-state="closed"
