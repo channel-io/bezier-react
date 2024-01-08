@@ -18,10 +18,10 @@
     &:where(.size-xs) {
       --b-segmented-control-height: 24px;
       --b-segmented-control-padding: 1px;
-      border-radius: 6px;
+      border-radius: var(--radius-6);
 
       & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-        border-radius: 4px;
+        border-radius: 5px;
       }
 
       & :where(.SegmentedControlItem) {
@@ -32,10 +32,10 @@
     &:where(.size-s) {
       --b-segmented-control-height: 28px;
       --b-segmented-control-padding: 2px;
-      border-radius: 8px;
+      border-radius: var(--radius-8);
 
       & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-        border-radius: 6px;
+        border-radius: 5px;
       }
 
       & :where(.SegmentedControlItem) {
@@ -46,10 +46,10 @@
     &:where(.size-m) {
       --b-segmented-control-height: 36px;
       --b-segmented-control-padding: 2px;
-      border-radius: 8px;
+      border-radius: var(--radius-8);
 
       & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-        border-radius: 6px;
+        border-radius: var(--radius-6);
       }
 
       & :where(.SegmentedControlItem) {
@@ -60,10 +60,10 @@
     &:where(.size-l) {
       --b-segmented-control-height: 44px;
       --b-segmented-control-padding: 4px;
-      border-radius: 12px;
+      border-radius: var(--radius-12);
 
       & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-        border-radius: 8px;
+        border-radius: var(--radius-8);
       }
 
       & :where(.SegmentedControlItem) {
@@ -89,7 +89,7 @@
     background-color: var(--bg-white-high);
     box-shadow: var(--ev-1);
     transform: translateX(calc((var(--b-segmented-control-item-index) * 100%) + var(--b-segmented-control-item-index) * var(--b-divider-thickness))) translateY(-50%);
-    transition: transform var(--transition-m);
+    transition: transform var(--transition-s);
   }
 
   .SegmentedControlItem {
