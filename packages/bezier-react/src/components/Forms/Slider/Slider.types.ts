@@ -1,6 +1,7 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   DisableProps,
+  MarginProps,
 } from '~/src/types/ComponentProps'
 
 interface SliderOptions {
@@ -66,7 +67,8 @@ interface SliderOptions {
 }
 
 export default interface SliderProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions | 'dir'>,
+  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOptions>,
+  MarginProps,
   SliderOptions {}

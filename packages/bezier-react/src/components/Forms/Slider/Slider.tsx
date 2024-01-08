@@ -5,7 +5,12 @@ import React, {
 } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
+import classNames from 'classnames'
 
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { cssDimension } from '~/src/utils/style'
 
 import {
@@ -84,26 +89,32 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
  * <Slider defaultValue={[1]} />
  * ```
  */
-export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
-  style,
-  width = 36,
-  guide,
-  defaultValue = [0],
-  value,
-  disabled = false,
-  min = 0,
-  max = 10,
-  step = 1,
-  minStepsBetweenThumbs = 0,
-  disableTooltip = false,
-  ...rest
-}, forwardedRef) {
+export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+  const {
+    style,
+    width = 36,
+    guide,
+    defaultValue = [0],
+    value,
+    disabled = false,
+    min = 0,
+    max = 10,
+    step = 1,
+    minStepsBetweenThumbs = 0,
+    disableTooltip = false,
+    className,
+    ...rest
+  } = marginRest
+
   const targetValue = value || defaultValue
 
   return (
     <SliderPrimitive.Root
       style={{
         ...style,
+        ...marginStyles.style,
         '--b-slider-width': cssDimension(width),
       } as CSSProperties}
       data-testid={SLIDER_TEST_ID}
@@ -116,7 +127,11 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       max={max}
       step={step}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
-      className={styles.Slider}
+      className={classNames(
+        styles.Slider,
+        marginStyles.className,
+        className,
+      )}
       {...rest}
     >
       <SliderPrimitive.Track className={styles.SliderPrimitiveTrack}>
