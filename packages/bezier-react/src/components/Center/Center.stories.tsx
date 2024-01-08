@@ -3,6 +3,7 @@ import React from 'react'
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { Center } from './Center'
@@ -18,7 +19,7 @@ const Template: StoryFn<CenterProps> = ({ children, ...rest }) => (
   </Center>
 )
 
-export const Primary = {
+export const Primary: StoryObj<typeof meta> = {
   render: Template,
   args: {
     style: {
@@ -26,7 +27,7 @@ export const Primary = {
     },
     width: 200,
     height: 200,
-    bgColor: 'bg-black-light',
+    backgroundColor: 'bg-black-light',
     borderRadius: '8',
     borderWidth: 1,
     borderColor: 'bdr-black-light',
