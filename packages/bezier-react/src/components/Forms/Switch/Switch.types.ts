@@ -2,7 +2,8 @@ import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch
 
 import type {
   AdditionalTestIdProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -13,7 +14,7 @@ export enum SwitchSize {
   S = 's',
 }
 
-interface SwitchOptions extends Omit<SwitchPrimitiveProps, 'asChild'> {
+interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   /**
    * The state of the switch when it is initially rendered.
    * Use when you do not need to control its state.
@@ -56,8 +57,9 @@ interface SwitchOptions extends Omit<SwitchPrimitiveProps, 'asChild'> {
 }
 
 export default interface SwitchProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   SizeProps<SwitchSize>,
   FormComponentProps,
   AdditionalTestIdProps<'handle'>,
-  SwitchOptions {}
+  MarginProps,
+  SwitchOwnProps {}

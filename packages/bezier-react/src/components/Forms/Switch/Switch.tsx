@@ -1,11 +1,12 @@
-import React, {
-  type ReactElement,
-  type Ref,
-  forwardRef,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 import classNames from 'classnames'
+
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 
@@ -17,18 +18,21 @@ import styles from './Switch.module.scss'
 export const SWITCH_TEST_ID = 'bezier-react-switch'
 export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
-export const Switch = forwardRef(function Switch(
-  {
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+  const {
     testId = SWITCH_TEST_ID,
     handleTestId = SWITCH_HANDLE_TEST_ID,
     checked,
     defaultChecked = false,
     onCheckedChange,
     size = SwitchSize.M,
+    style,
+    className,
     ...rest
-  }: SwitchProps,
-  forwardedRef: Ref<HTMLButtonElement>,
-): ReactElement {
+  } = marginRest
+
   const {
     disabled,
     required,
@@ -48,9 +52,15 @@ export const Switch = forwardRef(function Switch(
       <button
         ref={forwardedRef}
         data-testid={testId}
+        style={{
+          ...style,
+          ...marginStyles.style,
+        }}
         className={classNames(
           styles.Switch,
           styles[`size-${size}`],
+          marginStyles.className,
+          className,
         )}
         type="button"
       >
