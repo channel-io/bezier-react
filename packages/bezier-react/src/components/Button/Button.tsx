@@ -40,8 +40,6 @@ import {
 import styles from './Button.module.scss'
 
 export const BUTTON_TEST_ID = 'bezier-react-button'
-export const BUTTON_INNER_CONTENT_TEST_ID = 'bezier-react-button-inner-content'
-export const BUTTON_TEXT_TEST_ID = 'bezier-react-button-text'
 
 function getTypography(size: ButtonSize) {
   return {
@@ -164,7 +162,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           styles.ButtonContent,
           loading && styles.loading,
         )}
-        data-testid={BUTTON_INNER_CONTENT_TEST_ID}
       >
         <ButtonSideContent size={size}>
           { leftContent }
@@ -173,7 +170,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
         { text && (
           <Text
             className={styles.ButtonText}
-            testId={BUTTON_TEXT_TEST_ID}
             typo={getTypography(size)}
             bold
           >
