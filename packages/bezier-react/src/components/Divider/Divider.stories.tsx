@@ -11,7 +11,7 @@ import { styled } from '~/src/foundation'
 import { ListItem } from '~/src/components/ListItem'
 
 import { Divider } from './Divider'
-import type DividerProps from './Divider.types'
+import { type DividerProps } from './Divider.types'
 
 const meta = {
   component: Divider,

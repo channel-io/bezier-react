@@ -29,7 +29,7 @@ interface DividerOwnProps {
   withoutIndent?: boolean
 }
 
-export default interface DividerProps extends
+export interface DividerProps extends
   AlphaBezierComponentProps,
   SeparatorPrimitiveProps,
   DividerOwnProps {}

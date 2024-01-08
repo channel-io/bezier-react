@@ -3,9 +3,10 @@ import type React from 'react'
 import type * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type DisableProps,
+  type MarginProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
@@ -21,7 +22,7 @@ export enum SegmentedControlSize {
 
 export type SegmentedControlType = 'radiogroup' | 'tabs'
 
-type SegmentedControlNonValueOptions<Type extends SegmentedControlType> = {
+type SegmentedControlNonValueProps<Type extends SegmentedControlType> = {
   /**
    * The element type of segmented control.
    * It can be either `radiogroup` or `tabs`
@@ -35,7 +36,7 @@ type SegmentedControlNonValueOptions<Type extends SegmentedControlType> = {
   width?: React.CSSProperties['width']
 }
 
-type SegmentedControlValueOptions<Value extends string> = {
+type SegmentedControlValueProps<Value extends string> = {
   /**
    * The controlled value of the item to check.
    * It should be used in conjunction with `onValueChange`.
@@ -52,15 +53,18 @@ type SegmentedControlValueOptions<Value extends string> = {
   onValueChange?: (value: Value) => void
 }
 
-type SegmentedControlRadioGroupSpecificOptions = FormComponentProps & {
+type SegmentedControlRadioGroupSpecificProps =
+  & FormComponentProps
+  & MarginProps
+  & {
   /**
    * The name of the group.
    * Submitted with its owning form as part of a name/value pair.
    */
-  name?: string
-}
+    name?: string
+  }
 
-interface SegmentedControlItemOptions<Value extends string> {
+interface SegmentedControlItemOwnProps<Value extends string> {
   /**
    * The value of the item.
    *
@@ -71,40 +75,41 @@ interface SegmentedControlItemOptions<Value extends string> {
   value: Value
 }
 
-interface SegmentedControlTabContentOptions<Value extends string> {
+interface SegmentedControlTabContentOwnProps<Value extends string> {
   /**
    * A unique value that associates the item with a content.
    */
   value: Value
 }
 
-type SegmentedControlOptions<Type extends SegmentedControlType, Value extends string> =
+type SegmentedControlOwnProps<Type extends SegmentedControlType, Value extends string> =
   (Type extends 'radiogroup'
-    ? SegmentedControlRadioGroupSpecificOptions
+    ? SegmentedControlRadioGroupSpecificProps
     : {})
-  & SegmentedControlNonValueOptions<Type>
-  & SegmentedControlValueOptions<Value>
+  & SegmentedControlNonValueProps<Type>
+  & SegmentedControlValueProps<Value>
 
 type RadixTabsPredefinedPropKeys = 'dir'
 
 export type SegmentedControlProps<Type extends SegmentedControlType, Value extends string> =
-  & BezierComponentProps
+  & AlphaBezierComponentProps
   & ChildrenProps
   & SizeProps<SegmentedControlSize>
   & Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabsPredefinedPropKeys>
-  & SegmentedControlOptions<Type, Value>
+  & SegmentedControlOwnProps<Type, Value>
 
 export interface SegmentedControlRadioGroupProps<Value extends string> extends
-  Omit<SegmentedControlProps<'radiogroup', Value>, keyof SegmentedControlNonValueOptions<'radiogroup'>> {}
+  Omit<SegmentedControlProps<'radiogroup', Value>, keyof SegmentedControlNonValueProps<'radiogroup'>> {}
 
 export interface SegmentedControlTabsProps<Value extends string> extends
-  Omit<SegmentedControlProps<'tabs', Value>, keyof SegmentedControlNonValueOptions<'tabs'>> {}
+  Omit<SegmentedControlProps<'tabs', Value>, keyof SegmentedControlNonValueProps<'tabs'>> {}
 
 type RadixTabListPredefinedPropKeys = 'defaultValue'
 
 export interface SegmentedControlTabListProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabListPredefinedPropKeys>,
+  MarginProps,
   ChildrenProps {}
 
 export type SegmentedControlItemListProps<Type extends SegmentedControlType, Value extends string> =
@@ -113,16 +118,16 @@ export type SegmentedControlItemListProps<Type extends SegmentedControlType, Val
     : SegmentedControlTabListProps
 
 export interface SegmentedControlItemProps<Value extends string> extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
   React.HTMLAttributes<HTMLButtonElement>,
   SideContentProps,
-  SegmentedControlItemOptions<Value> {}
+  SegmentedControlItemOwnProps<Value> {}
 
 export interface SegmentedControlTabContentProps<Value extends string> extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLDivElement>,
   Pick<TabsPrimitive.TabsContentProps, 'forceMount'>,
-  SegmentedControlTabContentOptions<Value> {}
+  SegmentedControlTabContentOwnProps<Value> {}

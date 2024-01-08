@@ -12,6 +12,7 @@ import {
 
 import {
   SegmentedControl,
+  SegmentedControlItem,
   SegmentedControlTabContent,
   SegmentedControlTabList,
 } from './SegmentedControl'
@@ -19,8 +20,6 @@ import {
   type SegmentedControlProps,
   type SegmentedControlType,
 } from './SegmentedControl.types'
-import { SEGMENTED_CONTROL_INDICATOR_TEST_ID } from './SegmentedControlIndicator'
-import { SegmentedControlItem } from './SegmentedControlItem'
 
 const MOCK_UI_DATA = [
   {
@@ -301,21 +300,6 @@ describe('SegmentedControl >', () => {
         expect(nextItem).toHaveFocus()
         expect(nextItem).toHaveAttribute('data-checked', 'true')
       })
-    })
-  })
-
-  describe('Indicator', () => {
-    it('has appropriate css variable in style', () => {
-      const { getByTestId } = renderComponent({
-        type: 'radiogroup',
-        value: MOCK_UI_DATA[0].value,
-      })
-
-      const indicator = getByTestId(SEGMENTED_CONTROL_INDICATOR_TEST_ID)
-
-      expect(indicator).toHaveStyle('width: var(--b-segmented-control-indicator-width)')
-      expect(indicator).toHaveStyle('height: var(--b-segmented-control-indicator-height)')
-      expect(indicator).toHaveStyle('transform: translateX(var(--b-segmented-control-indicator-translateX)) translateY(-50%)')
     })
   })
 

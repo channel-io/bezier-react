@@ -2,9 +2,8 @@ export {
   SegmentedControl,
   SegmentedControlTabList,
   SegmentedControlTabContent,
+  SegmentedControlItem,
 } from './SegmentedControl'
-
-export { SegmentedControlItem } from './SegmentedControlItem'
 
 export { SegmentedControlSize } from './SegmentedControl.types'
 
