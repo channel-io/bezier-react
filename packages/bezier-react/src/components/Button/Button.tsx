@@ -28,7 +28,6 @@ import { Text } from '~/src/components/Text'
 
 import type {
   ButtonProps,
-  MouseEventHandler,
   SideContent,
 } from './Button.types'
 import {
@@ -124,7 +123,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     ...rest
   } = marginRest
 
-  const handleClick = useCallback<MouseEventHandler>((event) => {
+  const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>((event) => {
     if (!disabled) {
       onClick?.(event)
     }

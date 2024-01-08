@@ -42,9 +42,6 @@ export enum ButtonSize {
 
 export type SideContent = React.ReactNode | BezierIcon
 
-export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
-type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
-
 interface ButtonOwnProps {
   /**
    * `type` attribute of typical HTML button.
@@ -92,26 +89,6 @@ interface ButtonOwnProps {
    * @default ButtonColorVariant.Blue
    */
   colorVariant?: ButtonColorVariant
-
-  /**
-   * The handler to be executed when the button is clicked.
-   */
-  onClick?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse enters the button.
-   */
-  onMouseEnter?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse leaves the button.
-   */
-  onMouseLeave?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the button is unfocused.
-   */
-  onBlur?: FocusEventHandler
 }
 
 export interface ButtonProps extends
