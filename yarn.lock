@@ -2977,6 +2977,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     jest-styled-components: ^7.1.1
     lightningcss: ^1.22.1
+    minimatch: ^9.0.3
     paths.macro: ^3.0.1
     postcss: ^8.4.33
     postcss-preset-env: ^9.3.0
