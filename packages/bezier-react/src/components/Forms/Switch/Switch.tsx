@@ -18,6 +18,17 @@ import styles from './Switch.module.scss'
 export const SWITCH_TEST_ID = 'bezier-react-switch'
 export const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
+/**
+ * `Switch` is an input component where user can toggle checked state of the element.
+ *
+ * @example
+ * ```tsx
+ * <Switch
+ *   size={SwitchSize.M}
+ *   checked
+ * />
+ * ```
+ */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyles = getMarginStyles(marginProps)
