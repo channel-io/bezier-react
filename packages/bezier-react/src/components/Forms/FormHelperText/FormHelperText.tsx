@@ -17,19 +17,15 @@ import type {
 
 import styles from './FormHelperText.module.scss'
 
-type ForwardedRef = React.Ref<HTMLParamElement>
-
 export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 
-const BaseHelperText = forwardRef(({
+const BaseHelperText = forwardRef<HTMLParamElement, BaseHelperTextProps>(({
   type,
   typo = '13',
   children,
   ...rest
-}: BaseHelperTextProps,
-forwardedRef: ForwardedRef,
-) => {
+}, forwardedRef) => {
   const contextValue = useFormControlContext()
   const getProps = type === 'info'
     ? contextValue?.getHelperTextProps
@@ -71,14 +67,12 @@ forwardedRef: ForwardedRef,
   )
 })
 
-export const FormHelperText = forwardRef(({
+export const FormHelperText = forwardRef<HTMLParamElement, FormHelperTextProps>(({
   testId = FORM_HELPER_TEXT_TEST_ID,
   color = 'txt-black-dark',
   children,
   ...rest
-}: FormHelperTextProps,
-forwardedRef: ForwardedRef,
-) => (
+}, forwardedRef) => (
   <BaseHelperText
     {...rest}
     type="info"
@@ -90,14 +84,12 @@ forwardedRef: ForwardedRef,
   </BaseHelperText>
 ))
 
-export const FormErrorMessage = forwardRef(({
+export const FormErrorMessage = forwardRef<HTMLParamElement, FormErrorMessageProps>(({
   testId = FORM_ERROR_MESSAGE_TEST_ID,
   color = 'bgtxt-orange-normal',
   children,
   ...rest
-}: FormErrorMessageProps,
-forwardedRef: ForwardedRef,
-) => (
+}, forwardedRef) => (
   <BaseHelperText
     {...rest}
     aria-live="polite"
