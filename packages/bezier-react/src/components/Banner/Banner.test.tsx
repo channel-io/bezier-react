@@ -25,13 +25,13 @@ describe('Banner', () => {
   const renderBanner = (otherProps?: Partial<BannerProps>) => render(<Banner {...props} {...otherProps} />)
 
   it('does not render link if hasLink = false', () => {
-    const { getByRole } = renderBanner()
-    expect(getByRole('link')).toBeNull()
+    const { queryByRole } = renderBanner()
+    expect(queryByRole('link')).toBeNull()
   })
 
   it('renders link if hasLink = true', () => {
-    const { getByRole } = renderBanner({ hasLink: true, linkText: 'foo', linkTo: 'https://google.com' })
-    expect(getByRole('link')).toBeInTheDocument()
+    const { queryByRole } = renderBanner({ hasLink: true, linkText: 'foo', linkTo: 'https://google.com' })
+    expect(queryByRole('link')).toBeInTheDocument()
   })
 
   it('renders action button if actionIcon is correct value', () => {
