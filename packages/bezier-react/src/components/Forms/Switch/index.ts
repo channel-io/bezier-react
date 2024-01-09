@@ -1,9 +1,3 @@
-import { Switch } from './Switch'
-import type SwitchProps from './Switch.types'
-import { SwitchSize } from './Switch.types'
-
-export {
-  Switch,
-  type SwitchProps,
-  SwitchSize,
-}
+export { Switch } from './Switch'
+export { type SwitchProps } from './Switch.types'
+export { SwitchSize } from './Switch.types'

@@ -8,8 +8,10 @@ import {
 import { getObjectFromEnum } from '~/src/utils/story'
 
 import { Switch } from './Switch'
-import type SwitchProps from './Switch.types'
-import { SwitchSize } from './Switch.types'
+import {
+  type SwitchProps,
+  SwitchSize,
+} from './Switch.types'
 
 const meta: Meta<typeof Switch> = {
   component: Switch,
