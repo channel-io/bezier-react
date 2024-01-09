@@ -5,6 +5,10 @@ import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
 import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
+import {
   isNil,
   isString,
 } from '~/src/utils/type'
@@ -61,7 +65,11 @@ const externalLinkRenderer: RenderLinkFunc = ({
 )
 
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+
   const {
+    style,
     className,
     variant = BannerVariant.Default,
     icon,
@@ -74,7 +82,8 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(pr
     actionIcon,
     onClickAction,
     testId = BANNER_TEST_ID,
-  } = props
+    ...rest
+  } = marginRest
 
   if (isIconName(icon)) {
     warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
@@ -83,12 +92,18 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(pr
   return (
     <div
       ref={forwardedRef}
+      style={{
+        ...marginStyles.style,
+        ...style,
+      }}
       className={classNames(
         styles.Banner,
         styles[`variant-${variant}`],
+        marginStyles.className,
         className,
       )}
       data-testid={testId}
+      {...rest}
     >
       { !isNil(icon) && (
         <div className={styles.Center}>

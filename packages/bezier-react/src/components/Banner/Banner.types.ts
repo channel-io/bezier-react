@@ -7,8 +7,9 @@ import {
 
 import type {
   AdditionalColorProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ContentProps,
+  MarginProps,
   VariantProps,
 } from '~/src/types/ComponentProps'
 
@@ -29,7 +30,7 @@ export type RenderLinkFunc = (props: {
   linkTo?: string
 }) => JSX.Element
 
-interface BannerOptions {
+interface BannerOwnProps {
   /**
    * The name of icon to display at the top left of the banner.
    *
@@ -85,8 +86,10 @@ interface BannerOptions {
 }
 
 export interface BannerProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   VariantProps<BannerVariant>,
-  ContentProps<string | ReactNode>,
+  ContentProps,
   AdditionalColorProps<'icon'>,
-  BannerOptions {}
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
+  MarginProps,
+  BannerOwnProps {}
