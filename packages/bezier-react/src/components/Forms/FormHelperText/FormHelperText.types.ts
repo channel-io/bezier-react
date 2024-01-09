@@ -1,5 +1,5 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type IdentifierProps,
 } from '~/src/types/ComponentProps'
@@ -11,7 +11,7 @@ interface BaseHelperTextOptions {
 }
 
 export interface BaseHelperTextProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   Partial<IdentifierProps>,
   Omit<TextProps, 'as'>,

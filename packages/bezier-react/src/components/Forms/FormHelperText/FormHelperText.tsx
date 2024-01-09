@@ -24,7 +24,6 @@ export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 
 const BaseHelperText = forwardRef(({
-  as = 'p',
   type,
   typo = '13',
   children,
