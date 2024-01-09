@@ -13,11 +13,11 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:focus:not(:disabled) {
-    box-shadow: 0 0 0 3px var(--bgtxt-cobalt-light);
+    outline: 3px solid var(--bgtxt-cobalt-light);
   }
 
   &:focus:not(:focus-visible) {
-    box-shadow: none;
+    outline: none;
   }
 
   /* Size */
@@ -254,11 +254,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   &:is(.style-floating, .style-floating-alt) {
     box-shadow: var(--ev-2);
 
-    &:focus:not(:focus-visible) {
-      box-shadow: var(--ev-2);
-    }
-
-    &:is(:hover, :focus:not(:focus-visible):hover) {
+    &:hover {
       box-shadow: var(--ev-3);
     }
   }
