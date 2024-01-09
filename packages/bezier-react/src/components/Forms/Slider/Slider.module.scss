@@ -1,6 +1,6 @@
 @layer components {
   .Slider {
-    --b-slider-width: auto;
+    --b-slider-width: initial;
     --b-slider-thumb-size: 20px;
 
     position: relative;
@@ -70,7 +70,6 @@
 
     &:hover {
       box-shadow: var(--ev-3);
-      background-color: var(--bgtxt-absolute-white-dark);
     }
 
     &:focus-visible {
