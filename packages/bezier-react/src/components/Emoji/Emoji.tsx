@@ -9,6 +9,7 @@ import {
   getMarginStyles,
   splitByMarginProps,
 } from '~/src/utils/props'
+import { cssUrl } from '~/src/utils/style'
 
 import {
   type EmojiProps,
@@ -51,7 +52,7 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props
       role="img"
       aria-label={name}
       style={{
-        '--b-emoji-background-image': `url(${imageUrl})`,
+        '--b-emoji-background-image': cssUrl(imageUrl),
         ...marginStyles.style,
         ...style,
       } as CSSProperties}
