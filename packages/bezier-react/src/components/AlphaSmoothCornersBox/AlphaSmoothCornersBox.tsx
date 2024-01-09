@@ -1,7 +1,6 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
+
+import classNames from 'classnames'
 
 import {
   FeatureType,
@@ -14,7 +13,7 @@ import {
 
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
-import * as Styled from './AlphaSmoothCornersBox.styled'
+import styles from './AlphaSmoothCornersBox.module.scss'
 
 /**
  * `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
@@ -23,62 +22,60 @@ import * as Styled from './AlphaSmoothCornersBox.styled'
  * @example
  *
  * ```tsx
- * <FeatureProvider features={[SmoothCornersFeature]}>
+ * <AppProvider features={[SmoothCornersFeature]}>
  *   <AlphaSmoothCornersBox />
- * </FeatureProvider>
+ * </AppProvider>
  * ```
  */
-export const AlphaSmoothCornersBox = forwardRef<HTMLElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
+export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
   children,
+  style,
+  className,
+  testId,
   disabled,
   borderRadius,
   margin,
   shadow,
   backgroundColor,
   backgroundImage,
-  style: styleProp,
   ...rest
 }, forwardedRef) {
-  const smoothCornersEnabled = useFeatureFlag(FeatureType.SmoothCorners)
-  const enabled = !disabled && smoothCornersEnabled
-
   const shadowSpreadRadius = shadow?.spreadRadius ?? 0
 
-  const style = useMemo(() => ({
-    ...styleProp,
-    '--b-alpha-smooth-corners-box-border-radius': borderRadius,
-    '--b-alpha-smooth-corners-box-border-radius-type': typeof borderRadius,
-    '--b-alpha-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
-    '--b-alpha-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
-    '--b-alpha-smooth-corners-box-shadow-blur-radius': `${shadow?.blurRadius ?? 0}px`,
-    '--b-alpha-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
-    '--b-alpha-smooth-corners-box-shadow-color': cssVar(shadow?.color),
-    /**
-     * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
-     * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
-     */
-    '--b-alpha-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
-    '--b-alpha-smooth-corners-box-margin': `${margin ?? 0}px`,
-    '--b-alpha-smooth-corners-box-background-color': cssVar(backgroundColor),
-    '--b-alpha-smooth-corners-box-background-image': cssUrl(backgroundImage),
-  }), [
-    styleProp,
-    borderRadius,
-    margin,
-    shadow,
-    shadowSpreadRadius,
-    backgroundColor,
-    backgroundImage,
-  ])
-
   return (
-    <Styled.Box
+    <div
       {...rest}
       ref={forwardedRef}
-      style={style}
-      data-state={enabled ? 'enabled' : 'disabled'}
+      style={{
+        ...style,
+        '--b-smooth-corners-box-border-radius': borderRadius,
+        '--b-smooth-corners-box-border-radius-type': typeof borderRadius,
+        '--b-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
+        '--b-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
+        '--b-smooth-corners-box-shadow-blur-radius': `${shadow?.blurRadius ?? 0}px`,
+        '--b-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
+        '--b-smooth-corners-box-shadow-color': cssVar(shadow?.color),
+        /**
+         * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
+         * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
+         */
+        '--b-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
+        '--b-smooth-corners-box-margin': `${margin ?? 0}px`,
+        '--b-smooth-corners-box-background-color': cssVar(backgroundColor),
+        '--b-smooth-corners-box-background-image': cssUrl(backgroundImage),
+      } as React.CSSProperties}
+      className={classNames(
+        styles.SmoothCornersBox,
+        className,
+      )}
+      data-state={
+        useFeatureFlag(FeatureType.SmoothCorners) && !disabled
+          ? 'enabled'
+          : 'disabled'
+      }
+      data-testid={testId}
     >
       { children }
-    </Styled.Box>
+    </div>
   )
 })

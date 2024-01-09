@@ -1,7 +1,7 @@
 import { type SemanticNames } from '~/src/foundation'
 
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
 } from '~/src/types/ComponentProps'
@@ -37,7 +37,7 @@ export interface BoxShadow {
   color?: SemanticNames
 }
 
-interface AlphaSmoothCornersBoxOptions {
+interface AlphaSmoothCornersBoxOwnProps {
   /**
    * Rounds the corners of an element's outer border edge.
    * @default 0
@@ -64,8 +64,8 @@ interface AlphaSmoothCornersBoxOptions {
 }
 
 export interface AlphaSmoothCornersBoxProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
-  React.HTMLAttributes<HTMLElement>,
-  AlphaSmoothCornersBoxOptions {}
+  React.HTMLAttributes<HTMLDivElement>,
+  AlphaSmoothCornersBoxOwnProps {}
