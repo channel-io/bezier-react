@@ -13,24 +13,23 @@ import {
 } from '~/src/components/LegacyStack'
 import { Text } from '~/src/components/Text'
 
-import type FormLabelProps from './FormLabel.types'
+import { type FormLabelProps } from './FormLabel.types'
 
 import styles from './FormLabel.module.scss'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 
-function FormLabel({
-  testId = FORM_LABEL_TEST_ID,
-  help,
-  bold = true,
-  color = 'txt-black-darkest',
-  children,
-  ...rest
-}: FormLabelProps,
-forwardedRef: React.Ref<HTMLLabelElement>,
-) {
-  const contextValue = useFormControlContext()
+export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function FormLabel(props, forwardedRef) {
+  const {
+    testId = FORM_LABEL_TEST_ID,
+    help,
+    bold = true,
+    color = 'txt-black-darkest',
+    children,
+    ...rest
+  } = props
 
+  const contextValue = useFormControlContext()
   const { labelPosition, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
     labelPosition: 'top',
     ...rest,
@@ -93,6 +92,4 @@ forwardedRef: React.Ref<HTMLLabelElement>,
         ) }
     </div>
   )
-}
-
-export default forwardRef(FormLabel)
+})

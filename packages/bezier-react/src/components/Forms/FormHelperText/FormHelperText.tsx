@@ -20,12 +20,14 @@ import styles from './FormHelperText.module.scss'
 export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 
-const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(({
-  type,
-  typo = '13',
-  children,
-  ...rest
-}, forwardedRef) => {
+const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function BaseHelperText(props, forwardedRef) {
+  const {
+    type,
+    typo = '13',
+    children,
+    ...rest
+  } = props
+
   const contextValue = useFormControlContext()
   const getProps = type === 'info'
     ? contextValue?.getHelperTextProps
@@ -67,37 +69,45 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(({
   )
 })
 
-export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(({
-  testId = FORM_HELPER_TEXT_TEST_ID,
-  color = 'txt-black-dark',
-  children,
-  ...rest
-}, forwardedRef) => (
-  <BaseHelperText
-    {...rest}
-    type="info"
-    ref={forwardedRef}
-    testId={testId}
-    color={color}
-  >
-    { children }
-  </BaseHelperText>
-))
+export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(function FormHelperText(props, forwardedRef) {
+  const {
+    testId = FORM_HELPER_TEXT_TEST_ID,
+    color = 'txt-black-dark',
+    children,
+    ...rest
+  } = props
 
-export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(({
-  testId = FORM_ERROR_MESSAGE_TEST_ID,
-  color = 'bgtxt-orange-normal',
-  children,
-  ...rest
-}, forwardedRef) => (
-  <BaseHelperText
-    {...rest}
-    aria-live="polite"
-    type="error"
-    ref={forwardedRef}
-    testId={testId}
-    color={color}
-  >
-    { children }
-  </BaseHelperText>
-))
+  return (
+    <BaseHelperText
+      {...rest}
+      type="info"
+      ref={forwardedRef}
+      testId={testId}
+      color={color}
+    >
+      { children }
+    </BaseHelperText>
+  )
+})
+
+export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(function FormErrorMessage(props, forwardedRef) {
+  const {
+    testId = FORM_ERROR_MESSAGE_TEST_ID,
+    color = 'bgtxt-orange-normal',
+    children,
+    ...rest
+  } = props
+
+  return (
+    <BaseHelperText
+      {...rest}
+      aria-live="polite"
+      type="error"
+      ref={forwardedRef}
+      testId={testId}
+      color={color}
+    >
+      { children }
+    </BaseHelperText>
+  )
+})

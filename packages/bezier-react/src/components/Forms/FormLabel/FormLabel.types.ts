@@ -11,7 +11,7 @@ interface FormLabelOwnProps {
   help?: React.ReactNode
 }
 
-export default interface FormLabelProps extends
+export interface FormLabelProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   Omit<TextProps, 'as'>,
