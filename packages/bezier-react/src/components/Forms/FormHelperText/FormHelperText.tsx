@@ -20,7 +20,7 @@ import styles from './FormHelperText.module.scss'
 export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 
-const BaseHelperText = forwardRef<HTMLParamElement, BaseHelperTextProps>(({
+const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(({
   type,
   typo = '13',
   children,
@@ -67,7 +67,7 @@ const BaseHelperText = forwardRef<HTMLParamElement, BaseHelperTextProps>(({
   )
 })
 
-export const FormHelperText = forwardRef<HTMLParamElement, FormHelperTextProps>(({
+export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(({
   testId = FORM_HELPER_TEXT_TEST_ID,
   color = 'txt-black-dark',
   children,
@@ -84,7 +84,7 @@ export const FormHelperText = forwardRef<HTMLParamElement, FormHelperTextProps>(
   </BaseHelperText>
 ))
 
-export const FormErrorMessage = forwardRef<HTMLParamElement, FormErrorMessageProps>(({
+export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(({
   testId = FORM_ERROR_MESSAGE_TEST_ID,
   color = 'bgtxt-orange-normal',
   children,
