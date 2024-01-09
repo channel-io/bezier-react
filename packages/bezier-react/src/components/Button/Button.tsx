@@ -41,33 +41,33 @@ import styles from './Button.module.scss'
 export const BUTTON_TEST_ID = 'bezier-react-button'
 
 function getTypography(size: ButtonSize) {
-  return {
-    [ButtonSize.XS]: '13' as const,
-    [ButtonSize.S]: '13' as const,
-    [ButtonSize.M]: '14' as const,
-    [ButtonSize.L]: '15' as const,
-    [ButtonSize.XL]: '18' as const,
-  }[size]
+  return ({
+    [ButtonSize.XS]: '13',
+    [ButtonSize.S]: '13',
+    [ButtonSize.M]: '14',
+    [ButtonSize.L]: '15',
+    [ButtonSize.XL]: '18',
+  } as const)[size]
 }
 
 function getIconSize(size: ButtonSize) {
-  return {
-    [ButtonSize.XS]: IconSize.XS as const,
-    [ButtonSize.S]: IconSize.XS as const,
-    [ButtonSize.M]: IconSize.S as const,
-    [ButtonSize.L]: IconSize.S as const,
-    [ButtonSize.XL]: IconSize.Normal as const,
-  }[size]
+  return ({
+    [ButtonSize.XS]: IconSize.XS,
+    [ButtonSize.S]: IconSize.XS,
+    [ButtonSize.M]: IconSize.S,
+    [ButtonSize.L]: IconSize.S,
+    [ButtonSize.XL]: IconSize.Normal,
+  } as const)[size]
 }
 
 function getSpinnerSize(size: ButtonSize) {
-  return {
-    [ButtonSize.XS]: SpinnerSize.XS as const,
-    [ButtonSize.S]: SpinnerSize.XS as const,
-    [ButtonSize.M]: SpinnerSize.S as const,
-    [ButtonSize.L]: SpinnerSize.S as const,
-    [ButtonSize.XL]: SpinnerSize.S as const,
-  }[size]
+  return ({
+    [ButtonSize.XS]: SpinnerSize.XS,
+    [ButtonSize.S]: SpinnerSize.XS,
+    [ButtonSize.M]: SpinnerSize.S,
+    [ButtonSize.L]: SpinnerSize.S,
+    [ButtonSize.XL]: SpinnerSize.S,
+  } as const)[size]
 }
 
 function ButtonSideContent({
