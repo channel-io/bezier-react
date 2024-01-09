@@ -9,7 +9,7 @@ const postcssAutoLayer = (opts = {}) => ({
     const filePath = result.opts.from
     if (filePath && minimatch(filePath, opts.path)) {
       const layer = new AtRule({ name: 'layer', params: opts.name })
-      root.nodes.forEach(node => { layer.append(node) })
+      root.nodes.forEach(node => { layer.append(node.clone()) })
       root.removeAll().append(layer)
     }
   },
