@@ -93,6 +93,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyles = getMarginStyles(marginProps)
   const {
+    className,
     style,
     width = 36,
     guide,
@@ -105,7 +106,6 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
     minStepsBetweenThumbs = 0,
     dir = 'ltr',
     disableTooltip = false,
-    className,
     ...rest
   } = marginRest
 
@@ -114,8 +114,8 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
   return (
     <SliderPrimitive.Root
       style={{
-        ...style,
         ...marginStyles.style,
+        ...style,
         '--b-slider-width': cssDimension(width),
       } as CSSProperties}
       data-testid={SLIDER_TEST_ID}
