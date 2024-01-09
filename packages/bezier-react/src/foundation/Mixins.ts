@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react'
-
 import type { SimpleInterpolation } from 'styled-components'
 
 import { SmoothCornersFeature } from '~/src/features'
@@ -13,19 +11,6 @@ export const absoluteCenter = (otherTransforms?: SimpleInterpolation) => css`
   left: 50%;
   transform: translate(-50%, -50%) ${otherTransforms};
 `
-
-// eslint-disable-next-line max-len
-export const centeredBackgroundImage = <Type extends number | string>(...sizes: [Type] | [Type, Type]): ReturnType<typeof css> => {
-  const [width, height = width] = sizes
-
-  return css`
-    background-image: var(--background-image);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: ${width}px, ${height}px;
-    background-clip: content-box;
-  `
-}
 
 export const disableAutoMinimum = css`
   min-width: 0;
@@ -123,12 +108,3 @@ export const smoothCorners = ({
     }
   `}
 `
-
-interface BackgroundImageVariableOptions {
-  imageUrl: string
-}
-
-export const backgroundImageVariable = ({ imageUrl }: BackgroundImageVariableOptions): CSSProperties => ({
-  // @ts-ignore
-  '--background-image': `url(${imageUrl})`,
-})

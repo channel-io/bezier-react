@@ -1,5 +1,6 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -17,13 +18,13 @@ export enum EmojiSize {
   Size120 = 120,
 }
 
-interface EmojiOptions {
+interface EmojiOwnProps {
   name: string
   imageUrl: string
-  onClick?: React.MouseEventHandler
 }
 
-export default interface EmojiProps extends
-  BezierComponentProps,
+export interface EmojiProps extends
+  AlphaBezierComponentProps,
   SizeProps<EmojiSize>,
-  EmojiOptions {}
+  MarginProps,
+  EmojiOwnProps {}

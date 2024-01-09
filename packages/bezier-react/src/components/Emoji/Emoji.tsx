@@ -1,56 +1,68 @@
 import React, {
+  type CSSProperties,
   forwardRef,
-  useMemo,
 } from 'react'
 
-import { backgroundImageVariable } from '~/src/foundation'
+import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
+import { cssUrl } from '~/src/utils/style'
 
-import type EmojiProps from './Emoji.types'
-import { EmojiSize } from './Emoji.types'
+import {
+  type EmojiProps,
+  EmojiSize,
+} from './Emoji.types'
 
-import { Icon } from './Emoji.styled'
+import styles from './Emoji.module.scss'
 
 export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
-function Emoji(
-  {
-    as,
+/**
+ * `Emoji` is a component for representing emoji with variant size.
+ *
+ * @example
+ * ```tsx
+ * <Emoji
+ *   name="A"
+ *   imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/a.png"
+ *   size={EmojiSize.Size20}
+ * />
+ * ```
+ */
+export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+  const {
     style,
     imageUrl,
     className,
     name,
-    interpolation,
     size = EmojiSize.Size24,
     testId = EMOJI_TEST_ID,
-    onClick = noop,
-  }: EmojiProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const mergedStyle = useMemo(() => ({
-    ...backgroundImageVariable({ imageUrl }),
-    ...style,
-  }), [
-    style,
-    imageUrl,
-  ])
+    ...rest
+  } = marginRest
 
   return (
-    <Icon
-      as={as}
+    <div
       ref={forwardedRef}
       data-testid={testId}
       role="img"
       aria-label={name}
-      style={mergedStyle}
-      size={size}
-      className={className}
-      interpolation={interpolation}
-      imageUrl={imageUrl}
-      onClick={onClick}
+      style={{
+        '--b-emoji-background-image': cssUrl(imageUrl),
+        ...marginStyles.style,
+        ...style,
+      } as CSSProperties}
+      className={classNames(
+        styles.Emoji,
+        styles[`size-${size}`],
+        marginStyles.className,
+        className,
+      )}
+      {...rest}
     />
   )
-}
-
-export default forwardRef(Emoji)
+})
