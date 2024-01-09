@@ -133,7 +133,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
     >
       <AlphaSmoothCornersBox
         ref={forwardedRef}
-        data-testid={testId}
+        testId={testId}
         aria-label={name}
         className={classNames(
           styles.AvatarImage,

@@ -1,41 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
-.c0 {
-  --b-alpha-smooth-corners-box-border-radius: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-color: transparent;
-  --b-alpha-smooth-corners-box-padding: 0px;
-  --b-alpha-smooth-corners-box-margin: 0px;
-  --b-alpha-smooth-corners-box-background-color: transparent;
-  box-sizing: content-box;
-  margin: var(--b-alpha-smooth-corners-box-margin);
-  background-color: var(--b-alpha-smooth-corners-box-background-color);
-  background-image: var(--b-alpha-smooth-corners-box-background-image);
-  background-size: cover;
-  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c0[data-state="enabled"] {
-    padding: var(--b-alpha-smooth-corners-box-padding);
-    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
-    background: paint(smooth-corners);
-    border-radius: 0;
-    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
-    box-shadow: none;
-    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
-  }
-}
-
 <div
   class="AvatarGroup margin"
   role="group"
@@ -48,10 +13,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Christian Nwamba"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -61,10 +26,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Kola Tioluwani"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -74,10 +39,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Kent Dodds"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -87,10 +52,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Ryan Florence"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -100,10 +65,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Dan Abrahmov"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -113,10 +78,10 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
   >
     <div
       aria-label="Prosper Otemuyiwa"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -135,41 +100,6 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 `;
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
-.c0 {
-  --b-alpha-smooth-corners-box-border-radius: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-color: transparent;
-  --b-alpha-smooth-corners-box-padding: 0px;
-  --b-alpha-smooth-corners-box-margin: 0px;
-  --b-alpha-smooth-corners-box-background-color: transparent;
-  box-sizing: content-box;
-  margin: var(--b-alpha-smooth-corners-box-margin);
-  background-color: var(--b-alpha-smooth-corners-box-background-color);
-  background-image: var(--b-alpha-smooth-corners-box-background-image);
-  background-size: cover;
-  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c0[data-state="enabled"] {
-    padding: var(--b-alpha-smooth-corners-box-padding);
-    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
-    background: paint(smooth-corners);
-    border-radius: 0;
-    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
-    box-shadow: none;
-    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
-  }
-}
-
 <div
   class="AvatarGroup margin"
   role="group"
@@ -182,10 +112,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   >
     <div
       aria-label="Christian Nwamba"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -195,10 +125,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   >
     <div
       aria-label="Kola Tioluwani"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -208,10 +138,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   >
     <div
       aria-label="Kent Dodds"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -221,10 +151,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   >
     <div
       aria-label="Ryan Florence"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -234,10 +164,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
   >
     <div
       aria-label="Dan Abrahmov"
-      class="c0 AvatarImage"
+      class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -245,9 +175,9 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-react-avatar-group-ellipsis-icon"
   >
     <div
-      class="c0 AvatarEllipsisIcon"
+      class="SmoothCornersBox AvatarEllipsisIcon"
       data-state="disabled"
-      style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
         class="Icon margin"
@@ -274,10 +204,10 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     >
       <div
         aria-label="Prosper Otemuyiwa"
-        class="c0 AvatarImage"
+        class="SmoothCornersBox AvatarImage"
         data-state="disabled"
         data-testid="bezier-react-avatar"
-        style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+        style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
       />
     </div>
   </div>
