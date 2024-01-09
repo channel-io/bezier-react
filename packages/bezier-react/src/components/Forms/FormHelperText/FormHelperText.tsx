@@ -3,6 +3,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import classNames from 'classnames'
+
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
@@ -39,12 +41,12 @@ forwardedRef: ForwardedRef,
   const {
     visible,
     ref,
-    Wrapper,
+    labelPosition,
     ...ownProps
   } = getProps?.(rest) ?? {
     visible: true,
     ref: noop,
-    Wrapper: React.Fragment,
+    labelPosition: 'top',
     ...rest,
   }
 
@@ -60,7 +62,12 @@ forwardedRef: ForwardedRef,
   if (!shouldRendered) { return null }
 
   return (
-    <Wrapper>
+    <div
+      className={classNames(
+        styles.HelperTextWrapper,
+        styles[`${labelPosition}-position`],
+      )}
+    >
       <Text
         {...ownProps}
         ref={mergedRef}
@@ -70,7 +77,7 @@ forwardedRef: ForwardedRef,
       >
         { children }
       </Text>
-    </Wrapper>
+    </div>
   )
 })
 

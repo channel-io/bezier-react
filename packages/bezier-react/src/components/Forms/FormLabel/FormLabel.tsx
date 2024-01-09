@@ -3,6 +3,8 @@ import React, {
   useMemo,
 } from 'react'
 
+import classNames from 'classnames'
+
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
@@ -15,6 +17,7 @@ import {
 
 import type FormLabelProps from './FormLabel.types'
 
+import styles from './FormLabel.module.scss'
 import * as Styled from './FormLabel.styled'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
@@ -32,8 +35,8 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
   const contextValue = useFormControlContext()
 
-  const { Wrapper, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
-    Wrapper: React.Fragment,
+  const { labelPosition, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
+    labelPosition: 'top',
     typo: '13',
     ...rest,
   }
@@ -82,7 +85,13 @@ forwardedRef: React.Ref<HTMLLabelElement>,
   if (isEmpty(children)) { return null }
 
   return (
-    <Wrapper>
+    <div className={
+      classNames(
+        styles.FormLabel,
+        styles[`${labelPosition}-position`],
+      )
+    }
+    >
       { !HelpComponent
         ? LabelComponent
         : (
@@ -95,7 +104,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
             </LegacyStackItem>
           </LegacyHStack>
         ) }
-    </Wrapper>
+    </div>
   )
 }
 

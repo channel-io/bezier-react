@@ -112,10 +112,8 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
+    labelPosition,
     typo: labelPosition === 'top' ? '13' : '14',
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopLabelWrapper
-      : Styled.LeftLabelWrapper,
     ...ownProps,
   }), [
     fieldId,
@@ -139,9 +137,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: helperTextId,
     visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
     ref: setHelperTextNode,
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopHelperTextWrapper
-      : Styled.LeftHelperTextWrapper,
+    labelPosition,
     ...ownProps,
   }), [
     helperTextId,
@@ -153,9 +149,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: errorMessageId,
     visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
     ref: setErrorMessageNode,
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopHelperTextWrapper
-      : Styled.LeftHelperTextWrapper,
+    labelPosition,
     ...ownProps,
   }), [
     errorMessageId,
