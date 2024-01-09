@@ -1,10 +1,16 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   memo,
 } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
+import classNames from 'classnames'
 
+import {
+  getMarginStyles,
+  splitByMarginProps,
+} from '~/src/utils/props'
 import { cssDimension } from '~/src/utils/style'
 
 import {
@@ -14,7 +20,7 @@ import {
 
 import type SliderProps from './Slider.types'
 
-import * as Styled from './Slider.styled'
+import styles from './Slider.module.scss'
 
 export const SLIDER_TEST_ID = 'bezier-react-slider'
 
@@ -24,7 +30,8 @@ const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function Slide
   value,
 }) {
   return (
-    <Styled.SliderGuide
+    <div
+      className={styles.SliderGuide}
       style={{
         '--b-slider-guide-left': `${(value / (max - min)) * 100}%`,
       } as React.CSSProperties}
@@ -41,8 +48,9 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
 
   if (disableTooltip) {
     return (
-      <Styled.SliderThumb
+      <div
         ref={forwardedRef}
+        className={styles.SliderThumb}
         {...rest}
       />
     )
@@ -55,8 +63,9 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
       placement={TooltipPosition.TopCenter}
       onPointerDownOutside={e => e.preventDefault()}
     >
-      <Styled.SliderThumb
+      <div
         ref={forwardedRef}
+        className={styles.SliderThumb}
         {...rest}
       />
     </Tooltip>
@@ -80,28 +89,35 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
  * <Slider defaultValue={[1]} />
  * ```
  */
-export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
-  style,
-  width = 36,
-  guide,
-  defaultValue = [0],
-  value,
-  disabled = false,
-  min = 0,
-  max = 10,
-  step = 1,
-  minStepsBetweenThumbs = 0,
-  disableTooltip = false,
-  ...rest
-}, forwardedRef) {
+export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(props, forwardedRef) {
+  const [marginProps, marginRest] = splitByMarginProps(props)
+  const marginStyles = getMarginStyles(marginProps)
+  const {
+    className,
+    style,
+    width = 36,
+    guide,
+    defaultValue = [0],
+    value,
+    disabled = false,
+    min = 0,
+    max = 10,
+    step = 1,
+    minStepsBetweenThumbs = 0,
+    dir = 'ltr',
+    disableTooltip = false,
+    ...rest
+  } = marginRest
+
   const targetValue = value || defaultValue
 
   return (
-    <Styled.SliderPrimitiveRoot
+    <SliderPrimitive.Root
       style={{
-        ...style,
         '--b-slider-width': cssDimension(width),
-      }}
+        ...marginStyles.style,
+        ...style,
+      } as CSSProperties}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}
       orientation="horizontal"
@@ -111,14 +127,20 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       min={min}
       max={max}
       step={step}
+      dir={dir}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
+      className={classNames(
+        styles.Slider,
+        marginStyles.className,
+        className,
+      )}
       {...rest}
     >
-      <Styled.SliderPrimitiveTrack>
-        <Styled.SliderPrimitiveRange />
+      <SliderPrimitive.Track className={styles.SliderPrimitiveTrack}>
+        <SliderPrimitive.Range className={styles.SliderPrimitiveRange} />
 
         { guide && (
-          <Styled.GuideContainer>
+          <div className={styles.GuideContainer}>
             { guide.map((guideValue) => (
               <SliderGuide
                 key={`slider-guide-${guideValue}`}
@@ -127,9 +149,9 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
                 value={guideValue}
               />
             )) }
-          </Styled.GuideContainer>
+          </div>
         ) }
-      </Styled.SliderPrimitiveTrack>
+      </SliderPrimitive.Track>
 
       { targetValue.map((_, i) => (
         <SliderPrimitive.Thumb
@@ -140,6 +162,6 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
           <SliderThumb disableTooltip={disableTooltip} />
         </SliderPrimitive.Thumb>
       )) }
-    </Styled.SliderPrimitiveRoot>
+    </SliderPrimitive.Root>
   )
 })
