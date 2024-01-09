@@ -5,7 +5,7 @@ import {
 
 import { type StackProps } from '~/src/components/Stack'
 
-interface ButtonGroupOptions {
+interface ButtonGroupOwnProps {
   /**
    * Determines whether there is a 6px gap between the buttons.
    * @default false
@@ -13,8 +13,8 @@ interface ButtonGroupOptions {
   withoutSpacing?: boolean
 }
 
-export default interface ButtonGroupProps extends
+export interface ButtonGroupProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  Pick<StackProps, 'justify'>,
-  ButtonGroupOptions {}
+  Omit<StackProps, 'as' | 'role' | 'direction' | 'spacing'>,
+  ButtonGroupOwnProps {}
