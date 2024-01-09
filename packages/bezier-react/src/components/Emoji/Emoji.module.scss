@@ -12,7 +12,7 @@ $emoji-sizes: '16', '20', '24', '30', '36', '42', '48', '60', '72', '90', '120';
 
 @layer components {
   .Emoji {
-    --b-emoji-size: auto;
+    --b-emoji-size: initial;
 
     position: relative;
     box-sizing: content-box;
@@ -23,9 +23,9 @@ $emoji-sizes: '16', '20', '24', '30', '36', '42', '48', '60', '72', '90', '120';
     @include dimension.square(var(--b-emoji-size));
     @include emoji-background(var(--b-emoji-size));
 
-    @each $i in $emoji-sizes {
-      &:where(.size-#{$i}) {
-        --b-emoji-size: #{$i}px;
+    @each $size in $emoji-sizes {
+      &:where(.size-#{$size}) {
+        --b-emoji-size: #{$size}px;
       }
     }
   }
