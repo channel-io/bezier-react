@@ -44,7 +44,7 @@ import { Text } from '~/src/components/Text'
 
 import { Button } from './Button'
 import mdx from './Button.mdx'
-import type ButtonProps from './Button.types'
+import type { ButtonProps } from './Button.types'
 import {
   ButtonColorVariant,
   ButtonSize,

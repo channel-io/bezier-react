@@ -95,7 +95,6 @@ describe('SectionLabel', () => {
     const rightButton = rightContent.children.item(0)
 
     expect(rightButton).toHaveAttribute('data-testid', BUTTON_TEST_ID)
-    expect(rightButton).toHaveStyle('height: 20px') // NOTE: ButtonSize.XS
   })
 
   it('renders multiple right contents, and item with iconColor is not rendered as button', () => {

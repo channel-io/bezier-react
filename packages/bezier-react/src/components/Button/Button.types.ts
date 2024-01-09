@@ -1,8 +1,9 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type DisableProps,
+  type MarginProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
@@ -27,24 +28,21 @@ export enum ButtonColorVariant {
    * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
    */
   Monochrome = 'monochrome',
-  MonochromeLight = 'monochromeLight',
-  MonochromeDark = 'monochromeDark',
+  MonochromeLight = 'monochrome-light',
+  MonochromeDark = 'monochrome-dark',
 }
 
 export enum ButtonSize {
-  XS = 'XS',
-  S = 'S',
-  M = 'M',
-  L = 'L',
-  XL = 'XL',
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
 }
 
 export type SideContent = React.ReactNode | BezierIcon
 
-export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
-type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
-
-interface ButtonOptions {
+interface ButtonOwnProps {
   /**
    * `type` attribute of typical HTML button.
    *
@@ -53,7 +51,7 @@ interface ButtonOptions {
    *
    * @default 'button'
    */
-  type?: HTMLButtonElement['type']
+  type?: 'button' | 'reset' | 'submit'
 
   /**
    * The text content in the button.
@@ -91,32 +89,13 @@ interface ButtonOptions {
    * @default ButtonColorVariant.Blue
    */
   colorVariant?: ButtonColorVariant
-
-  /**
-   * The handler to be executed when the button is clicked.
-   */
-  onClick?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse enters the button.
-   */
-  onMouseEnter?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse leaves the button.
-   */
-  onMouseLeave?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the button is unfocused.
-   */
-  onBlur?: FocusEventHandler
 }
 
-export default interface ButtonProps extends
-  BezierComponentProps,
+export interface ButtonProps extends
+  AlphaBezierComponentProps,
   SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,
   React.HTMLAttributes<HTMLButtonElement>,
-  ButtonOptions {}
+  MarginProps,
+  ButtonOwnProps {}
