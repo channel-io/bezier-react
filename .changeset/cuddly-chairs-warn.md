@@ -1,5 +1,8 @@
 ---
-"@channel.io/bezier-react": minor
+"@channel.io/bezier-react": major
 ---
 
-`SegmentedControl` supports common margin props.
+`SegmentedControl`'s interface changes.
+
+- `SegmentedControl` no longer supports as and interpolation prop.
+- `SegmentedControl` now supports common margin props.
