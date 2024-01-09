@@ -34,7 +34,6 @@ import {
 import styles from './Banner.module.scss'
 
 const BANNER_TEST_ID = 'bezier-react-banner'
-export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'
 
 function getActionButtonColorVariant(variant: BannerVariant) {
   return ({
@@ -56,7 +55,6 @@ const externalLinkRenderer: RenderLinkFunc = ({
     href={linkTo}
     target="_blank"
     rel="noopener noreferrer"
-    data-testid={BANNER_LINK_TEST_ID}
   >
     { content }
   </a>
