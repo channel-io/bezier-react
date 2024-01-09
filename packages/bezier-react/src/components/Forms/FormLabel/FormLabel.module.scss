@@ -15,3 +15,8 @@
     height: var(--b-form-control-left-label-wrapper-height);
   }
 }
+
+.LabelText {
+  display: block;
+  word-break: break-word;
+}

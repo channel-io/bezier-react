@@ -1,19 +1,19 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type IdentifierProps,
 } from '~/src/types/ComponentProps'
 
 import { type TextProps } from '~/src/components/Text'
 
-interface FormLabelOptions {
+interface FormLabelOwnProps {
   htmlFor?: string
   help?: React.ReactNode
 }
 
 export default interface FormLabelProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   Omit<TextProps, 'as'>,
   Partial<IdentifierProps>,
-  FormLabelOptions {}
+  FormLabelOwnProps {}

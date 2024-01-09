@@ -14,18 +14,17 @@ import {
   LegacyHStack,
   LegacyStackItem,
 } from '~/src/components/LegacyStack'
+import { Text } from '~/src/components/Text'
 
 import type FormLabelProps from './FormLabel.types'
 
 import styles from './FormLabel.module.scss'
-import * as Styled from './FormLabel.styled'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 
 function FormLabel({
   testId = FORM_LABEL_TEST_ID,
   help,
-  as = 'label',
   bold = true,
   color = 'txt-black-darkest',
   children,
@@ -42,19 +41,19 @@ forwardedRef: React.Ref<HTMLLabelElement>,
   }
 
   const LabelComponent = useMemo(() => (
-    <Styled.Label
+    <Text
       {...ownProps}
+      className={styles.LabelText}
       ref={forwardedRef}
       testId={testId}
-      forwardedAs={as}
+      align="left"
       bold={bold}
       typo={typo}
       color={color}
     >
       { children }
-    </Styled.Label>
+    </Text>
   ), [
-    as,
     typo,
     bold,
     color,
