@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -40,7 +37,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     ...rest,
   }
 
-  const LabelComponent = useMemo(() => (
+  const LabelComponent = (
     <Text
       {...ownProps}
       className={styles.LabelText}
@@ -53,17 +50,9 @@ forwardedRef: React.Ref<HTMLLabelElement>,
     >
       { children }
     </Text>
-  ), [
-    typo,
-    bold,
-    color,
-    testId,
-    children,
-    forwardedRef,
-    ownProps,
-  ])
+  )
 
-  const HelpComponent = useMemo(() => {
+  const HelpComponent = (() => {
     if (isEmpty(help)) { return null }
 
     if (React.isValidElement(help)) {
@@ -79,7 +68,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
         { help }
       </Help>
     )
-  }, [help])
+  })()
 
   if (isEmpty(children)) { return null }
 
