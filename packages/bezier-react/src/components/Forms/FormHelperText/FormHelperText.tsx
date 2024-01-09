@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -52,14 +49,7 @@ forwardedRef: ForwardedRef,
 
   const mergedRef = useMergeRefs(ref, forwardedRef)
 
-  const shouldRendered = useMemo(() => (
-    !isEmpty(children) && visible
-  ), [
-    visible,
-    children,
-  ])
-
-  if (!shouldRendered) { return null }
+  if (isEmpty(children) || !visible) { return null }
 
   return (
     <div
