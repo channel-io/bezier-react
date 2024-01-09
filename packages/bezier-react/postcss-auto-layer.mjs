@@ -1,7 +1,14 @@
 import { minimatch } from 'minimatch'
 
 /**
- * @type {import('postcss').PluginCreator<{ name: string, path: string }>}
+ * @typedef {Object} Options
+ * @property {string} name The name of the layer.
+ * @property {string} path The path to the file to wrap in a layer.
+ */
+
+/**
+ * PostCSS plugin to automatically wrap the root node in a CSS layer at rule.
+ * @type {import('postcss').PluginCreator<Options>}
  */
 const postcssAutoLayer = (opts = {}) => ({
   postcssPlugin: 'postcss-auto-layer',
