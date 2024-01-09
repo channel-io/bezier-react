@@ -2,6 +2,7 @@
   .Switch {
     --b-switch-width: auto;
     --b-switch-height: auto;
+    --b-switch-thumb-size: initial;
 
     position: relative;
     width: var(--b-switch-width);
@@ -15,11 +16,13 @@
     &:where(.size-s) {
       --b-switch-width: 30px;
       --b-switch-height: 20px;
+      --b-switch-thumb-size: 14px;
     }
 
     &:where(.size-m) {
       --b-switch-width: 36px;
       --b-switch-height: 24px;
+      --b-switch-thumb-size: 18px;
     }
 
     &:where(&[data-state='checked']) {
@@ -36,12 +39,11 @@
     }
 
     &:focus-visible {
-      box-shadow: var(--input-box-shadow-focused); 
+      box-shadow: var(--input-box-shadow-focused);
     }
   }
 
   .SwitchThumb {
-    --b-switch-thumb-size: auto;
     --b-switch-thumb-padding: 3px;
 
     position: absolute;
@@ -54,14 +56,6 @@
     box-shadow: var(--ev-2);
     background-color: var(--bgtxt-absolute-white-dark);
     transition: transform var(--transition-s);
-
-    &:where(.size-s) {
-      --b-switch-thumb-size: 14px;
-    }
-    
-    &:where(.size-m) {
-      --b-switch-thumb-size: 18px;
-    }
 
     &:where(&[data-state='checked']) {
       transform: translateX(calc(var(--b-switch-width) - var(--b-switch-thumb-size) - (var(--b-switch-thumb-padding) * 2)));

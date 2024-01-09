@@ -80,10 +80,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
         <SwitchPrimitive.Thumb asChild>
           <span
             data-testid={handleTestId}
-            className={classNames(
-              styles.SwitchThumb,
-              styles[`size-${size}`],
-            )}
+            className={styles.SwitchThumb}
           />
         </SwitchPrimitive.Thumb>
       </button>
