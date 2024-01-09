@@ -159,10 +159,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
           key={`slider-thumb-${i}`}
           asChild
         >
-          <SliderThumb
-            className={styles.SliderThumb}
-            disableTooltip={disableTooltip}
-          />
+          <SliderThumb disableTooltip={disableTooltip} />
         </SliderPrimitive.Thumb>
       )) }
     </SliderPrimitive.Root>
