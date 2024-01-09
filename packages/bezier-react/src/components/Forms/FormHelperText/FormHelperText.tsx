@@ -8,6 +8,7 @@ import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { Text } from '~/src/components/Text'
 
 import type {
   BaseHelperTextProps,
@@ -15,7 +16,7 @@ import type {
   FormHelperTextProps,
 } from './FormHelperText.types'
 
-import * as Styled from './FormHelperText.styled'
+import styles from './FormHelperText.module.scss'
 
 type ForwardedRef = React.Ref<HTMLParamElement>
 
@@ -61,14 +62,15 @@ forwardedRef: ForwardedRef,
 
   return (
     <Wrapper>
-      <Styled.HelperText
+      <Text
         {...ownProps}
         ref={mergedRef}
-        forwardedAs={as}
+        className={styles.HelperText}
         typo={typo}
+        align="left"
       >
         { children }
-      </Styled.HelperText>
+      </Text>
     </Wrapper>
   )
 })
