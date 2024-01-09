@@ -31,9 +31,8 @@ forwardedRef: React.Ref<HTMLLabelElement>,
 ) {
   const contextValue = useFormControlContext()
 
-  const { labelPosition, typo, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
+  const { labelPosition, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
     labelPosition: 'top',
-    typo: '13',
     ...rest,
   }
 
@@ -45,7 +44,7 @@ forwardedRef: React.Ref<HTMLLabelElement>,
       testId={testId}
       align="left"
       bold={bold}
-      typo={typo}
+      typo={labelPosition === 'top' ? '13' : '14'}
       color={color}
     >
       { children }

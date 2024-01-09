@@ -113,7 +113,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: labelId,
     htmlFor: fieldId,
     labelPosition,
-    typo: labelPosition === 'top' ? '13' : '14',
     ...ownProps,
   }), [
     fieldId,
