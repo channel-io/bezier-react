@@ -6,7 +6,7 @@ import {
 
 import { type TextProps } from '~/src/components/Text'
 
-interface BaseHelperTextOptions {
+interface BaseHelperTextOwnProps {
   type: 'info' | 'error'
 }
 
@@ -15,7 +15,7 @@ export interface BaseHelperTextProps extends
   ChildrenProps,
   Partial<IdentifierProps>,
   Omit<TextProps, 'as'>,
-  BaseHelperTextOptions {}
+  BaseHelperTextOwnProps {}
 
 export interface FormHelperTextProps extends Omit<BaseHelperTextProps, 'type'> {}
 
