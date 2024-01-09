@@ -1,0 +1,73 @@
+.Banner {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: start;
+  min-width: 200px;
+  padding: 12px;
+  border-radius: var(--radius-12);
+
+  & + & {
+    margin-top: 6px;
+  }
+
+  &:where(.variant-default) {
+    background-color: var(--bg-black-lighter);
+    color: var(--txt-black-darker);
+  }
+
+  &:where(.variant-blue) {
+    background-color: var(--bgtxt-blue-lightest);
+    color: var(--bgtxt-blue-normal);
+  }
+
+  &:where(.variant-cobalt) {
+    background-color: var(--bgtxt-cobalt-lightest);
+    color: var(--bgtxt-cobalt-normal);
+  }
+
+  &:where(.variant-green) {
+    background-color: var(--bgtxt-green-lightest);
+    color: var(--bgtxt-green-normal);
+  }
+
+  &:where(.variant-orange) {
+    background-color: var(--bgtxt-orange-lightest);
+    color: var(--bgtxt-orange-normal);
+  }
+
+  &:where(.variant-red) {
+    background-color: var(--bgtxt-red-lightest);
+    color: var(--bgtxt-red-normal);
+  }
+
+  &:where(.variant-alt) {
+    background-color: var(--bg-grey-lighter);
+    box-shadow: var(--ev-2);
+
+    & :where(.Content) {
+      color: var(--txt-black-darker);
+    }
+
+    & :where(.Icon) {
+      color: var(--bgtxt-red-normal);
+    }
+  }
+}
+
+.Center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Content {
+  flex: 1;
+  align-self: center;
+}
+
+.Link {
+  margin-left: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}

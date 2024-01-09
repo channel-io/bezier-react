@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
 import {
@@ -10,29 +11,42 @@ import {
 
 import {
   Button,
+  ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { IconSize } from '~/src/components/Icon'
-import { isIconName } from '~/src/components/LegacyIcon'
-import { LegacyStackItem } from '~/src/components/LegacyStack'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
+  LegacyIcon,
+  isIconName,
+} from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
-import {
-  ACTION_BUTTON_COLOR_VARIANTS,
-  DEFAULT_ICON_COLORS,
-  TEXT_COLORS,
-} from './Banner.const'
 import {
   type BannerProps,
   BannerVariant,
   type RenderLinkFunc,
 } from './Banner.types'
 
-import Styled from './Banner.styled'
+import styles from './Banner.module.scss'
 
 const BANNER_TEST_ID = 'bezier-react-banner'
 export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'
+
+function getActionButtonColorVariant(variant: BannerVariant) {
+  return ({
+    [BannerVariant.Default]: ButtonColorVariant.MonochromeDark,
+    [BannerVariant.Blue]: ButtonColorVariant.Blue,
+    [BannerVariant.Cobalt]: ButtonColorVariant.Cobalt,
+    [BannerVariant.Green]: ButtonColorVariant.Green,
+    [BannerVariant.Orange]: ButtonColorVariant.Orange,
+    [BannerVariant.Red]: ButtonColorVariant.Red,
+    [BannerVariant.Alt]: ButtonColorVariant.MonochromeDark,
+  } as const)[variant]
+}
 
 const externalLinkRenderer: RenderLinkFunc = ({
   content,
@@ -48,40 +62,17 @@ const externalLinkRenderer: RenderLinkFunc = ({
   </a>
 )
 
-function Link({
-  variant = BannerVariant.Default,
-  hasLink = false,
-  linkText,
-  linkTo,
-  renderLink = externalLinkRenderer,
-}: BannerProps) {
-  if (!hasLink) { return null }
-
-  return renderLink({
-    content: (
-      <Styled.Link
-        typo="14"
-        color={TEXT_COLORS[variant]}
-        bold
-      >
-        { linkText }
-      </Styled.Link>
-    ),
-    linkTo,
-  })
-}
-
-export const Banner = forwardRef(function Banner(
-  props: BannerProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
+export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(props, forwardedRef) {
   const {
     className,
-    interpolation,
     variant = BannerVariant.Default,
     icon,
     iconColor,
     content,
+    hasLink = false,
+    linkText,
+    linkTo,
+    renderLink = externalLinkRenderer,
     actionIcon,
     onClickAction,
     testId = BANNER_TEST_ID,
@@ -92,63 +83,69 @@ export const Banner = forwardRef(function Banner(
   }
 
   return (
-    <Styled.Stack
+    <div
       ref={forwardedRef}
+      className={classNames(
+        styles.Banner,
+        styles[`variant-${variant}`],
+        className,
+      )}
       data-testid={testId}
-      className={className}
-      interpolation={interpolation}
-      variant={variant}
-      spacing={6}
-      align="start"
     >
       { !isNil(icon) && (
-        <Styled.StackItem>
+        <div className={styles.Center}>
           { isBezierIcon(icon) ? (
-            <Styled.BannerIcon
+            <Icon
+              className={styles.Icon}
               source={icon}
-              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              color={iconColor}
               size={IconSize.S}
             />
           ) : (
-            <Styled.BannerLegacyIcon
+            <LegacyIcon
+              className={styles.Icon}
               name={icon}
-              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
+              color={iconColor}
               size={IconSize.S}
             />
           ) }
-        </Styled.StackItem>
+        </div>
       ) }
 
-      <LegacyStackItem
-        grow
-        shrink
-        weight={1}
-        align="center"
-      >
-        <Styled.ContentWrapper variant={variant}>
-          { isString(content) ? (
-            <Text
-              typo="14"
-              color={TEXT_COLORS[variant]}
-            >
-              { content }
-              <Link {...props} />
-            </Text>
-          ) : content }
-        </Styled.ContentWrapper>
-      </LegacyStackItem>
+      <div className={styles.Content}>
+        { isString(content) ? (
+          <Text typo="14">
+            { content }
+
+            { hasLink && (
+              renderLink({
+                content: (
+                  <Text
+                    className={styles.Link}
+                    typo="14"
+                    bold
+                  >
+                    { linkText }
+                  </Text>
+                ),
+                linkTo,
+              })
+            ) }
+          </Text>
+        ) : content }
+      </div>
 
       { !isNil(actionIcon) && (
-        <Styled.StackItem>
+        <div className={styles.Center}>
           <Button
             size={ButtonSize.XS}
-            colorVariant={ACTION_BUTTON_COLOR_VARIANTS[variant]}
+            colorVariant={getActionButtonColorVariant(variant)}
             styleVariant={ButtonStyleVariant.Tertiary}
             leftContent={actionIcon}
             onClick={onClickAction}
           />
-        </Styled.StackItem>
+        </div>
       ) }
-    </Styled.Stack>
+    </div>
   )
 })
