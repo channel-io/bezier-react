@@ -114,9 +114,9 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(p
   return (
     <SliderPrimitive.Root
       style={{
+        '--b-slider-width': cssDimension(width),
         ...marginStyles.style,
         ...style,
-        '--b-slider-width': cssDimension(width),
       } as CSSProperties}
       data-testid={SLIDER_TEST_ID}
       ref={forwardedRef}
