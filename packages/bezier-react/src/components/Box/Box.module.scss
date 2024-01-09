@@ -1,17 +1,15 @@
-@layer components {
-  .Box {
-    box-sizing: border-box;
+.Box {
+  box-sizing: border-box;
 
-    &:where(.display-block) {
-      display: block;
-    }
+  &:where(.display-block) {
+    display: block;
+  }
 
-    &:where(.display-inline-block) {
-      display: inline-block;
-    }
+  &:where(.display-inline-block) {
+    display: inline-block;
+  }
 
-    &:where(.display-inline) {
-      display: inline;
-    }
+  &:where(.display-inline) {
+    display: inline;
   }
 }

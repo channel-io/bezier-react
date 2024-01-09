@@ -1,9 +1,7 @@
-@layer components {
-  .Icon {
-    --b-icon-color: inherit;
+.Icon {
+  --b-icon-color: inherit;
 
-    flex: 0 0 auto;
-    color: var(--b-icon-color);
-    transition: color var(--transition-s);
-  }
+  flex: 0 0 auto;
+  color: var(--b-icon-color);
+  transition: color var(--transition-s);
 }
