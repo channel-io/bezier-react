@@ -345,7 +345,7 @@ import { Text, styled, Typography } from "@channel.io/bezier-react";
 
 function Foo() {
   return (
-    <Text typo={Typography.Size13} marginLeft={4}>
+    <Text typo={Typography.Size13} marginHorizontal={4}>
       title
     </Text>
   );
@@ -353,7 +353,7 @@ function Foo() {
 
 const Title = styled(Text).attrs({
   typo: Typography.Size13,
-  marginLeft: 4,
+  marginHorizontal: 4,
 })``;
 ```
 
@@ -364,7 +364,7 @@ import { Text, styled } from "@channel.io/bezier-react";
 
 function Foo() {
   return (
-    <Text typo="13" ml={4}>
+    <Text typo="13" marginX={4}>
       title
     </Text>
   );
@@ -372,6 +372,6 @@ function Foo() {
 
 const Title = styled(Text).attrs({
   typo: "13",
-  ml: 4,
+  marginX: 4,
 })``;
 ```
