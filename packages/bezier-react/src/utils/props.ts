@@ -18,7 +18,6 @@ import {
   cssVar,
   tokenCssVar,
 } from './style'
-import { isNumber } from './type'
 
 export const splitByBezierComponentProps = <
   Props extends BezierComponentProps,
@@ -217,6 +216,8 @@ export const getLayoutStyles = ({
       '--b-right': cssDimension(right),
       '--b-bottom': cssDimension(bottom),
       '--b-left': cssDimension(left),
+      '--b-shrink': shrink,
+      '--b-grow': grow,
       '--b-background-color': cssVar(backgroundColor),
       '--b-border-color': cssVar(borderColor),
       '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
@@ -231,8 +232,6 @@ export const getLayoutStyles = ({
     className: classNames(
       layoutStyles.layout,
       position && layoutStyles[`position-${position}`],
-      isNumber(shrink) && layoutStyles[`shrink-${shrink}`],
-      isNumber(grow) && layoutStyles[`grow-${grow}`],
       overflow && layoutStyles[`overflow-${overflow}`],
       overflowX && layoutStyles[`overflow-x-${overflowX}`],
       overflowY && layoutStyles[`overflow-y-${overflowY}`],

@@ -163,8 +163,6 @@ export interface MarginProps {
 
 type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
 type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
-type Shrink = 0 | 1
-type Grow = 0 | 1
 
 /**
  * TODO: Add JSDoc
@@ -189,8 +187,8 @@ export interface LayoutProps {
   right?: CSSProperties['right']
   bottom?: CSSProperties['bottom']
   left?: CSSProperties['left']
-  shrink?: Shrink
-  grow?: Grow
+  shrink?: CSSProperties['flexShrink']
+  grow?: CSSProperties['flexGrow']
   backgroundColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
   borderColor?: BorderSemanticColor
   borderRadius?: Radius
