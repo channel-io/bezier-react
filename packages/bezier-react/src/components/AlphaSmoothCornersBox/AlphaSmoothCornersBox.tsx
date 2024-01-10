@@ -42,6 +42,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
   ...rest
 }, forwardedRef) {
   const shadowBlurRadius = shadow?.blurRadius ?? 0
+  const shadowSpreadRadius = shadow?.spreadRadius ?? 0
 
   return (
     <div
@@ -53,13 +54,13 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
         '--b-smooth-corners-box-shadow-offset-x': px(shadow?.offsetX),
         '--b-smooth-corners-box-shadow-offset-y': px(shadow?.offsetY),
         '--b-smooth-corners-box-shadow-blur-radius': `${shadowBlurRadius}px`,
-        '--b-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
+        '--b-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
         '--b-smooth-corners-box-shadow-color': cssVar(shadow?.color),
         /**
          * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
          * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
          */
-        '--b-smooth-corners-box-padding': `${shadowBlurRadius * 2}px`,
+        '--b-smooth-corners-box-padding': `${Math.max(shadowBlurRadius, shadowSpreadRadius) * 2}px`,
         '--b-smooth-corners-box-margin': `${margin ?? 0}px`,
         '--b-smooth-corners-box-background-color': cssVar(backgroundColor),
         '--b-smooth-corners-box-background-image': cssUrl(backgroundImage),
