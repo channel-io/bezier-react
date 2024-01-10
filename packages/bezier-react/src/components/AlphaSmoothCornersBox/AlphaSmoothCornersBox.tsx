@@ -9,6 +9,7 @@ import {
 import {
   cssUrl,
   cssVar,
+  px,
 } from '~/src/utils/style'
 
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
@@ -40,7 +41,7 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
   backgroundImage,
   ...rest
 }, forwardedRef) {
-  const shadowSpreadRadius = shadow?.spreadRadius ?? 0
+  const shadowBlurRadius = shadow?.blurRadius ?? 0
 
   return (
     <div
@@ -49,17 +50,16 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
       style={{
         ...style,
         '--b-smooth-corners-box-border-radius': borderRadius,
-        '--b-smooth-corners-box-border-radius-type': typeof borderRadius,
-        '--b-smooth-corners-box-shadow-offset-x': shadow?.offsetX,
-        '--b-smooth-corners-box-shadow-offset-y': shadow?.offsetY,
-        '--b-smooth-corners-box-shadow-blur-radius': `${shadow?.blurRadius ?? 0}px`,
-        '--b-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
+        '--b-smooth-corners-box-shadow-offset-x': px(shadow?.offsetX),
+        '--b-smooth-corners-box-shadow-offset-y': px(shadow?.offsetY),
+        '--b-smooth-corners-box-shadow-blur-radius': `${shadowBlurRadius}px`,
+        '--b-smooth-corners-box-shadow-spread-radius': `${shadow?.spreadRadius ?? 0}px`,
         '--b-smooth-corners-box-shadow-color': cssVar(shadow?.color),
         /**
          * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
          * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
          */
-        '--b-smooth-corners-box-padding': `${shadowSpreadRadius * 2}px`,
+        '--b-smooth-corners-box-padding': `${shadowBlurRadius * 2}px`,
         '--b-smooth-corners-box-margin': `${margin ?? 0}px`,
         '--b-smooth-corners-box-background-color': cssVar(backgroundColor),
         '--b-smooth-corners-box-background-image': cssUrl(backgroundImage),
