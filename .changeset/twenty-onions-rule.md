@@ -7,13 +7,13 @@ No longer supports `smoothCorners` mixin. Use `AlphaSmoothCornersBox` components
 ```tsx
 // Before
 const Box = styled.div`
-  smoothCorners({
+  ${smoothCorners({
     borderRadius: 10,
-    shadow: '0 5px 15px 0 rgba(0, 0, 0, 0.5)';
+    shadow: '0 5px 15px 0 rgba(0, 0, 0, 0.5)',
     shadowBlur: 15,
     backgroundColor: 'white',
     hasBackgroundImage: true,
-  })
+  })}
 `
 
 <Box>...</Box>
