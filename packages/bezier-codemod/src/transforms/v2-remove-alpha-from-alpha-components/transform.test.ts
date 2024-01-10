@@ -16,6 +16,6 @@ describe('import transform', () => {
   })
 
   it('should remove alpha prefix from Alpha prefixed components in styled component file', () => {
-    testTransformFunction(__dirname, 'stack4', stackTransform)
+    testTransformFunction(__dirname, 'alpha4', stackTransform)
   })
 })
