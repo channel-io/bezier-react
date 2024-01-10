@@ -29,7 +29,7 @@ import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/
 import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
 import importFromBezierToStyledComponents from './transforms/v2-import-from-bezier-to-styled-components/transform.js'
 import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
-import removeAlphaFromAlphaStack from './transforms/v2-remove-alpha-from-alpha-stack/transform.js'
+import removeAlphaFromAlphaComponents from './transforms/v2-remove-alpha-from-alpha-components/transform.js'
 import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
 import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
 import zIndexInterpolationToCssVariable from './transforms/v2-z-index-interpolation-to-css-variable/transform.js'
@@ -53,7 +53,7 @@ enum Option {
   V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
   V2InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
   V2TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
-  V2RemoveAlphaFromAlphaStack = 'v2-remove-alpha-from-alpha-stack',
+  V2RemoveAlphaFromAlphaComponents = 'v2-remove-alpha-from-alpha-components',
   V2ZIndexInterpolationToCssVariable = 'v2-z-index-interpolation-to-css-variable',
   V2TextComponentInterface = 'v2-text-component-interface',
   V2ImportFromBezierToStyledComponents = 'v2-import-from-bezier-to-styled-components',
@@ -75,7 +75,7 @@ const transformMap = {
   [Option.V2InputInterpolationToCssVariable]: inputInterpolationToCssVariable,
   [Option.V2TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
   [Option.V2ImportFromBezierToStyledComponents]: importFromBezierToStyledComponents,
-  [Option.V2RemoveAlphaFromAlphaStack]: removeAlphaFromAlphaStack,
+  [Option.V2RemoveAlphaFromAlphaComponents]: removeAlphaFromAlphaComponents,
   [Option.V2ZIndexInterpolationToCssVariable]: zIndexInterpolationToCssVariable,
   [Option.V2TextComponentInterface]: textComponentInterface,
 }

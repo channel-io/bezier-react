@@ -6,7 +6,7 @@ import {
 import { renameNamedImport } from '../../utils/import.js'
 
 const LEGACY_STACKS = ['Stack', 'HStack', 'VStack', 'StackItem', 'Spacer']
-const ALPHA_STACKS = ['AlphaStack']
+const ALPHA_STACKS = ['AlphaStack', 'AlphaCenter']
 const getNameWithLegacyPrefix = (name: string) => `Legacy${name}`
 const getNameWithoutAlphaPrefix = (name: string) => name.slice('ALPHA'.length)
 
@@ -23,20 +23,20 @@ const transformInJsx = (sourceFile: SourceFile, stacks: string[], convertFn: (na
   }
 }
 
-const transformLegacyStack = (sourceFile: SourceFile) => {
+const transformLegacyComponents = (sourceFile: SourceFile) => {
   renameNamedImport(sourceFile, LEGACY_STACKS, getNameWithLegacyPrefix)
   transformInJsx(sourceFile, LEGACY_STACKS, getNameWithLegacyPrefix)
 }
 
-const transformAlphaStack = (sourceFile: SourceFile) => {
+const transformAlphaComponents = (sourceFile: SourceFile) => {
   renameNamedImport(sourceFile, ALPHA_STACKS, getNameWithoutAlphaPrefix)
   transformInJsx(sourceFile, ALPHA_STACKS, getNameWithoutAlphaPrefix)
 }
 
 const transform = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
-  transformLegacyStack(sourceFile)
-  transformAlphaStack(sourceFile)
+  transformLegacyComponents(sourceFile)
+  transformAlphaComponents(sourceFile)
   return oldSourceFileText !== sourceFile.getText()
 }
 

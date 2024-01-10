@@ -233,16 +233,32 @@ export const Wrapper = styled(Button)`
 `;
 ```
 
-### Remove Alpha prefix from `AlphaStack` and add Legacy prefix to `Stack`
+### Add `Legacy` prefix to components to be deprecated and remove `Alpha` prefix from experimental components
 
-`v2-remove-alpha-from-alpha-stack`
+`v2-remove-alpha-from-alpha-components`
 
-Deprecates current `Stack`, `HStack`, `VStack`, `StackItem`, `Spacer` components and supports `AlphaStack` instead, removing "Alpha" prefix.
+Components to be deprecated
+
+- `Stack`
+- `HStack`
+- `VStack`
+- `StackItem`
+- `Spacer`
+
+Experimental components
+
+- `AlphaStack`
+- `AlphaCenter`
 
 For example:
 
 ```tsx
-import { VStack, StackItem, AlphaStack } from "@channel.io/bezier-react";
+import {
+  VStack,
+  StackItem,
+  AlphaStack,
+  AlphaCenter,
+} from "@channel.io/bezier-react";
 
 function Foo() {
   return (
@@ -265,12 +281,25 @@ function Bar() {
     </AlphaStack>
   );
 }
+
+function Baz() {
+  return (
+    <AlphaCenter>
+      <div />
+    </AlphaCenter>
+  );
+}
 ```
 
 Transforms into:
 
 ```tsx
-import { LegacyVStack, LegacyStackItem, Stack } from "@channel.io/bezier-react";
+import {
+  LegacyVStack,
+  LegacyStackItem,
+  Stack,
+  Center,
+} from "@channel.io/bezier-react";
 
 function Foo() {
   return (
@@ -291,6 +320,14 @@ function Bar() {
       <div />
       <div />
     </Stack>
+  );
+}
+
+function Baz() {
+  return (
+    <Center>
+      <div />
+    </Center>
   );
 }
 ```
