@@ -42,7 +42,7 @@ interface AlphaSmoothCornersBoxOwnProps {
    * Rounds the corners of an element's outer border edge.
    * @default 0
    */
-  borderRadius?: number | string
+  borderRadius: number | string
   /**
    * Shadow effects around an element's frame.
    */
