@@ -1,36 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormErrorMessage > Snapshot > 1`] = `
-.c0 {
-  display: block;
-  text-align: left;
-}
-
-<p
+<span
   aria-live="polite"
-  class="Text typo-13 margin c0"
+  class="Text typo-13 align-left margin HelperText"
   data-testid="bezier-react-form-error-message"
-  foundation="[object Object]"
   id="test"
   style="--b-text-color: var(--bgtxt-orange-normal);"
 >
   Lorem ipsum
-</p>
+</span>
 `;
 
 exports[`FormHelperText > Snapshot > 1`] = `
-.c0 {
-  display: block;
-  text-align: left;
-}
-
-<p
-  class="Text typo-13 margin c0"
+<span
+  class="Text typo-13 align-left margin HelperText"
   data-testid="bezier-react-form-helper-text"
-  foundation="[object Object]"
   id="test"
   style="--b-text-color: var(--txt-black-dark);"
 >
   Lorem ipsum
-</p>
+</span>
 `;
