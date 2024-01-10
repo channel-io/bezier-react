@@ -75,7 +75,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
     <div className={
       classNames(
         styles.FormLabel,
-        styles[`${labelPosition}-position`],
+        styles[`position-${labelPosition}`],
       )
     }
     >

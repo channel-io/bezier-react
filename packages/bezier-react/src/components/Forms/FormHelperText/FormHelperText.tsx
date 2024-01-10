@@ -53,7 +53,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
     <div
       className={classNames(
         styles.HelperTextWrapper,
-        styles[`${labelPosition}-position`],
+        styles[`position-${labelPosition}`],
       )}
     >
       <Text

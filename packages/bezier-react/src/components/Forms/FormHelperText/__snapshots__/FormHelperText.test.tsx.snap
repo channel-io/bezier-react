@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormErrorMessage > Snapshot > 1`] = `
-<span
+<p
   aria-live="polite"
   class="Text typo-13 align-left margin HelperText"
   data-testid="bezier-react-form-error-message"
@@ -9,16 +9,16 @@ exports[`FormErrorMessage > Snapshot > 1`] = `
   style="--b-text-color: var(--bgtxt-orange-normal);"
 >
   Lorem ipsum
-</span>
+</p>
 `;
 
 exports[`FormHelperText > Snapshot > 1`] = `
-<span
+<p
   class="Text typo-13 align-left margin HelperText"
   data-testid="bezier-react-form-helper-text"
   id="test"
   style="--b-text-color: var(--txt-black-dark);"
 >
   Lorem ipsum
-</span>
+</p>
 `;
