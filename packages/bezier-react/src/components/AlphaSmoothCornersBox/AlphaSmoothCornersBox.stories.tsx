@@ -3,15 +3,15 @@ import React from 'react'
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
-const meta:Meta = {
+const meta: Meta = {
   component: AlphaSmoothCornersBox,
 }
-export default meta
 
 const Template: StoryFn<AlphaSmoothCornersBoxProps> = ({
   children,
@@ -25,21 +25,22 @@ const Template: StoryFn<AlphaSmoothCornersBoxProps> = ({
   </AlphaSmoothCornersBox>
 )
 
-export const Primary = {
+export const Primary: StoryObj<AlphaSmoothCornersBoxProps> = {
   render: Template,
-
   args: {
     disabled: false,
     borderRadius: '42%',
     shadow: {
       offsetX: 0,
-      offsetY: 0,
-      blurRadius: 10,
-      spreadRadius: 10,
-      color: 'bg-black-dark',
+      offsetY: 4,
+      blurRadius: 20,
+      spreadRadius: 0,
+      color: 'shdw-large',
     },
     margin: 0,
-    backgroundColor: 'bgtxt-absolute-white-normal',
+    backgroundColor: 'bgtxt-absolute-white-dark',
     backgroundImage: '',
   },
 }
+
+export default meta
