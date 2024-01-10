@@ -70,6 +70,23 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
   )
 })
 
+/**
+ * `FormHelperText` is a component to show the description of the input element.
+ * It should be used with `FormControl` component.
+ *
+ * @example
+ * ```tsx
+ * <FormControl>
+ *   <FormLabel>
+ *     Password
+ *   </FormLabel>
+ *   <TextField />
+ *   <FormHelperText>
+ *     Please use at least 6 characters
+ *   </FormHelperText>
+ * </FormControl>
+ * ```
+ */
 export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(function FormHelperText(props, forwardedRef) {
   const {
     testId = FORM_HELPER_TEXT_TEST_ID,
@@ -91,6 +108,23 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(f
   )
 })
 
+/**
+ * `FormErrorMessage` is a component to show error message when form values are invalid.
+ * It should be used with `FormControl` component.
+ *
+ * @example
+ * ```tsx
+ * <FormControl>
+ *   <FormLabel>
+ *     Password
+ *   </FormLabel>
+ *   <TextField />
+ *   <FormErrorMessage>
+ *     Password should be at least 6 characters
+ *   </FormErrorMessage>
+ * </FormControl>
+ * ```
+ */
 export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(function FormErrorMessage(props, forwardedRef) {
   const {
     testId = FORM_ERROR_MESSAGE_TEST_ID,

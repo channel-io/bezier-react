@@ -19,6 +19,20 @@ import styles from './FormLabel.module.scss'
 
 export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
 
+/**
+ * `FormLabel` is a component to show label.
+ * It should be used with `FormControl` component.
+ *
+ * @example
+ * ```tsx
+ * <FormControl>
+ *   <FormLabel>
+ *     Name
+ *   </FormLabel>
+ *   <TextField />
+ * </FormControl>
+ * ```
+ */
 export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function FormLabel(props, forwardedRef) {
   const {
     testId = FORM_LABEL_TEST_ID,
