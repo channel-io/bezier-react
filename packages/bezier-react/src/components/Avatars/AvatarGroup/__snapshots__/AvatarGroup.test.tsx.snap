@@ -37,12 +37,12 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 }
 
 <div
-  class="AvatarGroup margin"
+  class="AvatarGroup"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -55,7 +55,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -68,7 +68,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -81,7 +81,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -94,7 +94,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -107,7 +107,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -171,12 +171,12 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 }
 
 <div
-  class="AvatarGroup margin"
+  class="AvatarGroup"
   role="group"
   style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
 >
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -189,7 +189,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -202,7 +202,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -215,7 +215,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -228,7 +228,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     />
   </div>
   <div
-    class="Avatar size-24 margin"
+    class="Avatar size-24"
     data-disabled="false"
     data-testid="bezier-react-avatar-wrapper"
   >
@@ -268,7 +268,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       </svg>
     </div>
     <div
-      class="Avatar size-24 margin"
+      class="Avatar size-24"
       data-disabled="false"
       data-testid="bezier-react-avatar-wrapper"
     >

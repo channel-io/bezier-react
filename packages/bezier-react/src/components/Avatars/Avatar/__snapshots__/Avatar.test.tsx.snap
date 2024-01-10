@@ -100,7 +100,7 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-m margin"
+    class="Status size-m"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
@@ -116,7 +116,7 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-m margin"
+    class="Status size-m"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
@@ -132,7 +132,7 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-m margin"
+    class="Status size-m"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
@@ -148,7 +148,7 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-l margin"
+    class="Status size-l"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
@@ -164,7 +164,7 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-m margin"
+    class="Status size-m"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
@@ -180,7 +180,7 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
   data-testid="bezier-react-status-wrapper"
 >
   <div
-    class="Status size-l margin"
+    class="Status size-l"
     style="--b-status-bg-color: var(--bgtxt-green-normal);"
   />
 </div>
