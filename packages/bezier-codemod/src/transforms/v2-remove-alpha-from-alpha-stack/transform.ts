@@ -6,7 +6,7 @@ import {
 import { renameNamedImport } from '../../utils/import.js'
 
 const LEGACY_STACKS = ['Stack', 'HStack', 'VStack', 'StackItem', 'Spacer']
-const ALPHA_STACKS = ['AlphaStack']
+const ALPHA_STACKS = ['AlphaStack', 'AlphaCenter']
 const getNameWithLegacyPrefix = (name: string) => `Legacy${name}`
 const getNameWithoutAlphaPrefix = (name: string) => name.slice('ALPHA'.length)
 

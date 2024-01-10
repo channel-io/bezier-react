@@ -11,7 +11,7 @@ describe('import transform', () => {
     testTransformFunction(__dirname, 'stack2', stackTransform)
   })
 
-  it('should remove alpha prefix from AlphaStack component in tsx file', () => {
+  it('should remove alpha prefix from Alpha prefixed components in tsx file', () => {
     testTransformFunction(__dirname, 'stack3', stackTransform)
   })
 
