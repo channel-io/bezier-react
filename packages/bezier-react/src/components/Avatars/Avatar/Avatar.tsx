@@ -5,10 +5,6 @@ import React, {
 
 import classNames from 'classnames'
 
-import {
-  getMarginStyles,
-  splitByMarginProps,
-} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import {
@@ -55,25 +51,20 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
  * />
  * ```
  */
-export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyles(marginProps)
-  const {
-    avatarUrl = '',
-    fallbackUrl = defaultAvatarUrl,
-    size = AvatarSize.Size24,
-    name,
-    testId = AVATAR_TEST_ID,
-    disabled = false,
-    showBorder = false,
-    smoothCorners = true,
-    status,
-    className,
-    style,
-    children,
-    ...rest
-  } = marginRest
-
+export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
+  avatarUrl = '',
+  fallbackUrl = defaultAvatarUrl,
+  size = AvatarSize.Size24,
+  name,
+  testId = AVATAR_TEST_ID,
+  disabled = false,
+  showBorder = false,
+  smoothCorners = true,
+  status,
+  className,
+  children,
+  ...rest
+}, forwardedRef) {
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
@@ -122,13 +113,8 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(pr
         styles.Avatar,
         styles[`size-${size}`],
         disabled && styles.disabled,
-        marginStyle.className,
         className,
       )}
-      style={{
-        ...marginStyle.style,
-        ...style,
-      }}
       {...rest}
     >
       <AlphaSmoothCornersBox

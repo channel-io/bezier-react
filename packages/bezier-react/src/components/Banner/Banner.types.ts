@@ -9,7 +9,6 @@ import type {
   AdditionalColorProps,
   AlphaBezierComponentProps,
   ContentProps,
-  MarginProps,
   VariantProps,
 } from '~/src/types/ComponentProps'
 
@@ -91,5 +90,4 @@ export interface BannerProps extends
   ContentProps,
   AdditionalColorProps<'icon'>,
   Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
-  MarginProps,
   BannerOwnProps {}

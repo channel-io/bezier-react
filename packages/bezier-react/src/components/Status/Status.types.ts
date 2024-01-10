@@ -1,6 +1,5 @@
 import type {
   AlphaBezierComponentProps,
-  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -28,5 +27,4 @@ export interface StatusProps extends
   AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLDivElement>,
   SizeProps<StatusSize>,
-  MarginProps,
   StatusOwnProps {}

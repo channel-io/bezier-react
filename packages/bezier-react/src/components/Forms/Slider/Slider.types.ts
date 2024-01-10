@@ -1,7 +1,6 @@
 import type {
   AlphaBezierComponentProps,
   DisableProps,
-  MarginProps,
 } from '~/src/types/ComponentProps'
 
 interface SliderOwnProps {
@@ -75,5 +74,4 @@ export default interface SliderProps extends
   AlphaBezierComponentProps,
   DisableProps,
   Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOwnProps>,
-  MarginProps,
   SliderOwnProps {}

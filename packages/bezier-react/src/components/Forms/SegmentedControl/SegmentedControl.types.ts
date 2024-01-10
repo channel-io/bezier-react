@@ -6,7 +6,6 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type DisableProps,
-  type MarginProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
@@ -55,7 +54,6 @@ type SegmentedControlValueProps<Value extends string> = {
 
 type SegmentedControlRadioGroupSpecificProps =
   & FormComponentProps
-  & MarginProps
   & {
   /**
    * The name of the group.
@@ -109,7 +107,6 @@ type RadixTabListPredefinedPropKeys = 'defaultValue'
 export interface SegmentedControlTabListProps extends
   AlphaBezierComponentProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabListPredefinedPropKeys>,
-  MarginProps,
   ChildrenProps {}
 
 export type SegmentedControlItemListProps<Type extends SegmentedControlType, Value extends string> =
