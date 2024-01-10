@@ -5,7 +5,7 @@ exports[`AlphaSmoothCornersBox Style snapshot with default value 1`] = `
   <div
     class="SmoothCornersBox"
     data-state="disabled"
-    style="--b-smooth-corners-box-border-radius-type: undefined; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px;"
+    style="--b-smooth-corners-box-border-radius: 0; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px;"
   />
 </div>
 `;

@@ -6,7 +6,7 @@ exports[`Avatar > Snapshot 1`] = `
   class="SmoothCornersBox AvatarImage"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
@@ -16,7 +16,7 @@ exports[`Avatar > renders border style 1`] = `
   class="SmoothCornersBox AvatarImage bordered"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 2px; --b-smooth-corners-box-shadow-color: var(--bg-white-high); --b-smooth-corners-box-padding: 4px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 2px; --b-smooth-corners-box-shadow-color: var(--bg-white-high); --b-smooth-corners-box-padding: 4px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 

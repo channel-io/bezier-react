@@ -16,7 +16,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -29,7 +29,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -42,7 +42,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -55,7 +55,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -68,7 +68,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -81,7 +81,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -115,7 +115,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -128,7 +128,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -141,7 +141,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -154,7 +154,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -167,7 +167,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-react-avatar"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
     />
   </div>
   <div
@@ -177,7 +177,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     <div
       class="SmoothCornersBox AvatarEllipsisIcon"
       data-state="disabled"
-      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
+      style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
         class="Icon margin"
@@ -207,7 +207,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
         class="SmoothCornersBox AvatarImage"
         data-state="disabled"
         data-testid="bezier-react-avatar"
-        style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-border-radius-type: string; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
+        style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
       />
     </div>
   </div>

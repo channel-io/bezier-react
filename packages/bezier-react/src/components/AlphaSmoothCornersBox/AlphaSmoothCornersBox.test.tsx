@@ -9,7 +9,7 @@ describe('AlphaSmoothCornersBox', () => {
   const renderSmoothCornersBox = ({
     children,
     ...rest
-  }: AlphaSmoothCornersBoxProps = {}) => render(
+  }: AlphaSmoothCornersBoxProps = { borderRadius: 0 }) => render(
     <AlphaSmoothCornersBox {...rest}>
       { children }
     </AlphaSmoothCornersBox>,
@@ -42,9 +42,8 @@ describe('AlphaSmoothCornersBox', () => {
       const styles = window.getComputedStyle(rendered)
 
       expect(styles.getPropertyValue('--b-smooth-corners-box-border-radius')).toBe('10')
-      expect(styles.getPropertyValue('--b-smooth-corners-box-border-radius-type')).toBe('number')
-      expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-offset-x')).toBe('10')
-      expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-offset-y')).toBe('10')
+      expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-offset-x')).toBe('10px')
+      expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-offset-y')).toBe('10px')
       expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-blur-radius')).toBe('10px')
       expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-spread-radius')).toBe('10px')
       expect(styles.getPropertyValue('--b-smooth-corners-box-shadow-color')).toBe('var(--bg-black-light)')
