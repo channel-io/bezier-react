@@ -64,6 +64,18 @@ const externalLinkRenderer: RenderLinkFunc = ({
   </a>
 )
 
+/**
+ * `Banner` is a component you use when you want to communicate instructions, warnings, recommendations, and other information well.
+ *
+ * @example
+ * ```tsx
+ * <Banner
+ *   variant={BannerVariant.Blue}
+ *   icon={LightbulbIcon}
+ *   content="Information here."
+ * />
+ * ```
+ */
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(props, forwardedRef) {
   const [marginProps, marginRest] = splitByMarginProps(props)
   const marginStyles = getMarginStyles(marginProps)
