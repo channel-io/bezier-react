@@ -23,20 +23,20 @@ const transformInJsx = (sourceFile: SourceFile, stacks: string[], convertFn: (na
   }
 }
 
-const transformLegacyStack = (sourceFile: SourceFile) => {
+const transformLegacyComponents = (sourceFile: SourceFile) => {
   renameNamedImport(sourceFile, LEGACY_STACKS, getNameWithLegacyPrefix)
   transformInJsx(sourceFile, LEGACY_STACKS, getNameWithLegacyPrefix)
 }
 
-const transformAlphaStack = (sourceFile: SourceFile) => {
+const transformAlphaComponents = (sourceFile: SourceFile) => {
   renameNamedImport(sourceFile, ALPHA_STACKS, getNameWithoutAlphaPrefix)
   transformInJsx(sourceFile, ALPHA_STACKS, getNameWithoutAlphaPrefix)
 }
 
 const transform = (sourceFile: SourceFile) => {
   const oldSourceFileText = sourceFile.getText()
-  transformLegacyStack(sourceFile)
-  transformAlphaStack(sourceFile)
+  transformLegacyComponents(sourceFile)
+  transformAlphaComponents(sourceFile)
   return oldSourceFileText !== sourceFile.getText()
 }
 
