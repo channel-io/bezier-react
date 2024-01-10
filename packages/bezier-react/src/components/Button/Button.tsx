@@ -98,6 +98,7 @@ function ButtonSideContent({
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
+  as = 'button',
   className,
   testId = BUTTON_TEST_ID,
   type = 'button',
@@ -113,6 +114,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick,
   ...rest
 }, forwardedRef) {
+  const Comp = as as 'button'
+
   const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>((event) => {
     if (!disabled) {
       onClick?.(event)
@@ -123,7 +126,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   ])
 
   return (
-    <button
+    <Comp
       // eslint-disable-next-line react/button-has-type
       type={type}
       ref={forwardedRef}
@@ -171,6 +174,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           <Spinner size={getSpinnerSize(size)} />
         </div>
       ) }
-    </button>
+    </Comp>
   )
 })
