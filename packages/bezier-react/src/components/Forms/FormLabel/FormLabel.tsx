@@ -41,6 +41,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
       className={styles.LabelText}
       ref={forwardedRef}
       testId={testId}
+      as="label"
       align="left"
       bold={bold}
       typo={labelPosition === 'top' ? '13' : '14'}
