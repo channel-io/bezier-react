@@ -51,7 +51,7 @@ export const Primary = {
     placeholder: '날짜를 선택해주세요',
     text: '2022. 7. 14.',
     leftContent: CalendarIcon,
-    rightContent: <Text ml={4}>일</Text>,
+    rightContent: <Text marginLeft={4}>일</Text>,
     disabled: false,
     readOnly: false,
     withoutChevron: false,

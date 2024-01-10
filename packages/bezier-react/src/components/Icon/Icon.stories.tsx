@@ -265,10 +265,10 @@ export const TipsMargin: StoryObj<{}> = {
       <Icon
         source={ChannelBtnSmileFilledIcon}
         color="bgtxt-blue-normal"
-        mt={16}
-        mr={24}
-        mb={32}
-        ml={40}
+        marginTop={16}
+        marginRight={24}
+        marginBottom={32}
+        marginLeft={40}
       />
     </div>
   ),

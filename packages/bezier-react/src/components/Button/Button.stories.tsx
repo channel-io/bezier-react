@@ -465,7 +465,7 @@ const OpenDropdownButton = () => {
         marginY={6}
       >
         <Dropdown>
-          <Text typo="13" ml={6}>Dropdown content</Text>
+          <Text typo="13" marginLeft={6}>Dropdown content</Text>
         </Dropdown>
       </Overlay>
     </div>

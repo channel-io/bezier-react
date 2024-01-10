@@ -152,13 +152,13 @@ export interface PolymorphicProps<T extends React.ElementType> {
  * TODO: Add JSDoc
  */
 export interface MarginProps {
-  m?: CSSProperties['margin']
-  mx?: CSSProperties['margin']
-  my?: CSSProperties['margin']
-  mt?: CSSProperties['marginTop']
-  mr?: CSSProperties['marginRight']
-  mb?: CSSProperties['marginBottom']
-  ml?: CSSProperties['marginLeft']
+  margin?: CSSProperties['margin']
+  marginX?: CSSProperties['margin']
+  marginY?: CSSProperties['margin']
+  marginTop?: CSSProperties['marginTop']
+  marginRight?: CSSProperties['marginRight']
+  marginBottom?: CSSProperties['marginBottom']
+  marginLeft?: CSSProperties['marginLeft']
 }
 
 type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
@@ -170,13 +170,13 @@ type Grow = 0 | 1
  * TODO: Add JSDoc
  */
 export interface LayoutProps {
-  p?: CSSProperties['padding']
-  px?: CSSProperties['padding']
-  py?: CSSProperties['padding']
-  pt?: CSSProperties['paddingTop']
-  pr?: CSSProperties['paddingRight']
-  pb?: CSSProperties['paddingBottom']
-  pl?: CSSProperties['paddingLeft']
+  padding?: CSSProperties['padding']
+  paddingX?: CSSProperties['padding']
+  paddingY?: CSSProperties['padding']
+  paddingTop?: CSSProperties['paddingTop']
+  paddingRight?: CSSProperties['paddingRight']
+  paddingBottom?: CSSProperties['paddingBottom']
+  paddingLeft?: CSSProperties['paddingLeft']
   width?: CSSProperties['width']
   height?: CSSProperties['height']
   maxWidth?: CSSProperties['maxWidth']
