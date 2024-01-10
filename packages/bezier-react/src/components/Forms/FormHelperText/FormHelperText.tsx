@@ -59,6 +59,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
       <Text
         {...ownProps}
         ref={mergedRef}
+        as="p"
         className={styles.HelperText}
         typo={typo}
         align="left"

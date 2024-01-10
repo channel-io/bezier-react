@@ -2,6 +2,7 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type IdentifierProps,
+  type MarginProps,
 } from '~/src/types/ComponentProps'
 
 import { type TextProps } from '~/src/components/Text'
@@ -14,7 +15,7 @@ export interface BaseHelperTextProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   Partial<IdentifierProps>,
-  Omit<TextProps, 'as'>,
+  Omit<TextProps, keyof MarginProps>,
   BaseHelperTextOwnProps {}
 
 export interface FormHelperTextProps extends Omit<BaseHelperTextProps, 'type'> {}
