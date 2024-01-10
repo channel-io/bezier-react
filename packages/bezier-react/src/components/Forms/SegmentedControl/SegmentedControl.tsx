@@ -1,4 +1,5 @@
 import React, {
+  type ForwardedRef,
   forwardRef,
   useEffect,
   useMemo,
@@ -63,7 +64,7 @@ function SegmentedControlItemListImpl<
   style,
   className,
   ...rest
-}: SegmentedControlItemListProps<Type, Value>) {
+}: SegmentedControlItemListProps<Type, Value>, forwardedRef: ForwardedRef<HTMLDivElement>) {
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null)
 
   const {
@@ -83,6 +84,7 @@ function SegmentedControlItemListImpl<
   return (
     <SegmentedControlItemList
       asChild
+      ref={forwardedRef}
       {...rest}
     >
       <HStack

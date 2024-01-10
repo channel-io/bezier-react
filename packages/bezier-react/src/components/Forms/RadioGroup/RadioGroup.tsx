@@ -13,7 +13,7 @@ function RadioGroupImpl<Value extends string>({
   direction = 'vertical',
   ...rest
 }: RadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
-  const formFieldProps = useFormFieldProps(rest)
+  const { hasError, ...formFieldProps } = useFormFieldProps(rest)
 
   return (
     <RadioGroupPrimitive.Root

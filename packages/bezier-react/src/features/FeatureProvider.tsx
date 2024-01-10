@@ -5,6 +5,7 @@ import React, {
 } from 'react'
 
 import { createContext } from '~/src/utils/react'
+import { isEmpty } from '~/src/utils/type'
 
 import {
   type Feature,
@@ -48,7 +49,7 @@ export function FeatureProvider({
   const [featureFlag, setFeatureFlag] = useState<FeatureFlag>(initialFeatureFlag)
 
   useLayoutEffect(function activateFeatures() {
-    if (!features) {
+    if (isEmpty(features)) {
       return
     }
 
