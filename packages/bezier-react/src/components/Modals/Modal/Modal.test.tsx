@@ -7,21 +7,21 @@ import { render } from '~/src/utils/test'
 
 import { AutoFocus } from '~/src/components/AutoFocus'
 
-import { Modal } from './Modal'
+import {
+  Modal,
+  ModalBody,
+  ModalClose,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalTrigger,
+} from './Modal'
 import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
   ModalTitleSize,
 } from './Modal.types'
-import { ModalBody } from './ModalBody'
-import { ModalContent } from './ModalContent'
-import { ModalFooter } from './ModalFooter'
-import { ModalHeader } from './ModalHeader'
-import {
-  ModalClose,
-  ModalTrigger,
-} from './ModalHelpers'
 
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'
