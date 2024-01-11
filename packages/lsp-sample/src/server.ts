@@ -11,8 +11,39 @@ import {
 } from 'vscode-languageserver/node';
 
 import {
+	tokens as _tokens,
+} from '@channel.io/bezier-tokens';
+
+import {
 	TextDocument
 } from 'vscode-languageserver-textdocument';
+
+const tokens = {
+	..._tokens.darkTheme,
+	..._tokens.global,
+} as const;
+
+type TokenGroup = keyof typeof tokens
+
+const completionItemsByTokenGroup = Object.fromEntries(
+	Object
+	.entries(tokens)
+	.map(([groupName, tokenKeyValues]) => {
+		const completionItems: CompletionItem[] = Object.entries(tokenKeyValues).map(
+			([key, value]) => ({
+				label: `--b-${key}`,
+				insertText: `--b-${key}`,
+				filterText: `--b-${key}`,
+				detail: String(value),
+				kind: groupName === 'color' ? CompletionItemKind.Color : CompletionItemKind.Variable,
+			})
+		);
+		return [groupName, completionItems];
+})) as Record<TokenGroup, CompletionItem[]>;
+
+console.log("LOG: ", completionItemsByTokenGroup);
+
+const allCompletionItems = Object.values(completionItemsByTokenGroup).flat();
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -27,31 +58,22 @@ connection.onInitialize((params: InitializeParams) => {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
 			// Tell the client that this server supports code completion.
 			completionProvider: {
-				resolveProvider: true
+        resolveProvider: true,
 			}
 		}
 	};
+
 	return result;
 });
 
-// This handler provides the initial list of the completion items.
+// // This handler provides the initial list of the completion items.
 connection.onCompletion(
 	(_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
 		// The pass parameter contains the position of the text document in
 		// which code complete got requested. For the example we ignore this
 		// info and always provide the same completion items.
-		return [
-			{
-				label: 'TypeScript',
-				kind: CompletionItemKind.Text,
-				data: 1
-			},
-			{
-				label: 'JavaScript',
-				kind: CompletionItemKind.Text,
-				data: 2
-			}
-		];
+		console.log("LOG: ", allCompletionItems);
+		return allCompletionItems;
 	}
 );
 

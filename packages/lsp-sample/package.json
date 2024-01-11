@@ -47,6 +47,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
+		"build": "yarn compile",
 		"compile": "tsc -b",
 		"watch": "tsc -b -w"
 	},
