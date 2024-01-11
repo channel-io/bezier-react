@@ -1,19 +1,3 @@
-.FormLabel {
-  &:where(.position-top) {
-    padding: 0 2px;
-    margin-bottom: 4px;
-  }
-
-  &:where(.position-left) {
-    display: flex;
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
-    align-items: center;
-    align-self: start;
-    height: var(--b-form-control-left-label-wrapper-height);
-  }
-}
-
 .LabelText {
   display: block;
   word-break: break-word;

@@ -12,12 +12,13 @@ import type {
 
 type LabelPosition = 'top' | 'left'
 
-interface LabelPositionProps {
+interface FormControlOptions {
+  leftLabelWrapperHeight?: FormFieldSize
   labelPosition?: LabelPosition
 }
 
-interface FormControlOptions {
-  leftLabelWrapperHeight?: FormFieldSize
+interface FormControlClassNameProps {
+  classNameFromControl: string
 }
 
 export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}
@@ -35,11 +36,11 @@ type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & F
 
 export type GroupPropsGetter = PropsGetter<CallbackRefProps & FormControlAriaProps>
 
-export type LabelPropsGetter = PropsGetter<LabelPositionProps>
+export type LabelPropsGetter = PropsGetter<FormControlClassNameProps>
 
 export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
 
-export type HelperTextPropsGetter = PropsGetter<LabelPositionProps & CallbackRefProps & {
+export type HelperTextPropsGetter = PropsGetter<FormControlClassNameProps & CallbackRefProps & {
   visible: boolean
 }>
 
@@ -60,11 +61,10 @@ export interface FormControlContextValue extends FormComponentProps {
 export interface ContainerProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  LabelPositionProps {}
+  Pick<FormControlOptions, 'labelPosition'> {}
 
 export interface FormControlProps extends
   BezierComponentProps,
   ChildrenProps,
   FormComponentProps,
-  LabelPositionProps,
   FormControlOptions {}

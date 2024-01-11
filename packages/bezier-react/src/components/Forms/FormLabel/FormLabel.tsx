@@ -1,7 +1,5 @@
 import React, { forwardRef } from 'react'
 
-import classNames from 'classnames'
-
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
@@ -44,8 +42,13 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
   } = props
 
   const contextValue = useFormControlContext()
-  const { labelPosition, ...ownProps } = contextValue?.getLabelProps(rest) ?? {
-    labelPosition: 'top',
+  const {
+    typo,
+    classNameFromControl,
+    ...ownProps
+  } = contextValue?.getLabelProps(rest) ?? {
+    typo: '13',
+    classNameFromControl: undefined,
     ...rest,
   }
 
@@ -58,7 +61,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
       as="label"
       align="left"
       bold={bold}
-      typo={labelPosition === 'top' ? '13' : '14'}
+      typo={typo}
       color={color}
     >
       { children }
@@ -85,26 +88,24 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
 
   if (isEmpty(children)) { return null }
 
+  const LabelElement = !HelpComponent
+    ? LabelComponent
+    : (
+      <LegacyHStack align="center" spacing={6}>
+        <LegacyStackItem shrink weight={1}>
+          { LabelComponent }
+        </LegacyStackItem>
+        <LegacyStackItem>
+          { HelpComponent }
+        </LegacyStackItem>
+      </LegacyHStack>
+    )
+
   return (
-    <div className={
-      classNames(
-        styles.FormLabel,
-        styles[`position-${labelPosition}`],
-      )
-    }
-    >
-      { !HelpComponent
-        ? LabelComponent
-        : (
-          <LegacyHStack align="center" spacing={6}>
-            <LegacyStackItem shrink weight={1}>
-              { LabelComponent }
-            </LegacyStackItem>
-            <LegacyStackItem>
-              { HelpComponent }
-            </LegacyStackItem>
-          </LegacyHStack>
-        ) }
-    </div>
+    classNameFromControl ? (
+      <div className={classNameFromControl}>
+        { LabelElement }
+      </div>
+    ) : LabelElement
   )
 })
