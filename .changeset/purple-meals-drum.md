@@ -10,5 +10,5 @@ so, `Text` and `Icon` components have the following changes.
   - `marginAll` -> `margin`
 - `Icon` : only added properties
   - `margin`
-  - `marginX`
-  - `marginY`
+  - `marginHorizontal`
+  - `marginVertical`
