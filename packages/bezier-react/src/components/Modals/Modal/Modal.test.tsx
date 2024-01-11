@@ -127,8 +127,6 @@ describe('Modal', () => {
       const trigger = getByRole('button', { name: TRIGGER_TEXT })
       await user.click(trigger)
       const [closeButton, closeIconButton] = getAllByRole('button')
-      // FIXME: Auto focusing not working properly in test environment
-      await user.tab()
       await user.tab()
       expect(document.activeElement).toBe(closeButton)
       await user.tab()

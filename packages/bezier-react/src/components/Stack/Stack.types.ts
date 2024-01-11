@@ -14,8 +14,6 @@ type BaseAlignment = 'start' | 'center' | 'end' | 'stretch'
 type Align = BaseAlignment | 'baseline'
 type Justify = BaseAlignment | 'between'
 
-type StackElementType = 'div' | 'section' | 'ul' | 'ol'
-
 interface StackOwnProps {
   /**
    * Display type of the stack.
@@ -51,7 +49,7 @@ interface StackOwnProps {
 export interface StackProps extends
   AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLElement>,
-  PolymorphicProps<StackElementType>,
+  PolymorphicProps,
   ChildrenProps,
   LayoutProps,
   MarginProps,

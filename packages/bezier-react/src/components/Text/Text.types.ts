@@ -20,24 +20,6 @@ type Typography =
   | '30'
   | '36'
 
-type TextElementType =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'p'
-  | 'span'
-  | 'label'
-  | 'small'
-  | 'em'
-  | 'i'
-  | 'b'
-  | 'strong'
-  | 'legend'
-  | 'div'
-
 type TextAlign = 'left' | 'center' | 'right'
 
 interface TextOwnProps {
@@ -75,7 +57,7 @@ interface TextOwnProps {
 export interface TextProps extends
   AlphaBezierComponentProps,
   Omit<React.HTMLAttributes<HTMLElement>, keyof TextOwnProps>,
-  PolymorphicProps<TextElementType>,
+  PolymorphicProps,
   ChildrenProps,
   MarginProps,
   TextOwnProps {}

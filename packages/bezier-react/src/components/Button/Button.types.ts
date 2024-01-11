@@ -3,6 +3,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import {
   type AlphaBezierComponentProps,
   type DisableProps,
+  type PolymorphicProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/ComponentProps'
@@ -92,6 +93,7 @@ interface ButtonOwnProps {
 
 export interface ButtonProps extends
   AlphaBezierComponentProps,
+  PolymorphicProps,
   SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,

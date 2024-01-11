@@ -141,11 +141,11 @@ export interface AlphaBezierComponentProps extends
   Omit<RenderConfigProps, 'as'>,
   Omit<StylableComponentProps, 'interpolation'> {}
 
-export interface PolymorphicProps<T extends React.ElementType> {
+export interface PolymorphicProps {
   /**
    * Element type to render.
    */
-  as?: T
+  as?: React.ElementType
 }
 
 export interface MarginProps {
