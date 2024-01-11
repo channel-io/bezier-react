@@ -5,7 +5,9 @@ import React, {
   useState,
 } from 'react'
 
+import { CancelIcon } from '@channel.io/bezier-icons'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
+import classNames from 'classnames'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -19,6 +21,12 @@ import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
@@ -34,7 +42,7 @@ import {
   type ModalTriggerProps,
 } from './Modal.types'
 
-import * as Styled from './Modal.styled'
+import styles from './Modal.module.scss'
 
 export const [
   ModalContainerContextProvider,
@@ -129,6 +137,7 @@ export function Modal({
 export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(function ModalContent({
   children,
   style,
+  className,
   container: givenContainer,
   showCloseIcon = false,
   preventHideOnOutsideClick = false,
@@ -192,7 +201,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
   return (
     <DialogPrimitive.Portal container={container}>
       <ThemeProvider themeName={useThemeName()}>
-        <Styled.DialogPrimitiveOverlay style={overlayStyle}>
+        <DialogPrimitive.Overlay
+          style={overlayStyle}
+          className={styles.ModalOverlay}
+        >
           <DialogPrimitive.Content
             asChild
             onPointerDownOutside={(e) => {
@@ -206,13 +218,17 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
               }
             }}
           >
-            <Styled.Content
+            <div
               aria-modal
               ref={contentRef}
               style={contentStyle}
+              className={classNames(
+                styles.ModalContent,
+                className,
+              )}
               {...rest}
             >
-              <Styled.Section>
+              <section className={styles.ModalSection}>
                 <ModalContainerContextProvider value={contentContainer}>
                   <ModalContentPropsContextProvider value={propsContextValue}>
                     { children }
@@ -221,14 +237,20 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
 
                 { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
                 { showCloseIcon && (
-                <ModalClose>
-                  <Styled.CloseIconButton />
-                </ModalClose>
+                  <ModalClose>
+                    <Button
+                      className={styles.CloseIconButton}
+                      size={ButtonSize.M}
+                      leftContent={CancelIcon}
+                      colorVariant={ButtonColorVariant.MonochromeDark}
+                      styleVariant={ButtonStyleVariant.Tertiary}
+                    />
+                  </ModalClose>
                 ) }
-              </Styled.Section>
-            </Styled.Content>
+              </section>
+            </div>
           </DialogPrimitive.Content>
-        </Styled.DialogPrimitiveOverlay>
+        </DialogPrimitive.Overlay>
       </ThemeProvider>
     </DialogPrimitive.Portal>
   )
@@ -239,15 +261,20 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
  */
 export const ModalBody = forwardRef(function ModalBody({
   children,
+  className,
   ...rest
 }: ModalBodyProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.Body
+    <div
       ref={forwardedRef}
+      className={classNames(
+        styles.ModalBody,
+        className,
+      )}
       {...rest}
     >
       { children }
-    </Styled.Body>
+    </div>
   )
 })
 
@@ -256,39 +283,40 @@ export const ModalBody = forwardRef(function ModalBody({
  * Usually, it contains the action buttons of the modal.
  */
 export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function ModalFooter({
+  className,
   leftContent,
   rightContent,
   ...rest
 }, forwardedRef) {
   return (
-    <Styled.Footer
+    <footer
       ref={forwardedRef}
+      className={classNames(
+        styles.ModalFooter,
+        className,
+      )}
       {...rest}
     >
       { leftContent && (
-        <Styled.FooterLeftContent>
+        <div className={styles.FooterLeftContent}>
           { leftContent }
-        </Styled.FooterLeftContent>
+        </div>
       ) }
 
       { rightContent && (
-        <Styled.FooterRightContent>
+        <div className={styles.FooterRightContent}>
           { rightContent }
-        </Styled.FooterRightContent>
+        </div>
       ) }
-    </Styled.Footer>
+    </footer>
   )
 })
 
 function getTitleTypo(size: ModalTitleSize) {
-  switch (size) {
-    case ModalTitleSize.L:
-      return '24'
-    case ModalTitleSize.M:
-      return '16'
-    default:
-      return '16'
-  }
+  return ({
+    [ModalTitleSize.L]: '24',
+    [ModalTitleSize.M]: '16',
+  } as const)[size]
 }
 
 function ModalHeaderTitle({
@@ -301,17 +329,28 @@ function ModalHeaderTitle({
   const hasSubtitle = !!subtitle
   const titleTypo = getTitleTypo(size)
 
+  const Title = (
+    <Text
+      className={styles.Title}
+      as="h2"
+      typo={titleTypo}
+      bold
+      color="txt-black-darkest"
+    >
+      { children }
+    </Text>
+  )
+
   return (
     <DialogPrimitive.Title asChild>
       { hasSubtitle
         ? (
-          <Styled.HeadingGroup
+          <hgroup
+            className={styles.HeadingGroup}
             role="group"
             aria-roledescription="Heading group"
           >
-            <Styled.Title typo={titleTypo}>
-              { children }
-            </Styled.Title>
+            { Title }
 
             <Text
               aria-roledescription="subtitle"
@@ -322,13 +361,9 @@ function ModalHeaderTitle({
             >
               { subtitle }
             </Text>
-          </Styled.HeadingGroup>
+          </hgroup>
         )
-        : (
-          <Styled.Title typo={titleTypo}>
-            { children }
-          </Styled.Title>
-        ) }
+        : Title }
     </DialogPrimitive.Title>
   )
 }
@@ -339,6 +374,7 @@ function ModalHeaderTitle({
  * If you want to hide the title and description, use `hidden` prop.
  */
 export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHeader({
+  className,
   title,
   subtitle,
   description,
@@ -352,13 +388,17 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
 
   return (
     <Hidden>
-      <Styled.Header
+      <header
         ref={forwardedRef}
-        hidden={hidden}
+        className={classNames(
+          styles.ModalHeader,
+          hidden && styles.hidden,
+          className,
+        )}
         {...rest}
       >
         { hasTitleArea && (
-          <Styled.TitleContainer>
+          <div className={styles.TitleContainer}>
             { title && (
               <ModalHeaderTitle
                 size={titleSize}
@@ -369,9 +409,13 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
             ) }
 
             { showCloseIcon && (
-              <Styled.CloseIconButtonSpacer />
+              <Button
+                className={styles.CloseIconButtonSpacer}
+                as="div"
+                size={ButtonSize.M}
+              />
             ) }
-          </Styled.TitleContainer>
+          </div>
         ) }
 
         { description && (
@@ -385,7 +429,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
             </Text>
           </DialogPrimitive.Description>
         ) }
-      </Styled.Header>
+      </header>
     </Hidden>
   )
 })
