@@ -19,7 +19,10 @@ import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
-import { isNumber } from '~/src/utils/type'
+import {
+  isNil,
+  isNumber,
+} from '~/src/utils/type'
 
 import {
   Button,
@@ -158,7 +161,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
     }, []),
   )
 
-  const overlayStyle = useMemo(() => {
+  const overlayStyle = (() => {
     const padding = (() => {
       if (isNumber(collisionPadding)) {
         return `${collisionPadding}px`
@@ -179,20 +182,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
       '--b-modal-z-index': zIndex,
       '--b-modal-collision-padding': padding,
     } as React.CSSProperties)
-  }, [
-    collisionPadding,
-    zIndex,
-  ])
-
-  const contentStyle = useMemo(() => ({
-    ...style,
-    '--b-modal-width': cssDimension(width),
-    '--b-modal-height': cssDimension(height),
-  } as React.CSSProperties), [
-    style,
-    width,
-    height,
-  ])
+  })()
 
   const propsContextValue = useMemo((): ModalContentPropsContextValue => ({
     showCloseIcon,
@@ -221,7 +211,11 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
             <div
               aria-modal
               ref={contentRef}
-              style={contentStyle}
+              style={{
+                '--b-modal-width': cssDimension(width),
+                '--b-modal-height': cssDimension(height),
+                ...style,
+              } as React.CSSProperties}
               className={classNames(
                 styles.ModalContent,
                 className,
@@ -326,14 +320,11 @@ function ModalHeaderTitle({
 }: React.PropsWithChildren<Pick<ModalHeaderProps, 'subtitle'> & {
   size: NonNullable<ModalHeaderProps['titleSize']>
 }>) {
-  const hasSubtitle = !!subtitle
-  const titleTypo = getTitleTypo(size)
-
   const Title = (
     <Text
       className={styles.Title}
       as="h2"
-      typo={titleTypo}
+      typo={getTitleTypo(size)}
       bold
       color="txt-black-darkest"
     >
@@ -343,7 +334,7 @@ function ModalHeaderTitle({
 
   return (
     <DialogPrimitive.Title asChild>
-      { hasSubtitle
+      { !isNil(subtitle)
         ? (
           <hgroup
             className={styles.HeadingGroup}
