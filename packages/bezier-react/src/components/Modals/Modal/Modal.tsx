@@ -60,32 +60,6 @@ const [
 })
 
 /**
- * `ModalTrigger` is a button that opens the modal. **It doesn't render any DOM node.**
- * It passes the handler that opens the modal and accessibility properties to the children.
- *
- * It **must** be placed outside of the `ModalContent`.
- */
-export function ModalTrigger({ children }: ModalTriggerProps) {
-  return (
-    <DialogPrimitive.Trigger asChild>
-      { children }
-    </DialogPrimitive.Trigger>
-  )
-}
-
-/**
- * `ModalClose` is a button that closes the modal. **It doesn't render any DOM node.**
- * It passes the handler that closes the modal to the children.
- */
-export function ModalClose({ children }: ModalCloseProps) {
-  return (
-    <DialogPrimitive.Close asChild>
-      { children }
-    </DialogPrimitive.Close>
-  )
-}
-
-/**
  * `Modal` is a dialog that appears on top of the page.
  *
  * `Modal` is a context of the Modal-related components. It doesn't render any DOM node.
@@ -231,6 +205,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
 
                 { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
                 { showCloseIcon && (
+                  // eslint-disable-next-line @typescript-eslint/no-use-before-define
                   <ModalClose>
                     <Button
                       className={styles.CloseIconButton}
@@ -247,62 +222,6 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
         </DialogPrimitive.Overlay>
       </ThemeProvider>
     </DialogPrimitive.Portal>
-  )
-})
-
-/**
- * `ModalBody` is a simple wrapper of the main modal content.
- */
-export const ModalBody = forwardRef(function ModalBody({
-  children,
-  className,
-  ...rest
-}: ModalBodyProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  return (
-    <div
-      ref={forwardedRef}
-      className={classNames(
-        styles.ModalBody,
-        className,
-      )}
-      {...rest}
-    >
-      { children }
-    </div>
-  )
-})
-
-/**
- * `ModalFooter` is a simple wrapper of the footer of the modal content.
- * Usually, it contains the action buttons of the modal.
- */
-export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function ModalFooter({
-  className,
-  leftContent,
-  rightContent,
-  ...rest
-}, forwardedRef) {
-  return (
-    <footer
-      ref={forwardedRef}
-      className={classNames(
-        styles.ModalFooter,
-        className,
-      )}
-      {...rest}
-    >
-      { leftContent && (
-        <div className={styles.FooterLeftContent}>
-          { leftContent }
-        </div>
-      ) }
-
-      { rightContent && (
-        <div className={styles.FooterRightContent}>
-          { rightContent }
-        </div>
-      ) }
-    </footer>
   )
 })
 
@@ -424,3 +343,85 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
     </Hidden>
   )
 })
+
+/**
+ * `ModalBody` is a simple wrapper of the main modal content.
+ */
+export const ModalBody = forwardRef(function ModalBody({
+  children,
+  className,
+  ...rest
+}: ModalBodyProps, forwardedRef: React.Ref<HTMLDivElement>) {
+  return (
+    <div
+      ref={forwardedRef}
+      className={classNames(
+        styles.ModalBody,
+        className,
+      )}
+      {...rest}
+    >
+      { children }
+    </div>
+  )
+})
+
+/**
+ * `ModalFooter` is a simple wrapper of the footer of the modal content.
+ * Usually, it contains the action buttons of the modal.
+ */
+export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function ModalFooter({
+  className,
+  leftContent,
+  rightContent,
+  ...rest
+}, forwardedRef) {
+  return (
+    <footer
+      ref={forwardedRef}
+      className={classNames(
+        styles.ModalFooter,
+        className,
+      )}
+      {...rest}
+    >
+      { leftContent && (
+        <div className={styles.FooterLeftContent}>
+          { leftContent }
+        </div>
+      ) }
+
+      { rightContent && (
+        <div className={styles.FooterRightContent}>
+          { rightContent }
+        </div>
+      ) }
+    </footer>
+  )
+})
+
+/**
+ * `ModalTrigger` is a button that opens the modal. **It doesn't render any DOM node.**
+ * It passes the handler that opens the modal and accessibility properties to the children.
+ *
+ * It **must** be placed outside of the `ModalContent`.
+ */
+export function ModalTrigger({ children }: ModalTriggerProps) {
+  return (
+    <DialogPrimitive.Trigger asChild>
+      { children }
+    </DialogPrimitive.Trigger>
+  )
+}
+
+/**
+ * `ModalClose` is a button that closes the modal. **It doesn't render any DOM node.**
+ * It passes the handler that closes the modal to the children.
+ */
+export function ModalClose({ children }: ModalCloseProps) {
+  return (
+    <DialogPrimitive.Close asChild>
+      { children }
+    </DialogPrimitive.Close>
+  )
+}
