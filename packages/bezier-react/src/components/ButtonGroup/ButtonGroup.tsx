@@ -8,7 +8,7 @@ import type { ButtonGroupProps } from './ButtonGroup.types'
  * `ButtonGroup` is a component that groups buttons together.
  *
  * @example
- * ```
+ * ```tsx
  * <ButtonGroup>
  *   <Button text="Close" />
  *   <Button text="Submit" />
