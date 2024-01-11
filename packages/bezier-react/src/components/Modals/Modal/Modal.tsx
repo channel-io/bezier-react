@@ -126,7 +126,7 @@ export function Modal({
  * It creates a portal to render the modal content outside of the DOM tree
  * and renders overlay behind the modal content too.
  */
-export const ModalContent = forwardRef(function ModalContent({
+export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(function ModalContent({
   children,
   style,
   container: givenContainer,
@@ -137,7 +137,7 @@ export const ModalContent = forwardRef(function ModalContent({
   zIndex = ZIndex.Modal,
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
-}: ModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   const { rootElement } = useWindow()
   const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
@@ -255,11 +255,11 @@ export const ModalBody = forwardRef(function ModalBody({
  * `ModalFooter` is a simple wrapper of the footer of the modal content.
  * Usually, it contains the action buttons of the modal.
  */
-export const ModalFooter = forwardRef(function ModalFooter({
+export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function ModalFooter({
   leftContent,
   rightContent,
   ...rest
-}: ModalFooterProps, forwardedRef: React.Ref<HTMLElement>) {
+}, forwardedRef) {
   return (
     <Styled.Footer
       ref={forwardedRef}
@@ -295,7 +295,9 @@ function ModalHeaderTitle({
   children,
   size,
   subtitle,
-}: React.PropsWithChildren<Pick<ModalHeaderProps, 'subtitle'> & { size: NonNullable<ModalHeaderProps['titleSize']> }>) {
+}: React.PropsWithChildren<Pick<ModalHeaderProps, 'subtitle'> & {
+  size: NonNullable<ModalHeaderProps['titleSize']>
+}>) {
   const hasSubtitle = !!subtitle
   const titleTypo = getTitleTypo(size)
 
@@ -336,14 +338,14 @@ function ModalHeaderTitle({
  * It renders the accessible title and description of the modal.
  * If you want to hide the title and description, use `hidden` prop.
  */
-export const ModalHeader = forwardRef(function ModalHeader({
+export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHeader({
   title,
   subtitle,
   description,
   titleSize = ModalTitleSize.L,
   hidden = false,
   ...rest
-}: ModalHeaderProps, forwardedRef: React.Ref<HTMLElement>) {
+}, forwardedRef) {
   const { showCloseIcon } = useModalContentPropsContext()
   const hasTitleArea = title || showCloseIcon
   const Hidden = hidden ? VisuallyHidden : React.Fragment
