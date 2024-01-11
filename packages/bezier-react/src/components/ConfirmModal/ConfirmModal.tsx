@@ -9,7 +9,7 @@ import {
   ModalHeader,
   ModalTitleSize,
   ModalTrigger,
-} from '../Modal'
+} from '~/src/components/Modal'
 
 import {
   type ConfirmModalBodyProps,
