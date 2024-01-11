@@ -2,27 +2,33 @@ import React, { forwardRef } from 'react'
 
 import { Stack } from '~/src/components/Stack'
 
-import type ButtonGroupProps from './ButtonGroup.types'
+import type { ButtonGroupProps } from './ButtonGroup.types'
 
-export const ButtonGroup = forwardRef(function ButtonGroup(
-  {
-    children,
-    justify = 'center',
-    withoutSpacing = false,
-    ...props
-  }: ButtonGroupProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) {
-  const spacing = withoutSpacing ? 0 : 6
-
+/**
+ * `ButtonGroup` is a component that groups buttons together.
+ *
+ * @example
+ * ```tsx
+ * <ButtonGroup>
+ *   <Button text="Close" />
+ *   <Button text="Submit" />
+ * </ButtonGroup>
+ * ```
+ */
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(function ButtonGroup({
+  children,
+  justify = 'center',
+  withoutSpacing = false,
+  ...props
+}, forwardedRef) {
   return (
     <Stack
-      direction="horizontal"
-      spacing={spacing}
-      justify={justify}
-      ref={forwardedRef}
-      role="group"
       {...props}
+      role="group"
+      ref={forwardedRef}
+      direction="horizontal"
+      spacing={withoutSpacing ? 0 : 6}
+      justify={justify}
     >
       { children }
     </Stack>

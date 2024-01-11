@@ -5,7 +5,7 @@ import { render } from '~/src/utils/test'
 import { Button } from '~/src/components/Button'
 
 import { ButtonGroup } from './ButtonGroup'
-import type ButtonGroupProps from './ButtonGroup.types'
+import type { ButtonGroupProps } from './ButtonGroup.types'
 
 describe('ButtonGroup', () => {
   let props: ButtonGroupProps

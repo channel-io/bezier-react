@@ -19,7 +19,7 @@ import {
 
 import { ButtonGroup } from './ButtonGroup'
 import mdx from './ButtonGroup.mdx'
-import type ButtonGroupProps from './ButtonGroup.types'
+import type { ButtonGroupProps } from './ButtonGroup.types'
 
 const meta: Meta<typeof ButtonGroup> = {
   component: ButtonGroup,

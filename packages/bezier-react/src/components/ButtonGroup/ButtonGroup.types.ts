@@ -1,11 +1,12 @@
 import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
+  type MarginProps,
 } from '~/src/types/ComponentProps'
 
 import { type StackProps } from '~/src/components/Stack'
 
-interface ButtonGroupOptions {
+interface ButtonGroupOwnProps {
   /**
    * Determines whether there is a 6px gap between the buttons.
    * @default false
@@ -13,8 +14,10 @@ interface ButtonGroupOptions {
   withoutSpacing?: boolean
 }
 
-export default interface ButtonGroupProps extends
+export interface ButtonGroupProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  MarginProps,
   Pick<StackProps, 'justify'>,
-  ButtonGroupOptions {}
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>,
+  ButtonGroupOwnProps {}
