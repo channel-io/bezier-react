@@ -47,10 +47,12 @@ import {
 
 import styles from './Modal.module.scss'
 
-export const [
+const [
   ModalContainerContextProvider,
   useModalContainerContext,
 ] = createContext<HTMLElement | undefined>(undefined)
+
+export { useModalContainerContext }
 
 const [
   ModalContentPropsContextProvider,
