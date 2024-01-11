@@ -3,6 +3,7 @@ import {
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/ComponentProps'
+import { type ZIndex } from '~/src/types/Token'
 
 export enum ModalTitleSize {
   L = 'L',
@@ -71,9 +72,9 @@ interface ModalContentOwnProps {
   /**
    * z-index of the modal content.
    * Rather than using this option, Please check modal is positioned in the proper stacking context.
-   * @default ZIndex.Modal
+   * @default 'modal'
    */
-  zIndex?: React.CSSProperties['zIndex']
+  zIndex?: ZIndex
 
   /**
    * Determine padding of overlay that contains modal content.

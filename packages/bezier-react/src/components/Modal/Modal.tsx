@@ -9,16 +9,19 @@ import { CancelIcon } from '@channel.io/bezier-icons'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import classNames from 'classnames'
 
-import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import {
   ThemeProvider,
   useThemeName,
 } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
+import { TokenPrefix } from '~/src/types/Token'
 import { noop } from '~/src/utils/function'
 import { createContext } from '~/src/utils/react'
-import { cssDimension } from '~/src/utils/style'
+import {
+  cssDimension,
+  tokenCssVar,
+} from '~/src/utils/style'
 import {
   isNil,
   isNumber,
@@ -122,7 +125,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
   preventHideOnOutsideClick = false,
   width = 'max-content',
   height = 'fit-content',
-  zIndex = ZIndex.Modal,
+  zIndex = 'modal',
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }, forwardedRef) {
@@ -155,7 +158,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
     })()
 
     return ({
-      '--b-modal-z-index': zIndex,
+      '--b-modal-z-index': tokenCssVar(`${TokenPrefix.ZIndex}-${zIndex}`),
       '--b-modal-collision-padding': padding,
     } as React.CSSProperties)
   })()
