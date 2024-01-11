@@ -1,9 +1,12 @@
-export { ConfirmModal } from './ConfirmModal'
-export { ConfirmModalContent } from './ConfirmModalContent'
-export { ConfirmModalHeader } from './ConfirmModalHeader'
-export { ConfirmModalBody } from './ConfirmModalBody'
-export { ConfirmModalFooter } from './ConfirmModalFooter'
-export { ConfirmModalTrigger, ConfirmModalClose } from './ConfirmModalHelpers'
+export {
+  ConfirmModal,
+  ConfirmModalContent,
+  ConfirmModalHeader,
+  ConfirmModalBody,
+  ConfirmModalFooter,
+  ConfirmModalTrigger,
+  ConfirmModalClose,
+} from './ConfirmModal'
 
 export {
   type ConfirmModalProps,

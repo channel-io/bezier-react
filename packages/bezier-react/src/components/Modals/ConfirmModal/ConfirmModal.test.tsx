@@ -5,18 +5,18 @@ import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { ConfirmModal } from './ConfirmModal'
+import {
+  ConfirmModal,
+  ConfirmModalClose,
+  ConfirmModalContent,
+  ConfirmModalFooter,
+  ConfirmModalHeader,
+  ConfirmModalTrigger,
+} from './ConfirmModal'
 import {
   type ConfirmModalContentProps,
   type ConfirmModalProps,
 } from './ConfirmModal.types'
-import { ConfirmModalContent } from './ConfirmModalContent'
-import { ConfirmModalFooter } from './ConfirmModalFooter'
-import { ConfirmModalHeader } from './ConfirmModalHeader'
-import {
-  ConfirmModalClose,
-  ConfirmModalTrigger,
-} from './ConfirmModalHelpers'
 
 const TRIGGER_TEXT = 'Open'
 const CANCEL_TEXT = 'Cancel'

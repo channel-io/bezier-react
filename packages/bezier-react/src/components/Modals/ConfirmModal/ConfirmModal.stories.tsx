@@ -16,19 +16,19 @@ import {
 } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 
-import { ConfirmModal } from './ConfirmModal'
+import {
+  ConfirmModal,
+  ConfirmModalClose,
+  ConfirmModalContent,
+  ConfirmModalFooter,
+  ConfirmModalHeader,
+  ConfirmModalTrigger,
+} from './ConfirmModal'
 import {
   type ConfirmModalContentProps,
   type ConfirmModalHeaderProps,
   type ConfirmModalProps,
 } from './ConfirmModal.types'
-import { ConfirmModalContent } from './ConfirmModalContent'
-import { ConfirmModalFooter } from './ConfirmModalFooter'
-import { ConfirmModalHeader } from './ConfirmModalHeader'
-import {
-  ConfirmModalClose,
-  ConfirmModalTrigger,
-} from './ConfirmModalHelpers'
 
 type ConfirmModalCompositionProps = ConfirmModalProps &
 ConfirmModalContentProps &
