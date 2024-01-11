@@ -196,7 +196,7 @@ export interface LayoutProps {
    */
   padding?: CSSProperties['padding']
   /**
-   * the padding area on the left and righ sides of an element.
+   * the padding area on the left and right sides of an element.
    * @default 0
    */
   paddingHorizontal?: CSSProperties['padding']
