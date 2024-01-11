@@ -1,5 +1,5 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/ComponentProps'
@@ -11,7 +11,7 @@ export enum ModalTitleSize {
 
 type BoxSide = 'top' | 'right' | 'bottom' | 'left'
 
-interface ModalOptions {
+interface ModalOwnProps {
   /**
    * The controlled open state of the modal.
    * Must be used in conjunction with `onShow` and `onHide`.
@@ -37,7 +37,7 @@ interface ModalOptions {
   onHide?: () => void
 }
 
-interface ModalContentOptions {
+interface ModalContentOwnProps {
   /**
    * Specify a container element to portal the content into.
    * @default document.body
@@ -82,7 +82,7 @@ interface ModalContentOptions {
   collisionPadding?: number | Partial<Record<BoxSide, number>>
 }
 
-interface ModalHeaderOptions {
+interface ModalHeaderOwnProps {
   /**
    * An accessible title to be announced when the modal is opened.
    */
@@ -113,33 +113,33 @@ interface ModalHeaderOptions {
 
 type ModalFooterSideContent = React.ReactNode
 
-interface ModalFooterOptions extends
+interface ModalFooterOwnProps extends
   SideContentProps<ModalFooterSideContent, ModalFooterSideContent> {}
 
 export interface ModalProps extends
   ChildrenProps,
-  ModalOptions {}
+  ModalOwnProps {}
 
 export interface ModalContentProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLDivElement>,
-  ModalContentOptions {}
+  ModalContentOwnProps {}
 
 export interface ModalHeaderProps extends
-  BezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLElement>, keyof ModalHeaderOptions>,
-  ModalHeaderOptions {}
+  AlphaBezierComponentProps,
+  Omit<React.HTMLAttributes<HTMLElement>, keyof ModalHeaderOwnProps>,
+  ModalHeaderOwnProps {}
 
 export interface ModalBodyProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLDivElement> {}
 
 export interface ModalFooterProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLElement>,
-  ModalFooterOptions {}
+  ModalFooterOwnProps {}
 
 export interface ModalTriggerProps extends
   ChildrenProps<React.ReactElement> {}
@@ -148,4 +148,4 @@ export interface ModalCloseProps extends
   ChildrenProps<React.ReactElement> {}
 
 export interface ModalContentPropsContextValue extends
-  Required<Pick<ModalContentOptions, 'showCloseIcon'>> {}
+  Required<Pick<ModalContentOwnProps, 'showCloseIcon'>> {}
