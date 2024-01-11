@@ -1,11 +1,13 @@
-export { Modal } from './Modal'
-export { ModalContent } from './ModalContent'
-export { ModalHeader } from './ModalHeader'
-export { ModalBody } from './ModalBody'
-export { ModalFooter } from './ModalFooter'
-export { ModalTrigger, ModalClose } from './ModalHelpers'
-
-export { useModalContainerContext } from './ModalContext'
+export {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalTrigger,
+  ModalClose,
+  useModalContainerContext,
+} from './Modal'
 
 export {
   ModalTitleSize,

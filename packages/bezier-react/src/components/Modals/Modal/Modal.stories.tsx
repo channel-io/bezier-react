@@ -21,21 +21,21 @@ import { FormLabel } from '~/src/components/Forms/FormLabel'
 import { Select } from '~/src/components/Forms/Inputs/Select'
 import { ListItem } from '~/src/components/ListItem'
 
-import { Modal } from './Modal'
+import {
+  Modal,
+  ModalBody,
+  ModalClose,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalTrigger,
+} from './Modal'
 import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
   ModalTitleSize,
 } from './Modal.types'
-import { ModalBody } from './ModalBody'
-import { ModalContent } from './ModalContent'
-import { ModalFooter } from './ModalFooter'
-import { ModalHeader } from './ModalHeader'
-import {
-  ModalClose,
-  ModalTrigger,
-} from './ModalHelpers'
 
 type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
 
