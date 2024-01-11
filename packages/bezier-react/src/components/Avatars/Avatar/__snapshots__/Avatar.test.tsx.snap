@@ -1,100 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Avatar > Snapshot 1`] = `
-.c0 {
-  --b-alpha-smooth-corners-box-border-radius: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-color: transparent;
-  --b-alpha-smooth-corners-box-padding: 0px;
-  --b-alpha-smooth-corners-box-margin: 0px;
-  --b-alpha-smooth-corners-box-background-color: transparent;
-  box-sizing: content-box;
-  margin: var(--b-alpha-smooth-corners-box-margin);
-  background-color: var(--b-alpha-smooth-corners-box-background-color);
-  background-image: var(--b-alpha-smooth-corners-box-background-image);
-  background-size: cover;
-  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c0[data-state="enabled"] {
-    padding: var(--b-alpha-smooth-corners-box-padding);
-    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
-    background: paint(smooth-corners);
-    border-radius: 0;
-    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
-    box-shadow: none;
-    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
-  }
-}
-
 <div
   aria-label="Name"
-  class="c0 AvatarImage"
+  class="SmoothCornersBox AvatarImage"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 0px; --b-alpha-smooth-corners-box-padding: 0px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
 exports[`Avatar > renders border style 1`] = `
-.c0 {
-  --b-alpha-smooth-corners-box-border-radius: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-x: 0;
-  --b-alpha-smooth-corners-box-shadow-offset-y: 0;
-  --b-alpha-smooth-corners-box-shadow-blur-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-spread-radius: 0px;
-  --b-alpha-smooth-corners-box-shadow-color: transparent;
-  --b-alpha-smooth-corners-box-padding: 0px;
-  --b-alpha-smooth-corners-box-margin: 0px;
-  --b-alpha-smooth-corners-box-background-color: transparent;
-  box-sizing: content-box;
-  margin: var(--b-alpha-smooth-corners-box-margin);
-  background-color: var(--b-alpha-smooth-corners-box-background-color);
-  background-image: var(--b-alpha-smooth-corners-box-background-image);
-  background-size: cover;
-  border-radius: var(--b-alpha-smooth-corners-box-border-radius);
-  box-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-}
-
-@supports (background:paint(smooth-corners)) {
-  .c0[data-state="enabled"] {
-    padding: var(--b-alpha-smooth-corners-box-padding);
-    margin: calc(var(--b-alpha-smooth-corners-box-margin) + (-1 * var(--b-alpha-smooth-corners-box-padding)));
-    background: paint(smooth-corners);
-    border-radius: 0;
-    border-image-source: var(--b-alpha-smooth-corners-box-background-image);
-    box-shadow: none;
-    --smooth-corners: var(--b-alpha-smooth-corners-box-border-radius);
-    --smooth-corners-shadow: var(--b-alpha-smooth-corners-box-shadow-offset-x) var(--b-alpha-smooth-corners-box-shadow-offset-y) var(--b-alpha-smooth-corners-box-shadow-blur-radius) var(--b-alpha-smooth-corners-box-shadow-spread-radius) var(--b-alpha-smooth-corners-box-shadow-color);
-    --smooth-corners-bg-color: var(--b-alpha-smooth-corners-box-background-color);
-    --smooth-corners-padding: var(--b-alpha-smooth-corners-box-padding);
-    --smooth-corners-radius-unit: var(--b-alpha-smooth-corners-box-border-radius-type);
-  }
-}
-
 <div
   aria-label="Name"
-  class="c0 AvatarImage bordered"
+  class="SmoothCornersBox AvatarImage bordered"
   data-state="disabled"
   data-testid="bezier-react-avatar"
-  style="--b-alpha-smooth-corners-box-border-radius: 42%; --b-alpha-smooth-corners-box-border-radius-type: string; --b-alpha-smooth-corners-box-shadow-blur-radius: 0px; --b-alpha-smooth-corners-box-shadow-spread-radius: 2px; --b-alpha-smooth-corners-box-shadow-color: var(--bg-white-high); --b-alpha-smooth-corners-box-padding: 4px; --b-alpha-smooth-corners-box-margin: 0px; --b-alpha-smooth-corners-box-background-color: var(--bg-white-normal); --b-alpha-smooth-corners-box-background-image: url(https://www.google.com);"
+  style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 2px; --b-smooth-corners-box-shadow-color: var(--bg-white-high); --b-smooth-corners-box-padding: 4px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
 
 exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"
@@ -107,10 +33,6 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 `;
 
 exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"
@@ -123,10 +45,6 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 72 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"
@@ -139,10 +57,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"
@@ -155,10 +69,6 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"
@@ -171,10 +81,6 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 `;
 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
-@supports (background:paint(smooth-corners)) {
-
-}
-
 <div
   class="StatusWrapper"
   data-testid="bezier-react-status-wrapper"

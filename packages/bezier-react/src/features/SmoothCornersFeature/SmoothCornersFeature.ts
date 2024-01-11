@@ -39,11 +39,7 @@ class SmoothCornersFeature implements Feature {
 
   private globalObject: typeof globalThis | null = null
 
-  /**
-   * @deprecated (@ed) Upcoming improvements
-   * Changed to private property, and will be referenced via the useFeatureFlag context rather than directly externally.
-   */
-  activated: WeakMap<typeof globalThis, boolean> = new WeakMap([[globalThis, false]])
+  private activated: WeakMap<typeof globalThis, boolean> = new WeakMap([[globalThis, false]])
 
   private updateCurrentGlobalObject(globalObject: typeof globalThis) {
     this.globalObject = globalObject

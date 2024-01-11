@@ -1,6 +1,5 @@
 import type { SimpleInterpolation } from 'styled-components'
 
-import { SmoothCornersFeature } from '~/src/features'
 import { isNil } from '~/src/utils/type'
 
 import { css } from './FoundationStyledComponent'
@@ -57,54 +56,3 @@ export function ellipsis(line?: number, lineHeight?: number): ReturnType<typeof 
     `
   /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
-
-interface SmoothCornersOptions {
-  borderRadius?: number | string
-  shadow?: string
-  backgroundColor?: string
-  hasBackgroundImage?: boolean
-  shadowBlur?: number
-  margin?: number
-}
-
-export const smoothCorners = ({
-  borderRadius = 0,
-  shadow = '0 0 0 0 transparent',
-  backgroundColor = 'white',
-  hasBackgroundImage = false,
-  shadowBlur = 0,
-  margin = 0,
-}: SmoothCornersOptions) => css`
-  margin: ${margin}px;
-  background-color: ${backgroundColor};
-
-  ${hasBackgroundImage && css`
-    background-image: var(--background-image);
-    background-size: cover;
-  `}
-
-  ${borderRadius && css`
-    border-radius: ${borderRadius};
-  `}
-
-  ${SmoothCornersFeature.activated.get(globalThis) && css`
-    @supports (background: paint(smooth-corners)) {
-      padding: ${shadowBlur * 2}px;
-      margin: ${-(shadowBlur * 2) + margin}px;
-      background: paint(smooth-corners);
-      border-radius: 0;
-      /* Custom property 는 CSSUnparsedValue 로만 잡혀서 사용하는 임시 속성 */
-      box-shadow: none;
-
-      ${hasBackgroundImage && css`
-        border-image-source: var(--background-image);
-      `}
-
-      --smooth-corners: ${borderRadius};
-      --smooth-corners-shadow: ${shadow};
-      --smooth-corners-bg-color: ${backgroundColor};
-      --smooth-corners-padding: ${shadowBlur * 2};
-      --smooth-corners-radius-unit: ${typeof borderRadius === 'string' ? 'string' : 'number'};
-    }
-  `}
-`

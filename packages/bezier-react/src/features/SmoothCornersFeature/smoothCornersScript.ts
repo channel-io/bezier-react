@@ -19,6 +19,12 @@ class SmoothCorners {
     return parseInt(pixel.replace('px', ''), 10)
   }
 
+  splitValueAndUnit(value) {
+    const regex = /([\\d.\\-+]+)\\s*(\\D*)/
+    const matches = value.match(regex)
+    return matches ? [matches[1], matches[2]] : [value, '']
+  }
+
   superellipse(...args) {
     const sanitizedArgs = this.sanitizeSuperellipseArgs(...args)
 
@@ -94,22 +100,13 @@ class SmoothCorners {
       .get('--smooth-corners')
       .toString()
 
-    const rUnit = properties
-      .get('--smooth-corners-radius-unit')
-      .toString()
-
     const targetWidth = geom.width - (2 * this.trimPX(padding))
     const targetHeight = geom.height - (2 * this.trimPX(padding))
 
-    const targetR = (() => {
-      switch (rUnit) {
-        case 'string':
-          return  (Number(baseN.replace('%', '')) / 100) * Math.min(targetWidth, targetHeight)
-        case 'number':
-        default:
-          return Number(baseN)
-      }
-    })()
+    const [rValue, rUnit] = this.splitValueAndUnit(baseN)
+    const targetR = rUnit === '%'
+      ? (Number(rValue) / 100) * Math.min(targetWidth, targetHeight)
+      : Number(rValue)
 
     const targetNX = targetWidth / targetR
     const targetNY = targetHeight / targetR
