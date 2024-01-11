@@ -73,11 +73,11 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
 
 /**
  * `FormHelperText` is a component to show the description of the input element.
- * It should be used with `FormControl` component.
+ * `FormControl` component can handle its layout by `position` props.
  *
  * @example
  * ```tsx
- * <FormControl>
+ * <FormControl position="top">
  *   <FormLabel>
  *     Password
  *   </FormLabel>
