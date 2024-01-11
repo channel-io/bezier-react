@@ -41,8 +41,8 @@ export const splitByBezierComponentProps = <
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,
-  marginX,
-  marginY,
+  marginHorizontal,
+  marginVertical,
   marginTop,
   marginRight,
   marginBottom,
@@ -51,8 +51,8 @@ export const splitByMarginProps = <Props extends MarginProps>({
 }: Props): [MarginProps, Omit<Props, keyof MarginProps>] => [
     {
       margin,
-      marginX,
-      marginY,
+      marginHorizontal,
+      marginVertical,
       marginTop,
       marginRight,
       marginBottom,
@@ -63,8 +63,8 @@ export const splitByMarginProps = <Props extends MarginProps>({
 
 export const splitByLayoutProps = <Props extends LayoutProps>({
   padding,
-  paddingX,
-  paddingY,
+  paddingHorizontal,
+  paddingVertical,
   paddingTop,
   paddingRight,
   paddingBottom,
@@ -100,8 +100,8 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
 }: Props): [LayoutProps, Omit<Props, keyof LayoutProps>] => [
     {
       padding,
-      paddingX,
-      paddingY,
+      paddingHorizontal,
+      paddingVertical,
       paddingTop,
       paddingRight,
       paddingBottom,
@@ -139,8 +139,8 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
 
 export const getMarginStyles = ({
   margin,
-  marginX,
-  marginY,
+  marginHorizontal,
+  marginVertical,
   marginTop,
   marginRight,
   marginBottom,
@@ -149,8 +149,8 @@ export const getMarginStyles = ({
   {
     style: {
       '--b-margin': cssDimension(margin),
-      '--b-margin-x': cssDimension(marginX),
-      '--b-margin-y': cssDimension(marginY),
+      '--b-margin-horizontal': cssDimension(marginHorizontal),
+      '--b-margin-vertical': cssDimension(marginVertical),
       '--b-margin-top': cssDimension(marginTop),
       '--b-margin-right': cssDimension(marginRight),
       '--b-margin-bottom': cssDimension(marginBottom),
@@ -162,8 +162,8 @@ export const getMarginStyles = ({
 
 export const getLayoutStyles = ({
   padding,
-  paddingX,
-  paddingY,
+  paddingHorizontal,
+  paddingVertical,
   paddingTop,
   paddingRight,
   paddingBottom,
@@ -199,8 +199,8 @@ export const getLayoutStyles = ({
   {
     style: {
       '--b-padding': cssDimension(padding),
-      '--b-padding-x': cssDimension(paddingX),
-      '--b-padding-y': cssDimension(paddingY),
+      '--b-padding-horizontal': cssDimension(paddingHorizontal),
+      '--b-padding-vertical': cssDimension(paddingVertical),
       '--b-padding-top': cssDimension(paddingTop),
       '--b-padding-right': cssDimension(paddingRight),
       '--b-padding-bottom': cssDimension(paddingBottom),

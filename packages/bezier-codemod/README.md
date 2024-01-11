@@ -336,7 +336,7 @@ function Baz() {
 
 `v2-text-component-interface`
 
-Replace `Typography` enum with string literal and change properties related to margin to be shorthand.
+Replace `Typography` enum with string literal and change `marginAll` property to short.
 
 For example:
 
@@ -345,7 +345,7 @@ import { Text, styled, Typography } from "@channel.io/bezier-react";
 
 function Foo() {
   return (
-    <Text typo={Typography.Size13} marginHorizontal={4}>
+    <Text typo={Typography.Size13} marginAll={4}>
       title
     </Text>
   );
@@ -353,7 +353,7 @@ function Foo() {
 
 const Title = styled(Text).attrs({
   typo: Typography.Size13,
-  marginHorizontal: 4,
+  marginAll: 4,
 })``;
 ```
 
@@ -364,7 +364,7 @@ import { Text, styled } from "@channel.io/bezier-react";
 
 function Foo() {
   return (
-    <Text typo="13" marginX={4}>
+    <Text typo="13" margin={4}>
       title
     </Text>
   );
@@ -372,6 +372,6 @@ function Foo() {
 
 const Title = styled(Text).attrs({
   typo: "13",
-  marginX: 4,
+  margin: 4,
 })``;
 ```

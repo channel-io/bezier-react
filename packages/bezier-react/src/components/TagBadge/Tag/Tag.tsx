@@ -79,7 +79,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
       { !isEmpty(children) && (
         <Text
           typo={getProperTagBadgeTypo(size)}
-          marginX={2}
+          marginHorizontal={2}
           color="txt-black-darkest"
         >
           { children }

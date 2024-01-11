@@ -7,8 +7,8 @@ export const Title = styled(Text).attrs({
   marginRight: 3,
   marginBottom: 4,
   marginLeft: 5,
-  marginX: 6,
-  marginY: 7,
+  marginHorizontal: 6,
+  marginVertical: 7,
 })``
 
 export const Subtitle = styled(Text)`

@@ -9,8 +9,8 @@ export function Component () {
       marginRight={3}
       marginBottom={3}
       marginLeft={2}
-      marginX={3}
-      marginY={3}
+      marginHorizontal={3}
+      marginVertical={3}
     >
       text
     </Text>

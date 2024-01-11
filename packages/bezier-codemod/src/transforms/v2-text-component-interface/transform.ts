@@ -10,8 +10,6 @@ const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'margin',
-      marginHorizontal: 'marginX',
-      marginVertical: 'marginY',
     },
     valueMapper: {
       'Typography.Size11': '"11"',
@@ -34,8 +32,6 @@ const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'margin',
-      marginHorizontal: 'marginX',
-      marginVertical: 'marginY',
     },
     valueMapper: {
       '{Typography.Size11}': '"11"',

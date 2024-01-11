@@ -1,11 +1,11 @@
 .layout {
   --b-padding: 0;
-  --b-padding-x: var(--b-padding);
-  --b-padding-y: var(--b-padding);
-  --b-padding-top: var(--b-padding-y);
-  --b-padding-right: var(--b-padding-x);
-  --b-padding-bottom: var(--b-padding-y);
-  --b-padding-left: var(--b-padding-x);
+  --b-padding-horizontal: var(--b-padding);
+  --b-padding-vertical: var(--b-padding);
+  --b-padding-top: var(--b-padding-vertical);
+  --b-padding-right: var(--b-padding-horizontal);
+  --b-padding-bottom: var(--b-padding-vertical);
+  --b-padding-left: var(--b-padding-horizontal);
   --b-width: initial;
   --b-height: initial;
   --b-max-width: initial;

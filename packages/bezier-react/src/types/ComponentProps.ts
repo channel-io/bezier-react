@@ -158,12 +158,12 @@ export interface MarginProps {
    * the margin area on the left and right sides of an element.
    * @default 0
    */
-  marginX?: CSSProperties['margin']
+  marginHorizontal?: CSSProperties['margin']
   /**
    * the margin area on the top and bottom sides of an element.
    * @default 0
    */
-  marginY?: CSSProperties['margin']
+  marginVertical?: CSSProperties['margin']
   /**
    * the margin area on the top side of an element.
    * @default 0
@@ -199,12 +199,12 @@ export interface LayoutProps {
    * the padding area on the left and righ sides of an element.
    * @default 0
    */
-  paddingX?: CSSProperties['padding']
+  paddingHorizontal?: CSSProperties['padding']
   /**
    * the padding area on the top and bottom sides of an element.
    * @default 0
    */
-  paddingY?: CSSProperties['padding']
+  paddingVertical?: CSSProperties['padding']
   /**
    * the padding area on the top side of an element.
    * @default 0

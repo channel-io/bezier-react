@@ -69,7 +69,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       { !isEmpty(children) && (
         <Text
           typo={getProperTagBadgeTypo(size)}
-          marginX={3}
+          marginHorizontal={3}
         >
           { children }
         </Text>

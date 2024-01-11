@@ -8,8 +8,6 @@ so, `Text` and `Icon` components have the following changes.
 
 - `Text` : changed props
   - `marginAll` -> `margin`
-  - `marginHorizontal` -> `marginX`
-  - `marginVertical` -> `marginY`
 - `Icon` : only added properties
   - `margin`
   - `marginX`
