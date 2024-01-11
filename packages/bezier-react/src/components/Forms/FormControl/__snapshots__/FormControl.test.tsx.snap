@@ -102,7 +102,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
     <div
-      class="FormLabel position-top"
+      class="FormLabelWrapper position-top"
     >
       <label
         class="Text typo-13 bold align-left margin LabelText"
@@ -128,7 +128,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
         <div
-          class="FormLabel position-top"
+          class="FormLabelWrapper position-top"
         >
           <label
             class="Text typo-13 bold align-left margin LabelText"
@@ -160,7 +160,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
         <div
-          class="FormLabel position-top"
+          class="FormLabelWrapper position-top"
         >
           <label
             class="Text typo-13 bold align-left margin LabelText"
@@ -189,10 +189,10 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       </div>
     </div>
     <div
-      class="HelperTextWrapper position-top"
+      class="FormHelperTextWrapper"
     >
       <p
-        class="Text typo-13 align-left margin HelperText"
+        class="Text typo-13 align-left margin FormHelperText"
         data-testid="bezier-react-form-helper-text"
         id="form-help-text"
         style="--b-text-color: var(--txt-black-dark);"
@@ -321,7 +321,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
     <div
-      class="FormLabel position-left"
+      class="FormLabelWrapper position-left"
     >
       <label
         class="Text typo-14 bold align-left margin LabelText"
@@ -347,7 +347,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
         <div
-          class="FormLabel position-top"
+          class="FormLabelWrapper position-top"
         >
           <label
             class="Text typo-13 bold align-left margin LabelText"
@@ -379,7 +379,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
         <div
-          class="FormLabel position-top"
+          class="FormLabelWrapper position-top"
         >
           <label
             class="Text typo-13 bold align-left margin LabelText"
@@ -408,10 +408,10 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       </div>
     </div>
     <div
-      class="HelperTextWrapper position-left"
+      class="FormHelperTextWrapper position-left"
     >
       <p
-        class="Text typo-13 align-left margin HelperText"
+        class="Text typo-13 align-left margin FormHelperText"
         data-testid="bezier-react-form-helper-text"
         id="form-help-text"
         style="--b-text-color: var(--txt-black-dark);"
@@ -491,7 +491,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
   <div
-    class="FormLabel position-top"
+    class="FormLabelWrapper position-top"
   >
     <label
       class="Text typo-13 bold align-left margin LabelText"
@@ -518,10 +518,10 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     />
   </div>
   <div
-    class="HelperTextWrapper position-top"
+    class="FormHelperTextWrapper"
   >
     <p
-      class="Text typo-13 align-left margin HelperText"
+      class="Text typo-13 align-left margin FormHelperText"
       data-testid="bezier-react-form-helper-text"
       id="form-help-text"
       style="--b-text-color: var(--txt-black-dark);"
@@ -615,7 +615,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
   <div
-    class="FormLabel position-left"
+    class="FormLabelWrapper position-left"
   >
     <label
       class="Text typo-14 bold align-left margin LabelText"
@@ -642,10 +642,10 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     />
   </div>
   <div
-    class="HelperTextWrapper position-left"
+    class="FormHelperTextWrapper position-left"
   >
     <p
-      class="Text typo-13 align-left margin HelperText"
+      class="Text typo-13 align-left margin FormHelperText"
       data-testid="bezier-react-form-helper-text"
       id="form-help-text"
       style="--b-text-color: var(--txt-black-dark);"

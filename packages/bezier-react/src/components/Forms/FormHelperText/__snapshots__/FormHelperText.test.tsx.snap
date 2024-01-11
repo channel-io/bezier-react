@@ -3,7 +3,7 @@
 exports[`FormErrorMessage > Snapshot > 1`] = `
 <p
   aria-live="polite"
-  class="Text typo-13 align-left margin HelperText"
+  class="Text typo-13 align-left margin FormHelperText"
   data-testid="bezier-react-form-error-message"
   id="test"
   style="--b-text-color: var(--bgtxt-orange-normal);"
@@ -14,7 +14,7 @@ exports[`FormErrorMessage > Snapshot > 1`] = `
 
 exports[`FormHelperText > Snapshot > 1`] = `
 <p
-  class="Text typo-13 align-left margin HelperText"
+  class="Text typo-13 align-left margin FormHelperText"
   data-testid="bezier-react-form-helper-text"
   id="test"
   style="--b-text-color: var(--txt-black-dark);"
