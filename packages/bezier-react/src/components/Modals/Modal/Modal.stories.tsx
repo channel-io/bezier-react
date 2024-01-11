@@ -6,6 +6,7 @@ import React, {
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import { getObjectFromEnum } from '~/src/utils/story'
@@ -145,13 +146,11 @@ const meta: Meta<typeof ModalComposition> = {
     },
   },
 }
-export default meta
 
 const Template: StoryFn<ModalCompositionProps> = ModalComposition
 
-export const Composition = {
+export const Composition: StoryObj<ModalCompositionProps> = {
   render: Template,
-
   args: {
     show: false,
     showCloseIcon: false,
@@ -164,3 +163,5 @@ export const Composition = {
     preventHideOnOutsideClick: false,
   },
 }
+
+export default meta
