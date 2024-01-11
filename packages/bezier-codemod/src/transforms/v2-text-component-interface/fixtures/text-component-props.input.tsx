@@ -2,7 +2,7 @@ import { Text, Typography } from '@channel.io/bezier-react'
 
 export function Component () {
   return (
-    <Text 
+    <Text
       typo={Typography.Size14}
       marginAll={1}
       marginTop={3}

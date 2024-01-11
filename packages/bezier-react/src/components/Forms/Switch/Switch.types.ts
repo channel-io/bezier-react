@@ -3,7 +3,6 @@ import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch
 import type {
   AdditionalTestIdProps,
   AlphaBezierComponentProps,
-  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -61,5 +60,4 @@ export interface SwitchProps extends
   SizeProps<SwitchSize>,
   FormComponentProps,
   AdditionalTestIdProps<'handle'>,
-  MarginProps,
   SwitchOwnProps {}

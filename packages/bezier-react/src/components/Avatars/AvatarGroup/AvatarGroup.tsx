@@ -9,10 +9,6 @@ import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
 import { noop } from '~/src/utils/function'
-import {
-  getMarginStyles,
-  splitByMarginProps,
-} from '~/src/utils/props'
 import { px } from '~/src/utils/style'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
@@ -88,22 +84,18 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * </AvatarGroup>
  * ```
  */
-export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyles(marginProps)
-  const {
-    max,
-    size = AvatarSize.Size24,
-    spacing = AVATAR_GROUP_DEFAULT_SPACING,
-    ellipsisType = AvatarGroupEllipsisType.Icon,
-    onMouseEnterEllipsis = noop,
-    onMouseLeaveEllipsis = noop,
-    style,
-    className,
-    children,
-    ...rest
-  } = marginRest
-
+export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup({
+  max,
+  size = AvatarSize.Size24,
+  spacing = AVATAR_GROUP_DEFAULT_SPACING,
+  ellipsisType = AvatarGroupEllipsisType.Icon,
+  onMouseEnterEllipsis = noop,
+  onMouseLeaveEllipsis = noop,
+  style,
+  className,
+  children,
+  ...rest
+}, forwardedRef) {
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
   const renderAvatarElement = useCallback((
@@ -215,14 +207,12 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
-        marginStyle.className,
         className,
       )}
       style={{
-        ...marginStyle.style,
-        ...style,
         '--b-avatar-group-spacing': px(spacing),
         '--b-avatar-group-size': px(size),
+        ...style,
       } as React.CSSProperties}
       {...rest}
     >

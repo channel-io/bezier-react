@@ -2,7 +2,7 @@
 
 exports[`Badge test > Snapshot > 1`] = `
 <div
-  class="Badge variant-Default TagBadge size-m margin"
+  class="Badge variant-Default TagBadge size-m"
   data-testid="bezier-react-badge"
 />
 `;

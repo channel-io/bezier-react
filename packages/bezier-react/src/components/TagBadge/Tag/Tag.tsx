@@ -9,10 +9,6 @@ import classNames from 'classnames'
 
 import { type SemanticNames } from '~/src/foundation'
 
-import {
-  getMarginStyles,
-  splitByMarginProps,
-} from '~/src/utils/props'
 import { cssVar } from '~/src/utils/style'
 import {
   isEmpty,
@@ -51,21 +47,17 @@ export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
  * </Tag>
  * ```
  */
-export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyles(marginProps)
-  const {
-    size = TagBadgeSize.M,
-    variant = TagBadgeVariant.Default,
-    color: givenColor,
-    children,
-    className,
-    testId = TAG_TEST_ID,
-    onDelete,
-    style,
-    ...rest
-  } = marginRest
-
+export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
+  size = TagBadgeSize.M,
+  variant = TagBadgeVariant.Default,
+  color: givenColor,
+  children,
+  className,
+  testId = TAG_TEST_ID,
+  onDelete,
+  style,
+  ...rest
+}, forwardedRef) {
   const bgColor: SemanticNames = givenColor || getProperTagBadgeBgColor(variant)
 
   return (
@@ -74,14 +66,12 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
         styles.Tag,
         commonStyles.TagBadge,
         commonStyles[`size-${size}`],
-        marginStyle.className,
         className,
       )}
       ref={forwardedRef}
       data-testid={testId}
       style={{
         '--b-tag-badge-background-color': cssVar(bgColor),
-        ...marginStyle.style,
         ...style,
       } as CSSProperties}
       {...rest}
@@ -89,7 +79,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag(props,
       { !isEmpty(children) && (
         <Text
           typo={getProperTagBadgeTypo(size)}
-          mx={2}
+          marginHorizontal={2}
           color="txt-black-darkest"
         >
           { children }

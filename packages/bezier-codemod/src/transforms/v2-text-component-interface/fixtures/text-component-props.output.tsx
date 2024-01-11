@@ -2,15 +2,15 @@ import { Text } from '@channel.io/bezier-react'
 
 export function Component () {
   return (
-    <Text 
+    <Text
       typo="14"
-      m={1}
-      mt={3}
-      mr={3}
-      mb={3}
-      ml={2}
-      mx={3}
-      my={3}
+      margin={1}
+      marginTop={3}
+      marginRight={3}
+      marginBottom={3}
+      marginLeft={2}
+      marginHorizontal={3}
+      marginVertical={3}
     >
       text
     </Text>

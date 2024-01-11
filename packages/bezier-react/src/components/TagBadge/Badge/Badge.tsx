@@ -1,15 +1,10 @@
 import React, {
-  type CSSProperties,
   forwardRef,
   memo,
 } from 'react'
 
 import classNames from 'classnames'
 
-import {
-  getMarginStyles,
-  splitByMarginProps,
-} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
@@ -42,33 +37,23 @@ export const BADGE_TEST_ID = 'bezier-react-badge'
  * </Badge>
  * ```
  */
-export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const marginStyle = getMarginStyles(marginProps)
-  const {
-    size = TagBadgeSize.M,
-    variant = TagBadgeVariant.Default,
-    icon,
-    children,
-    className,
-    testId = BADGE_TEST_ID,
-    style,
-    ...rest
-  } = marginRest
-
+export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
+  size = TagBadgeSize.M,
+  variant = TagBadgeVariant.Default,
+  icon,
+  children,
+  className,
+  testId = BADGE_TEST_ID,
+  ...rest
+}, forwardedRef) {
   return (
     <div
-      style={{
-        ...style,
-        ...marginStyle.style,
-      } as CSSProperties}
       ref={forwardedRef}
       className={classNames(
         styles.Badge,
         styles[`variant-${variant}`],
         commonStyles.TagBadge,
         commonStyles[`size-${size}`],
-        marginStyle.className,
         className,
       )}
       data-testid={testId}
@@ -84,7 +69,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       { !isEmpty(children) && (
         <Text
           typo={getProperTagBadgeTypo(size)}
-          mx={3}
+          marginHorizontal={3}
         >
           { children }
         </Text>

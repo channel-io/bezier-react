@@ -292,7 +292,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                   <Text
                     typo="13"
                     bold
-                    mb={2}
+                    marginBottom={2}
                     color="txt-black-darkest"
                   >
                     { title }

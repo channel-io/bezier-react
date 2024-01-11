@@ -2,7 +2,6 @@ import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
-  MarginProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
 
@@ -62,5 +61,4 @@ export default interface AvatarProps extends
   SizeProps<AvatarSize>,
   DisableProps,
   ChildrenProps,
-  MarginProps,
   AvatarOwnProps {}

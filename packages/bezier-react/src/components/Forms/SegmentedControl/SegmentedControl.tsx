@@ -87,7 +87,7 @@ function SegmentedControlItemListImpl<
       ref={forwardedRef}
       {...rest}
     >
-      <HStack
+      <div
         style={{
           '--b-segmented-control-width': cssDimension(width),
           '--b-segmented-control-item-index': selectedItemIndex,
@@ -122,7 +122,7 @@ function SegmentedControlItemListImpl<
             />
           ) }
         </SegmentedControlItemListContextProvider>
-      </HStack>
+      </div>
     </SegmentedControlItemList>
   )
 }

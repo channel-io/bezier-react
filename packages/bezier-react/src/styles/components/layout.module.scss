@@ -1,11 +1,11 @@
 .layout {
   --b-padding: 0;
-  --b-padding-x: var(--b-padding);
-  --b-padding-y: var(--b-padding);
-  --b-padding-top: var(--b-padding-y);
-  --b-padding-right: var(--b-padding-x);
-  --b-padding-bottom: var(--b-padding-y);
-  --b-padding-left: var(--b-padding-x);
+  --b-padding-horizontal: var(--b-padding);
+  --b-padding-vertical: var(--b-padding);
+  --b-padding-top: var(--b-padding-vertical);
+  --b-padding-right: var(--b-padding-horizontal);
+  --b-padding-bottom: var(--b-padding-vertical);
+  --b-padding-left: var(--b-padding-horizontal);
   --b-width: initial;
   --b-height: initial;
   --b-max-width: initial;
@@ -17,6 +17,8 @@
   --b-right: var(--b-inset);
   --b-bottom: var(--b-inset);
   --b-left: var(--b-inset);
+  --b-shrink: initial;
+  --b-grow: initial;
   --b-background-color: initial;
   --b-border-color: initial;
   --b-border-radius: initial;
@@ -37,6 +39,8 @@
   min-width: var(--b-min-width);
   min-height: var(--b-min-height);
   inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
+  flex-shrink: var(--b-shrink);
+  flex-grow: var(--b-grow);
   background-color: var(--b-background-color);
   border-color: var(--b-border-color);
   border-radius: var(--b-border-radius);
@@ -59,22 +63,6 @@
 
   &:where(.position-sticky) {
     position: sticky;
-  }
-
-  &:where(.shrink-0) {
-    flex-shrink: 0;
-  }
-
-  &:where(.shrink-1) {
-    flex-shrink: 1;
-  }
-
-  &:where(.grow-0) {
-    flex-grow: 0;
-  }
-
-  &:where(.grow-1) {
-    flex-grow: 1;
   }
 
   &:where(.overflow-visible) {

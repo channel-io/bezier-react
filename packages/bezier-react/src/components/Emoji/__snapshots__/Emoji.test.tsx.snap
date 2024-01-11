@@ -3,7 +3,7 @@
 exports[`Emoji Test > snapshot 1`] = `
 <div
   aria-label="a"
-  class="Emoji size-24 margin"
+  class="Emoji size-24"
   data-testid="bezier-react-emoji"
   role="img"
   style="--b-emoji-background-image: url(https://cf.exp.channel.io/asset/emoji/images/80/a.png);"

@@ -18,7 +18,6 @@ import {
   cssVar,
   tokenCssVar,
 } from './style'
-import { isNumber } from './type'
 
 export const splitByBezierComponentProps = <
   Props extends BezierComponentProps,
@@ -41,35 +40,35 @@ export const splitByBezierComponentProps = <
   ]
 
 export const splitByMarginProps = <Props extends MarginProps>({
-  m,
-  mx,
-  my,
-  mt,
-  mr,
-  mb,
-  ml,
+  margin,
+  marginHorizontal,
+  marginVertical,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
   ...rest
 }: Props): [MarginProps, Omit<Props, keyof MarginProps>] => [
     {
-      m,
-      mx,
-      my,
-      mt,
-      mr,
-      mb,
-      ml,
+      margin,
+      marginHorizontal,
+      marginVertical,
+      marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
     },
     rest,
   ]
 
 export const splitByLayoutProps = <Props extends LayoutProps>({
-  p,
-  px,
-  py,
-  pt,
-  pr,
-  pb,
-  pl,
+  padding,
+  paddingHorizontal,
+  paddingVertical,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
   width,
   height,
   maxWidth,
@@ -100,13 +99,13 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   ...rest
 }: Props): [LayoutProps, Omit<Props, keyof LayoutProps>] => [
     {
-      p,
-      px,
-      py,
-      pt,
-      pr,
-      pb,
-      pl,
+      padding,
+      paddingHorizontal,
+      paddingVertical,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
       width,
       height,
       maxWidth,
@@ -139,36 +138,36 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   ]
 
 export const getMarginStyles = ({
-  m,
-  mx,
-  my,
-  mt,
-  mr,
-  mb,
-  ml,
+  margin,
+  marginHorizontal,
+  marginVertical,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
 }: MarginProps) => (
   {
     style: {
-      '--b-margin': cssDimension(m),
-      '--b-margin-x': cssDimension(mx),
-      '--b-margin-y': cssDimension(my),
-      '--b-margin-top': cssDimension(mt),
-      '--b-margin-right': cssDimension(mr),
-      '--b-margin-bottom': cssDimension(mb),
-      '--b-margin-left': cssDimension(ml),
+      '--b-margin': cssDimension(margin),
+      '--b-margin-horizontal': cssDimension(marginHorizontal),
+      '--b-margin-vertical': cssDimension(marginVertical),
+      '--b-margin-top': cssDimension(marginTop),
+      '--b-margin-right': cssDimension(marginRight),
+      '--b-margin-bottom': cssDimension(marginBottom),
+      '--b-margin-left': cssDimension(marginLeft),
     },
     className: marginStyles.margin,
   }
 )
 
 export const getLayoutStyles = ({
-  p,
-  px,
-  py,
-  pt,
-  pr,
-  pb,
-  pl,
+  padding,
+  paddingHorizontal,
+  paddingVertical,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
   width,
   height,
   maxWidth,
@@ -199,13 +198,13 @@ export const getLayoutStyles = ({
 }: LayoutProps) => (
   {
     style: {
-      '--b-padding': cssDimension(p),
-      '--b-padding-x': cssDimension(px),
-      '--b-padding-y': cssDimension(py),
-      '--b-padding-top': cssDimension(pt),
-      '--b-padding-right': cssDimension(pr),
-      '--b-padding-bottom': cssDimension(pb),
-      '--b-padding-left': cssDimension(pl),
+      '--b-padding': cssDimension(padding),
+      '--b-padding-horizontal': cssDimension(paddingHorizontal),
+      '--b-padding-vertical': cssDimension(paddingVertical),
+      '--b-padding-top': cssDimension(paddingTop),
+      '--b-padding-right': cssDimension(paddingRight),
+      '--b-padding-bottom': cssDimension(paddingBottom),
+      '--b-padding-left': cssDimension(paddingLeft),
       '--b-width': cssDimension(width),
       '--b-height': cssDimension(height),
       '--b-max-width': cssDimension(maxWidth),
@@ -217,6 +216,8 @@ export const getLayoutStyles = ({
       '--b-right': cssDimension(right),
       '--b-bottom': cssDimension(bottom),
       '--b-left': cssDimension(left),
+      '--b-shrink': shrink,
+      '--b-grow': grow,
       '--b-background-color': cssVar(backgroundColor),
       '--b-border-color': cssVar(borderColor),
       '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
@@ -231,8 +232,6 @@ export const getLayoutStyles = ({
     className: classNames(
       layoutStyles.layout,
       position && layoutStyles[`position-${position}`],
-      isNumber(shrink) && layoutStyles[`shrink-${shrink}`],
-      isNumber(grow) && layoutStyles[`grow-${grow}`],
       overflow && layoutStyles[`overflow-${overflow}`],
       overflowX && layoutStyles[`overflow-x-${overflowX}`],
       overflowY && layoutStyles[`overflow-y-${overflowY}`],
