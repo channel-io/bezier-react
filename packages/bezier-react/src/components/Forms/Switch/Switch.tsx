@@ -49,6 +49,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
   const {
     disabled,
     required,
+    hasError,
     ...ownProps
   } = useFormFieldProps(rest)
 
