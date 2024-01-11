@@ -9,6 +9,10 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import {
+  ThemeProvider,
+  useThemeName,
+} from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 import { createContext } from '~/src/utils/react'
@@ -187,43 +191,45 @@ export const ModalContent = forwardRef(function ModalContent({
 
   return (
     <DialogPrimitive.Portal container={container}>
-      <Styled.DialogPrimitiveOverlay style={overlayStyle}>
-        <DialogPrimitive.Content
-          asChild
-          onPointerDownOutside={(e) => {
-            if (preventHideOnOutsideClick) {
-              e.preventDefault()
-            }
-          }}
-          onInteractOutside={(e) => {
-            if (preventHideOnOutsideClick) {
-              e.preventDefault()
-            }
-          }}
-        >
-          <Styled.Content
-            aria-modal
-            ref={contentRef}
-            style={contentStyle}
-            {...rest}
+      <ThemeProvider themeName={useThemeName()}>
+        <Styled.DialogPrimitiveOverlay style={overlayStyle}>
+          <DialogPrimitive.Content
+            asChild
+            onPointerDownOutside={(e) => {
+              if (preventHideOnOutsideClick) {
+                e.preventDefault()
+              }
+            }}
+            onInteractOutside={(e) => {
+              if (preventHideOnOutsideClick) {
+                e.preventDefault()
+              }
+            }}
           >
-            <Styled.Section>
-              <ModalContainerContextProvider value={contentContainer}>
-                <ModalContentPropsContextProvider value={propsContextValue}>
-                  { children }
-                </ModalContentPropsContextProvider>
-              </ModalContainerContextProvider>
+            <Styled.Content
+              aria-modal
+              ref={contentRef}
+              style={contentStyle}
+              {...rest}
+            >
+              <Styled.Section>
+                <ModalContainerContextProvider value={contentContainer}>
+                  <ModalContentPropsContextProvider value={propsContextValue}>
+                    { children }
+                  </ModalContentPropsContextProvider>
+                </ModalContainerContextProvider>
 
-              { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
-              { showCloseIcon && (
+                { /* NOTE: To prevent focusing first on the close button when opening the modal, place the close button behind. */ }
+                { showCloseIcon && (
                 <ModalClose>
                   <Styled.CloseIconButton />
                 </ModalClose>
-              ) }
-            </Styled.Section>
-          </Styled.Content>
-        </DialogPrimitive.Content>
-      </Styled.DialogPrimitiveOverlay>
+                ) }
+              </Styled.Section>
+            </Styled.Content>
+          </DialogPrimitive.Content>
+        </Styled.DialogPrimitiveOverlay>
+      </ThemeProvider>
     </DialogPrimitive.Portal>
   )
 })
