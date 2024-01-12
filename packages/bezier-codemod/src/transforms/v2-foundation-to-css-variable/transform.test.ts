@@ -58,11 +58,11 @@ describe('transition transform', () => {
 })
 
 describe('spacing transform', () => {
-  it('should transform spacing foundation to css variable', () => {
+  it('should transform spacing foundation to pixels', () => {
     testTransformFunction(__dirname, 'spacing1', spacingTransform)
   })
 
-  it('should not transform spacing foundation to css variable', () => {
+  it('should not transform spacing foundation to pixels', () => {
     testTransformFunction(__dirname, 'spacing2', spacingTransform)
   })
 })
