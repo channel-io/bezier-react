@@ -8,6 +8,7 @@ import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/function'
 import { isNil } from '~/src/utils/type'
@@ -16,6 +17,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import styles from '~/src/components/Navigator/Navigator.module.scss'
 import { Text } from '~/src/components/Text'
 
 import type NavGroupProps from './NavGroup.types'
@@ -23,10 +25,6 @@ import type NavGroupProps from './NavGroup.types'
 import {
   ChevronWrapper,
   ChildrenWrapper,
-  Item,
-  LeftIconWrapper,
-  RightContentWrapper,
-  Wrapper,
 } from './NavGroup.styled'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
@@ -60,14 +58,20 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
   const ariaName = `${name}Menu`
 
   return (
-    <Wrapper role="none">
-      <Item
+    <li
+      className={styles.Wrapper}
+      role="none"
+    >
+      <button
         {...rest}
         ref={forwardedRef}
         as={as}
-        active={active}
+        type="button"
         style={style}
-        className={className}
+        className={classNames(
+          styles.Item,
+          className,
+        )}
         interpolation={interpolation}
         onClick={handleClickItem}
         data-testid={testId}
@@ -76,14 +80,14 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
         aria-expanded={open}
         aria-controls={ariaName}
       >
-        <LeftIconWrapper>
+        <div className={styles.LeftIconWrapper}>
           <Icon
             testId={NAV_GROUP_LEFT_ICON_TEST_ID}
             source={leftIcon}
             size={IconSize.S}
             color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
           />
-        </LeftIconWrapper>
+        </div>
 
         <Text typo="14" truncated>
           { content }
@@ -100,11 +104,11 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
         ) }
 
         { rightContent && (
-          <RightContentWrapper>
+          <div className={styles.RightContentWrapper}>
             { rightContent }
-          </RightContentWrapper>
+          </div>
         ) }
-      </Item>
+      </button>
 
       { open && (
         <ChildrenWrapper
@@ -114,7 +118,7 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
           { open && children }
         </ChildrenWrapper>
       ) }
-    </Wrapper>
+    </li>
   )
 })
 
