@@ -15,7 +15,7 @@ interface NavItemOwnProps {
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
-export default interface NavItemProps extends
+export interface NavItemProps extends
   AlphaBezierComponentProps,
   ContentProps,
   LinkProps,

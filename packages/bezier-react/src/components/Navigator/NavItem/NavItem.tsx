@@ -14,7 +14,7 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import type NavItemProps from './NavItem.types'
+import type { NavItemProps } from './NavItem.types'
 
 import styles from './NavItem.module.scss'
 
