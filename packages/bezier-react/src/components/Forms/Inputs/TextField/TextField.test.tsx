@@ -13,15 +13,12 @@ import { render } from '~/src/utils/test'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 
-import TextField, {
+import {
   TEXT_INPUT_CLEAR_ICON_TEST_ID,
   TEXT_INPUT_TEST_ID,
+  TextField,
 } from './TextField'
-import {
-  type TextFieldProps,
-  TextFieldVariant,
-} from './TextField.types'
-import { getProperTextFieldBgColor } from './TextFieldUtils'
+import { type TextFieldProps } from './TextField.types'
 
 describe('TextField', () => {
   const user = userEvent.setup()
@@ -71,36 +68,6 @@ describe('TextField', () => {
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     const inputElement = rendered.getElementsByTagName('input')[0]
     expect(inputElement).toHaveAttribute('maxLength', '5')
-  })
-
-  it('sholud return the correct background-color according to the state.', () => {
-    expect(getProperTextFieldBgColor({
-      variant: TextFieldVariant.Primary,
-      focused: false,
-      hasError: false,
-      readOnly: false,
-    })).toBe('bg-grey-lightest')
-
-    expect(getProperTextFieldBgColor({
-      variant: TextFieldVariant.Primary,
-      focused: true,
-      hasError: false,
-      readOnly: false,
-    })).toBe('bg-white-normal')
-
-    expect(getProperTextFieldBgColor({
-      variant: TextFieldVariant.Primary,
-      focused: false,
-      hasError: true,
-      readOnly: false,
-    })).toBe('bg-white-normal')
-
-    expect(getProperTextFieldBgColor({
-      variant: TextFieldVariant.Primary,
-      focused: false,
-      hasError: false,
-      readOnly: true,
-    })).toBe('bg-grey-lighter')
   })
 
   it('should have default style when have no props.', () => {

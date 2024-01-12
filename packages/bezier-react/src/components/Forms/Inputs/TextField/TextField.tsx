@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -43,7 +42,7 @@ import styles from './TextField.module.scss'
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
 
-function TextFieldComponent({
+export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
   size = TextFieldSize.M,
   testId = TEXT_INPUT_TEST_ID,
@@ -67,9 +66,7 @@ function TextFieldComponent({
   onKeyDown,
   onKeyUp,
   ...rest
-}: TextFieldProps,
-forwardedRef: Ref<TextFieldRef>,
-) {
+}, forwardedRef) {
   const { window } = useWindow()
 
   const {
@@ -333,22 +330,6 @@ forwardedRef: Ref<TextFieldRef>,
     renderRightItem,
   ])
 
-  const ClearComponent = useMemo(() => (
-    <button
-      className={styles.CloseIconWrapper}
-      tabIndex={-1}
-      type="button"
-      onClick={handleClear}
-    >
-      <Icon
-        className={styles.CloseIcon}
-        testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
-        source={CancelCircleFilledIcon}
-        size={IconSize.XS}
-      />
-    </button>
-  ), [handleClear])
-
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
@@ -387,10 +368,24 @@ forwardedRef: Ref<TextFieldRef>,
         onKeyUp={handleKeyUp}
         {...ownProps}
       />
-      { activeClear && ClearComponent }
+
+      { activeClear && (
+        <button
+          className={styles.CloseIconWrapper}
+          tabIndex={-1}
+          type="button"
+          onClick={handleClear}
+        >
+          <Icon
+            className={styles.CloseIcon}
+            testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
+            source={CancelCircleFilledIcon}
+            size={IconSize.XS}
+          />
+        </button>
+      ) }
+
       { RightComponent }
     </div>
   )
-}
-
-export default forwardRef(TextFieldComponent)
+})

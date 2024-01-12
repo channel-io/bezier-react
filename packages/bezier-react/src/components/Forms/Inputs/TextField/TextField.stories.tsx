@@ -12,7 +12,7 @@ import {
 
 import { getObjectFromEnum } from '~/src/utils/story'
 
-import TextField from './TextField'
+import { TextField } from './TextField'
 import {
   type TextFieldProps,
   type TextFieldRef,
