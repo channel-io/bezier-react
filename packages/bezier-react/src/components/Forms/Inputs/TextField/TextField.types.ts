@@ -78,7 +78,7 @@ type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'o
 
 export interface TextFieldProps extends
   AlphaBezierComponentProps,
-  AlphaAdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
+  AlphaAdditionalStylableProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
   FormComponentProps,
   SizeProps<TextFieldSize>,
   VariantProps<TextFieldVariant>,

@@ -165,8 +165,8 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   rightContent,
   withoutLeftContentWrapper = false,
   withoutRightContentWrapper = false,
-  inputStyle,
-  inputClassName,
+  style,
+  className,
   wrapperStyle,
   wrapperClassName,
   leftWrapperStyle,
@@ -367,10 +367,10 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       </TextFieldLeftContent>
 
       <input
-        style={inputStyle}
+        style={style}
         className={classNames(
           styles.TextFieldInput,
-          inputClassName,
+          className,
         )}
         ref={inputRef}
         type={type}
