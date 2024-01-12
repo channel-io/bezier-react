@@ -15,7 +15,7 @@ interface NavGroupOwnProps {
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
-export default interface NavGroupProps extends
+export interface NavGroupProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   ContentProps,

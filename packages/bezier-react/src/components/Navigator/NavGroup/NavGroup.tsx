@@ -1,8 +1,4 @@
-import React, {
-  forwardRef,
-  memo,
-  useCallback,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import {
   ChevronSmallDownIcon,
@@ -20,33 +16,32 @@ import {
 import commonStyles from '~/src/components/Navigator/Navigator.module.scss'
 import { Text } from '~/src/components/Text'
 
-import type NavGroupProps from './NavGroup.types'
+import type { NavGroupProps } from './NavGroup.types'
 
 import styles from './NavGroup.module.scss'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
 export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
 
-const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup({
-  testId = NAV_GROUP_TEST_ID,
-  name,
-  style,
-  className,
-  children,
-  content,
-  rightContent,
-  leftIcon,
-  open,
-  active,
-  onClick = noop,
-  ...rest
-}, forwardedRef) {
-  const handleClickItem = useCallback((e?: React.MouseEvent) => {
-    onClick(e, name)
-  }, [
+export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(props, forwardedRef) {
+  const {
+    testId = NAV_GROUP_TEST_ID,
     name,
-    onClick,
-  ])
+    style,
+    className,
+    children,
+    content,
+    rightContent,
+    leftIcon,
+    open,
+    active,
+    onClick = noop,
+    ...rest
+  } = props
+
+  const handleClickItem = (e?: React.MouseEvent) => {
+    onClick(e, name)
+  }
 
   const hasChildren = !isNil(children)
   const chevronIconSource = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
@@ -115,5 +110,3 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
     </li>
   )
 })
-
-export default memo(NavGroup)
