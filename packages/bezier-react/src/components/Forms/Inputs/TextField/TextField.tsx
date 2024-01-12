@@ -42,6 +42,108 @@ import styles from './TextField.module.scss'
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
 
+function TextFieldLeftContent({
+  children,
+  withoutWrapper,
+  wrapperClassName,
+}: {
+  children: TextFieldProps['leftContent']
+  withoutWrapper: TextFieldProps['withoutLeftContentWrapper']
+  wrapperClassName: TextFieldProps['leftWrapperClassName']
+}) {
+  if (isNil(children)) {
+    return null
+  }
+
+  const Content = (() => {
+    if ('icon' in children) {
+      return (
+        <Icon
+          className={!isNil(children.onClick) ? styles.clickable : undefined}
+          source={children.icon}
+          size={IconSize.S}
+          color={children.iconColor ?? 'txt-black-dark'}
+          onClick={children.onClick}
+        />
+      )
+    }
+
+    return children
+  })()
+
+  if (withoutWrapper) { return Content }
+
+  return (
+    <div className={classNames(
+      styles.LeftContentWrapper,
+      wrapperClassName,
+    )}
+    >
+      { Content }
+    </div>
+  )
+}
+
+function TextFieldRightContent({
+  children,
+  withoutWrapper,
+  wrapperClassName,
+}: {
+  children: TextFieldProps['rightContent']
+  withoutWrapper: TextFieldProps['withoutRightContentWrapper']
+  wrapperClassName: TextFieldProps['rightWrapperClassName']
+}) {
+  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
+    if ('icon' in item) {
+      const clickable = !isNil(item.onClick)
+      const Comp = clickable ? 'button' : 'div'
+
+      return (
+        <Comp
+          key={key}
+          type="button"
+          className={classNames(
+            styles.RightItemWrapper,
+            clickable && styles.clickable,
+          )}
+          onClick={item.onClick}
+        >
+          <Icon
+            source={item.icon}
+            size={IconSize.XS}
+            color={item.iconColor ?? 'txt-black-dark'}
+          />
+        </Comp>
+      )
+    }
+
+    return React.cloneElement(
+      item, { key },
+    )
+  }, [])
+
+  if (isNil(children) || isEmpty(children)) { return null }
+
+  const contents = isArray(children)
+    ? children.map((item) => renderRightItem(item, uuid()))
+    : renderRightItem(children)
+
+  if (withoutWrapper) {
+    return <>{ contents }</>
+  }
+
+  return (
+    <div
+      className={classNames(
+        styles.RightContentWrapper,
+        wrapperClassName,
+      )}
+    >
+      { contents }
+    </div>
+  )
+}
+
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
   size = TextFieldSize.M,
@@ -232,104 +334,6 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
     }
   }, [activeInput])
 
-  const renderLeftItem = useCallback((item: TextFieldItemProps) => {
-    if ('icon' in item) {
-      return (
-        <Icon
-          className={!isNil(item.onClick) ? styles.clickable : undefined}
-          source={item.icon}
-          size={IconSize.S}
-          color={item.iconColor ?? 'txt-black-dark'}
-          onClick={item.onClick}
-        />
-      )
-    }
-
-    return item
-  }, [])
-
-  const LeftComponent = useMemo(() => {
-    if (isNil(leftContent)) {
-      return null
-    }
-
-    const item = renderLeftItem(leftContent)
-
-    if (withoutLeftContentWrapper) { return item }
-
-    return (
-      <div className={classNames(
-        styles.LeftContentWrapper,
-        leftWrapperClassName,
-      )}
-      >
-        { item }
-      </div>
-    )
-  }, [
-    leftContent,
-    withoutLeftContentWrapper,
-    leftWrapperClassName,
-    renderLeftItem,
-  ])
-
-  const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
-    if ('icon' in item) {
-      const clickable = !isNil(item.onClick)
-      const Comp = clickable ? 'button' : 'div'
-
-      return (
-        <Comp
-          key={key}
-          type="button"
-          className={classNames(
-            styles.RightItemWrapper,
-            clickable && styles.clickable,
-          )}
-          onClick={item.onClick}
-        >
-          <Icon
-            source={item.icon}
-            size={IconSize.XS}
-            color={item.iconColor ?? 'txt-black-dark'}
-          />
-        </Comp>
-      )
-    }
-
-    return React.cloneElement(
-      item, { key },
-    )
-  }, [])
-
-  const RightComponent = useMemo(() => {
-    if (isNil(rightContent) || isEmpty(rightContent)) {
-      return null
-    }
-
-    const items = isArray(rightContent)
-      ? rightContent.map((item) => renderRightItem(item, uuid()))
-      : renderRightItem(rightContent)
-
-    if (withoutRightContentWrapper) { return items }
-
-    return (
-      <div
-        className={classNames(
-          styles.RightContentWrapper,
-          rightWrapperClassName,
-        )}
-      >
-        { items }
-      </div>
-    )
-  }, [
-    rightContent,
-    withoutRightContentWrapper,
-    rightWrapperClassName,
-    renderRightItem,
-  ])
-
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
@@ -345,7 +349,13 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       data-testid={testId}
       onMouseDown={focus}
     >
-      { LeftComponent }
+      <TextFieldLeftContent
+        withoutWrapper={withoutLeftContentWrapper}
+        wrapperClassName={leftWrapperClassName}
+      >
+        { leftContent }
+      </TextFieldLeftContent>
+
       <input
         className={classNames(
           styles.TextFieldInput,
@@ -385,7 +395,12 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         </button>
       ) }
 
-      { RightComponent }
+      <TextFieldRightContent
+        withoutWrapper={withoutRightContentWrapper}
+        wrapperClassName={rightWrapperClassName}
+      >
+        { rightContent }
+      </TextFieldRightContent>
     </div>
   )
 })
