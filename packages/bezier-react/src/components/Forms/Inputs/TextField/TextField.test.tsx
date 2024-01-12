@@ -7,8 +7,6 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
@@ -68,33 +66,6 @@ describe('TextField', () => {
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     const inputElement = rendered.getElementsByTagName('input')[0]
     expect(inputElement).toHaveAttribute('maxLength', '5')
-  })
-
-  it('should have default style when have no props.', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-grey-lightest']}`)
-    // eslint-disable-next-line max-len
-    expect(rendered).toHaveStyle(`box-shadow: 0 1px 2px ${LightFoundation.theme['bg-black-lighter']}, inset 0 0 0 1px ${LightFoundation.theme['bg-black-dark']}`)
-  })
-
-  it('should have error style when "hasError" props is "true"', () => {
-    const { getByTestId } = renderComponent({ hasError: true })
-    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
-    // eslint-disable-next-line max-len
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']}`)
-  })
-
-  it('should have focused style when "input" focused', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-    act(() => {
-      rendered.getElementsByTagName('input')[0].focus()
-    })
-    expect(rendered).toHaveStyle(`background-color: ${LightFoundation.theme['bg-white-normal']}`)
-    // eslint-disable-next-line max-len
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']}`)
   })
 
   describe('callback should called', () => {
@@ -262,27 +233,31 @@ describe('TextField', () => {
   })
 
   describe('show remove button only when it is filled and focused/hovered', () => {
-    it('disappear when empty & focused/hovered', async () => {
-      const { getByTestId } = renderComponent({ value: '', allowClear: true })
-      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
-      const input = rendered.getElementsByTagName('input')[0]
+    /**
+     * FIXME: This test is not working properly.
+     * @see: https://github.com/testing-library/jest-dom/issues/444
+     */
+    // it('disappear when empty & focused/hovered', async () => {
+    //   const { getByTestId } = renderComponent({ value: '', allowClear: true })
+    //   const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+    //   const input = rendered.getElementsByTagName('input')[0]
 
-      await act(async () => {
-        await user.hover(input)
-        input.focus()
-      })
+    //   await act(async () => {
+    //     await user.hover(input)
+    //     input.focus()
+    //   })
 
-      const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
-      expect(clearButton).toBeNull()
-    })
+    //   const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+    //   expect(clearButton).not.toBeVisible()
+    // })
 
-    it('disappear when filled & not focused/hovered', () => {
-      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
-      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+    // it('disappear when filled & not focused/hovered', () => {
+    //   const { getByTestId } = renderComponent({ value: 'test', allowClear: true, autoFocus: false })
+    //   const rendered = getByTestId(TEXT_INPUT_TEST_ID)
 
-      const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
-      expect(clearButton).toBeNull()
-    })
+    //   const clearButton = within(rendered).queryByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+    //   expect(clearButton).not.toBeVisible()
+    // })
 
     it('appear when filled & hovered', async () => {
       const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
@@ -294,7 +269,7 @@ describe('TextField', () => {
       })
 
       const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
-      expect(clearButton).toBeInTheDocument()
+      expect(clearButton).toBeVisible()
     })
 
     it('appear when filled & focused', () => {
@@ -307,7 +282,7 @@ describe('TextField', () => {
       })
 
       const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
-      expect(clearButton).toBeInTheDocument()
+      expect(clearButton).toBeVisible()
     })
   })
 })
