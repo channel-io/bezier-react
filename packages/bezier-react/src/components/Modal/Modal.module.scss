@@ -39,7 +39,7 @@ $closeIconButtonMarginY: -6;
   background-color: var(--bgtxt-absolute-black-lighter);
 
   &:where([data-state='open']) {
-    animation: overlayShow var(--transition-duration-m) var(--transition-timing-function-default);
+    animation: overlayShow var(--transition-m);
   }
 }
 
@@ -59,7 +59,7 @@ $closeIconButtonMarginY: -6;
   word-break: break-word;
 
   &:where([data-state='open']) {
-    animation: contentShow var(--transition-duration-m) var(--transition-timing-function-default);
+    animation: contentShow var(--transition-m);
   }
 
   &:focus {
