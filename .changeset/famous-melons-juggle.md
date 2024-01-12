@@ -2,7 +2,7 @@
 "@channel.io/bezier-react": major
 ---
 
-`AlphaCenter` component has been changed to a `Center` component.
+**Breaking Change: `AlphaCenter` component becomes `Center` component. Removal of `as` and `interpolation` Property from `Center` Component**
 
-- Now supports common margin props, layout props and `display` prop.
-- No longer supports `as` and `interpolation` prop.
+- No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+- Now supports margin props, layout props and `display` prop.

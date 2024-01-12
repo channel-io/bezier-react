@@ -2,7 +2,9 @@
 "@channel.io/bezier-react": major
 ---
 
-`AlphaStack` component has been changed to a `Stack` component, and `Stack` component has been changed to `LegacyStack` component. Changes to remove the dependency of `Stack` and `StackItem` to allow stack layouts to be configured without additional DOM elements. And improved the existing `AlphaStack` to support more Flex layout related properties like reverse, wrap, and more align options, etc. See StackProps for more information.
+**Breaking Changes: `AlphaStack` component has been changed to a `Stack` component, and `Stack` component has been changed to `LegacyStack` component.**
+
+Changes to remove the dependency of `Stack` and `StackItem` to allow stack layouts to be configured without additional DOM elements. And improved the existing `AlphaStack` to support more Flex layout related properties like reverse, wrap, and more align options, etc. See StackProps for more information.
 
 We also added new `HStack` and `VStack` components, which are shorthand components that fix the direction prop of `AlphaStack`. As mentioned above, the existing components become `LegacyHStack`, `LegacyVStack`.
 
@@ -28,8 +30,6 @@ return (
 )
 ```
 
-The changes also apply to other components that use `Stack` internally, and there are a few changes.
+The changes also apply to other components that use `Stack` internally, and there are a few breaking changes.
 
-- `RadioGroup` component no longer supports `as` prop.
-- `ButtonGroup` component now extends the interfaces of new `Stack`. It no longer supports `as` prop.
-- `FormGroup` component now extends the interfaces of new `Stack`. It no longer supports `as` prop.
+- `RadioGroup`, `ButtonGroup`, `FormGroup` no longer support `as` prop.

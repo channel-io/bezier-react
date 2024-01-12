@@ -2,6 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-`SegmentedControl`'s interface changes.
+**Breaking Change: Removal of `as` and `interpolation` Property from `SegmentedControl` Component**
 
-- `SegmentedControl` no longer supports as and interpolation prop.
+No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.

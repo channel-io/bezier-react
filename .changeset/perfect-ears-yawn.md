@@ -2,7 +2,7 @@
 "@channel.io/bezier-react": minor
 ---
 
-Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system.
+Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system
 
 ```tsx
 <Box 

@@ -2,4 +2,4 @@
 "@channel.io/bezier-react": patch
 ---
 
-Minify the CSS output.
+Minify the CSS output
