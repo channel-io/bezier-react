@@ -1,5 +1,104 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.5
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `Avatar` component** ([#1871](https://github.com/channel-io/bezier-react/pull/1871)) by @yangwooseong
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `SegmentedControl` component** ([#1866](https://github.com/channel-io/bezier-react/pull/1866)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Tag` and `Badge` component** ([#1872](https://github.com/channel-io/bezier-react/pull/1872)) by @yangwooseong
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: `AlphaCenter` component is now `Center` component. Property updates in `Center` component** ([#1854](https://github.com/channel-io/bezier-react/pull/1854)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - Now supports margin props, layout props and `display` prop.
+
+- **Breaking Changes: Property updates in `Emoji` component** ([#1881](https://github.com/channel-io/bezier-react/pull/1881)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- Add new margin properties to `Icon` component ([#1863](https://github.com/channel-io/bezier-react/pull/1863)) by @yangwooseong
+
+  - `margin`
+  - `marginHorizontal`
+  - `marginVertical`
+
+- **Breaking Changes: Property updates in `Modal`-related components** ([#1903](https://github.com/channel-io/bezier-react/pull/1903)) by @sungik-choi
+
+  - No longer supports `as` and `interpolation` props.
+  - The type of `zIndex` property is changed to a z-index token. (e.g. `"modal"`)
+
+- **Breaking Changes: Property updates in `Banner` component** ([#1891](https://github.com/channel-io/bezier-react/pull/1891)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+  **Other changes in `Banner` component**
+
+  - now supports HTML attributes.
+  - now supports style props.
+
+- **Breaking Changes: Property updates in `Switch` component** ([#1885](https://github.com/channel-io/bezier-react/pull/1885)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Slider` component** ([#1883](https://github.com/channel-io/bezier-react/pull/1883)) by @yangwooseong
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - `dir` type is narrowed from `string | undefined` to `ltr | rtl | undefined`
+
+- **Breaking Changes: Property updates in `Button` component** ([#1882](https://github.com/channel-io/bezier-react/pull/1882)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - `ButtonSize` and `ButtonColorVariant` enums have been updated to use kebab case.
+
+- **Breaking Change: No longer supports `smoothCorners` mixin. Use `AlphaSmoothCornersBox` components instead.** ([#1892](https://github.com/channel-io/bezier-react/pull/1892)) by @sungik-choi
+
+  ```tsx
+  // Before
+  const Box = styled.div`
+    ${smoothCorners({
+      borderRadius: 10,
+      shadow: '0 5px 15px 0 var(--shdw-large)',
+      shadowBlur: 15,
+      backgroundColor: 'var(--bgtxt-absolute-white-dark)',
+      hasBackgroundImage: true,
+    })}
+  `
+
+  <Box>...</Box>
+
+  // After
+  <AlphaSmoothCornersBox
+    borderRadius={10}
+    shadow={{
+      offsetX: 0,
+      offsetY: 5,
+      blurRadius: 15,
+      spreadRadius: 0,
+      color: 'shdw-large',
+    }}
+    backgroundColor="bgtxt-absolute-white-dark"
+    backgroundImage="..."
+  >...</AlphaSmoothCornersBox>
+  ```
+
+- **Breaking Change: Removal of `ListMenuTitle` Component** ([#1900](https://github.com/channel-io/bezier-react/pull/1900)) by @yangwooseong
+
+  - It was no longer being managed or utilized by our designers.
+  - If you are currently using `ListMenuTitle` in your application, please replace it with the `SectionLabel` component for similar functionality.
+
+### Minor Changes
+
+- `ButtonGroup` now supports HTML attributes ([#1890](https://github.com/channel-io/bezier-react/pull/1890)) by @sungik-choi
+
 ## 2.0.0-alpha.4
 
 ### Major Changes
