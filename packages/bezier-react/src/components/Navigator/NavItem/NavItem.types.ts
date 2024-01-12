@@ -2,13 +2,13 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ContentProps,
   LinkProps,
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-interface NavItemOptions {
+interface NavItemOwnProps {
   leftIcon?: BezierIcon
   name: string
   target?: HTMLAnchorElement['target']
@@ -16,10 +16,10 @@ interface NavItemOptions {
 }
 
 export default interface NavItemProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ContentProps,
   LinkProps,
   Pick<SideContentProps, 'rightContent'>,
   Pick<ActivatableProps, 'active'>,
   Omit<React.HTMLAttributes<HTMLAnchorElement>, 'onClick' | 'content'>,
-  NavItemOptions {}
+  NavItemOwnProps {}

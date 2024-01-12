@@ -21,22 +21,22 @@ import styles from './NavItem.module.scss'
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
 export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
 
-const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
-  as,
-  testId = NAV_ITEM_TEST_ID,
-  name,
-  style,
-  className,
-  interpolation,
-  content,
-  href,
-  target = '_self',
-  rightContent,
-  leftIcon,
-  active,
-  onClick = noop,
-  ...rest
-}, forwardedRef) {
+export const NavItem = memo(forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem(props, forwardedRef) {
+  const {
+    testId = NAV_ITEM_TEST_ID,
+    name,
+    style,
+    className,
+    content,
+    href,
+    target = '_self',
+    rightContent,
+    leftIcon,
+    active,
+    onClick = noop,
+    ...rest
+  } = props
+
   const handleClickItem = useCallback((e?: React.MouseEvent) => {
     onClick(e, name)
   }, [
@@ -50,20 +50,19 @@ const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
       role="none"
     >
       <a
-        {...rest}
         ref={forwardedRef}
-        as={as}
         style={style}
         className={classNames(
           styles.Item,
           active && styles.active,
           className,
         )}
-        onClick={handleClickItem}
         data-testid={testId}
         href={href}
         target={target}
         role="menuitem"
+        onClick={handleClickItem}
+        {...rest}
       >
         <div className={styles.LeftIconWrapper}>
           { leftIcon && (
@@ -88,6 +87,4 @@ const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
       </a>
     </li>
   )
-})
-
-export default memo(NavItem)
+}))
