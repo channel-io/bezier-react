@@ -2,4 +2,4 @@
 "@channel.io/bezier-react": minor
 ---
 
-Rename `AlphaAppProvider` to `AppProvider`.
+Rename `AlphaAppProvider` to `AppProvider`

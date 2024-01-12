@@ -2,6 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-Changes with interface of `Tag` and `Badge` component.
+**Breaking Changes: Property updates in `Tag` and `Badge` component**
 
-- They do not support `interpolation` props any more.
+No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.

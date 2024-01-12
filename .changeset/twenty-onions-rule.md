@@ -2,7 +2,7 @@
 "@channel.io/bezier-react": major
 ---
 
-No longer supports `smoothCorners` mixin. Use `AlphaSmoothCornersBox` components instead.
+**Breaking Change: No longer supports `smoothCorners` mixin. Use `AlphaSmoothCornersBox` components instead.**
 
 ```tsx
 // Before

@@ -2,6 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-changes in `Emoji` components as following
 
-- it does not support `as` and `interpolation` props any more.
+
+No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.

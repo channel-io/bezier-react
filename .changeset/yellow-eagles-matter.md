@@ -2,4 +2,7 @@
 "@channel.io/bezier-react": major
 ---
 
-`ListMenuTitle` component is dropped. It was not managed or used by designers for a long time. If it used in your application, it can be replaced with `SectionLabel`.
+**Breaking Change: Removal of `ListMenuTitle` Component**
+
+- It was no longer being managed or utilized by our designers.
+- If you are currently using `ListMenuTitle` in your application, please replace it with the `SectionLabel` component for similar functionality.

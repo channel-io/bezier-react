@@ -2,7 +2,7 @@
 "@channel.io/bezier-react": major
 ---
 
-`Button`'s interface changes.
+**Breaking Changes: Property updates in `Button` component**
 
-- `Button` no longer supports `interpolation` prop.
-- The enum values of `ButtonSize` and `ButtonColorVariant` are changed to kebab case.
+- No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+- `ButtonSize` and `ButtonColorVariant` enums have been updated to use kebab case.

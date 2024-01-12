@@ -2,7 +2,7 @@
 "@channel.io/bezier-react": major
 ---
 
-Changes with interface ot `Slider` component.
+**Breaking Changes: Property updates in `Slider` component**
 
-- It does not support `interpolation` props any more.
+- No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
 - `dir` type is narrowed from `string | undefined` to `ltr | rtl | undefined`
