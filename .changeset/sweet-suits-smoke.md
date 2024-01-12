@@ -2,6 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-Changes in `Switch` components as following.
+**Breaking Changes: Property updates in `Switch` component**
 
-- It does not support `as` and `interpolation` props any more.
+No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
