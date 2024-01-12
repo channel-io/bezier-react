@@ -7,6 +7,9 @@ import {
   isString,
 } from '~/src/utils/type'
 
+/**
+ * @deprecated
+ */
 export function gap(spacing: number): InjectedInterpolation {
   return css`
     gap: ${spacing}px;
@@ -23,6 +26,9 @@ export function gap(spacing: number): InjectedInterpolation {
   `
 }
 
+/**
+ * @deprecated
+ */
 export function touchableHover(interpolation: InjectedInterpolation): InjectedInterpolation {
   return css`
     @media (hover: hover) {

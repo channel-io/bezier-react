@@ -7,7 +7,7 @@ import {
   type ModalHeaderProps,
   type ModalProps,
   type ModalTriggerProps,
-} from '../Modal'
+} from '~/src/components/Modal'
 
 export interface ConfirmModalProps extends
   ModalProps {}

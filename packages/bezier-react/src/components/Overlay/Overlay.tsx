@@ -17,7 +17,7 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 
-import { useModalContainerContext } from '~/src/components/Modals'
+import { useModalContainerContext } from '~/src/components/Modal'
 
 import type OverlayProps from './Overlay.types'
 import {

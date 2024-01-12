@@ -4,6 +4,7 @@
 /**
  * Preset of `z-index` values to help control the stacking order of components.
  * **Recommend using these values instead of hard-coding `z-index` values.**
+ * @deprecated Migration to bezier-tokens is in progress.
  */
 enum ZIndex {
   Hide = -1,

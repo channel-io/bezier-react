@@ -7,21 +7,21 @@ import { render } from '~/src/utils/test'
 
 import { AutoFocus } from '~/src/components/AutoFocus'
 
-import { Modal } from './Modal'
+import {
+  Modal,
+  ModalBody,
+  ModalClose,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalTrigger,
+} from './Modal'
 import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
   ModalTitleSize,
 } from './Modal.types'
-import { ModalBody } from './ModalBody'
-import { ModalContent } from './ModalContent'
-import { ModalFooter } from './ModalFooter'
-import { ModalHeader } from './ModalHeader'
-import {
-  ModalClose,
-  ModalTrigger,
-} from './ModalHelpers'
 
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'
@@ -229,12 +229,17 @@ describe('Modal', () => {
     describe('Visually Hidden', () => {
       it('should be visible when the \'hidden\' prop is false', () => {
         const { getByRole } = renderOpenedModal()
-        expect(getByRole('banner')).toBeInTheDocument() /* HTML5 header element */
+        expect(getByRole('banner')).toBeVisible() /* HTML5 header element */
       })
 
       it('should be visually hidden when the \'hidden\' prop is true', () => {
         const { queryByRole } = renderOpenedModal({ modalHeaderProps: { title: TITLE_TEXT, hidden: true } })
-        expect(queryByRole('banner')).not.toBeInTheDocument() /* HTML5 header element */
+        /**
+         * NOTE(@ed): As a `toBeVisible` matcher, it cannot be used because the `visibility` style cannot be checked.
+         * Instead, it tests whether the visually hidden style is applied correctly.
+         * @see https://github.com/testing-library/jest-dom/issues/209
+         */
+        expect(queryByRole('banner')).toHaveStyle({ position: 'absolute' }) /* HTML5 header element */
       })
     })
   })
