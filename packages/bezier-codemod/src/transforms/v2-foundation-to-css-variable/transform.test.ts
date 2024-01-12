@@ -3,9 +3,9 @@ import { testTransformFunction } from '../../utils/test.js'
 import borderTransform from './border.js'
 import elevationTransform from './elevation.js'
 import roundingTransform from './rounding.js'
+import spacingTransform from './spacing.js'
 import themeTransform from './theme.js'
 import transitionTransform from './transition.js'
-import spacingTransform from './spacing.js'
 
 describe('theme transform', () => {
   it('should transform foundation to css variable', () => {
