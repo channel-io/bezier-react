@@ -1,5 +1,14 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.3
+
+### Minor Changes
+
+- Changes in `v2-remove-alpha-from-alpha-stack` transform ([#1894](https://github.com/channel-io/bezier-react/pull/1894)) by @yangwooseong
+
+  - It is renamed as `v2-remove-alpha-from-alpha-components`.
+  - It covers `AlphaCenter` as well.
+
 ## 0.5.0-alpha.2
 
 ### Minor Changes
