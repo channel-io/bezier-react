@@ -25,6 +25,9 @@ export enum TextFieldType {
   Number = 'number',
 }
 
+/**
+ * FIXME: Change to string literal type
+ */
 export enum TextFieldSize {
   XL = FormFieldSize.XL,
   L = FormFieldSize.L,
