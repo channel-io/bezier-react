@@ -1,8 +1,4 @@
-import React, {
-  forwardRef,
-  memo,
-  useCallback,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -21,7 +17,7 @@ import styles from './NavItem.module.scss'
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
 export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
 
-export const NavItem = memo(forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem(props, forwardedRef) {
+export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem(props, forwardedRef) {
   const {
     testId = NAV_ITEM_TEST_ID,
     name,
@@ -37,12 +33,9 @@ export const NavItem = memo(forwardRef<HTMLAnchorElement, NavItemProps>(function
     ...rest
   } = props
 
-  const handleClickItem = useCallback((e?: React.MouseEvent) => {
+  const handleClickItem = (e?: React.MouseEvent) => {
     onClick(e, name)
-  }, [
-    name,
-    onClick,
-  ])
+  }
 
   return (
     <li
@@ -87,4 +80,4 @@ export const NavItem = memo(forwardRef<HTMLAnchorElement, NavItemProps>(function
       </a>
     </li>
   )
-}))
+})
