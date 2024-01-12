@@ -27,7 +27,6 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
   const {
     testId = NAV_GROUP_TEST_ID,
     name,
-    style,
     className,
     children,
     content,
@@ -53,10 +52,8 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
       role="none"
     >
       <button
-        {...rest}
         ref={forwardedRef}
         type="button"
-        style={style}
         className={classNames(
           commonStyles.Item,
           className,
@@ -67,6 +64,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
         aria-expanded={open}
         aria-controls={ariaName}
         onClick={handleClickItem}
+        {...rest}
       >
         <div className={commonStyles.LeftIconWrapper}>
           <Icon
