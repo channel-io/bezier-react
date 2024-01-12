@@ -17,6 +17,18 @@ import styles from './NavItem.module.scss'
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
 export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
 
+/**
+ * `NavItem` is a component for an item where you can navigate to another link.
+ *
+ * @example
+ * ```tsx
+ * <NavItem
+ *   name="channel"
+ *   content="https://channel.io"
+ *   href="_parent"
+ * />
+ * ```
+ */
 export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem(props, forwardedRef) {
   const {
     testId = NAV_ITEM_TEST_ID,
