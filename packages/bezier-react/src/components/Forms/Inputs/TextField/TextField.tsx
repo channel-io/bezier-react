@@ -6,10 +6,10 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
 } from 'react'
 
 import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
 import { useWindow } from '~/src/providers/WindowProvider'
@@ -37,18 +37,13 @@ import {
   TextFieldType,
   TextFieldVariant,
 } from './TextField.types'
-import {
-  getProperTextFieldBgColor,
-  getProperTextFieldBorderRadius,
-} from './TextFieldUtils'
 
-import Styled from './TextField.styled'
+import styles from './TextField.module.scss'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
 
 function TextFieldComponent({
-  name,
   type,
   size = TextFieldSize.M,
   testId = TEXT_INPUT_TEST_ID,
@@ -71,7 +66,6 @@ function TextFieldComponent({
   rightWrapperClassName,
   rightWrapperInterpolation,
   value,
-  onBlur,
   onFocus,
   onChange,
   onKeyDown,
@@ -88,29 +82,6 @@ forwardedRef: Ref<TextFieldRef>,
     hasError,
     ...ownProps
   } = useFormFieldProps(rest)
-
-  const [focused, setFocused] = useState(false)
-  const [hovered, setHovered] = useState(false)
-
-  const wrapperBgColorSemanticName = useMemo(() => (
-    getProperTextFieldBgColor({
-      variant,
-      focused,
-      hasError,
-      readOnly,
-    })
-  ), [
-    variant,
-    focused,
-    hasError,
-    readOnly,
-  ])
-
-  const wrapperBorderRadius = useMemo(() => (
-    getProperTextFieldBorderRadius({
-      size,
-    })
-  ), [size])
 
   const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
   const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
@@ -208,10 +179,12 @@ forwardedRef: Ref<TextFieldRef>,
   }, [])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (activeInput) {
-      setFocused(true)
-      if (selectAllOnFocus) { selectAll() }
-      if (onFocus) { onFocus(event) }
+    if (!activeInput) { return }
+    if (selectAllOnFocus) {
+      selectAll()
+    }
+    if (onFocus) {
+      onFocus(event)
     }
   }, [
     selectAllOnFocus,
@@ -219,11 +192,6 @@ forwardedRef: Ref<TextFieldRef>,
     activeInput,
     onFocus,
   ])
-
-  const handleBlur = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setFocused(false)
-    if (onBlur) { onBlur(event) }
-  }, [onBlur])
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (activeInput && onChange) {
@@ -274,11 +242,11 @@ forwardedRef: Ref<TextFieldRef>,
   const renderLeftItem = useCallback((item: TextFieldItemProps) => {
     if ('icon' in item) {
       return (
-        <Styled.LeftIcon
+        <Icon
+          className={!isNil(item.onClick) ? styles.clickable : undefined}
           source={item.icon}
           size={IconSize.S}
           color={item.iconColor ?? 'txt-black-dark'}
-          clickable={!isNil(item.onClick)}
           onClick={item.onClick}
         />
       )
@@ -297,27 +265,34 @@ forwardedRef: Ref<TextFieldRef>,
     if (withoutLeftContentWrapper) { return item }
 
     return (
-      <Styled.LeftContentWrapper
-        className={leftWrapperClassName}
-        interpolation={leftWrapperInterpolation}
+      <div className={classNames(
+        styles.LeftContentWrapper,
+        leftWrapperClassName,
+      )}
       >
         { item }
-      </Styled.LeftContentWrapper>
+      </div>
     )
   }, [
     leftContent,
     withoutLeftContentWrapper,
     leftWrapperClassName,
-    leftWrapperInterpolation,
     renderLeftItem,
   ])
 
   const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
     if ('icon' in item) {
+      const clickable = !isNil(item.onClick)
+      const Comp = clickable ? 'button' : 'div'
+
       return (
-        <Styled.RightItemWrapper
+        <Comp
           key={key}
-          clickable={!isNil(item.onClick)}
+          type="button"
+          className={classNames(
+            styles.RightItemWrapper,
+            clickable && styles.clickable,
+          )}
           onClick={item.onClick}
         >
           <Icon
@@ -325,7 +300,7 @@ forwardedRef: Ref<TextFieldRef>,
             size={IconSize.XS}
             color={item.iconColor ?? 'txt-black-dark'}
           />
-        </Styled.RightItemWrapper>
+        </Comp>
       )
     }
 
@@ -346,71 +321,71 @@ forwardedRef: Ref<TextFieldRef>,
     if (withoutRightContentWrapper) { return items }
 
     return (
-      <Styled.RightContentWrapper
-        className={rightWrapperClassName}
-        interpolation={rightWrapperInterpolation}
+      <div
+        className={classNames(
+          styles.RightContentWrapper,
+          rightWrapperClassName,
+        )}
       >
         { items }
-      </Styled.RightContentWrapper>
+      </div>
     )
   }, [
     rightContent,
     withoutRightContentWrapper,
     rightWrapperClassName,
-    rightWrapperInterpolation,
     renderRightItem,
   ])
 
   const ClearComponent = useMemo(() => (
-    <Styled.ClearIconWrapper
+    <button
+      className={styles.CloseIconWrapper}
+      tabIndex={-1}
+      type="button"
       onClick={handleClear}
     >
-      {
-        (focused || hovered) && (
-          <Icon
-            testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
-            source={CancelCircleFilledIcon}
-            size={IconSize.XS}
-          />
-        )
-      }
-    </Styled.ClearIconWrapper>
-  ), [
-    focused,
-    handleClear,
-    hovered,
-  ])
+      <Icon
+        className={styles.CloseIcon}
+        testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
+        source={CancelCircleFilledIcon}
+        size={IconSize.XS}
+      />
+    </button>
+  ), [handleClear])
 
   return (
-    <Styled.Wrapper
-      className={wrapperClassName}
-      variant={variant}
-      size={size}
-      bgColor={wrapperBgColorSemanticName}
-      borderRadius={wrapperBorderRadius}
-      hasError={hasError}
-      disabled={disabled}
-      focused={focused}
-      interpolation={wrapperInterpolation}
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className={classNames(
+        styles.TextFieldWrapper,
+        styles[`variant-${variant}`],
+        styles[`size-${size}`],
+        disabled && styles.disabled,
+        readOnly && styles.readonly,
+        hasError && styles.invalid,
+        wrapperClassName,
+      )}
       data-testid={testId}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       onMouseDown={focus}
     >
       { LeftComponent }
-      <Styled.Input
-        type={type}
-        className={inputClassName}
-        interpolation={inputInterpolation}
+      <input
+        className={classNames(
+          styles.TextFieldInput,
+          inputClassName,
+        )}
         ref={inputRef}
+        type={type}
         value={normalizedValue}
-        name={name}
+        /**
+         * Invalid size attribute
+         * FIXME: https://github.com/channel-io/bezier-react/issues/1053
+         */
         size={size}
         autoComplete={autoComplete}
         readOnly={readOnly}
         disabled={disabled}
         onFocus={handleFocus}
-        onBlur={handleBlur}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onKeyUp={handleKeyUp}
@@ -418,7 +393,7 @@ forwardedRef: Ref<TextFieldRef>,
       />
       { activeClear && ClearComponent }
       { RightComponent }
-    </Styled.Wrapper>
+    </div>
   )
 }
 
