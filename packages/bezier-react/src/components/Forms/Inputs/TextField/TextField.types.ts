@@ -35,8 +35,8 @@ export enum TextFieldSize {
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
 export enum TextFieldVariant {
-  Primary,
-  Secondary,
+  Primary = 'primary',
+  Secondary = 'secondary',
 }
 
 export type TextFieldItemProps = {
