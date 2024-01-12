@@ -34,10 +34,8 @@ const transformAlphaComponents = (sourceFile: SourceFile) => {
 }
 
 const transform = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   transformLegacyComponents(sourceFile)
   transformAlphaComponents(sourceFile)
-  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default transform

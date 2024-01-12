@@ -11,7 +11,6 @@ const getColor = (text: string) => text.match(/\['([a-z-]+)'\]/)?.[1] ?? ''
 const isFoundationTheme = (node: Node) => node.getText().includes('foundation?.theme') && !node.getText().includes('getBorder')
 
 const replaceTheme = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const themeArrowFunctions = getArrowFunctionsWithOneArgument(node, isFoundationTheme)
@@ -30,7 +29,6 @@ const replaceTheme = (sourceFile: SourceFile) => {
         })
     }
   })
-  return sourceFile.getText() !== oldSourceFileText
 }
 
 export default replaceTheme

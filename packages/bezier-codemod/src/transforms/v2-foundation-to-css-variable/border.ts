@@ -50,7 +50,6 @@ const getBorderStyle = (borderCallExpression: CallExpression<ts.CallExpression>)
 const hasBorderFoundation = (node: Node) => node.getText().includes('getBorder')
 
 const replaceBorder = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const borderCallExpression = node
@@ -77,7 +76,6 @@ const replaceBorder = (sourceFile: SourceFile) => {
         })
     }
   })
-  return sourceFile.getText() !== oldSourceFileText
 }
 
 export default replaceBorder

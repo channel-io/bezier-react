@@ -24,7 +24,6 @@ const getSpacing = (text: string) => text.match(/spacing\.?([\w]+)/)?.[1]
 const isFoundationSpacing = (node: Node) => node.getText().includes('{ foundation }) => foundation?.spacing.')
 
 const replaceSpacing = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const themeArrowFunctions = getArrowFunctionsWithOneArgument(node, isFoundationSpacing)
@@ -43,7 +42,6 @@ const replaceSpacing = (sourceFile: SourceFile) => {
         })
     }
   })
-  return sourceFile.getText() !== oldSourceFileText
 }
 
 export default replaceSpacing

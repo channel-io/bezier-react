@@ -32,8 +32,6 @@ const addImportToStyledComponents = (sourceFile: SourceFile, importSpecifier: st
 }
 
 const replaceStyledImport = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
-
   if (hasNamedImport(sourceFile, STYLED)) {
     removeNamedImport(sourceFile, STYLED)
     addImportToStyledComponents(sourceFile, STYLED, true)
@@ -57,8 +55,6 @@ const replaceStyledImport = (sourceFile: SourceFile) => {
         importDeclaration.remove()
       }
     })
-
-  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default replaceStyledImport

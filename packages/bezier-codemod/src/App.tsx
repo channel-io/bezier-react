@@ -136,10 +136,10 @@ function App() {
         await Promise.all(
           sourceFiles.map(async (sourceFile) => {
             if (!transformName) { return }
-            const transform = transformMap[transformName]
+            const oldSourceFileText = sourceFile.getText()
             try {
-              const isTransformed = transform(sourceFile)
-              if (isTransformed) {
+              transformMap[transformName](sourceFile)
+              if (sourceFile.getText() !== oldSourceFileText) {
                 setTransformedFileNum(prev => prev + 1)
               }
             } catch (e) {
