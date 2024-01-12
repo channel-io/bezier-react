@@ -28,12 +28,10 @@ export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
 export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
 
 const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup({
-  as,
   testId = NAV_GROUP_TEST_ID,
   name,
   style,
   className,
-  interpolation,
   children,
   content,
   rightContent,
@@ -62,20 +60,18 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
       <button
         {...rest}
         ref={forwardedRef}
-        as={as}
         type="button"
         style={style}
         className={classNames(
           commonStyles.Item,
           className,
         )}
-        interpolation={interpolation}
-        onClick={handleClickItem}
         data-testid={testId}
         role="menuitem"
         aria-haspopup={hasChildren}
         aria-expanded={open}
         aria-controls={ariaName}
+        onClick={handleClickItem}
       >
         <div className={commonStyles.LeftIconWrapper}>
           <Icon
