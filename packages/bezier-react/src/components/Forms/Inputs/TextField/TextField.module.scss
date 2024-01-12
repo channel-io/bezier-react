@@ -14,8 +14,8 @@
     background-color: var(--bg-black-lightest);
   }
 
-  &:where(.variant-primary):where(.readonly) {
-    background-color: var(--bg-black-lighter);
+  &:where(.variant-primary):is(.readonly) {
+    background-color: var(--bg-grey-lighter);
   }
 
   &:where(.variant-primary):where(.invalid, :not(.disabled):not(.readonly):has(.TextFieldInput:focus)) {
@@ -55,11 +55,11 @@
     box-shadow: var(--input-box-shadow);
   }
 
-  &:is(:has(.TextFieldInput:focus)) {
+  &:where(:has(.TextFieldInput:focus)) {
     box-shadow: var(--input-box-shadow-focused);
   }
 
-  &:is(:has(.TextFieldInput:focus, :hover)) {
+  &:where(:has(.TextFieldInput:focus, :hover)) {
     .CloseIcon {
       visibility: visible;
     }
