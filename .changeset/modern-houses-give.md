@@ -2,9 +2,9 @@
 "@channel.io/bezier-react": major
 ---
 
-**Breaking Change: Modification of `typo` prop in `Text` Component to String Literal**
+**Breaking Changes: Property updates in `Text` component**
 
-the removal of `styled-components` from `bezier-react` has made CSS Interpolation unavailable.
+`typo` prop in the `Text` component has been changed to accept only string literals in order to simplify the API and improve the predictability of text styling, particularly in the context of the removal of `styled-components` from `bezier-react`, which has led to the unavailability of CSS Interpolation.
 
 **Migration Instructions:**
 

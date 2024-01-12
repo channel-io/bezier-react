@@ -2,11 +2,11 @@
 "@channel.io/bezier-react": major
 ---
 
-**Breaking Change: Removal of `as` and `interpolation` Property from `Banner` Component**
+**Breaking Changes: Property updates in `Banner` component**
 
 No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
 
-**Minor Changes:**
+**Other changes in `Banner` component**
 
 - now supports HTML attributes.
 - now supports style props.
