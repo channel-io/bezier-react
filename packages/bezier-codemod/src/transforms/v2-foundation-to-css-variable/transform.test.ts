@@ -5,6 +5,7 @@ import elevationTransform from './elevation.js'
 import roundingTransform from './rounding.js'
 import themeTransform from './theme.js'
 import transitionTransform from './transition.js'
+import spacingTransform from './spacing.js'
 
 describe('theme transform', () => {
   it('should transform foundation to css variable', () => {
@@ -53,5 +54,15 @@ describe('transition transform', () => {
 
   it('should not transform foundation to css variable', () => {
     testTransformFunction(__dirname, 'transition2', transitionTransform)
+  })
+})
+
+describe('spacing transform', () => {
+  it('should transform spacing foundation to css variable', () => {
+    testTransformFunction(__dirname, 'spacing1', spacingTransform)
+  })
+
+  it('should not transform spacing foundation to css variable', () => {
+    testTransformFunction(__dirname, 'spacing2', spacingTransform)
   })
 })
