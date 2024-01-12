@@ -44,12 +44,14 @@ export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon
 
 function TextFieldLeftContent({
   children,
-  withoutWrapper,
+  wrapperStyle,
   wrapperClassName,
+  withoutWrapper,
 }: {
   children: TextFieldProps['leftContent']
-  withoutWrapper: TextFieldProps['withoutLeftContentWrapper']
+  wrapperStyle: TextFieldProps['leftWrapperStyle']
   wrapperClassName: TextFieldProps['leftWrapperClassName']
+  withoutWrapper: TextFieldProps['withoutLeftContentWrapper']
 }) {
   if (isNil(children)) {
     return null
@@ -74,10 +76,12 @@ function TextFieldLeftContent({
   if (withoutWrapper) { return Content }
 
   return (
-    <div className={classNames(
-      styles.LeftContentWrapper,
-      wrapperClassName,
-    )}
+    <div
+      style={wrapperStyle}
+      className={classNames(
+        styles.LeftContentWrapper,
+        wrapperClassName,
+      )}
     >
       { Content }
     </div>
@@ -86,12 +90,14 @@ function TextFieldLeftContent({
 
 function TextFieldRightContent({
   children,
-  withoutWrapper,
+  wrapperStyle,
   wrapperClassName,
+  withoutWrapper,
 }: {
   children: TextFieldProps['rightContent']
-  withoutWrapper: TextFieldProps['withoutRightContentWrapper']
+  wrapperStyle: TextFieldProps['rightWrapperStyle']
   wrapperClassName: TextFieldProps['rightWrapperClassName']
+  withoutWrapper: TextFieldProps['withoutRightContentWrapper']
 }) {
   const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
     if ('icon' in item) {
@@ -134,6 +140,7 @@ function TextFieldRightContent({
 
   return (
     <div
+      style={wrapperStyle}
       className={classNames(
         styles.RightContentWrapper,
         wrapperClassName,
@@ -158,9 +165,13 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   rightContent,
   withoutLeftContentWrapper = false,
   withoutRightContentWrapper = false,
+  inputStyle,
   inputClassName,
+  wrapperStyle,
   wrapperClassName,
+  leftWrapperStyle,
   leftWrapperClassName,
+  rightWrapperStyle,
   rightWrapperClassName,
   value,
   onFocus,
@@ -181,10 +192,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
   const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
 
-  const normalizedValue = useMemo(() => (
-    isNil(value) ? undefined : toString(value)
-  ), [value])
-
+  const normalizedValue = isNil(value) ? undefined : toString(value)
   const activeInput = !disabled && !readOnly
   const activeClear = activeInput && allowClear && !isEmpty(normalizedValue)
 
@@ -337,6 +345,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
+      style={wrapperStyle}
       className={classNames(
         styles.TextFieldWrapper,
         styles[`variant-${variant}`],
@@ -350,13 +359,15 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       onMouseDown={focus}
     >
       <TextFieldLeftContent
-        withoutWrapper={withoutLeftContentWrapper}
+        wrapperStyle={leftWrapperStyle}
         wrapperClassName={leftWrapperClassName}
+        withoutWrapper={withoutLeftContentWrapper}
       >
         { leftContent }
       </TextFieldLeftContent>
 
       <input
+        style={inputStyle}
         className={classNames(
           styles.TextFieldInput,
           inputClassName,
@@ -396,6 +407,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       ) }
 
       <TextFieldRightContent
+        wrapperStyle={rightWrapperStyle}
         withoutWrapper={withoutRightContentWrapper}
         wrapperClassName={rightWrapperClassName}
       >
