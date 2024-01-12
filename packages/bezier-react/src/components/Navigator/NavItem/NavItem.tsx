@@ -4,6 +4,8 @@ import React, {
   useCallback,
 } from 'react'
 
+import classNames from 'classnames'
+
 import { noop } from '~/src/utils/function'
 
 import {
@@ -14,12 +16,7 @@ import { Text } from '~/src/components/Text'
 
 import type NavItemProps from './NavItem.types'
 
-import {
-  Item,
-  LeftIconWrapper,
-  RightContentWrapper,
-  Wrapper,
-} from './NavItem.styled'
+import styles from './NavItem.module.scss'
 
 export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
 export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
@@ -48,22 +45,27 @@ const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
   ])
 
   return (
-    <Wrapper role="none">
-      <Item
+    <li
+      className={styles.Wrapper}
+      role="none"
+    >
+      <a
         {...rest}
         ref={forwardedRef}
         as={as}
-        active={active}
         style={style}
-        className={className}
-        interpolation={interpolation}
+        className={classNames(
+          styles.Item,
+          active && styles.active,
+          className,
+        )}
         onClick={handleClickItem}
         data-testid={testId}
         href={href}
         target={target}
         role="menuitem"
       >
-        <LeftIconWrapper>
+        <div className={styles.LeftIconWrapper}>
           { leftIcon && (
             <Icon
               testId={NAV_ITEM_LEFT_ICON_TEST_ID}
@@ -72,19 +74,19 @@ const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
               color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
           ) }
-        </LeftIconWrapper>
+        </div>
 
         <Text typo="14" truncated>
           { content }
         </Text>
 
         { rightContent && (
-          <RightContentWrapper>
+          <div className={styles.RightContentWrapper}>
             { rightContent }
-          </RightContentWrapper>
+          </div>
         ) }
-      </Item>
-    </Wrapper>
+      </a>
+    </li>
   )
 })
 
