@@ -4,8 +4,8 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
-  AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaAdditionalStylableProps,
+  AlphaBezierComponentProps,
   SideContentProps,
   SizeProps,
   VariantProps,
@@ -61,7 +61,7 @@ export interface TextFieldRef {
 type ChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type KeyboardEventHandler = React.KeyboardEventHandler<HTMLInputElement>
 
-interface TextFieldOptions {
+interface TextFieldOwnProps {
   type?: TextFieldType
   allowClear?: boolean
   selectAllOnInit?: boolean
@@ -77,11 +77,11 @@ interface TextFieldOptions {
 type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
+  AlphaBezierComponentProps,
+  AlphaAdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   FormComponentProps,
-  BezierComponentProps,
   SizeProps<TextFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
-  AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
-  TextFieldOptions {}
+  TextFieldOwnProps {}

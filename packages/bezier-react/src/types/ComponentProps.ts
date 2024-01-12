@@ -114,6 +114,10 @@ type AdditionalClassNameProps<ElementName extends PropNameType> =
 type AdditionalInterpolationProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'interpolation', InjectedInterpolation>
 
+export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
+  AdditionalStyleProps<ElementName> &
+  AdditionalClassNameProps<ElementName>
+
 export type AdditionalStylableProps<ElementName extends PropNameType> =
   AdditionalStyleProps<ElementName> &
   AdditionalClassNameProps<ElementName> &
