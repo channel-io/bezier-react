@@ -17,15 +17,12 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import styles from '~/src/components/Navigator/Navigator.module.scss'
+import commonStyles from '~/src/components/Navigator/Navigator.module.scss'
 import { Text } from '~/src/components/Text'
 
 import type NavGroupProps from './NavGroup.types'
 
-import {
-  ChevronWrapper,
-  ChildrenWrapper,
-} from './NavGroup.styled'
+import styles from './NavGroup.module.scss'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
 export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
@@ -59,7 +56,7 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
 
   return (
     <li
-      className={styles.Wrapper}
+      className={commonStyles.Wrapper}
       role="none"
     >
       <button
@@ -69,7 +66,7 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
         type="button"
         style={style}
         className={classNames(
-          styles.Item,
+          commonStyles.Item,
           className,
         )}
         interpolation={interpolation}
@@ -80,7 +77,7 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
         aria-expanded={open}
         aria-controls={ariaName}
       >
-        <div className={styles.LeftIconWrapper}>
+        <div className={commonStyles.LeftIconWrapper}>
           <Icon
             testId={NAV_GROUP_LEFT_ICON_TEST_ID}
             source={leftIcon}
@@ -94,29 +91,30 @@ const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(
         </Text>
 
         { hasChildren && (
-          <ChevronWrapper>
+          <div className={styles.ChevronWrapper}>
             <Icon
               source={chevronIconSource}
               size={IconSize.S}
               color="txt-black-dark"
             />
-          </ChevronWrapper>
+          </div>
         ) }
 
         { rightContent && (
-          <div className={styles.RightContentWrapper}>
+          <div className={commonStyles.RightContentWrapper}>
             { rightContent }
           </div>
         ) }
       </button>
 
       { open && (
-        <ChildrenWrapper
+        <ul
+          className={styles.ChildrenWrapper}
           role="menu"
           id={ariaName}
         >
           { open && children }
-        </ChildrenWrapper>
+        </ul>
       ) }
     </li>
   )
