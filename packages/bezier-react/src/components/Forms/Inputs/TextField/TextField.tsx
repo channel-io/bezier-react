@@ -392,7 +392,10 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
 
       { activeClear && (
         <button
-          className={styles.CloseIconWrapper}
+          className={classNames(
+            styles.CloseIconWrapper,
+            styles.clickable,
+          )}
           tabIndex={-1}
           type="button"
           onClick={handleClear}
