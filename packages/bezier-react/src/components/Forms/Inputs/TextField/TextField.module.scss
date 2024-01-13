@@ -17,7 +17,7 @@
     color: var(--txt-black-dark);
   }
 
-  &:is(.readonly) {
+  &.readonly {
     color: var(--txt-black-darker)
   }
 
@@ -96,11 +96,11 @@
     background-color: var(--bg-white-normal);
   }
 
-  &:where(.variant-primary):is(.readonly) {
+  &:where(.variant-primary).readonly {
     background-color: var(--bg-grey-lighter);
   }
 
-  &:is(.invalid) {
+  &.invalid {
     box-shadow: var(--input-box-shadow-invalid);
   }
 }
