@@ -48,7 +48,6 @@
     background-color: var(--bg-black-lightest);
   }
 
-
   &:where(.size-28) {
     height: 28px;
   }
@@ -86,10 +85,8 @@
     box-shadow: var(--input-box-shadow-focused);
   }
 
-  &:where(:has(.TextFieldInput:focus, :hover)) {
-    .CloseIcon {
-      visibility: visible;
-    }
+  &:where(:has(.TextFieldInput:focus, :hover)) .CloseIcon {
+    visibility: visible;
   }
 
   &:where(.variant-primary):where(.invalid, :not(.disabled, .readonly):has(.TextFieldInput:focus)) {
