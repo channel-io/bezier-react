@@ -8,14 +8,17 @@ import { LightFoundation } from '~/src/foundation'
 import { ZIndex } from '~/src/constants/ZIndex'
 import { render } from '~/src/utils/test'
 
-import Select, {
+import {
   SELECT_CONTAINER_TEST_ID,
   SELECT_DROPDOWN_TEST_ID,
   SELECT_TRIGGER_TEST_ID,
   SELECT_TRIGGER_TEXT_TEST_ID,
+  Select,
 } from './Select'
-import type SelectProps from './Select.types'
-import { SelectSize } from './Select.types'
+import {
+  type SelectProps,
+  SelectSize,
+} from './Select.types'
 
 describe('Select Test >', () => {
   let props: SelectProps

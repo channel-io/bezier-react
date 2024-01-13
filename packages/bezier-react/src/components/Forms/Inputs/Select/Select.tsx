@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -17,7 +16,6 @@ import {
 import classNames from 'classnames'
 
 import { ZIndex } from '~/src/constants/ZIndex'
-import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -31,9 +29,11 @@ import {
 } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
-import type SelectProps from './Select.types'
-import { type SelectRef } from './Select.types'
-import { SelectSize } from './Select.types'
+import {
+  type SelectProps,
+  type SelectRef,
+  SelectSize,
+} from './Select.types'
 
 import styles from './Select.module.scss'
 
@@ -42,14 +42,10 @@ export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
 export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
-const DEFAULT_DROPDOWN_MARGIN_Y = 6
 const DEFAULT_DROPDOWN_Z_INDEX = ZIndex.Overlay
 
-function Select({
-  testId = SELECT_CONTAINER_TEST_ID,
-  triggerTestId = SELECT_TRIGGER_TEST_ID,
-  triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
-  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
+export const Select = forwardRef<SelectRef, SelectProps>(function Select({
+  children,
   style,
   className,
   size = SelectSize.M,
@@ -65,16 +61,17 @@ function Select({
   dropdownClassName,
   dropdownContainer,
   dropdownMarginX,
-  dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
+  dropdownMarginY = 6,
   dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
   dropdownPosition = OverlayPosition.BottomLeft,
-  onClickTrigger = noop,
-  onHideDropdown = noop,
-  children,
+  testId = SELECT_CONTAINER_TEST_ID,
+  triggerTestId = SELECT_TRIGGER_TEST_ID,
+  triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
+  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
+  onClickTrigger,
+  onHideDropdown,
   ...rest
-}: SelectProps,
-forwardedRef: Ref<SelectRef>,
-) {
+}, forwardedRef) {
   const {
     disabled,
     readOnly,
@@ -83,7 +80,7 @@ forwardedRef: Ref<SelectRef>,
   } = useFormFieldProps(rest)
 
   const containerRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
@@ -126,7 +123,7 @@ forwardedRef: Ref<SelectRef>,
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) {
       setIsDropdownOpened(prevState => !prevState)
-      onClickTrigger(event)
+      onClickTrigger?.(event)
     }
   }, [
     disabled,
@@ -136,7 +133,7 @@ forwardedRef: Ref<SelectRef>,
 
   const handleHideDropdown = useCallback(() => {
     setIsDropdownOpened(false)
-    onHideDropdown()
+    onHideDropdown?.()
   }, [onHideDropdown])
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
@@ -179,8 +176,8 @@ forwardedRef: Ref<SelectRef>,
           readOnly && styles.readonly,
           isDropdownOpened && styles.active,
         )}
-        type="button"
         ref={triggerRef}
+        type="button"
         disabled={disabled}
         data-testid={triggerTestId}
         onClick={handleClickTrigger}
@@ -217,7 +214,7 @@ forwardedRef: Ref<SelectRef>,
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        // zIndex={dropdownZIndex}
+        zIndex={dropdownZIndex}
         marginX={dropdownMarginX}
         marginY={dropdownMarginY}
         target={triggerRef.current}
@@ -229,6 +226,4 @@ forwardedRef: Ref<SelectRef>,
       </Overlay>
     </div>
   )
-}
-
-export default forwardRef(Select)
+})
