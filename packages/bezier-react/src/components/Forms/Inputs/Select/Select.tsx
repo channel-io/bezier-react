@@ -84,42 +84,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
-  const LeftComponent = useMemo(() => {
-    if (isBezierIcon(leftContent)) {
-      return (
-        <Icon
-          source={leftContent}
-          size={IconSize.XS}
-          marginRight={6}
-          color={iconColor}
-        />
-      )
-    }
-
-    return leftContent
-  }, [
-    leftContent,
-    iconColor,
-  ])
-
-  const RightComponent = useMemo(() => {
-    if (isBezierIcon(rightContent)) {
-      return (
-        <Icon
-          source={rightContent}
-          size={IconSize.XS}
-          marginRight={6}
-          color={iconColor}
-        />
-      )
-    }
-
-    return rightContent
-  }, [
-    rightContent,
-    iconColor,
-  ])
-
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) {
       setIsDropdownOpened(prevState => !prevState)
@@ -184,7 +148,17 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         {...ownProps}
       >
         <div className={styles.SelectMainContent}>
-          { LeftComponent }
+          { isBezierIcon(leftContent)
+            ? (
+              <Icon
+                source={leftContent}
+                size={IconSize.XS}
+                marginRight={6}
+                color={iconColor}
+              />
+            )
+            : leftContent }
+
           <Text
             testId={triggerTextTestId}
             typo="14"
@@ -193,8 +167,19 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           >
             { hasContent ? text : placeholder }
           </Text>
-          { RightComponent }
+
+          { isBezierIcon(rightContent)
+            ? (
+              <Icon
+                source={rightContent}
+                size={IconSize.XS}
+                marginRight={6}
+                color={iconColor}
+              />
+            )
+            : rightContent }
         </div>
+
         { !withoutChevron && (
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
