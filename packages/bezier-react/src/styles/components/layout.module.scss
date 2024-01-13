@@ -21,16 +21,12 @@
   --b-grow: initial;
   --b-background-color: initial;
   --b-border-color: initial;
-  --b-border-radius: initial;
   --b-border-width: 0;
   --b-border-top-width: var(--b-border-width);
   --b-border-right-width: var(--b-border-width);
   --b-border-bottom-width: var(--b-border-width);
   --b-border-left-width: var(--b-border-width);
-  --b-elevation: initial;
-  --b-z-index: initial;
 
-  z-index: var(--b-z-index);
   inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
 
   flex-grow: var(--b-grow);
@@ -49,8 +45,6 @@
   border-color: var(--b-border-color);
   border-style: solid;
   border-width: var(--b-border-top-width) var(--b-border-right-width) var(--b-border-bottom-width) var(--b-border-left-width);
-  border-radius: var(--b-border-radius);
-  box-shadow: var(--b-elevation);
 
   &:where(.position-relative) {
     position: relative;

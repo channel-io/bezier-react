@@ -5,17 +5,23 @@ import {
   type LayoutProps,
   type MarginProps,
 } from '~/src/types/ComponentProps'
-import { TokenPrefix } from '~/src/types/Token'
+import {
+  type Elevation,
+  type Radius,
+  type ZIndex,
+} from '~/src/types/Token'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
+import elevationStyles from '../styles/components/elevation.module.scss'
 import layoutStyles from '../styles/components/layout.module.scss'
 import marginStyles from '../styles/components/margin.module.scss'
+import radiusStyles from '../styles/components/radius.module.scss'
+import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
 
 import {
   cssDimension,
-  cssVar,
   tokenCssVar,
 } from './style'
 
@@ -137,6 +143,18 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
     rest,
   ]
 
+export function getElevationClassName(elevation: Elevation) {
+  return elevationStyles[`elevation-${elevation}`]
+}
+
+export function getRadiusClassName(radius: Radius) {
+  return radiusStyles[`radius-${radius}`]
+}
+
+export function getZIndexClassName(zIndex: ZIndex) {
+  return zIndexStyles[`z-index-${zIndex}`]
+}
+
 export const getMarginStyles = ({
   margin,
   marginHorizontal,
@@ -218,16 +236,13 @@ export const getLayoutStyles = ({
       '--b-left': cssDimension(left),
       '--b-shrink': shrink,
       '--b-grow': grow,
-      '--b-background-color': cssVar(backgroundColor),
-      '--b-border-color': cssVar(borderColor),
-      '--b-border-radius': tokenCssVar(borderRadius && `${TokenPrefix.Radius}-${borderRadius}`),
+      '--b-background-color': tokenCssVar(backgroundColor),
+      '--b-border-color': tokenCssVar(borderColor),
       '--b-border-width': cssDimension(borderWidth),
       '--b-border-top-width': cssDimension(borderTopWidth),
       '--b-border-right-width': cssDimension(borderRightWidth),
       '--b-border-bottom-width': cssDimension(borderBottomWidth),
       '--b-border-left-width': cssDimension(borderLeftWidth),
-      '--b-elevation': tokenCssVar(elevation && `${TokenPrefix.Elevation}-${elevation}`),
-      '--b-z-index': tokenCssVar(zIndex && `${TokenPrefix.ZIndex}-${zIndex}`),
     },
     className: classNames(
       layoutStyles.layout,
@@ -235,6 +250,9 @@ export const getLayoutStyles = ({
       overflow && layoutStyles[`overflow-${overflow}`],
       overflowX && layoutStyles[`overflow-x-${overflowX}`],
       overflowY && layoutStyles[`overflow-y-${overflowY}`],
+      elevation && getElevationClassName(elevation),
+      borderRadius && getRadiusClassName(borderRadius),
+      zIndex && getZIndexClassName(zIndex),
     ),
   }
 )
