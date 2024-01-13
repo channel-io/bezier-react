@@ -15,7 +15,7 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { ZIndex } from '~/src/constants/ZIndex'
+import { getZIndexClassName } from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -42,8 +42,6 @@ export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
 export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
-const DEFAULT_DROPDOWN_Z_INDEX = ZIndex.Overlay
-
 export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   children,
   style,
@@ -62,7 +60,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownContainer,
   dropdownMarginX,
   dropdownMarginY = 6,
-  dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
+  dropdownZIndex = 'overlay',
   dropdownPosition = OverlayPosition.BottomLeft,
   testId = SELECT_CONTAINER_TEST_ID,
   triggerTestId = SELECT_TRIGGER_TEST_ID,
@@ -198,12 +196,12 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         style={dropdownStyle}
         className={classNames(
           styles.SelectDropdown,
+          getZIndexClassName(dropdownZIndex),
           dropdownClassName,
         )}
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        zIndex={dropdownZIndex}
         marginX={dropdownMarginX}
         marginY={dropdownMarginY}
         target={triggerRef.current}

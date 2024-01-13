@@ -9,6 +9,7 @@ import type {
   SideContentProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
+import { type ZIndex } from '~/src/types/Token'
 
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
@@ -35,7 +36,7 @@ interface SelectOwnProps {
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
-  dropdownZIndex?: number
+  dropdownZIndex?: ZIndex
   dropdownPosition?: OverlayProps['position']
   onClickTrigger?: React.MouseEventHandler
   onHideDropdown?: () => void
