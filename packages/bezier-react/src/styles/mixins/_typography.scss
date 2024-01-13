@@ -1,79 +1,73 @@
-/* For internal use only. */
 /* Use only in unavoidable cases where `Text` component is not available. */
-@mixin size($size) {
-  @if $size == 11 {
-    font-size: var(--typography-size-11-font-size);
-    line-height: var(--typography-size-11-line-height);
-    letter-spacing: initial;
-  }
 
-  @else if $size == 12 {
-    font-size: var(--typography-size-12-font-size);
-    line-height: var(--typography-size-12-line-height);
-    letter-spacing: initial;
-  }
+@mixin size-11() {
+  font-size: var(--typography-size-11-font-size);
+  line-height: var(--typography-size-11-line-height);
+  letter-spacing: initial;
+}
 
-  @else if $size == 13 {
-    font-size: var(--typography-size-13-font-size);
-    line-height: var(--typography-size-13-line-height);
-    letter-spacing: initial;
-  }
+@mixin size-12() {
+  font-size: var(--typography-size-12-font-size);
+  line-height: var(--typography-size-12-line-height);
+  letter-spacing: initial;
+}
 
-  @else if $size == 14 {
-    font-size: var(--typography-size-14-font-size);
-    line-height: var(--typography-size-14-line-height);
-    letter-spacing: initial;
-  }
+@mixin size-13() {
+  font-size: var(--typography-size-13-font-size);
+  line-height: var(--typography-size-13-line-height);
+  letter-spacing: initial;
+}
 
-  @else if $size == 15 {
-    font-size: var(--typography-size-15-font-size);
-    line-height: var(--typography-size-15-line-height);
-    letter-spacing: var(--typography-size-15-letter-spacing);
-  }
+@mixin size-14() {
+  font-size: var(--typography-size-14-font-size);
+  line-height: var(--typography-size-14-line-height);
+  letter-spacing: initial;
+}
 
-  @else if $size == 16 {
-    font-size: var(--typography-size-16-font-size);
-    line-height: var(--typography-size-16-line-height);
-    letter-spacing: var(--typography-size-16-letter-spacing);
-  }
+@mixin size-15() {
+  font-size: var(--typography-size-15-font-size);
+  line-height: var(--typography-size-15-line-height);
+  letter-spacing: var(--typography-size-15-letter-spacing);
+}
 
-  @else if $size == 17 {
-    font-size: var(--typography-size-17-font-size);
-    line-height: var(--typography-size-17-line-height);
-    letter-spacing: var(--typography-size-17-letter-spacing);
-  }
+@mixin size-16() {
+  font-size: var(--typography-size-16-font-size);
+  line-height: var(--typography-size-16-line-height);
+  letter-spacing: var(--typography-size-16-letter-spacing);
+}
 
-  @else if $size == 18 {
-    font-size: var(--typography-size-18-font-size);
-    line-height: var(--typography-size-18-line-height);
-    letter-spacing: initial;
-  }
+@mixin size-17() {
+  font-size: var(--typography-size-17-font-size);
+  line-height: var(--typography-size-17-line-height);
+  letter-spacing: var(--typography-size-17-letter-spacing);
+}
 
-  @else if $size == 22 {
-    font-size: var(--typography-size-22-font-size);
-    line-height: var(--typography-size-22-line-height);
-    letter-spacing: var(--typography-size-22-letter-spacing);
-  }
+@mixin size-18() {
+  font-size: var(--typography-size-18-font-size);
+  line-height: var(--typography-size-18-line-height);
+  letter-spacing: initial;
+}
 
-  @else if $size == 24 {
-    font-size: var(--typography-size-24-font-size);
-    line-height: var(--typography-size-24-line-height);
-    letter-spacing: var(--typography-size-24-letter-spacing);
-  }
+@mixin size-22() {
+  font-size: var(--typography-size-22-font-size);
+  line-height: var(--typography-size-22-line-height);
+  letter-spacing: var(--typography-size-22-letter-spacing);
+}
 
-  @else if $size == 30 {
-    font-size: var(--typography-size-30-font-size);
-    line-height: var(--typography-size-30-line-height);
-    letter-spacing: var(--typography-size-30-letter-spacing);
-  }
+@mixin size-24() {
+  font-size: var(--typography-size-24-font-size);
+  line-height: var(--typography-size-24-line-height);
+  letter-spacing: var(--typography-size-24-letter-spacing);
+}
 
-  @else if $size == 36 {
-    font-size: var(--typography-size-36-font-size);
-    line-height: var(--typography-size-36-line-height);
-    letter-spacing: var(--typography-size-36-letter-spacing);
-  }
+@mixin size-30() {
+  font-size: var(--typography-size-30-font-size);
+  line-height: var(--typography-size-30-line-height);
+  letter-spacing: var(--typography-size-30-letter-spacing);
+}
 
-  @else {
-    @error "Invalid typography size: #{$size}";
-  }
+@mixin size-36() {
+  font-size: var(--typography-size-36-font-size);
+  line-height: var(--typography-size-36-line-height);
+  letter-spacing: var(--typography-size-36-letter-spacing);
 }

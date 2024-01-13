@@ -49,50 +49,50 @@
   }
 
   &:where(.typo-11) {
-    @include typography.size(11);
+    @include typography.size-11;
   }
 
   &:where(.typo-12) {
-    @include typography.size(12);
+    @include typography.size-12;
   }
 
   &:where(.typo-13) {
-    @include typography.size(13);
+    @include typography.size-13;
   }
 
   &:where(.typo-14) {
-    @include typography.size(14);
+    @include typography.size-14;
   }
 
   &:where(.typo-15) {
-    @include typography.size(15);
+    @include typography.size-15;
   }
 
   &:where(.typo-16) {
-    @include typography.size(16);
+    @include typography.size-16;
   }
 
   &:where(.typo-17) {
-    @include typography.size(17);
+    @include typography.size-17;
   }
 
   &:where(.typo-18) {
-    @include typography.size(18);
+    @include typography.size-18;
   }
 
   &:where(.typo-22) {
-    @include typography.size(22);
+    @include typography.size-22;
   }
 
   &:where(.typo-24) {
-    @include typography.size(24);
+    @include typography.size-24;
   }
 
   &:where(.typo-30) {
-    @include typography.size(30);
+    @include typography.size-30;
   }
 
   &:where(.typo-36) {
-    @include typography.size(36);
+    @include typography.size-36;
   }
 }

@@ -1,26 +1,53 @@
 @use "../../../../styles/mixins/typography";
 
+.TextFieldInput {
+  @include typography.size-14;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  color: var(--txt-black-darkest);
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: var(--txt-black-dark);
+  }
+
+  &:is(.readonly) {
+    color: var(--txt-black-darker)
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.CloseIcon {
+  visibility: hidden;
+}
+
 .TextFieldWrapper {
   position: relative;
-  box-sizing: border-box;
+
   display: flex;
   align-items: center;
+
+  box-sizing: border-box;
   padding: 0 12px;
-  border-radius: var(--radius-8);
+
   background-color: var(--bg-grey-lightest);
+  border-radius: var(--radius-8);
+
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
 
   &:where(.variant-secondary) {
     background-color: var(--bg-black-lightest);
   }
 
-  &:where(.variant-primary):is(.readonly) {
-    background-color: var(--bg-grey-lighter);
-  }
-
-  &:where(.variant-primary):where(.invalid, :not(.disabled):not(.readonly):has(.TextFieldInput:focus)) {
-    background-color: var(--bg-white-normal);
-  }
 
   &:where(.size-28) {
     height: 28px;
@@ -34,7 +61,7 @@
     height: 44px;
 
     & .TextFieldInput {
-      @include typography.size(16);
+      @include typography.size-16;
     }
   }
 
@@ -43,7 +70,7 @@
     border-radius: var(--radius-12);
 
     & .TextFieldInput {
-      @include typography.size(18);
+      @include typography.size-18;
     }
   }
 
@@ -65,32 +92,16 @@
     }
   }
 
+  &:where(.variant-primary):where(.invalid, :not(.disabled, .readonly):has(.TextFieldInput:focus)) {
+    background-color: var(--bg-white-normal);
+  }
+
+  &:where(.variant-primary):is(.readonly) {
+    background-color: var(--bg-grey-lighter);
+  }
+
   &:is(.invalid) {
     box-shadow: var(--input-box-shadow-invalid);
-  }
-}
-
-.TextFieldInput {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: var(--txt-black-darkest);
-
-  @include typography.size(14);
-
-  &:is(.readonly) {
-    color: var(--txt-black-darker)
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  &::placeholder {
-    color: var(--txt-black-dark);
   }
 }
 
@@ -112,9 +123,11 @@
 
 .RightItemWrapper {
   all: unset;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 20px;
   height: 20px;
 }
@@ -123,16 +136,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 20px;
   height: 20px;
   padding-right: 2px;
+
   color: var(--txt-black-dark);
 
   &:hover {
     color: var(--txt-black-darker);
   }
-}
-
-.CloseIcon {
-  visibility: hidden;
 }
