@@ -59,13 +59,16 @@
   --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
 
   position: relative;
-  box-sizing: content-box;
+
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
+
+  box-sizing: content-box;
   width: 100%;
   height: 100%;
+
   outline: none;
 
   &:where(.big-size) {

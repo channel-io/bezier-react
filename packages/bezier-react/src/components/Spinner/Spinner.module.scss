@@ -14,9 +14,11 @@
   --b-spinner-color: inherit;
 
   display: inline-block;
-  border-style: solid;
+
   border-color: transparent var(--b-spinner-color) var(--b-spinner-color) var(--b-spinner-color);
+  border-style: solid;
   border-radius: 50%;
+
   animation: spin 1s linear infinite;
 
   &:where(.size-xl) {

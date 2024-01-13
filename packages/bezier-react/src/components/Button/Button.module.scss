@@ -1,10 +1,10 @@
-$chromaticColorVariants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
-$activeSelector: ":where(.active, :hover):where(:not(:disabled))";
+$chromatic-color-variants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
+$active-selector: ":where(.active, :hover):where(:not(:disabled))";
 
 .Button {
+  cursor: pointer;
   position: relative;
   box-sizing: border-box;
-  cursor: pointer;
   transition: background-color var(--transition-s), box-shadow var(--transition-s);
 
   &:disabled {
@@ -22,9 +22,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
   /* Size */
   &:where(.size-xs) {
-    padding: 0 2px;
     min-width: 20px;
     height: 20px;
+    padding: 0 2px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 7px;
@@ -32,9 +32,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-s) {
-    padding: 0 4px;
     min-width: 24px;
     height: 24px;
+    padding: 0 4px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 9px;
@@ -42,9 +42,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-m) {
-    padding: 0 10px;
     min-width: 36px;
     height: 36px;
+    padding: 0 10px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 14px;
@@ -52,9 +52,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-l) {
-    padding: 0 12px;
     min-width: 44px;
     height: 44px;
+    padding: 0 12px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 18px;
@@ -62,9 +62,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-xl) {
-    padding: 0 20px;
     min-width: 54px;
     height: 54px;
+    padding: 0 20px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 23px;
@@ -94,12 +94,12 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
   /* Color variants */
   &:where(.style-primary) {
-    @each $colorVariant in $chromaticColorVariants {
+    @each $colorVariant in $chromatic-color-variants {
       &:where(.color-#{$colorVariant}) {
         color: var(--bgtxt-absolute-white-dark);
         background-color: var(--bgtxt-#{$colorVariant}-normal);
 
-        &#{$activeSelector} {
+        &#{$active-selector} {
           background-color: var(--bgtxt-#{$colorVariant}-dark);
         }
       }
@@ -109,7 +109,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--bgtxt-absolute-white-dark);
       background-color: var(--bgtxt-absolute-black-lightest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bgtxt-absolute-black-lighter);
       }
     }
@@ -126,12 +126,12 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.style-secondary) {
-    @each $colorVariant in $chromaticColorVariants {
+    @each $colorVariant in $chromatic-color-variants {
       &:where(.color-#{$colorVariant}) {
         color: var(--bgtxt-#{$colorVariant}-normal);
         background-color: var(--bgtxt-#{$colorVariant}-lightest);
 
-        &#{$activeSelector} {
+        &#{$active-selector} {
           background-color: var(--bgtxt-#{$colorVariant}-lighter);
         }
       }
@@ -141,7 +141,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darkest);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -150,7 +150,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darker);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -159,7 +159,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darkest);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -168,11 +168,11 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   &:where(.style-tertiary) {
     background-color: transparent;
 
-    @each $colorVariant in $chromaticColorVariants {
+    @each $colorVariant in $chromatic-color-variants {
       &:where(.color-#{$colorVariant}) {
         color: var(--bgtxt-#{$colorVariant}-normal);
 
-        &#{$activeSelector} {
+        &#{$active-selector} {
           color: var(--bgtxt-#{$colorVariant}-dark);
           background-color: var(--bgtxt-#{$colorVariant}-lightest);
         }
@@ -182,7 +182,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome) {
       color: var(--txt-black-darkest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lightest);
       }
     }
@@ -190,7 +190,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome-light) {
       color: var(--txt-black-darker);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lighter);
       }
     }
@@ -198,19 +198,19 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome-dark) {
       color: var(--txt-black-darkest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lighter);
       }
     }
   }
 
   &:where(.style-floating, .style-floating-alt) {
-    @each $colorVariant in $chromaticColorVariants {
+    @each $colorVariant in $chromatic-color-variants {
       &:where(.color-#{$colorVariant}) {
         color: var(--bgtxt-absolute-white-dark);
         background-color: var(--bgtxt-#{$colorVariant}-normal);
 
-        &#{$activeSelector} {
+        &#{$active-selector} {
           background-color: var(--bgtxt-#{$colorVariant}-dark);
         }
       }
@@ -310,6 +310,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 .ButtonLoader {
   position: absolute;
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;

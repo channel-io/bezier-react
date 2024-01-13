@@ -1,8 +1,8 @@
 .Divider {
   --b-divider-indent-size: 6px;
 
-  border-radius: var(--radius-1);
   background-color: var(--bdr-black-light);
+  border-radius: var(--radius-1);
 
   &:where(.horizontal) {
     width: calc(100% - 2 * var(--b-divider-indent-size));
@@ -16,8 +16,8 @@
 
     &:where(.without-side-indent) {
       width: 100%;
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
 
     &:where(.without-parallel-indent) {
@@ -43,8 +43,8 @@
     }
 
     &:where(.without-parallel-indent) {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
   }
 }

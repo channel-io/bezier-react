@@ -3,13 +3,18 @@
   --b-switch-height: auto;
   --b-switch-thumb-size: initial;
 
+  cursor: pointer;
+
   position: relative;
+
+  overflow: hidden;
+
   width: var(--b-switch-width);
   height: var(--b-switch-height);
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: var(--radius-12);
+
   background-color: var(--bg-black-dark);
+  border-radius: var(--radius-12);
+
   transition: background-color var(--transition-s), opacity var(--transition-s);
 
   &:where(.size-s) {
@@ -48,12 +53,16 @@
   position: absolute;
   top: var(--b-switch-thumb-padding);
   left: var(--b-switch-thumb-padding);
+
+  overflow: hidden;
+
   width: var(--b-switch-thumb-size);
   height: var(--b-switch-thumb-size);
-  overflow: hidden;
+
+  background-color: var(--bgtxt-absolute-white-dark);
   border-radius: var(--radius-12);
   box-shadow: var(--ev-2);
-  background-color: var(--bgtxt-absolute-white-dark);
+
   transition: transform var(--transition-s);
 
   &:where(&[data-state='checked']) {

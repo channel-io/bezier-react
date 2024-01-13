@@ -5,12 +5,13 @@
   --b-text-font-size: initial;
   --b-text-letter-spacing: initial;
 
-  color: var(--b-text-color);
-  font-style: normal;
-  font-weight: var(--font-weight-400);
   font-size: var(--b-text-font-size);
+  font-weight: var(--font-weight-400);
+  font-style: normal;
   line-height: var(--b-text-line-height);
+  color: var(--b-text-color);
   letter-spacing: var(--b-text-letter-spacing);
+
   transition: color var(--transition-s);
 
   &:where(.bold) {
@@ -22,17 +23,20 @@
   }
 
   &:where(.truncated) {
-    display: block;
     overflow: hidden;
+    display: block;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   &:where(.multi-line-truncated) {
-    display: -webkit-box;
-    max-height: calc(var(--b-text-line-clamp) * var(--b-text-line-height));
     overflow: hidden;
+    display: -webkit-box;
+
+    max-height: calc(var(--b-text-line-clamp) * var(--b-text-line-height));
+
     text-overflow: ellipsis;
+
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--b-text-line-clamp);
   }
