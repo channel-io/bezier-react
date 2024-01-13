@@ -44,5 +44,5 @@ export type TextSemanticColor = StartsWithPrefix<'txt', SemanticColor>
 export type BorderSemanticColor = StartsWithPrefix<'bdr', SemanticColor>
 export type ShadowSemanticColor = StartsWithPrefix<'shdw', SemanticColor>
 
-export type Elevation = RemovePrefix<TokenPrefix.Elevation, keyof SemanticToken['elevation']>
+export type Elevation = Exclude<RemovePrefix<TokenPrefix.Elevation, keyof SemanticToken['elevation']>, 'base' | 'inner'>
 export type InputShadow = RemovePrefix<TokenPrefix.Input, keyof SemanticToken['input']>

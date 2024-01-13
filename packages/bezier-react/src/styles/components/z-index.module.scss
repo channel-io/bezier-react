@@ -1,0 +1,31 @@
+:where(.z-index-hidden) {
+  z-index: var(--z-index-hidden);
+}
+
+:where(.z-index-base) {
+  z-index: var(--z-index-base);
+}
+
+:where(.z-index-floating) {
+  z-index: var(--z-index-floating);
+}
+
+:where(.z-index-overlay) {
+  z-index: var(--z-index-overlay);
+}
+
+:where(.z-index-modal) {
+  z-index: var(--z-index-modal);
+}
+
+:where(.z-index-toast) {
+  z-index: var(--z-index-toast);
+}
+
+:where(.z-index-tooltip) {
+  z-index: var(--z-index-tooltip);
+}
+
+:where(.z-index-important) {
+  z-index: var(--z-index-important);
+}
