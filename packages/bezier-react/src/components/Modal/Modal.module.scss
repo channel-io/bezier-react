@@ -72,7 +72,7 @@ $close-icon-button-margin-y: -6;
   }
 
   /* NOTE(@ed): to show a focus ring when the modal is mounted */
-  & [data-component='BezierButton']:focus {
+  & [data-component='BezierButton']:where(:focus) {
     outline: 3px solid var(--bgtxt-cobalt-light);
   }
 }

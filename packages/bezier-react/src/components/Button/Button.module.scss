@@ -282,16 +282,16 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   &:is(.style-floating, .style-floating-alt) {
     box-shadow: var(--ev-2);
 
-    &:hover {
+    &:where(:hover) {
       box-shadow: var(--ev-3);
     }
   }
 
-  &:focus:not(:disabled) {
+  &:focus:where(:not(:disabled)) {
     outline: 3px solid var(--bgtxt-cobalt-light);
   }
 
-  &:focus:not(:focus-visible) {
+  &:focus:where(:not(:focus-visible)) {
     outline: none;
   }
 }
