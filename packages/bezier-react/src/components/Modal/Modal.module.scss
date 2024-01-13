@@ -28,7 +28,6 @@ $close-icon-button-margin-y: -6;
 
 .ModalOverlay {
   position: fixed;
-  z-index: var(--b-modal-z-index);
   inset: 0;
 
   overflow-y: auto;
