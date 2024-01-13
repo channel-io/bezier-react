@@ -15,15 +15,13 @@
 
   display: inline-block;
   border-style: solid;
-  border-top-color: transparent;
-  border-right-color: var(--b-spinner-color);
-  border-bottom-color: var(--b-spinner-color);
-  border-left-color: var(--b-spinner-color);
+  border-color: transparent var(--b-spinner-color) var(--b-spinner-color) var(--b-spinner-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 
   &:where(.size-xl) {
     @include dimension.square(50px);
+
     border-width: 4px;
   }
 

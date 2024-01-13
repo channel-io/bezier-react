@@ -2,7 +2,6 @@
   --b-segmented-control-width: initial;
   --b-segmented-control-item-index: -1;
   --b-segmented-control-item-count: 0;
-
   --b-segmented-control-height: initial;
   --b-segmented-control-padding: initial;
 
@@ -19,6 +18,7 @@
   &:where(.size-xs) {
     --b-segmented-control-height: 24px;
     --b-segmented-control-padding: 1px;
+
     border-radius: var(--radius-6);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
@@ -33,6 +33,7 @@
   &:where(.size-s) {
     --b-segmented-control-height: 28px;
     --b-segmented-control-padding: 2px;
+
     border-radius: var(--radius-8);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
@@ -47,6 +48,7 @@
   &:where(.size-m) {
     --b-segmented-control-height: 36px;
     --b-segmented-control-padding: 2px;
+
     border-radius: var(--radius-8);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
@@ -61,6 +63,7 @@
   &:where(.size-l) {
     --b-segmented-control-height: 44px;
     --b-segmented-control-padding: 4px;
+
     border-radius: var(--radius-12);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
@@ -136,7 +139,7 @@
     }
   }
 
-  &:where(:not([data-checked]):not(&:disabled):hover) {
+  &:where(:not([data-checked], &:disabled):hover) {
     background-color: var(--bg-black-light);
   }
 }

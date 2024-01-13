@@ -38,6 +38,7 @@
 }
 
 .Icon {
-  @include position.center();
+  @include position.center;
+
   z-index: var(--z-index-floating);
 }

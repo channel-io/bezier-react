@@ -19,6 +19,7 @@ $emoji-sizes: '16', '20', '24', '30', '36', '42', '48', '60', '72', '90', '120';
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
+
   @include dimension.square(var(--b-emoji-size));
   @include emoji-background(var(--b-emoji-size));
 
