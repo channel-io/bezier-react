@@ -14,6 +14,7 @@ import {
   ChevronUpIcon,
   isBezierIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { ZIndex } from '~/src/constants/ZIndex'
 import { noop } from '~/src/utils/function'
@@ -24,14 +25,17 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { OverlayPosition } from '~/src/components/Overlay'
+import {
+  Overlay,
+  OverlayPosition,
+} from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
 import type SelectProps from './Select.types'
 import { type SelectRef } from './Select.types'
 import { SelectSize } from './Select.types'
 
-import * as Styled from './Select.styled'
+import styles from './Select.module.scss'
 
 export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
 export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
@@ -46,11 +50,8 @@ function Select({
   triggerTestId = SELECT_TRIGGER_TEST_ID,
   triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
   dropdownTestId = SELECT_DROPDOWN_TEST_ID,
-  as,
   style,
   className,
-  interpolation,
-  dropdownInterpolation,
   size = SelectSize.M,
   defaultFocus = false,
   placeholder = '',
@@ -161,27 +162,31 @@ forwardedRef: Ref<SelectRef>,
   const hasContent = !isEmpty(text)
 
   return (
-    <Styled.Container
-      data-testid={testId}
-      ref={containerRef}
+    <div
       style={style}
-      className={className}
-      interpolation={interpolation}
+      className={classNames(
+        styles.SelectContainer,
+        className,
+      )}
+      ref={containerRef}
+      data-testid={testId}
     >
-      <Styled.Trigger
+      <button
+        className={classNames(
+          styles.SelectTrigger,
+          size && styles[`size-${size}`],
+          hasError && styles.invalid,
+          readOnly && styles.readonly,
+          isDropdownOpened && styles.active,
+        )}
         type="button"
-        data-testid={triggerTestId}
-        as={as}
         ref={triggerRef}
-        size={size}
-        hasError={hasError}
         disabled={disabled}
-        readOnly={readOnly}
-        active={isDropdownOpened}
+        data-testid={triggerTestId}
         onClick={handleClickTrigger}
         {...ownProps}
       >
-        <Styled.MainContentWrapper>
+        <div className={styles.SelectMainContent}>
           { LeftComponent }
           <Text
             testId={triggerTextTestId}
@@ -192,7 +197,7 @@ forwardedRef: Ref<SelectRef>,
             { hasContent ? text : placeholder }
           </Text>
           { RightComponent }
-        </Styled.MainContentWrapper>
+        </div>
         { !withoutChevron && (
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
@@ -201,26 +206,28 @@ forwardedRef: Ref<SelectRef>,
             marginLeft={6}
           />
         ) }
-      </Styled.Trigger>
+      </button>
 
-      <Styled.Dropdown
+      <Overlay
         style={dropdownStyle}
-        className={dropdownClassName}
+        className={classNames(
+          styles.SelectDropdown,
+          dropdownClassName,
+        )}
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        zIndex={dropdownZIndex}
+        // zIndex={dropdownZIndex}
         marginX={dropdownMarginX}
         marginY={dropdownMarginY}
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
-        interpolation={dropdownInterpolation}
         onHide={handleHideDropdown}
       >
         { children }
-      </Styled.Dropdown>
-    </Styled.Container>
+      </Overlay>
+    </div>
   )
 }
 
