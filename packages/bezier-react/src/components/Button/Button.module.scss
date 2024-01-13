@@ -7,19 +7,6 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   box-sizing: border-box;
   transition: background-color var(--transition-s), box-shadow var(--transition-s);
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: var(--opacity-disabled);
-  }
-
-  &:focus:not(:disabled) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
   /* Size */
   &:where(.size-xs) {
     min-width: 20px;
@@ -71,11 +58,6 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
     }
   }
 
-  /* NOTE: If there is no text, button is square, so padding is 0 */
-  &:not(:has(.ButtonText)) {
-    padding: 0;
-  }
-
   &:where(.size-xs, .size-s) {
     & :where(.ButtonText) {
       padding: 0 3px;
@@ -94,13 +76,13 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
 
   /* Color variants */
   &:where(.style-primary) {
-    @each $colorVariant in $chromatic-color-variants {
-      &:where(.color-#{$colorVariant}) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
-        background-color: var(--bgtxt-#{$colorVariant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
-          background-color: var(--bgtxt-#{$colorVariant}-dark);
+          background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
     }
@@ -126,13 +108,13 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.style-secondary) {
-    @each $colorVariant in $chromatic-color-variants {
-      &:where(.color-#{$colorVariant}) {
-        color: var(--bgtxt-#{$colorVariant}-normal);
-        background-color: var(--bgtxt-#{$colorVariant}-lightest);
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-lightest);
 
         &#{$active-selector} {
-          background-color: var(--bgtxt-#{$colorVariant}-lighter);
+          background-color: var(--bgtxt-#{$color-variant}-lighter);
         }
       }
     }
@@ -168,13 +150,13 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   &:where(.style-tertiary) {
     background-color: transparent;
 
-    @each $colorVariant in $chromatic-color-variants {
-      &:where(.color-#{$colorVariant}) {
-        color: var(--bgtxt-#{$colorVariant}-normal);
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
-          color: var(--bgtxt-#{$colorVariant}-dark);
-          background-color: var(--bgtxt-#{$colorVariant}-lightest);
+          color: var(--bgtxt-#{$color-variant}-dark);
+          background-color: var(--bgtxt-#{$color-variant}-lightest);
         }
       }
     }
@@ -205,13 +187,13 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.style-floating, .style-floating-alt) {
-    @each $colorVariant in $chromatic-color-variants {
-      &:where(.color-#{$colorVariant}) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
-        background-color: var(--bgtxt-#{$colorVariant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
-          background-color: var(--bgtxt-#{$colorVariant}-dark);
+          background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
     }
@@ -251,14 +233,6 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
     }
   }
 
-  &:is(.style-floating, .style-floating-alt) {
-    box-shadow: var(--ev-2);
-
-    &:hover {
-      box-shadow: var(--ev-3);
-    }
-  }
-
   &:where(.style-floating) {
     overflow: hidden;
     border-radius: 9999px;
@@ -293,6 +267,32 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
     & :is(.ButtonIcon, .ButtonLoader) {
       color: var(--txt-black-darker);
     }
+  }
+
+  /* NOTE: If there is no text, button is square, so padding is 0 */
+  &:not(:has(.ButtonText)) {
+    padding: 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:is(.style-floating, .style-floating-alt) {
+    box-shadow: var(--ev-2);
+
+    &:hover {
+      box-shadow: var(--ev-3);
+    }
+  }
+
+  &:focus:not(:disabled) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 }
 

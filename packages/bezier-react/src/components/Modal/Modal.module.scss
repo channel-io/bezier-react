@@ -1,10 +1,10 @@
-$modalPadding: 24;
-$headerBodyGap: 12;
-$footerTopGap: 16;
-$closeIconButtonMarginX: -6;
-$closeIconButtonMarginY: -6;
+$modal-padding: 24;
+$header-body-gap: 12;
+$footer-top-gap: 16;
+$close-icon-button-margin-x: -6;
+$close-icon-button-margin-y: -6;
 
-@keyframes overlayShow {
+@keyframes overlay-show {
   from {
     opacity: 0;
   }
@@ -14,7 +14,7 @@ $closeIconButtonMarginY: -6;
   }
 }
 
-@keyframes contentShow {
+@keyframes content-show {
   from {
     transform: translate(0, -2%) scale(0.95);
     opacity: 0;
@@ -40,7 +40,7 @@ $closeIconButtonMarginY: -6;
   background-color: var(--bgtxt-absolute-black-lighter);
 
   &:where([data-state='open']) {
-    animation: overlayShow var(--transition-m);
+    animation: overlay-show var(--transition-m);
   }
 }
 
@@ -64,7 +64,7 @@ $closeIconButtonMarginY: -6;
   box-shadow: var(--ev-4);
 
   &:where([data-state='open']) {
-    animation: contentShow var(--transition-m);
+    animation: content-show var(--transition-m);
   }
 
   &:focus {
@@ -86,28 +86,28 @@ $closeIconButtonMarginY: -6;
 
 .ModalBody {
   flex: 1;
-  padding: #{$modalPadding}px;
+  padding: #{$modal-padding}px;
 }
 
 .ModalHeader {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: #{$modalPadding}px #{$modalPadding}px 0 #{$modalPadding}px;
+  padding: #{$modal-padding}px #{$modal-padding}px 0 #{$modal-padding}px;
 
   /* NOTE(@ed): Support when ModalBody is used as stand-alone */
   &:where(:not(.hidden)) + :is(.ModalBody, * .ModalBody) {
-    padding-top: #{$headerBodyGap}px;
+    padding-top: #{$header-body-gap}px;
   }
 }
 
 .ModalFooter {
   display: flex;
-  padding: #{$footerTopGap}px #{$modalPadding}px #{$modalPadding}px;
+  padding: #{$footer-top-gap}px #{$modal-padding}px #{$modal-padding}px;
 
   /* NOTE(@ed): Support when ModalFooter is used without ModalBody */
   :is(.ModalBody + &, .ModalBody + * &) {
-    margin-top: #{$footerTopGap - $modalPadding}px;
+    margin-top: #{$footer-top-gap - $modal-padding}px;
     padding-top: 0;
   }
 }
@@ -132,14 +132,14 @@ $closeIconButtonMarginY: -6;
 
 .CloseIconButton {
   position: absolute;
-  top: #{$modalPadding + $closeIconButtonMarginY}px;
-  right: #{$modalPadding + $closeIconButtonMarginX}px;
+  top: #{$modal-padding + $close-icon-button-margin-y}px;
+  right: #{$modal-padding + $close-icon-button-margin-x}px;
 }
 
 .CloseIconButtonSpacer {
   pointer-events: none;
-  margin-top: #{$closeIconButtonMarginY}px;
-  margin-right: #{$closeIconButtonMarginX}px;
+  margin-top: #{$close-icon-button-margin-y}px;
+  margin-right: #{$close-icon-button-margin-x}px;
   visibility: hidden;
 }
 
