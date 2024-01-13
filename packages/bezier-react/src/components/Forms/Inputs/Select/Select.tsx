@@ -102,7 +102,11 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
-  const handle = useMemo((): SelectRef => ({ handleClickTrigger, handleHideDropdown, getDOMNode }), [
+  const handle = useMemo((): SelectRef => ({
+    handleClickTrigger,
+    handleHideDropdown,
+    getDOMNode,
+  }), [
     handleClickTrigger,
     handleHideDropdown,
     getDOMNode,
