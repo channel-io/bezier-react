@@ -350,9 +350,6 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         styles.TextFieldWrapper,
         styles[`variant-${variant}`],
         styles[`size-${size}`],
-        disabled && styles.disabled,
-        readOnly && styles.readonly,
-        hasError && styles.invalid,
         wrapperClassName,
       )}
       data-testid={testId}

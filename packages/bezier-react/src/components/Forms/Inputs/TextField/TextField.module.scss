@@ -17,7 +17,7 @@
     color: var(--txt-black-dark);
   }
 
-  &.readonly {
+  &:read-only {
     color: var(--txt-black-darker)
   }
 
@@ -73,7 +73,7 @@
     }
   }
 
-  &:where(.disabled) {
+  &:where(:has(.TextFieldInput:disabled)) {
     opacity: var(--opacity-disabled);
   }
 
@@ -89,15 +89,15 @@
     visibility: visible;
   }
 
-  &:where(.variant-primary):where(.invalid, :not(.disabled, .readonly):has(.TextFieldInput:focus)) {
+  &:where(.variant-primary):where(:has(.TextFieldInput[aria-invalid="true"]), :has(.TextFieldInput:not(:disabled, :read-only):focus)) {
     background-color: var(--bg-white-normal);
   }
 
-  &:where(.variant-primary).readonly {
+  &:where(.variant-primary:has(.TextFieldInput:read-only)) {
     background-color: var(--bg-grey-lighter);
   }
 
-  &.invalid {
+  &:has(:where(.TextFieldInput[aria-invalid="true"])) {
     box-shadow: var(--input-box-shadow-invalid);
   }
 }
