@@ -175,7 +175,6 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   rightWrapperClassName,
   value,
   onFocus,
-  onChange,
   onKeyDown,
   onKeyUp,
   ...rest
@@ -282,7 +281,6 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   }, [])
 
   const handleFocus = useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!activeInput) { return }
     if (selectAllOnFocus) {
       selectAll()
     }
@@ -292,17 +290,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   }, [
     selectAllOnFocus,
     selectAll,
-    activeInput,
     onFocus,
-  ])
-
-  const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    if (activeInput && onChange) {
-      onChange(event)
-    }
-  }, [
-    activeInput,
-    onChange,
   ])
 
   const {
@@ -381,7 +369,6 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         readOnly={readOnly}
         disabled={disabled}
         onFocus={handleFocus}
-        onChange={handleChange}
         onKeyDown={handleKeyDown}
         onKeyUp={handleKeyUp}
         {...ownProps}
