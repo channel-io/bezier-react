@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useLayoutEffect,
   useRef,
@@ -21,7 +20,7 @@ import styles from './TextArea.module.scss'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 
-function TextArea({
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
   testId = TEXT_AREA_TEST_ID,
@@ -32,9 +31,7 @@ function TextArea({
   onKeyDown,
   onKeyUp,
   ...rest
-}: TextAreaProps,
-forwardedRef: Ref<HTMLTextAreaElement>,
-) {
+}, forwardedRef) {
   const {
     disabled,
     readOnly,
@@ -90,6 +87,4 @@ forwardedRef: Ref<HTMLTextAreaElement>,
       />
     </div>
   )
-}
-
-export default forwardRef(TextArea)
+})

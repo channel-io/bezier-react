@@ -10,8 +10,8 @@ import {
 
 import { getObjectFromEnum } from '~/src/utils/story'
 
-import TextArea from './TextArea'
-import type TextAreaProps from './TextArea.types'
+import { TextArea } from './TextArea'
+import type { TextAreaProps } from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'
 
 const meta: Meta<typeof TextArea> = {

@@ -4,6 +4,7 @@ import type { AlphaBezierComponentProps } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
+// TODO: Use number literal types instead of enums
 export enum TextAreaHeight {
   Row3 = 3,
   Row6 = 6,
