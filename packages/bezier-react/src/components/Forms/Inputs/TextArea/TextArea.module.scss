@@ -1,36 +1,8 @@
-.TextAreaWrapper {
-  display: flex;
-  align-items: center;
-
-  box-sizing: border-box;
-
-  background-color: var(--bg-grey-lightest);
-  border-radius: var(--radius-8);
-  box-shadow: var(--input-box-shadow);
-
-  transition: border-color var(--transition-s), box-shadow var(--transition-s);
-
-  &:where(:has(.TextArea.disabled)) {
-    opacity: var(--opacity-disabled);
-  }
-
-  &:where(:has(.TextArea:focus)) {
-    background-color: var(--bg-white-normal);
-    box-shadow: var(--input-box-shadow-focused);
-  }
-
-  &:has(:where(.TextArea[aria-invalid='true'])) {
-    background-color: var(--bg-white-normal);
-    box-shadow: var(--input-box-shadow-invalid);
-  }
-
-  &:has(.TextArea:where(:read-only)) {
-    background-color: var(--bg-grey-lighter);
-  }
-}
-
 .TextArea {
   resize: none;
+
+  display: flex;
+  align-items: center;
 
   box-sizing: border-box;
   width: 100%;
@@ -39,9 +11,13 @@
 
   color: var(--txt-black-darkest);
 
-  background: none;
+  background-color: var(--bg-grey-lightest);
   border: none;
+  border-radius: var(--radius-8);
   outline: none;
+  box-shadow: var(--input-box-shadow);
+
+  transition: border-color var(--transition-s), box-shadow var(--transition-s);
 
   &::placeholder {
     color: var(--txt-black-dark);
@@ -53,10 +29,22 @@
 
   &:disabled {
     cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:focus {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-focused);
+  }
+
+  &[aria-invalid='true'] {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-invalid);
   }
 
   &:read-only {
     color: var(--txt-black-darker);
+    background-color: var(--bg-grey-lighter);
   }
 
   // TODO

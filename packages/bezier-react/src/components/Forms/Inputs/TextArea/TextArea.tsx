@@ -18,12 +18,10 @@ import { TextAreaHeight } from './TextArea.types'
 
 import styles from './TextArea.module.scss'
 
-export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
-
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
-  testId = TEXT_AREA_TEST_ID,
+  testId = 'bezier-react-text-area',
   minRows = TextAreaHeight.Row6,
   maxRows = TextAreaHeight.Row6,
   autoFocus = false,
@@ -64,26 +62,22 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
   }, [])
 
   return (
-    <div
+    <TextareaAutosize
+      {...ownProps}
       style={style}
       className={classNames(
-        styles.TextAreaWrapper,
+        styles.TextArea,
         className,
       )}
+      ref={mergedInputRef}
+      value={value}
+      disabled={disabled}
+      readOnly={readOnly}
+      maxRows={maxRows}
+      minRows={minRows}
       data-testid={testId}
-    >
-      <TextareaAutosize
-        {...ownProps}
-        className={styles.TextArea}
-        ref={mergedInputRef}
-        value={value}
-        disabled={disabled}
-        readOnly={readOnly}
-        maxRows={maxRows}
-        minRows={minRows}
-        onKeyDown={handleKeyDown}
-        onKeyUp={handleKeyUp}
-      />
-    </div>
+      onKeyDown={handleKeyDown}
+      onKeyUp={handleKeyUp}
+    />
   )
 })
