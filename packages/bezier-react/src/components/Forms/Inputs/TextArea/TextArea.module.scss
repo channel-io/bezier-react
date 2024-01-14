@@ -1,0 +1,69 @@
+.TextAreaWrapper {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  background-color: var(--bg-grey-lightest);
+  border-radius: var(--radius-8);
+  box-shadow: var(--input-box-shadow);
+
+  transition: border-color var(--transition-s), box-shadow var(--transition-s);
+
+  &:where(:has(.TextArea.disabled)) {
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:has(.TextArea:focus)) {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-focused);
+  }
+
+  &:has(:where(.TextArea[aria-invalid='true'])) {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-invalid);
+  }
+
+  &:has(.TextArea:where(:read-only)) {
+    background-color: var(--bg-grey-lighter);
+  }
+}
+
+.TextArea {
+  resize: none;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px 12px;
+
+  color: var(--txt-black-darkest);
+
+  background: none;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: var(--txt-black-dark);
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:read-only {
+    color: var(--txt-black-darker);
+  }
+
+  // TODO
+  // ${Typography.Size14}
+
+  // TODO
+  // &::placeholder {
+  //   ${Typography.Size14}
+  // }
+}
