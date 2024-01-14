@@ -18,10 +18,12 @@ import { TextAreaHeight } from './TextArea.types'
 
 import styles from './TextArea.module.scss'
 
+export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
+
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
-  testId = 'bezier-react-text-area',
+  testId = TEXT_AREA_TEST_ID,
   minRows = TextAreaHeight.Row6,
   maxRows = TextAreaHeight.Row6,
   autoFocus = false,

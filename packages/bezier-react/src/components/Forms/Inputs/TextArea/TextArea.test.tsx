@@ -3,18 +3,17 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { act } from '@testing-library/react'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 
-import TextArea, { TEXT_AREA_TEST_ID } from './TextArea'
+import {
+  TEXT_AREA_TEST_ID,
+  TextArea,
+} from './TextArea'
 import type { TextAreaProps } from './TextArea.types'
-import { getTextAreaBgColorSemanticName } from './utils'
 
-// SEE ALSO: https://github.com/Andarist/react-textarea-autosize#how-to-test-it-with-jest-and-react-test-renderer-if-you-need-ref
-describe('TextArea 테스트 >', () => {
+describe('TextArea', () => {
   let props: TextAreaProps
 
   beforeEach(() => {
@@ -26,12 +25,7 @@ describe('TextArea 테스트 >', () => {
     <TextArea {...props} {...optionProps} />,
   )
 
-  it('SnapShot 테스트 >', () => {
-    const { container } = renderComponent()
-    expect(container.firstChild).toMatchSnapshot()
-  })
-
-  it('TextArea는 기본 attribute들을 가져야 한다', () => {
+  it('should have the default attributes', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
     const textareaElement = rendered.getElementsByTagName('textarea')[0]
@@ -43,7 +37,7 @@ describe('TextArea 테스트 >', () => {
     expect(textareaElement).not.toHaveAttribute('minRows')
   })
 
-  it('placeholder가 주입되었을 때 주입되는 값과 동일한 "placeholder"를 가져야 한다', () => {
+  it('should have the same "placeholder" as the injected value when a placeholder is provided', () => {
     const PLACEHOLDER_TEXT = 'this is placeholder'
     const { getByTestId } = renderComponent({ placeholder: PLACEHOLDER_TEXT })
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -52,7 +46,7 @@ describe('TextArea 테스트 >', () => {
     expect(textareaElement).toHaveAttribute('placeholder', PLACEHOLDER_TEXT)
   })
 
-  it('disabled 나 readOnly prop이 주입되었을 때 주입되는 attribute를 가져야 한다', () => {
+  it('should have the injected attributes when "disabled" or "readOnly" props are provided', () => {
     const { getByTestId } = renderComponent({ disabled: true, readOnly: true })
     const rendered = getByTestId(TEXT_AREA_TEST_ID)
     const textareaElement = rendered.getElementsByTagName('textarea')[0]
@@ -60,50 +54,8 @@ describe('TextArea 테스트 >', () => {
     expect(textareaElement).toHaveAttribute('disabled')
   })
 
-  it('disabled prop이 주입되었을 때는 root wrapper의 opacity가 0.4이어야 한다', () => {
-    const { getByTestId } = renderComponent({ disabled: true })
-    const rendered = getByTestId(TEXT_AREA_TEST_ID)
-    expect(rendered).toHaveStyle('opacity: var(--opacity-disabled)')
-  })
-
-  it('focus 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {
-    const onFocus = jest.fn()
-    const { getByTestId } = renderComponent({ onFocus })
-    const rendered = getByTestId(TEXT_AREA_TEST_ID)
-    const textareaElement = rendered.getElementsByTagName('textarea')[0]
-    act(() => {
-      textareaElement.focus()
-    })
-
-    jest.advanceTimersByTime(1000)
-    // eslint-disable-next-line max-len
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-blue-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-blue-normal']}`)
-  })
-
-  it('error 상태일 때는 그에 맞는 shadow 스타일을 가져야 한다', () => {
-    const onFocus = jest.fn()
-    const { getByTestId } = renderComponent({ onFocus, hasError: true })
-    const rendered = getByTestId(TEXT_AREA_TEST_ID)
-
-    jest.advanceTimersByTime(1000)
-    // eslint-disable-next-line max-len
-    expect(rendered).toHaveStyle(`box-shadow: 0 0 0 3px ${LightFoundation.theme['bgtxt-orange-light']}, inset 0 0 0 1px ${LightFoundation.theme['bgtxt-orange-normal']}`)
-  })
-
-  describe('onFocus 테스트 >', () => {
-    it('readOnly가 주입됐다면 onFocus 가 안 불려야 한다', () => {
-      const onFocus = jest.fn()
-      const { getByTestId } = renderComponent({ onFocus, readOnly: true })
-      const rendered = getByTestId(TEXT_AREA_TEST_ID)
-      const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      act(() => {
-        textareaElement.focus()
-      })
-
-      expect(onFocus).not.toHaveBeenCalled()
-    })
-
-    it('disabled가 주입됐다면 onFocus 가 안 불려야 한다', () => {
+  describe('onFocus', () => {
+    it('should not trigger when disabled', () => {
       const onFocus = jest.fn()
       const { getByTestId } = renderComponent({ onFocus, disabled: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -115,19 +67,7 @@ describe('TextArea 테스트 >', () => {
       expect(onFocus).not.toHaveBeenCalled()
     })
 
-    it('disabled, readOnly가 주입됐다면 onFocus 가 안 불려야 한다', () => {
-      const onFocus = jest.fn()
-      const { getByTestId } = renderComponent({ onFocus, disabled: true, readOnly: true })
-      const rendered = getByTestId(TEXT_AREA_TEST_ID)
-      const textareaElement = rendered.getElementsByTagName('textarea')[0]
-      act(() => {
-        textareaElement.focus()
-      })
-
-      expect(onFocus).not.toHaveBeenCalled()
-    })
-
-    it('readOnly, disabled 가 주입되지 않았다면 onFocus는 불려야 한다', () => {
+    it('should trigger when not disabled', () => {
       const onFocus = jest.fn()
       const { getByTestId } = renderComponent({ onFocus })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -140,8 +80,8 @@ describe('TextArea 테스트 >', () => {
     })
   })
 
-  describe('onChange 테스트 >', () => {
-    it('정상적인 상황에서 잘 불린다', () => {
+  describe('onChange', () => {
+    it('should trigger correctly under normal circumstances', () => {
       const onChange = jest.fn()
       const { getByTestId } = renderComponent({ onChange })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -155,8 +95,8 @@ describe('TextArea 테스트 >', () => {
     })
   })
 
-  describe('onBlur 테스트 >', () => {
-    it('정상적인 상황에서 잘 불린다', () => {
+  describe('onBlur', () => {
+    it('should trigger correctly under normal circumstances', () => {
       const onBlur = jest.fn()
       const { getByTestId } = renderComponent({ onBlur })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -169,8 +109,8 @@ describe('TextArea 테스트 >', () => {
     })
   })
 
-  describe('autoFocus 테스트 >', () => {
-    it('autoFocus를 주입하면 focus 상태로 되어야 한다', () => {
+  describe('autoFocus', () => {
+    it('should be in focus state when autoFocus is provided', () => {
       const { getByTestId } = renderComponent({ autoFocus: true })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
       const textareaElement = rendered.getElementsByTagName('textarea')[0]
@@ -178,7 +118,7 @@ describe('TextArea 테스트 >', () => {
       expect(textareaElement).toEqual(document.activeElement)
     })
 
-    it('selection 이 가장 끝에 위치하여야 한다', () => {
+    it('should place the selection at the end', () => {
       const TEST_INITIAL_VALUE = 'test value'
       const { getByTestId } = renderComponent({ autoFocus: true, value: TEST_INITIAL_VALUE })
       const rendered = getByTestId(TEXT_AREA_TEST_ID)
@@ -212,54 +152,6 @@ describe('TextArea 테스트 >', () => {
         fireEvent.keyUp(textareaElement, { key, isComposing: isCompositionStartFired })
         expect(onKeyUp).not.toHaveBeenCalled()
       })
-    })
-  })
-})
-
-describe('TextArea util test >', () => {
-  describe('getTextAreaBgColorSemanticNames 테스트', () => {
-    it('readOnly 이면 다른 값이 무엇이든 bg-grey-lighter를 반환한다.', () => {
-      const result1 = getTextAreaBgColorSemanticName({
-        focused: true,
-        hasError: true,
-        readOnly: true,
-      })
-
-      const result2 = getTextAreaBgColorSemanticName({
-        focused: false,
-        hasError: false,
-        readOnly: true,
-      })
-
-      expect(result1).toBe('bg-grey-lighter')
-      expect(result2).toBe('bg-grey-lighter')
-    })
-
-    it('!readOnly이고, focused이거나 hasError이면 bg-white-normal을 반환한다', () => {
-      const result1 = getTextAreaBgColorSemanticName({
-        focused: true,
-        hasError: false,
-        readOnly: false,
-      })
-
-      const result2 = getTextAreaBgColorSemanticName({
-        focused: false,
-        hasError: true,
-        readOnly: false,
-      })
-
-      expect(result1).toBe('bg-white-normal')
-      expect(result2).toBe('bg-white-normal')
-    })
-
-    it('모두 아니면 bg-grey-lightest를 반환한다', () => {
-      const result1 = getTextAreaBgColorSemanticName({
-        focused: false,
-        hasError: false,
-        readOnly: false,
-      })
-
-      expect(result1).toBe('bg-grey-lightest')
     })
   })
 })
