@@ -1,12 +1,12 @@
 import React, {
   type Ref,
   forwardRef,
-  useCallback,
   useLayoutEffect,
-  useMemo,
   useRef,
-  useState,
 } from 'react'
+
+import classNames from 'classnames'
+import TextareaAutosize from 'react-textarea-autosize'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
@@ -14,29 +14,21 @@ import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 
-import type TextAreaProps from './TextArea.types'
+import type { TextAreaProps } from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'
-import { getTextAreaBgColorSemanticName } from './utils'
 
-import Styled from './TextArea.styled'
+import styles from './TextArea.module.scss'
 
 export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
 
 function TextArea({
-  interpolation,
-  wrapperInterpolation,
-  className,
-  wrapperClassName,
   style,
-  wrapperStyle,
+  className,
   testId = TEXT_AREA_TEST_ID,
   minRows = TextAreaHeight.Row6,
   maxRows = TextAreaHeight.Row6,
   autoFocus = false,
   value = '',
-  onFocus,
-  onBlur,
-  onChange,
   onKeyDown,
   onKeyUp,
   ...rest
@@ -52,36 +44,6 @@ forwardedRef: Ref<HTMLTextAreaElement>,
 
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)
-
-  const activeInput = !disabled && !readOnly
-
-  const [focused, setFocused] = useState(false)
-
-  const bgColorSemanticName = useMemo(() => (
-    getTextAreaBgColorSemanticName({
-      focused,
-      hasError,
-      readOnly,
-    })
-  ), [
-    focused,
-    hasError,
-    readOnly,
-  ])
-
-  const handleFocus = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
-    if (!activeInput) { return }
-    setFocused(true)
-    onFocus?.(event)
-  }, [
-    onFocus,
-    activeInput,
-  ])
-
-  const handleBlur = useCallback((event: React.FocusEvent<HTMLTextAreaElement>) => {
-    setFocused(false)
-    onBlur?.(event)
-  }, [onBlur])
 
   const {
     handleKeyDown,
@@ -106,30 +68,27 @@ forwardedRef: Ref<HTMLTextAreaElement>,
   }, [])
 
   return (
-    <Styled.Wrapper
-      className={className}
-      interpolation={interpolation}
-      focused={focused}
-      hasError={hasError}
-      disabled={disabled}
-      bgColor={bgColorSemanticName}
+    <div
+      style={style}
+      className={classNames(
+        styles.TextAreaWrapper,
+        className,
+      )}
       data-testid={testId}
     >
-      <Styled.TextAreaAutoSizeBase
+      <TextareaAutosize
         {...ownProps}
+        className={styles.TextArea}
         ref={mergedInputRef}
         value={value}
         disabled={disabled}
         readOnly={readOnly}
         maxRows={maxRows}
         minRows={minRows}
-        onChange={onChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         onKeyDown={handleKeyDown}
         onKeyUp={handleKeyUp}
       />
-    </Styled.Wrapper>
+    </div>
   )
 }
 

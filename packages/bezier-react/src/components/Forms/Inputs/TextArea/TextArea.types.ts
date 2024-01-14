@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import type {
-  AdditionalStylableProps,
-  BezierComponentProps,
-} from '~/src/types/ComponentProps'
+import type { AlphaBezierComponentProps } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
@@ -16,22 +13,14 @@ export enum TextAreaHeight {
   Row36 = 36,
 }
 
-type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
-
-interface TextAreaOptions {
+interface TextAreaOwnProps {
   minRows?: TextAreaHeight
   maxRows?: TextAreaHeight
   autoFocus?: boolean
-  onFocus?: TextAreaChangeEventHandler
-  onBlur?: TextAreaChangeEventHandler
-  onChange?: TextAreaChangeEventHandler
 }
 
-type OmittedTextareaHTMLAttributes = keyof FormComponentProps | 'onFocus' | 'onBlur'
-
-export default interface TextAreaProps extends
-  BezierComponentProps,
+export interface TextAreaProps extends
+  AlphaBezierComponentProps,
   FormComponentProps,
-  Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, OmittedTextareaHTMLAttributes>,
-  AdditionalStylableProps<'wrapper'>,
-  TextAreaOptions {}
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  TextAreaOwnProps {}
