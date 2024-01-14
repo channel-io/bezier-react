@@ -18,12 +18,10 @@ import { TextAreaHeight } from './TextArea.types'
 
 import styles from './TextArea.module.scss'
 
-export const TEXT_AREA_TEST_ID = 'bezier-react-text-area'
-
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
-  testId = TEXT_AREA_TEST_ID,
+  testId = 'bezier-react-text-area',
   minRows = TextAreaHeight.Row6,
   maxRows = TextAreaHeight.Row6,
   autoFocus = false,
@@ -40,7 +38,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
   } = useFormFieldProps(rest)
 
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
-  const mergedInputRef = useMergeRefs<HTMLTextAreaElement>(inputRef, forwardedRef)
+  const mergedInputRef = useMergeRefs(inputRef, forwardedRef)
 
   const {
     handleKeyDown,
@@ -51,7 +49,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
     onKeyUp,
   })
 
-  // eslint-disable-next-line prefer-arrow-callback
   useLayoutEffect(function initialAutoFocus() {
     function setSelectionToEnd() {
       inputRef.current?.setSelectionRange(inputRef.current?.value.length, inputRef.current?.value.length)
