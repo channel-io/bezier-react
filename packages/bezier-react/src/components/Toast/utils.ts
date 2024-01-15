@@ -16,6 +16,12 @@ import {
   type ToastPresetType,
 } from './Toast.types'
 
+/**
+ * @deprecated
+ * FIXME: Styling dependent on specific applications.
+ */
+const GNB_WIDTH = 68
+
 function getIconColor(appearance: ToastAppearance): ToastIconColor {
   switch (appearance) {
     case ToastAppearance.Success:
@@ -41,7 +47,7 @@ function getPlacement(placement: ToastPlacement) {
     default:
       return css`
         bottom: 0;
-        left: 0;
+        left: ${GNB_WIDTH}px;
       `
   }
 }
