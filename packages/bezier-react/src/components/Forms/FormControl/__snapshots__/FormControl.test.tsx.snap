@@ -101,18 +101,14 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     data-testid="bezier-react-form-control"
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
-    <div
-      class="FormLabelWrapper position-top"
+    <label
+      class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+      data-testid="bezier-react-form-label"
+      id="form-label"
+      style="--b-text-color: var(--txt-black-darkest);"
     >
-      <label
-        class="Text typo-13 bold align-left margin LabelText"
-        data-testid="bezier-react-form-label"
-        id="form-label"
-        style="--b-text-color: var(--txt-black-darkest);"
-      >
-        Label
-      </label>
-    </div>
+      Label
+    </label>
     <div
       aria-describedby="form-help-text"
       aria-labelledby="form-label"
@@ -127,19 +123,15 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
-        <div
-          class="FormLabelWrapper position-top"
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+          data-testid="bezier-react-form-label"
+          for="field-:r3:"
+          id="field-:r3:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
         >
-          <label
-            class="Text typo-13 bold align-left margin LabelText"
-            data-testid="bezier-react-form-label"
-            for="field-:r3:"
-            id="field-:r3:-label"
-            style="--b-text-color: var(--txt-black-darkest);"
-          >
-            First Inner Label
-          </label>
-        </div>
+          First Inner Label
+        </label>
         <div
           class="c0"
           data-testid="bezier-react-text-input"
@@ -159,19 +151,15 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
-        <div
-          class="FormLabelWrapper position-top"
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+          data-testid="bezier-react-form-label"
+          for="field-:r4:"
+          id="field-:r4:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
         >
-          <label
-            class="Text typo-13 bold align-left margin LabelText"
-            data-testid="bezier-react-form-label"
-            for="field-:r4:"
-            id="field-:r4:-label"
-            style="--b-text-color: var(--txt-black-darkest);"
-          >
-            Second Inner Label
-          </label>
-        </div>
+          Second Inner Label
+        </label>
         <div
           class="c3"
           data-testid="bezier-react-text-input"
@@ -188,18 +176,14 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="FormHelperTextWrapper"
+    <p
+      class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
+      data-testid="bezier-react-form-helper-text"
+      id="form-help-text"
+      style="--b-text-color: var(--txt-black-dark);"
     >
-      <p
-        class="Text typo-13 align-left margin FormHelperText"
-        data-testid="bezier-react-form-helper-text"
-        id="form-help-text"
-        style="--b-text-color: var(--txt-black-dark);"
-      >
-        Description
-      </p>
-    </div>
+      Description
+    </p>
   </div>
 </div>
 `;
@@ -320,18 +304,14 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
     data-testid="bezier-react-form-control"
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
-    <div
-      class="FormLabelWrapper position-left"
+    <label
+      class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left"
+      data-testid="bezier-react-form-label"
+      id="form-label"
+      style="--b-text-color: var(--txt-black-darkest);"
     >
-      <label
-        class="Text typo-14 bold align-left margin LabelText"
-        data-testid="bezier-react-form-label"
-        id="form-label"
-        style="--b-text-color: var(--txt-black-darkest);"
-      >
-        Label
-      </label>
-    </div>
+      Label
+    </label>
     <div
       aria-describedby="form-help-text"
       aria-labelledby="form-label"
@@ -346,19 +326,15 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
-        <div
-          class="FormLabelWrapper position-top"
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+          data-testid="bezier-react-form-label"
+          for="field-:r6:"
+          id="field-:r6:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
         >
-          <label
-            class="Text typo-13 bold align-left margin LabelText"
-            data-testid="bezier-react-form-label"
-            for="field-:r6:"
-            id="field-:r6:-label"
-            style="--b-text-color: var(--txt-black-darkest);"
-          >
-            First Inner Label
-          </label>
-        </div>
+          First Inner Label
+        </label>
         <div
           class="c2"
           data-testid="bezier-react-text-input"
@@ -378,19 +354,15 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         data-testid="bezier-react-form-control"
         style="--b-form-control-left-label-wrapper-height: 36px;"
       >
-        <div
-          class="FormLabelWrapper position-top"
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+          data-testid="bezier-react-form-label"
+          for="field-:r7:"
+          id="field-:r7:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
         >
-          <label
-            class="Text typo-13 bold align-left margin LabelText"
-            data-testid="bezier-react-form-label"
-            for="field-:r7:"
-            id="field-:r7:-label"
-            style="--b-text-color: var(--txt-black-darkest);"
-          >
-            Second Inner Label
-          </label>
-        </div>
+          Second Inner Label
+        </label>
         <div
           class="c5"
           data-testid="bezier-react-text-input"
@@ -407,18 +379,14 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         </div>
       </div>
     </div>
-    <div
-      class="FormHelperTextWrapper position-left"
+    <p
+      class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
+      data-testid="bezier-react-form-helper-text"
+      id="form-help-text"
+      style="--b-text-color: var(--txt-black-dark);"
     >
-      <p
-        class="Text typo-13 align-left margin FormHelperText"
-        data-testid="bezier-react-form-helper-text"
-        id="form-help-text"
-        style="--b-text-color: var(--txt-black-dark);"
-      >
-        Description
-      </p>
-    </div>
+      Description
+    </p>
   </div>
 </div>
 `;
@@ -490,19 +458,15 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   data-testid="bezier-react-form-control"
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
-  <div
-    class="FormLabelWrapper position-top"
+  <label
+    class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top"
+    data-testid="bezier-react-form-label"
+    for="form"
+    id="form-label"
+    style="--b-text-color: var(--txt-black-darkest);"
   >
-    <label
-      class="Text typo-13 bold align-left margin LabelText"
-      data-testid="bezier-react-form-label"
-      for="form"
-      id="form-label"
-      style="--b-text-color: var(--txt-black-darkest);"
-    >
-      Label
-    </label>
-  </div>
+    Label
+  </label>
   <div
     class="c0"
     data-testid="bezier-react-text-input"
@@ -517,18 +481,14 @@ exports[`FormControl > Snapshot > With single field 1`] = `
       value=""
     />
   </div>
-  <div
-    class="FormHelperTextWrapper"
+  <p
+    class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
+    data-testid="bezier-react-form-helper-text"
+    id="form-help-text"
+    style="--b-text-color: var(--txt-black-dark);"
   >
-    <p
-      class="Text typo-13 align-left margin FormHelperText"
-      data-testid="bezier-react-form-helper-text"
-      id="form-help-text"
-      style="--b-text-color: var(--txt-black-dark);"
-    >
-      Description
-    </p>
-  </div>
+    Description
+  </p>
 </div>
 `;
 
@@ -614,19 +574,15 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   data-testid="bezier-react-form-control"
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
-  <div
-    class="FormLabelWrapper position-left"
+  <label
+    class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left"
+    data-testid="bezier-react-form-label"
+    for="form"
+    id="form-label"
+    style="--b-text-color: var(--txt-black-darkest);"
   >
-    <label
-      class="Text typo-14 bold align-left margin LabelText"
-      data-testid="bezier-react-form-label"
-      for="form"
-      id="form-label"
-      style="--b-text-color: var(--txt-black-darkest);"
-    >
-      Label
-    </label>
-  </div>
+    Label
+  </label>
   <div
     class="c2"
     data-testid="bezier-react-text-input"
@@ -641,17 +597,13 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
       value=""
     />
   </div>
-  <div
-    class="FormHelperTextWrapper position-left"
+  <p
+    class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
+    data-testid="bezier-react-form-helper-text"
+    id="form-help-text"
+    style="--b-text-color: var(--txt-black-dark);"
   >
-    <p
-      class="Text typo-13 align-left margin FormHelperText"
-      data-testid="bezier-react-form-helper-text"
-      id="form-help-text"
-      style="--b-text-color: var(--txt-black-dark);"
-    >
-      Description
-    </p>
-  </div>
+    Description
+  </p>
 </div>
 `;
