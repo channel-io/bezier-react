@@ -40,7 +40,6 @@ import useToast from './useToast'
 
 const meta: Meta<ToastProps & {
   autoDismissTimeout: number
-  enableLeftSpacing: boolean
 }> = {
   component: ToastElement,
   argTypes: {
@@ -76,11 +75,6 @@ const meta: Meta<ToastProps & {
         min: 1000,
         max: 6000,
         step: 100,
-      },
-    },
-    enableLeftSpacing: {
-      control: {
-        type: 'radio',
       },
     },
   },
