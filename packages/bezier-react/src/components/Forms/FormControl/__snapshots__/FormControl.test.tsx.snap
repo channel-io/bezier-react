@@ -106,7 +106,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           </label>
         </div>
         <div
-          class="TextFieldWrapper variant-primary size-36 invalid"
+          class="TextFieldWrapper variant-primary size-36"
           data-testid="bezier-react-text-input"
         >
           <input
@@ -276,7 +276,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           </label>
         </div>
         <div
-          class="TextFieldWrapper variant-primary size-36 invalid"
+          class="TextFieldWrapper variant-primary size-36"
           data-testid="bezier-react-text-input"
         >
           <input
