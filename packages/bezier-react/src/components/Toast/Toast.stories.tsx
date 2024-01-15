@@ -80,7 +80,7 @@ const meta: Meta<ToastProps & {
     },
     enableLeftSpacing: {
       control: {
-        type: 'boolean',
+        type: 'radio',
       },
     },
   },
