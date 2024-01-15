@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react'
 
+import classNames from 'classnames'
+
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
@@ -43,30 +45,13 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
 
   const contextValue = useFormControlContext()
   const {
-    typo,
-    className: classNameFromControl,
+    className: formControlClassName,
     ...ownProps
   } = contextValue?.getLabelProps(rest) ?? {
     typo: '13',
     className: undefined,
     ...rest,
   }
-
-  const LabelComponent = (
-    <Text
-      {...ownProps}
-      className={styles.LabelText}
-      ref={forwardedRef}
-      testId={testId}
-      as="label"
-      align="left"
-      bold={bold}
-      typo={typo}
-      color={color}
-    >
-      { children }
-    </Text>
-  )
 
   const HelpComponent = (() => {
     if (isEmpty(help)) { return null }
@@ -86,26 +71,37 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
     )
   })()
 
+  const LabelComponent = (
+    <Text
+      className={classNames(
+        styles.LabelText,
+        !HelpComponent && formControlClassName,
+      )}
+      ref={forwardedRef}
+      testId={testId}
+      as="label"
+      align="left"
+      bold={bold}
+      color={color}
+      {...ownProps}
+    >
+      { children }
+    </Text>
+  )
+
   if (isEmpty(children)) { return null }
 
-  const LabelElement = !HelpComponent
-    ? LabelComponent
-    : (
-      <LegacyHStack align="center" spacing={6}>
-        <LegacyStackItem shrink weight={1}>
-          { LabelComponent }
-        </LegacyStackItem>
-        <LegacyStackItem>
-          { HelpComponent }
-        </LegacyStackItem>
-      </LegacyHStack>
-    )
-
   return (
-    classNameFromControl ? (
-      <div className={classNameFromControl}>
-        { LabelElement }
-      </div>
-    ) : LabelElement
-  )
+    !HelpComponent
+      ? LabelComponent
+      : (
+        <LegacyHStack align="center" spacing={6} className={HelpComponent && formControlClassName}>
+          <LegacyStackItem shrink weight={1}>
+            { LabelComponent }
+          </LegacyStackItem>
+          <LegacyStackItem>
+            { HelpComponent }
+          </LegacyStackItem>
+        </LegacyHStack>
+      ))
 })

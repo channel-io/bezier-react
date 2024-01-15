@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react'
 
+import classNames from 'classnames'
+
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
@@ -34,7 +36,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
   const {
     visible,
     ref,
-    classNameFromControl,
+    className: formControlClassName,
     ...ownProps
   } = getProps?.(rest) ?? {
     visible: true,
@@ -47,27 +49,20 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
 
   if (isEmpty(children) || !visible) { return null }
 
-  const TextElement = (
+  return (
     <Text
-      {...ownProps}
       ref={mergedRef}
       as="p"
-      className={styles.FormHelperText}
+      className={classNames(
+        styles.FormHelperText,
+        formControlClassName,
+      )}
       typo={typo}
       align="left"
+      {...ownProps}
     >
       { children }
     </Text>
-  )
-
-  return (
-    classNameFromControl ? (
-      <div className={classNameFromControl}>
-        { TextElement }
-      </div>
-    ) : (
-      TextElement
-    )
   )
 })
 
