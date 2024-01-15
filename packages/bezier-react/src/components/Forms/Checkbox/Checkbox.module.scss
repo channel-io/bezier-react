@@ -16,7 +16,7 @@
   @include dimension.square(18px);
 
   @include interaction.touchable-hover {
-    &:not([data-disabled], [data-state='unchecked']) {
+    &:where(:not([data-disabled], [data-state='unchecked'])) {
       background-color: var(--bgtxt-green-dark);
     }
 
