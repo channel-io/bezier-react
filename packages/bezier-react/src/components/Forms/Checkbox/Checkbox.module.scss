@@ -55,7 +55,6 @@
   &:where(:focus-visible) {
     box-shadow: var(--input-box-shadow-focused);
 
-    /* stylelint-disable-next-line selector-max-specificity */
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
       visibility: visible;
     }
