@@ -18,7 +18,7 @@ interface FormControlOptions {
 }
 
 interface FormControlClassNameProps {
-  classNameFromControl: string
+  className: string
 }
 
 export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}

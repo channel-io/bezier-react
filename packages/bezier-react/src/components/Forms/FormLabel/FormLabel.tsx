@@ -44,11 +44,11 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
   const contextValue = useFormControlContext()
   const {
     typo,
-    classNameFromControl,
+    className: classNameFromControl,
     ...ownProps
   } = contextValue?.getLabelProps(rest) ?? {
     typo: '13',
-    classNameFromControl: undefined,
+    className: undefined,
     ...rest,
   }
 

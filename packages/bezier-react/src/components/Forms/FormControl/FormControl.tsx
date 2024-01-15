@@ -115,7 +115,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
-    classNameFromControl: classNames(styles.FormLabelWrapper, styles[`position-${labelPosition}`]),
+    className: classNames(styles.FormLabelWrapper, styles[`position-${labelPosition}`]),
     typo: labelPosition === 'top' ? '13' : '14',
     ...ownProps,
   }), [
@@ -140,7 +140,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: helperTextId,
     visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
     ref: setHelperTextNode,
-    classNameFromControl: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
+    className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     helperTextId,
@@ -152,7 +152,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: errorMessageId,
     visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
     ref: setErrorMessageNode,
-    classNameFromControl: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
+    className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     errorMessageId,
