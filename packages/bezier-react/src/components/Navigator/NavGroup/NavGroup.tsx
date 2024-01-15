@@ -56,6 +56,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
         type="button"
         className={classNames(
           commonStyles.Item,
+          commonStyles.active,
           className,
         )}
         data-testid={testId}
