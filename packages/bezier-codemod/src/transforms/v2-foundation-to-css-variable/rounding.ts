@@ -18,7 +18,6 @@ const getRoundStyle = (text: string) => {
 }
 
 const replaceRound = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const roundArrowFunctions = getArrowFunctionsWithOneArgument(
@@ -35,7 +34,6 @@ const replaceRound = (sourceFile: SourceFile) => {
         })
     }
   })
-  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default replaceRound

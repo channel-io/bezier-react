@@ -114,6 +114,8 @@ const Wrapper = styled.div`
 
   ${({ foundation }) => foundation?.elevation?.ev1()};
 
+  margin-bottom: ${({ foundation }) => foundation?.spacing.s6};
+
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS("color")};
 `;
 ```
@@ -135,6 +137,8 @@ const Wrapper = styled.div`
 
   background-color: var(--bg-white-low);
   box-shadow: var(--ev-1);
+
+  margin-bottom: 16px;
 
   transition: color var(--transition-s);
 `;

@@ -24,6 +24,7 @@ import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
 import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
 import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
 import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
+import foundationToCssVariableSpacing from './transforms/v2-foundation-to-css-variable/spacing.js'
 import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-variable/theme.js'
 import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
 import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
@@ -50,6 +51,7 @@ enum Option {
   V2FoundationToCssVariableElevation = 'v2-foundation-to-css-variable-elevation',
   V2FoundationToCssVariableRounding = 'v2-foundation-to-css-variable-rounding',
   V2FoundationToCssVariableTransition = 'v2-foundation-to-css-variable-transition',
+  V2FoundationToCssVariableSpacing = 'v2-foundation-to-css-variable-spacing',
   V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
   V2InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
   V2TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
@@ -71,6 +73,7 @@ const transformMap = {
   [Option.V2FoundationToCssVariableElevation]: foundationToCssVariableElevation,
   [Option.V2FoundationToCssVariableRounding]: foundationToCssVariableRounding,
   [Option.V2FoundationToCssVariableTransition]: foundationToCssVariableTransition,
+  [Option.V2FoundationToCssVariableSpacing]: foundationToCssVariableSpacing,
   [Option.V2FoundationToCssVariable]: foundationToCssVariable,
   [Option.V2InputInterpolationToCssVariable]: inputInterpolationToCssVariable,
   [Option.V2TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
@@ -133,10 +136,10 @@ function App() {
         await Promise.all(
           sourceFiles.map(async (sourceFile) => {
             if (!transformName) { return }
-            const transform = transformMap[transformName]
+            const oldSourceFileText = sourceFile.getText()
             try {
-              const isTransformed = transform(sourceFile)
-              if (isTransformed) {
+              transformMap[transformName](sourceFile)
+              if (sourceFile.getText() !== oldSourceFileText) {
                 setTransformedFileNum(prev => prev + 1)
               }
             } catch (e) {

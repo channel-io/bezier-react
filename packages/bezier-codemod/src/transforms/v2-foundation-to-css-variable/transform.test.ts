@@ -3,6 +3,7 @@ import { testTransformFunction } from '../../utils/test.js'
 import borderTransform from './border.js'
 import elevationTransform from './elevation.js'
 import roundingTransform from './rounding.js'
+import spacingTransform from './spacing.js'
 import themeTransform from './theme.js'
 import transitionTransform from './transition.js'
 
@@ -53,5 +54,15 @@ describe('transition transform', () => {
 
   it('should not transform foundation to css variable', () => {
     testTransformFunction(__dirname, 'transition2', transitionTransform)
+  })
+})
+
+describe('spacing transform', () => {
+  it('should transform spacing foundation to pixels', () => {
+    testTransformFunction(__dirname, 'spacing1', spacingTransform)
+  })
+
+  it('should not transform spacing foundation to pixels', () => {
+    testTransformFunction(__dirname, 'spacing2', spacingTransform)
   })
 })

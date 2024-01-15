@@ -36,7 +36,6 @@ const getTransitionStyle = (transitionCallExpression: CallExpression<ts.CallExpr
 const hasTransitionFoundation = (node: Node) => node.getText().includes('getTransitionsCSS')
 
 const replaceTransitionsCSS = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const transitionCallExpression = node
@@ -63,7 +62,6 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
         })
     }
   })
-  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default replaceTransitionsCSS

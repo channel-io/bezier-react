@@ -35,7 +35,6 @@ const isElevationTheme = (node: Node) =>
   node.getText().includes('foundation?.elevation') || node.getText().includes('foundation.elevation')
 
 const replaceElevation = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const elevationArrowFunctions = getArrowFunctionsWithOneArgument(
@@ -52,7 +51,6 @@ const replaceElevation = (sourceFile: SourceFile) => {
         })
     }
   })
-  return sourceFile.getText() !== oldSourceFileText
 }
 
 export default replaceElevation

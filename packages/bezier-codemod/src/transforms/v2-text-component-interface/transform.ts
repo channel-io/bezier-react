@@ -51,14 +51,10 @@ const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
 }
 
 const transformTextComponentProps = (sourceFile: SourceFile) => {
-  const oldSourceFileText = sourceFile.getText()
-
   changeComponentProp(sourceFile, JSX_PROP_TRANSFORM_MAP)
   changeAttrProperty(sourceFile, STYLED_ATTRS_TRANSFORM_MAP)
 
   sourceFile.fixUnusedIdentifiers()
-
-  return oldSourceFileText !== sourceFile.getText()
 }
 
 export default transformTextComponentProps
