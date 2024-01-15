@@ -2,4 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-`NavItem` and `NavGroup` component no longer supports `as` and `interpolation` props.
+**Breaking Changes: Property updates in `NavItem` and `NavGroup` component**
+
+No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
