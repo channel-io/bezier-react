@@ -17,20 +17,26 @@
 
 .AvatarEllipsisIcon {
   position: absolute;
+  z-index: var(--z-index-floating);
   top: 0;
   right: 0;
-  z-index: var(--z-index-floating);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   height: 100%;
+
   outline: none;
 }
 
 .AvatarEllipsisCountWrapper {
   --b-avatar-group-ellipsis-pr: 0;
   --b-avatar-group-ellipsis-ml: 0;
+
+  margin-left: var(--b-avatar-group-ellipsis-ml);
+  padding-right: var(--b-avatar-group-ellipsis-pr);
 
   &:where(.size-20) {
     --b-avatar-group-ellipsis-pr: 4px;
@@ -67,9 +73,6 @@
   &:where(.size-120) {
     --b-avatar-group-ellipsis-pr: 6px;
   }
-
-  padding-right: var(--b-avatar-group-ellipsis-pr);
-  margin-left: var(--b-avatar-group-ellipsis-ml);
 }
 
 .AvatarEllipsisCount {

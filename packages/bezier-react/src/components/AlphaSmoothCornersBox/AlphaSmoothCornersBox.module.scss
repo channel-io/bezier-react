@@ -11,6 +11,7 @@
 
   box-sizing: content-box;
   margin: var(--b-smooth-corners-box-margin);
+
   background-color: var(--b-smooth-corners-box-background-color);
   background-image: var(--b-smooth-corners-box-background-image);
   background-size: cover;
@@ -19,17 +20,18 @@
 
   &:where([data-state="enabled"]) {
     @supports (background: paint(smooth-corners)) {
-      padding: var(--b-smooth-corners-box-padding);
-      margin: calc(var(--b-smooth-corners-box-margin) + (-1 * var(--b-smooth-corners-box-padding)));
-      background: paint(smooth-corners);
-      border-radius: 0;
-      border-image-source: var(--b-smooth-corners-box-background-image);
-      box-shadow: none;
-
       --smooth-corners: var(--b-smooth-corners-box-border-radius);
       --smooth-corners-shadow: var(--b-smooth-corners-box-shadow-offset-x) var(--b-smooth-corners-box-shadow-offset-y) var(--b-smooth-corners-box-shadow-blur-radius) var(--b-smooth-corners-box-shadow-spread-radius) var(--b-smooth-corners-box-shadow-color);
       --smooth-corners-bg-color: var(--b-smooth-corners-box-background-color);
       --smooth-corners-padding: var(--b-smooth-corners-box-padding);
+
+      margin: calc(var(--b-smooth-corners-box-margin) + (-1 * var(--b-smooth-corners-box-padding)));
+      padding: var(--b-smooth-corners-box-padding);
+
+      background: paint(smooth-corners);
+      border-radius: 0;
+      border-image-source: var(--b-smooth-corners-box-background-image);
+      box-shadow: none;
     }
   }
 }

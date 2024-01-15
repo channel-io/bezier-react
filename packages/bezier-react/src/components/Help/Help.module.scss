@@ -1,7 +1,7 @@
 .Help {
   line-height: 0;
 
-  &:not([data-state="closed"]) {
+  &:where(:not([data-state="closed"])) {
     > .Icon {
       color: var(--txt-black-darkest);
     }

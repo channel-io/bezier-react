@@ -1,6 +1,6 @@
 .Badge {
-  background-color: var(--b-tag-badge-background-color);
   color: var(--b-tag-badge-color);
+  background-color: var(--b-tag-badge-background-color);
 
   &:where(.variant-Default) {
     --b-tag-badge-background-color: var(--bg-black-lighter);

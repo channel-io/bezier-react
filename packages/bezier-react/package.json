@@ -37,7 +37,7 @@
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
-    "lint:style": "stylelint --cache '**/*.styled.{js,ts}'",
+    "lint:style": "stylelint --cache '**/*.scss'",
     "typecheck": "yarn find-deadcode && tsc --noEmit",
     "find-deadcode": "ts-prune -e -p ./tsconfig.prune.json",
     "test": "jest --coverage",

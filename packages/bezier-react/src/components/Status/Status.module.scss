@@ -7,21 +7,27 @@
 
   position: relative;
   z-index: var(--z-index-base);
+
   box-sizing: content-box;
   width: var(--b-status-size);
   height: var(--b-status-size);
+
   background-color: var(--bg-white-high);
   border: var(--b-status-border-width) solid var(--bg-white-high);
   border-radius: 50%;
 
   &::after {
+    content: '';
+
     position: absolute;
     top: 0;
     left: 0;
+
     display: block;
+
     width: var(--b-status-size);
     height: var(--b-status-size);
-    content: '';
+
     background-color: var(--b-status-bg-color);
     border-radius: 50%;
   }
@@ -38,6 +44,7 @@
 }
 
 .Icon {
-  @include position.center();
+  @include position.center;
+
   z-index: var(--z-index-floating);
 }

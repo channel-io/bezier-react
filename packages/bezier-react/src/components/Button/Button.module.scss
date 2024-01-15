@@ -1,30 +1,17 @@
-$chromaticColorVariants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
-$activeSelector: ":where(.active, :hover):where(:not(:disabled))";
+$chromatic-color-variants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
+$active-selector: ":where(.active, :hover):where(:not(:disabled))";
 
 .Button {
+  cursor: pointer;
   position: relative;
   box-sizing: border-box;
-  cursor: pointer;
   transition: background-color var(--transition-s), box-shadow var(--transition-s);
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: var(--opacity-disabled);
-  }
-
-  &:focus:not(:disabled) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
 
   /* Size */
   &:where(.size-xs) {
-    padding: 0 2px;
     min-width: 20px;
     height: 20px;
+    padding: 0 2px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 7px;
@@ -32,9 +19,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-s) {
-    padding: 0 4px;
     min-width: 24px;
     height: 24px;
+    padding: 0 4px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 9px;
@@ -42,9 +29,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-m) {
-    padding: 0 10px;
     min-width: 36px;
     height: 36px;
+    padding: 0 10px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 14px;
@@ -52,9 +39,9 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-l) {
-    padding: 0 12px;
     min-width: 44px;
     height: 44px;
+    padding: 0 12px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 18px;
@@ -62,18 +49,13 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.size-xl) {
-    padding: 0 20px;
     min-width: 54px;
     height: 54px;
+    padding: 0 20px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 23px;
     }
-  }
-
-  /* NOTE: If there is no text, button is square, so padding is 0 */
-  &:not(:has(.ButtonText)) {
-    padding: 0;
   }
 
   &:where(.size-xs, .size-s) {
@@ -94,13 +76,13 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
   /* Color variants */
   &:where(.style-primary) {
-    @each $colorVariant in $chromaticColorVariants {
-      &:where(.color-#{$colorVariant}) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
-        background-color: var(--bgtxt-#{$colorVariant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
 
-        &#{$activeSelector} {
-          background-color: var(--bgtxt-#{$colorVariant}-dark);
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
     }
@@ -109,7 +91,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--bgtxt-absolute-white-dark);
       background-color: var(--bgtxt-absolute-black-lightest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bgtxt-absolute-black-lighter);
       }
     }
@@ -126,13 +108,13 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   &:where(.style-secondary) {
-    @each $colorVariant in $chromaticColorVariants {
-      &:where(.color-#{$colorVariant}) {
-        color: var(--bgtxt-#{$colorVariant}-normal);
-        background-color: var(--bgtxt-#{$colorVariant}-lightest);
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-lightest);
 
-        &#{$activeSelector} {
-          background-color: var(--bgtxt-#{$colorVariant}-lighter);
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-lighter);
         }
       }
     }
@@ -141,7 +123,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darkest);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -150,7 +132,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darker);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -159,7 +141,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
       color: var(--txt-black-darkest);
       background-color: var(--bg-black-lighter);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-light);
       }
     }
@@ -168,13 +150,13 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   &:where(.style-tertiary) {
     background-color: transparent;
 
-    @each $colorVariant in $chromaticColorVariants {
-      &:where(.color-#{$colorVariant}) {
-        color: var(--bgtxt-#{$colorVariant}-normal);
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
 
-        &#{$activeSelector} {
-          color: var(--bgtxt-#{$colorVariant}-dark);
-          background-color: var(--bgtxt-#{$colorVariant}-lightest);
+        &#{$active-selector} {
+          color: var(--bgtxt-#{$color-variant}-dark);
+          background-color: var(--bgtxt-#{$color-variant}-lightest);
         }
       }
     }
@@ -182,7 +164,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome) {
       color: var(--txt-black-darkest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lightest);
       }
     }
@@ -190,7 +172,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome-light) {
       color: var(--txt-black-darker);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lighter);
       }
     }
@@ -198,20 +180,20 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     &:where(.color-monochrome-dark) {
       color: var(--txt-black-darkest);
 
-      &#{$activeSelector} {
+      &#{$active-selector} {
         background-color: var(--bg-black-lighter);
       }
     }
   }
 
   &:where(.style-floating, .style-floating-alt) {
-    @each $colorVariant in $chromaticColorVariants {
-      &:where(.color-#{$colorVariant}) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
-        background-color: var(--bgtxt-#{$colorVariant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
 
-        &#{$activeSelector} {
-          background-color: var(--bgtxt-#{$colorVariant}-dark);
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
     }
@@ -251,14 +233,6 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     }
   }
 
-  &:is(.style-floating, .style-floating-alt) {
-    box-shadow: var(--ev-2);
-
-    &:hover {
-      box-shadow: var(--ev-3);
-    }
-  }
-
   &:where(.style-floating) {
     overflow: hidden;
     border-radius: 9999px;
@@ -269,7 +243,7 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   /* Hover styles for text, icon, and loader */
-  &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(:not(.active):not(:hover)) {
+  &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(:not(.active, :hover)) {
     &:where(.size-s, .size-xs) .ButtonText {
       color: var(--txt-black-darker);
     }
@@ -283,16 +257,42 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
     }
   }
 
-  &:where(.color-monochrome-light):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active):not(:hover)) {
+  &:where(.color-monochrome-light):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
       color: var(--txt-black-dark);
     }
   }
 
-  &:where(.color-monochrome-dark):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active):not(:hover)) {
+  &:where(.color-monochrome-dark):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
       color: var(--txt-black-darker);
     }
+  }
+
+  /* NOTE: If there is no text, button is square, so padding is 0 */
+  &:not(:has(.ButtonText)) {
+    padding: 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:is(.style-floating, .style-floating-alt) {
+    box-shadow: var(--ev-2);
+
+    &:where(:hover) {
+      box-shadow: var(--ev-3);
+    }
+  }
+
+  &:focus:where(:not(:disabled)) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+
+  &:focus:where(:not(:focus-visible)) {
+    outline: none;
   }
 }
 
@@ -309,10 +309,8 @@ $activeSelector: ":where(.active, :hover):where(:not(:disabled))";
 
 .ButtonLoader {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;

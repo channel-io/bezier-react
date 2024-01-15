@@ -1,16 +1,18 @@
 .Tooltip {
   z-index: var(--z-index-tooltip);
 
+  overflow: hidden;
+
   box-sizing: border-box;
   width: max-content;
   max-width: 260px;
   height: max-content;
   padding: 5px 8px;
+
   word-break: normal;
   word-wrap: break-word;
 
   background-color: var(--bg-white-low);
-  overflow: hidden;
   border-radius: var(--radius-8);
   box-shadow: var(--ev-3);
 }
