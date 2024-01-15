@@ -36,7 +36,7 @@ function getIconColor(appearance: ToastAppearance): ToastIconColor {
   }
 }
 
-function getPlacement(placement: ToastPlacement, enableLeftSpacing: boolean) {
+function getPlacement(placement: ToastPlacement) {
   switch (placement) {
     case ToastPlacement.BottomRight:
       return css`
@@ -47,7 +47,7 @@ function getPlacement(placement: ToastPlacement, enableLeftSpacing: boolean) {
     default:
       return css`
         bottom: 0;
-        left: ${enableLeftSpacing ? GNB_WIDTH : 0}px;
+        left: ${GNB_WIDTH}px;
       `
   }
 }

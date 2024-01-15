@@ -36,7 +36,7 @@ export const Container = styled.div<ToastContainerProps>`
   padding: 16px;
   overflow: hidden;
   pointer-events: none;
-  ${({ placement, enableLeftSpacing }) => getPlacement(placement, enableLeftSpacing)}
+  ${({ placement }) => getPlacement(placement)}
 `
 
 interface StyledToastProps extends Pick<ToastElementProps,
