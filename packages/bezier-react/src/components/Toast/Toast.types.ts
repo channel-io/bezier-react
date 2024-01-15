@@ -75,6 +75,7 @@ export default interface ToastElementProps extends
 
 export interface ToastProviderProps {
   autoDismissTimeout?: number
+  enableLeftSpacing?: boolean
   container?: HTMLElement | null
   children?: ReactNode[] | ReactNode
 }
@@ -125,6 +126,7 @@ export interface ToastContextType {
 export type ToastContainerProps = {
   children?: ReactNode[]
   placement: ToastPlacement
+  enableLeftSpacing: boolean
 }
 
 export interface ToastControllerProps extends ToastElementProps {

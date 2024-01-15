@@ -23,6 +23,7 @@ import useToastProviderValues from './useToastContextValues'
 
 function ToastProvider({
   autoDismissTimeout = 3000,
+  enableLeftSpacing = true,
   container: givenContainer,
   children = [],
 }: ToastProviderProps) {
@@ -41,6 +42,7 @@ function ToastProvider({
     <ToastContainer
       key={placement}
       placement={placement}
+      enableLeftSpacing={enableLeftSpacing}
     >
       { toasts.map(({
         autoDismiss,
@@ -78,6 +80,7 @@ function ToastProvider({
   ), [
     autoDismissTimeout,
     dismiss,
+    enableLeftSpacing,
   ])
 
   return (
