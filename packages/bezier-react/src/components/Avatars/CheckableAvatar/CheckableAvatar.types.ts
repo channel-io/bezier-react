@@ -2,7 +2,7 @@ import type React from 'react'
 
 import type { AvatarProps } from '~/src/components/Avatars/Avatar'
 
-interface CheckableAvatarPropsOptions {
+interface CheckableAvatarPropsOwnProps {
   /**
    * The controlled checked state of the checkbox.
    * Must be used in conjunction with `onCheckedChange`.
@@ -30,6 +30,6 @@ interface CheckableAvatarPropsOptions {
 }
 
 export interface CheckableAvatarProps extends
-  Omit<AvatarProps, 'as' | keyof React.HTMLAttributes<HTMLDivElement>>,
+  Omit<AvatarProps, keyof React.HTMLAttributes<HTMLDivElement>>,
   React.HTMLAttributes<HTMLButtonElement>,
-  CheckableAvatarPropsOptions {}
+  CheckableAvatarPropsOwnProps {}
