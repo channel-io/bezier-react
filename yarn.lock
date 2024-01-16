@@ -2864,7 +2864,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@^0.16.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
+"@channel.io/bezier-icons@^0.18.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
   dependencies:
@@ -2883,7 +2883,7 @@ __metadata:
     eslint-config-bezier: "workspace:^"
     rollup: ^3.29.1
     rollup-plugin-visualizer: ^5.9.2
-    svgo: ^3.0.2
+    svgo: ^3.2.0
     tsconfig: "workspace:^"
   languageName: unknown
   linkType: soft
@@ -2928,7 +2928,7 @@ __metadata:
     "@babel/preset-env": ^7.22.15
     "@babel/preset-react": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@channel.io/bezier-icons": ^0.16.0
+    "@channel.io/bezier-icons": ^0.18.0
     "@channel.io/bezier-tokens": 0.1.0-alpha.3
     "@mdx-js/react": ^1.6.22
     "@radix-ui/react-checkbox": ^1.0.4
@@ -9755,7 +9755,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-icons": ^0.16.0
+    "@channel.io/bezier-icons": ^0.18.0
     "@channel.io/bezier-react": ^1.19.0
     "@figma/plugin-typings": ^1.76.0
     "@types/react": ^18.2.21
@@ -11216,7 +11216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^2.2.1, css-tree@npm:^2.3.1":
+"css-tree@npm:^2.3.1":
   version: 2.3.1
   resolution: "css-tree@npm:2.3.1"
   dependencies:
@@ -11327,21 +11327,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csso@npm:5.0.5":
-  version: 5.0.5
-  resolution: "csso@npm:5.0.5"
-  dependencies:
-    css-tree: ~2.2.0
-  checksum: 0ad858d36bf5012ed243e9ec69962a867509061986d2ee07cc040a4b26e4d062c00d4c07e5ba8d430706ceb02dd87edd30a52b5937fd45b1b6f2119c4993d59a
-  languageName: node
-  linkType: hard
-
 "csso@npm:^4.2.0":
   version: 4.2.0
   resolution: "csso@npm:4.2.0"
   dependencies:
     css-tree: ^1.1.2
   checksum: 380ba9663da3bcea58dee358a0d8c4468bb6539be3c439dc266ac41c047217f52fd698fb7e4b6b6ccdfb8cf53ef4ceed8cc8ceccb8dfca2aa628319826b5b998
+  languageName: node
+  linkType: hard
+
+"csso@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "csso@npm:5.0.5"
+  dependencies:
+    css-tree: ~2.2.0
+  checksum: 0ad858d36bf5012ed243e9ec69962a867509061986d2ee07cc040a4b26e4d062c00d4c07e5ba8d430706ceb02dd87edd30a52b5937fd45b1b6f2119c4993d59a
   languageName: node
   linkType: hard
 
@@ -22019,20 +22019,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^3.0.2":
-  version: 3.0.4
-  resolution: "svgo@npm:3.0.4"
+"svgo@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "svgo@npm:3.2.0"
   dependencies:
     "@trysound/sax": 0.2.0
     commander: ^7.2.0
     css-select: ^5.1.0
-    css-tree: ^2.2.1
+    css-tree: ^2.3.1
     css-what: ^6.1.0
-    csso: 5.0.5
+    csso: ^5.0.5
     picocolors: ^1.0.0
   bin:
     svgo: ./bin/svgo
-  checksum: b78aa6f0a2873f41d6e62d68a59c41a706885cd5164c21709461546f26ec2b37a0bb40fd4904c0d39f97a22c61b4b9834baac395aefd44439a0207c25e048a6c
+  checksum: 42168748a5586d85d447bec2867bc19814a4897f973ff023e6aad4ff19ba7408be37cf3736e982bb78e3f1e52df8785da5dca77a8ebc64c0ebd6fcf9915d2895
   languageName: node
   linkType: hard
 

@@ -227,6 +227,15 @@
 
 - Export the css style sheet for the new design system. ([#1492](https://github.com/channel-io/bezier-react/pull/1492)) by @sungik-choi
 
+## 1.20.0
+
+### Minor Changes
+
+- Add `offset` prop for positioning the toast container to `ToastProvider` ([#1915](https://github.com/channel-io/bezier-react/pull/1915)) by @leejiwoo2002
+
+  - Adjust the default position of the toast container to `GNB_WIDTH` on the left and `0` on the right and bottom
+  - Inject the `GNB_WIDTH` value as default into the offset object of `ToastProvider` to ensure the same behavior as before
+
 ## 1.19.0
 
 ### Minor Changes
@@ -1001,7 +1010,7 @@
 
 - [#1337](https://github.com/channel-io/bezier-react/pull/1337) [`caa6916d`](https://github.com/channel-io/bezier-react/commit/caa6916d0d9804b4e96f35e6379fc02daf4a368f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add missing `display: block` property of `Avatar`'s style.
 
-- [#1086](https://github.com/channel-io/bezier-react/pull/1086) [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726) Thanks [@sungik-choi](https://github.com/sungik-choi)! - revert https://github.com/channel-io/bezier-react/pull/1068
+- [#1086](https://github.com/channel-io/bezier-react/pull/1086) [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726) Thanks [@sungik-choi](https://github.com/sungik-choi)! - revert <https://github.com/channel-io/bezier-react/pull/1068>
 
 ## 1.0.0-next-v1.214
 
@@ -1373,7 +1382,7 @@
 
 - [#1143](https://github.com/channel-io/bezier-react/pull/1143) [`53d83ba2`](https://github.com/channel-io/bezier-react/commit/53d83ba27f79ae81ab82836af047f8584919a1b8) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix to pass missing property of `Overlay` component.
 
-* [#1079](https://github.com/channel-io/bezier-react/pull/1079) [`85d04e70`](https://github.com/channel-io/bezier-react/commit/85d04e709fb8114330650fc939a7915aab96a2c5) Thanks [@annie1229](https://github.com/annie1229)! - Remove and re-implement lodash-es
+- [#1079](https://github.com/channel-io/bezier-react/pull/1079) [`85d04e70`](https://github.com/channel-io/bezier-react/commit/85d04e709fb8114330650fc939a7915aab96a2c5) Thanks [@annie1229](https://github.com/annie1229)! - Remove and re-implement lodash-es
 
 ## 1.0.0-next-v1.187
 
@@ -1400,7 +1409,7 @@
 
 - [#1103](https://github.com/channel-io/bezier-react/pull/1103) [`3bdb95e1`](https://github.com/channel-io/bezier-react/commit/3bdb95e1a022370122afb4166cc2f138028cb72b) Thanks [@annie1229](https://github.com/annie1229)! - Add truncated prop to Text component
 
-* [#1135](https://github.com/channel-io/bezier-react/pull/1135) [`ee776e66`](https://github.com/channel-io/bezier-react/commit/ee776e66f25e93e6a8c6a6fe181eb84159e8d985) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete Legacy `Modal` and `Tabs` components. Rename `LEGACY__RADIO` to `LegacyRadio`.
+- [#1135](https://github.com/channel-io/bezier-react/pull/1135) [`ee776e66`](https://github.com/channel-io/bezier-react/commit/ee776e66f25e93e6a8c6a6fe181eb84159e8d985) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Delete Legacy `Modal` and `Tabs` components. Rename `LEGACY__RADIO` to `LegacyRadio`.
 
 ## 1.0.0-next-v1.185
 
@@ -1414,7 +1423,7 @@
 
 - [#1131](https://github.com/channel-io/bezier-react/pull/1131) [`b4d80ecb`](https://github.com/channel-io/bezier-react/commit/b4d80ecb19e3ee00a91e87cee215662e4f31f76f) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Enhance the interface of `Radio` and `RadioGroup` components. Change `Radio` to render children when their value is evaluated as true.
 
-* [#1129](https://github.com/channel-io/bezier-react/pull/1129) [`8d243d21`](https://github.com/channel-io/bezier-react/commit/8d243d215e4baa1832cb6bccdfe25e5d58f654ee) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix babel runtime error
+- [#1129](https://github.com/channel-io/bezier-react/pull/1129) [`8d243d21`](https://github.com/channel-io/bezier-react/commit/8d243d215e4baa1832cb6bccdfe25e5d58f654ee) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix babel runtime error
 
 ## 1.0.0-next-v1.183
 
@@ -1448,7 +1457,7 @@
 
 - [#1122](https://github.com/channel-io/bezier-react/pull/1122) [`48f6a3b2`](https://github.com/channel-io/bezier-react/commit/48f6a3b2c820638aa4cd5a1b212d77e4540a3013) Thanks [@heech1013](https://github.com/heech1013)! - Remove default value of event handler props in Icon component
 
-* [#1120](https://github.com/channel-io/bezier-react/pull/1120) [`70efd997`](https://github.com/channel-io/bezier-react/commit/70efd9970e6790d1dc5c4fafe7268a386249a69f) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Fix bug that first StackItem has marginBefore when the preceding node is not valid element such as null or false
+- [#1120](https://github.com/channel-io/bezier-react/pull/1120) [`70efd997`](https://github.com/channel-io/bezier-react/commit/70efd9970e6790d1dc5c4fafe7268a386249a69f) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Fix bug that first StackItem has marginBefore when the preceding node is not valid element such as null or false
 
 - [#1119](https://github.com/channel-io/bezier-react/pull/1119) [`1c52fcdc`](https://github.com/channel-io/bezier-react/commit/1c52fcdcf2934377213f7224290983cc9f7d3f62) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Decrease horizontal padding of XS size button to 2px
 
@@ -1464,11 +1473,11 @@
 
 - [#1107](https://github.com/channel-io/bezier-react/pull/1107) [`f6789fa2`](https://github.com/channel-io/bezier-react/commit/f6789fa2b0d8a2889c42163ba734e910ae01fe89) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
 
-* [#1113](https://github.com/channel-io/bezier-react/pull/1113) [`3bd99b8d`](https://github.com/channel-io/bezier-react/commit/3bd99b8d573d0d7d9d0e58173adea57af2f64409) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+- [#1113](https://github.com/channel-io/bezier-react/pull/1113) [`3bd99b8d`](https://github.com/channel-io/bezier-react/commit/3bd99b8d573d0d7d9d0e58173adea57af2f64409) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
 
 - [#1110](https://github.com/channel-io/bezier-react/pull/1110) [`b406a268`](https://github.com/channel-io/bezier-react/commit/b406a26827b774bb99ed54d227584f972afc24e5) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change modal floating style from `inset` to `top`...`left` position to support legacy browser
 
-* [#1095](https://github.com/channel-io/bezier-react/pull/1095) [`3544182d`](https://github.com/channel-io/bezier-react/commit/3544182d75957616afd3d940d0c237784d45f974) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+- [#1095](https://github.com/channel-io/bezier-react/pull/1095) [`3544182d`](https://github.com/channel-io/bezier-react/commit/3544182d75957616afd3d940d0c237784d45f974) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
 
 ## 1.0.0-next-v1.180
 
@@ -1489,7 +1498,7 @@
 
 - [#1070](https://github.com/channel-io/bezier-react/pull/1070) [`78d217ec`](https://github.com/channel-io/bezier-react/commit/78d217ec20c85d4ec9485e40de1f9542a83aa29d) Thanks [@guswnsxodlf](https://github.com/guswnsxodlf)! - Enhance the Slider component
 
-* [#1086](https://github.com/channel-io/bezier-react/pull/1086) [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726) Thanks [@sungik-choi](https://github.com/sungik-choi)! - revert https://github.com/channel-io/bezier-react/pull/1068
+- [#1086](https://github.com/channel-io/bezier-react/pull/1086) [`9a50da65`](https://github.com/channel-io/bezier-react/commit/9a50da650f1d529941fa295ae304c4cca9b1b726) Thanks [@sungik-choi](https://github.com/sungik-choi)! - revert <https://github.com/channel-io/bezier-react/pull/1068>
 
 ## 1.0.0-next-v1.178
 
@@ -1498,7 +1507,7 @@
 - [#1077](https://github.com/channel-io/bezier-react/pull/1077) [`84e9eef7`](https://github.com/channel-io/bezier-react/commit/84e9eef79d8424fb3696bf1c5d419fed43bc500b) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - Make the `Modal` overlay scrollable and enhance styling to work well when the `ModalBody` is used stand-alone.
   - Delete hide animation of the `Modal`.
 
-* [#1068](https://github.com/channel-io/bezier-react/pull/1068) [`65cdafa7`](https://github.com/channel-io/bezier-react/commit/65cdafa78b5551e39f657440ac54cc833c678163) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Text` component to use CSS Variable internally
+- [#1068](https://github.com/channel-io/bezier-react/pull/1068) [`65cdafa7`](https://github.com/channel-io/bezier-react/commit/65cdafa78b5551e39f657440ac54cc833c678163) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Text` component to use CSS Variable internally
 
 ## 1.0.0-next-v1.177
 
@@ -1515,7 +1524,7 @@
   - The `showCloseIcon` property is moved from `ModalProps` to `ModalContentProps`.
   - The `title`, `subTitle`, `description`, and `titleSize` properties are moved from `ModalContentProps` to the new `ModalHeaderProps`.
 
-* [#1002](https://github.com/channel-io/bezier-react/pull/1002) [`cb677dde`](https://github.com/channel-io/bezier-react/commit/cb677dde40d92582f8fade504b54ee8532d3ae0f) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Apply `@radix-ui/react-switch` primitives to `Switch` component
+- [#1002](https://github.com/channel-io/bezier-react/pull/1002) [`cb677dde`](https://github.com/channel-io/bezier-react/commit/cb677dde40d92582f8fade504b54ee8532d3ae0f) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Apply `@radix-ui/react-switch` primitives to `Switch` component
 
   BREAKING CHANGE:
 
@@ -1532,7 +1541,7 @@
 
 - [#1062](https://github.com/channel-io/bezier-react/pull/1062) [`d38bcb42`](https://github.com/channel-io/bezier-react/commit/d38bcb42e823f14778e70e3e46d479c6e17200b8) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `AvatarGroup` component to use CSS Variable internally
 
-* [#1067](https://github.com/channel-io/bezier-react/pull/1067) [`314e698e`](https://github.com/channel-io/bezier-react/commit/314e698ecce5f3ed5a5624e1448f6ac915aa7c0b) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
+- [#1067](https://github.com/channel-io/bezier-react/pull/1067) [`314e698e`](https://github.com/channel-io/bezier-react/commit/314e698ecce5f3ed5a5624e1448f6ac915aa7c0b) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
 
 - [#1063](https://github.com/channel-io/bezier-react/pull/1063) [`d924b727`](https://github.com/channel-io/bezier-react/commit/d924b727492e1a7fbb75b67b6f933b4e08a63adf) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Status` component to use CSS Variable internally
 
@@ -1546,7 +1555,7 @@
 
 - [#1018](https://github.com/channel-io/bezier-react/pull/1018) [`8635cd56`](https://github.com/channel-io/bezier-react/commit/8635cd560cb22a47f03615cda0e54899ce2d5575) Thanks [@junbong](https://github.com/junbong)! - fix(Text): add handling code for unhandled interpolation prop
 
-* [#1052](https://github.com/channel-io/bezier-react/pull/1052) [`278338ef`](https://github.com/channel-io/bezier-react/commit/278338ef8cb2ff79ddb23ae630e7f5c42ebdae67) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Revert the removed `size` property of the `TextField`'s internal `input` element.
+- [#1052](https://github.com/channel-io/bezier-react/pull/1052) [`278338ef`](https://github.com/channel-io/bezier-react/commit/278338ef8cb2ff79ddb23ae630e7f5c42ebdae67) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Revert the removed `size` property of the `TextField`'s internal `input` element.
 
 ## 1.0.0-next-v1.175
 
@@ -1558,11 +1567,11 @@
 
 - [#1029](https://github.com/channel-io/bezier-react/pull/1029) [`e5e5625a`](https://github.com/channel-io/bezier-react/commit/e5e5625aa68f4633e6b6a993e196a822bbe6391d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add justify prop to ButtonGroup component
 
-* [#1031](https://github.com/channel-io/bezier-react/pull/1031) [`1afab062`](https://github.com/channel-io/bezier-react/commit/1afab062d9919bc0d3b55fa0dcf12c0ed0090842) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
+- [#1031](https://github.com/channel-io/bezier-react/pull/1031) [`1afab062`](https://github.com/channel-io/bezier-react/commit/1afab062d9919bc0d3b55fa0dcf12c0ed0090842) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the icons
 
 - [#1028](https://github.com/channel-io/bezier-react/pull/1028) [`d6b28529`](https://github.com/channel-io/bezier-react/commit/d6b285296fc444dee7d0fd720d915a21b956f360) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Update the font-size of the TextField component per size
 
-* [#1020](https://github.com/channel-io/bezier-react/pull/1020) [`33baadb1`](https://github.com/channel-io/bezier-react/commit/33baadb17701fe9265179137eb69df4ab1bf836e) Thanks [@junbong](https://github.com/junbong)! - fix(ModalContent): invalid modal title size
+- [#1020](https://github.com/channel-io/bezier-react/pull/1020) [`33baadb1`](https://github.com/channel-io/bezier-react/commit/33baadb17701fe9265179137eb69df4ab1bf836e) Thanks [@junbong](https://github.com/junbong)! - fix(ModalContent): invalid modal title size
 
 ## 1.0.0-next-v1.174
 
@@ -1570,7 +1579,7 @@
 
 - [#945](https://github.com/channel-io/bezier-react/pull/945) [`51e45692`](https://github.com/channel-io/bezier-react/commit/51e45692d3fb20f2937cf857ed4357a323345127) Thanks [@dinohan](https://github.com/dinohan)! - change the font-weight of bold text from 600 to 'bold'
 
-* [#1006](https://github.com/channel-io/bezier-react/pull/1006) [`d90c27a1`](https://github.com/channel-io/bezier-react/commit/d90c27a1d7ed27512ce204073bf4d6655240584f) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Add `bg-black-darker` semantic color, update `bg-black-darkest` palette
+- [#1006](https://github.com/channel-io/bezier-react/pull/1006) [`d90c27a1`](https://github.com/channel-io/bezier-react/commit/d90c27a1d7ed27512ce204073bf4d6655240584f) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Add `bg-black-darker` semantic color, update `bg-black-darkest` palette
 
   BREAKING_CHANGE: `bg-black-darkest` is now `Palette.black_60` on `LightTheme`, `Palette.white_60` on `DarkTheme`.
 
@@ -1578,11 +1587,11 @@
 
 - [#1014](https://github.com/channel-io/bezier-react/pull/1014) [`a6b42ed3`](https://github.com/channel-io/bezier-react/commit/a6b42ed3bbac68e375e90ab18dcd4b376285958f) Thanks [@leejiwoo2002](https://github.com/leejiwoo2002)! - Export ServerStyleSheet Function for SSR Support
 
-* [#1026](https://github.com/channel-io/bezier-react/pull/1026) [`80f33585`](https://github.com/channel-io/bezier-react/commit/80f33585aadf9d616a1ebfe64e3bd2975cf768aa) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Change `BaseModal` animation to scale-based animation
+- [#1026](https://github.com/channel-io/bezier-react/pull/1026) [`80f33585`](https://github.com/channel-io/bezier-react/commit/80f33585aadf9d616a1ebfe64e3bd2975cf768aa) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Change `BaseModal` animation to scale-based animation
 
 - [#934](https://github.com/channel-io/bezier-react/pull/934) [`650d31bd`](https://github.com/channel-io/bezier-react/commit/650d31bdf0b9ff64bebac872378ec18799c3b468) Thanks [@aooen](https://github.com/aooen)! - Reduce bundle size (apply minify for styled-components)
 
-* [#1015](https://github.com/channel-io/bezier-react/pull/1015) [`7d3c76c9`](https://github.com/channel-io/bezier-react/commit/7d3c76c98347279504d589941dff1af73eff988b) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Apply `font-family: 'Inter'` as StoryBook global style
+- [#1015](https://github.com/channel-io/bezier-react/pull/1015) [`7d3c76c9`](https://github.com/channel-io/bezier-react/commit/7d3c76c98347279504d589941dff1af73eff988b) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Apply `font-family: 'Inter'` as StoryBook global style
 
 ## 1.0.0-next-v1.173
 
@@ -1639,7 +1648,7 @@
 
 - [#924](https://github.com/channel-io/bezier-react/pull/924) [`2050b668`](https://github.com/channel-io/bezier-react/commit/2050b6680aee060378c94f1409be3efd597fd45e) Thanks [@yangwooseong](https://github.com/yangwooseong)! - Change word-break property of Modal content
 
-* [#927](https://github.com/channel-io/bezier-react/pull/927) [`ae5f5b6d`](https://github.com/channel-io/bezier-react/commit/ae5f5b6da051b76722aca0ae0697b3963eece463) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
+- [#927](https://github.com/channel-io/bezier-react/pull/927) [`ae5f5b6d`](https://github.com/channel-io/bezier-react/commit/ae5f5b6da051b76722aca0ae0697b3963eece463) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update icons
 
 ## 1.0.0-next-v1.166
 
@@ -1685,7 +1694,7 @@
 
 - [#901](https://github.com/channel-io/bezier-react/pull/901) [`9be5d909`](https://github.com/channel-io/bezier-react/commit/9be5d9095b6fc753c42ba87fc88f530117f3ed8d) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Apply CSS default value to the align, justify properties of FormGroup component.
 
-* [#896](https://github.com/channel-io/bezier-react/pull/896) [`6d07015f`](https://github.com/channel-io/bezier-react/commit/6d07015fd59590c17ef9a7e9a2961ed31ae518f5) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(key-value-list-item): change key and value component styles removed fixed height and given default color
+- [#896](https://github.com/channel-io/bezier-react/pull/896) [`6d07015f`](https://github.com/channel-io/bezier-react/commit/6d07015fd59590c17ef9a7e9a2961ed31ae518f5) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(key-value-list-item): change key and value component styles removed fixed height and given default color
 
 - [#894](https://github.com/channel-io/bezier-react/pull/894) [`ba49e2e8`](https://github.com/channel-io/bezier-react/commit/ba49e2e8123d85d4fbfae7bd462d28ca058fa1a0) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor(toast): change toast content props "string" to "react-node"
 
@@ -1722,11 +1731,11 @@
 
 - [#861](https://github.com/channel-io/bezier-react/pull/861) [`f530f952`](https://github.com/channel-io/bezier-react/commit/f530f952718ebda5eb1b20ba2f99ed2c1d7258cc) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Change project license to Apache-2.0
 
-* [#848](https://github.com/channel-io/bezier-react/pull/848) [`1053fd1b`](https://github.com/channel-io/bezier-react/commit/1053fd1b5c9f1933e8c6e6cf96cab1a7644458a3) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Fix Switch component implementation to follow Bezier Figma spec
+- [#848](https://github.com/channel-io/bezier-react/pull/848) [`1053fd1b`](https://github.com/channel-io/bezier-react/commit/1053fd1b5c9f1933e8c6e6cf96cab1a7644458a3) Thanks [@Dogdriip](https://github.com/Dogdriip)! - Fix Switch component implementation to follow Bezier Figma spec
 
 - [#865](https://github.com/channel-io/bezier-react/pull/865) [`7ef5ffcc`](https://github.com/channel-io/bezier-react/commit/7ef5ffcc3f3f91198682f561fd41fb2209eb2f42) Thanks [@Jamie-channel](https://github.com/Jamie-channel)! - Update the distribute icon
 
-* [#862](https://github.com/channel-io/bezier-react/pull/862) [`3af0187c`](https://github.com/channel-io/bezier-react/commit/3af0187c6506a9207b5d2e4887fc5d522afbee2f) Thanks [@kimminkyung94](https://github.com/kimminkyung94)! - Update the icons
+- [#862](https://github.com/channel-io/bezier-react/pull/862) [`3af0187c`](https://github.com/channel-io/bezier-react/commit/3af0187c6506a9207b5d2e4887fc5d522afbee2f) Thanks [@kimminkyung94](https://github.com/kimminkyung94)! - Update the icons
 
 - [#811](https://github.com/channel-io/bezier-react/pull/811) [`535b20d9`](https://github.com/channel-io/bezier-react/commit/535b20d9c4f58a05897ae2decc6d98120b54d0ab) Thanks [@inhibitor1217](https://github.com/inhibitor1217)! - add storybook documentation for Button component
 

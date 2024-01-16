@@ -1,5 +1,28 @@
 # @channel.io/bezier-icons
 
+## 0.18.0
+
+### Minor Changes
+
+- Fix `ArrowRightUp` icon broken bug ([#1896](https://github.com/channel-io/bezier-react/pull/1896)) by @yangwooseong
+
+## 0.17.0
+
+### Minor Changes
+
+- Update icons ([#1878](https://github.com/channel-io/bezier-react/pull/1878)) by @Jamie-channel
+
+  Added
+
+  - channel-x-symbol-alt.svg
+  - channel-x-symbol.svg
+  - share.svg
+  - voice-wave-missed.svg
+
+  Modified
+
+  - twitter.svg
+
 ## 0.16.0
 
 ### Minor Changes

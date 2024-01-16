@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-icons",
-  "version": "0.16.0",
+  "version": "0.18.0",
   "description": "Icon library that implements Bezier design system.",
   "repository": {
     "type": "git",
@@ -58,7 +58,7 @@
     "eslint-config-bezier": "workspace:^",
     "rollup": "^3.29.1",
     "rollup-plugin-visualizer": "^5.9.2",
-    "svgo": "^3.0.2",
+    "svgo": "^3.2.0",
     "tsconfig": "workspace:^"
   }
 }
