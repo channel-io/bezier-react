@@ -8,8 +8,10 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { Radio } from './Radio'
-import { RadioGroup } from './RadioGroup'
+import {
+  Radio,
+  RadioGroup,
+} from './RadioGroup'
 import { type RadioGroupProps } from './RadioGroup.types'
 
 enum Theme {
