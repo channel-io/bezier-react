@@ -1,0 +1,133 @@
+@use '../../../styles/mixins/position';
+@use '../../../styles/mixins/interaction';
+
+.CheckIcon {
+  @include position.center;
+
+  position: absolute;
+  z-index: var(--z-index-floating);
+  visibility: hidden;
+
+  &:where(.size-20) {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:where(.size-24) {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:where(.size-30) {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:where(.size-36) {
+    width: 22px;
+    height: 22px;
+  }
+
+  &:where(.size-42) {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:where(.size-48) {
+    width: 28px;
+    height: 28px;
+  }
+
+  &:where(.size-72) {
+    width: 42px;
+    height: 42px;
+  }
+
+  &:where(.size-90) {
+    width: 52px;
+    height: 52px;
+  }
+
+  &:where(.size-120) {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+@mixin common-focus-styles {
+  & :where(.CheckIcon) {
+    visibility: visible;
+  }
+
+  & :where(.Avatar > div) {
+    --b-smooth-corners-box-background-image: none !important;
+  }
+}
+
+@mixin unchecked-focus-styles {
+  & :where(.Avatar > div) {
+    --b-smooth-corners-box-background-color: var(--bg-grey-dark) !important;
+  }
+}
+
+@mixin checked-focus-styles {
+  & :where(.Avatar > div) {
+    --b-smooth-corners-box-background-color: var(--bgtxt-green-dark) !important;
+  }
+}
+
+.Checkbox {
+  all: unset;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: var(--z-index-base);
+
+  outline: none;
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+  }
+
+  &:where(:not([data-state='unchecked'])) {
+    & :where(.CheckIcon) {
+      visibility: visible;
+    }
+
+    & :where(.Avatar > div) {
+      --b-smooth-corners-box-background-image: none !important;
+      --b-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
+    }
+  }
+
+  &:where(:not([data-disabled])) {
+    @include interaction.touchable-hover {
+      @include common-focus-styles;
+    }
+
+    &:where(:focus-visible) {
+      @include common-focus-styles;
+    }
+
+    &:where([data-state='unchecked']) {
+      @include interaction.touchable-hover {
+        @include unchecked-focus-styles;
+      }
+
+      &:where(:focus-visible) {
+        @include unchecked-focus-styles;
+      }
+    }
+
+    &:where(:not([data-state='unchecked'])) {
+      @include interaction.touchable-hover {
+        @include checked-focus-styles;
+      }
+
+      &:where(:focus-visible) {
+        @include checked-focus-styles;
+      }
+    }
+  }
+}
