@@ -3,8 +3,8 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import FormLabel from './FormLabel'
-import type FormLabelProps from './FormLabel.types'
+import { FormLabel } from './FormLabel'
+import { type FormLabelProps } from './FormLabel.types'
 
 const meta: Meta<typeof FormLabel> = {
   component: FormLabel,

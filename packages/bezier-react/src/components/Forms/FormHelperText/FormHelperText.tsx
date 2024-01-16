@@ -1,13 +1,13 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
+
+import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { Text } from '~/src/components/Text'
 
 import type {
   BaseHelperTextProps,
@@ -15,22 +15,19 @@ import type {
   FormHelperTextProps,
 } from './FormHelperText.types'
 
-import * as Styled from './FormHelperText.styled'
-
-type ForwardedRef = React.Ref<HTMLParamElement>
+import styles from './FormHelperText.module.scss'
 
 export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
 export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
 
-const BaseHelperText = forwardRef(({
-  as = 'p',
-  type,
-  typo = '13',
-  children,
-  ...rest
-}: BaseHelperTextProps,
-forwardedRef: ForwardedRef,
-) => {
+const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function BaseHelperText(props, forwardedRef) {
+  const {
+    type,
+    typo = '13',
+    children,
+    ...rest
+  } = props
+
   const contextValue = useFormControlContext()
   const getProps = type === 'info'
     ? contextValue?.getHelperTextProps
@@ -39,75 +36,109 @@ forwardedRef: ForwardedRef,
   const {
     visible,
     ref,
-    Wrapper,
+    className: formControlClassName,
     ...ownProps
   } = getProps?.(rest) ?? {
     visible: true,
     ref: noop,
-    Wrapper: React.Fragment,
+    classNameFromControl: undefined,
     ...rest,
   }
 
   const mergedRef = useMergeRefs(ref, forwardedRef)
 
-  const shouldRendered = useMemo(() => (
-    !isEmpty(children) && visible
-  ), [
-    visible,
-    children,
-  ])
-
-  if (!shouldRendered) { return null }
+  if (isEmpty(children) || !visible) { return null }
 
   return (
-    <Wrapper>
-      <Styled.HelperText
-        {...ownProps}
-        ref={mergedRef}
-        forwardedAs={as}
-        typo={typo}
-      >
-        { children }
-      </Styled.HelperText>
-    </Wrapper>
+    <Text
+      ref={mergedRef}
+      as="p"
+      className={classNames(
+        styles.FormHelperText,
+        formControlClassName,
+      )}
+      typo={typo}
+      align="left"
+      {...ownProps}
+    >
+      { children }
+    </Text>
   )
 })
 
-export const FormHelperText = forwardRef(({
-  testId = FORM_HELPER_TEXT_TEST_ID,
-  color = 'txt-black-dark',
-  children,
-  ...rest
-}: FormHelperTextProps,
-forwardedRef: ForwardedRef,
-) => (
-  <BaseHelperText
-    {...rest}
-    type="info"
-    ref={forwardedRef}
-    testId={testId}
-    color={color}
-  >
-    { children }
-  </BaseHelperText>
-))
+/**
+ * `FormHelperText` is a component to show the description of the input element.
+ * `FormControl` component can handle its layout by `position` props.
+ *
+ * @example
+ * ```tsx
+ * <FormControl position="top">
+ *   <FormLabel>
+ *     Password
+ *   </FormLabel>
+ *   <TextField />
+ *   <FormHelperText>
+ *     Please use at least 6 characters
+ *   </FormHelperText>
+ * </FormControl>
+ * ```
+ */
+export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(function FormHelperText(props, forwardedRef) {
+  const {
+    testId = FORM_HELPER_TEXT_TEST_ID,
+    color = 'txt-black-dark',
+    children,
+    ...rest
+  } = props
 
-export const FormErrorMessage = forwardRef(({
-  testId = FORM_ERROR_MESSAGE_TEST_ID,
-  color = 'bgtxt-orange-normal',
-  children,
-  ...rest
-}: FormErrorMessageProps,
-forwardedRef: ForwardedRef,
-) => (
-  <BaseHelperText
-    {...rest}
-    aria-live="polite"
-    type="error"
-    ref={forwardedRef}
-    testId={testId}
-    color={color}
-  >
-    { children }
-  </BaseHelperText>
-))
+  return (
+    <BaseHelperText
+      {...rest}
+      type="info"
+      ref={forwardedRef}
+      testId={testId}
+      color={color}
+    >
+      { children }
+    </BaseHelperText>
+  )
+})
+
+/**
+ * `FormErrorMessage` is a component to show error message when form values are invalid.
+ * It should be used with `FormControl` component.
+ *
+ * @example
+ * ```tsx
+ * <FormControl>
+ *   <FormLabel>
+ *     Password
+ *   </FormLabel>
+ *   <TextField />
+ *   <FormErrorMessage>
+ *     Password should be at least 6 characters
+ *   </FormErrorMessage>
+ * </FormControl>
+ * ```
+ */
+export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(function FormErrorMessage(props, forwardedRef) {
+  const {
+    testId = FORM_ERROR_MESSAGE_TEST_ID,
+    color = 'bgtxt-orange-normal',
+    children,
+    ...rest
+  } = props
+
+  return (
+    <BaseHelperText
+      {...rest}
+      aria-live="polite"
+      type="error"
+      ref={forwardedRef}
+      testId={testId}
+      color={color}
+    >
+      { children }
+    </BaseHelperText>
+  )
+})
