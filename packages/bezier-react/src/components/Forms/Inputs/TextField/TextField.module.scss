@@ -1,7 +1,7 @@
 @use "../../../../styles/mixins/typography";
 
 .TextFieldInput {
-  @include typography.size-14;
+  @include typography.size(14);
 
   width: 100%;
   height: 100%;
@@ -60,7 +60,7 @@
     height: 44px;
 
     & .TextFieldInput {
-      @include typography.size-16;
+      @include typography.size(16);
     }
   }
 
@@ -69,7 +69,7 @@
     border-radius: var(--radius-12);
 
     & .TextFieldInput {
-      @include typography.size-18;
+      @include typography.size(18);
     }
   }
 
