@@ -73,8 +73,15 @@ export default interface ToastElementProps extends
   Required<ContentProps<ToastContent>>,
   ToastElementOptions {}
 
+export type Offset = {
+  left?: number
+  right?: number
+  bottom?: number
+}
+
 export interface ToastProviderProps {
   autoDismissTimeout?: number
+  offset?: Offset
   container?: HTMLElement | null
   children?: ReactNode[] | ReactNode
 }
@@ -125,6 +132,7 @@ export interface ToastContextType {
 export type ToastContainerProps = {
   children?: ReactNode[]
   placement: ToastPlacement
+  offset?: Offset
 }
 
 export interface ToastControllerProps extends ToastElementProps {
