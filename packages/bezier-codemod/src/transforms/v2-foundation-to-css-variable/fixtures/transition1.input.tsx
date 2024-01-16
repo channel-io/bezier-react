@@ -1,23 +1,26 @@
-const BackIcon = styled(Icon)`
+import { AllIcon } from '@channel.io/bezier-icons'
+import { styled, TransitionDuration, css } from '@channel.io/bezier-react'
+
+export const BackIcon = styled(AllIcon)`
   ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
 `
 
-const Block = styled.div`
+export const Block = styled.div`
   ${({ foundation }) =>
     foundation?.transition.getTransitionsCSS(['background-color'])};
 `
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   ${({ foundation }) =>
     foundation?.transition.getTransitionsCSS(['background-color', 'color'])};
 `
 
-const Wrapper = styled.div`
+export const Wrapper1 = styled.div`
   ${({ hasTransition, foundation }) =>
     hasTransition && foundation?.transition.getTransitionsCSS(['background-color', 'color'])};
 `
 
-const Command = styled.div`
+export const Command = styled.div`
   ${({ disabled }) =>
     disabled &&
     css`
@@ -32,7 +35,7 @@ const Command = styled.div`
     `}
 `
 
-const div = styled.div`
+export const div = styled.div`
   ${({ foundation }) =>
   foundation?.transition?.getTransitionsCSS(
     'background-color',
