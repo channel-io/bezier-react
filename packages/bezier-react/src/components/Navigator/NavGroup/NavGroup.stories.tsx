@@ -16,8 +16,8 @@ import {
 } from '~/src/components/Icon'
 import { NavItem } from '~/src/components/Navigator/NavItem'
 
-import NavGroup from './NavGroup'
-import type NavGroupProps from './NavGroup.types'
+import { NavGroup } from './NavGroup'
+import type { NavGroupProps } from './NavGroup.types'
 
 const meta: Meta<typeof NavGroup> = {
   component: NavGroup,

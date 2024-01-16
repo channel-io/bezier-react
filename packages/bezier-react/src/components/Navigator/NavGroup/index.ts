@@ -1,10 +1,2 @@
-import NavGroup from './NavGroup'
-import type NavGroupProps from './NavGroup.types'
-
-export type {
-  NavGroupProps,
-}
-
-export {
-  NavGroup,
-}
+export { NavGroup } from './NavGroup'
+export type { NavGroupProps } from './NavGroup.types'
