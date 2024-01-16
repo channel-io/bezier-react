@@ -107,7 +107,7 @@ function TextFieldRightContent({
       return (
         <Comp
           key={key}
-          type="button"
+          type={clickable ? 'button' : undefined}
           className={classNames(
             styles.RightItemWrapper,
             clickable && styles.clickable,
