@@ -1,6 +1,7 @@
 .LeftIconWrapper {
   display: flex;
   align-items: center;
+
   min-width: 20px;
   max-width: 20px;
   margin-right: 8px;
@@ -11,6 +12,7 @@
   flex: 1 0 auto;
   align-items: center;
   justify-content: flex-end;
+
   margin-left: 8px;
 }
 
@@ -19,15 +21,19 @@
 }
 
 .Item {
-  display: flex;
   cursor: pointer;
-  width: 100%;
+
+  display: flex;
   align-items: center;
+
+  width: 100%;
   height: 28px;
   padding: 0 6px;
+
   text-decoration: none;
-  outline: 0;
+
   border-radius: var(--radius-6);
+  outline: 0;
 
   &:where(.active) {
     color: var(--bgtxt-blue-normal);
