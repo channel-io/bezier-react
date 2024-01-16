@@ -9,18 +9,13 @@ import {
 import { css } from '~/src/foundation'
 
 import {
+  type Offset,
   ToastAppearance,
   ToastIconColor,
   ToastPlacement,
   ToastPreset,
   type ToastPresetType,
 } from './Toast.types'
-
-/**
- * @deprecated
- * FIXME: Styling dependent on specific applications.
- */
-const GNB_WIDTH = 68
 
 function getIconColor(appearance: ToastAppearance): ToastIconColor {
   switch (appearance) {
@@ -36,18 +31,23 @@ function getIconColor(appearance: ToastAppearance): ToastIconColor {
   }
 }
 
-function getPlacement(placement: ToastPlacement) {
+interface GetPlacementProps {
+  placement: ToastPlacement
+  offset?: Offset
+}
+
+function getPlacement({ placement, offset }:GetPlacementProps) {
   switch (placement) {
     case ToastPlacement.BottomRight:
       return css`
-          right: 0;
-          bottom: 0;
+          right:  ${offset?.right !== undefined ? offset.right : 0}px;
+          bottom: ${offset?.bottom !== undefined ? offset.bottom : 0}px;
         `
     case ToastPlacement.BottomLeft:
     default:
       return css`
-        bottom: 0;
-        left: ${GNB_WIDTH}px;
+        bottom: ${offset?.bottom !== undefined ? offset.bottom : 0}px;
+        left: ${offset?.left !== undefined ? offset.left : 0}px;
       `
   }
 }

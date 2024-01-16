@@ -9,11 +9,12 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 
-import NavGroup, {
+import {
   NAV_GROUP_LEFT_ICON_TEST_ID,
   NAV_GROUP_TEST_ID,
+  NavGroup,
 } from './NavGroup'
-import type NavGroupProps from './NavGroup.types'
+import type { NavGroupProps } from './NavGroup.types'
 
 describe('NavGroup Test >', () => {
   let props: NavGroupProps

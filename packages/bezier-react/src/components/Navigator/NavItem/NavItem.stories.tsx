@@ -12,8 +12,8 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 
-import NavItem from './NavItem'
-import type NavItemProps from './NavItem.types'
+import { NavItem } from './NavItem'
+import type { NavItemProps } from './NavItem.types'
 
 const meta: Meta = {
   component: NavItem,

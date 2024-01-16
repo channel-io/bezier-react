@@ -21,9 +21,20 @@ import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
 
+/**
+ * @deprecated
+ * FIXME: Styling dependent on specific applications.
+ */
+const GNB_WIDTH = 68
+
 function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
+  offset = {
+    left: GNB_WIDTH,
+    right: 0,
+    bottom: 0,
+  },
   children = [],
 }: ToastProviderProps) {
   const { rootElement } = useWindow()
@@ -41,6 +52,7 @@ function ToastProvider({
     <ToastContainer
       key={placement}
       placement={placement}
+      offset={offset}
     >
       { toasts.map(({
         autoDismiss,
@@ -78,6 +90,7 @@ function ToastProvider({
   ), [
     autoDismissTimeout,
     dismiss,
+    offset,
   ])
 
   return (

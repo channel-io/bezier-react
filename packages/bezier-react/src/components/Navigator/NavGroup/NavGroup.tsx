@@ -1,13 +1,10 @@
-import React, {
-  forwardRef,
-  memo,
-  useCallback,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import {
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 import { noop } from '~/src/utils/function'
 import { isNil } from '~/src/utils/type'
@@ -16,106 +13,99 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import commonStyles from '~/src/components/Navigator/Navigator.module.scss'
 import { Text } from '~/src/components/Text'
 
-import type NavGroupProps from './NavGroup.types'
+import type { NavGroupProps } from './NavGroup.types'
 
-import {
-  ChevronWrapper,
-  ChildrenWrapper,
-  Item,
-  LeftIconWrapper,
-  RightContentWrapper,
-  Wrapper,
-} from './NavGroup.styled'
+import styles from './NavGroup.module.scss'
 
 export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
 export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
 
-const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup({
-  as,
-  testId = NAV_GROUP_TEST_ID,
-  name,
-  style,
-  className,
-  interpolation,
-  children,
-  content,
-  rightContent,
-  leftIcon,
-  open,
-  active,
-  onClick = noop,
-  ...rest
-}, forwardedRef) {
-  const handleClickItem = useCallback((e?: React.MouseEvent) => {
-    onClick(e, name)
-  }, [
+export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup(props, forwardedRef) {
+  const {
+    testId = NAV_GROUP_TEST_ID,
     name,
-    onClick,
-  ])
+    className,
+    children,
+    content,
+    rightContent,
+    leftIcon,
+    open,
+    active,
+    onClick = noop,
+    ...rest
+  } = props
+
+  const handleClickItem = (e?: React.MouseEvent) => {
+    onClick(e, name)
+  }
 
   const hasChildren = !isNil(children)
   const chevronIconSource = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
   const ariaName = `${name}Menu`
 
   return (
-    <Wrapper role="none">
-      <Item
-        {...rest}
+    <li
+      className={commonStyles.Wrapper}
+      role="none"
+    >
+      <button
         ref={forwardedRef}
-        as={as}
-        active={active}
-        style={style}
-        className={className}
-        interpolation={interpolation}
-        onClick={handleClickItem}
+        type="button"
+        className={classNames(
+          commonStyles.Item,
+          active && commonStyles.active,
+          className,
+        )}
         data-testid={testId}
         role="menuitem"
         aria-haspopup={hasChildren}
         aria-expanded={open}
         aria-controls={ariaName}
+        onClick={handleClickItem}
+        {...rest}
       >
-        <LeftIconWrapper>
+        <div className={commonStyles.LeftIconWrapper}>
           <Icon
             testId={NAV_GROUP_LEFT_ICON_TEST_ID}
             source={leftIcon}
             size={IconSize.S}
             color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
           />
-        </LeftIconWrapper>
+        </div>
 
         <Text typo="14" truncated>
           { content }
         </Text>
 
         { hasChildren && (
-          <ChevronWrapper>
+          <div className={styles.ChevronWrapper}>
             <Icon
               source={chevronIconSource}
               size={IconSize.S}
               color="txt-black-dark"
             />
-          </ChevronWrapper>
+          </div>
         ) }
 
         { rightContent && (
-          <RightContentWrapper>
+          <div className={commonStyles.RightContentWrapper}>
             { rightContent }
-          </RightContentWrapper>
+          </div>
         ) }
-      </Item>
+      </button>
 
       { open && (
-        <ChildrenWrapper
+        <ul
+          className={styles.ChildrenWrapper}
           role="menu"
           id={ariaName}
         >
           { open && children }
-        </ChildrenWrapper>
+        </ul>
       ) }
-    </Wrapper>
+    </li>
   )
 })
-
-export default memo(NavGroup)

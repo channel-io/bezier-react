@@ -4,11 +4,12 @@ import { DotIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'
 
-import NavItem, {
+import {
   NAV_ITEM_LEFT_ICON_TEST_ID,
   NAV_ITEM_TEST_ID,
+  NavItem,
 } from './NavItem'
-import type NavItemProps from './NavItem.types'
+import type { NavItemProps } from './NavItem.types'
 
 describe('NavItem Test >', () => {
   let props: NavItemProps
