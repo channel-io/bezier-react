@@ -5,6 +5,8 @@ import React, {
   useState,
 } from 'react'
 
+import classNames from 'classnames'
+
 import useId from '~/src/hooks/useId'
 import { splitByBezierComponentProps } from '~/src/utils/props'
 import { px } from '~/src/utils/style'
@@ -26,6 +28,7 @@ import {
 } from './FormControl.types'
 import { FormControlContextProvider } from './FormControlContext'
 
+import styles from './FormControl.module.scss'
 import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
@@ -112,10 +115,8 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
+    className: classNames(styles.FormLabelWrapper, styles[`position-${labelPosition}`]),
     typo: labelPosition === 'top' ? '13' : '14',
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopLabelWrapper
-      : Styled.LeftLabelWrapper,
     ...ownProps,
   }), [
     fieldId,
@@ -139,9 +140,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: helperTextId,
     visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
     ref: setHelperTextNode,
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopHelperTextWrapper
-      : Styled.LeftHelperTextWrapper,
+    className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     helperTextId,
@@ -153,9 +152,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: errorMessageId,
     visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
     ref: setErrorMessageNode,
-    Wrapper: labelPosition === 'top'
-      ? Styled.TopHelperTextWrapper
-      : Styled.LeftHelperTextWrapper,
+    className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     errorMessageId,

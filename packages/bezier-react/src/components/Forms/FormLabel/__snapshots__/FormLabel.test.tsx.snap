@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormLabel > Snapshot > 1`] = `
-.c0 {
-  display: block;
-  text-align: left;
-  word-break: break-word;
-}
-
 <label
-  class="Text typo-13 bold margin c0"
+  class="Text typo-13 bold align-left margin LabelText"
   data-testid="bezier-react-form-label"
-  foundation="[object Object]"
   style="--b-text-color: var(--txt-black-darkest);"
 >
   label

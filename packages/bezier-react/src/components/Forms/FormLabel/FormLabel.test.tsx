@@ -4,8 +4,11 @@ import { render } from '~/src/utils/test'
 
 import Help, { HELP_TEST_ID } from '~/src/components/Help/Help'
 
-import FormLabel, { FORM_LABEL_TEST_ID } from './FormLabel'
-import type FormLabelProps from './FormLabel.types'
+import {
+  FORM_LABEL_TEST_ID,
+  FormLabel,
+} from './FormLabel'
+import { type FormLabelProps } from './FormLabel.types'
 
 describe('FormLabel >', () => {
   let props: FormLabelProps

@@ -38,6 +38,7 @@ const hasTransitionFoundation = (node: Node) => node.getText().includes('getTran
 const replaceTransitionsCSS = (sourceFile: SourceFile) => {
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
+      const oldSourceFile = sourceFile.getText()
       const transitionCallExpression = node
         .getDescendantsOfKind(SyntaxKind.CallExpression)
         .find(hasTransitionFoundation)
@@ -60,6 +61,10 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
               .replace(`\${${text}}\n` ?? '', transitionStyle),
           )
         })
+
+      if (oldSourceFile !== sourceFile.getText()) {
+        sourceFile.fixUnusedIdentifiers()
+      }
     }
   })
 }

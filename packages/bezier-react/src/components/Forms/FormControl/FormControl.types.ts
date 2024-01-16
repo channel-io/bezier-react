@@ -10,9 +10,15 @@ import type {
   FormFieldSize,
 } from '~/src/components/Forms'
 
+type LabelPosition = 'top' | 'left'
+
 interface FormControlOptions {
-  labelPosition?: 'top' | 'left'
   leftLabelWrapperHeight?: FormFieldSize
+  labelPosition?: LabelPosition
+}
+
+interface FormControlClassNameProps {
+  className: string
 }
 
 export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}
@@ -20,10 +26,6 @@ export interface FormControlContextCommonValue extends Partial<IdentifierProps> 
 export interface FormControlAriaProps {
   'aria-labelledby'?: string
   'aria-describedby'?: string
-}
-
-interface WrapperProps {
-  Wrapper: React.FunctionComponent<ChildrenProps>
 }
 
 interface CallbackRefProps {
@@ -34,11 +36,11 @@ type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & F
 
 export type GroupPropsGetter = PropsGetter<CallbackRefProps & FormControlAriaProps>
 
-export type LabelPropsGetter = PropsGetter<WrapperProps>
+export type LabelPropsGetter = PropsGetter<FormControlClassNameProps>
 
 export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
 
-export type HelperTextPropsGetter = PropsGetter<WrapperProps & CallbackRefProps & {
+export type HelperTextPropsGetter = PropsGetter<FormControlClassNameProps & CallbackRefProps & {
   visible: boolean
 }>
 
