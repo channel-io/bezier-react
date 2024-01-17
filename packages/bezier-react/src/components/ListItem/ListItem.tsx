@@ -50,6 +50,8 @@ function getNewLineComponent(value: string) {
   })
 }
 
+export const LIST_ITEM_TEST_ID = 'bezier-list-item'
+
 export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
   contentStyle,
@@ -57,7 +59,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   iconStyle,
   iconClassName,
   as,
-  testId = 'bezier-list-item',
+  testId = LIST_ITEM_TEST_ID,
   variant = ListItemVariant.Monochrome,
   size = ListItemSize.M,
   name,
