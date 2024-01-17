@@ -30,14 +30,13 @@ import {
 
 import styles from './ListItem.module.scss'
 
-const LINE_BREAK_CHAR = '\n'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
 type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
 function getNewLineComponent(value: string) {
-  return value.split(LINE_BREAK_CHAR).map((str, index) => {
+  return value.split('\n').map((str, index) => {
     if (index === 0) {
       return (
         <Text key={uuid()} typo="12">
