@@ -57,6 +57,24 @@ function getNewLineComponent(value: string) {
   })
 }
 
+function Link({
+  children,
+  href,
+  ...rest
+}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a
+      {...rest}
+      href={href}
+      draggable={false}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      { children }
+    </a>
+  )
+}
+
 function ListItem({
   className,
   contentStyle,
@@ -115,8 +133,27 @@ forwardedRef: React.Ref<ListItemRef>,
     onClick,
   ])
 
-  const Content = (
-    <>
+  const Comp = isHyperLink ? Link : (as ?? 'button') as 'button'
+
+  return (
+    <Comp
+      {...rest}
+      className={classNames(
+        styles.ListItem,
+        styles[`size-${size}`],
+        styles[`variant-${variant}`],
+        disabled && styles.disabled,
+        active && styles.active,
+        active && activeClassName,
+        className,
+      )}
+      ref={mergedRef}
+      type={Comp === 'button' ? 'button' : undefined}
+      disabled={disabled}
+      aria-pressed={active}
+      data-testid={testId}
+      onClick={handleClick}
+    >
       <div className={styles.ListItemContent}>
         { !isNil(leftContent)
           ? (
@@ -176,49 +213,8 @@ forwardedRef: React.Ref<ListItemRef>,
           { rightContent }
         </div>
       ) }
-    </>
+    </Comp>
   )
-
-  const commonProps = {
-    ref: mergedRef,
-    className: classNames(
-      styles.ListItem,
-      styles[`size-${size}`],
-      styles[`variant-${variant}`],
-      disabled && styles.disabled,
-      active && styles.active,
-      active && activeClassName,
-      className,
-    ),
-    'data-testid': testId,
-    onClick: handleClick,
-    ...rest,
-  }
-
-  const Comp = (as ?? 'button') as 'button'
-
-  return isHyperLink
-    ? (
-      <a
-        {...commonProps}
-        href={href}
-        draggable={false}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        { Content }
-      </a>
-    )
-    : (
-      <Comp
-        {...commonProps}
-        type={Comp === 'button' ? 'button' : undefined}
-        disabled={disabled}
-        aria-pressed={active}
-      >
-        { Content }
-      </Comp>
-    )
 }
 
 export default forwardRef(ListItem)
