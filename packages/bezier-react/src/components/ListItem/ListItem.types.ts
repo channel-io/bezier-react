@@ -5,11 +5,11 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import type {
   ActivatableProps,
   AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ContentProps,
   DisableProps,
   LinkProps,
-  OptionItemProps,
+  PolymorphicProps,
   SideContentProps,
   SizeProps,
   VariantProps,
@@ -45,14 +45,14 @@ interface ListItemOptions {
 }
 
 export default interface ListItemProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  PolymorphicProps,
   SizeProps<ListItemSize>,
   VariantProps<ListItemVariant>,
   ContentProps,
   SideContentProps,
   LinkProps,
   DisableProps,
-  ActivatableProps,
-  OptionItemProps,
+  Pick<ActivatableProps, 'active' | 'activeClassName'>,
   AdditionalStylableProps<['icon', 'content']>,
   ListItemOptions {}
