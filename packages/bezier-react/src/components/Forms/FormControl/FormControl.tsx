@@ -189,6 +189,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     formCommonProps,
   ])
 
+  // TODO: fix to className when FormFieldSize can be shared
   const containerStyle = useMemo(() => ({
     ...style,
     '--b-form-control-left-label-wrapper-height': px(leftLabelWrapperHeight),
