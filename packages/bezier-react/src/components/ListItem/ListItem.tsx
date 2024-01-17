@@ -33,7 +33,7 @@ import styles from './ListItem.module.scss'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
 
-type ListItemRef = HTMLDivElement & HTMLAnchorElement
+type ListItemRef = HTMLButtonElement & HTMLAnchorElement
 
 function getNewLineComponent(value: string) {
   return value.split('\n').map((str, index) => {
