@@ -30,18 +30,13 @@ export enum ListItemVariant {
   Monochrome = 'monochrome',
 }
 
-type MouseEventHandler = React.MouseEventHandler
-
-interface ListItemOptions {
+interface ListItemOwnProps {
   name?: string
   leftIcon?: BezierIcon
   focused?: boolean
   description?: React.ReactNode
   descriptionMaxLines?: number
   onClick?: (e: React.MouseEvent, name?: string) => void
-  onMouseDown?: MouseEventHandler
-  onMouseEnter?: MouseEventHandler
-  onMouseLeave?: MouseEventHandler
 }
 
 export default interface ListItemProps extends
@@ -54,5 +49,7 @@ export default interface ListItemProps extends
   LinkProps,
   DisableProps,
   Pick<ActivatableProps, 'active' | 'activeClassName'>,
+  // TODO: AlphaAdditionalStylableProps
   AdditionalStylableProps<['icon', 'content']>,
-  ListItemOptions {}
+  Omit<React.HTMLAttributes<HTMLElement>, 'onClick' | 'content'>,
+  ListItemOwnProps {}

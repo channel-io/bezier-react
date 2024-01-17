@@ -74,7 +74,7 @@ function Link({
   )
 }
 
-function ListItem({
+export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
   contentStyle,
   contentClassName,
@@ -98,9 +98,7 @@ function ListItem({
   href = '',
   onClick = noop,
   ...rest
-}: ListItemProps,
-forwardedRef: React.Ref<ListItemRef>,
-) {
+}, forwardedRef) {
   const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
 
   const mergedRef = useMergeRefs(
@@ -120,7 +118,7 @@ forwardedRef: React.Ref<ListItemRef>,
     listItemElement,
   ])
 
-  const handleClick = useCallback((e: React.MouseEvent) => {
+  const handleClick = useCallback<React.MouseEventHandler<ListItemRef>>((e) => {
     if (!disabled) {
       onClick(e, name)
     }
@@ -212,6 +210,4 @@ forwardedRef: React.Ref<ListItemRef>,
       ) }
     </Comp>
   )
-}
-
-export default forwardRef(ListItem)
+})
