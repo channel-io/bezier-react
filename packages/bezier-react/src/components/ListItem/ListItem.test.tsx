@@ -11,9 +11,9 @@ import { LightFoundation } from '~/src/foundation'
 
 import { render } from '~/src/utils/test'
 
-import ListItem, { LIST_ITEM_TEST_ID } from './ListItem'
-import type ListItemProps from './ListItem.types'
+import { ListItem } from './ListItem'
 import {
+  type ListItemProps,
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'

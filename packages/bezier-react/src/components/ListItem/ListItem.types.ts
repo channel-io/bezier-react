@@ -39,7 +39,7 @@ interface ListItemOwnProps {
   onClick?: (e: React.MouseEvent, name?: string) => void
 }
 
-export default interface ListItemProps extends
+export interface ListItemProps extends
   AlphaBezierComponentProps,
   PolymorphicProps,
   SizeProps<ListItemSize>,

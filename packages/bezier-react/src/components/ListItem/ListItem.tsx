@@ -22,8 +22,8 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import type ListItemProps from './ListItem.types'
 import {
+  type ListItemProps,
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'

@@ -12,9 +12,9 @@ import {
 
 import { compact } from '~/src/utils/array'
 
-import ListItem from './ListItem'
-import type ListItemProps from './ListItem.types'
+import { ListItem } from './ListItem'
 import {
+  type ListItemProps,
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
