@@ -4,7 +4,7 @@ export const OVERLAY_POSITION1 = {
 }
 
 export const OVERLAY_POSITION2 = {
-  zIndex: 'var(--z-index-float)',
+  zIndex: 'var(--z-index-floating)',
 }
 
 export const OVERLAY_POSITION3 = {

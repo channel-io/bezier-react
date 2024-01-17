@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `
 
 const Wrapper = styled.div`
-  z-index: var(--z-index-float);
+  z-index: var(--z-index-floating);
 `
 
 const Wrapper = styled.div`

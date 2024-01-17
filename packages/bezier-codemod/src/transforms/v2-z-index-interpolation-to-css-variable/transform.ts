@@ -9,7 +9,7 @@ const CSS_VARIABLE_TRANSFORM_MAP = {
   'ZIndex.Hide': 'var(--z-index-hidden);',
   'ZIndex.Auto': 'var(--z-index-auto);',
   'ZIndex.Base': 'var(--z-index-base);',
-  'ZIndex.Float': 'var(--z-index-float);',
+  'ZIndex.Float': 'var(--z-index-floating);',
   'ZIndex.Overlay': 'var(--z-index-overlay);',
   'ZIndex.Modal': 'var(--z-index-modal);',
   'ZIndex.Toast': 'var(--z-index-toast);',
@@ -21,7 +21,7 @@ const ENUM_TRANSFORM_MAP = {
   ZIndex: {
     Hide: 'var(--z-index-hidden)',
     Base: 'var(--z-index-base)',
-    Float: 'var(--z-index-float)',
+    Float: 'var(--z-index-floating)',
     Overlay: 'var(--z-index-overlay)',
     Modal: 'var(--z-index-modal)',
     Toast: 'var(--z-index-toast)',
