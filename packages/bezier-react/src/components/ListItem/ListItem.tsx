@@ -27,17 +27,12 @@ import {
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
-import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 
 import styles from './ListItem.module.scss'
 
 const LINE_BREAK_CHAR = '\n'
 
 export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
-
-function filterActiveItem(node: HTMLElement) {
-  return node.dataset.active === 'true'
-}
 
 type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
@@ -109,8 +104,6 @@ forwardedRef: React.Ref<ListItemRef>,
     focused,
     listItemElement,
   ])
-
-  useAdjacentElementBorderRadius(listItemElement, filterActiveItem, active)
 
   const handleClick = useCallback((e: React.MouseEvent) => {
     if (!disabled) {
@@ -186,11 +179,6 @@ forwardedRef: React.Ref<ListItemRef>,
     </>
   )
 
-  const commonDataAttr = {
-    'data-active': active,
-    'data-testid': testId,
-  }
-
   const commonProps = {
     ref: mergedRef,
     className: classNames(
@@ -202,6 +190,7 @@ forwardedRef: React.Ref<ListItemRef>,
       active && activeClassName,
       className,
     ),
+    'data-testid': testId,
     onClick: handleClick,
     ...rest,
   }
@@ -211,7 +200,6 @@ forwardedRef: React.Ref<ListItemRef>,
   return isHyperLink
     ? (
       <a
-        {...commonDataAttr}
         {...commonProps}
         href={href}
         draggable={false}
@@ -223,7 +211,6 @@ forwardedRef: React.Ref<ListItemRef>,
     )
     : (
       <Comp
-        {...commonDataAttr}
         {...commonProps}
         type={Comp === 'button' ? 'button' : undefined}
         disabled={disabled}

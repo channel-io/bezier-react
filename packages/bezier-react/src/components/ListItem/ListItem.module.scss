@@ -16,22 +16,29 @@
 
   transition: background-color var(--transition-s);
 
+  &:where(.size-s) {
+    padding: 4px 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-m) {
+    padding: 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-l) {
+    padding: 8px 6px;
+    border-radius: var(--radius-8);
+  }
+
+  &:where(.size-xl) {
+    padding: 10px 6px;
+    border-radius: var(--radius-12);
+  }
+
   &:where(.disabled) {
     cursor: default;
     opacity: var(--opacity-disabled);
-  }
-
-  &:where(.active) {
-    color: var(--bgtxt-blue-normal);
-    background-color: var(--bgtxt-blue-lightest);
-
-    &:where(:focus-visible) {
-      background-color: var(--bgtxt-blue-lighter);
-    }
-
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
-    }
   }
 
   &:where(:not(:disabled, .active)) {
@@ -52,24 +59,30 @@
     }
   }
 
-  &:where(.size-s) {
-    padding: 4px 6px;
-    border-radius: var(--radius-6);
-  }
+  &:where(.active) {
+    color: var(--bgtxt-blue-normal);
+    background-color: var(--bgtxt-blue-lightest);
 
-  &:where(.size-m) {
-    padding: 6px;
-    border-radius: var(--radius-6);
-  }
+    &:where(:focus-visible) {
+      background-color: var(--bgtxt-blue-lighter);
+    }
 
-  &:where(.size-l) {
-    padding: 8px 6px;
-    border-radius: var(--radius-8);
-  }
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-blue-normal);
+    }
 
-  &:where(.size-xl) {
-    padding: 10px 6px;
-    border-radius: var(--radius-12);
+    /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
+    /* stylelint-disable selector-max-specificity */
+    &:has(+ .ListItem.active) {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    & + .ListItem.active {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    /* stylelint-enable selector-max-specificity */
   }
 
   &.variant-blue {
