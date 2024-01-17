@@ -92,7 +92,7 @@ function ListItem({
   leftIcon,
   leftContent,
   rightContent = null,
-  active: activeProp,
+  active,
   activeClassName,
   focused = false,
   disabled = false,
@@ -104,15 +104,13 @@ forwardedRef: React.Ref<ListItemRef>,
 ) {
   const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
 
-  const setListItemRef = useCallback((node: ListItemRef | null) => {
-    if (!node) { return }
-    setListItemElement(node)
-  }, [])
-
-  const mergedRef = useMergeRefs<ListItemRef>(setListItemRef, forwardedRef)
-
-  const isHyperLink = !isEmpty(href)
-  const active = isHyperLink ? false : activeProp
+  const mergedRef = useMergeRefs(
+    useCallback((node: ListItemRef | null) => {
+      if (!node) { return }
+      setListItemElement(node)
+    }, []),
+    forwardedRef,
+  )
 
   useEffect(function focus() {
     if (focused && listItemElement) {
@@ -133,7 +131,7 @@ forwardedRef: React.Ref<ListItemRef>,
     onClick,
   ])
 
-  const Comp = isHyperLink ? Link : (as ?? 'button') as 'button'
+  const Comp = !isEmpty(href) ? Link : (as ?? 'button') as 'button'
 
   return (
     <Comp
