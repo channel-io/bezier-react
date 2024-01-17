@@ -68,7 +68,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   descriptionMaxLines,
   leftIcon,
   leftContent,
-  rightContent = null,
+  rightContent,
   active,
   activeClassName,
   focused = false,
