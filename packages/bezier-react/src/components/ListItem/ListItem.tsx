@@ -30,9 +30,6 @@ import {
 
 import styles from './ListItem.module.scss'
 
-
-export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
-
 type ListItemRef = HTMLButtonElement & HTMLAnchorElement
 
 function getNewLineComponent(value: string) {
@@ -81,7 +78,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   iconStyle,
   iconClassName,
   as,
-  testId = LIST_ITEM_TEST_ID,
+  testId = 'bezier-list-item',
   variant = ListItemVariant.Monochrome,
   size = ListItemSize.M,
   name,
