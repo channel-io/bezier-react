@@ -1,14 +1,11 @@
 import React, {
   forwardRef,
   useCallback,
-  useEffect,
-  useState,
 } from 'react'
 
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import {
   isEmpty,
@@ -78,25 +75,6 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   onClick = noop,
   ...rest
 }, forwardedRef) {
-  const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
-
-  const mergedRef = useMergeRefs(
-    useCallback((node: ListItemRef | null) => {
-      if (!node) { return }
-      setListItemElement(node)
-    }, []),
-    forwardedRef,
-  )
-
-  useEffect(function focus() {
-    if (focused && listItemElement) {
-      listItemElement.focus()
-    }
-  }, [
-    focused,
-    listItemElement,
-  ])
-
   const handleClick = useCallback<React.MouseEventHandler<ListItemRef>>((e) => {
     if (!disabled) {
       onClick(e, name)
@@ -129,7 +107,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
         active && activeClassName,
         className,
       )}
-      ref={mergedRef}
+      ref={forwardedRef}
       data-testid={testId}
       onClick={handleClick}
     >
