@@ -163,6 +163,10 @@ const Wrapper = styled.div`
   ${inputWrapperStyle};
 
   ${({ focus }) => focus && focusedInputWrapperStyle};
+
+  ${erroredInputWrapperStyle};
+
+  ${inputPlaceholderStyle};
 `;
 ```
 
@@ -179,6 +183,12 @@ const Wrapper = styled.div`
     css`
       box-shadow: var(--input-box-shadow-focused);
     `};
+
+  box-shadow: var(--input-box-shadow-invalid);
+
+  &::placeholder {
+    color: var(--txt-black-dark);
+  }
 `;
 ```
 
