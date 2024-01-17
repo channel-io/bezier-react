@@ -93,24 +93,9 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
 `;
 
 exports[`FormControl > Snapshot > With multiple field and left label position 1`] = `
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  display: grid;
-  grid-template-rows: repeat(2,auto);
-  grid-template-columns: 150px 1fr;
-  grid-column-gap: 12px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 <div>
   <div
-    class="c0 c1"
+    class="Grid"
     data-testid="bezier-react-form-control"
     style="--b-form-control-left-label-wrapper-height: 36px;"
   >
@@ -239,23 +224,8 @@ exports[`FormControl > Snapshot > With single field 1`] = `
 `;
 
 exports[`FormControl > Snapshot > With single field and left label position 1`] = `
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  display: grid;
-  grid-template-rows: repeat(2,auto);
-  grid-template-columns: 150px 1fr;
-  grid-column-gap: 12px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 <div
-  class="c0 c1"
+  class="Grid"
   data-testid="bezier-react-form-control"
   style="--b-form-control-left-label-wrapper-height: 36px;"
 >
