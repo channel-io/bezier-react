@@ -64,7 +64,9 @@ function getNewLineComponent(value: string) {
 
 function ListItem({
   className,
+  contentStyle,
   contentClassName,
+  iconStyle,
   iconClassName,
   as,
   testId = LIST_ITEM_TEST_ID,
@@ -132,6 +134,7 @@ forwardedRef: React.Ref<ListItemRef>,
           : !isNil(leftIcon) && (
             <div className={styles.ListItemLeftContent}>
               <Icon
+                style={iconStyle}
                 className={classNames(
                   styles.ListItemLeftIcon,
                   iconClassName,
@@ -142,10 +145,12 @@ forwardedRef: React.Ref<ListItemRef>,
             </div>
           ) }
 
-        <div className={classNames(
-          styles.ListItemTitle,
-          contentClassName,
-        )}
+        <div
+          style={contentStyle}
+          className={classNames(
+            styles.ListItemTitle,
+            contentClassName,
+          )}
         >
           { isString(content) ? (
             <Text
