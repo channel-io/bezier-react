@@ -11,8 +11,6 @@
   display: flex;
   align-items: center;
 
-  width: 100%;
-
   color: var(--txt-black-darkest);
   text-decoration: none;
 
@@ -43,8 +41,8 @@
     opacity: var(--opacity-disabled);
   }
 
-  &:where(:not(:disabled, .active)) {
-    &:where(:focus-visible) {
+  &:where(:not(.disabled, .active)) {
+    &:where(.focused, :focus-visible) {
       background-color: var(--bg-black-lighter);
 
       & :where(.ListItemLeftIcon) {
@@ -65,7 +63,7 @@
     color: var(--bgtxt-blue-normal);
     background-color: var(--bgtxt-blue-lightest);
 
-    &:where(:focus-visible) {
+    &:where(.focused, :focus-visible) {
       background-color: var(--bgtxt-blue-lighter);
     }
 

@@ -30,7 +30,7 @@ import {
 
 import styles from './ListItem.module.scss'
 
-type ListItemRef = HTMLButtonElement & HTMLAnchorElement
+type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
 function getNewLineComponent(value: string) {
   return value.split('\n').map((str, index) => {
@@ -108,7 +108,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   ])
 
   const isLink = !isEmpty(href)
-  const Comp = isLink ? 'a' : (as ?? 'button') as 'button'
+  const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
 
   return (
     <Comp
@@ -124,14 +124,12 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
         styles[`size-${size}`],
         styles[`variant-${variant}`],
         disabled && styles.disabled,
+        focused && styles.focused,
         active && styles.active,
         active && activeClassName,
         className,
       )}
       ref={mergedRef}
-      type={Comp === 'button' ? 'button' : undefined}
-      disabled={disabled}
-      aria-pressed={active}
       data-testid={testId}
       onClick={handleClick}
     >
