@@ -30,3 +30,7 @@ const Wrapper = styled.div`
 const Wrapper = styled.div`
   box-shadow: var(--input-box-shadow-invalid);
 `
+
+const Wrapper = styled.div`
+  &::placeholder { color: var(--txt-black-dark); };
+`

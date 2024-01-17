@@ -3,6 +3,7 @@ import {
   inputWrapperStyle, 
   focusedInputWrapperStyle, 
   erroredInputWrapperStyle,
+  inputPlaceholderStyle,
 } from '@channel.io/bezier-react'
 
 const Wrapper = styled.div`
@@ -28,4 +29,8 @@ const Wrapper = styled.div`
 
 const Wrapper = styled.div`
   ${erroredInputWrapperStyle};
+`
+
+const Wrapper = styled.div`
+  ${inputPlaceholderStyle};
 `
