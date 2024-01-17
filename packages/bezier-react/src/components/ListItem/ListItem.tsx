@@ -77,11 +77,7 @@ function ListItem({
   leftIcon,
   variant = ListItemVariant.Monochrome,
   href = '',
-  // TOOD: deprecate
-  // hide = false,
   rightContent = null,
-  // TOOD: deprecate
-  // optionKey,
   active: activeProp,
   activeClassName,
   focused = false,

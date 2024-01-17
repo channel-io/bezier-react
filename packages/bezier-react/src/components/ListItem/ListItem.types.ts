@@ -34,13 +34,10 @@ type MouseEventHandler = React.MouseEventHandler
 
 interface ListItemOptions {
   name?: string
-  hide?: boolean
-  nested?: boolean
   leftIcon?: BezierIcon
   focused?: boolean
-  disableIconActive?: boolean
-  descriptionMaxLines?: number
   description?: React.ReactNode
+  descriptionMaxLines?: number
   onClick?: (e: React.MouseEvent, name?: string) => void
   onMouseDown?: MouseEventHandler
   onMouseEnter?: MouseEventHandler
