@@ -53,24 +53,6 @@ function getNewLineComponent(value: string) {
   })
 }
 
-function Link({
-  children,
-  href,
-  ...rest
-}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return (
-    <a
-      {...rest}
-      href={href}
-      draggable={false}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      { children }
-    </a>
-  )
-}
-
 export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
   contentStyle,
@@ -125,11 +107,18 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
     onClick,
   ])
 
-  const Comp = !isEmpty(href) ? Link : (as ?? 'button') as 'button'
+  const isLink = !isEmpty(href)
+  const Comp = isLink ? 'a' : (as ?? 'button') as 'button'
 
   return (
     <Comp
       {...rest}
+      {...isLink && {
+        href,
+        draggable: false,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }}
       className={classNames(
         styles.ListItem,
         styles[`size-${size}`],
