@@ -29,7 +29,6 @@ import {
 import { FormControlContextProvider } from './FormControlContext'
 
 import styles from './FormControl.module.scss'
-import * as Styled from './FormControl.styled'
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
@@ -37,16 +36,18 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
   labelPosition,
   children,
   testId,
+  className,
   ...rest
 }, forwardedRef) {
   switch (labelPosition) {
     case 'top':
       return (
         <Stack
+          {...rest}
+          className={className}
           ref={forwardedRef}
           direction="vertical"
           testId={testId}
-          {...rest}
         >
           { children }
         </Stack>
@@ -55,13 +56,17 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
     case 'left':
     default:
       return (
-        <Styled.Grid
-          ref={forwardedRef as React.ForwardedRef<HTMLDivElement>}
-          data-testid={testId}
+        <div
           {...rest}
+          ref={forwardedRef as React.ForwardedRef<HTMLDivElement>}
+          className={classNames(
+            styles.Grid,
+            className,
+          )}
+          data-testid={testId}
         >
           { children }
-        </Styled.Grid>
+        </div>
       )
   }
 })

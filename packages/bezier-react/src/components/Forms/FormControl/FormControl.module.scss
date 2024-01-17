@@ -1,3 +1,12 @@
+.Grid {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 150px 1fr;
+  grid-column-gap: 12px;
+  align-items: center;
+}
+
 .FormLabelWrapper {
   &:where(.position-top) {
     margin-bottom: 4px;
