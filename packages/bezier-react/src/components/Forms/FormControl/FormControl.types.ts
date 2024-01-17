@@ -1,6 +1,5 @@
 import type {
   AlphaBezierComponentProps,
-  BezierComponentProps,
   ChildrenProps,
   IdentifierProps,
 } from '~/src/types/ComponentProps'
@@ -12,7 +11,7 @@ import type {
 
 type LabelPosition = 'top' | 'left'
 
-interface FormControlOptions {
+interface FormControlOwnProps {
   leftLabelWrapperHeight?: FormFieldSize
   labelPosition?: LabelPosition
 }
@@ -61,10 +60,10 @@ export interface FormControlContextValue extends FormComponentProps {
 export interface ContainerProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  Pick<FormControlOptions, 'labelPosition'> {}
+  Pick<FormControlOwnProps, 'labelPosition'> {}
 
 export interface FormControlProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   FormComponentProps,
-  FormControlOptions {}
+  FormControlOwnProps {}
