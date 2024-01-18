@@ -13,6 +13,10 @@ import type {
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
+export interface OutlineItemContextProps {
+  paddingLeft: number
+}
+
 interface OutlineItemOptions {
   open?: boolean
   active?: boolean

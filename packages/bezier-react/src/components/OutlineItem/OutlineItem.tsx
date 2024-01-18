@@ -1,4 +1,7 @@
-import React, { forwardRef } from 'react'
+import React, {
+  forwardRef,
+  useMemo,
+} from 'react'
 
 import {
   ChevronSmallDownIcon,
@@ -7,7 +10,7 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
+import { createContext } from '~/src/utils/react'
 import {
   isEmpty,
   isNil,
@@ -20,47 +23,42 @@ import {
 import { Text } from '~/src/components/Text'
 
 import type OutlineItemProps from './OutlineItem.types'
-import {
-  OutlineItemContextProvider,
-  useOutlineItemContext,
-} from './OutlineItemContext'
+import { type OutlineItemContextProps } from './OutlineItem.types'
 
 import styles from './OutlineItem.module.scss'
-
-const LIST_GROUP_PADDING_LEFT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
 export const OUTLINE_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-outline-item-left-icon'
 
+const [
+  OutlineItemContextProvider,
+  useOutlineItemContext,
+] = createContext<OutlineItemContextProps | undefined>(undefined)
+
 function OutlineItem(
   {
+    children,
     as,
     testId = OUTLINE_ITEM_TEST_ID,
     leftIconTestId = OUTLINE_ITEM_LEFT_ICON_TEST_ID,
     style,
     className,
-    paddingLeft: givenPaddingLeft,
+    paddingLeft: paddingLeftProp,
     open = false,
-    active: givenActive,
+    active = false,
     focused = false,
     leftContent,
     disableChevron = false,
     href,
     content = null,
     rightContent = null,
-    /* HTMLAttribute props */
-    onClick: givenOnClick = noop,
-    children,
+    ...rest
   }: OutlineItemProps,
   forwardedRef: React.Ref<HTMLElement>,
 ) {
-  const outlineItemContext = useOutlineItemContext({
-    paddingLeft: givenPaddingLeft,
-    active: givenActive,
-    onClick: givenOnClick,
-  }, LIST_GROUP_PADDING_LEFT)
-
-  const { paddingLeft, active, onClick } = outlineItemContext
+  const context = useOutlineItemContext()
+  const isRoot = isNil(context)
+  const paddingLeft = (isRoot ? 0 : context.paddingLeft + 16) + (paddingLeftProp ?? 0)
 
   const isLink = !isEmpty(href)
   const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
@@ -68,6 +66,7 @@ function OutlineItem(
   return (
     <>
       <Comp
+        {...rest}
         {...isLink && {
           href,
           target: '_blank',
@@ -85,7 +84,6 @@ function OutlineItem(
         )}
         ref={forwardedRef}
         data-testid={testId}
-        onClick={onClick}
       >
         { !disableChevron && (
           <div className={styles.Chevron}>
@@ -127,11 +125,9 @@ function OutlineItem(
         { rightContent }
       </Comp>
 
-      { open && (
-        <OutlineItemContextProvider value={outlineItemContext}>
-          { children }
-        </OutlineItemContextProvider>
-      ) }
+      <OutlineItemContextProvider value={useMemo(() => ({ paddingLeft }), [paddingLeft])}>
+        { open && children }
+      </OutlineItemContextProvider>
     </>
   )
 }
