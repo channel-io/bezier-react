@@ -1,6 +1,7 @@
 import { testTransformFunction } from '../../utils/test.js'
 
 import inputTransform from './input.js'
+import roundTransform from './rounding.js'
 import typographyTransform from './typography.js'
 import zIndexTransform from './zIndex.js'
 
@@ -13,6 +14,12 @@ describe('typography interpolation transform', () => {
 describe('input interpolation transform', () => {
   it('should transform input interpolation to css variable', () => {
     testTransformFunction(__dirname, 'input-interpolation', inputTransform)
+  })
+})
+
+describe('rounding interpolation transform', () => {
+  it('should transform round interpolation to css variable', () => {
+    testTransformFunction(__dirname, 'rounding-interpolation', roundTransform)
   })
 })
 
