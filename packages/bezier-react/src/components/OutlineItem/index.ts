@@ -1,10 +1,3 @@
-import OutlineItem from './OutlineItem'
-import type OutlineItemProps from './OutlineItem.types'
+export { OutlineItem } from './OutlineItem'
 
-export type {
-  OutlineItemProps,
-}
-
-export {
-  OutlineItem,
-}
+export type { OutlineItemProps } from './OutlineItem.types'
