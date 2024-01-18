@@ -2,7 +2,7 @@
 @use '../../../styles/mixins/interaction';
 
 .CheckIcon {
-  @include position.center;
+  @include position.absolute-center;
 
   position: absolute;
   z-index: var(--z-index-floating);
