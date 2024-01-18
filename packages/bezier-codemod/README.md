@@ -207,6 +207,47 @@ const Wrapper = styled.div`
 `;
 ```
 
+**`v2-z-index-interpolation-to-css-variable`**
+
+Replace z-index interpolation and z-index enum with css variable
+For example:
+
+```tsx
+import { ZIndex, styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  z-index: ${ZIndex.Hide};
+`;
+```
+
+Transforms into:
+
+```tsx
+import { styled } from "@channel.io/bezier-react";
+
+const Wrapper = styled.div`
+  z-index: var(--z-index-hidden);
+`;
+```
+
+Also,
+
+```tsx
+import { ZIndex } from "@channel.io/bezier-react";
+
+export const OVERLAY_POSITION1 = {
+  zIndex: ZIndex.Modal,
+};
+```
+
+Transforms into:
+
+```tsx
+export const OVERLAY_POSITION1 = {
+  zIndex: "var(--z-index-modal)",
+};
+```
+
 ### import directly from styled-components
 
 **`v2-import-from-bezier-to-styled-components`**
