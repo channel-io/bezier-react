@@ -114,6 +114,9 @@ type AdditionalClassNameProps<ElementName extends PropNameType> =
 type AdditionalInterpolationProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'interpolation', InjectedInterpolation>
 
+/**
+ * @deprecated Migration to `AdditionalStylableProps` is in progress.
+ */
 export type AdditionalStylableProps<ElementName extends PropNameType> =
   AdditionalStyleProps<ElementName> &
   AdditionalClassNameProps<ElementName> &
@@ -133,6 +136,13 @@ export interface ActivatableProps extends AdditionalStylableProps<'active'> {
 export interface LinkProps {
   href?: string
 }
+
+/**
+ * TODO: Remove Alpha prefix after removing styled-components dependency.
+ */
+export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
+  AdditionalStyleProps<ElementName> &
+  AdditionalClassNameProps<ElementName>
 
 /**
  * TODO: Remove Alpha prefix after removing styled-components dependency.

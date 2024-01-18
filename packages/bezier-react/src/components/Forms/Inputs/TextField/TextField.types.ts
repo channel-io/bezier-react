@@ -4,8 +4,8 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
-  AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaAdditionalStylableProps,
+  AlphaBezierComponentProps,
   SideContentProps,
   SizeProps,
   VariantProps,
@@ -25,6 +25,9 @@ export enum TextFieldType {
   Number = 'number',
 }
 
+/**
+ * FIXME: Change to string literal type
+ */
 export enum TextFieldSize {
   XL = FormFieldSize.XL,
   L = FormFieldSize.L,
@@ -35,8 +38,8 @@ export enum TextFieldSize {
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
 export enum TextFieldVariant {
-  Primary,
-  Secondary,
+  Primary = 'primary',
+  Secondary = 'secondary',
 }
 
 export type TextFieldItemProps = {
@@ -58,7 +61,7 @@ export interface TextFieldRef {
 type ChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type KeyboardEventHandler = React.KeyboardEventHandler<HTMLInputElement>
 
-interface TextFieldOptions {
+interface TextFieldOwnProps {
   type?: TextFieldType
   allowClear?: boolean
   selectAllOnInit?: boolean
@@ -74,11 +77,11 @@ interface TextFieldOptions {
 type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
+  AlphaBezierComponentProps,
+  AlphaAdditionalStylableProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
   FormComponentProps,
-  BezierComponentProps,
   SizeProps<TextFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
-  AdditionalStylableProps<['input', 'wrapper', 'leftWrapper', 'rightWrapper']>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
-  TextFieldOptions {}
+  TextFieldOwnProps {}
