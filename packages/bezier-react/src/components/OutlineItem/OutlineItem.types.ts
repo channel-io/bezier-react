@@ -13,11 +13,6 @@ import type {
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-export enum ChevronIconType {
-  Normal = 'chevron',
-  Small = 'chevron-small',
-}
-
 interface OutlineItemOptions {
   open?: boolean
   active?: boolean

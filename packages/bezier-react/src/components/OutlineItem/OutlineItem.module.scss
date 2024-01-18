@@ -26,7 +26,7 @@
     }
   }
 
-  &:where(:not(.active).focused) {
+  &:where(:not(.active):where(.focused, :hover)) {
     background-color: var(--bg-black-lighter);
   }
 }
