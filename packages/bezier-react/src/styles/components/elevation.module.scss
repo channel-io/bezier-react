@@ -1,23 +1,7 @@
-:where(.ev-1) {
-  box-shadow: var(--ev-1);
-}
+$elevations: 1, 2, 3, 4, 5, 6;
 
-:where(.ev-2) {
-  box-shadow: var(--ev-2);
-}
-
-:where(.ev-3) {
-  box-shadow: var(--ev-3);
-}
-
-:where(.ev-4) {
-  box-shadow: var(--ev-4);
-}
-
-:where(.ev-5) {
-  box-shadow: var(--ev-5);
-}
-
-:where(.ev-6) {
-  box-shadow: var(--ev-6);
+@each $ev in $elevations {
+  :where(.ev-#{$ev}) {
+    box-shadow: var(--ev-#{$ev});
+  }
 }
