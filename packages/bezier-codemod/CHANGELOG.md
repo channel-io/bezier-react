@@ -1,5 +1,39 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.4
+
+### Minor Changes
+
+- Fix typo in `v2-z-index-interpolation-to-css-variable` codemod. It now transforms `${ZIndex.Float}` enum to `var(--z-index-floating)`, not `var(--z-index-float)`. ([#1924](https://github.com/channel-io/bezier-react/pull/1924)) by @yangwooseong
+
+- Enhancement in `v2-foundation-to-css-variable-transition` codemod ([#1917](https://github.com/channel-io/bezier-react/pull/1917)) by @yangwooseong
+
+  - It will properly remove import statement if it converts code where `TransitionDuration` is used.
+
+- Add `v2-foundation-to-css-variable-spacing` codemod to convert the foundation's spacing variable to pixels ([#1907](https://github.com/channel-io/bezier-react/pull/1907)) by @yangwooseong
+
+  This transforms
+
+  ```tsx
+  import { styled } from "@channel.io/bezier-react";
+
+  export const Wrapper = styled.div`
+    padding: ${({ foundation }) => foundation?.spacing.s5};
+  `;
+  ```
+
+  into
+
+  ```tsx
+  import { styled } from "@channel.io/bezier-react";
+
+  export const Wrapper = styled.div`
+    padding: 12px;
+  `;
+  ```
+
+- Add `inputPlaceholderStyle` migration logic to `v2-input-interpolation-to-css-variable` codemod ([#1926](https://github.com/channel-io/bezier-react/pull/1926)) by @yangwooseong
+
 ## 0.5.0-alpha.3
 
 ### Minor Changes
