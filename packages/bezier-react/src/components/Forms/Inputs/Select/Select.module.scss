@@ -46,21 +46,21 @@
     background-color: var(--bg-grey-lighter);
   }
 
-  &:not(:disabled):where(.active, :focus) {
-    background-color: var(--bg-grey-lighter);
-    box-shadow: var(--input-box-shadow-focused);
-  }
-
   &.invalid {
     box-shadow: var(--input-box-shadow-invalid);
   }
 
-  &:disabled {
+  &:where(:disabled) {
     cursor: not-allowed;
     opacity: var(--opacity-disabled);
   }
 
-  &:not(.readonly, :disabled):where(:hover) {
+  &:where(:not(:disabled):where(.active, :focus)) {
+    background-color: var(--bg-grey-lighter);
+    box-shadow: var(--input-box-shadow-focused);
+  }
+
+  &:where(:not(.readonly, :disabled):hover) {
     background-color: var(--bg-grey-lighter);
   }
 }
