@@ -51,7 +51,7 @@ $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
   }
 
   @each $size in $typo-sizes {
-    &:where(.size-#{$size}) {
+    &:where(.typo-#{$size}) {
       @include typography.size($size);
     }
   }
