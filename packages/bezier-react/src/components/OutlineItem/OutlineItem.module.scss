@@ -1,0 +1,51 @@
+@use "../../styles/mixins/typography";
+
+.OutlineItem {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  height: 28px;
+  padding: 0 6px;
+  padding-left: var(--b-outline-item-indent);
+
+  color: var(--txt-black-darkest);
+  text-decoration: none;
+
+  border-radius: var(--radius-6);
+
+  transition: background-color var(--transition-s), color var(--transition-s);
+
+  &:where(.active) {
+    color: var(--bgtxt-blue-normal);
+    background-color: var(--bgtxt-blue-lightest);
+
+    & .Icon {
+      color: var(--bgtxt-blue-normal);
+    }
+  }
+
+  &:where(:not(.active).focused) {
+    background-color: var(--bg-black-lighter);
+  }
+}
+
+.Chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 100%;
+}
+
+.LeftContent {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.Content {
+  flex: 1;
+}
