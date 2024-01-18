@@ -37,9 +37,6 @@ import {
 
 import styles from './Select.module.scss'
 
-export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
-export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
-export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
 export const Select = forwardRef<SelectRef, SelectProps>(function Select({
@@ -62,9 +59,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownMarginY = 6,
   dropdownZIndex = 'overlay',
   dropdownPosition = OverlayPosition.BottomLeft,
-  testId = SELECT_CONTAINER_TEST_ID,
-  triggerTestId = SELECT_TRIGGER_TEST_ID,
-  triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
+  testId = 'bezier-react-select-container',
+  triggerTestId = 'bezier-react-select-trigger',
+  triggerTextTestId = 'bezier-react-select-trigger-text',
   dropdownTestId = SELECT_DROPDOWN_TEST_ID,
   onClickTrigger,
   onHideDropdown,
