@@ -20,6 +20,6 @@ export interface NavGroupProps extends
   ChildrenProps,
   ContentProps,
   Pick<SideContentProps, 'rightContent'>,
-  Pick<ActivatableProps, 'active'>,
+  ActivatableProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick' | 'content'>,
   NavGroupOwnProps {}

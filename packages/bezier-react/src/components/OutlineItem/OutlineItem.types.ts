@@ -45,6 +45,6 @@ export default interface OutlineItemProps extends
   AdditionalStylableProps<['content', 'icon']>,
   AdditionalColorProps<'leftIcon'>,
   AdditionalTestIdProps<'leftIcon'>,
-  Pick<ActivatableProps, 'active'>,
+  ActivatableProps,
   OptionItemProps,
   OutlineItemOptions {}
