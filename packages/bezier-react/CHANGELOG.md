@@ -1,5 +1,46 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.6
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `CheckableAvatar` component** ([#1921](https://github.com/channel-io/bezier-react/pull/1921)) by @sungik-choi
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `FormLabel`, `FormHelperText`, and `FormErrorMessage` component** ([#1893](https://github.com/channel-io/bezier-react/pull/1893)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Select` component** ([#1913](https://github.com/channel-io/bezier-react/pull/1913)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `dropdownInterpolation` property. Replace any usage of `dropdownInterpolation` property with appropriate `dropdownStyle` or `dropdownClassName` implementations.
+  - The type of `zIndex` property is changed to a z-index token. (e.g. `"modal"`)
+
+- **Breaking Changes: Property updates in `Radio` component** ([#1923](https://github.com/channel-io/bezier-react/pull/1923)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `NavItem` and `NavGroup` component** ([#1905](https://github.com/channel-io/bezier-react/pull/1905)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `TextField` component** ([#1904](https://github.com/channel-io/bezier-react/pull/1904)) by @sungik-choi
+
+  - No longer support `interpolation`-related properties. Replace any usage of `interpolation` -related properties with appropriate `***style` or `***className` implementations.
+  - No longer support `inputStyle` and `inputClassName` properties. Replace any usage of `inputStyle` and `inputClassName` with appropriate `style` or `className` implementations.
+  - Change the value of `TextFieldVariant` enum value to string.
+
+- **Breaking Changes: Property updates in `Checkbox` component** ([#1918](https://github.com/channel-io/bezier-react/pull/1918)) by @sungik-choi
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `TextArea` component** ([#1914](https://github.com/channel-io/bezier-react/pull/1914)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `wrapperStyle`, `wrapperClassName` and `wrapperInterpolation` property. It was never properly implemented before, and the Wrapper element inside was also removed.
+
 ## 2.0.0-alpha.5
 
 ### Major Changes
@@ -1505,6 +1546,7 @@
 ### Patch Changes
 
 - [#1077](https://github.com/channel-io/bezier-react/pull/1077) [`84e9eef7`](https://github.com/channel-io/bezier-react/commit/84e9eef79d8424fb3696bf1c5d419fed43bc500b) Thanks [@sungik-choi](https://github.com/sungik-choi)! - - Make the `Modal` overlay scrollable and enhance styling to work well when the `ModalBody` is used stand-alone.
+
   - Delete hide animation of the `Modal`.
 
 - [#1068](https://github.com/channel-io/bezier-react/pull/1068) [`65cdafa7`](https://github.com/channel-io/bezier-react/commit/65cdafa78b5551e39f657440ac54cc833c678163) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Change the `Text` component to use CSS Variable internally
