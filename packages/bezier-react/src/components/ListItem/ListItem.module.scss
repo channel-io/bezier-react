@@ -136,7 +136,7 @@
   grid-row: 1;
   align-items: center;
 
-  & span {
+  & * {
     transition: color var(--transition-s);
   }
 }
