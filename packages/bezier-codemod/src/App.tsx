@@ -29,9 +29,11 @@ import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-vari
 import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
 import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
 import importFromBezierToStyledComponents from './transforms/v2-import-from-bezier-to-styled-components/transform.js'
-import inputInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/input.js'
-import typographyInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/typography.js'
-import zIndexInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/zIndex.js'
+import interpolationToCssVariableInput from './transforms/v2-interpolation-to-css-variable/input.js'
+import interpolationToCssVariableRounding from './transforms/v2-interpolation-to-css-variable/rounding.js'
+import interpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/transform.js'
+import interpolationToCssVariableTypography from './transforms/v2-interpolation-to-css-variable/typography.js'
+import interpolationToCssVariableZIndex from './transforms/v2-interpolation-to-css-variable/zIndex.js'
 import removeAlphaFromAlphaComponents from './transforms/v2-remove-alpha-from-alpha-components/transform.js'
 import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
 
@@ -46,16 +48,21 @@ enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
   EnumMemberToStringLiteral = 'enum-member-to-string-literal',
+
+  V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
   V2FoundationToCssVariableTheme = 'v2-foundation-to-css-variable-theme',
   V2FoundationToCssVariableBorder = 'v2-foundation-to-css-variable-border',
   V2FoundationToCssVariableElevation = 'v2-foundation-to-css-variable-elevation',
   V2FoundationToCssVariableRounding = 'v2-foundation-to-css-variable-rounding',
   V2FoundationToCssVariableTransition = 'v2-foundation-to-css-variable-transition',
   V2FoundationToCssVariableSpacing = 'v2-foundation-to-css-variable-spacing',
-  V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
-  V2InputInterpolationToCssVariable = 'v2-input-interpolation-to-css-variable',
-  V2TypographyInterpolationToCssVariable = 'v2-typography-interpolation-to-css-variable',
-  V2ZIndexInterpolationToCssVariable = 'v2-z-index-interpolation-to-css-variable',
+
+  V2InterpolationToCssVariable = 'v2-interpolation-to-css-variable',
+  V2InterpolationToCssVariableInput = 'v2-interpolation-to-css-variable-input',
+  V2InterpolationToCssVariableTypography = 'v2-interpolation-to-css-variable-typography',
+  V2InterpolationToCssVariableZIndex = 'v2-interpolation-to-css-variable-z-index',
+  V2InterpolationToCssVariableRounding = 'v2-interpolation-to-css-variable-rounding',
+
   V2RemoveAlphaFromAlphaComponents = 'v2-remove-alpha-from-alpha-components',
   V2TextComponentInterface = 'v2-text-component-interface',
   V2ImportFromBezierToStyledComponents = 'v2-import-from-bezier-to-styled-components',
@@ -68,6 +75,7 @@ const transformMap = {
   [Option.IconsToBezierIcons]: iconsToBezierIcons,
   [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
   [Option.EnumMemberToStringLiteral]: enumMemberToStringLiteral,
+
   [Option.V2FoundationToCssVariableTheme]: foundationToCssVariableTheme,
   [Option.V2FoundationToCssVariableBorder]: foundationToCssVariableBorder,
   [Option.V2FoundationToCssVariableElevation]: foundationToCssVariableElevation,
@@ -75,11 +83,15 @@ const transformMap = {
   [Option.V2FoundationToCssVariableTransition]: foundationToCssVariableTransition,
   [Option.V2FoundationToCssVariableSpacing]: foundationToCssVariableSpacing,
   [Option.V2FoundationToCssVariable]: foundationToCssVariable,
-  [Option.V2InputInterpolationToCssVariable]: inputInterpolationToCssVariable,
-  [Option.V2TypographyInterpolationToCssVariable]: typographyInterpolationToCssVariable,
+
+  [Option.V2InterpolationToCssVariable]: interpolationToCssVariable,
+  [Option.V2InterpolationToCssVariableInput]: interpolationToCssVariableInput,
+  [Option.V2InterpolationToCssVariableTypography]: interpolationToCssVariableTypography,
+  [Option.V2InterpolationToCssVariableRounding]: interpolationToCssVariableRounding,
+  [Option.V2InterpolationToCssVariableZIndex]: interpolationToCssVariableZIndex,
+
   [Option.V2ImportFromBezierToStyledComponents]: importFromBezierToStyledComponents,
   [Option.V2RemoveAlphaFromAlphaComponents]: removeAlphaFromAlphaComponents,
-  [Option.V2ZIndexInterpolationToCssVariable]: zIndexInterpolationToCssVariable,
   [Option.V2TextComponentInterface]: textComponentInterface,
 }
 
