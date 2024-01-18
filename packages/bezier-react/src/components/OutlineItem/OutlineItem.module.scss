@@ -7,8 +7,7 @@
   align-items: center;
 
   height: 28px;
-  padding: 0 6px;
-  padding-left: calc(var(--b-outline-item-indent) + 6px);
+  padding: 0 6px 0 calc(var(--b-outline-item-indent) + 6px);
 
   color: var(--txt-black-darkest);
   text-decoration: none;
