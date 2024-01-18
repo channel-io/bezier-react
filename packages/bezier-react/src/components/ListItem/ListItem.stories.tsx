@@ -28,7 +28,7 @@ export const Primary: StoryObj<ListItemProps> = {
   args: {
     size: ListItemSize.S,
     content: '상담이 열릴 때',
-    leftIcon: InboxIcon,
+    leftContent: InboxIcon,
     description:
       '고객이 첫 메시지를 보내거나, 매니저가 상담을 다시 열거나, 자동으로 리오픈되면 트리거됩니다.',
   },
