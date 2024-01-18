@@ -70,7 +70,6 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   leftContent,
   rightContent,
   active,
-  activeClassName,
   focused = false,
   disabled = false,
   href = '',
@@ -106,7 +105,6 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
         disabled && styles.disabled,
         focused && styles.focused,
         active && styles.active,
-        active && activeClassName,
         className,
       )}
       ref={forwardedRef}

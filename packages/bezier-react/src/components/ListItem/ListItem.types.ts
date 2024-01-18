@@ -3,8 +3,7 @@ import type React from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
-  ActivatableProps,
-  AdditionalStylableProps,
+  AlphaAdditionalStylableProps,
   AlphaBezierComponentProps,
   ContentProps,
   DisableProps,
@@ -33,6 +32,7 @@ export enum ListItemVariant {
 interface ListItemOwnProps {
   name?: string
   leftIcon?: BezierIcon
+  active?: boolean
   focused?: boolean
   description?: React.ReactNode
   descriptionMaxLines?: number
@@ -48,8 +48,6 @@ export interface ListItemProps extends
   SideContentProps,
   LinkProps,
   DisableProps,
-  Pick<ActivatableProps, 'active' | 'activeClassName'>,
-  // TODO: AlphaAdditionalStylableProps
-  AdditionalStylableProps<['icon', 'content']>,
+  AlphaAdditionalStylableProps<['icon', 'content']>,
   Omit<React.HTMLAttributes<HTMLElement>, 'onClick' | 'content'>,
   ListItemOwnProps {}
