@@ -34,9 +34,9 @@ const [
   useOutlineItemContext,
 ] = createContext<OutlineItemContextProps | undefined>(undefined)
 
-export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
-
 const DEFAULT_INDENT = 16
+
+export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
 
 export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, OutlineItemProps>(function OutlineItem({
   children,
