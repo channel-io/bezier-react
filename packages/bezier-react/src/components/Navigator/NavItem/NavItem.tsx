@@ -28,22 +28,20 @@ export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
  * />
  * ```
  */
-export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem(props, forwardedRef) {
-  const {
-    testId = NAV_ITEM_TEST_ID,
-    name,
-    style,
-    className,
-    content,
-    href,
-    target = '_self',
-    rightContent,
-    leftIcon,
-    active,
-    onClick = noop,
-    ...rest
-  } = props
-
+export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
+  testId = NAV_ITEM_TEST_ID,
+  name,
+  style,
+  className,
+  content,
+  href,
+  target = '_self',
+  rightContent,
+  leftContent,
+  active,
+  onClick = noop,
+  ...rest
+}, forwardedRef) {
   const handleClickItem = (e?: React.MouseEvent) => {
     onClick(e, name)
   }
@@ -69,10 +67,10 @@ export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavI
         {...rest}
       >
         <div className={styles.LeftIconWrapper}>
-          { leftIcon && (
+          { leftContent && (
             <Icon
               testId={NAV_ITEM_LEFT_ICON_TEST_ID}
-              source={leftIcon}
+              source={leftContent}
               size={IconSize.S}
               color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
