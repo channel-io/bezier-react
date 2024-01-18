@@ -269,7 +269,7 @@ export const UsageComposite: StoryObj<{}> = {
             </LegacyStackItem>
             <LegacyStackItem>
               <ListItem
-                leftIcon={TagIcon}
+                leftContent={TagIcon}
                 content="KR/Product"
                 rightContent={(
                   <LegacyHStack>
@@ -295,7 +295,7 @@ export const UsageComposite: StoryObj<{}> = {
             </LegacyStackItem>
             <LegacyStackItem>
               <ListItem
-                leftIcon={TagIcon}
+                leftContent={TagIcon}
                 content="KR/Design"
                 rightContent={(
                   <LegacyHStack>
