@@ -1,15 +1,21 @@
 import React, { forwardRef } from 'react'
 
+import { CheckIcon } from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
 
-import { AvatarSize } from '~/src/components/Avatars/Avatar'
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatars/Avatar'
+import { Icon } from '~/src/components/Icon'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
-import * as Styled from './CheckableAvatar.styled'
+import styles from './CheckableAvatar.module.scss'
 
 /**
  * `CheckableAvatar` is a checkbox component that looks like `Avatar`.
@@ -35,6 +41,7 @@ import * as Styled from './CheckableAvatar.styled'
  */
 export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProps>(function CheckableAvatar({
   children,
+  className,
   id: idProp,
   name,
   size = AvatarSize.Size24,
@@ -48,7 +55,11 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
   const id = useId(idProp, 'bezier-checkable-avatar')
 
   return (
-    <Styled.CheckboxPrimitiveRoot
+    <CheckboxPrimitive.Root
+      className={classNames(
+        styles.Checkbox,
+        className,
+      )}
       ref={forwardedRef}
       id={id}
       name={name}
@@ -59,10 +70,18 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
         asChild
         forceMount
       >
-        <Styled.CheckIcon className={`size-${size}`} />
+        <Icon
+          className={classNames(
+            styles.CheckIcon,
+            styles[`size-${size}`],
+          )}
+          source={CheckIcon}
+          color="bgtxt-absolute-white-normal"
+        />
       </CheckboxPrimitive.Indicator>
 
-      <Styled.Avatar
+      <Avatar
+        className={styles.Avatar}
         aria-hidden
         size={size}
         name={name}
@@ -73,11 +92,11 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
         showBorder={showBorder}
       >
         { children }
-      </Styled.Avatar>
+      </Avatar>
 
       <VisuallyHidden>
         <label htmlFor={id}>{ name }</label>
       </VisuallyHidden>
-    </Styled.CheckboxPrimitiveRoot>
+    </CheckboxPrimitive.Root>
   )
 })
