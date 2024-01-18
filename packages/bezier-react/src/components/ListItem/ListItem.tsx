@@ -128,8 +128,8 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
           { isString(content) ? (
             <Text
               truncated
-              typo={size === ListItemSize.XL
-                ? '18'
+              typo={size === ListItemSize.L
+                ? '16'
                 : '14'}
             >
               { content }
