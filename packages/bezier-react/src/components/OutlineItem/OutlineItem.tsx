@@ -36,7 +36,7 @@ const [
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
 
-const INDENT = 16
+const DEFAULT_INDENT = 16
 
 export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, OutlineItemProps>(function OutlineItem({
   children,
@@ -45,7 +45,6 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
   as,
   open = false,
   disableChevron = false,
-  paddingLeft: paddingLeftProp = 0,
   active = false,
   focused = false,
   leftContent,
@@ -57,7 +56,7 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
 }, forwardedRef) {
   const context = useOutlineItemContext()
   const isRoot = isNil(context)
-  const paddingLeft = (isRoot ? 0 : context.paddingLeft + INDENT) + paddingLeftProp
+  const indent = isRoot ? 0 : context.indent + DEFAULT_INDENT
 
   const isLink = !isEmpty(href)
   const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
@@ -73,7 +72,7 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
         }}
         style={{
           ...style,
-          '--b-outline-item-indent': `${paddingLeft}px`,
+          '--b-outline-item-indent': `${indent}px`,
         } as React.CSSProperties}
         className={classNames(
           styles.OutlineItem,
@@ -123,7 +122,7 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
         { rightContent }
       </Comp>
 
-      <OutlineItemContextProvider value={useMemo(() => ({ paddingLeft }), [paddingLeft])}>
+      <OutlineItemContextProvider value={useMemo(() => ({ indent }), [indent])}>
         { open && children }
       </OutlineItemContextProvider>
     </>

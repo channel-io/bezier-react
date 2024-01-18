@@ -11,14 +11,13 @@ import type {
 } from '~/src/types/ComponentProps'
 
 export interface OutlineItemContextProps {
-  paddingLeft: number
+  indent: number
 }
 
 interface OutlineItemOwnProps {
   open?: boolean
   focused?: boolean
   disableChevron?: boolean
-  paddingLeft?: number
 }
 
 export interface OutlineItemProps extends
