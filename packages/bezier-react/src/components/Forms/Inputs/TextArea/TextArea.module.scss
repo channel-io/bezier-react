@@ -1,4 +1,8 @@
+@use "../../../../styles/mixins/typography";
+
 .TextArea {
+  @include typography.size(14);
+
   resize: none;
 
   display: flex;
@@ -47,12 +51,4 @@
     color: var(--txt-black-darker);
     background-color: var(--bg-grey-lighter);
   }
-
-  // TODO
-  // ${Typography.Size14}
-
-  // TODO
-  // &::placeholder {
-  //   ${Typography.Size14}
-  // }
 }
