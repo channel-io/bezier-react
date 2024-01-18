@@ -22,43 +22,42 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import type OutlineItemProps from './OutlineItem.types'
-import { type OutlineItemContextProps } from './OutlineItem.types'
+import {
+  type OutlineItemContextProps,
+  type OutlineItemProps,
+} from './OutlineItem.types'
 
 import styles from './OutlineItem.module.scss'
-
-export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
-export const OUTLINE_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-outline-item-left-icon'
 
 const [
   OutlineItemContextProvider,
   useOutlineItemContext,
 ] = createContext<OutlineItemContextProps | undefined>(undefined)
 
-function OutlineItem(
-  {
-    children,
-    as,
-    testId = OUTLINE_ITEM_TEST_ID,
-    leftIconTestId = OUTLINE_ITEM_LEFT_ICON_TEST_ID,
-    style,
-    className,
-    paddingLeft: paddingLeftProp,
-    open = false,
-    active = false,
-    focused = false,
-    leftContent,
-    disableChevron = false,
-    href,
-    content = null,
-    rightContent = null,
-    ...rest
-  }: OutlineItemProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) {
+export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
+
+const INDENT = 16
+
+export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, OutlineItemProps>(function OutlineItem({
+  children,
+  style,
+  className,
+  as,
+  open = false,
+  disableChevron = false,
+  paddingLeft: paddingLeftProp = 0,
+  active = false,
+  focused = false,
+  leftContent,
+  content,
+  rightContent,
+  href,
+  testId = OUTLINE_ITEM_TEST_ID,
+  ...rest
+}, forwardedRef) {
   const context = useOutlineItemContext()
   const isRoot = isNil(context)
-  const paddingLeft = (isRoot ? 0 : context.paddingLeft + 16) + (paddingLeftProp ?? 0)
+  const paddingLeft = (isRoot ? 0 : context.paddingLeft + INDENT) + paddingLeftProp
 
   const isLink = !isEmpty(href)
   const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
@@ -78,7 +77,7 @@ function OutlineItem(
         } as React.CSSProperties}
         className={classNames(
           styles.OutlineItem,
-          !isLink && active && styles.active,
+          active && styles.active,
           focused && styles.focused,
           className,
         )}
@@ -107,7 +106,6 @@ function OutlineItem(
                   size={IconSize.S}
                   source={leftContent}
                   color="txt-black-dark"
-                  testId={leftIconTestId}
                 />
               )
               : leftContent }
@@ -130,6 +128,4 @@ function OutlineItem(
       </OutlineItemContextProvider>
     </>
   )
-}
-
-export default forwardRef(OutlineItem)
+})
