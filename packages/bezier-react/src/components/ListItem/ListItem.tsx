@@ -1,12 +1,9 @@
-import React, {
-  forwardRef,
-  useCallback,
-} from 'react'
+import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
-import { noop } from '~/src/utils/function'
 import {
   isEmpty,
   isNil,
@@ -58,30 +55,18 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   testId = LIST_ITEM_TEST_ID,
   variant = ListItemVariant.Monochrome,
   size = ListItemSize.S,
-  name,
   content,
   description,
   descriptionMaxLines,
-  leftIcon,
   leftContent,
   rightContent,
-  active,
+  active = false,
   focused = false,
   disabled = false,
-  href = '',
-  onClick = noop,
+  href,
+  onClick,
   ...rest
 }, forwardedRef) {
-  const handleClick = useCallback<React.MouseEventHandler<ListItemRef>>((e) => {
-    if (!disabled) {
-      onClick(e, name)
-    }
-  }, [
-    disabled,
-    name,
-    onClick,
-  ])
-
   const isLink = !isEmpty(href)
   const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
 
@@ -105,24 +90,22 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
       )}
       ref={forwardedRef}
       data-testid={testId}
-      onClick={handleClick}
+      onClick={!disabled ? onClick : undefined}
     >
       <div className={styles.ListItemContent}>
-        { !isNil(leftContent)
-          ? (
-            <div className={styles.ListItemLeftContent}>
-              { leftContent }
-            </div>
-          )
-          : !isNil(leftIcon) && (
-            <div className={styles.ListItemLeftContent}>
-              <Icon
-                className={styles.ListItemLeftIcon}
-                source={leftIcon}
-                size={IconSize.S}
-              />
-            </div>
-          ) }
+        { !isNil(leftContent) && (
+          <div className={styles.ListItemLeftContent}>
+            { isBezierIcon(leftContent)
+              ? (
+                <Icon
+                  className={styles.ListItemLeftIcon}
+                  source={leftContent}
+                  size={IconSize.S}
+                />
+              )
+              : leftContent }
+          </div>
+        ) }
 
         <div className={styles.ListItemTitle}>
           { isString(content) ? (

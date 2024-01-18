@@ -30,12 +30,9 @@ export enum ListItemVariant {
 }
 
 interface ListItemOwnProps {
-  name?: string
-  leftIcon?: BezierIcon
   focused?: boolean
   description?: React.ReactNode
   descriptionMaxLines?: number
-  onClick?: (e: React.MouseEvent, name?: string) => void
 }
 
 export interface ListItemProps extends
@@ -44,9 +41,9 @@ export interface ListItemProps extends
   SizeProps<ListItemSize>,
   VariantProps<ListItemVariant>,
   ContentProps,
-  SideContentProps,
+  SideContentProps<React.ReactNode | BezierIcon, React.ReactNode>,
   LinkProps,
   DisableProps,
   ActivatableProps,
-  Omit<React.HTMLAttributes<HTMLElement>, 'onClick' | 'content'>,
+  Omit<React.HTMLAttributes<HTMLElement>, 'content'>,
   ListItemOwnProps {}
