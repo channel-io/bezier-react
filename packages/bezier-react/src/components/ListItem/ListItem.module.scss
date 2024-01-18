@@ -16,22 +16,22 @@
 
   transition: background-color var(--transition-s);
 
-  &:where(.size-s) {
+  &:where(.size-xs) {
     padding: 4px 6px;
     border-radius: var(--radius-6);
   }
 
-  &:where(.size-m) {
+  &:where(.size-s) {
     padding: 6px;
     border-radius: var(--radius-6);
   }
 
-  &:where(.size-l) {
+  &:where(.size-m) {
     padding: 8px 6px;
     border-radius: var(--radius-8);
   }
 
-  &:where(.size-xl) {
+  &:where(.size-l) {
     padding: 10px 6px;
     border-radius: var(--radius-12);
   }

@@ -57,7 +57,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
   as,
   testId = LIST_ITEM_TEST_ID,
   variant = ListItemVariant.Monochrome,
-  size = ListItemSize.M,
+  size = ListItemSize.S,
   name,
   content,
   description,

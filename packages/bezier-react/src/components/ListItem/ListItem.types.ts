@@ -15,10 +15,10 @@ import type {
 } from '~/src/types/ComponentProps'
 
 export enum ListItemSize {
+  XS = 'xs',
   S = 's',
   M = 'm',
   L = 'l',
-  XL = 'xl',
 }
 
 export enum ListItemVariant {

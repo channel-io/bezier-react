@@ -26,7 +26,7 @@ const Template: StoryFn<ListItemProps> = (props) => (
 export const Primary: StoryObj<ListItemProps> = {
   render: Template,
   args: {
-    size: ListItemSize.M,
+    size: ListItemSize.S,
     content: '상담이 열릴 때',
     leftIcon: InboxIcon,
     description:
