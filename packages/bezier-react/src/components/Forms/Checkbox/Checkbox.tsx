@@ -5,20 +5,22 @@ import {
   HyphenBoldIcon,
 } from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
-import { px } from '~/src/utils/style'
 
-import { FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import { IconSize } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 
 import {
   type CheckboxProps,
   type CheckedState,
 } from './Checkbox.types'
 
-import * as Styled from './Checkbox.styled'
+import styles from './Checkbox.module.scss'
 
 type CheckIconProps = {} | {
   style: React.CSSProperties
@@ -37,7 +39,8 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
   const isIndeterminate = state === 'indeterminate'
 
   return (
-    <Styled.CheckIcon
+    <Icon
+      className={styles.CheckIcon}
       ref={forwardedRef}
       source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
       size={IconSize.XS}
@@ -49,6 +52,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
 
 function CheckboxImpl<Checked extends CheckedState>({
   children,
+  className,
   checked,
   id: idProp,
   ...rest
@@ -61,16 +65,13 @@ function CheckboxImpl<Checked extends CheckedState>({
 
   const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
-  const containerStyle = {
-    '--b-checkbox-height': children ? px(FormFieldSize.M) : 'auto',
-  } as React.CSSProperties
-
   return (
-    <Styled.Container
-      style={containerStyle}
-      data-disabled={formFieldProps['aria-disabled']}
-    >
-      <Styled.CheckboxPrimitiveRoot
+    <div className={styles.Container}>
+      <CheckboxPrimitive.Root
+        className={classNames(
+          styles.Checkbox,
+          className,
+        )}
         ref={forwardedRef}
         id={id}
         checked={checked}
@@ -84,13 +85,16 @@ function CheckboxImpl<Checked extends CheckedState>({
         >
           <CheckIcon />
         </CheckboxPrimitive.Indicator>
-      </Styled.CheckboxPrimitiveRoot>
+      </CheckboxPrimitive.Root>
       { children && (
-        <Styled.Label htmlFor={id}>
+        <label
+          className={styles.Label}
+          htmlFor={id}
+        >
           { children }
-        </Styled.Label>
+        </label>
       ) }
-    </Styled.Container>
+    </div>
   )
 }
 

@@ -1,5 +1,5 @@
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/ComponentProps'
 
@@ -7,7 +7,7 @@ import { type FormComponentProps } from '~/src/components/Forms'
 
 export type CheckedState = boolean | 'indeterminate'
 
-interface CheckboxOptions<Checked extends CheckedState> {
+interface CheckboxOwnProps<Checked extends CheckedState> {
   /**
    * The controlled checked state of the checkbox.
    * Must be used in conjunction with `onCheckedChange`.
@@ -40,8 +40,8 @@ interface CheckboxOptions<Checked extends CheckedState> {
 }
 
 export interface CheckboxProps<Checked extends CheckedState> extends
-  Omit<BezierComponentProps, 'as'>,
+  AlphaBezierComponentProps,
   ChildrenProps,
   FormComponentProps,
-  Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CheckboxOptions<Checked>>,
-  CheckboxOptions<Checked> {}
+  Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CheckboxOwnProps<Checked>>,
+  CheckboxOwnProps<Checked> {}
