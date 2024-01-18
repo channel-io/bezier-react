@@ -5,8 +5,10 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { Radio } from './Radio'
-import { RadioGroup } from './RadioGroup'
+import {
+  Radio,
+  RadioGroup,
+} from './RadioGroup'
 import {
   type RadioGroupProps,
   type RadioProps,
