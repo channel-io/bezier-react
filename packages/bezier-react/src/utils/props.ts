@@ -143,11 +143,11 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
     rest,
   ]
 
-export function getElevationClassName(elevation: Elevation) {
+function getElevationClassName(elevation: Elevation) {
   return elevationStyles[`elevation-${elevation}`]
 }
 
-export function getRadiusClassName(radius: Radius) {
+function getRadiusClassName(radius: Radius) {
   return radiusStyles[`radius-${radius}`]
 }
 
