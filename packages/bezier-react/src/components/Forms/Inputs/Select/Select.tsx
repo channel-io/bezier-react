@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -14,9 +13,9 @@ import {
   ChevronUpIcon,
   isBezierIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
-import { ZIndex } from '~/src/constants/ZIndex'
-import { noop } from '~/src/utils/function'
+import { getZIndexClassName } from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
@@ -24,33 +23,26 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { OverlayPosition } from '~/src/components/Overlay'
+import {
+  Overlay,
+  OverlayPosition,
+} from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
-import type SelectProps from './Select.types'
-import { type SelectRef } from './Select.types'
-import { SelectSize } from './Select.types'
+import {
+  type SelectProps,
+  type SelectRef,
+  SelectSize,
+} from './Select.types'
 
-import * as Styled from './Select.styled'
+import styles from './Select.module.scss'
 
-export const SELECT_CONTAINER_TEST_ID = 'bezier-react-select-container'
-export const SELECT_TRIGGER_TEST_ID = 'bezier-react-select-trigger'
-export const SELECT_TRIGGER_TEXT_TEST_ID = 'bezier-react-select-trigger-text'
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
 
-const DEFAULT_DROPDOWN_MARGIN_Y = 6
-const DEFAULT_DROPDOWN_Z_INDEX = ZIndex.Overlay
-
-function Select({
-  testId = SELECT_CONTAINER_TEST_ID,
-  triggerTestId = SELECT_TRIGGER_TEST_ID,
-  triggerTextTestId = SELECT_TRIGGER_TEXT_TEST_ID,
-  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
-  as,
+export const Select = forwardRef<SelectRef, SelectProps>(function Select({
+  children,
   style,
   className,
-  interpolation,
-  dropdownInterpolation,
   size = SelectSize.M,
   defaultFocus = false,
   placeholder = '',
@@ -64,16 +56,17 @@ function Select({
   dropdownClassName,
   dropdownContainer,
   dropdownMarginX,
-  dropdownMarginY = DEFAULT_DROPDOWN_MARGIN_Y,
-  dropdownZIndex = DEFAULT_DROPDOWN_Z_INDEX,
+  dropdownMarginY = 6,
+  dropdownZIndex = 'overlay',
   dropdownPosition = OverlayPosition.BottomLeft,
-  onClickTrigger = noop,
-  onHideDropdown = noop,
-  children,
+  testId = 'bezier-react-select-container',
+  triggerTestId = 'bezier-react-select-trigger',
+  triggerTextTestId = 'bezier-react-select-trigger-text',
+  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
+  onClickTrigger,
+  onHideDropdown,
   ...rest
-}: SelectProps,
-forwardedRef: Ref<SelectRef>,
-) {
+}, forwardedRef) {
   const {
     disabled,
     readOnly,
@@ -82,50 +75,14 @@ forwardedRef: Ref<SelectRef>,
   } = useFormFieldProps(rest)
 
   const containerRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
-
-  const LeftComponent = useMemo(() => {
-    if (isBezierIcon(leftContent)) {
-      return (
-        <Icon
-          source={leftContent}
-          size={IconSize.XS}
-          marginRight={6}
-          color={iconColor}
-        />
-      )
-    }
-
-    return leftContent
-  }, [
-    leftContent,
-    iconColor,
-  ])
-
-  const RightComponent = useMemo(() => {
-    if (isBezierIcon(rightContent)) {
-      return (
-        <Icon
-          source={rightContent}
-          size={IconSize.XS}
-          marginRight={6}
-          color={iconColor}
-        />
-      )
-    }
-
-    return rightContent
-  }, [
-    rightContent,
-    iconColor,
-  ])
 
   const handleClickTrigger = useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) {
       setIsDropdownOpened(prevState => !prevState)
-      onClickTrigger(event)
+      onClickTrigger?.(event)
     }
   }, [
     disabled,
@@ -135,18 +92,22 @@ forwardedRef: Ref<SelectRef>,
 
   const handleHideDropdown = useCallback(() => {
     setIsDropdownOpened(false)
-    onHideDropdown()
+    onHideDropdown?.()
   }, [onHideDropdown])
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
-  const handle = useMemo((): SelectRef => ({ handleClickTrigger, handleHideDropdown, getDOMNode }), [
+  const handle = useMemo((): SelectRef => ({
+    handleClickTrigger,
+    handleHideDropdown,
+    getDOMNode,
+  }), [
     handleClickTrigger,
     handleHideDropdown,
     getDOMNode,
   ])
 
-  useEffect(() => {
+  useEffect(function handleDefaultFocus() {
     if (defaultFocus && !disabled && !readOnly) {
       setIsDropdownOpened(true)
     }
@@ -161,28 +122,42 @@ forwardedRef: Ref<SelectRef>,
   const hasContent = !isEmpty(text)
 
   return (
-    <Styled.Container
-      data-testid={testId}
-      ref={containerRef}
+    <div
       style={style}
-      className={className}
-      interpolation={interpolation}
+      className={classNames(
+        styles.SelectContainer,
+        className,
+      )}
+      ref={containerRef}
+      data-testid={testId}
     >
-      <Styled.Trigger
-        type="button"
-        data-testid={triggerTestId}
-        as={as}
+      <button
+        className={classNames(
+          styles.SelectTrigger,
+          size && styles[`size-${size}`],
+          hasError && styles.invalid,
+          readOnly && styles.readonly,
+          isDropdownOpened && styles.active,
+        )}
         ref={triggerRef}
-        size={size}
-        hasError={hasError}
+        type="button"
         disabled={disabled}
-        readOnly={readOnly}
-        active={isDropdownOpened}
+        data-testid={triggerTestId}
         onClick={handleClickTrigger}
         {...ownProps}
       >
-        <Styled.MainContentWrapper>
-          { LeftComponent }
+        <div className={styles.SelectMainContent}>
+          { isBezierIcon(leftContent)
+            ? (
+              <Icon
+                source={leftContent}
+                size={IconSize.XS}
+                marginRight={6}
+                color={iconColor}
+              />
+            )
+            : leftContent }
+
           <Text
             testId={triggerTextTestId}
             typo="14"
@@ -191,8 +166,19 @@ forwardedRef: Ref<SelectRef>,
           >
             { hasContent ? text : placeholder }
           </Text>
-          { RightComponent }
-        </Styled.MainContentWrapper>
+
+          { isBezierIcon(rightContent)
+            ? (
+              <Icon
+                source={rightContent}
+                size={IconSize.XS}
+                marginRight={6}
+                color={iconColor}
+              />
+            )
+            : rightContent }
+        </div>
+
         { !withoutChevron && (
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
@@ -201,27 +187,27 @@ forwardedRef: Ref<SelectRef>,
             marginLeft={6}
           />
         ) }
-      </Styled.Trigger>
+      </button>
 
-      <Styled.Dropdown
+      <Overlay
         style={dropdownStyle}
-        className={dropdownClassName}
+        className={classNames(
+          styles.SelectDropdown,
+          getZIndexClassName(dropdownZIndex),
+          dropdownClassName,
+        )}
         testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
-        zIndex={dropdownZIndex}
         marginX={dropdownMarginX}
         marginY={dropdownMarginY}
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
-        interpolation={dropdownInterpolation}
         onHide={handleHideDropdown}
       >
         { children }
-      </Styled.Dropdown>
-    </Styled.Container>
+      </Overlay>
+    </div>
   )
-}
-
-export default forwardRef(Select)
+})

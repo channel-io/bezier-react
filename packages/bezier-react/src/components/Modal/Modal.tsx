@@ -15,13 +15,10 @@ import {
   useThemeName,
 } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
-import { TokenPrefix } from '~/src/types/Token'
 import { noop } from '~/src/utils/function'
+import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
-import {
-  cssDimension,
-  tokenCssVar,
-} from '~/src/utils/style'
+import { cssDimension } from '~/src/utils/style'
 import {
   isNil,
   isNumber,
@@ -158,7 +155,6 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
     })()
 
     return ({
-      '--b-modal-z-index': tokenCssVar(`${TokenPrefix.ZIndex}-${zIndex}`),
       '--b-modal-collision-padding': padding,
     } as React.CSSProperties)
   })()
@@ -172,7 +168,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
       <ThemeProvider themeName={useThemeName()}>
         <DialogPrimitive.Overlay
           style={overlayStyle}
-          className={styles.ModalOverlay}
+          className={classNames(
+            styles.ModalOverlay,
+            getZIndexClassName(zIndex),
+          )}
         >
           <DialogPrimitive.Content
             asChild

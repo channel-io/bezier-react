@@ -2,13 +2,14 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
-  AdditionalStylableProps,
   AdditionalTestIdProps,
-  BezierComponentProps,
+  AlphaAdditionalStylableProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   SideContentProps,
   SizeProps,
 } from '~/src/types/ComponentProps'
+import { type ZIndex } from '~/src/types/Token'
 
 import type { FormComponentProps } from '~/src/components/Forms'
 import { FormFieldSize } from '~/src/components/Forms'
@@ -27,7 +28,7 @@ export interface SelectRef {
   getDOMNode(): Element | Text | null
 }
 
-interface SelectOptions {
+interface SelectOwnProps {
   defaultFocus?: boolean
   placeholder?: string
   text?: string
@@ -35,21 +36,19 @@ interface SelectOptions {
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
-  dropdownZIndex?: number
+  dropdownZIndex?: ZIndex
   dropdownPosition?: OverlayProps['position']
   onClickTrigger?: React.MouseEventHandler
   onHideDropdown?: () => void
 }
 
-interface SelectProps extends
-  BezierComponentProps,
+export interface SelectProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
   SizeProps<SelectSize>,
   SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
-  AdditionalStylableProps<'dropdown'>,
+  AlphaAdditionalStylableProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text']>,
   FormComponentProps,
-  SelectOptions {}
-
-export default SelectProps
+  SelectOwnProps {}

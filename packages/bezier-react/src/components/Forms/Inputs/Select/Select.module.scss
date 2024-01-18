@@ -1,0 +1,82 @@
+.SelectContainer {
+  position: relative;
+}
+
+.SelectTrigger {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+
+  color: var(--txt-black-darkest);
+
+  background-color: var(--bg-grey-lightest);
+  border-radius: var(--radius-8);
+  box-shadow: var(--input-box-shadow);
+
+  transition: background-color var(--transition-s), box-shadow var(--transition-s);
+
+  &:where(.size-28) {
+    height: 28px;
+  }
+
+  &:where(.size-36) {
+    height: 36px;
+  }
+
+  &:where(.size-44) {
+    height: 44px;
+  }
+
+  &:where(.size-54) {
+    height: 54px;
+  }
+
+  &.readonly {
+    cursor: initial;
+    color: var(--txt-black-darker);
+    background-color: var(--bg-grey-lighter);
+  }
+
+  &.invalid {
+    box-shadow: var(--input-box-shadow-invalid);
+  }
+
+  &:where(:disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:not(:disabled):where(.active, :focus)) {
+    background-color: var(--bg-grey-lighter);
+    box-shadow: var(--input-box-shadow-focused);
+  }
+
+  &:where(:not(.readonly, :disabled):hover) {
+    background-color: var(--bg-grey-lighter);
+  }
+}
+
+.SelectMainContent {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.SelectDropdown {
+  min-width: 200px;
+  min-height: 42px;
+  max-height: 640px;
+
+  background-color: var(--bg-white-high);
+  border-radius: var(--radius-8);
+  box-shadow: var(--ev-3);
+}

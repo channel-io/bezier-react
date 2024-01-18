@@ -10,9 +10,11 @@ import { getObjectFromEnum } from '~/src/utils/story'
 
 import { Text } from '~/src/components/Text'
 
-import Select from './Select'
-import type SelectProps from './Select.types'
-import { SelectSize } from './Select.types'
+import { Select } from './Select'
+import {
+  type SelectProps,
+  SelectSize,
+} from './Select.types'
 
 const meta: Meta<SelectProps & {
   wrapperSize: number
