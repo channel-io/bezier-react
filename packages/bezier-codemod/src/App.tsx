@@ -29,11 +29,11 @@ import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-vari
 import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
 import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
 import importFromBezierToStyledComponents from './transforms/v2-import-from-bezier-to-styled-components/transform.js'
-import inputInterpolationToCssVariable from './transforms/v2-input-interpolation-to-css-variable/transform.js'
+import inputInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/input.js'
+import typographyInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/typography.js'
+import zIndexInterpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/zIndex.js'
 import removeAlphaFromAlphaComponents from './transforms/v2-remove-alpha-from-alpha-components/transform.js'
 import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
-import typographyInterpolationToCssVariable from './transforms/v2-typography-interpolation-to-css-variable/transform.js'
-import zIndexInterpolationToCssVariable from './transforms/v2-z-index-interpolation-to-css-variable/transform.js'
 
 enum Step {
   SelectTransformer,
