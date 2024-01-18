@@ -12,6 +12,7 @@ const cssVariableByInterpolation = {
   inputWrapperStyle: 'box-shadow: var(--input-box-shadow);',
   focusedInputWrapperStyle: 'box-shadow: var(--input-box-shadow-focused);',
   erroredInputWrapperStyle: 'box-shadow: var(--input-box-shadow-invalid);',
+  inputPlaceholderStyle: '&::placeholder { color: var(--txt-black-dark); }',
 }
 
 const replaceInputInterpolation = (sourceFile: SourceFile) => {
