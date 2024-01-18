@@ -1,3 +1,4 @@
+@use "../../../styles/mixins/typography";
 @use '../../../styles/mixins/dimension';
 @use '../../../styles/mixins/interaction';
 
@@ -82,7 +83,8 @@
  * radix-ui lib does not bind the mouse-enter(hover) and click handler.
  */
 .Label {
-  /* TODO: Typography size 14 */
+  @include typography.size(14);
+
   cursor: inherit;
 
   display: flex;
