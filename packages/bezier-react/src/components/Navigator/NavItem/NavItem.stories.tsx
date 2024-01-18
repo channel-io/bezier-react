@@ -34,7 +34,7 @@ export const Primary: StoryObj<NavItemProps> = {
     name: 'general',
     content: '일반 설정',
     href: 'https://google.com',
-    leftIcon: undefined,
+    leftContent: undefined,
     rightContent: (
       <Icon
         source={ErrorFilledIcon}
