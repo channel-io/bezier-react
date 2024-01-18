@@ -54,10 +54,6 @@ export const LIST_ITEM_TEST_ID = 'bezier-list-item'
 
 export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
-  contentStyle,
-  contentClassName,
-  iconStyle,
-  iconClassName,
   as,
   testId = LIST_ITEM_TEST_ID,
   variant = ListItemVariant.Monochrome,
@@ -121,24 +117,14 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
           : !isNil(leftIcon) && (
             <div className={styles.ListItemLeftContent}>
               <Icon
-                style={iconStyle}
-                className={classNames(
-                  styles.ListItemLeftIcon,
-                  iconClassName,
-                )}
+                className={styles.ListItemLeftIcon}
                 source={leftIcon}
                 size={IconSize.S}
               />
             </div>
           ) }
 
-        <div
-          style={contentStyle}
-          className={classNames(
-            styles.ListItemTitle,
-            contentClassName,
-          )}
-        >
+        <div className={styles.ListItemTitle}>
           { isString(content) ? (
             <Text
               truncated
