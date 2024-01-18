@@ -110,7 +110,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
     getDOMNode,
   ])
 
-  useEffect(() => {
+  useEffect(function handleDefaultFocus() {
     if (defaultFocus && !disabled && !readOnly) {
       setIsDropdownOpened(true)
     }
