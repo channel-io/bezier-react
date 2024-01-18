@@ -1,12 +1,12 @@
 import type React from 'react'
 
-import type {
-  AdditionalStylableProps,
-  BezierComponentProps,
-} from '~/src/types/ComponentProps'
+import { type TextareaAutosizeProps } from 'react-textarea-autosize'
+
+import type { AlphaBezierComponentProps } from '~/src/types/ComponentProps'
 
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 
+// TODO: Use number literal types instead of enums
 export enum TextAreaHeight {
   Row3 = 3,
   Row6 = 6,
@@ -16,22 +16,15 @@ export enum TextAreaHeight {
   Row36 = 36,
 }
 
-type TextAreaChangeEventHandler = React.ChangeEventHandler<HTMLTextAreaElement>
-
-interface TextAreaOptions {
+interface TextAreaOwnProps {
   minRows?: TextAreaHeight
   maxRows?: TextAreaHeight
   autoFocus?: boolean
-  onFocus?: TextAreaChangeEventHandler
-  onBlur?: TextAreaChangeEventHandler
-  onChange?: TextAreaChangeEventHandler
 }
 
-type OmittedTextareaHTMLAttributes = keyof FormComponentProps | 'onFocus' | 'onBlur'
-
-export default interface TextAreaProps extends
-  BezierComponentProps,
+export interface TextAreaProps extends
+  Omit<AlphaBezierComponentProps, 'style'>,
+  Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'style'>,
+  Pick<TextareaAutosizeProps, 'style'>,
   FormComponentProps,
-  Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, OmittedTextareaHTMLAttributes>,
-  AdditionalStylableProps<'wrapper'>,
-  TextAreaOptions {}
+  TextAreaOwnProps {}

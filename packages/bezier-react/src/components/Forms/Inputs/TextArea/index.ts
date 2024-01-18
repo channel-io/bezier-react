@@ -1,12 +1,5 @@
-import TextArea from './TextArea'
-import type TextAreaProps from './TextArea.types'
-import { TextAreaHeight } from './TextArea.types'
+export { TextArea } from './TextArea'
 
-export type {
-  TextAreaProps,
-}
+export type { TextAreaProps } from './TextArea.types'
 
-export {
-  TextArea,
-  TextAreaHeight,
-}
+export { TextAreaHeight } from './TextArea.types'
