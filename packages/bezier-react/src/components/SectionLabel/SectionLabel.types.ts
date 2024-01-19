@@ -16,7 +16,7 @@ type Icon = IconName | BezierIcon
 
 export type IconWithAction = {
   icon: Icon
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export type SectionLabelLeftContent = Icon | React.ReactNode
