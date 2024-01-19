@@ -2,7 +2,7 @@
   --b-divider-indent-size: 6px;
 
   background-color: var(--bdr-black-light);
-  border-radius: var(--radius-1);
+  border-radius: var(--b-divider-thickness);
 
   &:where(.horizontal) {
     width: calc(100% - 2 * var(--b-divider-indent-size));
