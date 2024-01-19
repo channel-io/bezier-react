@@ -87,6 +87,9 @@ export interface IdentifierProps {
   id: string
 }
 
+/**
+ * @deprecated Unnecessary property.
+ */
 export interface OptionItemProps {
   optionKey?: string
 }
@@ -128,9 +131,8 @@ export type AdditionalTestIdProps<ElementName extends PropNameType> =
 export type AdditionalColorProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'color', SemanticNames>
 
-export interface ActivatableProps extends AdditionalStylableProps<'active'> {
+export interface ActivatableProps {
   active?: boolean
-  allowActive?: boolean
 }
 
 export interface LinkProps {

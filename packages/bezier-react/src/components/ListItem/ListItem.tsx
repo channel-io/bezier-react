@@ -1,294 +1,133 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
+import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
-import { v4 as uuid } from 'uuid'
 
-import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/function'
 import {
   isEmpty,
   isNil,
   isString,
 } from '~/src/utils/type'
 
-import { IconSize } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import type ListItemProps from './ListItem.types'
 import {
+  type ListItemProps,
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
-import useAdjacentElementBorderRadius from './useAdjacentElementBorderRadius'
 
-import {
-  ContentWrapper,
-  Description,
-  DescriptionWrapper,
-  LeftContentWrapper,
-  RightContent,
-  StyledIcon,
-  Title,
-  TitleWrapper,
-  Wrapper,
-} from './ListItem.styled'
-
-const LINE_BREAK_CHAR = '\n'
-
-export const LIST_ITEM_TEST_ID = 'bezier-react-list-menu-item'
-
-function filterActiveItem(node: HTMLElement) {
-  return node.dataset.active === 'true'
-}
+import styles from './ListItem.module.scss'
 
 type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
-function ListItem({
-  className,
-  contentClassName,
-  iconClassName,
-  as,
-  testId = LIST_ITEM_TEST_ID,
-  size = ListItemSize.M,
-  descriptionMaxLines,
-  content,
-  description,
-  name,
-  leftContent,
-  leftIcon,
-  variant = ListItemVariant.Monochrome,
-  href = '',
-  hide = false,
-  rightContent = null,
-  /* OptionItem Props */
-  optionKey,
-  /* Activatable Element Props */
-  active,
-  activeClassName,
-  focused = false,
-  disabled = false,
-  /* HTMLAttribute Props */
-  onClick = noop,
-  onMouseDown = noop,
-  onMouseEnter = noop,
-  onMouseLeave = noop,
-  ...otherProps
-}: ListItemProps,
-forwardedRef: React.Ref<ListItemRef>,
-) {
-  const [listItemElement, setListItemElement] = useState<ListItemRef | null>(null)
-
-  const setListItemRef = useCallback((node: ListItemRef | null) => {
-    if (!node) { return }
-    setListItemElement(node)
-  }, [])
-
-  const mergedRef = useMergeRefs<ListItemRef>(setListItemRef, forwardedRef)
-
-  const isHyperLink = !isEmpty(href)
-  const isActive = isHyperLink ? false : active
-
-  useAdjacentElementBorderRadius(listItemElement, filterActiveItem, isActive)
-
-  const mergedClassName = useMemo(() => (
-    classNames(className, isActive && activeClassName)
-  ), [
-    className,
-    activeClassName,
-    isActive,
-  ])
-
-  const handleClick = useCallback((e: React.MouseEvent) => {
-    if (!disabled) {
-      onClick(e, name)
-    }
-  }, [
-    disabled,
-    name,
-    onClick,
-  ])
-
-  const getNewLineComponent = useCallback((desc: string) => (
-    desc.split(LINE_BREAK_CHAR).map((str, index) => {
-      if (index === 0) {
-        return (
-          <Text key={uuid()} typo="12">
-            { str }
-          </Text>
-        )
-      }
-
-      return (
-        <React.Fragment key={uuid()}>
-          <br />
-          <Text typo="12">
-            { str }
-          </Text>
-        </React.Fragment>
-      )
-    })
-  ), [])
-
-  const leftComponent = useMemo(() => {
-    if (!isNil(leftContent)) {
-      return (
-        <LeftContentWrapper>
-          { leftContent }
-        </LeftContentWrapper>
-      )
-    }
-
-    if (!isNil(leftIcon)) {
-      return (
-        <LeftContentWrapper>
-          <StyledIcon
-            className={iconClassName}
-            source={leftIcon}
-            size={IconSize.S}
-            active={isActive}
-            variant={variant}
-          />
-        </LeftContentWrapper>
-      )
-    }
-
-    return null
-  }, [
-    isActive,
-    iconClassName,
-    leftContent,
-    leftIcon,
-    variant,
-  ])
-
-  const titleComponent = useMemo(() => (
-    <TitleWrapper className={contentClassName}>
-      { isString(content) ? (
-        <Title>
-          <Text
-            typo={size === ListItemSize.XL
-              ? '18'
-              : '14'}
-          >
-            { content }
-          </Text>
-        </Title>
-      ) : content }
-    </TitleWrapper>
-  ), [
-    content,
-    contentClassName,
-    size,
-  ])
-
-  const descriptionComponent = useMemo(() => (
-    <DescriptionWrapper>
-      <Description descriptionMaxLines={descriptionMaxLines}>
-        {
-          isString(description)
-            ? getNewLineComponent(description)
-            : description
-        }
-      </Description>
-    </DescriptionWrapper>
-  ), [
-    description,
-    descriptionMaxLines,
-    getNewLineComponent,
-  ])
-
-  const rightComponent = useMemo(() => (
-    <RightContent>
-      { rightContent }
-    </RightContent>
-  ), [rightContent])
-
-  const ContentComponent = useMemo(() => (
-    <>
-      <ContentWrapper>
-        { leftComponent }
-        { titleComponent }
-        { description && descriptionComponent }
-      </ContentWrapper>
-      { rightContent && rightComponent }
-    </>
-  ), [
-    leftComponent,
-    titleComponent,
-    description,
-    descriptionComponent,
-    rightContent,
-    rightComponent,
-  ])
-
-  const commonDataAttr = useMemo(() => ({
-    'data-active': isActive,
-    'data-option-key': optionKey,
-    'data-testid': testId,
-  }), [
-    isActive,
-    optionKey,
-    testId,
-  ])
-
-  const commonListItemProps = useMemo((): ListItemProps & { ref: React.Ref<ListItemRef> } => ({
-    ref: mergedRef,
-    className: mergedClassName,
-    size,
-    onClick: handleClick,
-    onMouseDown,
-    onMouseEnter,
-    onMouseLeave,
-    active: isActive,
-    focused,
-    disabled,
-    variant,
-    ...otherProps,
-  }), [
-    mergedRef,
-    mergedClassName,
-    size,
-    handleClick,
-    onMouseDown,
-    onMouseEnter,
-    onMouseLeave,
-    isActive,
-    focused,
-    disabled,
-    variant,
-    otherProps,
-  ])
-
-  if (hide) { return null }
-
-  return isHyperLink
-    ? (
-      <Wrapper
-        {...commonDataAttr}
-        {...commonListItemProps}
-        as={'a' as React.ElementType<any>}
-        href={href}
-        draggable={false}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        { ContentComponent }
-      </Wrapper>
-    )
-    : (
-      <Wrapper
-        {...commonDataAttr}
-        {...commonListItemProps}
-        as={as}
-      >
-        { ContentComponent }
-      </Wrapper>
-    )
+function renderNewLineComponent(value: string) {
+  return value.split('\n').map((str, index) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <React.Fragment key={index}>
+      { index !== 0 && <br /> }
+      { str }
+    </React.Fragment>
+  ))
 }
 
-export default forwardRef(ListItem)
+export const LIST_ITEM_TEST_ID = 'bezier-list-item'
+
+export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
+  className,
+  as,
+  testId = LIST_ITEM_TEST_ID,
+  variant = ListItemVariant.Monochrome,
+  size = ListItemSize.S,
+  content,
+  description,
+  descriptionMaxLines,
+  leftContent,
+  rightContent,
+  active = false,
+  focused = false,
+  disabled = false,
+  href,
+  onClick,
+  ...rest
+}, forwardedRef) {
+  const isLink = !isEmpty(href)
+  const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
+
+  return (
+    <Comp
+      {...rest}
+      {...isLink && {
+        href,
+        draggable: false,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }}
+      className={classNames(
+        styles.ListItem,
+        styles[`size-${size}`],
+        styles[`variant-${variant}`],
+        disabled && styles.disabled,
+        focused && styles.focused,
+        active && styles.active,
+        className,
+      )}
+      ref={forwardedRef}
+      data-testid={testId}
+      onClick={!disabled ? onClick : undefined}
+    >
+      <div className={styles.ListItemContent}>
+        { !isNil(leftContent) && (
+          <div className={styles.ListItemLeftContent}>
+            { isBezierIcon(leftContent)
+              ? (
+                <Icon
+                  className={styles.ListItemLeftIcon}
+                  source={leftContent}
+                  size={IconSize.S}
+                />
+              )
+              : leftContent }
+          </div>
+        ) }
+
+        <div className={styles.ListItemTitle}>
+          { isString(content) ? (
+            <Text
+              truncated
+              typo={size === ListItemSize.L
+                ? '16'
+                : '14'}
+            >
+              { content }
+            </Text>
+          ) : content }
+        </div>
+
+        { description && (
+          <div className={styles.ListItemDescription}>
+            <Text
+              typo="12"
+              color="txt-black-darker"
+              truncated={descriptionMaxLines}
+            >
+              { isString(description)
+                ? renderNewLineComponent(description)
+                : description }
+            </Text>
+          </div>
+        ) }
+      </div>
+
+      { rightContent && (
+        <div className={styles.ListItemRightContent}>
+          { rightContent }
+        </div>
+      ) }
+    </Comp>
+  )
+})

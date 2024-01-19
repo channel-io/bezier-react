@@ -19,6 +19,6 @@ export interface NavItemProps extends
   ContentProps,
   LinkProps,
   SideContentProps<BezierIcon, React.ReactNode>,
-  Pick<ActivatableProps, 'active'>,
+  ActivatableProps,
   Omit<React.HTMLAttributes<HTMLAnchorElement>, 'onClick' | 'content'>,
   NavItemOwnProps {}

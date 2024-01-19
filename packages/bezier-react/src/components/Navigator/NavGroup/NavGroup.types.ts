@@ -20,6 +20,6 @@ export interface NavGroupProps extends
   ContentProps,
   Required<Pick<SideContentProps<BezierIcon>, 'leftContent'>>,
   Pick<SideContentProps, 'rightContent'>,
-  Pick<ActivatableProps, 'active'>,
+  ActivatableProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, 'onClick' | 'content'>,
   NavGroupOwnProps {}

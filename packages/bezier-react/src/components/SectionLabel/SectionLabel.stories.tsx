@@ -118,12 +118,12 @@ SectionLabelProps & {
         onClick={toggle}
       >
         <ListItem
-          leftIcon={StarFilledIcon}
+          leftContent={StarFilledIcon}
           content="안 읽은 메시지"
           {...listItemProps}
         />
         <ListItem
-          leftIcon={ViewIcon}
+          leftContent={ViewIcon}
           content="팔로잉"
           {...listItemProps}
         />
