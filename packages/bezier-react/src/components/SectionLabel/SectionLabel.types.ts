@@ -6,35 +6,33 @@ import {
 } from '@channel.io/bezier-icons'
 
 import type {
-  AdditionalColorProps,
-  AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   ContentProps,
   SideContentProps,
 } from '~/src/types/ComponentProps'
 
-interface IconInfo extends AdditionalColorProps<'icon'> {
-  icon: IconName | BezierIcon
+type Icon = IconName | BezierIcon
+
+export type IconWithAction = {
+  icon: Icon
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export type SectionLabelItemProps = (IconInfo & {
-  onClick?: React.MouseEventHandler
-}) | React.ReactElement
+export type SectionLabelLeftContent = Icon | React.ReactNode
 
-interface SectionLabelOptions {
+export type SectionLabelRightContent = Icon | React.ReactNode | IconWithAction
+
+interface SectionLabelOwnProps {
   open?: boolean
   divider?: boolean
   help?: React.ReactNode
-  onClick?: React.MouseEventHandler
 }
 
-export default interface SectionLabelProps extends
-  BezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick' | keyof ContentProps>,
+export interface SectionLabelProps extends
+  AlphaBezierComponentProps,
   ContentProps,
   ChildrenProps,
-  SideContentProps<SectionLabelItemProps, SectionLabelItemProps | SectionLabelItemProps[]>,
-  AdditionalStylableProps<['wrapper', 'contentWrapper', 'leftWrapper', 'rightWrapper']>,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'content' | 'onClick'>,
-  SectionLabelOptions {}
+  SideContentProps<SectionLabelLeftContent, SectionLabelRightContent | SectionLabelRightContent[]>,
+  Omit<React.HTMLAttributes<HTMLElement>, 'content'>,
+  SectionLabelOwnProps {}
