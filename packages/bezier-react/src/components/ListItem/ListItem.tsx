@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
-import { v4 as uuid } from 'uuid'
 
 import {
   isEmpty,
@@ -26,25 +25,14 @@ import styles from './ListItem.module.scss'
 
 type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
-function getNewLineComponent(value: string) {
-  return value.split('\n').map((str, index) => {
-    if (index === 0) {
-      return (
-        <Text key={uuid()} typo="12">
-          { str }
-        </Text>
-      )
-    }
-
-    return (
-      <React.Fragment key={uuid()}>
-        <br />
-        <Text typo="12">
-          { str }
-        </Text>
-      </React.Fragment>
-    )
-  })
+function renderNewLineComponent(value: string) {
+  return value.split('\n').map((str, index) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <React.Fragment key={index}>
+      { index !== 0 && <br /> }
+      { str }
+    </React.Fragment>
+  ))
 }
 
 export const LIST_ITEM_TEST_ID = 'bezier-list-item'
@@ -123,11 +111,12 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
         { description && (
           <div className={styles.ListItemDescription}>
             <Text
+              typo="12"
               color="txt-black-darker"
               truncated={descriptionMaxLines}
             >
               { isString(description)
-                ? getNewLineComponent(description)
+                ? renderNewLineComponent(description)
                 : description }
             </Text>
           </div>
