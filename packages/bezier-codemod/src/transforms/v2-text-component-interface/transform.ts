@@ -2,11 +2,12 @@ import { type SourceFile } from 'ts-morph'
 
 import {
   type ComponentTransformMap,
+  type StyledAttrsTransformMap,
   changeAttrProperty,
   changeComponentProp,
 } from '../../utils/component.js'
 
-const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
+const STYLED_ATTRS_TRANSFORM_MAP: StyledAttrsTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'margin',
@@ -29,11 +30,13 @@ const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
 }
 
 const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
-  Text: {
-    keyMapper: {
+  keyMapper: {
+    Text: {
       marginAll: 'margin',
     },
-    valueMapper: {
+  },
+  valueMapper: {
+    typo: {
       '{Typography.Size11}': '"11"',
       '{Typography.Size12}': '"12"',
       '{Typography.Size13}': '"13"',
