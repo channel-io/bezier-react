@@ -39,11 +39,6 @@ import type {
 
 import styles from './SectionLabel.module.scss'
 
-export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
-export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
-export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
-export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
-
 function renderLeftContent(content: SectionLabelLeftContent) {
   const isLegacyIcon = isIconName(content)
 
@@ -116,7 +111,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   leftContent,
   content,
   rightContent,
-  testId,
+  testId = 'bezier-section-label',
   onClick,
   ...props
 }, forwardedRef) {
