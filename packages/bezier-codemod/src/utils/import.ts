@@ -34,6 +34,8 @@ export const removeNamedImport = (sourceFile: SourceFile, namedImport: string) =
   getNamedImport(sourceFile, namedImport)?.remove()
 
 export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclarations?: string[]) => {
+  const trimQuoteAtBothEnds = (text: string) => text.match(/^['"](.*)['"]$/)?.[1]
+
   sourceFile.getImportDeclarations()
     .flatMap((declaration) => declaration.getNamedImports())
     .filter((v) => (sourceFile.getDescendantsOfKind(SyntaxKind.Identifier).filter((_v) => _v.getText() === v.getText()).length === 1))
@@ -42,7 +44,9 @@ export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclaratio
   if (importDeclarations) {
     sourceFile
       .getImportDeclarations()
-      .filter((v) => importDeclarations.includes(v.getModuleSpecifier().getText().slice(1, -1)))
+      .filter((v) => importDeclarations.includes(
+        trimQuoteAtBothEnds(v.getModuleSpecifier().getText()) ?? ''),
+      )
       .forEach((v) => {
         if (!v.getImportClause()) {
           v.remove()
