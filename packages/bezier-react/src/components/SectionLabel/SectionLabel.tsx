@@ -30,20 +30,20 @@ import {
 } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
-import type {
-  IconWithAction,
-  SectionLabelLeftContent,
-  SectionLabelProps,
-  SectionLabelRightContent,
+import {
+  type IconWithAction,
+  type SectionLabelLeftContent,
+  type SectionLabelProps,
+  type SectionLabelRightContent,
 } from './SectionLabel.types'
 
 import styles from './SectionLabel.module.scss'
 
-function renderLeftContent(content: SectionLabelLeftContent) {
-  const isLegacyIcon = isIconName(content)
+function LeftContent({ children }: { children: SectionLabelLeftContent }) {
+  const isLegacyIcon = isIconName(children)
 
-  if (!isBezierIcon(content) && !isLegacyIcon) {
-    return content
+  if (!isBezierIcon(children) && !isLegacyIcon) {
+    return <>{ children }</>
   }
 
   if (isLegacyIcon) {
@@ -56,9 +56,9 @@ function renderLeftContent(content: SectionLabelLeftContent) {
     // @ts-expect-error
     <Comp
       {...isLegacyIcon ? {
-        name: content,
+        name: children,
       } : {
-        source: content,
+        source: children,
       }}
       size={IconSize.S}
       color="txt-black-dark"
@@ -70,12 +70,12 @@ function isIconWithAction(args: unknown): args is IconWithAction {
   return isObject(args) && 'icon' in args
 }
 
-function renderRightContent(content: SectionLabelRightContent) {
-  const isLegacyIcon = isIconName(content)
-  const withAction = isIconWithAction(content)
+function RightContent({ children }: { children: SectionLabelRightContent }) {
+  const isLegacyIcon = isIconName(children)
+  const withAction = isIconWithAction(children)
 
-  if (!isBezierIcon(content) && !isLegacyIcon && !withAction) {
-    return content
+  if (!isBezierIcon(children) && !isLegacyIcon && !withAction) {
+    return <>{ children }</>
   }
 
   if (isLegacyIcon) {
@@ -85,11 +85,11 @@ function renderRightContent(content: SectionLabelRightContent) {
   return (
     <Button
       {...withAction ? {
-        leftContent: content.icon,
-        onClick: content.onClick,
+        leftContent: children.icon,
+        onClick: children.onClick,
       } : {
         as: 'div',
-        leftContent: content,
+        leftContent: children,
       }}
       className={classNames(
         styles.RightItem,
@@ -135,7 +135,9 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
       >
         { leftContent && (
           <div className={styles.LeftContent}>
-            { renderLeftContent(leftContent) }
+            <LeftContent>
+              { leftContent }
+            </LeftContent>
           </div>
         ) }
 
@@ -165,8 +167,17 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
         { (!isNil(rightContent) && !isEmpty(rightContent)) && (
           <div className={styles.RightContent}>
             { isArray(rightContent)
-              ? rightContent.map(renderRightContent)
-              : renderRightContent(rightContent) }
+              ? rightContent.map((eachContent, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <RightContent key={index}>
+                  { eachContent }
+                </RightContent>
+              ))
+              : (
+                <RightContent>
+                  { rightContent }
+                </RightContent>
+              ) }
           </div>
         ) }
       </Comp>
