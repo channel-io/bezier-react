@@ -56,7 +56,7 @@ export const Primary: StoryObj<NavGroupProps> = {
     active: false,
     name: 'general',
     content: '일반 설정',
-    leftIcon: SettingsIcon,
+    leftContent: SettingsIcon,
     rightContent: (
       <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />
     ),
