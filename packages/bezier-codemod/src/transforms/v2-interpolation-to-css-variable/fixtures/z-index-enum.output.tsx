@@ -1,4 +1,3 @@
-
 export const OVERLAY_POSITION1 = {
   zIndex: 'var(--z-index-modal)',
 }

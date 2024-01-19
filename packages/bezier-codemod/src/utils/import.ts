@@ -33,11 +33,22 @@ export const hasNamedImport = (sourceFile: SourceFile, namedImport: string) =>
 export const removeNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   getNamedImport(sourceFile, namedImport)?.remove()
 
-export const removeUnusedNamedImport = (sourceFile: SourceFile) => {
+export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclarations?: string[]) => {
   sourceFile.getImportDeclarations()
     .flatMap((declaration) => declaration.getNamedImports())
     .filter((v) => (sourceFile.getDescendantsOfKind(SyntaxKind.Identifier).filter((_v) => _v.getText() === v.getText()).length === 1))
     .forEach((v) => v.remove())
+
+  if (importDeclarations) {
+    sourceFile
+      .getImportDeclarations()
+      .filter((v) => importDeclarations.includes(v.getModuleSpecifier().getText().slice(1, -1)))
+      .forEach((v) => {
+        if (!v.getImportClause()) {
+          v.remove()
+        }
+      })
+  }
 }
 
 export const renameNamedImport = (sourceFile: SourceFile, targets: string[], renameFn: (name: string) => string) => {

@@ -38,7 +38,7 @@ const replaceZIndexInterpolation = (sourceFile: SourceFile) => {
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
-    removeUnusedNamedImport(sourceFile)
+    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
   }
   return isChanged
 }

@@ -6,6 +6,7 @@ import {
   changeAttrProperty,
   changeComponentProp,
 } from '../../utils/component.js'
+import { removeUnusedNamedImport } from '../../utils/import.js'
 
 const STYLED_ATTRS_TRANSFORM_MAP: StyledAttrsTransformMap = {
   Text: {
@@ -54,10 +55,14 @@ const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
 }
 
 const transformTextComponentProps = (sourceFile: SourceFile) => {
+  const oldSourceFile = sourceFile.getText()
+
   changeComponentProp(sourceFile, JSX_PROP_TRANSFORM_MAP)
   changeAttrProperty(sourceFile, STYLED_ATTRS_TRANSFORM_MAP)
 
-  sourceFile.fixUnusedIdentifiers()
+  if (oldSourceFile !== sourceFile.getText()) {
+    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
+  }
 }
 
 export default transformTextComponentProps

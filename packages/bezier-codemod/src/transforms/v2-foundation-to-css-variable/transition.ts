@@ -8,6 +8,7 @@ import {
 } from 'ts-morph'
 
 import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
+import { removeUnusedNamedImport } from '../../utils/import.js'
 
 const cssVarByDuration: Record<string, string> = {
   'TransitionDuration.S': 'var(--transition-s)',
@@ -63,7 +64,7 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
         })
 
       if (oldSourceFile !== sourceFile.getText()) {
-        sourceFile.fixUnusedIdentifiers()
+        removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
       }
     }
   })

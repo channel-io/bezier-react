@@ -4,7 +4,10 @@ import {
 } from 'ts-morph'
 
 import { renameEnumMember } from '../utils/enum.js'
-import { hasNamedImportInImportDeclaration } from '../utils/import.js'
+import {
+  hasNamedImportInImportDeclaration,
+  removeUnusedNamedImport,
+} from '../utils/import.js'
 
 type Name = string
 type Member = string
@@ -32,7 +35,7 @@ export const transformEnumToStringLiteralInBezier = (sourceFile: SourceFile, enu
     })
 
   if (transformedEnumNames.length > 0) {
-    sourceFile.fixUnusedIdentifiers()
+    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
     return true
   }
 
