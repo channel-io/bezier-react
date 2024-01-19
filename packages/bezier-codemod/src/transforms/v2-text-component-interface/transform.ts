@@ -2,11 +2,13 @@ import { type SourceFile } from 'ts-morph'
 
 import {
   type ComponentTransformMap,
+  type StyledAttrsTransformMap,
   changeAttrProperty,
   changeComponentProp,
 } from '../../utils/component.js'
+import { removeUnusedNamedImport } from '../../utils/import.js'
 
-const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
+const STYLED_ATTRS_TRANSFORM_MAP: StyledAttrsTransformMap = {
   Text: {
     keyMapper: {
       marginAll: 'margin',
@@ -29,11 +31,13 @@ const STYLED_ATTRS_TRANSFORM_MAP: ComponentTransformMap = {
 }
 
 const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
-  Text: {
-    keyMapper: {
+  keyMapper: {
+    Text: {
       marginAll: 'margin',
     },
-    valueMapper: {
+  },
+  valueMapper: {
+    typo: {
       '{Typography.Size11}': '"11"',
       '{Typography.Size12}': '"12"',
       '{Typography.Size13}': '"13"',
@@ -51,10 +55,14 @@ const JSX_PROP_TRANSFORM_MAP: ComponentTransformMap = {
 }
 
 const transformTextComponentProps = (sourceFile: SourceFile) => {
+  const oldSourceFile = sourceFile.getText()
+
   changeComponentProp(sourceFile, JSX_PROP_TRANSFORM_MAP)
   changeAttrProperty(sourceFile, STYLED_ATTRS_TRANSFORM_MAP)
 
-  sourceFile.fixUnusedIdentifiers()
+  if (oldSourceFile !== sourceFile.getText()) {
+    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
+  }
 }
 
 export default transformTextComponentProps

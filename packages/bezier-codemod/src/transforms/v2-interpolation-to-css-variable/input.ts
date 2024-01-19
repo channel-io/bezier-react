@@ -22,7 +22,7 @@ const replaceInputInterpolation = (sourceFile: SourceFile) => {
 
   const isChanged = sourceFile.getText() !== oldSourceFileText
   if (isChanged) {
-    removeUnusedNamedImport(sourceFile)
+    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
     sourceFile.formatText({
       semicolons: ts.SemicolonPreference.Remove,
     })

@@ -7,6 +7,10 @@ describe('Text component transform', () => {
     testTransformFunction(__dirname, 'text-component-props', textTransform)
   })
 
+  it('should transform typography enum to string literal and margin properties to be shorthand when component name is not Text', () => {
+    testTransformFunction(__dirname, 'other-text-component-props', textTransform)
+  })
+
   it('should transform properties in attrs object of styled component', () => {
     testTransformFunction(__dirname, 'text-component-attrs', textTransform)
   })
