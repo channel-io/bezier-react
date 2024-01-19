@@ -1,5 +1,4 @@
 .ListItemLeftIcon {
-  color: var(--txt-black-dark);
   transition: color var(--transition-m);
 }
 
@@ -11,10 +10,17 @@
   display: flex;
   align-items: center;
 
-  color: var(--txt-black-darkest);
   text-decoration: none;
 
   transition: background-color var(--transition-s);
+
+  &:where(.variant-monochrome) {
+    color: var(--txt-black-darkest);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--txt-black-dark);
+    }
+  }
 
   &:where(.size-xs) {
     padding: 4px 6px;
@@ -44,18 +50,10 @@
   &:where(:not(.disabled, .active)) {
     &:where(.focused, :focus-visible) {
       background-color: var(--bg-black-lighter);
-
-      & :where(.ListItemLeftIcon) {
-        color: var(--txt-black-dark);
-      }
     }
 
     &:where(:hover) {
       background-color: var(--bg-black-lighter);
-
-      & :where(.ListItemLeftIcon) {
-        color: var(--txt-black-dark);
-      }
     }
   }
 
