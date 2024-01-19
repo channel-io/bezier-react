@@ -9,7 +9,6 @@ import type {
 } from '~/src/types/ComponentProps'
 
 interface NavItemOwnProps {
-  leftIcon?: BezierIcon
   name: string
   target?: HTMLAnchorElement['target']
   onClick?: (e?: React.MouseEvent, name?: string) => void
@@ -19,7 +18,7 @@ export interface NavItemProps extends
   AlphaBezierComponentProps,
   ContentProps,
   LinkProps,
-  Pick<SideContentProps, 'rightContent'>,
+  SideContentProps<BezierIcon, React.ReactNode>,
   ActivatableProps,
   Omit<React.HTMLAttributes<HTMLAnchorElement>, 'onClick' | 'content'>,
   NavItemOwnProps {}

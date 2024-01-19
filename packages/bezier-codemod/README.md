@@ -146,20 +146,25 @@ const Wrapper = styled.div`
 
 ### Interpolation to CSS Variable
 
-**`v2-input-interpolation-to-css-variable`**
+**`v2-interpolation-to-css-variable`**
 
-Replace input interpolation to css variable
+Replace various interpolation such as `Typography`, `ZIndex`, `InputWrapperStyle`, `Rounding` to css variable
 For example:
 
 ```tsx
 import {
   styled,
+  Typography,
   inputWrapperStyle,
   focusedInputWrapperStyle,
   erroredInputWrapperStyle,
+  ZIndex,
+  Rounding,
 } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
+  ${Typography.Size11};
+
   ${inputWrapperStyle};
 
   ${({ focus }) => focus && focusedInputWrapperStyle};
@@ -167,6 +172,10 @@ const Wrapper = styled.div`
   ${erroredInputWrapperStyle};
 
   ${inputPlaceholderStyle};
+
+  z-index: ${ZIndex.Hide};
+
+  ${Rounding.round12};
 `;
 ```
 
@@ -176,6 +185,10 @@ Transforms into:
 import { styled } from "@channel.io/bezier-react";
 
 const Wrapper = styled.div`
+  /* NOTE: Do not use font-related css variables below separately, use Text component instead */
+  font-size: var(--typography-size-11-font-size);
+  line-height: var(--typography-size-11-line-height);
+
   box-shadow: var(--input-box-shadow);
 
   ${({ focus }) =>
@@ -189,58 +202,15 @@ const Wrapper = styled.div`
   &::placeholder {
     color: var(--txt-black-dark);
   }
-`;
-```
 
-**`v2-typography-interpolation-to-css-variable`**
-
-Replace typography interpolation to css variable
-For example:
-
-```tsx
-import { styled, Typography } from "@channel.io/bezier-react";
-
-const Wrapper = styled.div`
-  ${Typography.Size11};
-`;
-```
-
-Transforms into:
-
-```tsx
-import { styled } from "@channel.io/bezier-react";
-
-const Wrapper = styled.div`
-  /* NOTE: Do not use font-related css variables below separately, use Text component instead */
-  font-size: var(--typography-size-11-font-size);
-  line-height: var(--typography-size-11-line-height);
-`;
-```
-
-**`v2-z-index-interpolation-to-css-variable`**
-
-Replace z-index interpolation and z-index enum with css variable
-For example:
-
-```tsx
-import { ZIndex, styled } from "@channel.io/bezier-react";
-
-const Wrapper = styled.div`
-  z-index: ${ZIndex.Hide};
-`;
-```
-
-Transforms into:
-
-```tsx
-import { styled } from "@channel.io/bezier-react";
-
-const Wrapper = styled.div`
   z-index: var(--z-index-hidden);
+
+  overflow: hidden;
+  border-radius: var(--radius-12);
 `;
 ```
 
-Also,
+It also handles when `ZIndex` is used in object.
 
 ```tsx
 import { ZIndex } from "@channel.io/bezier-react";

@@ -26,7 +26,7 @@ export const interpolationTransform = (sourceFile: SourceFile, fromToObj: Record
         const bezierReactImport = getImportDeclaration(sourceFile, '@channel.io/bezier-react')
         const hasCssImport = hasNamedImport(sourceFile, 'css')
 
-        if (!node.wasForgotten() && node.getText().includes(from)) {
+        if (!node.wasForgotten() && node.getText().includes(`${from}}`)) {
           if (!hasCssImport) {
             if (bezierReactImport) {
               bezierReactImport.addNamedImport('css')
