@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   useCallback,
-  useMemo,
 } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
@@ -111,25 +110,6 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
   rightWrapperInterpolation,
   ...props
 }, forwardedRef) {
-  const content = useMemo(() => (
-    <Styled.ContentWrapper
-      className={contentWrapperClassName}
-      interpolation={contentWrapperInterpolation}
-      data-testid={SECTION_LABEL_TEST_CONTENT_ID}
-    >
-      { isString(givenContent) || isNumber(givenContent)
-        ? (
-          <Styled.ContentText bold typo="13">
-            { givenContent }
-          </Styled.ContentText>
-        ) : givenContent }
-    </Styled.ContentWrapper>
-  ), [
-    givenContent,
-    contentWrapperClassName,
-    contentWrapperInterpolation,
-  ])
-
   const renderLeftItem = useCallback((item: SectionLabelItemProps) => {
     if ('icon' in item) {
       if (isBezierIcon(item.icon)) {
@@ -159,65 +139,10 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
   },
   [])
 
-  const leftComponent = useMemo(() => {
-    if (isNil(leftContent)) {
-      return null
-    }
-
-    const item = renderLeftItem(leftContent)
-    const show = !isNil(item)
-
-    return show && (
-      <Styled.LeftContentWrapper
-        className={leftWrapperClassName}
-        interpolation={leftWrapperInterpolation}
-        data-testid={SECTION_LABEL_TEST_LEFT_CONTENT_ID}
-      >
-        { item }
-      </Styled.LeftContentWrapper>
-    )
-  }, [
-    leftContent,
-    leftWrapperClassName,
-    leftWrapperInterpolation,
-    renderLeftItem,
-  ])
-
-  const rightComponent = useMemo(() => {
-    if (isNil(rightContent) || isEmpty(rightContent)) {
-      return null
-    }
-
-    const items = isArray(rightContent)
-      ? rightContent.map((item) => renderSectionLabelActionItem(item, uuid()))
-      : renderSectionLabelActionItem(rightContent)
-
-    return (
-      <Styled.RightContentWrapper
-        className={rightWrapperClassName}
-        interpolation={rightWrapperInterpolation}
-        data-testid={SECTION_LABEL_TEST_RIGHT_CONTENT_ID}
-      >
-        { items }
-      </Styled.RightContentWrapper>
-    )
-  }, [
-    rightContent,
-    rightWrapperClassName,
-    rightWrapperInterpolation,
-  ])
-
-  const helpContent = useMemo(() => !isNil(help) && (
-    <Styled.HelpContainer>
-      <Help allowHover>
-        { help }
-      </Help>
-    </Styled.HelpContainer>
-  ), [help])
-
   return (
     <div data-testid={SECTION_LABEL_TEST_ID}>
       { divider && <Divider orientation="horizontal" /> }
+
       <Styled.Wrapper
         ref={forwardedRef}
         className={classNames(
@@ -228,10 +153,49 @@ const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function Sect
         interpolation={wrapperInterpolation}
         {...props}
       >
-        { leftComponent }
-        { content }
-        { helpContent }
-        { rightComponent }
+        { leftContent && (
+          <Styled.LeftContentWrapper
+            className={leftWrapperClassName}
+            interpolation={leftWrapperInterpolation}
+            data-testid={SECTION_LABEL_TEST_LEFT_CONTENT_ID}
+          >
+            { renderLeftItem(leftContent) }
+          </Styled.LeftContentWrapper>
+        ) }
+
+        <Styled.ContentWrapper
+          className={contentWrapperClassName}
+          interpolation={contentWrapperInterpolation}
+          data-testid={SECTION_LABEL_TEST_CONTENT_ID}
+        >
+          { isString(givenContent) || isNumber(givenContent)
+            ? (
+              <Styled.ContentText bold typo="13">
+                { givenContent }
+              </Styled.ContentText>
+            )
+            : givenContent }
+        </Styled.ContentWrapper>
+
+        { help && (
+          <Styled.HelpContainer>
+            <Help allowHover>
+              { help }
+            </Help>
+          </Styled.HelpContainer>
+        ) }
+
+        { (!isNil(rightContent) && !isEmpty(rightContent)) && (
+          <Styled.RightContentWrapper
+            className={rightWrapperClassName}
+            interpolation={rightWrapperInterpolation}
+            data-testid={SECTION_LABEL_TEST_RIGHT_CONTENT_ID}
+          >
+            { isArray(rightContent)
+              ? rightContent.map((item) => renderSectionLabelActionItem(item, uuid()))
+              : renderSectionLabelActionItem(rightContent) }
+          </Styled.RightContentWrapper>
+        ) }
       </Styled.Wrapper>
       { children && (
         <Styled.ChildrenWrapper show={open}>
