@@ -1,5 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs'
-import { 
+import {
   ArrowRightUpIcon,
   BookmarkFilledIcon,
   ChannelSmileFilledIcon,
@@ -17,7 +17,7 @@ import { Button, ButtonStyleVariant, ButtonColorVariant } from '~/src/components
 import { SegmentedControl } from '~/src/components/Forms/SegmentedControl'
 import { Select } from '~/src/components/Forms/Inputs/Select'
 import { TextField } from '~/src/components/Forms/Inputs/TextField'
-import { KeyValueListItem } from '~/src/components/KeyValueListItem'
+import { KeyValueItem } from '~/src/components/KeyValueItem'
 import { Icon } from '~/src/components/Icon'
 import { ListItem, ListItemSize } from '~/src/components/ListItem'
 import { OutlineItem } from '~/src/components/OutlineItem'
@@ -175,12 +175,12 @@ StylableComponentProps를 구현하는 컴포넌트는 외부에서 스타일을
     </div>
   </Story>
   <Story name="ChildrenProps:KeyValueListItemProps.children">
-    <KeyValueListItem keyIcon="tag" keyContent="태그">
+    <KeyValueItem keyIcon="tag" keyContent="태그">
       <div style={{ display: 'flex', gap: '4px' }}>
         <Badge as="span" variant={TagBadgeVariant.Red}>마케팅 수신 거부</Badge>
         <Badge as="span" variant={TagBadgeVariant.Default}>회원</Badge>
       </div>
-    </KeyValueListItem>
+    </KeyValueItem>
   </Story>
 </Canvas>
 

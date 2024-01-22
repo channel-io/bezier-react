@@ -19,7 +19,6 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueItem.const'
 import {
   Text,
   type TextProps,
@@ -32,7 +31,13 @@ import {
   type KeyValueListItemAction,
 } from './KeyValueItem.types'
 
-import styles from './KeyValueListItem.module.scss'
+import styles from './KeyValueItem.module.scss'
+
+export const KEY_VALUE_ITEM_TEST_ID = {
+  ROOT: 'bezier-key-value-item',
+  KEY_ITEM: 'bezier-key-value-item-key-item',
+  VALUE_ITEM: 'bezier-key-value-item-value-item',
+}
 
 function KeyItem({
   icon,
@@ -42,7 +47,10 @@ function KeyItem({
   children: React.ReactNode
 }) {
   return (
-    <div className={styles.KeyItem}>
+    <div
+      className={styles.KeyItem}
+      data-testid={KEY_VALUE_ITEM_TEST_ID.KEY_ITEM}
+    >
       { isBezierIcon(icon)
         ? (
           <Icon
@@ -75,6 +83,7 @@ function ValueItem({
       className={styles.ValueItem}
       typo="14"
       truncated={truncated}
+      testId={KEY_VALUE_ITEM_TEST_ID.VALUE_ITEM}
     >
       { children }
     </Text>
@@ -134,7 +143,7 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(functi
   keyContent,
   actions,
   children,
-  testId = TEST_ID_MAP.ROOT,
+  testId = KEY_VALUE_ITEM_TEST_ID.ROOT,
   onClickKey,
   onClickValue,
   ...props
@@ -199,7 +208,7 @@ export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProp
   keyIcon,
   keyContent,
   actions,
-  testId = TEST_ID_MAP.MULTILINE_ROOT,
+  testId = KEY_VALUE_ITEM_TEST_ID.ROOT,
   onClickKey,
   onClickValue,
   ...props
