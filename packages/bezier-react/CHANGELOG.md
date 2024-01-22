@@ -1,5 +1,60 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.7
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `ListItem` component** ([#1925](https://github.com/channel-io/bezier-react/pull/1925)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `iconStyle`, `iconClassName`, `iconInterpolation`, `contentStyle`, `contentClassName` and `contentInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `leftIcon` property. Removed for consistency with other component interfaces. Replace it to `leftContent`.
+  - No longer support `name` property. The second argument (name) of `onClick` is also removed. If you need an identifier, combine functions outside of the component.
+  - No longer support `hide`, `nested`, `optionKey` and `disableIconActive` property. Removed because it is a legacy property. Replace `hide` property with conditional rendering.
+  - The size changes according to the `ListItemSize`. This is a change to unify the design. Please change it like below.
+    - `ListItemSize.S` -> `ListItemSize.XS`
+    - `ListItemSize.M` -> `ListItemSize.S`
+    - `ListItemSize.L` -> `ListItemSize.M`
+    - `ListItemSize.XL` -> `ListItemSize.L`
+
+  **Minor Changes:**
+
+  - Fix incorrect text size for `XL`(now `L`) size.
+
+- **Breaking Changes: Property updates in `NavGroup` and `NavItem` component** ([#1931](https://github.com/channel-io/bezier-react/pull/1931)) by @sungik-choi
+
+  `leftIcon` renamed to `leftContent`. Changed to improve consistency of interface property names across libraries.
+
+- **Breaking Changes: Property updates in `FormControl` component** ([#1935](https://github.com/channel-io/bezier-react/pull/1935)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Reorganizing `SectionLabel` component** ([#1936](https://github.com/channel-io/bezier-react/pull/1936)) by @sungik-choi
+
+  `SectionLabel` is a complex component that can be used both in the form of an accordion and as a simple heading. To better meet the needs of both, we've changed the internal implementation of the component.
+
+  We've also made changes to make styling overrides as predictable as they are for other components. The style override property, which was unnecessarily open, is now removed.
+
+  - Remove the internal div wrapper. `style`, `className` properties are now injected into the component instead of the old `wrapperStyle`, `wrapperClassName`.
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support additional style properties of `wrapper`, `contentWrapper`, `leftWrapper` and `rightWrapper`.
+  - No longer support `divider` property. Replace it by adding `Divider` component to the component's before.
+  - The side content property is changed. It is no longer possible to override `iconColor`.
+  - When injecting `onClick` handler, the root element now behaves as a `button` element. This change is to better support keyboard focus control.
+
+- **Breaking Changes: Reorganizing `OutlineItem` component** ([#1930](https://github.com/channel-io/bezier-react/pull/1930)) by @sungik-choi
+
+  `OutlineItem` component was originally designed as a component to draw a tree-like view, _but it was not used as intended in production_. We simplified the component's responsibilities by removing unused properties while retaining the component's ability to apply indentation to subcomponents.
+
+  - No longer support `paddingLeft` property. **By default, 6px of left padding has been added.** If you need to make changes, override the style.
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `iconStyle`, `iconClassName`, `iconInterpolation`, `contentStyle`, `contentClassName` and `contentInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `leftIcon` property. Removed for consistency with other component interfaces. Replace it to `leftContent`.
+  - No longer support `leftIconColor` and `leftIconTestId` property.
+  - No longer support `name` property. The second argument (name) of `onClick` is also removed. If you need an identifier, combine functions outside of the component.
+  - No longer support `hide`, `optionKey` and `disableIconActive` property. Replace `hide` property with conditional rendering.
+  - No longer support `onOpen`, `onClickArrow`, `selectedOutlineItemIndex` and `onChangeOption` property.
+
 ## 2.0.0-alpha.6
 
 ### Major Changes
