@@ -2,12 +2,9 @@ import React, {
   type Ref,
   forwardRef,
   memo,
-  useMemo,
 } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
-
-import { isString } from '~/src/utils/type'
 
 import {
   Icon,
@@ -30,37 +27,6 @@ function KeyItem(
   }: KeyItemProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  const KeyIcon = useMemo(() => {
-    if (isBezierIcon(keyIcon)) {
-      return (
-        <Icon
-          size={IconSize.S}
-          source={keyIcon}
-          color="txt-black-dark"
-        />
-      )
-    }
-
-    return keyIcon
-  }, [keyIcon])
-
-  const KeyText = useMemo(() => {
-    if (isString(children)) {
-      return (
-        <Text
-          className={styles.KeyText}
-          bold
-          typo="12"
-          color="txt-black-dark"
-          truncated
-        >
-          { children }
-        </Text>
-      )
-    }
-    return children
-  }, [children])
-
   return (
     <div
       {...props}
@@ -68,8 +34,25 @@ function KeyItem(
       ref={forwardedRef}
       data-testid={testId}
     >
-      { KeyIcon }
-      { KeyText }
+      { isBezierIcon(keyIcon)
+        ? (
+          <Icon
+            size={IconSize.S}
+            source={keyIcon}
+            color="txt-black-dark"
+          />
+        )
+        : keyIcon }
+
+      <Text
+        className={styles.KeyText}
+        bold
+        typo="12"
+        color="txt-black-dark"
+        truncated
+      >
+        { children }
+      </Text>
     </div>
   )
 }
