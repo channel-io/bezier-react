@@ -1,7 +1,4 @@
-import React, {
-  type Ref,
-  forwardRef,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
@@ -131,20 +128,17 @@ function ActionButtonGroup({ children }: { children: KeyValueListItemProps['acti
   )
 }
 
-function KeyValueListItem(
-  {
-    className,
-    keyIcon,
-    keyContent,
-    actions,
-    children,
-    testId = TEST_ID_MAP.ROOT,
-    onClickKey,
-    onClickValue,
-    ...props
-  }: KeyValueListItemProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
+export const KeyValueListItem = forwardRef<HTMLDivElement, KeyValueListItemProps>(function KeyValueListItem({
+  className,
+  keyIcon,
+  keyContent,
+  actions,
+  children,
+  testId = TEST_ID_MAP.ROOT,
+  onClickKey,
+  onClickValue,
+  ...props
+}, forwardedRef) {
   return (
     <div
       {...props}
@@ -187,7 +181,7 @@ function KeyValueListItem(
         )}
         onClick={onClickValue}
       >
-        <ValueItem>
+        <ValueItem truncated>
           { children }
         </ValueItem>
 
@@ -197,6 +191,69 @@ function KeyValueListItem(
       </div>
     </div>
   )
-}
+})
 
-export default forwardRef(KeyValueListItem)
+export const KeyValueMultiLineListItem = forwardRef<HTMLDivElement, KeyValueListItemProps>(function KeyValueMultiLineListItem({
+  children,
+  className,
+  keyIcon,
+  keyContent,
+  actions,
+  testId = TEST_ID_MAP.MULTILINE_ROOT,
+  onClickKey,
+  onClickValue,
+  ...props
+}, forwardedRef) {
+  return (
+    <div
+      {...props}
+      className={classNames(
+        styles.KeyValueItemWrapper,
+        styles.KeyValueMultiLineItem,
+        className,
+      )}
+      ref={forwardedRef}
+      data-testid={testId}
+    >
+      { /* Since it allows for click interaction, it should be interactive content,
+        but since it has a button element nested inside it, this is bad HTML markup.
+        It's difficult to fix this without changing the design,
+        so we keep the legacy code that uses the div element. */ }
+      { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
+      <div
+        className={classNames(
+          styles.KeyValueItemInnerWrapper,
+          styles.KeyMultiLineItem,
+          onClickKey && styles.clickable,
+        )}
+        onClick={onClickKey}
+      >
+        <KeyItem icon={keyIcon}>
+          { keyContent }
+        </KeyItem>
+
+        <ActionButtonGroup>
+          { actions }
+        </ActionButtonGroup>
+      </div>
+
+      { /* Since it allows for click interaction, it should be interactive content,
+        but since it has a button element nested inside it, this is bad HTML markup.
+        It's difficult to fix this without changing the design,
+        so we keep the legacy code that uses the div element. */ }
+      { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
+      <div
+        className={classNames(
+          styles.KeyValueItemInnerWrapper,
+          styles.ValueMultiLineItem,
+          onClickValue && styles.clickable,
+        )}
+        onClick={onClickValue}
+      >
+        <ValueItem>
+          { children }
+        </ValueItem>
+      </div>
+    </div>
+  )
+})

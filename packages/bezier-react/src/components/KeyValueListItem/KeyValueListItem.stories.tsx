@@ -17,9 +17,11 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 
-import KeyValueListItem from './KeyValueListItem'
+import {
+  KeyValueListItem,
+  KeyValueMultiLineListItem,
+} from './KeyValueListItem'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
-import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 
 const meta:Meta<typeof KeyValueListItem> = {
   component: KeyValueListItem,
