@@ -3,7 +3,6 @@ import type React from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
-  AdditionalColorProps,
   BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
@@ -11,9 +10,8 @@ import type {
 export type ItemActionWithIcon = {
   icon: BezierIcon
   tooltip?: string
-  show?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-} & AdditionalColorProps<['icon', 'hoverBackground', 'hoverIcon']>
+}
 
 export type KeyValueListItemActionProps = ItemActionWithIcon | React.ReactElement
 

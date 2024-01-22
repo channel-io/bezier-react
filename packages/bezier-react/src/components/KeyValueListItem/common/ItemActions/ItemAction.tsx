@@ -2,23 +2,24 @@ import React, {
   type Ref,
   forwardRef,
   memo,
-  useCallback,
-  useMemo,
 } from 'react'
 
-import { v4 as uuid } from 'uuid'
-
-import { noop } from '~/src/utils/function'
 import {
   isArray,
-  isBoolean,
   isEmpty,
   isNil,
 } from '~/src/utils/type'
 
-import { IconSize } from '~/src/components/Icon'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
 import { Tooltip } from '~/src/components/Tooltip'
+
+import styles from '../../KeyValueListItem.module.scss'
 
 import {
   type ItemActionProps,
@@ -26,18 +27,27 @@ import {
   type KeyValueListItemActionProps,
 } from './ItemAction.types'
 
-import * as Styled from './ItemAction.styled'
+function isItemActionWithIcon(args: object): args is ItemActionWithIcon {
+  return 'icon' in args
+}
 
-function ActionIcon({
-  icon,
-  iconColor,
-}: ItemActionWithIcon) {
+function ActionButton({ children }: { children: KeyValueListItemActionProps }) {
+  if (!isItemActionWithIcon(children)) {
+    return children
+  }
+
+  const Wrapper = !isEmpty(children.tooltip) ? Tooltip : React.Fragment
+
   return (
-    <Styled.ActionIcon
-      source={icon}
-      color={iconColor ?? 'txt-black-dark'}
-      size={IconSize.XS}
-    />
+    <Wrapper content={children.tooltip}>
+      <Button
+        size={ButtonSize.XS}
+        leftContent={children.icon}
+        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant={ButtonColorVariant.MonochromeDark}
+        onClick={children.onClick}
+      />
+    </Wrapper>
   )
 }
 
@@ -49,63 +59,30 @@ function ItemAction(
   }: ItemActionProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
-  const renderAction = useCallback((action: KeyValueListItemActionProps, key?: string) => {
-    if ('icon' in action) {
-      const iconElement = (
-        <Styled.ActionIconWrapper
-          key={key}
-          hoverBackgroundColor={action.hoverBackgroundColor ?? 'bg-black-lighter'}
-          hoverIconColor={action.hoverIconColor ?? 'txt-black-darkest'}
-          show={isBoolean(action.show) ? action.show : true}
-          onClick={action.onClick ?? noop}
-        >
-          <ActionIcon {...action} />
-        </Styled.ActionIconWrapper>
-      )
-
-      if (!isEmpty(action.tooltip)) {
-        return (
-          <Tooltip
-            key={key}
-            content={action.tooltip}
-          >
-            { iconElement }
-          </Tooltip>
-        )
-      }
-      return iconElement
-    }
-
-    return React.cloneElement(action, { key })
-  }, [])
-
-  const ActionsComponent = useMemo(() => {
-    if (isNil(actions) || isEmpty(actions)) {
-      return null
-    }
-
-    const item = isArray(actions)
-      ? actions.map((action) => renderAction(action, uuid()))
-      : renderAction(actions)
-
-    return item
-  }, [
-    actions,
-    renderAction,
-  ])
-
   if (isNil(actions) || isEmpty(actions)) {
     return null
   }
 
   return (
-    <Styled.ItemActionWrapper
-      data-testid={testId}
+    <div
       {...props}
+      className={styles.ItemAction}
       ref={forwardedRef}
+      data-testid={testId}
     >
-      { ActionsComponent }
-    </Styled.ItemActionWrapper>
+      { isArray(actions)
+        ? actions.map((action, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <ActionButton key={index}>
+            { action }
+          </ActionButton>
+        ))
+        : (
+          <ActionButton>
+            { actions }
+          </ActionButton>
+        ) }
+    </div>
   )
 }
 
