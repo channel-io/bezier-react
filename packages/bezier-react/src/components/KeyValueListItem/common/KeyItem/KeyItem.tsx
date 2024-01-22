@@ -14,15 +14,15 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import { Text } from '~/src/components/Text'
+
+import styles from '../../KeyValueListItem.module.scss'
 
 import { type KeyItemProps } from './KeyItem.types'
-
-import * as Styled from './KeyItem.styled'
 
 function KeyItem(
   {
     className,
-    interpolation,
     keyIcon,
     testId = TEST_ID_MAP.KEY_ITEM,
     children,
@@ -47,24 +47,30 @@ function KeyItem(
   const KeyText = useMemo(() => {
     if (isString(children)) {
       return (
-        <Styled.KeyText bold typo="12" truncated>
+        <Text
+          className={styles.KeyText}
+          bold
+          typo="12"
+          color="txt-black-dark"
+          truncated
+        >
           { children }
-        </Styled.KeyText>
+        </Text>
       )
     }
     return children
   }, [children])
 
   return (
-    <Styled.KeyContent
-      data-testid={testId}
+    <div
       {...props}
+      className={styles.KeyContent}
       ref={forwardedRef}
-      interpolation={interpolation}
+      data-testid={testId}
     >
       { KeyIcon }
       { KeyText }
-    </Styled.KeyContent>
+    </div>
   )
 }
 
