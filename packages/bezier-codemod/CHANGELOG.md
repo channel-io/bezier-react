@@ -1,5 +1,17 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.5
+
+### Minor Changes
+
+- Changes in `v2-text-component-interface` codemod ([#1932](https://github.com/channel-io/bezier-react/pull/1932)) by @yangwooseong
+  Previously, both the component name and the name of the property were checked, but now only the name of the component property is checked.
+
+- Changes in `v2-**-interpolation-to-css-variable` transform. ([#1928](https://github.com/channel-io/bezier-react/pull/1928)) by @yangwooseong
+
+  - it is renamed to `v2-interpolation-to-css-variable-**`. e.g. `v2-interpolation-to-css-varable-input`, `v2-interpolation-to-css-variable-typography`, and so on
+  - it provides integrated transform named `v2-interpolation-to-css-variable` that handles all interpolation transform
+
 ## 0.5.0-alpha.4
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @channel.io/bezier-tokens
 
+## 0.1.0-alpha.4
+
+### Minor Changes
+
+- Remove invalid radius tokens ([#1934](https://github.com/channel-io/bezier-react/pull/1934)) by @sungik-choi
+
+  - `radius-10`
+  - `radius-14`
+  - `radius-100-p`
+
 ## 0.1.0-alpha.3
 
 ### Minor Changes
