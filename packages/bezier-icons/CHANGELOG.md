@@ -1,5 +1,19 @@
 # @channel.io/bezier-icons
 
+## 0.19.0
+
+### Minor Changes
+
+- Update icons ([#1937](https://github.com/channel-io/bezier-react/pull/1937)) by @Jamie-channel
+
+  Added
+
+  - command.svg
+
+  Modified
+
+  - pie-chart.svg
+
 ## 0.18.0
 
 ### Minor Changes
