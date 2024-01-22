@@ -44,7 +44,7 @@ function ActionButton({ children }: { children: KeyValueListItemActionProps }) {
         size={ButtonSize.XS}
         leftContent={children.icon}
         styleVariant={ButtonStyleVariant.Tertiary}
-        colorVariant={ButtonColorVariant.MonochromeDark}
+        colorVariant={ButtonColorVariant.MonochromeLight}
         onClick={children.onClick}
       />
     </Wrapper>

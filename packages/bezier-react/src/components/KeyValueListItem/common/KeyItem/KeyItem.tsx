@@ -30,7 +30,7 @@ function KeyItem(
   return (
     <div
       {...props}
-      className={styles.KeyContent}
+      className={styles.KeyItem}
       ref={forwardedRef}
       data-testid={testId}
     >

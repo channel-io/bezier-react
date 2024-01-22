@@ -3,6 +3,8 @@ import React, {
   forwardRef,
 } from 'react'
 
+import classNames from 'classnames'
+
 import { TEST_ID_MAP } from './KeyValueListItem.const'
 import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import {
@@ -11,7 +13,7 @@ import {
   ValueItem,
 } from './common'
 
-import * as Styled from './KeyValueListItem.styled'
+import styles from './KeyValueListItem.module.scss'
 
 function KeyValueListItem(
   {
@@ -31,28 +33,56 @@ function KeyValueListItem(
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   return (
-    <Styled.Wrapper
-      data-testid={testId}
+    <div
       {...props}
+      className={classNames(
+        styles.KeyValueItemWrapper,
+        styles.KeyValueSingleLineItem,
+        className,
+      )}
       ref={forwardedRef}
-      interpolation={interpolation}
-      className={className}
+      data-testid={testId}
     >
-      <Styled.KeyItemContainer onClick={onClickKey}>
+      { /* Since it allows for click interaction, it should be interactive content,
+        but since it has a button element nested inside it, this is bad HTML markup.
+        It's difficult to fix this without changing the design,
+        so we keep the legacy code that uses the div element. */ }
+      { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
+      <div
+        className={classNames(
+          styles.KeyValueItemInnerWrapper,
+          styles.KeySingleLineItem,
+          onClickKey && styles.clickable,
+        )}
+        onClick={onClickKey}
+      >
         <KeyItem
           keyIcon={keyIcon}
           interpolation={keyWrapperInterpolation}
         >
           { keyContent }
         </KeyItem>
-      </Styled.KeyItemContainer>
-      <Styled.ValueItemContainer onClick={onClickValue}>
+      </div>
+
+      { /* Since it allows for click interaction, it should be interactive content,
+        but since it has a button element nested inside it, this is bad HTML markup.
+        It's difficult to fix this without changing the design,
+        so we keep the legacy code that uses the div element. */ }
+      { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
+      <div
+        className={classNames(
+          styles.KeyValueItemInnerWrapper,
+          styles.ValueSingleLineItem,
+          onClickValue && styles.clickable,
+        )}
+        onClick={onClickValue}
+      >
         <ValueItem interpolation={valueWrapperInterpolation}>
           { children }
         </ValueItem>
         <ItemAction actions={actions} />
-      </Styled.ValueItemContainer>
-    </Styled.Wrapper>
+      </div>
+    </div>
   )
 }
 

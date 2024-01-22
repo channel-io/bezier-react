@@ -1,4 +1,44 @@
-.KeyContent {
+.KeyValueItemWrapper {
+  border-radius: var(--radius-6);
+  transition: background-color var(--transition-s), color var(--transition-s);
+}
+
+.KeyValueItemInnerWrapper {
+  display: flex;
+  align-items: flex-start;
+
+  box-sizing: border-box;
+  padding: 4px 6px;
+
+  border-radius: var(--radius-6);
+
+  &:where(.clickable) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--bg-black-lighter);
+    }
+  }
+}
+
+.KeyValueSingleLineItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.KeySingleLineItem {
+  overflow: hidden;
+  flex: 1;
+}
+
+.ValueSingleLineItem {
+  overflow: hidden;
+  flex: 2;
+  justify-content: space-between;
+  min-height: 28px;
+}
+
+.KeyItem {
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -6,6 +46,13 @@
 
 .KeyText {
   margin-left: 8px;
+}
+
+.ValueItem {
+  width: 100%;
+
+  /* To avoid inheritance issues with the internal `Text` color */
+  color: var(--txt-black-darkest);
 }
 
 .ItemAction {
