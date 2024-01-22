@@ -3,29 +3,142 @@ import React, {
   forwardRef,
 } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { TEST_ID_MAP } from './KeyValueListItem.const'
-import { type KeyValueListItemProps } from './KeyValueListItem.types'
 import {
-  ItemAction,
-  KeyItem,
-  ValueItem,
-} from './common'
+  isArray,
+  isEmpty,
+  isNil,
+} from '~/src/utils/type'
+
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import {
+  Text,
+  type TextProps,
+} from '~/src/components/Text'
+import { Tooltip } from '~/src/components/Tooltip'
+
+import {
+  type ItemActionWithIcon,
+  type KeyValueListItemAction,
+  type KeyValueListItemProps,
+} from './KeyValueListItem.types'
 
 import styles from './KeyValueListItem.module.scss'
+
+function KeyItem({
+  icon,
+  children,
+}: {
+  icon: KeyValueListItemProps['keyIcon']
+  children: React.ReactNode
+}) {
+  return (
+    <div className={styles.KeyItem}>
+      { isBezierIcon(icon)
+        ? (
+          <Icon
+            size={IconSize.S}
+            source={icon}
+            color="txt-black-dark"
+          />
+        )
+        : icon }
+
+      <Text
+        className={styles.KeyText}
+        bold
+        typo="12"
+        color="txt-black-dark"
+        truncated
+      >
+        { children }
+      </Text>
+    </div>
+  )
+}
+
+function ValueItem({
+  truncated,
+  children,
+}: TextProps) {
+  return (
+    <Text
+      className={styles.ValueItem}
+      typo="14"
+      truncated={truncated}
+    >
+      { children }
+    </Text>
+  )
+}
+
+function isItemActionWithIcon(args: object): args is ItemActionWithIcon {
+  return 'icon' in args
+}
+
+function ActionButton({ children }: { children: KeyValueListItemAction }) {
+  if (!isItemActionWithIcon(children)) {
+    return children
+  }
+
+  const Wrapper = !isEmpty(children.tooltip) ? Tooltip : React.Fragment
+
+  return (
+    <Wrapper content={children.tooltip}>
+      <Button
+        size={ButtonSize.XS}
+        leftContent={children.icon}
+        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        onClick={children.onClick}
+      />
+    </Wrapper>
+  )
+}
+
+function ActionButtonGroup({ children }: { children: KeyValueListItemProps['actions'] }) {
+  if (isNil(children) || isEmpty(children)) {
+    return null
+  }
+
+  return (
+    <div className={styles.ItemAction}>
+      { isArray(children)
+        ? children.map((action, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <ActionButton key={index}>
+            { action }
+          </ActionButton>
+        ))
+        : (
+          <ActionButton>
+            { children }
+          </ActionButton>
+        ) }
+    </div>
+  )
+}
 
 function KeyValueListItem(
   {
     className,
-    interpolation,
-    valueWrapperInterpolation,
-    keyWrapperInterpolation,
     keyIcon,
     keyContent,
     actions,
-    testId = TEST_ID_MAP.ROOT,
     children,
+    testId = TEST_ID_MAP.ROOT,
     onClickKey,
     onClickValue,
     ...props
@@ -56,10 +169,7 @@ function KeyValueListItem(
         )}
         onClick={onClickKey}
       >
-        <KeyItem
-          keyIcon={keyIcon}
-          interpolation={keyWrapperInterpolation}
-        >
+        <KeyItem icon={keyIcon}>
           { keyContent }
         </KeyItem>
       </div>
@@ -77,10 +187,13 @@ function KeyValueListItem(
         )}
         onClick={onClickValue}
       >
-        <ValueItem interpolation={valueWrapperInterpolation}>
+        <ValueItem>
           { children }
         </ValueItem>
-        <ItemAction actions={actions} />
+
+        <ActionButtonGroup>
+          { actions }
+        </ActionButtonGroup>
       </div>
     </div>
   )

@@ -3,25 +3,28 @@ import type React from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
-  AdditionalStylableProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
 } from '~/src/types/ComponentProps'
 
-import { type KeyValueListItemActionProps } from './common'
+export type ItemActionWithIcon = {
+  icon: BezierIcon
+  tooltip?: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}
 
-interface KeyValueListItemOptions {
+export type KeyValueListItemAction = ItemActionWithIcon | React.ReactElement
+
+interface KeyValueListItemOwnProps {
   keyIcon?: BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
-  actions?: KeyValueListItemActionProps | KeyValueListItemActionProps[]
+  actions?: KeyValueListItemAction | KeyValueListItemAction[]
+  onClickKey?: React.MouseEventHandler<HTMLDivElement>
+  onClickValue?: React.MouseEventHandler<HTMLDivElement>
 }
 
 export interface KeyValueListItemProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLDivElement>,
-  AdditionalStylableProps<['valueWrapper', 'keyWrapper']>,
-  KeyValueListItemOptions {
-  onClickKey?: (e: React.MouseEvent<HTMLDivElement>) => void
-  onClickValue?: (e: React.MouseEvent<HTMLDivElement>) => void
-}
+  KeyValueListItemOwnProps {}
