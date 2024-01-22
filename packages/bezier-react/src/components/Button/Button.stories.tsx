@@ -255,7 +255,7 @@ export const UsageComposite: StoryObj<{}> = {
           <LegacyVStack align="stretch">
             <LegacyStackItem>
               <SectionLabel
-                leftContent={{ icon: PeopleIcon }}
+                leftContent={PeopleIcon}
                 content="태그 ∙ 2"
                 rightContent={(
                   <Button

@@ -1,12 +1,7 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
-import { v4 as uuid } from 'uuid'
 
 import { warn } from '~/src/utils/assert'
 import {
@@ -14,6 +9,7 @@ import {
   isEmpty,
   isNil,
   isNumber,
+  isObject,
   isString,
 } from '~/src/utils/type'
 
@@ -23,7 +19,6 @@ import {
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { Divider } from '~/src/components/Divider'
 import { Help } from '~/src/components/Help'
 import {
   Icon,
@@ -33,213 +28,163 @@ import {
   LegacyIcon,
   isIconName,
 } from '~/src/components/LegacyIcon'
+import { Text } from '~/src/components/Text'
 
-import { type SectionLabelItemProps } from './SectionLabel.types'
-import type SectionLabelProps from './SectionLabel.types'
+import {
+  type IconWithAction,
+  type SectionLabelLeftContent,
+  type SectionLabelProps,
+  type SectionLabelRightContent,
+} from './SectionLabel.types'
 
-import Styled from './SectionLabel.styled'
+import styles from './SectionLabel.module.scss'
 
-export const SECTION_LABEL_TEST_ID = 'bezier-react-section-label'
-export const SECTION_LABEL_TEST_CONTENT_ID = 'bezier-react-section-label-content'
-export const SECTION_LABEL_TEST_LEFT_CONTENT_ID = 'bezier-react-section-label-left-content'
-export const SECTION_LABEL_TEST_RIGHT_CONTENT_ID = 'bezier-react-section-label-right-content'
+function LeftContent({ children }: { children: SectionLabelLeftContent }) {
+  const isLegacyIcon = isIconName(children)
 
-function clickableClassName(onClick?: React.MouseEventHandler) {
-  return !isNil(onClick) ? 'clickable' : undefined
-}
-
-function renderSectionLabelActionItem(props: SectionLabelItemProps, key?: string): React.ReactElement {
-  if (!('icon' in props)) {
-    return React.cloneElement(props, { key })
+  if (!isBezierIcon(children) && !isLegacyIcon) {
+    return <>{ children }</>
   }
 
-  const { icon, iconColor, onClick } = props
-  if (isIconName(icon)) {
+  if (isLegacyIcon) {
     warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
   }
 
-  if (!isNil(iconColor)) {
-    /*
-     * NOTE: backward compatibility를 위해 iconColor attribute를 지원하지만,
-     * iconColor를 사용할 경우 ButtonColorVariant와 일치하지 않기 때문에 Icon을 사용합니다.
-     */
-    return (
-      <Styled.RightItemWrapper
-        key={key}
-        className={clickableClassName(onClick)}
-        onClick={onClick}
-      >
-        { isBezierIcon(icon) ? (
-          <Icon
-            source={icon}
-            size={IconSize.XS}
-            color={iconColor}
-          />
-        ) : <LegacyIcon name={icon} size={IconSize.XS} color={iconColor} /> }
-      </Styled.RightItemWrapper>
-    )
-  }
+  const Comp = isLegacyIcon ? LegacyIcon : Icon
 
   return (
-    <Button
-      key={key}
-      size={ButtonSize.XS}
-      styleVariant={ButtonStyleVariant.Tertiary}
-      colorVariant={ButtonColorVariant.Monochrome}
-      leftContent={icon}
-      onClick={onClick}
+    // @ts-expect-error
+    <Comp
+      {...isLegacyIcon ? {
+        name: children,
+      } : {
+        source: children,
+      }}
+      size={IconSize.S}
+      color="txt-black-dark"
     />
   )
 }
 
-const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(function SectionLabel({
-  content: givenContent,
-  open = true,
-  divider = false,
-  help,
-  leftContent,
-  rightContent,
-  onClick,
-  children,
-  wrapperClassName,
-  wrapperInterpolation,
-  contentWrapperClassName,
-  contentWrapperInterpolation,
-  leftWrapperClassName,
-  leftWrapperInterpolation,
-  rightWrapperClassName,
-  rightWrapperInterpolation,
-  ...props
-}, forwardedRef) {
-  const content = useMemo(() => (
-    <Styled.ContentWrapper
-      className={contentWrapperClassName}
-      interpolation={contentWrapperInterpolation}
-      data-testid={SECTION_LABEL_TEST_CONTENT_ID}
-    >
-      { isString(givenContent) || isNumber(givenContent)
-        ? (
-          <Styled.ContentText bold typo="13">
-            { givenContent }
-          </Styled.ContentText>
-        ) : givenContent }
-    </Styled.ContentWrapper>
-  ), [
-    givenContent,
-    contentWrapperClassName,
-    contentWrapperInterpolation,
-  ])
+function isIconWithAction(args: unknown): args is IconWithAction {
+  return isObject(args) && 'icon' in args
+}
 
-  const renderLeftItem = useCallback((item: SectionLabelItemProps) => {
-    if ('icon' in item) {
-      if (isBezierIcon(item.icon)) {
-        return (
-          <Styled.LeftIcon
-            className={clickableClassName(item.onClick)}
-            source={item.icon}
-            size={IconSize.S}
-            color={item.iconColor ?? 'txt-black-dark'}
-            onClick={item.onClick}
-          />
-        )
-      }
+function RightContent({ children }: { children: SectionLabelRightContent }) {
+  const isLegacyIcon = isIconName(children)
+  const withAction = isIconWithAction(children)
 
-      return (
-        <Styled.LegacyLeftIcon
-          className={clickableClassName(item.onClick)}
-          name={item.icon}
-          size={IconSize.S}
-          color={item.iconColor ?? 'txt-black-dark'}
-          onClick={item.onClick}
-        />
-      )
-    }
+  if (!isBezierIcon(children) && !isLegacyIcon && !withAction) {
+    return <>{ children }</>
+  }
 
-    return item
-  },
-  [])
-
-  const leftComponent = useMemo(() => {
-    if (isNil(leftContent)) {
-      return null
-    }
-
-    const item = renderLeftItem(leftContent)
-    const show = !isNil(item)
-
-    return show && (
-      <Styled.LeftContentWrapper
-        className={leftWrapperClassName}
-        interpolation={leftWrapperInterpolation}
-        data-testid={SECTION_LABEL_TEST_LEFT_CONTENT_ID}
-      >
-        { item }
-      </Styled.LeftContentWrapper>
-    )
-  }, [
-    leftContent,
-    leftWrapperClassName,
-    leftWrapperInterpolation,
-    renderLeftItem,
-  ])
-
-  const rightComponent = useMemo(() => {
-    if (isNil(rightContent) || isEmpty(rightContent)) {
-      return null
-    }
-
-    const items = isArray(rightContent)
-      ? rightContent.map((item) => renderSectionLabelActionItem(item, uuid()))
-      : renderSectionLabelActionItem(rightContent)
-
-    return (
-      <Styled.RightContentWrapper
-        className={rightWrapperClassName}
-        interpolation={rightWrapperInterpolation}
-        data-testid={SECTION_LABEL_TEST_RIGHT_CONTENT_ID}
-      >
-        { items }
-      </Styled.RightContentWrapper>
-    )
-  }, [
-    rightContent,
-    rightWrapperClassName,
-    rightWrapperInterpolation,
-  ])
-
-  const helpContent = useMemo(() => !isNil(help) && (
-    <Styled.HelpContainer>
-      <Help allowHover>
-        { help }
-      </Help>
-    </Styled.HelpContainer>
-  ), [help])
+  if (isLegacyIcon) {
+    warn('Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.')
+  }
 
   return (
-    <div data-testid={SECTION_LABEL_TEST_ID}>
-      { divider && <Divider orientation="horizontal" /> }
-      <Styled.Wrapper
+    <Button
+      {...withAction ? {
+        leftContent: children.icon,
+        onClick: children.onClick,
+      } : {
+        as: 'div',
+        leftContent: children,
+      }}
+      className={classNames(
+        styles.RightItem,
+        withAction && styles.clickable,
+      )}
+      size={ButtonSize.XS}
+      styleVariant={ButtonStyleVariant.Tertiary}
+      colorVariant={ButtonColorVariant.MonochromeLight}
+    />
+  )
+}
+
+export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function SectionLabel({
+  children,
+  className,
+  open = true,
+  help,
+  leftContent,
+  content,
+  rightContent,
+  testId = 'bezier-section-label',
+  onClick,
+  ...props
+}, forwardedRef) {
+  const clickable = !isNil(onClick)
+  const Comp = clickable ? 'button' : 'div'
+
+  return (
+    <>
+      <Comp
+        {...props}
+        // @ts-expect-error
         ref={forwardedRef}
         className={classNames(
-          wrapperClassName,
-          clickableClassName(onClick),
+          styles.SectionLabel,
+          clickable && styles.clickable,
+          className,
         )}
+        data-testid={testId}
         onClick={onClick}
-        interpolation={wrapperInterpolation}
-        {...props}
       >
-        { leftComponent }
-        { content }
-        { helpContent }
-        { rightComponent }
-      </Styled.Wrapper>
-      { children && (
-        <Styled.ChildrenWrapper show={open}>
+        { leftContent && (
+          <div className={styles.LeftContent}>
+            <LeftContent>
+              { leftContent }
+            </LeftContent>
+          </div>
+        ) }
+
+        <div className={styles.Content}>
+          { isString(content) || isNumber(content)
+            ? (
+              <Text
+                bold
+                typo="13"
+                color="txt-black-dark"
+                truncated
+              >
+                { content }
+              </Text>
+            )
+            : content }
+        </div>
+
+        { help && (
+          <div className={styles.Help}>
+            <Help allowHover>
+              { help }
+            </Help>
+          </div>
+        ) }
+
+        { (!isNil(rightContent) && !isEmpty(rightContent)) && (
+          <div className={styles.RightContent}>
+            { isArray(rightContent)
+              ? rightContent.map((eachContent, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <RightContent key={index}>
+                  { eachContent }
+                </RightContent>
+              ))
+              : (
+                <RightContent>
+                  { rightContent }
+                </RightContent>
+              ) }
+          </div>
+        ) }
+      </Comp>
+
+      { children && open && (
+        <div>
           { children }
-        </Styled.ChildrenWrapper>
+        </div>
       ) }
-    </div>
+    </>
   )
 })
-
-export default SectionLabel
