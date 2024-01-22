@@ -19,7 +19,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueListItem.const'
+import { TEST_ID_MAP } from '~/src/components/KeyValueListItem/KeyValueItem.const'
 import {
   Text,
   type TextProps,
@@ -28,9 +28,9 @@ import { Tooltip } from '~/src/components/Tooltip'
 
 import {
   type ItemActionWithIcon,
+  type KeyValueItemProps,
   type KeyValueListItemAction,
-  type KeyValueListItemProps,
-} from './KeyValueListItem.types'
+} from './KeyValueItem.types'
 
 import styles from './KeyValueListItem.module.scss'
 
@@ -38,7 +38,7 @@ function KeyItem({
   icon,
   children,
 }: {
-  icon: KeyValueListItemProps['keyIcon']
+  icon: KeyValueItemProps['keyIcon']
   children: React.ReactNode
 }) {
   return (
@@ -105,7 +105,7 @@ function ActionButton({ children }: { children: KeyValueListItemAction }) {
   )
 }
 
-function ActionButtonGroup({ children }: { children: KeyValueListItemProps['actions'] }) {
+function ActionButtonGroup({ children }: { children: KeyValueItemProps['actions'] }) {
   if (isNil(children) || isEmpty(children)) {
     return null
   }
@@ -128,7 +128,7 @@ function ActionButtonGroup({ children }: { children: KeyValueListItemProps['acti
   )
 }
 
-export const KeyValueListItem = forwardRef<HTMLDivElement, KeyValueListItemProps>(function KeyValueListItem({
+export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(function KeyValueListItem({
   className,
   keyIcon,
   keyContent,
@@ -193,7 +193,7 @@ export const KeyValueListItem = forwardRef<HTMLDivElement, KeyValueListItemProps
   )
 })
 
-export const KeyValueMultiLineListItem = forwardRef<HTMLDivElement, KeyValueListItemProps>(function KeyValueMultiLineListItem({
+export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProps>(function KeyValueMultiLineListItem({
   children,
   className,
   keyIcon,

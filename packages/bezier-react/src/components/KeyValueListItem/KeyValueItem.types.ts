@@ -15,7 +15,7 @@ export type ItemActionWithIcon = {
 
 export type KeyValueListItemAction = ItemActionWithIcon | React.ReactElement
 
-interface KeyValueListItemOwnProps {
+interface KeyValueItemOwnProps {
   keyIcon?: BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
   actions?: KeyValueListItemAction | KeyValueListItemAction[]
@@ -23,8 +23,8 @@ interface KeyValueListItemOwnProps {
   onClickValue?: React.MouseEventHandler<HTMLDivElement>
 }
 
-export interface KeyValueListItemProps extends
+export interface KeyValueItemProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLDivElement>,
-  KeyValueListItemOwnProps {}
+  KeyValueItemOwnProps {}

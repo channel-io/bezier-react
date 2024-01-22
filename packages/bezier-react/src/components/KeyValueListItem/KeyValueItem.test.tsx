@@ -9,23 +9,23 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import KeyValueListItem from './KeyValueListItem'
-import { TEST_ID_MAP } from './KeyValueListItem.const'
-import { type KeyValueListItemProps } from './KeyValueListItem.types'
+import KeyValueListItem from './KeyValueItem'
+import { TEST_ID_MAP } from './KeyValueItem.const'
+import { type KeyValueItemProps } from './KeyValueItem.types'
 import KeyValueMultiLineListItem from './KeyValueMultiLineListItem'
 import type { KeyValueListItemActionProps } from './common'
 
-const DEFAULT_PROPS: KeyValueListItemProps = {
+const DEFAULT_PROPS: KeyValueItemProps = {
   keyIcon: AppleIcon,
   keyContent: 'Key',
   children: 'Value',
 }
 
-const renderComponent = (optionProps?: Partial<KeyValueListItemProps>) => render(
+const renderComponent = (optionProps?: Partial<KeyValueItemProps>) => render(
   <KeyValueListItem {...DEFAULT_PROPS} {...optionProps} />,
 )
 
-const renderMultilineComponent = (optionProps?: Partial<KeyValueListItemProps>) => render(
+const renderMultilineComponent = (optionProps?: Partial<KeyValueItemProps>) => render(
   <KeyValueMultiLineListItem {...DEFAULT_PROPS} {...optionProps} />,
 )
 
@@ -203,7 +203,7 @@ describe('KeyValueListItem', () => {
       it('onClickKey가 있으면, Key 영역이 hover/cursor 스타일이 존재한다.', async () => {
         const user = userEvent.setup()
 
-        const props: Partial<KeyValueListItemProps> = {
+        const props: Partial<KeyValueItemProps> = {
           onClickKey: jest.fn(),
         }
         const { getByTestId } = renderComponent(props)
@@ -222,7 +222,7 @@ describe('KeyValueListItem', () => {
       it('onClickKey가 있으면, Key 영역이 click event에서 호출된다.', async () => {
         const user = userEvent.setup()
 
-        const props: Partial<KeyValueListItemProps> = {
+        const props: Partial<KeyValueItemProps> = {
           onClickKey: jest.fn(),
         }
         const { getByTestId } = renderComponent(props)
@@ -256,7 +256,7 @@ describe('KeyValueListItem', () => {
       it('onClickValue가 있으면, Value 영역이 hover/cursor 스타일이 존재한다.', async () => {
         const user = userEvent.setup()
 
-        const props: Partial<KeyValueListItemProps> = {
+        const props: Partial<KeyValueItemProps> = {
           onClickValue: jest.fn(),
         }
         const { getByTestId } = renderComponent(props)
@@ -275,7 +275,7 @@ describe('KeyValueListItem', () => {
       it('onClickValue가 있으면, Value 영역이 click event에서 호출된다.', async () => {
         const user = userEvent.setup()
 
-        const props: Partial<KeyValueListItemProps> = {
+        const props: Partial<KeyValueItemProps> = {
           onClickValue: jest.fn(),
         }
         const { getByTestId } = renderComponent(props)

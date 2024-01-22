@@ -18,17 +18,17 @@ import {
 } from '~/src/components/Button'
 
 import {
-  KeyValueListItem,
-  KeyValueMultiLineListItem,
-} from './KeyValueListItem'
-import { type KeyValueListItemProps } from './KeyValueListItem.types'
+  KeyValueItem,
+  KeyValueMultiLineItem,
+} from './KeyValueItem'
+import { type KeyValueItemProps } from './KeyValueItem.types'
 
-const meta:Meta<typeof KeyValueListItem> = {
-  component: KeyValueListItem,
+const meta:Meta<typeof KeyValueItem> = {
+  component: KeyValueItem,
 }
 export default meta
 
-interface KeyValueListItemStorybookProps extends KeyValueListItemProps {
+interface KeyValueListItemStorybookProps extends KeyValueItemProps {
   containerWidth: number
 }
 
@@ -57,20 +57,20 @@ const SingleLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
       width: `${containerWidth}px`,
     }}
   >
-    <KeyValueListItem {...otherProps} />
-    <KeyValueListItem
+    <KeyValueItem {...otherProps} />
+    <KeyValueItem
       {...otherProps}
       actions={Array.from(Array(2)).map(() => ({ icon: EditIcon, onClick: console.log, tooltip: '수정하기' }))}
     />
-    <KeyValueListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
-    <KeyValueListItem {...otherProps}>
+    <KeyValueItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
+    <KeyValueItem {...otherProps}>
       <Button
         leftContent={PlayIcon}
         text="높이 테스트"
         colorVariant={ButtonColorVariant.Green}
         styleVariant={ButtonStyleVariant.Primary}
       />
-    </KeyValueListItem>
+    </KeyValueItem>
   </div>
 )
 
@@ -83,12 +83,12 @@ const MultiLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
       width: `${containerWidth}px`,
     }}
   >
-    <KeyValueMultiLineListItem {...otherProps} />
-    <KeyValueMultiLineListItem
+    <KeyValueMultiLineItem {...otherProps} />
+    <KeyValueMultiLineItem
       {...otherProps}
       actions={Array.from(Array(2)).map(() => ({ icon: EditIcon, onClick: console.log, tooltip: '수정하기' }))}
     />
-    <KeyValueMultiLineListItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
+    <KeyValueMultiLineItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
   </div>
 )
 
