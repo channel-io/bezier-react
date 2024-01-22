@@ -19,26 +19,6 @@ $divider-margin: 6px;
   &:where(.clickable) {
     cursor: pointer;
   }
-
-  &:where(.divider) {
-    margin-top: #{$divider-margin * 2 + $divider-thickness};
-
-    &::before {
-      content: '';
-
-      position: absolute;
-      top: -#{$divider-thickness + $divider-margin};
-      left: $divider-margin;
-
-      display: block;
-
-      width: calc(100% - $divider-margin * 2);
-      height: $divider-thickness;
-
-      background-color: var(--bdr-black-light);
-      border-radius: $divider-thickness;
-    }
-  }
 }
 
 .LeftContent {

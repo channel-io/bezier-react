@@ -29,7 +29,6 @@ export const Primary: StoryObj<SectionLabelProps> = {
   render: Template,
   args: {
     content: 'Sort by',
-    divider: false,
     leftContent: InfoFilledIcon,
     rightContent: ChevronDownIcon,
   },

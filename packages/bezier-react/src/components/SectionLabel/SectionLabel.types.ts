@@ -25,7 +25,6 @@ export type SectionLabelRightContent = Icon | React.ReactNode | IconWithAction
 
 interface SectionLabelOwnProps {
   open?: boolean
-  divider?: boolean
   help?: React.ReactNode
 }
 

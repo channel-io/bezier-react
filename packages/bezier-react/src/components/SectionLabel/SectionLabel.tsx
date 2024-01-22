@@ -106,7 +106,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   children,
   className,
   open = true,
-  divider = false,
   help,
   leftContent,
   content,
@@ -126,7 +125,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
         ref={forwardedRef}
         className={classNames(
           styles.SectionLabel,
-          divider && styles.divider,
           clickable && styles.clickable,
           className,
         )}
