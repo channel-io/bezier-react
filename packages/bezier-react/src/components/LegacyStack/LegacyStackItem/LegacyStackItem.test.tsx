@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { css } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { LegacyStack } from '~/src/components/LegacyStack'
 
 import { LegacyStackItem } from './LegacyStackItem'
+
+import styles from './LegacyStackItem.module.scss'
 
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {
@@ -27,12 +27,6 @@ describe('StackItem', () => {
 
       expect(getByTestId('stack-item')).toHaveClass('foo')
     })
-
-    it('supports interpolation prop', () => {
-      const { getByTestId } = render(<LegacyStackItem testId="stack-item" interpolation={css`visibility: hidden;`} />)
-
-      expect(getByTestId('stack-item')).toHaveStyle({ visibility: 'hidden' })
-    })
   })
 
   it('inherits main axis alignment of parent stack-item component', () => {
@@ -44,8 +38,7 @@ describe('StackItem', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('item')).toHaveStyle({ 'justify-content': '' })
-    expect(getByTestId('item')).toHaveStyle({ 'justify-self': '' })
+    expect(getByTestId('item')).not.toHaveClass(styles['justify-start'])
   })
 
   it('can override main axis alignment of parent stack component', () => {
@@ -69,10 +62,10 @@ describe('StackItem', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('item-start')).toHaveStyle({ 'justify-self': 'flex-start' })
-    expect(getByTestId('item-center')).toHaveStyle({ 'justify-self': 'center' })
-    expect(getByTestId('item-end')).toHaveStyle({ 'justify-self': 'flex-end' })
-    expect(getByTestId('item-stretch')).toHaveStyle({ 'justify-self': 'stretch' })
+    expect(getByTestId('item-start')).toHaveClass(styles['justify-start'])
+    expect(getByTestId('item-center')).toHaveClass(styles['justify-center'])
+    expect(getByTestId('item-end')).toHaveClass(styles['justify-end'])
+    expect(getByTestId('item-stretch')).toHaveClass(styles['justify-stretch'])
   })
 
   it('inherits cross axis alignment of parent stack component', () => {
@@ -84,8 +77,7 @@ describe('StackItem', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('item')).toHaveStyle({ 'align-items': '' })
-    expect(getByTestId('item')).toHaveStyle({ 'align-self': '' })
+    expect(getByTestId('item')).not.toHaveClass(styles['align-start'])
   })
 
   it('can override cross axis alignment of parent stack component', () => {
@@ -109,20 +101,20 @@ describe('StackItem', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('item-start')).toHaveStyle({ 'align-self': 'flex-start' })
-    expect(getByTestId('item-center')).toHaveStyle({ 'align-self': 'center' })
-    expect(getByTestId('item-end')).toHaveStyle({ 'align-self': 'flex-end' })
-    expect(getByTestId('item-stretch')).toHaveStyle({ 'align-self': 'stretch' })
+    expect(getByTestId('item-start')).toHaveClass(styles['align-start'])
+    expect(getByTestId('item-center')).toHaveClass(styles['align-center'])
+    expect(getByTestId('item-end')).toHaveClass(styles['align-end'])
+    expect(getByTestId('item-stretch')).toHaveClass(styles['align-stretch'])
   })
 
   describe('dimensions', () => {
     it('should set all of customizable css variables', () => {
       const REQUIRED_CSS_VARS = [
-        '--main-axis-size',
-        '--grow-weight',
-        '--shrink-weight',
-        '--margin-before',
-        '--margin-after',
+        '--b-main-axis-size',
+        '--b-grow-weight',
+        '--b-shrink-weight',
+        '--b-margin-before',
+        '--b-margin-after',
       ]
 
       const TEST_IDS = ['one', 'two', 'three', 'four']

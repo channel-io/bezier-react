@@ -1,31 +1,31 @@
 import React from 'react'
 
-import { css } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import { LegacyStackItem } from '~/src/components/LegacyStack/LegacyStackItem'
 
 import { LegacyStack } from './LegacyStack'
 
+import styles from './LegacyStack.module.scss'
+
 describe('Stack', () => {
   describe('Flex layout', () => {
     it('creates a flexbox', () => {
       const { getByTestId } = render(<LegacyStack direction="horizontal" testId="stack" />)
 
-      expect(getByTestId('stack')).toHaveStyle('display: flex')
+      expect(getByTestId('stack')).toHaveClass(styles.LegacyStack)
     })
 
     it('creates a horizontal flexbox when given direction="horizontal"', () => {
       const { getByTestId } = render(<LegacyStack direction="horizontal" testId="stack" />)
 
-      expect(getByTestId('stack')).toHaveStyle('flex-direction: row')
+      expect(getByTestId('stack')).toHaveClass(styles['direction-horizontal'])
     })
 
     it('creates a vertical flexbox when given direction="vertical"', () => {
       const { getByTestId } = render(<LegacyStack direction="vertical" testId="stack" />)
 
-      expect(getByTestId('stack')).toHaveStyle('flex-direction: column')
+      expect(getByTestId('stack')).toHaveClass(styles['direction-vertical'])
     })
   })
 
@@ -47,12 +47,6 @@ describe('Stack', () => {
 
       expect(getByTestId('stack')).toHaveClass('foo')
     })
-
-    it('supports interpolation prop', () => {
-      const { getByTestId } = render(<LegacyStack direction="horizontal" testId="stack" interpolation={css`background-color: red;`} />)
-
-      expect(getByTestId('stack')).toHaveStyle({ 'background-color': 'red' })
-    })
   })
 
   it('gives marginBefore attribute to second stackItem if it is given some spacing', () => {
@@ -66,9 +60,9 @@ describe('Stack', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('one')).not.toHaveStyle('--margin-before: 10px')
-    expect(getByTestId('two')).toHaveStyle('--margin-before: 10px')
-    expect(getByTestId('three')).toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('one')).not.toHaveStyle('--b-margin-before: 10px')
+    expect(getByTestId('two')).toHaveStyle('--b-margin-before: 10px')
+    expect(getByTestId('three')).toHaveStyle('--b-margin-before: 10px')
   })
 
   it('does not give marginBefore attribute to first stackItem if first node is not a valid ReactNode', () => {
@@ -85,8 +79,8 @@ describe('Stack', () => {
       </LegacyStack>,
     )
 
-    expect(getByTestId('one')).not.toHaveStyle('--margin-before: 10px')
-    expect(getByTestId('two')).toHaveStyle('--margin-before: 10px')
-    expect(getByTestId('three')).toHaveStyle('--margin-before: 10px')
+    expect(getByTestId('one')).not.toHaveStyle('--b-margin-before: 10px')
+    expect(getByTestId('two')).toHaveStyle('--b-margin-before: 10px')
+    expect(getByTestId('three')).toHaveStyle('--b-margin-before: 10px')
   })
 })
