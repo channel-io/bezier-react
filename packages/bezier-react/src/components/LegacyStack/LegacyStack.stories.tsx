@@ -19,12 +19,12 @@ import {
 import { Text } from '~/src/components/Text'
 
 import { LegacyHStack } from './LegacyHStack'
-import mdx from './LegacyStack.mdx'
 import { LegacySpacer } from './LegacySpacer'
 import {
   LegacyStack,
   type LegacyStackProps,
 } from './LegacyStack'
+import mdx from './LegacyStack.mdx'
 import { LegacyStackItem } from './LegacyStackItem'
 import { LegacyVStack } from './LegacyVStack'
 import type { AxisAlignment } from './types'
