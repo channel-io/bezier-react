@@ -1,9 +1,43 @@
-.KeyValueItemWrapper {
+.KeyValueItem {
   border-radius: var(--radius-6);
   transition: background-color var(--transition-s), color var(--transition-s);
+
+  &:where(.singleline) {
+    display: flex;
+    align-items: flex-start;
+
+    & :where(.KeyItemWrapper) {
+      overflow: hidden;
+      flex: 1;
+    }
+
+    & :where(.ValueItemWrapper) {
+      overflow: hidden;
+      flex: 2;
+      justify-content: space-between;
+      min-height: 28px;
+    }
+  }
+
+  &:where(.multiline) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & :where(.KeyItemWrapper) {
+      flex: 1;
+      justify-content: space-between;
+      height: 28px;
+    }
+
+    & :where(.ValueItemWrapper) {
+      flex: 1;
+      min-height: 28px;
+    }
+  }
 }
 
-.KeyValueItemInnerWrapper {
+.ItemWrapper {
   display: flex;
   align-items: flex-start;
 
@@ -19,40 +53,6 @@
       background-color: var(--bg-black-lighter);
     }
   }
-}
-
-.KeyValueSingleLineItem {
-  display: flex;
-  align-items: flex-start;
-}
-
-.KeyValueMultiLineItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.KeySingleLineItem {
-  overflow: hidden;
-  flex: 1;
-}
-
-.KeyMultiLineItem {
-  flex: 1;
-  justify-content: space-between;
-  height: 28px;
-}
-
-.ValueSingleLineItem {
-  overflow: hidden;
-  flex: 2;
-  justify-content: space-between;
-  min-height: 28px;
-}
-
-.ValueMultiLineItem {
-  flex: 1;
-  min-height: 28px;
 }
 
 .KeyItem {

@@ -146,8 +146,8 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(functi
     <div
       {...props}
       className={classNames(
-        styles.KeyValueItemWrapper,
-        styles.KeyValueSingleLineItem,
+        styles.KeyValueItem,
+        styles.singleline,
         className,
       )}
       ref={forwardedRef}
@@ -160,8 +160,8 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(functi
       { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
       <div
         className={classNames(
-          styles.KeyValueItemInnerWrapper,
-          styles.KeySingleLineItem,
+          styles.ItemWrapper,
+          styles.KeyItemWrapper,
           onClickKey && styles.clickable,
         )}
         onClick={onClickKey}
@@ -178,8 +178,8 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(functi
       { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
       <div
         className={classNames(
-          styles.KeyValueItemInnerWrapper,
-          styles.ValueSingleLineItem,
+          styles.ItemWrapper,
+          styles.ValueItemWrapper,
           onClickValue && styles.clickable,
         )}
         onClick={onClickValue}
@@ -211,8 +211,8 @@ export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProp
     <div
       {...props}
       className={classNames(
-        styles.KeyValueItemWrapper,
-        styles.KeyValueMultiLineItem,
+        styles.KeyValueItem,
+        styles.multiline,
         className,
       )}
       ref={forwardedRef}
@@ -225,8 +225,8 @@ export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProp
       { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
       <div
         className={classNames(
-          styles.KeyValueItemInnerWrapper,
-          styles.KeyMultiLineItem,
+          styles.ItemWrapper,
+          styles.KeyItemWrapper,
           onClickKey && styles.clickable,
         )}
         onClick={onClickKey}
@@ -247,8 +247,8 @@ export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProp
       { /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */ }
       <div
         className={classNames(
-          styles.KeyValueItemInnerWrapper,
-          styles.ValueMultiLineItem,
+          styles.ItemWrapper,
+          styles.ValueItemWrapper,
           onClickValue && styles.clickable,
         )}
         onClick={onClickValue}
