@@ -34,7 +34,6 @@ $inner-indicator-size: 8px;
   align-items: center;
 
   width: 100%;
-  height: 36px;
 
   /* Outer Indicator */
   &::before {
@@ -94,6 +93,10 @@ $inner-indicator-size: 8px;
     &::before {
       box-shadow: var(--input-box-shadow-focused);
     }
+  }
+
+  &:where(:has(.Label)) {
+    height: 36px;
   }
 }
 
