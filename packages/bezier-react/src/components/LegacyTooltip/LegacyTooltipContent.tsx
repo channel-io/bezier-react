@@ -8,8 +8,11 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
+import classNames from 'classnames'
+
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
 import {
   isArray,
@@ -28,11 +31,7 @@ import {
   getTooltipStyle,
 } from './utils'
 
-import {
-  Content,
-  ContentWrapper,
-  EllipsisableContent,
-} from './LegacyTooltip.styled'
+import styles from './LegacyTooltip.module.scss'
 
 function getNewLineComponent(strContent: string) {
   return (
@@ -78,8 +77,9 @@ function getContentComponent(content?: React.ReactNode) {
 export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   as,
   content,
+  contentStyle,
   contentClassName,
-  contentInterpolation,
+  contentWrapperClassName,
   contentWrapperStyle: givenContentWrapperStyle,
   disabled = false,
   keepInContainer = false,
@@ -142,27 +142,40 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
     allowHover,
   ])
 
+  const Comp = as ?? 'div'
+
   return (
     ReactDOM.createPortal(
-      <ContentWrapper
-        ref={tooltipWrapperRef}
-        disabled={disabled || isEmpty(content)}
-        style={contentWrapperStyle}
-      >
-        <Content
-          as={as}
-          data-testid={testId}
-          className={contentClassName}
-          interpolation={contentInterpolation}
-          ref={mergedRef}
+      <InvertedThemeProvider>
+        <div
+          style={contentWrapperStyle}
+          className={classNames(
+            styles.LegacyTooltipContentWrapper,
+            (disabled || isEmpty(content)) && styles.disabled,
+            contentWrapperClassName,
+          )}
+          ref={tooltipWrapperRef}
         >
-          <EllipsisableContent>
-            { ContentComponent }
-          </EllipsisableContent>
-        </Content>
-      </ContentWrapper>,
+          <Comp
+            style={contentStyle}
+            className={classNames(
+              styles.LegacyTooltipContent,
+              contentClassName,
+            )}
+            ref={mergedRef}
+            data-testid={testId}
+          >
+            <Text
+              color="txt-black-darkest"
+              truncated={20}
+              typo="13"
+            >
+              { ContentComponent }
+            </Text>
+          </Comp>
+        </div>
+      </InvertedThemeProvider>,
       rootElement,
     )
   )
 }
-

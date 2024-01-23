@@ -9,26 +9,32 @@ import React, {
   useState,
 } from 'react'
 
+import classNames from 'classnames'
+
 import { useWindow } from '~/src/providers/WindowProvider'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'
 import { LegacyTooltipContent } from './LegacyTooltipContent'
 
-import { Container } from './LegacyTooltip.styled'
+import styles from './LegacyTooltip.module.scss'
 
 export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
 export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
 
+/**
+ * @deprecated Use `Tooltip` instead. It may be removed in the next major version.
+ */
 export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   {
     as,
     testId = TOOLTIP_TEST_ID,
     contentTestId = TOOLTIP_CONTENT_TEST_ID,
     className,
+    contentStyle,
     contentClassName,
-    contentInterpolation,
     contentWrapperStyle,
+    contentWrapperClassName,
     content = null,
     lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
     placement = LegacyTooltipPosition.BottomCenter,
@@ -103,9 +109,10 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
         <LegacyTooltipContent
           as={as}
           content={content}
+          contentStyle={contentStyle}
           contentClassName={contentClassName}
-          contentInterpolation={contentInterpolation}
           contentWrapperStyle={contentWrapperStyle}
+          contentWrapperClassName={contentWrapperClassName}
           disabled={disabled}
           placement={placement}
           offset={offset}
@@ -124,9 +131,10 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
     didMount,
     as,
     content,
+    contentStyle,
     contentClassName,
-    contentInterpolation,
     contentWrapperStyle,
+    contentWrapperClassName,
     disabled,
     placement,
     offset,
@@ -141,16 +149,19 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   }
 
   return (
-    <Container
+    <div
       ref={tooltipContainerRef}
       data-testid={testId}
-      className={className}
+      className={classNames(
+        styles.LegacyTooltip,
+        className,
+      )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...otherProps}
     >
       { children }
       { show && TooltipComponent }
-    </Container>
+    </div>
   )
 }))
