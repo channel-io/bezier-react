@@ -4,18 +4,12 @@ import React from 'react'
 import {
   BadgeIcon,
   EditIcon,
-  PlayIcon,
 } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
-
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
 
 import {
   KeyValueItem,
@@ -23,88 +17,43 @@ import {
 } from './KeyValueItem'
 import { type KeyValueItemProps } from './KeyValueItem.types'
 
-const meta:Meta<typeof KeyValueItem> = {
+const meta: Meta<typeof KeyValueItem> = {
   component: KeyValueItem,
 }
-export default meta
 
-interface KeyValueListItemStorybookProps extends KeyValueItemProps {
-  containerWidth: number
-}
+const SingleLineTemplate: StoryFn<KeyValueItemProps> = (props) => (
+  <div style={{ width: 300 }}>
+    <KeyValueItem {...props} />
+  </div>
+)
 
-const DEFAULT_ARGS: KeyValueListItemStorybookProps = {
+const MultiLineTemplate: StoryFn<KeyValueItemProps> = (props) => (
+  <div style={{ width: 300 }}>
+    <KeyValueMultiLineItem {...props} />
+  </div>
+)
+
+const args: KeyValueItemProps = {
+  children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   keyIcon: BadgeIcon,
-  keyContent: 'I\'m the Long Long Key',
-  containerWidth: 300,
-  // eslint-disable-next-line max-len
-  children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis eveniet minus nobis nemo quisquam ipsum ut. Iste molestiae sint, laboriosam minima, quaerat velit blanditiis natus quos non vel fugiat perspiciatis.',
+  keyContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  actions: {
+    icon: EditIcon,
+    onClick: console.log,
+    tooltip: 'Edit',
+  },
+  onClickKey: () => window.alert('onClickKey'),
+  onClickValue: () => window.alert('onClickValue'),
 }
 
-function onClickKey() {
-  console.log('Key')
-}
-
-function onClickValue() {
-  console.log('Value')
-}
-
-const SingleLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
-  containerWidth,
-  ...otherProps
-}) => (
-  <div
-    style={{
-      width: `${containerWidth}px`,
-    }}
-  >
-    <KeyValueItem {...otherProps} />
-    <KeyValueItem
-      {...otherProps}
-      actions={Array.from(Array(2)).map(() => ({ icon: EditIcon, onClick: console.log, tooltip: '수정하기' }))}
-    />
-    <KeyValueItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
-    <KeyValueItem {...otherProps}>
-      <Button
-        leftContent={PlayIcon}
-        text="높이 테스트"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
-      />
-    </KeyValueItem>
-  </div>
-)
-
-const MultiLineTemplate: StoryFn<KeyValueListItemStorybookProps> = ({
-  containerWidth,
-  ...otherProps
-}) => (
-  <div
-    style={{
-      width: `${containerWidth}px`,
-    }}
-  >
-    <KeyValueMultiLineItem {...otherProps} />
-    <KeyValueMultiLineItem
-      {...otherProps}
-      actions={Array.from(Array(2)).map(() => ({ icon: EditIcon, onClick: console.log, tooltip: '수정하기' }))}
-    />
-    <KeyValueMultiLineItem {...otherProps} onClickKey={onClickKey} onClickValue={onClickValue} />
-  </div>
-)
-
-export const SingleLine = {
+export const Primary: StoryObj<KeyValueItemProps> = {
   render: SingleLineTemplate,
-
-  args: {
-    ...DEFAULT_ARGS,
-    actions: { icon: EditIcon, onClick: console.log, tooltip: '수정하기' },
-  },
+  args,
 }
 
-export const MultiLine = {
+export const MultiLine: StoryObj<KeyValueItemProps> = {
   render: MultiLineTemplate,
-
-  args: {
-    ...DEFAULT_ARGS,
-  },
+  args,
 }
+
+export default meta
