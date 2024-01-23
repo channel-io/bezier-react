@@ -1,4 +1,4 @@
-import type { BezierComponentProps } from '~/src/types/ComponentProps'
+import { type LegacyStackItemProps } from '~/src/components/LegacyStack'
 
 export default interface LegacySpacerProps extends
-  BezierComponentProps {}
+  Omit<LegacyStackItemProps, 'size' | 'weight' | 'grow' | 'shrink'> {}
