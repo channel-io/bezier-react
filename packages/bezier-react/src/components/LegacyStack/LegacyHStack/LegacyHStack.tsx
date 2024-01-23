@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-import { LegacyStack } from '~/src/components/LegacyStack/Stack'
+import { LegacyStack } from '~/src/components/LegacyStack/LegacyStack'
 
-import type HStackProps from './HStack.types'
+import type LegacyHStackProps from './LegacyHStack.types'
 
 /**
  * A container for horizontal flex layout.
  */
-export const HStack = forwardRef(function HStack(
-  props: HStackProps,
+export const LegacyHStack = forwardRef(function HStack(
+  props: LegacyHStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (<LegacyStack ref={forwardedRef} direction="horizontal" {...props} />)

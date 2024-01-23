@@ -7,9 +7,9 @@ import React, {
 } from 'react'
 import type { Ref } from 'react'
 
-import type StackProps from './Stack.types'
+import type LegacyStackProps from './LegacyStack.types'
 
-import * as Styled from './Stack.styled'
+import * as Styled from './LegacyStack.styled'
 
 /**
  * `Stack` provides an abstraction of **flex layout** so that
@@ -29,7 +29,7 @@ import * as Styled from './Stack.styled'
  * </Stack>
  * ```
  */
-export const Stack = forwardRef(function Stack(
+export const LegacyStack = forwardRef(function Stack(
   {
     as = 'div',
     testId = 'bezier-react-stack',
@@ -42,7 +42,7 @@ export const Stack = forwardRef(function Stack(
     align = 'stretch',
     spacing = 0,
     ...rest
-  }: StackProps,
+  }: LegacyStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   const firstValidElementIdx = useRef(-1)

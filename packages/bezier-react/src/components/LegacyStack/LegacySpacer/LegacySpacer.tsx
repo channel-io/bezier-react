@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-import { LegacyStackItem } from '~/src/components/LegacyStack/StackItem'
+import { LegacyStackItem } from '~/src/components/LegacyStack/LegacyStackItem'
 
-import type SpacerProps from './Spacer.types'
+import type LegacySpacerProps from './LegacySpacer.types'
 
-export const Spacer = forwardRef(function Spacer(
-  props: SpacerProps,
+export const LegacySpacer = forwardRef(function Spacer(
+  props: LegacySpacerProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (

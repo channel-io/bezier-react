@@ -18,15 +18,15 @@ import {
 } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 
-import { LegacyHStack } from './HStack'
-import { LegacySpacer } from './Spacer'
+import { LegacyHStack } from './LegacyHStack'
+import mdx from './LegacyStack.mdx'
+import { LegacySpacer } from './LegacySpacer'
 import {
   LegacyStack,
   type LegacyStackProps,
-} from './Stack'
-import mdx from './Stack.mdx'
-import { LegacyStackItem } from './StackItem'
-import { LegacyVStack } from './VStack'
+} from './LegacyStack'
+import { LegacyStackItem } from './LegacyStackItem'
+import { LegacyVStack } from './LegacyVStack'
 import type { AxisAlignment } from './types'
 
 const meta: Meta<LegacyStackProps & {

@@ -5,7 +5,7 @@ import type {
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 
-interface StackItemOptions {
+interface LegacyStackItemOwnProps {
   /**
    * Direction of this stack item.
    *
@@ -89,7 +89,7 @@ interface StackItemOptions {
   marginAfter?: number
 }
 
-export default interface StackItemProps extends
+export default interface LegacyStackItemProps extends
   BezierComponentProps,
   ChildrenProps,
-  StackItemOptions {}
+  LegacyStackItemOwnProps {}

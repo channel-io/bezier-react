@@ -6,9 +6,9 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import type StackItemProps from './StackItem.types'
+import type LegacyStackItemProps from './LegacyStackItem.types'
 
-import * as Styled from './StackItem.styled'
+import * as Styled from './LegacyStackItem.styled'
 
 const sanitizeWeight = (weight: number): number => {
   if (weight < 0) { return 0 }
@@ -26,7 +26,7 @@ const sanitizeWeight = (weight: number): number => {
  * be reminded to forward props in `StackItemProps` to `StackItem` component,
  * or manually implement the behavior compatible with `StackItem`.
  */
-export const StackItem = forwardRef(function StackItem(
+export const LegacyStackItem = forwardRef(function StackItem(
   {
     as = 'div',
     testId = 'bezier-react-stack-item',
@@ -43,7 +43,7 @@ export const StackItem = forwardRef(function StackItem(
     shrink = false,
     marginBefore = 0,
     marginAfter = 0,
-  }: StackItemProps,
+  }: LegacyStackItemProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (

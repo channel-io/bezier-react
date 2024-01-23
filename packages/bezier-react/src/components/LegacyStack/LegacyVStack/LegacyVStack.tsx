@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import type { Ref } from 'react'
 
-import { LegacyStack } from '~/src/components/LegacyStack/Stack'
+import { LegacyStack } from '~/src/components/LegacyStack/LegacyStack'
 
-import type VStackProps from './VStack.types'
+import type LegacyVStackProps from './LegacyVStack.types'
 
 /**
  * A container for vertical flex layout.
  */
-export const VStack = forwardRef(function VStack(
-  props: VStackProps,
+export const LegacyVStack = forwardRef(function VStack(
+  props: LegacyVStackProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   return (<LegacyStack ref={forwardedRef} direction="vertical" {...props} />)

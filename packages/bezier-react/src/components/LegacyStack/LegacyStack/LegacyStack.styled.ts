@@ -5,10 +5,10 @@ import {
 
 import { flex } from '~/src/components/LegacyStack/util'
 
-import type StackProps from './Stack.types'
+import type LegacyStackProps from './LegacyStack.types'
 
 interface ContainerProps extends
-  Required<Pick<StackProps, 'interpolation' | 'direction' | 'justify' | 'align'>> {}
+  Required<Pick<LegacyStackProps, 'interpolation' | 'direction' | 'justify' | 'align'>> {}
 
 export const Container = styled.div<ContainerProps>`
   display: flex;

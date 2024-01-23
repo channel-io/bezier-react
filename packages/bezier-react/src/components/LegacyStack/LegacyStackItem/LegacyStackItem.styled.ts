@@ -7,11 +7,11 @@ import { isNil } from '~/src/utils/type'
 
 import { flex } from '~/src/components/LegacyStack/util'
 
-import type StackItemProps from './StackItem.types'
+import type LegacyStackItemProps from './LegacyStackItem.types'
 
 interface ContainerProps extends
   Required<Pick<
-  StackItemProps,
+  LegacyStackItemProps,
   | 'direction'
   | 'justify'
   | 'align'

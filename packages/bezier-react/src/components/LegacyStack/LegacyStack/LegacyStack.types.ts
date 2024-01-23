@@ -5,7 +5,7 @@ import type {
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 
-interface StackOptions {
+interface LegacyStackOwnProps {
   /**
    * Direction of this stack.
    *
@@ -51,8 +51,8 @@ interface StackOptions {
   spacing?: number
 }
 
-export default interface StackProps extends
+export default interface LegacyStackProps extends
   BezierComponentProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLElement>,
-  StackOptions {}
+  LegacyStackOwnProps {}
