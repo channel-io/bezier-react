@@ -1,20 +1,15 @@
 import React, { forwardRef } from 'react'
-import type { Ref } from 'react'
+
+import classNames from 'classnames'
 
 import {
-  isInteger,
-  isNil,
-} from '~/src/utils/type'
+  cssDimension,
+  px,
+} from '~/src/utils/style'
 
 import type LegacyStackItemProps from './LegacyStackItem.types'
 
-import * as Styled from './LegacyStackItem.styled'
-
-const sanitizeWeight = (weight: number): number => {
-  if (weight < 0) { return 0 }
-  if (!isInteger(weight)) { return 0 }
-  return weight
-}
+import styles from './LegacyStackItem.module.scss'
 
 /**
  * `StackItem` is used along `Stack`.
@@ -26,46 +21,45 @@ const sanitizeWeight = (weight: number): number => {
  * be reminded to forward props in `StackItemProps` to `StackItem` component,
  * or manually implement the behavior compatible with `StackItem`.
  */
-export const LegacyStackItem = forwardRef(function StackItem(
-  {
-    as = 'div',
-    testId = 'bezier-react-stack-item',
-    style,
-    className,
-    interpolation,
-    children,
-    direction,
-    justify,
-    align,
-    size,
-    weight = 0,
-    grow = false,
-    shrink = false,
-    marginBefore = 0,
-    marginAfter = 0,
-  }: LegacyStackItemProps,
-  forwardedRef: Ref<HTMLElement>,
-) {
+export const LegacyStackItem = forwardRef<HTMLElement, LegacyStackItemProps>(function StackItem({
+  as = 'div',
+  children,
+  style,
+  className,
+  direction,
+  justify,
+  align,
+  size,
+  weight = 0,
+  grow = false,
+  shrink = false,
+  marginBefore = 0,
+  marginAfter = 0,
+  testId = 'bezier-legacy-stack-item',
+}, forwardedRef) {
+  const Comp = as
+
   return (
-    <Styled.Container
+    <Comp
       ref={forwardedRef}
-      as={as}
-      data-testid={testId}
       style={{
         ...style,
-        '--main-axis-size': isNil(size) ? 'initial' : `${size}px`,
-        '--grow-weight': grow ? sanitizeWeight(weight) : '0',
-        '--shrink-weight': shrink ? sanitizeWeight(weight) : '0',
-        '--margin-before': `${marginBefore}px`,
-        '--margin-after': `${marginAfter}px`,
+        '--b-main-axis-size': px(size),
+        '--b-grow-weight': grow && cssDimension(weight),
+        '--b-shrink-weight': shrink && cssDimension(weight),
+        '--b-margin-before': `${marginBefore}px`,
+        '--b-margin-after': `${marginAfter}px`,
       }}
-      className={className}
-      interpolation={interpolation}
-      direction={direction}
-      justify={justify}
-      align={align}
+      className={classNames(
+        styles.LegacyStackItem,
+        styles[`direction-${direction}`],
+        styles[`justify-${justify}`],
+        styles[`align-${align}`],
+        className,
+      )}
+      data-testid={testId}
     >
       { children }
-    </Styled.Container>
+    </Comp>
   )
 })

@@ -1,6 +1,7 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
+  PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
@@ -90,6 +91,7 @@ interface LegacyStackItemOwnProps {
 }
 
 export default interface LegacyStackItemProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
+  PolymorphicProps,
   ChildrenProps,
   LegacyStackItemOwnProps {}
