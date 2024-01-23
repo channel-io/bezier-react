@@ -6,6 +6,7 @@ import React, {
 import {
   type Meta,
   type StoryFn,
+  type StoryObj,
 } from '@storybook/react'
 
 import {
@@ -31,7 +32,6 @@ const meta: Meta<typeof RadioGroup> = {
     },
   },
 }
-export default meta
 
 const Template: StoryFn<RadioGroupProps<Theme>> = ({
   value: valueProp,
@@ -56,9 +56,8 @@ const Template: StoryFn<RadioGroupProps<Theme>> = ({
   )
 }
 
-export const Primary = {
+export const Primary: StoryObj<RadioGroupProps<Theme>> = {
   render: Template,
-
   args: {
     value: Theme.System,
     disabled: false,
@@ -67,3 +66,5 @@ export const Primary = {
     spacing: 0,
   },
 }
+
+export default meta
