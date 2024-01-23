@@ -33,7 +33,6 @@ import styles from './LegacyStack.module.scss'
 export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(function Stack({
   as = 'div',
   testId = 'bezier-legacy-stack',
-  style,
   className,
   children,
   direction,

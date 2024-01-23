@@ -3,13 +3,19 @@ import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
 import {
-  cssDimension,
-  px,
-} from '~/src/utils/style'
+  isInteger,
+  isNil,
+} from '~/src/utils/type'
 
 import type LegacyStackItemProps from './LegacyStackItem.types'
 
 import styles from './LegacyStackItem.module.scss'
+
+const sanitizeWeight = (weight: number): number => {
+  if (weight < 0) { return 0 }
+  if (!isInteger(weight)) { return 0 }
+  return weight
+}
 
 /**
  * `StackItem` is used along `Stack`.
@@ -44,9 +50,9 @@ export const LegacyStackItem = forwardRef<HTMLElement, LegacyStackItemProps>(fun
       ref={forwardedRef}
       style={{
         ...style,
-        '--b-main-axis-size': px(size),
-        '--b-grow-weight': grow && cssDimension(weight),
-        '--b-shrink-weight': shrink && cssDimension(weight),
+        '--b-main-axis-size': isNil(size) ? 'initial' : `${size}px`,
+        '--b-grow-weight': grow ? sanitizeWeight(weight) : '0',
+        '--b-shrink-weight': shrink ? sanitizeWeight(weight) : '0',
         '--b-margin-before': `${marginBefore}px`,
         '--b-margin-after': `${marginAfter}px`,
       }}

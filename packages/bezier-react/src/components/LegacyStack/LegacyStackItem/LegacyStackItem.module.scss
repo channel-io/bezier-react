@@ -1,8 +1,4 @@
 .LegacyStackItem {
-  --b-main-axis-size: initial;
-  --b-grow-weight: 0;
-  --b-shrink-weight: 0;
-
   flex: var(--b-grow-weight) var(--b-shrink-weight) var(--b-main-axis-size);
 
   &:where(.direction-horizontal) {
