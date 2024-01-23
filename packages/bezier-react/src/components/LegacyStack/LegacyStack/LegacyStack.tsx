@@ -13,6 +13,8 @@ import type LegacyStackProps from './LegacyStack.types'
 import styles from './LegacyStack.module.scss'
 
 /**
+ * @deprecated Use `Stack` instead.
+ *
  * `Stack` provides an abstraction of **flex layout** so that
  * rendering of child elements **linearly** can be done
  * with simplified options.

@@ -18,6 +18,20 @@ const sanitizeWeight = (weight: number): number => {
 }
 
 /**
+ * @deprecated Use layout components(`Box`, `Stack`) that support flex item related properties (`shrink`, `grow`) instead.
+ *
+ * @example
+ *
+ * ```
+ * <Stack>
+ *   <Stack grow={1} shrink={1} {...}>
+ *     { ... }
+ *   </Stack>
+ *   <Box grow={0} shrink={0} {...} />
+ * </Stack>
+ * ```
+ *
+ *
  * `StackItem` is used along `Stack`.
  * It inherits the default settings from `Stack`,
  * but allows to override some props to customize the behavior
