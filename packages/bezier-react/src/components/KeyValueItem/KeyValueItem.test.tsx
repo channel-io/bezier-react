@@ -9,11 +9,14 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { KeyValueItem } from './KeyValueItem'
-import { KEY_VALUE_ITEM_TEST_ID } from './KeyValueItem.const'
+import {
+  KEY_VALUE_ITEM_KEY_ICON_TEST_ID,
+  KEY_VALUE_ITEM_TEST_ID,
+  KeyValueItem,
+} from './KeyValueItem'
 import { type KeyValueItemProps } from './KeyValueItem.types'
 
-const DEFAULT_PROPS: KeyValueItemProps = {
+const DEFAULT_PROPS = {
   keyIcon: AppleIcon,
   keyContent: 'Key',
   children: 'Value',
@@ -26,96 +29,79 @@ const renderComponent = (optionProps?: Partial<KeyValueItemProps>) => render(
 describe('KeyValueItem', () => {
   describe('Props', () => {
     describe('keyIcon', () => {
-      it('keyIcon이 Bezier의 아이콘 한 종류면, icon으로 렌더링된다.', () => {
+      it('should render in the document if a valid Bezier icon is provided', () => {
         const keyIcon = BadgeIcon
         const { getByTestId } = renderComponent({ keyIcon })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.KEY_ITEM)
-        const keyItemIcon = rendered?.firstChild
-        expect(keyItemIcon?.nodeName).toEqual('svg')
+        const rendered = getByTestId(KEY_VALUE_ITEM_KEY_ICON_TEST_ID)
+        expect(rendered).toBeInTheDocument()
       })
 
-      it('keyIcon이 Bezier의 아이콘이 아니면, textContent로 렌더링된다.', () => {
-        const keyIcon = 'NoIcon'
-        const { getByTestId } = renderComponent({ keyIcon })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.KEY_ITEM)
-        const keyItemIcon = rendered?.firstChild
-        expect(keyItemIcon?.nodeName).toEqual('#text')
-        expect(keyItemIcon?.textContent).toEqual(keyIcon)
+      it('should render as textContent if keyIcon is not a Bezier icon', () => {
+        const keyIcon = 'Lorem ipsum'
+        const { getByText } = renderComponent({ keyIcon })
+        const rendered = getByText(keyIcon)
+        expect(rendered).toBeInTheDocument()
       })
     })
 
     describe('keyContent', () => {
-      it('keyContent가 string이면, Key의 text string으로서 렌더링된다.', () => {
-        const { getByTestId } = renderComponent()
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.KEY_ITEM)
-        const keyItemText = rendered?.lastChild
-        expect(keyItemText?.nodeName).toEqual('DIV')
-        expect(keyItemText?.textContent).toEqual(DEFAULT_PROPS.keyContent)
+      it('should render as a text string if keyContent is a string', () => {
+        const { getByText } = renderComponent()
+        const rendered = getByText(DEFAULT_PROPS.keyContent)
+        expect(rendered).toBeInTheDocument()
       })
 
-      it('keyContent가 React.Node면, Key의 text가 node로서 렌더링된다.', () => {
+      it('should render as a node if keyContent is a React.Node', () => {
         const keyContent = (
           <button type="button">
             Button
           </button>
         )
-        const { getByTestId } = renderComponent({ keyContent })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.KEY_ITEM)
-        const keyItemText = rendered?.lastChild
-        expect(keyItemText?.nodeName).toEqual('BUTTON')
-        expect(keyItemText?.textContent).toEqual('Button')
+        const { getByRole } = renderComponent({ keyContent })
+        const rendered = getByRole('button')
+        expect(rendered).toBeInTheDocument()
       })
     })
 
     describe('actions', () => {
-      it('actions가 없으면, ItemAction은 렌더링되지 않는다.', () => {
-        const { queryByTestId } = renderComponent({ })
-        const rendered = queryByTestId(KEY_VALUE_ITEM_TEST_ID.ACTIONS_ITEM)
+      it('should not render action button if actions are not provided', () => {
+        const { queryByRole } = renderComponent()
+        const rendered = queryByRole('button')
         const actionItems = rendered
         expect(actionItems).not.toBeInTheDocument()
       })
 
-      it('actions가 Object면, 아이콘이 1개만 렌더링된다.', () => {
+      it('should render a action button if actions is an Object', () => {
         const actions = { icon: BadgeIcon }
-        const { getByTestId } = renderComponent({ actions })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ACTIONS_ITEM)
-        const actionItemsCount = rendered?.childNodes.length
-        expect(actionItemsCount).toEqual(1)
+        const { getByRole } = renderComponent({ actions })
+        const rendered = getByRole('button')
+        expect(rendered).toBeInTheDocument()
       })
 
-      it('actions가 Array면, 아이콘이 여러개 렌더링된다.', () => {
+      it('should render action buttons if actions is an Array', () => {
         const actions = Array.from(Array(2)).map(() => ({ icon: BadgeIcon }))
-        const { getByTestId } = renderComponent({ actions })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ACTIONS_ITEM)
-        const actionItemsCount = rendered?.childNodes.length
-        expect(actionItemsCount).toEqual(2)
+        const { getAllByRole } = renderComponent({ actions })
+        const rendered = getAllByRole('button')
+        expect(rendered.length).toEqual(2)
       })
 
-      it('actions의 onClick 있으면, icon click event에서 호출된다.', async () => {
+      it('should call onClick handler when action button is clicked if actions.onClick is provided', async () => {
         const user = userEvent.setup()
-
         const actions = { icon: BadgeIcon, onClick: jest.fn() }
-        const { getByTestId } = renderComponent({ actions })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ACTIONS_ITEM)
-        const actionItemIconWrapper = rendered?.firstChild
-        const actionItemIcon = actionItemIconWrapper?.firstChild
-
-        await user.click(actionItemIcon as HTMLElement)
+        const { getByRole } = renderComponent({ actions })
+        const rendered = getByRole('button')
+        await user.click(rendered)
         expect(actions.onClick).toHaveBeenCalledTimes(1)
-        await user.click(actionItemIcon as HTMLElement)
+        await user.click(rendered)
         expect(actions.onClick).toHaveBeenCalledTimes(2)
       })
 
-      it('actions의 tooltip이 있으면, tooltip이 렌더링된다.', async () => {
+      it('should render tooltip if actions.tooltip is provided', async () => {
         const user = userEvent.setup()
-
         const actions = { icon: BadgeIcon, tooltip: 'tooltip' }
-        const { getByRole, getByTestId } = renderComponent({ actions })
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ACTIONS_ITEM)
-        const actionItemIconWrapper = rendered?.firstChild
-        const actionItemIcon = actionItemIconWrapper?.firstChild
-
-        await user.hover(actionItemIcon as HTMLElement)
+        const { getByRole } = renderComponent({ actions })
+        const rendered = getByRole('button')
+        await user.hover(rendered)
         await waitFor(() => {
           expect(getByRole('tooltip')).toBeInTheDocument()
         }, { timeout: 10000 })
@@ -123,38 +109,30 @@ describe('KeyValueItem', () => {
     })
 
     describe('onClickKey', () => {
-      it('onClickKey가 있으면, Key 영역이 click event에서 호출된다.', async () => {
+      it('should call onClickKey handler when Key area is clicked if onClickKey is provided', async () => {
         const user = userEvent.setup()
-
-        const props: Partial<KeyValueItemProps> = {
-          onClickKey: jest.fn(),
-        }
-        const { getByTestId } = renderComponent(props)
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ROOT)
+        const onClickKey = jest.fn()
+        const { getByTestId } = renderComponent({ onClickKey })
+        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID)
         const keyItemContainer = rendered?.firstChild
-
         await user.click(keyItemContainer as Element)
-        expect(props.onClickKey).toHaveBeenCalledTimes(1)
+        expect(onClickKey).toHaveBeenCalledTimes(1)
         await user.click(keyItemContainer as Element)
-        expect(props.onClickKey).toHaveBeenCalledTimes(2)
+        expect(onClickKey).toHaveBeenCalledTimes(2)
       })
     })
 
     describe('onClickValue', () => {
-      it('onClickValue가 있으면, Value 영역이 click event에서 호출된다.', async () => {
+      it('should call onClickValue handler when Value area is clicked if onClickValue is provided', async () => {
         const user = userEvent.setup()
-
-        const props: Partial<KeyValueItemProps> = {
-          onClickValue: jest.fn(),
-        }
-        const { getByTestId } = renderComponent(props)
-        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID.ROOT)
+        const onClickValue = jest.fn()
+        const { getByTestId } = renderComponent({ onClickValue })
+        const rendered = getByTestId(KEY_VALUE_ITEM_TEST_ID)
         const valueItemContainer = rendered?.lastChild
-
         await user.click(valueItemContainer as Element)
-        expect(props.onClickValue).toHaveBeenCalledTimes(1)
+        expect(onClickValue).toHaveBeenCalledTimes(1)
         await user.click(valueItemContainer as Element)
-        expect(props.onClickValue).toHaveBeenCalledTimes(2)
+        expect(onClickValue).toHaveBeenCalledTimes(2)
       })
     })
   })
