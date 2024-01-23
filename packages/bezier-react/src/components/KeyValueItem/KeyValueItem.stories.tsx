@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react'
 
 import {
@@ -39,7 +38,7 @@ const args: KeyValueItemProps = {
   keyContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   actions: {
     icon: EditIcon,
-    onClick: console.log,
+    onClick: () => window.alert('actions.onClick'),
     tooltip: 'Edit',
   },
   onClickKey: () => window.alert('onClickKey'),
