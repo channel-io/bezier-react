@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  memo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -15,7 +12,7 @@ import styles from './ProgressBar.module.scss'
 
 export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
 
-export const ProgressBar = memo(forwardRef<HTMLDivElement, ProgressBarProps>(function ProgressBar({
+export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function ProgressBar({
   style,
   className,
   size = 'm',
@@ -56,4 +53,4 @@ export const ProgressBar = memo(forwardRef<HTMLDivElement, ProgressBarProps>(fun
       />
     </div>
   )
-}))
+})
