@@ -1,17 +1,32 @@
 import React from 'react'
 
-import { type ToastContainerProps } from './Toast.types'
+import { px } from '~/src/utils/style'
 
-import { Container } from './Toast.styled'
+import {
+  type ToastContainerProps,
+  ToastPlacement,
+} from './Toast.types'
+
+import styles from './Toast.module.scss'
 
 const ToastContainer = ({
+  children,
+  offset,
   placement,
   ...props
 }: ToastContainerProps) => (
-  <Container
-    placement={placement}
+  <div
+    style={{
+      bottom: px(offset?.bottom),
+      ...(placement === ToastPlacement.BottomRight
+        ? { right: px(offset?.right) }
+        : { left: px(offset?.left) }),
+    }}
+    className={styles.ToastContainer}
     {...props}
-  />
+  >
+    { children }
+  </div>
 )
 
 export default React.memo(ToastContainer)
