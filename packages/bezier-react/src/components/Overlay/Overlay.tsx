@@ -39,7 +39,6 @@ export const ESCAPE_KEY = 'Escape'
 
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay({
   children,
-  as,
   style,
   className,
   show = false,
@@ -235,11 +234,9 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
     return null
   }
 
-  const Comp = as ?? 'div'
-
   const Content = (
     <ThemeProvider themeName={themeName}>
-      <Comp
+      <div
         className={classNames(
           styles.Overlay,
           !shouldShow && styles.hidden,
@@ -265,7 +262,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
         {...rest}
       >
         { children }
-      </Comp>
+      </div>
     </ThemeProvider>
   )
 

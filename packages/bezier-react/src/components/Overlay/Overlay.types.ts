@@ -5,7 +5,6 @@ import {
   type AlphaAdditionalStylableProps,
   type AlphaBezierComponentProps,
   type ChildrenProps,
-  type PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
 export interface ContainerRectAttr {
@@ -65,7 +64,6 @@ interface OverlayOwnProps {
 
 export interface OverlayProps extends
   AlphaBezierComponentProps,
-  PolymorphicProps,
   ChildrenProps,
   AlphaAdditionalStylableProps<'container'>,
   AdditionalTestIdProps<['container', 'wrapper']>,
