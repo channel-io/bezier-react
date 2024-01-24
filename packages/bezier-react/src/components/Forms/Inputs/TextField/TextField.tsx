@@ -19,8 +19,10 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { type FormFieldSize } from '~/src/components/Forms/FormFieldSize'
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+import {
+  COMMON_IME_CONTROL_KEYS,
+  type FormFieldSize,
+} from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 import {

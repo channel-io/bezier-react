@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms'
 
 import {
   TEXT_INPUT_CLEAR_ICON_TEST_ID,

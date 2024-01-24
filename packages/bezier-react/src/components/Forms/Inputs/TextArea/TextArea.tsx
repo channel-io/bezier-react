@@ -9,7 +9,7 @@ import TextareaAutosize from 'react-textarea-autosize'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
+import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 

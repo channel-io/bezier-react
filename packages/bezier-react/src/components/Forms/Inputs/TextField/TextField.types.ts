@@ -11,8 +11,10 @@ import type {
   VariantProps,
 } from '~/src/types/ComponentProps'
 
-import type { FormComponentProps } from '~/src/components/Forms'
-import { type FormFieldSize } from '~/src/components/Forms/FormFieldSize'
+import type {
+  FormComponentProps,
+  FormFieldSize,
+} from '~/src/components/Forms'
 
 export enum TextFieldType {
   Search = 'search',
