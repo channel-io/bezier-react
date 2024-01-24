@@ -9,17 +9,19 @@ import {
 
 import useIsMounted from '~/src/hooks/useIsMounted'
 import { useWindow } from '~/src/providers/WindowProvider'
+import { px } from '~/src/utils/style'
 
 import {
   ToastPlacement,
   type ToastProviderProps,
   type ToastType,
 } from './Toast.types'
-import ToastContainer from './ToastContainer'
 import { ToastContextProvider } from './ToastContext'
 import ToastController from './ToastController'
 import { ToastElement } from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
+
+import styles from './Toast.module.scss'
 
 /**
  * @deprecated
@@ -49,10 +51,15 @@ function ToastProvider({
   const container = givenContainer ?? rootElement
 
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
-    <ToastContainer
+    <div
       key={placement}
-      placement={placement}
-      offset={offset}
+      style={{
+        bottom: px(offset?.bottom),
+        ...(placement === ToastPlacement.BottomRight
+          ? { right: px(offset?.right) }
+          : { left: px(offset?.left) }),
+      }}
+      className={styles.ToastContainer}
     >
       { toasts.map(({
         autoDismiss,
@@ -86,7 +93,7 @@ function ToastProvider({
           version={version}
         />
       )) }
-    </ToastContainer>
+    </div>
   ), [
     autoDismissTimeout,
     dismiss,
