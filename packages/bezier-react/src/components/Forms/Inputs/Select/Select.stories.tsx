@@ -6,27 +6,16 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import { Text } from '~/src/components/Text'
 
 import { Select } from './Select'
-import {
-  type SelectProps,
-  SelectSize,
-} from './Select.types'
+import { type SelectProps } from './Select.types'
 
 const meta: Meta<SelectProps & {
   wrapperSize: number
 }> = {
   component: Select,
   argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(SelectSize),
-    },
     wrapperSize: {
       control: {
         type: 'number',
@@ -58,6 +47,6 @@ export const Primary = {
     readOnly: false,
     withoutChevron: false,
     hasError: false,
-    size: SelectSize.M,
+    size: 'm',
   },
 }

@@ -14,6 +14,7 @@
 
   box-sizing: border-box;
   width: 100%;
+  height: var(--b-form-field-size);
   padding: 8px 12px;
 
   color: var(--txt-black-darkest);
@@ -23,22 +24,6 @@
   box-shadow: var(--input-box-shadow);
 
   transition: background-color var(--transition-s), box-shadow var(--transition-s);
-
-  &:where(.size-28) {
-    height: 28px;
-  }
-
-  &:where(.size-36) {
-    height: 36px;
-  }
-
-  &:where(.size-44) {
-    height: 44px;
-  }
-
-  &:where(.size-54) {
-    height: 54px;
-  }
 
   &.readonly {
     cursor: initial;
