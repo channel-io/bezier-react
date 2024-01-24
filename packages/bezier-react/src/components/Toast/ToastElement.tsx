@@ -4,9 +4,17 @@ import React, {
   useMemo,
 } from 'react'
 
-import { CancelIcon } from '@channel.io/bezier-icons'
-import { v4 as uuid } from 'uuid'
+import {
+  CancelIcon,
+  CheckCircleFilledIcon,
+  ErrorTriangleFilledIcon,
+  InfoFilledIcon,
+  WifiIcon,
+  WifiOffIcon,
+} from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
+import { getZIndexClassName } from '~/src/utils/props'
 import { isString } from '~/src/utils/type'
 
 import {
@@ -16,18 +24,37 @@ import {
 import { Text } from '~/src/components/Text'
 
 import type ToastProps from './Toast.types'
-import { ToastPreset } from './Toast.types'
-import { getToastPreset } from './utils'
-
 import {
-  ActionContent,
-  Close,
-  Content,
-  Element,
-  EllipsisableContent,
-  IconWrapper,
-  NormalContent,
-} from './Toast.styled'
+  ToastAppearance,
+  ToastPreset,
+} from './Toast.types'
+
+import styles from './Toast.module.scss'
+
+function getToastPreset(preset: ToastPreset) {
+  return {
+    [ToastPreset.Success]: {
+      icon: CheckCircleFilledIcon,
+      appearance: ToastAppearance.Success,
+    },
+    [ToastPreset.Error]: {
+      icon: ErrorTriangleFilledIcon,
+      appearance: ToastAppearance.Error,
+    },
+    [ToastPreset.Offline]: {
+      icon: WifiOffIcon,
+      appearance: ToastAppearance.Warning,
+    },
+    [ToastPreset.Online]: {
+      icon: WifiIcon,
+      appearance: ToastAppearance.Success,
+    },
+    [ToastPreset.Default]: {
+      icon: InfoFilledIcon,
+      appearance: ToastAppearance.Info,
+    },
+  }[preset]
+}
 
 export const TOAST_TEST_ID = 'bezier-react-toast'
 
@@ -37,9 +64,10 @@ const ToastElement = (
     testId = TOAST_TEST_ID,
     preset = ToastPreset.Default,
     content = '',
-    appearance,
-    icon,
+    appearance: appearanceProp,
+    icon: iconProp,
     actionContent,
+    zIndex,
     onClick,
     onDismiss,
     ...props
@@ -48,73 +76,76 @@ const ToastElement = (
 ) => {
   const ToastContentComponent = useMemo(() => {
     if (isString(content)) {
-      return content.split('\n').map((str) => (
-        <div key={uuid()}>
-          <Text
-            typo="14"
-          >
-            { str }
-          </Text>
-        </div>
+      return content.split('\n').map((str, index) => (
+        <React.Fragment key={index}>
+          { index !== 0 && (<br />) }
+          { str }
+        </React.Fragment>
       ))
     }
     return content
   }, [content])
 
   const {
-    appearance: presetAppearance,
-    icon: presetIcon,
-  } = useMemo(() => getToastPreset(preset), [preset])
+    appearance,
+    icon,
+  } = getToastPreset(preset)
 
   return (
-    <Element
+    <div
+      className={classNames(
+        styles.ToastElement,
+        zIndex && getZIndexClassName(zIndex),
+      )}
       ref={forwardedRef}
       data-testid={testId}
       {...props}
     >
-      <IconWrapper
-        appearance={appearance ?? presetAppearance}
+      <div
+        className={classNames(
+          styles.IconWrapper,
+          styles[`appearance-${appearanceProp ?? appearance}`],
+        )}
       >
         <Icon
-          source={icon ?? presetIcon}
+          source={iconProp ?? icon}
           size={IconSize.S}
         />
-      </IconWrapper>
-      <Content
-        actionContent={actionContent}
-        onClick={onClick}
-      >
-        <EllipsisableContent>
-          <Text
-            typo="14"
-            style={{
-              height: '18px',
-            }}
-          >
-            <NormalContent
-              data-testid={`${TOAST_TEST_ID}-content`}
+      </div>
+
+      <div className={styles.Content}>
+        <Text
+          className={styles.EllipsisableContent}
+          typo="14"
+          color="txt-black-darkest"
+          truncated={5}
+        >
+          { ToastContentComponent }
+          { ' ' }
+          { actionContent && onClick && (
+            <button
+              className={styles.ActionContent}
+              type="button"
+              onClick={onClick}
             >
-              { ToastContentComponent }
-            </NormalContent>
-            { ' ' }
-            { actionContent && onClick && (
-              <ActionContent onClick={onClick}>
-                { actionContent }
-              </ActionContent>
-            ) }
-          </Text>
-        </EllipsisableContent>
-      </Content>
-      <Close
-        onClick={onDismiss}
+              { actionContent }
+            </button>
+          ) }
+        </Text>
+      </div>
+
+      <button
+        className={styles.Close}
+        type="button"
         data-testid={`${TOAST_TEST_ID}-close`}
+        onClick={onDismiss}
       >
         <Icon
           source={CancelIcon}
           size={IconSize.XS}
         />
-      </Close>
-    </Element>
+      </button>
+    </div>
   )
 }
 

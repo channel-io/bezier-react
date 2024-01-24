@@ -1,3 +1,5 @@
+@use "../../styles/mixins/dimension";
+
 @keyframes slide-left {
   from {
     transform: translateX(-120%);
@@ -59,6 +61,10 @@
   &:where(.from-left) {
     animation: slide-left var(--transition-m);
   }
+
+  & button:where(:focus-visible) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
 }
 
 .IconWrapper {
@@ -95,27 +101,17 @@
   margin: 3px 6px;
 
   color: var(--txt-black-darkest);
-
-  &:where(.clickable) {
-    color: var(--bgtxt-cobalt-normal);
-  }
 }
 
 .EllipsisableContent {
-  // ${ellipsis(5, LineHeightAbsoluteNumber.Lh18)};
-
-  overflow: visible;
-  display: flex;
   flex: 1;
   word-break: break-word;
 }
 
-.NormalContent {
-  color: var(--txt-black-darkest);
-}
-
 .ActionContent {
+  all: unset;
   cursor: pointer;
+  display: inline-block;
   color: var(--bgtxt-cobalt-normal);
 
   &:hover {
@@ -124,6 +120,11 @@
 }
 
 .Close {
+  all: unset;
+
+  /* stylelint-disable-next-line order/order */
+  @include dimension.square(24px);
+
   cursor: pointer;
 
   display: flex;
@@ -131,8 +132,6 @@
   align-items: center;
   justify-content: center;
 
-  width: 24px;
-  height: 24px;
   margin-left: auto;
 
   color: var(--txt-black-darker);
