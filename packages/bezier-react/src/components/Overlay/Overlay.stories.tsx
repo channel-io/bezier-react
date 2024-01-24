@@ -11,8 +11,8 @@ import {
 
 import { styled } from '~/src/foundation'
 
-import Overlay from './Overlay'
-import type OverlayProps from './Overlay.types'
+import { Overlay } from './Overlay'
+import type { OverlayProps } from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
 
 const meta: Meta<OverlayProps & {

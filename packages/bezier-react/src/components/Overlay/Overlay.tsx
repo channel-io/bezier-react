@@ -1,5 +1,4 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
@@ -12,6 +11,8 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
+import classNames from 'classnames'
+
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
@@ -19,46 +20,44 @@ import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modal'
 
-import type OverlayProps from './Overlay.types'
-import {
-  type ContainerRectAttr,
-  type TargetRectAttr,
+import type {
+  ContainerRectAttr,
+  OverlayProps,
+  TargetRectAttr,
 } from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
+import { getOverlayStyle } from './utils'
 
-import * as Styled from './Overlay.styled'
+import styles from './Overlay.module.scss'
 
 export const CONTAINER_TEST_ID = 'bezier-react-container'
 export const WRAPPER_TEST_ID = 'bezier-react-wrapper'
 export const OVERLAY_TEST_ID = 'bezier-react-overlay'
 export const ESCAPE_KEY = 'Escape'
 
-function Overlay(
-  {
-    as,
-    containerTestId = CONTAINER_TEST_ID,
-    wrapperTestId = WRAPPER_TEST_ID,
-    testId = OVERLAY_TEST_ID,
-    show = false,
-    className = '',
-    style,
-    containerClassName = '',
-    containerStyle,
-    container: givenContainer,
-    target,
-    position = OverlayPosition.LeftCenter,
-    marginX = 0,
-    marginY = 0,
-    keepInContainer = false,
-    withTransition = false,
-    enableClickOutside = false,
-    children,
-    onHide = noop,
-    onTransitionEnd = noop,
-    ...rest
-  }: OverlayProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
+export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay({
+  as,
+  containerTestId = CONTAINER_TEST_ID,
+  wrapperTestId = WRAPPER_TEST_ID,
+  testId = OVERLAY_TEST_ID,
+  show = false,
+  className = '',
+  style,
+  containerClassName = '',
+  containerStyle,
+  container: givenContainer,
+  target,
+  position = OverlayPosition.LeftCenter,
+  marginX = 0,
+  marginY = 0,
+  keepInContainer = false,
+  withTransition = false,
+  enableClickOutside = false,
+  children,
+  onHide = noop,
+  onTransitionEnd = noop,
+  ...rest
+}, forwardedRef) {
   const { rootElement } = useWindow()
   const { window, document } = useWindow()
 
@@ -160,7 +159,7 @@ function Overlay(
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(Styled.Overlay)) {
+    if (!event.target?.closest(styles.Overlay)) {
       onHide()
 
       if (!enableClickOutside) {
@@ -182,27 +181,36 @@ function Overlay(
   useEventHandler(document, 'keydown', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
 
+  const Comp = as ?? 'div'
+
   const Content = useMemo(() => (
-    <Styled.Overlay
-      as={as}
+    <Comp
+      className={classNames(
+        styles.Overlay,
+        !shouldShow && styles.hidden,
+        withTransition && styles.transition,
+        className,
+      )}
+      style={{
+        ...style,
+        ...getOverlayStyle({
+          containerRect: containerRect.current,
+          targetRect: targetRect.current,
+          overlay: overlayRef.current,
+          position,
+          marginX,
+          marginY,
+          keepInContainer,
+          show: shouldShow,
+        }),
+      }}
       ref={mergedRef}
-      className={className}
-      show={shouldShow}
-      withTransition={withTransition}
-      style={style}
       data-testid={testId}
-      containerRect={containerRect.current}
-      targetRect={targetRect.current}
-      overlay={overlayRef.current}
-      position={position}
-      marginX={marginX}
-      marginY={marginY}
-      keepInContainer={keepInContainer}
       onTransitionEnd={handleTransitionEnd}
       {...rest}
     >
       { children }
-    </Styled.Overlay>
+    </Comp>
   // eslint-disable-next-line react-hooks/exhaustive-deps
   ), [
     as,
@@ -229,17 +237,23 @@ function Overlay(
     }
 
     return (
-      <Styled.DefaultContainer
-        ref={containerRef}
-        className={containerClassName}
-        show={show}
+      <div
         style={containerStyle}
+        className={classNames(
+          styles.OverlayContainer,
+          !show && styles.hidden,
+          containerClassName,
+        )}
+        ref={containerRef}
         data-testid={containerTestId}
       >
-        <Styled.DefaultWrapper data-testid={wrapperTestId}>
+        <div
+          className={styles.OverlayWrapper}
+          data-testid={wrapperTestId}
+        >
           { Content }
-        </Styled.DefaultWrapper>
-      </Styled.DefaultContainer>
+        </div>
+      </div>
     )
   }, [
     hasContainer,
@@ -303,6 +317,4 @@ function Overlay(
     overlay,
     container,
   )
-}
-
-export default forwardRef(Overlay)
+})

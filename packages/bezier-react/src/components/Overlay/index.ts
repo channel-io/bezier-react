@@ -1,12 +1,5 @@
-import Overlay from './Overlay'
-import { OverlayPosition } from './Overlay.types'
-import type OverlayProps from './Overlay.types'
+export { Overlay } from './Overlay'
 
-export type {
-  OverlayProps,
-}
+export { OverlayPosition } from './Overlay.types'
 
-export {
-  Overlay,
-  OverlayPosition,
-}
+export type { OverlayProps } from './Overlay.types'

@@ -1,10 +1,11 @@
 import type React from 'react'
 
 import {
-  type AdditionalStylableProps,
   type AdditionalTestIdProps,
-  type BezierComponentProps,
+  type AlphaAdditionalStylableProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
+  type PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
 export interface ContainerRectAttr {
@@ -44,7 +45,7 @@ export enum OverlayPosition {
   InnerRightBottom = 'innerRightBottom',
 }
 
-interface OverlayOptions {
+interface OverlayOwnProps {
   show?: boolean
   /**
    * Specify a container element to portal the content into.
@@ -62,10 +63,11 @@ interface OverlayOptions {
   onHide?: () => void
 }
 
-export default interface OverlayProps extends
-  BezierComponentProps,
+export interface OverlayProps extends
+  AlphaBezierComponentProps,
+  PolymorphicProps,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
-  AdditionalStylableProps<'container'>,
+  AlphaAdditionalStylableProps<'container'>,
   AdditionalTestIdProps<['container', 'wrapper']>,
-  OverlayOptions {}
+  React.HTMLAttributes<HTMLDivElement>,
+  OverlayOwnProps {}

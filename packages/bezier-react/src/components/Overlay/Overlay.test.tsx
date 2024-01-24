@@ -7,16 +7,17 @@ import { TransitionDuration } from '~/src/foundation'
 
 import { render } from '~/src/utils/test'
 
-import Overlay, {
+import {
   CONTAINER_TEST_ID,
   ESCAPE_KEY,
   OVERLAY_TEST_ID,
+  Overlay,
   WRAPPER_TEST_ID,
 } from './Overlay'
-import type OverlayProps from './Overlay.types'
-import {
-  type ContainerRectAttr,
-  type TargetRectAttr,
+import type {
+  ContainerRectAttr,
+  OverlayProps,
+  TargetRectAttr,
 } from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
 import { getOverlayTranslation } from './utils'
