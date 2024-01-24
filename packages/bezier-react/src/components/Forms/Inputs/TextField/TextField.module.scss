@@ -37,13 +37,13 @@
   align-items: center;
 
   box-sizing: border-box;
+  height: var(--b-form-field-size);
   padding: 0 12px;
 
   background-color: var(--bg-grey-lightest);
   border-radius: var(--radius-8);
 
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
-  height: var(--b-form-field-size);
 
   &:where(.variant-secondary) {
     background-color: var(--bg-black-lightest);
