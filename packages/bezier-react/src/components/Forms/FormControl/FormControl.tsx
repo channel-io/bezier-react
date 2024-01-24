@@ -74,7 +74,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
-  leftLabelWrapperHeight = 'm',
   style,
   children,
   ...rest
@@ -123,14 +122,13 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
       styles.FormLabelWrapper,
       styles[`position-${labelPosition}`],
       formStyles.Form,
-      formStyles[`size-${leftLabelWrapperHeight}`],
+      formStyles['size-m'],
     ),
     typo: labelPosition === 'top' ? '13' : '14',
     ...ownProps,
   }), [
     fieldId,
     labelId,
-    leftLabelWrapperHeight,
     labelPosition,
   ])
 

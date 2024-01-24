@@ -4,15 +4,11 @@ import type {
   IdentifierProps,
 } from '~/src/types/ComponentProps'
 
-import type {
-  FormComponentProps,
-  FormFieldSize,
-} from '~/src/components/Forms'
+import type { FormComponentProps } from '~/src/components/Forms'
 
 type LabelPosition = 'top' | 'left'
 
 interface FormControlOwnProps {
-  leftLabelWrapperHeight?: FormFieldSize
   labelPosition?: LabelPosition
 }
 

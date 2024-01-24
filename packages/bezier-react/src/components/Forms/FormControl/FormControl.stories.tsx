@@ -57,7 +57,6 @@ export const Primary: StoryObj<FormControlProps> = {
   args: {
     id: 'form',
     labelPosition: 'top',
-    leftLabelWrapperHeight: undefined,
     hasError: false,
     disabled: false,
     readOnly: false,
@@ -146,7 +145,6 @@ export const WithMultiForm: StoryObj<FormControlProps> = {
 
   args: {
     labelPosition: 'top',
-    leftLabelWrapperHeight: undefined,
     hasError: false,
     disabled: false,
     readOnly: false,
