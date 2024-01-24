@@ -18,7 +18,7 @@ import {
 import ToastContainer from './ToastContainer'
 import { ToastContextProvider } from './ToastContext'
 import ToastController from './ToastController'
-import ToastElement from './ToastElement'
+import { ToastElement } from './ToastElement'
 import useToastProviderValues from './useToastContextValues'
 
 /**

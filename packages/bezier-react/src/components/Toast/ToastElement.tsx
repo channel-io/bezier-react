@@ -1,8 +1,4 @@
-import React, {
-  type Ref,
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
 import {
   CancelIcon,
@@ -26,6 +22,7 @@ import { Text } from '~/src/components/Text'
 import type ToastProps from './Toast.types'
 import {
   ToastAppearance,
+  ToastPlacement,
   ToastPreset,
 } from './Toast.types'
 
@@ -58,34 +55,19 @@ function getToastPreset(preset: ToastPreset) {
 
 export const TOAST_TEST_ID = 'bezier-react-toast'
 
-const ToastElement = (
-  {
-    as,
-    testId = TOAST_TEST_ID,
-    preset = ToastPreset.Default,
-    content = '',
-    appearance: appearanceProp,
-    icon: iconProp,
-    actionContent,
-    zIndex,
-    onClick,
-    onDismiss,
-    ...props
-  }: ToastProps,
-  forwardedRef: Ref<any>,
-) => {
-  const ToastContentComponent = useMemo(() => {
-    if (isString(content)) {
-      return content.split('\n').map((str, index) => (
-        <React.Fragment key={index}>
-          { index !== 0 && (<br />) }
-          { str }
-        </React.Fragment>
-      ))
-    }
-    return content
-  }, [content])
-
+export const ToastElement = forwardRef<HTMLDivElement, ToastProps>(function ToastElement({
+  preset = ToastPreset.Default,
+  placement,
+  content = '',
+  appearance: appearanceProp,
+  icon: iconProp,
+  actionContent,
+  zIndex,
+  testId = TOAST_TEST_ID,
+  onClick,
+  onDismiss,
+  ...props
+}, forwardedRef) {
   const {
     appearance,
     icon,
@@ -96,6 +78,7 @@ const ToastElement = (
       className={classNames(
         styles.ToastElement,
         zIndex && getZIndexClassName(zIndex),
+        placement === ToastPlacement.BottomLeft && styles.left,
       )}
       ref={forwardedRef}
       data-testid={testId}
@@ -120,7 +103,15 @@ const ToastElement = (
           color="txt-black-darkest"
           truncated={5}
         >
-          { ToastContentComponent }
+          { isString(content)
+            ? content.split('\n').map((str, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <React.Fragment key={index}>
+                { index !== 0 && (<br />) }
+                { str }
+              </React.Fragment>
+            ))
+            : content }
           { ' ' }
           { actionContent && onClick && (
             <button
@@ -147,6 +138,4 @@ const ToastElement = (
       </button>
     </div>
   )
-}
-
-export default forwardRef(ToastElement)
+})

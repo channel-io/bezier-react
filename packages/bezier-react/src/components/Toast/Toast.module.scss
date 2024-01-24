@@ -56,10 +56,10 @@
   box-shadow: var(--ev-3);
 
   transition: transform var(--transition-m);
-  animation: slide-right var(--transition-m);
+  animation: var(--transition-m) 0s 1 slide-right;
 
-  &:where(.from-left) {
-    animation: slide-left var(--transition-m);
+  &:where(.left) {
+    animation: var(--transition-m) 0s 1 slide-left;
   }
 
   & button:where(:focus-visible) {

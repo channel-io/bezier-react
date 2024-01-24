@@ -34,7 +34,7 @@ import {
   ToastAppearance,
   ToastPreset,
 } from './Toast.types'
-import ToastElement from './ToastElement'
+import { ToastElement } from './ToastElement'
 import ToastProvider from './ToastProvider'
 import useToast from './useToast'
 
