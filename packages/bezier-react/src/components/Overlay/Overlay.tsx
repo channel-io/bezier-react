@@ -16,7 +16,6 @@ import classNames from 'classnames'
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useWindow } from '~/src/providers/WindowProvider'
-import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modal'
 
@@ -36,15 +35,11 @@ export const OVERLAY_TEST_ID = 'bezier-react-overlay'
 export const ESCAPE_KEY = 'Escape'
 
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay({
+  children,
   as,
-  containerTestId = CONTAINER_TEST_ID,
-  wrapperTestId = WRAPPER_TEST_ID,
-  testId = OVERLAY_TEST_ID,
-  show = false,
-  className = '',
   style,
-  containerClassName = '',
-  containerStyle,
+  className,
+  show = false,
   container: givenContainer,
   target,
   position = OverlayPosition.LeftCenter,
@@ -53,9 +48,13 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   keepInContainer = false,
   withTransition = false,
   enableClickOutside = false,
-  children,
-  onHide = noop,
-  onTransitionEnd = noop,
+  testId = OVERLAY_TEST_ID,
+  containerStyle,
+  containerClassName,
+  containerTestId = CONTAINER_TEST_ID,
+  wrapperTestId = WRAPPER_TEST_ID,
+  onHide,
+  onTransitionEnd,
   ...rest
 }, forwardedRef) {
   const { rootElement } = useWindow()
@@ -145,7 +144,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   ])
 
   const handleTransitionEnd = useCallback<React.TransitionEventHandler<HTMLDivElement>>((event) => {
-    onTransitionEnd(event)
+    onTransitionEnd?.(event)
     if (!show) {
       setShouldRender(false)
     }
@@ -160,7 +159,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
 
   const handleHideOverlay = useCallback((event: any) => {
     if (!event.target?.closest(styles.Overlay)) {
-      onHide()
+      onHide?.()
 
       if (!enableClickOutside) {
         event.stopPropagation()
@@ -173,7 +172,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
     if (event.key === ESCAPE_KEY) {
-      onHide()
+      onHide?.()
     }
   }, [onHide])
 
