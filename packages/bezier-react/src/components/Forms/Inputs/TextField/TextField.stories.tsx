@@ -16,7 +16,6 @@ import { TextField } from './TextField'
 import {
   type TextFieldProps,
   type TextFieldRef,
-  TextFieldSize,
   TextFieldVariant,
 } from './TextField.types'
 
@@ -62,7 +61,7 @@ export const Primary = {
 
   args: {
     variant: TextFieldVariant.Primary,
-    size: TextFieldSize.M,
+    size: 'm',
     disabled: false,
     readOnly: false,
     allowClear: true,
@@ -71,14 +70,7 @@ export const Primary = {
     maxLength: 10,
     placeholder: 'this is placeholder',
   },
-
   argTypes: {
-    size: {
-      control: {
-        type: 'radio', // type 'select' is automatically inferred when 'options' is defined
-      },
-      options: getObjectFromEnum(TextFieldSize),
-    },
     variant: {
       control: {
         type: 'radio',

@@ -43,29 +43,20 @@
   border-radius: var(--radius-8);
 
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
+  height: var(--b-form-field-size);
 
   &:where(.variant-secondary) {
     background-color: var(--bg-black-lightest);
   }
 
-  &:where(.size-28) {
-    height: 28px;
-  }
-
-  &:where(.size-36) {
-    height: 36px;
-  }
 
   &:where(.size-44) {
-    height: 44px;
-
     & .TextFieldInput {
       @include typography.size(16);
     }
   }
 
   &:where(.size-54) {
-    height: 54px;
     border-radius: var(--radius-12);
 
     & .TextFieldInput {

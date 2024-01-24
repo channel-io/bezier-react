@@ -12,7 +12,7 @@ import type {
 } from '~/src/types/ComponentProps'
 
 import type { FormComponentProps } from '~/src/components/Forms'
-import { FormFieldSize } from '~/src/components/Forms'
+import { type FormFieldSize } from '~/src/components/Forms/FormFieldSize'
 
 export enum TextFieldType {
   Search = 'search',
@@ -23,16 +23,6 @@ export enum TextFieldType {
   Url = 'url',
   Hidden = 'hidden',
   Number = 'number',
-}
-
-/**
- * FIXME: Change to string literal type
- */
-export enum TextFieldSize {
-  XL = FormFieldSize.XL,
-  L = FormFieldSize.L,
-  M = FormFieldSize.M,
-  XS = FormFieldSize.XS,
 }
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
@@ -80,7 +70,7 @@ export interface TextFieldProps extends
   AlphaBezierComponentProps,
   AlphaAdditionalStylableProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
   FormComponentProps,
-  SizeProps<TextFieldSize>,
+  SizeProps<FormFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
   Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,

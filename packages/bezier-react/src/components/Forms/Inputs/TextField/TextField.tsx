@@ -19,6 +19,7 @@ import {
   isNil,
 } from '~/src/utils/type'
 
+import { type FormFieldSize } from '~/src/components/Forms/FormFieldSize'
 import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms/Inputs/constants/CommonImeControlKeys'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
@@ -27,12 +28,14 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 
+// eslint-disable-next-line no-restricted-imports
+import formStyles from '../../Form.module.scss'
+
 import {
   type SelectionRangeDirections,
   type TextFieldItemProps,
   type TextFieldProps,
   type TextFieldRef,
-  TextFieldSize,
   TextFieldType,
   TextFieldVariant,
 } from './TextField.types'
@@ -41,6 +44,13 @@ import styles from './TextField.module.scss'
 
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
+
+const INPUT_LENGTH_BY_SIZE: Record<FormFieldSize, number> = {
+  xs: 28,
+  m: 36,
+  l: 44,
+  xl: 54,
+}
 
 function TextFieldLeftContent({
   children,
@@ -153,7 +163,7 @@ function TextFieldRightContent({
 
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
-  size = TextFieldSize.M,
+  size = 'm',
   testId = TEXT_INPUT_TEST_ID,
   autoFocus,
   autoComplete = 'off',
@@ -349,7 +359,8 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       className={classNames(
         styles.TextFieldWrapper,
         styles[`variant-${variant}`],
-        styles[`size-${size}`],
+        formStyles.Form,
+        formStyles[`size-${size}`],
         wrapperClassName,
       )}
       data-testid={testId}
@@ -376,7 +387,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
          * Invalid size attribute
          * FIXME: https://github.com/channel-io/bezier-react/issues/1053
          */
-        size={size}
+        size={INPUT_LENGTH_BY_SIZE[size]}
         autoComplete={autoComplete}
         readOnly={readOnly}
         disabled={disabled}
