@@ -8,7 +8,7 @@ import {
 import { type FormComponentProps } from '~/src/components/Forms'
 import { type StackProps } from '~/src/components/Stack'
 
-interface RadioGroupOptions<Value extends string> {
+interface RadioGroupOwnProps<Value extends string> {
   /**
    * The controlled value of the radio item to check.
    * Should be used in conjunction with `onValueChange`.
@@ -40,7 +40,7 @@ interface RadioGroupOptions<Value extends string> {
   onValueChange?: (value: Value) => void
 }
 
-interface RadioOptions<Value extends string> {
+interface RadioOwnProps<Value extends string> {
   /**
    * The value given as data when submitted with a `RadioGroupProps.name`.
    */
@@ -58,12 +58,12 @@ export interface RadioGroupProps<Value extends string> extends
   AlphaBezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof RadioGroupOptions<Value> | keyof RadioGroupPrimitive.RadioGroupProps>,
-  RadioGroupOptions<Value> {}
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof RadioGroupOwnProps<Value> | keyof RadioGroupPrimitive.RadioGroupProps>,
+  RadioGroupOwnProps<Value> {}
 
 export interface RadioProps<Value extends string> extends
   AlphaBezierComponentProps,
   ChildrenProps,
   RadioFormComponentProps,
-  Omit<React.HTMLAttributes<HTMLButtonElement>, keyof RadioOptions<Value>>,
-  RadioOptions<Value> {}
+  Omit<React.HTMLAttributes<HTMLButtonElement>, keyof RadioOwnProps<Value>>,
+  RadioOwnProps<Value> {}

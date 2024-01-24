@@ -70,7 +70,6 @@ export * from '~/src/components/VisuallyHidden'
 export * from '~/src/components/AlphaSmoothCornersBox'
 
 export * from '~/src/components/LegacyIcon'
-export * from '~/src/components/LegacyRadio'
 export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
