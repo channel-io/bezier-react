@@ -361,6 +361,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       className={classNames(
         styles.TextFieldWrapper,
         styles[`variant-${variant}`],
+        styles[`size-${size}`],
         formStyles.Form,
         formStyles[`size-${size}`],
         wrapperClassName,
