@@ -1,4 +1,5 @@
 import React, {
+  useEffect,
   useRef,
   useState,
 } from 'react'
@@ -8,6 +9,8 @@ import {
   type StoryFn,
   type StoryObj,
 } from '@storybook/react'
+
+import { isBoolean } from '~/src/utils/type'
 
 import { Button } from '~/src/components/Button'
 
@@ -60,10 +63,20 @@ const meta: Meta<OverlayProps> = {
   },
 }
 
-const Template: StoryFn<OverlayProps> = (props) => {
+const Template: StoryFn<OverlayProps> = ({
+  show: showProp,
+  children,
+  ...rest
+}) => {
   const [show, setShow] = useState(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const targetRef = useRef<HTMLButtonElement | null>(null)
+
+  useEffect(function syncShow() {
+    if (isBoolean(showProp)) {
+      setShow(showProp)
+    }
+  }, [showProp])
 
   return (
     <div
@@ -86,6 +99,8 @@ const Template: StoryFn<OverlayProps> = (props) => {
       <Overlay
         show={show}
         style={{
+          width: 200,
+          height: 200,
           backgroundColor: 'var(--bg-white-high)',
           borderRadius: 'var(--radius-8)',
           boxShadow: 'var(--ev-3)',
@@ -93,14 +108,9 @@ const Template: StoryFn<OverlayProps> = (props) => {
         target={targetRef.current}
         container={containerRef.current}
         onHide={() => setShow(false)}
-        {...props}
+        {...rest}
       >
-        <div
-          style={{
-            width: 200,
-            height: 200,
-          }}
-        />
+        { children }
       </Overlay>
     </div>
   )
@@ -109,6 +119,7 @@ const Template: StoryFn<OverlayProps> = (props) => {
 export const Primary: StoryObj<OverlayProps> = {
   render: Template,
   args: {
+    show: false,
     position: OverlayPosition.BottomCenter,
     marginY: 6,
   },
