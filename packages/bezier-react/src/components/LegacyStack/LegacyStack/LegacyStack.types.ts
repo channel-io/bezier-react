@@ -52,6 +52,9 @@ interface LegacyStackOwnProps {
   spacing?: number
 }
 
+/**
+ * @deprecated Use `Stack` instead.s
+ */
 export default interface LegacyStackProps extends
   AlphaBezierComponentProps,
   PolymorphicProps,
