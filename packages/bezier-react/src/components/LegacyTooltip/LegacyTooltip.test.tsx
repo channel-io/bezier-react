@@ -3,8 +3,6 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { act } from '@testing-library/react'
 
-import { css } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -44,20 +42,6 @@ describe('Tooltip test >', () => {
 
   it('Tooltip with default props', () => {
     const { baseElement, getByTestId } = renderTooltip()
-
-    act(() => {
-      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
-
-      jest.runAllTimers()
-    })
-
-    expect(baseElement).toMatchSnapshot()
-  })
-
-  it('Tooltip with contentInterpolation prop', async () => {
-    const { baseElement, getByTestId } = renderTooltip({
-      contentInterpolation: css`background-color: black;`,
-    })
 
     act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
