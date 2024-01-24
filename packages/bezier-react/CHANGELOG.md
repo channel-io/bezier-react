@@ -1,5 +1,34 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.8
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `LegacyTooltip` component** ([#1945](https://github.com/channel-io/bezier-react/pull/1945)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `contentInterpolation` property. Replace any usage of `contentInterpolation` property with appropriate `contentStyle` or `contentClassName` implementations.
+  - No longer support `contentWrapperInterpolation` property. Replace any usage of `contentWrapperInterpolation` property with appropriate `contentWrapperStyle` or `contentWrapperClassName` implementations.
+
+- **Breaking Changes: Reorganizing `KeyValueListItem` component** ([#1941](https://github.com/channel-io/bezier-react/pull/1941)) by @sungik-choi
+
+  - **Renamed to `KeyValueItem`.**
+  - - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `valueWrapperStyle`, `valueWrapperClassName`, `valueWrapperInterpolation`, `keyWrapperStyle`, `keyWrapperClassName` and `keyWrapperInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `AdditionalColorProps` and `show` property of ItemAction.
+  - The icon inside ItemAction is now implemented through `Button` component.
+  - The Value Container will now always have 100% of the parent's width.
+
+- **Breaking Changes: Property updates in `LegacyStack` components** ([#1944](https://github.com/channel-io/bezier-react/pull/1944)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer export `AxisAlignment` type.
+
+- **Breaking Change: Removal of `LegacyRadio` Component** ([#1943](https://github.com/channel-io/bezier-react/pull/1943)) by @sungik-choi
+
+  - `LegacyRadio` component has been removed from the library. Please use `RadioGroup` and `Radio` component instead.
+  - Now if `Radio` has no label, its size is reduced by an indicator.
+
 ## 2.0.0-alpha.7
 
 ### Major Changes
