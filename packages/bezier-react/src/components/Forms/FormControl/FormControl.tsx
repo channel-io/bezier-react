@@ -9,13 +9,12 @@ import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
 import { splitByBezierComponentProps } from '~/src/utils/props'
-import { px } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
 import { Stack } from '~/src/components/Stack'
 
 // eslint-disable-next-line no-restricted-imports
-import FormFieldSize from '../FormFieldSize'
+import formStyles from '../Form.module.scss'
 
 import {
   type ContainerProps,
@@ -75,7 +74,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
-  leftLabelWrapperHeight = FormFieldSize.M,
+  leftLabelWrapperHeight = 'm',
   style,
   children,
   ...rest
@@ -120,12 +119,18 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   const getLabelProps = useCallback<LabelPropsGetter>(ownProps => ({
     id: labelId,
     htmlFor: fieldId,
-    className: classNames(styles.FormLabelWrapper, styles[`position-${labelPosition}`]),
+    className: classNames(
+      styles.FormLabelWrapper,
+      styles[`position-${labelPosition}`],
+      formStyles.Form,
+      formStyles[`size-${leftLabelWrapperHeight}`],
+    ),
     typo: labelPosition === 'top' ? '13' : '14',
     ...ownProps,
   }), [
     fieldId,
     labelId,
+    leftLabelWrapperHeight,
     labelPosition,
   ])
 
@@ -189,15 +194,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     formCommonProps,
   ])
 
-  // TODO: fix to className when FormFieldSize can be shared
-  const containerStyle = useMemo(() => ({
-    ...style,
-    '--b-form-control-left-label-wrapper-height': px(leftLabelWrapperHeight),
-  } as React.CSSProperties), [
-    style,
-    leftLabelWrapperHeight,
-  ])
-
   if (!children) { return null }
 
   return (
@@ -205,7 +201,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
       <Container
         {...bezierProps}
         ref={forwardedRef}
-        style={containerStyle}
+        style={style}
         testId={testId}
         labelPosition={labelPosition}
       >
