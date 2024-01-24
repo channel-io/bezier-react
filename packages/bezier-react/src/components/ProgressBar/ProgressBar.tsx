@@ -9,7 +9,7 @@ import { useThemeName } from '~/src/providers/ThemeProvider'
 import { clamp } from '~/src/utils/number'
 import { cssDimension } from '~/src/utils/style'
 
-import type ProgressBarProps from './ProgressBar.types'
+import type { ProgressBarProps } from './ProgressBar.types'
 
 import styles from './ProgressBar.module.scss'
 

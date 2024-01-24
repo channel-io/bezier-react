@@ -17,7 +17,7 @@ import { Text } from '~/src/components/Text'
 
 import { ProgressBar } from './ProgressBar'
 import mdx from './ProgressBar.mdx'
-import type ProgressBarProps from './ProgressBar.types'
+import type { ProgressBarProps } from './ProgressBar.types'
 
 const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
