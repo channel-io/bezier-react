@@ -5,13 +5,16 @@ import React, {
   isValidElement,
   useRef,
 } from 'react'
-import type { Ref } from 'react'
 
-import type StackProps from './Stack.types'
+import classNames from 'classnames'
 
-import * as Styled from './Stack.styled'
+import type LegacyStackProps from './LegacyStack.types'
+
+import styles from './LegacyStack.module.scss'
 
 /**
+ * @deprecated Use `Stack` instead.
+ *
  * `Stack` provides an abstraction of **flex layout** so that
  * rendering of child elements **linearly** can be done
  * with simplified options.
@@ -29,35 +32,31 @@ import * as Styled from './Stack.styled'
  * </Stack>
  * ```
  */
-export const Stack = forwardRef(function Stack(
-  {
-    as = 'div',
-    testId = 'bezier-react-stack',
-    style,
-    className,
-    interpolation,
-    children,
-    direction,
-    justify = 'start',
-    align = 'stretch',
-    spacing = 0,
-    ...rest
-  }: StackProps,
-  forwardedRef: Ref<HTMLElement>,
-) {
+export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(function Stack({
+  as = 'div',
+  testId = 'bezier-legacy-stack',
+  className,
+  children,
+  direction,
+  justify = 'start',
+  align = 'stretch',
+  spacing = 0,
+  ...rest
+}, forwardedRef) {
+  const Comp = as
   const firstValidElementIdx = useRef(-1)
 
   return (
-    <Styled.Container
+    <Comp
+      className={classNames(
+        styles.LegacyStack,
+        styles[`direction-${direction}`],
+        styles[`justify-${justify}`],
+        styles[`align-${align}`],
+        className,
+      )}
       ref={forwardedRef}
-      as={as}
       data-testid={testId}
-      style={style}
-      className={className}
-      interpolation={interpolation}
-      direction={direction}
-      justify={justify}
-      align={align}
       {...rest}
     >
       { Children.map(
@@ -81,8 +80,7 @@ export const Stack = forwardRef(function Stack(
                 (index > firstValidElementIdx.current ? spacing : 0),
           })
         },
-
       ) }
-    </Styled.Container>
+    </Comp>
   )
 })

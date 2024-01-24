@@ -1,0 +1,45 @@
+.LegacyStackItem {
+  flex: var(--b-grow-weight) var(--b-shrink-weight) var(--b-main-axis-size);
+
+  &:where(.direction-horizontal) {
+    margin-right: var(--b-margin-after);
+    margin-left: var(--b-margin-before);
+  }
+
+  &:where(.direction-vertical) {
+    margin-top: var(--b-margin-before);
+    margin-bottom: var(--b-margin-after);
+  }
+
+  &:where(.justify-start) {
+    justify-self: flex-start;
+  }
+
+  &:where(.justify-end) {
+    justify-self: flex-end;
+  }
+
+  &:where(.justify-center) {
+    justify-self: center;
+  }
+
+  &:where(.justify-stretch) {
+    justify-self: stretch;
+  }
+
+  &:where(.align-start) {
+    align-self: flex-start;
+  }
+
+  &:where(.align-end) {
+    align-self: flex-end;
+  }
+
+  &:where(.align-center) {
+    align-self: center;
+  }
+
+  &:where(.align-stretch) {
+    align-self: stretch;
+  }
+}

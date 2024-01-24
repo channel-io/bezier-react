@@ -1,11 +1,12 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
+  PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 
-interface StackItemOptions {
+interface LegacyStackItemOwnProps {
   /**
    * Direction of this stack item.
    *
@@ -89,7 +90,22 @@ interface StackItemOptions {
   marginAfter?: number
 }
 
-export default interface StackItemProps extends
-  BezierComponentProps,
+/**
+ * @deprecated Use layout components(`Box`, `Stack`) that support flex item related properties (`shrink`, `grow`) instead.
+ *
+ * @example
+ *
+ * ```
+ * <Stack>
+ *   <Stack grow={1} shrink={1} {...}>
+ *     { ... }
+ *   </Stack>
+ *   <Box grow={0} shrink={0} {...} />
+ * </Stack>
+ * ```
+ */
+export default interface LegacyStackItemProps extends
+  AlphaBezierComponentProps,
+  PolymorphicProps,
   ChildrenProps,
-  StackItemOptions {}
+  LegacyStackItemOwnProps {}

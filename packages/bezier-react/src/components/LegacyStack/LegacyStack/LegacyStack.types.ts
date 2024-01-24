@@ -1,11 +1,12 @@
 import type {
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps,
+  PolymorphicProps,
 } from '~/src/types/ComponentProps'
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 
-interface StackOptions {
+interface LegacyStackOwnProps {
   /**
    * Direction of this stack.
    *
@@ -51,8 +52,12 @@ interface StackOptions {
   spacing?: number
 }
 
-export default interface StackProps extends
-  BezierComponentProps,
+/**
+ * @deprecated Use `Stack` instead.s
+ */
+export default interface LegacyStackProps extends
+  AlphaBezierComponentProps,
+  PolymorphicProps,
   ChildrenProps,
   React.HTMLAttributes<HTMLElement>,
-  StackOptions {}
+  LegacyStackOwnProps {}

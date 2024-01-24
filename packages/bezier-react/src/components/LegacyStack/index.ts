@@ -1,7 +1,5 @@
-export * from './HStack'
-export * from './Spacer'
-export * from './Stack'
-export * from './StackItem'
-export * from './VStack'
-
-export type { AxisAlignment } from './types'
+export * from './LegacyHStack'
+export * from './LegacySpacer'
+export * from './LegacyStack'
+export * from './LegacyStackItem'
+export * from './LegacyVStack'
