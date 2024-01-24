@@ -1,0 +1,44 @@
+.ProgressBarActive {
+  width: var(--b-progress-bar-active-width);
+  height: 100%;
+  border-radius: var(--radius-3);
+  transition: width var(--transition-s);
+}
+
+.ProgressBar {
+  width: var(--b-progress-bar-width);
+  border-radius: var(--radius-6);
+  transition: color var(--transition-s);
+
+  &:where(.size-s) {
+    height: 4px;
+  }
+
+  &:where(.size-m) {
+    height: 6px;
+  }
+
+  &:where(.variant-green, .variant-monochrome) {
+    background-color: var(--bg-black-light);
+  }
+
+  &:where(.variant-green-alt) {
+    background-color: var(--bgtxt-absolute-white-normal);
+  }
+
+  &:where(.variant-green, .variant-green-alt) .ProgressBarActive {
+    background: linear-gradient(
+      90deg,
+      var(--bgtxt-green-normal) 0%,
+      var(--bgtxt-green-normal) 100%
+    );
+  }
+
+  &:where(.variant-monochrome) .ProgressBarActive {
+    background: linear-gradient(
+      90deg,
+      var(--bg-black-light) 0%,
+      var(--bg-black-dark) 100%
+    );
+  }
+}
