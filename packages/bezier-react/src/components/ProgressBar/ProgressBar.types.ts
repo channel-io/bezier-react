@@ -36,9 +36,8 @@ export enum ProgressBarVariant {
 interface ProgressBarOwnProps {
   /**
    * CSS Width of total progress bar.
-   * If given value is number or doesn't end with proper unit, `defaultUnit` is suffixed to given value.
+   * If given value is number, `px` is suffixed to given value.
    *
-   * @see src/utils/styleUtils.ts
    * @default 36
    */
   width?: number | string
