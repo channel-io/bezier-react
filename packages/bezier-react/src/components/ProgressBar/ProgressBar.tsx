@@ -10,8 +10,6 @@ import type { ProgressBarProps } from './ProgressBar.types'
 
 import styles from './ProgressBar.module.scss'
 
-export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
-
 export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function ProgressBar({
   style,
   className,
@@ -19,7 +17,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function
   variant = 'green',
   width = 36,
   value = 0,
-  testId,
+  testId = 'bezier-progress-bar',
   ...rest
 }, forwardedRef) {
   const clampedValue = clamp(value, 0, 1)
