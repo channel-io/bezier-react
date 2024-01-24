@@ -7,8 +7,8 @@
 
 .ProgressBar {
   width: var(--b-progress-bar-width);
-  border-radius: var(--radius-6);
-  transition: color var(--transition-s);
+  border-radius: var(--radius-3);
+  transition: background-color var(--transition-s);
 
   &:where(.size-s) {
     height: 4px;

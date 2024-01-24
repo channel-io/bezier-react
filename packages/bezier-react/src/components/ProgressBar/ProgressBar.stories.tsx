@@ -55,10 +55,11 @@ const meta: Meta<typeof ProgressBar> = {
 export default meta
 
 export const Playground: StoryObj<ProgressBarProps> = {
+  render: (props) => <ProgressBar {...props} />,
   args: {
     size: 'm',
     variant: 'green',
-    width: '36',
+    width: 36,
     value: 0.5,
   },
 }
