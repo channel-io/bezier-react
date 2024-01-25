@@ -7,7 +7,6 @@ import {
 } from './Toast.types'
 import {
   ToastAppearance,
-  ToastIconColor,
   ToastPlacement,
   ToastPreset,
 } from './Toast.types'
@@ -26,5 +25,4 @@ export {
   ToastPreset,
   ToastPlacement,
   ToastAppearance,
-  ToastIconColor,
 }

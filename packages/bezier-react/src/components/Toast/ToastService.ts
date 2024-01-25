@@ -5,8 +5,12 @@ import {
   type ToastId,
   type ToastOptions,
   type ToastType,
-  defaultOptions,
 } from './Toast.types'
+
+const defaultOptions: ToastOptions = {
+  autoDismiss: false,
+  rightSide: false,
+}
 
 /* ToastService를 사용하는 이유
 Notion: https://www.notion.so/channelio/Toast-bc13dfbc81314141909250d9cf02c4c7#82b94a73d2f34257ab4799cdeccbc70c

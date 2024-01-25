@@ -1,7 +1,4 @@
-import {
-  type ComponentType,
-  type ReactNode,
-} from 'react'
+import { type ReactNode } from 'react'
 import type React from 'react'
 
 import {
@@ -30,13 +27,6 @@ export enum ToastAppearance {
   Info = 'info',
 }
 
-export enum ToastIconColor {
-  Success = 'bgtxt-green-normal',
-  Warning = 'bgtxt-orange-normal',
-  Error = 'bgtxt-red-normal',
-  Info = 'txt-black-darkest',
-}
-
 export enum ToastPreset {
   Default = 'Default',
   Success = 'Success',
@@ -58,12 +48,16 @@ interface ToastElementOptions {
    * @deprecated use React.ReactNode content props instead.
    */
   actionContent?: string
+  // NOTE: deprecated?
   transitionDuration: TransitionDuration
+  // NOTE: deprecated?
   transform: InjectedInterpolation
+  // NOTE: deprecated?
   placement: ToastPlacement
   zIndex?: number
+  // NOTE: deprecated ?
   onClick?: React.MouseEventHandler
-  onDismiss: React.MouseEventHandler<HTMLDivElement>
+  onDismiss: () => void
 }
 
 export type ToastContent = NonNullable<React.ReactNode>
@@ -97,8 +91,8 @@ export type ToastOptions = {
   actionContent?: string
   autoDismiss?: boolean
   rightSide?: boolean
-  zIndex?: number
-  onClick?: React.MouseEventHandler
+  // zIndex?: number
+  // onClick?: React.MouseEventHandler
   onDismiss?: OnDismissCallback
 }
 
@@ -138,7 +132,7 @@ export type ToastContainerProps = {
 export interface ToastControllerProps extends ToastElementProps {
   autoDismiss: boolean
   autoDismissTimeout: number
-  component: ComponentType<ToastElementProps>
+  // component: ComponentType<ToastElementProps>
   /**
    * Updated toast version
    * @default 0
