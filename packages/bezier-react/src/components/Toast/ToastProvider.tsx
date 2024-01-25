@@ -19,7 +19,9 @@ import classNames from 'classnames'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
 import { useWindow } from '~/src/providers/WindowProvider'
+import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
+import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'
 
@@ -30,6 +32,7 @@ import {
 import { Text } from '~/src/components/Text'
 
 import {
+  type ToastContextType,
   type ToastControllerProps,
   ToastPlacement,
   type ToastProviderProps,
@@ -39,7 +42,6 @@ import {
   ToastAppearance,
   ToastPreset,
 } from './Toast.types'
-import { ToastContextProvider } from './ToastContext'
 import useToastProviderValues from './useToastContextValues'
 
 import styles from './Toast.module.scss'
@@ -196,6 +198,35 @@ function Toast({
       </button>
     </div>
   )
+}
+
+const [
+  ToastContextProvider,
+  useToastContext,
+] = createContext<ToastContextType>({
+  add: () => '',
+  update: () => '',
+  remove: noop,
+  removeAll: noop,
+  leftToasts: [],
+  rightToasts: [],
+})
+
+export function useToast() {
+  const context = useToastContext()
+
+  if (!context) {
+    throw Error('\'useToast\' must be used within \'ToastProvider\'')
+  }
+
+  return {
+    addToast: context.add,
+    updateToast: context.update,
+    removeToast: context.remove,
+    removeAllToasts: context.removeAll,
+    leftToasts: context.leftToasts,
+    rightToasts: context.rightToasts,
+  }
 }
 
 /**
