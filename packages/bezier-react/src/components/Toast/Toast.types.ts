@@ -19,8 +19,8 @@ import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { noop } from '~/src/utils/function'
 
 export enum ToastPlacement {
-  BottomLeft = 'bottomLeft',
-  BottomRight = 'bottomRight',
+  BottomLeft = 'bottom-left',
+  BottomRight = 'bottom-right',
 }
 
 export enum ToastAppearance {

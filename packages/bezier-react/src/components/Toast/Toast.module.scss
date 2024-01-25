@@ -1,6 +1,6 @@
 @use "../../styles/mixins/dimension";
 
-@keyframes slide-left {
+@keyframes slide-in-left {
   from {
     transform: translateX(-120%);
   }
@@ -10,13 +10,33 @@
   }
 }
 
-@keyframes slide-right {
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes slide-in-right {
   from {
     transform: translateX(120%);
   }
 
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(120%);
   }
 }
 
@@ -52,10 +72,21 @@
   box-shadow: var(--ev-3);
 
   transition: transform var(--transition-m);
-  animation: var(--transition-m) 0s 1 slide-right;
 
-  &:where(.left) {
-    animation: var(--transition-m) 0s 1 slide-left;
+  &:where(.placement-bottom-left) {
+    animation: var(--transition-m) slide-in-left forwards;
+
+    &:where(.slide-out) {
+      animation: var(--transition-m) slide-out-left forwards;
+    }
+  }
+
+  &:where(.placement-bottom-right) {
+    animation: var(--transition-m) slide-in-right forwards;
+
+    &:where(.slide-out) {
+      animation: var(--transition-m) slide-out-right forwards;
+    }
   }
 
   & button:where(:focus-visible) {
