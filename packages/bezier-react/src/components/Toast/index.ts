@@ -1,16 +1,13 @@
-import type ToastProps from './Toast.types'
-import {
-  type ToastContent,
-  type ToastId,
-  type ToastOptions,
-  type ToastType,
-} from './Toast.types'
-import {
+export {
+  ToastProvider,
+  useToast,
+} from './ToastProvider'
+
+export {
   ToastAppearance,
   ToastPlacement,
   ToastPreset,
 } from './Toast.types'
-import ToastProvider from './ToastProvider'
 
 export type {
   ToastProps,
@@ -18,11 +15,4 @@ export type {
   ToastId,
   ToastType,
   ToastContent,
-}
-
-export {
-  ToastProvider,
-  ToastPreset,
-  ToastPlacement,
-  ToastAppearance,
-}
+} from './Toast.types'

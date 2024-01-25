@@ -9,14 +9,14 @@ import { noop } from '~/src/utils/function'
 import {
   type OnDismissCallback,
   type ToastContent,
-  type ToastContextType,
+  type ToastContextValue,
   type ToastId,
   type ToastOptions,
   type ToastType,
 } from './Toast.types'
 import ToastService from './ToastService'
 
-interface UseToastContextValuesReturns extends ToastContextType {
+interface UseToastContextValuesReturns extends ToastContextValue {
   leftToasts: ToastType[]
   rightToasts: ToastType[]
   dismiss: (id: ToastId, callback?: OnDismissCallback) => void

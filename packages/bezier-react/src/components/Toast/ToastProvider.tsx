@@ -32,9 +32,9 @@ import {
 import { Text } from '~/src/components/Text'
 
 import {
-  type ToastContextType,
-  type ToastControllerProps,
+  type ToastContextValue,
   ToastPlacement,
+  type ToastProps,
   type ToastProviderProps,
   type ToastType,
 } from './Toast.types'
@@ -71,8 +71,6 @@ function getToastPreset(preset: ToastPreset) {
   }[preset]
 }
 
-export const TOAST_TEST_ID = 'bezier-react-toast'
-
 function Toast({
   placement,
   appearance: appearanceProp,
@@ -84,11 +82,10 @@ function Toast({
   autoDismiss = true,
   autoDismissTimeout,
   version = 0,
-  testId = TOAST_TEST_ID,
   onClick,
   onDismiss,
   ...props
-}: ToastControllerProps) {
+}: ToastProps) {
   const { window } = useWindow()
 
   const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
@@ -110,7 +107,7 @@ function Toast({
       event.animationName === styles['slide-out-left']
       || event.animationName === styles['slide-out-right']
     ) {
-      onDismiss()
+      onDismiss?.()
     }
   }, [onDismiss])
 
@@ -140,7 +137,6 @@ function Toast({
   return (
     <div
       className={className}
-      data-testid={testId}
       onAnimationEnd={handleAnimationEnd}
       {...props}
     >
@@ -188,7 +184,6 @@ function Toast({
       <button
         className={styles.Close}
         type="button"
-        data-testid={`${TOAST_TEST_ID}-close`}
         onClick={runSlideOutAnimation}
       >
         <Icon
@@ -203,7 +198,7 @@ function Toast({
 const [
   ToastContextProvider,
   useToastContext,
-] = createContext<ToastContextType>({
+] = createContext<ToastContextValue>({
   add: () => '',
   update: () => '',
   remove: noop,
@@ -235,7 +230,7 @@ export function useToast() {
  */
 const GNB_WIDTH = 68
 
-function ToastProvider({
+export function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
   offset = {
@@ -300,5 +295,3 @@ function ToastProvider({
     </ToastContextProvider>
   )
 }
-
-export default ToastProvider

@@ -73,9 +73,6 @@ export * from '~/src/components/LegacyIcon'
 export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
-/* Hooks for Component */
-export { default as useToast } from '~/src/components/Toast/useToast'
-
 /* Types */
 export * from '~/src/types/ComponentProps'
 export * from '~/src/types/Foundation'

@@ -11,14 +11,14 @@ import { noop } from '~/src/utils/function'
 import { render } from '~/src/utils/test'
 
 import {
-  type ToastControllerProps,
   ToastPlacement,
+  type ToastProps,
 } from './Toast.types'
 import ToastController from './ToastController'
 import ToastElement from './ToastElement'
 
 describe('ToastController >', () => {
-  let props: ToastControllerProps
+  let props: ToastProps
 
   beforeEach(() => {
     props = {
@@ -33,7 +33,7 @@ describe('ToastController >', () => {
     }
   })
 
-  const renderToastController = (optionProps?: Partial<ToastControllerProps>) => render(
+  const renderToastController = (optionProps?: Partial<ToastProps>) => render(
     <ToastController {...props} {...optionProps} />,
   )
 
