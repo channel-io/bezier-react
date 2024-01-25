@@ -1,7 +1,7 @@
 export {
   ToastProvider,
   useToast,
-} from './ToastProvider'
+} from './Toast'
 
 export {
   ToastAppearance,
