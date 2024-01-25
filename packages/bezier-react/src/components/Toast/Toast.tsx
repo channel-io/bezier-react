@@ -18,6 +18,7 @@ import {
 import classNames from 'classnames'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
+import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
@@ -240,30 +241,32 @@ export function ToastProvider({
   const container = givenContainer ?? rootElement
 
   const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
-    <div
-      key={placement}
-      style={{
-        bottom: px(offset?.bottom),
-        ...(placement === ToastPlacement.BottomRight
-          ? { right: px(offset?.right) }
-          : { left: px(offset?.left) }),
-      }}
-      className={styles.ToastContainer}
-    >
-      { toasts.map(({
-        id,
-        onDismiss,
-        ...rest
-      }) => (
-        <Toast
-          {...rest}
-          key={id}
-          placement={placement}
-          autoDismissTimeout={autoDismissTimeout}
-          onDismiss={() => dismiss(id, onDismiss)}
-        />
-      )) }
-    </div>
+    <InvertedThemeProvider>
+      <div
+        key={placement}
+        style={{
+          bottom: px(offset?.bottom),
+          ...(placement === ToastPlacement.BottomRight
+            ? { right: px(offset?.right) }
+            : { left: px(offset?.left) }),
+        }}
+        className={styles.ToastContainer}
+      >
+        { toasts.map(({
+          id,
+          onDismiss,
+          ...rest
+        }) => (
+          <Toast
+            {...rest}
+            key={id}
+            placement={placement}
+            autoDismissTimeout={autoDismissTimeout}
+            onDismiss={() => dismiss(id, onDismiss)}
+          />
+        )) }
+      </div>
+    </InvertedThemeProvider>
   ), [
     autoDismissTimeout,
     dismiss,
