@@ -33,12 +33,7 @@ interface ToastOwnProps {
   appearance?: ToastAppearance
   preset?: ToastPreset
   icon?: BezierIcon
-  /**
-   * @deprecated use React.ReactNode content props instead.
-   */
-  actionContent?: string
   zIndex?: ZIndex
-  // NOTE: deprecated ?
   autoDismiss?: boolean
   autoDismissTimeout?: number
   /**
@@ -46,7 +41,6 @@ interface ToastOwnProps {
    * @default 0
    */
   version?: number
-  onClick?: React.MouseEventHandler
   onDismiss?: () => void
 }
 
@@ -82,12 +76,10 @@ export type ToastOptions =
   | 'preset'
   | 'icon'
   | 'appearance'
-  | 'actionContent'
   | 'autoDismiss'
   | 'zIndex'
   > & {
     rightSide?: boolean
-    // onClick?: React.MouseEventHandler
     onDismiss?: OnDismissCallback
   }
 

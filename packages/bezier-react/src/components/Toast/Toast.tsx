@@ -77,12 +77,10 @@ function Toast({
   preset = ToastPreset.Default,
   icon: iconProp,
   content,
-  actionContent,
   zIndex,
   autoDismiss = true,
   autoDismissTimeout,
   version = 0,
-  onClick,
   onDismiss,
   ...props
 }: ToastProps) {
@@ -168,16 +166,6 @@ function Toast({
               </React.Fragment>
             ))
             : content }
-          { ' ' }
-          { actionContent && onClick && (
-            <button
-              className={styles.ActionContent}
-              type="button"
-              onClick={onClick}
-            >
-              { actionContent }
-            </button>
-          ) }
         </Text>
       </div>
 

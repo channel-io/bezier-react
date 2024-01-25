@@ -135,17 +135,6 @@
   word-break: break-word;
 }
 
-.ActionContent {
-  all: unset;
-  cursor: pointer;
-  display: inline-block;
-  color: var(--bgtxt-cobalt-normal);
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .Close {
   all: unset;
 
