@@ -89,16 +89,17 @@ function Toast({
 
   const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
 
-  const [className, setClassName] = useState(
-    classNames(
-      styles.ToastElement,
-      zIndex && getZIndexClassName(zIndex),
-      styles[`placement-${placement}`],
-    ),
+  const [isSlidingOut, setIsSlidingOut] = useState(false)
+
+  const className = classNames(
+    styles.ToastElement,
+    zIndex && getZIndexClassName(zIndex),
+    styles[`placement-${placement}`],
+    isSlidingOut && styles['slide-out'],
   )
 
   const runSlideOutAnimation = useCallback(() => {
-    setClassName(prev => `${prev} ${styles['slide-out']}`)
+    setIsSlidingOut(true)
   }, [])
 
   const handleAnimationEnd = useCallback<React.AnimationEventHandler>((event) => {
