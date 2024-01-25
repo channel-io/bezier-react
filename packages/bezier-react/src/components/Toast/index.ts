@@ -10,6 +10,7 @@ export {
 } from './Toast.types'
 
 export type {
+  ToastProviderProps,
   ToastProps,
   ToastOptions,
   ToastId,
