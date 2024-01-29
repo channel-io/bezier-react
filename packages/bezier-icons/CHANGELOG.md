@@ -1,5 +1,28 @@
 # @channel.io/bezier-icons
 
+## 0.20.0
+
+### Minor Changes
+
+- Update icons ([#1953](https://github.com/channel-io/bezier-react/pull/1953)) by @kimminkyung94
+
+  Modified
+
+  - app-check.svg
+  - app-plus.svg
+  - app-push.svg
+  - cancel-circle-filled.svg
+  - cancel-circle.svg
+  - minus-circle-filled.svg
+  - minus-circle.svg
+  - plus-circle-filled.svg
+  - plus-circle.svg
+  - plus-square.svg
+
+  Added
+
+  - cash.svg
+
 ## 0.19.0
 
 ### Minor Changes
