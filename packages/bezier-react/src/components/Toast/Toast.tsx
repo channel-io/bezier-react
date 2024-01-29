@@ -82,6 +82,7 @@ export function Toast({
   zIndex = 'toast',
   autoDismiss = true,
   autoDismissTimeout,
+  version = 0,
   onDismiss,
 }: ToastProps) {
   const { window } = useWindow()
@@ -125,6 +126,7 @@ export function Toast({
     autoDismissTimeout,
     runSlideOutAnimation,
     window,
+    version,
   ])
 
   const {
