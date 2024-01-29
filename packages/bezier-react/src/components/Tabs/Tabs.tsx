@@ -120,12 +120,18 @@ export const TabList = forwardRef(function TabList({
  * `TabItems` is a flex container which has `TabItem` flex items.
  */
 export const TabItems = forwardRef(function TabItems({
+  className,
   children,
+  ...rest
 }: TabItemsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
     <TabsPrimitive.TabsList
-      className={styles.TabItems}
+      className={classNames(
+        styles.TabItems,
+        className,
+      )}
       ref={forwardedRef}
+      {...rest}
     >
       { children }
     </TabsPrimitive.TabsList>
@@ -207,13 +213,19 @@ export const TabContent = forwardRef(function TabContent({
  *  It also gives accessibility properties to its children.
  */
 export const TabActions = forwardRef(function TabActions({
+  className,
   children,
+  ...rest
 }: TabActionsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
     <ToolbarPrimitive.Root
-      className={styles.TabActions}
+      className={classNames(
+        styles.TabActions,
+        className,
+      )}
       aria-label="More actions"
       ref={forwardedRef}
+      {...rest}
     >
       { children }
     </ToolbarPrimitive.Root>
