@@ -97,7 +97,7 @@ $inner-indicator-size: 8px;
   }
 
   &:where(:has(.Label)) {
-    height: 36px;
+    height: var(--b-form-field-size);
   }
 }
 
