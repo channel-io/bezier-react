@@ -1,18 +1,14 @@
-import { InfoFilledIcon } from '@channel.io/bezier-icons'
 import {
   act,
   renderHook,
 } from '@testing-library/react'
 
-import {
-  ToastAppearance,
-  type ToastType,
-} from './Toast.types'
+import { type ToastType } from './Toast.types'
 import useToastContextValues from './useToastContextValues'
 
 const UUID_V4_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
 
-describe('ToastService', () => {
+describe('useToastContextValues', () => {
   it('leftToasts', () => {
     const { result } = renderHook(() => useToastContextValues())
 
@@ -34,12 +30,10 @@ describe('ToastService', () => {
 
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -86,12 +80,10 @@ describe('ToastService', () => {
     })
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -111,12 +103,10 @@ describe('ToastService', () => {
 
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -138,12 +128,10 @@ describe('ToastService', () => {
     })
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])

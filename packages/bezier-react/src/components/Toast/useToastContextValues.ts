@@ -37,9 +37,9 @@ function useToastContextValues(): UseToastContextValuesReturns {
   const [leftToasts, setLeftToasts] = useState<ToastType[]>([])
   const [rightToasts, setRightToasts] = useState<ToastType[]>([])
 
-  const add = useCallback((content: ToastContent, options: ToastOptions = {}) => {
+  const add = useCallback((content: ToastContent, options?: ToastOptions) => {
     let result = ''
-    if (options.rightSide) {
+    if (options?.rightSide) {
       result = rightToastService.add(content, options)
       setRightToasts(rightToastService.getToasts())
     } else {
@@ -52,9 +52,9 @@ function useToastContextValues(): UseToastContextValuesReturns {
     rightToastService,
   ])
 
-  const update = useCallback((toastId: ToastId, content: ToastContent, options: ToastOptions = {}) => {
+  const update = useCallback((toastId: ToastId, content: ToastContent, options?: ToastOptions) => {
     let result = ''
-    if (options.rightSide) {
+    if (options?.rightSide) {
       result = rightToastService.update(toastId, content, options)
       setRightToasts(rightToastService.getToasts())
     } else {
