@@ -28,7 +28,7 @@ function ToastContent(options: ToastOptions) {
   return (
     <Button
       text="Click me"
-      onClick={() => toast.addToast('Toast', options)}
+      onClick={() => toast.addToast('Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nNulla tempor id ipsum at imperdiet. Vivamus eget euismod tortor, nec lobortis massa. Donec viverra varius felis eu sagittis.', options)}
     />
   )
 }
