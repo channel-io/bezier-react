@@ -33,7 +33,6 @@ import { getOverlayStyle } from './utils'
 import styles from './Overlay.module.scss'
 
 export const CONTAINER_TEST_ID = 'bezier-react-container'
-export const WRAPPER_TEST_ID = 'bezier-react-wrapper'
 export const OVERLAY_TEST_ID = 'bezier-react-overlay'
 export const ESCAPE_KEY = 'Escape'
 
@@ -54,7 +53,6 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   containerStyle,
   containerClassName,
   containerTestId = CONTAINER_TEST_ID,
-  wrapperTestId = WRAPPER_TEST_ID,
   onHide,
   onTransitionEnd,
   ...rest
@@ -280,10 +278,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
           ref={containerRef}
           data-testid={containerTestId}
         >
-          <div
-            className={styles.OverlayWrapper}
-            data-testid={wrapperTestId}
-          >
+          <div className={styles.OverlayWrapper}>
             { Content }
           </div>
         </div>

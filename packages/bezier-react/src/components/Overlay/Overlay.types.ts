@@ -66,6 +66,6 @@ export interface OverlayProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   AlphaAdditionalStylableProps<'container'>,
-  AdditionalTestIdProps<['container', 'wrapper']>,
+  AdditionalTestIdProps<'container'>,
   React.HTMLAttributes<HTMLDivElement>,
   OverlayOwnProps {}
