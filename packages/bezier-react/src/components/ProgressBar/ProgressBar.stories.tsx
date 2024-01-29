@@ -17,7 +17,7 @@ import { Text } from '~/src/components/Text'
 
 import { ProgressBar } from './ProgressBar'
 import mdx from './ProgressBar.mdx'
-import type ProgressBarProps from './ProgressBar.types'
+import type { ProgressBarProps } from './ProgressBar.types'
 
 const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
@@ -55,10 +55,11 @@ const meta: Meta<typeof ProgressBar> = {
 export default meta
 
 export const Playground: StoryObj<ProgressBarProps> = {
+  render: (props) => <ProgressBar {...props} />,
   args: {
     size: 'm',
     variant: 'green',
-    width: '36',
+    width: 36,
     value: 0.5,
   },
 }

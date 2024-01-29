@@ -1,13 +1,11 @@
 import type {
-  AdditionalStylableProps,
-  AdditionalTestIdProps,
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   SizeProps,
   VariantProps,
 } from '~/src/types/ComponentProps'
 
 /**
- * @deprecated Use string literal instread of enum.
+ * @deprecated Use string literal instead of enum.
  *
  * @example
  *
@@ -21,7 +19,7 @@ export enum ProgressBarSize {
 }
 
 /**
- * @deprecated Use string literal instread of enum.
+ * @deprecated Use string literal instead of enum.
  *
  * @example
  *
@@ -35,16 +33,11 @@ export enum ProgressBarVariant {
   Monochrome = 'monochrome',
 }
 
-type ProgressBarSizeType = 'm' | 's'
-
-type ProgressBarVariantType = 'green' | 'green-alt' | 'monochrome'
-
-interface ProgressBarOptions {
+interface ProgressBarOwnProps {
   /**
    * CSS Width of total progress bar.
-   * If given value is number or doesn't end with proper unit, `defaultUnit` is suffixed to given value.
+   * If given value is number, `px` is suffixed to given value.
    *
-   * @see src/utils/styleUtils.ts
    * @default 36
    */
   width?: number | string
@@ -57,10 +50,8 @@ interface ProgressBarOptions {
   value?: number
 }
 
-export default interface ProgressBarProps extends
-  BezierComponentProps,
-  SizeProps<ProgressBarSize | ProgressBarSizeType>,
-  VariantProps<ProgressBarVariant | ProgressBarVariantType>,
-  AdditionalStylableProps<'active'>,
-  AdditionalTestIdProps<'active'>,
-  ProgressBarOptions {}
+export interface ProgressBarProps extends
+  AlphaBezierComponentProps,
+  SizeProps<ProgressBarSize | `${ProgressBarSize}`>,
+  VariantProps<ProgressBarVariant | `${ProgressBarVariant}`>,
+  ProgressBarOwnProps {}
