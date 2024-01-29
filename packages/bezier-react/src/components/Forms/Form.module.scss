@@ -5,10 +5,8 @@ $size-map: (
   xl: 54,
 );
 
-.Form {
-  @each $size, $value in $size-map {
-    &:where(.size-#{$size}) {
-      --b-form-field-size: #{$value}px;
-    }
+@each $size, $value in $size-map {
+  :where(.size-#{$size}) {
+    --b-form-field-size: #{$value}px;
   }
 }

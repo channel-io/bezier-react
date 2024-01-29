@@ -121,7 +121,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     className: classNames(
       styles.FormLabelWrapper,
       styles[`position-${labelPosition}`],
-      formStyles.Form,
       formStyles['size-m'],
     ),
     typo: labelPosition === 'top' ? '13' : '14',

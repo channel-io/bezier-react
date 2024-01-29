@@ -136,7 +136,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       <button
         className={classNames(
           styles.SelectTrigger,
-          formStyles.Form,
           formStyles[`size-${size}`],
           hasError && styles.invalid,
           readOnly && styles.readonly,
