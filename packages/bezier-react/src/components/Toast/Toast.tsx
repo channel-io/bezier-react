@@ -20,6 +20,7 @@ import classNames from 'classnames'
 import useIsMounted from '~/src/hooks/useIsMounted'
 import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
+import { ariaAttr } from '~/src/utils/dom'
 import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
@@ -72,13 +73,13 @@ function getToastPreset(preset: ToastPreset) {
   }[preset]
 }
 
-function Toast({
+export function Toast({
   placement,
   appearance: appearanceProp,
   preset = ToastPreset.Default,
   icon: iconProp,
   content,
-  zIndex,
+  zIndex = 'toast',
   autoDismiss = true,
   autoDismissTimeout,
   onDismiss,
@@ -92,7 +93,7 @@ function Toast({
   const className = classNames(
     styles.ToastElement,
     zIndex && getZIndexClassName(zIndex),
-    styles[`placement-${placement}`],
+    placement && styles[`placement-${placement}`],
     isSlidingOut && styles['slide-out'],
   )
 
@@ -136,7 +137,7 @@ function Toast({
       role="status"
       className={className}
       onAnimationEnd={handleAnimationEnd}
-      {...props}
+      aria-hidden={ariaAttr(isSlidingOut)}
     >
       <div
         className={classNames(
