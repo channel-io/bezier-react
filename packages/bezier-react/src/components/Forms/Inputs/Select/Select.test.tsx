@@ -76,7 +76,7 @@ describe('Select', () => {
 
       await user.click(body)
 
-      expect(dropdown).not.toBeVisible()
+      expect(dropdown).toHaveClass('hidden')
     })
   })
 })

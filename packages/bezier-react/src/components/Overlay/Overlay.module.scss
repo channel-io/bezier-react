@@ -1,0 +1,32 @@
+.OverlayContainer {
+  position: fixed;
+  z-index: var(--z-index-overlay);
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  &:where(.hidden) {
+    pointer-events: none;
+  }
+}
+
+.OverlayWrapper {
+  position: relative;
+  z-index: var(--z-index-base);
+  width: 100%;
+  height: 100%;
+}
+
+.Overlay {
+  position: absolute;
+  z-index: var(--z-index-overlay);
+
+  &:where(.hidden) {
+    opacity: 0;
+  }
+
+  &:where(.transition) {
+    transition: top var(--transition-s), opacity var(--transition-s);
+  }
+}

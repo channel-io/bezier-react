@@ -1,5 +1,3 @@
-import { css } from '~/src/foundation'
-
 import {
   type ContainerRectAttr,
   OverlayPosition,
@@ -172,7 +170,7 @@ export function getOverlayTranslation({
 }
 
 interface GetOverlayStyleArgs {
-  containerRect: ContainerRectAttr
+  containerRect: ContainerRectAttr | null
   targetRect: TargetRectAttr | null
   overlay: HTMLElement | null
   position: OverlayPosition
@@ -204,11 +202,12 @@ export function getOverlayStyle({
       keepInContainer,
     })
 
-    return css`
-      top: ${top}px;
-      left: ${left}px;
-      transform: translateX(${translateX}px) translateY(${translateY}px);
-    `
+    return {
+      top: `${top}px`,
+      left: `${left}px`,
+      transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+    }
   }
-  return css``
+
+  return {}
 }

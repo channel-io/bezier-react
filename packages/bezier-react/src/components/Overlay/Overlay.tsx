@@ -1,10 +1,8 @@
 import React, {
-  type Ref,
   forwardRef,
   useCallback,
   useEffect,
   useLayoutEffect,
-  useMemo,
   useReducer,
   useRef,
   useState,
@@ -12,53 +10,53 @@ import React, {
 
 import ReactDOM from 'react-dom'
 
+import classNames from 'classnames'
+
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import {
+  ThemeProvider,
+  useThemeName,
+} from '~/src/providers/ThemeProvider'
 import { useWindow } from '~/src/providers/WindowProvider'
-import { noop } from '~/src/utils/function'
 
 import { useModalContainerContext } from '~/src/components/Modal'
 
-import type OverlayProps from './Overlay.types'
-import {
-  type ContainerRectAttr,
-  type TargetRectAttr,
+import type {
+  ContainerRectAttr,
+  OverlayProps,
+  TargetRectAttr,
 } from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
+import { getOverlayStyle } from './utils'
 
-import * as Styled from './Overlay.styled'
+import styles from './Overlay.module.scss'
 
 export const CONTAINER_TEST_ID = 'bezier-react-container'
-export const WRAPPER_TEST_ID = 'bezier-react-wrapper'
 export const OVERLAY_TEST_ID = 'bezier-react-overlay'
 export const ESCAPE_KEY = 'Escape'
 
-function Overlay(
-  {
-    as,
-    containerTestId = CONTAINER_TEST_ID,
-    wrapperTestId = WRAPPER_TEST_ID,
-    testId = OVERLAY_TEST_ID,
-    show = false,
-    className = '',
-    style,
-    containerClassName = '',
-    containerStyle,
-    container: givenContainer,
-    target,
-    position = OverlayPosition.LeftCenter,
-    marginX = 0,
-    marginY = 0,
-    keepInContainer = false,
-    withTransition = false,
-    enableClickOutside = false,
-    children,
-    onHide = noop,
-    onTransitionEnd = noop,
-    ...rest
-  }: OverlayProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
+export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay({
+  children,
+  style,
+  className,
+  show = false,
+  container: givenContainer,
+  target,
+  position = OverlayPosition.LeftCenter,
+  marginX = 0,
+  marginY = 0,
+  keepInContainer = false,
+  withTransition = false,
+  enableClickOutside = false,
+  testId = OVERLAY_TEST_ID,
+  containerStyle,
+  containerClassName,
+  containerTestId = CONTAINER_TEST_ID,
+  onHide,
+  onTransitionEnd,
+  ...rest
+}, forwardedRef) {
   const { rootElement } = useWindow()
   const { window, document } = useWindow()
 
@@ -68,7 +66,7 @@ function Overlay(
   const containerRect = useRef<ContainerRectAttr | null>(null)
   const targetRect = useRef<TargetRectAttr | null>(null)
 
-  const [dummy, forceUpdate] = useReducer(x => !x, true)
+  const [, forceUpdate] = useReducer(x => !x, true)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
@@ -146,7 +144,7 @@ function Overlay(
   ])
 
   const handleTransitionEnd = useCallback<React.TransitionEventHandler<HTMLDivElement>>((event) => {
-    onTransitionEnd(event)
+    onTransitionEnd?.(event)
     if (!show) {
       setShouldRender(false)
     }
@@ -160,8 +158,8 @@ function Overlay(
   }, [])
 
   const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(Styled.Overlay)) {
-      onHide()
+    if (!event.target?.closest(styles.Overlay)) {
+      onHide?.()
 
       if (!enableClickOutside) {
         event.stopPropagation()
@@ -174,82 +172,13 @@ function Overlay(
 
   const handleKeydown = useCallback((event: HTMLElementEventMap['keyup']) => {
     if (event.key === ESCAPE_KEY) {
-      onHide()
+      onHide?.()
     }
   }, [onHide])
 
   useEventHandler(document, 'click', handleHideOverlay, show, true)
   useEventHandler(document, 'keydown', handleKeydown, show)
   useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
-
-  const Content = useMemo(() => (
-    <Styled.Overlay
-      as={as}
-      ref={mergedRef}
-      className={className}
-      show={shouldShow}
-      withTransition={withTransition}
-      style={style}
-      data-testid={testId}
-      containerRect={containerRect.current}
-      targetRect={targetRect.current}
-      overlay={overlayRef.current}
-      position={position}
-      marginX={marginX}
-      marginY={marginY}
-      keepInContainer={keepInContainer}
-      onTransitionEnd={handleTransitionEnd}
-      {...rest}
-    >
-      { children }
-    </Styled.Overlay>
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  ), [
-    as,
-    children,
-    className,
-    containerRect,
-    handleTransitionEnd,
-    keepInContainer,
-    marginX,
-    marginY,
-    mergedRef,
-    position,
-    shouldShow,
-    style,
-    targetRect,
-    testId,
-    withTransition,
-    dummy,
-  ])
-
-  const overlay = useMemo(() => {
-    if (hasContainer) {
-      return Content
-    }
-
-    return (
-      <Styled.DefaultContainer
-        ref={containerRef}
-        className={containerClassName}
-        show={show}
-        style={containerStyle}
-        data-testid={containerTestId}
-      >
-        <Styled.DefaultWrapper data-testid={wrapperTestId}>
-          { Content }
-        </Styled.DefaultWrapper>
-      </Styled.DefaultContainer>
-    )
-  }, [
-    hasContainer,
-    containerClassName,
-    show,
-    containerStyle,
-    containerTestId,
-    wrapperTestId,
-    Content,
-  ])
 
   useEffect(() => {
     handleOverlayForceUpdate()
@@ -297,12 +226,63 @@ function Overlay(
     window,
   ])
 
-  if (!shouldRender) { return null }
+  const themeName = useThemeName()
+
+  if (!shouldRender) {
+    return null
+  }
+
+  const Content = (
+    <ThemeProvider themeName={themeName}>
+      <div
+        className={classNames(
+          styles.Overlay,
+          !shouldShow && styles.hidden,
+          withTransition && styles.transition,
+          className,
+        )}
+        style={{
+          ...style,
+          ...getOverlayStyle({
+            containerRect: containerRect.current,
+            targetRect: targetRect.current,
+            overlay: overlayRef.current,
+            position,
+            marginX,
+            marginY,
+            keepInContainer,
+            show: shouldShow,
+          }),
+        }}
+        ref={mergedRef}
+        data-testid={testId}
+        onTransitionEnd={handleTransitionEnd}
+        {...rest}
+      >
+        { children }
+      </div>
+    </ThemeProvider>
+  )
 
   return ReactDOM.createPortal(
-    overlay,
+    hasContainer
+      ? Content
+      : (
+        <div
+          style={containerStyle}
+          className={classNames(
+            styles.OverlayContainer,
+            !show && styles.hidden,
+            containerClassName,
+          )}
+          ref={containerRef}
+          data-testid={containerTestId}
+        >
+          <div className={styles.OverlayWrapper}>
+            { Content }
+          </div>
+        </div>
+      ),
     container,
   )
-}
-
-export default forwardRef(Overlay)
+})

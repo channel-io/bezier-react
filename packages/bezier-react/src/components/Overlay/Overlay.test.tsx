@@ -3,23 +3,23 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { getWindow } from 'ssr-window'
 
-import { TransitionDuration } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
-import Overlay, {
+import {
   CONTAINER_TEST_ID,
   ESCAPE_KEY,
   OVERLAY_TEST_ID,
-  WRAPPER_TEST_ID,
+  Overlay,
 } from './Overlay'
-import type OverlayProps from './Overlay.types'
-import {
-  type ContainerRectAttr,
-  type TargetRectAttr,
+import type {
+  ContainerRectAttr,
+  OverlayProps,
+  TargetRectAttr,
 } from './Overlay.types'
 import { OverlayPosition } from './Overlay.types'
 import { getOverlayTranslation } from './utils'
+
+import styles from './Overlay.module.scss'
 
 const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (
   <div id="main">
@@ -29,7 +29,7 @@ const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (
   </div>
 )
 
-describe('Overlay test >', () => {
+describe('Overlay', () => {
   let props: OverlayProps
 
   beforeEach(() => {
@@ -39,27 +39,7 @@ describe('Overlay test >', () => {
     }
   })
 
-  const renderOverlay = (optionProps?: OverlayProps) => render(
-    <div>
-      <div />
-      <Overlay {...props} {...optionProps}>
-        <div>
-          test
-        </div>
-      </Overlay>
-    </div>,
-  )
-
-  it('Snapshot >', () => {
-    // const { getByTestId: getContainerTestId } = renderContainer()
-    // const renderedContainer = getContainerTestId('container')
-
-    const { getByTestId } = renderOverlay()
-    const rendered = getByTestId(OVERLAY_TEST_ID)
-    expect(rendered).toMatchSnapshot()
-  })
-
-  describe('PositionUtils >', () => {
+  describe('Position', () => {
     const overlay = {
       getBoundingClientRect: () => ({
         width: 400,
@@ -85,7 +65,7 @@ describe('Overlay test >', () => {
       scrollLeft: 0,
     }
 
-    describe('getOverlayTranslation() > ', () => {
+    describe('getOverlayTranslation', () => {
       it('Without any option', () => {
         const result = getOverlayTranslation({
           overlay: null,
@@ -206,35 +186,6 @@ describe('Overlay test >', () => {
 
     describe('Props', () => {
       describe('show', () => {
-        describe('is True', () => {
-          it('container style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(CONTAINER_TEST_ID)
-            expect(overlay).toHaveStyle('position: fixed')
-            expect(overlay).toHaveStyle('top: 0')
-            expect(overlay).toHaveStyle('right: 0')
-            expect(overlay).toHaveStyle('bottom: 0')
-            expect(overlay).toHaveStyle('left: 0')
-            expect(overlay).toHaveStyle('width: 100%')
-            expect(overlay).toHaveStyle('height: 100%')
-            expect(overlay).toHaveStyle('pointer-events: all')
-          })
-
-          it('wrapper style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(WRAPPER_TEST_ID)
-            expect(overlay).toHaveStyle('position: relative')
-            expect(overlay).toHaveStyle('width: 100%')
-            expect(overlay).toHaveStyle('height: 100%')
-          })
-
-          it('overlay style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(OVERLAY_TEST_ID)
-            expect(overlay).toHaveStyle('position: absolute')
-          })
-        })
-
         describe('is False', () => {
           it('container style', () => {
             const { container } = renderRootOverlay()
@@ -319,11 +270,7 @@ describe('Overlay test >', () => {
         it('is True', () => {
           const { getByTestId } = renderRootOverlay({ withTransition: true })
           const overlay = getByTestId(OVERLAY_TEST_ID)
-
-          expect(overlay).toHaveStyle(`transition-property: ${['top', 'opacity'].join(',')}`)
-          expect(overlay).toHaveStyle(`transition-duration: ${TransitionDuration.S}ms`)
-          expect(overlay).toHaveStyle('transition-timing-function: cubic-bezier(.3,0,0,1)')
-          expect(overlay).toHaveStyle('transition-delay: 0ms')
+          expect(overlay).toHaveClass(styles.transition)
         })
       })
     })
