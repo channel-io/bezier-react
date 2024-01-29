@@ -136,6 +136,7 @@ function Toast({
 
   return (
     <div
+      role="status"
       className={className}
       onAnimationEnd={handleAnimationEnd}
       {...props}
