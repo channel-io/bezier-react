@@ -47,6 +47,10 @@ import styles from './TextField.module.scss'
 export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
 
+/**
+ * FIXME: This mapping constant was defined for UI consistency,
+ * and it should be removed with size attribute
+ */
 const INPUT_LENGTH_BY_SIZE: Record<FormFieldSize, number> = {
   xs: 28,
   m: 36,
