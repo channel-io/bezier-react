@@ -5,13 +5,15 @@ import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { TabAction } from './TabAction'
-import { TabActions } from './TabActions'
-import { TabContent } from './TabContent'
-import { TabItem } from './TabItem'
-import { TabItems } from './TabItems'
-import { TabList } from './TabList'
-import { Tabs } from './Tabs'
+import {
+  TabAction,
+  TabActions,
+  TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
+} from './Tabs'
 import {
   type TabListProps,
   TabSize,

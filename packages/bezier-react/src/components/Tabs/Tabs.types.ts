@@ -8,9 +8,9 @@ import {
 } from '~/src/types/ComponentProps'
 
 export enum TabSize {
-  L = 'L',
-  M = 'M',
-  S = 'S',
+  L = 'l',
+  M = 'm',
+  S = 's',
 }
 
 export interface TabListContextValue {

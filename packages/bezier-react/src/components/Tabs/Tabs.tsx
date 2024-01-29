@@ -5,17 +5,22 @@ import React, {
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
+import * as ToolbarPrimitive from '@radix-ui/react-toolbar'
+import classNames from 'classnames'
 
 import { createContext } from '~/src/utils/react'
-import { px } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
 import {
+  Button,
   ButtonColorVariant,
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import { IconSize } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   type TabActionElement,
   type TabActionProps,
@@ -30,11 +35,7 @@ import {
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
 
-import * as Styled from './TabAction.styled'
-import * as Styled from './TabActions.styled'
-import * as Styled from './TabItem.styled'
-import * as Styled from './TabItems.styled'
-import * as Styled from './Tabs.styled'
+import styles from './Tabs.module.scss'
 
 /**
  * `Tabs` is a set of layered section of content.
@@ -59,32 +60,25 @@ import * as Styled from './Tabs.styled'
  */
 
 export const Tabs = forwardRef(function Tabs({
+  className,
   activationMode = 'automatic',
   children,
   ...rest
 }: TabsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.Tabs
+    <TabsPrimitive.Root
+      className={classNames(
+        styles.Tabs,
+        className,
+      )}
       activationMode={activationMode}
       ref={forwardedRef}
       {...rest}
     >
       { children }
-    </Styled.Tabs>
+    </TabsPrimitive.Root>
   )
 })
-
-const heightBy = (size: TabSize) => {
-  switch (size) {
-    case TabSize.L:
-      return 53
-    case TabSize.M:
-      return 45
-    case TabSize.S:
-    default:
-      return 33
-  }
-}
 
 export const [
   TabListContextProvider,
@@ -97,6 +91,7 @@ export const [
  * `TabList` gives size context to its children and decides the layout of `TabItems` and `TabActions`.
  */
 export const TabList = forwardRef(function TabList({
+  className,
   children,
   size = TabSize.M,
   ...rest
@@ -107,16 +102,16 @@ export const TabList = forwardRef(function TabList({
 
   return (
     <TabListContextProvider value={heightContextValue}>
-      <Styled.TabList
-        size={size}
+      <div
+        className={classNames(
+          styles.TabList,
+          styles[`size-${size}`],
+        )}
         ref={forwardedRef}
-        style={{
-          '--b-tabs-size': px(heightBy(size)),
-        } as React.CSSProperties}
         {...rest}
       >
         { children }
-      </Styled.TabList>
+      </div>
     </TabListContextProvider>
   )
 })
@@ -128,9 +123,12 @@ export const TabItems = forwardRef(function TabItems({
   children,
 }: TabItemsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.TabItems ref={forwardedRef}>
+    <TabsPrimitive.TabsList
+      className={styles.TabItems}
+      ref={forwardedRef}
+    >
       { children }
-    </Styled.TabItems>
+    </TabsPrimitive.TabsList>
   )
 })
 
@@ -150,6 +148,7 @@ const getButtonSizeBy = (size: TabSize) => {
  * `TabItem` is a button that activates its associated content.
  */
 export const TabItem = forwardRef(function TabItem({
+  className,
   disabled,
   value,
   children,
@@ -167,7 +166,11 @@ export const TabItem = forwardRef(function TabItem({
       value={value}
       asChild
     >
-      <Styled.Button
+      <Button
+        className={classNames(
+          styles.TabItem,
+          className,
+        )}
         disabled={disabled}
         text={children}
         size={getButtonSizeBy(size)}
@@ -207,12 +210,13 @@ export const TabActions = forwardRef(function TabActions({
   children,
 }: TabActionsProps, forwardedRef: React.Ref<HTMLDivElement>) {
   return (
-    <Styled.TabActions
+    <ToolbarPrimitive.Root
+      className={styles.TabActions}
       aria-label="More actions"
       ref={forwardedRef}
     >
       { children }
-    </Styled.TabActions>
+    </ToolbarPrimitive.Root>
   )
 })
 
@@ -241,6 +245,7 @@ const getIconSizeBy = (size: TabSize) => {
  * If it has `href` props, it should act as a link.
  */
 export const TabAction = forwardRef(function TabAction({
+  className: classNameProp,
   href,
   children,
   onClick,
@@ -248,11 +253,16 @@ export const TabAction = forwardRef(function TabAction({
 }, forwardedRef,
 ) {
   const { size } = useTabListContext()
+  const className = classNames(
+    styles.TabAction,
+    styles[`size-${size}`],
+    classNameProp,
+  )
 
   return (
     isNil(href) ? (
-      <Styled.ToolbarButton
-        size={size}
+      <ToolbarPrimitive.Button
+        className={className}
         onClick={onClick}
         ref={forwardedRef}
         {...rest}
@@ -263,10 +273,10 @@ export const TabAction = forwardRef(function TabAction({
         >
           { children }
         </Text>
-      </Styled.ToolbarButton>
+      </ToolbarPrimitive.Button>
     ) : (
-      <Styled.ToolbarLink
-        size={size}
+      <ToolbarPrimitive.Link
+        className={className}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -279,11 +289,12 @@ export const TabAction = forwardRef(function TabAction({
         >
           { children }
         </Text>
-        <Styled.LinkIcon
+        <Icon
           source={OpenInNewIcon}
           size={getIconSizeBy(size)}
+          marginLeft={5}
         />
-      </Styled.ToolbarLink>
+      </ToolbarPrimitive.Link>
     )
   )
 }) as <Link extends string | undefined>(

@@ -18,13 +18,15 @@ import { isFunction } from '~/src/utils/type'
 
 import { Text } from '~/src/components/Text'
 
-import { TabAction } from './TabAction'
-import { TabActions } from './TabActions'
-import { TabContent } from './TabContent'
-import { TabItem } from './TabItem'
-import { TabItems } from './TabItems'
-import { TabList } from './TabList'
-import { Tabs } from './Tabs'
+import {
+  TabAction,
+  TabActions,
+  TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
+} from './Tabs'
 import {
   type TabActionProps,
   type TabListProps,
