@@ -138,16 +138,12 @@ export const TabItems = forwardRef(function TabItems({
   )
 })
 
-const getButtonSizeBy = (size: TabSize) => {
-  switch (size) {
-    case TabSize.L:
-      return ButtonSize.L
-    case TabSize.M:
-      return ButtonSize.M
-    default:
-    case TabSize.S:
-      return ButtonSize.S
-  }
+function getButtonSizeBy(size: TabSize) {
+  return ({
+    [TabSize.L]: ButtonSize.L,
+    [TabSize.M]: ButtonSize.M,
+    [TabSize.S]: ButtonSize.S,
+  } as const)[size]
 }
 
 /**
@@ -232,24 +228,20 @@ export const TabActions = forwardRef(function TabActions({
   )
 })
 
-const getTypoBy = (size: TabSize) => {
-  switch (size) {
-    case TabSize.L:
-      return '14'
-    case TabSize.M:
-    case TabSize.S:
-    default:
-      return '13'
-  }
+function getTypoBy(size: TabSize) {
+  return ({
+    [TabSize.L]: '14',
+    [TabSize.M]: '14',
+    [TabSize.S]: '13',
+  } as const)[size]
 }
 
-const getIconSizeBy = (size: TabSize) => {
-  switch (size) {
-    case TabSize.L:
-      return IconSize.S
-    default:
-      return IconSize.XS
-  }
+function getIconSizeBy(size: TabSize) {
+  return ({
+    [TabSize.L]: IconSize.S,
+    [TabSize.M]: IconSize.XS,
+    [TabSize.S]: IconSize.XS,
+  } as const)[size]
 }
 
 /**
