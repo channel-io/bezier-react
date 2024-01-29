@@ -1,7 +1,7 @@
 import type React from 'react'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type DisableProps,
   type SizeProps,
@@ -64,41 +64,41 @@ interface TabContentOwnProps {
 }
 
 export interface TabsProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   TabsOwnProps {}
 
 export interface TabListProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   SizeProps<TabSize>,
   React.HTMLAttributes<HTMLDivElement> {}
 
 export interface TabItemsProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   React.HTMLAttributes<HTMLDivElement> {}
 
 export interface TabItemProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   DisableProps,
   React.HTMLAttributes<HTMLButtonElement>,
   TabItemOwnProps {}
 
 export interface TabActionsProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps {}
 
 export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
 
 export interface TabActionProps<Link extends string | undefined> extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   TabActionOwnProps<Link>,
   Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
 export interface TabContentProps extends
+  AlphaBezierComponentProps,
   ChildrenProps,
-  BezierComponentProps,
   TabContentOwnProps {}

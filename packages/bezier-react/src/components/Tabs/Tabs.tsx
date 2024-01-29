@@ -59,12 +59,12 @@ import styles from './Tabs.module.scss'
  * ```
  */
 
-export const Tabs = forwardRef(function Tabs({
+export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
   className,
   activationMode = 'automatic',
   children,
   ...rest
-}: TabsProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   return (
     <TabsPrimitive.Root
       className={classNames(
@@ -90,12 +90,12 @@ export const [
 /**
  * `TabList` gives size context to its children and decides the layout of `TabItems` and `TabActions`.
  */
-export const TabList = forwardRef(function TabList({
+export const TabList = forwardRef<HTMLDivElement, TabListProps>(function TabList({
   className,
   children,
   size = TabSize.M,
   ...rest
-}: TabListProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   const heightContextValue = useMemo(() => ({
     size,
   }), [size])
@@ -119,11 +119,11 @@ export const TabList = forwardRef(function TabList({
 /**
  * `TabItems` is a flex container which has `TabItem` flex items.
  */
-export const TabItems = forwardRef(function TabItems({
+export const TabItems = forwardRef<HTMLDivElement, TabItemsProps>(function TabItems({
   className,
   children,
   ...rest
-}: TabItemsProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   return (
     <TabsPrimitive.TabsList
       className={classNames(
@@ -149,13 +149,13 @@ function getButtonSizeBy(size: TabSize) {
 /**
  * `TabItem` is a button that activates its associated content.
  */
-export const TabItem = forwardRef(function TabItem({
+export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(function TabItem({
   className,
   disabled,
   value,
   children,
   ...rest
-}: TabItemProps, forwardedRef: React.Ref<HTMLButtonElement>) {
+}, forwardedRef) {
   const { size } = useTabListContext()
 
   if (typeof children !== 'string') {
@@ -188,11 +188,11 @@ export const TabItem = forwardRef(function TabItem({
 /**
  * `TabContent` has content associated with `TabItem`.
  */
-export const TabContent = forwardRef(function TabContent({
+export const TabContent = forwardRef<HTMLDivElement, TabContentProps>(function TabContent({
   children,
   value,
   ...rest
-}: TabContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   return (
     <TabsPrimitive.Content
       value={value}
@@ -208,11 +208,11 @@ export const TabContent = forwardRef(function TabContent({
  * `TabActions` is a flex container which has `TabAction` flex items.
  *  It also gives accessibility properties to its children.
  */
-export const TabActions = forwardRef(function TabActions({
+export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function TabActions({
   className,
   children,
   ...rest
-}: TabActionsProps, forwardedRef: React.Ref<HTMLDivElement>) {
+}, forwardedRef) {
   return (
     <ToolbarPrimitive.Root
       className={classNames(
@@ -248,7 +248,7 @@ function getIconSizeBy(size: TabSize) {
  * `TabAction` is a button for more action to open a new link or navigate to a different url.
  * If it has `href` props, it should act as a link.
  */
-export const TabAction = forwardRef(function TabAction({
+export const TabAction = forwardRef<TabActionElement<string | undefined>, TabActionProps<string | undefined>>(function TabAction({
   className: classNameProp,
   href,
   children,
@@ -284,6 +284,7 @@ export const TabAction = forwardRef(function TabAction({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        // @ts-expect-error
         ref={forwardedRef}
         {...rest}
       >
