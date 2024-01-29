@@ -7,7 +7,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
     data-testid="bezier-react-form-control"
   >
     <label
-      class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+      class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
       data-testid="bezier-react-form-label"
       id="form-label"
       style="--b-text-color: var(--txt-black-darkest);"
@@ -28,7 +28,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         data-testid="bezier-react-form-control"
       >
         <label
-          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
           data-testid="bezier-react-form-label"
           for="field-:r3:"
           id="field-:r3:-label"
@@ -37,7 +37,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           First Inner Label
         </label>
         <div
-          class="TextFieldWrapper variant-primary size-m Form size-m"
+          class="TextFieldWrapper variant-primary size-m size-m"
           data-testid="bezier-react-text-input"
         >
           <input
@@ -54,7 +54,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
         data-testid="bezier-react-form-control"
       >
         <label
-          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
           data-testid="bezier-react-form-label"
           for="field-:r4:"
           id="field-:r4:-label"
@@ -63,7 +63,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           Second Inner Label
         </label>
         <div
-          class="TextFieldWrapper variant-primary size-m Form size-m"
+          class="TextFieldWrapper variant-primary size-m size-m"
           data-testid="bezier-react-text-input"
         >
           <input
@@ -96,7 +96,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
     data-testid="bezier-react-form-control"
   >
     <label
-      class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left Form size-m"
+      class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left size-m"
       data-testid="bezier-react-form-label"
       id="form-label"
       style="--b-text-color: var(--txt-black-darkest);"
@@ -117,7 +117,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         data-testid="bezier-react-form-control"
       >
         <label
-          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
           data-testid="bezier-react-form-label"
           for="field-:r6:"
           id="field-:r6:-label"
@@ -126,7 +126,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           First Inner Label
         </label>
         <div
-          class="TextFieldWrapper variant-primary size-m Form size-m"
+          class="TextFieldWrapper variant-primary size-m size-m"
           data-testid="bezier-react-text-input"
         >
           <input
@@ -143,7 +143,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
         data-testid="bezier-react-form-control"
       >
         <label
-          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
           data-testid="bezier-react-form-label"
           for="field-:r7:"
           id="field-:r7:-label"
@@ -152,7 +152,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           Second Inner Label
         </label>
         <div
-          class="TextFieldWrapper variant-primary size-m Form size-m"
+          class="TextFieldWrapper variant-primary size-m size-m"
           data-testid="bezier-react-text-input"
         >
           <input
@@ -184,7 +184,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
   data-testid="bezier-react-form-control"
 >
   <label
-    class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top Form size-m"
+    class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
     data-testid="bezier-react-form-label"
     for="form"
     id="form-label"
@@ -193,7 +193,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     Label
   </label>
   <div
-    class="TextFieldWrapper variant-primary size-m Form size-m"
+    class="TextFieldWrapper variant-primary size-m size-m"
     data-testid="bezier-react-text-input"
   >
     <input
@@ -222,7 +222,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
   data-testid="bezier-react-form-control"
 >
   <label
-    class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left Form size-m"
+    class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left size-m"
     data-testid="bezier-react-form-label"
     for="form"
     id="form-label"
@@ -231,7 +231,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     Label
   </label>
   <div
-    class="TextFieldWrapper variant-primary size-m Form size-m"
+    class="TextFieldWrapper variant-primary size-m size-m"
     data-testid="bezier-react-text-input"
   >
     <input
