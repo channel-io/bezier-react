@@ -71,8 +71,6 @@
   border-radius: var(--radius-12);
   box-shadow: var(--ev-3);
 
-  transition: transform var(--transition-m);
-
   &:where(.placement-bottom-left) {
     animation: var(--transition-m) slide-in-left forwards;
 
