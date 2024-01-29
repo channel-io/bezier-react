@@ -66,6 +66,7 @@ interface TabContentOwnProps {
 export interface TabsProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, keyof TabsOwnProps>,
   TabsOwnProps {}
 
 export interface TabListProps extends
@@ -88,6 +89,7 @@ export interface TabItemProps extends
 
 export interface TabActionsProps extends
   AlphaBezierComponentProps,
+  React.HTMLAttributes<HTMLDivElement>,
   ChildrenProps {}
 
 export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
@@ -101,4 +103,5 @@ export interface TabActionProps<Link extends string | undefined> extends
 export interface TabContentProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  React.HTMLAttributes<HTMLDivElement>,
   TabContentOwnProps {}

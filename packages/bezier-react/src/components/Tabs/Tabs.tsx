@@ -62,6 +62,7 @@ import styles from './Tabs.module.scss'
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
   className,
   activationMode = 'automatic',
+  dir,
   children,
   ...rest
 }, forwardedRef) {
@@ -73,6 +74,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
       )}
       activationMode={activationMode}
       ref={forwardedRef}
+      dir={dir as 'ltr' | 'rtl'}
       {...rest}
     >
       { children }
@@ -210,6 +212,7 @@ export const TabContent = forwardRef<HTMLDivElement, TabContentProps>(function T
  */
 export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function TabActions({
   className,
+  dir,
   children,
   ...rest
 }, forwardedRef) {
@@ -221,6 +224,7 @@ export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function T
       )}
       aria-label="More actions"
       ref={forwardedRef}
+      dir={dir as 'ltr' | 'rtl'}
       {...rest}
     >
       { children }
