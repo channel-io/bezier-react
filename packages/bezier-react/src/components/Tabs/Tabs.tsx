@@ -82,7 +82,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
   )
 })
 
-export const [
+const [
   TabListContextProvider,
   useTabListContext,
 ] = createContext<TabListContextValue>({
