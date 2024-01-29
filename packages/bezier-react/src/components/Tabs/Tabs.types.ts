@@ -17,7 +17,7 @@ export interface TabListContextValue {
   size: TabSize
 }
 
-interface TabsOptions {
+interface TabsOwnProps {
   /**
    * When automatic, tabs are activated when receiving focus.
    * When manual, tabs are activated when clicked.
@@ -38,7 +38,7 @@ interface TabsOptions {
   onValueChange?: (value: string) => void
 }
 
-interface TabActionOptions<Link extends string | undefined> {
+interface TabActionOwnProps<Link extends string | undefined> {
   /**
    * TabAction acts as a link when href is given, otherwise as a button.
    */
@@ -49,14 +49,14 @@ interface TabActionOptions<Link extends string | undefined> {
   onClick?: Link extends string ? never : React.MouseEventHandler<HTMLButtonElement>
 }
 
-interface TabItemOptions {
+interface TabItemOwnProps {
   /**
    * A unique value that associates the trigger with a content.
    */
   value: string
 }
 
-interface TabContentOptions {
+interface TabContentOwnProps {
   /**
    * A unique value that associates the trigger with a content.
    */
@@ -66,7 +66,7 @@ interface TabContentOptions {
 export interface TabsProps extends
   ChildrenProps,
   BezierComponentProps,
-  TabsOptions {}
+  TabsOwnProps {}
 
 export interface TabListProps extends
   ChildrenProps,
@@ -84,7 +84,7 @@ export interface TabItemProps extends
   BezierComponentProps,
   DisableProps,
   React.HTMLAttributes<HTMLButtonElement>,
-  TabItemOptions {}
+  TabItemOwnProps {}
 
 export interface TabActionsProps extends
   BezierComponentProps,
@@ -95,10 +95,10 @@ export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement
 export interface TabActionProps<Link extends string | undefined> extends
   ChildrenProps,
   BezierComponentProps,
-  TabActionOptions<Link>,
+  TabActionOwnProps<Link>,
   Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
 export interface TabContentProps extends
   ChildrenProps,
   BezierComponentProps,
-  TabContentOptions {}
+  TabContentOwnProps {}
