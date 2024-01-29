@@ -2,6 +2,7 @@ $outer-indicator-size: 18px;
 $outer-indicator-margin: 1px;
 $inner-indicator-size: 8px;
 
+@use "sass:math";
 @use '../../../styles/mixins/dimension';
 @use '../../../styles/mixins/interaction';
 
@@ -60,7 +61,7 @@ $inner-indicator-size: 8px;
 
     position: absolute;
     top: 50%;
-    left: calc(#{$outer-indicator-size / 2} + #{$outer-indicator-margin});
+    left: math.div($outer-indicator-size, 2) + $outer-indicator-margin;
     transform: translate(-50%, -50%);
 
     border-radius: 50%;
