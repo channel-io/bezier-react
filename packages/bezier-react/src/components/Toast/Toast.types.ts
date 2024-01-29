@@ -36,11 +36,6 @@ interface ToastOwnProps {
   zIndex?: ZIndex
   autoDismiss?: boolean
   autoDismissTimeout?: number
-  /**
-   * Updated toast version
-   * @default 0
-   */
-  version?: number
   onDismiss?: () => void
 }
 
@@ -86,11 +81,6 @@ export type ToastOptions =
 export type ToastType = ToastOptions & {
   id: ToastId
   content: ToastContent
-  /**
-   * Updated version
-   * @default 0
-   */
-  version?: number
 }
 
 export interface ToastContextValue {

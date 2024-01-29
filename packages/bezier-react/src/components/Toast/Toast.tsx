@@ -81,9 +81,7 @@ function Toast({
   zIndex,
   autoDismiss = true,
   autoDismissTimeout,
-  version = 0,
   onDismiss,
-  ...props
 }: ToastProps) {
   const { window } = useWindow()
 
@@ -126,7 +124,6 @@ function Toast({
     autoDismissTimeout,
     runSlideOutAnimation,
     window,
-    version,
   ])
 
   const {
