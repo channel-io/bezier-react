@@ -5,9 +5,6 @@ export * from '~/src/providers/WindowProvider'
 export * from '~/src/providers/AppProvider'
 export * from '~/src/providers/ThemeProvider'
 
-/* Foundation */
-export * from '~/src/foundation'
-
 /* Components */
 export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
