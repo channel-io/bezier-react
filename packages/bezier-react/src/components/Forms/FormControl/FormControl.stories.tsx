@@ -61,6 +61,7 @@ export const Primary: StoryObj<FormControlProps> = {
     disabled: false,
     readOnly: false,
     required: false,
+    size: 'm',
   },
 }
 
@@ -149,5 +150,6 @@ export const WithMultiForm: StoryObj<FormControlProps> = {
     disabled: false,
     readOnly: false,
     required: false,
+    size: 'm',
   },
 }

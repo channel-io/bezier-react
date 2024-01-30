@@ -169,7 +169,7 @@ function TextFieldRightContent({
 
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
-  size = 'm',
+  size: sizeProps = 'm',
   testId = TEXT_INPUT_TEST_ID,
   autoFocus,
   autoComplete = 'off',
@@ -202,6 +202,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
     disabled,
     readOnly,
     hasError,
+    size: formFieldSize,
     ...ownProps
   } = useFormFieldProps(rest)
 
@@ -211,6 +212,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   const normalizedValue = isNil(value) ? undefined : toString(value)
   const activeInput = !disabled && !readOnly
   const activeClear = activeInput && allowClear && !isEmpty(normalizedValue)
+  const size = formFieldSize ?? sizeProps
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 

@@ -135,12 +135,14 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
 
   const getFieldProps = useCallback<FieldPropsGetter>(ownProps => ({
     id: fieldId,
+    size,
     'aria-describedby': groupNode ? undefined : describerId,
     ...formCommonProps,
     ...ownProps,
   }), [
     fieldId,
     describerId,
+    size,
     formCommonProps,
     groupNode,
   ])

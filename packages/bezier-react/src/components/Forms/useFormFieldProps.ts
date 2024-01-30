@@ -1,12 +1,16 @@
 import { useMemo } from 'react'
 
+import { type SizeProps } from '~/src/types/ComponentProps'
 import { ariaAttr } from '~/src/utils/dom'
 
-import type { FormComponentProps } from '~/src/components/Forms/Form.types'
+import type {
+  FormComponentProps,
+  FormFieldSize,
+} from '~/src/components/Forms/Form.types'
 import { useFormControlContext } from '~/src/components/Forms/FormControl'
 
 // TODO: 테스트 추가
-function useFormFieldProps<Props extends FormComponentProps>(props?: Props) {
+function useFormFieldProps<Props extends FormComponentProps & SizeProps<FormFieldSize>>(props?: Props) {
   const contextValue = useFormControlContext()
 
   const formFieldProps = useMemo(() => {
@@ -17,6 +21,7 @@ function useFormFieldProps<Props extends FormComponentProps>(props?: Props) {
       readOnly = false,
       required = false,
       hasError = false,
+      size = undefined,
       ...rest
     } = mergedProps
 
@@ -26,6 +31,7 @@ function useFormFieldProps<Props extends FormComponentProps>(props?: Props) {
       'aria-invalid': ariaAttr(hasError),
       'aria-required': ariaAttr(required),
       'aria-readonly': ariaAttr(readOnly),
+      size,
       disabled,
       hasError,
       required,
