@@ -9,7 +9,7 @@ import {
 } from '~/src/types/Token'
 import { createContext } from '~/src/utils/react'
 
-interface ThemedTokenSet {
+export interface ThemedTokenSet {
   global: GlobalToken
   semantic: SemanticToken
 }
