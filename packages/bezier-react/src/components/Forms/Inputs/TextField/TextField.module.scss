@@ -37,6 +37,7 @@
   align-items: center;
 
   box-sizing: border-box;
+  height: var(--b-form-field-size);
   padding: 0 12px;
 
   background-color: var(--bg-grey-lightest);
@@ -48,24 +49,11 @@
     background-color: var(--bg-black-lightest);
   }
 
-  &:where(.size-28) {
-    height: 28px;
+  &:where(.size-l) .TextFieldInput {
+    @include typography.size(16);
   }
 
-  &:where(.size-36) {
-    height: 36px;
-  }
-
-  &:where(.size-44) {
-    height: 44px;
-
-    & .TextFieldInput {
-      @include typography.size(16);
-    }
-  }
-
-  &:where(.size-54) {
-    height: 54px;
+  &:where(.size-xl) {
     border-radius: var(--radius-12);
 
     & .TextFieldInput {

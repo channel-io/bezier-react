@@ -11,16 +11,11 @@ import type {
 } from '~/src/types/ComponentProps'
 import { type ZIndex } from '~/src/types/Token'
 
-import type { FormComponentProps } from '~/src/components/Forms'
-import { FormFieldSize } from '~/src/components/Forms'
+import {
+  type FormComponentProps,
+  type FormFieldSize,
+} from '~/src/components/Forms'
 import type { OverlayProps } from '~/src/components/Overlay'
-
-export enum SelectSize {
-  XL = FormFieldSize.XL,
-  L = FormFieldSize.L,
-  M = FormFieldSize.M,
-  S = FormFieldSize.XS,
-}
 
 export interface SelectRef {
   handleClickTrigger(event: React.MouseEvent): void
@@ -45,7 +40,7 @@ interface SelectOwnProps {
 export interface SelectProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  SizeProps<SelectSize>,
+  SizeProps<FormFieldSize>,
   SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AlphaAdditionalStylableProps<'dropdown'>,

@@ -2,6 +2,7 @@ import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   IdentifierProps,
+  SizeProps,
 } from '~/src/types/ComponentProps'
 
 import type {
@@ -12,7 +13,6 @@ import type {
 type LabelPosition = 'top' | 'left'
 
 interface FormControlOwnProps {
-  leftLabelWrapperHeight?: FormFieldSize
   labelPosition?: LabelPosition
 }
 
@@ -65,5 +65,6 @@ export interface ContainerProps extends
 export interface FormControlProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  SizeProps<FormFieldSize>,
   FormComponentProps,
   FormControlOwnProps {}

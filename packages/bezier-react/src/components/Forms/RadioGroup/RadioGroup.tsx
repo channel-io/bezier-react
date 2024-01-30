@@ -9,6 +9,9 @@ import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
+// eslint-disable-next-line no-restricted-imports
+import formStyles from '../Form.module.scss'
+
 import {
   type RadioGroupProps,
   type RadioProps,
@@ -73,6 +76,7 @@ function RadioImpl<Value extends string>({
     <RadioGroupPrimitive.Item
       className={classNames(
         styles.RadioGroupItem,
+        formStyles['size-m'],
         className,
       )}
       ref={forwardedRef}

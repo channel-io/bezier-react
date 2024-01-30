@@ -1,12 +1,9 @@
-import type { FormComponentProps } from './Form.types'
-import FormFieldSize from './FormFieldSize'
 import useFormFieldProps from './useFormFieldProps'
 import useKeyboardActionLockerWhileComposing from './useKeyboardActionLockerWhileComposing'
 
-export type { FormComponentProps }
-export * from './Inputs/constants/CommonImeControlKeys'
+export type { FormComponentProps, FormFieldSize } from './Form.types'
+export { COMMON_IME_CONTROL_KEYS } from './Inputs/constants/CommonImeControlKeys'
 export {
-  FormFieldSize,
   useFormFieldProps,
   useKeyboardActionLockerWhileComposing,
 }

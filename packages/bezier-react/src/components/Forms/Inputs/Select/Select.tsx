@@ -29,10 +29,12 @@ import {
 } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
+// eslint-disable-next-line no-restricted-imports
+import formStyles from '../../Form.module.scss'
+
 import {
   type SelectProps,
   type SelectRef,
-  SelectSize,
 } from './Select.types'
 
 import styles from './Select.module.scss'
@@ -43,7 +45,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   children,
   style,
   className,
-  size = SelectSize.M,
+  size: sizeProps,
   defaultFocus = false,
   placeholder = '',
   leftContent,
@@ -71,11 +73,14 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
     disabled,
     readOnly,
     hasError,
+    size: formFieldSize,
     ...ownProps
   } = useFormFieldProps(rest)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+
+  const size = sizeProps ?? formFieldSize ?? 'm'
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
@@ -134,7 +139,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       <button
         className={classNames(
           styles.SelectTrigger,
-          size && styles[`size-${size}`],
+          formStyles[`size-${size}`],
           hasError && styles.invalid,
           readOnly && styles.readonly,
           isDropdownOpened && styles.active,

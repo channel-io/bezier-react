@@ -15,6 +15,9 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 
+// eslint-disable-next-line no-restricted-imports
+import formStyles from '../Form.module.scss'
+
 import {
   type CheckboxProps,
   type CheckedState,
@@ -66,7 +69,11 @@ function CheckboxImpl<Checked extends CheckedState>({
   const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
   return (
-    <div className={styles.Container}>
+    <div className={classNames(
+      styles.Container,
+      formStyles['size-m'],
+    )}
+    >
       <CheckboxPrimitive.Root
         className={classNames(
           styles.Checkbox,

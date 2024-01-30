@@ -1,0 +1,12 @@
+$size-map: (
+  xs: 28,
+  m: 36,
+  l: 44,
+  xl: 54,
+);
+
+@each $size, $value in $size-map {
+  :where(.size-#{$size}) {
+    --b-form-field-size: #{$value}px;
+  }
+}

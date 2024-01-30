@@ -3,7 +3,7 @@ import type {
   IdentifierProps,
 } from '~/src/types/ComponentProps'
 
-interface FormComponentOptions {
+interface FormComponentOwnProps {
   hasError?: boolean
   required?: boolean
   readOnly?: boolean
@@ -12,4 +12,6 @@ interface FormComponentOptions {
 export interface FormComponentProps extends
   DisableProps,
   Partial<IdentifierProps>,
-  FormComponentOptions {}
+  FormComponentOwnProps {}
+
+export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'

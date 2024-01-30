@@ -1,7 +1,6 @@
 export { TextField } from './TextField'
 
 export {
-  TextFieldSize,
   TextFieldType,
   TextFieldVariant,
 } from './TextField.types'

@@ -23,7 +23,6 @@ describe('FormControl >', () => {
     props = {
       id: 'form',
       labelPosition: 'top',
-      leftLabelWrapperHeight: undefined,
       hasError: false,
       disabled: false,
       readOnly: false,
