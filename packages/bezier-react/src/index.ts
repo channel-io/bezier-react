@@ -69,9 +69,6 @@ export * from '~/src/types/Utils'
 // TODO: Remove namespace exports after removing Foundation type
 export * as Token from '~/src/types/Token'
 
-/* Constants */
-export { ZIndex } from '~/src/constants/ZIndex'
-
 /* Hooks */
 export { default as useEventHandler } from '~/src/hooks/useEventHandler'
 export { default as useMergeRefs } from '~/src/hooks/useMergeRefs'
