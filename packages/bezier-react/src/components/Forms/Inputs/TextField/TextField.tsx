@@ -212,7 +212,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   const normalizedValue = isNil(value) ? undefined : toString(value)
   const activeInput = !disabled && !readOnly
   const activeClear = activeInput && allowClear && !isEmpty(normalizedValue)
-  const size = formFieldSize ?? sizeProps
+  const size = sizeProps ?? formFieldSize ?? 'm'
 
   const inputRef = useRef<HTMLInputElement | null>(null)
 

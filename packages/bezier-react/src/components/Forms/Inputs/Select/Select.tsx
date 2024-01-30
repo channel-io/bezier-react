@@ -80,7 +80,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   const containerRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
-  const size = formFieldSize ?? sizeProps
+  const size = sizeProps ?? formFieldSize ?? 'm'
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
