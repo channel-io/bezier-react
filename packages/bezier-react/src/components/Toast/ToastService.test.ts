@@ -1,5 +1,3 @@
-import { InfoFilledIcon } from '@channel.io/bezier-icons'
-
 import { type ToastType } from './Toast.types'
 import ToastService from './ToastService'
 
@@ -41,12 +39,10 @@ describe('ToastService', () => {
     toastService.add('0')
     expect(toastService.getToasts()).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        appearance: 'info',
         autoDismiss: false,
-        content: '0',
-        icon: InfoFilledIcon,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])

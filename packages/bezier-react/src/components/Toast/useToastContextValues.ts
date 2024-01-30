@@ -9,15 +9,14 @@ import { noop } from '~/src/utils/function'
 import {
   type OnDismissCallback,
   type ToastContent,
-  type ToastContextType,
+  type ToastContextValue,
   type ToastId,
   type ToastOptions,
   type ToastType,
-  defaultOptions,
 } from './Toast.types'
 import ToastService from './ToastService'
 
-interface UseToastContextValuesReturns extends ToastContextType {
+interface UseToastContextValuesReturns extends ToastContextValue {
   leftToasts: ToastType[]
   rightToasts: ToastType[]
   dismiss: (id: ToastId, callback?: OnDismissCallback) => void
@@ -38,9 +37,9 @@ function useToastContextValues(): UseToastContextValuesReturns {
   const [leftToasts, setLeftToasts] = useState<ToastType[]>([])
   const [rightToasts, setRightToasts] = useState<ToastType[]>([])
 
-  const add = useCallback((content: ToastContent, options: ToastOptions = defaultOptions) => {
+  const add = useCallback((content: ToastContent, options?: ToastOptions) => {
     let result = ''
-    if (options.rightSide) {
+    if (options?.rightSide) {
       result = rightToastService.add(content, options)
       setRightToasts(rightToastService.getToasts())
     } else {
@@ -53,9 +52,9 @@ function useToastContextValues(): UseToastContextValuesReturns {
     rightToastService,
   ])
 
-  const update = useCallback((toastId: ToastId, content: ToastContent, options: ToastOptions = defaultOptions) => {
+  const update = useCallback((toastId: ToastId, content: ToastContent, options?: ToastOptions) => {
     let result = ''
-    if (options.rightSide) {
+    if (options?.rightSide) {
       result = rightToastService.update(toastId, content, options)
       setRightToasts(rightToastService.getToasts())
     } else {
