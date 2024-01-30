@@ -11,20 +11,21 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import { noop } from '~/src/utils/function'
 import { isFunction } from '~/src/utils/type'
 
+import { Center } from '~/src/components/Center'
 import { Text } from '~/src/components/Text'
 
-import { TabAction } from './TabAction'
-import { TabActions } from './TabActions'
-import { TabContent } from './TabContent'
-import { TabItem } from './TabItem'
-import { TabItems } from './TabItems'
-import { TabList } from './TabList'
-import { Tabs } from './Tabs'
+import {
+  TabAction,
+  TabActions,
+  TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
+} from './Tabs'
 import {
   type TabActionProps,
   type TabListProps,
@@ -35,20 +36,6 @@ import {
 type TabsCompositionProps = TabsProps &
 TabListProps &
 TabActionProps<string | undefined>
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 400px;
-  height: 200px;
-`
-
-const Content = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  font-size: 2rem;
-`
 
 function TabsComposition({
   activationMode,
@@ -67,7 +54,12 @@ function TabsComposition({
   }, [onValueChange])
 
   return (
-    <Wrapper>
+    <div style={{
+      display: 'flex',
+      width: 400,
+      height: 200,
+    }}
+    >
       <Tabs
         activationMode={activationMode}
         onValueChange={handleValueChange}
@@ -92,28 +84,28 @@ function TabsComposition({
         </TabList>
 
         <TabContent value="One">
-          <Content>
-            <Text>
+          <Center height={100}>
+            <Text color="txt-black-darkest">
               Tab1 content
             </Text>
-          </Content>
+          </Center>
         </TabContent>
         <TabContent value="Two">
-          <Content>
-            <Text>
+          <Center height={100}>
+            <Text color="txt-black-darkest">
               Tab2 content
             </Text>
-          </Content>
+          </Center>
         </TabContent>
         <TabContent value="Three">
-          <Content>
-            <Text>
+          <Center height={100}>
+            <Text color="txt-black-darkest">
               Tab3 content
             </Text>
-          </Content>
+          </Center>
         </TabContent>
       </Tabs>
-    </Wrapper>
+    </div>
   )
 }
 
