@@ -1,24 +1,27 @@
-import { dirname, join } from "path"
+import {
+  dirname,
+  join,
+} from 'path'
 
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { type StorybookConfig } from '@storybook/react-webpack5'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")))
+  return dirname(require.resolve(join(value, 'package.json')))
 }
 
-const config: StorybookConfig = {
+export default {
   stories: [
     '../src/**/*.stories.(tsx|mdx)',
   ],
 
   addons: [
-    getAbsolutePath("@storybook/addon-controls"),
-    getAbsolutePath("@storybook/addon-actions"),
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-toolbars"),
-    getAbsolutePath("@storybook/addon-docs"),
-    getAbsolutePath("@storybook/addon-backgrounds"),
+    getAbsolutePath('@storybook/addon-controls'),
+    getAbsolutePath('@storybook/addon-actions'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-toolbars'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-backgrounds'),
     {
       name: '@storybook/addon-styling',
       options: {
@@ -49,27 +52,27 @@ const config: StorybookConfig = {
       ...config.resolve,
       // Apply tsconfig alias path
       plugins: [
-      ...(config?.resolve?.plugins ?? []),
-      new TsconfigPathsPlugin({}),
+        ...(config?.resolve?.plugins ?? []),
+        new TsconfigPathsPlugin({}),
       ],
       extensions: [
         ...(config.resolve?.extensions ?? []),
         '.ts',
         '.tsx',
-      ]
+      ],
     }
 
     config.module = {
       ...config.module,
       rules: [
         ...(config.module?.rules ?? []), {
-        test: /\.(ts|tsx)$/,
-        loader: require.resolve('babel-loader'),
-        options: {
-          presets: [['react-app', { flow: false, typescript: true }]],
-          }
-        }
-      ]
+          test: /\.(ts|tsx)$/,
+          loader: require.resolve('babel-loader'),
+          options: {
+            presets: [['react-app', { flow: false, typescript: true }]],
+          },
+        },
+      ],
     }
 
     return config
@@ -77,12 +80,10 @@ const config: StorybookConfig = {
 
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
+    options: {},
   },
 
   docs: {
-    autodocs: true
-  }
-}
-
-export default config
+    autodocs: true,
+  },
+} as StorybookConfig
