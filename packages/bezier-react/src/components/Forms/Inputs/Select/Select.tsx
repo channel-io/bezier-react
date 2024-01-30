@@ -45,7 +45,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   children,
   style,
   className,
-  size: sizeProps = 'm',
+  size: sizeProps,
   defaultFocus = false,
   placeholder = '',
   leftContent,

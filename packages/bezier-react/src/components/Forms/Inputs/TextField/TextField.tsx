@@ -169,7 +169,7 @@ function TextFieldRightContent({
 
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
-  size: sizeProps = 'm',
+  size: sizeProps,
   testId = TEXT_INPUT_TEST_ID,
   autoFocus,
   autoComplete = 'off',
