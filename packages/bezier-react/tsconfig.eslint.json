@@ -1,9 +1,12 @@
 {
-  "extends": "tsconfig/eslint.json",
+  "extends": "./tsconfig.json",
   "include": [
     "src/**/*",
+    ".storybook/**/*",
     "*.ts",
+    "*.tsx",
     "*.js",
+    "*.jsx",
     ".*.js",
     "*.mjs",
   ],

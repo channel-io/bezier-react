@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
     "module": "esnext",
     "target": "es2020",
     "lib": ["dom", "es2020"],
@@ -22,6 +21,7 @@
   },
   "types": ["react", "jest"],
   "include": [
-    "src/**/*"
+    "src/**/*",
+    ".storybook/**/*",
   ],
 }
