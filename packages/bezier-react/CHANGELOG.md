@@ -1,5 +1,37 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.9
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `Overlay` component** ([#1949](https://github.com/channel-io/bezier-react/pull/1949)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `containerInterpolation` property. Replace any usage of `containerInterpolation` property with appropriate `containerStyle` or `containerClassName` implementations.
+  - No longer support `wrapperTestId` property.
+
+- **Breaking Changes: Property updates in `FormControl`, `Select`, and `TextField` component** ([#1948](https://github.com/channel-io/bezier-react/pull/1948)) by @yangwooseong
+
+  - `FormControl` component no longer supports `leftLabelWrapperHeight` props.
+  - `FormControl` component now supports `size` props, which is passed as context to the child component such as `TextField` and `Select` and specified as the size property.
+  - The size property of `Select` and `TextField` component changes from enum to string literal union type. Also, `SelectSize` and `TextFieldSize` enum are deprecated.
+
+- **Breaking Changes: Property updates in `ProgressBar` component** ([#1947](https://github.com/channel-io/bezier-react/pull/1947)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `activeStyle`, `activeClassName` and `activeInterpolation` property.
+  - No longer support `activeTestId` property.
+
+- **Breaking Changes: Property updates in `Tabs`-related components** ([#1960](https://github.com/channel-io/bezier-react/pull/1960)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: `Toast`-related modules** ([#1950](https://github.com/channel-io/bezier-react/pull/1950)) by @sungik-choi
+
+  - No longer support `actionContent` and `onClick` properties in `ToastOptions`.
+  - Value type of `zIndex` property in `ToastOptions` is changed from `number` to `ZIndex` token.
+  - No longer export `ToastIconColor` enum.
+
 ## 2.0.0-alpha.8
 
 ### Major Changes
