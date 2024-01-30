@@ -8,10 +8,13 @@ type RemovePrefix<
 type StartsWithPrefix<
   Prefix extends string,
   Value extends string,
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   > = Value extends `${Prefix}-${infer Rest}` ? Value : never
 
 type ExtractKeys<T> = T extends Record<infer K, any> ? K : never
+
+// TODO: Change theme name constant to import from bezier-tokens
+export type ThemeName = 'light' | 'dark'
 
 export type GlobalToken = typeof tokens.global
 export type SemanticToken = typeof tokens.lightTheme | typeof tokens.darkTheme

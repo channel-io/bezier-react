@@ -9,9 +9,9 @@ import { window as defaultWindow } from '~/src/utils/dom'
 import { TooltipProvider } from '~/src/components/Tooltip'
 
 import {
-  type ThemeName,
   TokenProvider,
-} from './ThemeProvider'
+  type TokenProviderProps,
+} from './TokenProvider'
 import { WindowProvider } from './WindowProvider'
 
 export interface AppProviderProps {
@@ -20,7 +20,7 @@ export interface AppProviderProps {
    * Name of the theme to use for the app.
    * @default 'light'
    */
-  themeName?: ThemeName
+  themeName?: TokenProviderProps['themeName']
   /**
    * List of features to enable for the app.
    * @default []

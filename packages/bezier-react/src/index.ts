@@ -3,17 +3,7 @@ import '~/src/styles/index.scss'
 /* Provider */
 export * from '~/src/providers/WindowProvider'
 export * from '~/src/providers/AppProvider'
-export {
-  useThemeName,
-  useToken,
-  ThemeProvider,
-  LightThemeProvider,
-  DarkThemeProvider,
-  InvertedThemeProvider,
-  type ThemeName,
-  type ThemeProviderProps,
-  type FixedThemeProviderProps,
-} from '~/src/providers/ThemeProvider'
+export * from '~/src/providers/ThemeProvider'
 
 /* Foundation */
 export * from '~/src/foundation'
