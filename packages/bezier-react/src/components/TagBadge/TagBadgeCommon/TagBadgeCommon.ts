@@ -1,4 +1,15 @@
-enum TagBadgeVariant {
+import { type SemanticColor } from '~/src/types/tokens'
+
+import { IconSize } from '~/src/components/Icon'
+
+export enum TagBadgeSize {
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+}
+
+export enum TagBadgeVariant {
   Default = 'Default',
   MonochromeLight = 'MonochromeLight',
   MonochromeDark = 'MonochromeDark',
@@ -49,4 +60,17 @@ export const BadgeColorPreset = {
   [TagBadgeVariant.Purple]: 'bgtxt-purple-normal',
 } as const
 
-export default TagBadgeVariant
+export const TAG_BADGE_ICON_SIZE = IconSize.XS
+
+export function getProperTagBadgeTypo(size: TagBadgeSize) {
+  return {
+    [TagBadgeSize.XS]: '11' as const,
+    [TagBadgeSize.S]: '13' as const,
+    [TagBadgeSize.M]: '14' as const,
+    [TagBadgeSize.L]: '15' as const,
+  }[size]
+}
+
+export function getProperTagBadgeBgColor(color: TagBadgeVariant): SemanticColor {
+  return TagBadgeBgColorPreset[color]
+}
