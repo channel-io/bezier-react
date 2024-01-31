@@ -31,22 +31,12 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: '~/src/foundation',
-            group: 'internal',
-            position: 'before',
-          },
-          {
-            pattern: '~/src/foundation/**',
-            group: 'internal',
-            position: 'before',
-          },
-          {
             pattern: '~/src/components/**',
             group: 'internal',
             position: 'after',
           },
           {
-            pattern: './**/*.+(styled|scss)',
+            pattern: './**/*.scss',
             group: 'sibling',
             position: 'after',
           },
