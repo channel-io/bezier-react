@@ -2,9 +2,10 @@ import type React from 'react'
 
 import { type TextareaAutosizeProps } from 'react-textarea-autosize'
 
-import type { AlphaBezierComponentProps } from '~/src/types/props'
-
-import { type FormComponentProps } from '~/src/components/Forms/Form.types'
+import type {
+  AlphaBezierComponentProps,
+  FormFieldProps,
+} from '~/src/types/props'
 
 // TODO: Use number literal types instead of enums
 export enum TextAreaHeight {
@@ -26,5 +27,5 @@ export interface TextAreaProps extends
   Omit<AlphaBezierComponentProps, 'style'>,
   Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'style'>,
   Pick<TextareaAutosizeProps, 'style'>,
-  FormComponentProps,
+  FormFieldProps,
   TextAreaOwnProps {}

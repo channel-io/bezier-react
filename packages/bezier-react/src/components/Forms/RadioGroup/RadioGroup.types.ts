@@ -3,9 +3,9 @@ import type * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
+  type FormFieldProps,
 } from '~/src/types/props'
 
-import { type FormComponentProps } from '~/src/components/Forms'
 import { type StackProps } from '~/src/components/Stack'
 
 interface RadioGroupOwnProps<Value extends string> {
@@ -52,7 +52,7 @@ interface RadioOwnProps<Value extends string> {
   id?: string
 }
 
-type RadioFormComponentProps = Pick<FormComponentProps, 'disabled' | 'required'>
+type RadioFormComponentProps = Pick<FormFieldProps, 'disabled' | 'required'>
 
 export interface RadioGroupProps<Value extends string> extends
   AlphaBezierComponentProps,

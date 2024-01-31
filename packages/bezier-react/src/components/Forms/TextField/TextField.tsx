@@ -15,6 +15,8 @@ import {
   COMMON_IME_CONTROL_KEYS,
   useKeyboardActionLockerWhileComposing,
 } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
+import { type FormFieldSize } from '~/src/types/props'
+import { getFormFieldSizeClassName } from '~/src/utils/props'
 import { toString } from '~/src/utils/string'
 import {
   isArray,
@@ -22,16 +24,12 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { type FormFieldSize } from '~/src/components/Forms'
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
 import { useWindow } from '~/src/components/WindowProvider'
-
-// eslint-disable-next-line no-restricted-imports
-import formStyles from '../../Form.module.scss'
 
 import {
   type SelectionRangeDirections,
@@ -368,7 +366,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         styles.TextFieldWrapper,
         styles[`variant-${variant}`],
         styles[`size-${size}`],
-        formStyles[`size-${size}`],
+        getFormFieldSizeClassName(size),
         wrapperClassName,
       )}
       data-testid={testId}

@@ -8,26 +8,38 @@ import React, {
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
-import { splitByBezierComponentProps } from '~/src/utils/props'
+import {
+  type FormFieldProps,
+  type FormFieldSize,
+  type SizeProps,
+} from '~/src/types/props'
+import { ariaAttr } from '~/src/utils/dom'
+import {
+  getFormFieldSizeClassName,
+  splitByBezierComponentProps,
+} from '~/src/utils/props'
+import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
 import { Stack } from '~/src/components/Stack'
-
-// eslint-disable-next-line no-restricted-imports
-import formStyles from '../Form.module.scss'
 
 import {
   type ContainerProps,
   type ErrorMessagePropsGetter,
   type FieldPropsGetter,
+  type FormControlContextValue,
   type FormControlProps,
   type GroupPropsGetter,
   type HelperTextPropsGetter,
   type LabelPropsGetter,
 } from './FormControl.types'
-import { FormControlContextProvider } from './FormControlContext'
 
 import styles from './FormControl.module.scss'
+
+export const [
+  FormControlContextProvider,
+  useFormControlContext,
+] = createContext<FormControlContextValue | undefined>(undefined)
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 
@@ -122,7 +134,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     className: classNames(
       styles.FormLabelWrapper,
       styles[`position-${labelPosition}`],
-      formStyles[`size-${size}`],
+      getFormFieldSizeClassName(size),
     ),
     typo: labelPosition === 'top' ? '13' : '14',
     ...ownProps,
@@ -211,3 +223,38 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     </FormControlContextProvider>
   )
 })
+
+export function useFormFieldProps<Props extends FormFieldProps & SizeProps<FormFieldSize>>(props?: Props) {
+  const contextValue = useFormControlContext()
+
+  const formFieldProps = useMemo(() => {
+    const mergedProps = contextValue?.getFieldProps(props) ?? { ...props }
+
+    const {
+      disabled = false,
+      readOnly = false,
+      required = false,
+      hasError = false,
+      size = undefined,
+      ...rest
+    } = mergedProps
+
+    return {
+      ...rest,
+      'aria-disabled': ariaAttr(disabled),
+      'aria-invalid': ariaAttr(hasError),
+      'aria-required': ariaAttr(required),
+      'aria-readonly': ariaAttr(readOnly),
+      size,
+      disabled,
+      hasError,
+      required,
+      readOnly,
+    }
+  }, [
+    props,
+    contextValue,
+  ])
+
+  return formFieldProps as typeof formFieldProps & Props
+}

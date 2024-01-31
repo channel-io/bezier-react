@@ -8,15 +8,13 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
+import { getFormFieldSizeClassName } from '~/src/utils/props'
 
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-
-// eslint-disable-next-line no-restricted-imports
-import formStyles from '../Form.module.scss'
 
 import {
   type CheckboxProps,
@@ -71,7 +69,7 @@ function CheckboxImpl<Checked extends CheckedState>({
   return (
     <div className={classNames(
       styles.Container,
-      formStyles['size-m'],
+      getFormFieldSizeClassName('m'),
     )}
     >
       <CheckboxPrimitive.Root

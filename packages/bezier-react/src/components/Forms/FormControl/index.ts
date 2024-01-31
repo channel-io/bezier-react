@@ -1,6 +1,8 @@
-export { FormControl } from './FormControl'
-
-export { useFormControlContext } from './FormControlContext'
+export {
+  FormControl,
+  useFormControlContext,
+  useFormFieldProps,
+} from './FormControl'
 
 export type {
   FormControlProps,

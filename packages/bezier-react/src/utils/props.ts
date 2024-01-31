@@ -2,6 +2,7 @@ import classNames from 'classnames'
 
 import {
   type BezierComponentProps,
+  type FormFieldSize,
   type LayoutProps,
   type MarginProps,
 } from '~/src/types/props'
@@ -14,6 +15,7 @@ import {
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
 import elevationStyles from '../styles/components/elevation.module.scss'
+import formFieldSizeStyles from '../styles/components/form-field-size.module.scss'
 import layoutStyles from '../styles/components/layout.module.scss'
 import marginStyles from '../styles/components/margin.module.scss'
 import radiusStyles from '../styles/components/radius.module.scss'
@@ -254,3 +256,7 @@ export const getLayoutStyles = ({
     ),
   }
 )
+
+export function getFormFieldSizeClassName(size: FormFieldSize) {
+  return formFieldSizeStyles[`size-${size}`]
+}

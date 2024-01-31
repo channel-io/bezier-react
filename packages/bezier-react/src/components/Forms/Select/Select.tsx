@@ -15,10 +15,13 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { getZIndexClassName } from '~/src/utils/props'
+import {
+  getFormFieldSizeClassName,
+  getZIndexClassName,
+} from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 import {
   Icon,
   IconSize,
@@ -28,9 +31,6 @@ import {
   OverlayPosition,
 } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
-
-// eslint-disable-next-line no-restricted-imports
-import formStyles from '../../Form.module.scss'
 
 import {
   type SelectProps,
@@ -139,7 +139,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       <button
         className={classNames(
           styles.SelectTrigger,
-          formStyles[`size-${size}`],
+          getFormFieldSizeClassName(size),
           hasError && styles.invalid,
           readOnly && styles.readonly,
           isDropdownOpened && styles.active,

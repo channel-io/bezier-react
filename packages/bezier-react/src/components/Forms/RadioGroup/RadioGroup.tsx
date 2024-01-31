@@ -4,13 +4,11 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
+import { getFormFieldSizeClassName } from '~/src/utils/props'
 
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-
-// eslint-disable-next-line no-restricted-imports
-import formStyles from '../Form.module.scss'
 
 import {
   type RadioGroupProps,
@@ -75,7 +73,7 @@ function RadioImpl<Value extends string>({
     <RadioGroupPrimitive.Item
       className={classNames(
         styles.RadioGroupItem,
-        formStyles['size-m'],
+        getFormFieldSizeClassName('m'),
         className,
       )}
       ref={forwardedRef}

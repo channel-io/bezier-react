@@ -17,7 +17,7 @@ import { isNil } from '~/src/utils/type'
 
 import { Divider } from '~/src/components/Divider'
 import dividerStyles from '~/src/components/Divider/Divider.module.scss'
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 

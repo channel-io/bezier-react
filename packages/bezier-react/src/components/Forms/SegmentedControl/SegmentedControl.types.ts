@@ -6,11 +6,10 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type DisableProps,
+  type FormFieldProps,
   type SideContentProps,
   type SizeProps,
 } from '~/src/types/props'
-
-import { type FormComponentProps } from '~/src/components/Forms'
 
 export enum SegmentedControlSize {
   XS = 'xs',
@@ -53,7 +52,7 @@ type SegmentedControlValueProps<Value extends string> = {
 }
 
 type SegmentedControlRadioGroupSpecificProps =
-  & FormComponentProps
+  & FormFieldProps
   & {
   /**
    * The name of the group.

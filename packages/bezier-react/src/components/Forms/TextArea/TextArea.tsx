@@ -13,7 +13,7 @@ import {
 } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
-import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
+import { useFormFieldProps } from '~/src/components/Forms/FormControl'
 
 import type { TextAreaProps } from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'

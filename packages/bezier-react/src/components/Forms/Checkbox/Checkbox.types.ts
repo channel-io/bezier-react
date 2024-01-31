@@ -1,9 +1,8 @@
 import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
+  type FormFieldProps,
 } from '~/src/types/props'
-
-import { type FormComponentProps } from '~/src/components/Forms'
 
 export type CheckedState = boolean | 'indeterminate'
 
@@ -42,6 +41,6 @@ interface CheckboxOwnProps<Checked extends CheckedState> {
 export interface CheckboxProps<Checked extends CheckedState> extends
   AlphaBezierComponentProps,
   ChildrenProps,
-  FormComponentProps,
+  FormFieldProps,
   Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CheckboxOwnProps<Checked>>,
   CheckboxOwnProps<Checked> {}

@@ -6,15 +6,12 @@ import type {
   AdditionalColorProps,
   AlphaAdditionalStylableProps,
   AlphaBezierComponentProps,
+  FormFieldProps,
+  FormFieldSize,
   SideContentProps,
   SizeProps,
   VariantProps,
 } from '~/src/types/props'
-
-import type {
-  FormComponentProps,
-  FormFieldSize,
-} from '~/src/components/Forms'
 
 export enum TextFieldType {
   Search = 'search',
@@ -71,7 +68,7 @@ type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'o
 export interface TextFieldProps extends
   AlphaBezierComponentProps,
   AlphaAdditionalStylableProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
-  FormComponentProps,
+  FormFieldProps,
   SizeProps<FormFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,

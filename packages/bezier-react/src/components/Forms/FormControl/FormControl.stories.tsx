@@ -13,9 +13,6 @@ import {
   FormHelperText,
 } from '~/src/components/Forms/FormHelperText'
 import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { Select } from '~/src/components/Forms/Select'
-import { TextArea } from '~/src/components/Forms/TextArea'
-import { TextField } from '~/src/components/Forms/TextField'
 import {
   Radio,
   RadioGroup,
@@ -24,7 +21,10 @@ import {
   SegmentedControl,
   SegmentedControlItem,
 } from '~/src/components/Forms/SegmentedControl'
+import { Select } from '~/src/components/Forms/Select'
 import { Switch } from '~/src/components/Forms/Switch'
+import { TextArea } from '~/src/components/Forms/TextArea'
+import { TextField } from '~/src/components/Forms/TextField'
 
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'

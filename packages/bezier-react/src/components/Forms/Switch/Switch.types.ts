@@ -3,10 +3,9 @@ import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch
 import type {
   AdditionalTestIdProps,
   AlphaBezierComponentProps,
+  FormFieldProps,
   SizeProps,
 } from '~/src/types/props'
-
-import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 
 export enum SwitchSize {
   M = 'm',
@@ -57,6 +56,6 @@ interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
 export interface SwitchProps extends
   AlphaBezierComponentProps,
   SizeProps<SwitchSize>,
-  FormComponentProps,
+  FormFieldProps,
   AdditionalTestIdProps<'handle'>,
   SwitchOwnProps {}

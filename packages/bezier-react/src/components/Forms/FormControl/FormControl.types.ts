@@ -1,14 +1,11 @@
 import type {
   AlphaBezierComponentProps,
   ChildrenProps,
+  FormFieldProps,
+  FormFieldSize,
   IdentifierProps,
   SizeProps,
 } from '~/src/types/props'
-
-import type {
-  FormComponentProps,
-  FormFieldSize,
-} from '~/src/components/Forms'
 
 type LabelPosition = 'top' | 'left'
 
@@ -45,7 +42,7 @@ export type HelperTextPropsGetter = PropsGetter<FormControlClassNameProps & Call
 
 export type ErrorMessagePropsGetter = HelperTextPropsGetter
 
-export interface FormControlContextValue extends FormComponentProps {
+export interface FormControlContextValue extends FormFieldProps {
   id: string
   labelId: string
   helperTextId: string
@@ -65,6 +62,6 @@ export interface ContainerProps extends
 export interface FormControlProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  FormFieldProps,
   SizeProps<FormFieldSize>,
-  FormComponentProps,
   FormControlOwnProps {}

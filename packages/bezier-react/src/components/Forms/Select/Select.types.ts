@@ -6,15 +6,13 @@ import type {
   AlphaAdditionalStylableProps,
   AlphaBezierComponentProps,
   ChildrenProps,
+  FormFieldProps,
+  FormFieldSize,
   SideContentProps,
   SizeProps,
 } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
-import {
-  type FormComponentProps,
-  type FormFieldSize,
-} from '~/src/components/Forms'
 import type { OverlayProps } from '~/src/components/Overlay'
 
 export interface SelectRef {
@@ -40,10 +38,10 @@ interface SelectOwnProps {
 export interface SelectProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
+  FormFieldProps,
   SizeProps<FormFieldSize>,
   SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
   AlphaAdditionalStylableProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text']>,
-  FormComponentProps,
   SelectOwnProps {}
