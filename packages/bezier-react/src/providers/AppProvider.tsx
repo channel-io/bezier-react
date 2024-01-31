@@ -4,14 +4,12 @@ import {
   type Feature,
   FeatureProvider,
 } from '~/src/features'
+import { type ThemeName } from '~/src/types/Token'
 import { window as defaultWindow } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
-import {
-  TokenProvider,
-  type TokenProviderProps,
-} from './TokenProvider'
+import { TokenProvider } from './TokenProvider'
 import { WindowProvider } from './WindowProvider'
 
 export interface AppProviderProps {
@@ -20,7 +18,7 @@ export interface AppProviderProps {
    * Name of the theme to use for the app.
    * @default 'light'
    */
-  themeName?: TokenProviderProps['themeName']
+  themeName?: ThemeName
   /**
    * List of features to enable for the app.
    * @default []
@@ -42,6 +40,7 @@ export interface AppProviderProps {
  * import React from 'react'
  * import { createRoot } from 'react-dom/client'
  * import { AppProvider } from '@channel.io/bezier-react'
+import { ThemeName } from '../../dist/types/types/Token';
  *
  * const container = document.getElementById('root')
  * const root = createRoot(container)
