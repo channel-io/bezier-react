@@ -13,8 +13,10 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import commonStyles from '~/src/components/Navigator/Navigator.module.scss'
 import { Text } from '~/src/components/Text'
+
+// eslint-disable-next-line no-restricted-imports
+import commonStyles from '../NavItem/NavItem.module.scss'
 
 import type { NavGroupProps } from './NavGroup.types'
 

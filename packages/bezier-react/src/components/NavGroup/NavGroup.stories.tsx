@@ -14,7 +14,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { NavItem } from '~/src/components/Navigator/NavItem'
+import { NavItem } from '~/src/components/NavItem'
 
 import { NavGroup } from './NavGroup'
 import type { NavGroupProps } from './NavGroup.types'
