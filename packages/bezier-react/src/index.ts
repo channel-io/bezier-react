@@ -30,6 +30,7 @@ export {
 export {
   FeatureProvider,
   useFeatureFlag,
+  type FeatureProviderProps,
   type FeatureFlag,
 } from '~/src/components/FeatureProvider'
 

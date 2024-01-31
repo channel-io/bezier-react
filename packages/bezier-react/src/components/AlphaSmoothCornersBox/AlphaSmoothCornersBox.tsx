@@ -2,15 +2,14 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import {
-  FeatureType,
-  useFeatureFlag,
-} from '~/src/features'
+import { FeatureType } from '~/src/features'
 import {
   cssUrl,
   cssVar,
   px,
 } from '~/src/utils/style'
+
+import { useFeatureFlag } from '~/src/components/FeatureProvider'
 
 import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
 
