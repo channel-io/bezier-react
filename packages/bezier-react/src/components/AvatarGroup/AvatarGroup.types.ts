@@ -5,7 +5,7 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
-import { type AvatarSize } from '~/src/components/Avatars/Avatar'
+import { type AvatarSize } from '~/src/components/Avatar'
 
 export enum AvatarGroupEllipsisType {
   Icon = 'Icon',

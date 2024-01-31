@@ -24,7 +24,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { Avatar } from '~/src/components/Avatars/Avatar'
+import { Avatar } from '~/src/components/Avatar'
 import { Box } from '~/src/components/Box'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { Center } from '~/src/components/Center'

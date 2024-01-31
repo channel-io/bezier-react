@@ -1,6 +1,6 @@
 import type React from 'react'
 
-import type { AvatarProps } from '~/src/components/Avatars/Avatar'
+import type { AvatarProps } from '~/src/components/Avatar'
 
 interface CheckableAvatarPropsOwnProps {
   /**

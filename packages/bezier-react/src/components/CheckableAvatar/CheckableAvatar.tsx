@@ -9,7 +9,7 @@ import useId from '~/src/hooks/useId'
 import {
   Avatar,
   AvatarSize,
-} from '~/src/components/Avatars/Avatar'
+} from '~/src/components/Avatar'
 import { Icon } from '~/src/components/Icon'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 

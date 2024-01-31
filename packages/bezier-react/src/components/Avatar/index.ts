@@ -1,4 +1,7 @@
-import { Avatar } from './Avatar'
+import {
+  Avatar,
+  useAvatarRadiusToken,
+} from './Avatar'
 import { AvatarSize } from './Avatar.types'
 import type AvatarProps from './Avatar.types'
 
@@ -8,5 +11,6 @@ export type {
 
 export {
   Avatar,
+  useAvatarRadiusToken,
   AvatarSize,
 }

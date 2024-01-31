@@ -11,7 +11,7 @@ import { isNaN } from '~/src/utils/type'
 import {
   Avatar,
   AvatarSize,
-} from '~/src/components/Avatars/Avatar'
+} from '~/src/components/Avatar'
 
 import { AvatarGroup } from './AvatarGroup'
 import {

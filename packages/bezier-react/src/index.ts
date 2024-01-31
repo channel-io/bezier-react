@@ -36,9 +36,9 @@ export {
 
 export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
-export * from '~/src/components/Avatars/Avatar'
-export * from '~/src/components/Avatars/AvatarGroup'
-export * from '~/src/components/Avatars/CheckableAvatar'
+export * from '~/src/components/Avatar'
+export * from '~/src/components/AvatarGroup'
+export * from '~/src/components/CheckableAvatar'
 export * from '~/src/components/Banner'
 export * from '~/src/components/Button'
 export * from '~/src/components/ButtonGroup'

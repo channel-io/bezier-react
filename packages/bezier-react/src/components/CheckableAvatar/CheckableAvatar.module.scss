@@ -1,5 +1,5 @@
-@use '../../../styles/mixins/position';
-@use '../../../styles/mixins/interaction';
+@use '../../styles/mixins/position';
+@use '../../styles/mixins/interaction';
 
 .CheckIcon {
   @include position.absolute-center;

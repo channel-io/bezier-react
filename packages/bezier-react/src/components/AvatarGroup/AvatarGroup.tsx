@@ -15,8 +15,8 @@ import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
   AvatarSize,
-} from '~/src/components/Avatars/Avatar'
-import { useAvatarRadiusToken } from '~/src/components/Avatars/useAvatarRadiusToken'
+  useAvatarRadiusToken,
+} from '~/src/components/Avatar'
 import {
   Icon,
   IconSize,

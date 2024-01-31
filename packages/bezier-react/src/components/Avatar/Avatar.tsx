@@ -11,18 +11,15 @@ import {
   AlphaSmoothCornersBox,
   type BoxShadow,
 } from '~/src/components/AlphaSmoothCornersBox'
-import { useAvatarRadiusToken } from '~/src/components/Avatars/useAvatarRadiusToken'
 import {
   Status,
   StatusSize,
 } from '~/src/components/Status'
-
-// NOTE: Don't fix it. When using absolute paths, a module resolve error occurs at the runtime of the library consumer.
-// eslint-disable-next-line no-restricted-imports
-import defaultAvatarUrl from '../assets/defaultAvatar.svg'
+import { useToken } from '~/src/components/ThemeProvider'
 
 import type AvatarProps from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
+import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
@@ -30,6 +27,10 @@ import styles from './Avatar.module.scss'
 const shadow: BoxShadow = {
   spreadRadius: 2,
   color: 'bg-white-high',
+}
+
+export function useAvatarRadiusToken() {
+  return useToken().global.radius['radius-42-p']
 }
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'

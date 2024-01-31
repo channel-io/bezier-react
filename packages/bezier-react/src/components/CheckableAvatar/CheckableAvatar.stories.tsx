@@ -8,7 +8,7 @@ import {
 
 import { getObjectFromEnum } from '~/src/utils/story'
 
-import { AvatarSize } from '~/src/components/Avatars/Avatar'
+import { AvatarSize } from '~/src/components/Avatar'
 
 import { CheckableAvatar } from './CheckableAvatar'
 import type { CheckableAvatarProps } from './CheckableAvatar.types'

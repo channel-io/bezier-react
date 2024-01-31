@@ -2,7 +2,7 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import { Avatar } from '~/src/components/Avatars/Avatar'
+import { Avatar } from '~/src/components/Avatar'
 
 import {
   AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID,
