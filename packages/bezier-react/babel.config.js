@@ -9,11 +9,4 @@ module.exports = {
     ['@babel/preset-react', { useBuiltIns: true }],
     ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
   ],
-  plugins: [
-    ['babel-plugin-styled-components', {
-      minify: true,
-      pure: true,
-      topLevelImportPaths: ['~/src/foundation'],
-    }],
-  ],
 }

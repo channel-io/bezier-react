@@ -24,7 +24,6 @@ export * from '~/src/components/Forms/FormControl'
 export * from '~/src/components/Forms/FormGroup'
 export * from '~/src/components/Forms/FormHelperText'
 export * from '~/src/components/Forms/FormLabel'
-export * from '~/src/components/Forms/Inputs/mixins'
 export * from '~/src/components/Forms/Inputs/Select'
 export * from '~/src/components/Forms/Inputs/TextArea'
 export * from '~/src/components/Forms/Inputs/TextField'
@@ -61,7 +60,6 @@ export * from '~/src/components/LegacyTooltip'
 
 /* Types */
 export * from '~/src/types/ComponentProps'
-export * from '~/src/types/Foundation'
 export * from '~/src/types/Utils'
 // TODO: Remove namespace exports after removing Foundation type
 export * as Token from '~/src/types/Token'
