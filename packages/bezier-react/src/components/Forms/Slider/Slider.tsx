@@ -71,7 +71,6 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
 /**
  * An input component where the user selects a value from within a given range.
  * The value of the slider is shown in a tooltip, and in some cases you can add a guide scale.
- *
  * @example
  *
  * ```tsx

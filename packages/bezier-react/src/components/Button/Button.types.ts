@@ -48,7 +48,6 @@ interface ButtonOwnProps {
    *
    * You may want to set `type` to `submit` to the button
    * which is used as a submit button in `<form>` component.
-   *
    * @default 'button'
    */
   type?: 'button' | 'reset' | 'submit'
@@ -62,7 +61,6 @@ interface ButtonOwnProps {
 
   /**
    * If `loading` is true, spinner will be shown, replacing the content.
-   *
    * @default false
    */
   loading?: boolean
@@ -71,21 +69,18 @@ interface ButtonOwnProps {
    * If `active` is true, the button will be styled as if it is hovered.
    *
    * You may want to use this prop for a button which opens dropdown, etc.
-   *
    * @default false
    */
   active?: boolean
 
   /**
    * The style variant.
-   *
    * @default ButtonStyleVariant.Primary
    */
   styleVariant?: ButtonStyleVariant
 
   /**
    * The color variant.
-   *
    * @default ButtonColorVariant.Blue
    */
   colorVariant?: ButtonColorVariant

@@ -67,7 +67,6 @@ const [
  * `Modal` is a context of the Modal-related components. It doesn't render any DOM node.
  * It controls the visibility of the entire component and provides
  * handlers and accessibility properties to Modal-related components.
- *
  * @example
  *
  * ```tsx

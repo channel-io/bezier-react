@@ -19,7 +19,6 @@ import styles from './CheckableAvatar.module.scss'
 
 /**
  * `CheckableAvatar` is a checkbox component that looks like `Avatar`.
- *
  * @example
  *
  * ```tsx

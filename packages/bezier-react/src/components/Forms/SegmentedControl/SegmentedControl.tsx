@@ -223,7 +223,6 @@ function SegmentedControlImpl<
  * If you have more than five items, use a different element, such as a dropdown.
  *
  * `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
- *
  * @example
  *
  * ```tsx

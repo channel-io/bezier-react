@@ -23,7 +23,6 @@ import styles from './Stack.module.scss'
 
 /**
  * `Stack` is a layout component used to group elements together and apply a space between them.
- *
  * @example
  *
  * ```tsx

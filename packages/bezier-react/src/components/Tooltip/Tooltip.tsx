@@ -115,7 +115,6 @@ const [
 
 /**
  * `TooltipProvider` is used to globally provide props to child tooltips.
- *
  * @example
  *
  * ```tsx
@@ -150,7 +149,6 @@ export function TooltipProvider({
 
 /**
  * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
- *
  * @example
  *
  * ```tsx

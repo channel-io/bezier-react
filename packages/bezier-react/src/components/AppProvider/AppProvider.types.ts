@@ -9,14 +9,14 @@ interface AppProviderOwnProps {
    */
   themeName?: ThemeName
   /**
-     * List of features to enable for the app.
-     * @default []
-     */
+   * List of features to enable for the app.
+   * @default []
+   */
   features?: Feature[]
   /**
-     * Window object to use for the app.
-     * @default window
-     */
+   * Window object to use for the app.
+   * @default window
+   */
   window?: Window
 }
 

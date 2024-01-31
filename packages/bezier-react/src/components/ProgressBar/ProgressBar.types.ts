@@ -6,7 +6,6 @@ import type {
 
 /**
  * @deprecated Use string literal instead of enum.
- *
  * @example
  *
  * ```tsx
@@ -20,7 +19,6 @@ export enum ProgressBarSize {
 
 /**
  * @deprecated Use string literal instead of enum.
- *
  * @example
  *
  * ```tsx
@@ -37,14 +35,12 @@ interface ProgressBarOwnProps {
   /**
    * CSS Width of total progress bar.
    * If given value is number, `px` is suffixed to given value.
-   *
    * @default 36
    */
   width?: number | string
 
   /**
    * Progress value in floating point number (between 0 and 1, inclusive).
-   *
    * @default 0
    */
   value?: number

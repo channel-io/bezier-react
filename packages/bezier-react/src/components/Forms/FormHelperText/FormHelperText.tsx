@@ -69,7 +69,6 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
 /**
  * `FormHelperText` is a component to show the description of the input element.
  * `FormControl` component can handle its layout by `position` props.
- *
  * @example
  * ```tsx
  * <FormControl position="top">
@@ -107,7 +106,6 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(f
 /**
  * `FormErrorMessage` is a component to show error message when form values are invalid.
  * It should be used with `FormControl` component.
- *
  * @example
  * ```tsx
  * <FormControl>

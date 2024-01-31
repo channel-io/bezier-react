@@ -17,7 +17,6 @@ export interface RenderConfigProps {
    * Specifies which HTML tag should be used to render this component.
    *
    * `as` prop directly comes from the polymorphic "as" prop of `styled-components`.
-   *
    * @see https://styled-components.com/docs/api#as-polymorphic-prop
    */
   as?: React.ElementType

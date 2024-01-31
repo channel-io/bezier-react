@@ -27,7 +27,6 @@ import {
  * `ConfirmModal` is a context of the ConfirmModal-related components. It doesn't render any DOM node.
  * It controls the visibility of the entire component and provides
  * handlers and accessibility properties to ConfirmModal-related components.
- *
  * @example
  *
  * ```tsx

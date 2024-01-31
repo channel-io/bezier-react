@@ -17,7 +17,6 @@ interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   /**
    * The state of the switch when it is initially rendered.
    * Use when you do not need to control its state.
-   *
    * @default false
    */
   defaultChecked?: boolean

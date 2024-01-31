@@ -24,7 +24,6 @@ interface IconOwnProps {
   /**
    * Controls which icon should be rendered.
    * Inject the icon component from the @channel.io/bezier-icons package into this prop.
-   *
    * @example
    * ```tsx
    * import { HeartFilledIcon } from '@channel.io/bezier-icons'

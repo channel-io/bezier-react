@@ -10,8 +10,6 @@ interface LegacyStackItemOwnProps {
   /**
    * Direction of this stack item.
    *
-   * @remarks
-   *
    * If you are directly using this prop in application code, don't.
    * This prop will be provided from parent `Stack` component.
    */
@@ -33,7 +31,6 @@ interface LegacyStackItemOwnProps {
 
   /**
    * Idle size of this component along the main axis, in pixels.
-   *
    * @default auto
    */
   size?: number
@@ -46,7 +43,6 @@ interface LegacyStackItemOwnProps {
    *
    * If the weight is larger, this child will be affected **more** from
    * the parent size update.
-   *
    * @default 0
    */
   weight?: number
@@ -55,7 +51,6 @@ interface LegacyStackItemOwnProps {
    * Allows this component to grow as parent expands.
    *
    * You might want to use this prop together with `weight`.
-   *
    * @default false
    */
   grow?: boolean
@@ -64,7 +59,6 @@ interface LegacyStackItemOwnProps {
    * Allows this component to shrink as parent shrinks.
    *
    * You might want to use htis prop together with `weight`.
-   *
    * @default false
    */
   shrink?: boolean
@@ -74,7 +68,6 @@ interface LegacyStackItemOwnProps {
    *
    * If you do not specify this, the margin will be determined
    * by the default spacing of parent `Stack`.
-   *
    * @default 0
    */
   marginBefore?: number
@@ -84,7 +77,6 @@ interface LegacyStackItemOwnProps {
    *
    * If you do not specify this, the margin will be determined
    * by the default spacing of parent `Stack`.
-   *
    * @default 0
    */
   marginAfter?: number
@@ -92,7 +84,6 @@ interface LegacyStackItemOwnProps {
 
 /**
  * @deprecated Use layout components(`Box`, `Stack`) that support flex item related properties (`shrink`, `grow`) instead.
- *
  * @example
  *
  * ```

@@ -69,7 +69,6 @@ function getProperTypoSize(avatarSize: AvatarSize) {
 
 /**
  * `AvatarGroup` is a component for grouping `Avatar` components
- *
  * @example
  *
  * ```tsx

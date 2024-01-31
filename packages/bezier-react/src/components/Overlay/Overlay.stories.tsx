@@ -126,4 +126,3 @@ export const Primary: StoryObj<OverlayProps> = {
 }
 
 export default meta
-

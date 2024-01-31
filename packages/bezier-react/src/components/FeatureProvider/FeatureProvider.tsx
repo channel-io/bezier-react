@@ -24,7 +24,6 @@ const [
 
 /**
  * `FeatureProvider` is a component that activates features and provides.
- *
  * @example
  *
  * ```tsx

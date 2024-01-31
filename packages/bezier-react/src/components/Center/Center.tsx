@@ -15,7 +15,6 @@ import styles from './Center.module.scss'
 
 /**
  * `Center` is a layout component that centers its child within itself.
- *
  * @example
  *
  * ```tsx

@@ -41,7 +41,6 @@ import styles from './Tabs.module.scss'
  * `Tabs` is a set of layered section of content.
  *
  * `Tabs` is a context of the Tab-related components and gives accessibility properties to Tab-related components.
- *
  * @example
  *
  * ```tsx

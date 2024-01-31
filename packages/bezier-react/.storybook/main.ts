@@ -34,8 +34,6 @@ export default {
 
   typescript: {
     /**
-     * @note
-     *
      * `react-docgen-typescript-plugin` introduces significant overhead
      * when HMR is enabled, so we enable it only in production.
      */
