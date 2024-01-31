@@ -7,7 +7,7 @@ import {
   FormHelperText,
 } from '~/src/components/Forms/FormHelperText'
 import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { TextField } from '~/src/components/Forms/Inputs/TextField'
+import { TextField } from '~/src/components/Forms/TextField'
 
 export const MOCK_CONSTS = {
   LABEL_TEXT: 'Label',

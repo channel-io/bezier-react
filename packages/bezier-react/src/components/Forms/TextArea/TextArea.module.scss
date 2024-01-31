@@ -1,4 +1,4 @@
-@use "../../../../styles/mixins/typography";
+@use "../../../styles/mixins/typography";
 
 .TextArea {
   @include typography.size(14);

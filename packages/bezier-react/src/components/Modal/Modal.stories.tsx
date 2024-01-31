@@ -19,7 +19,7 @@ import {
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { FormControl } from '~/src/components/Forms/FormControl'
 import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { Select } from '~/src/components/Forms/Inputs/Select'
+import { Select } from '~/src/components/Forms/Select'
 import { ListItem } from '~/src/components/ListItem'
 
 import {

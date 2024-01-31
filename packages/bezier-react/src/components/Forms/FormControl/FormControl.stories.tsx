@@ -13,9 +13,9 @@ import {
   FormHelperText,
 } from '~/src/components/Forms/FormHelperText'
 import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { Select } from '~/src/components/Forms/Inputs/Select'
-import { TextArea } from '~/src/components/Forms/Inputs/TextArea'
-import { TextField } from '~/src/components/Forms/Inputs/TextField'
+import { Select } from '~/src/components/Forms/Select'
+import { TextArea } from '~/src/components/Forms/TextArea'
+import { TextField } from '~/src/components/Forms/TextField'
 import {
   Radio,
   RadioGroup,
