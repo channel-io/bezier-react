@@ -10,8 +10,7 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import type { SemanticNames } from '~/src/foundation'
-
+import { type SemanticColor } from '~/src/types/Token'
 import { cssVar } from '~/src/utils/style'
 
 import {
@@ -33,7 +32,7 @@ const statusTypesWithIcon: Readonly<StatusType[]> = [
   StatusType.Lock,
 ]
 
-const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
+const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
   [StatusType.Online]: 'bgtxt-green-normal',
   [StatusType.Offline]: 'bg-black-dark',
   [StatusType.OnlineCrescent]: 'bgtxt-green-normal',

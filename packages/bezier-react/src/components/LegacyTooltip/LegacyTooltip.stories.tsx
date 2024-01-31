@@ -5,7 +5,7 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
+import { Center } from '~/src/components/Center'
 
 import { LegacyTooltip } from './LegacyTooltip'
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
@@ -66,19 +66,16 @@ const meta: Meta<typeof LegacyTooltip> = {
 }
 export default meta
 
-const Target = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 40px;
-  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
-  border-radius: 4px;
-`
-
 const Template: StoryFn<LegacyTooltipProps> = (props) => (
   <LegacyTooltip {...props}>
-    <Target>Target</Target>
+    <Center
+      width={100}
+      height={40}
+      backgroundColor="bg-black-dark"
+      borderRadius="4"
+    >
+      Target
+    </Center>
   </LegacyTooltip>
 )
 

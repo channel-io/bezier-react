@@ -22,12 +22,6 @@ describe('Spinner >', () => {
     expect(renderedSpinner.tagName).toBe('DIV')
   })
 
-  it('should render as a different element depending on `as` prop', () => {
-    const { getByTestId } = renderSpinner({ as: 'span' })
-    const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-    expect(renderedSpinner.tagName).toBe('SPAN')
-  })
-
   it('should forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     renderSpinner({ ref })

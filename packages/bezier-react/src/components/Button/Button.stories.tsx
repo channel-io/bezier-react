@@ -24,10 +24,10 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import { Avatar } from '~/src/components/Avatars/Avatar'
+import { Box } from '~/src/components/Box'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
+import { Center } from '~/src/components/Center'
 import {
   LegacyHStack,
   LegacyStackItem,
@@ -240,18 +240,16 @@ export const UsageWebLinks: StoryObj<{}> = {
   name: 'Usage (as web link)',
 }
 
-const Card = styled.div`
-  width: 360px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev3()}
-  ${({ foundation }) => foundation?.rounding.round12}
-`
-
 export const UsageComposite: StoryObj<{}> = {
   render: () => (
     <LegacyHStack justify="center">
       <LegacyStackItem>
-        <Card>
+        <Box
+          width={360}
+          padding={6}
+          elevation="3"
+          borderRadius="12"
+        >
           <LegacyVStack align="stretch">
             <LegacyStackItem>
               <SectionLabel
@@ -320,7 +318,7 @@ export const UsageComposite: StoryObj<{}> = {
               />
             </LegacyStackItem>
           </LegacyVStack>
-        </Card>
+        </Box>
       </LegacyStackItem>
     </LegacyHStack>
   ),
@@ -361,16 +359,6 @@ export const UsageVariousContentsIconOnly: StoryObj<{}> = {
   name: 'Usage (icon only button)',
 }
 
-const AlertBadge = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background-color: var(--bgtxt-red-dark);
-  border-radius: 50%;
-`
-
 export const UsageVariousContentsCustom: StoryObj<{}> = {
   render: () => (
     <LegacyHStack justify="center">
@@ -385,11 +373,16 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
           )}
           text="New messages"
           rightContent={(
-            <AlertBadge>
+            <Center
+              style={{ borderRadius: '50%' }}
+              width={20}
+              height={20}
+              backgroundColor="bgtxt-red-dark"
+            >
               <Text typo="13" color="txt-white-normal">
                 1
               </Text>
-            </AlertBadge>
+            </Center>
           )}
           colorVariant={ButtonColorVariant.Red}
           styleVariant={ButtonStyleVariant.Floating}
@@ -434,13 +427,6 @@ export const UsageAsync: StoryObj<{}> = {
   name: 'Usage (with asyncrhonous actions)',
 }
 
-const Dropdown = styled.div`
-  width: 200px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev2()}
-  ${({ foundation }) => foundation?.rounding.round8}
-`
-
 const OpenDropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [target, setTarget] = useState<HTMLElement | null>(null)
@@ -464,9 +450,14 @@ const OpenDropdownButton = () => {
         position={OverlayPosition.BottomLeft}
         marginY={6}
       >
-        <Dropdown>
+        <Box
+          width={200}
+          padding={6}
+          elevation="2"
+          borderRadius="8"
+        >
           <Text typo="13" marginLeft={6}>Dropdown content</Text>
-        </Dropdown>
+        </Box>
       </Overlay>
     </div>
   )

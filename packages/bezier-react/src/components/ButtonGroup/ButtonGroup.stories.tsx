@@ -6,12 +6,11 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import {
   Button,
   ButtonStyleVariant,
 } from '~/src/components/Button'
+import { Center } from '~/src/components/Center'
 import {
   LegacySpacer,
   LegacyStackItem,
@@ -31,16 +30,11 @@ const meta: Meta<typeof ButtonGroup> = {
 }
 export default meta
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 200px;
-`
-
 const Template: StoryFn<ButtonGroupProps> = (props) => (
-  <Wrapper>
+  <Center
+    width={200}
+    height={200}
+  >
     <LegacySpacer />
     <LegacyStackItem>
       <ButtonGroup {...props}>
@@ -49,7 +43,7 @@ const Template: StoryFn<ButtonGroupProps> = (props) => (
       </ButtonGroup>
     </LegacyStackItem>
     <LegacySpacer />
-  </Wrapper>
+  </Center>
 )
 
 export const Playground: StoryObj<ButtonGroupProps> = {
