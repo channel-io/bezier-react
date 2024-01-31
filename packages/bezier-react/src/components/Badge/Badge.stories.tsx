@@ -10,7 +10,7 @@ import {
 import {
   TagBadgeSize,
   TagBadgeVariant,
-} from '~/src/components/TagBadge'
+} from '~/src/components/TagBadgeCommon'
 
 import { Badge } from './Badge'
 import type BadgeProps from './Badge.types'

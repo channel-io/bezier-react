@@ -13,8 +13,8 @@ import {
   TagBadgeSize,
   TagBadgeVariant,
   getProperTagBadgeTypo,
-} from '~/src/components/TagBadge/TagBadgeCommon'
-import commonStyles from '~/src/components/TagBadge/TagBadgeCommon/TagBadge.module.scss'
+} from '~/src/components/TagBadgeCommon'
+import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
 import { Text } from '~/src/components/Text'
 
 import type BadgeProps from './Badge.types'

@@ -1,8 +1,7 @@
-import { type BezierIcon } from '@channel.io/bezier-icons'
-
 import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
+  type ColorProps,
   type SizeProps,
   type VariantProps,
 } from '~/src/types/props'
@@ -10,21 +9,24 @@ import {
 import {
   type TagBadgeSize,
   type TagBadgeVariant,
-} from '~/src/components/TagBadge'
+} from '~/src/components/TagBadgeCommon'
 
-interface BadgeOwnProps {
+interface TagOwnProps {
   /**
-   * Icon to be shown on the left side of the badge.
+   * Handler to be called when the delete button is clicked.
+   *
+   * The delete button will be not shown if this prop is not provided.
    */
-  icon?: BezierIcon
+  onDelete?: React.MouseEventHandler
 }
 
-interface BadgeProps extends
+interface TagProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
-  BadgeOwnProps {}
+  ColorProps,
+  TagOwnProps {}
 
-export default BadgeProps
+export default TagProps

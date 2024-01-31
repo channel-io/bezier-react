@@ -9,7 +9,7 @@ import {
 import {
   TagBadgeSize,
   TagBadgeVariant,
-} from '~/src/components/TagBadge'
+} from '~/src/components/TagBadgeCommon'
 
 import { Tag } from './Tag'
 
