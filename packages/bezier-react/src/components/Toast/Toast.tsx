@@ -18,8 +18,6 @@ import {
 import classNames from 'classnames'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
-import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
-import { useWindow } from '~/src/providers/WindowProvider'
 import { ariaAttr } from '~/src/utils/dom'
 import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
@@ -32,6 +30,8 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
+import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
+import { useWindow } from '~/src/components/WindowProvider'
 
 import {
   type ToastContextValue,

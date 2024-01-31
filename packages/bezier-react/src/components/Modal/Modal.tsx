@@ -10,11 +10,6 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import {
-  ThemeProvider,
-  useThemeName,
-} from '~/src/providers/ThemeProvider'
-import { useWindow } from '~/src/providers/WindowProvider'
 import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
@@ -31,7 +26,12 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
+import {
+  ThemeProvider,
+  useThemeName,
+} from '~/src/components/ThemeProvider'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
+import { useWindow } from '~/src/components/WindowProvider'
 
 import {
   type ModalBodyProps,

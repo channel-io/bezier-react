@@ -4,9 +4,13 @@ import { Slot } from '@radix-ui/react-slot'
 
 import {
   TokenProvider,
-  type TokenProviderProps,
   useTokenContext,
-} from './TokenProvider'
+} from '~/src/components/TokenProvider'
+
+import {
+  type FixedThemeProviderProps,
+  type ThemeProviderProps,
+} from './ThemeProvider.types'
 
 /**
  * `useThemeName` is a hook that returns the current theme name.
@@ -21,13 +25,6 @@ export function useThemeName() {
 export function useToken() {
   return useTokenContext('useToken').tokens
 }
-
-export interface ThemeProviderProps {
-  themeName: TokenProviderProps['themeName']
-  children: React.ReactElement
-}
-
-export type FixedThemeProviderProps = Omit<ThemeProviderProps, 'themeName'>
 
 /**
  * `ThemeProvider` is a wrapper component that provides theme context.

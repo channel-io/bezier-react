@@ -11,7 +11,7 @@ import React, {
 
 import classNames from 'classnames'
 
-import { useWindow } from '~/src/providers/WindowProvider'
+import { useWindow } from '~/src/components/WindowProvider'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 import { LegacyTooltipPosition } from './LegacyTooltip.types'

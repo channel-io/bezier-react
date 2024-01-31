@@ -9,8 +9,6 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
-import { useWindow } from '~/src/providers/WindowProvider'
 import { createContext } from '~/src/utils/react'
 import {
   isBoolean,
@@ -23,6 +21,8 @@ import {
 } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
+import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
+import { useWindow } from '~/src/components/WindowProvider'
 
 import {
   TooltipPosition,

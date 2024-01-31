@@ -14,13 +14,13 @@ import classNames from 'classnames'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+
+import { useModalContainerContext } from '~/src/components/Modal'
 import {
   ThemeProvider,
   useThemeName,
-} from '~/src/providers/ThemeProvider'
-import { useWindow } from '~/src/providers/WindowProvider'
-
-import { useModalContainerContext } from '~/src/components/Modal'
+} from '~/src/components/ThemeProvider'
+import { useWindow } from '~/src/components/WindowProvider'
 
 import type {
   ContainerRectAttr,

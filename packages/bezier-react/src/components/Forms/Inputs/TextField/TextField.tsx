@@ -11,7 +11,6 @@ import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
-import { useWindow } from '~/src/providers/WindowProvider'
 import { toString } from '~/src/utils/string'
 import {
   isArray,
@@ -29,6 +28,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import { useWindow } from '~/src/components/WindowProvider'
 
 // eslint-disable-next-line no-restricted-imports
 import formStyles from '../../Form.module.scss'
