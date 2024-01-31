@@ -3,13 +3,10 @@ import React, { forwardRef } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
 import {
-  type ThemedTokenSet,
   TokenProvider,
   type TokenProviderProps,
   useTokenContext,
 } from './TokenProvider'
-
-export type { ThemedTokenSet }
 
 /**
  * `useThemeName` is a hook that returns the current theme name.
