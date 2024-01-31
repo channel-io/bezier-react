@@ -1,6 +1,6 @@
-@use "../../../styles/mixins/typography";
-@use '../../../styles/mixins/dimension';
-@use '../../../styles/mixins/interaction';
+@use "../../styles/mixins/typography";
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
 
 .CheckIcon {
   transition: none;

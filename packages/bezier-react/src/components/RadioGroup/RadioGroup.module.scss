@@ -3,8 +3,8 @@ $outer-indicator-margin: 1px;
 $inner-indicator-size: 8px;
 
 @use "sass:math";
-@use '../../../styles/mixins/dimension';
-@use '../../../styles/mixins/interaction';
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
 
 @mixin outer-indicator-focus-styles {
   &:where(:not([data-disabled])[data-state='checked'])::before {
