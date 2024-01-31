@@ -6,7 +6,7 @@ import type {
   ContentProps,
   LinkProps,
   SideContentProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 interface NavItemOwnProps {
   name: string

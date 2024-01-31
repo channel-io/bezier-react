@@ -2,7 +2,7 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type MarginProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import { type StackProps } from '~/src/components/Stack'
 

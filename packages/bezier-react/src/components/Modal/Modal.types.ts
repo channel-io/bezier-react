@@ -2,8 +2,8 @@ import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
-} from '~/src/types/ComponentProps'
-import { type ZIndex } from '~/src/types/Token'
+} from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export enum ModalTitleSize {
   L = 'L',

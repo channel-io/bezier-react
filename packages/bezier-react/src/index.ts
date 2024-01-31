@@ -56,7 +56,7 @@ export * from '~/src/components/LegacyIcon'
 export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
-export * from '~/src/types/ComponentProps'
-export * from '~/src/types/Token'
+export * from '~/src/types/props'
+export * from '~/src/types/tokens'
 
 export * from '~/src/features'

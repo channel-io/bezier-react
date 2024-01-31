@@ -5,7 +5,7 @@ import {
   type ChildrenProps,
   type SizeProps,
   type VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import {
   type TagBadgeSize,

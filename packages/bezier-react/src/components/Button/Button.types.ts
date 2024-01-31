@@ -6,7 +6,7 @@ import {
   type PolymorphicProps,
   type SideContentProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export enum ButtonStyleVariant {
   Primary = 'primary',

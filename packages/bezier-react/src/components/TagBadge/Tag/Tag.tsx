@@ -7,7 +7,7 @@ import React, {
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type SemanticColor } from '~/src/types/Token'
+import { type SemanticColor } from '~/src/types/tokens'
 import { cssVar } from '~/src/utils/style'
 import {
   isEmpty,

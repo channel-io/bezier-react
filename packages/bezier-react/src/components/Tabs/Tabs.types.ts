@@ -5,7 +5,7 @@ import {
   type ChildrenProps,
   type DisableProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export enum TabSize {
   L = 'l',

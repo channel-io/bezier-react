@@ -1,7 +1,7 @@
 import type {
   AlphaBezierComponentProps,
   SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export enum EmojiSize {
   Size16 = 16,

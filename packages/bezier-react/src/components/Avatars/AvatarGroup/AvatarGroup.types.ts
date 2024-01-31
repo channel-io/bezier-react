@@ -3,7 +3,7 @@ import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import { type AvatarSize } from '~/src/components/Avatars/Avatar'
 

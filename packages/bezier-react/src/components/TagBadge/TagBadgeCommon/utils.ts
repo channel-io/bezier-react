@@ -1,4 +1,4 @@
-import { type SemanticColor } from '~/src/types/Token'
+import { type SemanticColor } from '~/src/types/tokens'
 
 import TagBadgeSize from './constants/TagBadgeSize'
 import type TagBadgeVariant from './constants/TagBadgeVariant'

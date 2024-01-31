@@ -4,7 +4,7 @@ import {
   type Feature,
   FeatureProvider,
 } from '~/src/features'
-import { type ThemeName } from '~/src/types/Token'
+import { type ThemeName } from '~/src/types/tokens'
 import { window as defaultWindow } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'

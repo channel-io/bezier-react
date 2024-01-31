@@ -6,7 +6,7 @@ import {
 } from '@testing-library/react'
 
 import { AppProvider } from '~/src/providers/AppProvider'
-import { type ChildrenProps } from '~/src/types/ComponentProps'
+import { type ChildrenProps } from '~/src/types/props'
 
 function TestProvider({ children }: ChildrenProps) {
   return (

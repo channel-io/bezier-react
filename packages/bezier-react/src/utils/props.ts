@@ -4,12 +4,12 @@ import {
   type BezierComponentProps,
   type LayoutProps,
   type MarginProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 import {
   type Elevation,
   type Radius,
   type ZIndex,
-} from '~/src/types/Token'
+} from '~/src/types/tokens'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */

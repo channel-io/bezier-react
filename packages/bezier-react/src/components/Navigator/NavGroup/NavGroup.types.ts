@@ -6,7 +6,7 @@ import type {
   ChildrenProps,
   ContentProps,
   SideContentProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 interface NavGroupOwnProps {
   open?: boolean

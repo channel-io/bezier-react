@@ -5,7 +5,7 @@ import {
   type ChildrenProps,
   type ContentProps,
   type DisableProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 /**
  * An enumeration that determines the position of `Tooltip`.

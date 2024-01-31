@@ -9,7 +9,7 @@ import type {
   SideContentProps,
   SizeProps,
   VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type {
   FormComponentProps,

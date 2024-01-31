@@ -8,7 +8,7 @@ import type {
   LinkProps,
   PolymorphicProps,
   SideContentProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export interface OutlineItemContextProps {
   indent: number

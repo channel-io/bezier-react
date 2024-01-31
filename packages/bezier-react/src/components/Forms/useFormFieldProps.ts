@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { type SizeProps } from '~/src/types/ComponentProps'
+import { type SizeProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/dom'
 
 import type {

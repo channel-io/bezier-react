@@ -1,4 +1,4 @@
-import { type ChildrenProps } from '~/src/types/ComponentProps'
+import { type ChildrenProps } from '~/src/types/props'
 
 interface AutoFocusOptions {
   /**

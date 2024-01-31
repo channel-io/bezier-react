@@ -9,7 +9,7 @@ import type {
   Radius,
   SemanticColor,
   ZIndex,
-} from './Token'
+} from './tokens'
 
 /* Component Base Props */
 export interface RenderConfigProps {

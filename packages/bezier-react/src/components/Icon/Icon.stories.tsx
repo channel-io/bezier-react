@@ -27,7 +27,7 @@ import {
 } from '@storybook/react'
 
 import { useToken } from '~/src/providers/ThemeProvider'
-import { type SemanticColor } from '~/src/types/Token'
+import { type SemanticColor } from '~/src/types/tokens'
 import {
   getObjectFromEnum,
   iconList,

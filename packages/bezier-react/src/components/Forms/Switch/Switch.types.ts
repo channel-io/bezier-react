@@ -4,7 +4,7 @@ import type {
   AdditionalTestIdProps,
   AlphaBezierComponentProps,
   SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type { FormComponentProps } from '~/src/components/Forms/Form.types'
 

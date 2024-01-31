@@ -1,7 +1,7 @@
 import type {
   AlphaBezierComponentProps,
   DisableProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 interface SliderOwnProps {
   /**

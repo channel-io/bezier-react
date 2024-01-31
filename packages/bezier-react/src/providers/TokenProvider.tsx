@@ -6,7 +6,7 @@ import {
   type GlobalToken,
   type SemanticToken,
   type ThemeName,
-} from '~/src/types/Token'
+} from '~/src/types/tokens'
 import { createContext } from '~/src/utils/react'
 
 type ThemedTokenSet = {

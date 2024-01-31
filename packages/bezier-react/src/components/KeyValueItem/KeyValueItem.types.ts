@@ -5,7 +5,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import type {
   AlphaBezierComponentProps,
   ChildrenProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export type ItemActionWithIcon = {
   icon: BezierIcon

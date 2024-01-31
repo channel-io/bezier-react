@@ -2,7 +2,7 @@ import {
   type AlphaBezierComponentProps,
   type ColorProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export enum SpinnerSize {
   XL = 'xl',

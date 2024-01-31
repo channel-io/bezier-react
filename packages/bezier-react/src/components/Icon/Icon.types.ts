@@ -5,7 +5,7 @@ import {
   type ColorProps,
   type MarginProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 /**
  * TODO: migrate to string literal
