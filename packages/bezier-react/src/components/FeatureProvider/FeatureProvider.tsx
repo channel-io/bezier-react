@@ -4,15 +4,14 @@ import React, {
   useState,
 } from 'react'
 
+import { FeatureType } from '~/src/features'
 import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
 
 import {
-  type Feature,
-  FeatureType,
-} from './Feature'
-
-export type FeatureFlag = Record<FeatureType, boolean>
+  type FeatureFlag,
+  type FeatureProviderProps,
+} from './FeatureProvider.types'
 
 const initialFeatureFlag: FeatureFlag = {
   [FeatureType.SmoothCorners]: false,
@@ -22,14 +21,6 @@ const [
   FeatureFlagContextProvider,
   useFeatureFlagContext,
 ] = createContext<FeatureFlag>(initialFeatureFlag)
-
-interface FeatureProviderProps {
-  children: React.ReactNode
-  /**
-   * Features to activate.
-   */
-  features: Feature[]
-}
 
 /**
  * `FeatureProvider` is a component that activates features and provides.

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 
-import { FeatureProvider } from '~/src/features'
 import { window as defaultWindow } from '~/src/utils/dom'
 
+import { FeatureProvider } from '~/src/components/FeatureProvider'
 import { TokenProvider } from '~/src/components/TokenProvider'
 import { TooltipProvider } from '~/src/components/Tooltip'
 import { WindowProvider } from '~/src/components/WindowProvider'

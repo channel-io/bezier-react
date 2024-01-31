@@ -27,6 +27,12 @@ export {
   type WindowContextValue,
 } from '~/src/components/WindowProvider'
 
+export {
+  FeatureProvider,
+  useFeatureFlag,
+  type FeatureFlag,
+} from '~/src/components/FeatureProvider'
+
 export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatars/Avatar'
@@ -82,4 +88,9 @@ export * from '~/src/components/LegacyTooltip'
 export * from '~/src/types/props'
 export * from '~/src/types/tokens'
 
-export * from '~/src/features'
+export {
+  SmoothCornersFeature,
+  FeatureType,
+  type Feature,
+} from '~/src/features'
+
