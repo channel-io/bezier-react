@@ -1,12 +1,12 @@
-/* eslint-disable no-restricted-imports */
 import React from 'react'
 
 import type { Preview } from '@storybook/react'
 
-import { Text } from '../src/components/Text'
-import { SmoothCornersFeature } from '../src/features'
-import { AppProvider } from '../src/providers/AppProvider'
-import { InvertedThemeProvider } from '../src/providers/ThemeProvider'
+import { SmoothCornersFeature } from '~/src/features'
+import { AppProvider } from '~/src/providers/AppProvider'
+import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
+
+import { Text } from '~/src/components/Text'
 
 import styles from './preview.module.scss'
 
