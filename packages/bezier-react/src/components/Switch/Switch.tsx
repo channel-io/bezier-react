@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 import classNames from 'classnames'
 
-import { useFormFieldProps } from '~/src/components/Forms/FormControl'
+import { useFormFieldProps } from '~/src/components/FormControl'
 
 import {
   type SwitchProps,

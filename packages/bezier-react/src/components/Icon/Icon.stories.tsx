@@ -33,7 +33,7 @@ import {
 } from '~/src/utils/story'
 import { camelCase } from '~/src/utils/string'
 
-import { Select } from '~/src/components/Forms/Select'
+import { Select } from '~/src/components/Select'
 import {
   LegacyHStack,
   LegacyStackItem,

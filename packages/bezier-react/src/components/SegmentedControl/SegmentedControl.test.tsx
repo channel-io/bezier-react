@@ -8,7 +8,7 @@ import { render } from '~/src/utils/test'
 import {
   FormControl,
   type FormControlProps,
-} from '~/src/components/Forms/FormControl'
+} from '~/src/components/FormControl'
 
 import {
   SegmentedControl,

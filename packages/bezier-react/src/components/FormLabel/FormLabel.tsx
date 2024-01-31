@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { useFormControlContext } from '~/src/components/FormControl'
 import { Help } from '~/src/components/Help'
 import { HELP_DISPLAY_NAME } from '~/src/components/Help/Help'
 import {

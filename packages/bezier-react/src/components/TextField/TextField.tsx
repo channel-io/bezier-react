@@ -24,7 +24,7 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { useFormFieldProps } from '~/src/components/Forms/FormControl'
+import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
   IconSize,

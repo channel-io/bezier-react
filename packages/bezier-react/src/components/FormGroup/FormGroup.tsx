@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 
-import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { useFormControlContext } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'
 
 import type FormGroupProps from './FormGroup.types'

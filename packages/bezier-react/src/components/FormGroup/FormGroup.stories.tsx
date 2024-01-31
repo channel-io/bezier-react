@@ -6,7 +6,7 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import { Checkbox } from '~/src/components/Forms/Checkbox'
+import { Checkbox } from '~/src/components/Checkbox'
 
 import FormGroup from './FormGroup'
 import type FormGroupProps from './FormGroup.types'

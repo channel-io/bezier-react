@@ -17,9 +17,9 @@ import {
   ButtonStyleVariant,
 } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
-import { FormControl } from '~/src/components/Forms/FormControl'
-import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { Select } from '~/src/components/Forms/Select'
+import { FormControl } from '~/src/components/FormControl'
+import { FormLabel } from '~/src/components/FormLabel'
+import { Select } from '~/src/components/Select'
 import { ListItem } from '~/src/components/ListItem'
 
 import {

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { FormControl } from '~/src/components/Forms/FormControl'
-import { FormGroup } from '~/src/components/Forms/FormGroup'
+import { FormControl } from '~/src/components/FormControl'
+import { FormGroup } from '~/src/components/FormGroup'
 import {
   FormErrorMessage,
   FormHelperText,
-} from '~/src/components/Forms/FormHelperText'
-import { FormLabel } from '~/src/components/Forms/FormLabel'
-import { TextField } from '~/src/components/Forms/TextField'
+} from '~/src/components/FormHelperText'
+import { FormLabel } from '~/src/components/FormLabel'
+import { TextField } from '~/src/components/TextField'
 
 export const MOCK_CONSTS = {
   LABEL_TEXT: 'Label',

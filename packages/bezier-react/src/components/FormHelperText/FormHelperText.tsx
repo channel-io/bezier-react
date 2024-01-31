@@ -6,7 +6,7 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { isEmpty } from '~/src/utils/type'
 
-import { useFormControlContext } from '~/src/components/Forms/FormControl'
+import { useFormControlContext } from '~/src/components/FormControl'
 import { Text } from '~/src/components/Text'
 
 import type {

@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/utils/props'
 
-import { useFormFieldProps } from '~/src/components/Forms/FormControl'
+import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
   IconSize,

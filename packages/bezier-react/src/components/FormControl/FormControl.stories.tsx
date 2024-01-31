@@ -6,25 +6,25 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import { Checkbox } from '~/src/components/Forms/Checkbox'
-import { FormGroup } from '~/src/components/Forms/FormGroup'
+import { Checkbox } from '~/src/components/Checkbox'
+import { FormGroup } from '~/src/components/FormGroup'
 import {
   FormErrorMessage,
   FormHelperText,
-} from '~/src/components/Forms/FormHelperText'
-import { FormLabel } from '~/src/components/Forms/FormLabel'
+} from '~/src/components/FormHelperText'
+import { FormLabel } from '~/src/components/FormLabel'
 import {
   Radio,
   RadioGroup,
-} from '~/src/components/Forms/RadioGroup'
+} from '~/src/components/RadioGroup'
 import {
   SegmentedControl,
   SegmentedControlItem,
-} from '~/src/components/Forms/SegmentedControl'
-import { Select } from '~/src/components/Forms/Select'
-import { Switch } from '~/src/components/Forms/Switch'
-import { TextArea } from '~/src/components/Forms/TextArea'
-import { TextField } from '~/src/components/Forms/TextField'
+} from '~/src/components/SegmentedControl'
+import { Select } from '~/src/components/Select'
+import { Switch } from '~/src/components/Switch'
+import { TextArea } from '~/src/components/TextArea'
+import { TextField } from '~/src/components/TextField'
 
 import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
