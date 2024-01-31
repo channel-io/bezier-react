@@ -7,6 +7,5 @@ export {
 export type {
   FormControlProps,
   FormControlContextValue,
-  FormControlContextCommonValue,
   FormControlAriaProps,
 } from './FormControl.types'

@@ -33,13 +33,13 @@ import {
 } from '~/src/utils/story'
 import { camelCase } from '~/src/utils/string'
 
-import { Select } from '~/src/components/Select'
 import {
   LegacyHStack,
   LegacyStackItem,
   LegacyVStack,
 } from '~/src/components/LegacyStack'
 import { ListItem } from '~/src/components/ListItem'
+import { Select } from '~/src/components/Select'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 import { useToken } from '~/src/components/ThemeProvider'

@@ -17,8 +17,6 @@ interface FormControlClassNameProps {
   className: string
 }
 
-export interface FormControlContextCommonValue extends Partial<IdentifierProps> {}
-
 export interface FormControlAriaProps {
   'aria-labelledby'?: string
   'aria-describedby'?: string
@@ -28,7 +26,7 @@ interface CallbackRefProps {
   ref: (node: HTMLElement | null) => void
 }
 
-type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & FormControlContextCommonValue & ExtraReturnType
+type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & Partial<IdentifierProps> & ExtraReturnType
 
 export type GroupPropsGetter = PropsGetter<CallbackRefProps & FormControlAriaProps>
 

@@ -36,10 +36,12 @@ import {
 
 import styles from './FormControl.module.scss'
 
-export const [
+const [
   FormControlContextProvider,
   useFormControlContext,
 ] = createContext<FormControlContextValue | undefined>(undefined)
+
+export { useFormControlContext }
 
 export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
 

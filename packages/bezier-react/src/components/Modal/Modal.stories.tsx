@@ -19,8 +19,8 @@ import {
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { FormControl } from '~/src/components/FormControl'
 import { FormLabel } from '~/src/components/FormLabel'
-import { Select } from '~/src/components/Select'
 import { ListItem } from '~/src/components/ListItem'
+import { Select } from '~/src/components/Select'
 
 import {
   Modal,
