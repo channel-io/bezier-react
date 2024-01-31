@@ -2,8 +2,11 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import Help, { HELP_TEST_ID } from './Help'
-import type HelpProps from './Help.types'
+import {
+  HELP_TEST_ID,
+  Help,
+} from './Help'
+import { type HelpProps } from './Help.types'
 
 describe('Help >', () => {
   let props: HelpProps

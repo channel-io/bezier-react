@@ -1,19 +1,18 @@
 export {
   ConfirmModal,
-  ConfirmModalContent,
-  ConfirmModalHeader,
   ConfirmModalBody,
-  ConfirmModalFooter,
-  ConfirmModalTrigger,
   ConfirmModalClose,
+  ConfirmModalContent,
+  ConfirmModalFooter,
+  ConfirmModalHeader,
+  ConfirmModalTrigger,
 } from './ConfirmModal'
-
-export {
-  type ConfirmModalProps,
-  type ConfirmModalContentProps,
-  type ConfirmModalHeaderProps,
-  type ConfirmModalBodyProps,
-  type ConfirmModalFooterProps,
-  type ConfirmModalTriggerProps,
-  type ConfirmModalCloseProps,
+export type {
+  ConfirmModalBodyProps,
+  ConfirmModalCloseProps,
+  ConfirmModalContentProps,
+  ConfirmModalFooterProps,
+  ConfirmModalHeaderProps,
+  ConfirmModalProps,
+  ConfirmModalTriggerProps,
 } from './ConfirmModal.types'

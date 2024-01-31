@@ -13,7 +13,7 @@ import {
 } from '~/src/components/TagBadgeCommon'
 
 import { Badge } from './Badge'
-import type BadgeProps from './Badge.types'
+import { type BadgeProps } from './Badge.types'
 
 const meta:Meta<typeof Badge> = {
   component: Badge,

@@ -2,7 +2,10 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import Spinner, { SPINNER_TEST_ID } from './Spinner'
+import {
+  SPINNER_TEST_ID,
+  Spinner,
+} from './Spinner'
 import { SpinnerSize } from './Spinner.types'
 
 describe('Spinner >', () => {

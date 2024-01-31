@@ -19,7 +19,7 @@ export enum SpinnerThickness {
   Light = 2,
 }
 
-export default interface SpinnerProps extends
+export interface SpinnerProps extends
   AlphaBezierComponentProps,
   SizeProps<SpinnerSize>,
   ColorProps,

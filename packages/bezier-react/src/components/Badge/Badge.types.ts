@@ -19,12 +19,10 @@ interface BadgeOwnProps {
   icon?: BezierIcon
 }
 
-interface BadgeProps extends
+export interface BadgeProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
   BadgeOwnProps {}
-
-export default BadgeProps

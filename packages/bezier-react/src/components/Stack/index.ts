@@ -1,11 +1,10 @@
 export {
-  Stack,
   HStack,
+  Stack,
   VStack,
 } from './Stack'
-
 export type {
-  StackProps,
   HStackProps,
+  StackProps,
   VStackProps,
 } from './Stack.types'

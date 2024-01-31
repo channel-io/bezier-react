@@ -8,7 +8,7 @@ import { type SemanticColor } from '~/src/types/tokens'
 /**
  * NOTE: The `inset` property is not currently supported.
  */
-export interface BoxShadow {
+interface BoxShadow {
   /**
    * The value specifies the horizontal distance. Negative values place the shadow to the left of the element.
    * @default 0

@@ -1,5 +1,3 @@
-export { default as LegacyIcon } from './LegacyIcon'
-
-export type { default as LegacyIconProps } from './LegacyIcon.types'
-
-export * from './utils'
+export { LegacyIcon } from './LegacyIcon'
+export type { LegacyIconProps } from './LegacyIcon.types'
+export { isIconName } from './utils'

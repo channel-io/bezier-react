@@ -2,5 +2,7 @@ export {
   KeyValueItem,
   KeyValueMultiLineItem,
 } from './KeyValueItem'
-
-export type { KeyValueItemProps } from './KeyValueItem.types'
+export type {
+  KeyValueItemAction,
+  KeyValueItemProps,
+} from './KeyValueItem.types'

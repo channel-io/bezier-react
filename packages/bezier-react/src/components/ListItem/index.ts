@@ -1,5 +1,7 @@
 export { ListItem } from './ListItem'
+export {
+  type ListItemProps,
+  ListItemSize,
+  ListItemVariant,
+} from './ListItem.types'
 
-export { ListItemSize, ListItemVariant } from './ListItem.types'
-
-export type { ListItemProps } from './ListItem.types'

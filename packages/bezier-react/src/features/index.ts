@@ -1,2 +1,5 @@
-export * from './Feature'
-export * from './SmoothCornersFeature'
+export {
+  type Feature,
+  FeatureType,
+} from './Feature'
+export { SmoothCornersFeature } from './SmoothCornersFeature'

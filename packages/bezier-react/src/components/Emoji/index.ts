@@ -1,2 +1,5 @@
 export { Emoji } from './Emoji'
-export { EmojiSize, type EmojiProps } from './Emoji.types'
+export {
+  type EmojiProps,
+  EmojiSize,
+} from './Emoji.types'

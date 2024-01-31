@@ -2,7 +2,10 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import Help, { HELP_TEST_ID } from '~/src/components/Help/Help'
+import {
+  HELP_TEST_ID,
+  Help,
+} from '~/src/components/Help/Help'
 
 import {
   FORM_LABEL_TEST_ID,

@@ -1,5 +1,6 @@
 export { TextArea } from './TextArea'
+export {
+  TextAreaHeight,
+  type TextAreaProps,
+} from './TextArea.types'
 
-export type { TextAreaProps } from './TextArea.types'
-
-export { TextAreaHeight } from './TextArea.types'

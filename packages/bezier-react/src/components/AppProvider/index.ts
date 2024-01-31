@@ -1,2 +1,2 @@
-export * from './AppProvider'
-export * from './AppProvider.types'
+export { AppProvider } from './AppProvider'
+export type { AppProviderProps } from './AppProvider.types'

@@ -1,2 +1,8 @@
-export * from './FeatureProvider'
-export * from './FeatureProvider.types'
+export {
+  FeatureProvider,
+  useFeatureFlag,
+} from './FeatureProvider'
+export type {
+  FeatureFlag,
+  FeatureProviderProps,
+} from './FeatureProvider.types'

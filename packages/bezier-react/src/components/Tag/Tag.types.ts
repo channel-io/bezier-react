@@ -20,7 +20,7 @@ interface TagOwnProps {
   onDelete?: React.MouseEventHandler
 }
 
-interface TagProps extends
+export interface TagProps extends
   AlphaBezierComponentProps,
   ChildrenProps,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
@@ -28,5 +28,3 @@ interface TagProps extends
   VariantProps<TagBadgeVariant>,
   ColorProps,
   TagOwnProps {}
-
-export default TagProps

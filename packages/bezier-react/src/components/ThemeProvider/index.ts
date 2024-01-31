@@ -1,2 +1,12 @@
-export * from './ThemeProvider'
-export * from './ThemeProvider.types'
+export {
+  DarkThemeProvider,
+  InvertedThemeProvider,
+  LightThemeProvider,
+  ThemeProvider,
+  useThemeName,
+  useToken,
+} from './ThemeProvider'
+export {
+  type FixedThemeProviderProps,
+  type ThemeProviderProps,
+} from './ThemeProvider.types'

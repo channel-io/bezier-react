@@ -2,18 +2,14 @@ export {
   ToastProvider,
   useToast,
 } from './Toast'
-
 export {
   ToastAppearance,
+  type ToastContent,
+  type ToastId,
+  type ToastOptions,
   ToastPlacement,
   ToastPreset,
-} from './Toast.types'
-
-export type {
-  ToastProviderProps,
-  ToastProps,
-  ToastOptions,
-  ToastId,
-  ToastType,
-  ToastContent,
+  type ToastProps,
+  type ToastProviderProps,
+  type ToastType,
 } from './Toast.types'

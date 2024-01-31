@@ -25,7 +25,7 @@ import {
 import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
 import { Text } from '~/src/components/Text'
 
-import type TagProps from './Tag.types'
+import { type TagProps } from './Tag.types'
 
 import styles from './Tag.module.scss'
 

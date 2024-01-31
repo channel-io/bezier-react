@@ -14,7 +14,7 @@ import {
   TooltipPosition,
 } from '~/src/components/Tooltip'
 
-import type SliderProps from './Slider.types'
+import { type SliderProps } from './Slider.types'
 
 import styles from './Slider.module.scss'
 

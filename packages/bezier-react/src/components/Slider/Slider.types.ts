@@ -70,7 +70,7 @@ interface SliderOwnProps {
   onValueCommit?: (value: number[]) => void
 }
 
-export default interface SliderProps extends
+export interface SliderProps extends
   AlphaBezierComponentProps,
   DisableProps,
   Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOwnProps>,
