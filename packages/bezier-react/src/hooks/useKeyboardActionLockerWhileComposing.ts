@@ -4,6 +4,8 @@ import {
   useRef,
 } from 'react'
 
+export const COMMON_IME_CONTROL_KEYS = ['Enter', 'Escape', 'Tab', ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
+
 type HandlerCache<TargetElement extends HTMLElement = HTMLInputElement> =
   Map<React.KeyboardEventHandler<TargetElement>, React.KeyboardEventHandler<TargetElement>>
 interface UseKeyboardActionLockerWhileComposingProps<TargetElement extends HTMLElement = HTMLInputElement> {
@@ -14,7 +16,7 @@ interface UseKeyboardActionLockerWhileComposingProps<TargetElement extends HTMLE
 
 const isSafari = () => window.navigator.userAgent.search('Safari') >= 0 && window.navigator.userAgent.search('Chrome') < 0
 
-function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement = HTMLInputElement>({
+export function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement = HTMLInputElement>({
   keysToLock,
   onKeyDown,
   onKeyUp,
@@ -62,5 +64,3 @@ function useKeyboardActionLockerWhileComposing<TargetElement extends HTMLElement
     handleKeyUp: wrapHandler(onKeyUp),
   }
 }
-
-export default useKeyboardActionLockerWhileComposing

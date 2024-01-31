@@ -3,9 +3,8 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { act } from '@testing-library/react'
 
+import { COMMON_IME_CONTROL_KEYS } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import { render } from '~/src/utils/test'
-
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms'
 
 import { TextArea } from './TextArea'
 import type { TextAreaProps } from './TextArea.types'

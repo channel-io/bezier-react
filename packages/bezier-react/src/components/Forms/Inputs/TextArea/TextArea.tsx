@@ -7,11 +7,13 @@ import React, {
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 
+import {
+  COMMON_IME_CONTROL_KEYS,
+  useKeyboardActionLockerWhileComposing,
+} from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
-import { COMMON_IME_CONTROL_KEYS } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 
 import type { TextAreaProps } from './TextArea.types'
 import { TextAreaHeight } from './TextArea.types'

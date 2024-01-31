@@ -11,6 +11,10 @@ import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 import { v4 as uuid } from 'uuid'
 
+import {
+  COMMON_IME_CONTROL_KEYS,
+  useKeyboardActionLockerWhileComposing,
+} from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import { toString } from '~/src/utils/string'
 import {
   isArray,
@@ -18,12 +22,8 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import {
-  COMMON_IME_CONTROL_KEYS,
-  type FormFieldSize,
-} from '~/src/components/Forms'
+import { type FormFieldSize } from '~/src/components/Forms'
 import useFormFieldProps from '~/src/components/Forms/useFormFieldProps'
-import useKeyboardActionLockerWhileComposing from '~/src/components/Forms/useKeyboardActionLockerWhileComposing'
 import {
   Icon,
   IconSize,
