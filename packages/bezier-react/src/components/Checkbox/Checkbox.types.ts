@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type FormFieldProps,
 } from '~/src/types/props'
@@ -39,8 +39,7 @@ interface CheckboxOwnProps<Checked extends CheckedState> {
 }
 
 export interface CheckboxProps<Checked extends CheckedState> extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'button'>, keyof CheckboxOwnProps<Checked>>,
   ChildrenProps,
   FormFieldProps,
-  Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CheckboxOwnProps<Checked>>,
   CheckboxOwnProps<Checked> {}

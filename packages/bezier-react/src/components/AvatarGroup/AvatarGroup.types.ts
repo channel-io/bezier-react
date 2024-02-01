@@ -1,6 +1,6 @@
 import type {
   AlphaAdditionalStylableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   SizeProps,
 } from '~/src/types/props'
@@ -47,9 +47,8 @@ interface AvatarGroupOwnProps {
 }
 
 export interface AvatarGroupProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   SizeProps<AvatarSize>,
   AlphaAdditionalStylableProps<'ellipsis'>,
-  React.HTMLAttributes<HTMLDivElement>,
   AvatarGroupOwnProps {}

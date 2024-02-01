@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type LayoutProps,
   type MarginProps,
@@ -16,8 +16,7 @@ interface CenterOwnProps {
 }
 
 export interface CenterProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   LayoutProps,
   MarginProps,

@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type ColorProps,
   type SizeProps,
@@ -21,9 +21,8 @@ interface TagOwnProps {
 }
 
 export interface TagProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, keyof ColorProps>,
   ChildrenProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
   ColorProps,

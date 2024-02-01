@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type MarginProps,
 } from '~/src/types/props'
@@ -15,9 +15,8 @@ interface ButtonGroupOwnProps {
 }
 
 export interface ButtonGroupProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, 'role'>,
   ChildrenProps,
   MarginProps,
   Pick<StackProps, 'justify'>,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>,
   ButtonGroupOwnProps {}

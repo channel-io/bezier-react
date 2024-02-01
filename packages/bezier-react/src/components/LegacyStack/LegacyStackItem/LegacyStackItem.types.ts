@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   PolymorphicProps,
 } from '~/src/types/props'
@@ -96,7 +96,7 @@ interface LegacyStackItemOwnProps {
  * ```
  */
 export default interface LegacyStackItemProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   PolymorphicProps,
   ChildrenProps,
   LegacyStackItemOwnProps {}

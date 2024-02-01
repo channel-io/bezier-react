@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   DisableProps,
 } from '~/src/types/props'
@@ -63,8 +63,7 @@ interface AlphaSmoothCornersBoxOwnProps {
 }
 
 export interface AlphaSmoothCornersBoxProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   DisableProps,
-  React.HTMLAttributes<HTMLDivElement>,
   AlphaSmoothCornersBoxOwnProps {}

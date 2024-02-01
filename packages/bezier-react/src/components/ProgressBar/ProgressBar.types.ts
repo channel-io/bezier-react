@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   SizeProps,
   VariantProps,
 } from '~/src/types/props'
@@ -47,7 +47,7 @@ interface ProgressBarOwnProps {
 }
 
 export interface ProgressBarProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   SizeProps<ProgressBarSize | `${ProgressBarSize}`>,
   VariantProps<ProgressBarVariant | `${ProgressBarVariant}`>,
   ProgressBarOwnProps {}

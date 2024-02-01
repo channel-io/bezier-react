@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   SizeProps,
 } from '~/src/types/props'
 
@@ -23,6 +23,6 @@ interface EmojiOwnProps {
 }
 
 export interface EmojiProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   SizeProps<EmojiSize>,
   EmojiOwnProps {}

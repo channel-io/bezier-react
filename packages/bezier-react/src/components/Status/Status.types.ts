@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   SizeProps,
 } from '~/src/types/props'
 
@@ -24,7 +24,6 @@ interface StatusOwnProps {
 }
 
 export interface StatusProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  BezierComponentProps<'div'>,
   SizeProps<StatusSize>,
   StatusOwnProps {}

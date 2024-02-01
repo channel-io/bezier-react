@@ -1,7 +1,7 @@
 import type React from 'react'
 
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ColorProps,
   type MarginProps,
   type SizeProps,
@@ -36,9 +36,8 @@ interface IconOwnProps {
 }
 
 export interface IconProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
   MarginProps,
   SizeProps<IconSize>,
   ColorProps,
-  Omit<React.HTMLAttributes<SVGSVGElement>, keyof ColorProps>,
   IconOwnProps {}

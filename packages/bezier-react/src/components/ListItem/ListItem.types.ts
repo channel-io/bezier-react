@@ -4,7 +4,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ContentProps,
   DisableProps,
   LinkProps,
@@ -36,14 +36,13 @@ interface ListItemOwnProps {
 }
 
 export interface ListItemProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps, keyof ContentProps>,
+  ContentProps,
   PolymorphicProps,
   SizeProps<ListItemSize>,
   VariantProps<ListItemVariant>,
-  ContentProps,
   SideContentProps<React.ReactNode | BezierIcon, React.ReactNode>,
   LinkProps,
   DisableProps,
   ActivatableProps,
-  Omit<React.HTMLAttributes<HTMLElement>, 'content'>,
   ListItemOwnProps {}

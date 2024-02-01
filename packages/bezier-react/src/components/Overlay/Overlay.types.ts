@@ -1,9 +1,7 @@
-import type React from 'react'
-
 import {
   type AdditionalTestIdProps,
   type AlphaAdditionalStylableProps,
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/props'
 
@@ -63,9 +61,8 @@ interface OverlayOwnProps {
 }
 
 export interface OverlayProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   AlphaAdditionalStylableProps<'container'>,
   AdditionalTestIdProps<'container'>,
-  React.HTMLAttributes<HTMLDivElement>,
   OverlayOwnProps {}

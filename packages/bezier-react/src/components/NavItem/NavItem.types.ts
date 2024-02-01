@@ -2,7 +2,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ContentProps,
   LinkProps,
   SideContentProps,
@@ -15,10 +15,9 @@ interface NavItemOwnProps {
 }
 
 export interface NavItemProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'a'>, keyof ContentProps | keyof NavItemOwnProps>,
   ContentProps,
   LinkProps,
   SideContentProps<BezierIcon, React.ReactNode>,
   ActivatableProps,
-  Omit<React.HTMLAttributes<HTMLAnchorElement>, 'onClick' | 'content'>,
   NavItemOwnProps {}

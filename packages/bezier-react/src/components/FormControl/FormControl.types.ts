@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   FormFieldProps,
   FormFieldSize,
@@ -53,12 +53,12 @@ export interface FormControlContextValue extends FormFieldProps {
 }
 
 export interface ContainerProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   Pick<FormControlOwnProps, 'labelPosition'> {}
 
 export interface FormControlProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
   FormFieldProps,
   SizeProps<FormFieldSize>,

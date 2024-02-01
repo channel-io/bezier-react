@@ -4,7 +4,7 @@ import type {
   AdditionalColorProps,
   AdditionalTestIdProps,
   AlphaAdditionalStylableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   FormFieldProps,
   FormFieldSize,
@@ -36,7 +36,7 @@ interface SelectOwnProps {
 }
 
 export interface SelectProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'button'>,
   ChildrenProps,
   FormFieldProps,
   SizeProps<FormFieldSize>,

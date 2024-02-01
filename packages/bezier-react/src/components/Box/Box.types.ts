@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type LayoutProps,
   type MarginProps,
@@ -16,8 +16,7 @@ interface BoxOwnProps {
 }
 
 export interface BoxProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLElement>,
+  BezierComponentProps<'div'>,
   PolymorphicProps,
   ChildrenProps,
   LayoutProps,

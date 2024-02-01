@@ -2,7 +2,7 @@ import { type Ref } from 'react'
 
 import {
   type AlphaAdditionalStylableProps,
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type ContentProps,
   type DisableProps,
@@ -21,13 +21,12 @@ interface LegacyTooltipOptions {
 }
 
 export interface LegacyTooltipProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, keyof ContentProps>,
   PolymorphicProps,
   ChildrenProps,
   ContentProps,
   DisableProps,
   AlphaAdditionalStylableProps<'content' | 'contentWrapper'>,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
   LegacyTooltipOptions {
 }
 
@@ -38,7 +37,7 @@ LegacyTooltipOptions,
 'offset' |
 'allowHover'
 >,
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, keyof ContentProps>,
   PolymorphicProps,
   ContentProps,
   AlphaAdditionalStylableProps<'content' | 'contentWrapper'>,

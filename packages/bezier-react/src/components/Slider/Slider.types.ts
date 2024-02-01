@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   DisableProps,
 } from '~/src/types/props'
 
@@ -71,7 +71,6 @@ interface SliderOwnProps {
 }
 
 export interface SliderProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'span'>, keyof SliderOwnProps>,
   DisableProps,
-  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof SliderOwnProps>,
   SliderOwnProps {}
