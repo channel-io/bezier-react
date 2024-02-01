@@ -57,15 +57,6 @@ export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
 export * from '~/src/types/ComponentProps'
-export * from '~/src/types/Utils'
 export * from '~/src/types/Token'
-
-export { default as useEventHandler } from '~/src/hooks/useEventHandler'
-export { default as useMergeRefs } from '~/src/hooks/useMergeRefs'
-export { default as useId } from '~/src/hooks/useId'
-
-export { getRootElement } from '~/src/utils/dom'
-export * as StyleUtils from '~/src/utils/style'
-export * as StringUtils from '~/src/utils/string'
 
 export * from '~/src/features'
