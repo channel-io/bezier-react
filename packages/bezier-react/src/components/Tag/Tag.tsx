@@ -14,9 +14,11 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
 import {
-  TAG_BADGE_ICON_SIZE,
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
   TagBadgeSize,
   TagBadgeVariant,
   getProperTagBadgeBgColor,
@@ -87,7 +89,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
       { !isNil(onDelete) && (
         <Icon
           source={CancelSmallIcon}
-          size={TAG_BADGE_ICON_SIZE}
+          size={IconSize.XS}
           testId={TAG_DELETE_TEST_ID}
           color="txt-black-darker"
           className={styles.CloseIcon}

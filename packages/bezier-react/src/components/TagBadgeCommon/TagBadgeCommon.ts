@@ -1,7 +1,8 @@
 import { type SemanticColor } from '~/src/types/tokens'
 
-import { IconSize } from '~/src/components/Icon'
-
+/**
+ * @deprecated
+ */
 export enum TagBadgeSize {
   XS = 'xs',
   S = 's',
@@ -9,6 +10,9 @@ export enum TagBadgeSize {
   L = 'l',
 }
 
+/**
+ * @deprecated
+ */
 export enum TagBadgeVariant {
   Default = 'Default',
   MonochromeLight = 'MonochromeLight',
@@ -26,6 +30,9 @@ export enum TagBadgeVariant {
   Purple = 'Purple',
 }
 
+/**
+ * @deprecated
+ */
 export const TagBadgeBgColorPreset = {
   [TagBadgeVariant.Default]: 'bg-black-lighter',
   [TagBadgeVariant.MonochromeLight]: 'bg-black-lighter',
@@ -42,25 +49,6 @@ export const TagBadgeBgColorPreset = {
   [TagBadgeVariant.Red]: 'bgtxt-red-lighter',
   [TagBadgeVariant.Purple]: 'bgtxt-purple-lighter',
 } as const
-
-export const BadgeColorPreset = {
-  [TagBadgeVariant.Default]: 'txt-black-darkest',
-  [TagBadgeVariant.MonochromeLight]: 'txt-black-dark',
-  [TagBadgeVariant.MonochromeDark]: 'bgtxt-absolute-white-dark',
-  [TagBadgeVariant.Blue]: 'bgtxt-blue-normal',
-  [TagBadgeVariant.Cobalt]: 'bgtxt-cobalt-normal',
-  [TagBadgeVariant.Teal]: 'bgtxt-teal-normal',
-  [TagBadgeVariant.Green]: 'bgtxt-green-normal',
-  [TagBadgeVariant.Olive]: 'bgtxt-olive-normal',
-  [TagBadgeVariant.Pink]: 'bgtxt-pink-normal',
-  [TagBadgeVariant.Navy]: 'bgtxt-navy-normal',
-  [TagBadgeVariant.Yellow]: 'bgtxt-yellow-normal',
-  [TagBadgeVariant.Orange]: 'bgtxt-orange-normal',
-  [TagBadgeVariant.Red]: 'bgtxt-red-normal',
-  [TagBadgeVariant.Purple]: 'bgtxt-purple-normal',
-} as const
-
-export const TAG_BADGE_ICON_SIZE = IconSize.XS
 
 export function getProperTagBadgeTypo(size: TagBadgeSize) {
   return {

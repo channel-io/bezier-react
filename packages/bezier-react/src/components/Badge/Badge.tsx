@@ -7,9 +7,11 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
 import {
-  TAG_BADGE_ICON_SIZE,
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
   TagBadgeSize,
   TagBadgeVariant,
   getProperTagBadgeTypo,
@@ -61,7 +63,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       { icon && (
         <Icon
           source={icon}
-          size={TAG_BADGE_ICON_SIZE}
+          size={IconSize.XS}
         />
       ) }
 
