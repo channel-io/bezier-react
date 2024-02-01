@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 
 import {
-  type BezierComponentProps,
   type FormFieldSize,
   type LayoutProps,
   type MarginProps,
@@ -26,24 +25,6 @@ import {
   cssDimension,
   tokenCssVar,
 } from './style'
-
-export const splitByBezierComponentProps = <
-  Props extends BezierComponentProps,
->({
-    as,
-    testId,
-    style,
-    className,
-    ...rest
-  }: Props): [BezierComponentProps, Omit<Props, keyof BezierComponentProps>] => [
-    {
-      as,
-      testId,
-      style,
-      className,
-    },
-    rest,
-  ]
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,

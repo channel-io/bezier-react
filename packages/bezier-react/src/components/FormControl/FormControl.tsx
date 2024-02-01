@@ -14,10 +14,7 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/dom'
-import {
-  getFormFieldSizeClassName,
-  splitByBezierComponentProps,
-} from '~/src/utils/props'
+import { getFormFieldSizeClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
@@ -85,12 +82,15 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
 })
 
 export const FormControl = forwardRef<HTMLElement, FormControlProps>(function FormControl({
+  children,
   id: idProp,
   testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
   size = 'm',
-  style,
-  children,
+  hasError,
+  required,
+  readOnly,
+  disabled,
   ...rest
 }, forwardedRef) {
   const [groupNode, setGroupNode] = useState<HTMLElement | null>(null)
@@ -115,8 +115,6 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     errorMessageId,
     helperTextId,
   ])
-
-  const [bezierProps, formCommonProps] = useMemo(() => splitByBezierComponentProps(rest), [rest])
 
   const getGroupProps = useCallback<GroupPropsGetter>(ownProps => ({
     id: groupId,
@@ -151,38 +149,44 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     id: fieldId,
     size,
     'aria-describedby': groupNode ? undefined : describerId,
-    ...formCommonProps,
+    hasError,
+    required,
+    readOnly,
+    disabled,
     ...ownProps,
   }), [
     fieldId,
     describerId,
     size,
-    formCommonProps,
+    hasError,
+    required,
+    readOnly,
+    disabled,
     groupNode,
   ])
 
   const getHelperTextProps = useCallback<HelperTextPropsGetter>(ownProps => ({
     id: helperTextId,
-    visible: isNil(formCommonProps?.hasError) || !formCommonProps?.hasError,
+    visible: isNil(hasError) || !hasError,
     ref: setHelperTextNode,
     className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     helperTextId,
     labelPosition,
-    formCommonProps,
+    hasError,
   ])
 
   const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(ownProps => ({
     id: errorMessageId,
-    visible: isNil(formCommonProps?.hasError) || formCommonProps?.hasError,
+    visible: isNil(hasError) || hasError,
     ref: setErrorMessageNode,
     className: classNames(styles.FormHelperTextWrapper, labelPosition === 'left' && styles['position-left']),
     ...ownProps,
   }), [
     errorMessageId,
     labelPosition,
-    formCommonProps,
+    hasError,
   ])
 
   const contextValue = useMemo(() => ({
@@ -195,7 +199,10 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     getFieldProps,
     getHelperTextProps,
     getErrorMessageProps,
-    ...formCommonProps,
+    hasError,
+    required,
+    readOnly,
+    disabled,
   }), [
     id,
     labelId,
@@ -206,7 +213,10 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
     getFieldProps,
     getHelperTextProps,
     getErrorMessageProps,
-    formCommonProps,
+    hasError,
+    required,
+    readOnly,
+    disabled,
   ])
 
   if (!children) { return null }
@@ -214,9 +224,8 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
   return (
     <FormControlContextProvider value={contextValue}>
       <Container
-        {...bezierProps}
+        {...rest}
         ref={forwardedRef}
-        style={style}
         testId={testId}
         labelPosition={labelPosition}
       >

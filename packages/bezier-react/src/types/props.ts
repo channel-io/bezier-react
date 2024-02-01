@@ -39,11 +39,6 @@ export interface StylableComponentProps {
   className?: string
 }
 
-/**
- * @deprecated Migration to `AlphaBezierComponentProps` is in progress.
- */
-export type BezierComponentProps = RenderConfigProps & StylableComponentProps
-
 /* Component Additional Props */
 export interface ContentProps<Content = React.ReactNode> {
   content?: Content
@@ -78,18 +73,6 @@ export interface IdentifierProps {
   id: string
 }
 
-/**
- * @deprecated Unnecessary property.
- */
-export interface OptionItemProps {
-  optionKey?: string
-}
-
-export interface OptionItemHostProps<OptionKeyType = string> {
-  selectedOptionIndex?: number
-  onChangeOption?: (optionIndex: number, optionKey?: OptionKeyType) => void
-}
-
 type PropNameType = string | string[]
 
 type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropType> = {
@@ -104,13 +87,6 @@ type AdditionalStyleProps<ElementName extends PropNameType> =
 
 type AdditionalClassNameProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'className', string>
-
-/**
- * @deprecated Migration to `AdditionalStylableProps` is in progress.
- */
-export type AdditionalStylableProps<ElementName extends PropNameType> =
-  AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName>
 
 export type AdditionalTestIdProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'testId', string>
