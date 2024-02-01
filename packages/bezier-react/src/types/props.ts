@@ -25,15 +25,21 @@ export interface RenderConfigProps {
 }
 
 /**
- * Properties for styling components, including inline CSS and class names.
+ * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
  */
-export interface StylableComponentProps {
+export interface OverridableStyleProps {
   /**
    * Custom inline CSS styles for the component.
+   * Intended for specific styling that overrides the component's default styles.
+   *
+   * **🚨 Caution:** Overuse can break the consistency of the overall design. Use only when absolutely necessary.
    */
   style?: CSSProperties
   /**
    * Custom CSS class name for the component.
+   * Intended to apply external styles or override default styles with higher specificity.
+   *
+   * **🚨 Caution:** Overuse can break the consistency of the overall design. Use only when absolutely necessary.
    */
   className?: string
 }
@@ -43,7 +49,7 @@ export interface StylableComponentProps {
  */
 export interface AlphaBezierComponentProps extends
   RenderConfigProps,
-  StylableComponentProps {}
+  OverridableStyleProps {}
 
 /**
  * Props for polymorphic components that can render as different element types.
