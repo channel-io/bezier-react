@@ -7,7 +7,7 @@ import {
 
 import { type ChildrenProps } from '~/src/types/props'
 
-import { AppProvider } from '~/src/components/AppProvider/AppProvider'
+import { AppProvider } from '~/src/components/AppProvider'
 
 function TestProvider({ children }: ChildrenProps) {
   return (

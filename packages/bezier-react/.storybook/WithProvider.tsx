@@ -4,7 +4,7 @@ import type { Preview } from '@storybook/react'
 
 import { SmoothCornersFeature } from '~/src/features'
 
-import { AppProvider } from '~/src/components/AppProvider/AppProvider'
+import { AppProvider } from '~/src/components/AppProvider'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 
