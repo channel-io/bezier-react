@@ -1,5 +1,7 @@
+/* --------------------------------- STYLES --------------------------------- */
 import '~/src/styles/index.scss'
 
+/* ------------------------------- COMPONENTS ------------------------------- */
 export * from '~/src/components/AlphaSmoothCornersBox'
 export * from '~/src/components/AppProvider'
 export * from '~/src/components/AutoFocus'
@@ -55,9 +57,12 @@ export * from '~/src/components/Tooltip'
 export * from '~/src/components/VisuallyHidden'
 export * from '~/src/components/WindowProvider'
 
+/* -------------------------------- FEATURES -------------------------------- */
 export * from '~/src/features'
 
+/* ---------------------------------- HOOKS --------------------------------- */
 export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 
+/* ---------------------------------- TYPES --------------------------------- */
 export * from '~/src/types/props'
 export * from '~/src/types/tokens'
