@@ -19,13 +19,6 @@ import type {
  */
 export interface RenderConfigProps {
   /**
-   * Specifies which HTML tag should be used to render this component.
-   * This prop comes directly from the polymorphic "as" prop of `styled-components`.
-   * @see https://styled-components.com/docs/api#as-polymorphic-prop
-   */
-  as?: ElementType
-
-  /**
    * A test ID attribute compatible with `@testing-library/react`.
    */
   testId?: string
@@ -43,6 +36,24 @@ export interface StylableComponentProps {
    * Custom CSS class name for the component.
    */
   className?: string
+}
+
+/**
+ * TODO: Remove Alpha prefix after removing styled-components dependency.
+ */
+export interface AlphaBezierComponentProps extends
+  RenderConfigProps,
+  StylableComponentProps {}
+
+/**
+ * Props for polymorphic components that can render as different element types.
+ * @todo Generic type for `as` prop.
+ */
+export interface PolymorphicProps {
+  /**
+   * Element type to render.
+   */
+  as?: ElementType
 }
 
 /**
@@ -165,6 +176,13 @@ export type AdditionalColorProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'color', SemanticColor>
 
 /**
+ * TODO: Remove Alpha prefix after removing styled-components dependency.
+ */
+export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
+AdditionalStyleProps<ElementName> &
+AdditionalClassNameProps<ElementName>
+
+/**
  * Props for components that can be activated or deactivated.
  */
 export interface ActivatableProps {
@@ -182,31 +200,6 @@ export interface LinkProps {
    * URL or a URL fragment that the hyperlink points to.
    */
   href?: string
-}
-
-/**
- * TODO: Remove Alpha prefix after removing styled-components dependency.
- */
-export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
-  AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName>
-
-/**
- * TODO: Remove Alpha prefix after removing styled-components dependency.
- */
-export interface AlphaBezierComponentProps extends
-  Omit<RenderConfigProps, 'as'>,
-  Omit<StylableComponentProps, 'interpolation'> {}
-
-/**
- * Props for polymorphic components that can render as different element types.
- * @todo Generic type for `as` prop.
- */
-export interface PolymorphicProps {
-  /**
-   * Element type to render.
-   */
-  as?: ElementType
 }
 
 /**
