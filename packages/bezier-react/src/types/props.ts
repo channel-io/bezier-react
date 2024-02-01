@@ -53,6 +53,7 @@ type HTMLElementProps<Tag extends keyof JSX.IntrinsicElements> = React.Component
 /**
  * Extends base configuration and overridable style properties with standard HTML attributes.
  * Designed for components requiring both custom and standard HTML properties.
+ * @template Tag The tag name of the HTML element (e.g., 'div', 'a', 'button'). If null, returns contains `React.HTMLAttributes<HTMLElement>`.
  */
 export type BezierComponentProps<Tag extends keyof JSX.IntrinsicElements | null = null> =
   & RenderConfigProps
@@ -167,16 +168,11 @@ type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropT
 }
 
 /**
- * Props for adding custom styles to named elements within a component.
+ * Props for adding additional overridable style properties to named elements within a component.
  */
-type AdditionalStyleProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'style', React.CSSProperties>
-
-/**
- * Props for adding custom class names to named elements within a component.
- */
-type AdditionalClassNameProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'className', string>
+export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
+  & AdditionalProps<ElementName, 'style', React.CSSProperties>
+  & AdditionalProps<ElementName, 'className', string>
 
 /**
  * Props for adding test IDs to named elements within a component, useful for testing purposes.
@@ -189,13 +185,6 @@ export type AdditionalTestIdProps<ElementName extends PropNameType> =
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'color', SemanticColor>
-
-/**
- * TODO: Remove Alpha prefix after removing styled-components dependency.
- */
-export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
-  AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName>
 
 /**
  * Props for components that can be activated or deactivated.

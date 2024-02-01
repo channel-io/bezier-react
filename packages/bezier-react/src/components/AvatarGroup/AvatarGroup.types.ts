@@ -1,5 +1,5 @@
 import type {
-  AlphaAdditionalStylableProps,
+  AdditionalOverridableStyleProps,
   BezierComponentProps,
   ChildrenProps,
   SizeProps,
@@ -50,5 +50,5 @@ export interface AvatarGroupProps extends
   BezierComponentProps<'div'>,
   ChildrenProps,
   SizeProps<AvatarSize>,
-  AlphaAdditionalStylableProps<'ellipsis'>,
+  AdditionalOverridableStyleProps<'ellipsis'>,
   AvatarGroupOwnProps {}

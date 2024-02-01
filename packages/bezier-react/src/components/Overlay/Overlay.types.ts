@@ -1,6 +1,6 @@
 import {
+  type AdditionalOverridableStyleProps,
   type AdditionalTestIdProps,
-  type AlphaAdditionalStylableProps,
   type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/props'
@@ -63,6 +63,6 @@ interface OverlayOwnProps {
 export interface OverlayProps extends
   BezierComponentProps<'div'>,
   ChildrenProps,
-  AlphaAdditionalStylableProps<'container'>,
+  AdditionalOverridableStyleProps<'container'>,
   AdditionalTestIdProps<'container'>,
   OverlayOwnProps {}
