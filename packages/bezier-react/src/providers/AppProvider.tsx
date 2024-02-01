@@ -40,7 +40,6 @@ export interface AppProviderProps {
  * import React from 'react'
  * import { createRoot } from 'react-dom/client'
  * import { AppProvider } from '@channel.io/bezier-react'
-import { ThemeName } from '../../dist/types/types/Token';
  *
  * const container = document.getElementById('root')
  * const root = createRoot(container)
