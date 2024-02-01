@@ -13,23 +13,20 @@ export const SPINNER_TEST_ID = 'bezier-react-spinner'
 
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
   testId = SPINNER_TEST_ID,
-  as,
   style,
   className,
   size = SpinnerSize.M,
   color,
   ...rest
 }, forwardedRef) {
-  const Element = as || 'div'
-
   return (
-    <Element
+    <div
       {...rest}
       ref={forwardedRef}
       style={{
         '--b-spinner-color': cssVar(color),
         ...style,
-      }}
+      } as React.CSSProperties}
       className={classNames(
         styles.Spinner,
         styles[`size-${size}`],

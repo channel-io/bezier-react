@@ -1,7 +1,7 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BezierComponentProps,
+  type AlphaBezierComponentProps,
   type ChildrenProps,
   type ContentProps,
   type DisableProps,
@@ -130,7 +130,7 @@ export interface TooltipProviderProps extends
   TooltipProviderOptions {}
 
 export interface TooltipProps extends
-  BezierComponentProps,
+  AlphaBezierComponentProps,
   ChildrenProps<React.ReactElement>,
   ContentProps,
   DisableProps,

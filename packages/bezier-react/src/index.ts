@@ -1,25 +1,9 @@
 import '~/src/styles/index.scss'
 
-/* Provider */
-export { default as BezierProvider } from '~/src/providers/BezierProvider'
 export * from '~/src/providers/WindowProvider'
 export * from '~/src/providers/AppProvider'
-export {
-  useThemeName,
-  useToken,
-  ThemeProvider,
-  LightThemeProvider,
-  DarkThemeProvider,
-  InvertedThemeProvider,
-  type ThemeName,
-  type ThemeProviderProps,
-  type FixedThemeProviderProps,
-} from '~/src/providers/ThemeProvider'
+export * from '~/src/providers/ThemeProvider'
 
-/* Foundation */
-export * from '~/src/foundation'
-
-/* Components */
 export * from '~/src/components/Box'
 export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatars/Avatar'
@@ -38,7 +22,6 @@ export * from '~/src/components/Forms/FormControl'
 export * from '~/src/components/Forms/FormGroup'
 export * from '~/src/components/Forms/FormHelperText'
 export * from '~/src/components/Forms/FormLabel'
-export * from '~/src/components/Forms/Inputs/mixins'
 export * from '~/src/components/Forms/Inputs/Select'
 export * from '~/src/components/Forms/Inputs/TextArea'
 export * from '~/src/components/Forms/Inputs/TextField'
@@ -73,25 +56,16 @@ export * from '~/src/components/LegacyIcon'
 export * from '~/src/components/LegacyStack'
 export * from '~/src/components/LegacyTooltip'
 
-/* Types */
 export * from '~/src/types/ComponentProps'
-export * from '~/src/types/Foundation'
 export * from '~/src/types/Utils'
-// TODO: Remove namespace exports after removing Foundation type
-export * as Token from '~/src/types/Token'
+export * from '~/src/types/Token'
 
-/* Constants */
-export { ZIndex } from '~/src/constants/ZIndex'
-
-/* Hooks */
 export { default as useEventHandler } from '~/src/hooks/useEventHandler'
 export { default as useMergeRefs } from '~/src/hooks/useMergeRefs'
 export { default as useId } from '~/src/hooks/useId'
 
-/* Utils */
 export { getRootElement } from '~/src/utils/dom'
 export * as StyleUtils from '~/src/utils/style'
 export * as StringUtils from '~/src/utils/string'
 
-/* Features */
 export * from '~/src/features'

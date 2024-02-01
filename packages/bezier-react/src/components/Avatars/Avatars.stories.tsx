@@ -6,8 +6,6 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import { range } from '~/src/utils/number'
 
 import {
@@ -235,16 +233,6 @@ export const UsagePresetStatusWithSize: StoryObj<{}> = {
   name: 'Usage (with preset status and size)',
 }
 
-const EmojiStatusWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: ${({ foundation }) => foundation?.theme['bg-white-high']};
-  border-radius: 42%;
-`
-
 export const UsageCustomStatus: StoryObj<{}> = {
   render: () => (
     <LegacyHStack spacing={16}>
@@ -268,13 +256,22 @@ export const UsageCustomStatus: StoryObj<{}> = {
 
       <LegacyStackItem>
         <Avatar {...SAMPLE_AVATARS[0]} size={AvatarSize.Size36}>
-          <EmojiStatusWrapper>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 24,
+            height: 24,
+            backgroundColor: 'var(--bg-white-high',
+            borderRadius: '42%',
+          }}
+          >
             <Emoji
               name="smile"
               imageUrl="https://cf.channel.io/asset/emoji/images/80/smile.png"
               size={EmojiSize.Size20}
             />
-          </EmojiStatusWrapper>
+          </div>
         </Avatar>
       </LegacyStackItem>
     </LegacyHStack>

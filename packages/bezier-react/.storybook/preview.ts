@@ -1,11 +1,11 @@
-import type { Preview } from "@storybook/react"
+import type { Preview } from '@storybook/react'
+
+import { WithProvider } from './WithProvider'
 
 import '~/src/styles/index.scss'
 
-import { WithFoundationProvider } from './WithFoundationProvider'
-
 const preview: Preview = {
-  decorators: [WithFoundationProvider],
+  decorators: [WithProvider],
 }
 
 export default preview

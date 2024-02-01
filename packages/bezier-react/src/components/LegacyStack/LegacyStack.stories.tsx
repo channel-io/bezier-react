@@ -6,10 +6,6 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import { type SemanticNames } from '~/src/foundation'
-
-import { LightTheme } from '~/src/foundation/Colors/Theme'
-
 import { range } from '~/src/utils/number'
 
 import {
@@ -77,8 +73,6 @@ const meta: Meta<LegacyStackProps & {
 }
 export default meta
 
-const randomColor = (): SemanticNames =>
-  Object.values(LightTheme)[Math.floor(Math.random() * Object.keys(LightTheme).length)] as SemanticNames
 const randomSize = (): number => Math.floor((Math.random() * 240) + 120)
 
 const Item = ({
@@ -88,7 +82,6 @@ const Item = ({
   fixedSize: boolean
   direction: 'horizontal' | 'vertical'
 }) => {
-  const [color] = useState(() => randomColor())
   const [alignSize] = useState(() => randomSize())
 
   return (
@@ -96,7 +89,7 @@ const Item = ({
       style={{
         width: fixedSize && direction === 'vertical' ? alignSize : '100%',
         height: fixedSize && direction === 'horizontal' ? alignSize : '100%',
-        backgroundColor: color,
+        backgroundColor: 'var(--bg-black-light)',
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
       }}

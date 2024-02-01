@@ -1,10 +1,9 @@
-import { type SemanticNames } from '~/src/foundation'
-
 import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
 } from '~/src/types/ComponentProps'
+import { type SemanticColor } from '~/src/types/Token'
 
 /**
  * NOTE: The `inset` property is not currently supported.
@@ -34,7 +33,7 @@ export interface BoxShadow {
    * The color of the shadow.
    * @default transparent
    */
-  color?: SemanticNames
+  color?: SemanticColor
 }
 
 interface AlphaSmoothCornersBoxOwnProps {
@@ -56,7 +55,7 @@ interface AlphaSmoothCornersBoxOwnProps {
    * The background color of an element.
    * @default 'transparent'
    */
-  backgroundColor?: SemanticNames
+  backgroundColor?: SemanticColor
   /**
    * The background image url of an element.
    */

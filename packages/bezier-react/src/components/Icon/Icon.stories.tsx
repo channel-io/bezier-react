@@ -26,12 +26,8 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import {
-  LightFoundation,
-  type SemanticNames,
-  styled,
-} from '~/src/foundation'
-
+import { useToken } from '~/src/providers/ThemeProvider'
+import { type SemanticColor } from '~/src/types/Token'
 import {
   getObjectFromEnum,
   iconList,
@@ -45,6 +41,7 @@ import {
   LegacyVStack,
 } from '~/src/components/LegacyStack'
 import { ListItem } from '~/src/components/ListItem'
+import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
 import { Icon } from './Icon'
@@ -72,19 +69,6 @@ const meta: Meta<typeof Icon> = {
 }
 export default meta
 
-const IconInfo = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-`
-
-const Name = styled.p`
-  text-align: center;
-`
-
 export const Playground: StoryObj<IconProps> = {
   args: {
     source: ChannelIcon,
@@ -100,10 +84,18 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
   render: (args) => (
     <>
       { iconList.map((iconName) => (
-        <IconInfo key={iconName}>
+        <Stack
+          key={iconName}
+          display="inline-flex"
+          direction="vertical"
+          align="center"
+          justify="center"
+          width={120}
+          height={120}
+        >
           <Icon source={icons[iconName]} {...args} />
-          <Name>{ pascalCase(iconName) }</Name>
-        </IconInfo>
+          <Text align="center">{ pascalCase(iconName) }</Text>
+        </Stack>
       )) }
     </>
   ),
@@ -197,7 +189,8 @@ export const Overview: StoryFn<{}> = () => (
 
 export const UsageColor: StoryObj<{}> = {
   render: function Render() {
-    const [color, setColor] = useState<SemanticNames>('bgtxt-blue-normal')
+    const [color, setColor] = useState<SemanticColor>('bgtxt-blue-normal')
+    const token = useToken()
 
     return (
       <LegacyVStack spacing={16}>
@@ -211,11 +204,11 @@ export const UsageColor: StoryObj<{}> = {
         <LegacyStackItem>
           <Select text={color} style={{ width: 200 }}>
             <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-              { Object.keys(LightFoundation.theme).map((semanticName) => (
+              { Object.keys(token.semantic.color).map((semanticName) => (
                 <ListItem
                   key={semanticName}
                   content={semanticName}
-                  onClick={() => setColor(semanticName as SemanticNames)}
+                  onClick={() => setColor(semanticName as SemanticColor)}
                 />
               )) }
             </div>

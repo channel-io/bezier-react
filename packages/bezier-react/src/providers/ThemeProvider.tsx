@@ -1,65 +1,12 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef } from 'react'
 
-import { tokens } from '@channel.io/bezier-tokens'
 import { Slot } from '@radix-ui/react-slot'
 
-import { createContext } from '~/src/utils/react'
-
-type Tokens = typeof tokens
-type GlobalTokens = Tokens['global']
-type SemanticTokens = Omit<Tokens, 'global'>
-
-interface ThemedTokenSet {
-  global: GlobalTokens
-  semantic: SemanticTokens[keyof SemanticTokens]
-}
-
-// TODO: Change theme name constant to import from bezier-tokens
-export type ThemeName = 'light' | 'dark'
-
-interface TokenContextValue {
-  themeName: ThemeName
-  tokens: ThemedTokenSet
-}
-
-const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
-
-const tokenSet: Record<ThemeName, ThemedTokenSet> = Object.freeze({
-  light: {
-    global: tokens.global,
-    semantic: tokens.lightTheme,
-  },
-  dark: {
-    global: tokens.global,
-    semantic: tokens.darkTheme,
-  },
-})
-
-interface TokenProviderProps {
-  themeName: ThemeName
-  children: React.ReactNode
-}
-
-/**
- * @private For internal use only.
- */
-export function TokenProvider({
-  themeName,
-  children,
-}: TokenProviderProps) {
-  return (
-    <TokenContextProvider value={useMemo(() => ({
-      themeName,
-      tokens: tokenSet[themeName],
-    }), [themeName])}
-    >
-      { children }
-    </TokenContextProvider>
-  )
-}
+import {
+  TokenProvider,
+  type TokenProviderProps,
+  useTokenContext,
+} from './TokenProvider'
 
 /**
  * `useThemeName` is a hook that returns the current theme name.
@@ -76,7 +23,7 @@ export function useToken() {
 }
 
 export interface ThemeProviderProps {
-  themeName: ThemeName
+  themeName: TokenProviderProps['themeName']
   children: React.ReactElement
 }
 

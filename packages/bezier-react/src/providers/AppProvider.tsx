@@ -4,14 +4,12 @@ import {
   type Feature,
   FeatureProvider,
 } from '~/src/features'
+import { type ThemeName } from '~/src/types/Token'
 import { window as defaultWindow } from '~/src/utils/dom'
 
 import { TooltipProvider } from '~/src/components/Tooltip'
 
-import {
-  type ThemeName,
-  TokenProvider,
-} from './ThemeProvider'
+import { TokenProvider } from './TokenProvider'
 import { WindowProvider } from './WindowProvider'
 
 export interface AppProviderProps {

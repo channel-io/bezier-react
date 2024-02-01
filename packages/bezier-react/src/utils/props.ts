@@ -32,7 +32,6 @@ export const splitByBezierComponentProps = <
     testId,
     style,
     className,
-    interpolation,
     ...rest
   }: Props): [BezierComponentProps, Omit<Props, keyof BezierComponentProps>] => [
     {
@@ -40,7 +39,6 @@ export const splitByBezierComponentProps = <
       testId,
       style,
       className,
-      interpolation,
     },
     rest,
   ]

@@ -1,49 +1,8 @@
-import { css } from '~/src/foundation'
-
-import { type InjectedInterpolation } from '~/src/types/Foundation'
 import { type FlattenAllToken } from '~/src/types/Token'
 import {
   isNil,
   isString,
 } from '~/src/utils/type'
-
-/**
- * @deprecated
- */
-export function gap(spacing: number): InjectedInterpolation {
-  return css`
-    gap: ${spacing}px;
-
-    @supports not(gap: ${spacing}px) {
-      margin-top: ${-spacing}px;
-      margin-left: ${-spacing}px;
-
-      > * {
-        margin-top: ${spacing}px;
-        margin-left: ${spacing}px;
-      }
-    }
-  `
-}
-
-/**
- * @deprecated
- */
-export function touchableHover(interpolation: InjectedInterpolation): InjectedInterpolation {
-  return css`
-    @media (hover: hover) {
-      &:hover {
-        ${interpolation}
-      }
-    }
-
-    @media (hover: none) {
-      &:active {
-        ${interpolation}
-      }
-    }
-  `
-}
 
 export function px<Value extends number>(value?: Value) {
   if (isNil(value)) {

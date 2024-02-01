@@ -166,7 +166,6 @@ export function TooltipProvider({
  * ```
  */
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
-  as,
   children,
   defaultShow,
   onShow: onShowProp,

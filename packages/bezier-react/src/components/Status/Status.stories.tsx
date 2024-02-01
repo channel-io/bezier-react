@@ -6,7 +6,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
+import { Center } from '~/src/components/Center'
 
 import { Status } from './Status'
 import {
@@ -28,19 +28,14 @@ const meta:Meta<typeof Status> = {
 }
 export default meta
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 200px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
-`
-
 const Template: StoryFn<StatusProps> = (args) => (
-  <Wrapper>
+  <Center
+    width={200}
+    height={200}
+    backgroundColor="bg-grey-light"
+  >
     <Status {...args} />
-  </Wrapper>
+  </Center>
 )
 
 export const Primary: StoryObj<StatusProps> = {

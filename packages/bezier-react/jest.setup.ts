@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 Object.defineProperty(window, 'requestAnimationFrame', {
   writable: true,

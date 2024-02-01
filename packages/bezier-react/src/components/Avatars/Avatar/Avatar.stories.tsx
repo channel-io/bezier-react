@@ -6,8 +6,6 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import { isNaN } from '~/src/utils/type'
 
 import { StatusType } from '~/src/components/Status'
@@ -56,20 +54,8 @@ const meta:Meta<typeof Avatar> = {
 }
 export default meta
 
-// NOTE: (@ed) border 색상을 명확하게 보여주기 위해 회색의 Wrapper를 추가했습니다
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 200px;
-  background-color: ${({ foundation }) => foundation?.theme?.['bg-grey-light']};
-`
-
 const Template: StoryFn<AvatarProps> = (args) => (
-  <Wrapper>
-    <Avatar {...args} />
-  </Wrapper>
+  <Avatar {...args} />
 )
 
 export const Primary: StoryObj<AvatarProps> = {
@@ -86,16 +72,14 @@ export const Primary: StoryObj<AvatarProps> = {
 }
 
 const TemplateWithCustomStatus: StoryFn<AvatarProps> = (args) => (
-  <Wrapper>
-    <Avatar {...args}>
-      <Avatar
-        avatarUrl="https://bit.ly/kent-c-dodds"
-        name="Kent Dodds"
-        size={AvatarSize.Size20}
-        showBorder
-      />
-    </Avatar>
-  </Wrapper>
+  <Avatar {...args}>
+    <Avatar
+      avatarUrl="https://bit.ly/kent-c-dodds"
+      name="Kent Dodds"
+      size={AvatarSize.Size20}
+      showBorder
+    />
+  </Avatar>
 )
 
 export const WithCustomStatus: StoryObj<AvatarProps> = {

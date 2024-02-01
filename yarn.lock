@@ -2963,11 +2963,9 @@ __metadata:
     "@types/jest": ^29.5.4
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    "@types/styled-components": ^5.1.27
     "@types/uuid": ^9.0.3
     autoprefixer: ^10.4.14
     babel-loader: ^9.1.3
-    babel-plugin-styled-components: ^2.1.4
     babel-preset-react-app: ^10.0.1
     chromatic: ^7.0.0
     classnames: ^2.3.2
@@ -2975,7 +2973,6 @@ __metadata:
     eslint-config-bezier: "workspace:*"
     eslint-plugin-storybook: ^0.6.13
     identity-obj-proxy: ^3.0.0
-    jest-styled-components: ^7.1.1
     lightningcss: ^1.22.1
     minimatch: ^9.0.3
     paths.macro: ^3.0.1
@@ -2991,7 +2988,6 @@ __metadata:
     sass: ^1.63.6
     ssr-window: ^4.0.2
     storybook: ^7.4.2
-    styled-components: ^5.3.11
     the-new-css-reset: ^1.11.2
     ts-prune: ^0.10.3
     tsconfig: "workspace:*"
@@ -3004,7 +3000,6 @@ __metadata:
     "@channel.io/bezier-icons": ">=0.2.0"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    styled-components: ">=5"
   peerDependenciesMeta:
     "@channel.io/bezier-icons":
       optional: true
@@ -7817,16 +7812,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hoist-non-react-statics@npm:*":
-  version: 3.3.1
-  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
-  dependencies:
-    "@types/react": "*"
-    hoist-non-react-statics: ^3.3.0
-  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
-  languageName: node
-  linkType: hard
-
 "@types/html-minifier-terser@npm:^6.0.0":
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
@@ -8166,17 +8151,6 @@ __metadata:
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
   checksum: 205fdbe3326b7046d7eaf5e494d8084f2659086a266f3f9cf00bccc549c8e36e407f88168ad4383c8b07099957ad669f75f2532ed4bc70be2b037330f7bae019
-  languageName: node
-  linkType: hard
-
-"@types/styled-components@npm:^5.1.27":
-  version: 5.1.30
-  resolution: "@types/styled-components@npm:5.1.30"
-  dependencies:
-    "@types/hoist-non-react-statics": "*"
-    "@types/react": "*"
-    csstype: ^3.0.2
-  checksum: 22948191a2de0187ab20383c1d9a6b7c9dfda9e6d58f104e03fd8bb8f3ee150b800806e90efa888f1d0fbb53d404613e4b6cccf0c77eb4287e8b1aeb1d7c1cb5
   languageName: node
   linkType: hard
 
@@ -9616,7 +9590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^2.1.4":
+"babel-plugin-styled-components@npm:>= 1.12.0":
   version: 2.1.4
   resolution: "babel-plugin-styled-components@npm:2.1.4"
   dependencies:
@@ -14419,7 +14393,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.0":
+"hoist-non-react-statics@npm:^3.0.0":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -16055,17 +16029,6 @@ __metadata:
     pretty-format: ^29.7.0
     semver: ^7.5.3
   checksum: 86821c3ad0b6899521ce75ee1ae7b01b17e6dfeff9166f2cf17f012e0c5d8c798f30f9e4f8f7f5bed01ea7b55a6bc159f5eda778311162cbfa48785447c237ad
-  languageName: node
-  linkType: hard
-
-"jest-styled-components@npm:^7.1.1":
-  version: 7.2.0
-  resolution: "jest-styled-components@npm:7.2.0"
-  dependencies:
-    "@adobe/css-tools": ^4.0.1
-  peerDependencies:
-    styled-components: ">= 5"
-  checksum: 9eb440fb98571520fa6309ebec5464bdd6a15fd29989c7a583badc24f390264459f21d1d09253e6a449f4f6e41ca0d8f630f762941794b51b327df9bfdcce030
   languageName: node
   linkType: hard
 

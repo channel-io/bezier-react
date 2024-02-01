@@ -3,7 +3,8 @@
   "exclude": [
     "src/index.ts",
     "**/*.stories.tsx",
-    "src/utils/story.ts"
+    "src/utils/story.ts",
+    ".storybook/**/*"
   ],
   "files": [
     "./src/index.ts"

@@ -1,15 +1,13 @@
 import { type CSSProperties } from 'react'
 import type React from 'react'
 
-import type { SemanticNames } from '~/src/foundation'
-
-import type { InjectedInterpolation } from './Foundation'
 import type {
   BackgroundSemanticColor,
   BackgroundTextSemanticColor,
   BorderSemanticColor,
   Elevation,
   Radius,
+  SemanticColor,
   ZIndex,
 } from './Token'
 
@@ -40,12 +38,6 @@ export interface StylableComponentProps {
    * Customized CSS classname for this component.
    */
   className?: string
-
-  /**
-   * @deprecated
-   * Customized style interpolation for this component.
-   */
-  interpolation?: InjectedInterpolation
 }
 
 /**
@@ -80,7 +72,7 @@ export interface DisableProps {
 }
 
 export interface ColorProps {
-  color?: SemanticNames
+  color?: SemanticColor
 }
 
 export interface IdentifierProps {
@@ -114,22 +106,18 @@ type AdditionalStyleProps<ElementName extends PropNameType> =
 type AdditionalClassNameProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'className', string>
 
-type AdditionalInterpolationProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'interpolation', InjectedInterpolation>
-
 /**
  * @deprecated Migration to `AdditionalStylableProps` is in progress.
  */
 export type AdditionalStylableProps<ElementName extends PropNameType> =
   AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName> &
-  AdditionalInterpolationProps<ElementName>
+  AdditionalClassNameProps<ElementName>
 
 export type AdditionalTestIdProps<ElementName extends PropNameType> =
   AdditionalProps<ElementName, 'testId', string>
 
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticNames>
+  AdditionalProps<ElementName, 'color', SemanticColor>
 
 export interface ActivatableProps {
   active?: boolean

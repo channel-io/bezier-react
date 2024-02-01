@@ -1,4 +1,4 @@
-import { type SemanticNames } from '~/src/foundation'
+import { type SemanticColor } from '~/src/types/Token'
 
 import TagBadgeSize from './constants/TagBadgeSize'
 import type TagBadgeVariant from './constants/TagBadgeVariant'
@@ -13,6 +13,6 @@ export function getProperTagBadgeTypo(size: TagBadgeSize) {
   }[size]
 }
 
-export function getProperTagBadgeBgColor(color: TagBadgeVariant): SemanticNames {
+export function getProperTagBadgeBgColor(color: TagBadgeVariant): SemanticColor {
   return TagBadgeBgColorPreset[color]
 }

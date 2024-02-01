@@ -7,8 +7,7 @@ import React, {
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type SemanticNames } from '~/src/foundation'
-
+import { type SemanticColor } from '~/src/types/Token'
 import { cssVar } from '~/src/utils/style'
 import {
   isEmpty,
@@ -58,7 +57,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
   style,
   ...rest
 }, forwardedRef) {
-  const bgColor: SemanticNames = givenColor || getProperTagBadgeBgColor(variant)
+  const bgColor: SemanticColor = givenColor || getProperTagBadgeBgColor(variant)
 
   return (
     <div

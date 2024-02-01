@@ -21,16 +21,14 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
-
 import { noop } from '~/src/utils/function'
-import { gap } from '~/src/utils/style'
 
 import {
   LegacyHStack,
   LegacyStackItem,
   LegacyVStack,
 } from '~/src/components/LegacyStack'
+import { Stack } from '~/src/components/Stack'
 import {
   Badge,
   Tag,
@@ -50,16 +48,14 @@ const meta: Meta<typeof Badge> = {
 }
 export default meta
 
-const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  ${gap(4)}
-`
-
 export const Overview: StoryFn<{}> = () => (
   <LegacyVStack spacing={16}>
     <LegacyStackItem>
-      <Container>
+      <Stack
+        direction="horizontal"
+        spacing={4}
+        wrap
+      >
         <Tag variant={TagBadgeVariant.Default}>default</Tag>
         <Tag variant={TagBadgeVariant.Blue}>blue</Tag>
         <Tag variant={TagBadgeVariant.Cobalt}>cobalt</Tag>
@@ -72,10 +68,14 @@ export const Overview: StoryFn<{}> = () => (
         <Tag variant={TagBadgeVariant.Orange}>orange</Tag>
         <Tag variant={TagBadgeVariant.Red}>red</Tag>
         <Tag variant={TagBadgeVariant.Purple}>purple</Tag>
-      </Container>
+      </Stack>
     </LegacyStackItem>
     <LegacyStackItem>
-      <Container>
+      <Stack
+        direction="horizontal"
+        spacing={4}
+        wrap
+      >
         <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>default</Badge>
         <Badge icon={BookmarkFilledIcon} variant={TagBadgeVariant.Blue}>blue</Badge>
         <Badge icon={TimeElapsedIcon} variant={TagBadgeVariant.Cobalt}>cobalt</Badge>
@@ -90,7 +90,7 @@ export const Overview: StoryFn<{}> = () => (
         <Badge icon={TrendingUpIcon} variant={TagBadgeVariant.Purple}>purple</Badge>
         <Badge icon={ClockIcon} variant={TagBadgeVariant.MonochromeDark}>monochrome-dark</Badge>
         <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>monochrome-light</Badge>
-      </Container>
+      </Stack>
     </LegacyStackItem>
   </LegacyVStack>
 )
@@ -139,17 +139,16 @@ export const DismissibleTag: StoryObj<{}> = {
   name: 'Usage (dismissible tags)',
 }
 
-const Items = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 400px;
-  border: 1px solid red;
-  ${gap(4)}
-`
-
 export const Gap: StoryObj<{}> = {
   render: () => (
-    <Items>
+    <Stack
+      direction="horizontal"
+      wrap
+      width={400}
+      spacing={4}
+      borderWidth={1}
+      borderColor="bdr-black-light"
+    >
       <Badge icon={ClockIcon} variant={TagBadgeVariant.Default}>
         default
       </Badge>
@@ -192,7 +191,7 @@ export const Gap: StoryObj<{}> = {
       <Badge icon={CancelIcon} variant={TagBadgeVariant.MonochromeLight}>
         monochrome-light
       </Badge>
-    </Items>
+    </Stack>
   ),
 
   name: 'Usage (multiple tags or badges with gap)',
