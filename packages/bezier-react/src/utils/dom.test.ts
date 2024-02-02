@@ -1,27 +1,15 @@
-import {
-  document,
-  getRootElement,
-  window,
-} from './dom'
+import { ariaAttr } from './dom'
 
-describe('domUtils', () => {
-  describe('document', () => {
-    it('should have base methods', () => {
-      expect(document).toHaveProperty('getElementById')
-      expect(document).toHaveProperty('addEventListener')
-      expect(document).toHaveProperty('removeEventListener')
-    })
+describe('ariaAttr', () => {
+  it('returns true when condition is true', () => {
+    expect(ariaAttr(true)).toBe(true)
   })
 
-  describe('window', () => {
-    it("should have 'requestAnimationFrame' method", () => {
-      expect(window).toHaveProperty('requestAnimationFrame')
-    })
+  it('returns undefined when condition is false', () => {
+    expect(ariaAttr(false)).toBeUndefined()
   })
 
-  describe('getRootElement()', () => {
-    it('should return document.body element', () => {
-      expect(getRootElement()).toEqual(document.body)
-    })
+  it('returns undefined when condition is undefined', () => {
+    expect(ariaAttr()).toBeUndefined()
   })
 })
