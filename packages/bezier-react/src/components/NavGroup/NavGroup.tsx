@@ -22,11 +22,10 @@ import type { NavGroupProps } from './NavGroup.types'
 
 import styles from './NavGroup.module.scss'
 
-export const NAV_GROUP_TEST_ID = 'bezier-react-nav-group'
-export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-react-nav-group-left-icon'
+export const NAV_GROUP_TEST_ID = 'bezier-nav-group'
+export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-nav-group-left-icon'
 
 export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function NavGroup({
-  testId = NAV_GROUP_TEST_ID,
   name,
   className,
   children,
@@ -59,20 +58,20 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
           active && commonStyles.active,
           className,
         )}
-        data-testid={testId}
         role="menuitem"
         aria-haspopup={hasChildren}
         aria-expanded={open}
         aria-controls={ariaName}
         onClick={handleClickItem}
+        data-testid={NAV_GROUP_TEST_ID}
         {...rest}
       >
         <div className={commonStyles.LeftIconWrapper}>
           <Icon
-            testId={NAV_GROUP_LEFT_ICON_TEST_ID}
             source={leftContent}
             size={IconSize.S}
             color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
+            data-testid={NAV_GROUP_LEFT_ICON_TEST_ID}
           />
         </div>
 

@@ -87,8 +87,8 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   tooltipContainer,
   offset = 4,
   allowHover = false,
-  testId,
   forwardedRef,
+  ...rest
 }) => {
   const { rootElement } = useWindow()
 
@@ -163,7 +163,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
               contentClassName,
             )}
             ref={mergedRef}
-            data-testid={testId}
+            {...rest}
           >
             <Text
               color="txt-black-darkest"

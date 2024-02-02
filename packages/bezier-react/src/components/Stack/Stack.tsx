@@ -53,7 +53,6 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
     spacing,
     reverse,
     wrap,
-    testId = 'bezier-react-stack',
     ...rest
   } = layoutRest
 
@@ -77,7 +76,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(function Stack(props, f
       layoutStyles.className,
       className,
     ),
-    'data-testid': testId,
+    'data-testid': 'bezier-stack',
     ...rest,
   }, children)
 })

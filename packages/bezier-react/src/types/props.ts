@@ -9,17 +9,6 @@ import type {
 } from './tokens'
 
 /**
- * Base configuration properties for components, including the HTML element type and test ID.
- * @deprecated Remove
- */
-interface RenderConfigProps {
-  /**
-   * A test ID attribute compatible with `@testing-library/react`.
-   */
-  testId?: string
-}
-
-/**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
  */
 interface OverridableStyleProps {
@@ -56,7 +45,6 @@ type HTMLElementProps<Tag extends keyof JSX.IntrinsicElements> = React.Component
  * @template Tag The tag name of the HTML element (e.g., 'div', 'a', 'button'). If null, returns contains `React.HTMLAttributes<HTMLElement>`.
  */
 export type BezierComponentProps<Tag extends keyof JSX.IntrinsicElements | null = null> =
-  & RenderConfigProps
   & (Tag extends keyof JSX.IntrinsicElements ? HTMLElementProps<Tag> : React.HTMLAttributes<HTMLElement>)
   & OverridableStyleProps
 

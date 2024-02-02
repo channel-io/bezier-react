@@ -40,7 +40,6 @@ export const LIST_ITEM_TEST_ID = 'bezier-list-item'
 export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
   as,
-  testId = LIST_ITEM_TEST_ID,
   variant = ListItemVariant.Monochrome,
   size = ListItemSize.S,
   content,
@@ -60,7 +59,6 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
 
   return (
     <Comp
-      {...rest}
       {...isLink && {
         href,
         draggable: false,
@@ -77,8 +75,9 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
         className,
       )}
       ref={forwardedRef}
-      data-testid={testId}
       onClick={!disabled ? onClick : undefined}
+      data-testid={LIST_ITEM_TEST_ID}
+      {...rest}
     >
       <div className={styles.ListItemContent}>
         { !isNil(leftContent) && (

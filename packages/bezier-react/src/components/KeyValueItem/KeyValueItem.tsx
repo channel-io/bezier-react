@@ -51,7 +51,7 @@ function KeyItem({
             size={IconSize.S}
             source={icon}
             color="txt-black-dark"
-            testId={KEY_VALUE_ITEM_KEY_ICON_TEST_ID}
+            data-testid={KEY_VALUE_ITEM_KEY_ICON_TEST_ID}
           />
         )
         : icon }
@@ -137,21 +137,20 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(functi
   keyContent,
   actions,
   children,
-  testId = KEY_VALUE_ITEM_TEST_ID,
   onClickKey,
   onClickValue,
-  ...props
+  ...rest
 }, forwardedRef) {
   return (
     <div
-      {...props}
       className={classNames(
         styles.KeyValueItem,
         styles.singleline,
         className,
       )}
       ref={forwardedRef}
-      data-testid={testId}
+      data-testid={KEY_VALUE_ITEM_TEST_ID}
+      {...rest}
     >
       { /* Since it allows for click interaction, it should be interactive content,
         but since it has a button element nested inside it, this is bad HTML markup.
@@ -202,21 +201,20 @@ export const KeyValueMultiLineItem = forwardRef<HTMLDivElement, KeyValueItemProp
   keyIcon,
   keyContent,
   actions,
-  testId = KEY_VALUE_ITEM_TEST_ID,
   onClickKey,
   onClickValue,
-  ...props
+  ...rest
 }, forwardedRef) {
   return (
     <div
-      {...props}
       className={classNames(
         styles.KeyValueItem,
         styles.multiline,
         className,
       )}
       ref={forwardedRef}
-      data-testid={testId}
+      data-testid={KEY_VALUE_ITEM_TEST_ID}
+      {...rest}
     >
       { /* Since it allows for click interaction, it should be interactive content,
         but since it has a button element nested inside it, this is bad HTML markup.

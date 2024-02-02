@@ -9,7 +9,7 @@ import { LegacyVStack } from './LegacyVStack'
 
 describe('VStack', () => {
   it('creates a vertical flexbox', () => {
-    const { getByTestId } = render(<LegacyVStack testId="v-stack" />)
+    const { getByTestId } = render(<LegacyVStack data-testid="v-stack" />)
 
     expect(getByTestId('v-stack')).toHaveClass(styles['direction-vertical'])
   })

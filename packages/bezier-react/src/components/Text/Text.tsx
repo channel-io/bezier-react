@@ -38,7 +38,6 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
     style,
     className,
     as = 'span',
-    testId = 'bezier-react-text',
     typo = '15',
     color,
     bold,
@@ -68,7 +67,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, forw
       marginStyles.className,
       className,
     ),
-    'data-testid': testId,
+    'data-testid': 'bezier-text',
     ...rest,
   }, children)
 })

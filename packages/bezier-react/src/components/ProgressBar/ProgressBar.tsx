@@ -18,7 +18,6 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function
   variant = 'green',
   width = 36,
   value = 0,
-  testId = 'bezier-progress-bar',
   ...rest
 }, forwardedRef) {
   const clampedValue = clamp(value, 0, 1)
@@ -41,7 +40,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function
       aria-valuemin={0}
       aria-valuemax={1}
       aria-valuenow={clampedValue}
-      data-testid={testId}
+      data-testid="bezier-progress-bar"
       {...rest}
     >
       <div

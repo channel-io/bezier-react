@@ -14,8 +14,8 @@ import type { NavItemProps } from './NavItem.types'
 
 import styles from './NavItem.module.scss'
 
-export const NAV_ITEM_TEST_ID = 'bezier-react-nav-item'
-export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
+export const NAV_ITEM_TEST_ID = 'bezier-nav-item'
+export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
 
 /**
  * `NavItem` is a component for an item where you can navigate to another link.
@@ -29,7 +29,6 @@ export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
  * ```
  */
 export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
-  testId = NAV_ITEM_TEST_ID,
   name,
   style,
   className,
@@ -59,17 +58,17 @@ export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavI
           active && styles.active,
           className,
         )}
-        data-testid={testId}
         href={href}
         target={target}
         role="menuitem"
         onClick={handleClickItem}
+        data-testid={NAV_ITEM_TEST_ID}
         {...rest}
       >
         <div className={styles.LeftIconWrapper}>
           { leftContent && (
             <Icon
-              testId={NAV_ITEM_LEFT_ICON_TEST_ID}
+              data-testid={NAV_ITEM_LEFT_ICON_TEST_ID}
               source={leftContent}
               size={IconSize.S}
               color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}

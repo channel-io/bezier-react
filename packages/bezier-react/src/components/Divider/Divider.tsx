@@ -7,7 +7,7 @@ import { type DividerProps } from './Divider.types'
 
 import styles from './Divider.module.scss'
 
-export const DIVIDER_TEST_ID = 'bezier-react-divider'
+export const DIVIDER_TEST_ID = 'bezier-divider'
 
 /**
  * `Divider` is a component to visually or semantically separate content.
@@ -22,7 +22,6 @@ export const DIVIDER_TEST_ID = 'bezier-react-divider'
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
   orientation = 'horizontal',
   decorative,
-  testId = DIVIDER_TEST_ID,
   withoutSideIndent = false,
   withoutParallelIndent = false,
   withoutIndent = false,
@@ -38,7 +37,6 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
   >
     <div
       ref={forwardedRef}
-      data-testid={testId}
       style={style}
       className={classNames(
         styles.Divider,
@@ -49,6 +47,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
         withoutSideIndent && styles['without-side-indent'],
         className,
       )}
+      data-testid={DIVIDER_TEST_ID}
       {...rest}
     />
   </SeparatorPrimitive.Root>

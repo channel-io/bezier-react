@@ -36,7 +36,7 @@ const [
 
 const DEFAULT_INDENT = 16
 
-export const OUTLINE_ITEM_TEST_ID = 'bezier-react-outline-item'
+export const OUTLINE_ITEM_TEST_ID = 'bezier-outline-item'
 
 export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, OutlineItemProps>(function OutlineItem({
   children,
@@ -51,7 +51,6 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
   content,
   rightContent,
   href,
-  testId = OUTLINE_ITEM_TEST_ID,
   ...rest
 }, forwardedRef) {
   const context = useOutlineItemContext()
@@ -64,7 +63,6 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
   return (
     <>
       <Comp
-        {...rest}
         {...isLink && {
           href,
           target: '_blank',
@@ -81,7 +79,8 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
           className,
         )}
         ref={forwardedRef}
-        data-testid={testId}
+        data-testid={OUTLINE_ITEM_TEST_ID}
+        {...rest}
       >
         { !disableChevron && (
           <div className={styles.Chevron}>

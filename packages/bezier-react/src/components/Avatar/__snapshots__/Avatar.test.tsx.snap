@@ -5,7 +5,7 @@ exports[`Avatar > Snapshot 1`] = `
   aria-label="Name"
   class="SmoothCornersBox AvatarImage"
   data-state="disabled"
-  data-testid="bezier-react-avatar"
+  data-testid="bezier-avatar"
   style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
@@ -15,7 +15,7 @@ exports[`Avatar > renders border style 1`] = `
   aria-label="Name"
   class="SmoothCornersBox AvatarImage bordered"
   data-state="disabled"
-  data-testid="bezier-react-avatar"
+  data-testid="bezier-avatar"
   style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 2px; --b-smooth-corners-box-shadow-color: var(--bg-white-high); --b-smooth-corners-box-padding: 4px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bg-white-normal); --b-smooth-corners-box-background-image: url(https://www.google.com);"
 />
 `;
@@ -23,7 +23,7 @@ exports[`Avatar > renders border style 1`] = `
 exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-m"
@@ -35,7 +35,7 @@ exports[`Avatar > should have right -2px, bottom -2px style on StatusWrapper 1`]
 exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when show border 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-m"
@@ -47,7 +47,7 @@ exports[`Avatar > should have right 2px, bottom 2px style on StatusWrapper when 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 72 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-m"
@@ -59,7 +59,7 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when size grater then 90 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-l"
@@ -71,7 +71,7 @@ exports[`Avatar > should have right 4px, bottom 4px style on StatusWrapper when 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-m"
@@ -83,7 +83,7 @@ exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when 
 exports[`Avatar > should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border 1`] = `
 <div
   class="StatusWrapper"
-  data-testid="bezier-react-status-wrapper"
+  data-testid="bezier-status-wrapper"
 >
   <div
     class="Status size-l"

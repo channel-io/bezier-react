@@ -110,7 +110,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   leftContent,
   content,
   rightContent,
-  testId = 'bezier-section-label',
   onClick,
   ...props
 }, forwardedRef) {
@@ -120,7 +119,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   return (
     <>
       <Comp
-        {...props}
         // @ts-expect-error
         ref={forwardedRef}
         className={classNames(
@@ -128,8 +126,9 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
           clickable && styles.clickable,
           className,
         )}
-        data-testid={testId}
+        data-testid="bezier-section-label"
         onClick={onClick}
+        {...props}
       >
         { leftContent && (
           <div className={styles.LeftContent}>

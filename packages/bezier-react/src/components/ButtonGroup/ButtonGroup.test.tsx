@@ -28,7 +28,7 @@ describe('ButtonGroup', () => {
       <ButtonGroup
         {...props}
         withoutSpacing
-        testId="button-group"
+        data-testid="button-group"
       >
         <Button text="button1" />
         <Button text="button2" />
