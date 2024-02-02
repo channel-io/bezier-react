@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { window as defaultWindow } from '~/src/utils/dom'
+import { getWindow } from 'ssr-window'
 
 import { FeatureProvider } from '~/src/components/FeatureProvider'
 import { TokenProvider } from '~/src/components/TokenProvider'
@@ -8,6 +8,8 @@ import { TooltipProvider } from '~/src/components/Tooltip'
 import { WindowProvider } from '~/src/components/WindowProvider'
 
 import { type AppProviderProps } from './AppProvider.types'
+
+const defaultWindow = getWindow()
 
 /**
  * `AppProvider` is a required wrapper component that provides context for the app.
