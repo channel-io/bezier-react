@@ -41,7 +41,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
   } = getProps?.(rest) ?? {
     visible: true,
     ref: noop,
-    classNameFromControl: undefined,
+    className: undefined,
     ...rest,
   }
 
