@@ -1,4 +1,4 @@
-import { ariaAttr } from './dom'
+import { ariaAttr } from './aria'
 
 describe('ariaAttr', () => {
   it('returns true when condition is true', () => {
