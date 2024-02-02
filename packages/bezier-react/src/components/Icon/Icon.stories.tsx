@@ -13,6 +13,7 @@ import {
   EditIcon,
   EmailIcon,
   ErrorTriangleFilledIcon,
+  type IconName,
   InboxIcon,
   InfoFilledIcon,
   SendForwardFilledIcon,
@@ -27,10 +28,7 @@ import {
 } from '@storybook/react'
 
 import { type SemanticColor } from '~/src/types/tokens'
-import {
-  getObjectFromEnum,
-  iconList,
-} from '~/src/utils/story'
+import { getObjectFromEnum } from '~/src/utils/story'
 import { camelCase } from '~/src/utils/string'
 
 import {
@@ -83,7 +81,7 @@ const pascalCase = (str: string) =>
 export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
   render: (args) => (
     <>
-      { iconList.map((iconName) => (
+      { (Object.keys(icons) as IconName[]).map((iconName) => (
         <Stack
           key={iconName}
           display="inline-flex"
