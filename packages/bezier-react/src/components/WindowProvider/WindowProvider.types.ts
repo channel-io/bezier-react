@@ -8,8 +8,7 @@ export interface WindowContextValue {
 
 interface WindowProviderOwnProps {
   /**
-   * injected window
-   * @required
+   * Injected window object.
    */
   window: Window
 }

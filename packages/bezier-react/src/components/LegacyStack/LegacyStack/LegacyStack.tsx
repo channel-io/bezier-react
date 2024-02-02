@@ -22,7 +22,6 @@ import styles from './LegacyStack.module.scss'
  * `Stack` always fills the parent element.
  *
  * Be reminded to list `StackItem`s to be direct child of `Stack`.
- *
  * @example
  *
  * ```tsx
@@ -65,12 +64,12 @@ export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(function St
           if (!isValidElement(element)) { return element }
 
           /**
-             * NOTE: this assumes that this element is `StackItem`.
-             *
-             * Even if the child is not a `StackItem` component,
-             * it could forward the prop to `StackItem` deeper in the tree,
-             * or implement a custom behavior compatible with `StackItemProps`.
-             */
+           * NOTE: this assumes that this element is `StackItem`.
+           *
+           * Even if the child is not a `StackItem` component,
+           * it could forward the prop to `StackItem` deeper in the tree,
+           * or implement a custom behavior compatible with `StackItemProps`.
+           */
           if (firstValidElementIdx.current === -1) { firstValidElementIdx.current = index }
           return cloneElement(element, {
             ...element.props,

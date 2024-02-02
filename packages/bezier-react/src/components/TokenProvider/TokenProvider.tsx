@@ -27,7 +27,7 @@ const tokenSet: Record<ThemeName, ThemedTokenSet> = Object.freeze({
 })
 
 /**
- * @private For internal use only.
+ * @private
  */
 export function TokenProvider({
   themeName,

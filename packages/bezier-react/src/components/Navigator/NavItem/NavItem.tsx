@@ -18,7 +18,6 @@ export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-react-nav-item-left-icon'
 
 /**
  * `NavItem` is a component for an item where you can navigate to another link.
- *
  * @example
  * ```tsx
  * <NavItem

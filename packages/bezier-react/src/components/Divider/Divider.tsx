@@ -11,7 +11,6 @@ export const DIVIDER_TEST_ID = 'bezier-react-divider'
 
 /**
  * `Divider` is a component to visually or semantically separate content.
- *
  * @example
  *
  * ```tsx

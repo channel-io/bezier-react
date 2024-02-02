@@ -18,7 +18,6 @@ import styles from './Box.module.scss'
 
 /**
  * `Box` is a primitive layout component. It provides an easy way to access design tokens.
- *
  * @example
  *
  * ```tsx

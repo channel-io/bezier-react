@@ -18,7 +18,6 @@ import styles from './AlphaSmoothCornersBox.module.scss'
 /**
  * `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
  * It is available by enabling the `SmoothCornersFeature`.
- *
  * @example
  *
  * ```tsx

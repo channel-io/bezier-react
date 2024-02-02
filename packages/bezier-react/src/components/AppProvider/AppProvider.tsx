@@ -11,7 +11,6 @@ import { type AppProviderProps } from './AppProvider.types'
 
 /**
  * `AppProvider` is a required wrapper component that provides context for the app.
- *
  * @example
  *
  * ```tsx

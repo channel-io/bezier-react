@@ -14,7 +14,6 @@ type StrictContextValue = NonNullableValue | null
 
 /**
  * A function that makes it easy to use the React `createContext` function.
- *
  * @param defaultValue The default value of the context.
  * @param providerName The name of the provider component.
  * **Required if `defaultValue` is `null`able. (not `undefined`!)** Used to make the error message human-readable if contextValue is `null`.

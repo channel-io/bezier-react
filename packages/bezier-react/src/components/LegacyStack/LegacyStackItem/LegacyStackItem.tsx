@@ -19,7 +19,6 @@ const sanitizeWeight = (weight: number): number => {
 
 /**
  * @deprecated Use layout components(`Box`, `Stack`) that support flex item related properties (`shrink`, `grow`) instead.
- *
  * @example
  *
  * ```

@@ -25,7 +25,6 @@ export const BADGE_TEST_ID = 'bezier-react-badge'
 
 /**
  * `Badge` is a component for representing badge, which consists of text and icon.
- *
  * @example
  * ```tsx
  * <Badge

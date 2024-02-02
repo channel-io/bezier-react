@@ -6,7 +6,6 @@ import type { ButtonGroupProps } from './ButtonGroup.types'
 
 /**
  * `ButtonGroup` is a component that groups buttons together.
- *
  * @example
  * ```tsx
  * <ButtonGroup>

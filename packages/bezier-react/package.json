@@ -100,6 +100,7 @@
     "chromatic": "^7.0.0",
     "core-js": "^3.32.2",
     "eslint-config-bezier": "workspace:*",
+    "eslint-plugin-jsdoc": "^48.0.4",
     "eslint-plugin-storybook": "^0.6.13",
     "identity-obj-proxy": "^3.0.0",
     "lightningcss": "^1.22.1",

@@ -235,7 +235,7 @@ describe('TextField', () => {
   describe('show remove button only when it is filled and focused/hovered', () => {
     /**
      * FIXME: This test is not working properly.
-     * @see: https://github.com/testing-library/jest-dom/issues/444
+     * @see https://github.com/testing-library/jest-dom/issues/444
      */
     // it('disappear when empty & focused/hovered', async () => {
     //   const { getByTestId } = renderComponent({ value: '', allowClear: true })

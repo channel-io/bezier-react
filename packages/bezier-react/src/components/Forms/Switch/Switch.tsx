@@ -17,7 +17,6 @@ const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
 
 /**
  * `Switch` is an input component where user can toggle checked state of the element.
- *
  * @example
  * ```tsx
  * <Switch

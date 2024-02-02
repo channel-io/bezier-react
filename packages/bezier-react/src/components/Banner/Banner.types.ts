@@ -39,7 +39,6 @@ interface BannerOwnProps {
 
   /**
    * Whether to display link at the end of banner content.
-   *
    * @default false
    */
   hasLink?: boolean
@@ -49,7 +48,6 @@ interface BannerOwnProps {
    *
    * This will be displayed as bold, underline text at the end of content.
    *
-   * @remarks
    * `hasLink` props should be given `true` to enable the link.
    */
   linkText?: string
@@ -60,14 +58,12 @@ interface BannerOwnProps {
    * By default, the link will be opened in a new tab. (`target="_blank"`)
    * To specify a different behavior, use `renderLink` prop to render the link as a custom component.
    *
-   * @remarks
    * `hasLink` props should be given `true` to enable the link.
    */
   linkTo?: string
 
   /**
    * Specifies how to render the link.
-   *
    * @default
    * renders link as an `<a>` tag with `target="_blank"` attribute.
    */

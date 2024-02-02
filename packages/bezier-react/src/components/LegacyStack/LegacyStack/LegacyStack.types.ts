@@ -10,8 +10,6 @@ interface LegacyStackOwnProps {
   /**
    * Direction of this stack.
    *
-   * @remarks
-   *
    * If you are directly using this prop in application code,
    * consider using `HStack` or `VStack` instead.
    */
@@ -22,7 +20,6 @@ interface LegacyStackOwnProps {
    *
    * The `justify` prop given to child `StackItem` component
    * overrides the default alignment.
-   *
    * @default start
    */
   justify?: AxisAlignment
@@ -32,7 +29,6 @@ interface LegacyStackOwnProps {
    *
    * The `align` prop given to child `StackItem` component
    * overrides the default alignment.
-   *
    * @default stretch
    */
   align?: AxisAlignment
@@ -43,10 +39,8 @@ interface LegacyStackOwnProps {
    * `marginBefore` and `marginAfter` prop given to child `StackItem` component
    * overrides the default spacing.
    *
-   * @remarks
    * `spacing` could be enumerated in later design, if bezier design system
    * decides to define a guideline for linear layout.
-   *
    * @default 0
    */
   spacing?: number

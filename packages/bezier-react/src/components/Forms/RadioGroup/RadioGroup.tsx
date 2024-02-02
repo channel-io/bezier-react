@@ -50,7 +50,6 @@ function RadioGroupImpl<Value extends string>({
  *
  * `RadioGroup` is a context of the `Radio` components. also, it renders an element which has the 'radiogroup' role.
  * It controls all the parts of a radio group.
- *
  * @example
  *
  * ```tsx

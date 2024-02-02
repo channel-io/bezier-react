@@ -62,7 +62,6 @@ const externalLinkRenderer: RenderLinkFunc = ({
 
 /**
  * `Banner` is a component you use when you want to communicate instructions, warnings, recommendations, and other information well.
- *
  * @example
  * ```tsx
  * <Banner

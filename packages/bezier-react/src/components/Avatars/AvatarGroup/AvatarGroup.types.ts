@@ -24,16 +24,13 @@ interface AvatarGroupOwnProps {
 
   /**
    * Spacing between the avatars.
-   *
-   * @note Spacing could be negative, which will make the avatars overlap each other.
-   *
+   * Spacing could be negative, which will make the avatars overlap each other.
    * @default 4
    */
   spacing?: number
 
   /**
    * Controls how the ellipsis is displayed.
-   *
    * @default AvatarGroupEllipsisType.Icon
    */
   ellipsisType?: AvatarGroupEllipsisType

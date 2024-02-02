@@ -34,7 +34,6 @@ export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
 
 /**
  * `Tag` is a component for representing tag, which shows close icon when `onDelete` property is specified.
- *
  * @example
  * ```tsx
  * <Tag

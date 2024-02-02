@@ -18,7 +18,6 @@ export const EMOJI_TEST_ID = 'bezier-react-emoji'
 
 /**
  * `Emoji` is a component for representing emoji with variant size.
- *
  * @example
  * ```tsx
  * <Emoji

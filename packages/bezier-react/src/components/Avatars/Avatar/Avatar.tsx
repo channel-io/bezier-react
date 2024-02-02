@@ -38,7 +38,6 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
 
 /**
  * `Avatar` is a component for representing some profile image.
- *
  * @example
  *
  * ```tsx

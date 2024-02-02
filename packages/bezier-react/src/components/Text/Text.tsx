@@ -18,7 +18,6 @@ import styles from './Text.module.scss'
 
 /**
  * `Text` is a component for representing the typography of a design system.
- *
  * @example
  *
  * ```tsx

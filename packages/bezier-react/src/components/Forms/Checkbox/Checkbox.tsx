@@ -108,7 +108,6 @@ function CheckboxImpl<Checked extends CheckedState>({
 /**
  * `Checkbox` is a control that allows the user to toggle between checked and not checked.
  * It can be used with labels or standalone.
- *
  * @example
  *
  * ```tsx
