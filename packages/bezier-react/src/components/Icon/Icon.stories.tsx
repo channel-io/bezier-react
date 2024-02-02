@@ -90,11 +90,23 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
           direction="vertical"
           align="center"
           justify="center"
+          wrap
+          padding={6}
+          spacing={12}
           width={120}
           height={120}
         >
           <Icon source={icons[iconName]} {...args} />
-          <Text align="center">{ pascalCase(iconName) }</Text>
+          <Text
+            style={{
+              wordBreak: 'break-word',
+            }}
+            typo="12"
+            color="txt-black-darkest"
+            align="center"
+          >
+            { pascalCase(iconName) }
+          </Text>
         </Stack>
       )) }
     </>
@@ -102,7 +114,7 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
 
   args: {
     size: IconSize.Normal,
-    color: 'bg-black-darker',
+    color: 'bg-black-darkest',
   },
 }
 
@@ -187,37 +199,37 @@ export const Overview: StoryFn<{}> = () => (
   </LegacyVStack>
 )
 
+function ColorIcon() {
+  const [color, setColor] = useState<SemanticColor>('bgtxt-blue-normal')
+
+  return (
+    <LegacyVStack spacing={16}>
+      <LegacyStackItem>
+        <Icon
+          source={ChannelBtnSmileFilledIcon}
+          color={color}
+          size={IconSize.L}
+        />
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <Select text={color} style={{ width: 200 }}>
+          <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
+            { Object.keys(useToken().semantic.color).map((semanticName) => (
+              <ListItem
+                key={semanticName}
+                content={semanticName}
+                onClick={() => setColor(semanticName as SemanticColor)}
+              />
+            )) }
+          </div>
+        </Select>
+      </LegacyStackItem>
+    </LegacyVStack>
+  )
+}
+
 export const UsageColor: StoryObj<{}> = {
-  render: function Render() {
-    const [color, setColor] = useState<SemanticColor>('bgtxt-blue-normal')
-    const token = useToken()
-
-    return (
-      <LegacyVStack spacing={16}>
-        <LegacyStackItem>
-          <Icon
-            source={ChannelBtnSmileFilledIcon}
-            color={color}
-            size={IconSize.L}
-          />
-        </LegacyStackItem>
-        <LegacyStackItem>
-          <Select text={color} style={{ width: 200 }}>
-            <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-              { Object.keys(token.semantic.color).map((semanticName) => (
-                <ListItem
-                  key={semanticName}
-                  content={semanticName}
-                  onClick={() => setColor(semanticName as SemanticColor)}
-                />
-              )) }
-            </div>
-          </Select>
-        </LegacyStackItem>
-      </LegacyVStack>
-    )
-  },
-
+  render: () => <ColorIcon />,
   name: 'Usage (color)',
 }
 
