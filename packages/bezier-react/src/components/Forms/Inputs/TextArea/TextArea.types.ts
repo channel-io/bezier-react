@@ -2,7 +2,7 @@ import type React from 'react'
 
 import { type TextareaAutosizeProps } from 'react-textarea-autosize'
 
-import type { AlphaBezierComponentProps } from '~/src/types/ComponentProps'
+import type { AlphaBezierComponentProps } from '~/src/types/props'
 
 import { type FormComponentProps } from '~/src/components/Forms/Form.types'
 

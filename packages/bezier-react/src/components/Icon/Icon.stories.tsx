@@ -26,8 +26,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { useToken } from '~/src/providers/ThemeProvider'
-import { type SemanticColor } from '~/src/types/Token'
+import { type SemanticColor } from '~/src/types/tokens'
 import {
   getObjectFromEnum,
   iconList,
@@ -43,6 +42,7 @@ import {
 import { ListItem } from '~/src/components/ListItem'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
+import { useToken } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'

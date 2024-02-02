@@ -1,4 +1,4 @@
-import { type FlattenAllToken } from '~/src/types/Token'
+import { type FlattenAllToken } from '~/src/types/tokens'
 import {
   isNil,
   isString,

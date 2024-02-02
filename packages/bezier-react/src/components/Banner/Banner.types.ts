@@ -10,7 +10,7 @@ import type {
   AlphaBezierComponentProps,
   ContentProps,
   VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type { ButtonProps } from '~/src/components/Button'
 

@@ -3,10 +3,10 @@ import React from 'react'
 import type { Preview } from '@storybook/react'
 
 import { SmoothCornersFeature } from '~/src/features'
-import { AppProvider } from '~/src/providers/AppProvider'
-import { InvertedThemeProvider } from '~/src/providers/ThemeProvider'
 
+import { AppProvider } from '~/src/components/AppProvider'
 import { Text } from '~/src/components/Text'
+import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 
 import styles from './preview.module.scss'
 

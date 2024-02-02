@@ -21,6 +21,7 @@
   },
   "types": ["react", "jest"],
   "include": [
+    "src/*",
     "src/**/*",
     ".storybook/**/*",
   ],

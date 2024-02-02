@@ -3,7 +3,7 @@ import {
   type ChildrenProps,
   type LayoutProps,
   type MarginProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 type Display = 'flex' | 'inline-flex'
 

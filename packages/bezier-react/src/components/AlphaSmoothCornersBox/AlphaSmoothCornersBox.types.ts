@@ -2,8 +2,8 @@ import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   DisableProps,
-} from '~/src/types/ComponentProps'
-import { type SemanticColor } from '~/src/types/Token'
+} from '~/src/types/props'
+import { type SemanticColor } from '~/src/types/tokens'
 
 /**
  * NOTE: The `inset` property is not currently supported.

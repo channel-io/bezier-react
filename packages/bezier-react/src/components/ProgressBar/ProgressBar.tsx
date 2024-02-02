@@ -2,9 +2,10 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import { useThemeName } from '~/src/providers/ThemeProvider'
 import { clamp } from '~/src/utils/number'
 import { cssDimension } from '~/src/utils/style'
+
+import { useThemeName } from '~/src/components/ThemeProvider'
 
 import type { ProgressBarProps } from './ProgressBar.types'
 

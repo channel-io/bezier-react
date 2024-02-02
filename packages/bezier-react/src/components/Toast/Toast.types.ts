@@ -5,8 +5,8 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import {
   type ChildrenProps,
   type ContentProps,
-} from '~/src/types/ComponentProps'
-import { type ZIndex } from '~/src/types/Token'
+} from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export enum ToastPlacement {
   BottomLeft = 'bottom-left',

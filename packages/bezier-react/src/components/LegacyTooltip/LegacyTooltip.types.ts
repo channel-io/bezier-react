@@ -7,7 +7,7 @@ import {
   type ContentProps,
   type DisableProps,
   type PolymorphicProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 interface LegacyTooltipOptions {
   placement?: LegacyTooltipPosition

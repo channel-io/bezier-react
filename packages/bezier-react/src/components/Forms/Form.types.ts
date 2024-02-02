@@ -1,7 +1,7 @@
 import type {
   DisableProps,
   IdentifierProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 interface FormComponentOwnProps {
   hasError?: boolean

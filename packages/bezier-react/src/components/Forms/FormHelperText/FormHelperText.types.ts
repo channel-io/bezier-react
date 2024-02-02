@@ -3,7 +3,7 @@ import {
   type ChildrenProps,
   type IdentifierProps,
   type MarginProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import { type TextProps } from '~/src/components/Text'
 

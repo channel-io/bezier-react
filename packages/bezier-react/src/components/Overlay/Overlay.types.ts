@@ -5,7 +5,7 @@ import {
   type AlphaAdditionalStylableProps,
   type AlphaBezierComponentProps,
   type ChildrenProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export interface ContainerRectAttr {
   containerWidth: number

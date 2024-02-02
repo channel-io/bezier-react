@@ -10,3 +10,8 @@ declare module '*.svg' {
   const src: string
   export default src
 }
+
+declare module '*.mdx' {
+  const content: string
+  export default content
+}

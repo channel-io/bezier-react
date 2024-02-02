@@ -1,7 +1,7 @@
 import {
   type AlphaBezierComponentProps,
   type ChildrenProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import { type FormComponentProps } from '~/src/components/Forms'
 

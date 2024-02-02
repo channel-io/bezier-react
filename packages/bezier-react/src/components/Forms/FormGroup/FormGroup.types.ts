@@ -1,7 +1,7 @@
 import type {
   AlphaBezierComponentProps,
   ChildrenProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type { StackProps } from '~/src/components/Stack'
 

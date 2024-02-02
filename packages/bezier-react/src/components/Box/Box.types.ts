@@ -4,7 +4,7 @@ import {
   type LayoutProps,
   type MarginProps,
   type PolymorphicProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 type Display = 'block' | 'inline' | 'inline-block'
 

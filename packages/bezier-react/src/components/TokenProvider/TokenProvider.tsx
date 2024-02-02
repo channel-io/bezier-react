@@ -2,22 +2,14 @@ import React, { useMemo } from 'react'
 
 import { tokens } from '@channel.io/bezier-tokens'
 
-import {
-  type GlobalToken,
-  type SemanticToken,
-  type ThemeName,
-} from '~/src/types/Token'
+import { type ThemeName } from '~/src/types/tokens'
 import { createContext } from '~/src/utils/react'
 
-type ThemedTokenSet = {
-  global: GlobalToken
-  semantic: SemanticToken
-}
-
-interface TokenContextValue {
-  themeName: ThemeName
-  tokens: ThemedTokenSet
-}
+import {
+  type ThemedTokenSet,
+  type TokenContextValue,
+  type TokenProviderProps,
+} from './TokenProvider.types'
 
 const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
 
@@ -33,11 +25,6 @@ const tokenSet: Record<ThemeName, ThemedTokenSet> = Object.freeze({
     semantic: tokens.darkTheme,
   },
 })
-
-export interface TokenProviderProps {
-  themeName: ThemeName
-  children: React.ReactNode
-}
 
 /**
  * @private For internal use only.

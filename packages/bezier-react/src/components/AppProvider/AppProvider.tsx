@@ -1,35 +1,13 @@
 import React, { useEffect } from 'react'
 
-import {
-  type Feature,
-  FeatureProvider,
-} from '~/src/features'
-import { type ThemeName } from '~/src/types/Token'
 import { window as defaultWindow } from '~/src/utils/dom'
 
+import { FeatureProvider } from '~/src/components/FeatureProvider'
+import { TokenProvider } from '~/src/components/TokenProvider'
 import { TooltipProvider } from '~/src/components/Tooltip'
+import { WindowProvider } from '~/src/components/WindowProvider'
 
-import { TokenProvider } from './TokenProvider'
-import { WindowProvider } from './WindowProvider'
-
-export interface AppProviderProps {
-  children: React.ReactNode
-  /**
-   * Name of the theme to use for the app.
-   * @default 'light'
-   */
-  themeName?: ThemeName
-  /**
-   * List of features to enable for the app.
-   * @default []
-   */
-  features?: Feature[]
-  /**
-   * Window object to use for the app.
-   * @default window
-   */
-  window?: Window
-}
+import { type AppProviderProps } from './AppProvider.types'
 
 /**
  * `AppProvider` is a required wrapper component that provides context for the app.

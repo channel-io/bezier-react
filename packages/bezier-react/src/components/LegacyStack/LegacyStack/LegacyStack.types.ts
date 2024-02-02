@@ -2,7 +2,7 @@ import type {
   AlphaBezierComponentProps,
   ChildrenProps,
   PolymorphicProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type { AxisAlignment } from '~/src/components/LegacyStack/types'
 

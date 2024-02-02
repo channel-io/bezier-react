@@ -8,8 +8,8 @@ import type {
   ChildrenProps,
   SideContentProps,
   SizeProps,
-} from '~/src/types/ComponentProps'
-import { type ZIndex } from '~/src/types/Token'
+} from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 import {
   type FormComponentProps,

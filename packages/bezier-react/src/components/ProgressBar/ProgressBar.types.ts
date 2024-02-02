@@ -2,7 +2,7 @@ import type {
   AlphaBezierComponentProps,
   SizeProps,
   VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 /**
  * @deprecated Use string literal instead of enum.

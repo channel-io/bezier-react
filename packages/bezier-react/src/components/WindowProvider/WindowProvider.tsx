@@ -1,28 +1,16 @@
-import React, {
-  type PropsWithChildren,
-  useMemo,
-} from 'react'
+import React, { useMemo } from 'react'
 
 import { createContext } from '~/src/utils/react'
 
-interface WindowContextValue {
-  window: Window
-  document: Document
-  rootElement: HTMLElement
-}
+import {
+  type WindowContextValue,
+  type WindowProviderProps,
+} from './WindowProvider.types'
 
 const [WindowContextProvider, useWindowContext] = createContext<WindowContextValue | null>(null, 'WindowProvider')
 
 export function useWindow() {
   return useWindowContext('useWindow')
-}
-
-interface WindowProviderProps extends PropsWithChildren {
-  /**
-   * injected window
-   * @required
-   */
-  window: Window
 }
 
 /**

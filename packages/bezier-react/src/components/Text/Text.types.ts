@@ -3,8 +3,8 @@ import {
   type ChildrenProps,
   type MarginProps,
   type PolymorphicProps,
-} from '~/src/types/ComponentProps'
-import { type SemanticColor } from '~/src/types/Token'
+} from '~/src/types/props'
+import { type SemanticColor } from '~/src/types/tokens'
 
 type Typography =
   | '11'
