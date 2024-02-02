@@ -4,10 +4,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
-import {
-  isNil,
-  isString,
-} from '~/src/utils/type'
+import { isNil } from '~/src/utils/type'
 
 import {
   Button,
@@ -122,26 +119,24 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
       ) }
 
       <div className={styles.Content}>
-        { isString(content) ? (
-          <Text typo="14">
-            { content }
+        <Text typo="14">
+          { content }
 
-            { hasLink && (
-              renderLink({
-                content: (
-                  <Text
-                    className={styles.Link}
-                    typo="14"
-                    bold
-                  >
-                    { linkText }
-                  </Text>
-                ),
-                linkTo,
-              })
-            ) }
-          </Text>
-        ) : content }
+          { hasLink && (
+            renderLink({
+              content: (
+                <Text
+                  className={styles.Link}
+                  typo="14"
+                  bold
+                >
+                  { linkText }
+                </Text>
+              ),
+              linkTo,
+            })
+          ) }
+        </Text>
       </div>
 
       { !isNil(actionIcon) && (
