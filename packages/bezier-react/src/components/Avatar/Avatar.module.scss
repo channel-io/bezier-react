@@ -76,7 +76,7 @@
   }
 
   &:where(.bordered[data-state="enabled"]) {
-    --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-alpha-smooth-corners-box-shadow-spread-radius)));
+    --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-smooth-corners-box-shadow-spread-radius)));
   }
 }
 
