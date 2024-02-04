@@ -19,9 +19,6 @@ $inner-indicator-size: 8px;
 }
 
 .RadioGroupItem {
-  all: unset;
-
-  /* stylelint-disable-next-line order/order */
   @include interaction.touchable-hover {
     @include outer-indicator-focus-styles;
     @include inner-indicator-focus-styles;

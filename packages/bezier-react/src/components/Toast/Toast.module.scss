@@ -134,9 +134,6 @@
 }
 
 .Close {
-  all: unset;
-
-  /* stylelint-disable-next-line order/order */
   @include dimension.square(24px);
 
   cursor: pointer;

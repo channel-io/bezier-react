@@ -77,13 +77,9 @@
 }
 
 .Checkbox {
-  all: unset;
-
   cursor: pointer;
-
   position: relative;
   z-index: var(--z-index-base);
-
   outline: none;
 
   &:where([data-disabled]) {
