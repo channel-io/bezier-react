@@ -51,7 +51,6 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   enableClickOutside = false,
   containerStyle,
   containerClassName,
-  containerTestId = CONTAINER_TEST_ID,
   onHide,
   onTransitionEnd,
   ...rest
@@ -275,7 +274,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
             containerClassName,
           )}
           ref={containerRef}
-          data-testid={containerTestId}
+          data-testid={CONTAINER_TEST_ID}
         >
           <div className={styles.OverlayWrapper}>
             { Content }

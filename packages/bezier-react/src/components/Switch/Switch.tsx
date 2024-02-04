@@ -13,7 +13,6 @@ import {
 import styles from './Switch.module.scss'
 
 export const SWITCH_TEST_ID = 'bezier-switch'
-const SWITCH_HANDLE_TEST_ID = 'bezier-switch-handle'
 
 /**
  * `Switch` is an input component where user can toggle checked state of the element.
@@ -26,7 +25,6 @@ const SWITCH_HANDLE_TEST_ID = 'bezier-switch-handle'
  * ```
  */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch({
-  handleTestId = SWITCH_HANDLE_TEST_ID,
   checked,
   defaultChecked = false,
   onCheckedChange,
@@ -62,10 +60,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
         data-testid={SWITCH_TEST_ID}
       >
         <SwitchPrimitive.Thumb asChild>
-          <span
-            data-testid={handleTestId}
-            className={styles.SwitchThumb}
-          />
+          <span className={styles.SwitchThumb} />
         </SwitchPrimitive.Thumb>
       </button>
     </SwitchPrimitive.Root>

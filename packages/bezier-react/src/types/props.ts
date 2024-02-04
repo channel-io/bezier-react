@@ -163,12 +163,6 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
   & AdditionalProps<ElementName, 'className', string>
 
 /**
- * Props for adding test IDs to named elements within a component, useful for testing purposes.
- */
-export type AdditionalTestIdProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'testId', string>
-
-/**
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =

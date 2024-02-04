@@ -61,9 +61,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownMarginY = 6,
   dropdownZIndex = 'overlay',
   dropdownPosition = OverlayPosition.BottomLeft,
-  triggerTestId = 'bezier-select-trigger',
-  triggerTextTestId = 'bezier-select-trigger-text',
-  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
   onClickTrigger,
   onHideDropdown,
   ...rest
@@ -133,7 +130,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         className,
       )}
       ref={containerRef}
-      data-testid="bezier-select-container"
     >
       <button
         className={classNames(
@@ -146,7 +142,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         ref={triggerRef}
         type="button"
         disabled={disabled}
-        data-testid={triggerTestId}
         onClick={handleClickTrigger}
         {...ownProps}
       >
@@ -163,7 +158,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             : leftContent }
 
           <Text
-            data-testid={triggerTextTestId}
+            data-testid="bezier-select-trigger-text"
             typo="14"
             truncated
             color={hasContent ? textColor : 'txt-black-dark'}
@@ -200,7 +195,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           getZIndexClassName(dropdownZIndex),
           dropdownClassName,
         )}
-        data-testid={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
         marginX={dropdownMarginX}
@@ -208,6 +202,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
+        data-testid={SELECT_DROPDOWN_TEST_ID}
         onHide={handleHideDropdown}
       >
         { children }
