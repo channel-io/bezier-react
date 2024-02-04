@@ -10,6 +10,7 @@
 
 .FormLabelWrapper {
   &.position-top {
+    box-sizing: border-box;
     margin-bottom: 4px;
     padding: 0 2px;
   }
@@ -26,6 +27,7 @@
 }
 
 .FormHelperTextWrapper {
+  box-sizing: border-box;
   margin-top: 4px;
   padding: 0 2px;
 

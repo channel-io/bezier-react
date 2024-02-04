@@ -34,6 +34,7 @@ $close-icon-button-margin-y: -6;
   display: grid;
   place-items: center;
 
+  box-sizing: border-box;
   padding: var(--b-modal-collision-padding);
 
   background-color: var(--bgtxt-absolute-black-lighter);

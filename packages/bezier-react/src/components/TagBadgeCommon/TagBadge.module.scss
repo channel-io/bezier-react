@@ -2,6 +2,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 
   &:where(.size-xs) {
     padding: 1px 2px;
