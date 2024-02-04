@@ -11,6 +11,7 @@
 }
 
 .Checkbox {
+  cursor: inherit;
 
   /* stylelint-disable-next-line order/order */
   @include dimension.square(18px);
