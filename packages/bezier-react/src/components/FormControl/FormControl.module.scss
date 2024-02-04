@@ -9,12 +9,12 @@
 }
 
 .FormLabelWrapper {
-  &:where(.position-top) {
+  &.position-top {
     margin-bottom: 4px;
     padding: 0 2px;
   }
 
-  &:where(.position-left) {
+  &.position-left {
     display: flex;
     grid-column: 1 / 1;
     grid-row: 1 / 1;
@@ -29,7 +29,7 @@
   margin-top: 4px;
   padding: 0 2px;
 
-  &:where(.position-left) {
+  &.position-left {
     grid-column: 2;
     grid-row: 2 / 2;
   }
