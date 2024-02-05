@@ -1,15 +1,13 @@
 export {
   SegmentedControl,
-  SegmentedControlTabList,
-  SegmentedControlTabContent,
   SegmentedControlItem,
+  SegmentedControlTabContent,
+  SegmentedControlTabList,
 } from './SegmentedControl'
-
-export { SegmentedControlSize } from './SegmentedControl.types'
-
-export type {
-  SegmentedControlProps,
-  SegmentedControlItemProps,
-  SegmentedControlTabListProps,
-  SegmentedControlTabContentProps,
+export {
+  type SegmentedControlItemProps,
+  type SegmentedControlProps,
+  SegmentedControlSize,
+  type SegmentedControlTabContentProps,
+  type SegmentedControlTabListProps,
 } from './SegmentedControl.types'

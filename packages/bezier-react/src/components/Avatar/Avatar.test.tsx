@@ -10,7 +10,7 @@ import {
   Avatar,
   STATUS_WRAPPER_TEST_ID,
 } from './Avatar'
-import type AvatarProps from './Avatar.types'
+import type { AvatarProps } from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 
 describe('Avatar >', () => {

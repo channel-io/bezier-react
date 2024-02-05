@@ -2,8 +2,8 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import FormGroup from './FormGroup'
-import type FormGroupProps from './FormGroup.types'
+import { FormGroup } from './FormGroup'
+import { type FormGroupProps } from './FormGroup.types'
 
 describe('FormGroup >', () => {
   let props: FormGroupProps

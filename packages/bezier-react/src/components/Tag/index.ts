@@ -1,10 +1,2 @@
-import { Tag } from './Tag'
-import type TagProps from './Tag.types'
-
-export type {
-  TagProps,
-}
-
-export {
-  Tag,
-}
+export { Tag } from './Tag'
+export { type TagProps } from './Tag.types'

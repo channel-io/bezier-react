@@ -9,7 +9,7 @@ import { isEmpty } from '~/src/utils/type'
 
 import {
   AlphaSmoothCornersBox,
-  type BoxShadow,
+  type AlphaSmoothCornersBoxProps,
 } from '~/src/components/AlphaSmoothCornersBox'
 import {
   Status,
@@ -17,14 +17,14 @@ import {
 } from '~/src/components/Status'
 import { useToken } from '~/src/components/ThemeProvider'
 
-import type AvatarProps from './Avatar.types'
+import type { AvatarProps } from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-const shadow: BoxShadow = {
+const shadow: AlphaSmoothCornersBoxProps['shadow'] = {
   spreadRadius: 2,
   color: 'bg-white-high',
 }

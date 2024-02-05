@@ -3,7 +3,10 @@
  */
 module.exports = {
   root: true,
-  plugins: ['jsdoc'],
+  plugins: [
+    'jsdoc',
+    'sort-export-all',
+  ],
   extends: [
     'bezier',
     'plugin:jsdoc/recommended-typescript-error',
@@ -49,10 +52,7 @@ module.exports = {
         position: 'after',
       }] },
     ],
-    'max-classes-per-file': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'warn',
-    '@typescript-eslint/naming-convention': 'off',
+    'sort-export-all/sort-export-all': 'error',
     'jsdoc/require-jsdoc': 'off',
     'jsdoc/require-returns': 'off',
     'jsdoc/require-param': 'off',
@@ -63,5 +63,9 @@ module.exports = {
     'jsdoc/check-tag-names': ['error', {
       typed: false,
     }],
+    'max-classes-per-file': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-array-index-key': 'warn',
+    '@typescript-eslint/naming-convention': 'off',
   },
 }

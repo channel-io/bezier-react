@@ -8,8 +8,8 @@ import type {
 
 import { Checkbox } from '~/src/components/Checkbox'
 
-import FormGroup from './FormGroup'
-import type FormGroupProps from './FormGroup.types'
+import { FormGroup } from './FormGroup'
+import { type FormGroupProps } from './FormGroup.types'
 
 const meta: Meta<typeof FormGroup> = {
   component: FormGroup,

@@ -1,18 +1,16 @@
 export {
-  Tabs,
-  TabList,
-  TabItems,
-  TabItem,
-  TabActions,
   TabAction,
+  TabActions,
   TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
 } from './Tabs'
-
-export { TabSize } from './Tabs.types'
-
-export type {
-  TabsProps,
-  TabItemProps,
-  TabListProps,
-  TabActionProps,
+export {
+  type TabActionProps,
+  type TabItemProps,
+  type TabListProps,
+  TabSize,
+  type TabsProps,
 } from './Tabs.types'

@@ -2972,6 +2972,7 @@ __metadata:
     core-js: ^3.32.2
     eslint-config-bezier: "workspace:*"
     eslint-plugin-jsdoc: ^48.0.4
+    eslint-plugin-sort-export-all: ^1.4.1
     eslint-plugin-storybook: ^0.6.13
     identity-obj-proxy: ^3.0.0
     lightningcss: ^1.22.1
@@ -12887,6 +12888,17 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
   checksum: b4c3d76390b0ae6b6f9fed78170604cc2c04b48e6778a637db339e8e3911ec9ef22510b0ae77c429698151d0f1b245f282177f384105b6830e7b29b9c9b26610
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-sort-export-all@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "eslint-plugin-sort-export-all@npm:1.4.1"
+  dependencies:
+    natural-compare: ^1.4.0
+  peerDependencies:
+    eslint: ^4 || ^5 || ^6 || ^7 || ^8
+  checksum: 96851e6feb0d423911e947318d347b0a1543dea4364421421f03948b20f44a0e4ff8fd185a562217e35a0baf8724a63b9653988211ee46b449802c55f55cd33e
   languageName: node
   linkType: hard
 

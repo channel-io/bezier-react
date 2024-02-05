@@ -4,7 +4,7 @@ import { icons } from '@channel.io/bezier-icons'
 
 import { Icon } from '~/src/components/Icon'
 
-import type LegacyIconProps from './LegacyIcon.types'
+import { type LegacyIconProps } from './LegacyIcon.types'
 
 /**
  * @deprecated Please import and use individual icons.
@@ -20,7 +20,7 @@ import type LegacyIconProps from './LegacyIcon.types'
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
-const LegacyIcon = memo(({
+export const LegacyIcon = memo(({
   name,
   ...rest
 }: LegacyIconProps) => {
@@ -30,5 +30,3 @@ const LegacyIcon = memo(({
 
   return (<Icon source={IconSource} {...rest} />)
 })
-
-export default LegacyIcon

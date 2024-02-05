@@ -1,2 +1,6 @@
-export * from './Status'
-export { StatusType, StatusSize, type StatusProps } from './Status.types'
+export { Status } from './Status'
+export {
+  type StatusProps,
+  StatusSize,
+  StatusType,
+} from './Status.types'

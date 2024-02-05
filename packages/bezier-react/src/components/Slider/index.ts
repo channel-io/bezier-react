@@ -1,7 +1,2 @@
-import { Slider } from './Slider'
-import type SliderProps from './Slider.types'
-
-export {
-  Slider,
-  type SliderProps,
-}
+export { Slider } from './Slider'
+export type { SliderProps } from './Slider.types'

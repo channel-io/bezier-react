@@ -10,14 +10,14 @@ import {
 } from '~/src/components/Icon'
 import { Tooltip } from '~/src/components/Tooltip'
 
-import type HelpProps from './Help.types'
+import { type HelpProps } from './Help.types'
 
 import styles from './Help.module.scss'
 
 export const HELP_TEST_ID = 'bezier-react-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
-const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
+export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
   children,
   ...rest
 }, forwardedRef) {
@@ -43,5 +43,3 @@ const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
 })
 
 Help.displayName = HELP_DISPLAY_NAME
-
-export default Help

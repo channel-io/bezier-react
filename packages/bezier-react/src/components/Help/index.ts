@@ -1,3 +1,2 @@
-export { default as Help } from './Help'
-export { HELP_DISPLAY_NAME } from './Help'
-export type { default as HelpProps } from './Help.types'
+export { Help } from './Help'
+export type { HelpProps } from './Help.types'

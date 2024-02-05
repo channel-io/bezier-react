@@ -4,14 +4,16 @@ import classNames from 'classnames'
 
 import { cssVar } from '~/src/utils/style'
 
-import type SpinnerProps from './Spinner.types'
-import { SpinnerSize } from './Spinner.types'
+import {
+  type SpinnerProps,
+  SpinnerSize,
+} from './Spinner.types'
 
 import styles from './Spinner.module.scss'
 
 export const SPINNER_TEST_ID = 'bezier-react-spinner'
 
-const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
+export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
   testId = SPINNER_TEST_ID,
   style,
   className,
@@ -37,5 +39,3 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
     />
   )
 })
-
-export default Spinner

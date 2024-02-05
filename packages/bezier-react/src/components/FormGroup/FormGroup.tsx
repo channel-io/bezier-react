@@ -6,20 +6,18 @@ import { noop } from '~/src/utils/function'
 import { useFormControlContext } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'
 
-import type FormGroupProps from './FormGroup.types'
+import { type FormGroupProps } from './FormGroup.types'
 
 const FORM_GROUP_TEST_ID = 'bezier-react-form-group'
 
-function FormGroup({
+export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(function FormGroup({
   testId = FORM_GROUP_TEST_ID,
   spacing = 6,
   direction = 'vertical',
   role = 'group',
   children,
   ...rest
-}: FormGroupProps,
-forwardedRef: React.Ref<HTMLDivElement>,
-) {
+}, forwardedRef) {
   const contextValue = useFormControlContext()
 
   const {
@@ -47,6 +45,4 @@ forwardedRef: React.Ref<HTMLDivElement>,
       { children }
     </Stack>
   )
-}
-
-export default forwardRef(FormGroup)
+})

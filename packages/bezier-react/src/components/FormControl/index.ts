@@ -3,9 +3,8 @@ export {
   useFormControlContext,
   useFormFieldProps,
 } from './FormControl'
-
 export type {
-  FormControlProps,
-  FormControlContextValue,
   FormControlAriaProps,
+  FormControlContextValue,
+  FormControlProps,
 } from './FormControl.types'

@@ -9,7 +9,7 @@ import {
   TAG_TEST_ID,
   Tag,
 } from './Tag'
-import type TagProps from './Tag.types'
+import { type TagProps } from './Tag.types'
 
 describe('Tag test >', () => {
   const user = userEvent.setup()

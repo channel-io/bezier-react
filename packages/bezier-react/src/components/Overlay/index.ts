@@ -1,5 +1,5 @@
 export { Overlay } from './Overlay'
-
-export { OverlayPosition } from './Overlay.types'
-
-export type { OverlayProps } from './Overlay.types'
+export {
+  OverlayPosition,
+  type OverlayProps,
+} from './Overlay.types'

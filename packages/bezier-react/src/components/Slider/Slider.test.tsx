@@ -12,7 +12,7 @@ import {
   SLIDER_TEST_ID,
   Slider,
 } from './Slider'
-import type SliderProps from './Slider.types'
+import { type SliderProps } from './Slider.types'
 
 describe('Slider', () => {
   const renderSlider = (props?: Partial<SliderProps>) => render(

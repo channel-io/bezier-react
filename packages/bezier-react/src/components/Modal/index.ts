@@ -1,21 +1,20 @@
 export {
   Modal,
-  ModalContent,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
-  ModalTrigger,
   ModalClose,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalTrigger,
   useModalContainerContext,
 } from './Modal'
-
 export {
-  ModalTitleSize,
-  type ModalProps,
-  type ModalContentProps,
-  type ModalHeaderProps,
   type ModalBodyProps,
-  type ModalFooterProps,
-  type ModalTriggerProps,
   type ModalCloseProps,
+  type ModalContentProps,
+  type ModalFooterProps,
+  type ModalHeaderProps,
+  type ModalProps,
+  ModalTitleSize,
+  type ModalTriggerProps,
 } from './Modal.types'

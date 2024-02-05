@@ -13,12 +13,12 @@ export type ItemActionWithIcon = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export type KeyValueListItemAction = ItemActionWithIcon | React.ReactElement
+export type KeyValueItemAction = ItemActionWithIcon | React.ReactElement
 
 interface KeyValueItemOwnProps {
   keyIcon?: BezierIcon | React.ReactNode
   keyContent?: React.ReactNode
-  actions?: KeyValueListItemAction | KeyValueListItemAction[]
+  actions?: KeyValueItemAction | KeyValueItemAction[]
   onClickKey?: React.MouseEventHandler<HTMLDivElement>
   onClickValue?: React.MouseEventHandler<HTMLDivElement>
 }

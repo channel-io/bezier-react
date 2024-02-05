@@ -6,7 +6,7 @@ import {
   BADGE_TEST_ID,
   Badge,
 } from './Badge'
-import type BadgeProps from './Badge.types'
+import { type BadgeProps } from './Badge.types'
 
 describe('Badge test >', () => {
   let props: BadgeProps

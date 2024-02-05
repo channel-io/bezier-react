@@ -1,2 +1,5 @@
-export * from './TokenProvider'
-export * from './TokenProvider.types'
+export {
+  TokenProvider,
+  useTokenContext,
+} from './TokenProvider'
+export type { TokenProviderProps } from './TokenProvider.types'

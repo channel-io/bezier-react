@@ -11,7 +11,7 @@ import { isNaN } from '~/src/utils/type'
 import { StatusType } from '~/src/components/Status'
 
 import { Avatar } from './Avatar'
-import type AvatarProps from './Avatar.types'
+import type { AvatarProps } from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'

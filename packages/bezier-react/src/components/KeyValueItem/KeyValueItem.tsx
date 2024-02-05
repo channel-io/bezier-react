@@ -27,8 +27,8 @@ import { Tooltip } from '~/src/components/Tooltip'
 
 import {
   type ItemActionWithIcon,
+  type KeyValueItemAction,
   type KeyValueItemProps,
-  type KeyValueListItemAction,
 } from './KeyValueItem.types'
 
 import styles from './KeyValueItem.module.scss'
@@ -88,7 +88,7 @@ function isItemActionWithIcon(args: object): args is ItemActionWithIcon {
   return 'icon' in args
 }
 
-function ActionButton({ children }: { children: KeyValueListItemAction }) {
+function ActionButton({ children }: { children: KeyValueItemAction }) {
   if (!isItemActionWithIcon(children)) {
     return children
   }

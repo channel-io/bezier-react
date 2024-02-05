@@ -55,7 +55,7 @@ interface AvatarOwnProps {
   smoothCorners?: boolean
 }
 
-export default interface AvatarProps extends
+export interface AvatarProps extends
   AlphaBezierComponentProps,
   React.HTMLAttributes<HTMLDivElement>,
   SizeProps<AvatarSize>,
