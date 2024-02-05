@@ -1,5 +1,8 @@
 .LegacyStackItem {
-  flex: var(--b-grow-weight) var(--b-shrink-weight) var(--b-main-axis-size);
+  flex-basis: var(--b-main-axis-size);
+  flex-grow: var(--b-grow-weight);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-shrink: var(--b-shrink-weight);
 
   &:where(.direction-horizontal) {
     margin-right: var(--b-margin-after);
