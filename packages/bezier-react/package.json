@@ -117,7 +117,6 @@
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.63.6",
     "storybook": "^7.4.2",
-    "the-new-css-reset": "^1.11.2",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
