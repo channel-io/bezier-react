@@ -9,11 +9,7 @@ import React, {
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import { createContext } from '~/src/utils/react'
-import {
-  isBoolean,
-  isEmpty,
-} from '~/src/utils/type'
+import { isEmpty } from '~/src/utils/type'
 
 import {
   Icon,
@@ -27,7 +23,6 @@ import { useWindow } from '~/src/components/WindowProvider'
 import {
   TooltipPosition,
   type TooltipProps,
-  type TooltipProviderProps,
 } from './Tooltip.types'
 
 import styles from './Tooltip.module.scss'
@@ -105,48 +100,6 @@ function getSideAndAlign(
   }
 }
 
-const [
-  /**
-   * NOTE: Custom context use because the radix-ui doesn't support `delayHide`.
-   */
-  TooltipGlobalContextProvider,
-  useTooltipGlobalContext,
-] = createContext<Required<Pick<TooltipProviderProps, 'delayHide'>> | null>(null, 'TooltipProvider')
-
-/**
- * `TooltipProvider` is used to globally provide props to child tooltips.
- * @example
- *
- * ```tsx
- * <TooltipProvider allowHover delayShow={1000}>
- *   <Tooltip />
- * </TooltipProvider>
- * ```
- */
-export function TooltipProvider({
-  children,
-  allowHover = false,
-  delayShow = 300,
-  delayHide = 0,
-  skipDelayShow = 500,
-}: TooltipProviderProps) {
-  const contextValue = useMemo(() => ({
-    delayHide,
-  }), [delayHide])
-
-  return (
-    <TooltipPrimitive.Provider
-      delayDuration={delayShow}
-      skipDelayDuration={skipDelayShow}
-      disableHoverableContent={!allowHover}
-    >
-      <TooltipGlobalContextProvider value={contextValue}>
-        { children }
-      </TooltipGlobalContextProvider>
-    </TooltipPrimitive.Provider>
-  )
-}
-
 /**
  * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
  * @example
@@ -175,22 +128,18 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   icon,
   placement = TooltipPosition.BottomCenter,
   offset = 4,
-  container: givenContainer,
+  container: containerProp,
   keepInContainer = true,
-  allowHover,
-  delayShow,
-  delayHide: delayHideProp,
+  allowHover = false,
+  delayShow = 0,
+  delayHide = 0,
   ...rest
 }, forwardedRef) {
-  const { rootElement } = useWindow()
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
-  const { delayHide: globalDelayHide } = useTooltipGlobalContext('Tooltip')
-  const delayHide = delayHideProp ?? globalDelayHide
-
-  const defaultContainer = rootElement
-  const container = givenContainer ?? defaultContainer
+  const { rootElement } = useWindow()
+  const container = containerProp ?? rootElement
 
   const shouldBeHidden = useMemo(() => (
     disabled || isEmpty(content)
@@ -257,76 +206,78 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   ])
 
   return (
-    <TooltipPrimitive.Root
-      open={show}
-      defaultOpen={defaultShow}
-      delayDuration={delayShow}
-      disableHoverableContent={isBoolean(allowHover) ? !allowHover : undefined}
-      onOpenChange={onOpenChange}
-    >
-      <TooltipPrimitive.Trigger asChild>
-        { children }
-      </TooltipPrimitive.Trigger>
+    <TooltipPrimitive.Provider skipDelayDuration={0}>
+      <TooltipPrimitive.Root
+        open={show}
+        defaultOpen={defaultShow}
+        delayDuration={delayShow}
+        disableHoverableContent={!allowHover}
+        onOpenChange={onOpenChange}
+      >
+        <TooltipPrimitive.Trigger asChild>
+          { children }
+        </TooltipPrimitive.Trigger>
 
-      <TooltipPrimitive.Portal container={container}>
-        <InvertedThemeProvider>
-          <TooltipPrimitive.Content
-            {...rest}
-            {...getSideAndAlign(placement)}
-            asChild
-            ref={forwardedRef}
-            sideOffset={offset}
-            avoidCollisions={keepInContainer}
-            collisionPadding={8}
-            hideWhenDetached
-          >
-            <HStack
-              spacing={4}
-              className={styles.Tooltip}
+        <TooltipPrimitive.Portal container={container}>
+          <InvertedThemeProvider>
+            <TooltipPrimitive.Content
+              {...rest}
+              {...getSideAndAlign(placement)}
+              asChild
+              ref={forwardedRef}
+              sideOffset={offset}
+              avoidCollisions={keepInContainer}
+              collisionPadding={8}
+              hideWhenDetached
             >
-              <div className={styles.TooltipContainer}>
-                { title && (
+              <HStack
+                spacing={4}
+                className={styles.Tooltip}
+              >
+                <div className={styles.TooltipContainer}>
+                  { title && (
+                    <Text
+                      typo="13"
+                      bold
+                      marginBottom={2}
+                      color="txt-black-darkest"
+                    >
+                      { title }
+                    </Text>
+                  ) }
+
                   <Text
-                    typo="13"
-                    bold
-                    marginBottom={2}
                     color="txt-black-darkest"
+                    className={styles.TooltipContent}
+                    truncated={20}
+                    typo="13"
                   >
-                    { title }
+                    { content }
                   </Text>
+
+                  { description && (
+                    <Text
+                      typo="12"
+                      color="txt-black-dark"
+                    >
+                      { description }
+                    </Text>
+                  ) }
+                </div>
+
+                { icon && (
+                  <Icon
+                    size={IconSize.XS}
+                    color="txt-black-darkest"
+                    source={icon}
+                    className={styles.Icon}
+                  />
                 ) }
-
-                <Text
-                  color="txt-black-darkest"
-                  className={styles.TooltipContent}
-                  truncated={20}
-                  typo="13"
-                >
-                  { content }
-                </Text>
-
-                { description && (
-                  <Text
-                    typo="12"
-                    color="txt-black-dark"
-                  >
-                    { description }
-                  </Text>
-                ) }
-              </div>
-
-              { icon && (
-                <Icon
-                  size={IconSize.XS}
-                  color="txt-black-darkest"
-                  source={icon}
-                  className={styles.Icon}
-                />
-              ) }
-            </HStack>
-          </TooltipPrimitive.Content>
-        </InvertedThemeProvider>
-      </TooltipPrimitive.Portal>
-    </TooltipPrimitive.Root>
+              </HStack>
+            </TooltipPrimitive.Content>
+          </InvertedThemeProvider>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
   )
 })

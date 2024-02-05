@@ -4,7 +4,6 @@ import { window as defaultWindow } from '~/src/utils/dom'
 
 import { FeatureProvider } from '~/src/components/FeatureProvider'
 import { TokenProvider } from '~/src/components/TokenProvider'
-import { TooltipProvider } from '~/src/components/Tooltip'
 import { WindowProvider } from '~/src/components/WindowProvider'
 
 import { type AppProviderProps } from './AppProvider.types'
@@ -50,9 +49,7 @@ export function AppProvider({
     <WindowProvider window={window}>
       <FeatureProvider features={features}>
         <TokenProvider themeName={themeName}>
-          <TooltipProvider>
-            { children }
-          </TooltipProvider>
+          { children }
         </TokenProvider>
       </FeatureProvider>
     </WindowProvider>
