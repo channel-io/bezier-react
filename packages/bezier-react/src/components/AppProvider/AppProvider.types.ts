@@ -18,6 +18,11 @@ interface AppProviderOwnProps {
    * @default window
    */
   window?: Window
+  /**
+   * Whether to enable preflight(reset) styles.
+   * @default true
+   */
+  preflight?: boolean
 }
 
 export interface AppProviderProps extends

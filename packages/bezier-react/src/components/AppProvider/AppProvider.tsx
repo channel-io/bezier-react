@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react'
+import React, {
+  useEffect,
+  useMemo,
+} from 'react'
 
 import { window as defaultWindow } from '~/src/utils/dom'
 
@@ -33,17 +36,34 @@ export function AppProvider({
   themeName = 'light',
   features = [],
   window = defaultWindow,
+  preflight = true,
 }: AppProviderProps) {
+  const rootElement = useMemo(() => window.document.documentElement, [window])
+
   useEffect(function updateRootThemeDataAttribute() {
-    const rootElement = window.document.documentElement
     // TODO: Change data attribute constant to import from bezier-tokens
     rootElement.setAttribute('data-bezier-theme', themeName)
     return function cleanup() {
       rootElement.removeAttribute('data-bezier-theme')
     }
   }, [
-    window,
+    rootElement,
     themeName,
+  ])
+
+  useEffect(function updateRootPreflightDataAttribute() {
+    if (preflight) {
+      /**
+       * @see {@link ~/src/styles/_reset.scss}
+       */
+      rootElement.setAttribute('data-bezier-preflight', '')
+    }
+    return function cleanup() {
+      rootElement.removeAttribute('data-bezier-preflight')
+    }
+  }, [
+    rootElement,
+    preflight,
   ])
 
   return (
