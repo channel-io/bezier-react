@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   PolymorphicProps,
 } from '~/src/types/props'
@@ -50,8 +50,7 @@ interface LegacyStackOwnProps {
  * @deprecated Use `Stack` instead.s
  */
 export default interface LegacyStackProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   PolymorphicProps,
   ChildrenProps,
-  React.HTMLAttributes<HTMLElement>,
   LegacyStackOwnProps {}

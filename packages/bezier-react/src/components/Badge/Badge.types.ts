@@ -1,7 +1,7 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type SizeProps,
   type VariantProps,
@@ -20,9 +20,8 @@ interface BadgeOwnProps {
 }
 
 export interface BadgeProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>,
   SizeProps<TagBadgeSize>,
   VariantProps<TagBadgeVariant>,
   BadgeOwnProps {}

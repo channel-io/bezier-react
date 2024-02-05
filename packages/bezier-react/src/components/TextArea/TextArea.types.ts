@@ -1,9 +1,7 @@
-import type React from 'react'
-
 import { type TextareaAutosizeProps } from 'react-textarea-autosize'
 
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   FormFieldProps,
 } from '~/src/types/props'
 
@@ -24,8 +22,7 @@ interface TextAreaOwnProps {
 }
 
 export interface TextAreaProps extends
-  Omit<AlphaBezierComponentProps, 'style'>,
-  Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'style'>,
+  Omit<BezierComponentProps<'textarea'>, 'style'>,
   Pick<TextareaAutosizeProps, 'style'>,
   FormFieldProps,
   TextAreaOwnProps {}

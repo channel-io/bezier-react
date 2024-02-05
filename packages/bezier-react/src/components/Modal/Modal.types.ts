@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/props'
@@ -122,24 +122,20 @@ export interface ModalProps extends
   ModalOwnProps {}
 
 export interface ModalContentProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
   ModalContentOwnProps {}
 
 export interface ModalHeaderProps extends
-  AlphaBezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLElement>, keyof ModalHeaderOwnProps>,
+  Omit<BezierComponentProps<'header'>, keyof ModalHeaderOwnProps>,
   ModalHeaderOwnProps {}
 
 export interface ModalBodyProps extends
-  AlphaBezierComponentProps,
-  ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement> {}
+  BezierComponentProps<'div'>,
+  ChildrenProps {}
 
 export interface ModalFooterProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLElement>,
+  BezierComponentProps<'footer'>,
   ModalFooterOwnProps {}
 
 export interface ModalTriggerProps extends

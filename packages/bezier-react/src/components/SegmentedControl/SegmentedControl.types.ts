@@ -3,7 +3,7 @@ import type React from 'react'
 import type * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type DisableProps,
   type FormFieldProps,
@@ -89,10 +89,9 @@ type SegmentedControlOwnProps<Type extends SegmentedControlType, Value extends s
 type RadixTabsPredefinedPropKeys = 'dir'
 
 export type SegmentedControlProps<Type extends SegmentedControlType, Value extends string> =
-  & AlphaBezierComponentProps
+  & Omit<BezierComponentProps<'div'>, RadixTabsPredefinedPropKeys>
   & ChildrenProps
   & SizeProps<SegmentedControlSize>
-  & Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabsPredefinedPropKeys>
   & SegmentedControlOwnProps<Type, Value>
 
 export interface SegmentedControlRadioGroupProps<Value extends string> extends
@@ -104,8 +103,7 @@ export interface SegmentedControlTabsProps<Value extends string> extends
 type RadixTabListPredefinedPropKeys = 'defaultValue'
 
 export interface SegmentedControlTabListProps extends
-  AlphaBezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, RadixTabListPredefinedPropKeys>,
+  Omit<BezierComponentProps<'div'>, RadixTabListPredefinedPropKeys>,
   ChildrenProps {}
 
 export type SegmentedControlItemListProps<Type extends SegmentedControlType, Value extends string> =
@@ -114,16 +112,14 @@ export type SegmentedControlItemListProps<Type extends SegmentedControlType, Val
     : SegmentedControlTabListProps
 
 export interface SegmentedControlItemProps<Value extends string> extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'button'>, keyof SegmentedControlItemOwnProps<Value>>,
   ChildrenProps,
   DisableProps,
-  React.HTMLAttributes<HTMLButtonElement>,
   SideContentProps,
   SegmentedControlItemOwnProps<Value> {}
 
 export interface SegmentedControlTabContentProps<Value extends string> extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
   Pick<TabsPrimitive.TabsContentProps, 'forceMount'>,
   SegmentedControlTabContentOwnProps<Value> {}

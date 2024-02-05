@@ -1,6 +1,6 @@
 import type { SeparatorProps as SeparatorPrimitiveProps } from '@radix-ui/react-separator'
 
-import type { AlphaBezierComponentProps } from '~/src/types/props'
+import type { BezierComponentProps } from '~/src/types/props'
 
 interface DividerOwnProps {
   /**
@@ -27,6 +27,6 @@ interface DividerOwnProps {
 }
 
 export interface DividerProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   SeparatorPrimitiveProps,
   DividerOwnProps {}

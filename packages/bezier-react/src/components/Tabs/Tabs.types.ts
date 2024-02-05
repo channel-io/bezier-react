@@ -1,7 +1,7 @@
 import type React from 'react'
 
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type DisableProps,
   type SizeProps,
@@ -64,44 +64,38 @@ interface TabContentOwnProps {
 }
 
 export interface TabsProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, keyof TabsOwnProps>,
   ChildrenProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof TabsOwnProps>,
   TabsOwnProps {}
 
 export interface TabListProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  SizeProps<TabSize>,
-  React.HTMLAttributes<HTMLDivElement> {}
+  SizeProps<TabSize> {}
 
 export interface TabItemsProps extends
-  AlphaBezierComponentProps,
-  ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement> {}
+  BezierComponentProps<'div'>,
+  ChildrenProps {}
 
 export interface TabItemProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'button'>, keyof TabItemOwnProps>,
   ChildrenProps,
   DisableProps,
-  React.HTMLAttributes<HTMLButtonElement>,
   TabItemOwnProps {}
 
 export interface TabActionsProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  BezierComponentProps<'div'>,
   ChildrenProps {}
 
 export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
 
 export interface TabActionProps<Link extends string | undefined> extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps, keyof React.HTMLAttributes<HTMLElement>>,
   ChildrenProps,
   TabActionOwnProps<Link>,
   Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
 export interface TabContentProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
   TabContentOwnProps {}

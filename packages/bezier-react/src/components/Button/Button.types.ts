@@ -1,7 +1,7 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type DisableProps,
   type PolymorphicProps,
   type SideContentProps,
@@ -87,10 +87,9 @@ interface ButtonOwnProps {
 }
 
 export interface ButtonProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'button'>,
   PolymorphicProps,
   SizeProps<ButtonSize>,
   DisableProps,
   SideContentProps<SideContent, SideContent>,
-  React.HTMLAttributes<HTMLButtonElement>,
   ButtonOwnProps {}

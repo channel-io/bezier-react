@@ -3,7 +3,7 @@ import type React from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
 } from '~/src/types/props'
 
@@ -24,7 +24,6 @@ interface KeyValueItemOwnProps {
 }
 
 export interface KeyValueItemProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'div'>,
   ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
   KeyValueItemOwnProps {}

@@ -4,8 +4,8 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
-  AlphaAdditionalStylableProps,
-  AlphaBezierComponentProps,
+  AdditionalOverridableStyleProps,
+  BezierComponentProps,
   FormFieldProps,
   FormFieldSize,
   SideContentProps,
@@ -66,11 +66,10 @@ interface TextFieldOwnProps {
 type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
 
 export interface TextFieldProps extends
-  AlphaBezierComponentProps,
-  AlphaAdditionalStylableProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
+  Omit<BezierComponentProps<'input'>, OmittedInputHTMLAttributes>,
+  AdditionalOverridableStyleProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
   FormFieldProps,
   SizeProps<FormFieldSize>,
   VariantProps<TextFieldVariant>,
   SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
-  Omit<React.InputHTMLAttributes<HTMLInputElement>, OmittedInputHTMLAttributes>,
   TextFieldOwnProps {}

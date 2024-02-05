@@ -21,5 +21,5 @@ interface LegacyIconOptions {
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
 export interface LegacyIconProps extends
-  Omit<IconProps, 'source'>,
+  Omit<IconProps, 'source' | keyof LegacyIconOptions>,
   LegacyIconOptions {}

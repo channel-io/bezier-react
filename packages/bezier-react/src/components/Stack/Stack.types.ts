@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type LayoutProps,
   type MarginProps,
@@ -47,8 +47,7 @@ interface StackOwnProps {
 }
 
 export interface StackProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLElement>,
+  BezierComponentProps,
   PolymorphicProps,
   ChildrenProps,
   LayoutProps,

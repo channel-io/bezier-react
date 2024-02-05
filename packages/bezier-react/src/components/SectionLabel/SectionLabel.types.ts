@@ -6,7 +6,7 @@ import {
 } from '@channel.io/bezier-icons'
 
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   ContentProps,
   SideContentProps,
@@ -29,9 +29,8 @@ interface SectionLabelOwnProps {
 }
 
 export interface SectionLabelProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps, keyof ContentProps>,
   ContentProps,
   ChildrenProps,
   SideContentProps<SectionLabelLeftContent, SectionLabelRightContent | SectionLabelRightContent[]>,
-  Omit<React.HTMLAttributes<HTMLElement>, 'content'>,
   SectionLabelOwnProps {}

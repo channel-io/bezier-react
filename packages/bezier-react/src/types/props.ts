@@ -1,6 +1,3 @@
-import { type CSSProperties } from 'react'
-import type React from 'react'
-
 import type {
   BackgroundSemanticColor,
   BackgroundTextSemanticColor,
@@ -11,135 +8,62 @@ import type {
   ZIndex,
 } from './tokens'
 
-/* Component Base Props */
-export interface RenderConfigProps {
+/**
+ * Base configuration properties for components, including the HTML element type and test ID.
+ * @deprecated Remove
+ */
+interface RenderConfigProps {
   /**
-   * Specifies which HTML tag should be used to render this component.
-   *
-   * `as` prop directly comes from the polymorphic "as" prop of `styled-components`.
-   * @see https://styled-components.com/docs/api#as-polymorphic-prop
-   */
-  as?: React.ElementType
-
-  /**
-   * The test id attribute compatible with `@testing-library/react`.
+   * A test ID attribute compatible with `@testing-library/react`.
    */
   testId?: string
 }
 
-export interface StylableComponentProps {
+/**
+ * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
+ */
+interface OverridableStyleProps {
   /**
-   * Customized inline CSS style for this component.
+   * Custom inline CSS styles for the component.
+   * Intended for specific styling that overrides the component's default styles.
+   *
+   * **🚨 Caution:** Overuse can break the consistency of the overall design. Use only when absolutely necessary.
    */
-  style?: CSSProperties
-
+  style?: React.CSSProperties
   /**
-   * Customized CSS classname for this component.
+   * Custom CSS class name for the component.
+   * Intended to apply external styles or override default styles with higher specificity.
+   *
+   * **🚨 Caution:** Overuse can break the consistency of the overall design. Use only when absolutely necessary.
    */
   className?: string
 }
 
 /**
- * @deprecated Migration to `AlphaBezierComponentProps` is in progress.
+ * Retrieves the prop types for a given HTML element specified by its tag name.
+ * This utility type uses JSX.IntrinsicElements to obtain the props associated with standard HTML elements.
+ * @template Tag The tag name of the HTML element (e.g., 'div', 'a', 'button').
+ * @returns The prop types for the HTML element corresponding to the tag name.
+ * @example
+ * type DivProps = ElementProps<'div'>; // React.HTMLAttributes<HTMLDivElement>
+ * type AnchorProps = ElementProps<'a'>; // React.AnchorHTMLAttributes<HTMLAnchorElement>
  */
-export type BezierComponentProps = RenderConfigProps & StylableComponentProps
-
-/* Component Additional Props */
-export interface ContentProps<Content = React.ReactNode> {
-  content?: Content
-}
-
-export interface ChildrenProps<Children = React.ReactNode> {
-  children?: Children
-}
-
-export interface VariantProps<Variant extends string | number> {
-  variant?: Variant
-}
-
-export interface SizeProps<Size extends string | number> {
-  size?: Size
-}
-
-export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
-  leftContent?: LeftContent
-  rightContent?: RightContent
-}
-
-export interface DisableProps {
-  disabled?: boolean
-}
-
-export interface ColorProps {
-  color?: SemanticColor
-}
-
-export interface IdentifierProps {
-  id: string
-}
+type HTMLElementProps<Tag extends keyof JSX.IntrinsicElements> = React.ComponentPropsWithoutRef<Tag>
 
 /**
- * @deprecated Unnecessary property.
+ * Extends base configuration and overridable style properties with standard HTML attributes.
+ * Designed for components requiring both custom and standard HTML properties.
+ * @template Tag The tag name of the HTML element (e.g., 'div', 'a', 'button'). If null, returns contains `React.HTMLAttributes<HTMLElement>`.
  */
-export interface OptionItemProps {
-  optionKey?: string
-}
-
-export interface OptionItemHostProps<OptionKeyType = string> {
-  selectedOptionIndex?: number
-  onChangeOption?: (optionIndex: number, optionKey?: OptionKeyType) => void
-}
-
-type PropNameType = string | string[]
-
-type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropType> = {
-  [Key in `${PropName extends string
-    ? PropName
-    : PropName[number]
-  }${Capitalize<Suffix>}`]?: PropType
-}
-
-type AdditionalStyleProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'style', CSSProperties>
-
-type AdditionalClassNameProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'className', string>
+export type BezierComponentProps<Tag extends keyof JSX.IntrinsicElements | null = null> =
+  & RenderConfigProps
+  & (Tag extends keyof JSX.IntrinsicElements ? HTMLElementProps<Tag> : React.HTMLAttributes<HTMLElement>)
+  & OverridableStyleProps
 
 /**
- * @deprecated Migration to `AdditionalStylableProps` is in progress.
+ * Props for polymorphic components that can render as different element types.
+ * @todo Generic type for `as` prop.
  */
-export type AdditionalStylableProps<ElementName extends PropNameType> =
-  AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName>
-
-export type AdditionalTestIdProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'testId', string>
-
-export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticColor>
-
-export interface ActivatableProps {
-  active?: boolean
-}
-
-export interface LinkProps {
-  href?: string
-}
-
-/**
- * TODO: Remove Alpha prefix after removing styled-components dependency.
- */
-export type AlphaAdditionalStylableProps<ElementName extends PropNameType> =
-  AdditionalStyleProps<ElementName> &
-  AdditionalClassNameProps<ElementName>
-
-/**
- * TODO: Remove Alpha prefix after removing styled-components dependency.
- */
-export interface AlphaBezierComponentProps extends
-  Omit<RenderConfigProps, 'as'>,
-  Omit<StylableComponentProps, 'interpolation'> {}
-
 export interface PolymorphicProps {
   /**
    * Element type to render.
@@ -147,113 +71,254 @@ export interface PolymorphicProps {
   as?: React.ElementType
 }
 
+/**
+ * Props for components that include content.
+ */
+export interface ContentProps<Content = React.ReactNode> {
+  /**
+   * Content to be rendered within the component.
+   */
+  content?: Content
+}
+
+/**
+ * Props for components that include children elements.
+ */
+export interface ChildrenProps<Children = React.ReactNode> {
+  /**
+   * Child elements to be rendered within the component.
+   */
+  children?: Children
+}
+
+/**
+ * Props for components with variant styles or behaviors.
+ */
+export interface VariantProps<Variant extends string | number> {
+  /**
+   * Variant of the component to be used.
+   */
+  variant?: Variant
+}
+
+/**
+ * Props for components with size variations.
+ */
+export interface SizeProps<Size extends string | number> {
+  /**
+   * Size of the component.
+   */
+  size?: Size
+}
+
+/**
+ * Props for components that have content on their sides (left or right).
+ */
+export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
+  /**
+   * Content to be displayed on the left side of the component.
+   */
+  leftContent?: LeftContent
+  /**
+   * Content to be displayed on the right side of the component.
+   */
+  rightContent?: RightContent
+}
+
+/**
+ * Props for components that can be disabled.
+ */
+export interface DisableProps {
+  /**
+   * Whether the component is disabled.
+   */
+  disabled?: boolean
+}
+
+/**
+ * Props for components that use color from the design system.
+ */
+export interface ColorProps {
+  /**
+   * Color from the design system's semantic color.
+   */
+  color?: SemanticColor
+}
+
+/**
+ * Props for components that require an identifier (ID).
+ */
+export interface IdentifierProps {
+  /**
+   * Unique identifier for the component.
+   */
+  id: string
+}
+
+type PropNameType = string | string[]
+
+/**
+ * Generic type for defining additional properties with a specific suffix.
+ */
+type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropType> = {
+  [Key in `${PropName extends string
+    ? PropName
+    : PropName[number]
+  }${Capitalize<Suffix>}`]?: PropType
+}
+
+/**
+ * Props for adding additional overridable style properties to named elements within a component.
+ */
+export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
+  & AdditionalProps<ElementName, 'style', React.CSSProperties>
+  & AdditionalProps<ElementName, 'className', string>
+
+/**
+ * Props for adding test IDs to named elements within a component, useful for testing purposes.
+ */
+export type AdditionalTestIdProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'testId', string>
+
+/**
+ * Props for adding color properties to named elements within a component.
+ */
+export type AdditionalColorProps<ElementName extends PropNameType> =
+  AdditionalProps<ElementName, 'color', SemanticColor>
+
+/**
+ * Props for components that can be activated or deactivated.
+ */
+export interface ActivatableProps {
+  /**
+   * Whether the component is active.
+   */
+  active?: boolean
+}
+
+/**
+ * Props for components that act as a link.
+ */
+export interface LinkProps {
+  /**
+   * URL or a URL fragment that the hyperlink points to.
+   */
+  href?: string
+}
+
+/**
+ * Props for specifying margins around a component.
+ */
 export interface MarginProps {
   /**
    * the margin area on all four sides of an element.
    * @default 0
    */
-  margin?: CSSProperties['margin']
+  margin?: React.CSSProperties['margin']
   /**
    * the margin area on the left and right sides of an element.
    * @default 0
    */
-  marginHorizontal?: CSSProperties['margin']
+  marginHorizontal?: React.CSSProperties['margin']
   /**
    * the margin area on the top and bottom sides of an element.
    * @default 0
    */
-  marginVertical?: CSSProperties['margin']
+  marginVertical?: React.CSSProperties['margin']
   /**
    * the margin area on the top side of an element.
    * @default 0
    */
-  marginTop?: CSSProperties['marginTop']
+  marginTop?: React.CSSProperties['marginTop']
   /**
    * the margin area on the right side of an element.
    * @default 0
    */
-  marginRight?: CSSProperties['marginRight']
+  marginRight?: React.CSSProperties['marginRight']
   /**
    * the margin area on the bottom side of an element.
    * @default 0
    */
-  marginBottom?: CSSProperties['marginBottom']
+  marginBottom?: React.CSSProperties['marginBottom']
   /**
    * the margin area on the left side of an element.
    * @default 0
    */
-  marginLeft?: CSSProperties['marginLeft']
+  marginLeft?: React.CSSProperties['marginLeft']
 }
 
 type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
 type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
 
+/**
+ * Props for defining layout-related properties of a component, such as padding, size, and position.
+ */
 export interface LayoutProps {
   /**
    * the padding area on all four sides of an element.
    * @default 0
    */
-  padding?: CSSProperties['padding']
+  padding?: React.CSSProperties['padding']
   /**
    * the padding area on the left and right sides of an element.
    * @default 0
    */
-  paddingHorizontal?: CSSProperties['padding']
+  paddingHorizontal?: React.CSSProperties['padding']
   /**
    * the padding area on the top and bottom sides of an element.
    * @default 0
    */
-  paddingVertical?: CSSProperties['padding']
+  paddingVertical?: React.CSSProperties['padding']
   /**
    * the padding area on the top side of an element.
    * @default 0
    */
-  paddingTop?: CSSProperties['paddingTop']
+  paddingTop?: React.CSSProperties['paddingTop']
   /**
    * the padding area on the right side of an element.
    * @default 0
    */
-  paddingRight?: CSSProperties['paddingRight']
+  paddingRight?: React.CSSProperties['paddingRight']
   /**
    * the padding area on the bottom side of an element.
    * @default 0
    */
-  paddingBottom?: CSSProperties['paddingBottom']
+  paddingBottom?: React.CSSProperties['paddingBottom']
   /**
    * the padding area on the left side of an element.
    * @default 0
    */
-  paddingLeft?: CSSProperties['paddingLeft']
+  paddingLeft?: React.CSSProperties['paddingLeft']
   /**
    * the width of an element.
    * @default initial
    */
-  width?: CSSProperties['width']
+  width?: React.CSSProperties['width']
   /**
    * the height of an element.
    * @default initial
    */
-  height?: CSSProperties['height']
+  height?: React.CSSProperties['height']
   /**
    * the maximum width of an element.
    * @default initial
    */
-  maxWidth?: CSSProperties['maxWidth']
+  maxWidth?: React.CSSProperties['maxWidth']
   /**
    * the minimum width of an element.
    * @default initial
    */
-  minWidth?: CSSProperties['minWidth']
+  minWidth?: React.CSSProperties['minWidth']
   /**
    * the maximum height of an element.
    * @default initial
    */
-  maxHeight?: CSSProperties['maxHeight']
+  maxHeight?: React.CSSProperties['maxHeight']
   /**
    * the minimum height of an element.
    * @default initial
    */
-  minHeight?: CSSProperties['minHeight']
+  minHeight?: React.CSSProperties['minHeight']
   /**
    * how an element is positioned in a document.
    * @default initial
@@ -263,37 +328,37 @@ export interface LayoutProps {
    * the distance between the edges of an element and its containing element.
    * @default auto
    */
-  inset?: CSSProperties['inset']
+  inset?: React.CSSProperties['inset']
   /**
    * the distance between the top edge of an element and the top edge of its containing element.
    * @default auto
    */
-  top?: CSSProperties['top']
+  top?: React.CSSProperties['top']
   /**
    * the distance between the right edge of an element and the right edge of its containing element.
    * @default auto
    */
-  right?: CSSProperties['right']
+  right?: React.CSSProperties['right']
   /**
    * the distance between the bottom edge of an element and the bottom edge of its containing element.
    * @default auto
    */
-  bottom?: CSSProperties['bottom']
+  bottom?: React.CSSProperties['bottom']
   /**
    * the distance between the left edge of an element and the left edge of its containing element.
    * @default auto
    */
-  left?: CSSProperties['left']
+  left?: React.CSSProperties['left']
   /**
    * the flex-shrink factor of a flex item.
    * @default initial
    */
-  shrink?: CSSProperties['flexShrink']
+  shrink?: React.CSSProperties['flexShrink']
   /**
    * the flex-grow factor of a flex item.
    * @default initial
    */
-  grow?: CSSProperties['flexGrow']
+  grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
    * @default initial
@@ -313,27 +378,27 @@ export interface LayoutProps {
    * the border width of an element.
    * @default 0
    */
-  borderWidth?: CSSProperties['borderWidth']
+  borderWidth?: React.CSSProperties['borderWidth']
   /**
    * the border width of the top side of an element.
    * @default 0
    */
-  borderTopWidth?: CSSProperties['borderTopWidth']
+  borderTopWidth?: React.CSSProperties['borderTopWidth']
   /**
    * the border width of the right side of an element.
    * @default 0
    */
-  borderRightWidth?: CSSProperties['borderRightWidth']
+  borderRightWidth?: React.CSSProperties['borderRightWidth']
   /**
    * the border width of the bottom side of an element.
    * @default 0
    */
-  borderBottomWidth?: CSSProperties['borderBottomWidth']
+  borderBottomWidth?: React.CSSProperties['borderBottomWidth']
   /**
    * the border width of the left side of an element.
    * @default 0
    */
-  borderLeftWidth?: CSSProperties['borderLeftWidth']
+  borderLeftWidth?: React.CSSProperties['borderLeftWidth']
   /**
    * the elevation of an element. (box-shadow)
    * @default initial
@@ -361,8 +426,14 @@ export interface LayoutProps {
   overflowY?: Overflow
 }
 
+/**
+ * Enumeration of form field sizes. (TextField, Select)
+ */
 export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'
 
+/**
+ * Props for form field components, including states like disabled, error, and required.
+ */
 export interface FormFieldProps extends
   DisableProps,
   Partial<IdentifierProps> {

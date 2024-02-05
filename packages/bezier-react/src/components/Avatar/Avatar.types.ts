@@ -1,5 +1,5 @@
 import type {
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   DisableProps,
   SizeProps,
@@ -56,8 +56,7 @@ interface AvatarOwnProps {
 }
 
 export interface AvatarProps extends
-  AlphaBezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement>,
+  BezierComponentProps<'div'>,
   SizeProps<AvatarSize>,
   DisableProps,
   ChildrenProps,

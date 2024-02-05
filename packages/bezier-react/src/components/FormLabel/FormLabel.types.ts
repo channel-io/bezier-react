@@ -1,5 +1,4 @@
 import {
-  type AlphaBezierComponentProps,
   type ChildrenProps,
   type IdentifierProps,
   type MarginProps,
@@ -13,8 +12,7 @@ interface FormLabelOwnProps {
 }
 
 export interface FormLabelProps extends
-  AlphaBezierComponentProps,
-  ChildrenProps,
   Omit<TextProps, keyof MarginProps>,
+  ChildrenProps,
   Partial<IdentifierProps>,
   FormLabelOwnProps {}

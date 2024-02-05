@@ -2,7 +2,7 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   ContentProps,
   LinkProps,
@@ -21,12 +21,11 @@ interface OutlineItemOwnProps {
 }
 
 export interface OutlineItemProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps, keyof ContentProps>,
   PolymorphicProps,
   ChildrenProps,
   ContentProps,
   SideContentProps<BezierIcon | React.ReactNode, React.ReactNode>,
   ActivatableProps,
   LinkProps,
-  Omit<React.HTMLAttributes<HTMLElement>, 'content'>,
   OutlineItemOwnProps {}

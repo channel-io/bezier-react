@@ -2,9 +2,9 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
+  AdditionalOverridableStyleProps,
   AdditionalTestIdProps,
-  AlphaAdditionalStylableProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ChildrenProps,
   FormFieldProps,
   FormFieldSize,
@@ -36,12 +36,12 @@ interface SelectOwnProps {
 }
 
 export interface SelectProps extends
-  AlphaBezierComponentProps,
+  BezierComponentProps<'button'>,
   ChildrenProps,
   FormFieldProps,
   SizeProps<FormFieldSize>,
   SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
   AdditionalTestIdProps<['trigger', 'triggerText', 'dropdown']>,
-  AlphaAdditionalStylableProps<'dropdown'>,
+  AdditionalOverridableStyleProps<'dropdown'>,
   AdditionalColorProps<['icon', 'text']>,
   SelectOwnProps {}

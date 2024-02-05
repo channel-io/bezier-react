@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ColorProps,
   type SizeProps,
 } from '~/src/types/props'
@@ -20,7 +20,6 @@ export enum SpinnerThickness {
 }
 
 export interface SpinnerProps extends
-  AlphaBezierComponentProps,
+  Omit<BezierComponentProps<'div'>, keyof ColorProps>,
   SizeProps<SpinnerSize>,
-  ColorProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
+  ColorProps {}

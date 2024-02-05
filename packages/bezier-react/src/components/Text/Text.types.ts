@@ -1,5 +1,5 @@
 import {
-  type AlphaBezierComponentProps,
+  type BezierComponentProps,
   type ChildrenProps,
   type MarginProps,
   type PolymorphicProps,
@@ -55,8 +55,7 @@ interface TextOwnProps {
 }
 
 export interface TextProps extends
-  AlphaBezierComponentProps,
-  Omit<React.HTMLAttributes<HTMLElement>, keyof TextOwnProps>,
+  Omit<BezierComponentProps, keyof TextOwnProps>,
   PolymorphicProps,
   ChildrenProps,
   MarginProps,

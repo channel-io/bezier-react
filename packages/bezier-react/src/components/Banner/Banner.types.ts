@@ -7,7 +7,7 @@ import {
 
 import type {
   AdditionalColorProps,
-  AlphaBezierComponentProps,
+  BezierComponentProps,
   ContentProps,
   VariantProps,
 } from '~/src/types/props'
@@ -81,9 +81,8 @@ interface BannerOwnProps {
 }
 
 export interface BannerProps extends
-  AlphaBezierComponentProps,
-  VariantProps<BannerVariant>,
+  Omit<BezierComponentProps<'div'>, keyof ContentProps>,
   ContentProps,
+  VariantProps<BannerVariant>,
   AdditionalColorProps<'icon'>,
-  Omit<React.HTMLAttributes<HTMLDivElement>, keyof ContentProps>,
   BannerOwnProps {}
