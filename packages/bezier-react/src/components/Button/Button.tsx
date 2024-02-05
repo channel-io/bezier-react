@@ -140,7 +140,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       )}
       disabled={disabled}
       data-testid={testId}
-      data-component="BezierButton"
+      data-bezier-component="Button"
       onClick={handleClick}
       {...rest}
     >
