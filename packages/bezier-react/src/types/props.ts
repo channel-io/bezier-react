@@ -360,3 +360,22 @@ export interface LayoutProps {
    */
   overflowY?: Overflow
 }
+
+export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'
+
+export interface FormFieldProps extends
+  DisableProps,
+  Partial<IdentifierProps> {
+  /**
+   * Indicates whether the validation failed.
+   */
+  hasError?: boolean
+  /**
+   * Indicates that the user must specify a value for the input before the owning form can be submitted.
+   */
+  required?: boolean
+  /**
+   * Indicates that the user cannot modify the value of the input.
+   */
+  readOnly?: boolean
+}

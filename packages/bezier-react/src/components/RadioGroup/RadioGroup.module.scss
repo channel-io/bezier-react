@@ -1,0 +1,107 @@
+$outer-indicator-size: 18px;
+$outer-indicator-margin: 1px;
+$inner-indicator-size: 8px;
+
+@use "sass:math";
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
+
+@mixin outer-indicator-focus-styles {
+  &:where(:not([data-disabled])[data-state='checked'])::before {
+    background-color: var(--bgtxt-green-dark);
+  }
+}
+
+@mixin inner-indicator-focus-styles {
+  &:where(:not([data-disabled], [data-state='checked']))::after {
+    background-color: var(--bg-black-dark);
+  }
+}
+
+.RadioGroupItem {
+  all: unset;
+
+  /* stylelint-disable-next-line order/order */
+  @include interaction.touchable-hover {
+    @include outer-indicator-focus-styles;
+    @include inner-indicator-focus-styles;
+  }
+
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  /* Outer Indicator */
+  &::before {
+
+    @include dimension.square($outer-indicator-size);
+
+    content: '';
+
+    position: relative;
+
+    box-sizing: border-box;
+    margin: $outer-indicator-margin;
+
+    background-color: var(--bg-white-normal);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
+  }
+
+  /* Inner Indicator */
+  &::after {
+    @include dimension.square($inner-indicator-size);
+
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: math.div($outer-indicator-size, 2) + $outer-indicator-margin;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+  }
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+
+    &::before {
+      background-color: var(--bg-black-dark);
+      box-shadow: none;
+    }
+  }
+
+  &:where([data-state='checked']) {
+    &::before {
+      background-color: var(--bgtxt-green-normal);
+      box-shadow: none;
+    }
+
+    &::after {
+      background-color: var(--bgtxt-absolute-white-dark);
+    }
+  }
+
+  &:where(:focus-visible) {
+    @include inner-indicator-focus-styles;
+
+    &::before {
+      box-shadow: var(--input-box-shadow-focused);
+    }
+  }
+
+  &:where(:has(.Label)) {
+    height: var(--b-form-field-size);
+  }
+}
+
+.Label {
+  pointer-events: none;
+  padding-left: 12px;
+}
