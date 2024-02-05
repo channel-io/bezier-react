@@ -54,6 +54,7 @@
   }
 
   &:where(:focus-visible) {
+    outline: none;
     box-shadow: var(--input-box-shadow-focused);
 
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {

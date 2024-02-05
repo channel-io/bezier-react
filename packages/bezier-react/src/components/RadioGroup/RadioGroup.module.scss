@@ -33,9 +33,10 @@ $inner-indicator-size: 8px;
 
   width: 100%;
 
+  outline: none;
+
   /* Outer Indicator */
   &::before {
-
     @include dimension.square($outer-indicator-size);
 
     content: '';
@@ -47,6 +48,7 @@ $inner-indicator-size: 8px;
 
     background-color: var(--bg-white-normal);
     border-radius: 50%;
+    outline: none;
     box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
   }
 

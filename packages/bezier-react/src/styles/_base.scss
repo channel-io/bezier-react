@@ -27,3 +27,11 @@ code {
   color: var(--txt-black-dark);
   opacity: 1;
 }
+
+:focus-visible {
+  outline: 3px solid var(--bgtxt-cobalt-light);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}

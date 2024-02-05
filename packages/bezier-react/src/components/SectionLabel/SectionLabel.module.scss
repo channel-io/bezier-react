@@ -10,10 +10,6 @@ $divider-margin: 6px;
   width: 100%;
   height: 28px;
 
-  &:where(:focus-visible) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
-  }
-
   &:where(.clickable) {
     cursor: pointer;
   }
