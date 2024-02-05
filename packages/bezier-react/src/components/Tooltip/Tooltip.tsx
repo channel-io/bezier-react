@@ -102,17 +102,14 @@ function getSideAndAlign(
 
 /**
  * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
+ * If you want to compose another component with `Tooltip`, **it must spread props and forward ref.**
  * @example
- *
  * ```tsx
- * // Anatomy of the Tooltip
- * <TooltipProvider>
- *   <Tooltip />
- * </TooltipProvider>
- *
- * // Example of a Tooltip with a button
+ * // Your component must spread props and forward ref.
+ * const Button = React.forwardRef((props, forwardedRef) => (<button {...props} ref={forwardedRef} />))
+ * // Then, you can use `Tooltip` with your component.
  * <Tooltip content="Ta-da!">
- *   <button>Hover me</button>
+ *   <Button>Hover me</Button>
  * </Tooltip>
  * ```
  */
