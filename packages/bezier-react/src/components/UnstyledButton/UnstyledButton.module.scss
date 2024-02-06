@@ -9,4 +9,12 @@
 
   background: none;
   border: none;
+
+  &:where(:focus-visible) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+
+  &:where(:focus:not(:focus-visible)) {
+    outline: none;
+  }
 }
