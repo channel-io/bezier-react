@@ -6,6 +6,9 @@ import { type BaseButtonProps } from './BaseButton.types'
 
 import styles from './BaseButton.module.scss'
 
+/**
+ * `BaseButton` is a reset-style button component with a focus ring, intended for internal use only.
+ */
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(function BaseButton({
   className,
   children,
