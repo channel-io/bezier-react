@@ -285,14 +285,6 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
       box-shadow: var(--ev-3);
     }
   }
-
-  &:focus:where(:not(:disabled)) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
-  }
-
-  &:focus:where(:not(:focus-visible)) {
-    outline: none;
-  }
 }
 
 .ButtonContent {
