@@ -14,7 +14,7 @@ import { type HelpProps } from './Help.types'
 
 import styles from './Help.module.scss'
 
-export const HELP_TEST_ID = 'bezier-react-help'
+export const HELP_TEST_ID = 'bezier-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
 export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
@@ -32,10 +32,10 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
       <div className={styles.Help}>
         <Icon
           className={styles.Icon}
-          testId={HELP_TEST_ID}
           source={HelpFilledIcon}
           size={IconSize.XS}
           color="txt-black-dark"
+          data-testid={HELP_TEST_ID}
         />
       </div>
     </Tooltip>

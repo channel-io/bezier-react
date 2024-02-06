@@ -34,7 +34,7 @@ import {
 
 import styles from './Button.module.scss'
 
-export const BUTTON_TEST_ID = 'bezier-react-button'
+export const BUTTON_TEST_ID = 'bezier-button'
 
 function getTypography(size: ButtonSize) {
   return ({
@@ -100,7 +100,6 @@ function ButtonSideContent({
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   as = 'button',
   className,
-  testId = BUTTON_TEST_ID,
   type = 'button',
   text,
   disabled = false,
@@ -139,9 +138,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
         className,
       )}
       disabled={disabled}
-      data-testid={testId}
-      data-component="BezierButton"
       onClick={handleClick}
+      data-component="BezierButton"
+      data-testid={BUTTON_TEST_ID}
       {...rest}
     >
       <div

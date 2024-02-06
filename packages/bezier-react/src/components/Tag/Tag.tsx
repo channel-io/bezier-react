@@ -31,8 +31,8 @@ import { type TagProps } from './Tag.types'
 
 import styles from './Tag.module.scss'
 
-export const TAG_TEST_ID = 'bezier-react-tag'
-export const TAG_DELETE_TEST_ID = 'bezier-react-tag-delete-icon'
+export const TAG_TEST_ID = 'bezier-tag'
+export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
 
 /**
  * `Tag` is a component for representing tag, which shows close icon when `onDelete` property is specified.
@@ -53,7 +53,6 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
   color: givenColor,
   children,
   className,
-  testId = TAG_TEST_ID,
   onDelete,
   style,
   ...rest
@@ -62,6 +61,10 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
 
   return (
     <div
+      style={{
+        '--b-tag-badge-background-color': cssVar(bgColor),
+        ...style,
+      } as CSSProperties}
       className={classNames(
         styles.Tag,
         commonStyles.TagBadge,
@@ -69,11 +72,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
         className,
       )}
       ref={forwardedRef}
-      data-testid={testId}
-      style={{
-        '--b-tag-badge-background-color': cssVar(bgColor),
-        ...style,
-      } as CSSProperties}
+      data-testid={TAG_TEST_ID}
       {...rest}
     >
       { !isEmpty(children) && (
@@ -88,15 +87,15 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
 
       { !isNil(onDelete) && (
         <Icon
+          className={styles.CloseIcon}
           source={CancelSmallIcon}
           size={IconSize.XS}
-          testId={TAG_DELETE_TEST_ID}
           color="txt-black-darker"
-          className={styles.CloseIcon}
           onClick={(e) => {
             e.stopPropagation()
             onDelete(e)
           }}
+          data-testid={TAG_DELETE_TEST_ID}
         />
       ) }
     </div>

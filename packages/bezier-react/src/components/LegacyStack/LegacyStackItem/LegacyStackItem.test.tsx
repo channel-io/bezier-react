@@ -11,19 +11,19 @@ import styles from './LegacyStackItem.module.scss'
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {
     it('supports as prop', () => {
-      const { getByTestId } = render(<LegacyStackItem testId="stack-item" as="main" />)
+      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" as="main" />)
 
       expect(getByTestId('stack-item').tagName).toBe('MAIN')
     })
 
     it('supports style prop', () => {
-      const { getByTestId } = render(<LegacyStackItem testId="stack-item" style={{ color: 'blue' }} />)
+      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" style={{ color: 'blue' }} />)
 
       expect(getByTestId('stack-item')).toHaveStyle({ color: 'blue' })
     })
 
     it('supports className prop', () => {
-      const { getByTestId } = render(<LegacyStackItem testId="stack-item" className="foo" />)
+      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" className="foo" />)
 
       expect(getByTestId('stack-item')).toHaveClass('foo')
     })
@@ -32,7 +32,7 @@ describe('StackItem', () => {
   it('inherits main axis alignment of parent stack-item component', () => {
     const { getByTestId } = render(
       <LegacyStack direction="horizontal" justify="start">
-        <LegacyStackItem testId="item">
+        <LegacyStackItem data-testid="item">
           <div />
         </LegacyStackItem>
       </LegacyStack>,
@@ -44,19 +44,19 @@ describe('StackItem', () => {
   it('can override main axis alignment of parent stack component', () => {
     const { getByTestId } = render(
       <LegacyStack direction="horizontal" justify="start">
-        <LegacyStackItem testId="item-start" justify="start">
+        <LegacyStackItem data-testid="item-start" justify="start">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-center" justify="center">
+        <LegacyStackItem data-testid="item-center" justify="center">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-end" justify="end">
+        <LegacyStackItem data-testid="item-end" justify="end">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-stretch" justify="stretch">
+        <LegacyStackItem data-testid="item-stretch" justify="stretch">
           <div />
         </LegacyStackItem>
       </LegacyStack>,
@@ -71,7 +71,7 @@ describe('StackItem', () => {
   it('inherits cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
       <LegacyStack direction="horizontal" align="start">
-        <LegacyStackItem testId="item">
+        <LegacyStackItem data-testid="item">
           <div />
         </LegacyStackItem>
       </LegacyStack>,
@@ -83,19 +83,19 @@ describe('StackItem', () => {
   it('can override cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
       <LegacyStack direction="horizontal" align="center">
-        <LegacyStackItem testId="item-start" align="start">
+        <LegacyStackItem data-testid="item-start" align="start">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-center" align="center">
+        <LegacyStackItem data-testid="item-center" align="center">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-end" align="end">
+        <LegacyStackItem data-testid="item-end" align="end">
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem testId="item-stretch" align="stretch">
+        <LegacyStackItem data-testid="item-stretch" align="stretch">
           <div />
         </LegacyStackItem>
       </LegacyStack>,
@@ -121,10 +121,10 @@ describe('StackItem', () => {
 
       const { getByTestId } = render(
         <LegacyStack direction="horizontal">
-          <LegacyStackItem testId="one" />
-          <LegacyStackItem testId="two" grow shrink weight={1} />
-          <LegacyStackItem testId="three" marginBefore={16} shrink weight={2} />
-          <LegacyStackItem testId="four" style={{ color: 'red' }} marginAfter={20} size={32} />
+          <LegacyStackItem data-testid="one" />
+          <LegacyStackItem data-testid="two" grow shrink weight={1} />
+          <LegacyStackItem data-testid="three" marginBefore={16} shrink weight={2} />
+          <LegacyStackItem data-testid="four" style={{ color: 'red' }} marginAfter={20} size={32} />
         </LegacyStack>,
       )
 

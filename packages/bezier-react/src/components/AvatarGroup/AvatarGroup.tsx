@@ -32,7 +32,7 @@ import styles from './AvatarGroup.module.scss'
 
 const MAX_AVATAR_LIST_COUNT = 99
 const AVATAR_GROUP_DEFAULT_SPACING = 4
-export const AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID = 'bezier-react-avatar-group-ellipsis-icon'
+export const AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID = 'bezier-avatar-group-ellipsis-icon'
 
 function getRestAvatarListCountText(count: number, max: number) {
   const restCount = count - max
@@ -136,11 +136,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
           <div
-            data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             key="ellipsis"
             className={styles.AvatarEllipsisIconWrapper}
             onMouseEnter={onMouseEnterEllipsis}
             onMouseLeave={onMouseLeaveEllipsis}
+            data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
           >
             <AlphaSmoothCornersBox
               borderRadius={AVATAR_BORDER_RADIUS}

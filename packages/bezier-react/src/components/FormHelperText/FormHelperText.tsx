@@ -17,8 +17,8 @@ import type {
 
 import styles from './FormHelperText.module.scss'
 
-export const FORM_HELPER_TEXT_TEST_ID = 'bezier-react-form-helper-text'
-export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-react-form-error-message'
+export const FORM_HELPER_TEXT_TEST_ID = 'bezier-form-helper-text'
+export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-form-error-message'
 
 const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function BaseHelperText(props, forwardedRef) {
   const {
@@ -84,7 +84,6 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(function
  */
 export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(function FormHelperText(props, forwardedRef) {
   const {
-    testId = FORM_HELPER_TEXT_TEST_ID,
     color = 'txt-black-dark',
     children,
     ...rest
@@ -92,11 +91,11 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(f
 
   return (
     <BaseHelperText
-      {...rest}
       type="info"
       ref={forwardedRef}
-      testId={testId}
       color={color}
+      data-testid={FORM_HELPER_TEXT_TEST_ID}
+      {...rest}
     >
       { children }
     </BaseHelperText>
@@ -121,7 +120,6 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(f
  */
 export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProps>(function FormErrorMessage(props, forwardedRef) {
   const {
-    testId = FORM_ERROR_MESSAGE_TEST_ID,
     color = 'bgtxt-orange-normal',
     children,
     ...rest
@@ -129,12 +127,12 @@ export const FormErrorMessage = forwardRef<HTMLSpanElement, FormErrorMessageProp
 
   return (
     <BaseHelperText
-      {...rest}
       aria-live="polite"
       type="error"
       ref={forwardedRef}
-      testId={testId}
       color={color}
+      data-testid={FORM_ERROR_MESSAGE_TEST_ID}
+      {...rest}
     >
       { children }
     </BaseHelperText>

@@ -18,7 +18,7 @@ import { type SliderProps } from './Slider.types'
 
 import styles from './Slider.module.scss'
 
-export const SLIDER_TEST_ID = 'bezier-react-slider'
+export const SLIDER_TEST_ID = 'bezier-slider'
 
 const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
   min,
@@ -108,7 +108,10 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
         '--b-slider-width': cssDimension(width),
         ...style,
       } as CSSProperties}
-      data-testid={SLIDER_TEST_ID}
+      className={classNames(
+        styles.Slider,
+        className,
+      )}
       ref={forwardedRef}
       orientation="horizontal"
       defaultValue={defaultValue}
@@ -119,10 +122,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       step={step}
       dir={dir}
       minStepsBetweenThumbs={minStepsBetweenThumbs}
-      className={classNames(
-        styles.Slider,
-        className,
-      )}
+      data-testid={SLIDER_TEST_ID}
       {...rest}
     >
       <SliderPrimitive.Track className={styles.SliderPrimitiveTrack}>

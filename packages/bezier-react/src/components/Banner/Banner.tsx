@@ -30,7 +30,7 @@ import {
 
 import styles from './Banner.module.scss'
 
-const BANNER_TEST_ID = 'bezier-react-banner'
+const BANNER_TEST_ID = 'bezier-banner'
 
 function getActionButtonColorVariant(variant: BannerVariant) {
   return ({
@@ -80,7 +80,6 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
   renderLink = externalLinkRenderer,
   actionIcon,
   onClickAction,
-  testId = BANNER_TEST_ID,
   ...rest
 }, forwardedRef) {
   if (isIconName(icon)) {
@@ -95,7 +94,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
         styles[`variant-${variant}`],
         className,
       )}
-      data-testid={testId}
+      data-testid={BANNER_TEST_ID}
       {...rest}
     >
       { !isNil(icon) && (

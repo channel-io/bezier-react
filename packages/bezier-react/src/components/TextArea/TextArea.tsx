@@ -23,7 +23,6 @@ import styles from './TextArea.module.scss'
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
-  testId = 'bezier-react-text-area',
   minRows = TextAreaHeight.Row6,
   maxRows = TextAreaHeight.Row6,
   autoFocus = false,
@@ -77,7 +76,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
       readOnly={readOnly}
       maxRows={maxRows}
       minRows={minRows}
-      data-testid={testId}
+      data-testid="bezier-text-area"
       onKeyDown={handleKeyDown}
       onKeyUp={handleKeyUp}
     />

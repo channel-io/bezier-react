@@ -39,7 +39,7 @@ import {
 
 import styles from './Select.module.scss'
 
-export const SELECT_DROPDOWN_TEST_ID = 'bezier-react-select-dropdown'
+export const SELECT_DROPDOWN_TEST_ID = 'bezier-select-dropdown'
 
 export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   children,
@@ -61,10 +61,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownMarginY = 6,
   dropdownZIndex = 'overlay',
   dropdownPosition = OverlayPosition.BottomLeft,
-  testId = 'bezier-react-select-container',
-  triggerTestId = 'bezier-react-select-trigger',
-  triggerTextTestId = 'bezier-react-select-trigger-text',
-  dropdownTestId = SELECT_DROPDOWN_TEST_ID,
   onClickTrigger,
   onHideDropdown,
   ...rest
@@ -134,7 +130,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         className,
       )}
       ref={containerRef}
-      data-testid={testId}
     >
       <button
         className={classNames(
@@ -147,7 +142,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         ref={triggerRef}
         type="button"
         disabled={disabled}
-        data-testid={triggerTestId}
         onClick={handleClickTrigger}
         {...ownProps}
       >
@@ -164,7 +158,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             : leftContent }
 
           <Text
-            testId={triggerTextTestId}
+            data-testid="bezier-select-trigger-text"
             typo="14"
             truncated
             color={hasContent ? textColor : 'txt-black-dark'}
@@ -201,7 +195,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           getZIndexClassName(dropdownZIndex),
           dropdownClassName,
         )}
-        testId={dropdownTestId}
         withTransition
         show={isDropdownOpened && !disabled}
         marginX={dropdownMarginX}
@@ -209,6 +202,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
+        data-testid={SELECT_DROPDOWN_TEST_ID}
         onHide={handleHideDropdown}
       >
         { children }

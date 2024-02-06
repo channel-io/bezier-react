@@ -17,7 +17,7 @@ import { type FormLabelProps } from './FormLabel.types'
 
 import styles from './FormLabel.module.scss'
 
-export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
+export const FORM_LABEL_TEST_ID = 'bezier-form-label'
 
 /**
  * `FormLabel` is a component to show label.
@@ -34,7 +34,6 @@ export const FORM_LABEL_TEST_ID = 'bezier-react-form-label'
  */
 export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function FormLabel(props, forwardedRef) {
   const {
-    testId = FORM_LABEL_TEST_ID,
     help,
     bold = true,
     color = 'txt-black-darkest',
@@ -77,11 +76,11 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(function F
         !HelpComponent && formControlClassName,
       )}
       ref={forwardedRef}
-      testId={testId}
       as="label"
       align="left"
       bold={bold}
       color={color}
+      data-testid={FORM_LABEL_TEST_ID}
       {...ownProps}
     >
       { children }

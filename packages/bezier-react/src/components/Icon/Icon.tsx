@@ -18,7 +18,7 @@ import {
 
 import styles from './Icon.module.scss'
 
-export const ICON_TEST_ID = 'bezier-react-icon'
+export const ICON_TEST_ID = 'bezier-icon'
 
 export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
   props,
@@ -28,7 +28,6 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
   const marginStyles = getMarginStyles(marginProps)
 
   const {
-    testId = ICON_TEST_ID,
     className,
     size = IconSize.Normal,
     color,
@@ -52,7 +51,7 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
       )}
       width={size}
       height={size}
-      data-testid={testId}
+      data-testid={ICON_TEST_ID}
       {...rest}
     />
   )

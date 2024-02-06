@@ -8,10 +8,9 @@ import { Stack } from '~/src/components/Stack'
 
 import { type FormGroupProps } from './FormGroup.types'
 
-const FORM_GROUP_TEST_ID = 'bezier-react-form-group'
+const FORM_GROUP_TEST_ID = 'bezier-form-group'
 
 export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(function FormGroup({
-  testId = FORM_GROUP_TEST_ID,
   spacing = 6,
   direction = 'vertical',
   role = 'group',
@@ -32,8 +31,7 @@ export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(function For
 
   return (
     <Stack
-      {...ownProps}
-      data-testid={testId}
+      data-testid={FORM_GROUP_TEST_ID}
       ref={mergedRef}
       wrap
       justify="start"
@@ -41,6 +39,7 @@ export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(function For
       spacing={spacing}
       direction={direction}
       role={role}
+      {...ownProps}
     >
       { children }
     </Stack>

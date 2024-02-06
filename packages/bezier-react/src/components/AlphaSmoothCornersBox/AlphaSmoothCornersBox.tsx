@@ -30,7 +30,6 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
   children,
   style,
   className,
-  testId,
   disabled,
   borderRadius,
   margin,
@@ -72,7 +71,6 @@ export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCorne
           ? 'enabled'
           : 'disabled'
       }
-      data-testid={testId}
     >
       { children }
     </div>

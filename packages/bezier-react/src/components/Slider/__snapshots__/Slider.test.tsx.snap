@@ -6,7 +6,7 @@ exports[`Slider Snapshot should match snapshot 1`] = `
     aria-disabled="false"
     class="Slider"
     data-orientation="horizontal"
-    data-testid="bezier-react-slider"
+    data-testid="bezier-slider"
     dir="ltr"
     style="--b-slider-width: 36px; --radix-slider-thumb-transform: translateX(-50%);"
   >

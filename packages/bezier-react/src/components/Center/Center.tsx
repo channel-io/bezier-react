@@ -34,7 +34,6 @@ export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(pr
     style,
     className,
     display = 'flex',
-    testId = 'bezier-react-center',
     ...rest
   } = layoutRest
 
@@ -53,7 +52,7 @@ export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(pr
         layoutStyles.className,
         className,
       )}
-      data-testid={testId}
+      data-testid="bezier-center"
       {...rest}
     >
       { children }
