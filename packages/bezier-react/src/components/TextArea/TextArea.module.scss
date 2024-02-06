@@ -24,10 +24,6 @@
 
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
 
-  &::placeholder {
-    color: var(--txt-black-dark);
-  }
-
   &::-webkit-scrollbar {
     display: none;
   }

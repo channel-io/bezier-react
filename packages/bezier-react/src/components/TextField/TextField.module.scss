@@ -13,10 +13,6 @@
   border: none;
   outline: none;
 
-  &::placeholder {
-    color: var(--txt-black-dark);
-  }
-
   &:read-only {
     color: var(--txt-black-darker)
   }
