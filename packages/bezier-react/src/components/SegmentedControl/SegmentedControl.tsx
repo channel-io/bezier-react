@@ -10,7 +10,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
 
-import { ariaAttr } from '~/src/utils/dom'
+import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'

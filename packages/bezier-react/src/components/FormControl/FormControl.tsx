@@ -13,7 +13,7 @@ import {
   type FormFieldSize,
   type SizeProps,
 } from '~/src/types/props'
-import { ariaAttr } from '~/src/utils/dom'
+import { ariaAttr } from '~/src/utils/aria'
 import { getFormFieldSizeClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
