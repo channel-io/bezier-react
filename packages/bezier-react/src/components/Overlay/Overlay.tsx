@@ -155,8 +155,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
     event.stopPropagation()
   }, [])
 
-  const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(styles.Overlay)) {
+  const handleHideOverlay = useCallback((event: MouseEvent) => {
+    if (!event.target || (event.target instanceof HTMLElement && !event.target.closest(`.${styles.Overlay}`))) {
       onHide?.()
 
       if (!enableClickOutside) {

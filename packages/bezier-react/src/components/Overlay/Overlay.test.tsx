@@ -5,6 +5,8 @@ import { getWindow } from 'ssr-window'
 
 import { render } from '~/src/utils/test'
 
+import { Button } from '~/src/components/Button'
+
 import {
   CONTAINER_TEST_ID,
   ESCAPE_KEY,
@@ -276,12 +278,12 @@ describe('Overlay', () => {
     })
 
     describe('Event', () => {
+      document.onkeydown = jest.fn()
+      const onHide = jest.fn()
+
+      afterEach(jest.clearAllMocks)
+
       describe('keydown', () => {
-        document.onkeydown = jest.fn()
-        const onHide = jest.fn()
-
-        afterEach(jest.clearAllMocks)
-
         it('is Triggered By Escape', () => {
           const { getByTestId } = renderRootOverlay({ withTransition: true, onHide })
           const overlay = getByTestId(OVERLAY_TEST_ID)
@@ -305,6 +307,21 @@ describe('Overlay', () => {
           fireEvent.keyDown(overlay, { key: 'Z' })
           expect(document.onkeydown).toHaveBeenCalledTimes(3)
           expect(onHide).toHaveBeenCalledTimes(0)
+        })
+      })
+
+      describe('click', () => {
+        it('calls onHide when element outside the overlay is clicked', async () => {
+          renderRootOverlay({ onHide })
+          fireEvent.click(document.body)
+          expect(onHide).toHaveBeenCalled()
+        })
+
+        it('does not call onHide when element inside the overlay is clicked', () => {
+          const { getByRole } = renderRootOverlay({ children: (<Button text="button" />), onHide })
+          const button = getByRole('button')
+          fireEvent.click(button)
+          expect(onHide).not.toHaveBeenCalled()
         })
       })
     })
