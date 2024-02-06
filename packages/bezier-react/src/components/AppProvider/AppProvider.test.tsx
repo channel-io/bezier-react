@@ -15,10 +15,9 @@ describe('AppProvider', () => {
     expect(getByText('Test')).toBeInTheDocument()
   })
 
-  it('should set the default theme name to light and add the data-bezier-preflight attribute', () => {
+  it('should set the default theme name to light', () => {
     render(<AppProvider><div /></AppProvider>)
     expect(document.documentElement).toHaveAttribute('data-bezier-theme', 'light')
-    expect(document.documentElement).toHaveAttribute('data-bezier-preflight', '')
   })
 
   it('should set a custom theme name on the root element', () => {
@@ -26,15 +25,9 @@ describe('AppProvider', () => {
     expect(document.documentElement).toHaveAttribute('data-bezier-theme', 'dark')
   })
 
-  it('should not add the data-bezier-preflight attribute to the root element when preflight is false', () => {
-    render(<AppProvider preflight={false}><div /></AppProvider>)
-    expect(document.documentElement).not.toHaveAttribute('data-bezier-preflight', '')
-  })
-
   it('should remove data attributes from the root element on cleanup', () => {
-    const { unmount } = render(<AppProvider themeName="dark" preflight><div /></AppProvider>)
+    const { unmount } = render(<AppProvider themeName="dark"><div /></AppProvider>)
     unmount()
     expect(document.documentElement).not.toHaveAttribute('data-bezier-theme')
-    expect(document.documentElement).not.toHaveAttribute('data-bezier-preflight')
   })
 })
