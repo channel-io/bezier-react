@@ -88,7 +88,7 @@ function CheckboxImpl<Checked extends CheckedState>({
         <UnstyledButton>
           <CheckboxPrimitive.Indicator
             asChild
-          /* NOTE: To allow the icon to be rendered even if unchecked. */
+            /* NOTE: To allow the icon to be rendered even if unchecked. */
             forceMount
           >
             <CheckIcon />
