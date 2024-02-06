@@ -10,40 +10,58 @@
   border-radius: var(--radius-12);
 
   &:where(.variant-default) {
-    color: var(--txt-black-darker);
     background-color: var(--bg-black-lighter);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--txt-black-darker);
+    }
   }
 
   &:where(.variant-blue) {
-    color: var(--bgtxt-blue-normal);
     background-color: var(--bgtxt-blue-lightest);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--bgtxt-blue-normal);
+    }
   }
 
   &:where(.variant-cobalt) {
-    color: var(--bgtxt-cobalt-normal);
     background-color: var(--bgtxt-cobalt-lightest);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--bgtxt-cobalt-normal);
+    }
   }
 
   &:where(.variant-green) {
-    color: var(--bgtxt-green-normal);
     background-color: var(--bgtxt-green-lightest);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--bgtxt-green-normal);
+    }
   }
 
   &:where(.variant-orange) {
-    color: var(--bgtxt-orange-normal);
     background-color: var(--bgtxt-orange-lightest);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--bgtxt-orange-normal);
+    }
   }
 
   &:where(.variant-red) {
-    color: var(--bgtxt-red-normal);
     background-color: var(--bgtxt-red-lightest);
+
+    & :where(.Content, .Icon, .Link) {
+      color: var(--bgtxt-red-normal);
+    }
   }
 
   &:where(.variant-alt) {
     background-color: var(--bg-grey-lighter);
     box-shadow: var(--ev-2);
 
-    & :where(.Content) {
+    & :where(.Content, .Link) {
       color: var(--txt-black-darker);
     }
 
