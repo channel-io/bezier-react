@@ -10,8 +10,8 @@ import {
   Avatar,
   AvatarSize,
 } from '~/src/components/Avatar'
+import { BaseButton } from '~/src/components/BaseButton'
 import { Icon } from '~/src/components/Icon'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
@@ -67,7 +67,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
       disabled={disabled}
       {...props}
     >
-      <UnstyledButton>
+      <BaseButton>
         <CheckboxPrimitive.Indicator
           asChild
           forceMount
@@ -99,7 +99,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
         <VisuallyHidden>
           <label htmlFor={id}>{ name }</label>
         </VisuallyHidden>
-      </UnstyledButton>
+      </BaseButton>
     </CheckboxPrimitive.Root>
   )
 })

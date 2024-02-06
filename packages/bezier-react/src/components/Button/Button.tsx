@@ -8,6 +8,7 @@ import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
@@ -21,7 +22,6 @@ import {
   SpinnerSize,
 } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import type {
   ButtonProps,
@@ -99,7 +99,7 @@ function ButtonSideContent({
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
-  as = UnstyledButton,
+  as = BaseButton,
   className,
   type = 'button',
   text,
@@ -114,7 +114,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick,
   ...rest
 }, forwardedRef) {
-  const Comp = as as typeof UnstyledButton
+  const Comp = as as typeof BaseButton
 
   const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>((event) => {
     if (!disabled) {

@@ -15,12 +15,12 @@ import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { Divider } from '~/src/components/Divider'
 import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type SegmentedControlItemListProps,
@@ -286,7 +286,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   ])
 
   return (
-    <UnstyledButton
+    <BaseButton
       {...rest}
       ref={forwardedRef}
       data-checked={ariaAttr(checked)}
@@ -311,7 +311,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
         </Text>
         { rightContent }
       </HStack>
-    </UnstyledButton>
+    </BaseButton>
   )
 })
 

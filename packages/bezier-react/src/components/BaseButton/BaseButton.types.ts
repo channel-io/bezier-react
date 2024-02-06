@@ -3,7 +3,7 @@ import {
   type ChildrenProps,
 } from '~/src/types/props'
 
-export interface UnstyledButtonProps extends
+export interface BaseButtonProps extends
   BezierComponentProps<'button'>,
   ChildrenProps {}
 

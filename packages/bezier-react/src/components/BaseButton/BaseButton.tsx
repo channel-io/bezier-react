@@ -2,11 +2,11 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import { type UnstyledButtonProps } from './UnstyledButton.types'
+import { type BaseButtonProps } from './BaseButton.types'
 
-import styles from './UnstyledButton.module.scss'
+import styles from './BaseButton.module.scss'
 
-export const UnstyledButton = forwardRef<HTMLButtonElement, UnstyledButtonProps>(function UnstyledButton({
+export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(function BaseButton({
   className,
   children,
   ...rest
@@ -14,7 +14,7 @@ export const UnstyledButton = forwardRef<HTMLButtonElement, UnstyledButtonProps>
   return (
     <button
       className={classNames(
-        styles.UnstyledButton,
+        styles.BaseButton,
         className,
       )}
       ref={forwardedRef}

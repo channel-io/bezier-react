@@ -24,12 +24,12 @@ import {
   isNil,
 } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import {
@@ -117,7 +117,7 @@ function TextFieldRightContent({
   const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
     if ('icon' in item) {
       const clickable = !isNil(item.onClick)
-      const Comp = clickable ? UnstyledButton : 'div'
+      const Comp = clickable ? BaseButton : 'div'
 
       return (
         <Comp
@@ -401,7 +401,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
       />
 
       { activeClear && (
-        <UnstyledButton
+        <BaseButton
           className={styles.CloseIconWrapper}
           tabIndex={-1}
           onClick={handleClear}
@@ -412,7 +412,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
             source={CancelCircleFilledIcon}
             size={IconSize.XS}
           />
-        </UnstyledButton>
+        </BaseButton>
       ) }
 
       <TextFieldRightContent

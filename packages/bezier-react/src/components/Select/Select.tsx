@@ -21,6 +21,7 @@ import {
 } from '~/src/utils/props'
 import { isEmpty } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
@@ -31,7 +32,6 @@ import {
   OverlayPosition,
 } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type SelectProps,
@@ -132,7 +132,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       )}
       ref={containerRef}
     >
-      <UnstyledButton
+      <BaseButton
         className={classNames(
           styles.SelectTrigger,
           getFormFieldSizeClassName(size),
@@ -186,7 +186,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             marginLeft={6}
           />
         ) }
-      </UnstyledButton>
+      </BaseButton>
 
       <Overlay
         style={dropdownStyle}

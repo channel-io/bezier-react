@@ -13,6 +13,7 @@ import {
   isString,
 } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Button,
   ButtonColorVariant,
@@ -29,7 +30,6 @@ import {
   isIconName,
 } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type IconWithAction,
@@ -112,7 +112,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   ...props
 }, forwardedRef) {
   const clickable = !isNil(onClick)
-  const Comp = clickable ? UnstyledButton : 'div'
+  const Comp = clickable ? BaseButton : 'div'
 
   return (
     <>

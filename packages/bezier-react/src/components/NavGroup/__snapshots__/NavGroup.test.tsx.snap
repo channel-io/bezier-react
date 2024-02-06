@@ -4,7 +4,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
 <button
   aria-controls="generalMenu"
   aria-haspopup="false"
-  class="UnstyledButton Item active"
+  class="BaseButton Item active"
   data-testid="bezier-nav-group"
   role="menuitem"
   type="button"
@@ -64,7 +64,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
 <button
   aria-controls="generalMenu"
   aria-haspopup="false"
-  class="UnstyledButton Item"
+  class="BaseButton Item"
   data-testid="bezier-nav-group"
   role="menuitem"
   type="button"

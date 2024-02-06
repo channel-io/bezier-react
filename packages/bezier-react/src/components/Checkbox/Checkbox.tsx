@@ -10,12 +10,12 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/utils/props'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type CheckboxProps,
@@ -85,7 +85,7 @@ function CheckboxImpl<Checked extends CheckedState>({
         data-invalid={formFieldProps['aria-invalid']}
         {...formFieldProps}
       >
-        <UnstyledButton>
+        <BaseButton>
           <CheckboxPrimitive.Indicator
             asChild
             /* NOTE: To allow the icon to be rendered even if unchecked. */
@@ -93,7 +93,7 @@ function CheckboxImpl<Checked extends CheckedState>({
           >
             <CheckIcon />
           </CheckboxPrimitive.Indicator>
-        </UnstyledButton>
+        </BaseButton>
       </CheckboxPrimitive.Root>
       { children && (
         <label

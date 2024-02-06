@@ -25,13 +25,13 @@ import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import {
@@ -173,7 +173,7 @@ export function Toast({
         </Text>
       </div>
 
-      <UnstyledButton
+      <BaseButton
         className={styles.Close}
         onClick={runSlideOutAnimation}
       >
@@ -181,7 +181,7 @@ export function Toast({
           source={CancelIcon}
           size={IconSize.XS}
         />
-      </UnstyledButton>
+      </BaseButton>
     </div>
   )
 }

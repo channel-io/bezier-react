@@ -9,12 +9,12 @@ import classNames from 'classnames'
 import { noop } from '~/src/utils/function'
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 // eslint-disable-next-line no-restricted-imports
 import commonStyles from '../NavItem/NavItem.module.scss'
@@ -51,7 +51,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
       className={commonStyles.Wrapper}
       role="none"
     >
-      <UnstyledButton
+      <BaseButton
         ref={forwardedRef}
         className={classNames(
           commonStyles.Item,
@@ -94,7 +94,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
             { rightContent }
           </div>
         ) }
-      </UnstyledButton>
+      </BaseButton>
 
       { open && (
         <ul

@@ -6,10 +6,10 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/utils/props'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type RadioGroupProps,
@@ -82,7 +82,7 @@ function RadioImpl<Value extends string>({
       id={id}
       {...rest}
     >
-      <UnstyledButton>
+      <BaseButton>
         { children && (
           <Text
             className={styles.Label}
@@ -96,7 +96,7 @@ function RadioImpl<Value extends string>({
             { children }
           </Text>
         ) }
-      </UnstyledButton>
+      </BaseButton>
     </RadioGroupPrimitive.Item>
   )
 }

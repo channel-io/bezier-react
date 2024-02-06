@@ -11,6 +11,7 @@ import classNames from 'classnames'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Button,
   ButtonColorVariant,
@@ -34,7 +35,6 @@ import {
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
-import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import styles from './Tabs.module.scss'
 
@@ -276,14 +276,14 @@ export const TabAction = forwardRef<TabActionElement<string | undefined>, TabAct
         ref={forwardedRef}
         {...rest}
       >
-        <UnstyledButton>
+        <BaseButton>
           <Text
             bold
             typo={getTypoBy(size)}
           >
             { children }
           </Text>
-        </UnstyledButton>
+        </BaseButton>
       </ToolbarPrimitive.Button>
     ) : (
       <ToolbarPrimitive.Link
