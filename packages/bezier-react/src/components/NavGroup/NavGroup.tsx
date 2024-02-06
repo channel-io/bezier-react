@@ -6,7 +6,6 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
 import { isNil } from '~/src/utils/type'
 
 import {
@@ -34,11 +33,11 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
   leftContent,
   open,
   active,
-  onClick = noop,
+  onClick,
   ...rest
 }, forwardedRef) {
   const handleClickItem = (e?: React.MouseEvent) => {
-    onClick(e, name)
+    onClick?.(e, name)
   }
 
   const hasChildren = !isNil(children)

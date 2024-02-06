@@ -8,7 +8,6 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
-import { noop } from '~/src/utils/function'
 import { px } from '~/src/utils/style'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
@@ -88,8 +87,8 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
   size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
-  onMouseEnterEllipsis = noop,
-  onMouseLeaveEllipsis = noop,
+  onMouseEnterEllipsis,
+  onMouseLeaveEllipsis,
   style,
   className,
   children,
