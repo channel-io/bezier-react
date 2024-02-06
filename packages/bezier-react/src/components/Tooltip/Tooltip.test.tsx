@@ -8,14 +8,8 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  Tooltip,
-  TooltipProvider,
-} from './Tooltip'
-import {
-  type TooltipProps,
-  type TooltipProviderProps,
-} from './Tooltip.types'
+import { Tooltip } from './Tooltip'
+import { type TooltipProps } from './Tooltip.types'
 
 describe('Tooltip', () => {
   const renderTooltip = ({
@@ -71,6 +65,12 @@ describe('Tooltip', () => {
     it('When the tooltip content is visible, pressing Esc should hide the tooltip content.', async () => {
       const { queryByRole } = renderTooltip({ defaultShow: true, content: 'tooltip content' })
       await user.keyboard('{Escape}')
+      expect(queryByRole('tooltip')).not.toBeInTheDocument()
+    })
+
+    it('When the tooltip content is visible, clicking outside the tooltip should hide the tooltip content.', async () => {
+      const { queryByRole } = renderTooltip({ defaultShow: true, content: 'tooltip content' })
+      await user.click(document.body)
       expect(queryByRole('tooltip')).not.toBeInTheDocument()
     })
 
@@ -141,58 +141,6 @@ describe('Tooltip', () => {
     it('If the `delayHide` property is greater than 0, the tooltip should be delayed by that number of ms before disappearing.', async () => {
       // NOTE: (@ed) To avoid test failure due to timing issue
       const { getByRole, queryByRole } = renderTooltip({ delayHide: 1000 - 10, content: 'tooltip content' })
-      await user.hover(getByRole('button'))
-      await user.unhover(getByRole('button'))
-      expect(queryByRole('tooltip')).toBeInTheDocument()
-      await waitFor(() => {
-        expect(queryByRole('tooltip')).not.toBeInTheDocument()
-      }, { timeout: 1000 })
-    })
-  })
-})
-
-describe('TooltipProvider', () => {
-  const renderTooltipProvider = ({
-    children,
-    ...rest
-  }: TooltipProviderProps = {}) => render(
-    <TooltipProvider
-      delayShow={0}
-      {...rest}
-    >
-      <Tooltip content="tooltip content">
-        <button type="button">
-          Trigger
-        </button>
-      </Tooltip>
-    </TooltipProvider>,
-  )
-
-  let user: ReturnType<typeof userEvent.setup>
-
-  beforeEach(() => {
-    user = userEvent.setup()
-  })
-
-  describe('User Interactions', () => {
-    it('If the `allowHover` property is true, the tooltip content should be hoverable.', async () => {
-      const { getByRole } = renderTooltipProvider({ allowHover: true })
-      await user.hover(getByRole('button'))
-      await user.hover(getByRole('tooltip'))
-      expect(getByRole('tooltip')).toBeInTheDocument()
-    })
-
-    it('If the `delayShow` property is greater than 0, the tooltip should be delayed by that number of ms before appearing.', async () => {
-      const { getByRole, queryByRole } = renderTooltipProvider({ delayShow: 1000 })
-      await user.hover(getByRole('button'))
-      expect(queryByRole('tooltip')).not.toBeInTheDocument()
-      await waitFor(() => {
-        expect(queryByRole('tooltip')).toBeInTheDocument()
-      }, { timeout: 1000 })
-    })
-
-    it('If the `delayHide` property is greater than 0, the tooltip should be delayed by that number of ms before disappearing.', async () => {
-      const { getByRole, queryByRole } = renderTooltipProvider({ delayHide: 1000 })
       await user.hover(getByRole('button'))
       await user.unhover(getByRole('button'))
       expect(queryByRole('tooltip')).toBeInTheDocument()

@@ -25,30 +25,7 @@ export enum TooltipPosition {
   LeftBottom = 'leftBottom',
 }
 
-interface TooltipProviderOptions {
-  /**
-   * Keeps the content of the tooltip open on hover. Disabling this feature affects accessibility.
-   * @default false
-   */
-  allowHover?: boolean
-  /**
-   * The delay from when the mouse enters a tooltip trigger until the tooltip opens.
-   * @default 300
-   */
-  delayShow?: number
-  /**
-   * The delay from when the mouse leaves a tooltip content until the tooltip hides.
-   * @default 0
-   */
-  delayHide?: number
-  /**
-   * How much time a user has to enter another trigger without incurring a delay again.
-   * @default 500
-   */
-  skipDelayShow?: number
-}
-
-interface TooltipOptions {
+interface TooltipOwnProps {
   /**
    * The open state of the tooltip when it is initially rendered.
    */
@@ -89,19 +66,16 @@ interface TooltipOptions {
   keepInContainer?: boolean
   /**
    * Keeps the content of the tooltip open on hover. Disabling this feature affects accessibility.
-   * Inherits from the nearest `TooltipProvider`.
    * @default false
    */
   allowHover?: boolean
   /**
    * The delay from when the mouse enters a tooltip trigger until the tooltip opens.
-   * Inherits from the nearest `TooltipProvider`.
-   * @default 300
+   * @default 0
    */
   delayShow?: number
   /**
    * The delay from when the mouse leaves a tooltip content until the tooltip hides.
-   * Inherits from the nearest `TooltipProvider`.
    * @default 0
    */
   delayHide?: number
@@ -125,13 +99,9 @@ interface TooltipOptions {
   onPointerDownOutside?: (event: CustomEvent<{ originalEvent: PointerEvent }>) => void
 }
 
-export interface TooltipProviderProps extends
-  ChildrenProps,
-  TooltipProviderOptions {}
-
 export interface TooltipProps extends
   Omit<BezierComponentProps<'div'>, 'title' | keyof ContentProps | keyof ChildrenProps>,
   ChildrenProps<React.ReactElement>,
   ContentProps,
   DisableProps,
-  TooltipOptions {}
+  TooltipOwnProps {}
