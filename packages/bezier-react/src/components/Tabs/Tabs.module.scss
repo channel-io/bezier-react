@@ -116,6 +116,10 @@ $tab-item-indicator-height: 3px;
     border-radius: var(--radius-6);
   }
 
+  &:where(:focus-visible) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+
   &:hover {
     background-color: var(--bgtxt-blue-lightest);
   }
