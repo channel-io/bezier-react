@@ -95,7 +95,6 @@ class SmoothCorners {
       .get('--smooth-corners')
       .toString()
 
-    console.log("padding: ", padding)
     const targetWidth = geom.width - (2 * this.trimPX(padding))
     const targetHeight = geom.height - (2 * this.trimPX(padding))
 

@@ -11,10 +11,9 @@ import {
 
 import styles from './Spinner.module.scss'
 
-export const SPINNER_TEST_ID = 'bezier-react-spinner'
+export const SPINNER_TEST_ID = 'bezier-spinner'
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
-  testId = SPINNER_TEST_ID,
   style,
   className,
   size = SpinnerSize.M,
@@ -35,7 +34,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner
         className,
       )}
       key="spinner"
-      data-testid={testId}
+      data-testid={SPINNER_TEST_ID}
     />
   )
 })

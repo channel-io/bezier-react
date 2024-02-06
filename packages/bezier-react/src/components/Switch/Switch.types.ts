@@ -1,7 +1,6 @@
 import type { SwitchProps as SwitchPrimitiveProps } from '@radix-ui/react-switch'
 
 import type {
-  AdditionalTestIdProps,
   BezierComponentProps,
   FormFieldProps,
   SizeProps,
@@ -57,5 +56,4 @@ export interface SwitchProps extends
   Omit<BezierComponentProps<'button'>, keyof SwitchOwnProps>,
   SizeProps<SwitchSize>,
   FormFieldProps,
-  AdditionalTestIdProps<'handle'>,
   SwitchOwnProps {}

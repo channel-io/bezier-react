@@ -3,7 +3,7 @@
 exports[`NavItem Test > Snapshot > Active 1`] = `
 <a
   class="Item active"
-  data-testid="bezier-react-nav-item"
+  data-testid="bezier-nav-item"
   role="menuitem"
   target="_self"
 >
@@ -12,7 +12,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-nav-item-left-icon"
+      data-testid="bezier-nav-item-left-icon"
       fill="none"
       height="20"
       style="--b-icon-color: var(--bgtxt-blue-normal);"
@@ -30,7 +30,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
   </div>
   <span
     class="Text typo-14 truncated margin"
-    data-testid="bezier-react-text"
+    data-testid="bezier-text"
   >
     test-content
   </span>
@@ -40,7 +40,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
 exports[`NavItem Test > Snapshot > Not active 1`] = `
 <a
   class="Item"
-  data-testid="bezier-react-nav-item"
+  data-testid="bezier-nav-item"
   role="menuitem"
   target="_self"
 >
@@ -49,7 +49,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-nav-item-left-icon"
+      data-testid="bezier-nav-item-left-icon"
       fill="none"
       height="20"
       style="--b-icon-color: var(--txt-black-dark);"
@@ -67,7 +67,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
   </div>
   <span
     class="Text typo-14 truncated margin"
-    data-testid="bezier-react-text"
+    data-testid="bezier-text"
   >
     test-content
   </span>

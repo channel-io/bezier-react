@@ -54,7 +54,7 @@ export const LegacyStackItem = forwardRef<HTMLElement, LegacyStackItemProps>(fun
   shrink = false,
   marginBefore = 0,
   marginAfter = 0,
-  testId = 'bezier-legacy-stack-item',
+  ...rest
 }, forwardedRef) {
   const Comp = as
 
@@ -76,7 +76,8 @@ export const LegacyStackItem = forwardRef<HTMLElement, LegacyStackItemProps>(fun
         styles[`align-${align}`],
         className,
       )}
-      data-testid={testId}
+      data-testid="bezier-legacy-stack-item"
+      {...rest}
     >
       { children }
     </Comp>

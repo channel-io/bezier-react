@@ -4,10 +4,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
-import {
-  isNil,
-  isString,
-} from '~/src/utils/type'
+import { isNil } from '~/src/utils/type'
 
 import {
   Button,
@@ -33,7 +30,7 @@ import {
 
 import styles from './Banner.module.scss'
 
-const BANNER_TEST_ID = 'bezier-react-banner'
+const BANNER_TEST_ID = 'bezier-banner'
 
 function getActionButtonColorVariant(variant: BannerVariant) {
   return ({
@@ -83,7 +80,6 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
   renderLink = externalLinkRenderer,
   actionIcon,
   onClickAction,
-  testId = BANNER_TEST_ID,
   ...rest
 }, forwardedRef) {
   if (isIconName(icon)) {
@@ -98,7 +94,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
         styles[`variant-${variant}`],
         className,
       )}
-      data-testid={testId}
+      data-testid={BANNER_TEST_ID}
       {...rest}
     >
       { !isNil(icon) && (
@@ -122,26 +118,24 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
       ) }
 
       <div className={styles.Content}>
-        { isString(content) ? (
-          <Text typo="14">
-            { content }
+        <Text typo="14">
+          { content }
 
-            { hasLink && (
-              renderLink({
-                content: (
-                  <Text
-                    className={styles.Link}
-                    typo="14"
-                    bold
-                  >
-                    { linkText }
-                  </Text>
-                ),
-                linkTo,
-              })
-            ) }
-          </Text>
-        ) : content }
+          { hasLink && (
+            renderLink({
+              content: (
+                <Text
+                  className={styles.Link}
+                  typo="14"
+                  bold
+                >
+                  { linkText }
+                </Text>
+              ),
+              linkTo,
+            })
+          ) }
+        </Text>
       </div>
 
       { !isNil(actionIcon) && (

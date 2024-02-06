@@ -4,6 +4,10 @@ import {
   isString,
 } from '~/src/utils/type'
 
+/**
+ * Convert a number to a string with `px` suffix.
+ * If the value is `0`, it will return `0` instead of `0px`.
+ */
 export function px<Value extends number>(value?: Value) {
   if (isNil(value)) {
     return undefined
@@ -14,6 +18,10 @@ export function px<Value extends number>(value?: Value) {
   return value as 0
 }
 
+/**
+ * Convert a number or string to a string with `px` suffix.
+ * If the value is `0`, it will return `0` instead of `0px`.
+ */
 export function cssDimension<Value extends number | string>(value?: Value) {
   if (isNil(value)) {
     return undefined
@@ -27,6 +35,9 @@ export function cssDimension<Value extends number | string>(value?: Value) {
   return value as 0
 }
 
+/**
+ * Generates a CSS variable string with the given property name.
+ */
 export function cssVar<
   PropertyName extends string | undefined,
 >(propertyName: PropertyName) {
@@ -37,12 +48,19 @@ export function cssVar<
   /* eslint-enable no-nested-ternary */
 }
 
+/**
+ * Wrapper function for `cssVar` to handle tokens specifically.
+ * It generates a CSS variable string for a given design token.
+ */
 export function tokenCssVar<
   PropertyName extends FlattenAllToken | undefined,
 >(propertyName: PropertyName) {
   return cssVar(propertyName)
 }
 
+/**
+ * Formats a given URL string into a CSS `url()` function format.
+ */
 export function cssUrl(url?: string) {
   return isNil(url) ? undefined : `url(${url})`
 }

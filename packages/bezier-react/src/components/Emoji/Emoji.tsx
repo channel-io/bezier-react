@@ -14,7 +14,7 @@ import {
 
 import styles from './Emoji.module.scss'
 
-export const EMOJI_TEST_ID = 'bezier-react-emoji'
+export const EMOJI_TEST_ID = 'bezier-emoji'
 
 /**
  * `Emoji` is a component for representing emoji with variant size.
@@ -33,13 +33,11 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji({
   className,
   name,
   size = EmojiSize.Size24,
-  testId = EMOJI_TEST_ID,
   ...rest
 }, forwardedRef) {
   return (
     <div
       ref={forwardedRef}
-      data-testid={testId}
       role="img"
       aria-label={name}
       style={{
@@ -51,6 +49,7 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji({
         styles[`size-${size}`],
         className,
       )}
+      data-testid={EMOJI_TEST_ID}
       {...rest}
     />
   )

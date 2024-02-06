@@ -13,8 +13,7 @@ import {
 
 import styles from './Switch.module.scss'
 
-export const SWITCH_TEST_ID = 'bezier-react-switch'
-const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
+export const SWITCH_TEST_ID = 'bezier-switch'
 
 /**
  * `Switch` is an input component where user can toggle checked state of the element.
@@ -27,8 +26,6 @@ const SWITCH_HANDLE_TEST_ID = 'bezier-react-switch-handle'
  * ```
  */
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch({
-  testId = SWITCH_TEST_ID,
-  handleTestId = SWITCH_HANDLE_TEST_ID,
   checked,
   defaultChecked = false,
   onCheckedChange,
@@ -51,11 +48,11 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
       onCheckedChange={onCheckedChange}
       required={required}
       disabled={disabled}
+      data-testid={SWITCH_TEST_ID}
       {...ownProps}
     >
       <UnstyledButton
         ref={forwardedRef}
-        data-testid={testId}
         className={classNames(
           styles.Switch,
           styles[`size-${size}`],
@@ -63,10 +60,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
         )}
       >
         <SwitchPrimitive.Thumb asChild>
-          <span
-            data-testid={handleTestId}
-            className={styles.SwitchThumb}
-          />
+          <span className={styles.SwitchThumb} />
         </SwitchPrimitive.Thumb>
       </UnstyledButton>
     </SwitchPrimitive.Root>

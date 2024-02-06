@@ -9,7 +9,7 @@ import { LegacyHStack } from './LegacyHStack'
 
 describe('HStack', () => {
   it('creates a horizontal flexbox', () => {
-    const { getByTestId } = render(<LegacyHStack testId="h-stack" />)
+    const { getByTestId } = render(<LegacyHStack data-testid="h-stack" />)
 
     expect(getByTestId('h-stack')).toHaveClass(styles['direction-horizontal'])
   })

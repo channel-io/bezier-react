@@ -44,7 +44,6 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
     className,
     as = 'div',
     display,
-    testId = 'bezier-react-box',
     ...rest
   } = layoutRest
 
@@ -66,7 +65,7 @@ export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forward
       layoutStyles.className,
       className,
     ),
-    'data-testid': testId,
+    'data-testid': 'bezier-box',
     ...rest,
   }, children)
 })

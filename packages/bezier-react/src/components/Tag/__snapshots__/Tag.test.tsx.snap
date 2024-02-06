@@ -3,7 +3,7 @@
 exports[`Tag test > Snapshot > 1`] = `
 <div
   class="Tag TagBadge size-m"
-  data-testid="bezier-react-tag"
+  data-testid="bezier-tag"
   style="--b-tag-badge-background-color: var(--bg-black-lighter);"
 />
 `;

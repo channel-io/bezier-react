@@ -43,8 +43,8 @@ import {
 
 import styles from './TextField.module.scss'
 
-export const TEXT_INPUT_TEST_ID = 'bezier-react-text-input'
-export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-react-text-input-clear-icon'
+export const TEXT_INPUT_TEST_ID = 'bezier-text-input'
+export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-text-input-clear-icon'
 
 /**
  * FIXME: This mapping constant was defined for UI consistency,
@@ -165,7 +165,6 @@ function TextFieldRightContent({
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextField({
   type,
   size: sizeProps,
-  testId = TEXT_INPUT_TEST_ID,
   autoFocus,
   autoComplete = 'off',
   variant = TextFieldVariant.Primary,
@@ -366,7 +365,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         getFormFieldSizeClassName(size),
         wrapperClassName,
       )}
-      data-testid={testId}
+      data-testid={TEXT_INPUT_TEST_ID}
       onMouseDown={focus}
     >
       <TextFieldLeftContent
@@ -409,7 +408,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
         >
           <Icon
             className={styles.CloseIcon}
-            testId={TEXT_INPUT_CLEAR_ICON_TEST_ID}
+            data-testid={TEXT_INPUT_CLEAR_ICON_TEST_ID}
             source={CancelCircleFilledIcon}
             size={IconSize.XS}
           />

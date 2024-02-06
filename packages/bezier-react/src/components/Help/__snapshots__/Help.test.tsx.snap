@@ -3,7 +3,7 @@
 exports[`Help > Snapshot > 1`] = `
 <svg
   class="Icon margin Icon"
-  data-testid="bezier-react-help"
+  data-testid="bezier-help"
   fill="none"
   height="16"
   style="--b-icon-color: var(--txt-black-dark);"

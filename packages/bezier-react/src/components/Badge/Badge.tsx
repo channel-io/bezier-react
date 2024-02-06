@@ -23,7 +23,7 @@ import { type BadgeProps } from './Badge.types'
 
 import styles from './Badge.module.scss'
 
-export const BADGE_TEST_ID = 'bezier-react-badge'
+export const BADGE_TEST_ID = 'bezier-badge'
 
 /**
  * `Badge` is a component for representing badge, which consists of text and icon.
@@ -44,7 +44,6 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   icon,
   children,
   className,
-  testId = BADGE_TEST_ID,
   ...rest
 }, forwardedRef) {
   return (
@@ -57,7 +56,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
         commonStyles[`size-${size}`],
         className,
       )}
-      data-testid={testId}
+      data-testid={BADGE_TEST_ID}
       {...rest}
     >
       { icon && (

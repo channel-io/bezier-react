@@ -32,8 +32,8 @@ import { getOverlayStyle } from './utils'
 
 import styles from './Overlay.module.scss'
 
-export const CONTAINER_TEST_ID = 'bezier-react-container'
-export const OVERLAY_TEST_ID = 'bezier-react-overlay'
+export const CONTAINER_TEST_ID = 'bezier-container'
+export const OVERLAY_TEST_ID = 'bezier-overlay'
 export const ESCAPE_KEY = 'Escape'
 
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay({
@@ -49,10 +49,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   keepInContainer = false,
   withTransition = false,
   enableClickOutside = false,
-  testId = OVERLAY_TEST_ID,
   containerStyle,
   containerClassName,
-  containerTestId = CONTAINER_TEST_ID,
   onHide,
   onTransitionEnd,
   ...rest
@@ -157,8 +155,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
     event.stopPropagation()
   }, [])
 
-  const handleHideOverlay = useCallback((event: any) => {
-    if (!event.target?.closest(styles.Overlay)) {
+  const handleHideOverlay = useCallback((event: MouseEvent) => {
+    if (!event.target || (event.target instanceof HTMLElement && !event.target.closest(`.${styles.Overlay}`))) {
       onHide?.()
 
       if (!enableClickOutside) {
@@ -255,7 +253,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
           }),
         }}
         ref={mergedRef}
-        data-testid={testId}
+        data-testid={OVERLAY_TEST_ID}
         onTransitionEnd={handleTransitionEnd}
         {...rest}
       >
@@ -276,7 +274,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
             containerClassName,
           )}
           ref={containerRef}
-          data-testid={containerTestId}
+          data-testid={CONTAINER_TEST_ID}
         >
           <div className={styles.OverlayWrapper}>
             { Content }

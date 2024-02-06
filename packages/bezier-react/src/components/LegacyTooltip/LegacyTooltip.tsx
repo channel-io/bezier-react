@@ -19,8 +19,8 @@ import { LegacyTooltipContent } from './LegacyTooltipContent'
 
 import styles from './LegacyTooltip.module.scss'
 
-export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
-export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
+export const TOOLTIP_TEST_ID = 'bezier-tooltip'
+export const TOOLTIP_CONTENT_TEST_ID = 'bezier-tooltip-content'
 
 /**
  * @deprecated Use `Tooltip` instead. It may be removed in the next major version.
@@ -28,7 +28,6 @@ export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
 export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   {
     as,
-    testId = TOOLTIP_TEST_ID,
     contentTestId = TOOLTIP_CONTENT_TEST_ID,
     className,
     contentStyle,
@@ -120,7 +119,7 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
           keepInContainer={keepInContainer}
           tooltipContainer={tooltipContainerRef.current}
           forwardedRef={forwardedRef}
-          testId={contentTestId}
+          data-testid={contentTestId}
         />
       )
     }
@@ -151,13 +150,13 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
   return (
     <div
       ref={tooltipContainerRef}
-      data-testid={testId}
       className={classNames(
         styles.LegacyTooltip,
         className,
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      data-testid={TOOLTIP_TEST_ID}
       {...otherProps}
     >
       { children }

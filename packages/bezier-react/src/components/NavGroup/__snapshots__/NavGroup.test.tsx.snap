@@ -5,7 +5,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   aria-controls="generalMenu"
   aria-haspopup="false"
   class="UnstyledButton Item active"
-  data-testid="bezier-react-nav-group"
+  data-testid="bezier-nav-group"
   role="menuitem"
   type="button"
 >
@@ -14,7 +14,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-nav-group-left-icon"
+      data-testid="bezier-nav-group-left-icon"
       fill="none"
       height="20"
       style="--b-icon-color: var(--bgtxt-blue-normal);"
@@ -32,7 +32,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   </div>
   <span
     class="Text typo-14 truncated margin"
-    data-testid="bezier-react-text"
+    data-testid="bezier-text"
   >
     test-content
   </span>
@@ -41,7 +41,7 @@ exports[`NavGroup Test > Snapshot > Active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-icon"
+      data-testid="bezier-icon"
       fill="none"
       height="16"
       style="--b-icon-color: var(--bgtxt-orange-normal);"
@@ -65,7 +65,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   aria-controls="generalMenu"
   aria-haspopup="false"
   class="UnstyledButton Item"
-  data-testid="bezier-react-nav-group"
+  data-testid="bezier-nav-group"
   role="menuitem"
   type="button"
 >
@@ -74,7 +74,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-nav-group-left-icon"
+      data-testid="bezier-nav-group-left-icon"
       fill="none"
       height="20"
       style="--b-icon-color: var(--txt-black-dark);"
@@ -92,7 +92,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   </div>
   <span
     class="Text typo-14 truncated margin"
-    data-testid="bezier-react-text"
+    data-testid="bezier-text"
   >
     test-content
   </span>
@@ -101,7 +101,7 @@ exports[`NavGroup Test > Snapshot > Not active 1`] = `
   >
     <svg
       class="Icon margin"
-      data-testid="bezier-react-icon"
+      data-testid="bezier-icon"
       fill="none"
       height="16"
       style="--b-icon-color: var(--bgtxt-orange-normal);"

@@ -18,7 +18,7 @@ import {
 import classNames from 'classnames'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
-import { ariaAttr } from '~/src/utils/dom'
+import { ariaAttr } from '~/src/utils/aria'
 import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'

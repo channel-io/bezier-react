@@ -33,9 +33,9 @@ export function useAvatarRadiusToken() {
   return useToken().global.radius['radius-42-p']
 }
 
-export const AVATAR_WRAPPER_TEST_ID = 'bezier-react-avatar-wrapper'
-export const AVATAR_TEST_ID = 'bezier-react-avatar'
-export const STATUS_WRAPPER_TEST_ID = 'bezier-react-status-wrapper'
+export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'
+export const AVATAR_TEST_ID = 'bezier-avatar'
+export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 
 /**
  * `Avatar` is a component for representing some profile image.
@@ -56,7 +56,6 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
   fallbackUrl = defaultAvatarUrl,
   size = AvatarSize.Size24,
   name,
-  testId = AVATAR_TEST_ID,
   disabled = false,
   showBorder = false,
   smoothCorners = true,
@@ -93,8 +92,8 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
 
     return Contents && (
       <div
-        data-testid={STATUS_WRAPPER_TEST_ID}
         className={styles.StatusWrapper}
+        data-testid={STATUS_WRAPPER_TEST_ID}
       >
         { Contents }
       </div>
@@ -107,19 +106,18 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
 
   return (
     <div
-      data-testid={AVATAR_WRAPPER_TEST_ID}
-      data-disabled={disabled}
       className={classNames(
         styles.Avatar,
         styles[`size-${size}`],
         disabled && styles.disabled,
         className,
       )}
+      data-disabled={disabled}
+      data-testid={AVATAR_WRAPPER_TEST_ID}
       {...rest}
     >
       <AlphaSmoothCornersBox
         ref={forwardedRef}
-        testId={testId}
         aria-label={name}
         className={classNames(
           styles.AvatarImage,
@@ -131,6 +129,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         shadow={showBorder ? shadow : undefined}
         backgroundColor="bg-white-normal"
         backgroundImage={loadedAvatarUrl}
+        data-testid={AVATAR_TEST_ID}
       >
         { StatusComponent }
       </AlphaSmoothCornersBox>

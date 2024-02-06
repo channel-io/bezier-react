@@ -13,7 +13,7 @@ import {
   type FormFieldSize,
   type SizeProps,
 } from '~/src/types/props'
-import { ariaAttr } from '~/src/utils/dom'
+import { ariaAttr } from '~/src/utils/aria'
 import { getFormFieldSizeClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
@@ -40,12 +40,11 @@ const [
 
 export { useFormControlContext }
 
-export const FORM_CONTROL_TEST_ID = 'bezier-react-form-control'
+export const FORM_CONTROL_TEST_ID = 'bezier-form-control'
 
 const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
   labelPosition,
   children,
-  testId,
   className,
   ...rest
 }, forwardedRef) {
@@ -53,11 +52,10 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
     case 'top':
       return (
         <Stack
-          {...rest}
           className={className}
           ref={forwardedRef}
           direction="vertical"
-          testId={testId}
+          {...rest}
         >
           { children }
         </Stack>
@@ -67,13 +65,12 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
     default:
       return (
         <div
-          {...rest}
           ref={forwardedRef as React.ForwardedRef<HTMLDivElement>}
           className={classNames(
             styles.Grid,
             className,
           )}
-          data-testid={testId}
+          {...rest}
         >
           { children }
         </div>
@@ -84,7 +81,6 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container({
 export const FormControl = forwardRef<HTMLElement, FormControlProps>(function FormControl({
   children,
   id: idProp,
-  testId = FORM_CONTROL_TEST_ID,
   labelPosition = 'top',
   size = 'm',
   hasError,
@@ -226,8 +222,8 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(function Fo
       <Container
         {...rest}
         ref={forwardedRef}
-        testId={testId}
         labelPosition={labelPosition}
+        data-testid={FORM_CONTROL_TEST_ID}
       >
         { children }
       </Container>
