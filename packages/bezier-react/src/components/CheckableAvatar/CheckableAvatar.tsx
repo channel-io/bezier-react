@@ -11,6 +11,7 @@ import {
   AvatarSize,
 } from '~/src/components/Avatar'
 import { Icon } from '~/src/components/Icon'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
@@ -55,6 +56,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
 
   return (
     <CheckboxPrimitive.Root
+      asChild
       className={classNames(
         styles.Checkbox,
         className,
@@ -65,37 +67,39 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
       disabled={disabled}
       {...props}
     >
-      <CheckboxPrimitive.Indicator
-        asChild
-        forceMount
-      >
-        <Icon
-          className={classNames(
-            styles.CheckIcon,
-            styles[`size-${size}`],
-          )}
-          source={CheckIcon}
-          color="bgtxt-absolute-white-normal"
-        />
-      </CheckboxPrimitive.Indicator>
+      <UnstyledButton>
+        <CheckboxPrimitive.Indicator
+          asChild
+          forceMount
+        >
+          <Icon
+            className={classNames(
+              styles.CheckIcon,
+              styles[`size-${size}`],
+            )}
+            source={CheckIcon}
+            color="bgtxt-absolute-white-normal"
+          />
+        </CheckboxPrimitive.Indicator>
 
-      <Avatar
-        className={styles.Avatar}
-        aria-hidden
-        size={size}
-        name={name}
-        disabled={disabled}
-        avatarUrl={avatarUrl}
-        fallbackUrl={fallbackUrl}
-        status={status}
-        showBorder={showBorder}
-      >
-        { children }
-      </Avatar>
+        <Avatar
+          className={styles.Avatar}
+          aria-hidden
+          size={size}
+          name={name}
+          disabled={disabled}
+          avatarUrl={avatarUrl}
+          fallbackUrl={fallbackUrl}
+          status={status}
+          showBorder={showBorder}
+        >
+          { children }
+        </Avatar>
 
-      <VisuallyHidden>
-        <label htmlFor={id}>{ name }</label>
-      </VisuallyHidden>
+        <VisuallyHidden>
+          <label htmlFor={id}>{ name }</label>
+        </VisuallyHidden>
+      </UnstyledButton>
     </CheckboxPrimitive.Root>
   )
 })

@@ -31,6 +31,7 @@ import {
   OverlayPosition,
 } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type SelectProps,
@@ -136,7 +137,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       ref={containerRef}
       data-testid={testId}
     >
-      <button
+      <UnstyledButton
         className={classNames(
           styles.SelectTrigger,
           getFormFieldSizeClassName(size),
@@ -145,7 +146,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           isDropdownOpened && styles.active,
         )}
         ref={triggerRef}
-        type="button"
         disabled={disabled}
         data-testid={triggerTestId}
         onClick={handleClickTrigger}
@@ -192,7 +192,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             marginLeft={6}
           />
         ) }
-      </button>
+      </UnstyledButton>
 
       <Overlay
         style={dropdownStyle}

@@ -34,6 +34,7 @@ import {
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import styles from './Tabs.module.scss'
 
@@ -269,17 +270,20 @@ export const TabAction = forwardRef<TabActionElement<string | undefined>, TabAct
   return (
     isNil(href) ? (
       <ToolbarPrimitive.Button
+        asChild
         className={className}
         onClick={onClick}
         ref={forwardedRef}
         {...rest}
       >
-        <Text
-          bold
-          typo={getTypoBy(size)}
-        >
-          { children }
-        </Text>
+        <UnstyledButton>
+          <Text
+            bold
+            typo={getTypoBy(size)}
+          >
+            { children }
+          </Text>
+        </UnstyledButton>
       </ToolbarPrimitive.Button>
     ) : (
       <ToolbarPrimitive.Link

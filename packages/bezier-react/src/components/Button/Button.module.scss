@@ -2,7 +2,6 @@ $chromatic-color-variants: "blue", "red", "green", "cobalt", "orange", "pink", "
 $active-selector: ":where(.active, :hover):where(:not(:disabled))";
 
 .Button {
-  cursor: pointer;
   position: relative;
   box-sizing: border-box;
   transition: background-color var(--transition-s), box-shadow var(--transition-s);

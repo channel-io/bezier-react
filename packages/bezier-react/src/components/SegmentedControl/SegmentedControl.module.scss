@@ -142,7 +142,6 @@
   }
 
   &:where(:not([data-checked])) {
-    cursor: pointer;
     color: var(--txt-black-dark);
   }
 

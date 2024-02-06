@@ -20,6 +20,7 @@ import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type SegmentedControlItemListProps,
@@ -285,10 +286,9 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   ])
 
   return (
-    <button
+    <UnstyledButton
       {...rest}
       ref={forwardedRef}
-      type="button"
       data-checked={ariaAttr(checked)}
       className={classNames(
         styles.SegmentedControlItem,
@@ -311,7 +311,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
         </Text>
         { rightContent }
       </HStack>
-    </button>
+    </UnstyledButton>
   )
 })
 

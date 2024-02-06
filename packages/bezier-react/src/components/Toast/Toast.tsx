@@ -31,6 +31,7 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import {
@@ -172,16 +173,15 @@ export function Toast({
         </Text>
       </div>
 
-      <button
+      <UnstyledButton
         className={styles.Close}
-        type="button"
         onClick={runSlideOutAnimation}
       >
         <Icon
           source={CancelIcon}
           size={IconSize.XS}
         />
-      </button>
+      </UnstyledButton>
     </div>
   )
 }

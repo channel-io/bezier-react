@@ -29,6 +29,7 @@ import {
   isIconName,
 } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type IconWithAction,
@@ -91,10 +92,7 @@ function RightContent({ children }: { children: SectionLabelRightContent }) {
         as: 'div',
         leftContent: children,
       }}
-      className={classNames(
-        styles.RightItem,
-        withAction && styles.clickable,
-      )}
+      className={styles.RightItem}
       size={ButtonSize.XS}
       styleVariant={ButtonStyleVariant.Tertiary}
       colorVariant={ButtonColorVariant.MonochromeLight}
@@ -115,7 +113,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   ...props
 }, forwardedRef) {
   const clickable = !isNil(onClick)
-  const Comp = clickable ? 'button' : 'div'
+  const Comp = clickable ? UnstyledButton : 'div'
 
   return (
     <>
@@ -125,7 +123,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
         ref={forwardedRef}
         className={classNames(
           styles.SectionLabel,
-          clickable && styles.clickable,
           className,
         )}
         data-testid={testId}

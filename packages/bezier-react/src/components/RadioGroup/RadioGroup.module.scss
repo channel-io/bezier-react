@@ -24,8 +24,6 @@ $inner-indicator-size: 8px;
     @include inner-indicator-focus-styles;
   }
 
-  cursor: pointer;
-
   position: relative;
 
   display: flex;

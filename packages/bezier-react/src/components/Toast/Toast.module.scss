@@ -132,8 +132,6 @@
 .Close {
   @include dimension.square(24px);
 
-  cursor: pointer;
-
   display: flex;
   flex-shrink: 0;
   align-items: center;

@@ -15,6 +15,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type CheckboxProps,
@@ -73,6 +74,7 @@ function CheckboxImpl<Checked extends CheckedState>({
     )}
     >
       <CheckboxPrimitive.Root
+        asChild
         className={classNames(
           styles.Checkbox,
           className,
@@ -83,13 +85,15 @@ function CheckboxImpl<Checked extends CheckedState>({
         data-invalid={formFieldProps['aria-invalid']}
         {...formFieldProps}
       >
-        <CheckboxPrimitive.Indicator
-          asChild
+        <UnstyledButton>
+          <CheckboxPrimitive.Indicator
+            asChild
           /* NOTE: To allow the icon to be rendered even if unchecked. */
-          forceMount
-        >
-          <CheckIcon />
-        </CheckboxPrimitive.Indicator>
+            forceMount
+          >
+            <CheckIcon />
+          </CheckboxPrimitive.Indicator>
+        </UnstyledButton>
       </CheckboxPrimitive.Root>
       { children && (
         <label

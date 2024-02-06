@@ -14,6 +14,7 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 // eslint-disable-next-line no-restricted-imports
 import commonStyles from '../NavItem/NavItem.module.scss'
@@ -51,9 +52,8 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
       className={commonStyles.Wrapper}
       role="none"
     >
-      <button
+      <UnstyledButton
         ref={forwardedRef}
-        type="button"
         className={classNames(
           commonStyles.Item,
           active && commonStyles.active,
@@ -95,7 +95,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
             { rightContent }
           </div>
         ) }
-      </button>
+      </UnstyledButton>
 
       { open && (
         <ul

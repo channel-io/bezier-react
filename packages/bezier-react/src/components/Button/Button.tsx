@@ -21,6 +21,7 @@ import {
   SpinnerSize,
 } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import type {
   ButtonProps,
@@ -98,7 +99,7 @@ function ButtonSideContent({
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
-  as = 'button',
+  as = UnstyledButton,
   className,
   testId = BUTTON_TEST_ID,
   type = 'button',
@@ -114,7 +115,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick,
   ...rest
 }, forwardedRef) {
-  const Comp = as as 'button'
+  const Comp = as as typeof UnstyledButton
 
   const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>((event) => {
     if (!disabled) {

@@ -4,6 +4,7 @@ import * as SwitchPrimitive from '@radix-ui/react-switch'
 import classNames from 'classnames'
 
 import { useFormFieldProps } from '~/src/components/FormControl'
+import { UnstyledButton } from '~/src/components/UnstyledButton'
 
 import {
   type SwitchProps,
@@ -52,7 +53,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
       disabled={disabled}
       {...ownProps}
     >
-      <button
+      <UnstyledButton
         ref={forwardedRef}
         data-testid={testId}
         className={classNames(
@@ -60,7 +61,6 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
           styles[`size-${size}`],
           className,
         )}
-        type="button"
       >
         <SwitchPrimitive.Thumb asChild>
           <span
@@ -68,7 +68,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
             className={styles.SwitchThumb}
           />
         </SwitchPrimitive.Thumb>
-      </button>
+      </UnstyledButton>
     </SwitchPrimitive.Root>
   )
 })
