@@ -25,12 +25,8 @@ import { Text } from '~/src/components/Text'
 
 import type {
   ButtonProps,
-  SideContent,
-} from './Button.types'
-import {
-  ButtonColorVariant,
   ButtonSize,
-  ButtonStyleVariant,
+  SideContent,
 } from './Button.types'
 
 import styles from './Button.module.scss'
@@ -39,31 +35,31 @@ export const BUTTON_TEST_ID = 'bezier-button'
 
 function getTypography(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: '13',
-    [ButtonSize.S]: '13',
-    [ButtonSize.M]: '14',
-    [ButtonSize.L]: '15',
-    [ButtonSize.XL]: '18',
+    xs: '13',
+    s: '13',
+    m: '14',
+    l: '15',
+    xl: '18',
   } as const)[size]
 }
 
 function getIconSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: IconSize.XS,
-    [ButtonSize.S]: IconSize.XS,
-    [ButtonSize.M]: IconSize.S,
-    [ButtonSize.L]: IconSize.S,
-    [ButtonSize.XL]: IconSize.Normal,
+    xs: IconSize.XS,
+    s: IconSize.XS,
+    m: IconSize.S,
+    l: IconSize.S,
+    xl: IconSize.Normal,
   } as const)[size]
 }
 
 function getSpinnerSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: SpinnerSize.XS,
-    [ButtonSize.S]: SpinnerSize.XS,
-    [ButtonSize.M]: SpinnerSize.S,
-    [ButtonSize.L]: SpinnerSize.S,
-    [ButtonSize.XL]: SpinnerSize.S,
+    xs: SpinnerSize.XS,
+    s: SpinnerSize.XS,
+    m: SpinnerSize.S,
+    l: SpinnerSize.S,
+    xl: SpinnerSize.S,
   } as const)[size]
 }
 
@@ -106,9 +102,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   disabled = false,
   loading = false,
   active = false,
-  size = ButtonSize.M,
-  styleVariant = ButtonStyleVariant.Primary,
-  colorVariant = ButtonColorVariant.Blue,
+  size = 'm',
+  styleVariant = 'primary',
+  colorVariant = 'blue',
   leftContent,
   rightContent,
   onClick,

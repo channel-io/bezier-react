@@ -6,12 +6,7 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 import { isNil } from '~/src/utils/type'
 
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import {
   Icon,
   IconSize,
@@ -141,9 +136,9 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
       { !isNil(actionIcon) && (
         <div className={styles.Center}>
           <Button
-            size={ButtonSize.XS}
+            size="xs"
             colorVariant={getActionButtonColorVariant(variant)}
-            styleVariant={ButtonStyleVariant.Tertiary}
+            styleVariant="tertiary"
             leftContent={actionIcon}
             onClick={onClickAction}
           />
