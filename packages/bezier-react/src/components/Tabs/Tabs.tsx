@@ -26,7 +26,7 @@ import {
   type TabItemsProps,
   type TabListContextValue,
   type TabListProps,
-  TabSize,
+  type TabSize,
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
@@ -81,7 +81,7 @@ const [
   TabListContextProvider,
   useTabListContext,
 ] = createContext<TabListContextValue>({
-  size: TabSize.M,
+  size: 'm',
 })
 
 /**
@@ -90,7 +90,7 @@ const [
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(function TabList({
   className,
   children,
-  size = TabSize.M,
+  size = 'm',
   ...rest
 }, forwardedRef) {
   const heightContextValue = useMemo(() => ({
@@ -137,9 +137,9 @@ export const TabItems = forwardRef<HTMLDivElement, TabItemsProps>(function TabIt
 
 function getButtonSizeBy(size: TabSize) {
   return ({
-    [TabSize.L]: 'l',
-    [TabSize.M]: 'm',
-    [TabSize.S]: 's',
+    l: 'l',
+    m: 'm',
+    s: 's',
   } as const)[size]
 }
 
@@ -229,17 +229,17 @@ export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function T
 
 function getTypoBy(size: TabSize) {
   return ({
-    [TabSize.L]: '14',
-    [TabSize.M]: '14',
-    [TabSize.S]: '13',
+    l: '14',
+    m: '14',
+    s: '13',
   } as const)[size]
 }
 
 function getIconSizeBy(size: TabSize) {
   return ({
-    [TabSize.L]: IconSize.S,
-    [TabSize.M]: IconSize.XS,
-    [TabSize.S]: IconSize.XS,
+    l: IconSize.S,
+    m: IconSize.XS,
+    s: IconSize.XS,
   } as const)[size]
 }
 
