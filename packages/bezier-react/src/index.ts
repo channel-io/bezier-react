@@ -61,9 +61,6 @@ export * from '~/src/components/Tooltip'
 export * from '~/src/components/VisuallyHidden'
 export * from '~/src/components/WindowProvider'
 
-/* -------------------------------- FEATURES -------------------------------- */
-export * from '~/src/features'
-
 /* ---------------------------------- HOOKS --------------------------------- */
 export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 

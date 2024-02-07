@@ -1,6 +1,7 @@
-import { type Feature } from '~/src/features'
 import { type ChildrenProps } from '~/src/types/props'
 import { type ThemeName } from '~/src/types/tokens'
+
+import { type Feature } from '~/src/components/FeatureProvider'
 
 interface AppProviderOwnProps {
   /**

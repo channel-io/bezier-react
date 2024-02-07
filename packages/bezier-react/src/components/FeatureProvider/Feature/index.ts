@@ -1,5 +1,5 @@
 export {
   type Feature,
   FeatureType,
-} from './Feature'
+} from './Feature.types'
 export { SmoothCornersFeature } from './SmoothCornersFeature'
