@@ -8,12 +8,15 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
-import { px } from '~/src/utils/style'
+import {
+  cssDimension,
+  px,
+} from '~/src/utils/style'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
-  AvatarSize,
+  type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
 import {
@@ -41,28 +44,28 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: IconSize.XXS,
-    [AvatarSize.Size24]: IconSize.XS,
-    [AvatarSize.Size30]: IconSize.S,
-    [AvatarSize.Size36]: IconSize.Normal,
-    [AvatarSize.Size42]: IconSize.Normal,
-    [AvatarSize.Size48]: IconSize.L,
-    [AvatarSize.Size90]: IconSize.L,
-    [AvatarSize.Size120]: IconSize.L,
+    20: IconSize.XXS,
+    24: IconSize.XS,
+    30: IconSize.S,
+    36: IconSize.Normal,
+    42: IconSize.Normal,
+    48: IconSize.L,
+    90: IconSize.L,
+    120: IconSize.L,
   }[avatarSize]
 }
 
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: '12',
-    [AvatarSize.Size24]: '13',
-    [AvatarSize.Size30]: '15',
-    [AvatarSize.Size36]: '16',
-    [AvatarSize.Size42]: '18',
-    [AvatarSize.Size48]: '24',
-    [AvatarSize.Size90]: '24',
-    [AvatarSize.Size120]: '24',
+    20: '12',
+    24: '13',
+    30: '15',
+    36: '16',
+    42: '18',
+    48: '24',
+    90: '24',
+    120: '24',
   }[avatarSize]
 }
 
@@ -84,7 +87,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup({
   max,
-  size = AvatarSize.Size24,
+  size = '24',
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis,
@@ -209,7 +212,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       )}
       style={{
         '--b-avatar-group-spacing': px(spacing),
-        '--b-avatar-group-size': px(size),
+        '--b-avatar-group-size': cssDimension(size),
         ...style,
       } as React.CSSProperties}
       {...rest}
