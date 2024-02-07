@@ -1,12 +1,12 @@
 export {
-  type Feature,
-  FeatureType,
-} from './Feature'
-export {
   FeatureProvider,
   useFeatureFlag,
 } from './FeatureProvider'
-export type {
-  FeatureFlag,
-  FeatureProviderProps,
+export {
+  type Feature,
+  type FeatureFlag,
+  type FeatureProviderProps,
+  FeatureType,
 } from './FeatureProvider.types'
+
+export { SmoothCornersFeature } from './SmoothCornersFeature'

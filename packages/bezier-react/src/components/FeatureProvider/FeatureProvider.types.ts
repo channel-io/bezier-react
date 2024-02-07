@@ -1,9 +1,13 @@
 import { type ChildrenProps } from '~/src/types/props'
 
-import {
-  type Feature,
-  type FeatureType,
-} from '~/src/components/FeatureProvider'
+export enum FeatureType {
+  SmoothCorners = 'smooth-corners',
+}
+
+export interface Feature {
+  readonly name: FeatureType
+  activate: () => Promise<boolean>
+}
 
 export type FeatureFlag = Record<FeatureType, boolean>
 

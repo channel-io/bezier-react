@@ -2,7 +2,7 @@
 import {
   type Feature,
   FeatureType,
-} from '../Feature.types'
+} from '../FeatureProvider.types'
 
 import { smoothCornersScript } from './smoothCornersScript'
 
