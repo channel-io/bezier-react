@@ -1,5 +1,104 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.10
+
+### Major Changes
+
+- **Breaking Changes: Remove `TooltipProvider` and Property updates in `Tooltip` component** ([#1974](https://github.com/channel-io/bezier-react/pull/1974)) by @sungik-choi
+
+  - No longer support `TooltipProvider` and `TooltipProviderProps`. `Tooltip` component was implemented via radix-ui's Tooltip, which required the use of a `TooltipProvider`, which caused all subcomponents to be re-rendered and caused a performance hit. We decided that the ability to share hover delay time between `Tooltip` components via `TooltipProvider` was not a feature we needed, even with the performance penalty. Also, by providing `TooltipProvider` built-in to `AppProvider`, we were unnecessarily importing modules from our library usage that didn't require `Tooltip`.
+  - `Tooltip` component now contains a `TooltipProvider` inside it.
+
+  **Minor Changes:**
+
+  - Change the default value of `delayShow` prop from `300` to `0`.
+
+- **Breaking changes: Remove `testId` and related properties** ([#1971](https://github.com/channel-io/bezier-react/pull/1971)) by @sungik-choi
+
+  No longer supports `testId` and related properties(e.g. `wrapperTestId`). `testId` is a property used internally by the library for testing with testing-library (`getByTestId`). We don't see a need to expose this as a public API, so we remove it.
+
+  If you were using it, please replace it with the `data-testid` property. See <https://testing-library.com/docs/queries/bytestid/>.
+
+- **Breaking Changes: Deprecated modules for internal use** ([#1963](https://github.com/channel-io/bezier-react/pull/1963)) by @sungik-choi
+
+  - No longer provides `useEventHandler` and `useMergeRefs` hook.
+  - No longer provides `useId` hook. Use `useId` hook of `react` instead.
+  - No longer provides `getRootElement` hook. Use `useWindow` hook instead.
+  - No longer provides `StyleUtils` and `StringUtils` utils.
+
+- **Breaking Changes: Deprecate support for `styled-components` related modules** ([#1962](https://github.com/channel-io/bezier-react/pull/1962)) by @sungik-choi
+
+  - No longer support legacy foundation modules. Use the `useToken` hook and components to replace it
+    - `LightFoundation` and `DarkFoundation`
+    - `Spacing`
+    - `ev1`, `ev2`, `ev3`, `ev4`, `ev5` and `ev6`
+    - `createThemes`, `Theme`, `SemanticNames`, `LightTheme` and `DarkTheme`
+    - `TransitionDuration` and `Transition`
+    - `Border`
+    - `Typography`, `TypoAbsoluteNumber`, `LineHeightAbsoluteNumber` and `TypographyType`
+    - `absoluteCenter`, `disableAutoMinimum`, `hideScrollbars` and `ellipsis`
+    - `ThemeVarsAdditionalType` and `ThemeVars`
+    - `GlobalStyle`
+    - `Foundation`
+    - `GlobalStyleProp`
+    - `createGlobalStyle`, `styled`, `css`, `FoundationProvider`, `useFoundation`, `keyframes`, `StyleSheetManager` and `ServerStyleSheet`
+  - No longer support `BezierProvider`. Use the `AppProvider` instead
+  - No longer support `gap` and `touchableHover` mixins. Please implement and use your own
+
+  ```tsx
+  function gap(spacing: number): InjectedInterpolation {
+    return css`
+      gap: ${spacing}px;
+
+      @supports not (gap: ${spacing}px) {
+        margin-top: ${-spacing}px;
+        margin-left: ${-spacing}px;
+
+        > * {
+          margin-top: ${spacing}px;
+          margin-left: ${spacing}px;
+        }
+      }
+    `;
+  }
+
+  function touchableHover(
+    interpolation: InjectedInterpolation
+  ): InjectedInterpolation {
+    return css`
+      @media (hover: hover) {
+        &:hover {
+          ${interpolation}
+        }
+      }
+
+      @media (hover: none) {
+        &:active {
+          ${interpolation}
+        }
+      }
+    `;
+  }
+  ```
+
+  - No longer support `inputTextStyle`, `inputPlaceholderStyle`, `inputWrapperStyle`, `focusedInputWrapperStyle` and `erroredInputWrapperStyle`. Please migrate using `@channel.io/bezier-codemod`'s `v2-interpolation-to-css-variable` transformer.
+
+### Minor Changes
+
+- `Banner` will now render content even if the `content` prop is not a string. The same applies to link-related props. ([#1972](https://github.com/channel-io/bezier-react/pull/1972)) by @sungik-choi
+
+- Add `useRootElement` hook. It is only available to `WindowProvider` children, and provides easy access to the root element of window context value. ([#1981](https://github.com/channel-io/bezier-react/pull/1981)) by @sungik-choi
+
+  ```tsx
+  const { window, document, rootElement } = useWindow();
+  // Same as useWindow().rootElement
+  const rootElement = useRootElement();
+  ```
+
+### Patch Changes
+
+- Fixes a bug where onHide is called when clicking inside the overlay, causing the overlay to close. ([#1977](https://github.com/channel-io/bezier-react/pull/1977)) by @yangwooseong
+
 ## 2.0.0-alpha.9
 
 ### Major Changes
