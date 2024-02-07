@@ -111,8 +111,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   onClick,
   ...props
 }, forwardedRef) {
-  const clickable = !isNil(onClick)
-  const Comp = clickable ? BaseButton : 'div'
+  const Comp = !isNil(onClick) ? BaseButton : 'div'
 
   return (
     <>

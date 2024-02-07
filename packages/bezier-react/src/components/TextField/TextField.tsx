@@ -116,8 +116,7 @@ function TextFieldRightContent({
 }) {
   const renderRightItem = useCallback((item: TextFieldItemProps, key?: string) => {
     if ('icon' in item) {
-      const clickable = !isNil(item.onClick)
-      const Comp = clickable ? BaseButton : 'div'
+      const Comp = !isNil(item.onClick) ? BaseButton : 'div'
 
       return (
         <Comp
