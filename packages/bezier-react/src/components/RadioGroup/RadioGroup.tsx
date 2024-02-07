@@ -4,7 +4,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
-import { getFormFieldSizeClassName } from '~/src/utils/props'
+import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'

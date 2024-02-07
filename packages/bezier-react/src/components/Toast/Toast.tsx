@@ -18,9 +18,9 @@ import {
 import classNames from 'classnames'
 
 import useIsMounted from '~/src/hooks/useIsMounted'
+import { getZIndexClassName } from '~/src/types/props-helpers'
 import { ariaAttr } from '~/src/utils/aria'
 import { noop } from '~/src/utils/function'
-import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'

@@ -18,7 +18,7 @@ import classNames from 'classnames'
 import {
   getFormFieldSizeClassName,
   getZIndexClassName,
-} from '~/src/utils/props'
+} from '~/src/types/props-helpers'
 import { isEmpty } from '~/src/utils/type'
 
 import { useFormFieldProps } from '~/src/components/FormControl'

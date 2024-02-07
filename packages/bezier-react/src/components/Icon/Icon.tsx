@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import {
   getMarginStyles,
   splitByMarginProps,
-} from '~/src/utils/props'
+} from '~/src/types/props-helpers'
 import { tokenCssVar } from '~/src/utils/style'
 
 import {

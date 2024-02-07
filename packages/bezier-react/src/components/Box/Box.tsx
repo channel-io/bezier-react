@@ -10,7 +10,7 @@ import {
   getMarginStyles,
   splitByLayoutProps,
   splitByMarginProps,
-} from '~/src/utils/props'
+} from '~/src/types/props-helpers'
 
 import { type BoxProps } from './Box.types'
 
