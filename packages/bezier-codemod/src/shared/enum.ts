@@ -20,7 +20,7 @@ export const transformEnumToStringLiteralInBezier = (sourceFile: SourceFile, enu
   Object
     .keys(enumTransforms)
     .forEach((enumName) => {
-      if (hasNamedImportInImportDeclaration(sourceFile, enumName, '@channel.io/bezier-react')) {
+      // if (hasNamedImportInImportDeclaration(sourceFile, enumName, '@channel.io/bezier-react')) {
         sourceFile
           .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression)
           .filter((node) => node.getFirstChildByKind(SyntaxKind.Identifier)?.getText() === enumName)
@@ -31,11 +31,12 @@ export const transformEnumToStringLiteralInBezier = (sourceFile: SourceFile, enu
               transformedEnumNames.push(enumName)
             }
           })
-      }
+      // }
     })
 
   if (transformedEnumNames.length > 0) {
-    removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
+    // removeUnusedNamedImport(sourceFile, ['@channel.io/bezier-react'])
+    removeUnusedNamedImport(sourceFile)
     return true
   }
 
