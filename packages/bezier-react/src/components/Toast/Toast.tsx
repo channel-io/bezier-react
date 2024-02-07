@@ -32,7 +32,10 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
-import { useWindow } from '~/src/components/WindowProvider'
+import {
+  useRootElement,
+  useWindow,
+} from '~/src/components/WindowProvider'
 
 import {
   type ToastContextValue,
@@ -214,7 +217,7 @@ export function ToastProvider({
   },
   children = [],
 }: ToastProviderProps) {
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
   const isMounted = useIsMounted()
 
   const toastContextValue = useToastProviderValues()

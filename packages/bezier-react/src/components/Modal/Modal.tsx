@@ -10,7 +10,6 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { noop } from '~/src/utils/function'
 import { getZIndexClassName } from '~/src/utils/props'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
@@ -31,7 +30,7 @@ import {
   useThemeName,
 } from '~/src/components/ThemeProvider'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
-import { useWindow } from '~/src/components/WindowProvider'
+import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
   type ModalBodyProps,
@@ -85,12 +84,12 @@ export function Modal({
   children,
   show,
   defaultShow,
-  onShow = noop,
-  onHide = noop,
+  onShow,
+  onHide,
 }: ModalProps) {
   const onOpenChange = useCallback<NonNullable<DialogPrimitive.DialogProps['onOpenChange']>>((open) => {
     const callback = open ? onShow : onHide
-    callback()
+    callback?.()
   }, [
     onShow,
     onHide,
@@ -125,7 +124,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }, forwardedRef) {
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
   const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
 
