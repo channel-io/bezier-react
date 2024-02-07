@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
-
 import {
   Icon,
   IconSize,
@@ -38,11 +36,11 @@ export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavI
   rightContent,
   leftContent,
   active,
-  onClick = noop,
+  onClick,
   ...rest
 }, forwardedRef) {
   const handleClickItem = (e?: React.MouseEvent) => {
-    onClick(e, name)
+    onClick?.(e, name)
   }
 
   return (

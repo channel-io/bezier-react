@@ -27,13 +27,11 @@ interface ModalOwnProps {
 
   /**
    * Callback function to be called when the modal is opened.
-   * @default noop
    */
   onShow?: () => void
 
   /**
    * Callback function to be called when the modal is closed.
-   * @default noop
    */
   onHide?: () => void
 }
