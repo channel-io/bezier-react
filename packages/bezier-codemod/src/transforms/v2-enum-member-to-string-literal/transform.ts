@@ -6,7 +6,7 @@ import {
 } from '../../shared/enum.js'
 
 const ENUM_TRANSFORM_MAP: EnumTransformMap = {
-  ProgressBarSize: {
+  AvatarSize: {
     M: 'm',
     S: 's',
   },
