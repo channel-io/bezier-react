@@ -25,6 +25,7 @@ import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
@@ -175,16 +176,15 @@ export function Toast({
         </Text>
       </div>
 
-      <button
+      <BaseButton
         className={styles.Close}
-        type="button"
         onClick={runSlideOutAnimation}
       >
         <Icon
           source={CancelIcon}
           size={IconSize.XS}
         />
-      </button>
+      </BaseButton>
     </div>
   )
 }

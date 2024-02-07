@@ -8,6 +8,7 @@ import classNames from 'classnames'
 
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
@@ -49,9 +50,8 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
       className={commonStyles.Wrapper}
       role="none"
     >
-      <button
+      <BaseButton
         ref={forwardedRef}
-        type="button"
         className={classNames(
           commonStyles.Item,
           active && commonStyles.active,
@@ -93,7 +93,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
             { rightContent }
           </div>
         ) }
-      </button>
+      </BaseButton>
 
       { open && (
         <ul

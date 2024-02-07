@@ -84,16 +84,13 @@ $tab-item-indicator-height: 3px;
 }
 
 .TabAction {
-  all: unset;
-
-  cursor: pointer;
-
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  box-sizing: border-box;
   width: 100%;
   margin: 4px 0 5px;
 
@@ -117,6 +114,10 @@ $tab-item-indicator-height: 3px;
   &:where(.size-s) {
     padding: 0 7px;
     border-radius: var(--radius-6);
+  }
+
+  &:where(:focus-visible) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
   }
 
   &:hover {

@@ -8,6 +8,7 @@ import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Icon,
   IconSize,
@@ -98,7 +99,7 @@ function ButtonSideContent({
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
-  as = 'button',
+  as = BaseButton,
   className,
   type = 'button',
   text,
@@ -113,7 +114,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick,
   ...rest
 }, forwardedRef) {
-  const Comp = as as 'button'
+  const Comp = as as typeof BaseButton
 
   const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>((event) => {
     if (!disabled) {
@@ -139,8 +140,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       )}
       disabled={disabled}
       onClick={handleClick}
-      data-component="BezierButton"
       data-testid={BUTTON_TEST_ID}
+      data-bezier-component="Button"
       {...rest}
     >
       <div

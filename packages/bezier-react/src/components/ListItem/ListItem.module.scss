@@ -3,12 +3,12 @@
 }
 
 .ListItem {
-  all: unset;
-
   cursor: pointer;
 
   display: flex;
   align-items: center;
+
+  box-sizing: border-box;
 
   text-decoration: none;
 

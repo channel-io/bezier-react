@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react'
 import * as SwitchPrimitive from '@radix-ui/react-switch'
 import classNames from 'classnames'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 
 import {
@@ -47,22 +48,21 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
       onCheckedChange={onCheckedChange}
       required={required}
       disabled={disabled}
+      data-testid={SWITCH_TEST_ID}
       {...ownProps}
     >
-      <button
+      <BaseButton
         ref={forwardedRef}
         className={classNames(
           styles.Switch,
           styles[`size-${size}`],
           className,
         )}
-        type="button"
-        data-testid={SWITCH_TEST_ID}
       >
         <SwitchPrimitive.Thumb asChild>
           <span className={styles.SwitchThumb} />
         </SwitchPrimitive.Thumb>
-      </button>
+      </BaseButton>
     </SwitchPrimitive.Root>
   )
 })

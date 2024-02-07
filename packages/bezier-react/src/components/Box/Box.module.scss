@@ -1,6 +1,4 @@
 .Box {
-  box-sizing: border-box;
-
   &:where(.display-block) {
     display: block;
   }

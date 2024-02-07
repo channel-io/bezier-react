@@ -11,6 +11,7 @@ import classNames from 'classnames'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Button,
   ButtonColorVariant,
@@ -269,17 +270,20 @@ export const TabAction = forwardRef<TabActionElement<string | undefined>, TabAct
   return (
     isNil(href) ? (
       <ToolbarPrimitive.Button
+        asChild
         className={className}
         onClick={onClick}
         ref={forwardedRef}
         {...rest}
       >
-        <Text
-          bold
-          typo={getTypoBy(size)}
-        >
-          { children }
-        </Text>
+        <BaseButton>
+          <Text
+            bold
+            typo={getTypoBy(size)}
+          >
+            { children }
+          </Text>
+        </BaseButton>
       </ToolbarPrimitive.Button>
     ) : (
       <ToolbarPrimitive.Link

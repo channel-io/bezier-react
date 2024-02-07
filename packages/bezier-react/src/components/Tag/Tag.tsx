@@ -87,6 +87,8 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
 
       { !isNil(onDelete) && (
         <Icon
+          role="button"
+          tabIndex={0}
           className={styles.CloseIcon}
           source={CancelSmallIcon}
           size={IconSize.XS}

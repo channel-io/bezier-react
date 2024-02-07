@@ -15,6 +15,7 @@ import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { Divider } from '~/src/components/Divider'
 import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import { useFormFieldProps } from '~/src/components/FormControl'
@@ -285,10 +286,9 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
   ])
 
   return (
-    <button
+    <BaseButton
       {...rest}
       ref={forwardedRef}
-      type="button"
       data-checked={ariaAttr(checked)}
       className={classNames(
         styles.SegmentedControlItem,
@@ -311,7 +311,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(func
         </Text>
         { rightContent }
       </HStack>
-    </button>
+    </BaseButton>
   )
 })
 

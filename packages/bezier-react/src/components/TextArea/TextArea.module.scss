@@ -1,8 +1,11 @@
 @use "../../styles/mixins/typography";
 
 .TextArea {
-  @include typography.size(14);
+  font: unset;
 
+  /* stylelint-disable-next-line order/order */
+  @include typography.size(14);
+  /* stylelint-disable-next-line order/properties-order */
   resize: none;
 
   display: flex;
@@ -23,10 +26,6 @@
   box-shadow: var(--input-box-shadow);
 
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
-
-  &::placeholder {
-    color: var(--txt-black-dark);
-  }
 
   &::-webkit-scrollbar {
     display: none;

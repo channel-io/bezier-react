@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
 
+  box-sizing: border-box;
   height: 28px;
   padding: 0 6px 0 calc(var(--b-outline-item-indent) + 6px);
 

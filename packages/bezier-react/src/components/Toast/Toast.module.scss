@@ -86,10 +86,6 @@
       animation: var(--transition-m) slide-out-right forwards;
     }
   }
-
-  & button:where(:focus-visible) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
-  }
 }
 
 .IconWrapper {
@@ -134,12 +130,7 @@
 }
 
 .Close {
-  all: unset;
-
-  /* stylelint-disable-next-line order/order */
   @include dimension.square(24px);
-
-  cursor: pointer;
 
   display: flex;
   flex-shrink: 0;

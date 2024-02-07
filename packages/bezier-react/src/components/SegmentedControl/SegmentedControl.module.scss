@@ -112,6 +112,8 @@
 
   min-width: 0;
 
+  outline: none;
+
   transition: background-color var(--transition-s);
 
   /* NOTE: Focus indicator */
@@ -129,6 +131,7 @@
     height: 100%;
 
     border-radius: inherit;
+    outline: none;
 
     transition: box-shadow var(--transition-m);
   }
@@ -139,7 +142,6 @@
   }
 
   &:where(:not([data-checked])) {
-    cursor: pointer;
     color: var(--txt-black-dark);
   }
 

@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
@@ -71,6 +72,7 @@ function RadioImpl<Value extends string>({
 
   return (
     <RadioGroupPrimitive.Item
+      asChild
       className={classNames(
         styles.RadioGroupItem,
         getFormFieldSizeClassName('m'),
@@ -80,19 +82,21 @@ function RadioImpl<Value extends string>({
       id={id}
       {...rest}
     >
-      { children && (
-        <Text
-          className={styles.Label}
-          as="label"
-          /* FIXME(@ed): Delete after applying polymorphic props */
-          /* @ts-ignore */
-          htmlFor={id}
-          typo="14"
-          color="txt-black-darkest"
-        >
-          { children }
-        </Text>
-      ) }
+      <BaseButton>
+        { children && (
+          <Text
+            className={styles.Label}
+            as="label"
+            /* FIXME(@ed): Delete after applying polymorphic props */
+            /* @ts-ignore */
+            htmlFor={id}
+            typo="14"
+            color="txt-black-darkest"
+          >
+            { children }
+          </Text>
+        ) }
+      </BaseButton>
     </RadioGroupPrimitive.Item>
   )
 }

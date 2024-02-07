@@ -13,6 +13,7 @@ import {
   isString,
 } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import {
   Button,
   ButtonColorVariant,
@@ -91,10 +92,7 @@ function RightContent({ children }: { children: SectionLabelRightContent }) {
         as: 'div',
         leftContent: children,
       }}
-      className={classNames(
-        styles.RightItem,
-        withAction && styles.clickable,
-      )}
+      className={styles.RightItem}
       size={ButtonSize.XS}
       styleVariant={ButtonStyleVariant.Tertiary}
       colorVariant={ButtonColorVariant.MonochromeLight}
@@ -113,8 +111,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
   onClick,
   ...props
 }, forwardedRef) {
-  const clickable = !isNil(onClick)
-  const Comp = clickable ? 'button' : 'div'
+  const Comp = !isNil(onClick) ? BaseButton : 'div'
 
   return (
     <>
@@ -123,7 +120,6 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(function 
         ref={forwardedRef}
         className={classNames(
           styles.SectionLabel,
-          clickable && styles.clickable,
           className,
         )}
         data-testid="bezier-section-label"

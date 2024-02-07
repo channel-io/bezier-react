@@ -21,6 +21,7 @@ import {
 } from '~/src/types/props-helpers'
 import { isEmpty } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import {
   Icon,
@@ -131,7 +132,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
       )}
       ref={containerRef}
     >
-      <button
+      <BaseButton
         className={classNames(
           styles.SelectTrigger,
           getFormFieldSizeClassName(size),
@@ -140,7 +141,6 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           isDropdownOpened && styles.active,
         )}
         ref={triggerRef}
-        type="button"
         disabled={disabled}
         onClick={handleClickTrigger}
         {...ownProps}
@@ -186,7 +186,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             marginLeft={6}
           />
         ) }
-      </button>
+      </BaseButton>
 
       <Overlay
         style={dropdownStyle}

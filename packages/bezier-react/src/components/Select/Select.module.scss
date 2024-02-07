@@ -3,9 +3,6 @@
 }
 
 .SelectTrigger {
-  all: unset;
-
-  cursor: pointer;
   user-select: none;
 
   display: flex;
@@ -42,6 +39,7 @@
 
   &:where(:not(:disabled):where(.active, :focus)) {
     background-color: var(--bg-grey-lighter);
+    outline: none;
     box-shadow: var(--input-box-shadow-focused);
   }
 

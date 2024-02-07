@@ -15,8 +15,12 @@
 
   display: inline-block;
 
-  border-color: transparent var(--b-spinner-color) var(--b-spinner-color) var(--b-spinner-color);
   border-style: solid;
+  border-top-color: transparent;
+  border-right-color: var(--b-spinner-color);
+  border-bottom-color: var(--b-spinner-color);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  border-left-color: var(--b-spinner-color);
   border-radius: 50%;
 
   animation: spin 1s linear infinite;

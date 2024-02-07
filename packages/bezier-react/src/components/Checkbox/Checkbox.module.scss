@@ -11,7 +11,7 @@
 }
 
 .Checkbox {
-  all: unset;
+  cursor: inherit;
 
   /* stylelint-disable-next-line order/order */
   @include dimension.square(18px);
@@ -54,6 +54,7 @@
   }
 
   &:where(:focus-visible) {
+    outline: none;
     box-shadow: var(--input-box-shadow-focused);
 
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
