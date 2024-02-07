@@ -9,23 +9,12 @@ import {
 import { Center } from '~/src/components/Center'
 
 import { Status } from './Status'
-import {
-  type StatusProps,
-  StatusSize,
-  StatusType,
-} from './Status.types'
+import { type StatusProps } from './Status.types'
 
 const meta:Meta<typeof Status> = {
   component: Status,
-  argTypes: {
-    type: {
-      control: {
-        type: 'radio',
-      },
-      options: StatusType,
-    },
-  },
 }
+
 export default meta
 
 const Template: StoryFn<StatusProps> = (args) => (
@@ -42,7 +31,7 @@ export const Primary: StoryObj<StatusProps> = {
   render: Template,
 
   args: {
-    type: StatusType.Online,
-    size: StatusSize.M,
+    type: 'Online',
+    size: 'm',
   },
 }

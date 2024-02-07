@@ -39,7 +39,6 @@ import {
   OverlayPosition,
 } from '~/src/components/Overlay'
 import { SectionLabel } from '~/src/components/SectionLabel'
-import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
 
 import { Button } from './Button'
@@ -349,7 +348,7 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
             <Avatar
               name="channel"
               avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
-              status={StatusType.Online}
+              status="Online"
             />
           )}
           text="New messages"

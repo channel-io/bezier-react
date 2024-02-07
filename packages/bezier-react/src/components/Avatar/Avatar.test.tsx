@@ -2,8 +2,6 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import { StatusType } from '~/src/components/Status'
-
 import {
   AVATAR_TEST_ID,
   AVATAR_WRAPPER_TEST_ID,
@@ -58,42 +56,42 @@ describe('Avatar >', () => {
   })
 
   it('should have right -2px, bottom -2px style on StatusWrapper', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online })
+    const { getByTestId } = renderAvatar({ status: 'Online' })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
   })
 
   it('should have right 2px, bottom 2px style on StatusWrapper when show border', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online, showBorder: true })
+    const { getByTestId } = renderAvatar({ status: 'Online', showBorder: true })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
   })
 
   it('should have right 4px, bottom 4px style on StatusWrapper when size grater then 72', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: '72' })
+    const { getByTestId } = renderAvatar({ status: 'Online', size: '72' })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
   })
 
   it('should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: '72', showBorder: true })
+    const { getByTestId } = renderAvatar({ status: 'Online', size: '72', showBorder: true })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
   })
 
   it('should have right 4px, bottom 4px style on StatusWrapper when size grater then 90', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: '90' })
+    const { getByTestId } = renderAvatar({ status: 'Online', size: '90' })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
   })
 
   it('should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border', () => {
-    const { getByTestId } = renderAvatar({ status: StatusType.Online, size: '90', showBorder: true })
+    const { getByTestId } = renderAvatar({ status: 'Online', size: '90', showBorder: true })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
