@@ -7,11 +7,10 @@ import React, {
 import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
 
-import { FeatureType } from '~/src/components/FeatureProvider'
-
 import {
   type FeatureFlag,
   type FeatureProviderProps,
+  FeatureType,
 } from './FeatureProvider.types'
 
 const initialFeatureFlag: FeatureFlag = {
