@@ -30,7 +30,7 @@ import {
   useThemeName,
 } from '~/src/components/ThemeProvider'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
-import { useWindow } from '~/src/components/WindowProvider'
+import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
   type ModalBodyProps,
@@ -124,7 +124,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
   collisionPadding = { top: 40, bottom: 40 },
   ...rest
 }, forwardedRef) {
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
   const container = givenContainer ?? rootElement
   const [contentContainer, setContentContainer] = useState<HTMLElement>()
 

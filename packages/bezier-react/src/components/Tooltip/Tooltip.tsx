@@ -18,7 +18,7 @@ import {
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
-import { useWindow } from '~/src/components/WindowProvider'
+import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
   TooltipPosition,
@@ -135,7 +135,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   const [show, setShow] = useState<boolean>(defaultShow ?? false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
   const container = containerProp ?? rootElement
 
   const shouldBeHidden = useMemo(() => (
