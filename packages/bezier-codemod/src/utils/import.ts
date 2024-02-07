@@ -41,18 +41,18 @@ export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclaratio
     .filter((v) => (sourceFile.getDescendantsOfKind(SyntaxKind.Identifier).filter((_v) => _v.getText() === v.getText()).length === 1))
     .forEach((v) => v.remove())
 
-  if (importDeclarations) {
+  // if (importDeclarations) {
     sourceFile
       .getImportDeclarations()
-      .filter((v) => importDeclarations.includes(
-        trimQuoteAtBothEnds(v.getModuleSpecifier().getText()) ?? ''),
-      )
+      // .filter((v) => importDeclarations.includes(
+      //   trimQuoteAtBothEnds(v.getModuleSpecifier().getText()) ?? ''),
+      // )
       .forEach((v) => {
         if (!v.getImportClause()) {
           v.remove()
         }
       })
-  }
+  // }
 }
 
 export const renameNamedImport = (sourceFile: SourceFile, targets: string[], renameFn: (name: string) => string) => {
