@@ -16,7 +16,7 @@ import {
   useKeyboardActionLockerWhileComposing,
 } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import { type FormFieldSize } from '~/src/types/props'
-import { getFormFieldSizeClassName } from '~/src/utils/props'
+import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 import { toString } from '~/src/utils/string'
 import {
   isArray,

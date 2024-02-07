@@ -10,7 +10,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { getZIndexClassName } from '~/src/utils/props'
+import { getZIndexClassName } from '~/src/types/props-helpers'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import {

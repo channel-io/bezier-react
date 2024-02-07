@@ -8,7 +8,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
-import { getFormFieldSizeClassName } from '~/src/utils/props'
+import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
 import { useFormFieldProps } from '~/src/components/FormControl'
 import {

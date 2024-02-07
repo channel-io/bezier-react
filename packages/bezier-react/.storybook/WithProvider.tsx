@@ -2,9 +2,8 @@ import React from 'react'
 
 import type { Preview } from '@storybook/react'
 
-import { SmoothCornersFeature } from '~/src/features'
-
 import { AppProvider } from '~/src/components/AppProvider'
+import { SmoothCornersFeature } from '~/src/components/FeatureProvider'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 

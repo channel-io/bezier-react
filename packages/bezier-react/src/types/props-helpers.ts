@@ -10,6 +10,10 @@ import {
   type Radius,
   type ZIndex,
 } from '~/src/types/tokens'
+import {
+  cssDimension,
+  tokenCssVar,
+} from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
@@ -20,11 +24,6 @@ import marginStyles from '../styles/components/margin.module.scss'
 import radiusStyles from '../styles/components/radius.module.scss'
 import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
-
-import {
-  cssDimension,
-  tokenCssVar,
-} from './style'
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,

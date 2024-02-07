@@ -1,8 +1,9 @@
+import { type ChildrenProps } from '~/src/types/props'
+
 import {
   type Feature,
   type FeatureType,
-} from '~/src/features'
-import { type ChildrenProps } from '~/src/types/props'
+} from '~/src/components/FeatureProvider'
 
 export type FeatureFlag = Record<FeatureType, boolean>
 
