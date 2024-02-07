@@ -1,4 +1,5 @@
 export {
+  useRootElement,
   useWindow,
   WindowProvider,
 } from './WindowProvider'

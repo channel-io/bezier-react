@@ -20,7 +20,7 @@ import {
 
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
-import { useWindow } from '~/src/components/WindowProvider'
+import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
   type LegacyTooltipContentProps,
@@ -90,7 +90,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   forwardedRef,
   ...rest
 }) => {
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
 
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)

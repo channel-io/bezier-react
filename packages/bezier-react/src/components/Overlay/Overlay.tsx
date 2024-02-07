@@ -55,8 +55,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   onTransitionEnd,
   ...rest
 }, forwardedRef) {
-  const { rootElement } = useWindow()
-  const { window, document } = useWindow()
+  const { window, document, rootElement } = useWindow()
 
   const [shouldRender, setShouldRender] = useState(false)
   const [shouldShow, setShouldShow] = useState(false)
@@ -70,11 +69,9 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   const overlayRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
-  const defaultContainer = rootElement
   const modalContainer = useModalContainerContext()
-
   const hasContainer = Boolean(givenContainer || modalContainer)
-  const container = givenContainer ?? modalContainer ?? defaultContainer
+  const container = givenContainer ?? modalContainer ?? rootElement
 
   const handleOverlayForceUpdate = useCallback(() => {
     forceUpdate()

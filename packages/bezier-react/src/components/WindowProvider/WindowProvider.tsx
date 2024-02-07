@@ -9,29 +9,37 @@ import {
 
 const [WindowContextProvider, useWindowContext] = createContext<WindowContextValue | null>(null, 'WindowProvider')
 
+/**
+ * Custom hook to access the window context.
+ */
 export function useWindow() {
   return useWindowContext('useWindow')
 }
 
 /**
- * A Provider that provides window and document object
- * you can use this provider to inject an external window
+ * Custom hook to access the root element from the window context.
  */
-export function WindowProvider({ window, children }: WindowProviderProps) {
-  const document = window.document
-  const rootElement = document.body
+export function useRootElement() {
+  return useWindowContext('useRootElement').rootElement
+}
 
-  const value = useMemo(() => ({
-    window,
-    document,
-    rootElement,
-  }), [
-    window,
-    document,
-    rootElement,
-  ])
-
+/**
+ * Component provider for the window context.
+ * This component wraps its children in the WindowContextProvider, supplying
+ * the window object and its root element to the context for consumption
+ */
+export function WindowProvider({
+  window,
+  children,
+}: WindowProviderProps) {
   return (
-    <WindowContextProvider value={value}>{ children }</WindowContextProvider>
+    <WindowContextProvider value={useMemo(() => ({
+      window,
+      document: window.document,
+      rootElement: window.document.body,
+    }), [window])}
+    >
+      { children }
+    </WindowContextProvider>
   )
 }
