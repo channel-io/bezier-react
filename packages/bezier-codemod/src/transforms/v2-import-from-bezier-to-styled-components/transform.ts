@@ -23,9 +23,14 @@ const addImportToStyledComponents = (sourceFile: SourceFile, importSpecifier: st
     } else {
       styledComponentsImport.addNamedImport(importSpecifier)
     }
-  } else {
+  } else if (isDefault) {
     sourceFile.insertImportDeclaration(0, {
       defaultImport: STYLED,
+      moduleSpecifier: STYLED_COMPONENTS,
+    })
+  } else {
+    sourceFile.insertImportDeclaration(0, {
+      namedImports: [importSpecifier],
       moduleSpecifier: STYLED_COMPONENTS,
     })
   }

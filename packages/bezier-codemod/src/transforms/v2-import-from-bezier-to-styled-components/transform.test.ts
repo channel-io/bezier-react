@@ -22,4 +22,8 @@ describe('import transform', () => {
   it('should transform styled import from bezier-react to styled-components, and not remove other import declarations', () => {
     testTransformFunction(__dirname, 'import-without-import-clause', importTransform)
   })
+
+  it('should transform properly when there are only named imports ', () => {
+    testTransformFunction(__dirname, 'only-named-import', importTransform)
+  })
 })
