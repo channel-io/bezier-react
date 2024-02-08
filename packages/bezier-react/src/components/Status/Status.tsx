@@ -20,24 +20,23 @@ import {
 
 import {
   type StatusProps,
-  StatusSize,
-  StatusType,
+  type StatusType,
 } from './Status.types'
 
 import styles from './Status.module.scss'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
-  StatusType.OnlineCrescent,
-  StatusType.OfflineCrescent,
-  StatusType.Lock,
+  'online-crescent',
+  'offline-crescent',
+  'lock',
 ]
 
 const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
-  [StatusType.Online]: 'bgtxt-green-normal',
-  [StatusType.Offline]: 'bg-black-dark',
-  [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
-  [StatusType.OfflineCrescent]: 'bgtxt-yellow-normal',
-  [StatusType.Lock]: 'txt-black-darker',
+  online: 'bgtxt-green-normal',
+  offline: 'bg-black-dark',
+  'online-crescent': 'bgtxt-green-normal',
+  'offline-crescent': 'bgtxt-yellow-normal',
+  lock: 'txt-black-darker',
 }
 
 /**
@@ -45,7 +44,7 @@ const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
  */
 export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Status({
   type,
-  size = StatusSize.M,
+  size = 'm',
   style,
   className,
   ...rest
@@ -69,8 +68,8 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
     >
       { withIcon && (
         <Icon
-          source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-          size={size === StatusSize.M ? IconSize.XXXS : IconSize.XS}
+          source={type === 'lock' ? LockIcon : MoonFilledIcon}
+          size={size === 'm' ? IconSize.XXXS : IconSize.XS}
           color={statusColor[type]}
           className={styles.Icon}
         />

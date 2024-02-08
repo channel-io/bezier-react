@@ -14,20 +14,18 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-export enum ListItemSize {
-  XS = 'xs',
-  S = 's',
-  M = 'm',
-  L = 'l',
-}
+export type ListItemSize =
+| 'xs'
+| 's'
+| 'm'
+| 'l'
 
-export enum ListItemVariant {
-  Blue = 'blue',
-  Red = 'red',
-  Green = 'green',
-  Cobalt = 'cobalt',
-  Monochrome = 'monochrome',
-}
+export type ListItemVariant =
+| 'blue'
+| 'red'
+| 'green'
+| 'cobalt'
+| 'monochrome'
 
 interface ListItemOwnProps {
   focused?: boolean

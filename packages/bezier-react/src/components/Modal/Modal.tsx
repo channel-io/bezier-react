@@ -18,12 +18,7 @@ import {
   isNumber,
 } from '~/src/utils/type'
 
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 import {
   ThemeProvider,
@@ -211,10 +206,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
                   <ModalClose>
                     <Button
                       className={styles.CloseIconButton}
-                      size={ButtonSize.M}
+                      size="m"
                       leftContent={CancelIcon}
-                      colorVariant={ButtonColorVariant.MonochromeDark}
-                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant="monochrome-dark"
+                      styleVariant="tertiary"
                     />
                   </ModalClose>
                 ) }
@@ -324,7 +319,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
               <Button
                 className={styles.CloseIconButtonSpacer}
                 as="div"
-                size={ButtonSize.M}
+                size="m"
               />
             ) }
           </div>

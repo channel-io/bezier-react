@@ -14,15 +14,14 @@ import type {
 
 import type { ButtonProps } from '~/src/components/Button'
 
-export enum BannerVariant {
-  Default = 'default',
-  Blue = 'blue',
-  Cobalt = 'cobalt',
-  Green = 'green',
-  Orange = 'orange',
-  Red = 'red',
-  Alt = 'alt',
-}
+export type BannerVariant =
+| 'default'
+| 'blue'
+| 'cobalt'
+| 'green'
+| 'orange'
+| 'red'
+| 'alt'
 
 export type RenderLinkFunc = (props: {
   content: ReactNode
