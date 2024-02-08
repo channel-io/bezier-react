@@ -2,8 +2,6 @@
 "@channel.io/bezier-react": major
 ---
 
-## "@channel.io/bezier-react": major
-
 **Breaking Changes: The enum type that the component receives as props is changed to a string literal type**
 
 The properties that change are:
