@@ -130,6 +130,13 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     Offline: 'offline',
     Online: 'online',
   },
+  SpinnerSize: {
+    XL: 'xl',
+    L: 'l',
+    M: 'm',
+    S: 's',
+    XS: 'xs',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

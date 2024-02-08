@@ -17,10 +17,7 @@ import {
   LegacyIcon,
   isIconName,
 } from '~/src/components/LegacyIcon'
-import {
-  Spinner,
-  SpinnerSize,
-} from '~/src/components/Spinner'
+import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import type {
@@ -55,11 +52,11 @@ function getIconSize(size: ButtonSize) {
 
 function getSpinnerSize(size: ButtonSize) {
   return ({
-    xs: SpinnerSize.XS,
-    s: SpinnerSize.XS,
-    m: SpinnerSize.S,
-    l: SpinnerSize.S,
-    xl: SpinnerSize.S,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 's',
   } as const)[size]
 }
 

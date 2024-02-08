@@ -4,13 +4,12 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export enum SpinnerSize {
-  XL = 'xl',
-  L = 'l',
-  M = 'm',
-  S = 's',
-  XS = 'xs',
-}
+export type SpinnerSize =
+| 'xl'
+| 'l'
+| 'm'
+| 's'
+| 'xs'
 
 /** @deprecated */
 export enum SpinnerThickness {
