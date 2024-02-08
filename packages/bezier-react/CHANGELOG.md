@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.11
+
+### Minor Changes
+
+- Move `@channel.io/bezier-tokens` from dev depdency to dependency ([#1985](https://github.com/channel-io/bezier-react/pull/1985)) by @sungik-choi
+
+### Patch Changes
+
+- Add missing spreading props to `ThemeProvider` and related components. ([#1986](https://github.com/channel-io/bezier-react/pull/1986)) by @sungik-choi
+
 ## 2.0.0-alpha.10
 
 ### Major Changes
