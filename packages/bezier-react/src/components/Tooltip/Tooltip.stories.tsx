@@ -6,15 +6,10 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import { Button } from '~/src/components/Button'
 
 import { Tooltip } from './Tooltip'
-import {
-  TooltipPosition,
-  type TooltipProps,
-} from './Tooltip.types'
+import { type TooltipProps } from './Tooltip.types'
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
@@ -23,12 +18,6 @@ const meta: Meta<typeof Tooltip> = {
       control: {
         type: 'range',
       },
-    },
-    placement: {
-      control: {
-        type: 'select',
-      },
-      options: getObjectFromEnum(TooltipPosition),
     },
   },
 }
@@ -43,7 +32,7 @@ export const Primary = {
 
   args: {
     defaultShow: false,
-    placement: TooltipPosition.BottomCenter,
+    placement: 'bottom-center',
     offset: 4,
     disabled: false,
     keepInContainer: true,

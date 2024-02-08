@@ -141,6 +141,20 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     M: 'm',
     S: 's',
   },
+  TooltipPosition: {
+    TopCenter: 'top-center',
+    TopLeft: 'top-left',
+    TopRight: 'top-right',
+    RightCenter: 'right-center',
+    RightTop: 'right-top',
+    RightBottom: 'right-bottom',
+    BottomCenter: 'bottom-center',
+    BottomLeft: 'bottom-left',
+    BottomRight: 'bottom-right',
+    LeftCenter: 'left-center',
+    LeftTop: 'left-top',
+    LeftBottom: 'left-bottom',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

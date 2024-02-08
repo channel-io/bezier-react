@@ -21,7 +21,7 @@ import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
-  TooltipPosition,
+  type TooltipPosition,
   type TooltipProps,
 } from './Tooltip.types'
 
@@ -31,62 +31,62 @@ function getSideAndAlign(
   placement: TooltipPosition,
 ): Pick<TooltipPrimitive.TooltipContentProps, 'side' | 'align'> {
   switch (placement) {
-    case TooltipPosition.TopCenter:
+    case 'top-center':
       return {
         side: 'top',
         align: 'center',
       }
-    case TooltipPosition.TopLeft:
+    case 'top-left':
       return {
         side: 'top',
         align: 'start',
       }
-    case TooltipPosition.TopRight:
+    case 'top-right':
       return {
         side: 'top',
         align: 'end',
       }
-    case TooltipPosition.RightCenter:
+    case 'right-center':
       return {
         side: 'right',
         align: 'center',
       }
-    case TooltipPosition.RightTop:
+    case 'right-top':
       return {
         side: 'right',
         align: 'start',
       }
-    case TooltipPosition.RightBottom:
+    case 'right-bottom':
       return {
         side: 'right',
         align: 'end',
       }
-    case TooltipPosition.BottomCenter:
+    case 'bottom-center':
       return {
         side: 'bottom',
         align: 'center',
       }
-    case TooltipPosition.BottomLeft:
+    case 'bottom-left':
       return {
         side: 'bottom',
         align: 'start',
       }
-    case TooltipPosition.BottomRight:
+    case 'bottom-right':
       return {
         side: 'bottom',
         align: 'end',
       }
-    case TooltipPosition.LeftCenter:
+    case 'left-center':
       return {
         side: 'left',
         align: 'center',
       }
-    case TooltipPosition.LeftTop:
+    case 'left-top':
       return {
         side: 'left',
         align: 'start',
       }
-    case TooltipPosition.LeftBottom:
+    case 'left-bottom':
       return {
         side: 'left',
         align: 'end',
@@ -124,7 +124,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   content,
   description,
   icon,
-  placement = TooltipPosition.BottomCenter,
+  placement = 'bottom-center',
   offset = 4,
   container: containerProp,
   keepInContainer = true,

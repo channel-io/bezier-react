@@ -7,23 +7,19 @@ import {
   type DisableProps,
 } from '~/src/types/props'
 
-/**
- * An enumeration that determines the position of `Tooltip`.
- */
-export enum TooltipPosition {
-  TopCenter = 'topCenter',
-  TopLeft = 'topLeft',
-  TopRight = 'topRight',
-  RightCenter = 'rightCenter',
-  RightTop = 'rightTop',
-  RightBottom = 'rightBottom',
-  BottomCenter = 'bottomCenter',
-  BottomLeft = 'bottomLeft',
-  BottomRight = 'bottomRight',
-  LeftCenter = 'leftCenter',
-  LeftTop = 'leftTop',
-  LeftBottom = 'leftBottom',
-}
+export type TooltipPosition =
+| 'top-center'
+| 'top-left'
+| 'top-right'
+| 'right-center'
+| 'right-top'
+| 'right-bottom'
+| 'bottom-center'
+| 'bottom-left'
+| 'bottom-right'
+| 'left-center'
+| 'left-top'
+| 'left-bottom'
 
 interface TooltipOwnProps {
   /**
@@ -44,7 +40,7 @@ interface TooltipOwnProps {
   icon?: BezierIcon
   /**
    * Options to determine the location from the trigger.
-   * @default TooltipPosition.BottomCenter
+   * @default 'bottom-center'
    */
   placement?: TooltipPosition
   /**
