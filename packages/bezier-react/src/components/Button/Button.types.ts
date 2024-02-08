@@ -24,7 +24,7 @@ export type ButtonColorVariant =
 | 'pink'
 | 'purple'
 /**
- * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
+ * @deprecated use `monochrome-light` or `monochrome-dark`
  */
 | 'monochrome'
 | 'monochrome-light'
@@ -72,7 +72,7 @@ interface ButtonOwnProps {
 
   /**
    * The style variant.
-   * @default ButtonStyleVariant.Primary
+   * @default "primary"
    */
   styleVariant?: ButtonStyleVariant
 
