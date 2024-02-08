@@ -28,10 +28,13 @@ export function useToken() {
 
 /**
  * `ThemeProvider` is a wrapper component that provides theme context.
+ *
+ * Components that pass to children **must spread props and forward ref.**
  */
 export const ThemeProvider = forwardRef<HTMLElement, ThemeProviderProps>(function ThemeProvider({
   themeName,
   children,
+  ...rest
 }, forwardedRef) {
   return (
     <TokenProvider themeName={themeName}>
@@ -39,6 +42,7 @@ export const ThemeProvider = forwardRef<HTMLElement, ThemeProviderProps>(functio
         ref={forwardedRef}
         // TODO: Change data attribute constant to import from bezier-tokens
         data-bezier-theme={themeName}
+        {...rest}
       >
         { children }
       </Slot>
@@ -48,14 +52,18 @@ export const ThemeProvider = forwardRef<HTMLElement, ThemeProviderProps>(functio
 
 /**
  * `LightThemeProvider` is a wrapper component that provides light theme context.
+ *
+ * Components that pass to children **must spread props and forward ref.**
  */
 export const LightThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function LightTheme({
   children,
+  ...rest
 }, forwardedRef) {
   return (
     <ThemeProvider
       ref={forwardedRef}
       themeName="light"
+      {...rest}
     >
       { children }
     </ThemeProvider>
@@ -64,14 +72,18 @@ export const LightThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProp
 
 /**
  * `DarkThemeProvider` is a wrapper component that provides dark theme context.
+ *
+ * Components that pass to children **must spread props and forward ref.**
  */
 export const DarkThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function DarkTheme({
   children,
+  ...rest
 }, forwardedRef) {
   return (
     <ThemeProvider
       ref={forwardedRef}
       themeName="dark"
+      {...rest}
     >
       { children }
     </ThemeProvider>
@@ -83,11 +95,13 @@ export const DarkThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps
  */
 export const InvertedThemeProvider = forwardRef<HTMLElement, FixedThemeProviderProps>(function InvertedTheme({
   children,
+  ...rest
 }, forwardedRef) {
   return (
     <ThemeProvider
       ref={forwardedRef}
       themeName={useThemeName() === 'light' ? 'dark' : 'light'}
+      {...rest}
     >
       { children }
     </ThemeProvider>
