@@ -113,6 +113,23 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     L: 'l',
     M: 'm',
   },
+  ToastPlacement: {
+    BottomLeft: 'bottom-left',
+    BottomRight: 'bottom-right',
+  },
+  ToastAppearance: {
+    Success: 'success',
+    Warning: 'warning',
+    Error: 'error',
+    Info: 'info',
+  },
+  ToastPreset: {
+    Default: 'default',
+    Success: 'success',
+    Error: 'error',
+    Offline: 'offline',
+    Online: 'online',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

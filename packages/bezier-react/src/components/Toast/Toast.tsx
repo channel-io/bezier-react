@@ -39,14 +39,11 @@ import {
 
 import {
   type ToastContextValue,
-  ToastPlacement,
+  type ToastPlacement,
+  type ToastPreset,
   type ToastProps,
   type ToastProviderProps,
   type ToastType,
-} from './Toast.types'
-import {
-  ToastAppearance,
-  ToastPreset,
 } from './Toast.types'
 import useToastProviderValues from './useToastContextValues'
 
@@ -54,25 +51,25 @@ import styles from './Toast.module.scss'
 
 function getToastPreset(preset: ToastPreset) {
   return {
-    [ToastPreset.Success]: {
+    success: {
       icon: CheckCircleFilledIcon,
-      appearance: ToastAppearance.Success,
+      appearance: 'success',
     },
-    [ToastPreset.Error]: {
+    error: {
       icon: ErrorTriangleFilledIcon,
-      appearance: ToastAppearance.Error,
+      appearance: 'error',
     },
-    [ToastPreset.Offline]: {
+    offline: {
       icon: WifiOffIcon,
-      appearance: ToastAppearance.Warning,
+      appearance: 'warning',
     },
-    [ToastPreset.Online]: {
+    online: {
       icon: WifiIcon,
-      appearance: ToastAppearance.Success,
+      appearance: 'success',
     },
-    [ToastPreset.Default]: {
+    default: {
       icon: InfoFilledIcon,
-      appearance: ToastAppearance.Info,
+      appearance: 'info',
     },
   }[preset]
 }
@@ -80,7 +77,7 @@ function getToastPreset(preset: ToastPreset) {
 export function Toast({
   placement,
   appearance: appearanceProp,
-  preset = ToastPreset.Default,
+  preset = 'default',
   icon: iconProp,
   content,
   zIndex = 'toast',
@@ -234,7 +231,7 @@ export function ToastProvider({
         key={placement}
         style={{
           bottom: px(offset?.bottom),
-          ...(placement === ToastPlacement.BottomRight
+          ...(placement === 'bottom-right'
             ? { right: px(offset?.right) }
             : { left: px(offset?.left) }),
         }}
@@ -266,8 +263,8 @@ export function ToastProvider({
       { children }
       { isMounted && createPortal(
         [
-          createContainer(ToastPlacement.BottomLeft, leftToasts),
-          createContainer(ToastPlacement.BottomRight, rightToasts),
+          createContainer('bottom-left', leftToasts),
+          createContainer('bottom-right', rightToasts),
         ],
         container,
       ) }

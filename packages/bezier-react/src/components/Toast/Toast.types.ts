@@ -8,25 +8,22 @@ import {
 } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
-export enum ToastPlacement {
-  BottomLeft = 'bottom-left',
-  BottomRight = 'bottom-right',
-}
+export type ToastPlacement =
+| 'bottom-left'
+| 'bottom-right'
 
-export enum ToastAppearance {
-  Success = 'success',
-  Warning = 'warning',
-  Error = 'error',
-  Info = 'info',
-}
+export type ToastAppearance =
+| 'success'
+| 'warning'
+| 'error'
+| 'info'
 
-export enum ToastPreset {
-  Default = 'Default',
-  Success = 'Success',
-  Error = 'Error',
-  Offline = 'Offline',
-  Online = 'Online',
-}
+export type ToastPreset =
+| 'default'
+| 'success'
+| 'error'
+| 'offline'
+| 'online'
 
 interface ToastOwnProps {
   placement?: ToastPlacement
