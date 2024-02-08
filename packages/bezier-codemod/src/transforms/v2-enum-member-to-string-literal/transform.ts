@@ -109,6 +109,10 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     GreenAlt: 'green-alt',
     Monochrome: 'monochrome',
   },
+  ModalTitleSize: {
+    L: 'l',
+    M: 'm',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

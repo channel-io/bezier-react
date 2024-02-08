@@ -8,13 +8,13 @@ export {
   ModalTrigger,
   useModalContainerContext,
 } from './Modal'
-export {
-  type ModalBodyProps,
-  type ModalCloseProps,
-  type ModalContentProps,
-  type ModalFooterProps,
-  type ModalHeaderProps,
-  type ModalProps,
+export type {
+  ModalBodyProps,
+  ModalCloseProps,
+  ModalContentProps,
+  ModalFooterProps,
+  ModalHeaderProps,
+  ModalProps,
   ModalTitleSize,
-  type ModalTriggerProps,
+  ModalTriggerProps,
 } from './Modal.types'
