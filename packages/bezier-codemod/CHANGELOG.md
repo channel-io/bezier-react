@@ -1,5 +1,19 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.6
+
+### Patch Changes
+
+- Fix bug in `v2-import-from-bezier-to-styled-components` codemod when there are only named imports as following: ([#1987](https://github.com/channel-io/bezier-react/pull/1987)) by @yangwooseong
+
+  ```tsx
+  // As-is
+  import { css } from "@channel.io/bezier-react";
+
+  // To-be
+  import { css } from "styled-components";
+  ```
+
 ## 0.5.0-alpha.5
 
 ### Minor Changes
