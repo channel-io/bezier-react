@@ -26,17 +26,17 @@ import {
 import styles from './Status.module.scss'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
-  'OnlineCrescent',
-  'OfflineCrescent',
-  'Lock',
+  'online-crescent',
+  'offline-crescent',
+  'lock',
 ]
 
 const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
-  Online: 'bgtxt-green-normal',
-  Offline: 'bg-black-dark',
-  OnlineCrescent: 'bgtxt-green-normal',
-  OfflineCrescent: 'bgtxt-yellow-normal',
-  Lock: 'txt-black-darker',
+  online: 'bgtxt-green-normal',
+  offline: 'bg-black-dark',
+  'online-crescent': 'bgtxt-green-normal',
+  'offline-crescent': 'bgtxt-yellow-normal',
+  lock: 'txt-black-darker',
 }
 
 /**
@@ -68,7 +68,7 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
     >
       { withIcon && (
         <Icon
-          source={type === 'Lock' ? LockIcon : MoonFilledIcon}
+          source={type === 'lock' ? LockIcon : MoonFilledIcon}
           size={size === 'm' ? IconSize.XXXS : IconSize.XS}
           color={statusColor[type]}
           className={styles.Icon}

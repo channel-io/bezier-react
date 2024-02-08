@@ -4,11 +4,11 @@ import type {
 } from '~/src/types/props'
 
 export type StatusType =
-| 'Online'
-| 'Offline'
-| 'Lock'
-| 'OnlineCrescent'
-| 'OfflineCrescent'
+| 'online'
+| 'offline'
+| 'lock'
+| 'online-crescent'
+| 'offline-crescent'
 
 export type StatusSize =
 | 'm'

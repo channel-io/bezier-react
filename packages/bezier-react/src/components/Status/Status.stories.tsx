@@ -31,7 +31,7 @@ export const Primary: StoryObj<StatusProps> = {
   render: Template,
 
   args: {
-    type: 'Online',
+    type: 'online',
     size: 'm',
   },
 }

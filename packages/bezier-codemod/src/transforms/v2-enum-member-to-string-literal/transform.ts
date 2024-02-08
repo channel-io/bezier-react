@@ -94,11 +94,11 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     S: 's',
   },
   StatusType: {
-    Online: 'Online',
-    Offline: 'Offline',
-    Lock: 'Lock',
-    OnlineCrescent: 'OnlineCrescent',
-    OfflineCrescent: 'OfflineCrescent',
+    Online: 'online',
+    Offline: 'offline',
+    Lock: 'lock',
+    OnlineCrescent: 'online-crescent',
+    OfflineCrescent: 'offline-crescent',
   },
   StatusSize: {
     M: 'm',

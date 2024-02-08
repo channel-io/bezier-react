@@ -348,7 +348,7 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
             <Avatar
               name="channel"
               avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
-              status="Online"
+              status="online"
             />
           )}
           text="New messages"
