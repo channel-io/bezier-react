@@ -27,7 +27,6 @@ import type {
   OverlayProps,
   TargetRectAttr,
 } from './Overlay.types'
-import { OverlayPosition } from './Overlay.types'
 import { getOverlayStyle } from './utils'
 
 import styles from './Overlay.module.scss'
@@ -43,7 +42,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   show = false,
   container: givenContainer,
   target,
-  position = OverlayPosition.LeftCenter,
+  position = 'left-center',
   marginX = 0,
   marginY = 0,
   keepInContainer = false,

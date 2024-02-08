@@ -155,6 +155,24 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     LeftTop: 'left-top',
     LeftBottom: 'left-bottom',
   },
+  OverlayPosition: {
+    TopCenter: 'top-center',
+    TopLeft: 'top-left',
+    TopRight: 'top-right',
+    RightCenter: 'right-center',
+    RightTop: 'right-top',
+    RightBottom: 'right-bottom',
+    BottomCenter: 'bottom-center',
+    BottomLeft: 'bottom-left',
+    BottomRight: 'bottom-right',
+    LeftCenter: 'left-center',
+    LeftTop: 'left-top',
+    LeftBottom: 'left-bottom',
+    InnerLeftTop: 'inner-left-top',
+    InnerLeftBottom: 'inner-left-bottom',
+    InnerRightTop: 'inner-right-top',
+    InnerRightBottom: 'inner-right-bottom',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

@@ -27,10 +27,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
-import {
-  Overlay,
-  OverlayPosition,
-} from '~/src/components/Overlay'
+import { Overlay } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -61,7 +58,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownMarginX,
   dropdownMarginY = 6,
   dropdownZIndex = 'overlay',
-  dropdownPosition = OverlayPosition.BottomLeft,
+  dropdownPosition = 'bottom-left',
   onClickTrigger,
   onHideDropdown,
   ...rest
