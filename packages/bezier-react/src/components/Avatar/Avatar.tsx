@@ -11,7 +11,10 @@ import {
   AlphaSmoothCornersBox,
   type AlphaSmoothCornersBoxProps,
 } from '~/src/components/AlphaSmoothCornersBox'
-import { Status } from '~/src/components/Status'
+import {
+  Status,
+  type StatusSize,
+} from '~/src/components/Status'
 import { useToken } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps } from './Avatar.types'
@@ -71,7 +74,15 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       return null
     }
 
-    const statusSize = Number(size) >= 90 ? 'l' : 'm'
+    const statusSize: StatusSize = (() => {
+      switch (size) {
+        case '90':
+        case '120':
+          return 'l'
+        default:
+          return 'm'
+      }
+    })()
 
     const Contents = (() => {
       if (children) { return children }
