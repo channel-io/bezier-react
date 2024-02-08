@@ -137,6 +137,10 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     S: 's',
     XS: 'xs',
   },
+  SwitchSize: {
+    M: 'm',
+    S: 's',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

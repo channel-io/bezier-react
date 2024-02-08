@@ -6,10 +6,9 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
-export enum SwitchSize {
-  M = 'm',
-  S = 's',
-}
+export type SwitchSize =
+| 'm'
+| 's'
 
 interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   /**
