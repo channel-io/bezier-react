@@ -15,4 +15,4 @@ The properties that change are:
 - `ListItemVariant`, `ListItemSize`
 - `StatusType`, `StatusSize`
 
-When changed to string literal type, it is changed to the value of enum. e.g. `ButtonStyleVariant.MonoChrome` -> `monochrome`
+When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `ButtonStyleVariant.MonoChromeDark` -> `monochrome-dark`, `StatusType.OnlineCrescent` -> `online-crescent`
