@@ -1,3 +1,5 @@
+$avatar-sizes: 20, 24, 30, 36, 42, 48, 72, 90, 120;
+
 .AvatarGroup {
   --b-avatar-group-spacing: 0;
   --b-avatar-group-size: 0;
@@ -5,6 +7,12 @@
   position: relative;
   z-index: var(--z-index-base);
   display: flex;
+
+  @each $size in $avatar-sizes {
+    :where(.size-#{$size}) {
+      --b-avatar-group-size: #{$size}px;
+    }
+  }
 
   & > * + * {
     margin-left: var(--b-avatar-group-spacing);
@@ -46,32 +54,12 @@
     --b-avatar-group-ellipsis-pr: 5px;
   }
 
-  &:where(.size-30) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-36) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-42) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-48) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-72) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-90) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
-
-  &:where(.size-120) {
-    --b-avatar-group-ellipsis-pr: 6px;
+  @each $size in $avatar-sizes {
+    @if $size > 24 {
+      &:where(.size-#{$size}) {
+        --b-avatar-group-ellipsis-pr: 6px;
+      }
+    }
   }
 }
 

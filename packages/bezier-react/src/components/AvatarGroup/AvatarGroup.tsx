@@ -8,10 +8,7 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
-import {
-  cssDimension,
-  px,
-} from '~/src/utils/style'
+import { px } from '~/src/utils/style'
 
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
@@ -208,11 +205,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
+        styles[`size-${size}`],
         className,
       )}
       style={{
         '--b-avatar-group-spacing': px(spacing),
-        '--b-avatar-group-size': cssDimension(size),
         ...style,
       } as React.CSSProperties}
       {...rest}
