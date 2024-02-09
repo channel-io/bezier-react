@@ -201,6 +201,28 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     Primary: 'primary',
     Secondary: 'secondary',
   },
+  TagBadgeVariant: {
+    Default: 'default',
+    MonochromeLight: 'monochrome-light',
+    MonochromeDark: 'monochrome-dark',
+    Blue: 'blue',
+    Cobalt: 'cobalt',
+    Teal: 'teal',
+    Green: 'green',
+    Olive: 'olive',
+    Pink: 'pink',
+    Navy: 'navy',
+    Yellow: 'yellow',
+    Orange: 'orange',
+    Red: 'red',
+    Purple: 'purple',
+  },
+  TagBadgeSize: {
+    XS: 'xs',
+    S: 's',
+    M: 'm',
+    L: 'l',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {

@@ -19,8 +19,6 @@ import {
   IconSize,
 } from '~/src/components/Icon'
 import {
-  TagBadgeSize,
-  TagBadgeVariant,
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadgeCommon'
@@ -48,8 +46,8 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  * ```
  */
 export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
-  size = TagBadgeSize.M,
-  variant = TagBadgeVariant.Default,
+  size = 'm',
+  variant = 'default',
   color: givenColor,
   children,
   className,
