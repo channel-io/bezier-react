@@ -37,8 +37,6 @@ import {
   type TextFieldItemProps,
   type TextFieldProps,
   type TextFieldRef,
-  TextFieldType,
-  TextFieldVariant,
 } from './TextField.types'
 
 import styles from './TextField.module.scss'
@@ -166,7 +164,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   size: sizeProps,
   autoFocus,
   autoComplete = 'off',
-  variant = TextFieldVariant.Primary,
+  variant = 'primary',
   allowClear = false,
   selectAllOnInit = false,
   selectAllOnFocus = false,
@@ -224,7 +222,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   }, [window])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
-    if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
+    if (type && ['number', 'email', 'hidden'].includes(type)) { return }
     inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 

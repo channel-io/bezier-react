@@ -187,6 +187,20 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     InnerRightTop: 'inner-right-top',
     InnerRightBottom: 'inner-right-bottom',
   },
+  TextFieldType: {
+    Search: 'search',
+    Text: 'text',
+    Email: 'email',
+    Password: 'password',
+    Tel: 'tel',
+    Url: 'url',
+    Hidden: 'hidden',
+    Number: 'number',
+  },
+  TextFieldVariant: {
+    Primary: 'primary',
+    Secondary: 'secondary',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
