@@ -88,7 +88,7 @@ function ActionButton({ children }: { children: KeyValueItemAction }) {
   const Wrapper = !isEmpty(children.tooltip) ? Tooltip : React.Fragment
 
   return (
-    <Wrapper content={children.tooltip}>
+    <Wrapper {...(children.tooltip ? { content: children.tooltip } : {})}>
       <Button
         size="xs"
         leftContent={children.icon}
