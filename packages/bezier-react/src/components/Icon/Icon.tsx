@@ -23,7 +23,7 @@ export const ICON_TEST_ID = 'bezier-icon'
 const getSizeValue = (size: IconSize) => ({
   xl: 44,
   l: 36,
-  normal: 24,
+  m: 24,
   s: 20,
   xs: 16,
   xxs: 12,
@@ -39,7 +39,7 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
 
   const {
     className,
-    size = 'normal',
+    size = 'm',
     color,
     source: SourceElement,
     style,

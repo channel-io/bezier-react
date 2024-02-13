@@ -43,7 +43,7 @@ function getIconSize(size: ButtonSize) {
     s: 'xs',
     m: 's',
     l: 's',
-    xl: 'normal',
+    xl: 'm',
   } as const)[size]
 }
 

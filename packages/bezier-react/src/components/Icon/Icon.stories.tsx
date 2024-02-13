@@ -58,7 +58,7 @@ export default meta
 export const Playground: StoryObj<IconProps> = {
   args: {
     source: ChannelIcon,
-    size: 'normal',
+    size: 'm',
     color: 'bg-black-darker',
   },
 }
@@ -99,7 +99,7 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
   ),
 
   args: {
-    size: 'normal',
+    size: 'm',
     color: 'bg-black-darkest',
   },
 }
@@ -168,7 +168,7 @@ export const Overview: StoryFn<{}> = () => (
           'xxs',
           'xs',
           's',
-          'normal',
+          'm',
           'l',
           'xl',
         ] as const).map((size) => (
@@ -222,19 +222,19 @@ export const UsageColor: StoryObj<{}> = {
 export const UsageSize: StoryFn<{}> = () => (
   <LegacyVStack spacing={16}>
     { ([
-      { label: 'XXXS', size: 'xxxs' },
-      { label: 'XXS', size: 'xxs' },
-      { label: 'XS', size: 'xs' },
-      { label: 'S', size: 's' },
-      { label: 'Normal', size: 'normal' },
-      { label: 'L', size: 'l' },
-      { label: 'XL', size: 'xl' },
-    ] as const).map(({ label, size }) => (
+      'xxxs',
+      'xxs',
+      'xs',
+      's',
+      'm',
+      'l',
+      'xl',
+    ] as const).map((size) => (
       <LegacyStackItem key={size}>
         <LegacyHStack spacing={24}>
-          <LegacyStackItem size={100}>
+          <LegacyStackItem size={30}>
             <Text typo="13" color="txt-black-darkest">
-              { `${label} (${size}x${size})` }
+              { size }
             </Text>
           </LegacyStackItem>
           <LegacyStackItem>

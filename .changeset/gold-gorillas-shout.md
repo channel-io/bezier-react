@@ -22,4 +22,4 @@ The properties that change are:
 
 Also, `SpinnerThickness` props of `Spinner` is not supported any more.
 
-When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `TooltipPosition.TopCenter` -> `top-center`. Among the above enums, `TextAreaHeight` is converted to number literal type. e.g. `TextAreaHeight.Row16` -> `16`
+When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `TooltipPosition.TopCenter` -> `top-center`. Among the above enums, `TextAreaHeight` is converted to number literal type. e.g. `TextAreaHeight.Row16` -> `16`, and `IconSize.normal` is converted to `m` for consistency

@@ -226,7 +226,7 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
   IconSize: {
     XL: 'xl',
     L: 'l',
-    Normal: 'normal',
+    Normal: 'm',
     S: 's',
     XS: 'xs',
     XXS: 'xxs',

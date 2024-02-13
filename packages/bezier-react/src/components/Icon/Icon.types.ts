@@ -10,7 +10,7 @@ import {
 export type IconSize =
 | 'xl'
 | 'l'
-| 'normal'
+| 'm'
 | 's'
 | 'xs'
 | 'xxs'
