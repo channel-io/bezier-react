@@ -14,10 +14,7 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
@@ -89,7 +86,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
           tabIndex={0}
           className={styles.CloseIcon}
           source={CancelSmallIcon}
-          size={IconSize.XS}
+          size="xs"
           color="txt-black-darker"
           onClick={(e) => {
             e.stopPropagation()

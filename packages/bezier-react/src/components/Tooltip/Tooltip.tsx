@@ -11,10 +11,7 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { isEmpty } from '~/src/utils/type'
 
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
@@ -265,7 +262,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
                 { icon && (
                   <Icon
-                    size={IconSize.XS}
+                    size="xs"
                     color="txt-black-darkest"
                     source={icon}
                     className={styles.Icon}

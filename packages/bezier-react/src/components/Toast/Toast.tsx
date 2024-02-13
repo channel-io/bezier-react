@@ -26,10 +26,7 @@ import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import {
@@ -150,7 +147,7 @@ export function Toast({
       >
         <Icon
           source={iconProp ?? icon}
-          size={IconSize.S}
+          size="s"
         />
       </div>
 
@@ -179,7 +176,7 @@ export function Toast({
       >
         <Icon
           source={CancelIcon}
-          size={IconSize.XS}
+          size="xs"
         />
       </BaseButton>
     </div>

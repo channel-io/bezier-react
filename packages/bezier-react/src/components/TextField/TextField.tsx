@@ -26,10 +26,7 @@ import {
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import {
@@ -76,7 +73,7 @@ function TextFieldLeftContent({
         <Icon
           className={!isNil(children.onClick) ? styles.clickable : undefined}
           source={children.icon}
-          size={IconSize.S}
+          size="s"
           color={children.iconColor ?? 'txt-black-dark'}
           onClick={children.onClick}
         />
@@ -124,7 +121,7 @@ function TextFieldRightContent({
         >
           <Icon
             source={item.icon}
-            size={IconSize.XS}
+            size="xs"
             color={item.iconColor ?? 'txt-black-dark'}
           />
         </Comp>
@@ -407,7 +404,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
             className={styles.CloseIcon}
             data-testid={TEXT_INPUT_CLEAR_ICON_TEST_ID}
             source={CancelCircleFilledIcon}
-            size={IconSize.XS}
+            size="xs"
           />
         </BaseButton>
       ) }

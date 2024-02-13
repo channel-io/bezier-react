@@ -9,10 +9,7 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
@@ -42,11 +39,11 @@ function getTypography(size: ButtonSize) {
 
 function getIconSize(size: ButtonSize) {
   return ({
-    xs: IconSize.XS,
-    s: IconSize.XS,
-    m: IconSize.S,
-    l: IconSize.S,
-    xl: IconSize.Normal,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 'normal',
   } as const)[size]
 }
 

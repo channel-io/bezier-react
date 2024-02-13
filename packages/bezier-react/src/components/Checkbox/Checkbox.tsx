@@ -12,10 +12,7 @@ import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 
 import {
   type CheckboxProps,
@@ -45,7 +42,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
       className={styles.CheckIcon}
       ref={forwardedRef}
       source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
-      size={IconSize.XS}
+      size="xs"
       color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
       {...props}
     />

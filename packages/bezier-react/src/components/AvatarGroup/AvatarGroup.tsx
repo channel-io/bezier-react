@@ -16,10 +16,7 @@ import {
   type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -41,14 +38,14 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    20: IconSize.XXS,
-    24: IconSize.XS,
-    30: IconSize.S,
-    36: IconSize.Normal,
-    42: IconSize.Normal,
-    48: IconSize.L,
-    90: IconSize.L,
-    120: IconSize.L,
+    20: 'xxs',
+    24: 'xs',
+    30: 's',
+    36: 'normal',
+    42: 'normal',
+    48: 'l',
+    90: 'l',
+    120: 'l',
   }[avatarSize]
 }
 

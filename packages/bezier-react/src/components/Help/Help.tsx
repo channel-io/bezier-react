@@ -4,10 +4,7 @@ import { HelpFilledIcon } from '@channel.io/bezier-icons'
 
 import { isEmpty } from '~/src/utils/type'
 
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Tooltip } from '~/src/components/Tooltip'
 
 import { type HelpProps } from './Help.types'
@@ -33,7 +30,7 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
         <Icon
           className={styles.Icon}
           source={HelpFilledIcon}
-          size={IconSize.XS}
+          size="xs"
           color="txt-black-dark"
           data-testid={HELP_TEST_ID}
         />

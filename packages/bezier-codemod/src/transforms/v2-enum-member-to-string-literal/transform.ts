@@ -223,6 +223,15 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     M: 'm',
     L: 'l',
   },
+  IconSize: {
+    XL: 'xl',
+    L: 'l',
+    Normal: 'normal',
+    S: 's',
+    XS: 'xs',
+    XXS: 'xxs',
+    XXXS: 'xxxs',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
