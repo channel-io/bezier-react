@@ -34,8 +34,8 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  * @example
  * ```tsx
  * <Tag
- *   size={TagBadgeSize.M}
- *   variant={TagBadgeVariant.Default}
+ *   size="m"
+ *   variant="default"
  *   onDelete={handleDelete}
  * >
  *   Payment

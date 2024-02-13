@@ -68,7 +68,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * <AvatarGroup
  *  max={2}
  *  spacing={4}
- *  ellipsisType={AvatarGroupEllipsisType.Icon}
+ *  ellipsisType="icon"
  * >
  *    <Avatar />
  *    <Avatar />

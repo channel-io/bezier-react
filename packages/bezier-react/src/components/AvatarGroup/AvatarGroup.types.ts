@@ -30,7 +30,7 @@ interface AvatarGroupOwnProps {
 
   /**
    * Controls how the ellipsis is displayed.
-   * @default AvatarGroupEllipsisType.Icon
+   * @default 'icon'
    */
   ellipsisType?: AvatarGroupEllipsisType
 
