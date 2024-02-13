@@ -39,7 +39,7 @@ import { ListItem } from '~/src/components/ListItem'
 import { Select } from '~/src/components/Select'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import { useToken } from '~/src/components/ThemeProvider'
+import { useTokens } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
@@ -200,7 +200,7 @@ function ColorIcon() {
       <LegacyStackItem>
         <Select text={color} style={{ width: 200 }}>
           <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-            { Object.keys(useToken().semantic.color).map((semanticName) => (
+            { Object.keys(useTokens().semantic.color).map((semanticName) => (
               <ListItem
                 key={semanticName}
                 content={semanticName}
