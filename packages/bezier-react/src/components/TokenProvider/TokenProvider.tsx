@@ -6,7 +6,7 @@ import { type ThemeName } from '~/src/types/tokens'
 import { createContext } from '~/src/utils/react'
 
 import {
-  type ThemedTokenSet,
+  type ThemeSpecificTokens,
   type TokenContextValue,
   type TokenProviderProps,
 } from './TokenProvider.types'
@@ -15,7 +15,7 @@ const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue 
 
 export { useTokenContext }
 
-const tokenSet: Record<ThemeName, ThemedTokenSet> = Object.freeze({
+const tokenSet: Record<ThemeName, ThemeSpecificTokens> = Object.freeze({
   light: {
     global: tokens.global,
     semantic: tokens.lightTheme,

@@ -5,14 +5,14 @@ import {
   type ThemeName,
 } from '~/src/types/tokens'
 
-export type ThemedTokenSet = {
+export type ThemeSpecificTokens = {
   global: GlobalToken
   semantic: SemanticToken
 }
 
 export interface TokenContextValue {
   themeName: ThemeName
-  tokens: ThemedTokenSet
+  tokens: ThemeSpecificTokens
 }
 
 interface TokenProviderOwnProps {
