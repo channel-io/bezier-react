@@ -9,21 +9,12 @@ import {
 import { Avatar } from '~/src/components/Avatar'
 
 import { AvatarGroup } from './AvatarGroup'
-import {
-  AvatarGroupEllipsisType,
-  type AvatarGroupProps,
-} from './AvatarGroup.types'
+import { type AvatarGroupProps } from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
 const meta: Meta<typeof AvatarGroup> = {
   component: AvatarGroup,
   argTypes: {
-    ellipsisType: {
-      control: {
-        type: 'radio',
-      },
-      options: AvatarGroupEllipsisType,
-    },
     max: {
       control: {
         type: 'range',
@@ -64,7 +55,7 @@ export const Primary: StoryObj<AvatarGroupProps> = {
   args: {
     max: 5,
     size: '30',
-    ellipsisType: AvatarGroupEllipsisType.Icon,
+    ellipsisType: 'icon',
     spacing: 4,
   },
 }

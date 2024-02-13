@@ -19,10 +19,7 @@ import {
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import {
-  AvatarGroupEllipsisType,
-  type AvatarGroupProps,
-} from './AvatarGroup.types'
+import { type AvatarGroupProps } from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
 
@@ -83,7 +80,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
   max,
   size = '24',
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
-  ellipsisType = AvatarGroupEllipsisType.Icon,
+  ellipsisType = 'icon',
   onMouseEnterEllipsis,
   onMouseLeaveEllipsis,
   style,
@@ -129,7 +126,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         return AvatarElement
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Icon) {
+      if (ellipsisType === 'icon') {
         return (
           <div
             key="ellipsis"
@@ -154,7 +151,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         )
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Count) {
+      if (ellipsisType === 'count') {
         return (
           <React.Fragment key="ellipsis">
             { AvatarElement }

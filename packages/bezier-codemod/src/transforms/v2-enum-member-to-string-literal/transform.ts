@@ -240,6 +240,10 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     Row24: 24,
     Row36: 36,
   },
+  AvatarGroupEllipsisType: {
+    Icon: 'icon',
+    Count: 'count',
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
