@@ -1,6 +1,9 @@
 /* --------------------------------- STYLES --------------------------------- */
 import '~/src/styles/index.scss'
 
+/* --------------------------------- TOKENS --------------------------------- */
+export { tokens } from '@channel.io/bezier-tokens'
+
 /* ------------------------------- COMPONENTS ------------------------------- */
 export * from '~/src/components/AlphaSmoothCornersBox'
 export * from '~/src/components/AppProvider'
