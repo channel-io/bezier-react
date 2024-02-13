@@ -232,6 +232,14 @@ const ENUM_TRANSFORM_MAP: EnumTransformMap = {
     XXS: 'xxs',
     XXXS: 'xxxs',
   },
+  TextAreaHeight: {
+    Row3: 3,
+    Row6: 6,
+    Row10: 10,
+    Row16: 16,
+    Row24: 24,
+    Row36: 36,
+  },
 }
 
 function enumMemberToStringLiteral(sourceFile: SourceFile): true | void {
