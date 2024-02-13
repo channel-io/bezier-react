@@ -34,10 +34,7 @@ import {
   LegacyVStack,
 } from '~/src/components/LegacyStack'
 import { ListItem } from '~/src/components/ListItem'
-import {
-  Overlay,
-  OverlayPosition,
-} from '~/src/components/Overlay'
+import { Overlay } from '~/src/components/Overlay'
 import { SectionLabel } from '~/src/components/SectionLabel'
 import { Text } from '~/src/components/Text'
 
@@ -427,7 +424,7 @@ const OpenDropdownButton = () => {
         onHide={() => setIsOpen(false)}
         target={target}
         container={container}
-        position={OverlayPosition.BottomLeft}
+        position="bottom-left"
         marginY={6}
       >
         <Box

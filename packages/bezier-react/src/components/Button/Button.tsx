@@ -9,18 +9,12 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
 } from '~/src/components/LegacyIcon'
-import {
-  Spinner,
-  SpinnerSize,
-} from '~/src/components/Spinner'
+import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import type {
@@ -45,21 +39,21 @@ function getTypography(size: ButtonSize) {
 
 function getIconSize(size: ButtonSize) {
   return ({
-    xs: IconSize.XS,
-    s: IconSize.XS,
-    m: IconSize.S,
-    l: IconSize.S,
-    xl: IconSize.Normal,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 'm',
   } as const)[size]
 }
 
 function getSpinnerSize(size: ButtonSize) {
   return ({
-    xs: SpinnerSize.XS,
-    s: SpinnerSize.XS,
-    m: SpinnerSize.S,
-    l: SpinnerSize.S,
-    xl: SpinnerSize.S,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 's',
   } as const)[size]
 }
 
