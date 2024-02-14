@@ -10,7 +10,10 @@ import {
 } from '~/src/utils/type'
 
 import { Button } from '~/src/components/Button'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   Text,
   type TextProps,
@@ -40,7 +43,7 @@ function KeyItem({
       { isBezierIcon(icon)
         ? (
           <Icon
-            size="s"
+            size={IconSize.S}
             source={icon}
             color="txt-black-dark"
             data-testid={KEY_VALUE_ITEM_KEY_ICON_TEST_ID}

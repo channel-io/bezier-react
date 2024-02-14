@@ -13,7 +13,10 @@ import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { Button } from '~/src/components/Button'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   type TabActionElement,
   type TabActionProps,
@@ -234,9 +237,9 @@ function getTypoBy(size: TabSize) {
 
 function getIconSizeBy(size: TabSize) {
   return ({
-    l: 's',
-    m: 'xs',
-    s: 'xs',
+    l: IconSize.S,
+    m: IconSize.XS,
+    s: IconSize.XS,
   } as const)[size]
 }
 

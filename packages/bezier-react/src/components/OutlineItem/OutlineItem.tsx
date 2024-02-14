@@ -16,7 +16,10 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -85,7 +88,7 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
               <Icon
                 className={styles.Icon}
                 source={open ? ChevronSmallDownIcon : ChevronSmallRightIcon}
-                size="xs"
+                size={IconSize.XS}
                 color="txt-black-dark"
               />
             ) }
@@ -98,7 +101,7 @@ export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Outlin
               ? (
                 <Icon
                   className={styles.Icon}
-                  size="s"
+                  size={IconSize.S}
                   source={leftContent}
                   color="txt-black-dark"
                 />

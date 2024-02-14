@@ -26,7 +26,10 @@ import { px } from '~/src/utils/style'
 import { isString } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import {
@@ -36,11 +39,14 @@ import {
 
 import {
   type ToastContextValue,
-  type ToastPlacement,
-  type ToastPreset,
+  ToastPlacement,
   type ToastProps,
   type ToastProviderProps,
   type ToastType,
+} from './Toast.types'
+import {
+  ToastAppearance,
+  ToastPreset,
 } from './Toast.types'
 import useToastProviderValues from './useToastContextValues'
 
@@ -48,25 +54,25 @@ import styles from './Toast.module.scss'
 
 function getToastPreset(preset: ToastPreset) {
   return {
-    success: {
+    [ToastPreset.Success]: {
       icon: CheckCircleFilledIcon,
-      appearance: 'success',
+      appearance: ToastAppearance.Success,
     },
-    error: {
+    [ToastPreset.Error]: {
       icon: ErrorTriangleFilledIcon,
-      appearance: 'error',
+      appearance: ToastAppearance.Error,
     },
-    offline: {
+    [ToastPreset.Offline]: {
       icon: WifiOffIcon,
-      appearance: 'warning',
+      appearance: ToastAppearance.Warning,
     },
-    online: {
+    [ToastPreset.Online]: {
       icon: WifiIcon,
-      appearance: 'success',
+      appearance: ToastAppearance.Success,
     },
-    default: {
+    [ToastPreset.Default]: {
       icon: InfoFilledIcon,
-      appearance: 'info',
+      appearance: ToastAppearance.Info,
     },
   }[preset]
 }
@@ -74,7 +80,7 @@ function getToastPreset(preset: ToastPreset) {
 export function Toast({
   placement,
   appearance: appearanceProp,
-  preset = 'default',
+  preset = ToastPreset.Default,
   icon: iconProp,
   content,
   zIndex = 'toast',
@@ -147,7 +153,7 @@ export function Toast({
       >
         <Icon
           source={iconProp ?? icon}
-          size="s"
+          size={IconSize.S}
         />
       </div>
 
@@ -176,7 +182,7 @@ export function Toast({
       >
         <Icon
           source={CancelIcon}
-          size="xs"
+          size={IconSize.XS}
         />
       </BaseButton>
     </div>
@@ -228,7 +234,7 @@ export function ToastProvider({
         key={placement}
         style={{
           bottom: px(offset?.bottom),
-          ...(placement === 'bottom-right'
+          ...(placement === ToastPlacement.BottomRight
             ? { right: px(offset?.right) }
             : { left: px(offset?.left) }),
         }}
@@ -260,8 +266,8 @@ export function ToastProvider({
       { children }
       { isMounted && createPortal(
         [
-          createContainer('bottom-left', leftToasts),
-          createContainer('bottom-right', rightToasts),
+          createContainer(ToastPlacement.BottomLeft, leftToasts),
+          createContainer(ToastPlacement.BottomRight, rightToasts),
         ],
         container,
       ) }

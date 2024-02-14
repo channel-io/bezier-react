@@ -6,7 +6,10 @@ import classNames from 'classnames'
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 
-import { type SwitchProps } from './Switch.types'
+import {
+  type SwitchProps,
+  SwitchSize,
+} from './Switch.types'
 
 import styles from './Switch.module.scss'
 
@@ -17,7 +20,7 @@ export const SWITCH_TEST_ID = 'bezier-switch'
  * @example
  * ```tsx
  * <Switch
- *   size="m"
+ *   size={SwitchSize.M}
  *   checked
  * />
  * ```
@@ -26,7 +29,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch
   checked,
   defaultChecked = false,
   onCheckedChange,
-  size = 'm',
+  size = SwitchSize.M,
   className,
   ...rest
 }, forwardedRef) {

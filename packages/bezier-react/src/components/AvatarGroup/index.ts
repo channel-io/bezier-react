@@ -1,5 +1,5 @@
 export { AvatarGroup } from './AvatarGroup'
 export {
-  type AvatarGroupEllipsisType,
+  AvatarGroupEllipsisType,
   type AvatarGroupProps,
 } from './AvatarGroup.types'

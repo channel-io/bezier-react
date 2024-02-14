@@ -16,10 +16,16 @@ import {
   type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import { type AvatarGroupProps } from './AvatarGroup.types'
+import {
+  AvatarGroupEllipsisType,
+  type AvatarGroupProps,
+} from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
 
@@ -35,14 +41,14 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    20: 'xxs',
-    24: 'xs',
-    30: 's',
-    36: 'normal',
-    42: 'normal',
-    48: 'l',
-    90: 'l',
-    120: 'l',
+    20: IconSize.XXS,
+    24: IconSize.XS,
+    30: IconSize.S,
+    36: IconSize.Normal,
+    42: IconSize.Normal,
+    48: IconSize.L,
+    90: IconSize.L,
+    120: IconSize.L,
   }[avatarSize]
 }
 
@@ -68,7 +74,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * <AvatarGroup
  *  max={2}
  *  spacing={4}
- *  ellipsisType="icon"
+ *  ellipsisType={AvatarGroupEllipsisType.Icon}
  * >
  *    <Avatar />
  *    <Avatar />
@@ -80,7 +86,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
   max,
   size = '24',
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
-  ellipsisType = 'icon',
+  ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis,
   onMouseLeaveEllipsis,
   style,
@@ -126,7 +132,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         return AvatarElement
       }
 
-      if (ellipsisType === 'icon') {
+      if (ellipsisType === AvatarGroupEllipsisType.Icon) {
         return (
           <div
             key="ellipsis"
@@ -151,7 +157,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         )
       }
 
-      if (ellipsisType === 'count') {
+      if (ellipsisType === AvatarGroupEllipsisType.Count) {
         return (
           <React.Fragment key="ellipsis">
             { AvatarElement }

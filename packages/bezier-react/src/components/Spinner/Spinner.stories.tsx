@@ -6,7 +6,10 @@ import {
 } from '@storybook/react'
 
 import { Spinner } from './Spinner'
-import { type SpinnerProps } from './Spinner.types'
+import {
+  type SpinnerProps,
+  SpinnerSize,
+} from './Spinner.types'
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
@@ -16,11 +19,11 @@ const meta: Meta<typeof Spinner> = {
         type: 'radio',
       },
       options: [
-        'xl',
-        'l',
-        'm',
-        's',
-        'xs',
+        SpinnerSize.XL,
+        SpinnerSize.L,
+        SpinnerSize.M,
+        SpinnerSize.S,
+        SpinnerSize.XS,
       ],
     },
   },
@@ -33,6 +36,6 @@ export const Primary = {
   render: Template,
 
   args: {
-    size: 'm',
+    size: SpinnerSize.M,
   },
 }

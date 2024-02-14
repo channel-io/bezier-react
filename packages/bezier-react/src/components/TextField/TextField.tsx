@@ -26,7 +26,10 @@ import {
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import {
@@ -34,6 +37,8 @@ import {
   type TextFieldItemProps,
   type TextFieldProps,
   type TextFieldRef,
+  TextFieldType,
+  TextFieldVariant,
 } from './TextField.types'
 
 import styles from './TextField.module.scss'
@@ -73,7 +78,7 @@ function TextFieldLeftContent({
         <Icon
           className={!isNil(children.onClick) ? styles.clickable : undefined}
           source={children.icon}
-          size="s"
+          size={IconSize.S}
           color={children.iconColor ?? 'txt-black-dark'}
           onClick={children.onClick}
         />
@@ -121,7 +126,7 @@ function TextFieldRightContent({
         >
           <Icon
             source={item.icon}
-            size="xs"
+            size={IconSize.XS}
             color={item.iconColor ?? 'txt-black-dark'}
           />
         </Comp>
@@ -161,7 +166,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   size: sizeProps,
   autoFocus,
   autoComplete = 'off',
-  variant = 'primary',
+  variant = TextFieldVariant.Primary,
   allowClear = false,
   selectAllOnInit = false,
   selectAllOnFocus = false,
@@ -219,7 +224,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
   }, [window])
 
   const setSelectionRange = useCallback((start?: number, end?: number, direction?: SelectionRangeDirections) => {
-    if (type && ['number', 'email', 'hidden'].includes(type)) { return }
+    if (type && [TextFieldType.Number, TextFieldType.Email, TextFieldType.Hidden].includes(type)) { return }
     inputRef.current?.setSelectionRange(start || 0, end || 0, direction || 'none')
   }, [type])
 
@@ -404,7 +409,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(function TextF
             className={styles.CloseIcon}
             data-testid={TEXT_INPUT_CLEAR_ICON_TEST_ID}
             source={CancelCircleFilledIcon}
-            size="xs"
+            size={IconSize.XS}
           />
         </BaseButton>
       ) }

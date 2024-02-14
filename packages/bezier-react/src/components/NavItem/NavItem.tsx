@@ -2,7 +2,10 @@ import React, { forwardRef } from 'react'
 
 import classNames from 'classnames'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import type { NavItemProps } from './NavItem.types'
@@ -65,7 +68,7 @@ export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavI
             <Icon
               data-testid={NAV_ITEM_LEFT_ICON_TEST_ID}
               source={leftContent}
-              size="s"
+              size={IconSize.S}
               color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             />
           ) }

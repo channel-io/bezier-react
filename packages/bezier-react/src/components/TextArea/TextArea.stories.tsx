@@ -8,11 +8,28 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
+import { getObjectFromEnum } from '~/src/utils/story'
+
 import { TextArea } from './TextArea'
 import type { TextAreaProps } from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 
 const meta: Meta<typeof TextArea> = {
   component: TextArea,
+  argTypes: {
+    minRows: {
+      control: {
+        type: 'radio',
+      },
+      options: getObjectFromEnum(TextAreaHeight),
+    },
+    maxRows: {
+      control: {
+        type: 'radio',
+      },
+      options: getObjectFromEnum(TextAreaHeight),
+    },
+  },
 }
 export default meta
 
@@ -47,8 +64,8 @@ export const Primary = {
     readOnly: false,
     disabled: false,
     hasError: false,
-    minRows: '6',
-    maxRows: '10',
+    minRows: TextAreaHeight.Row6,
+    maxRows: TextAreaHeight.Row10,
     placeholder: 'say hi to autoResizable textarea!',
   },
 }

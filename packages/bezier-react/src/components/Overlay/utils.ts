@@ -1,6 +1,6 @@
 import {
   type ContainerRectAttr,
-  type OverlayPosition,
+  OverlayPosition,
   type TargetRectAttr,
 } from './Overlay.types'
 
@@ -63,27 +63,27 @@ export function getOverlayTranslation({
 
     // pre position
     switch (position) {
-      case 'top-center':
-      case 'top-left':
-      case 'top-right':
+      case OverlayPosition.TopCenter:
+      case OverlayPosition.TopLeft:
+      case OverlayPosition.TopRight:
         translateY -= (overlayHeight + marginY)
         translateX += marginX
         break
-      case 'right-center':
-      case 'right-top':
-      case 'right-bottom':
+      case OverlayPosition.RightCenter:
+      case OverlayPosition.RightTop:
+      case OverlayPosition.RightBottom:
         translateX += (targetWidth + marginX)
         translateY += marginY
         break
-      case 'bottom-center':
-      case 'bottom-left':
-      case 'bottom-right':
+      case OverlayPosition.BottomCenter:
+      case OverlayPosition.BottomLeft:
+      case OverlayPosition.BottomRight:
         translateY += (targetHeight + marginY)
         translateX += marginX
         break
-      case 'left-center':
-      case 'left-top':
-      case 'left-bottom':
+      case OverlayPosition.LeftCenter:
+      case OverlayPosition.LeftTop:
+      case OverlayPosition.LeftBottom:
         translateX -= (overlayWidth + marginX)
         translateY += marginY
         break
@@ -91,37 +91,37 @@ export function getOverlayTranslation({
 
     switch (position) {
       // post position
-      case 'top-center':
-      case 'bottom-center':
+      case OverlayPosition.TopCenter:
+      case OverlayPosition.BottomCenter:
         translateX -= ((overlayWidth / 2) - (targetWidth / 2))
         break
-      case 'top-right':
-      case 'bottom-right':
+      case OverlayPosition.TopRight:
+      case OverlayPosition.BottomRight:
         translateX -= (overlayWidth - targetWidth)
         break
-      case 'right-center':
-      case 'left-center':
+      case OverlayPosition.RightCenter:
+      case OverlayPosition.LeftCenter:
         translateY -= ((overlayHeight / 2) - (targetHeight / 2))
         break
-      case 'right-bottom':
-      case 'left-bottom':
+      case OverlayPosition.RightBottom:
+      case OverlayPosition.LeftBottom:
         translateY -= (overlayHeight - targetHeight)
         break
 
       // inner position
-      case 'inner-left-top':
+      case OverlayPosition.InnerLeftTop:
         translateX = marginX
         translateY = marginY
         break
-      case 'inner-left-bottom':
+      case OverlayPosition.InnerLeftBottom:
         translateX = marginX
         translateY = targetHeight - overlayHeight + marginY
         break
-      case 'inner-right-top':
+      case OverlayPosition.InnerRightTop:
         translateX = targetWidth - overlayWidth + marginX
         translateY = marginY
         break
-      case 'inner-right-bottom':
+      case OverlayPosition.InnerRightBottom:
         translateX = targetWidth - overlayWidth + marginX
         translateY = targetHeight - overlayHeight + marginY
         break

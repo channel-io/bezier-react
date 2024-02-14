@@ -22,7 +22,10 @@ import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import { useRootElement } from '~/src/components/WindowProvider'
 
-import { type LegacyTooltipContentProps } from './LegacyTooltip.types'
+import {
+  type LegacyTooltipContentProps,
+  LegacyTooltipPosition,
+} from './LegacyTooltip.types'
 import {
   getReplacement,
   getTooltipStyle,
@@ -80,7 +83,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   contentWrapperStyle: givenContentWrapperStyle,
   disabled = false,
   keepInContainer = false,
-  placement = 'bottom-center',
+  placement = LegacyTooltipPosition.BottomCenter,
   tooltipContainer,
   offset = 4,
   allowHover = false,

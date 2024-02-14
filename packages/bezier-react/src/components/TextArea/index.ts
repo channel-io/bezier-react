@@ -1,6 +1,6 @@
 export { TextArea } from './TextArea'
 export {
-  type TextAreaHeight,
+  TextAreaHeight,
   type TextAreaProps,
 } from './TextArea.types'
 

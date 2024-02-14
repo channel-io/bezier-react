@@ -16,6 +16,7 @@ import { Button } from '~/src/components/Button'
 
 import { Overlay } from './Overlay'
 import type { OverlayProps } from './Overlay.types'
+import { OverlayPosition } from './Overlay.types'
 
 const meta: Meta<OverlayProps> = {
   component: Overlay,
@@ -25,22 +26,22 @@ const meta: Meta<OverlayProps> = {
         type: 'radio',
       },
       options: [
-        'top-center',
-        'top-left',
-        'top-right',
-        'right-center',
-        'right-top',
-        'right-bottom',
-        'bottom-center',
-        'bottom-left',
-        'bottom-right',
-        'left-center',
-        'left-top',
-        'left-bottom',
-        'inner-left-top',
-        'inner-left-bottom',
-        'inner-right-top',
-        'inner-right-bottom',
+        OverlayPosition.TopCenter,
+        OverlayPosition.TopLeft,
+        OverlayPosition.TopRight,
+        OverlayPosition.RightCenter,
+        OverlayPosition.RightTop,
+        OverlayPosition.RightBottom,
+        OverlayPosition.BottomCenter,
+        OverlayPosition.BottomLeft,
+        OverlayPosition.BottomRight,
+        OverlayPosition.LeftCenter,
+        OverlayPosition.LeftTop,
+        OverlayPosition.LeftBottom,
+        OverlayPosition.InnerLeftTop,
+        OverlayPosition.InnerLeftBottom,
+        OverlayPosition.InnerRightTop,
+        OverlayPosition.InnerRightBottom,
       ],
     },
     marginX: {
@@ -119,7 +120,7 @@ export const Primary: StoryObj<OverlayProps> = {
   render: Template,
   args: {
     show: false,
-    position: 'bottom-center',
+    position: OverlayPosition.BottomCenter,
     marginY: 6,
   },
 }
