@@ -4,78 +4,113 @@
 /* stylelint-disable scss/at-else-closing-brace-space-after */
 /* stylelint-disable scss/at-else-closing-brace-newline-after */
 
+@mixin font-size-variable($variableName, $value) {
+  @if $variableName {
+    --#{$variableName}: #{$value};
+  }
+
+ @else {
+    font-size: #{$value};
+  }
+}
+
+@mixin line-height-variable($variableName, $value) {
+  @if $variableName {
+    --#{$variableName}: #{$value};
+  }
+
+  @else {
+    line-height: #{$value};
+  }
+}
+
+@mixin letter-spacing-variable($variableName, $value) {
+  @if $variableName {
+    --#{$variableName}: #{$value};
+  }
+
+  @else {
+    letter-spacing: #{$value};
+  }
+}
+
 /* NOTE: Use only in unavoidable cases where `Text` component is not available. */
-@mixin size($size) {
+@mixin size(
+  $size,
+  $fontSizeVariable: null,
+  $lineHeightVariable: null,
+  $letterSpacingVariable: null,
+) {
   @if $size == 11 {
-    font-size: var(--typography-size-11-font-size);
-    line-height: var(--typography-size-11-line-height);
-    letter-spacing: initial;
+    @include font-size-variable($fontSizeVariable, var(--typography-size-11-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-11-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, initial);
   }
 
   @else if $size == 12 {
-    font-size: var(--typography-size-12-font-size);
-    line-height: var(--typography-size-12-line-height);
-    letter-spacing: initial;
+    @include font-size-variable($fontSizeVariable, var(--typography-size-12-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-12-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, initial);
   }
 
   @else if $size == 13 {
-    font-size: var(--typography-size-13-font-size);
-    line-height: var(--typography-size-13-line-height);
-    letter-spacing: initial;
+    @include font-size-variable($fontSizeVariable, var(--typography-size-13-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-13-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, initial);
   }
 
   @else if $size == 14 {
-    font-size: var(--typography-size-14-font-size);
-    line-height: var(--typography-size-14-line-height);
-    letter-spacing: initial;
+    @include font-size-variable($fontSizeVariable, var(--typography-size-14-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-14-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, initial);
   }
 
   @else if $size == 15 {
-    font-size: var(--typography-size-15-font-size);
-    line-height: var(--typography-size-15-line-height);
-    letter-spacing: var(--typography-size-15-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-15-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-15-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-15-letter-spacing));
   }
 
   @else if $size == 16 {
-    font-size: var(--typography-size-16-font-size);
-    line-height: var(--typography-size-16-line-height);
-    letter-spacing: var(--typography-size-16-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-16-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-16-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-16-letter-spacing));
   }
 
   @else if $size == 17 {
-    font-size: var(--typography-size-17-font-size);
-    line-height: var(--typography-size-17-line-height);
-    letter-spacing: var(--typography-size-17-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-17-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-17-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-17-letter-spacing));
   }
 
   @else if $size == 18 {
-    font-size: var(--typography-size-18-font-size);
-    line-height: var(--typography-size-18-line-height);
-    letter-spacing: initial;
+    @include font-size-variable($fontSizeVariable, var(--typography-size-18-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-18-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, initial);
   }
 
   @else if $size == 22 {
-    font-size: var(--typography-size-22-font-size);
-    line-height: var(--typography-size-22-line-height);
-    letter-spacing: var(--typography-size-22-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-22-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-22-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-22-letter-spacing));
   }
 
   @else if $size == 24 {
-    font-size: var(--typography-size-24-font-size);
-    line-height: var(--typography-size-24-line-height);
-    letter-spacing: var(--typography-size-24-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-24-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-24-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-24-letter-spacing));
   }
 
   @else if $size == 30 {
-    font-size: var(--typography-size-30-font-size);
-    line-height: var(--typography-size-30-line-height);
-    letter-spacing: var(--typography-size-30-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-30-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-30-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-30-letter-spacing));
   }
 
   @else if $size == 36 {
-    font-size: var(--typography-size-36-font-size);
-    line-height: var(--typography-size-36-line-height);
-    letter-spacing: var(--typography-size-36-letter-spacing);
+    @include font-size-variable($fontSizeVariable, var(--typography-size-36-font-size));
+    @include line-height-variable($lineHeightVariable, var(--typography-size-36-line-height));
+    @include letter-spacing-variable($letterSpacingVariable, var(--typography-size-36-letter-spacing));
   }
 
   @else {
