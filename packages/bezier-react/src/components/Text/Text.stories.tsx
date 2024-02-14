@@ -6,6 +6,8 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
+import { Box } from '~/src/components/Box'
+
 import { Text } from './Text'
 import { type TextProps } from './Text.types'
 
@@ -14,9 +16,15 @@ const meta: Meta<typeof Text> = {
 }
 
 const Template: StoryFn<TextProps> = ({ children, ...rest }) => (
-  <Text {...rest}>
-    { children }
-  </Text>
+  <Box
+    width={200}
+    borderWidth={1}
+    borderColor="bdr-black-light"
+  >
+    <Text {...rest}>
+      { children }
+    </Text>
+  </Box>
 )
 
 export const Primary: StoryObj<typeof Text> = {
@@ -24,32 +32,33 @@ export const Primary: StoryObj<typeof Text> = {
   args: {
     bold: false,
     italic: false,
+    truncated: false,
     color: 'txt-black-darkest',
-    children: 'Hello, Channel!',
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     typo: '15',
   },
 }
 
-const Truncated: StoryFn<TextProps> = ({
+const MultiLineTruncated: StoryFn<TextProps> = ({
   children,
   ...rest
 }) => (
-  <div style={{
-    width: '100px',
-  }}
+  <Box
+    width={200}
+    borderWidth={1}
+    borderColor="bdr-black-light"
   >
-    <Text {...rest}>{ children }</Text>
-  </div>
+    <Text {...rest} color="txt-black-darkest">{ children }</Text>
+  </Box>
 )
 
 export const Secondary: StoryObj<typeof Text> = {
-  render: Truncated,
+  render: MultiLineTruncated,
   args: {
-    color: 'txt-black-darkest',
-    truncated: true,
-    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    truncated: 4,
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor nunc, bibendum vel neque eget, facilisis ornare justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In laoreet ipsum in commodo eleifend. Duis vestibulum, nulla ut tincidunt molestie, eros massa commodo risus, non sollicitudin turpis diam vitae elit.',
   },
-  name: 'Usage (truncated)',
+  name: 'Multi-line truncated',
 }
 
 export default meta
