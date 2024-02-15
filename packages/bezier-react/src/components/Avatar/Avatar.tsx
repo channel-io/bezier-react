@@ -15,7 +15,7 @@ import {
   Status,
   StatusSize,
 } from '~/src/components/Status'
-import { useToken } from '~/src/components/ThemeProvider'
+import { useTokens } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps } from './Avatar.types'
 import { AvatarSize } from './Avatar.types'
@@ -30,7 +30,7 @@ const shadow: AlphaSmoothCornersBoxProps['shadow'] = {
 }
 
 export function useAvatarRadiusToken() {
-  return useToken().global.radius['radius-42-p']
+  return useTokens().global.radius['radius-42-p']
 }
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'

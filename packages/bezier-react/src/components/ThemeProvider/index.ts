@@ -4,7 +4,7 @@ export {
   LightThemeProvider,
   ThemeProvider,
   useThemeName,
-  useToken,
+  useTokens,
 } from './ThemeProvider'
 export {
   type FixedThemeProviderProps,

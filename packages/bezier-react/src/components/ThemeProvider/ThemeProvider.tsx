@@ -20,10 +20,10 @@ export function useThemeName() {
 }
 
 /**
- * `useToken` is a hook that returns the design token for the current theme.
+ * `useTokens` is a hook that returns the design tokens of the current theme.
  */
-export function useToken() {
-  return useTokenContext('useToken').tokens
+export function useTokens() {
+  return useTokenContext('useTokens').tokens
 }
 
 /**

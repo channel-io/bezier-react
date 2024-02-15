@@ -20,16 +20,16 @@ export const customJsCjs: CustomFormat = {
 
     return (
       `${fileHeader({ file })
-      }module.exports = {` +
+      }module.exports = Object.freeze({` +
       `${Object.keys(categorizedTokens).map(category => (
-        `\n  "${category}": {\n` +
+        `\n  "${category}": Object.freeze({\n` +
           `${
             categorizedTokens[category]
               .map((token) => `    "${token.name}": ${JSON.stringify(token.value)},`)
               .join('\n')
-          }\n  }`
+          }\n  })`
       ))}\n` +
-      '}\n'
+      '})\n'
     )
   },
 }
@@ -46,16 +46,16 @@ export const customJsEsm: CustomFormat = {
 
     return (
       `${fileHeader({ file })
-      }export default {` +
+      }export default Object.freeze({` +
       `${Object.keys(categorizedTokens).map(category => (
-        `\n  "${category}": {\n` +
+        `\n  "${category}": Object.freeze({\n` +
           `${
             categorizedTokens[category]
               .map((token) => `    "${token.name}": ${JSON.stringify(token.value)},`)
               .join('\n')
-          }\n  }`
+          }\n  })`
       ))}\n` +
-      '}\n'
+      '})\n'
     )
   },
 }
