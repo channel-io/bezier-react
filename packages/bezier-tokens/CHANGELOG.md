@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.1.0-alpha.5
+
+### Minor Changes
+
+- Apply deep freeze to the `tokens` object. ([#1992](https://github.com/channel-io/bezier-react/pull/1992)) by @sungik-choi
+
 ## 0.1.0-alpha.4
 
 ### Minor Changes
